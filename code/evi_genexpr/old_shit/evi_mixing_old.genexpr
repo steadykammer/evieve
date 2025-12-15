@@ -1,0 +1,386 @@
+
+//	//	//	some mixing related functions for gen~
+//	//	//	by Pete Dowling for evieve
+//	//	//	see also "evi_dynamics.genexpr" & "evi_smoothing.genexpr"
+
+//	//	//	require approximations here
+
+require("evi_approx");
+
+
+// controllers for panning / crossfading / etc
+// x is control (must be clipped 0..1), return L/R multipliers
+
+ctrlLinear(x)
+{
+	cL = 1 - x;
+	cR = x;
+	return cL, cR;
+}
+
+ctrlParApprox(x)
+{
+	xx = x * x;
+	cL = 1 - xx;
+	cR = (x + x)  - xx;
+	return cL, cR;
+}
+
+ctrlCosApprox(x)
+{
+	xc = x * 0.25;
+	xL = xc * twopi;
+	xR = wrap(((xc * 0.9975) - 0.25), 0, 1) * twopi;
+	cL = cosQ52(xL) + 0.000007;
+	cR = (cosQ52(twopi - xR) + 0.000007) * 1.000007;
+	return cL, cR;
+}
+
+ctrlSqrt(x)
+{
+	cL = sqrt(1 - x);
+	cR = sqrt(x);
+	return cL, cR;
+}
+
+// c=0 linear, c=1 parabolic, c=2 cosine, c=3 sqrt
+ctrlChoice(x, c)
+{
+	cL, cR	= 0;
+	if (c == 1) {
+		cL, cR	= ctrlParApprox(x);
+	} else if (c == 2) {
+		cL, cR	= ctrlCosApprox(x);
+	} else if (c == 3) {
+		cL, cR	= ctrlSqrt(x);
+	} else {	// (c == 0)
+		cL, cR	= ctrlLinear(x);
+	}
+	return cL, cR;
+}
+
+
+// mono / mono panners
+// x is control (must be clipped 0..1), outputs are MONO pan left / pan right
+
+// linear pan
+panLinear(a, x)
+{
+	cL, cR	= ctrlLinear(x);
+	return	(a * cL), (a * cR);
+}
+
+// parabolic pan
+panParApprox(a, x)
+{
+	cL, cR	= ctrlParApprox(x);
+	return (a * cL), (a * cR);
+}
+
+// cos pan
+panCosApprox(a, x)
+{
+	cL, cR	= ctrlCosApprox(x);
+	return (a * cL), (a * cR);
+}
+
+// square root pan
+panSqrt(a, x)
+{
+	cL, cR	= ctrlSqrt(x);
+	return (a * cL), (a * cR);
+}
+
+// c=0 linear, c=1 parabolic, c=2 cosine, c=3 sqrt
+panChoice(a, x, c)
+{
+	cL, cR	= ctrlChoice(x, c);
+	return	(a * cL), (a * cR);
+}
+
+// stereo / stereo panners
+// x is control (must be clipped 0..1), outputs are LEFT pan left / pan right, RIGHT pan left / pan right
+
+// linear pan
+panLinearStereo(a, b, x)
+{
+	cL, cR	= ctrlLinear(x);
+	return (a * cL), (a * cR), (b * cL), (b * cR);
+}
+
+// parabolic pan
+panParApproxStereo(a, b, x)
+{
+	cL, cR	= ctrlParApprox(x);
+	return (a * cL), (a * cR), (b * cL), (b * cR);
+}
+
+// cos pan
+panCosApproxStereo(a, b, x)
+{
+	cL, cR	= ctrlCosApprox(x);
+	return (a * cL), (a * cR), (b * cL), (b * cR);
+}
+
+// square root pan
+panSqrtStereo(a, b, x)
+{
+	cL, cR	= ctrlSqrt(x);
+	return (a * cL), (a * cR), (b * cL), (b * cR);
+}
+
+// c=0 linear, c=1 parabolic, c=2 cosine, c=3 sqrt
+panChoiceStereo(a, b, x, c)
+{
+	cL, cR	= ctrlChoice(x, c);
+	return	(a * cL), (a * cR), (b * cL), (b * cR);
+}
+
+
+// mono (2 to 1) cross faders
+// x is control (must be clipped 0..1), output is MONO mix
+
+// linear xfade
+xfadeLinear(a, b, x)
+{
+	cL, cR	= ctrlLinear(x);
+	return (a * cL) + (b * cR);
+}
+
+// parabolic xfade
+xfadeParApprox(a, b, x)
+{
+	cL, cR	= ctrlParApprox(x);
+	return (a * cL) + (b * cR);
+}
+
+// cos xfade
+xfadeCosApprox(a, b, x)
+{
+	cL, cR	= ctrlCosApprox(x);
+	return (a * cL) + (b * cR);
+}
+
+// square root xfade
+xfadeSqrt(a, b, x)
+{
+	cL, cR	= ctrlSqrt(x);
+	return (a * cL) + (b * cR);
+}
+
+// ch=0 linear, ch=1 parabolic, ch=2 cosine, ch=3 sqrt
+xfadeChoice(a, b, x, ch)
+{
+	cL, cR	= ctrlChoice(x, ch);
+	return (a * cL) + (b * cR);
+}
+
+
+// stereo (4 to 2) cross faders, 'a, b, c, d' inputs are Left_1, Right_1, Left_2, Right_2
+// x is control (must be clipped 0..1), outputs are LEFT mix / RIGHT mix
+
+// linear xfade
+xfadeLinearStereo(a, b, c, d, x)
+{
+	cL, cR	= ctrlLinear(x);
+	return ((a * cL) + (c * cR)), ((b * cL) + (d * cR));
+}
+
+// parabolic xfade
+xfadeParApproxStereo(a, b, c, d, x)
+{
+	cL, cR	= ctrlParApprox(x);
+	return ((a * cL) + (c * cR)), ((b * cL) + (d * cR));
+}
+
+// cos xfade
+xfadeCosApproxStereo(a, b, c, d, x)
+{
+	cL, cR	= ctrlCosApprox(x);
+	return ((a * cL) + (c * cR)), ((b * cL) + (d * cR));
+}
+
+// square root xfade
+xfadeSqrtStereo(a, b, c, d, x)
+{
+	cL, cR	= ctrlSqrt(x);
+	return ((a * cL) + (c * cR)), ((b * cL) + (d * cR));
+}
+
+// ch=0 linear, ch=1 parabolic, ch=2 cosine, ch=3 sqrt
+xfadeChoiceStereo(a, b, c, d, x, ch)
+{
+	cL, cR	= ctrlChoice(x, ch);
+	return ((a * cL) + (c * cR)), ((b * cL) + (d * cR));
+}
+
+
+// alternative cos approximations for mixing (using the Olli Niemitalo approximations)
+// @see 'evi_approx.genexpr' for precision details
+
+panQuartApproxMono(x, p)									// p is control, must be clipped 0..1
+{	// or should be precision == 2 for pan ?
+	pL, pR	= quartOneParApprox(q);							// cos/sin
+	return	(x * pL), (x * pR);								// out pan left / out pan right
+}
+
+panQuartApproxStereo(x1, x2, p)								// p is control, must be clipped 0..1
+{	// or should be precision == 2 for pan ?
+	pL, pR	= quartOneParApprox(q);							// cos/sin
+	return	(x1 * pL), (x1 * pR), (x2 * pL), (x2 * pR);		// out pan l1/r1 / out pan l2/r2
+}
+
+xfadeQuartApproxMono(a, c, q)								// q is control, must be clipped 0..1
+{
+	qL, qR	= quartOneParApprox(q);							// cos/sin
+	return	((a * qL) + (c * qR));							// out mix L, out mix R
+}
+
+xfadeQuartApproxStereo(a, b, c, d, q)						// q is control, must be clipped 0..1
+{
+	qL, qR	= quartOneParApprox(q);							// cos/sin
+	return	((a * qL) + (c * qR)), ((b * qL) + (d * qR));	// out mix L, out mix R
+}
+
+
+// crossover filters
+
+xoverShelf2(x, w1, w2)
+{
+	History a(0), b(0), c(0);
+
+	ya = x - (a * w1);
+	y1 = (ya * w1) + a;
+	a = ya;
+	yb = (x - b) * w2;
+	yb2 = yb + b;
+	b = yb2 + yb;
+	yc = (yb2 - c) * w2;
+	yc2 = yc + c;
+	c = yc2 + yc;
+
+	return yc2, y1 - yc2;			// Lo, Hi
+}
+
+xOver2mono(x, fc)					// xover 2-pole mono
+{
+	History	xo2mdummy(0);
+	w0 = fc * twopi / samplerate;						// smoother here (w0) if required
+	w1 = (sin_73(w0) - 1) / cos_73(w0);
+	w2 = (w1 + 1) * 0.5;
+
+	band1, band2 = xoverShelf2(x, w1, w2);
+
+	return band1, band2;			// Lo, Hi
+}
+
+xOver2stereo(xL, xR, fc)			// xover 2-pole stereo
+{
+	History	xo2sdummy(0);
+	w0 = fc * twopi / samplerate;						// smoother here (w0) if required
+	w1 = (sin_73(w0) - 1) / cos_73(w0);
+	w2 = (w1 + 1) * 0.5;
+
+	band1L, band2L = xoverShelf2(xL, w1, w2);
+	band1R, band2R = xoverShelf2(xR, w1, w2);
+
+	return band1L, band2L, band1R, band2R;				// Lo, Hi, Lo, Hi
+}
+
+bcalc(fc)
+{
+	wc = 2 * pi * fc;
+	wc2 = wc * wc;
+	wc3 = wc2 * wc;
+	wc4 = wc2 * wc2;
+	k = wc / tan_14(pi * fc / samplerate);
+
+	k2 = k * k;
+	k3 = k2 * k;
+	k4 = k2 * k2;
+	sq_tmp1 = sqrt2 * wc3 * k;
+	sq_tmp2 = sqrt2 * wc * k3;
+	a_tmp = 4 * wc2 * k2 + 2 * sq_tmp1 + k4 + 2 * sq_tmp2 + wc4;
+
+	b1 = (4 * (wc4 + sq_tmp1 - k4 - sq_tmp2)) / a_tmp;
+	b2 = (6 * wc4 - 8 * wc2 * k2 + 6 * k4) / a_tmp;
+	b3 = (4 * (wc4 - sq_tmp1 + sq_tmp2 - k4)) / a_tmp;
+	b4 = (k4 - 2 * sq_tmp1 + wc4 - 2 * sq_tmp2 + 4 * wc2 * k2) / a_tmp;
+
+	return b1, b2, b3, b4, wc4, k4, a_tmp;
+}
+
+lpcoef(wc4, a_tmp)
+{
+	a0 = wc4 / a_tmp;
+
+	a1 = 4 * wc4 / a_tmp;
+	a2 = 6 * wc4 / a_tmp;
+	a3 = a1;
+	a4 = a0;
+
+	return a0, a1, a2, a3, a4;
+}
+
+hpcoef(k4, a_tmp)
+{
+	a0 = k4 / a_tmp;
+
+	a1 = -4 * k4 / a_tmp;
+	a2 = 6 * k4 / a_tmp;
+	a3 = a1;
+	a4 = a0;
+
+	return a0, a1, a2, a3, a4;
+}
+
+sloop(x0, a0, a1, a2, a3, a4, b1, b2, b3, b4)
+{
+	History xm1(0), xm2(0), xm3(0), xm4(0);
+	History ym1(0), ym2(0), ym3(0), ym4(0);
+	// loop
+	y0 = a0 * x0 + a1 * xm1 + a2 * xm2 + a3 * xm3 + a4 * xm4 - b1 * ym1 - b2 * ym2 - b3 * ym3 - b4 * ym4;
+	// update
+	xm4 = xm3;
+	xm3 = xm2;
+	xm2 = xm1;
+	xm1 = x0;
+	ym4 = ym3;
+	ym3 = ym2;
+	ym2 = ym1;
+	ym1 = y0;
+
+	return y0;
+}
+
+xOver4mono(x, fc)					// xover 4-pole mono
+{
+	History	xo4mdummy(0);
+	b1, b2, b3, b4, wc4, k4, a_tmp	= bcalc(fc);					// smoother here (fc) if required
+	lpa0, lpa1, lpa2, lpa3, lpa4	= lpcoef(wc4, a_tmp);
+	hpa0, hpa1, hpa2, hpa3, hpa4	= hpcoef(k4, a_tmp);
+
+	band1 = sloop(x, lpa0, lpa1, lpa2, lpa3, lpa4, b1, b2, b3, b4);
+	band2 = sloop(x, hpa0, hpa1, hpa2, hpa3, hpa4, b1, b2, b3, b4);
+
+	return band1, band2;			// Lo, Hi
+}
+
+xOver4stereo(xL, xR, fc)			// xover 4-pole stereo
+{
+	History	xo4sdummy(0);
+	b1, b2, b3, b4, wc4, k4, a_tmp	= bcalc(fc);					// smoother here (fc) if required
+	lpa0, lpa1, lpa2, lpa3, lpa4	= lpcoef(wc4, a_tmp);
+	hpa0, hpa1, hpa2, hpa3, hpa4	= hpcoef(k4, a_tmp);
+
+	band1L = sloop(xL, lpa0, lpa1, lpa2, lpa3, lpa4, b1, b2, b3, b4);
+	band2L = sloop(xL, hpa0, hpa1, hpa2, hpa3, hpa4, b1, b2, b3, b4);
+	band1R = sloop(xR, lpa0, lpa1, lpa2, lpa3, lpa4, b1, b2, b3, b4);
+	band2R = sloop(xR, hpa0, hpa1, hpa2, hpa3, hpa4, b1, b2, b3, b4);
+
+	return band1L, band2L, band1R, band2R;							// Lo, Hi, Lo, Hi
+}
+
+
+// todo: channel strips (& require svf eq stuff)...
+

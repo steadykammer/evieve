@@ -1,0 +1,208 @@
+
+// routines for rough approximations of pow(x, 0.5..2) or pow(x, 0.25..4),
+// although really just an interesting curvature in its own right.
+// and for very large x, almost useless in terms of pow() anyway.
+
+// available in either param rate ("cr") or audio rate ("ar") versions
+// (optimising for gen while loop). also available with exponent set in real values
+// (0.5..2 or 0.25..4) or as normalised input (-1..1 through 0=1).
+
+// for other approximations in evieve @see:
+// evi_approx.genexpr
+// evi_trig.genexpr
+// evi_cossin.genexpr
+// evi_pade.genexpr
+// evi_tanh.genexpr
+
+
+// legacy, original, (rough) approx of pow(x, 0.5..2)
+// Alex Harker made this for me, we use it in Surreal Machines Modnetic VST
+// to skew the LFOs in the modulation section, for which it is perfectly suited :-)
+fastskew(x, skew)						// !! skew must be clamped 0.5..2 !!
+{
+	y = 0;
+	if (skew < 1) {
+		sk5	= skew - 0.5;
+		y = interp(sk5 + sk5, sqrt(x), x);
+	} else {
+ 		y = interp(skew - 1, x, x*x);
+	}
+	return y;
+}
+
+
+// versions for the exponent (skew) being input in real terms (0.5..2 or 0.25..4)
+
+// negative only
+fastskew052neg(x, skewneg)				// !! skewneg must be clamped 0.5..1 !!
+{
+	sk5	= skewneg - 0.5;
+	return mix(sqrt(x), x, sk5 + sk5);	// Alex and I hate mix(), but sadly it is a tiny bit cheaper
+}
+
+// positive only, generally positive is far less accurate in terms of pow(), especially for greater ranges
+fastskew052pos(x, skewpos)				// !! skewpos must be clamped 1..2 !!
+{
+ 	return mix(x, x*x, skewpos - 1);
+}
+
+// negative only
+fastskew0254neg(x, skewneg)				// !! skewneg must be clamped 0.25..1 !!
+{
+	sqx = sqrt(x);
+	sk5	= skewneg - 0.5;
+	sk2 = skewneg - 0.25;
+	return (skewneg < 0.5) ? mix(sqrt(sqx), sqx, sk2 + sk2 + sk2 + sk2) : mix(sqx, x, sk5 + sk5);
+}
+
+// positive only
+fastskew0254pos(x, skewpos)				// !! skewpos must be clamped 1..4 !!
+{
+	x2	= x * x;
+	sk1 = skewpos - 1;
+	sk4 = (skewpos - 2) * 0.5;
+	return (skewpos > 2) ? mix(x2, x2*x2, sk4) : mix(x, x2, sk1);
+}
+
+// pow(x, 0.5..2), 'control' (param) rate version (keep calculations out of the while loop)
+fastskew052cr(x, skew)					// !! skew must be clamped 0.5..2 !!
+{
+	return (skew < 1) ? fastskew052neg(x, skew) : fastskew052pos(x, skew);
+}
+
+// pow(x, 0.25..4), 'control' (param) rate version (keep calculations out of the while loop)
+fastskew0254cr(x, skew)					// !! skew must be clamped 0.25..4 !!
+{
+	return (skew < 1) ? fastskew0254neg(x, skew) : fastskew0254pos(x, skew);
+}
+
+// pow(x, 0.5..2), audio rate version (branch, only compute neccessary)
+// a branch to select between a sqrt & a multiply does not make much difference for audio rate
+fastskew052ar(x, skew)					// !! skew must be clamped 0.5..2 !!
+{
+	y = 0;
+	if (skew < 1) {
+		y = fastskew052neg(x, skew);
+	} else {
+		y = fastskew052pos(x, skew);
+	}
+	return y;
+}
+
+// pow(x, 0.25..4), audio rate version (branch, only compute neccessary)
+fastskew0254ar(x, skew)					// !! skew must be clamped 0.25..4 !!
+{
+	y = 0;
+	if (skew < 1) {
+		y = fastskew0254neg(x, skew);
+	} else {
+		y = fastskew0254pos(x, skew);
+	}
+	return y;
+}
+
+
+// versions for the exponent (skew) being input in human 'curvature' terms (-1..1)
+// directly, without the need for the stupid converters
+
+// negative only
+fastskew11052neg(x, skewneg)			// !! skewneg must be clamped -1..0 !!
+{
+	return mix(sqrt(x), x, skewneg + 1);
+}
+
+// positive only
+fastskew11052pos(x, skewpos)			// !! skewpos must be clamped 0..1 !!
+{
+ 	return mix(x, x*x, skewpos);
+}
+
+// negative only
+fastskew110254neg(x, skewneg)			// !! skewneg must be clamped -1..0 !!
+{
+	sqx = sqrt(x);
+	sk1 = skewneg + 1;
+	sk6	= sk1 - 0.333333333333;
+	return (skewneg < -0.666666666666) ? mix(sqrt(sqx), sqx, sk1 + sk1 + sk1) : mix(sqx, x, sk6 * 1.5);
+}
+
+// positive only
+fastskew110254pos(x, skewpos)			// !! skewpos must be clamped 0..1 !!
+{
+	x2	= x * x;
+	sk3 = skewpos - 0.333333333333;
+	return (skewpos > 0.333333333333) ? mix(x2, x2*x2, sk3 * 1.5) : mix(x, x2, skewpos + skewpos + skewpos);
+}
+
+// pow(x, 0.5..2), 'control' (param) rate version (keep calculations out of the while loop)
+fastskew11052cr(x, skew)				// !! skew must be clamped -1..1 !!
+{
+	return (skew < 0) ? fastskew11052neg(x, skew) : fastskew11052pos(x, skew);
+}
+
+// pow(x, 0.25..4), 'control' (param) rate version (keep calculations out of the while loop)
+fastskew110254cr(x, skew)				// !! skew must be clamped -1..1 !!
+{
+	return (skew < 0) ? fastskew110254neg(x, skew) : fastskew110254pos(x, skew);
+}
+
+// pow(x, 0.5..2), audio rate version (branch, only compute neccessary)
+// a branch to select between a sqrt & a multiply does not make much difference for audio rate
+fastskew11052ar(x, skew)				// !! skew must be clamped -1..1 !!
+{
+	y = 0;
+	if (skew < 0) {
+		y = fastskew11052neg(x, skew);
+	} else {
+ 		y = fastskew11052pos(x, skew);
+	}
+	return y;
+}
+
+// pow(x, 0.25..4), audio rate version (branch, only compute neccessary)
+fastskew110254ar(x, skew)				// !! skew must be clamped -1..1 !!
+{
+	y = 0;
+	if (skew < 0) {
+		y = fastskew110254neg(x, skew);
+	} else {
+ 		y = fastskew110254pos(x, skew);
+	}
+	return y;
+}
+
+
+// stupid linear converters around 0=1, 'curve' -1..1 to 'exponent' 0.5..2 or 0.25..4
+// !! inputs (N) must be clamped -1..1 !!
+
+n2p052(N)
+{
+	return (N >= 0) ? (N + 1) : (1 - (N * -0.5));
+}
+
+n2p0254(N)
+{
+	return (N >= 0) ? ((N * 3) + 1) : (1 - (N * -0.75));
+}
+
+
+// less stupid converter around 0=1, 'curve' -1..1 to 'exponent' 0.25..4
+// where -1 == 0.25, -0.5 == 0.5, 0 == 1, 0.5 == 2, 1 == 4
+// !! input (curvature) must be clamped -1..1 !!
+
+warpcurve(curvature)
+{
+	exponent = 1;
+	if (curvature >= 0) {
+		exponent = pow(curvature, 1.584963) * 3 + 1;
+	} else {
+		exponent = pow(curvature / -1, 0.584963) * -0.75 + 1;
+	}
+	return exponent;
+}
+
+warpcurveParam(curvature)
+{
+	return (curvature >= 0) ? (pow(curvature, 1.584963) * 3 + 1) : (pow(curvature / -1, 0.584963) * -0.75 + 1);
+}
+

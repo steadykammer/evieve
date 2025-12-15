@@ -1,0 +1,457 @@
+
+//	//	//	some approximations for gen~
+//	//	//	by Pete Dowling for evieve
+//	//	//	currently this file needs better documentation with figures for accuracy / error & cpu usage
+
+//	//	//	require HQ trigonometry (& tanh's) here
+
+require("evi_trig_old");
+require("evi_tanh_old");
+
+//	//	//	additional functions
+
+// more trigonomic approximations (not included in 'evi_trig.genexpr')
+// @see "about 'quartParApprox()'" at the bottom of this file
+// based on the famous "simultaneous parabolic approximation of sin and cos" by Olli Niemitalo
+// @see: http://dspguru.com/book/export/html/62
+quartParApprox(modphase, precision)		// 'modphase' must be wrapped 0..1
+{
+	mphse	= modphase * 4;				// parse in quart branch
+	quart	= int(mphse);				// get quarter # (0 to 3) we are in
+
+	C		= 0;
+	if				(precision == 1) {	// optimized for minimum maximum absolute difference...
+		C	= 0.71256755058;			// ...of sqrt(sinapprox(x)^2+cosapprox(x)^2) to 1
+	} else if		(precision == 2) {	// optimized similarly to '1' but never lets...
+		C	= sqrt1_2;					// ...sqrt(sinapprox(x)^2+cosapprox(x)^2) exceed 1
+	} else if		(precision == 3) {	// optimized for continuous differential, which...
+		C	= 0.75;						// ...reduces high harmonics
+	} else {	//	(precision == 0)	// optimized for minimum maximum absolute
+		C	= 0.7035;					// ...difference to sin()
+	}
+
+	cosout		= 0;
+	sinout		= 0;
+
+	if 					(quart == 1) {
+        // second quarter, angle	= halfpi .. pi
+		x1		= 1.5 - mphse;							// 1 sub
+		temp	= (2 - (4 * C)) * x1 * x1 + C;			// 2 mul, 1 sub
+		sinout	= x1 + temp;							// 1 add
+		cosout	= x1 - temp;							// 1 sub
+	} else {	//		(quart == 0 || 2 || 3)
+		x0		= mphse - 0.5;							// 1 sub
+		if 				(quart == 0) {
+        // first quarter, angle		= 0 .. halfpi
+			temp	= (2 - (4 * C)) * x0 * x0 + C;		// 2 mul, 1 add
+			sinout	= temp + x0;						// 1 add
+			cosout	= temp - x0;						// 1 sub
+		} else if 		(quart == 2) {
+        // third quarter, angle		= pi .. 1.5 pi
+			x2		= x0 - 2;							// (1 sub)
+			temp	= ((4 * C) - 2) * x2 * x2 - C;		// 2 mul, 1 sub
+			sinout	= temp - x2;						// 1 sub
+			cosout	= temp + x2;						// 1 add
+		} else {	//	(quart == 3)
+        // fourth quarter, angle	= 1.5 pi .. twopi
+			x3		= x0 - 3;							// (1 sub)
+			temp	= (2 - (4 * C)) * x3 * x3 + C;		// 2 mul, 1 add
+			sinout	= x3 - temp;						// 1 sub
+			cosout	= x3 + temp;						// 1 add
+		}
+	}
+
+	return		cosout, sinout, quart;
+}
+
+// for first quarter only, optimized so that never lets sqrt(sinapprox(x)^2+cosapprox(x)^2)...
+// ...exceed 1, always gives exact results at modphase 0, 0.5, 1 (0/1, sqrt1_2, 1/0)
+quartOneParApprox(modphase)				// 'modphase' must be clipped 0..1
+{
+	C		= sqrt1_2;
+
+	x0		= modphase - 0.5;					// 1 sub
+	// first quarter							// angle = 0 .. halfpi
+	quart	= (2 - (4 * C)) * x0 * x0 + C;		// 2 mul, 1 add
+	sinq1	= quart + x0;						// 1 add
+	cosq1	= quart - x0;						// 1 sub
+
+	return	cosq1, sinq1;
+}
+
+// 'expA()' is at least 25% cheaper than library 'exp()', cpu measured, so not amazing, but worth it
+// in fact it seems to outperform 'fastexp()' sometimes, and is more accurate than that approx
+expA(x0)							// approx exp(x) (more accurate than 'fastexp()')
+{
+	x = 0.999996 + (0.031261316 + (0.00048274797 + 0.000006 * x0) * x0) * x0;
+	x *= x; x *= x; x *= x; x *= x; x *= x;
+	return x;
+}
+
+// !! this is pointless as it offers no improvement over library 'log()' function - do not use
+// lazy quasi taylor series...
+logApprox(x)	// natural log for (x > 0)
+{
+	// coefs
+	y = (x - 1) / (x + 1);
+	w = y;
+	y = y * y;
+	z = 0;
+
+	// follow pattern (could be a for-loop)...
+	// (update w)...
+	z = z + w;
+	w = w * y;
+	z = z + w / 3;
+	w = w * y;
+	z = z + w / 5;
+	w = w * y;
+	z = z + w / 7;
+	// etc?...
+
+	z = z * 2;
+	return z;
+}
+
+// with mtof & dbtoa etc style converters, it is better to use localised 'curve fitting'
+// techniques, unless you really do need a very large range of operation
+
+mtofApprox(pitch)					// using 'expA()' for approximated accuracy
+{
+	mtofA = 440 * expA(0.057762265 * (pitch - 69));
+	return mtofA + 0.120906;		// + offset = accurate for input 48..69
+}
+
+mtofApproxB(pitch, base)			// 'base' should be 440 (hz) for default operation
+{
+	mtofA = base * expA(0.057762265 * (pitch - 69));
+	return mtofA + 0.120906;		// + offset = accurate for input 48..69
+}
+
+// perfect for input 0..81, very close to ..134..
+mtofApproxH(pitch)					// by alex harker, no 'base'
+{
+	mtofMul	= 0.05776226504666;		// N.B.	mtofMul = log(2) / 12
+	mtofAdd	= 2.10117843869262;		// N.B.	mtofAdd = log(440) - (log(2) * 69 / 12)
+
+	return	exp((mtofMul * pitch) + mtofAdd);	// 'expA()' ?
+}
+
+// !! this is pointless as it offers no improvement over library 'log()' function - do not use
+// unusable below about 40 Hz input, reasonably accurate 40..4000 Hz, unusable above 10000 Hz
+ftomApprox(frequency)
+{
+	ftomA = 69 + (1 / 0.057762265) * logApprox(frequency / 440);
+	return ftomA;					// exact accuracy @440Hz, needs polynom to retune extremes
+}
+
+// !! this is pointless as it offers no improvement over library 'log()' function - do not use
+ftomApproxB(frequency, base)		// 'base' should be 440 (hz) default
+{
+	ftomA = 69 + (1 / 0.057762265) * logApprox(frequency / base);
+	return ftomA;					// exact accuracy @440Hz, needs polynom to retune extremes
+}
+
+// excellent accuracy to about +36 dB, after which you are on your own
+dbtoaApprox(db)						// using 'expA()' for approximated accuracy
+{
+	dbtoaA = expA(0.11512925464970 * db);
+	return dbtoaA + 0.000128;		// + offset = 0 dB == 1 amplitude
+}
+
+// cheaper than above 'dbtoaApprox()', but far less accurate
+dbtoaApproxF(db)					// i know this is shit
+{
+	return fastpow(10, (db * 0.05)) + 0.028652;	// + offset = 0 dB == 1 amplitude
+}
+
+// !! this is pointless as it offers no improvement over library 'log()' function - do not use
+// excellent accuracy around amplitude == 1 (-6..+6 dB),
+// terrible accuracy very near input == 0 or input == very large
+atodbApprox(amplitude)
+{
+	adbconst	= 8.685889638065036553;
+	return 		adbconst * logApprox(abs(amplitude));
+}
+
+// !! do not use this sqrt approx - it is pointless and in the always-64-bit-doubles environment of Gen
+// performs worse than library 'sqrt()' as library 'sqrt()' is single instruction on intel processors
+// dodgy, initialisation problem, but sort of works
+sqrtNewton(x)						// newton recursion (x = 0..256 here, could easily modify this)
+{
+	History y1(0), y2(0);
+
+	y3 = (y1 + y2) * 0.5;
+	y0 = (maximum(x, 0)) / (y3 + ((y3 <= 0) * 0.000001));
+
+	newton	= y0 - 0.000017;		// offset = correct @ '1'
+
+	y2 = y1;
+	y1 = y0;
+
+	// instantiation & approximation issues mean we must clip output
+	return	  clip(newton, 0, 16);	// 0..16 = x 0..256
+}
+
+// !! do not use this sqrt approx - it is pointless and in the always-64-bit-doubles environment of Gen
+// performs worse than library 'sqrt()' as library 'sqrt()' is single instruction on intel processors
+// 'babylonian method', very accurate
+sqrtBab(fg)
+{
+	fg0		= maximum(fg, 0);			// only for input >= 0	// is this branch needed ?
+	n		= fg0 / 2;					// fg0 * 0.5 pointless here
+	lstX	= 0;
+	while (n != lstX) {
+		lstX	= n;
+		n		= (n + fg0 / n) / 2;	// * 0.5 pointless here
+	}
+	return n;
+}
+
+// thanks to Alex Harker for 'fastSkew()'
+fastSkew(x, skew)					// approx pow(x, 0.5..2)
+{
+	skw		= clip(skew, 0.5, 2);	// should clip externally?
+
+	fs		= 0;
+	if (skw < 1) {
+		fs 	= interp(2 * (skw - 0.5), sqrt(x), x);
+	} else {
+		fs	= interp(skw - 1, x, (x * x));
+	}
+
+	return	fs;
+}
+
+// cheap tan approximations (see "evi_trig.genexpr" for more tan approxes)
+
+// fast & cheap
+tnA(x)		// valid for 0..1 input
+{
+	x2 = (x * x);
+	x3 = (x2 * x);
+	x5 = (x2 * x3);
+	return ((x5 * 0.133333) + (x3 * 0.333333)) + x;
+}
+
+// Padé approximation, quite accurate, positive output
+tanPade1(x)	// valid for 0..1 input
+{
+	x2	=  x  * x;
+	x3	=  x2 * x;
+	A	= -15 * x + x3;
+	B	=  3  * (-5 + 2 * x2);
+	return	A / B;
+}
+
+// Padé approximation, very accurate, produces the negative output
+tanPade2(x)	// valid for 0..1 input
+{
+	x2	= x   * x;
+	x3	= x2  * x;
+	x4	= x2  * x2;
+	A	= 5   * (-21 * x + 2 * x3);
+	B	= 105 - 45 * x2 + x4;	
+	return	A / B;
+}
+
+// michael massberg polynomial
+mtnA(x)		// valid for -halfpi < x < +halfpi
+{
+	x2		= x * x;
+	return	x * (0.999999492001 + x2 * -0.096524608111) / (1 + x2 * (-0.429867256894 + x2 * 0.009981877999));
+}
+
+// arctan approximations (see "evi_trig.genexpr" for other atan approxes)
+
+atnA(x)
+{
+	o = 8 * x;
+	q = (2 * o) / pi;
+	s = 25 + (q * q);
+	u = 3 + sqrt(s);
+	return o / u;
+}
+
+atnF(x)		// Rajan, S. Sichun Wang Inkol, R. Joyal, A. - only for x = -pi..pi
+{
+	p4 = pi * 0.25;
+    return (p4 * x) - (x * (abs(x) - 1)) * (0.2447 + (0.0663 * abs(x)));
+}
+/*
+atnIS(x)	// for 2nd order x = 0..infinity, maximum approximation error 0.1620º
+{
+	b = 0.596227;
+	return halfpi * ((b * x) + (x * x)) / (1 + (2 * b * x) + (x * x));
+}
+*/
+
+atnIS(x)	// for 2nd order x = 0..infinity, maximum approximation error 0.1620º
+{
+	bx	=  0.596227 * x;
+	x2	=  x * x;
+	return halfpi * (bx + x2) / (1 + (2 * bx) + x2);
+}
+/*
+atnIT(x)	// for 3rd order x = 0..infinity, maximum approximation error 0.00811º
+{
+	c = (1 + sqrt(17)) / 8;
+	return halfpi * ((c * x) + (x * x) + (x * x * x)) / (1 + ((c + 1) * x) + ((c + 1) * (x * x)) + (x * x * x));
+}
+*/
+atnIT(x)	// for 3rd order x = 0..infinity, maximum approximation error 0.00811º
+{
+	c0	= 0.6403882032022076;	// (1 + sqrt(17)) / 8;
+	c1	= 1.6403882032022076;	// + 1
+	x2	= x * x;
+	x3	= x2 * x;
+	return	halfpi * ((c0 * x) + x2 + x3) / (1 + (c1 * x) + (c1 * x2) + x3);
+}
+
+atnS(x)		// second order using atnIS
+{
+	y = 0;
+	if (x >= 0) {
+		y = atnIS(x);
+	} else {
+		y = -atnIS(-x);
+	}
+	return y;
+}
+
+atnT(x)		// third order using atnIT
+{
+	y = 0;
+	if (x >= 0) {
+		y = atnIT(x);
+	} else {
+		y = -atnIT(-x);
+	}
+	return y;
+}
+
+atnR(x)		// Curnow / Remez - only for x = -1..1
+{
+	return (0.97239 * x) - (0.19195 * (x * x * x));
+}
+
+atnP(x)		// Padé approximation
+{
+	x2 = x * x;
+	x3 = x2 * x;
+	x4 = x2 * x2;
+	x5 = x3 * x2;
+	o = (x + ((7 / 9) * x3)) + ((64 / 945) * x5);
+	u = (1 + ((10 / 9) * x2)) + ((5 / 21) * x4);
+	return o / u;
+}
+/*
+atnM(x)		// MacLaurin series - WRONG implementation - IGNORE
+{
+	x2 = x * x;	x3 = x2 * x;	x4 = x2 * x2;	x5 = x3 * x2;	x7 = x4 * x3;	x9 = x5 * x4;
+	return x - (1 / 3) * x3 + (1 / 5) * x5 - (1 / 7) * x7 + (1 / 9) * x9;
+}
+*/
+// atan2 approximation
+
+atan2Approx(y, x)
+{
+	oneqtr_pi = pi * 0.25;
+	thrqtr_pi = 3 * oneqtr_pi;
+	r, angle, at2a = 0;
+	abs_y = abs(y) + 1e-10;			// kludge to prevent 0 div 0
+	if (x < 0) {
+		r = (x + abs_y) / (abs_y - x);
+		angle = thrqtr_pi;
+	} else {
+		r = (x - abs_y) / (x + abs_y);
+		angle = oneqtr_pi;
+	}
+	angle += (0.1963 * r * r - 0.9817) * r;
+	if (y < 0) {
+		at2a = (-angle);			// negate if in quad 3 or 4
+	} else {
+		at2a = (angle);
+	}
+	if ((x == 0) && (y == 0)) {		// another kludge
+		at2a = 0;
+	}
+	return at2a;
+}
+
+// these pol/car approxes are pretty damn accurate individually but...
+// ...if you use them together inaccuracy increases, but never by much...
+// ...and with large numbers they are about the same as MSP (although...
+// ...never as accurate as the Gen)
+
+// cartopol approx
+c2pApprox(real, imag)
+{
+	alpha = sqrt((real * real) + (imag * imag));
+	theta = atan2Approx(imag, real);
+	return alpha, theta;
+}
+
+// poltocar approx
+p2cApprox(alpha, theta)
+{
+	real = alpha * cos_73(theta);
+	imag = alpha * sin_73(theta);
+	return real, imag;
+}
+
+// about 'quartParApprox()':
+
+/*
+
+ABOUT 'C' (precision):
+
+C is a constant that can be fine-tuned for different applications. With C yet undefined,
+the polynomials hit 0 and 1 in the right places.
+
+Here are some differently optimized (and approximated) values for C:
+
+(1) C ~= 0.7035
+
+(2) C ~= 0.71256755058 
+
+(3) C = sqrt(2)/2 ~= 0.70710678118654752440
+
+(4) C = 3/4 = 0.75 (one mul choice!)
+
+To compare the errors produced by different choices of C, we look at the maximums and minimums
+of the following error measures, for different C:
+
+error = sinapprox(x) - sin(angle)
+
+Min:	(1) -0.0213	(2) -0.0150	(3) -0.0187	(4) 0
+Max:	(1) +0.0212	(2) +0.0271	(3) +0.0235	(4) +0.0560
+
+error = sqrt(sinapprox(x)^2 - cosapprox(x)^2) - 1
+
+Min:	(1) -0.0261	(2) -0.0155	(3) -0.0214	(4) 0
+Max:	(1)  0		(2) +0.0155	(3) 0		(4) +0.1250
+
+The different C were optimized as follows:
+
+(1) was optimized for minimum maximum absolute difference to sin().
+
+(2) was optimized for minimum maximum absolute difference of sqrt(sinapprox(x)^2+cosapprox(x)^2)
+to (1). This is important for example in a rotation transformation, where you want the
+dimensions to stretch as little as possible from the original. Note, though, that (3)
+gives the lowest total magnitude "wobbling" range.
+
+(3) was optimized similarly to (2) but never lets sqrt(sinapprox(x)^2+cosapprox(x)^2) exceed 1.
+This is useful if you calculate filter coefficients and don't want unstable poles.
+Also, sinapprox(0) and cosapprox(0) give sqrt(2)/2, which is the correct value.
+
+(4) was optimized for continuous differential, which reduces high harmonics. This is good
+if you are creating sine and cosine signals rather than doing "random access" to the function.
+Also, it eliminates the other multiplication, making the algo one-mul and low bit-depth:
+
+x = -1/2 .. +1/2
+
+sinapprox(x) = 3/4 - x^2 + x
+cosapprox(x) = 3/4 - x^2 - x
+
+*/

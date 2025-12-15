@@ -1,0 +1,210 @@
+{
+	"patcher" : 	{
+		"fileversion" : 1,
+		"appversion" : 		{
+			"major" : 9,
+			"minor" : 1,
+			"revision" : 0,
+			"architecture" : "x64",
+			"modernui" : 1
+		}
+,
+		"classnamespace" : "dsp.gen",
+		"rect" : [ 490.0, 100.0, 988.0, 848.0 ],
+		"gridonopen" : 2,
+		"gridsize" : [ 15.0, 15.0 ],
+		"subpatcher_template" : "sub",
+		"assistshowspatchername" : 0,
+		"commentary" : "",
+		"showcommentary" : 0,
+		"integercoordinates" : 1,
+		"boxes" : [ 			{
+				"box" : 				{
+					"id" : "obj-12",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 894.0, 19.0, 81.0, 22.0 ],
+					"text" : "in 7 Mod Mult"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-11",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 607.333333333333371, 19.0, 111.0, 22.0 ],
+					"text" : "in 5 Mod Feedback"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-10",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 464.0, 19.0, 137.0, 22.0 ],
+					"text" : "in 4 FM/PM xfade Blend"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-9",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 320.666666666666686, 19.0, 138.0, 22.0 ],
+					"text" : "in 3 FM/PM xfade Depth"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-8",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 177.333333333333343, 19.0, 58.0, 22.0 ],
+					"text" : "in 1 Pitch"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-7",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 862.0, 807.0, 113.0, 22.0 ],
+					"text" : "out 2 FM output Sin"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-1",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 34.0, 19.0, 122.0, 22.0 ],
+					"text" : "in 2 Index @default 1"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-2",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 750.666666666666629, 19.0, 107.0, 22.0 ],
+					"text" : "in 6 Car Feedback"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"code" : "\r\n// this is a quadrature FM/PM xfading mod/carrier setup, based on LIONEL's patch from:\r\n// https://cycling74.com/forums/fm-vs-pm-in-gen-unwanted-artifacts-clicks\r\n// with reworking by Graham Wakefield\r\n// Thanks\r\n\r\n\n// for first quarter only, optimized so that never lets sqrt(sinapprox(x)^2+cosapprox(x)^2)\n// exceed 1, always gives exact results at modphase 0, 0.5, 1 (0/1, sqrt1_2, 1/0)\nquartParApproxOne(modphase)\t\t\t\t\t\t\t\t// 'modphase' must be clamped 0..1\n{\n\tx0\t\t=  modphase - 0.5;\t\t\t\t\t\t\t// 1 sub\n\t// first quarter\t\t\t\t\t\t\t\t\t// angle = 0 .. halfpi\n\tquart\t= -0.8284271247461903 * x0 * x0 + sqrt1_2;\t// 2 mul, 1 add, (-0.8284271247461903 = 2 - 4*sqrt1_2)\n\tsinq1\t=  quart + x0;\t\t\t\t\t\t\t\t// 1 add\n\tcosq1\t=  quart - x0;\t\t\t\t\t\t\t\t// 1 sub\n\n\treturn\tcosq1, sinq1;\n}\n\nxfadeQuartApproxMono(a, c, q)\t\t// q is control, must be clamped 0..1\n{\n\tqL, qR\t= quartParApproxOne(q);\t// cos/sin\n\treturn\t((a * qL) + (c * qR));\t// out mix\n}\n\r\np2cApproxQuart(al, th)\t\t\t\t// al is depth, th is mix must be clamped 0..1\n{\n\tre, im = quartParApproxOne(th);\t// cos/sin\n\treturn\t(al * re), (al * im);\t// out mul 1, out mul 2\n}\r\n\r\nexpA(x0)\t\t\t\t\t\t\t// more accurate than 'fastexp()'\r\n{\n\tx = 0.999996 + (0.031261316 + (0.00048274797 + 0.000006 * x0) * x0) * x0;\n\tx *= x; x *= x; x *= x; x *= x; x *= x;\n\treturn x;\n}\n\ntauA(t)\r\n{\n\ty = expA(-1 / (t * samplerate));\n\treturn y + 0.000128;\t\t\t// approximation has excellent accuracy\n}\t\t\t\t\t\t\t\t\t// above 0.01 seconds input\n\ntanA(x)\t\t\t\t\t\t\t\t// cheaper approx tan(0..1)\n{\n\tx2\t\t= (x * x);\n\tx3\t\t= (x2 * x);\n\tx5\t\t= (x2 * x3);\n\treturn\t ((x5 * 0.133333333333) + (x3 * 0.333333333333)) + x;\n}\n\ntanA2(x)\t\t\t\t\t\t\t// better approx tan(0..halfpi)\n{\n\ta\t= ((((x * -0.0896638) + 0.0388452) * x) + 1.00005) * x;\n\tb\t= (((x * -0.430871) + 0.0404318) * x) + 1;\n\treturn\ta / b;\n}\r\n\r\nexpso(x, z)\t\t\t\t\t\t\t// z is pole\n{\n\tHistory w(0);\n\ty = (z * w) + (x * (1 - z));\n\tw = y;\n\treturn y;\n}\n\nexpsmooth(x, t)\t\t\t\t\t\t// t is smooth time in seconds\n{\n\tHistory w(0);\n\tz = tauA(t);\n\ty = (z * w) + (x * (1 - z));\n\tw = y;\n\treturn y;\n}\n\nexpsmoothBank2(x1, x2, t)\n{\n\tHistory\texps2dummy(0);\n\tz\t\t= tauA(t);\n\ty1\t\t= expso(x1, z);\n\ty2\t\t= expso(x2, z);\n\treturn\ty1, y2;\n}\n\nlogsmooth(x, s)\t\t\t\t\t\t// s = time to drop 6dB (in seconds)\n{\n\tHistory z(0);\n//\tad = LN2 / maximum((s * samplerate), 1);\n\tad = LN2 / (s * samplerate);\n\ty  = ((x - z) * ad) + z;\n\tz  = y;\n\treturn y;\n}\n\n// basic linear scaling like linear part of [scale]\neviMap(valueIn, inLow, inHigh, outLow, outHigh)\n{\n\tmultiplier = (outLow - outHigh) / (inLow - inHigh);\n\treturn (valueIn - inLow) * multiplier + outLow;\n}\n\r\nmtofApprox(pitch, base)\t\t\t\t\t\t// base = 440 default\r\n{\r\n\tmtofA = base * expA(0.057762265046662105 * (pitch - 69));\n\treturn mtofA + 0.120906;\t\t\t\t// + offset = accurate for input 48..69\n}\n\r\nmtofBaseless(pitch)\n{\n\tmtofMul\t= 0.05776226504666;\t\t\t\t// log(2) / 12\n\tmtofAdd\t= 2.10117843869262;\t\t\t\t// log(440) - (log(2) * 69 / 12)\n\n\treturn\texp((mtofMul * pitch) + mtofAdd);\n}\r\n\r\ncosQ73(x) {\n\tc1 =  0.999999953464;\n\tc2 = -0.499999053455;\n\tc3 =  0.0416635846769;\n\tc4 = -0.0013853704264;\n\tc5 =  0.00002315393167;  \t\n\n\tx2 = x * x;\n\treturn (c1 + x2 * (c2 + x2 * (c3 + x2 * (c4 + c5 * x2))));\n}\n\r\ncos73(x) {\n\ttwo_over_pi = 0.63661977236758;\t// 2 / pi\n\tx = x % twopi;\n\tif (x < 0) {\n\t\tx = -x;\t\t\t\t\t\t// cos(-x) = cos(x)\n\t}\n\tquad = int(x * two_over_pi);\t// get quadrant # (0 to 3) we're in\n\tcosreturn = 0;\n\tif \t\t\t\t(quad == 0) {\n\t\tcosreturn =  cosQ73(x);\n\t} else if \t\t(quad == 1) {\n\t\tcosreturn = -cosQ73(pi - x);\n\t} else if \t\t(quad == 2) {\n\t\tcosreturn = -cosQ73(x - pi);\n\t} else {\t//\t(quad == 3)\n\t\tcosreturn =  cosQ73(twopi - x);\n\t}\n\treturn cosreturn;\n}\n\r\nsin73(x) {\n\treturn cos73(halfpi - x);\n}\n\n// poltocar approx\np2cApprox(alpha, theta)\n{\n\treal = alpha * cos73(theta);\n\timag = alpha * sin73(theta);\n\treturn real, imag;\n}\r\n\r\n// this is horrible, must replace\r\nlpfir3(x0)\r\n{\r\n\tHistory\tx1(0), x2(0);\r\n\ty0\t= (x0*0.5 + x1*0.333333333333 + x2*0.166666666667) * sqrt1_2;\r\n\tx2\t= x1;\r\n\tx1\t= x0;\r\n\treturn\ty0;\r\n}\r\n\r\n// this is one of those really clever Graham Wakefield things, thanks\r\n// output will reach target by a linear ramp whose slope can be no greater than the param maxslope\r\nramplimit(target, maxslope)\t\t\t\t// maxslope = maximum change per ms\r\n{\r\n\tHistory y0(0);\r\n\tmaxsamps\t= sampstoms(maxslope);\t// this is stupid\r\n\ty1\t= clamp(target - y0, -maxsamps, maxsamps) + y0;\r\n\ty0\t= y1;\r\n\treturn\ty1;\r\n}\r\n\r\n\r\nHistory modOscPrev(0), carrierCosFb(0), carrierSinFb(0);\r\n\r\nParam\tpitch(48, min=0, max=120);\r\nParam\tmodulationmult(1, min=0, max=100);\r\nParam\tpitch_params(1, min=0, max=1);\t// default: use params not inlets\r\n\r\nParam\txfadedepth(1, min=0, max=100);\r\nParam\txfadeblend(1, min=0, max=1);\t// % 0..1, default PM\r\nParam\txfade_params(1, min=0, max=1);\t// default: use params not inlets\r\n\r\nParam\tmodulationfeedback(0, min=0, max=100);\r\nParam\tcarrierfeedback(0, min=0, max=100);\r\nParam\tfeedback_params(1, min=0, max=1);// default: use params not inlets\r\n\r\nParam\tsmooth(22.666, min=0, max=333);\t// ms\r\nsmoothsecs\t= smooth*0.001;\r\nsmooth_p\t= (smooth > 0);\r\n\r\npitch_p\t\t= int(pitch_params);\r\nxfade_p\t\t= int(xfade_params);\r\nfeedback_p\t= int(feedback_params);\r\n\r\n// select params & smoothing, or audio inputs, (this is really stupid, but i need it).\r\n// (it means i can 'efficiently' choose either param rate inputs or audio rate modulation inputs)\r\n\r\npitch_a\t= pitch;\r\nmmult_a = modulationmult;\r\nif ( (pitch_p) && (smooth_p) ) {\r\n\tpitch_a\t= logsmooth(pitch, smoothsecs);\r\n\tmmult_a\t= expsmooth(modulationmult, smoothsecs);\r\n}\r\n\r\nmodfb_a\t= modulationfeedback;\r\ncarfb_a\t= carrierfeedback;\r\nif ( (feedback_p) && (smooth_p) ) {\r\n\tmodfb_a, carfb_a\t= expsmoothBank2(modulationfeedback, carrierfeedback, smoothsecs);\r\n}\r\n\r\nindex\t= maximum(in1, 1);\r\n\r\npitch_a\t= pitch_p ? pitch_a : in2;\r\nmmult_a\t= pitch_p ? mmult_a : in7;\r\nfreq_a\t= mtofBaseless(pitch_a);\r\nfmm\t\t= freq_a*mmult_a;\r\n\r\nmodfb_a\t= feedback_p ? modfb_a : in5;\r\ncarfb_a\t= feedback_p ? carfb_a : in6;\r\n\r\nfmamount, pmamount\t= 0;\r\nif (xfade_p) {\r\n\tfmamount, pmamount\t= p2cApproxQuart(xfadedepth, xfadeblend);\t// param rate\r\n} else {\r\n\tfmamount, pmamount\t= p2cApprox(in3, in4*halfpi);\t\t\t\t// audio rate\r\n}\r\n\r\n// Op\r\n\r\nmodOsc\t\t= sin73(phasor(fmm)*twopi + lpfir3(modfb_a*modOscPrev));\r\nmodZerox\t= (modOscPrev*modOsc) <= 0;\r\nmodOscPrev\t= modOsc;\r\nmodBias\t\t= latch(index, modZerox);\r\nmodulator\t= modOsc*modBias;\r\nfmamount\t= ramplimit(fmamount, 0.01);\r\nfmamount\t= latch(fmamount, modZerox);\t// (gen nightmare: does not compile if ramplimit inside latch)\r\npmamount\t= ramplimit(pmamount, 0.01);\r\n\r\ncarrierPhase\t= (phasor(freq_a + (fmm*modulator*fmamount))*twopi) + (modulator*pmamount);\r\ncarrierCos\t\t= cos(carrierPhase + carrierCosFb);\r\ncarrierSin\t\t= sin(carrierPhase + carrierSinFb);\r\n\r\nif (carfb_a > 0) {\r\n\tcarrierCosFb\t= fixdenorm(lpfir3(carfb_a*carrierCos));\r\n\tcarrierSinFb\t= fixdenorm(lpfir3(carfb_a*carrierSin));\r\n}\r\n\r\nout1\t= dcblock(carrierCos);\r\nout2\t= dcblock(carrierSin);\r\n\r\n",
+					"fontface" : 0,
+					"fontname" : "<Monospaced>",
+					"fontsize" : 12.0,
+					"id" : "obj-3",
+					"maxclass" : "codebox",
+					"numinlets" : 7,
+					"numoutlets" : 2,
+					"outlettype" : [ "", "" ],
+					"patching_rect" : [ 34.0, 58.0, 879.0, 732.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-4",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 34.0, 807.0, 117.0, 22.0 ],
+					"text" : "out 1 FM output Cos"
+				}
+
+			}
+ ],
+		"lines" : [ 			{
+				"patchline" : 				{
+					"destination" : [ "obj-3", 0 ],
+					"source" : [ "obj-1", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-3", 3 ],
+					"source" : [ "obj-10", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-3", 4 ],
+					"source" : [ "obj-11", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-3", 6 ],
+					"source" : [ "obj-12", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-3", 5 ],
+					"source" : [ "obj-2", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-4", 0 ],
+					"source" : [ "obj-3", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-7", 0 ],
+					"midpoints" : [ 903.5, 798.0, 871.5, 798.0 ],
+					"source" : [ "obj-3", 1 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-3", 1 ],
+					"source" : [ "obj-8", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-3", 2 ],
+					"source" : [ "obj-9", 0 ]
+				}
+
+			}
+ ]
+	}
+
+}

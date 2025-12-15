@@ -1,0 +1,96 @@
+{
+	"patcher" : 	{
+		"fileversion" : 1,
+		"appversion" : 		{
+			"major" : 9,
+			"minor" : 1,
+			"revision" : 0,
+			"architecture" : "x64",
+			"modernui" : 1
+		}
+,
+		"classnamespace" : "dsp.gen",
+		"rect" : [ 34.0, 100.0, 856.0, 848.0 ],
+		"gridonopen" : 2,
+		"gridsize" : [ 15.0, 15.0 ],
+		"subpatcher_template" : "sub",
+		"assistshowspatchername" : 0,
+		"commentary" : "",
+		"showcommentary" : 0,
+		"integercoordinates" : 1,
+		"boxes" : [ 			{
+				"box" : 				{
+					"id" : "obj-5",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 674.0, 807.0, 132.0, 22.0 ],
+					"text" : "out 2 Sine/Imag Output"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-1",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 49.0, 19.0, 91.0, 22.0 ],
+					"text" : "in 1 Audio Input"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"code" : "\r\n// Hilbert transform 90º phase shifting filter using high quality 8-pole Polyphase \r\n// IIR Halfband Allpass Cascade coefficients (De Soras / Niemitalo). Theoretically \r\n// 'better' than the MSP (6-pole fudged) [hilbert~] :-)\r\n\r\n// Defaults for 48kHz samplerate. If using other samplerates you will need to provide \r\n// coefficients externally (e.g. from [evi.polyphaseiirhilbertcoeffs], or \r\n// 'evi_hilbert_coefficients.js' directly).\r\n\r\n// @see also: 'evi_freqshift_hilbert.gendsp' and 'evi_freqshift_weaver.gendsp'\n\r\n// we use these optimised versions...\r\n\n// Transposed Direct Form 2, with a1, a2, b1 & b2 factored out as per hilbert allpass\nhilbertTdf2(x0, a0)\r\n{\n\tHistory\tx1(0), x2(0);\n\n\ty1\t= (x0  *  a0) +  x2;\n\tx2\t=  x1;\n\tx1\t= -x0  - (y1  * -a0);\n\n\treturn\ty1;\n}\n\n// Biquad Cascade\nevi_hilbert_cascade(y0, hc1, hc2, hc3, hc4, hc5, hc6, hc7, hc8)\r\n{\n\t// align\n\tHistory x0(0);\n\t// first phase allpass cascade (phase reference path c coefficients)\n\tx1\t= hilbertTdf2(x0,\thc1);\n\tx2\t= hilbertTdf2(x1,\thc2);\n\tx3\t= hilbertTdf2(x2,\thc3);\n\tx4\t= hilbertTdf2(x3,\thc4);\n\t// second phase allpass cascade (+90 degrees path c coefficients)\n\ty1\t= hilbertTdf2(y0,\thc5);\n\ty2\t= hilbertTdf2(y1,\thc6);\n\ty3\t= hilbertTdf2(y2,\thc7);\n\ty4\t= hilbertTdf2(y3,\thc8);\n\t// update\n\tx0\t= y0;\n\t// real, imaginary\n\treturn\tx4, y4;\n}\n\r\n// 64-bit Polyphase IIR Halfband Allpass Cascade Coefficients updated\r\n// from Javascript, defaults are for 48kHz Samplerate & 40Hz bandwidth\r\n\r\n// Phase reference path c coefficients\r\nParam\tcoef1(0.486604368613682, min=-10, max=10);\r\nParam\tcoef2(0.880779435272467, min=-10, max=10);\r\nParam\tcoef3(0.977931255616324, min=-10, max=10);\r\nParam\tcoef4(0.997673861850732, min=-10, max=10);\r\n// +90 degrees path c coefficients\r\nParam\tcoef5(0.165149093559079, min=-10, max=10);\r\nParam\tcoef6(0.739829012544530, min=-10, max=10);\r\nParam\tcoef7(0.947940906329181, min=-10, max=10);\r\nParam\tcoef8(0.991209712705258, min=-10, max=10);\r\n\r\nx\t\t\t= in1;\r\n\r\nreal, imag\t= evi_hilbert_cascade(x, coef1, coef2, coef3, coef4, coef5, coef6, coef7, coef8);\r\n\r\nout1\t\t= real;\r\nout2\t\t= imag;\r\n\r\n/*\r\n// pedagogy, not used...\r\n\r\n// Transposed Direct Form 2\nbiquadTdf2(x0, a0, a1, a2, b1, b2)\r\n{\n\n\tHistory\tx1(0), x2(0);\n\n\ty1\t=  (x0 * a0)  +  x2;\n\tx2\t= ((x0 * a1)  - (y1 * b1)) + x1;\n\tx1\t=  (x0 * a2)  - (y1 * b2);\n\n\treturn\ty1;\n}\n\n// Biquad Cascade\n// (this could be optimised by getting rid of the lazy biquads and unrolling)\nevi_hilbert_biquads(y0, hc1, hc2, hc3, hc4, hc5, hc6, hc7, hc8)\r\n{\n\t// align\n\tHistory x0(0);\n\t// first phase allpass cascade (phase reference path c coefficients)\n\tx1\t= biquadTdf2(x0,\t\thc1,\t0, -1, 0,\t-hc1);\n\tx2\t= biquadTdf2(x1,\t\thc2,\t0, -1, 0,\t-hc2);\n\tx3\t= biquadTdf2(x2,\t\thc3,\t0, -1, 0,\t-hc3);\n\tx4\t= biquadTdf2(x3,\t\thc4,\t0, -1, 0,\t-hc4);\n\t// second phase allpass cascade (+90 degrees path c coefficients)\n\ty1\t= biquadTdf2(y0,\t\thc5,\t0, -1, 0,\t-hc5);\n\ty2\t= biquadTdf2(y1,\t\thc6,\t0, -1, 0,\t-hc6);\n\ty3\t= biquadTdf2(y2,\t\thc7,\t0, -1, 0,\t-hc7);\n\ty4\t= biquadTdf2(y3,\t\thc8,\t0, -1, 0,\t-hc8);\n\t// update\n\tx0\t= y0;\n\t// real, imaginary\n\treturn\tx4, y4;\n}\r\n*/\r\n\r\n",
+					"fontface" : 0,
+					"fontname" : "<Monospaced>",
+					"fontsize" : 12.0,
+					"id" : "obj-3",
+					"maxclass" : "codebox",
+					"numinlets" : 1,
+					"numoutlets" : 2,
+					"outlettype" : [ "", "" ],
+					"patching_rect" : [ 49.0, 58.0, 757.0, 732.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-4",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 49.0, 807.0, 143.0, 22.0 ],
+					"text" : "out 1 Cosine/Real Output"
+				}
+
+			}
+ ],
+		"lines" : [ 			{
+				"patchline" : 				{
+					"destination" : [ "obj-3", 0 ],
+					"source" : [ "obj-1", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-4", 0 ],
+					"source" : [ "obj-3", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-5", 0 ],
+					"midpoints" : [ 796.5, 798.0, 683.5, 798.0 ],
+					"source" : [ "obj-3", 1 ]
+				}
+
+			}
+ ]
+	}
+
+}

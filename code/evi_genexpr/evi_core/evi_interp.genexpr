@@ -1,0 +1,71 @@
+
+// assembled by pete for evieve, interps not already available in gen~
+
+
+// Cubic Hermite, McCartney / Harker	// 8 muls, 11 ±	// NOT gen~ [interp mode="cubic"]
+// This is faster and better quality than the gen~ cubic (which is the interp from [groove~])
+cubic_hermite_interp(f, y0, y1, y2, y3)
+{
+//	c0		= y1;
+	c1		= 0.5 * (y2 - y0);
+	c2		= y0 - 2.5 * y1 + y2 + y2 - 0.5 * y3;
+	c3		= 0.5 * (y3 - y0) + 1.5 * (y1 - y2);
+	return	((c3 * f + c2) * f + c1) * f + y1;
+}
+
+
+// Hermite 6-point 5th-order, Olli Niemitalo	//	23 muls, 24 ±	// NOT gen~ [interp mode="spline6"]
+// (This is what Niemitalo calls "6-point, 5th-order 2nd-order-osculating z-form implementation"
+// and is actually different to the gen~ "spline6" which uses the slightly cheaper
+// "6-point, 5th-order B-spline x-form implementation", but which I think is not as useful
+// (the B-spline is not as useful for audio samples representation)).
+hermite_sixpoint_interp(f0, ym2, ym1, y0, y1, y2, y3)
+{
+	f1		=  f0 - 0.5;
+	even1	= ym2 + y3;
+	odd1	= ym2 - y3;
+	even2	= ym1 + y2;
+	odd2	= ym1 - y2;
+	even3	=  y0 + y1;
+	odd3	=  y0 - y1;
+
+	c0	= 0.01171875*even1		- 0.09765625*even2		+ 0.5859375*even3;
+	c1	= 0.2109375*odd2		- 1.463541666667*odd3	- 0.033854166667*odd1;
+	c2	= 0.40625*even2			- 0.354166666667*even3	- 0.052083333333*even1;
+	c3	= 0.1875*odd1			- 1.104166666667*odd2	+ 2.375*odd3;
+	c4	= 0.020833333333*even1	- 0.0625*even2			+ 0.041666666667*even3;
+	c5	= 1.041666666667*odd2	- 2.083333333333*odd3	- 0.208333333333*odd1;
+
+	return ((((c5*f1 + c4)*f1 + c3)*f1 + c2)*f1 + c1)*f1 + c0;
+}
+
+
+cubic_lagrange_interp(f, y0, y1, y2, y3)
+{
+    _1div3	= 0.3333333333333333;
+	_1div6	= 0.16666666666666666;
+
+	c0		= y1;
+	c1		= y2 - _1div3 * y0 - 0.5 * y1 - _1div6 * y3;
+	c2		= 0.5 * (y0 + y2) - y1;
+	c3		= _1div6 * (y3 - y0) + 0.5 * (y1 - y2);
+
+	return	(((c3 * f + c2) * f + c1) * f + c0);
+}
+
+
+cubic_bspline_interp(f, y0, y1, y2, y3)
+{
+	_2div3	= 0.6666666666666666;
+	_1div6	= 0.16666666666666666;
+
+	y0py2	= y0 + y2;
+	c0		= _1div6 * y0py2 + _2div3 * y1;
+	c1		= 0.5 * (y2 - y0);
+	c2		= 0.5 * y0py2 - y1;
+	c3		= 0.5 * (y1 - y2) + _1div6 * (y3 - y0);
+
+	return	(((c3 * f + c2) * f + c1) * f + c0);
+}
+
+

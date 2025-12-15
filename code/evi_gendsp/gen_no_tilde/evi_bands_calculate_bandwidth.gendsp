@@ -1,0 +1,155 @@
+{
+	"patcher" : 	{
+		"fileversion" : 1,
+		"appversion" : 		{
+			"major" : 9,
+			"minor" : 0,
+			"revision" : 5,
+			"architecture" : "x64",
+			"modernui" : 1
+		}
+,
+		"classnamespace" : "dsp.gen",
+		"rect" : [ 117.0, 66.0, 1201.0, 882.0 ],
+		"gridonopen" : 2,
+		"gridsize" : [ 15.0, 15.0 ],
+		"lefttoolbarpinned" : 2,
+		"toptoolbarpinned" : 2,
+		"righttoolbarpinned" : 2,
+		"bottomtoolbarpinned" : 1,
+		"toolbars_unpinned_last_save" : 7,
+		"subpatcher_template" : "tap.template.dark",
+		"boxes" : [ 			{
+				"box" : 				{
+					"id" : "obj-4",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 1032.0, 832.0, 145.0, 22.0 ],
+					"text" : "out 2 Gain Compensation"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-6",
+					"linecount" : 2,
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 1032.0, 12.5, 122.0, 35.0 ],
+					"text" : "in 4 Bandwidth (0..1) @default 1"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-5",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 50.0, 19.0, 181.0, 22.0 ],
+					"text" : "in 1 # of Bands (int) @default 16"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-2",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 704.666666666666629, 19.0, 268.0, 22.0 ],
+					"text" : "in 3 High Frequency Bound (Hz) @default 20000"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-13",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 50.0, 832.0, 48.0, 22.0 ],
+					"text" : "out 1 Q"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-1",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 377.333333333333371, 19.0, 245.0, 22.0 ],
+					"text" : "in 2 Low Frequency Bound (Hz) @default 20"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"code" : "\r\nHistory\tinit(1), prev_bands(16), prev_low(20), prev_high(20000), prev_tun(440);\r\nBuffer\tbandfreqs();\t\t\t\t\t\t// alias to parent\r\n\r\nParam\tcompensate(1, min=0, max=1);\t\t// gain compensation, @default on\r\nParam\tnyquist(22588.235294);\t\t\t\t// default 48kHz SR\r\nParam\ttuning(440, min=415, max=467);\r\nParam\tbandsmax(128, min=2);\t\t\t\t// external buffer size in samps\r\nmaxbands\t= int(bandsmax);\r\ncomp\t\t= int(compensate);\r\n\r\nnumbands\t= int(clamp(in1, 2, maxbands));\r\nfreqlow\t\t= clamp(in2, 10, nyquist);\r\nfreqhigh\t= clamp(in3, 10, nyquist);\r\nbandwidth\t= clamp(in4, 0.0001, 1);\t\t// max Q 10000 .. min Q 0.01\r\nbw\t\t\t= 1 / bandwidth;\t\t\t\t// works best with high exponent (4?) on input feed\r\n\r\nlowfreq\t\t= minimum(freqlow, freqhigh);\r\nhighfreq\t= maximum(freqhigh, freqlow);\r\nlowpitch\t= ftom(lowfreq, tuning);\r\nhighpitch\t= ftom(highfreq, tuning);\r\n\r\nnumbandsm1\t= numbands - 1;\r\nqfactor\t\t= 4.419428;\t\t\t\t\t\t// @default 4.419428 (16 bands, 20..20000 Hz)\r\n\r\nif ( (init) || (prev_bands != numbands) || (prev_low != lowpitch) || (prev_high != highpitch) || (prev_tun != tuning) )\r\n{\r\n\tfor (j = 0; j < numbands; j += 1)\r\n\t{\r\n\t\tbandfreqs.poke(( mtof(scale(( j / numbandsm1 ), 0, 1, lowpitch, highpitch, 1), tuning) ), j, 0, 0, index=\"samples\");\r\n\t}\r\n\r\n\tfor (k = numbands; k < maxbands; k += 1)\r\n\t{\r\n\t\tbandfreqs.poke(0, k, 0, 0, index=\"samples\");\r\n\t}\r\n\r\n\tlowestfreq\t= bandfreqs.peek(0, 0, interp=\"none\");\r\n\tqfactor\t\t= (lowestfreq / ((bandfreqs.peek(1, 0, interp=\"none\") - lowestfreq) * 0.5)) + 1;\r\n\tinit\t\t= 0;\r\n}\r\n\r\nout1\t\t= qfactor * bw;\r\nout2\t\t= comp ? sqrt(bw) : 1;\r\n\r\nprev_bands\t= numbands;\r\nprev_low\t= lowpitch;\r\nprev_high\t= highpitch;\r\nprev_tun\t= tuning;\r\n",
+					"fontface" : 0,
+					"fontname" : "<Monospaced>",
+					"fontsize" : 12.0,
+					"id" : "obj-3",
+					"maxclass" : "codebox",
+					"numinlets" : 4,
+					"numoutlets" : 2,
+					"outlettype" : [ "", "" ],
+					"patching_rect" : [ 50.0, 58.0, 1001.0, 757.0 ]
+				}
+
+			}
+ ],
+		"lines" : [ 			{
+				"patchline" : 				{
+					"destination" : [ "obj-3", 1 ],
+					"source" : [ "obj-1", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-3", 2 ],
+					"source" : [ "obj-2", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-13", 0 ],
+					"source" : [ "obj-3", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-4", 0 ],
+					"source" : [ "obj-3", 1 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-3", 0 ],
+					"source" : [ "obj-5", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-3", 3 ],
+					"source" : [ "obj-6", 0 ]
+				}
+
+			}
+ ],
+		"originid" : "pat-408"
+	}
+
+}

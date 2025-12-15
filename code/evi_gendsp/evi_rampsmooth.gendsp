@@ -1,0 +1,136 @@
+{
+	"patcher" : 	{
+		"fileversion" : 1,
+		"appversion" : 		{
+			"major" : 9,
+			"minor" : 1,
+			"revision" : 0,
+			"architecture" : "x64",
+			"modernui" : 1
+		}
+,
+		"classnamespace" : "dsp.gen",
+		"rect" : [ 750.0, 100.0, 809.0, 718.0 ],
+		"gridonopen" : 2,
+		"gridsize" : [ 15.0, 15.0 ],
+		"subpatcher_template" : "sub",
+		"assistshowspatchername" : 0,
+		"commentary" : "",
+		"showcommentary" : 0,
+		"integercoordinates" : 1,
+		"boxes" : [ 			{
+				"box" : 				{
+					"id" : "obj-6",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 458.0, 678.0, 299.0, 22.0 ],
+					"text" : "out 2 1 When Env Reaches Destination (0 During Env)"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-7",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 49.0, 678.0, 132.0, 22.0 ],
+					"text" : "out 1 Exact Output Env"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-5",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 542.0, 19.0, 215.0, 22.0 ],
+					"text" : "in 3 Ramp Down in SAMPLES @min 0"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-1",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 49.0, 19.0, 91.0, 22.0 ],
+					"text" : "in 1 Input Value"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-2",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 326.0, 19.0, 199.0, 22.0 ],
+					"text" : "in 2 Ramp Up in SAMPLES @min 0"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"code" : "\r\n// like MSP [rampsmooth~]\n// original port by Maurizio Giri, Graham Wakefield\n\r\ngenRampsmooth(input, rampup, rampdown)\t\t// input, up in samples, down in samples\n{\n\tHistory value(0), prev(0), stepcounter(0), increment(1);\n\tnotify = 1;\n\n\t// reset ramp if input has changed, or if ramp parameters change\n\tif (input != prev || delta(rampup) || delta(rampdown)) {\n\t\tdirection = (input - value);\n\t\tif (direction > 0) {\n\t\t\tstepcounter = rampup;\n\t\t\tincrement = direction / rampup;\n\t\t} else {\n\t\t\tstepcounter = rampdown;\n\t\t\tincrement = direction / rampdown;\n\t\t}\n\t\tprev = input;\t\n\t}\n\n\t// keep incrementing until stepcounter counts down to zero\n\tif (stepcounter) {\n\t\tstepcounter -= 1;\n\t\tvalue += increment;\n\t\tnotify = 0;\n\t} else {\n\t\tvalue = input;\n\t\tnotify = 1;\n\t}\n\n\treturn value, notify;\n}\r\n\r\nout1, out2 = genRampsmooth(in1, in2, in3);\r\n\r\n",
+					"fontface" : 0,
+					"fontname" : "<Monospaced>",
+					"fontsize" : 12.0,
+					"id" : "obj-3",
+					"maxclass" : "codebox",
+					"numinlets" : 3,
+					"numoutlets" : 2,
+					"outlettype" : [ "", "" ],
+					"patching_rect" : [ 49.0, 58.0, 708.0, 603.0 ]
+				}
+
+			}
+ ],
+		"lines" : [ 			{
+				"patchline" : 				{
+					"destination" : [ "obj-3", 0 ],
+					"source" : [ "obj-1", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-3", 1 ],
+					"midpoints" : [ 335.5, 49.5, 403.0, 49.5 ],
+					"source" : [ "obj-2", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-6", 0 ],
+					"midpoints" : [ 747.5, 669.5, 467.5, 669.5 ],
+					"source" : [ "obj-3", 1 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-7", 0 ],
+					"source" : [ "obj-3", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-3", 2 ],
+					"midpoints" : [ 551.5, 49.5, 747.5, 49.5 ],
+					"source" : [ "obj-5", 0 ]
+				}
+
+			}
+ ]
+	}
+
+}

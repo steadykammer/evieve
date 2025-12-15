@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "compilerOptions": {
+    "target": "es5",
+    "lib": [
+      "es5"
+    ], // stop typescript from trying to use DOM declarations
+    "module": "commonjs",
+    "strict": true,
+    "esModuleInterop": true,
+    "ignoreDeprecations": "5.0",
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "incremental": false,
+    "composite": false,
+    "allowJs": false,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+  },
+  "exclude": ["test/*"]
+}

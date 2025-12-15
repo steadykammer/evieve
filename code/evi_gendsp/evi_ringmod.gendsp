@@ -1,0 +1,103 @@
+{
+	"patcher" : 	{
+		"fileversion" : 1,
+		"appversion" : 		{
+			"major" : 9,
+			"minor" : 1,
+			"revision" : 0,
+			"architecture" : "x64",
+			"modernui" : 1
+		}
+,
+		"classnamespace" : "dsp.gen",
+		"rect" : [ 927.0, 114.0, 901.0, 676.0 ],
+		"gridonopen" : 2,
+		"gridsize" : [ 15.0, 15.0 ],
+		"assistshowspatchername" : 0,
+		"commentary" : "",
+		"showcommentary" : 0,
+		"integercoordinates" : 1,
+		"boxes" : [ 			{
+				"box" : 				{
+					"code" : "\r\n// over complex ring modulator, evieve stylee\r\n\r\n// lib\r\n\r\nrequire(\"evi_ringmod_enhanced.genexpr\");\r\n\r\n// param rate ...\n\r\nParam\thighpass(40, min=10, max=400);\t\t\t\t\t// hz\r\nParam\tcutoff(samplerate*0.25, min=1000, max=samplerate*0.5);\t// butterworth hz\r\nParam\torder(0, min=0, max=8);\t\t\t\t\t\t\t// butterworth slope, default bypassed\r\nParam\tdrive(0.5, min=0, max=4);\t\t\t\t\t\t// % 0..1..\r\nParam\ttopology(0, min=0, max=1);\t\t\t\t\t\t// waveshape placement, quirky\r\nParam\tquality(1, min=0, max=4);\t\t// 0=1x/Adaa1, 1=1x/Adaa2, 2=4x/Adaa2, 3=8x/Adaa2\r\nord\t\t= int(order);\t\t\t\t\t\t\t\t\t// 4=8x/Adaa2_4x\r\ntop\t\t= int(topology);\r\nos\t\t= int(quality);\r\npidrive, sindrive\t= sinParam(drive);\r\nnf\t\t= rcPreWarp(highpass);\t\t\t// fixed highpass ?, not smoothed for now !\r\n\r\n// audio rate ...\r\n\r\nX\t\t= 0;\r\ndrivepi, drivesin\t= expsmoothBank2(pidrive, sindrive, 0.022666);\r\n\r\nif (os == 1) {\t\t\t\t\t// os 1 = 1x/Adaa2\r\n\tX\t= evieveRingmodAdaa2(\t\t\tin1, in2, nf, drivepi, drivesin, top);\r\n} else if (os == 2) {\t\t\t// os 2 = 4x/Adaa2, default\r\n\tX\t= evieveRingmodAdaa2__4x_6POINT(in1, in2, nf, drivepi, drivesin, top);\r\n} else if (os == 3) {\t\t\t// os 3 = 8x/Adaa2\r\n\tX\t= evieveRingmodAdaa2__8x_6POINT(in1, in2, nf, drivepi, drivesin, top);\r\n} else if (os == 4) {\t\t\t// os 5 = 8x/Adaa2_4x\r\n\tX\t= evieveRingmodAdaa2_4x__8x_6POINT(in1, in2, nf, drivepi, drivesin, top);\r\n} else {\t\t\t\t\t\t// os 0 = 1x/Adaa1\r\n\tX\t= evieveRingmodAdaa1(\t\t\tin1, in2, nf, drivepi, drivesin, top);\r\n}\r\n\r\n// default bypassed\r\nout1\t= linearButterworthLP8(X, cutoff, ord); // cutoff smoothed, order clicks\r\n\r\n",
+					"fontface" : 0,
+					"fontname" : "<Monospaced>",
+					"fontsize" : 12.0,
+					"id" : "obj-3",
+					"maxclass" : "codebox",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 34.0, 58.0, 767.0, 538.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 12.0,
+					"id" : "obj-1",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 34.0, 19.0, 144.0, 22.0 ],
+					"text" : "in 1 (signal) Audio Input 1"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 12.0,
+					"id" : "obj-2",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 720.0, 19.0, 144.0, 22.0 ],
+					"text" : "in 2 (signal) Audio Input 2"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 12.0,
+					"id" : "obj-4",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 34.0, 623.0, 302.0, 22.0 ],
+					"text" : "out 1 (signal) Ring Modulated Output but cool sounding"
+				}
+
+			}
+ ],
+		"lines" : [ 			{
+				"patchline" : 				{
+					"destination" : [ "obj-3", 0 ],
+					"source" : [ "obj-1", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-3", 1 ],
+					"midpoints" : [ 729.5, 49.5, 791.5, 49.5 ],
+					"source" : [ "obj-2", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-4", 0 ],
+					"source" : [ "obj-3", 0 ]
+				}
+
+			}
+ ],
+		"bgcolor" : [ 0.9, 0.9, 0.9, 1.0 ]
+	}
+
+}

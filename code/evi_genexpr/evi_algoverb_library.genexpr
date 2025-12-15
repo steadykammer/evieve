@@ -1,0 +1,300 @@
+
+//	//	//	evi_algoverb_library.genexpr
+//	//	//	library of custom functions for evi_algoverb_core.gendsp
+//	//	//	true stereo algorithmic reverb for gen~ by Pete Dowling for evieve
+//	//	//	based on allpass 'diffuse delay' design by Martijn Zwartjes
+
+// exact ramp smoothing...
+
+eviScurve(segment)						// segment must be linear ramp 0..1
+{
+	s2		= segment * segment;
+	rec		= 1 - segment;
+	r2		= rec * rec;
+	return	(segment < 0.5) ? (s2 * 2) : (1 - (r2 * 2));
+}
+
+// basic linear scaling like linear part of [scale]
+eviMap(valueIn, inLow, inHigh, outLow, outHigh)
+{
+	multiplier = (outLow - outHigh) / (inLow - inHigh);
+	return (valueIn - inLow) * multiplier + outLow;
+}
+
+eviLine(target, duration)				// target, duration in samples
+{
+	History	value(0);
+	trigger	= change(target);
+	ramp	= clip(accum((1 / latch(duration, trigger)), trigger), 0, 1);
+	line	= eviMap(ramp, 0, 1, latch(value, trigger), latch(target, trigger));
+	value	= line;
+	return	line, (ramp == 1);
+}
+/*
+eviMultiLine2(target1, target2, duration)
+{
+	History v1(0), v2(0);
+
+}
+
+eviMultiLine3(target1, target2, target3, duration)
+{
+
+}
+*/
+eviSline(target, duration)				// target, duration in samples
+{
+	History	value(0);
+	trigger	= change(target);
+	ramp	= clip(accum((1 / latch(duration, trigger)), trigger), 0, 1);
+	cramp	= eviScurve(ramp);
+	curve	= eviMap(cramp, 0, 1, latch(value, trigger), latch(target, trigger));
+	value	= curve;
+	return	curve, (ramp == 1);
+}
+
+// log smoothing...
+
+logsad(s)
+{
+	return	LN2 / maximum((s * samplerate), 1);
+}
+
+logsmooth(x, s)						// s = time to drop 6dB (in seconds)
+{
+	History z(0);
+	ad = logsad(s);
+	y  = ((x - z) * ad) + z;
+	z  = y;
+	return y;
+}
+
+logso(x, ad)
+{
+	History z(0);
+	y = ((x - z) * ad) + z;
+	z = y;
+	return y;
+}
+
+logsmoothBank2(x1, x2, s)
+{
+	History	logsdummy2(0);
+	ad		= logsad(s);
+	y1		= logso(x1, ad);
+	y2		= logso(x2, ad);
+	return	y1, y2;
+}
+
+logsmoothBank3(x1, x2, x3, s)
+{
+	History	logsdummy3(0);
+	ad		= logsad(s);
+	y1		= logso(x1, ad);
+	y2		= logso(x2, ad);
+	y3		= logso(x3, ad);
+	return	y1, y2, y3;
+}
+
+expA(x0)									// approx exp(x) (more accurate than 'fastexp()')
+{
+	x = 0.999996 + (0.031261316 + (0.00048274797 + 0.000006 * x0) * x0) * x0;
+	x *= x; x *= x; x *= x; x *= x; x *= x;
+	return x;
+}
+
+tauA(t)										// approximate 'exp(-1 / time)'
+{
+	y = expA(-1 / (t * samplerate));
+	return y + 0.000128;					// approximation has excellent accuracy above...
+}											// ...0.01 seconds (10 milliseconds) input
+
+// exp smoothing...
+
+expsmooth(x, t)		// x = value			// t is smooth time in seconds
+{
+	History w(0);
+	z = tauA(t);
+	y = (z * w) + (x * (1 - z));
+	w = y;
+	return y;
+}
+
+// accuracy: + 4.38 cents .. 108.68 cents @ MIDI 0 .. MIDI 120
+mtofApprox(pitch)
+{
+	mtofMul	= 0.05776226504666;		// = log(2) / 12
+	mtofAdd	= 2.10117843869262;		// = log(440) - (log(2) * 69 / 12)
+
+	return	expA((mtofMul * pitch) + mtofAdd);	// 'expA()' still reasonable accuracy
+}
+/*
+// for no modulation (early reflections)
+pitch2timeSamps(size, offset)			// midi pitch in, samples out
+{
+	return	(1 / mtofApprox(size + offset)) * samplerate;
+}
+*/
+// better accuracy needed here
+
+pitch2timeSamps(size, offset)
+{
+//	return (1 / (440 * exp(0.057762265046662105 * ((size + offset) - 69)))) * samplerate;
+	return (1 / exp((0.057762265046662105 * (size + offset)) + 2.10117843869262)) * samplerate;
+}
+
+// for modulation (late reflections)
+pitch2timeSecs(size, offset)			// midi pitch in, seconds out
+{
+	return	1 / mtofApprox(size + offset);
+}
+
+// cheap parabolic approx
+parabolWrap(phase)
+{
+	x	= wrap(phase, -0.5, 0.5);
+	y	= (8 - (abs(x) * 16)) * x;
+	return	y;
+}
+
+// 8 sine modulators (4 L, 4 R), 1 phase
+// pete really doesn't like this, must rewrite
+eightMod(modFreq, modDepth)
+{
+	modulation1, modulation3, modulation6, modulation8	= 0;
+	modulation2, modulation4, modulation5, modulation7	= 0;
+
+	if (modDepth > 0) {
+
+		modPhase	= phasor(modFreq);
+
+		modulation1	= parabolWrap(modPhase + 0.125)	* modDepth;
+		modulation2	= parabolWrap(modPhase + 0.25)	* modDepth;
+		modulation3	= parabolWrap(modPhase + 0.375)	* modDepth;
+		modulation4	= parabolWrap(modPhase + 0.5)	* modDepth;
+		modulation5	= modulation1 * -1;	// stupid
+		modulation6	= modulation2 * -1;
+		modulation7	= modulation3 * -1;
+		modulation8	= modulation4 * -1;
+
+	}
+
+	return	modulation1, modulation2, modulation3, modulation4, modulation5, modulation6, modulation7, modulation8;
+}
+
+// zdf filter section for eq building
+stateVariableFilterSection(v0, a1, a2, a3, m0, m1, m2)
+{
+	History	ic1eq(0), ic2eq(0);
+
+	v3		=  v0 - ic2eq;
+	v2		=  ic2eq + (a2 * ic1eq) + (a3 * v3);
+	v1		= (a1 * ic1eq) + (a2 * v3);
+	ic1eq	= (v1 + v1) - ic1eq;
+	ic2eq	= (v2 + v2) - ic2eq;
+
+	return	(m0 * v0) + (m1 * v1) + (m2 * v2);
+}
+
+/*
+// filter cascade
+svfTwoBands(band0, a11, a21, a31, m01, m11, m21, a12, a22, a32, m02, m12, m22)
+{
+	History	twobandsdummy(0);
+	band1	= stateVariableFilterSection(band0,	a11, a21, a31, m01, m11, m21);
+	band2	= stateVariableFilterSection(band1,	a12, a22, a32, m02, m12, m22);
+	return	band2;
+}
+*/
+
+// filter cascade
+// 0 dB gain input zeros cpu of gain filters (shelfs, bell), (if coefficients are smoothed, must be by exact ramps, not logs)
+svfTwoBands(band0, a11, a21, a31, m01, m11, m21, a12, a22, a32, m02, m12, m22)
+{
+	History	twobandsdummy(0);
+	band1	= band0;
+	if ( (m11 + m21) != 0 ) {
+		band1	= stateVariableFilterSection(band0,	a11, a21, a31, m01, m11, m21);
+	}
+	band2	= band1;
+	if ( (m12 + m22) != 0 ) {
+		band2	= stateVariableFilterSection(band1,	a12, a22, a32, m02, m12, m22);
+	}
+	return	band2;
+}
+
+// core SHORT allpass filter 'diffuse' delay with (high/low-shelf) filters in feedback path
+DiffuseDelayShort(x, time, diffusion, apgain, hs_a1, hs_a2, hs_a3, hs_m0, hs_m1, hs_m2, ls_a1, ls_a2, ls_a3, ls_m0, ls_m1, ls_m2)
+{
+	History	diffdelshort(0);
+	// support 1.911128 .. 308.207444 ms
+	Delay	DiffuseDelay(samplerate*0.309, 1, feedback=1);
+
+	fb		= DiffuseDelay.read(maximum(time, 1), interp="cubic");
+	eq		= svfTwoBands(fb,	hs_a1, hs_a2, hs_a3, hs_m0, hs_m1, hs_m2, ls_a1, ls_a2, ls_a3, ls_m0, ls_m1, ls_m2);
+	y		= (x * (diffusion * -1)) + eq;
+	DiffuseDelay.write((x + (fixdenorm(y) * diffusion)) * apgain);
+
+	return	y;
+}
+
+// core LONG allpass filter 'diffuse' delay with (high/low-shelf) filters in feedback path
+DiffuseDelayLong(x, time, diffusion, apgain, hs_a1, hs_a2, hs_a3, hs_m0, hs_m1, hs_m2, ls_a1, ls_a2, ls_a3, ls_m0, ls_m1, ls_m2)
+{
+	History	diffdellong(0);
+	// support 3.822256 .. 489.248821 ms (incl. ± modulation)
+	Delay	DiffuseDelay(samplerate*0.490, 1, feedback=1);
+
+	fb		= DiffuseDelay.read(maximum(time, 1), interp="spline");
+	eq		= svfTwoBands(fb,	hs_a1, hs_a2, hs_a3, hs_m0, hs_m1, hs_m2, ls_a1, ls_a2, ls_a3, ls_m0, ls_m1, ls_m2);
+	y		= (x * (diffusion * -1)) + eq;
+	DiffuseDelay.write((x + (fixdenorm(y) * diffusion)) * apgain);
+
+	return	y;
+}
+
+/*
+earlyDiffusionMono(diffuse0, diffusion, apgain, a11, a21, a31, m01, m11, m21, a12, a22, a32, m02, m12, m22)
+{
+	History	diffmonodummy(0);
+	Param	time1(3397.987078);				// in samples ...
+	Param	time2(4281.195447);
+	Param	time3(5393.968261);
+	Param	smooth(50, min=0, max=1000);	// in ms
+
+	tm1, tm2, tm3	= logsmoothBank3(time1, time2, time3, (smooth * 0.001));
+
+	diffuse1	= DiffuseDelayShort(diffuse0,	tm1, diffusion, apgain, a11, a21, a31, m01, m11, m21, a12, a22, a32, m02, m12, m22);
+	diffuse2	= DiffuseDelayShort(diffuse1,	tm2, diffusion, apgain, a11, a21, a31, m01, m11, m21, a12, a22, a32, m02, m12, m22);
+	diffuse3	= DiffuseDelayShort(diffuse2,	tm3, diffusion, apgain, a11, a21, a31, m01, m11, m21, a12, a22, a32, m02, m12, m22);
+
+	return		svfTwoBands(diffuse3, a11, a21, a31, m01, m11, m21, a12, a22, a32, m02, m12, m22);
+}
+*/
+
+// mixing...
+// for first quarter only, optimized so that never lets sqrt(sinapprox(x)^2+cosapprox(x)^2)
+// exceed 1, always gives exact results at modphase 0, 0.5, 1 (0/1, sqrt1_2, 1/0)
+quartOneParApprox(modphase)								// 'modphase' must be clipped 0..1
+{
+	x0		=  modphase - 0.5;							// 1 sub
+	// first quarter									// angle = 0 .. halfpi
+	quart	= -0.8284271247461903 * x0 * x0 + sqrt1_2;	// 2 mul, 1 add, (-0.8284271247461903 = 2 - 4*sqrt1_2)
+	sinq1	=  quart + x0;								// 1 add
+	cosq1	=  quart - x0;								// 1 sub
+
+	return	cosq1, sinq1;
+}
+
+xfadeQuartApproxStereo(a, b, c, d, q)						// q is control, must be clipped 0..1
+{
+	qL, qR	= quartOneParApprox(q);							// cos/sin
+	return	((a * qL) + (c * qR)), ((b * qL) + (d * qR));	// out mix L, out mix R
+}
+
+xfadeQuartApproxSwap(a, b, q)								// q is control, must be clipped 0..1
+{
+	qL, qR	= quartOneParApprox(q);							// cos/sin
+	return	((a * qL) + (b * qR)), ((b * qL) + (a * qR));	// out swap L, out swap R
+}
+

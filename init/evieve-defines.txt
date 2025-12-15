@@ -1,0 +1,62 @@
+
+max define evi.softclip~ gen~ @gen evi_softclip.gendsp;
+max define mc.evi.softclip~ mc.gen~ @gen evi_softclip.gendsp @chans 2;
+
+max define evi.clip~ gen~ @gen evi_clip_hardsoft.gendsp;
+max define mc.evi.clip~ mc.gen~ @gen evi_clip_hardsoft.gendsp @chans 2;
+
+max define evi.overdrive.tanh~ gen~ @gen evi_tanhwrap.gendsp;
+max define mc.evi.overdrive.tanh~ mc.gen~ @gen evi_tanhwrap.gendsp @chans 2;
+
+max define evi.overdrive.atan~ gen~ @gen evi_atanwrap.gendsp;
+max define mc.evi.overdrive.atan~ mc.gen~ @gen evi_atanwrap.gendsp @chans 2;
+
+max define evi.overdrive.sqrt~ gen~ @gen evi_sqrtwrap.gendsp;
+max define mc.evi.overdrive.sqrt~ mc.gen~ @gen evi_sqrtwrap.gendsp @chans 2;
+
+max define evi.ringmod~ gen~ @gen evi_ringmod.gendsp;
+max define mc.evi.ringmod~ mc.gen~ @gen evi_ringmod.gendsp @chans 2;
+
+max define evi.freqshift.weaver~ gen~ @gen evi_freqshift_weaver.gendsp;
+max define mc.evi.freqshift.weaver~ mc.gen~ @gen evi_freqshift_weaver.gendsp @chans 2;
+
+max define evi.modosc~ gen~ @gen evi_modosc.gendsp;
+max define mc.evi.modosc~ mc.gen~ @gen evi_modosc.gendsp @chans 2;
+
+max define evi.blitwaves~ gen~ @gen evi_blitwaves.gendsp;
+max define mc.evi.blitwaves~ mc.gen~ @gen evi_blitwaves.gendsp @chans 2;
+
+max define evi.ladder.diode~ gen~ @gen evi_ladder_diode.gendsp;
+max define mc.evi.ladder.diode~ mc.gen~ @gen evi_ladder_diode.gendsp @chans 2;
+
+max define evi.ladder.transistor~ gen~ @gen evi_ladder_transistor.gendsp;
+max define mc.evi.ladder.transistor~ mc.gen~ @gen evi_ladder_transistor.gendsp @chans 2;
+
+max define evi.ladder.poles~ gen~ @gen evi_ladder_poles.gendsp;
+max define mc.evi.ladder.poles~ mc.gen~ @gen evi_ladder_poles.gendsp @chans 2;
+
+max define evi.ladder.antti~ gen~ @gen evi_moogsnake.gendsp;
+
+max define evi.lores~ gen~ @gen evi_lores.gendsp;
+max define mc.evi.lores~ mc.gen~ @gen evi_lores.gendsp @chans 2;
+
+max define evi.lorez~ gen~ @gen evi_lorez.gendsp;
+max define mc.evi.lorez~ mc.gen~ @gen evi_lorez.gendsp @chans 2;
+
+max define evi.multimode~ gen~ @gen evi_multimode.gendsp;
+max define mc.evi.multimode~ mc.gen~ @gen evi_multimode.gendsp @chans 2;
+
+max define evi.dahdshr~ gen~ @gen evi_DAHDSHR.gendsp;
+max define mc.evi.dahdshr~ mc.gen~ @gen evi_DAHDSHR.gendsp @chans 2;
+
+max define evi.biquadcoeff~ gen~ @gen evi_biquad_coeff.gendsp;
+max define mc.evi.biquadcoeff~ mc.gen~ @gen evi_biquad_coeff.gendsp @chans 2;
+
+max define evi.biquad~ gen~ @gen evi_biquad.gendsp;
+max define mc.evi.biquad~ mc.gen~ @gen evi_biquad.gendsp @chans 2;
+
+max define evi.biquadfilter~ gen~ @gen evi_biquad_filter.gendsp;
+max define mc.evi.biquadfilter~ mc.gen~ @gen evi_biquad_filter.gendsp @chans 2;
+
+max define evi.filter.morph~ gen~ @gen evi_filter_morph.gendsp;
+max define mc.evi.filter.morph~ mc.gen~ @gen evi_filter_morph.gendsp @chans 2;

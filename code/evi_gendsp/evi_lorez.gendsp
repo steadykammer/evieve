@@ -1,0 +1,104 @@
+{
+    "patcher": {
+        "fileversion": 1,
+        "appversion": {
+            "major": 9,
+            "minor": 1,
+            "revision": 1,
+            "architecture": "x64",
+            "modernui": 1
+        },
+        "classnamespace": "dsp.gen",
+        "rect": [ 34.0, 100.0, 840.0, 848.0 ],
+        "gridonopen": 2,
+        "subpatcher_template": "sub",
+        "integercoordinates": 1,
+        "boxes": [
+            {
+                "box": {
+                    "id": "obj-6",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 539.0, 19.0, 277.0, 22.0 ],
+                    "text": "in 3 (signal/float) Resonance 0..1 @min 0 @max 1"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-1",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 34.0, 19.0, 101.0, 22.0 ],
+                    "text": "in 1 (signal) Input"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-2",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 193.0, 19.0, 329.0, 22.0 ],
+                    "text": "in 2 (signal/float) Cutoff in Hz @min 1 @max samplerate*0.5"
+                }
+            },
+            {
+                "box": {
+                    "code": "\r\n// Nonlinear 12dB TPT Lowpass with excellent modulation properties.\r\n// @see also: \"evi_lores.gendsp\" (which is a closer match to MSP [lores~]).\r\n\r\ntanA2(x)\n{\n\ta\t= ((((x * -0.0896638) + 0.0388452) * x) + 1.00005) * x;\n\tb\t= (((x * -0.430871) + 0.0404318) * x) + 1;\n\treturn\ta / b;\n}\n\r\natanA(x)\n{\n\to = 8 * x;\n\tq = (o + o) * INVPI;\n\ts = 25 + (q * q);\n\tu = 3 + sqrt(s);\n\treturn o / u;\n}\r\n\r\nhermite_sixpoint_interp(f0, ym2, ym1, y0, y1, y2, y3)\n{\n\tf1\t\t=  f0 - 0.5;\n\teven1\t= ym2 + y3;\n\todd1\t= ym2 - y3;\n\teven2\t= ym1 + y2;\n\todd2\t= ym1 - y2;\n\teven3\t=  y0 + y1;\n\todd3\t=  y0 - y1;\n\n\tc0\t= 0.01171875*even1\t\t- 0.09765625*even2\t\t+ 0.5859375*even3;\n\tc1\t= 0.2109375*odd2\t\t- 1.463541666667*odd3\t- 0.033854166667*odd1;\n\tc2\t= 0.40625*even2\t\t\t- 0.354166666667*even3\t- 0.052083333333*even1;\n\tc3\t= 0.1875*odd1\t\t\t- 1.104166666667*odd2\t+ 2.375*odd3;\n\tc4\t= 0.020833333333*even1\t- 0.0625*even2\t\t\t+ 0.041666666667*even3;\n\tc5\t= 1.041666666667*odd2\t- 2.083333333333*odd3\t- 0.208333333333*odd1;\n\n\treturn ((((c5*f1 + c4)*f1 + c3)*f1 + c2)*f1 + c1)*f1 + c0;\n}\r\n\r\n// two poles of a ladder with allpass alignment and naive nonlinearity (but works ok here)\r\ntwopoleLadder(xin, hz, res)\r\n{\r\n    History s1(0), s2(0), s3(0);\r\n    // painful coefficients\r\n    invsr = 1 / samplerate;\r\n    invsr05 = invsr * 0.5;\r\n    k = res + res + res; // one less if linear\r\n    k2 = sqrt2 + 0.353553 * res;\r\n    w = twopi * hz;\r\n    g0 = ((2 / invsr) * tanA2(w * invsr05)) * invsr05;\r\n    g1 = 1 + g0;\r\n    g = g0 / g1;\r\n    ga = (g + g) - 1;\r\n    lp1fb = g * ga / g1;\r\n    lp2fb = ga / g1;\r\n    ap3fb = 2 / g1;\r\n    alpha = 1 / (1 + k * ga * g * g);\r\n    // nonlinear\r\n    mK = ((s1 * lp1fb) + (s2 * lp2fb) + (s3 * ap3fb)) * -k;\r\n    X = mK + xin;\r\n    //u = X * alpha; // if linear\r\n    u = atanA(X * alpha); // cannot be adaa in loop\r\n    // lowpass 1\r\n    xg = (u - s1) * g;\r\n    lp1 = xg + s1;\r\n    s1 = xg + lp1;\r\n    // lowpass 2\r\n    yg = (lp1 - s2) * g;\r\n    lp2 = yg + s2;\r\n    s2 = yg + lp2;\r\n    // allpass\r\n    zg = (lp2 - s3) * g;\r\n    lp3 = zg + s3;\r\n    hp3 = lp2 - lp3;\r\n    ap3 = (lp3 - hp3) * k2;\r\n    s3 = zg + lp3;\r\n    // tap\r\n    return ap3;\r\n}\r\n\r\ntwopoleLadderCoeff(hz, res)\r\n{\r\n    // painful coefficients\r\n    invsr = 1 / samplerate;\r\n    invsr05 = invsr * 0.5;\r\n    k = res + res + res; // one less if linear\r\n    k2 = sqrt2 + 0.353553 * res;\r\n    w = twopi * hz;\r\n    g0 = ((2 / invsr) * tanA2(w * invsr05)) * invsr05;\r\n    g1 = 1 + g0;\r\n    g = g0 / g1;\r\n    ga = (g + g) - 1;\r\n    lp1fb = g * ga / g1;\r\n    lp2fb = ga / g1;\r\n    ap3fb = 2 / g1;\r\n    alpha = 1 / (1 + k * ga * g * g);\r\n    return g, lp1fb, lp2fb, ap3fb, alpha, k, k2;\r\n}\r\n\r\ntwopoleLadderFilter(xin, g, lp1fb, lp2fb, ap3fb, alpha, k, k2)\r\n{\r\n    History s1(0), s2(0), s3(0);\r\n    // nonlinear\r\n    mK = ((s1 * lp1fb) + (s2 * lp2fb) + (s3 * ap3fb)) * -k;\r\n    X = mK + xin;\r\n    //u = X * alpha; // if linear\r\n    u = atanA(X * alpha); // cannot be adaa in loop\r\n    // lowpass 1\r\n    xg = (u - s1) * g;\r\n    lp1 = xg + s1;\r\n    s1 = xg + lp1;\r\n    // lowpass 2\r\n    yg = (lp1 - s2) * g;\r\n    lp2 = yg + s2;\r\n    s2 = yg + lp2;\r\n    // allpass\r\n    zg = (lp2 - s3) * g;\r\n    lp3 = zg + s3;\r\n    hp3 = lp2 - lp3;\r\n    ap3 = (lp3 - hp3) * k2;\r\n    s3 = zg + lp3;\r\n    // tap\r\n    return ap3;\r\n}\r\n\r\n// fixed 2x quasi oversampling (hermite6)\ntwopoleLadder_2x( XIN, hz, res )\n{\t// up 2\n\tHistory\tumTm2_0(0), umTm1_0(0), umT0_0(0), umT1_0(0), umT2_0(0);\n\t// down 2\n\tHistory\tdmT3_1(0), dmT2_1(0), dmT1_1(0), dmT0_1(0), dmTm1_1(0);\n\t// align\n\tHistory\tdoX0(0);\n\n\t// up 2x\n\tx0_0_a\t= XIN + 0;\n\tx1_0\t= hermite_sixpoint_interp(0.5,\tumTm2_0, umTm1_0, umT0_0, umT1_0, umT2_0, x0_0_a);\n\tx2_0\t= umT2_0 + 0;\n\n\t// process 2x\n\ty1_0\t= twopoleLadder( x1_0, hz, res );\n\ty2_0\t= twopoleLadder( x2_0, hz, res );\n\n\t// down 2x\n\ty2_0_a\t= y2_0 + 0;\n\ty2_1\t= hermite_sixpoint_interp(0.5,\ty2_0_a,\tdmTm1_1, dmT0_1, dmT1_1, dmT2_1, dmT3_1);\n\n\ty0_0\t= (doX0 + y2_1) * 0.5;\n\n\t// update\n\tumTm2_0\t= umTm1_0;\n\tumTm1_0\t= umT0_0;\n\tumT0_0\t= umT1_0;\n\tumT1_0 \t= umT2_0;\n\tumT2_0\t= x0_0_a;\n\n\tdoX0\t= y1_0;\n\n\tdmT3_1\t= dmT2_1;\n\tdmT2_1\t= dmT1_1;\n\tdmT1_1\t= dmT0_1;\n\tdmT0_1\t= dmTm1_1;\n\tdmTm1_1\t= y2_0;\n\n\treturn dcblock(y0_0);\n}\n\n// fixed 4x quasi oversampling (hermite6)\ntwopoleLadder_4x( XIN, hz, res )\n{\t// up 2\n\tHistory\tumTm2_0(0), umTm1_0(0), umT0_0(0), umT1_0(0), umT2_0(0);\n\t// down 2\n\tHistory\tdmT3_1(0), dmT2_1(0), dmT1_1(0), dmT0_1(0), dmTm1_1(0);\n\t// align\n\tHistory\tdoX0(0);\n\n\t// up 2x\n\tx0_0_a\t= XIN + 0;\n\tx1_0\t= hermite_sixpoint_interp(0.5,\tumTm2_0, umTm1_0, umT0_0, umT1_0, umT2_0, x0_0_a);\n\tx2_0\t= umT2_0 + 0;\n\n\t// process 2x\n\ty1_0\t= twopoleLadder_2x( x1_0, hz, res );\n\ty2_0\t= twopoleLadder_2x( x2_0, hz, res );\n\n\t// down 2x\n\ty2_0_a\t= y2_0 + 0;\n\ty2_1\t= hermite_sixpoint_interp(0.5,\ty2_0_a,\tdmTm1_1, dmT0_1, dmT1_1, dmT2_1, dmT3_1);\n\n\ty0_0\t= (doX0 + y2_1) * 0.5;\n\n\t// update\n\tumTm2_0\t= umTm1_0;\n\tumTm1_0\t= umT0_0;\n\tumT0_0\t= umT1_0;\n\tumT1_0 \t= umT2_0;\n\tumT2_0\t= x0_0_a;\n\n\tdoX0\t= y1_0;\n\n\tdmT3_1\t= dmT2_1;\n\tdmT2_1\t= dmT1_1;\n\tdmT1_1\t= dmT0_1;\n\tdmT0_1\t= dmTm1_1;\n\tdmTm1_1\t= y2_0;\n\n\treturn dcblock(y0_0);\n}\r\n\r\n// fixed 2x quasi oversampling (hermite6)\ntwopoleLadderFilter_2x( XIN, g, lp1fb, lp2fb, ap3fb, alpha, k, k2 )\n{\t// up 2\n\tHistory\tumTm2_0(0), umTm1_0(0), umT0_0(0), umT1_0(0), umT2_0(0);\n\t// down 2\n\tHistory\tdmT3_1(0), dmT2_1(0), dmT1_1(0), dmT0_1(0), dmTm1_1(0);\n\t// align\n\tHistory\tdoX0(0);\n\n\t// up 2x\n\tx0_0_a\t= XIN + 0;\n\tx1_0\t= hermite_sixpoint_interp(0.5,\tumTm2_0, umTm1_0, umT0_0, umT1_0, umT2_0, x0_0_a);\n\tx2_0\t= umT2_0 + 0;\n\n\t// process 2x\n\ty1_0\t= twopoleLadderFilter( x1_0, g, lp1fb, lp2fb, ap3fb, alpha, k, k2 );\n\ty2_0\t= twopoleLadderFilter( x2_0, g, lp1fb, lp2fb, ap3fb, alpha, k, k2 );\n\n\t// down 2x\n\ty2_0_a\t= y2_0 + 0;\n\ty2_1\t= hermite_sixpoint_interp(0.5,\ty2_0_a,\tdmTm1_1, dmT0_1, dmT1_1, dmT2_1, dmT3_1);\n\n\ty0_0\t= (doX0 + y2_1) * 0.5;\n\n\t// update\n\tumTm2_0\t= umTm1_0;\n\tumTm1_0\t= umT0_0;\n\tumT0_0\t= umT1_0;\n\tumT1_0 \t= umT2_0;\n\tumT2_0\t= x0_0_a;\n\n\tdoX0\t= y1_0;\n\n\tdmT3_1\t= dmT2_1;\n\tdmT2_1\t= dmT1_1;\n\tdmT1_1\t= dmT0_1;\n\tdmT0_1\t= dmTm1_1;\n\tdmTm1_1\t= y2_0;\n\n\treturn dcblock(y0_0);\n}\n\n// fixed 4x quasi oversampling (hermite6)\ntwopoleLadderFilter_4x( XIN, g, lp1fb, lp2fb, ap3fb, alpha, k, k2)\n{\t// up 2\n\tHistory\tumTm2_0(0), umTm1_0(0), umT0_0(0), umT1_0(0), umT2_0(0);\n\t// down 2\n\tHistory\tdmT3_1(0), dmT2_1(0), dmT1_1(0), dmT0_1(0), dmTm1_1(0);\n\t// align\n\tHistory\tdoX0(0);\n\n\t// up 2x\n\tx0_0_a\t= XIN + 0;\n\tx1_0\t= hermite_sixpoint_interp(0.5,\tumTm2_0, umTm1_0, umT0_0, umT1_0, umT2_0, x0_0_a);\n\tx2_0\t= umT2_0 + 0;\n\n\t// process 2x\n\ty1_0\t= twopoleLadderFilter_2x( x1_0, g, lp1fb, lp2fb, ap3fb, alpha, k, k2 );\n\ty2_0\t= twopoleLadderFilter_2x( x2_0, g, lp1fb, lp2fb, ap3fb, alpha, k, k2 );\n\n\t// down 2x\n\ty2_0_a\t= y2_0 + 0;\n\ty2_1\t= hermite_sixpoint_interp(0.5,\ty2_0_a,\tdmTm1_1, dmT0_1, dmT1_1, dmT2_1, dmT3_1);\n\n\ty0_0\t= (doX0 + y2_1) * 0.5;\n\n\t// update\n\tumTm2_0\t= umTm1_0;\n\tumTm1_0\t= umT0_0;\n\tumT0_0\t= umT1_0;\n\tumT1_0 \t= umT2_0;\n\tumT2_0\t= x0_0_a;\n\n\tdoX0\t= y1_0;\n\n\tdmT3_1\t= dmT2_1;\n\tdmT2_1\t= dmT1_1;\n\tdmT1_1\t= dmT0_1;\n\tdmT0_1\t= dmTm1_1;\n\tdmTm1_1\t= y2_0;\n\n\treturn dcblock(y0_0);\n}\r\n\r\nParam   oversample(1, min=0, max=2); // 1x, 2x, 4x\r\nos      = int(oversample);\r\n\r\nlorez = 0;\r\nif (os > 0) {\r\n    g, lp1fb, lp2fb, ap3fb, alpha, k, k2 = twopoleLadderCoeff(in2, in3);\r\n    if (os == 1) {  // default\r\n        lorez = twopoleLadderFilter_2x(in1, g, lp1fb, lp2fb, ap3fb, alpha, k, k2);\r\n    } else {        // os == 2\r\n        lorez = twopoleLadderFilter_4x(in1, g, lp1fb, lp2fb, ap3fb, alpha, k, k2);\r\n    }\r\n} else {            // 1x\r\n    lorez = twopoleLadder(in1, in2, in3);\r\n}\r\n\r\nout1 = lorez;\r\n",
+                    "fontface": 0,
+                    "fontname": "<Monospaced>",
+                    "fontsize": 12.0,
+                    "id": "obj-3",
+                    "maxclass": "codebox",
+                    "numinlets": 3,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 34.0, 59.0, 752.0, 730.0 ]
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-4",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 34.0, 805.0, 147.0, 22.0 ],
+                    "text": "out 1 (signal) lorez Output"
+                }
+            }
+        ],
+        "lines": [
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 0 ],
+                    "source": [ "obj-1", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 1 ],
+                    "midpoints": [ 202.5, 50.0, 410.0, 50.0 ],
+                    "source": [ "obj-2", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-4", 0 ],
+                    "source": [ "obj-3", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 2 ],
+                    "midpoints": [ 548.5, 50.0, 776.5, 50.0 ],
+                    "source": [ "obj-6", 0 ]
+                }
+            }
+        ]
+    }
+}

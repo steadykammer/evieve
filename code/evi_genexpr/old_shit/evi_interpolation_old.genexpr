@@ -1,0 +1,205 @@
+
+//	//	//	Interpolation Types	//	//	//
+
+// Smooth Step	// !! wrong (do not use) !!
+/*
+smoothstep_interp(f, y1, y2)
+{
+	t		= clamp((f - y1) / (y2 - y1), 0, 1);
+	return	t * t * (3 - 2 * t);
+}
+*/
+
+// Linear 	// !! gen~ [interp mode="linear"] !!
+
+linear_interp(f, y1, y2)
+{
+    return	y1 + (f * (y2 - y1));
+}
+
+// Cosine		// !! bad approx here (do not use) !!
+
+cosine_interp(f, y1, y2)
+{
+	fp		= f * PI;
+	fp2		= fp * fp;
+	f1		= 0.5 - ((0.9999932946 + fp2 * (-0.4999124376 + fp2 * 
+						(0.0414877472 + -0.0012712095 * fp2))) * 0.5);
+	return	y1 * (1 - f1) + y2 * f1;
+}
+
+// Parabolic	// !! wrong (do not use) !!
+/*
+parabolic_interp(f, y1, y2, y3)
+{
+	beta	= 0.5 * (y3 - y1);
+	gamma	= (y2 + y2) - y3 - y1;
+	return	f + (beta / gamma);
+}
+*/
+// Cubic Fast	// 5 muls, 9 ±	// !! gen~ [interp mode="fastcubic"] !!
+
+cubic_fast_interp(f, y0, y1, y2, y3)	// very useful but do not use in feedback loops
+{
+	f2		= f * f;
+
+//	c0		= y1;
+	c1		= y3 - y2 - y0 + y1;
+	c2		= y0 - y1 - c1;
+	c3		= y2 - y0;
+
+	return	(c1 * f * f2) + (c2 * f2) + (c3 * f) + y1;
+}
+
+// Cubic Hermite, McCartney / Harker	// 8 muls, 11 ±	// !! gen~ [interp mode="cubic"] !!
+
+cubic_hermite_interp(f, y0, y1, y2, y3)
+{
+//	c0		= y1;
+	c1		= 0.5 * (y2 - y0);
+	c2		= y0 - 2.5 * y1 + y2 + y2 - 0.5 * y3;
+	c3		= 0.5 * (y3 - y0) + 1.5 * (y1 - y2);
+
+	return	((c3 * f + c2) * f + c1) * f + y1;
+}
+
+// Cubic B-spline	// 9 muls, 10 ±
+
+cubic_bspline_interp(f, y0, y1, y2, y3)		// not for audio samples
+{
+	twodivthree	= 0.6666666666666666;
+	onedivsix	= 0.16666666666666666;
+	y0py2		= y0 + y2;
+
+	c0		= onedivsix * y0py2 + twodivthree * y1;
+	c1		= 0.5 * (y2 - y0);
+	c2		= 0.5 * y0py2 - y1;
+	c3		= 0.5 * (y1 - y2) + onedivsix * (y3 - y0);
+
+	return	((c3 * f + c2) * f + c1) * f + c0;
+}
+
+// Cubic Lagrange	9 muls, 11 ±
+
+cubic_lagrange_interp(f, y0, y1, y2, y3)	// not for audio samples
+{
+    onedivthree	= 0.3333333333333333;
+	onedivsix	= 0.16666666666666666;
+
+//	c0		= y1;
+	c1		= y2 - onedivthree * y0 - 0.5 * y1 - onedivsix * y3;
+	c2		= 0.5 * (y0 + y2) - y1;
+	c3		= onedivsix * (y3 - y0) + 0.5 * (y1 - y2);
+
+	return	((c3 * f + c2) * f + c1) * f + y1;
+}
+
+// Cubic Spline	// 16 muls/divs, 10 ±	// pointless
+
+cubic_slow_interp(f, y0, y1, y2, y3)
+{
+	f2		= f * f;
+
+//	c0		=  y1;
+	c1		= -y0 / 2 + (3 * y1) / 2 - (3 * y2) / 2 + y3 / 2;
+	c2		=  y0 - (5 * y1) / 2 + 2 * y2 - y3 / 2;
+	c3		= -y0 / 2 + y2 / 2;
+
+	return	(c1 * f * f2) + (c2 * f2) + (c3 * f) + y1;
+}
+
+// Catmull-Rom Spline, Paul Beewusema	// 13 muls, 11 ±	// !! gen~ [interp mode="spline"] !!
+
+catmull_rom_spline_interp(f, y0, y1, y2, y3)
+{
+	f2		= f * f;
+
+//	c0		=  y1;
+	c1		= -0.5 * y0 + 1.5 * y1 - 1.5 * y2 + 0.5 * y3;
+	c2		=  y0 - 2.5 * y1 + (y2 + y2) - 0.5 * y3;
+	c3		= -0.5 * y0 + 0.5 * y2;
+
+	return	(c1 * f * f2) + (c2 * f2) + (c3 * f) + y1;
+}
+
+// Catmull-Rom Spline Bias Tension	// 17 muls, 17 ±
+
+catmull_rom_spline_dynamic(f, y0, y1, y2, y3, bias, tension)	// !! also available in MSP [wave~] !!
+{
+	f2		=  f * f;
+	f3		=  f * f2;
+	f6		=  3 * f2;
+	y2my1	= y2 - y1;
+
+	bp, bm	= (1 + bias), (1 - bias);
+	mt		= (1 - tension) * 0.5;
+	m0		= ((y1 - y0) * bp +   y2my1   * bm) * mt;
+	m1		= (  y2my1   * bp + (y3 - y2) * bm) * mt;
+
+	c0		=	2 * f3 - f6 + 1;
+   	c1		=		f3 - 2 * f2 + f;
+   	c2		=		f3 - f2;
+   	c3		=  -2 * f3 + f6;
+
+   	return	(c0 * y1) + (c1 * m0) + (c2 * m1) + (c3 * y2);
+}
+
+// Hermite 6-point 5th-order, Olli Niemitalo	//	23 muls, 24 ±	// !! gen~ [interp mode="spline6"] !!
+
+hermite_sixpoint_interp(f, ym2, ym1, y0, y1, y2, y3)
+{
+	f1		=  f - 0.5;
+	even1	= y1 + y0;
+	odd1	= y1 - y0;
+	even2	= y2 + ym1;
+	odd2	= y2 - ym1;
+	even3	= y3 + ym2;
+	odd3	= y3 - ym2;
+
+	c0	= (even1 * 0.40513396007145713)		+ (even2 * 0.09251794438424393)		+ (even3 * 0.00234806603570670);
+	c1	= (odd1 * 0.28342806338906690)		+ (odd2 * 0.21703277024054901)		+ (odd3 * 0.01309294748731515);
+	c2	= (even1 * -0.191337682540351941)	+ (even2 * 0.16187844487943592)		+ (even3 * 0.02946017143111912);
+	c3	= (odd1 * -0.16471626190554542)		+ (odd2 * -0.00154547203542499)		+ (odd3 * 0.03399271444851909);
+	c4	= (even1 * 0.03845798729588149)		+ (even2 * -0.05712936104242644)	+ (even3 * 0.01866750929921070);
+	c5	= (odd1 * 0.04317950185225609)		+ (odd2 * -0.01802814255926417)		+ (odd3 * 0.00152170021558204);
+
+	return	((((c5 * f1 + c4) * f1 + c3) * f1 + c2) * f1 + c1) * f1 + c0;
+}
+
+twopoint_interp_switcher(f, y1, y2, type)
+{
+	interpolated		= 0;
+	if				(type == 1) {
+//		interpolated	= cosine_interp(f, y1, y2);
+		interpolated	= interp(f, y1, y2, mode="cosine");
+	} else {
+//		interpolated	= linear_interp(f, y1, y2);
+		interpolated	= interp(f, y1, y2, mode="linear");
+	}
+	return	interpolated;
+}
+
+fourpoint_interp_switcher(f, y0, y1, y2, y3, type)
+{
+	interpolated		= 0;
+	if				(type == 1) {
+//		interpolated	= cubic_hermite_interp(f, y0, y1, y2, y3);		// best for audio
+		interpolated	= interp(f, y0, y1, y2, y3, mode="cubic");
+	} else if		(type == 2) {
+//		interpolated	= catmull_rom_spline_interp(f, y0, y1, y2, y3);	// different good for audio
+		interpolated	= interp(f, y0, y1, y2, y3, mode="spline");
+	} else if		(type == 3) {
+		interpolated	= cubic_bspline_interp(f, y0, y1, y2, y3);
+	} else if		(type == 4) {
+		interpolated	= cubic_lagrange_interp(f, y0, y1, y2, y3);
+	} else if		(type == 5) {
+		interpolated	= cubic_slow_interp(f, y0, y1, y2, y3);
+	} else {	//	(type == 0)
+//		interpolated	= cubic_fast_interp(f, y0, y1, y2, y3);
+		interpolated	= interp(f, y0, y1, y2, y3, mode="fastcubic");
+	}
+	return	interpolated;
+}
+
+// !! TODO: PChirp
+

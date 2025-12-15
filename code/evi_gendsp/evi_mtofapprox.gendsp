@@ -1,0 +1,77 @@
+{
+	"patcher" : 	{
+		"fileversion" : 1,
+		"appversion" : 		{
+			"major" : 9,
+			"minor" : 1,
+			"revision" : 0,
+			"architecture" : "x64",
+			"modernui" : 1
+		}
+,
+		"classnamespace" : "dsp.gen",
+		"rect" : [ 34.0, 100.0, 809.0, 823.0 ],
+		"gridonopen" : 2,
+		"gridsize" : [ 15.0, 15.0 ],
+		"subpatcher_template" : "sub",
+		"assistshowspatchername" : 0,
+		"commentary" : "",
+		"showcommentary" : 0,
+		"integercoordinates" : 1,
+		"boxes" : [ 			{
+				"box" : 				{
+					"id" : "obj-1",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 49.0, 19.0, 28.0, 22.0 ],
+					"text" : "in 1"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"code" : "\r\n// cheaper than 'exp()', more accurate than 'fastexp()'\nexpA(x0)\n{\n\tx = 0.999996 + (0.031261316 + (0.00048274797 + 0.000006 * x0) * x0) * x0;\n\tx *= x; x *= x; x *= x; x *= x; x *= x;\n\treturn x;\n}\n\r\nmtofApproxBaseless(pitch)\n{\n\tmtofA = 440 * expA(0.05776226504666 * (pitch - 69));\n\treturn mtofA + 0.120906;\t\t// + offset = accurate for input 48..69\n}\n\nmtofApprox(pitch, base)\t\t\t\t// 'base' should be 440 (hz) for default operation\n{\n\tmtofA = base * expA(0.05776226504666 * (pitch - 69));\n\treturn mtofA + 0.120906;\t\t// + offset = accurate for input 48..69\n}\n\n// by alex harker, perfect accuracy, more expensive than above, but cheaper than 'mtof()'\nmtofApproxPrecision(pitch)\n{\n\tmtofMul\t= 0.05776226504666;\t\t// N.B.\tmtofMul = log(2) / 12\n\tmtofAdd\t= 2.10117843869262;\t\t// N.B.\tmtofAdd = log(440) - (log(2) * 69 / 12)\n\n\treturn\texp((mtofMul * pitch) + mtofAdd);\t// full exp\n}\n\r\nParam\tbase(440, min=415, max=467);\r\nParam\talgo(0, min=0, max=2);\r\nselect\t= int(algo);\r\n\r\nfrequency\t= 0;\r\nif (select == 1) {\r\n\tfrequency\t= mtofApprox(in1, base);\r\n} else if (select == 2) {\r\n\tfrequency\t= mtofApproxPrecision(in1);\r\n} else {\t// select == 0\t// default\r\n\tfrequency\t= mtofApproxBaseless(in1);\r\n}\r\n\r\nout1\t= frequency;\r\n\r\n",
+					"fontface" : 0,
+					"fontname" : "<Monospaced>",
+					"fontsize" : 12.0,
+					"id" : "obj-3",
+					"maxclass" : "codebox",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 49.0, 58.0, 712.0, 703.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-4",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 49.0, 778.0, 35.0, 22.0 ],
+					"text" : "out 1"
+				}
+
+			}
+ ],
+		"lines" : [ 			{
+				"patchline" : 				{
+					"destination" : [ "obj-3", 0 ],
+					"source" : [ "obj-1", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-4", 0 ],
+					"source" : [ "obj-3", 0 ]
+				}
+
+			}
+ ]
+	}
+
+}

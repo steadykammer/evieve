@@ -1,0 +1,104 @@
+{
+    "patcher": {
+        "fileversion": 1,
+        "appversion": {
+            "major": 9,
+            "minor": 1,
+            "revision": 1,
+            "architecture": "x64",
+            "modernui": 1
+        },
+        "classnamespace": "dsp.gen",
+        "rect": [ 323.0, 100.0, 1051.0, 833.0 ],
+        "gridonopen": 2,
+        "subpatcher_template": "sub",
+        "integercoordinates": 1,
+        "boxes": [
+            {
+                "box": {
+                    "id": "obj-5",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 731.0, 14.0, 277.0, 22.0 ],
+                    "text": "in 3 (signal/float) Resonance 0..1 @min 0 @max 1"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-1",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 36.0, 14.0, 101.0, 22.0 ],
+                    "text": "in 1 (signal) Input"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-2",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 369.0, 14.0, 345.0, 22.0 ],
+                    "text": "in 2 (signal/float) Cutoff Frequency in Hz @max samplerate*0.5"
+                }
+            },
+            {
+                "box": {
+                    "code": "\r\n// This is a perhaps pointless attempt to make a filter with the bizarre (\"musical\"?) response of MSP [lores~].\r\n// The problems with [lores~] are:  - it digitally clips your audio signal and aliases and is horrible\r\n//                                  - it is totally unstable and blows up after time at high resonance values\r\n//                                  - it is a Direct Form Z-1 filter that has bad modulation properties\r\n\r\n// [lores~] is basically like the lowpass output of [svf~] but with a very unique mapping & coupling of cutoff and resonance:\r\n// frequency affects strength of resonance and resonance affects slope of filter, etc. The irony of the unique mapping\r\n// of [lores~] is that it has a lower resonance in the low frequency range, but in fairness this is\r\n// a traditional analog SVF type of mapping).\r\n\r\n// In this \"evi_lores\" filter here we just try to give a rough mapping of these properties but on to a superiour TPT filter\r\n// so that modulation etc is much better. We also make sensible settings for resonance so that it does not digitally clip.\r\n// Notice that this is still just a simple linear filter (like [lores~]), but tuned better - but not identical to [lores~]!\r\n// (We have zeros at nyquist in our TPT so sadly we have the frequency cramping up high).\r\n// For a better (and more normal) nonlinear 12dB lowpass filter consider \"evi_lorez.gendsp\".\r\n\r\ncosQ73(x)\n{\n\tc1 =  0.999999953464;\n\tc2 = -0.499999053455;\n\tc3 =  0.0416635846769;\n\tc4 = -0.0013853704264;\n\tc5 =  0.00002315393167;  \t\n\n\tx2 = x * x;\n\treturn (c1 + x2 * (c2 + x2 * (c3 + x2 * (c4 + c5 * x2))));\n}\n\ncos73(x)\n{\n\tTWOOVERPI = 0.63661977236758;\t// 2 / PI\n\tx = x % TWOPI;\t\t\t\t\t\t\t\t    // phasewrap(x) cheaper ?\n\tx = (x < 0) ? -x : x;\n\tQUAD = int(x * TWOOVERPI);\t\t// get quadrant # (0..3) we are in\n\tcosreturn = 0;\n\tif \t\t\t\t(QUAD == 0) {\n\t\tcosreturn =  cosQ73(x);\n\t} else if \t\t(QUAD == 1) {\n\t\tcosreturn = -cosQ73(PI - x);\n\t} else if \t\t(QUAD == 2) {\n\t\tcosreturn = -cosQ73(x - PI);\n\t} else {\t//\t(QUAD == 3)\n\t\tcosreturn =  cosQ73(TWOPI - x);\n\t}\n\treturn cosreturn;\n}\n\nsin73(x)\n{\n\treturn cos73(HALFPI - x);\n}\n\n// no branching, stay out the while loop in export, for param rate etc\ncos73param(x)\n{\n\tTWOOVERPI = 0.63661977236758;\t// 2 / PI\n\tx = x % TWOPI;\t\t\t\t\t\t\t\t    // phasewrap(x) cheaper ?\n\tx = (x < 0) ? -x : x;\n\tQUAD = int(x * TWOOVERPI);\t\t// get quadrant # (0..3) we are in\n\treturn (QUAD == 0) ? cosQ73(x) : ((QUAD == 1) ? -cosQ73(PI - x) : ((QUAD == 2) ? -cosQ73(x - PI) : cosQ73(TWOPI - x)));\n}\n\nsin73param(x)\n{\n\treturn cos73param(HALFPI - x);\n}\n\r\n// param rate version in case you need it\r\nsvfSinLoresCoeff(cutoff, damp)\r\n{\r\n    // [lores~] behaves to about 5 Hz input but this works out about 10 Hz for our svf\r\n    hz  = ((1 - damp) * 490) + 10;                  // a basic version of the bizarre coupling\r\n\tw\t= pi * maximum(cutoff, hz) / samplerate;\n\ts1\t= sin73param(w);\n\ts2\t= sin73param(w + w);\r\n    dimp = damp * damp;\n    dump = clip(dimp * 0.5 + sqrt(s2), 0, 0.96);    // a basic version of the bizarre coupling\n\tk\t= 1 - dump;\n    // or should use the Huovilainen here: res = k * 4; k = res / (1 + g * (2 - res)); ??\n\tnrm\t= 1 / (2 + (k * s1));\n\tg0\t= s2 * nrm;\n\tg1\t= ((-2 * s1 * s1) - (k * s2)) * nrm;\r\n    // we need to modify g2 to match the high freq pole of [lores~], but i cannot work it out\n\tg2\t= ((s1 + s1) * s1) * nrm;\n\r\n    return  g0, g1, g2, dump;\r\n}\r\n\r\nsvfSinLoresFilter(X, g0, g1, g2, dump)\r\n{\r\n\tHistory ic1eq(0), ic2eq(0);\n\r\n\tt0\t=   X - ic2eq;\n\tgt0\t=  g0 * ic1eq;\n\tgt1\t=  g1 * ic1eq;\n\tt1\t= (g0 * t0) + gt1;\n\tt2\t= (g2 * t0) + gt0;\n\r\n    // we could mix in -band & +high/peak to sort of match lores~ high freq response ?\n//\tband\t=  t1   +  ic1eq;\n\tlow\t\t=  t2   +  ic2eq;\n//\thigh\t= (X    - (dump * band)) - low;\n//\tpeak\t=  high -  low;\n//\tnotch\t=  high +  low;\n\n\tic1eq  += (t1 + t1);\n\tic2eq  += (t2 + t2);\n\n\treturn low;\r\n}\r\n\r\nsvfSinLowresFull(X, cutoff, damp)\n{\n\tHistory ic1eq(0), ic2eq(0);\n\r\n    // [lores~] behaves to about 5 Hz input but this works out about 10 Hz for our svf\r\n    hz  = ((1 - damp) * 490) + 10;                  // a basic version of the bizarre coupling\r\n\tw\t= pi * maximum(cutoff, hz) / samplerate;\n\ts1\t= sin73(w);\n\ts2\t= sin73(w + w);\r\n    dimp = damp * damp;\n    dump = clip(dimp * 0.5 + sqrt(s2), 0, 0.96);    // a basic version of the bizarre coupling\r\n\tk\t= 1 - dump;\n    // or should use the Huovilainen here: res = k * 4; k = res / (1 + g * (2 - res)); ??\n\tnrm\t= 1 / (2 + (k * s1));\n\tg0\t= s2 * nrm;\n\tg1\t= ((-2 * s1 * s1) - (k * s2)) * nrm;\r\n    // we need to modify g2 to match the high freq pole of [lores~], but i cannot work it out\n\tg2\t= ((s1 + s1) * s1) * nrm;\n\n\tt0\t=   X - ic2eq;\n\tgt0\t=  g0 * ic1eq;\n\tgt1\t=  g1 * ic1eq;\n\tt1\t= (g0 * t0) + gt1;\n\tt2\t= (g2 * t0) + gt0;\n\r\n    // we could mix in -band & +high/peak to sort of match lores~ high freq response ?\n//\tband\t=  t1   +  ic1eq;\n\tlow\t\t=  t2   +  ic2eq;\n//\thigh\t= (X    - (dump * band)) - low;\n//\tpeak\t=  high -  low;\n//\tnotch\t=  high +  low;\n\n\tic1eq  += (t1 + t1);\n\tic2eq  += (t2 + t2);\n\n\treturn low;\n}\n\r\nout1    = svfSinLowresFull(in1, in2, in3);\r\n\r\n",
+                    "fontface": 0,
+                    "fontname": "<Monospaced>",
+                    "fontsize": 12.0,
+                    "id": "obj-3",
+                    "maxclass": "codebox",
+                    "numinlets": 3,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 36.0, 53.0, 972.0, 718.0 ]
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-4",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 36.0, 788.0, 234.0, 22.0 ],
+                    "text": "out 1 (signal) lores~like Output but not shit"
+                }
+            }
+        ],
+        "lines": [
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 0 ],
+                    "source": [ "obj-1", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 1 ],
+                    "midpoints": [ 378.5, 44.5, 522.0, 44.5 ],
+                    "source": [ "obj-2", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-4", 0 ],
+                    "source": [ "obj-3", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 2 ],
+                    "midpoints": [ 740.5, 44.5, 998.5, 44.5 ],
+                    "source": [ "obj-5", 0 ]
+                }
+            }
+        ]
+    }
+}

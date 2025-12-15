@@ -1,0 +1,141 @@
+{
+    "patcher": {
+        "fileversion": 1,
+        "appversion": {
+            "major": 9,
+            "minor": 1,
+            "revision": 2,
+            "architecture": "x64",
+            "modernui": 1
+        },
+        "classnamespace": "dsp.gen",
+        "rect": [ 36.0, 100.0, 930.0, 848.0 ],
+        "gridonopen": 2,
+        "subpatcher_template": "sub",
+        "integercoordinates": 1,
+        "boxes": [
+            {
+                "box": {
+                    "id": "obj-7",
+                    "linecount": 2,
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 773.0, 13.0, 137.0, 35.0 ],
+                    "text": "in 5 (signal/float) Morph 0..1 @min 0 @max 1"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-6",
+                    "linecount": 2,
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 579.0, 13.0, 191.0, 35.0 ],
+                    "text": "in 4 (signal/float) Resonance 0..1 @min 0 @max 1 @default 0.5"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-5",
+                    "linecount": 2,
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 398.0, 13.0, 178.0, 35.0 ],
+                    "text": "in 3 (signal/float) Gain in dB @min -12 @max 12 @default 0"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-1",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 34.0, 19.0, 101.0, 22.0 ],
+                    "text": "in 1 (signal) Input"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-2",
+                    "linecount": 2,
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 170.0, 13.0, 225.0, 35.0 ],
+                    "text": "in 2 (signal/float) Frequency in Hz @min 1 @max samplerate*0.5 @default 1000"
+                }
+            },
+            {
+                "box": {
+                    "code": "\r\n// a TPT SVF which can morph between LP..BP..HP via the 5th ('Morph') inlet\r\n// all inlets can be audio-rate modulated and the filters remain stable and clean\r\n\r\n//require(\"evi_svf.genexpr\");\r\n\r\n// ^^ gen is broken, so...\r\n\r\ntanA2(x)\n{\n\ta\t= ((((x * -0.0896638) + 0.0388452) * x) + 1.00005) * x;\n\tb\t= (((x * -0.430871) + 0.0404318) * x) + 1;\n\treturn\ta / b;\n}\r\n\r\nexpA(x0)\n{\n\tx = 0.999996 + (0.031261316 + (0.00048274797 + 0.000006 * x0) * x0) * x0;\n\tx *= x; x *= x; x *= x; x *= x; x *= x;\n\treturn x;\n}\r\n\r\ntauA(t)\t\t\t\t\t\t\t\t\t\t\t// t = seconds\n{\n\ty = expA(-1 / (t * samplerate));\n\treturn y + 0.000128;\n}\r\n\ndbtoaApprox(db)\n{\n\tdbtoaA = expA(0.11512925464970 * db);\n\treturn dbtoaA + 0.000128;\t\t            // + offset = 0 dB == 1 amplitude\n}\r\n\r\nbandwidth2Q(bandwidth)\n{\n\tx = expA(0.346573590279973 * bandwidth);    // exp(0.5 * log(2) * bandwidth)\n\treturn\t1 / (x - 1 / x);\n}\n\r\nexpso(x, z)\t\t\t\t\t\t\t\t\t    // z is pole\n{\n\tHistory w(0);\n\ty = (z * w) + (x * (1 - z));\n\tw = y;\n\treturn y;\n}\n\nexpsmoothBank3(x1, x2, x3, t)\n{\n\tHistory\texpsdummy3(0);\n\tz\t\t= tauA(t);\n\ty1\t\t= expso(x1, z);\n\ty2\t\t= expso(x2, z);\n\ty3\t\t= expso(x3, z);\n\treturn\ty1, y2, y3;\n}\r\n\r\ntptSvfCoeffMorph(cutoff, gain, Q, morph)\t\t\t// gain is Linear\n{\n\tg\t= tanA2(PI * cutoff / SAMPLERATE);\n//\ta\t= expA(0.11512925464970 * db) + 0.000128;\t// dBtoA\n\tr\t= 1 / Q;\n\tx\t= (morph + morph) - 1;\n\n\tcL\t= maximum(-x, 0);\n\tcH\t= maximum( x, 0);\n\tcB\t= 1 - (cL + cH);\n//\tcB\t= fastpow( cB, 0.25) * 1.02196;\t// function should map the range 0..1 monotonically\n\tcB\t= sqrt(sqrt(cB));\n\t// 'sc' scaling ensures constant gain at cutoff\n\tsc\t= Q * sqrt((r * r) / (cL * cL + cB * cB + cH * cH - (cL + cL) * cH)) * gain;\n\tcL *= sc;\n\tcB *= sc;\n\tcH *= sc;\n\n\t// feedback factor\n\th\t= 1 / (1 + (r + g) * g);\t\t// 1 / (1 + r * g + g * g)\n\n\treturn\tg, r, h, cL, cB, cH;\n}\r\n\r\ntptSvf(x, g, r, a)\n{\n\tHistory\ts1(0), s2(0);\n\n\t// compute highpass output\n\tyH\t= (x - (r + g) * s1 - s2) * a;\t// (x - r * s1 - g * s1 - s2) * a\n\n\t// compute bandpass output by applying 1st integrator to highpass output\n\tgyH\t= g * yH;\n\tyB\t= gyH + s1;\n\ts1\t= gyH + yB;\t\t\t\t\t\t// state update in 1st integrator\n\n\t// compute lowpass output by applying 2nd integrator to bandpass output\n\tgyB\t= g * yB;\n\tyL\t= gyB + s2;\n\ts2\t= gyB + yL;\t\t\t\t\t\t// state update in 2nd integrator\n\n\treturn\tyL, yB, yH;\t\t\t\t\t// lowpass, bandpass, highpass\n}\n\n// 'morph' 0..1 interpolates LP..BP..HP\r\n// gain in dB, bandwidth 0..1, smooth in ms\neviFilterMorph(x, hz, db, bw, morph, smoothtime=22.666)\n{\n\tHistory efmdummy(0);\n\tsmoothsecs\t= smoothtime * 0.001;\n\tgain\t\t= dbtoaApprox(db);\r\n    // bw 0..1 to bandwidth to q, 10 octaves range\n\tq \t\t\t= bandwidth2Q(((1 - sqrt(bw)) * 9.95) + 0.05);\n\tg, r, h, cL, cB, cH = tptSvfCoeffMorph(hz, gain, q, morph);\n\tyL, yB, yH \t= tptSvf(x, g, r, h);\n\tif (smoothtime > 0) {\n\t\tcL, cB, cH \t\t= expsmoothBank3(cL, cB, cH, smoothsecs);\n\t}\n\tmorphed\t\t= (yL * cL) + (yB * cB) + (yH * cH);\n\treturn \t\tmorphed;\n}\r\n\r\nParam   smooth(22.666, min=0, max=1000); // in ms\r\n\r\nX       = in1;\r\ncutoff  = in2;  // Hz\r\ndB      = in3;  // dB\r\nbw      = in4 * 0.5 + 0.5;  // 0..1\r\nmorph   = in5;  // 0..1 % LP..BP..HP\r\n\r\nfilterMorph = eviFilterMorph(X, cutoff, dB, bw, morph, smoothtime=smooth);\r\n\r\nout1 = filterMorph;\r\n\r\n",
+                    "fontface": 0,
+                    "fontname": "<Monospaced>",
+                    "fontsize": 12.0,
+                    "id": "obj-3",
+                    "maxclass": "codebox",
+                    "numinlets": 5,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 34.0, 65.0, 758.0, 725.0 ]
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-4",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 34.0, 807.0, 201.0, 22.0 ],
+                    "text": "out 1 (signal) Morphing Filter Output"
+                }
+            }
+        ],
+        "lines": [
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 0 ],
+                    "source": [ "obj-1", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 1 ],
+                    "source": [ "obj-2", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-4", 0 ],
+                    "source": [ "obj-3", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 2 ],
+                    "source": [ "obj-5", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 3 ],
+                    "source": [ "obj-6", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 4 ],
+                    "source": [ "obj-7", 0 ]
+                }
+            }
+        ],
+        "autosave": 0
+    }
+}

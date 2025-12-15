@@ -1,0 +1,629 @@
+
+//	//	//	functions for signal smoothing, etc
+//	//	//	collated by Pete for evieve
+
+//	//	//	N.B. the functions here take different units of input and produce varying outputs...
+//	//	//	...always check comments local to the function for guidance
+
+require("evi_utilities.genexpr");	// includes "evi_approx.genexpr"
+
+
+// like Faust [smooth], like 'expsmooth()' without 'tauA()' time compensation
+polesmooth(x, s)	// x = value			// s = smoothing amount, pole range, e.g. 0.999
+{
+	History y0(0);
+	y1 = (s * y0) + (x * (1 - s));
+	y0 = y1;
+	return y1;
+}
+
+// excellent cheap generic smoother, fast(er) response
+expsmooth(x, t)		// x = value			// t is smooth time in seconds
+{
+	History w(0);
+	z = tauA(t);
+	y = (z * w) + (x * (1 - z));
+	w = y;
+	return y;
+}
+
+// excellent cheap generic smoother, slow(er) response
+logsmooth(x, s)		// x = value			// s = time to drop 6dB (in seconds)
+{
+	History z(0);
+	ad = LN2 / (s * samplerate);			// (0.69314718056 / samples), no maximum check
+	y  = ((x - z) * ad) + z;
+	z  = y;
+	return y;
+}
+
+// use bipolar for (audio) signals, etc
+logsmoothClip(x, s)							// s = time to drop 6dB (in seconds)
+{
+	History z(0);
+	ad = LN2 / maximum((s * samplerate), 1);// (0.69314718056 / samples), incl. maximum check
+	y  = ((x - z) * ad) + z;
+	z  = y;
+	return y;
+}
+
+// for exp banks
+expso(x, z)									// z is pole
+{
+	History w(0);
+	y = (z * w) + (x * (1 - z));
+	w = y;
+	return y;
+}
+
+expsmoothBank2(x1, x2, t)					// t is smooth time in seconds...
+{
+	History	expsdummy2(0);
+	z		= tauA(t);
+	y1		= expso(x1, z);
+	y2		= expso(x2, z);
+	return	y1, y2;
+}
+
+expsmoothBank3(x1, x2, x3, t)
+{
+	History	expsdummy3(0);
+	z		= tauA(t);
+	y1		= expso(x1, z);
+	y2		= expso(x2, z);
+	y3		= expso(x3, z);
+	return	y1, y2, y3;
+}
+
+expsmoothBank4(x1, x2, x3, x4, t)
+{
+	History	expsdummy4(0);
+	z		= tauA(t);
+	y1		= expso(x1, z);
+	y2		= expso(x2, z);
+	y3		= expso(x3, z);
+	y4		= expso(x4, z);
+	return	y1, y2, y3, y4;
+}
+
+expsmoothBank5(x1, x2, x3, x4, x5, t)
+{
+	History	expsdummy5(0);
+	z		= tauA(t);
+	y1		= expso(x1, z);
+	y2		= expso(x2, z);
+	y3		= expso(x3, z);
+	y4		= expso(x4, z);
+	y5		= expso(x5, z);
+	return	y1, y2, y3, y4, y5;
+}
+
+expsmoothBank6(x1, x2, x3, x4, x5, x6, t)
+{
+	History	expsdummy6(0);
+	z		= tauA(t);
+	y1		= expso(x1, z);
+	y2		= expso(x2, z);
+	y3		= expso(x3, z);
+	y4		= expso(x4, z);
+	y5		= expso(x5, z);
+	y6		= expso(x6, z);
+	return	y1, y2, y3, y4, y5, y6;
+}
+
+expsmoothBank7(x1, x2, x3, x4, x5, x6, x7, t)
+{
+	History	expsdummy7(0);
+	z		= tauA(t);
+	y1		= expso(x1, z);
+	y2		= expso(x2, z);
+	y3		= expso(x3, z);
+	y4		= expso(x4, z);
+	y5		= expso(x5, z);
+	y6		= expso(x6, z);
+	y7		= expso(x7, z);
+	return	y1, y2, y3, y4, y5, y6, y7;
+}
+
+expsmoothBank8(x1, x2, x3, x4, x5, x6, x7, x8, t)
+{
+	History	expsdummy8(0);
+	z		= tauA(t);
+	y1		= expso(x1, z);
+	y2		= expso(x2, z);
+	y3		= expso(x3, z);
+	y4		= expso(x4, z);
+	y5		= expso(x5, z);
+	y6		= expso(x6, z);
+	y7		= expso(x7, z);
+	y8		= expso(x8, z);
+	return	y1, y2, y3, y4, y5, y6, y7, y8;
+}
+
+// for cfSmoothLinear()
+cfSmoothLinearCoeff(hz, s)		// freq, seconds
+{
+	w0		= tanA(pi * hz / samplerate);
+	g0		= (w0 + w0) / (1 + w0);
+	s0		= (1 - tauA(s)) * 4;// this is a bit stupid
+	return	  g0, s0;
+}
+
+// for cfSmoothLinear()
+cfSmoothLinearFilter(x0, g0, s0)
+{
+	History	low1(0), low2(0);
+
+	low1z	= low1;
+	low2z	= low2;
+
+	bandz	= low1z - low2z;
+	g		= minimum(g0 + s0 * abs(bandz), 1);
+
+	low1	= low1z + g * (x0 - low1z);
+	low2	= low2z + g * (low1 - low2z);
+
+	return	  low2;
+}
+
+cfSmoothLinear(x1, hz, s)
+{
+	History	  cfsl1dummy(0);
+	g0, s0	= cfSmoothLinearCoeff(hz, s);
+	y1		= cfSmoothLinearFilter(x1, g0, s0);
+	return	  y1;
+}
+
+cfSmoothLinear2(x1, x2, hz, s)
+{
+	History	  cfsl2dummy(0);
+	g0, s0	= cfSmoothLinearCoeff(hz, s);
+	y1		= cfSmoothLinearFilter(x1, g0, s0);
+	y2		= cfSmoothLinearFilter(x2, g0, s0);
+	return	  y1, y2;
+}
+
+// the cubic version is much more expensive and very rarely worth it
+
+// for cfSmoothCubic()
+cfSmoothCubicCoeff(hz, s)		// freq, seconds
+{
+	wc		= hz / samplerate;
+	s0		= (1 - tauA(s));	// this is a bit stupid
+	return	  wc, s0;
+}
+
+// for cfSmoothCubic()
+cfSmoothCubicFilter(x0, wc, s0)
+{
+	History	low1(0), low2(0), inz(0);
+
+	low1z	= low1;
+	low2z	= low2;
+
+	bandz	= low1z - low2z;
+	wd		= wc + s0 * abs(bandz);
+	g		= minimum(wd * (5.9948827 + wd * (-11.969296 + wd * 15.959062)), 1);
+
+	low1	= low1z + g * (0.5 * (x0 + inz) - low1z);
+	low2	= low2z + g * (0.5 * (low1 + low1z) - low2z);
+	inz		= x0;
+
+	return	  low2;
+}
+
+cfSmoothCubic(x1, hz, s)
+{
+	History	  cfsc1dummy(0);
+	wc, s0	= cfSmoothCubicCoeff(hz, s);
+	y1		= cfSmoothCubicFilter(x1, wc, s0);
+	return	  y1;
+}
+
+cfSmoothCubic2(x1, x2, hz, s)
+{
+	History	  cfsc2dummy(0);
+	wc, s0	= cfSmoothCubicCoeff(hz, s);
+	y1		= cfSmoothCubicFilter(x1, wc, s0);
+	y2		= cfSmoothCubicFilter(x2, wc, s0);
+	return	  y1, y2;
+}
+
+// for log banks
+logsad(s)									// s = time to drop 6dB (in seconds)
+{
+	return	LN2 / (s * samplerate);
+//	return	LN2 / maximum((s * samplerate), 1);// (0.69314718056 / samples), incl. maximum check
+}
+
+// for log banks
+logso(x, ad)
+{
+	History z(0);
+	y = ((x - z) * ad) + z;
+	z = y;
+	return y;
+}
+
+logsmoothBank2(x1, x2, s)
+{
+	History	logsdummy2(0);
+	ad		= logsad(s);
+	y1		= logso(x1, ad);
+	y2		= logso(x2, ad);
+	return	y1, y2;
+}
+
+logsmoothBank3(x1, x2, x3, s)
+{
+	History	logsdummy3(0);
+	ad		= logsad(s);
+	y1		= logso(x1, ad);
+	y2		= logso(x2, ad);
+	y3		= logso(x3, ad);
+	return	y1, y2, y3;
+}
+
+logsmoothBank4(x1, x2, x3, x4, s)
+{
+	History	logsdummy4(0);
+	ad		= logsad(s);
+	y1		= logso(x1, ad);
+	y2		= logso(x2, ad);
+	y3		= logso(x3, ad);
+	y4		= logso(x4, ad);
+	return	y1, y2, y3, y4;
+}
+
+logsmoothBank5(x1, x2, x3, x4, x5, s)
+{
+	History	logsdummy5(0);
+	ad		= logsad(s);
+	y1		= logso(x1, ad);
+	y2		= logso(x2, ad);
+	y3		= logso(x3, ad);
+	y4		= logso(x4, ad);
+	y5		= logso(x5, ad);
+	return	y1, y2, y3, y4, y5;
+}
+
+logsmoothBank6(x1, x2, x3, x4, x5, x6, s)
+{
+	History	logsdummy6(0);
+	ad		= logsad(s);
+	y1		= logso(x1, ad);
+	y2		= logso(x2, ad);
+	y3		= logso(x3, ad);
+	y4		= logso(x4, ad);
+	y5		= logso(x5, ad);
+	y6		= logso(x6, ad);
+	return	y1, y2, y3, y4, y5, y6;
+}
+
+logsmoothBank7(x1, x2, x3, x4, x5, x6, x7, s)
+{
+	History	logsdummy7(0);
+	ad		= logsad(s);
+	y1		= logso(x1, ad);
+	y2		= logso(x2, ad);
+	y3		= logso(x3, ad);
+	y4		= logso(x4, ad);
+	y5		= logso(x5, ad);
+	y6		= logso(x6, ad);
+	y7		= logso(x7, ad);
+	return	y1, y2, y3, y4, y5, y6, y7;
+}
+
+logsmoothBank8(x1, x2, x3, x4, x5, x6, x7, x8, s)
+{
+	History	logsdummy8(0);
+	ad		= logsad(s);
+	y1		= logso(x1, ad);
+	y2		= logso(x2, ad);
+	y3		= logso(x3, ad);
+	y4		= logso(x4, ad);
+	y5		= logso(x5, ad);
+	y6		= logso(x6, ad);
+	y7		= logso(x7, ad);
+	y8		= logso(x8, ad);
+	return	y1, y2, y3, y4, y5, y6, y7, y8;
+}
+
+// log smooth (decay) envelope follower
+logdecay(x,	d)									// d = decay time (to drop 6dB) in seconds
+{
+	History	z(0);
+	ad		= logsad(d);
+	ff		= x - z;
+	y		= (ff > 0) ? x : ((ff * ad) + z);
+	z		= y;
+	return	y;
+}
+
+// log smooth (attack/decay) envelope follower
+logattackdecay(x, a, d)							// a/d = attack/decay times (to 6dB) in seconds
+{
+	History	z(0);
+	ff		= x - z;
+	tt		= (ff > 0) ? a : d;
+	ad		= logsad(tt);
+	y		= (ff * ad) + z;
+//	y		= (ff * ((ff > 0) ? logsad(a) : logsad(d))) + z;
+	z		= y;
+	return	y;
+}
+
+// log smooth (AHR) envelope follower (branching version, cheaper than 'simultaneous version')
+logattackholdrelease(x, a, h, r)				// a/h/r = attack/hold/release times (to 6dB) in seconds
+{
+	History	z(0), g(0);
+	ff		= x - z;
+	hh, env	= 0;
+	if (ff > 0)	{
+		hh	= maximum((h * samplerate), 1) - 1; // no max ??
+		env	= logsad(a);
+	} else {
+		hh	= g - 1;
+		env	= (hh > 0.000001) ? 0 : logsad(r);
+	}
+	y		= (ff * env) + z;
+	g		= hh;
+	z		= y;
+	return	y;
+}
+
+// for 'lagsmooth()' & 'lagsmoothThresh()', but works fine alone as well
+lagpole(x, c, l)							// value / coefficient / previous
+{
+//	return ((1 - abs(c)) * x) + (c * l);
+	return ((1 - c) * x) + (c * l);			// no need for abs here ?
+}
+
+// a bit like Supercollider [lag3]
+// original by James MacCartney, mod by me
+lagsmooth(v, lp0)							// destination value / time (in seconds)
+{
+//	History coef(  0.9928302477768374);		// default: @20ms @48kHz
+	History lp1(0), lp2(0), lp3(0);
+	LOGTH		= -6.907755278982137;		// ln(0.0001), fixed threshold of 0.0001 (-80 dB)
+	coef 		=  0.9928302477768374;		// default: @20ms @48kHz
+	if (change(lp0))
+		coef	= maximum(expA(LOGTH / (lp0 * samplerate)), 0);
+	lp1		= lagpole(v,	coef,	lp1);
+	lp2		= lagpole(lp1,	coef,	lp2);
+	lp3		= lagpole(lp2,	coef,	lp3);
+	return	lp3;
+}
+
+// like Supercollider [lag3]
+// original by James MacCartney
+// more expensive version with variable threshold
+lagsmoothThresh(v, lp0, th)			// destination value / time (in seconds) / threshold (0.0001)
+{
+//	History coef(0);
+	History lp1(0), lp2(0), lp3(0);
+	coef = 0;
+	if (change(lp0)) {
+		if (lp0 <= 0) {
+			coef = 0;
+		} else {
+			coef = expApprox(logApprox(th) / (lp0 * samplerate));	// 
+		}
+	}
+	lp1		= lagpole(v,	coef,	lp1);
+	lp2		= lagpole(lp1,	coef,	lp2);
+	lp3		= lagpole(lp2,	coef,	lp3);
+	return	lp3;
+}
+
+// like the poor bastard child of a 'eviSlide()' & 'logsmooth()' & 'eviRampsmooth()' threesome
+rampone(x, r, p)
+{	// x = value, r = ramp time in samples, p = lin/log
+	History current(0);
+	s  = x - current;
+	xs = p ? s : sign(s);
+	rs = minimum(abs(s), (1 / maximum(r, 1)));
+	y  = current + (xs * rs);
+	current = y;
+	return y;
+}
+
+// like the bastard twins of a 'rampone()' & 'logdecay()' tryst
+ramptwo(x, u, d, p)
+{	// x = value, u = ramp up time (samples), d = ramp down time (samples), p = lin/log
+	History current(0);
+	s   = x - current;
+	xs  = p ? s : sign(s);
+	ud  = (s > 0) ? (1 / maximum(u, 1)) : (1 / maximum(d, 1));
+	uds = minimum(abs(s), ud);
+	y   = current + (xs * uds);
+	current = y;
+	return y;
+}
+
+// exact destinations (unlike all above smoothers)
+
+// like MSP [line~], exact destination
+eviLine(target, duration)				// target, duration in samples
+{
+	History val(0);
+    trigger	= change(target);
+    ramp	= clamp(accum((1 / latch(duration, trigger)), trigger), 0, 1);
+    lin 	= eviMap(ramp, 0, 1, latch(val, trigger), latch(target, trigger));
+    val 	= lin;
+    return  lin, (ramp == 1);
+}
+
+// exact destination, with S-curve
+eviSline(target, duration)				// target, duration in samples
+{
+	History	value(0);
+	trigger	= change(target);
+	ramp	= clip(accum((1 / latch(duration, trigger)), trigger), 0, 1);
+	cramp	= eviScurve(ramp);
+	curve	= eviMap(cramp, 0, 1, latch(value, trigger), latch(target, trigger));
+	value	= curve;
+	return	curve, (ramp == 1);
+}
+
+/*
+// like MSP [line~], exact destination
+// Graham Wakefield, Olivier Pasquet, me
+eviLine(D, R)								// target, ramp time in samples
+{
+	History target(0), current(0), remain(0), increment(1);
+	notify = 1;
+	if (delta(D) != 0) {
+		target = D;
+		remain = maximum(R, 0);
+		increment = (target - current) / remain;	
+	}
+	if (remain > 0) {						// is ramping
+		current = target - increment * remain;
+		remain = remain - 1;
+		notify = 0;
+	} else {								// ramp concluded
+		current = target;
+		notify = 1;
+	}
+	return current, notify;
+}
+*/
+
+/*
+// a version of 'eviLine()' for when ONLY flag 0/1 smooths are required
+toggleLine(toggle, rampsamples)			// toggle == flag 0/1, time in samples
+{	// there must be a way to get rid of 'timelatch' & 'direction' ?!
+	History		phase(0), timelatch(0), direction(0), inlatch(1);
+
+	flag		= int(clip(latch(toggle, inlatch, init=1), 0, 1));
+	flagdelta	= delta(flag);
+//	flagup		= flagdelta < 0;
+//	flagdown	= flagdelta > 0;
+//	flagupdown	= flagup + flagdown;
+	flagupdown	= (flagdelta < 0) + (flagdelta > 0);	// 0->1 or 1->0
+
+	samplestime	= latch(rampsamples, timelatch);
+	timelatch	= flagupdown;
+
+	phasesync	= (phase < samplestime) == 0;
+	phaseup		= phasesync ? samplestime : phase;
+	phasedown	= samplestime - phaseup;
+	phase		= flagupdown ? 0 : phaseup + 1;
+
+	rampout		= (direction ? phaseup : phasedown) / samplestime;
+	direction	= flag;
+	inlatch		= phasesync;
+
+	return		rampout, phasesync;
+}
+*/
+
+// like MSP [rampsmooth~], exact destination
+// original port by Maurizio Giri, Graham Wakefield
+eviRampsmooth(input, rampup, rampdown)		// input, up in samples, down in samples
+{
+	History value(0), prev(0), stepcounter(0), increment(1);
+	notify = 1;
+
+	// reset ramp if input has changed, or if ramp parameters change
+	if (input != prev || delta(rampup) || delta(rampdown)) {
+		direction = (input - value);
+		if (direction > 0) {
+			stepcounter = rampup;
+			increment = direction / rampup;
+		} else {
+			stepcounter = rampdown;
+			increment = direction / rampdown;
+		}
+		prev = input;	
+	}
+
+	// keep incrementing until stepcounter counts down to zero
+	if (stepcounter) {
+		stepcounter -= 1;
+		value += increment;
+		notify = 0;
+	} else {
+		value = input;
+		notify = 1;
+	}
+
+	return value, notify;
+}
+
+// like MSP [curve~], exact destination
+// Miller Puckette, David Zicarelli, Graham Wakefield, me
+// the only side effect of using 'expA()' approximation (with no compensation offsets)...
+// ...is that 'curvature' values < -0.95 && > 0.95 produce curves not quite as steep as the original...
+// ...this is totally fine by me, and probably worth it
+// N.B. - this is really stupid and you should never use it
+eviCurve(target, duration, curvature)		// target, duration in samples, curvature -1..1
+{
+	History v(0), v0(0), v1(0), vrange(0);			// value: current, from, to, range
+	History samplecount(0), samplesremain(0);		// samples elapsed, samples remaining
+	History divFactorDuration(0), divExpCurve(0);	// cached values to speed up per-sample loop
+	// magic numbers
+	RFACTOR		= 4.34782608695652;			// float(1 / 0.23)
+	PFACTOR		= 5;
+	DIV_RFACTOR	= 0.01310440558293;			// float(1 / (exp(RFACTOR) - 1))
+	SFACTOR		= 0.005;
+
+	// calculated only when a new target is set
+	// (one could argue the 'expA()'s in this section are not worth it, but)
+	if (change(target)) {
+		// starting a new ramp
+		samplecount = 0;
+		// duration in samples
+		samplesremain = duration;
+		// ramp start & end values
+		v0, v1 = v, target;
+		// ramp range
+		vrange = v1 - v0;
+		// nonlinear mapping of -1 to 1 curve factor
+		f = 1 - abs(curvature);
+		f = PFACTOR * (expA(f * RFACTOR) - 1) * DIV_RFACTOR;
+		s = sign(curvature);
+		p = (s != 0) ? (s * f) : f;			// must do this to avoid 'curvature == 0' issue
+		// bypass really sharp curves
+		// 'p = fixdenorm(p);' does not work, values too small, +/- SFACTOR fixed by Puckette / Zicarelli ?
+		p = (p >= 0 && p < SFACTOR) ? SFACTOR : ((p < 0 && p > -SFACTOR) ? -SFACTOR : p);
+		// cached factors for the per-sample curve calculation
+		divExpCurve = 1 / (expA(1 / p) - 1);
+		divFactorDuration = 1 / (samplesremain * p);
+	}
+
+	value, notify = 0;
+	// per sample calculation
+	if (samplesremain > 0.5) {				// still ramping
+		value	= v;
+		notify	= 0;	
+		// compute next ramp sample
+		samplecount += 1;
+		samplesremain -= 1;
+		// compute curvature
+		curv = (expA(samplecount * divFactorDuration) - 1) * divExpCurve;
+		// scale to the output range & integrate
+		v += (v0 - v) + (curv * vrange);
+	} else {								// no longer ramping
+		v		= v1;
+		value	= v;
+		notify	= 1;
+	}
+
+	return value, notify;
+}
+
+// like MSP [slide~], i.e. NOT exact destination
+// !! not required anymore, Graham Wakefield put this into gen~ native as 'slide()'
+eviSlide(x, u, d)							// input, samples up, samples down
+{
+	History current(0);
+	s  = x - current;
+	us = s * (1 / (maximum(abs(u), 1)));
+	ds = s * (1 / (maximum(abs(d), 1)));
+	y  = current + ((x > current) ? us : ds);
+	current = y;
+	return y;
+}
+

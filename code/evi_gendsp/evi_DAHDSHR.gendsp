@@ -1,0 +1,269 @@
+{
+    "patcher": {
+        "fileversion": 1,
+        "appversion": {
+            "major": 9,
+            "minor": 1,
+            "revision": 1,
+            "architecture": "x64",
+            "modernui": 1
+        },
+        "classnamespace": "dsp.gen",
+        "rect": [ 34.0, 100.0, 1096.0, 848.0 ],
+        "gridonopen": 2,
+        "integercoordinates": 1,
+        "boxes": [
+            {
+                "box": {
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 12.0,
+                    "id": "obj-14",
+                    "linecount": 2,
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 824.0, 13.0, 98.0, 35.0 ],
+                    "text": "in 7 Hold2 in ms @default 0"
+                }
+            },
+            {
+                "box": {
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 12.0,
+                    "id": "obj-12",
+                    "linecount": 2,
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 166.0, 13.0, 97.0, 35.0 ],
+                    "text": "in 2 Delay in ms @default 0"
+                }
+            },
+            {
+                "box": {
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 12.0,
+                    "id": "obj-8",
+                    "linecount": 2,
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 693.0, 13.0, 113.0, 35.0 ],
+                    "text": "in 6 Sustain 0..1 @default 0.707946"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-11",
+                    "linecount": 2,
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 956.0, 794.0, 131.0, 35.0 ],
+                    "text": "out 4 Segment # (0\\, 1\\, 2\\, 3\\, 4\\, 5\\, 6\\, 7\\, 8\\, 0)"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-10",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 649.0, 800.0, 129.0, 22.0 ],
+                    "text": "out 3 Mute Outlet (0/1)"
+                }
+            },
+            {
+                "box": {
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 12.0,
+                    "id": "obj-9",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 34.0, 19.0, 104.0, 22.0 ],
+                    "text": "in 1 Gate or Value"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-3",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 341.0, 800.0, 185.0, 22.0 ],
+                    "text": "out 2 New Envelope Trigger (1/0)"
+                }
+            },
+            {
+                "box": {
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 12.0,
+                    "id": "obj-7",
+                    "linecount": 2,
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 561.0, 13.0, 101.0, 35.0 ],
+                    "text": "in 5 Decay in ms @default 100"
+                }
+            },
+            {
+                "box": {
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 12.0,
+                    "id": "obj-6",
+                    "linecount": 2,
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 956.0, 13.0, 111.0, 35.0 ],
+                    "text": "in 8 Release in ms @default 200"
+                }
+            },
+            {
+                "box": {
+                    "code": "\r\n// analogue-style envelope generator (RC rise & fall, etc)\r\n// but with sample accurate controllers (capable of controlling [thispoly~])\r\n// DAHDSHR:\t\t   [ (Delay),\tAttack,\t(Hold),\tDecay,\tSustain,\t(Hold),\tRelease,\t(Retrigger),\tOff\t]\r\n// segment #:\t   [ (1),\t\t2,\t\t(3),\t4,\t\t5,\t\t\t(6),\t7,\t\t\t(8),\t\t\t0\t]\r\n// default ADSR (delay = 0, holds = 0) and behaves like MSP [adsr~]\r\n// default envelope = 0..1..-3dB..0, but accepts arbitrary input scale (like [adsr~], & 'sustain' is default % 0..1)\r\n// by pete for evieve, 2017\r\n// based on code by Nigel Redmond,\t\t@see: http://www.earlevel.com/main/2013/06/03/envelope-generators-adsr-code/\r\n// based on code by Peter McCulloch,\t@see: Max > BEAP > AD2\t&&\tMax > BEAP > AHD\r\n\r\n// Note:    this code is really stupid. I found it in the depths of my hard drive.\r\n//          I cannot remember making it. But it seems to work.\r\n\r\n// TODO:\r\n// fix: maxsustain, zerophase, loop\r\n// implement: inverse env curves, constant rate or constant time option\r\n\r\nlogicalClicks(x)\r\n{\r\n\tHistory clik(0);\t\t\t\t// store\r\n\tklick\t= -x + clik;\t\t\t// make\r\n\tup\t\t= klick < 0;\t\t\t// from zero (or upwards change) only\r\n\tdown\t= klick > 0;\t\t\t// to zero (or downwards change) only\r\n\tupdown\t= up + down;\t\t\t// either from zero or to zero (or upwards or downwards changes)\r\n\tclik\t= x;\t\t\t\t\t// update\r\n\treturn\tupdown, up, down;\r\n}\r\n\r\nexpA(x0)\n{\n\tx = 0.999996 + (0.031261316 + (0.00048274797 + 0.000006 * x0) * x0) * x0;\n\tx *= x; x *= x; x *= x; x *= x; x *= x;\n\treturn x;\n}\r\n\r\ndbtoaApprox(db)\n{\n\tdbtoaA = expA(0.11512925464970 * db);\n\treturn dbtoaA + 0.000128;\n}\n\r\nlinearScale(x, inlo, inhigh, outlo, outhi)\t\t// implementation: f(x) = ax+b\n{\r\n\ta\t\t= (outlo - outhi) / (inlo - inhigh);\r\n\tb\t\t= outlo - (inlo * a);\n\treturn\t(x * a) + b;\n}\r\n\r\nsimpleScale(x, outlo, curve)\t\t\t\t\t// implementation: f(x) = log||lin||exp(ax+b)\n{\r\n\tlin\t\t= linearScale(x, 0, 1, outlo, 1);\t// lin\t(x & outlo must be normalised 0..1)\r\n\tif (curve == 1)\r\n\t\tlin\t= sqrt(lin);\t\t\t\t\t\t// log 2\r\n\telse if (curve == 2)\r\n\t\tlin\t= sqrt(sqrt(lin));\t\t\t\t\t// log 4\r\n\telse if (curve == -1)\r\n\t\tlin\t= lin * lin;\t\t\t\t\t\t// exp 2\r\n\telse if (curve == -2)\r\n\t\tlin\t= lin * lin * lin * lin;\t\t\t// exp 4\r\n\treturn\tlin;\n}\r\n\r\ncalcCoeff(rate, targetRatio)\r\n{\r\n\treturn\t(rate <= 0) ? 0 : exp(-log((1 + targetRatio) / targetRatio) / rate);\t\t// !! do NOT use 'expA()' !!\n}\r\n\r\nretrigRatio(rise, fall)\r\n{\r\n\trRmin\t=  minimum(rise, fall);\r\n\trRmax\t=  maximum(rise, fall);\r\n\ttRratio\t= (rRmax / rRmin) * 0.5;\r\n\treturn\t   fall * tRratio;\n}\r\n\r\nHistory\tdelayCount(0), hold1Count(0), sustainCount(0), hold2Count(0);\r\nHistory\tenv(0), state(0), targetRatioRise(0.3), targetRatioFall(0.05);\r\n\r\nParam\triseratio(0.3,\tmin=0.000001, max=10);\t// very logarithmic .. almost linear\t// minimum -120 dB\r\nParam\tfallratio(0.05,\tmin=0.000001, max=10);\t// very exponential .. almost linear\t// minimum -120 dB\r\n\r\nHistory\tvalAtTrigger(1), prev_val(0);\r\nHistory\tattackCoeff(0), attackBase(0), decayCoeff(0), decayBase(0), releaseCoeff(0), releaseBase(0);\r\nHistory\tcomputeFalls(0), prev_rR(0), prev_fR(0), prev_susL(-1), prev_attRate(-1), prev_decRate(-1), prev_relRate(-1);\r\n\r\nParam\tzerophase(0, min=0, max=1);\t\t\t\t// sync env param changes to env start (1) or free (0)\r\nParam\tconstantrate(1, min=0, max=1);\t\t\t// flag 0/1, env segments by time or by rate\r\n\r\nParam\tenvmax(127, min=1);\t\t\t\t\t\t// default maximum is 'velocity', but could be anything\r\nParam\tvelocitysense(0, min=0, max=1);\t\t\t// velocity sensitivity 0..1 % ('envmax' only used if this > 0)\r\nParam\tvelocitycurve(1, min=-2, max=2);\t\t// velocity in curve, pos=log, 0=lin, neg=exp\r\n\r\nParam\tretrigger(5, min=0, max=1000);\t\t\t// fade to 0 in x ms if reattacking active envelope\r\nParam\tlegato(0, min=0, max=1);\t\t\t\t// start from current value if reattacking active envelope\r\nParam\twait(0, min=0, max=1);\t\t\t\t\t// wait until envelope 0 before allowing reattack of active envelope\r\n\r\nParam\tmaxsustain(-1, min=-1, max=60000);\t\t// like [adsr~] (-1 = none, else x ms length even if gate still on)\r\nParam\tloopsustain(100, min=0, max=60000);\t\t// > 0 add fake x ms sustain portion to looping envelope ?\r\nParam\tlooptrigger(0, min=0, max=1);\t\t\t// loop mode needs triggering (1) or triggers itself (0) ? \r\nParam\tloop(0, min=0, max=1);\t\t\t\t\t// loop envelope off / on\r\n\r\nParam\ttimebase(1, min=0, max=1);\t\t\t\t// 1 = inlets in ms, 0 = inlets in samples\r\nParam\tsustainbase(0, min=0, max=1);\t\t\t// 1 = inlet in dB, 0 = inlet in % 0..1 (amplitude)\r\n\r\nsB\t\t= int(sustainbase);\t\ttB\t\t= int(timebase);\r\nlP\t\t= int(loop);\t\t\tlpTrig\t= int(looptrigger);\r\nwT\t\t= int(wait);\t\t\tlG\t\t= int(legato);\r\nvelCvre\t= int(velocitycurve);\tconstR\t= int(constantrate);\tzrphse\t= int(zerophase);\r\n\r\n// parse input triggers\r\n\r\nvalue\t\t\t\t=\tmaximum(in1, 0);\t\t// anything > 0 (amplitude, velocity, pitch, whatever)\r\ngate\t\t\t\t=\tvalue > 0;\t\t\t\t// make 'gate' (1/0 gate on/off)\r\ntrg0\t\t\t\t=\tdelta(gate) > 0;\t\t// rising edge from 0 (gate-on 'click'-impulse)\r\nklick\t\t\t\t= -(value) + prev_val;\t\t// make trigger impulses\r\ntrgU\t\t\t\t=\tklick < 0;\t\t\t\t// from zero or any upwards change\r\ntrgD\t\t\t\t=\tklick > 0;\t\t\t\t// to zero or any downwards change\r\ntrgUD\t\t\t\t=\ttrgU  + trgD;\t\t\t// either from zero or to zero or any upwards or downwards changes\r\nprev_val\t\t\t=\tvalue;\t\t\t\t\t// update\r\n\r\n// parse parameters\r\n\r\nlP\t\t\t\t\t= lpTrig ? (latch(lP, trg0)) : lP;\t\t\t\t\t// loop needs trigger or triggers itself ?\r\nlG\t\t\t\t\t= lG * (1 - wT);\t\t\t\t\t\t\t\t\t// if wait on, legato & retrigger off\r\nretrigRate\t\t\t= mstosamps(retrigger);\t\t\t\t\t\t\t\t// in ms (to samps) ...\r\ndoRetrig\t\t\t= ((retrigRate >= 0) && (env > 0) && (trgUD)) * (1 - lG);// if wait or legato on, retrigger off\r\n\r\n// parse inlets\r\n\r\nsustainLevel\t\t=\t\t\tin6;\r\nif (sB) {\r\n\tsustainLevel\t= dbtoaApprox(sustainLevel);// in dB (to A)\t\t// (actually to percentage of attack 0..1)\r\n\tsustainLevel\t= (sustainLevel < 0.000223) ? 0 : sustainLevel;\t// <= -80 dB @ 'dbtoaApprox()'\t// fucking stupid\r\n}\r\nsustainLevel\t\t= clip(sustainLevel, 0, 1);\t// in percentage of attack 'velocity' 0..1 (effectively amplitude)\r\n\r\ndelayTime\t\t\t= \t\t\tin2;\t\t\t// in samps ? ...\r\nhold1Time\t\t\t= \t\t\tin4;\r\nattackRate\t\t\t= \t\t\tin3;\r\ndecayRate\t\t\t= \t\t\tin5;\r\nhold2Time\t\t\t=\t\t\tin7;\r\nreleaseRate\t\t\t= \t\t\tin8;\nif (tB) {\r\n\tdelayTime\t\t= mstosamps(delayTime);\t\t// in ms (to samps) (default) ...\r\n\thold1Time\t\t= mstosamps(hold1Time);\r\n\tattackRate\t\t= mstosamps(attackRate);\r\n\tdecayRate\t\t= mstosamps(decayRate);\r\n\thold2Time\t\t= mstosamps(hold2Time);\r\n\treleaseRate\t\t= mstosamps(releaseRate);\n}\r\ndelayTime\t\t\t= maximum(\tdelayTime,\t0);\r\nhold1Time\t\t\t= maximum(\thold1Time,\t0);\r\nhold2Time\t\t\t= maximum(\thold2Time,\t0);\r\n\r\ndelActive\t\t\t= delayTime > 0;\r\nh1Active\t\t\t= hold1Time > 0;\r\nh2Active\t\t\t= hold2Time > 0;\r\n\r\nisDelayed\t\t\t= delayCount < delayTime;\t// counting...\r\nisHeld1\t\t\t\t= hold1Count < hold1Time;\t// ...\r\nisHeld2\t\t\t\t= hold2Count < hold2Time;\t// ...\r\n\r\n// update inlets on changes as needed\r\n\r\nif ((riseratio != prev_rR) || (attackRate != prev_attRate)) {\r\n\ttargetRatioRise\t=  riseratio;\t\t\t\t// (clipped to -120 dB by Param declaration)\r\n\tattackCoeff\t\t=  calcCoeff(attackRate, targetRatioRise);\r\n\tattackBase\t\t= (1 + targetRatioRise) * (1 - attackCoeff);\n}\r\n\r\nattackCoeff\t\t\t=  zrphse ? latch(attackCoeff, trgUD) : attackCoeff;\r\nattackBase\t\t\t=  zrphse ? latch(attackBase, trgUD) : attackBase;\r\n\r\nif ((fallratio != prev_fR) || (sustainLevel != prev_susL)) {\r\n\ttargetRatioFall\t=  fallratio;\t\t\t\t// (clipped to -120 dB by Param declaration)\r\n\tcomputeFalls\t=  1;\r\n}\r\n\r\nif ((computeFalls) || (decayRate != prev_decRate)) {\r\n\tdecayCoeff\t\t=  calcCoeff(decayRate, targetRatioFall);\n\tdecayBase\t\t= (sustainLevel - targetRatioFall) * (1 - decayCoeff);\n}\r\n\r\ndecayCoeff\t\t\t=  zrphse ? latch(decayCoeff, trgUD) : decayCoeff;\r\ndecayBase\t\t\t=  zrphse ? latch(decayBase, trgUD) : decayBase;\r\n\r\nif ((computeFalls) || (releaseRate != prev_relRate)) {\r\n\treleaseCoeff\t=  calcCoeff(releaseRate, targetRatioFall);\n\treleaseBase\t\t= -targetRatioFall * (1 - releaseCoeff);\n}\r\n\r\nreleaseCoeff\t\t=  zrphse ? latch(releaseCoeff, trgUD) : releaseCoeff;\r\nreleaseBase\t\t\t=  zrphse ? latch(releaseBase, trgUD) : releaseBase;\r\n\r\n// trigger envelope\r\n\r\nif (((trgUD) && (gate)) || ((lP) && (env == 0))) {\r\n\t// if not 'wait'-ing, or already back at 0, allow attack\r\n\tif ((env == 0) || (!wT)) {\t\r\n\t\tif ((env == 0) || (lG)) {\t\t\t\t\t\t\t\t\t//\tnew env or loop or legato cases\r\n\t\t\tvalAtTrigger\t=  value;\t//\tstore input\r\n\t\t\tcomputeFalls\t=  0;\t\t//\treset when triggered\r\n\t\t\tdelayCount\t\t=  0;\t\t//  reset delay\r\n\t\t\thold1Count\t\t=  0;\t\t//  reset hold1\r\n\t\t\thold2Count\t\t=  0;\t\t//  reset hold2\r\n\t\t\tstate\t\t\t=  1 + (1 - delActive);\t//  goto env_delay or env_attack (start of env)\r\n\t\t} else if (doRetrig) {\t\t\t\t\t\t\t\t\t\t//\tretrigger case\r\n\t\t\tvalAtTrigger\t=  value;\t//\tclear gate\r\n\t\t\tdelayCount\t\t=  0;\t\t//  reset delay\r\n\t\t\thold1Count\t\t=  0;\t\t//  reset hold1\r\n\t\t\thold2Count\t\t=  0;\t\t//  reset hold2\r\n\t\t\tcomputeFalls\t=  0;\t\t//\treset when triggered\r\n\t\t\tstate\t\t\t=  8;\t\t//  goto env_retrigger\t\t//\tforce end of env\r\n\t\t}\r\n\t}\r\n}\r\n\r\n// !! 'env' is always processed as normalised 0..1, scaled to value (and optionally 'velocity') after processing\r\n\r\nactive\t\t= env > 0;\r\n\r\n// process (switch state)\r\n\r\nif\t\t    (state == 1) {\t\t\t\t\t\t// env_delay\r\n\tdelayCount += 1;\r\n\tif ((gate == 0) && (!lP)) {\r\n\t\tstate = active ? 7 : 0;\t//\tjumpto env_idle or env_release (aborting inside delay stage cancels envelope)\r\n\t\tdelayCount = 0;\r\n\t} else if (isDelayed) {\r\n\t\tenv\t\t= env;\n\t} else {\r\n\t\tstate\t= 2;\t\t\t//\tgoto env_attack\r\n\t\tdelayCount = 0;\r\n\t}\r\n\r\n} else if\t(state == 2) {\t\t\t\t\t\t// env_attack\n\tenv\t= attackBase + env * attackCoeff;\n\tif ((gate == 0) && (!lP)) {\r\n\t\tstate\t= 7 - h2Active;\t//\tjumpto env_hold_2 or env_release\r\n\t} else if (env >= 1) {\r\n \t\tenv\t\t= 1;\n\t\tstate\t= 4 - h1Active;\t//\tgoto env_hold_1 or env_decay\n\t}\r\n\r\n} else if\t(state == 3) {\t\t\t\t\t\t// env_hold_1\r\n\thold1Count  += 1;\r\n\tif ((gate == 0) && (!lP)) {\r\n\t\tstate\t= 7 - h2Active;\t//\tjumpto env_hold_2 or env_release\r\n\t\thold1Count = 0;\r\n\t} else if (isHeld1) {\r\n\t\tenv\t\t= env;\r\n\t} else {\r\n\t\tstate\t= 4;\t\t\t//\tgoto env_decay\r\n\t\thold1Count = 0;\r\n\t}\r\n\r\n} else if\t(state == 4) {\t\t\t\t\t\t// env_decay\n \tenv\t= decayBase + env * decayCoeff;\n\tif ((gate == 0) && (!lP)) {\r\n\t\tstate\t= 7 - h2Active;\t//\tjumpto env_hold_2 or env_release\r\n\t} else if (env <= sustainLevel) {\n \t\tenv\t\t= sustainLevel;\r\n\t\tstate\t= 5;\t\t\t//\tgoto env_sustain\n\t}\n\r\n} else if\t(state == 5) {\t\t\t\t\t\t// env_sustain\r\n\tenv\t= sustainLevel;\r\n\tsustainTime = 0;\r\n\tif ((maxsustain  >= 0) || lP) {\t\t\t\t\t\t\t\t// 'mSus' or lP\r\n\t\tsustainTime   = lP ? mstosamps(loopsustain) : mstosamps(maxsustain);\r\n\t\tsustainCount += 1;\r\n\t\tif (sustainCount < maximum(sustainTime, 0)) {\t\t\t// 'isSustained'\r\n\t\t\tenv\t= sustainLevel;\r\n\t\t} else if (gate == 0) {\r\n\t\t\tstate = 7;\t\t\t//\tjumpto env_release (ignore env_hold_2)\r\n\t\t\tsustainCount = 0;\r\n\t\t}\r\n\t} else {\r\n\t\tenv\t= sustainLevel;\r\n\t\tif (gate == 0) {\r\n\t\t\tstate = 7 - h2Active;//\tjumpto env_hold_2 or env_release\r\n\t\t\tsustainCount = 0;\r\n\t\t}\r\n\t}\r\n\r\n} else if\t(state == 6) {\t\t\t\t\t\t// env_hold_2 (gate is already 0)\r\n\tenv\t= env;\t\t\t\t\t\t\t\t\t// will hold value from whichever segment it comes from\r\n\thold2Count  += 1;\r\n\tif (lP) {\t\t\t\t\t\t\t\t\t// ignore in loop mode ('loopsustain' instead)\r\n\t\tstate\t= 7;\t\t\t//\tjumpto env_release\r\n\t\thold2Count = 0;\r\n\t} else if (isHeld2) {\r\n\t\tenv\t\t= env;\r\n\t} else {\r\n\t\tstate\t= 7;\t\t\t//\tgoto env_release\r\n\t\thold2Count = 0;\r\n\t}\r\n\r\n} else if\t(state == 7) {\t\t\t\t\t\t// env_release\n\tenv = releaseBase + env * releaseCoeff;\n\tif (env <= 0) {\n\t\tenv\t\t= 0;\n\t\tstate\t= 0;\t\t\t//\tgoto env_idle\n\t}\n\r\n} else if\t(state == 8) {\t\t\t\t\t\t// env_retrigger (treat as segment for sync possibilities)\r\n\trTrigBase\t= 0;\r\n\trTrigCoeff\t= 0;\r\n\tif (retrigger > 10) {\t\t// if retrigger time is greater than 10 ms, make RC-style curve, else linear\r\n\t\t// targetRatioFall same as decay & release, tRFmul difference\r\n\t\ttRFmul\t\t=  retrigRatio(targetRatioRise, targetRatioFall);\r\n\t\trTrigCoeff\t=  calcCoeff(retrigRate, tRFmul);\n\t\trTrigBase\t= -tRFmul * (1 - rTrigCoeff);\n\t} else {\r\n\t\trTrigCoeff\t=  1 / retrigRate;\r\n\t\trTrigBase\t=  0;\r\n\t}\r\n\tenv\t\t\t= rTrigBase + env * rTrigCoeff;\n\tif (env <= 0) {\n\t\tenv\t\t= 0;\r\n\t\tstate\t= 1 + (1 - delActive);//  goto env_delay or env_attack (start of env)\n\t}\n\r\n} else {\t//\t(state == 0)\t\t\t\t\t// env_idle\r\n\tenv\t\t\t\t= 0;\r\n\tvalAtTrigger\t= (lP || lG) ? valAtTrigger : 1;\r\n\r\n}\r\n\r\n// scale envelope\r\n\r\nscalar\t\t\t= valAtTrigger;\r\nif (velocitysense > 0) {\t\t\t\t\t\t//  optional velocity sensitivity (default 1 == full & like [adsr~])\r\n\tenvnorm\t\t= 1;\t\t\t\t\t\t\t// 'envnorm = 1' assumes normalised 0..1 input behaviour\r\n\tif (valAtTrigger > 1)\t\t\t\t\t\t//  if value > 1, assume non-normalised behaviour & refer to 'envmax'\r\n\t\tenvnorm\t= envmax;\t\t\t\t\t\t// 'envmax' default = 127 (assumes 'velocity' but can be anything)\r\n\tscalar\t\t= simpleScale((valAtTrigger / envnorm), (1 - velocitysense),\tvelCvre);\t//\tlog\t|| lin\t||\texp\r\n}\t\t\t\t\t\t\t\t\t\t\t\t//\t\t\t\t\t\t\t\tvelCvre:\t\tpos\t||\t0\t||\tneg\r\nenv\t\t\t\t= env * scalar;\t\t\t\t\t//  env 0..1 by default scaled by it's input value (like [adsr~])\r\n\r\n// outlets\r\n\r\nout1\t\t\t= env;\t\t\t\t\t\t\t//\tDAHDSHR envelope 0..value..0\nout2\t\t\t= gate;\t\t\t\t\t\t\t//\tnew env trigger 1/0\r\nout3\t\t\t= active == 0;\t\t\t\t\t//  mute 1/0\r\nout4\t\t\t= state;\t\t\t\t\t\t//\tsegment # 0, 1, 2, 3, 4, 5, 6, 7, 8, 0\r\n\r\n// updates\r\n\r\nprev_rR\t\t\t= riseratio;\r\nprev_fR\t\t\t= fallratio;\r\nprev_attRate\t= attackRate;\r\nprev_decRate\t= decayRate;\r\nprev_relRate\t= releaseRate;\r\nprev_susL\t\t= sustainLevel;\r\n\r\n",
+                    "fontface": 0,
+                    "fontname": "<Monospaced>",
+                    "fontsize": 12.0,
+                    "id": "obj-5",
+                    "maxclass": "codebox",
+                    "numinlets": 8,
+                    "numoutlets": 4,
+                    "outlettype": [ "", "", "", "" ],
+                    "patching_rect": [ 34.0, 56.0, 941.0, 727.0 ]
+                }
+            },
+            {
+                "box": {
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 12.0,
+                    "id": "obj-1",
+                    "linecount": 2,
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 429.0, 13.0, 98.0, 35.0 ],
+                    "text": "in 4 Hold1 in ms @default 0"
+                }
+            },
+            {
+                "box": {
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 12.0,
+                    "id": "obj-2",
+                    "linecount": 2,
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 297.0, 13.0, 99.0, 35.0 ],
+                    "text": "in 3 Attack in ms @default 10"
+                }
+            },
+            {
+                "box": {
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 12.0,
+                    "id": "obj-4",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 34.0, 800.0, 151.0, 22.0 ],
+                    "text": "out 1 DAHDSHR Envelope"
+                }
+            }
+        ],
+        "lines": [
+            {
+                "patchline": {
+                    "destination": [ "obj-5", 3 ],
+                    "source": [ "obj-1", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-5", 1 ],
+                    "source": [ "obj-12", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-5", 6 ],
+                    "source": [ "obj-14", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-5", 2 ],
+                    "source": [ "obj-2", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-10", 0 ],
+                    "source": [ "obj-5", 2 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-11", 0 ],
+                    "source": [ "obj-5", 3 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 0 ],
+                    "source": [ "obj-5", 1 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-4", 0 ],
+                    "source": [ "obj-5", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-5", 7 ],
+                    "source": [ "obj-6", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-5", 4 ],
+                    "source": [ "obj-7", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-5", 5 ],
+                    "source": [ "obj-8", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-5", 0 ],
+                    "source": [ "obj-9", 0 ]
+                }
+            }
+        ]
+    }
+}

@@ -1,0 +1,690 @@
+
+// evi_majorverb.gendsp, a strange reverb-like effect by Pete for evieve,
+// based on Christopher Moore's legendary 1978 Ursa Major Space Station algorithm
+// @see: https://patentimages.storage.googleapis.com/69/db/19/ea420d3f72ccd2/US4268717.pdf
+// I would not have fully understood it all without the Tom Erbe examples.
+
+// This is not an attempt to model the 1970's digital hardware, but more of a trope on it, 
+// although it does sound very close to the original with the right settings :-)
+// Nonlinearities and trap filters have been added, much as you might find in an analogue delay,
+// and different modulation, interpolation, smoothing, filtering modifications, etc.
+// The key features (for me) are the ability to screw up the recirculation settings into a crazy
+// and cool performable feedback matrix drone machine.
+
+
+//	//	//	utilities
+
+// approx exp(x) (more accurate than 'fastexp()')
+expA(x0)
+{
+	x = 0.999996 + (0.031261316 + (0.00048274797 + 0.000006 * x0) * x0) * x0;
+	x *= x; x *= x; x *= x; x *= x; x *= x;
+	return x;
+}
+
+// excellent accuracy to about +36 dB, after which you are on your own
+dbtoaApprox(db)
+{
+	dbtoaA = expA(0.11512925464970 * db);
+	return dbtoaA + 0.000128;		// + offset = 0 dB == 1 amplitude
+}
+
+// cheap tan approx for BLT
+tnA(x)		// 0..1 input
+{
+	x2 = (x * x);
+	x3 = (x2 * x);
+	x5 = (x2 * x3);
+	return ((x5 * 0.133333) + (x3 * 0.333333)) + x;
+}
+
+// for square root xfade
+ctrlSqrt(x)
+{
+	cL = sqrt(1 - x);
+	cR = sqrt(x);
+	return cL, cR;
+}
+
+
+//	//	//	smoothing
+
+tauA(t)								// approximate 'exp(-1 / (seconds * samplerate))'
+{
+	y = expA(-1 / (t * samplerate));
+	return y + 0.000128;			// approximation has excellent accuracy above...
+}									// ...0.01 seconds (10 milliseconds) input
+
+expsmooth(x, t)		// x = value	// t is smooth time in seconds
+{
+	History w(0);
+	z = tauA(t);
+	y = (z * w) + (x * (1 - z));
+	w = y;
+	return y;
+}
+
+// for exp envs
+expso(x, z)									// z is pole
+{
+	History w(0);
+	y = (z * w) + (x * (1 - z));
+	w = y;
+	return y;
+}
+
+expsmoothBank2(x1, x2, t)					// t is smooth time in seconds...
+{
+	History	expsdummy2(0);
+	z		= tauA(t);
+	y1		= expso(x1, z);
+	y2		= expso(x2, z);
+	return	y1, y2;
+}
+
+logsmooth(x, s)		// x = value			// s = time to drop 6dB (in seconds)
+{
+	History z(0);
+	ad = LN2 / (s * samplerate);			// no maximum check
+	y  = ((x - z) * ad) + z;
+	z  = y;
+	return y;
+}
+
+// for log envs
+logsad(s)									// s = time to drop 6dB (in seconds)
+{
+//	return	LN2 / (s * samplerate);
+	return	LN2 / maximum((s * samplerate), 1);// incl. maximum check
+}
+
+// for log banks
+logso(x, ad)
+{
+	History z(0);
+	y = ((x - z) * ad) + z;
+	z = y;
+	return y;
+}
+
+logsmoothBank2(x1, x2, s)
+{
+	History	logsdummy2(0);
+	ad		= logsad(s);
+	y1		= logso(x1, ad);
+	y2		= logso(x2, ad);
+	return	y1, y2;
+}
+
+logsmoothBank3(x1, x2, x3, s)
+{
+	History	logsdummy3(0);
+	ad		= logsad(s);
+	y1		= logso(x1, ad);
+	y2		= logso(x2, ad);
+	y3		= logso(x3, ad);
+	return	y1, y2, y3;
+}
+
+logsmoothBank4(x1, x2, x3, x4, s)
+{
+	History	logsdummy4(0);
+	ad		= logsad(s);
+	y1		= logso(x1, ad);
+	y2		= logso(x2, ad);
+	y3		= logso(x3, ad);
+	y4		= logso(x4, ad);
+	return	y1, y2, y3, y4;
+}
+
+// basic linear scaling like linear part of [scale]
+eviMap(valueIn, inLow, inHigh, outLow, outHigh)
+{
+	multiplier = (outLow - outHigh) / (inLow - inHigh);
+	return (valueIn - inLow) * multiplier + outLow;
+}
+
+// a bit like MSP [line~], i.e. exact destination
+eviLine(target, duration)				// target, duration in samples
+{
+	History	value(0);
+	trigger	= change(target);
+	ramp	= clip(accum((1 / latch(duration, trigger)), trigger), 0, 1);
+	line	= eviMap(ramp, 0, 1, latch(value, trigger), latch(target, trigger));
+	value	= line;
+	return	line, (ramp == 1);
+}
+
+
+//	//	//	nonlinear
+
+// HQ tanh lambert approximation
+tnhL(x)
+{
+	x2 = x * x;
+	a  = (((x2 + 378) * x2 + 17325) * x2 + 135135) * x;
+	b  = ((28 * x2 + 3150) * x2 + 62370) * x2 + 135135;
+	return clamp((a / b), -1, 1);
+}
+
+// parabolic saturation
+parabolsat(x, a, c)					// a=amplitude (default 1), c=clip (default 2)
+{
+	c2 = c + c;
+	p  = clip((x * a), -c2, c2);
+	m  = 1 - (abs(p) * (0.25 / c));
+	y  = p * m;
+	return y;
+}
+
+// fixed 3x quasi oversampling mono
+tnhL3x(XIN)
+{	// up 3
+	History	umTm1_0(0), umT0_0(0), umT1_0(0);
+	// down 3
+	History	dmT2_1(0), dmT1_1(0), dmT0_1(0);
+	History	dmT2_2(0), dmT1_2(0), dmT0_2(0);
+	// align
+	History	doX0(0);
+
+	ODT		= 0.3333333333333333;
+	TDT		= 0.6666666666666667;
+
+	// up 3x
+	x0_0_a	= XIN + 0;
+	x1_0	= umT0_0 + 0;
+	x2_0	= interp(ODT, umTm1_0, umT0_0, umT1_0, x0_0_a, mode="spline");
+	x3_0	= interp(TDT, umTm1_0, umT0_0, umT1_0, x0_0_a, mode="spline");
+
+	// process 3x
+	y1_0	= tnhL(x1_0);
+	y2_0	= tnhL(x2_0);
+	y3_0	= tnhL(x3_0);
+
+	// down 3x
+	y2_0_a	= y2_0 + 0;
+	y2_1	= interp(TDT,	y2_0_a,	dmT0_1, dmT1_1, dmT2_1, mode="spline");
+	y3_0_a	= y3_0 + 0;
+	y3_1	= interp(ODT,	y3_0_a,	dmT0_2, dmT1_2, dmT2_2, mode="spline");
+
+	y0_0	= (doX0 + y2_1 + y3_1) * ODT;
+
+	// update
+	umTm1_0	= umT0_0;
+	umT0_0	= umT1_0;
+	umT1_0	= x0_0_a;
+
+	doX0	= y1_0;
+
+	dmT2_1	= dmT1_1;
+	dmT1_1	= dmT0_1;
+	dmT0_1	= y2_0;
+
+	dmT2_2	= dmT1_2;
+	dmT1_2	= dmT0_2;
+	dmT0_2	= y3_0;
+
+	return y0_0;
+}
+
+// fixed 6x quasi oversampling mono
+tnhL6x(XIN)
+{	// up 2
+	History	umTm1_0(0), umT0_0(0), umT1_0(0);
+	// down 2
+	History	dmT2_1(0), dmT1_1(0), dmT0_1(0);
+	// align
+	History	doX0(0);
+
+	// up 2x
+	x0_0_a	= XIN + 0;
+	x1_0	= interp(0.5,	umTm1_0, umT0_0, umT1_0, x0_0_a, mode="cubic");
+	x2_0	= umT1_0 + 0;
+
+	// process 6x
+	y1_0	= tnhL3x(x1_0);
+	y2_0	= tnhL3x(x2_0);
+
+	// down 2x
+	y2_0_a	= y2_0 + 0;
+	y2_1	= interp(0.5,	y2_0_a,	dmT0_1, dmT1_1, dmT2_1, mode="cubic");
+
+	y0_0	= (doX0 + y2_1) * 0.5;
+
+	// update
+	umTm1_0	= umT0_0;
+	umT0_0	= umT1_0;
+	umT1_0	= x0_0_a;
+
+	doX0	= y1_0;
+
+	dmT2_1	= dmT1_1;
+	dmT1_1	= dmT0_1;
+	dmT0_1	= y2_0;
+
+	return y0_0;
+}
+/*
+// fixed 4x hacky oversampling tnhL mono, plus voodoo for GenExpr
+tnhL4x(XIN)
+{	// up 4
+	History	umTm1_0(0), umT0_0(0), umT1_0(0);
+	// down 4
+	History	dmT2_1(0), dmT1_1(0), dmT0_1(0);
+	History	dmT2_2(0), dmT1_2(0), dmT0_2(0);
+	History	dmT2_3(0), dmT1_3(0), dmT0_3(0);
+	// align
+	History	doX0(0);
+
+	// up 4x
+	x0_0_a	= XIN + 0;
+	x1_0	= interp(0.25,	umTm1_0, umT0_0, umT1_0, x0_0_a, mode="spline");		// !!
+	x2_0	= interp(0.5,	umTm1_0, umT0_0, umT1_0, x0_0_a, mode="spline");
+	x3_0	= interp(0.75,	umTm1_0, umT0_0, umT1_0, x0_0_a, mode="spline");
+
+	// process 4x
+	y1_0	= tnhL(x1_0);
+	y2_0	= tnhL(x2_0);
+	y3_0	= tnhL(x3_0);
+	y4_0	= tnhL(umT1_0 + 0);
+
+	// down 4x
+	y2_0_a	= y2_0 + 0;
+	y2_1	= interp(0.25,	y2_0_a,	dmT0_1, dmT1_1, dmT2_1, mode="spline");
+
+	y3_0_a	= y3_0 + 0;
+	y3_1	= interp(0.5,	y3_0_a,	dmT0_2, dmT1_2, dmT2_2, mode="spline");
+
+	y4_0_a	= y4_0 + 0;
+	y4_1	= interp(0.75,	y4_0_a,	dmT0_3, dmT1_3, dmT2_3, mode="spline");
+
+	y0_0	= (((doX0 + y2_1) + y3_1) + y4_1) * 0.25;
+
+	// update
+	umTm1_0	= umT0_0;
+	umT0_0	= umT1_0;
+	umT1_0	= x0_0_a;
+
+	doX0	= y1_0;
+
+	dmT2_1	= dmT1_1;
+	dmT1_1	= dmT0_1;
+	dmT0_1	= y2_0;
+
+	dmT2_2	= dmT1_2;
+	dmT1_2	= dmT0_2;
+	dmT0_2	= y3_0;
+
+	dmT2_3	= dmT1_3;
+	dmT1_3	= dmT0_3;
+	dmT0_3	= y4_0;
+
+	return y0_0;
+}
+*/
+// fixed 3x quasi oversampling mono
+parabol3x(XIN, a, c)
+{	// up 3
+	History	umTm1_0(0), umT0_0(0), umT1_0(0);
+	// down 3
+	History	dmT2_1(0), dmT1_1(0), dmT0_1(0);
+	History	dmT2_2(0), dmT1_2(0), dmT0_2(0);
+	// align
+	History	doX0(0);
+
+	ODT		= 0.3333333333333333;
+	TDT		= 0.6666666666666667;
+
+	// up 3x
+	x0_0_a	= XIN + 0;
+	x1_0	= umT0_0 + 0;
+	x2_0	= interp(ODT, umTm1_0, umT0_0, umT1_0, x0_0_a, mode="spline");
+	x3_0	= interp(TDT, umTm1_0, umT0_0, umT1_0, x0_0_a, mode="spline");
+
+	// process 3x
+	y1_0	= parabolsat(x1_0, a, c);
+	y2_0	= parabolsat(x2_0, a, c);
+	y3_0	= parabolsat(x3_0, a, c);
+
+	// down 3x
+	y2_0_a	= y2_0 + 0;
+	y2_1	= interp(TDT,	y2_0_a,	dmT0_1, dmT1_1, dmT2_1, mode="spline");
+	y3_0_a	= y3_0 + 0;
+	y3_1	= interp(ODT,	y3_0_a,	dmT0_2, dmT1_2, dmT2_2, mode="spline");
+
+	y0_0	= (doX0 + y2_1 + y3_1) * ODT;
+
+	// update
+	umTm1_0	= umT0_0;
+	umT0_0	= umT1_0;
+	umT1_0	= x0_0_a;
+
+	doX0	= y1_0;
+
+	dmT2_1	= dmT1_1;
+	dmT1_1	= dmT0_1;
+	dmT0_1	= y2_0;
+
+	dmT2_2	= dmT1_2;
+	dmT1_2	= dmT0_2;
+	dmT0_2	= y3_0;
+
+	return y0_0;
+}
+
+// fixed 6x quasi oversampling mono
+parabol6x(XIN, a, c)
+{	// up 2
+	History	umTm1_0(0), umT0_0(0), umT1_0(0);
+	// down 2
+	History	dmT2_1(0), dmT1_1(0), dmT0_1(0);
+	// align
+	History	doX0(0);
+
+	// up 2x
+	x0_0_a	= XIN + 0;
+	x1_0	= interp(0.5,	umTm1_0, umT0_0, umT1_0, x0_0_a, mode="cubic");
+	x2_0	= umT1_0 + 0;
+
+	// process 6x
+	y1_0	= parabol3x(x1_0, a, c);
+	y2_0	= parabol3x(x2_0, a, c);
+
+	// down 2x
+	y2_0_a	= y2_0 + 0;
+	y2_1	= interp(0.5,	y2_0_a,	dmT0_1, dmT1_1, dmT2_1, mode="cubic");
+
+	y0_0	= (doX0 + y2_1) * 0.5;
+
+	// update
+	umTm1_0	= umT0_0;
+	umT0_0	= umT1_0;
+	umT1_0	= x0_0_a;
+
+	doX0	= y1_0;
+
+	dmT2_1	= dmT1_1;
+	dmT1_1	= dmT0_1;
+	dmT0_1	= y2_0;
+
+	return y0_0;
+}
+/*
+// fixed 4x hacky oversampling parabolsat mono, plus voodoo for GenExpr
+parabol4x(XIN, a, c)
+{	// up 4
+	History	umTm1_0(0), umT0_0(0), umT1_0(0);
+	// down 4
+	History	dmT2_1(0), dmT1_1(0), dmT0_1(0);
+	History	dmT2_2(0), dmT1_2(0), dmT0_2(0);
+	History	dmT2_3(0), dmT1_3(0), dmT0_3(0);
+	// align
+	History	doX0(0);
+
+	// up 4x
+	x0_0_a	= XIN + 0;
+	x1_0	= interp(0.25,	umTm1_0, umT0_0, umT1_0, x0_0_a, mode="spline");		// !!
+	x2_0	= interp(0.5,	umTm1_0, umT0_0, umT1_0, x0_0_a, mode="spline");
+	x3_0	= interp(0.75,	umTm1_0, umT0_0, umT1_0, x0_0_a, mode="spline");
+
+	// process 4x
+	y1_0	= parabolsat(x1_0,		a, c);
+	y2_0	= parabolsat(x2_0,		a, c);
+	y3_0	= parabolsat(x3_0,		a, c);
+	y4_0	= parabolsat(umT1_0,	a, c);
+
+	// down 4x
+	y2_0_a	= y2_0 + 0;
+	y2_1	= interp(0.25,	y2_0_a,	dmT0_1, dmT1_1, dmT2_1, mode="spline");
+
+	y3_0_a	= y3_0 + 0;
+	y3_1	= interp(0.5,	y3_0_a,	dmT0_2, dmT1_2, dmT2_2, mode="spline");
+
+	y4_0_a	= y4_0 + 0;
+	y4_1	= interp(0.75,	y4_0_a,	dmT0_3, dmT1_3, dmT2_3, mode="spline");
+
+	y0_0	= (((doX0 + y2_1) + y3_1) + y4_1) * 0.25;
+
+	// update
+	umTm1_0	= umT0_0;
+	umT0_0	= umT1_0;
+	umT1_0	= x0_0_a;
+
+	doX0	= y1_0;
+
+	dmT2_1	= dmT1_1;
+	dmT1_1	= dmT0_1;
+	dmT0_1	= y2_0;
+
+	dmT2_2	= dmT1_2;
+	dmT1_2	= dmT0_2;
+	dmT0_2	= y3_0;
+
+	dmT2_3	= dmT1_3;
+	dmT1_3	= dmT0_3;
+	dmT0_3	= y4_0;
+
+	return y0_0;
+}
+*/
+// make oversampling choice on tnhL mono nonlinearity
+tnhLNonlin(xin, oversampling)
+{
+	History tnhldummy(0);			// for embedding
+	y = 0;
+	if (oversampling == 1) {		// use 3x oversampling
+		y = tnhL3x(xin);
+	} else if (oversampling == 2) {	// use 6x oversampling
+		y = tnhL6x(xin);
+	} else {						// BYPASSED
+		y = xin;
+	}
+	return y;
+}
+
+// make oversampling choice on parabolsat mono nonlinearity
+parabolNonlin(xin, am, cl, oversampling)
+{
+	History pbldummy(0);			// for embedding
+	y = 0;
+	if (oversampling == 1) {		// use 3x oversampling
+		y = parabol3x(xin, am, cl);
+	} else if (oversampling == 2) {	// use 6x oversampling
+		y = parabol6x(xin, am, cl);
+	} else {						// BYPASSED
+		y = xin;
+	}
+	return y;
+}
+
+
+//	//	//	filters
+
+rcPreWarp(cutoff)						// prewarp
+{
+	g0		=  tnA(pi * cutoff / samplerate);
+	return	g0 / (1 + g0);
+}
+/*
+rcDampCoeffs(cutoff, damp, mode)		// *)
+{
+	d1		= 0;
+	// prewarp
+	g0		=  tnA(pi * cutoff / samplerate);
+	// account for pass/shelf
+	ka	=  abs(damp);					// 0..1 = sqrt..lin
+	ks	= (ka * 0.5) + 0.5;
+	g01	=  1 + g0;
+	g1 	=  g0 / interp((2 * (ks - 0.5)), sqrt(g01), g01, mode="linear");
+	// shelf/pass (damp) control
+	if (mode > 0) {			// nice way of getting approx ± 10dB
+		d1		= -(pow(4, damp) - 1);
+		if (mode == 2) {	// extend attenuation range to make pass choice
+			d1	=  (d1 > 0) ? (d1 * 1.333333) : d1;
+		}
+	} else {// (mode == 0)	// for attenuation ('damping') only (0..1 input)
+		d1	= interp((2 * (((1 - ks) + 0.5) - 0.5)), sqrt(ka), ka, mode="linear");
+	}
+
+	return g1, d1;			// rc filter warped cf (g)	// rc filter warped gain (k)
+
+	// *) N.B., 'damp' -1..1 maps to d1 (k) as...
+	//		- if mode==0:	 0=bypass..shelfattenuate..+1=pass (abs or clip damp)
+	//		- if mode==1:	+0.75=shelfattenuate..0=bypass..-3=shelfboost
+	//		- if mode==2:	+1=pass..shelfattenuate..0=bypass..-3=shelfboost
+}
+*/
+rcDampCoeffs(cutoff, damp)				// fixed mode=2 version, no branching, keep out of while loop in export
+{
+	// prewarp
+	g0		=  tnA(pi * cutoff / samplerate);
+	// account for pass/shelf
+	ka	=  abs(damp);					// 0..1 = sqrt..lin
+	ks	= (ka * 0.5) + 0.5;
+	g01	=  1 + g0;
+	g1 	=  g0 / interp((2 * (ks - 0.5)), sqrt(g01), g01, mode="linear");
+	// shelf/pass (damp) control
+	d1	= -(pow(4, damp) - 1);			// this is just horrible
+	// extend attenuation range to make pass choice
+	d1	=  (d1 > 0) ? (d1 * 1.333333) : d1;
+
+	return g1, d1;						// rc filter warped cf (g)	// rc filter warped gain (k)
+}
+
+// linear OnePole RC filter (trapezoidal)
+rcFilter(Vin, g)
+{
+	History	  s(0);
+	Vout	= (g * Vin + s) / (g + 1);
+	s		= (Vout + Vout) - s;
+	return	  Vout;
+}
+
+rcFilterHpLp(Vin, g)
+{
+	History	  s(0);
+	VoutLp	= (g * Vin + s) / (g + 1);
+	s		= (VoutLp + VoutLp) - s;
+	Hp		= Vin - VoutLp;
+	return	  Hp, VoutLp;
+}
+
+// dual bandpass version, one in one out
+rcFilterBandpass(xp, ghp, glp)
+{
+	History	rcfbdummy(0);
+	lp		= rcFilter(xp, glp);
+	hp, hl	= rcFilterHpLp(lp, ghp);
+	return	hp;
+}
+
+// High or Low Pass if k == 1, Bypass if k == 0, else Low or High Shelf attenuation
+rcFilterDamp(Vin, g, k)
+{
+	History	   s(0);
+	Lp		= (g * Vin + s) / (g + 1);
+	s		= (Lp + Lp) - s;
+	Hp		=  Lp - Vin;				// must be y-x
+
+	return	Vin + (k * Hp);
+}
+
+// High or Low Pass if k == 1, Bypass if k == 0, else Low or High Shelf attenuation
+rcFilterDampHpLp(Vin, g, k)
+{
+	History	   s(0);
+	Lp		= (g * Vin + s) / (g + 1);
+	s		= (Lp + Lp) - s;
+	Hp		=  Lp - Vin;				// must be y-x
+
+	LpHs	=  Vin + (k * Hp);
+	HpLs	= (k * Lp) - Vin;
+
+	return	   HpLs, LpHs;
+}
+
+rcFilterDampBandpass(Vin, ghp, glp, hk, lk)
+{
+	History	rcfdbdummy(0);
+	lphs1			= rcFilterDamp(Vin, glp, lk);
+	hpls2, lphs2	= rcFilterDampHpLp(lphs1, ghp, hk);
+	return	hpls2;
+}
+
+//	//	//	fdn
+
+// approx pow(x, 0.5..2)
+fastskew(x, skew)					// !! skew must be clipped 0.5..2 !!
+{
+	y		= 0;
+
+	if (skew < 1) {
+		sk5	= skew - 0.5;
+		y 	= interp(sk5 + sk5, sqrt(x), x);	
+	} else {
+ 		y	= interp(skew - 1, x, x * x);
+	}
+
+	return	y;
+}
+
+lfoCalc(phase, duty, shape, skew)	// input phase must be wrapped 0..1 for tri phase
+{
+    tri = (phase < duty) ? (phase / duty) : (1 - phase) / (1 - duty);
+
+	sphase = wrap(phase - 0.25, 0, 1);
+   	sine = (sphase > 0.5) ? sphase - 1 : sphase;
+    sine = sine * (4 - (abs(sine) * 8)) + 0.5;
+            
+    return fastskew(interp(shape, tri, sine), skew);
+}
+
+// cheap parabolic approx
+parabolWrap(phase) // phase must be phase (phasor) wrapped 0..1
+{
+	x	= wrap(phase, -0.5, 0.5); // this is stupid and needlessly expensive, can't i just do (x = phase - 0.5) ?
+//	x 	= phase - 0.5; // ah, but now the phase is wrong :-( <<-- does it matter ?
+	y	= (8 - (abs(x) * 16)) * x;
+	return	y;
+}
+
+oneMod1(modFreq, modDepth, modOffset, _modDuty, _modShape, _modSkew)
+{
+	History 	onemod1dummy(0);
+	modPhase	= phasor(modFreq);
+	return		parabolWrap(modPhase + modOffset) * modDepth;
+}
+
+oneMod2(modFreq, modDepth, modOffset, modDuty, modShape, modSkew)
+{
+	History 	onemod2dummy(0);
+	modPhase	= wrap(phasor(modFreq) + modOffset, 0, 1);
+	return		(lfoCalc(modPhase, modDuty, modShape, modSkew) * (modDepth + modDepth)) - modDepth;
+}
+
+delmod2(delay1, delay2, rate, depth, offset1, offset2)
+{
+	History delmod2dummy(0);
+	mod1	= oneMod1(rate, depth, offset1, 0, 0, 0);
+	mod2	= oneMod1(rate, depth, offset2, 0, 0, 0);
+	time1	= delay1 + mod1;
+	time2	= delay2 + mod2;
+	return	time1, time2;
+}
+
+delmod4(delay1, delay2, delay3, delay4, rate1, rate2, depth, offset1, offset2, offset3, offset4)
+{
+	History delmod4dummy(0);
+	time1, time2	= delmod2(delay1, delay2, rate1, depth, offset1, offset2);
+	time3, time4	= delmod2(delay3, delay4, rate2, depth, offset3, offset4);
+	return	time1, time2, time3, time4;
+}
+
+//	//	//	mix
+
+xfadeSqrtStereo(a, b, c, d, x)
+{
+	cL, cR	= ctrlSqrt(x);
+	return ((a * cL) + (c * cR)), ((b * cL) + (d * cR));
+}
+

@@ -1,0 +1,1175 @@
+
+//	//	//	evi_reverb_library.genexpr
+//	//	//	by Pete for evieve
+//	//	//	!! TODO !! -  clean up
+
+
+// approx...
+
+cosQ52(x) {
+	c1 =  0.9999932946;
+	c2 = -0.4999124376;
+	c3 =  0.0414877472;
+	c4 = -0.0012712095;
+
+	x2 = x * x;
+	return (c1 + x2 * (c2 + x2 * (c3 + c4 * x2)));
+}
+
+cosQ73(x) {
+	c1 =  0.999999953464;
+	c2 = -0.499999053455;
+	c3 =  0.0416635846769;
+	c4 = -0.0013853704264;
+	c5 =  0.00002315393167;  	
+
+	x2 = x * x;
+	return (c1 + x2 * (c2 + x2 * (c3 + x2 * (c4 + c5 * x2))));
+}
+
+mtnA(x)		// valid for -halfpi < x < +halfpi
+{
+	x2		= x * x;
+	return	x * (0.999999492001 + x2 * -0.096524608111) / 
+				(1 + x2 * (-0.429867256894 + x2 * 0.009981877999));
+}
+
+tnA(x)		// valid for 0..1 input
+{
+	x2		= (x * x);
+	x3		= (x2 * x);
+	x5		= (x2 * x3);
+	return	 ((x5 * 0.133333) + (x3 * 0.333333)) + x;
+}
+
+expA(x0)							// approx exp(x) (more accurate than 'fastexp()')
+{
+	x = 0.999996 + (0.031261316 + (0.00048274797 + 0.000006 * x0) * x0) * x0;
+	x *= x; x *= x; x *= x; x *= x; x *= x;
+	return x;
+}
+
+tauA(t)								// approximate 'exp(-1 / (seconds * samplerate))'
+{
+	y = expA(-1 / (t * samplerate));
+	return y + 0.000128;			// approximation has excellent accuracy above...
+}									// ...0.01 seconds (10 milliseconds) input
+
+// accuracy: + 4.38 cents .. 108.68 cents @ MIDI 0 .. MIDI 120
+mtofApprox(pitch)
+{
+	mtofMul	= 0.05776226504666;		// log(2) / 12
+	mtofAdd	= 2.10117843869262;		// log(440) - (log(2) * 69 / 12)
+
+	return	expA((mtofMul * pitch) + mtofAdd);	// 'expA()' still reasonable accuracy
+}
+
+dbtoaApprox(db)
+{
+	dbtoaA = expA(0.11512925464970 * db);
+	return dbtoaA + 0.000128;		// + offset = 0 dB == 1 amplitude
+}
+
+
+// exact ramp smoothing...
+
+eviScurve(segment)						// segment must be linear ramp 0..1
+{
+	s2		= segment * segment;
+	rec		= 1 - segment;
+	r2		= rec * rec;
+	return	(segment < 0.5) ? (s2 * 2) : (1 - (r2 * 2));
+}
+
+// basic linear scaling like linear part of [scale]
+eviMap(valueIn, inLow, inHigh, outLow, outHigh)
+{
+	multiplier = (outLow - outHigh) / (inLow - inHigh);
+	return (valueIn - inLow) * multiplier + outLow;
+}
+
+eviLine(target, duration)				// target, duration in samples
+{
+	History	value(0);
+	trigger	= change(target);
+	ramp	= clip(accum((1 / latch(duration, trigger)), trigger), 0, 1);
+	line	= eviMap(ramp, 0, 1, latch(value, trigger), latch(target, trigger));
+	value	= line;
+	return	line, (ramp == 1);
+}
+/*
+eviMultiLine2(target1, target2, duration)
+{
+	History v1(0), v2(0);
+
+}
+
+eviMultiLine3(target1, target2, target3, duration)
+{
+
+}
+*/
+eviSline(target, duration)				// target, duration in samples
+{
+	History	value(0);
+	trigger	= change(target);
+	ramp	= clip(accum((1 / latch(duration, trigger)), trigger), 0, 1);
+	cramp	= eviScurve(ramp);
+	curve	= eviMap(cramp, 0, 1, latch(value, trigger), latch(target, trigger));
+	value	= curve;
+	return	curve, (ramp == 1);
+}
+
+
+// log smoothing...
+
+logsad(s)
+{
+	return	LN2 / maximum((s * samplerate), 1);
+}
+
+logsmooth(x, s)						// s = time to drop 6dB (in seconds)
+{
+	History z(0);
+	ad = logsad(s);
+	y  = ((x - z) * ad) + z;
+	z  = y;
+	return y;
+}
+
+logso(x, ad)
+{
+	History z(0);
+	y = ((x - z) * ad) + z;
+	z = y;
+	return y;
+}
+
+logsmoothBank2(x1, x2, s)
+{
+	History	logsdummy2(0);
+	ad		= logsad(s);
+	y1		= logso(x1, ad);
+	y2		= logso(x2, ad);
+	return	y1, y2;
+}
+
+logsmoothBank3(x1, x2, x3, s)
+{
+	History	logsdummy3(0);
+	ad		= logsad(s);
+	y1		= logso(x1, ad);
+	y2		= logso(x2, ad);
+	y3		= logso(x3, ad);
+	return	y1, y2, y3;
+}
+
+logsmoothBank4(x1, x2, x3, x4, s)
+{
+	History	logsdummy4(0);
+	ad		= logsad(s);
+	y1		= logso(x1, ad);
+	y2		= logso(x2, ad);
+	y3		= logso(x3, ad);
+	y4		= logso(x4, ad);
+	return	y1, y2, y3, y4;
+}
+
+logsmoothBank6(x1, x2, x3, x4, x5, x6, s)
+{
+	History	logsdummy6(0);
+	ad		= logsad(s);
+	y1		= logso(x1, ad);
+	y2		= logso(x2, ad);
+	y3		= logso(x3, ad);
+	y4		= logso(x4, ad);
+	y5		= logso(x5, ad);
+	y6		= logso(x6, ad);
+	return	y1, y2, y3, y4, y5, y6;
+}
+
+// for 'lagsmooth()'
+lagpole(x, c, l)							// value / coefficient / previous
+{
+//	return ((1 - abs(c)) * x) + (c * l);
+	return ((1 - c) * x) + (c * l);			// no need for abs here ?
+}
+
+// a bit like Supercollider [lag3]			// original by James MacCartney, mod by me
+lagsmooth(v, lp0)							// destination value / time (in seconds)
+{
+	History coef(  0.9928302477768374);		// default: @20ms @48kHz
+	History lp1(0), lp2(0), lp3(0);
+	LOGTH		= -6.907755278982137;		// ln(0.0001), fixed threshold of 0.0001 (-80 dB)
+	if (change(lp0))
+		coef	= maximum(expA(LOGTH / (lp0 * samplerate)), 0);
+	lp1		= lagpole(v,	coef,	lp1);
+	lp2		= lagpole(lp1,	coef,	lp2);
+	lp3		= lagpole(lp2,	coef,	lp3);
+	return	lp3;
+}
+
+
+// exp smoothing...
+
+expsmooth(x, t)						// t is smooth time in seconds
+{
+	History w(0);
+	z = tauA(t);
+	y = (z * w) + (x * (1 - z));
+	w = y;
+	return y;
+}
+
+expso(x, z)
+{
+	History w(0);
+	y = (z * w) + (x * (1 - z));
+	w = y;
+	return y;
+}
+
+expsmoothBank2(x1, x2, t)
+{
+	History	expsdummy2(0);
+	z		= tauA(t);
+	y1		= expso(x1, z);
+	y2		= expso(x2, z);
+	return	y1, y2;
+}
+
+expsmoothBank4(x1, x2, x3, x4, t)
+{
+	History	expsdummy4(0);
+	z		= tauA(t);
+	y1		= expso(x1, z);
+	y2		= expso(x2, z);
+	y3		= expso(x3, z);
+	y4		= expso(x4, z);
+	return	y1, y2, y3, y4;
+}
+
+
+// utilities...
+
+// Sadeharju 'spread' & times for late diffusion
+// 'spreadLate()' used only at param rate
+spreadLate(diffscale, mul1, mul2, spread)		// diffscale is int(), others doubles
+{												// 'spread' here is 0..1
+	c		= int(spread	*  mul1	+ 369	);
+	d		= int(spread	*  mul2	+ 931	);	// '* 3' baked into 'mul2' here
+	t1		= diffscale		* (c	- 210	);
+	t2		= diffscale		* (d	- c		);
+	t3		= diffscale		* (1341 - d		);
+	return	t1, t2, t3;							// Sadeharju has truncated ints
+}
+
+// quirky noise lfo...
+// ...(really stupid literal port of Randy Jones' MSP lores~ hack)...
+// ...should do fastcubic rand instead ??
+noiseMod(depth)
+{
+	History	h2(0), h1(0);
+	c0		=  3.902431071622914e-7;
+	c1		= -1.998750611177923;
+	c2		=  0.9987510014210301;
+	H		=	noise();
+	h0		= ( H  *  c0 ) - ( (h1 * c1) + (h2 * c2) );
+	h2		=	fixdenorm(h1);
+	h1		=	fixdenorm(h0);
+	return	h0  *  depth;
+}
+
+calcDelays(delay, time)										// delay in units, time in samples
+{
+	History direction(-1), ramp(0), del1(0), del2(0);	
+
+	test1	= ((ramp == 0) && (del1 != delay));
+	test2	= ((ramp == 1) && (del2 != delay));
+	
+	del2	= test1 ? delay : del2;
+	del1	= test2 ? delay : del1;
+	
+	sampletime	= 1 / time;
+	direction	= (test1 || test2) ? -direction : direction;
+	ramp		= clip(ramp + (direction * sampletime), 0, 1);
+	
+	return	ramp,	del1,	del2;
+}
+
+// we cannot instantiate delay sizes dynamically as we can in genexpr global code :-(
+
+// pre delay variable 											// very expensive but very lovely
+preDelayVar(x0, pdTime, pdRamp)
+{
+	History	pdvdummy(0);
+	Delay	preDel(27456,	2,	feedback=0);					// support up to 143ms ...
+
+	preflag		= pdTime > 0;									// manage cpu (1 is 1, 0 is delayed by ramptime)
+	precompute, pcn	= eviLine(preflag, pdRamp);
+
+	preDel.write( x0 );											// always write to delay lines
+	x1 			= x0;
+	if (precompute > 0) {	// manage cpu (only compute if is delayed)
+		mixa 	= x0;
+		mixb	= x0;
+		delayramp, delA, delB	= calcDelays(pdTime, pdRamp);	// delayramp = exact (only compute required)
+		pDelA	= delA - 1;
+		pDelB	= delB - 1;
+
+		if				((delayramp > 0) && (delayramp < 1)) {	// ...is ramping
+			if (pDelA > 0) {
+				mixa	= preDel.read(pDelA, 0, interp="fastcubic");
+			}
+			if (pDelB > 0) {
+				mixb	= preDel.read(pDelB, 1, interp="fastcubic");
+			}
+			x1			= xfadeQuartApproxMono(mixa, mixb, delayramp);
+		} else if		(delayramp == 1) {
+			if (pDelB > 0) {
+				mixb	= preDel.read(pDelB, 1, interp="fastcubic");
+			}
+			x1			= mixb;
+		} else {	//	(delayramp == 0)
+			if (pDelA > 0) {
+				mixa	= preDel.read(pDelA, 0, interp="fastcubic");
+			}
+			x1			= mixa;
+		}
+
+		x1	= interp(precompute, x0, x1, mode="cosine");
+	}						// (precompute == 0) manage cpu (only compute if is delayed)
+
+	return	x1;
+}
+/*					//	pdWindow == Hz
+preDelayVar(x0, pdTime0, pdWindow)								// less expensive but not as lovely
+{
+	History	pdvdummy(0);
+	Delay	preDelay(27456, 2, feedback=0);
+
+	preDelay.write(x0);
+
+	gater1	= (cycle(pdWindow) + 1) * 0.5;
+	gater2	= 1 - gater1;
+
+	pdltch1	= change(delta(gater1) > 0) < 0;
+	pdltch2	= change(delta(gater2) > 0) < 0;
+
+	pdTime1	= latch(pdTime0, pdltch1);
+	pdTime2	= latch(pdTime0, pdltch2);
+
+	pdmix1	= preDelay.read(pdTime1, 0, interp="cubic");
+	pdmix2	= preDelay.read(pdTime2, 1, interp="cubic");
+
+	return	(pdmix1 * gater1) + (pdmix2 * gater2);
+}
+*/
+
+// the following zero hold delays are very expensive
+// & we cannot dynamically allocate delay memory here as in global code
+
+delayReadZero1(x0, dTime, dRamp)
+{
+	History	pdv1sdummy(0);
+	Delay	zeroDel2(24577,	2,	feedback=0);
+
+//	preflag		= dTime > 0;							// manage cpu (1 is 1, 0 is delayed by ramptime)
+//	precompute, pcn	= eviLine(preflag, dRamp);
+
+	zeroDel2.write(x0);									// always write to delay line
+	x1 			= x0;
+//	if (precompute > 0) {	// manage cpu (only compute if is delayed)
+		mixa 	= x0;
+		mixb	= x0;
+		// delayramp = exact (only compute required)
+		delayramp, delA, delB	= calcDelays(dTime, dRamp);
+		pDelA	= delA - 1;
+		pDelB	= delB - 1;
+
+		if				((delayramp > 0) && (delayramp < 1)) {	// ...is ramping
+			if (pDelA > 0) {
+				mixa	= zeroDel2.read(pDelA, interp="fastcubic");
+			}
+			if (pDelB > 0) {
+				mixb	= zeroDel2.read(pDelB, interp="fastcubic");
+			}
+			x1			= xfadeQuartApproxMono(mixa, mixb, delayramp);
+		} else if		(delayramp == 1) {
+			if (pDelB > 0) {
+				mixb	= zeroDel2.read(pDelB, interp="fastcubic");
+			}
+			x1			= mixb;
+		} else {	//	(delayramp == 0)
+			if (pDelA > 0) {
+				mixa	= zeroDel2.read(pDelA, interp="fastcubic");
+			}
+			x1			= mixa;
+		}
+
+//		x1	= interp(precompute, x0, x1, mode="cosine");
+//	}						// (precompute == 0) manage cpu (only compute if is delayed)
+
+	return	x1;
+}
+
+delayReadZero1mod(x0, dTime, dRamp, mDepth)
+{
+	History	pdv1mdummy(0);
+	Delay	zeroDelm(52294,	2,	feedback=0);
+
+	zeroDelm.write(x0);
+	x1 		 = x0;
+	mod		 = noiseMod(mDepth);	// mDepth in seconds	// (-0.037524 / -0.031373)
+	mixa 	 = x0;
+	mixb	 = x0;
+	delayramp, delA, delB	= calcDelays(dTime, dRamp);		// delayramp = exact (only compute required)
+	pDelA	 = delA - 1;
+	pDelB	 = delB - 1;
+	pDelN	 =  mod * samplerate;							// pDelN adder in samples
+
+	if				((delayramp > 0) && (delayramp < 1)) {	// ...is ramping
+		if (pDelA > 0) {
+			mixa	= zeroDelm.read((pDelA + pDelN), interp="cubic");// should [fold] all (... + pDelN) ?
+		}
+		if (pDelB > 0) {
+			mixb	= zeroDelm.read((pDelB + pDelN), interp="cubic");
+		}
+		x1			= xfadeQuartApproxMono(mixa, mixb, delayramp);
+	} else if		(delayramp == 1) {
+		if (pDelB > 0) {
+			mixb	= zeroDelm.read((pDelB + pDelN), interp="cubic");
+		}
+		x1			= mixb;
+	} else {	//	(delayramp == 0)
+		if (pDelA > 0) {
+			mixa	= zeroDelm.read((pDelA + pDelN), interp="cubic");
+		}
+		x1			= mixa;
+	}
+
+	return	x1;
+}
+
+delayReadZero2(x0, dTime1, dTime2, dRamp)// this is stupid
+{
+	History	pdv2dummy(0);
+	Delay	zeroDel4(49153,	4,	feedback=0);
+
+//	dTime0		= dTime1 + dTime2;
+//	preflag		= dTime0 > 0;							// manage cpu (1 is 1, 0 is delayed by ramptime)
+//	precompute, pcn	= eviLine(preflag, dRamp);
+
+	zeroDel4.write(x0);									// always write to delay line
+	x1 			= x0;
+	x2			= x0;
+//	if (precompute > 0) {	// manage cpu (only compute if is delayed)
+		mixa 	= x0;
+		mixb	= x0;
+		mixc 	= x0;
+		mixd	= x0;
+		// delayramp* = exact (only compute required)
+		delayramp1, delA, delB	= calcDelays(dTime1, dRamp);
+		delayramp2, delC, delD	= calcDelays(dTime2, dRamp);
+		pDelA	= delA - 1;
+		pDelB	= delB - 1;
+		pDelC	= delC - 1;
+		pDelD	= delD - 1;
+
+		if				((delayramp1 > 0) && (delayramp1 < 1)) {	// ...is ramping
+			if (pDelA > 0) {
+				mixa	= zeroDel4.read(pDelA, interp="fastcubic");
+			}
+			if (pDelB > 0) {
+				mixb	= zeroDel4.read(pDelB, interp="fastcubic");
+			}
+			x1			= xfadeQuartApproxMono(mixa, mixb, delayramp1);
+		} else if		(delayramp1 == 1) {
+			if (pDelB > 0) {
+				mixb	= zeroDel4.read(pDelB, interp="fastcubic");
+			}
+			x1			= mixb;
+		} else {	//	(delayramp1 == 0)
+			if (pDelA > 0) {
+				mixa	= zeroDel4.read(pDelA, interp="fastcubic");
+			}
+			x1			= mixa;
+		}
+
+		if				((delayramp2 > 0) && (delayramp2 < 1)) {	// ...is ramping
+			if (pDelC > 0) {
+				mixc	= zeroDel4.read(pDelC, interp="fastcubic");
+			}
+			if (pDelD > 0) {
+				mixd	= zeroDel4.read(pDelD, interp="fastcubic");
+			}
+			x2			= xfadeQuartApproxMono(mixc, mixd, delayramp2);
+		} else if		(delayramp2 == 1) {
+			if (pDelD > 0) {
+				mixd	= zeroDel4.read(pDelD, interp="fastcubic");
+			}
+			x2			= mixd;
+		} else {	//	(delayramp2 == 0)
+			if (pDelC > 0) {
+				mixc	= zeroDel4.read(pDelC, interp="fastcubic");
+			}
+			x2			= mixc;
+		}
+
+//		x1	= interp(precompute, x0, x1, mode="cosine");
+//		x2	= interp(precompute, x0, x2, mode="cosine");
+//	}						// (precompute == 0) manage cpu (only compute if is delayed)
+
+	return	x1, x2;
+}
+
+
+// filters...
+
+rcDampCoeffsMode(cutoff, damp, mode)		// *)
+{
+	d1		= 0;
+	// prewarp
+	g0		=  tnA(pi * cutoff / samplerate);
+	// account for pass/shelf
+	ka	=  abs(damp);					// 0..1 = sqrt..lin
+	ks	= (ka * 0.5) + 0.5;
+	g01	=  1 + g0;
+	g1 	=  g0 / interp((2 * (ks - 0.5)), sqrt(g01), g01, mode="linear");
+	// shelf/pass (damp) control
+	if (mode > 0) {			// nice way of getting approx ± 10dB
+		d1		= -(pow(4, damp) - 1);
+		if (mode == 2) {	// extend attenuation range to make pass choice
+			d1	=  (d1 > 0) ? (d1 * 1.333333) : d1;
+		}
+	} else {// (mode == 0)	// for attenuation ('damping') only (0..1 input)
+		d1	= interp((2 * (((1 - ks) + 0.5) - 0.5)), sqrt(ka), ka, mode="linear");
+	}
+
+	return g1, d1;			// rc filter warped cf (g)	// rc filter warped gain (k)
+
+	// *) N.B., 'damp' -1..1 maps to d1 (k) as...
+	//		- if mode==0:	 0=bypass..shelfattenuate..+1=pass (abs or clip damp)
+	//		- if mode==1:	+0.75=shelfattenuate..0=bypass..-3=shelfboost
+	//		- if mode==2:	+1=pass..shelfattenuate..0=bypass..-3=shelfboost
+}
+
+rcDampCoeffs(cutoff, damp)				// fixed mode=0 version, no branching, can keep out of while loop
+{
+	// prewarp
+	g0		=  tnA(pi * cutoff / samplerate);
+	// account for pass/shelf
+	ka	=  abs(damp);					// 0..1 = sqrt..lin
+	ks	= (ka * 0.5) + 0.5;
+	g01	=  1 + g0;
+	g1 	=  g0 / interp((2 * (ks - 0.5)), sqrt(g01), g01, mode="linear");
+	// shelf/pass (damp) control
+//	d1	= -(pow(4, damp) - 1);			// !! this is just horrible, must fix !!
+	// extend attenuation range to make pass choice
+//	d1	=  (d1 > 0) ? (d1 * 1.333333) : d1;
+	d1	= interp((2 * (((1 - ks) + 0.5) - 0.5)), sqrt(ka), ka, mode="linear");
+
+	return g1, d1;						// rc filter warped cf (g)	// rc filter warped gain (k)
+}
+
+poleZeroDamp(x, a)						// a = prewarped normalised frequency 0..1
+{
+	History		y1(0);
+	y0		=  (x * a) + (y1 * (1 - a));
+	y1		=	y0;
+	return		y0;
+}
+
+// linear OnePole RC filter (trapezoidal)
+rcFilter(Vin, g)						// g = prewarped normalised frequency (g / (1 + g))
+{
+	History	  s(0);
+	Vout	= (g * Vin + s) / (g + 1);
+	s		= 2 * Vout - s;
+	return	  Vout;
+}
+
+rcFilterHpLp(Vin, g)					// g = prewarped normalised frequency (g / (1 + g))
+{
+	History	  s(0);
+	VoutLp	= (g * Vin + s) / (g + 1);
+	s		= 2 * VoutLp - s;
+	Hp		= Vin - VoutLp;
+	return	  Hp, VoutLp;
+}
+
+// High or Low Pass if k == 1, Bypass if k == 0, else Low or High Shelf boost / attenuation
+rcFilterDamp(Vin, g, k)					// g = pre-warped normalised frequency (g / (1 + g))
+{
+	History	   s(0);
+	Lp		= ( g * Vin + s) / (g + 1);
+	s		= (Lp + Lp) - s;
+	Hp		=  Lp - Vin;				// !! must be y-x way round for shelfs !!
+
+	LpHs	=  Vin + (k * Hp);
+	HpLs	= (k * Lp) - Vin;
+
+	return	   HpLs, LpHs;
+}
+
+// ditto
+rcFilterEq(Vin, g, k)					// g = pre-warped normalised frequency (g / (1 + g))
+{
+	History	   s(0);
+	Lp		= ( g * Vin + s) / (g + 1);
+	s		= (Lp + Lp) - s;
+	Hp		=  Lp - Vin;				// !! must be y-x way round for shelfs !!
+
+	LpHs	=  Vin + (k * Hp);
+	HpLs	= (k * Lp) - Vin;
+
+	return	   HpLs, LpHs;
+}
+
+fbComb(cIn, cDamp1, cDamp2, cFeedback, cTime)
+{
+	History	hDamp(0);
+	// comb8samps (0.036666666666666670 seconds) + cSprSamps (0.0010430839002267573 seconds) = 0.037709750566894
+	Delay	xComb(7241, 1, feedback=1);
+
+	cRead	= xComb.read(cTime, interp="none");			// 'cTime' fixed integer samples, no interp needed
+	cLoop	= (cRead * cDamp2) + (hDamp * cDamp1);
+	hDamp	= cLoop;									// !! redo lowpass filter !!
+	xComb.write(cIn + (cLoop * cFeedback));
+
+	return	cRead;
+}
+
+// this is crap; see the discussion (and links) here: http://freeverb3vst.osdn.jp/tips/allpass.shtml
+fbAllpass(aIn, aFeedback, aTime)
+{
+	History	apdummy(0);
+	// ap1samps (0.012607709750566893 seconds) + aSprSamps (0.0004988662131519275 seconds) = 0.01310657596372
+	Delay	xAllpass(2517, 1, feedback=1);
+
+	aRead	= xAllpass.read(aTime, interp="none");		// 'aTime' fixed integer samples, no interp needed
+	xAllpass.write(aIn + (aRead * aFeedback));
+
+	return	aIn - aRead;
+}
+
+fbAllpass3(aIn, aFeedback, aTime)
+{
+	History	ap3dummy(0);
+	Delay	xAllpass3(2517, 1, feedback=1);				// samplerate*0.01310657596372
+
+	aRead0	= xAllpass3.read(aTime, interp="none");
+	aRead0	= fixdenorm(aRead0);
+	xAllpass3.write(aIn + (aRead0 * aFeedback));
+
+	aRead1	= xAllpass3.read(aTime, interp="none");
+	allpass	= aRead0 - (aRead1 * aFeedback);
+	return	allpass;
+}
+
+// we cannot dynamically allocate delay memory here as in global code, because of current gen~ bugs
+
+fffbAllpassShort(aIn, aGain, aTime)		// MSPish
+{
+	History	apsdummy(0);
+	Delay	ffAllpass(2445, 1, feedback=0);
+	Delay	fbAllpass(2445, 1, feedback=1);
+
+	ffAllpass.write(aIn);
+	// '...Short' also static, no time/gain changes (interp="none")
+	ffRead	= ffAllpass.read(aTime, interp="none");
+	fbRead	= fbAllpass.read(aTime, interp="none");
+	apSum	= ffRead + ((aIn - fbRead) * aGain);
+	fbAllpass.write(apSum);
+
+	return	apSum;
+}
+
+fffbAllpassMedium(aIn, aGain, aTime)	// MSPish
+{
+	History	apmdummy(0);
+	Delay	ffAllpass(27415, 1, feedback=0);
+	Delay	fbAllpass(27415, 1, feedback=1);
+
+	ffAllpass.write(aIn);
+	ffRead	= ffAllpass.read(aTime, interp="spline");
+	fbRead	= fbAllpass.read(aTime, interp="spline");
+	apSum	= ffRead + ((aIn - fbRead) * aGain);
+	fbAllpass.write(apSum);
+
+	return	apSum;
+}
+
+fffbAllpassLong(aIn, aGain, aTime)		// MSPish
+{
+	History	apldummy(0);
+	Delay	ffAllpass(52294, 1, feedback=0);
+	Delay	fbAllpass(52294, 1, feedback=1);
+
+	ffAllpass.write(aIn);
+	ffRead	= ffAllpass.read(aTime, interp="spline");
+	fbRead	= fbAllpass.read(aTime, interp="spline");
+	apSum	= ffRead + ((aIn - fbRead) * aGain);
+	fbAllpass.write(apSum);
+
+	return	apSum;
+}
+
+// allpass diffusion
+DiffAllpass(xIn, xCoeff, xTime)			// xCoeff = 0.75 or 0.625 for gigaverb original
+{
+	History		xdiffdummy(0);
+	Delay		xDiffuse( 52254, 1, feedback=1 );	// support @ up to 300 meters ('size' param)
+	xRead		=  xDiffuse.read(  xTime, interp="cubic" );
+	xFb			=  xIn - (xRead  * xCoeff );
+	xFb			=  fixdenorm(xFb);
+	xOut		=  xRead + ( xFb * xCoeff );
+	xDiffuse.write(xFb);
+	return		xOut;
+}
+
+AllpassDiffuseShort(x, time, diffusion, apgain)
+{
+	History	apdiffshort(0);
+	Delay	AllpassDiffuse(64000, 1, feedback=1);
+
+	fb		= AllpassDiffuse.read(maximum(time, 1), interp="spline");
+	y		= (x * (diffusion * -1)) + fb;
+	AllpassDiffuse.write((x + (fixdenorm(y) * diffusion)) * apgain);
+
+	return	y;
+}
+
+AllpassDiffuseLong(x, time, diffusion, apgain)
+{
+	History	apdifflong(0);
+	Delay	AllpassDiffuse(96000, 1, feedback=1);
+
+	fb		= AllpassDiffuse.read(maximum(time, 1), interp="spline");
+	y		= (x * (diffusion * -1)) + fb;
+	AllpassDiffuse.write((x + (fixdenorm(y) * diffusion)) * apgain);
+
+	return	y;
+}
+/*
+// i do not understand this, and it does not work; mainly the extra History is very weird, 
+// and i'd take the feedback loop from apOut, but hey ...
+apDelaySingle(apIn, apTime, apGain)			// schroeder allpass comb
+{
+	History	apH(0);
+	Delay	apDelay(samplerate*0.0317, 1, feedback=1);
+	apRead	= apDelay.read(apTime, interp="none");	// times all ints & fixed...
+	apD		= apIn	+ (apRead	*  (0 - apGain) );
+	apOut	= apH	+ (apD		*		apGain)  ;
+	apDelay.write(apD);
+	apH		= apRead;
+	return	apOut;
+}
+*/
+// more like this ?? :
+apDelaySingleAlt(apIn, apTime, apGain)		// sort of allpass comb
+{
+	History	apHa(0);
+	Delay	apDelay(6069, 1, feedback=1);
+	apRead	= apDelay.read(apTime, interp="none");	// times all ints & fixed...
+	apD		= apIn		+ (apRead	*	-apGain);
+	apOut	= apRead	+ (apD		*	 apGain);
+	apDelay.write(apD);
+	return	apOut;
+}
+
+// would be nice to separate processing but...
+delayFiltCoeff(del, tlo, tmf, wlo, chi, m3l10c)		// dfTime1, lt60samp, mt60samp, xoverN, dampN, m3l10const
+{	// coefficients (clever Fons Adriaensen magic here)
+	gmf	 =  exp(m3l10c * (del / tmf));
+	glo	 = (exp(m3l10c * (del / tlo)) / gmf) - 1;
+	g0	 =  exp(m3l10c * (del / (0.5 * tmf))) / gmf;
+	g2	 =  g0 * g0;
+	t0	 = (1 - g2) / ((g2 + g2) * chi);
+	t2	 =  t0 + t0;
+	whi	 = (sqrt(1 + t2 + t2) - 1) / t2;
+
+	return	wlo+0, glo, whi, gmf;
+}
+
+delayFilt(x0, wlo, glo, whi, gmf)
+{
+	History	slo(0), shi(0);
+
+	// loop
+	slo	+= wlo * (x0 - slo);     // [ + 1e-10f ];
+	x0	+= glo * slo;
+	shi	+= whi * (x0 - shi);
+
+	return	gmf * shi;
+}
+
+delayFilter(x0, del, tlo, tmf, wlo, chi, m3l10c)
+{
+	History	slo(0), shi(0);
+
+	// coefficients (clever Fons Adriaensen magic here)
+	gmf	 =  exp(m3l10c * (del / tmf));
+	glo	 = (exp(m3l10c * (del / tlo)) / gmf) - 1;
+	g0	 =  exp(m3l10c * (del / (0.5 * tmf))) / gmf;
+	g2	 =  g0 * g0;
+	t0	 = (1 - g2) / ((g2 + g2) * chi);
+	t2	 =  t0 + t0;
+	whi	 = (sqrt(1 + t2 + t2) - 1) / t2;
+
+	// filter
+	slo	+= wlo * (x0 - slo);     // [ + 1e-10f ];
+	x0	+= glo * slo;
+	shi	+= whi * (x0 - shi);
+
+	return	gmf * shi;
+}
+
+// zdf filter section for eq building
+stateVariableFilterSection(v0, a1, a2, a3, m0, m1, m2)
+{
+	History	ic1eq(0), ic2eq(0);
+
+	v3		=  v0 - ic2eq;
+	v2		=  ic2eq + (a2 * ic1eq) + (a3 * v3);
+	v1		= (a1 * ic1eq) + (a2 * v3);
+	ic1eq	= (v1 + v1) - ic1eq;
+	ic2eq	= (v2 + v2) - ic2eq;
+
+	return	(m0 * v0) + (m1 * v1) + (m2 * v2);
+}
+
+stateVariableFilterSectionStereo(v0L, v0R, a1, a2, a3, m0, m1, m2)
+{
+	History	stereodummy(0);
+	yL	= stateVariableFilterSection(v0L, a1, a2, a3, m0, m1, m2);
+	yR	= stateVariableFilterSection(v0R, a1, a2, a3, m0, m1, m2);
+	return	yL, yR;
+}
+
+// filter cascade
+// 0 dB gain input zeros cpu of gain filters (shelfs, bell), (if coefficients are smoothed, must be by exact ramps, not logs)
+svfTwoBandsStereo(band0L, band0R, a11, a21, a31, m01, m11, m21, a12, a22, a32, m02, m12, m22)
+{
+	History	twobandsdummy(0);
+	band1L	= band0L+0;
+	band1R	= band0R+0;
+	if ( (m11 + m21) != 0 ) {
+		band1L, band1R	= stateVariableFilterSectionStereo(band0L+0, band0R+0,	a11, a21, a31, m01, m11, m21);
+	}
+	band2L	= band1L+0;
+	band2R	= band1R+0;
+	if ( (m12 + m22) != 0 ) {
+		band2L, band2R	= stateVariableFilterSectionStereo(band1L+0, band1R+0,	a12, a22, a32, m02, m12, m22);
+	}
+	return	band2L, band2R;
+}
+
+
+// mixing...
+
+butterfly8(i1, i2, i3, i4, i5, i6, i7, i8)
+{
+	b1	= i1 + i5;
+	b2	= i2 + i6;
+	b3	= i3 + i7;
+	b4	= i4 + i8;
+
+	b5	= i1 - i5;
+	b6	= i2 - i6;
+	b7	= i3 - i7;
+	b8	= i4 - i8;
+
+	return	b1, b2, b3, b4, b5, b6, b7, b8;
+}
+
+butterfly4(i1, i2, i3, i4)
+{
+	b1	= i1 + i3;
+	b2	= i2 + i4;
+
+	b3	= i1 - i3;
+	b4	= i2 - i4;
+
+	return	b1, b2, b3, b4;
+}
+
+butterfly2(i1, i2)
+{
+	b1	= i1 + i2;
+	b2	= i1 - i2;
+
+	return	b1, b2;
+}
+
+hadamard8(i1, i2, i3, i4, i5, i6, i7, i8)
+{
+	b1, b2, b3, b4, b5, b6, b7, b8	= butterfly8(i1, i2, i3, i4, i5, i6, i7, i8);
+	c1, c2, c3, c4					= butterfly4(b1, b2, b3, b4);
+	c5, c6, c7, c8					= butterfly4(b5, b6, b7, b8);
+	o1, o2							= butterfly2(c1, c2);
+	o3, o4							= butterfly2(c3, c4);
+	o5, o6							= butterfly2(c5, c6);
+	o7, o8							= butterfly2(c7, c8);
+
+	return	o1, o2, o3, o4, o5, o6, o7, o8;
+}
+
+// idiot proof, but idiot made
+butterfly16(bf0_1, bf0_2, bf0_3, bf0_4, bf0_5, bf0_6, bf0_7, bf0_8, bf0_9, bf0_10, bf0_11, bf0_12, bf0_13, bf0_14, bf0_15, bf0_16)
+{
+	bf1_1,	bf1_2	= butterfly2(bf0_1,		bf0_2);
+	bf1_3,	bf1_4	= butterfly2(bf0_3,		bf0_4);
+	bf1_5,	bf1_6	= butterfly2(bf0_5,		bf0_6);
+	bf1_7,	bf1_8	= butterfly2(bf0_7,		bf0_8);
+	bf1_9,	bf1_10	= butterfly2(bf0_9,		bf0_10);
+	bf1_11,	bf1_12	= butterfly2(bf0_11,	bf0_12);
+	bf1_13,	bf1_14	= butterfly2(bf0_13,	bf0_14);
+	bf1_15,	bf1_16	= butterfly2(bf0_15,	bf0_16);
+
+	bf2_1,	bf2_3	= butterfly2(bf1_1,		bf1_3);
+	bf2_2,	bf2_4	= butterfly2(bf1_2,		bf1_4);
+	bf2_5,	bf2_7	= butterfly2(bf1_5,		bf1_7);
+	bf2_6,	bf2_8	= butterfly2(bf1_6,		bf1_8);
+	bf2_9,	bf2_11	= butterfly2(bf1_9,		bf1_11);
+	bf2_10,	bf2_12	= butterfly2(bf1_10,	bf1_12);
+	bf2_13,	bf2_15	= butterfly2(bf1_13,	bf1_15);
+	bf2_14,	bf2_16	= butterfly2(bf1_14,	bf1_16);
+
+	bf3_1,	bf3_5	= butterfly2(bf2_1,		bf2_5);
+	bf3_2,	bf3_6	= butterfly2(bf2_2,		bf2_6);
+	bf3_3,	bf3_7	= butterfly2(bf2_3,		bf2_7);
+	bf3_4,	bf3_8	= butterfly2(bf2_4,		bf2_8);
+	bf3_9,	bf3_13	= butterfly2(bf2_9,		bf2_13);
+	bf3_10,	bf3_14	= butterfly2(bf2_10,	bf2_14);
+	bf3_11,	bf3_15	= butterfly2(bf2_11,	bf2_15);
+	bf3_12,	bf3_16	= butterfly2(bf2_12,	bf2_16);
+
+	bf4_1,	bf4_9	= butterfly2(bf3_1,		bf3_9);
+	bf4_2,	bf4_10	= butterfly2(bf3_2,		bf3_10);
+	bf4_3,	bf4_11	= butterfly2(bf3_3,		bf3_11);
+	bf4_4,	bf4_12	= butterfly2(bf3_4,		bf3_12);
+	bf4_5,	bf4_13	= butterfly2(bf3_5,		bf3_13);
+	bf4_6,	bf4_14	= butterfly2(bf3_6,		bf3_14);
+	bf4_7,	bf4_15	= butterfly2(bf3_7,		bf3_15);
+	bf4_8,	bf4_16	= butterfly2(bf3_8,		bf3_16);
+
+	return	bf4_1, bf4_2, bf4_3, bf4_4, bf4_5, bf4_6, bf4_7, bf4_8, bf4_9, bf4_10, bf4_11, bf4_12, bf4_13, bf4_14, bf4_15, bf4_16;
+}
+
+butterflyMatrix(i1, i2, i3, i4)
+{
+	a1, a2			= butterfly2(i1, i2);
+	a3, a4			= butterfly2(i3, i4);
+	b1, b2, b3, b4	= butterfly4(a1, a2, a3, a4);
+
+	return	b1, b2, b3, b4;
+}
+
+// for first quarter only, optimized so that never lets sqrt(sinapprox(x)^2+cosapprox(x)^2)
+// exceed 1, always gives exact results at modphase 0, 0.5, 1 (0/1, sqrt1_2, 1/0)
+quartOneParApprox(modphase)								// 'modphase' must be clipped 0..1
+{
+	x0		=  modphase - 0.5;							// 1 sub
+	// first quarter									// angle = 0 .. halfpi
+	quart	= -0.8284271247461903 * x0 * x0 + sqrt1_2;	// 2 mul, 1 add, (-0.8284271247461903 = 2 - 4*sqrt1_2)
+	sinq1	=  quart + x0;								// 1 add
+	cosq1	=  quart - x0;								// 1 sub
+
+	return	cosq1, sinq1;
+}
+
+xfadeQuartApproxStereo(a, b, c, d, q)						// q is control, must be clipped 0..1
+{
+	qL, qR	= quartOneParApprox(q);							// cos/sin
+	return	((a * qL) + (c * qR)), ((b * qL) + (d * qR));	// out mix L, out mix R
+}
+
+xfadeQuartApproxMono(a, b, q)								// q is control, must be clipped 0..1
+{
+	qL, qR	= quartOneParApprox(q);							// cos/sin
+	return	(a * qL) + (b * qR);							// out mix mono
+}
+
+panQuartApproxMono(x, p)									// p is control, must be clipped 0..1
+{
+	pL, pR	= quartOneParApprox(p);							// cos/sin(/quart)
+	return	(x * pL), (x * pR);								// out pan L, out pan R
+}
+
+panQuartApproxDual(xL, xR, pL, pR)							// p's are controls, must be clipped 0..1
+{
+	yLL, yLR	= panQuartApproxMono(xL, pL);				// pan L
+	yRL, yRR	= panQuartApproxMono(xR, pR);				// pan R
+	return		(yLL + yRL), (yLR + yRR);					// out sum L, out sum R
+}
+
+
+// homeless...
+
+// does not work as function
+earlyTapsAdd(xL, xR, etap1samps, etap2samps, etap3samps, etap4samps, earlygain)
+{
+	History etadummy(0);
+	Delay	earlyTap1(276,	1, feedback=0);		// 0.00142763*samplerate
+	Delay	earlyTap2(623,	1, feedback=0);		// 0.00323873*samplerate
+	Delay	earlyTap3(1007,	1, feedback=0);		// 0.00523450*samplerate
+	Delay	earlyTap4(1504,	1, feedback=0);		// 0.00782312*samplearte
+
+	earlyTap1.write(xR);
+
+	et1		= earlyTap1.read(etap1samps, interp="none");
+	pt1		= xL + et1;
+	mt1		= xL - et1;
+
+	earlyTap2.write(mt1);
+	et2		= earlyTap2.read(etap2samps, interp="none");
+	pt2		= pt1 + et2;
+	mt2		= pt1 - et2;
+
+	earlyTap3.write(mt2);
+	et3		= earlyTap3.read(etap3samps, interp="none");
+	pt3		= pt2 + et3;
+	mt3		= pt2 - et3;
+
+	earlyTap4.write(mt3);
+	earlyR	= earlyTap4.read(etap4samps, interp="none") * 0.5;
+	earlyL	= pt3 * 0.5;
+
+	earlyL	= earlyL * earlygain;
+	earlyR	= earlyR * earlygain;
+
+	return	earlyL, earlyR;
+}
+
+earlyReflections(xL, xR, bypass)		// not working as function
+{
+	History etrdummy(0);
+	Delay	early1		(	int(floor(0.00142763 * samplerate + 0.5)),	feedback=0	);
+	Delay	early2		(	int(floor(0.00323873 * samplerate + 0.5)),	feedback=0	);
+	Delay	early3		(	int(floor(0.00523450 * samplerate + 0.5)),	feedback=0	);
+	Delay	early4		(	int(floor(0.00782312 * samplerate + 0.5)),	feedback=0	);
+
+	early1.write	(	xR			);
+	e1r	= early1.read(earlyTime1, interp="none");
+	ep1	= xL  + e1r;
+
+	early2.write	(	xL  - e1r	);
+	e2r	= early2.read(earlyTime2, interp="none");
+	ep2	= ep1 + e2r;
+
+	early3.write	(	ep1 - e2r	);
+	e3r	= early3.read(earlyTime3, interp="none");
+	ep3	= ep2 + e3r;
+
+	early4.write	(	ep2 - e3r	);
+	e4r	= early4.read(earlyTime4, interp="none");
+
+	yL	= interp(	bypass,		ep3 * 0.354813,	xL	);
+	yR	= interp(	bypass,		e4r * 0.354813, xR	);
+
+	return	yL, yR;
+}
+
+// early taps
+eTaps(tapIn, TapGain1, TapGain2, TapGain3, TapGain4, TapTime1, TapTime2, TapTime3, TapTime4)
+{
+	History	tapsdummy(0);
+
+	// + 5 samples offset
+	Delay	earlyTaps		(	69461,	4,	feedback=0	);	// four early taps
+
+	// early taps
+	earlyTaps.write(tapIn);
+	eTap1	= earlyTaps.read(TapTime1, interp="fastcubic");
+	eTap2	= earlyTaps.read(TapTime2, interp="fastcubic");
+	eTap3	= earlyTaps.read(TapTime3, interp="fastcubic");
+	eTap4	= earlyTaps.read(TapTime4, interp="none");	// TapTime4 is fixed integer
+														// so fixed "none"
+	// tap to fdn
+	xTap1	= eTap1  *  TapGain1;
+	xTap2	= eTap2  *  TapGain2;
+	xTap3	= eTap3  *  TapGain3;
+	xTap4	= eTap4  *  TapGain4;
+
+	// why is this a feedback in Sadeharju / Böhm ?
+	//earlyTaps.write(tapIn);
+
+	return	xTap1, xTap2, xTap3, xTap4;
+}
+
+// mini feedback delay network
+fdNetwork(xTap1, xTap2, xTap3, xTap4, TapGain1, TapGain2, TapGain3, TapGain4, Time1, Time2, Time3, Time4, dampXover, dampAtten)
+{
+	History	fdndummy(0);
+
+	Delay	fdnDelay1	(	169413,	1,	feedback=1	);
+	Delay	fdnDelay2	(	138325,	1,	feedback=1	);
+	Delay	fdnDelay3	(	119794,	1,	feedback=1	);
+	Delay	fdnDelay4	(	107146,	1,	feedback=1	);
+
+	// fdn taps
+	fdnLine1	= fdnDelay1.read(Time1,	interp="spline");
+	fdnLine2	= fdnDelay2.read(Time2,	interp="spline");
+	fdnLine3	= fdnDelay3.read(Time3,	interp="spline");
+	fdnLine4	= fdnDelay4.read(Time4,	interp="spline");
+
+	fTap1		= fdnLine1  *  TapGain1;
+	fTap2		= fdnLine2  *  TapGain2;
+	fTap3		= fdnLine3  *  TapGain3;
+	fTap4		= fdnLine4  *  TapGain4;
+
+	// fdn damp
+	fHp1, fD1	= rcFilterDamp(fTap1,	dampXover,	dampAtten);
+	fHp2, fD2	= rcFilterDamp(fTap2,	dampXover,	dampAtten);
+	fHp3, fD3	= rcFilterDamp(fTap3,	dampXover,	dampAtten);
+	fHp4, fD4	= rcFilterDamp(fTap4,	dampXover,	dampAtten);
+/*
+	fD1			= poleZeroDamp(fTap1,	dampXover);
+	fD2			= poleZeroDamp(fTap2,	dampXover);
+	fD3			= poleZeroDamp(fTap3,	dampXover);
+	fD4			= poleZeroDamp(fTap4,	dampXover);
+*/
+	// fdn matrix
+	fdnMat1		= ( fD1 + fD2 - fD3 - fD4 )  *  0.5;
+	fdnMat2		= ( fD1 - fD2 - fD3 + fD4 )  *  0.5;
+	fdnMat3		= (-fD1 + fD2 - fD3 + fD4 )  *  0.5;
+	fdnMat4		= ( fD1 + fD2 + fD3 + fD4 )  *  0.5;
+/*
+	// fdn damp 2
+	fdG				= dampXover * 0.125;	// fix for science :-)
+	fdK				= 1;					// highpass, zero @ dc
+	fdnMat1, fLp1	= rcFilterDamp(fdnMat1,	fdG,	fdK);
+	fdnMat2, fLp2	= rcFilterDamp(fdnMat2,	fdG,	fdK);
+	fdnMat3, fLp3	= rcFilterDamp(fdnMat3,	fdG,	fdK);
+	fdnMat4, fLp4	= rcFilterDamp(fdnMat4,	fdG,	fdK);
+*/
+	// write feedback
+	fdnDelay1.write(fdnMat1 + xTap1);
+	fdnDelay2.write(fdnMat2 + xTap2);
+	fdnDelay3.write(fdnMat3 + xTap3);
+	fdnDelay4.write(fdnMat4 + xTap4);
+
+	return		fD1, fD2, fD3, fD4;
+}
+
+// late diffusion allpass chains
+lateDiffusion(apInxL, apInxR, lateTime1, lateTime2, lateTime3, lateTime4, lateTime5, lateTime6)
+{
+	History	ldiffdummy(0);
+
+	// L
+	yApL	= DiffAllpass( apInxL,	0.750,	lateTime1);
+	yApL	= DiffAllpass( yApL,	0.625,	lateTime2);
+	yApL	= DiffAllpass( yApL,	0.625,	lateTime3);
+//	yApL	= DiffAllpass( yApL,	0.500,	lateTime1);
+
+	// R
+	yApR	= DiffAllpass( apInxR,	0.750,	lateTime4);
+	yApR	= DiffAllpass( yApR,	0.625,	lateTime5);
+	yApR	= DiffAllpass( yApR,	0.625,	lateTime6);
+//	yApR	= DiffAllpass( yApR,	0.500,	lateTime4);
+
+	return	yApL, yApR;
+}
+

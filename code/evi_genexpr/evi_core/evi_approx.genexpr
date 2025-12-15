@@ -1,0 +1,444 @@
+
+// homeless approximations used all over evieve
+// by Pete for evieve
+
+// for other approximations in evieve @see:
+// evi_trig.genexpr
+// evi_cossin.genexpr
+// evi_pade.genexpr
+// evi_tanh.genexpr
+// evi_fastskew.genexpr
+
+// basic cos/sin approximations, accuracy just about ok for audio
+
+cosQ73(x)
+{
+	c1 =  0.999999953464;
+	c2 = -0.499999053455;
+	c3 =  0.0416635846769;
+	c4 = -0.0013853704264;
+	c5 =  0.00002315393167;  	
+
+	x2 = x * x;
+	return (c1 + x2 * (c2 + x2 * (c3 + x2 * (c4 + c5 * x2))));
+}
+
+cos73(x)
+{
+	TWOOVERPI = 0.63661977236758;	// 2 / PI
+	x = x % TWOPI;								// phasewrap(x) cheaper ?
+	x = (x < 0) ? -x : x;
+	QUAD = int(x * TWOOVERPI);		// get quadrant # (0..3) we are in
+	cosreturn = 0;
+	if 				(QUAD == 0) {
+		cosreturn =  cosQ73(x);
+	} else if 		(QUAD == 1) {
+		cosreturn = -cosQ73(PI - x);
+	} else if 		(QUAD == 2) {
+		cosreturn = -cosQ73(x - PI);
+	} else {	//	(QUAD == 3)
+		cosreturn =  cosQ73(TWOPI - x);
+	}
+	return cosreturn;
+}
+
+sin73(x)
+{
+	return cos73(HALFPI - x);
+}
+
+// no branching, stay out the while loop in export, for param rate etc
+cos73param(x)
+{
+	TWOOVERPI = 0.63661977236758;	// 2 / PI
+	x = x % TWOPI;								// phasewrap(x) cheaper ?
+	x = (x < 0) ? -x : x;
+	QUAD = int(x * TWOOVERPI);		// get quadrant # (0..3) we are in
+	return (QUAD == 0) ? cosQ73(x) : ((QUAD == 1) ? -cosQ73(PI - x) : ((QUAD == 2) ? -cosQ73(x - PI) : cosQ73(TWOPI - x)));
+}
+
+sin73param(x)
+{
+	return cos73param(HALFPI - x);
+}
+
+// for crossfading and panning etc
+quartParOneApprox(modphase)							// 'modphase' must be clamped 0..1
+{
+	x0		=  modphase - 0.5;							// 1 sub
+	// first quarter											// angle = 0 .. HALFPI
+	quart	= -0.8284271247461903 * x0 * x0 + sqrt1_2;	// 2 mul, 1 add, (-0.8284271247461903 = 2 - 4*sqrt1_2)
+	sinq1	=  quart + x0;									// 1 add
+	cosq1	=  quart - x0;									// 1 sub
+
+	return	cosq1, sinq1;
+}
+
+// tan approximations
+
+// cheap tan approx for BLT, x 0..1 input
+tanA(x)
+{
+	x2 = (x * x);
+	x3 = (x2 * x);
+	x5 = (x2 * x3);
+	return ((x5 * 0.133333333333) + (x3 * 0.333333333333)) + x;
+}
+
+// slightly 'better' approx than 'tanA()', & 0..HALFPI input
+tanA2(x)
+{
+	a	= ((((x * -0.0896638) + 0.0388452) * x) + 1.00005) * x;
+	b	= (((x * -0.430871) + 0.0404318) * x) + 1;
+	return	a / b;
+}
+
+// tan approx valid for -HALFPI..HALFPI input
+tanA3(x)
+{
+	x2		= x * x;
+	return	x * (0.999999492001 + x2 * -0.096524608111) / (1 + x2 * (-0.429867256894 + x2 * 0.009981877999));
+}
+
+// arctan approximations
+
+atanA(x)
+{
+	o = 8 * x;
+	q = (o + o) * INVPI;
+	s = 25 + (q * q);
+	u = 3 + sqrt(s);
+	return o / u;
+}
+
+atanIT(x)	// for 3rd order x = 0..infinity, maximum approximation error 0.00811º
+{
+	c0	= 0.6403882032022076;	// 'alpha', (1 + sqrt(17)) / 8;
+	c1	= 1.6403882032022076;	// + 1
+	x2	= x * x;
+	x3	= x2 * x;
+	return	HALFPI * ((c0 * x) + x2 + x3) / (1 + (c1 * x) + (c1 * x2) + x3);
+}
+
+atanT(x)		// third order using atnIT
+{
+	y = 0;
+	if (x >= 0) {
+		y = atanIT(x);
+	} else {
+		y = -atanIT(-x);
+	}
+	return y;
+}
+
+// atan2 approximation
+
+atan2Approx(y, x)
+{
+	onequarterpi = 0.785398163397448;
+	threequarterpi = 2.356194490192345;
+	r, angle, at2a = 0;
+	abs_y = abs(y) + 1e-10;			// kludge to prevent 0 div 0
+	if (x < 0) {
+		r = (x + abs_y) / (abs_y - x);
+		angle = threequarterpi;
+	} else {
+		r = (x - abs_y) / (x + abs_y);
+		angle = onequarterpi;
+	}
+	angle += (0.1963 * r * r - 0.9817) * r;
+	if (y < 0) {
+		at2a = (-angle);					// negate if in quad 3 or 4
+	} else {
+		at2a = (angle);
+	}
+	if ((x == 0) && (y == 0)) {	// another kludge
+		at2a = 0;
+	}
+	return at2a;
+}
+
+acosT(x)			// for x 1..0.2, rubbish, but fine for certain specific usages
+{
+	onediveleven = 0.09090909090909091;
+	sq1x = sqrt(1 - x);
+	return	SQRT2 * (sq1x + onediveleven * (sq1x * sq1x * sq1x));
+}
+
+// 
+
+// cheapest exp() that evieve offers, the cheaper ones are rubbish, we use this everywhere
+// more accurate than 'fastexp()'
+expA(x0)
+{
+	x = 0.999996 + (0.031261316 + (0.00048274797 + 0.000006 * x0) * x0) * x0;
+	x *= x; x *= x; x *= x; x *= x; x *= x;
+	return x;
+}
+
+// slightly more accurate
+expApprox(x)
+{
+	x = 1 + (0.062500309 + (0.0019527233 + (0.0000408663 + (0.00000060184965 + 0.000000010856791*x)*x)*x)*x)*x;
+	x *= x; x *= x; x *= x;
+	return x*x;
+}
+
+pow2Approx(y) // approx pow(2, y)
+{
+	return expApprox(y * LN2);
+}
+
+coshApprox(x)
+{
+	return 0.5 * (expApprox(x) + expApprox(-x));
+}
+
+log2Approx(x) // sorry
+{
+	return (-0.2119568027628040757e-1 + (-0.38815224340108325886 + (-0.8900051141728954376 + (0.4001641794691007527
+			+ (0.79615191430677253059 + 0.10303694407435362078*x)*x)*x)*x)*x)
+				/ (0.298115002929551095e-2 + (0.1066700361116609290 + (0.6070463053447878628 + (0.8584931203106122717
+					+ (0.30170842595823793523 + 0.16863931436090069014e-1*x)*x)*x)*x)*x);
+}
+
+logApprox(x)
+{
+	return LN2 * log2Approx(x);
+}
+
+log10Approx(x)
+{
+	return 0.3010299956639811 * log2Approx(x); // log10(2)*log2(x)
+}
+
+log1pApprox(x)
+{
+  if (x > -1.0e-8 && x < 1.0e-8)
+    return x - (x * x) * 0.5;
+
+  return logApprox(1 + x);
+}
+
+// with mtof & dbtoa etc style converters, it is better to use localised 'curve fitting'
+// techniques, unless you really do need a very large range of operation
+
+// transpose semitones input (0=none), like [transratio] & [evi.transratio]
+transratioApprox(pitch)				// pitch default = 0
+{
+	return expA(0.05776226504666 * pitch) + 0.000128;
+}
+
+mtofApprox(pitch, base)				// 'base' should be 440 (hz) for default operation
+{
+	mtofA = base * expA(0.05776226504666 * (pitch - 69));
+	return mtofA + 0.120906;		// + offset = accurate for input 48..69
+}
+
+mtofApproxBaseless(pitch)
+{
+	mtofA = 440 * expA(0.05776226504666 * (pitch - 69));
+	return mtofA + 0.120906;		// + offset = accurate for input 48..69
+}
+
+// perfect for input 0..81, very close to ..134..
+mtofApproxAccurate(pitch)				// by alex harker, no 'base'
+{
+	mtofMul	= 0.05776226504666;		// N.B.	mtofMul = log(2) / 12
+	mtofAdd	= 2.10117843869262;		// N.B.	mtofAdd = log(440) - (log(2) * 69 / 12)
+
+	return	exp((mtofMul * pitch) + mtofAdd);
+}
+
+// very accurate from approx 20..5000 Hz input,
+// actually perfect for pitch output 51..76
+// below 20Hz input, output is a bit funky (should clip), above 5k input, output
+// increasingly inaccurate until input/output off by about 2 semitones at 125..129 pitch
+ftomApproxBaseless(frequency)
+{
+	TWELVEDIVLOGTWO = 17.3123404906675609;
+	ftomA = 69 + (TWELVEDIVLOGTWO * logApprox(frequency / 440));
+	return ftomA;
+}
+
+ftomApproxAccurate(frequency)
+{
+	//LOGTWODIVTWELVE = 0.057762265046662105;	// (log(2) / 12)
+	TWELVEDIVLOGTWO = 17.3123404906675609;	// (12 * log2) : (1 / LOGTWODIVTWELVE)
+	FREQPITCH = -36.3763165622959152;
+
+	return log(frequency) * TWELVEDIVLOGTWO + FREQPITCH;
+}
+
+// excellent accuracy to about +36 dB, after which you are on your own
+dbtoaApprox(db)
+{
+	dbtoaA = expA(0.11512925464970 * db);
+	return dbtoaA + 0.000128;		// + offset = 0 dB == 1 amplitude
+}
+
+// cheaper than above 'dbtoaApprox()', but far less accurate
+dbtoaApproxFast(db)						// i know this is shit
+{
+	return fastpow(10, (db * 0.05)) + 0.028652;	// + offset = 0 dB == 1 amplitude
+}
+
+// for linear gain filter sections
+dbtosqrt2Approx(db)
+{
+	// like the sqrt(linear gain)
+	return fastpow(10, (db * 0.025)) + 0.028652;	// + offset = 0 dB == 1 amplitude
+}
+
+// excellent accuracy around amplitude == 1 (-6..+6 dB),
+// bad accuracy very near input == 0 or input == very large
+atodbApprox(amplitude)
+{
+	TWENTYDIVLOGTEN	= 8.685889638065036553;
+	return TWENTYDIVLOGTEN * logApprox(abs(amplitude)); // is abs() really needed?
+}
+
+// 'exp(-1 / (seconds * samplerate))'
+tauA(t)											// t = seconds
+{
+	y = expA(-1 / (t * samplerate));
+	return y + 0.000128;			// approximation has excellent accuracy above...
+}														// ...0.01 seconds input
+
+// 
+
+// cartopol approx
+c2pApprox(real, imag)
+{
+	alpha = sqrt((real * real) + (imag * imag));
+	theta = atan2Approx(imag, real);
+	return alpha, theta;
+}
+
+// poltocar approx
+p2cApprox(alpha, theta)
+{
+	real = alpha * cos73(theta);
+	imag = alpha * sin73(theta);
+	return real, imag;
+}
+
+// poltocar approx, keep out of while loop in export
+p2cApproxParam(alpha, theta)
+{
+	real = alpha * cos73Param(theta);
+	imag = alpha * sin73Param(theta);
+	return real, imag;
+}
+
+// for adaa etc
+
+// not an approx :-(
+eviLog1p(value)
+{
+  if (value > -1.0e-8 && value < 1.0e-8)
+    return value - (value * value) * 0.5;
+
+  return log(1 + value);
+}
+
+/**
+ * Li2() ::
+ * @brief Real dilogarithm mathrm{Li}_2(x)
+ * @param x real argument
+ * @return mathrm{Li}_2(x)
+ * @author Alexander Voigt
+ * @license GPL v3
+ * 
+ * Implemented as an economized Pade approximation with a
+ * maximum error of 4.16e-18 <<-- definitely worse with pete's implementation :-)
+ */
+Li2Approx(x) // this is really stupid in gen~, & N.B. - cannot use Approxes in negative branches
+{
+	MPIPI6	= -1.6449340668482264;	// -PI*PI/6
+	MPIPI12	= -0.8224670334241132;	// -PI*PI/12
+	PIPI6	=  1.6449340668482264;	//  PI*PI/6
+	PIPI3	=  3.289868133696453;	//  PI*PI/3
+
+	li1 = 0;
+	horner = 0;
+	y = 0;
+	r = 0;
+	s = 1;
+
+	// transform to [0, 1/2)
+	if (x < -1) {
+		omx = 1 - x;
+		l = log(omx); // must be log()
+		y = 1/omx;
+		r = MPIPI6 + l*(0.5*l - log(-x)); // must be log()
+		s = 1;
+		horner = 1;
+	} else if (x == -1) {
+		li1 = MPIPI12;
+		horner = 0;
+	} else if (x < 0) {
+		l = eviLog1p(-x); // must be log()
+		y = x/(x - 1);
+		r = -0.5*l*l;
+		s = -1;
+		horner = 1;
+	} else if (x == 0) {
+		li1 = 0;
+		horner = 0;
+	} else if (x < 0.5) {
+		y = x;
+		r = 0;
+		s = 1;
+		horner = 1;
+	} else if (x < 1) {
+		omx = 1 - x;
+		y = omx;
+		r = PIPI6 - logApprox(x)*logApprox(omx);
+		s = -1;
+		horner = 1;
+	} else if (x == 1) {
+		li1 = PIPI6;
+		horner = 0;
+	} else if (x < 2) {
+		omodx = 1 - 1/x;
+		l = logApprox(x);
+		y = omodx;
+		r = PIPI6 - l*(logApprox(omodx) + 0.5*l);
+		s = 1;
+		horner = 1;
+	} else {
+		l = logApprox(x);
+		y = 1/x;
+		r = PIPI3 - 0.5*l*l;
+		s = -1;
+		horner = 1;
+	}
+
+	z = y - 0.25;
+
+	// unroll horner because gen~, sorry :-(
+
+	p = -2.4630612614645039828e-4;
+	p = p*z +  3.1608910440687221695e-2;
+	p = p*z + -4.6937565143754629578e-1;
+	p = p*z +  2.4733515209909815443;
+	p = p*z + -6.0516124315132409155;
+	p = p*z +  7.4819657596286408905;
+	p = p*z + -4.5353562730201404017;
+	p = p*z +  1.0706105563309304277;
+
+	q = -3.2116618742475189569e-3;
+	q = q*z +  9.8554565816757007266e-2;
+	q = q*z + -8.9936784740041174897e-1;
+	q = q*z +  3.6245392503925290187;
+	q = q*z + -7.4634190853767468810;
+	q = q*z +  8.1790029773247428573;
+	q = q*z + -4.5355682121856044935;
+	q = q*z +  1.0000000000000000000;
+
+	li2 = r + s*y*p/q;
+
+	return horner ? li2 : li1;
+}
+

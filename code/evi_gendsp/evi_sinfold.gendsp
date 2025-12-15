@@ -1,0 +1,68 @@
+{
+    "patcher": {
+        "fileversion": 1,
+        "appversion": {
+            "major": 9,
+            "minor": 1,
+            "revision": 1,
+            "architecture": "x64",
+            "modernui": 1
+        },
+        "classnamespace": "dsp.gen",
+        "rect": [ 142.0, 100.0, 902.0, 848.0 ],
+        "gridonopen": 2,
+        "subpatcher_template": "sub",
+        "integercoordinates": 1,
+        "boxes": [
+            {
+                "box": {
+                    "id": "obj-1",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 49.0, 19.0, 91.0, 22.0 ],
+                    "text": "in 1 Audio Input"
+                }
+            },
+            {
+                "box": {
+                    "code": "\r\n// sine shaping wavefolder by Pete for evieve. \"I think it sounds pretty good,\r\n// but watch out for those bumps in the fundamental\".\r\n\r\nrequire(\"evi_trig.genexpr\");\r\nrequire(\"evi_interp.genexpr\");\r\n//require(\"evi_approx.genexpr\");\r\n//require(\"evi_smooth.genexpr\");\r\n\r\nsinF0(x)\n{\n  return sin121(x);\n}\n\nsinF1(x)\n{\n  return -cos121(x);\n}\n\nsinF2(x)\n{\n    return -sin121(x);\n}\n\nsinAdaa1(x0)\n{\n  History x1(0), s1(0);\n  eps = 0.000001;  // TODO, work out precision\n\n  y1 = 0;\n  d0 = x0 - x1;\n  s0 = sinF1(x0);    // func1\n  if ((x1 == 0 && s1 == 0) || (abs(d0) < eps)) {  // ill condition\n    y1 = sinF0(0.5 * (x0 + x1)); // func0\n  } else {\n    y1 = (s0 - s1) / d0;\n  }\n\n  s1 = s0;\n  x1 = x0;\n  return y1;\n}\n\r\n// not working properly\nsinAdaa2(x0)\n{\n  History x1(0), x2(0), s1(0);\n  eps = 0.00000000001;  // TODO, work out precision\n\n  s0 = x0;//0;\n  d0 = x0 - x1;\n  f2_x1 = sinF2(x1); // func2\n  if (abs(d0) < eps) {  // ill condition\n    s0 = sinF1(0.5 * (x0 + x1)); // func1\n  } else {\n    s0 = (sinF2(x0) - f2_x1) / d0; // func2\n  }\n\n  y1 = x0;//0;\n  d1 = x0 - x2;\n  if (x1 == 0 && x2 == 0) { // ill condition\n    y1 = sinF0(x0 + (x1 + x1) + x2) * 0.25; // func0\n  } else if (abs(d1) < eps) { // ill condition\n    x_bar = 0.5 * (x0 + x2);\n    x_delta = x_bar - x1;\n    if (x_delta < eps) {  // ill condition\n      y1 = sinF0((x_bar + x1) * 0.5);  // func0\n    } else {\n      y1 = (2 / x_delta) * (sinF1(x_bar) + (f2_x1 - sinF2(x_bar)) / x_delta); // func1, func2\n    }\n  } else {\n    s0s1 = s0 - s1;\n    y1 = (s0s1 + s0s1) / d1;\n  }\n\n  s1 = s0;\n  x2 = x1;\n  x1 = x0;\n  return y1;\n}\n\n// based on an idea by jhno & Trond Lossius\nsinParam(drive)\t\t\t\t\t\t// for param rate\n{\n\tpidrive\t\t= drive*3.110176727054 + 0.031415926536;\n\tsindrive\t= 1 / cos32quad12(halfpi - minimum(pidrive, halfpi));\n\treturn\tpidrive, sindrive;\n}\n\r\nsinFoldAdaa1(x, pidrive, sindrive)\t// for audio rate\n{\n\treturn sinAdaa1(x * pidrive) * sindrive;\n}\n\nsinFoldAdaa2(x, pidrive, sindrive)\t// for audio rate\n{\n\treturn sinAdaa2(x * pidrive) * sindrive;\n}\n\r\n// sinFoldAdaa1 oversampling...\n\n// fixed 2x quasi oversampling (hermite6)\nsinFoldAdaa1_2x_6POINT(XIN, pidrive, sindrive)\n{ // up 2\n  History umTm2_0(0), umTm1_0(0), umT0_0(0), umT1_0(0), umT2_0(0);\n  // down 2\n  History dmT3_1(0), dmT2_1(0), dmT1_1(0), dmT0_1(0), dmTm1_1(0);\n  // align\n  History doX0(0);\n\n  // up 2x\n  x0_0_a  = XIN + 0;\n  x1_0  = hermite_sixpoint_interp(0.5,  umTm2_0, umTm1_0, umT0_0, umT1_0, umT2_0, x0_0_a);\n  x2_0  = umT2_0 + 0;\n\n  // process 2x\n  y1_0  = sinFoldAdaa1(x1_0, pidrive, sindrive);\n  y2_0  = sinFoldAdaa1(x2_0, pidrive, sindrive);\n\n  // down 2x\n  y2_0_a  = y2_0 + 0;\n  y2_1  = hermite_sixpoint_interp(0.5,  y2_0_a, dmTm1_1, dmT0_1, dmT1_1, dmT2_1, dmT3_1);\n\n  y0_0  = (doX0 + y2_1) * 0.5;\n\n  // update\n  umTm2_0 = umTm1_0;\n  umTm1_0 = umT0_0;\n  umT0_0  = umT1_0;\n  umT1_0  = umT2_0;\n  umT2_0  = x0_0_a;\n\n  doX0  = y1_0;\n\n  dmT3_1  = dmT2_1;\n  dmT2_1  = dmT1_1;\n  dmT1_1  = dmT0_1;\n  dmT0_1  = dmTm1_1;\n  dmTm1_1 = y2_0;\n\n  return dcblock(y0_0);\n}\n\n// fixed 4x quasi oversampling (hermite6)\nsinFoldAdaa1_4x_6POINT(XIN, pidrive, sindrive)\n{ // up 2\n  History umTm2_0(0), umTm1_0(0), umT0_0(0), umT1_0(0), umT2_0(0);\n  // down 2\n  History dmT3_1(0), dmT2_1(0), dmT1_1(0), dmT0_1(0), dmTm1_1(0);\n  // align\n  History doX0(0);\n\n  // up 2x\n  x0_0_a  = XIN + 0;\n  x1_0  = hermite_sixpoint_interp(0.5,  umTm2_0, umTm1_0, umT0_0, umT1_0, umT2_0, x0_0_a);\n  x2_0  = umT2_0 + 0;\n\n  // process 4x\n  y1_0  = sinFoldAdaa1_2x_6POINT(x1_0, pidrive, sindrive);\n  y2_0  = sinFoldAdaa1_2x_6POINT(x2_0, pidrive, sindrive);\n\n  // down 2x\n  y2_0_a  = y2_0 + 0;\n  y2_1  = hermite_sixpoint_interp(0.5,  y2_0_a, dmTm1_1, dmT0_1, dmT1_1, dmT2_1, dmT3_1);\n\n  y0_0  = (doX0 + y2_1) * 0.5;\n\n  // update\n  umTm2_0 = umTm1_0;\n  umTm1_0 = umT0_0;\n  umT0_0  = umT1_0;\n  umT1_0  = umT2_0;\n  umT2_0  = x0_0_a;\n\n  doX0  = y1_0;\n\n  dmT3_1  = dmT2_1;\n  dmT2_1  = dmT1_1;\n  dmT1_1  = dmT0_1;\n  dmT0_1  = dmTm1_1;\n  dmTm1_1 = y2_0;\n\n  return dcblock(y0_0);\n}\n\n// sinFoldAdaa2 oversampling...\n\n// fixed 2x quasi oversampling (hermite6)\nsinFoldAdaa2_2x_6POINT(XIN, pidrive, sindrive)\n{ // up 2\n  History umTm2_0(0), umTm1_0(0), umT0_0(0), umT1_0(0), umT2_0(0);\n  // down 2\n  History dmT3_1(0), dmT2_1(0), dmT1_1(0), dmT0_1(0), dmTm1_1(0);\n  // align\n  History doX0(0);\n\n  // up 2x\n  x0_0_a  = XIN + 0;\n  x1_0  = hermite_sixpoint_interp(0.5,  umTm2_0, umTm1_0, umT0_0, umT1_0, umT2_0, x0_0_a);\n  x2_0  = umT2_0 + 0;\n\n  // process 2x\n  y1_0  = sinFoldAdaa2(x1_0, pidrive, sindrive);\n  y2_0  = sinFoldAdaa2(x2_0, pidrive, sindrive);\n\n  // down 2x\n  y2_0_a  = y2_0 + 0;\n  y2_1  = hermite_sixpoint_interp(0.5,  y2_0_a, dmTm1_1, dmT0_1, dmT1_1, dmT2_1, dmT3_1);\n\n  y0_0  = (doX0 + y2_1) * 0.5;\n\n  // update\n  umTm2_0 = umTm1_0;\n  umTm1_0 = umT0_0;\n  umT0_0  = umT1_0;\n  umT1_0  = umT2_0;\n  umT2_0  = x0_0_a;\n\n  doX0  = y1_0;\n\n  dmT3_1  = dmT2_1;\n  dmT2_1  = dmT1_1;\n  dmT1_1  = dmT0_1;\n  dmT0_1  = dmTm1_1;\n  dmTm1_1 = y2_0;\n\n  return dcblock(y0_0);\n}\n\n// fixed 4x quasi oversampling (hermite6)\nsinFoldAdaa2_4x_6POINT(XIN, pidrive, sindrive)\n{ // up 2\n  History umTm2_0(0), umTm1_0(0), umT0_0(0), umT1_0(0), umT2_0(0);\n  // down 2\n  History dmT3_1(0), dmT2_1(0), dmT1_1(0), dmT0_1(0), dmTm1_1(0);\n  // align\n  History doX0(0);\n\n  // up 2x\n  x0_0_a  = XIN + 0;\n  x1_0  = hermite_sixpoint_interp(0.5,  umTm2_0, umTm1_0, umT0_0, umT1_0, umT2_0, x0_0_a);\n  x2_0  = umT2_0 + 0;\n\n  // process 4x\n  y1_0  = sinFoldAdaa2_2x_6POINT(x1_0, pidrive, sindrive);\n  y2_0  = sinFoldAdaa2_2x_6POINT(x2_0, pidrive, sindrive);\n\n  // down 2x\n  y2_0_a  = y2_0 + 0;\n  y2_1  = hermite_sixpoint_interp(0.5,  y2_0_a, dmTm1_1, dmT0_1, dmT1_1, dmT2_1, dmT3_1);\n\n  y0_0  = (doX0 + y2_1) * 0.5;\n\n  // update\n  umTm2_0 = umTm1_0;\n  umTm1_0 = umT0_0;\n  umT0_0  = umT1_0;\n  umT1_0  = umT2_0;\n  umT2_0  = x0_0_a;\n\n  doX0  = y1_0;\n\n  dmT3_1  = dmT2_1;\n  dmT2_1  = dmT1_1;\n  dmT1_1  = dmT0_1;\n  dmT0_1  = dmTm1_1;\n  dmTm1_1 = y2_0;\n\n  return dcblock(y0_0);\n}\n\nexpA(x0)\t\t\t\t\t\t\t// more accurate than 'fastexp()'\n{\n\tx = 0.999996 + (0.031261316 + (0.00048274797 + 0.000006 * x0) * x0) * x0;\n\tx *= x; x *= x; x *= x; x *= x; x *= x;\n\treturn x;\n}\n\ntauA(t)\t\t\t\t\t\t\t\t// t is time in seconds\n{\n\ty = expA(-1 / (t * samplerate));\n\treturn y + 0.000128;\n}\n\r\nexpso(x, z)\t\t\t\t\t\t\t// z is pole\n{\n\tHistory w(0);\n\ty = (z * w) + (x * (1 - z));\n\tw = y;\n\treturn y;\n}\n\nexpsmoothBank2(x1, x2, t)\t\t\t// t is smooth time in seconds\n{\n\tHistory\texps2dummy(0);\n\tz\t\t= tauA(t);\n\ty1\t\t= expso(x1, z);\n\ty2\t\t= expso(x2, z);\n\treturn\ty1, y2;\n}\n\r\n// param rate ...\r\n\r\nParam   select(2, min=0, max=2);        // default Adaa1_4x_6POINT()\r\nParam\tdrive(0.5, min=0, max=4);\t\t// % 0..1.. up to 2 is pretty safe, up to 4 be careful\r\nParam\tsmooth(22.666, min=1, max=666);\t// ms\r\nsmoothsecs\t\t\t= smooth*0.001;\r\ncompensate\t\t\t= 0.984292036732;\t// because approxes, and general fudgyness\r\npidrive, sindrive\t= sinParam(drive);\r\nsel                 = int(select);\r\n\r\n// audio rate ...\r\n\r\ndrivepi, drivesin\t= expsmoothBank2(pidrive, sindrive, smoothsecs);\r\n\r\nx = in1*compensate;\r\nsinfold = 0;\r\nif (sel ==1) {\r\n    sinfold = sinFoldAdaa1_2x_6POINT(x, drivepi, drivesin);\r\n} else if (sel == 2) {\r\n    sinfold = sinFoldAdaa1_4x_6POINT(x, drivepi, drivesin);\r\n} else {    // sel == 0\r\n    sinfold = sinFoldAdaa1(x, drivepi, drivesin);\r\n}\r\n\r\nout1 = sinfold;\r\n\r\n",
+                    "fontface": 0,
+                    "fontname": "<Monospaced>",
+                    "fontsize": 12.0,
+                    "id": "obj-3",
+                    "maxclass": "codebox",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 49.0, 58.0, 809.0, 732.0 ]
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-4",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 49.0, 807.0, 147.0, 22.0 ],
+                    "text": "out 1 Sine Shaped Output"
+                }
+            }
+        ],
+        "lines": [
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 0 ],
+                    "source": [ "obj-1", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-4", 0 ],
+                    "source": [ "obj-3", 0 ]
+                }
+            }
+        ]
+    }
+}

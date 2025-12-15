@@ -1,0 +1,116 @@
+{
+    "patcher": {
+        "fileversion": 1,
+        "appversion": {
+            "major": 9,
+            "minor": 1,
+            "revision": 1,
+            "architecture": "x64",
+            "modernui": 1
+        },
+        "classnamespace": "dsp.gen",
+        "rect": [ 34.0, 100.0, 1037.0, 848.0 ],
+        "gridonopen": 2,
+        "subpatcher_template": "sub",
+        "integercoordinates": 1,
+        "boxes": [
+            {
+                "box": {
+                    "id": "obj-7",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 931.0, 790.0, 87.0, 22.0 ],
+                    "text": "out 4 1-section"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-6",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 637.0, 790.0, 87.0, 22.0 ],
+                    "text": "out 3 2-section"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-5",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 344.0, 790.0, 87.0, 22.0 ],
+                    "text": "out 2 3-section"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-1",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 50.0, 14.0, 83.0, 22.0 ],
+                    "text": "in 1 Osc Input"
+                }
+            },
+            {
+                "box": {
+                    "code": "\r\n// based on the paper:\r\n// \"Virtual Analog Model of the Lockhart Wavefolder\"\r\n// by Fabian Esqueda, Henri Pontynen, Julian D. Parker, Stefan Bilbao\r\n// SMC, 2017\r\n\r\nexpApprox(x)\n{\n\tx = 1 + (0.062500309 + (0.0019527233 + (0.0000408663 + (0.00000060184965 + 0.000000010856791*x)*x)*x)*x)*x;\n\tx *= x; x *= x; x *= x;\n\treturn x*x;\n}\r\n/*\r\n// Lambert-W function\r\nlambertW(x, ln1, loop, thresh)\r\n{\r\n\t// initial guess (use previous value)\r\n\tw\t\t= ln1;\r\n\r\n\t// Haley's method (section 4.2 of the paper)\n\tfor (i = 0; i < loop; i += 1) {\r\n//\t\texpw\t= expApprox(w);\r\n\t\texpw\t= exp(w);       // :-(\r\n        w1      = w + 1;\r\n\r\n\t\tp\t\t= (w * expw) - x;\r\n\t\tr\t\t= w1 * expw;\r\n\t\ts\t\t= (w + 2) / (w1 + w1);\r\n\t\terr\t\t= (p / (r - (p * s)));\r\n\r\n\t\tif (abs(err) < thresh) {\n    \t\tbreak;\n\t\t}\r\n\r\n\t\tw\t   -= err;\r\n\t}\r\n\r\n\treturn\tw;\r\n}\r\n*/\r\n// Lambert-W function\r\nlambertW(x, ln1, loop, thresh)\r\n{\r\n\t// initial guess (use previous value)\r\n\tw\t\t= ln1;\r\n    err     = 1;\r\n    i       = 0;\n\r\n\t// Haley's method (section 4.2 of the paper)\n\twhile ( (i < loop) && (abs(err) > thresh) ) {\r\n//\t\texpw\t= expApprox(w);\r\n\t\texpw\t= exp(w);       // :-(\r\n        w1      = w + 1;\r\n\r\n\t\tp\t\t= (w * expw) - x;\r\n\t\tr\t\t= w1 * expw;\r\n\t\ts\t\t= (w + 2) / (w1 + w1);\r\n\t\terr\t\t= (p / (r - (p * s)));\r\n\r\n\t\tw\t   -= err;\r\n        i      += 1;\r\n\t}\r\n\r\n\treturn\tw;\r\n}\r\n\r\n// Antialiased Lockhart wavefolder with Lambert-W function\r\nlockhartAA(Xo, loop=1000)\r\n{\r\n\t// declare previous state\r\n\tHistory\tLn1(0), Fn1(0), Xn1(0);\r\n\r\n\t// constants, only VT used\r\n    // but play with these values and calcs to hack the sound :-)\r\n\tRL\t= 7.5e3;    R\t= 15e3;     VT\t= 26e-3;    Is\t= 10e-16;\r\n\ta\t= 1; // not used        //  2 * RL / R;\r\n\tb\t= 76.923076923076923;   // (R + 2 * RL) / (VT * R);\r\n\td\t= 0.000000000288462;    // (RL * Is) / VT;\r\n    VTb = 0.000169;\t\t\t\t//  0.5 * VT / b\r\n\r\n\t// antialiasing (adaa) error threshold\r\n\tepsilon\t= 10e-10;\r\n\r\n\t// input\r\n\tl\t= sign(Xo); \r\n\r\n\t// compute antiderivative (adaa, 1st order)\r\n//\tu\t= d * expApprox(l * b * Xo);\r\n\tu\t= d * exp(l * b * Xo);  // :-(\r\n\tLn\t= lambertW(u, Ln1, loop, epsilon);\r\n    Lp1 = 1 + Ln;\r\n//\tFn\t= (0.5 * VT / b) * (1 + Ln) * (1 + Ln) - 0.5 * a * Xo * Xo;\r\n\tFn\t= VTb * Lp1 * Lp1 - 0.5 * Xo * Xo;\r\n\r\n\tYn\t= 0;\r\n\t// check for ill-conditioning\r\n\tif (abs(Xo - Xn1) < epsilon) { // pete not convinced by this, surely it doesn't need to contain the lambetW()\r\n\t\t// compute averaged wavefolder output\r\n\t\tXn\t= 0.5 * (Xo + Xn1);\r\n\t\t//\t!! original \"d * pow(e, (l * b * Xo))\" code from the paper is wrong <<-- Xn !!\r\n\t\tu\t= d * expApprox(l * b * Xn);\n//\t\tu\t= d * exp(l * b * Xn);\n\t\tLn\t= lambertW(u, Ln1, loop, epsilon);\n//\t\tYn\t= (l * VT * Ln) - (a * Xo); // ?? \"(l * VT * Ln) - (a * Xn)\" <<-- Xn ??\r\n\t\tYn\t= (l * VT * Ln) - Xn;\r\n\t} else {\r\n\t\t// apply antialiased form\n\t\tYn\t= (Fn - Fn1) / (Xo - Xn1);\r\n\t}\r\n\r\n\t// update state\r\n\tLn1\t= Ln;\r\n    Fn1\t= Fn;\r\n    Xn1\t= Xo;\r\n\r\n\treturn\tdcblock(Yn);\r\n}\r\n\r\nW\t\t= lockhartAA(in1, loop=111);\r\nX\t\t= lockhartAA(W, loop=333);\r\nY\t\t= lockhartAA(X, loop=666);\r\nZ\t\t= lockhartAA(Y, loop=999);\r\n\r\nout1    = Z;\r\n\r\nout2    = Y;    out3    = X;    out4    = W;\r\n\r\n",
+                    "fontface": 0,
+                    "fontname": "<Monospaced>",
+                    "fontsize": 12.0,
+                    "id": "obj-3",
+                    "maxclass": "codebox",
+                    "numinlets": 1,
+                    "numoutlets": 4,
+                    "outlettype": [ "", "", "", "" ],
+                    "patching_rect": [ 50.0, 53.0, 900.0, 719.0 ]
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-4",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 50.0, 790.0, 87.0, 22.0 ],
+                    "text": "out 1 4-section"
+                }
+            }
+        ],
+        "lines": [
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 0 ],
+                    "source": [ "obj-1", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-4", 0 ],
+                    "source": [ "obj-3", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-5", 0 ],
+                    "source": [ "obj-3", 1 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-6", 0 ],
+                    "source": [ "obj-3", 2 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-7", 0 ],
+                    "source": [ "obj-3", 3 ]
+                }
+            }
+        ]
+    }
+}

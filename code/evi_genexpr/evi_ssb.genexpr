@@ -1,0 +1,792 @@
+
+//	//	//	functions for the evieve single side band processors
+//	//	//	@see: 'evi_freqshift_weaver.gendsp' & 'evi_freqshift_hilbert.gendsp'
+
+// for first quarter only, optimized so that never lets sqrt(sinapprox(x)^2+cosapprox(x)^2)
+// exceed 1, always gives exact results at modphase 0, 0.5, 1 (0/1, sqrt1_2, 1/0)
+quartParApproxOne(modphase)								// 'modphase' must be clamped 0..1
+{
+	x0		=  modphase - 0.5;							// 1 sub
+	// first quarter									// angle = 0 .. HALFPI
+	quart	= -0.8284271247461903 * x0 * x0 + sqrt1_2;	// 2 mul, 1 add, (-0.8284271247461903 = 2 - 4*sqrt1_2)
+	sinq1	=  quart + x0;								// 1 add
+	cosq1	=  quart - x0;								// 1 sub
+
+	return	cosq1, sinq1;
+}
+
+xfadeQuartApproxMono(a, c, q)		// q is control, must be clamped 0..1
+{
+	qL, qR	= quartParApproxOne(q);	// cos/sin
+	return	((a * qL) + (c * qR));	// out mix L + out mix R
+}
+
+tanA(x)								// cheaper approx tan(0..1)
+{
+	x2		= (x * x);
+	x3		= (x2 * x);
+	x5		= (x2 * x3);
+	return	 ((x5 * 0.133333) + (x3 * 0.333333)) + x;
+}
+
+tanA2(x)							// better approx tan(0..HALFPI)
+{
+	a	= ((((x * -0.0896638) + 0.0388452) * x) + 1.00005) * x;
+	b	= (((x * -0.430871) + 0.0404318) * x) + 1;
+	return	a / b;
+}
+
+// in this setup the quad osc must be high quality and precise, not approx
+quadratureOsc(thisphase, thisspread)// thisspread is of course nuts and experimental, must == 0.75
+{
+	re		= cycle(thisphase, index="phase");
+	im		= cycle(wrap(thisphase + thisspread, 0, 1), index="phase");
+
+	return	re, im;
+}
+
+// better complex oscs, thanks to Martin Vicanek
+quadOsc(frequency, reset)
+{
+	History	u(1), v(0);				// init cos, init sin
+
+	w1		= TWOPI * frequency / samplerate;
+	k1		= tanA2(0.5*w1);
+	k2		= (k1 + k1) / (1 + k1*k1);
+
+	omega	= u - k1*v;
+	v		= reset ? 0 : v + k2*omega;
+	u		= reset ? 1 : omega - k1*v;
+
+	return	u, v;					// cos, sin
+}
+
+// better complex oscs with sync outs
+quadOscSync(frequency, reset)
+{
+	History	u(1), v(0);				// init cos, init sin
+
+	w1		= TWOPI * frequency / samplerate;
+	k1		= tanA2(0.5*w1);
+	k2		= (k1 + k1) / (1 + k1*k1);
+
+	omega	= u - k1*v;
+	v		= reset ? 0 : v + k2*omega;
+	u		= reset ? 1 : omega - k1*v;
+									// normalised phase:
+	vsync	= change(v > 0) > 0;	// + 0.00 for sin zero-crossing
+	usync	= change(u > 0) > 0;	// + 0.75 for cos zero-crossing
+
+	return	u, v, usync, vsync;		// cos, sin, cossync, sinsync
+}
+
+// complex ring mod
+complexRing(real, imag, rmod, imod) {
+
+	cosp = real * rmod;
+	sinp = imag * imod;
+
+	uppersideband = cosp + sinp;
+	lowersideband = cosp - sinp;
+
+	return uppersideband, lowersideband, cosp, sinp;
+}
+
+// Transposed Direct Form 2
+biquadTdf2(x0, a0, a1, a2, b1, b2)
+{
+	History	x1(0), x2(0);
+
+	y1	=  (x0 * a0)  +  x2;
+	x2	= ((x0 * a1)  - (y1 * b1)) + x1;
+	x1	=  (x0 * a2)  - (y1 * b2);
+
+	return	y1;
+}
+
+// 8-pole Polyphase IIR Halfband Allpass Cascade
+// Biquad Cascade
+// (this could be optimised by getting rid of the lazy biquads and unrolling)
+evi_hilbert_biquads(y0, hc1, hc2, hc3, hc4, hc5, hc6, hc7, hc8)
+{
+	// align
+	History x0(0);
+	// first phase allpass cascade (phase reference path c coefficients)
+	x1	= biquadTdf2(x0,		hc1,	0, -1, 0,	-hc1);
+	x2	= biquadTdf2(x1,		hc2,	0, -1, 0,	-hc2);
+	x3	= biquadTdf2(x2,		hc3,	0, -1, 0,	-hc3);
+	x4	= biquadTdf2(x3,		hc4,	0, -1, 0,	-hc4);
+	// second phase allpass cascade (+90 degrees path c coefficients)
+	y1	= biquadTdf2(y0,		hc5,	0, -1, 0,	-hc5);
+	y2	= biquadTdf2(y1,		hc6,	0, -1, 0,	-hc6);
+	y3	= biquadTdf2(y2,		hc7,	0, -1, 0,	-hc7);
+	y4	= biquadTdf2(y3,		hc8,	0, -1, 0,	-hc8);
+	// update
+	x0	= y0;
+	// real, imaginary
+	return	x4, y4;
+}
+
+// Transposed Direct Form 2, with a1, a2, b1 & b2 factored out as per hilbert allpass
+hilbertTdf2(x0, a0)
+{
+	History	x1(0), x2(0);
+
+	y1	= (x0  *  a0) +  x2;
+	x2	=  x1;
+	x1	= -x0  - (y1  * -a0);
+
+	return	y1;
+}
+
+// 8-pole Polyphase IIR Halfband Allpass Cascade, optimised
+// Biquad Cascade
+evi_hilbert_cascade(y0, hc1, hc2, hc3, hc4, hc5, hc6, hc7, hc8)
+{
+	// align
+	History x0(0);
+	// first phase allpass cascade (phase reference path c coefficients)
+	x1	= hilbertTdf2(x0,	hc1);
+	x2	= hilbertTdf2(x1,	hc2);
+	x3	= hilbertTdf2(x2,	hc3);
+	x4	= hilbertTdf2(x3,	hc4);
+	// second phase allpass cascade (+90 degrees path c coefficients)
+	y1	= hilbertTdf2(y0,	hc5);
+	y2	= hilbertTdf2(y1,	hc6);
+	y3	= hilbertTdf2(y2,	hc7);
+	y4	= hilbertTdf2(y3,	hc8);
+	// update
+	x0	= y0;
+	// real, imaginary
+	return	x4, y4;
+}
+
+cubic_hermite_interp(f, y0, y1, y2, y3)
+{
+//	c0		= y1;
+	c1		= 0.5 * (y2 - y0);
+	c2		= y0 - 2.5 * y1 + y2 + y2 - 0.5 * y3;
+	c3		= 0.5 * (y3 - y0) + 1.5 * (y1 - y2);
+	return	((c3 * f + c2) * f + c1) * f + y1;
+}
+
+hermite_sixpoint_interp(f0, ym2, ym1, y0, y1, y2, y3)
+{
+  f1    =  f0 - 0.5;
+  even1 = ym2 + y3;
+  odd1  = ym2 - y3;
+  even2 = ym1 + y2;
+  odd2  = ym1 - y2;
+  even3 =  y0 + y1;
+  odd3  =  y0 - y1;
+
+  c0  = 0.01171875*even1    - 0.09765625*even2    + 0.5859375*even3;
+  c1  = 0.2109375*odd2    - 1.463541666667*odd3 - 0.033854166667*odd1;
+  c2  = 0.40625*even2     - 0.354166666667*even3  - 0.052083333333*even1;
+  c3  = 0.1875*odd1     - 1.104166666667*odd2 + 2.375*odd3;
+  c4  = 0.020833333333*even1  - 0.0625*even2      + 0.041666666667*even3;
+  c5  = 1.041666666667*odd2 - 2.083333333333*odd3 - 0.208333333333*odd1;
+
+  return ((((c5*f1 + c4)*f1 + c3)*f1 + c2)*f1 + c1)*f1 + c0;
+}
+
+cosQ32(x)
+{
+	c1 =  0.99940307;
+	c2 = -0.49558072;
+	c3 =  0.03679168;
+
+	x2 =  x * x;
+	return (c1 + x2 * (c2 + c3 * x2));
+}
+
+cos32quad12(x)	// cheap cheat, not exactly correct
+{									// no branching, stay out of while loop
+	return (x < 0.636619772368) ? cosQ32(x) : -cosQ32(PI - x);
+}
+
+// based on an idea by jhno & Trond Lossius
+sinParam(drive)						// for param rate
+{
+	pidrive		= drive*3.110176727054 + 0.031415926536;
+	sindrive	= 1 / cos32quad12(HALFPI - minimum(pidrive, HALFPI));
+	return	pidrive, sindrive;
+}
+
+// actually different to what we end up with post-Adaa
+sinFoldNaive(x, pidrive, sindrive)
+{
+	return sin(x * pidrive) * sindrive;
+}
+
+/*
+// these approximations work fine with no oversampling,
+// but the interpolation destroys them with our fake oversampling,
+// regardless of eps precision :-(
+
+cosQ121(x)
+{
+	c1 =  0.99999999999925182;
+	c2 = -0.49999999997024012;
+	c3 =  0.041666666473384543;
+	c4 = -0.001388888418000423;
+	c5 =  0.0000248010406484558;
+	c6 = -0.0000002752469638432;
+	c7 =  0.0000000019907856854;
+
+	x2 = x * x;
+	return (c1 + x2 * (c2 + x2 * (c3 + x2 * (c4 + x2 * (c5 + x2 * (c6 + c7 * x2))))));
+}
+
+cos121(x)
+{
+	TWOOVERPI = 0.63661977236758;   // 2 / PI
+	x = x % TWOPI;                              // phasewrap(x) cheaper ?
+	x = (x < 0) ? -x : x;
+	QUAD = int(x * TWOOVERPI);      // get quadrant # (0..3) we are in
+	cosreturn = 0;
+	if              (QUAD == 0) {
+		cosreturn =  cosQ121(x);
+	} else if       (QUAD == 1) {
+		cosreturn = -cosQ121(PI - x);
+	} else if       (QUAD == 2) {
+		cosreturn = -cosQ121(x - PI);
+	} else {    //  (QUAD == 3)
+		cosreturn =  cosQ121(TWOPI - x);
+	}
+	return cosreturn;
+}
+
+sin121(x)
+{
+	return cos121(HALFPI - x);
+}
+
+sinJ0(x)
+{
+  return sin121(x);
+}
+
+sinJ1(x)
+{
+  return -cos121(x);
+}
+
+sinJ2(x)
+{
+  return -sin121(x);
+}
+*/
+
+sinJ0(x)
+{
+  return sin(x);
+}
+
+sinJ1(x)
+{
+  return -cos(x);
+}
+
+sinJ2(x)
+{
+  return -sin(x);
+}
+
+// About "eps" precision in the Adaa1 & Adaa2:
+// "0.00000001" just about works for all oversampling factors we use here,
+// but it is not perfect. It is very hard to get the sweet spot.
+// The problem is is that our oversampling is not real oversampling but
+// just an interpolation hack, and this has an effect on the very small numbers.
+// I might program something like this:
+/*
+	eps = (osf == 2) ? 0.000000000001 : ((osf == 4) ? 0.00000001 : 0.000001);
+*/
+// ...where "osf" is the integer oversampling factor 2, 4 or 8,
+// passed into the Adaa* function. This would be horrible of course.
+
+sinAdaa1(x0)
+{
+  History x1(0), s1(0);
+  eps = 0.00000001;   // TODO
+	//  0.0000000001  // 
+  y1 = x0;
+  d0 = x0 - x1;
+  s0 = sinJ1(x0);    // func1
+  if ((x1 == 0 && s1 == 0) || (abs(d0) < eps)) {  // ill condition
+	y1 = sinJ0(0.5 * (x0 + x1)); // func0
+  } else {
+	y1 = (s0 - s1) / d0;
+  }
+
+  s1 = s0;
+  x1 = x0;
+  return y1;
+}
+
+sinAdaa2(x0)
+{
+  History x1(0), x2(0), s1(0);
+  eps = 0.00000001;   // TODO
+	//  0.0000000001  // 
+  s0 = x0;
+  d0 = x0 - x1;
+  f2_x1 = sinJ2(x1); // func2
+  if (abs(d0) < eps) {  // ill condition
+	s0 = sinJ1(0.5 * (x0 + x1)); // func1
+  } else {
+	s0 = (sinJ2(x0) - f2_x1) / d0; // func2
+  }
+
+  y1 = x0;
+  d1 = x0 - x2;
+  if (x1 == 0 && x2 == 0) { // ill condition
+	y1 = sinJ0(x0 + (x1 + x1) + x2) * 0.25; // func0
+  } else if (abs(d1) < eps) { // ill condition
+	x_bar = 0.5 * (x0 + x2);
+	x_delta = x_bar - x1;
+	if (x_delta < eps) {  // ill condition
+	  y1 = sinJ0((x_bar + x1) * 0.5);  // func0
+	} else {
+	  y1 = (2 / x_delta) * (sinJ1(x_bar) + (f2_x1 - sinJ2(x_bar)) / x_delta); // func1, func2
+	}
+  } else {
+	s0s1 = s0 - s1;
+	y1 = (s0s1 + s0s1) / d1;
+  }
+
+  s1 = s0;
+  x2 = x1;
+  x1 = x0;
+  return y1;
+}
+
+// sinAdaa1 oversampling...
+
+// fixed 2x quasi oversampling (hermite6)
+sinAdaa1_2x_6POINT(XIN)
+{ // up 2
+  History umTm2_0(0), umTm1_0(0), umT0_0(0), umT1_0(0), umT2_0(0);
+  // down 2
+  History dmT3_1(0), dmT2_1(0), dmT1_1(0), dmT0_1(0), dmTm1_1(0);
+  // align
+  History doX0(0);
+
+  // up 2x
+  x0_0_a  = XIN + 0;
+  x1_0  = hermite_sixpoint_interp(0.5,  umTm2_0, umTm1_0, umT0_0, umT1_0, umT2_0, x0_0_a);
+  x2_0  = umT2_0 + 0;
+
+  // process 2x
+  y1_0  = sinAdaa1(x1_0);
+  y2_0  = sinAdaa1(x2_0);
+
+  // down 2x
+  y2_0_a  = y2_0 + 0;
+  y2_1  = hermite_sixpoint_interp(0.5,  y2_0_a, dmTm1_1, dmT0_1, dmT1_1, dmT2_1, dmT3_1);
+
+  y0_0  = (doX0 + y2_1) * 0.5;
+
+  // update
+  umTm2_0 = umTm1_0;
+  umTm1_0 = umT0_0;
+  umT0_0  = umT1_0;
+  umT1_0  = umT2_0;
+  umT2_0  = x0_0_a;
+
+  doX0  = y1_0;
+
+  dmT3_1  = dmT2_1;
+  dmT2_1  = dmT1_1;
+  dmT1_1  = dmT0_1;
+  dmT0_1  = dmTm1_1;
+  dmTm1_1 = y2_0;
+
+  return dcblock(y0_0);
+}
+
+// fixed 4x quasi oversampling (hermite6)
+sinAdaa1_4x_6POINT(XIN)
+{ // up 2
+  History umTm2_0(0), umTm1_0(0), umT0_0(0), umT1_0(0), umT2_0(0);
+  // down 2
+  History dmT3_1(0), dmT2_1(0), dmT1_1(0), dmT0_1(0), dmTm1_1(0);
+  // align
+  History doX0(0);
+
+  // up 2x
+  x0_0_a  = XIN + 0;
+  x1_0  = hermite_sixpoint_interp(0.5,  umTm2_0, umTm1_0, umT0_0, umT1_0, umT2_0, x0_0_a);
+  x2_0  = umT2_0 + 0;
+
+  // process 4x
+  y1_0  = sinAdaa1_2x_6POINT(x1_0);
+  y2_0  = sinAdaa1_2x_6POINT(x2_0);
+
+  // down 2x
+  y2_0_a  = y2_0 + 0;
+  y2_1  = hermite_sixpoint_interp(0.5,  y2_0_a, dmTm1_1, dmT0_1, dmT1_1, dmT2_1, dmT3_1);
+
+  y0_0  = (doX0 + y2_1) * 0.5;
+
+  // update
+  umTm2_0 = umTm1_0;
+  umTm1_0 = umT0_0;
+  umT0_0  = umT1_0;
+  umT1_0  = umT2_0;
+  umT2_0  = x0_0_a;
+
+  doX0  = y1_0;
+
+  dmT3_1  = dmT2_1;
+  dmT2_1  = dmT1_1;
+  dmT1_1  = dmT0_1;
+  dmT0_1  = dmTm1_1;
+  dmTm1_1 = y2_0;
+
+  return dcblock(y0_0);
+}
+
+// sinAdaa2 oversampling...
+
+// fixed 2x quasi oversampling (hermite6)
+sinAdaa2_2x_6POINT(XIN)
+{ // up 2
+  History umTm2_0(0), umTm1_0(0), umT0_0(0), umT1_0(0), umT2_0(0);
+  // down 2
+  History dmT3_1(0), dmT2_1(0), dmT1_1(0), dmT0_1(0), dmTm1_1(0);
+  // align
+  History doX0(0);
+
+  // up 2x
+  x0_0_a  = XIN + 0;
+  x1_0  = hermite_sixpoint_interp(0.5,  umTm2_0, umTm1_0, umT0_0, umT1_0, umT2_0, x0_0_a);
+  x2_0  = umT2_0 + 0;
+
+  // process 2x
+  y1_0  = sinAdaa2(x1_0);
+  y2_0  = sinAdaa2(x2_0);
+
+  // down 2x
+  y2_0_a  = y2_0 + 0;
+  y2_1  = hermite_sixpoint_interp(0.5,  y2_0_a, dmTm1_1, dmT0_1, dmT1_1, dmT2_1, dmT3_1);
+
+  y0_0  = (doX0 + y2_1) * 0.5;
+
+  // update
+  umTm2_0 = umTm1_0;
+  umTm1_0 = umT0_0;
+  umT0_0  = umT1_0;
+  umT1_0  = umT2_0;
+  umT2_0  = x0_0_a;
+
+  doX0  = y1_0;
+
+  dmT3_1  = dmT2_1;
+  dmT2_1  = dmT1_1;
+  dmT1_1  = dmT0_1;
+  dmT0_1  = dmTm1_1;
+  dmTm1_1 = y2_0;
+
+  return dcblock(y0_0);
+}
+
+// fixed 4x quasi oversampling (hermite6)
+sinAdaa2_4x_6POINT(XIN)
+{ // up 2
+  History umTm2_0(0), umTm1_0(0), umT0_0(0), umT1_0(0), umT2_0(0);
+  // down 2
+  History dmT3_1(0), dmT2_1(0), dmT1_1(0), dmT0_1(0), dmTm1_1(0);
+  // align
+  History doX0(0);
+
+  // up 2x
+  x0_0_a  = XIN + 0;
+  x1_0  = hermite_sixpoint_interp(0.5,  umTm2_0, umTm1_0, umT0_0, umT1_0, umT2_0, x0_0_a);
+  x2_0  = umT2_0 + 0;
+
+  // process 4x
+  y1_0  = sinAdaa2_2x_6POINT(x1_0);
+  y2_0  = sinAdaa2_2x_6POINT(x2_0);
+
+  // down 2x
+  y2_0_a  = y2_0 + 0;
+  y2_1  = hermite_sixpoint_interp(0.5,  y2_0_a, dmTm1_1, dmT0_1, dmT1_1, dmT2_1, dmT3_1);
+
+  y0_0  = (doX0 + y2_1) * 0.5;
+
+  // update
+  umTm2_0 = umTm1_0;
+  umTm1_0 = umT0_0;
+  umT0_0  = umT1_0;
+  umT1_0  = umT2_0;
+  umT2_0  = x0_0_a;
+
+  doX0  = y1_0;
+
+  dmT3_1  = dmT2_1;
+  dmT2_1  = dmT1_1;
+  dmT1_1  = dmT0_1;
+  dmT0_1  = dmTm1_1;
+  dmTm1_1 = y2_0;
+
+  return dcblock(y0_0);
+}
+
+//  //  //
+
+sinFoldAdaa1(x, pidrive, sindrive)
+{
+	return sinAdaa1(x * pidrive) * sindrive;
+}
+
+sinFoldAdaa1_2x(x, pidrive, sindrive)
+{
+	return sinAdaa1_2x_6POINT(x * pidrive) * sindrive;
+}
+
+sinFoldAdaa1_4x(x, pidrive, sindrive)
+{
+	return sinAdaa1_4x_6POINT(x * pidrive) * sindrive;
+}
+
+sinFoldAdaa2(x, pidrive, sindrive)
+{
+	return sinAdaa2(x * pidrive) * sindrive;
+}
+
+sinFoldAdaa2_2x(x, pidrive, sindrive)
+{
+	return sinAdaa2_2x_6POINT(x * pidrive) * sindrive;
+}
+
+sinFoldAdaa2_4x(x, pidrive, sindrive)
+{
+	return sinAdaa2_4x_6POINT(x * pidrive) * sindrive;
+}
+
+//  //  //
+
+log2Approx(x) // sorry
+{
+  return (-0.2119568027628040757e-1 + (-0.38815224340108325886 + (-0.8900051141728954376 + (0.4001641794691007527
+      + (0.79615191430677253059 + 0.10303694407435362078*x)*x)*x)*x)*x) /
+        (0.298115002929551095e-2 + (0.1066700361116609290 + (0.6070463053447878628 + (0.8584931203106122717
+          + (0.30170842595823793523 + 0.16863931436090069014e-1*x)*x)*x)*x)*x);
+}
+
+logApprox(x)
+{
+  return LN2 * log2Approx(x);
+}
+
+log1pApprox(x)
+{
+  if (x > -1.0e-8 && x < 1.0e-8)
+    return x - (x * x) * 0.5;
+
+  return logApprox(1 + x);
+}
+
+expA(x0)							// more accurate than 'fastexp()'
+{
+	x = 0.999996 + (0.031261316 + (0.00048274797 + 0.000006 * x0) * x0) * x0;
+	x *= x; x *= x; x *= x; x *= x; x *= x;
+	return x;
+}
+
+tauA(t)								// t is time in seconds
+{
+	y = expA(-1 / (t * samplerate));
+	return y + 0.000128;
+}
+
+// transpose semitones input (0=none), like [transratio] & [evi.transratio]
+transratioApprox(pitch)					// pitch default = 0
+{
+	return expA(0.05776226504666 * pitch) + 0.000128;
+}
+
+// more accurate than the ftom approx
+mtofApproxBaseless(pitch)
+{
+	mtofA = 440 * transratioApprox(pitch - 69);
+	return mtofA + 0.120906;		// + offset = accurate for input 48..69
+}
+
+// very accurate from approx 20..5000 Hz input,
+// actually perfect for pitch output 51..76
+// below 20Hz input, output is a bit funky (should clip), above 5k input, output
+// increasingly inaccurate until input/output off by about 2 semitones at 125..129 pitch
+ftomApproxBaseless(frequency)
+{
+	ftomA = 69 + (17.312340490668193 * logApprox(frequency / 440));
+	return ftomA;
+}
+
+dbtoaApprox(db)
+{
+	dbtoaA = expA(0.11512925464970 * db);
+	return dbtoaA + 0.000128;		// + offset = 0 dB == 1 amplitude
+}
+
+fWarp(cf)
+{
+	f = (cf * (PI / samplerate)) * (1 / TWOPI);
+	w = (f - trunc(f)) * TWOPI;
+	return tanA2(w);				// tan approximation (G for butterworth)
+}
+
+// NOTE: this is broken
+eviScurve(segment)					// segment must be linear ramp 0..1
+{
+	s2		= segment * segment;
+	rec		= 1 - segment;
+	r2		= rec * rec;
+	return	(segment < 0.5) ? (s2 + s2) : (1 - (r2 + r2));
+}
+
+// basic linear scaling like linear part of [scale]
+eviMap(valueIn, inLow, inHigh, outLow, outHigh)
+{
+	multiplier = (outLow - outHigh) / (inLow - inHigh);
+	return (valueIn - inLow) * multiplier + outLow;
+}
+
+eviLine(target, duration)			// target, duration in samples
+{
+	History	value(0);
+	trigger	= change(target);
+	ramp	= clip(accum((1 / latch(duration, trigger)), trigger), 0, 1);
+	line	= eviMap(ramp, 0, 1, latch(value, trigger), latch(target, trigger));
+	value	= line;
+	return	line, (ramp == 1);
+}
+
+eviSline(target, duration)			// target, duration in samples
+{
+	History	value(0);
+	trigger	= change(target);
+	ramp	= clip(accum((1 / latch(duration, trigger)), trigger), 0, 1);
+	cramp	= eviScurve(ramp);
+	curve	= eviMap(cramp, 0, 1, latch(value, trigger), latch(target, trigger));
+	value	= curve;
+	return	curve, (ramp == 1);
+}
+
+expso(x, z)							// z is pole
+{
+	History w(0);
+	y = (z * w) + (x * (1 - z));
+	w = y;
+	return y;
+}
+
+expsmooth(x, t)						// t is smooth time in seconds
+{
+	History w(0);
+	z = tauA(t);
+	y = (z * w) + (x * (1 - z));
+	w = y;
+	return y;
+}
+
+expsmoothBank2(x1, x2, t)
+{
+	History	exps2dummy(0);
+	z		= tauA(t);
+	y1		= expso(x1, z);
+	y2		= expso(x2, z);
+	return	y1, y2;
+}
+
+logsmooth(x, s)						// s = time to drop 6dB (in seconds)
+{
+	History z(0);
+//	ad = LN2 / maximum((s * samplerate), 1);
+	ad = LN2 / (s * samplerate);
+	y  = ((x - z) * ad) + z;
+	z  = y;
+	return y;
+}
+
+// fixed mode=0 version, no branching, keep out of while loop
+rcDampCoeffs(cutoff, damp)			// cutoff in Hz, damp clamp 0..1 (1 = highpass/lowpass)
+{
+	g0		=  tanA(PI * cutoff / samplerate);	// prewarp
+	ks		= (damp * 0.5) + 0.5;	// damp 0..1 = sqrt..lin
+	ks05	= (ks - 0.5);
+	ksom	= ((1 - ks) + 0.5) - 0.5;
+	g01		=  1 + g0;
+	g1 		=  g0 / interp((ks05 + ks05), sqrt(g01), g01, mode="linear");
+	d1		= interp((ksom + ksom), sqrt(damp), damp, mode="linear");
+	return	g1, d1;					// rc filter warped cf (g)	// rc filter warped gain (k)
+}
+
+rcFilterHpLp(Vin, g)				// g = prewarped normalised frequency (g / (1 + g))
+{
+	History	  s(0);
+	VoutLp	= (g * Vin + s) / (g + 1);
+	s		= 2 * VoutLp - s;
+	Hp		= Vin - VoutLp;
+	return	  Hp, VoutLp;
+}
+
+// High or Low Pass if k == 1, Bypass if k == 0, else Low or High Shelf boost / attenuation
+rcFilterDamp(Vin, g, k)				// g = pre-warped normalised frequency (g / (1 + g))
+{
+	History	   s(0);
+	Lp		= ( g * Vin + s) / (g + 1);
+	s		= (Lp + Lp) - s;
+	Hp		=  Lp - Vin;			// !! must be y-x way round for shelfs !!
+
+	LpHs	=  Vin + (k * Hp);
+	HpLs	= (k * Lp) - Vin;
+
+	return	   HpLs, LpHs;
+}
+
+lp1p(x, g)							// 1-pole section
+{
+	History p(0);
+	c = (x - p) * (g / (g + 1));
+	y = c + p;
+	p = c + y;
+	return y;
+}
+
+lp2p(x, g, r)						// 2-pole zdf section
+{
+	History p0(0), p1(0);
+	c0 = r + g;
+	c1 = (g / ((c0 * g) + 1)) * (x - (p1 + (p0 * c0)));
+	c2 = c1 + p0;
+	c3 = c2 * g;
+	y  = c3 + p1;
+	p0 = c1 + c2;
+	p1 = c3 + y;
+	return y;
+}
+
+butterworthLowpass4(X, G)
+{
+	History bl4(0);
+
+	y0	= lp2p(X,	G,	0.7653668647301797);
+	Y	= lp2p(y0,	G,	1.8477590650225735);
+
+	return Y;
+}
+
+butterworthLowpass8(X, G)
+{
+	History bl8(0);
+
+	y0	= lp2p(X,	G,	0.3901806440322567);
+	y1	= lp2p(y0,	G,	1.1111404660392046);
+	y2	= lp2p(y1,	G,	1.6629392246050905);
+	Y	= lp2p(y2,	G,	1.9615705608064609);
+
+	return Y;
+}
+

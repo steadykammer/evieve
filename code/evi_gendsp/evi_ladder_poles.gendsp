@@ -1,0 +1,125 @@
+{
+	"patcher" : 	{
+		"fileversion" : 1,
+		"appversion" : 		{
+			"major" : 9,
+			"minor" : 1,
+			"revision" : 0,
+			"architecture" : "x64",
+			"modernui" : 1
+		}
+,
+		"classnamespace" : "dsp.gen",
+		"rect" : [ 202.0, 100.0, 1049.0, 848.0 ],
+		"gridonopen" : 2,
+		"gridsize" : [ 15.0, 15.0 ],
+		"subpatcher_template" : "<none>",
+		"assistshowspatchername" : 0,
+		"commentary" : "",
+		"showcommentary" : 0,
+		"integercoordinates" : 1,
+		"boxes" : [ 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 12.0,
+					"id" : "obj-6",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 867.0, 17.0, 153.0, 22.0 ],
+					"text" : "in 3 Resonance @default 1"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 12.0,
+					"id" : "obj-1",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 33.0, 17.0, 75.0, 22.0 ],
+					"text" : "in 1 Audio In"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 12.0,
+					"id" : "obj-2",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 509.0, 17.0, 131.0, 22.0 ],
+					"text" : "in 2 Cutoff @default 81"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"code" : "\r\n// TPT nonlinear Ladder with switchable (interpolated) poles\r\n// based on \"Computational optimization of nonlinear zero-delay feedback\r\n// by second-order piecewise approximation\", by Vadim Zavalishin, 2008\r\n// Modifications etc by Pete for evieve, 2014 & 2016\r\n\r\n// local functions\r\n\r\nexpA(x0)\n{\n\tx = 0.999996 + (0.031261316 + (0.00048274797 + 0.000006 * x0) * x0) * x0;\n\tx *= x; x *= x; x *= x; x *= x; x *= x;\n\treturn x;\n}\r\n\r\nmtofApprox(pitch)\r\n{\n\tmtofA = 440 * expA(0.05776226504666 * (pitch - 69));\n\treturn mtofA + 0.120906;\t\t// + offset = accurate for input 48..69\n}\r\n\r\ntauA(t)\n{\n\ty = expA(-1 / (t * SAMPLERATE));\n\treturn y + 0.000128;\n}\n\nexpsmooth(x, t)\t\t\t\t\t\t// t is smooth time in seconds\n{\n\tHistory w(0);\n\tz = tauA(t);\n\ty = (z * w) + (x * (1 - z));\n\tw = y;\n\treturn y;\n}\r\n\r\ntanA(x)\t\t\t\t\t\t\t\t// approx tan(x), x 0..1\n{\n\tx2 = (x * x);\n\tx3 = (x2 * x);\n\tx5 = (x2 * x3);\n\treturn ((x5 * 0.133333333333) + (x3 * 0.333333333333)) + x;\n}\r\n\r\nmix4lin(i1, i2, i3, i4, ii)\r\n{\t\t\t\t\t\t\t\t\t\t\t\t//\t\tmode=\"cosine\" ?\r\n\tm1\t\t=\tinterp( clip(ii, 0, 1),\t\t\ti1, i2,\tmode=\"linear\");\r\n\tm2\t\t=\tinterp((clip(ii, 1, 2) - 1),\tm1, i3,\tmode=\"linear\");\r\n\treturn\t\tinterp((clip(ii, 2, 3) - 2),\tm2, i4,\tmode=\"linear\");\r\n}\r\n\r\n// nonlinearity\r\nnonlin(x, g, s, k, m)\r\n{\r\n\talpha\t=   g * k;\r\n\tbeta\t=   x - (k * s);\r\n\tgamma\t=   1 / m;\r\n\r\n\tsb\t\t=  (beta > 0) ? 1 : -1;\t\t// no zero\r\n\tbbs\t\t=  (beta + beta) * sb;\r\n\tapsb\t= ((alpha + 1) * sb) + beta;\r\n\r\n\treturn\tbbs / (apsb - (sqrt((apsb * apsb) - ((alpha + alpha + ((gamma + gamma) * (2 - gamma))) * bbs)) * -sb));\r\n}\r\n\r\npreWarp(c, t)\r\n{\r\n\tf\t\t= minimum(c, (SAMPLERATE * 0.408164));\r\n\tif (t) {\t\t\t\t\t\t\t// only compute if required\r\n\t\tf\t= mtofApprox(minimum(c, 133.2522));\r\n\t}\r\n\treturn\ttanA(f * PI / SAMPLERATE);\t// w/2\r\n}\r\n\r\n// filter\r\n\r\nmultiLadder(X, cutoff, res, shape, slope, type)\r\n{\r\n\t// integrators state\r\n\tHistory\t\tip1(0), ip2(0), ip3(0), ip4(0);\r\n\r\n\t// warp, resonance & retune\t\t\t\t\t// (problem: low res and low samplerates lose self-oscillation)\r\n\tkofst\t=  1;\r\n\tf\t\t=  minimum(cutoff, (SAMPLERATE * 0.4));\r\n\tif (type) {\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t// if pitch\r\n\t\tex0\t=  0.05776226504666 * (minimum(cutoff, 133.2522) - 69);\r\n\t\tex\t=  0.999996 + (0.031261316 + (0.00048274797 + 0.000006 * ex0) * ex0) * ex0;\n\t\tex *=  ex;  ex *=  ex;  ex *=  ex;  ex *=  ex;  ex *=  ex;\t\t\t\t// exp()\n\t\tf\t= (440 * ex) + 0.120906;\t\t\t\t\t\t\t\t\t\t\t// mtof()\r\n\t\tkofst\t=  1.000142;\n\t}\r\n\ttx\t\t=    f * PI / SAMPLERATE;\t\t\t\t\t\t\t\t\t\t\t// pre warp\r\n\ttx2\t\t=   (tx * tx);\n\ttx3\t\t=   (tx2 * tx);\n\ttx5\t\t=   (tx2 * tx3);\r\n\tw2\t\t=  ((tx5 * 0.133333333333) + (tx3 * 0.333333333333)) + tx;\t\t\t// tan()\r\n\trt\t\t= (((slope * slope) * 27.79575391584) / 2.925868758814) * sqrt1_2;\r\n\tif (slope <  0.333333333333)\t\t\t\t\t\t\t\t\t\t\t\t// here we should also take account of...\r\n\t\trt\t=    sqrt(minimum(rt, 0.746389) / 0.746389) * 0.74639;\t\t\t\t// ...res bump (for slope < 0.333333...) ?\r\n\tw2\t\t=    w2 / (rt + 1);\r\n\tw2nrm\t=\t 1 - (w2 / 4.137802);\t\t\t// 1 - (tx / HALFPI);\r\n\tw2nrmS\t=\t maximum(w2nrm, sqrt1_2);\r\n\tslop3\t=    slope + slope + slope;\t\t\t// & used for linear mixing below\r\n\tslop32\t=\t slop3 * 0.975289;\t\t\t\t// compensation\r\n/*\tk\t\t=\t res;\r\n\tif ((samplerate < 88200) && (res > 1))\r\n\t\tk\t= (((res - 1) * w2nrm) + kofst) * w2nrmS;\t\t\t\t\t\t\t// '* w2nrmS' not really needed ?\r\n*/\r\n\tk\t\t= (((res - 1) * w2nrm) + kofst) * w2nrmS;\r\n\tk\t\t=   (k + k + k + k) * (slop32 + 1);\t// adjust for variable poles (& prewarp retuning above)\r\n\tmod\t\t=\t shape * w2nrmS;\r\n\r\n\t// cascade part 2\r\n\tnp0\t\t=   1 / (w2 + 1);\r\n\t// lowpass 1\r\n\ts1\t\t=   ip1 + ip1;\r\n\tgp1\t\t=   w2 * np0;//(w2 * gp0) * np0;\r\n\tsp1\t\t=   s1 * np0;//((sp0 * w2) + s1) * np0;\r\n\t// lowpass 2\r\n\ts2\t\t=   ip2 + ip2;\r\n\tgp2\t\t=  (w2 * gp1) * np0;\r\n\tsp2\t\t= ((sp1 * w2) + s2) * np0;\r\n\t// lowpass 3\r\n\ts3\t\t=   ip3 + ip3;\r\n\tgp3\t\t=  (w2 * gp2) * np0;\r\n\tsp3\t\t= ((sp2 * w2) + s3) * np0;\r\n\t// lowpass 4\r\n\ts4\t\t=   ip4 + ip4;\r\n\tgp4\t\t=  (w2 * gp3) * np0;\r\n\tsp4\t\t= ((sp3 * w2) + s4) * np0;\r\n\r\n\t// select nonlin (these switchers / interpolators must be computed inline\r\n\t// rather than as seperate functions for resonance & fb solve to work correctly)\r\n\tcs01\t=\tclip(slop3, 0, 1);\r\n\tcs12\t=\tclip(slop3, 1, 2) - 1;\r\n\tcs23\t=\tclip(slop3, 2, 3) - 2;\r\n\tmg1\t\t=\tinterp(cs01,\tgp4, gp3,\tmode=\"linear\");\r\n\tmg2\t\t=\tinterp(cs12,\tmg1, gp2,\tmode=\"linear\");\r\n\tgpass\t=\tinterp(cs23,\tmg2, gp1,\tmode=\"linear\");\r\n\tms1\t\t=\tinterp(cs01,\tsp4, sp3,\tmode=\"linear\");\r\n\tms2\t\t=\tinterp(cs12,\tms1, sp2,\tmode=\"linear\");\r\n\tspass\t=\tinterp(cs23,\tms2, sp1,\tmode=\"linear\");\r\n\r\n\t// nonlin & solve fb piecewise\r\n\talpha\t=   gpass * k;\r\n\tbeta\t=   X - (k * spass);\r\n\tgamma\t=   1 / shape;\r\n\tsb\t\t=  (beta > 0) ? 1 : -1;\t\t// no zero\r\n\tbbs\t\t=  (beta + beta) * sb;\r\n\tapsb\t= ((alpha + 1) * sb) + beta;\r\n\tTnhS\t=\tbbs / (apsb - (sqrt((apsb * apsb) - ((alpha + alpha + ((gamma + gamma) * (2 - gamma))) * bbs)) * -sb));\r\n\r\n\t// cascade part 1\r\n\t// lowpass 1\r\n\ty1\t\t= ((TnhS * w2) + s1) * np0;\r\n\txy1\t\t=   TnhS - y1;\r\n\txi1\t\t=  (xy1 * w2) + ip1;\r\n\tlp1\t\t=   xi1 + ip1;\r\n\t// lowpass 2\r\n\ty2\t\t= ((lp1 * w2) + s2) * np0;\r\n\txy2\t\t=   lp1 - y2;\r\n\txi2\t\t=  (xy2 * w2) + ip2;\r\n\tlp2\t\t=   xi2 + ip2;\r\n\t// lowpass 3\r\n\ty3\t\t= ((lp2 * w2) + s3) * np0;\r\n\txy3\t\t=   lp2 - y3;\r\n\txi3\t\t=  (xy3 * w2) + ip3;\r\n\tlp3\t\t=   xi3 + ip3;\r\n\t// lowpass 4\r\n\ty4\t\t= ((lp3 * w2) + s4) * np0;\r\n\txy4\t\t=   lp3 - y4;\r\n\txi4\t\t=  (xy4 * w2) + ip4;\r\n\tlp4\t\t=   xi4 + ip4;\r\n\t// update\r\n\tip1\t\t=   fixdenorm(xi1);\r\n\tip2\t\t=   fixdenorm(xi2);\r\n\tip3\t\t=   fixdenorm(xi3);\r\n\tip4\t\t=   fixdenorm(xi4);\r\n\r\n\t// select pole (could be a seperate function but already computed 'cs*' so...)\r\n\tml1\t\t=\tinterp(cs01,\tlp4, lp3,\tmode=\"cosine\");\r\n\tml2\t\t=\tinterp(cs12,\tml1, lp2,\tmode=\"cosine\");\r\n\tlpass\t=\tinterp(cs23,\tml2, lp1,\tmode=\"linear\") * ((slop32 * 0.844444) + w2nrmS);//+ (1 * w2nrmS));\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t// ^ maintain power (not res) with slope\r\n\treturn\t\tlpass;\r\n}\r\n\r\n// declare\r\n\r\nParam\tcutoffmode(1, min=0, max=1);\t\t// cutoff (in2), 0 = in Hz, 1 = in pitch (default)\r\nParam\tshape(0.650749, min=0, max=1);\t\t// y(1), resonance shape, you can safely ignore this\r\nParam\tshapesmooth(0, min=0, max=0.111);\t// in seconds\r\nParam\tslope(0, min=0, max=1);\t\t\t\t// interpolate 0..1, or: 0 = lp4, 0.333333 = lp3, 0.666667 = lp2, 1 = lp1\r\nParam\tslopesmooth(0.022666, min=0, max=0.333);\t// in seconds\r\n\r\n// inputs (smooth || modulate resonance & cutoff externally)\r\n\r\nresonance\t\t=  clip(\tin3, 0, 2);\t\t// minimum 0.43, but 1=1.1 & 2=1.95\r\nresonance\t\t= (resonance <= 1) ? ((resonance * 0.666666666667) + 0.433333333333) : (((resonance - 1) * 0.85) + 1.1);\r\ncutoff\t\t\t=  maximum(\tin2, 1);\t\t// cutoff freq (default in pitch)\r\n\r\nXIN\t\t\t\t= \t\t\tin1 * sqrt2;\t// audio input\r\n\r\n// parse\r\n\r\nmodifier\t\t= (shape * 0.81) + 0.18;\r\nif (shapesmooth > 0) {\t\t\t\t\t\t// only compute smoother if required\r\n\tmodifier\t= expsmooth(modifier, shapesmooth);\r\n}\r\n\r\n// 0 = lp4 (default), 0.333333 = lp3, 0.666667 = lp2, 1 = lp1\r\nchoosepoles\t\t= slope;\r\nif (slopesmooth > 0) {\t\t\t\t\t\t// only compute smoother if required\r\n\tchoosepoles\t= expsmooth(choosepoles, slopesmooth); // should be exact smooth ?\r\n}\r\n\r\ncutofftype\t\t= int(cutoffmode);\t\t\t// 0 = in Hz, 1 = (default) in pitch\r\n\r\n// the filter\r\n\r\nout1\t= multiLadder(XIN, cutoff, resonance, modifier, choosepoles, cutofftype) * sqrt2;\r\n\r\n",
+					"fontface" : 0,
+					"fontname" : "<Monospaced>",
+					"fontsize" : 12.0,
+					"id" : "obj-3",
+					"maxclass" : "codebox",
+					"numinlets" : 3,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 33.0, 54.0, 971.0, 736.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 12.0,
+					"id" : "obj-4",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 33.0, 807.0, 121.0, 22.0 ],
+					"text" : "out 1 Laddery Output"
+				}
+
+			}
+ ],
+		"lines" : [ 			{
+				"patchline" : 				{
+					"destination" : [ "obj-3", 0 ],
+					"source" : [ "obj-1", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-3", 1 ],
+					"source" : [ "obj-2", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-4", 0 ],
+					"source" : [ "obj-3", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-3", 2 ],
+					"midpoints" : [ 876.5, 45.0, 994.5, 45.0 ],
+					"source" : [ "obj-6", 0 ]
+				}
+
+			}
+ ],
+		"toolbarexclusions" : [ "lessonbrowser" ]
+	}
+
+}

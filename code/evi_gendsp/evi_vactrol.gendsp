@@ -1,0 +1,117 @@
+{
+	"patcher" : 	{
+		"fileversion" : 1,
+		"appversion" : 		{
+			"major" : 9,
+			"minor" : 1,
+			"revision" : 0,
+			"architecture" : "x64",
+			"modernui" : 1
+		}
+,
+		"classnamespace" : "dsp.gen",
+		"rect" : [ 34.0, 100.0, 861.0, 794.0 ],
+		"gridonopen" : 2,
+		"gridsize" : [ 15.0, 15.0 ],
+		"subpatcher_template" : "sub",
+		"assistshowspatchername" : 0,
+		"commentary" : "",
+		"showcommentary" : 0,
+		"integercoordinates" : 1,
+		"boxes" : [ 			{
+				"box" : 				{
+					"id" : "obj-5",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 545.0, 19.0, 276.0, 22.0 ],
+					"text" : "in 3 Fall % 0..1 @min 0 @max 1 @default sqrt1_2"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-2",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 238.0, 19.0, 290.0, 22.0 ],
+					"text" : "in 2 Rise % 0..1 @min 0 @max 1 @default 0.070711"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-1",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 49.0, 19.0, 69.0, 22.0 ],
+					"text" : "in 1 Trigger"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"code" : "\r\n// A digital model of a vactrol filter, quasi 'analog' in behaviour.\r\n// The behaviour is similar to [slide~] in MSP/RNBO or [slide] in gen~\r\n// @see also: evi_vactrol_buchla.gendsp\r\n\r\ntnA2(x)\t\t\t\t\t\t\t\t\t// approx tan(0..halfpi)\n{\n\ta\t= ((((x * -0.0896638) + 0.0388452) * x) + 1.00005) * x;\r\n\tb\t= (((x * -0.430871) + 0.0404318) * x) + 1;\r\n\treturn\ta / b;\r\n}\r\n\r\nlikeAvactrol(V, up, down)\r\n{\r\n\tHistory\ts0(0);\r\n\r\n\tF  = clip(((s0 > V) * up) + down, 0.01, HALFPI);\r\n\tw2 = tnA2(F * PI / SAMPLERATE);\r\n\tg0 = w2 / (w2 + 1);\r\n\r\n\tG  = (V - s0) * g0;\r\n\tY  =  G + s0;\r\n\r\n\ts0 =  G + Y;\r\n\treturn\tY;\r\n}\r\n\r\nParam\tscalein(3, min=1, max=10000);\t// static\r\nParam\tscaleout(1, min=1, max=1000);\t// ...\r\n//Param\trise(0.0707107, min=0, max=1);\t// % 0..1\r\n//Param\tfall(sqrt1_2, min=0, max=1);\t// ...\r\nParam\tmode(0, min=0, max=3);\r\nmd\t\t= int(mode);\t\t\t\t\t// 0 = rise/fall params, 1..3 = fixed\r\nrise\t= in2;\r\nfall\t= in3;\r\nup = (md > 0) ? ((md > 1) ? ((md > 2) ? 6000 : 1000) : 600) : rise*rise*rise*7800 + 200;\r\ndown = (md > 0) ? ((md > 1) ? ((md > 2) ? 0.08 : 0.04) : 0.02) : (fall*0.9999 + 0.0001) * 0.1;\r\n\r\nvoltage\t = in1 * scalein;\r\n\r\nout1\t = likeAvactrol(voltage, up, down) * scaleout;\r\n\r\n",
+					"fontface" : 0,
+					"fontname" : "<Monospaced>",
+					"fontsize" : 12.0,
+					"id" : "obj-3",
+					"maxclass" : "codebox",
+					"numinlets" : 3,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 49.0, 58.0, 772.0, 675.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-4",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 49.0, 750.0, 128.0, 22.0 ],
+					"text" : "out 1 Vactrol Envelope"
+				}
+
+			}
+ ],
+		"lines" : [ 			{
+				"patchline" : 				{
+					"destination" : [ "obj-3", 0 ],
+					"source" : [ "obj-1", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-3", 1 ],
+					"midpoints" : [ 247.5, 49.5, 435.0, 49.5 ],
+					"source" : [ "obj-2", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-4", 0 ],
+					"source" : [ "obj-3", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-3", 2 ],
+					"midpoints" : [ 554.5, 49.5, 811.5, 49.5 ],
+					"source" : [ "obj-5", 0 ]
+				}
+
+			}
+ ]
+	}
+
+}

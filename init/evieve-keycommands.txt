@@ -1,0 +1,4 @@
+max definecommand g patcher inserttextobj "newobj @text \"gen";
+max definecommandinstructions patcher g "gen object";
+max definecommand G patcher inserttextobj "newobj @text \"gen~ @t ;
+max definecommandinstructions patcher G "gen~ object";

@@ -1,0 +1,164 @@
+{
+	"patcher" : 	{
+		"fileversion" : 1,
+		"appversion" : 		{
+			"major" : 8,
+			"minor" : 3,
+			"revision" : 0,
+			"architecture" : "x64",
+			"modernui" : 1
+		}
+,
+		"classnamespace" : "dsp.gen",
+		"rect" : [ 59.0, 45.0, 1050.0, 821.0 ],
+		"bglocked" : 0,
+		"openinpresentation" : 0,
+		"default_fontsize" : 12.0,
+		"default_fontface" : 0,
+		"default_fontname" : "Arial",
+		"gridonopen" : 2,
+		"gridsize" : [ 15.0, 15.0 ],
+		"gridsnaponopen" : 1,
+		"objectsnaponopen" : 1,
+		"statusbarvisible" : 2,
+		"toolbarvisible" : 1,
+		"lefttoolbarpinned" : 2,
+		"toptoolbarpinned" : 2,
+		"righttoolbarpinned" : 2,
+		"bottomtoolbarpinned" : 1,
+		"toolbars_unpinned_last_save" : 7,
+		"tallnewobj" : 0,
+		"boxanimatetime" : 200,
+		"enablehscroll" : 1,
+		"enablevscroll" : 1,
+		"devicewidth" : 0.0,
+		"description" : "",
+		"digest" : "",
+		"tags" : "",
+		"style" : "",
+		"subpatcher_template" : "PeteSubDefault10",
+		"assistshowspatchername" : 0,
+		"boxes" : [ 			{
+				"box" : 				{
+					"id" : "obj-7",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 958.0, 780.0, 71.0, 22.0 ],
+					"text" : "out 4 high k"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-8",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 655.0, 780.0, 125.0, 22.0 ],
+					"text" : "out 3 high \"g / (1 + g)\""
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-5",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 352.0, 780.0, 66.0, 22.0 ],
+					"text" : "out 2 low k"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-1",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 49.0, 19.0, 236.0, 22.0 ],
+					"text" : "in 1 HOST SAMPLERATE @default 48000"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"code" : "\r\ntnA(x)\t\t\t\t\t\t\t\t\t// 0..1 input\n{\n\tx2 = (x * x);\n\tx3 = (x2 * x);\n\tx5 = (x2 * x3);\n\treturn ((x5 * 0.133333) + (x3 * 0.333333)) + x;\n}\r\n\r\nrcDampCoeffs(cutoff, damp, mode, hostsamplerate)\t\t// *)\r\n{\r\n\td1\t\t= 0;\r\n\t// prewarp\r\n\tg0\t\t=  tnA(pi * cutoff / hostsamplerate);\r\n\t// account for pass/shelf\r\n\tka\t=  abs(damp);\t\t\t\t\t// 0..1 = sqrt..lin\r\n\tks\t= (ka * 0.5) + 0.5;\r\n\tg01\t=  1 + g0;\r\n\tg1 \t=  g0 / interp((2 * (ks - 0.5)), sqrt(g01), g01, mode=\"linear\");\r\n\t// shelf/pass (damp) control\r\n\tif (mode > 0) {\t\t\t// nice way of getting approx ± 10dB\r\n\t\td1\t\t= -(pow(4, damp) - 1);\r\n\t\tif (mode == 2) {\t// extend attenuation range to make pass choice\r\n\t\t\td1\t=  (d1 > 0) ? (d1 * 1.333333) : d1;\r\n\t\t}\r\n\t} else {// (mode == 0)\t// for attenuation ('damping') only (0..1 input)\r\n\t\td1\t= interp((2 * (((1 - ks) + 0.5) - 0.5)), sqrt(ka), ka, mode=\"linear\");\r\n\t}\r\n\r\n\treturn g1, d1;\t\t\t// rc filter warped cf (g)\t// rc filter warped gain (k)\r\n\r\n\t// *) N.B., 'damp' -1..1 maps to d1 (k) as...\r\n\t//\t\t:: if mode==0:\t 0=bypass..shelfattenuate..+1=pass (abs or clip damp)\r\n\t//\t\t:: if mode==1:\t+0.75=shelfattenuate..0=bypass..-3=shelfboost\r\n\t//\t\t:: if mode==2:\t+1=pass..shelfattenuate..0=bypass..-3=shelfboost\r\n}\r\n\r\nParam\tcutoffhigh(2000, min=500, max=15000);\t\t\t// Hz\r\nParam\tdamphigh(0, min=-1, max=1);\t\t\t\t\t\t// % ± 1\r\n\r\nParam\tcutofflow(500, min=62.5, max=4000);\t\t\t\t// Hz\r\nParam\tdamplow(0, min=-1, max=1);\t\t\t\t\t\t// % ± 1\r\n\r\nParam\tmode(0, min=0, max=2);\t\t\t\t\t\t\t// int 0/1/2\r\nkout\t= int(mode);\r\n\r\nHOST_SR\t= in1 + 0;\r\n\r\ngLow,\tkLow\t= rcDampCoeffs(cutofflow, damplow, kout, HOST_SR);\r\ngHigh,\tkHigh\t= rcDampCoeffs(cutoffhigh, damphigh, kout, HOST_SR);\r\n\r\nout1\t= gLow;\r\nout2\t= kLow;\r\n\r\nout3\t= gHigh;\r\nout4\t= kHigh;\r\n\r\n\r\n/*\r\nrcDampCoeffs(cutoff, damp)\t\t\t\t// fixed mode=2 version, no branching, stays out of while loop\r\n{\r\n\t// prewarp\r\n\tg0\t\t=  tnA(pi * cutoff / samplerate);\r\n\t// account for pass/shelf\r\n\tka\t=  abs(damp);\t\t\t\t\t// 0..1 = sqrt..lin\r\n\tks\t= (ka * 0.5) + 0.5;\r\n\tg01\t=  1 + g0;\r\n\tg1 \t=  g0 / interp((2 * (ks - 0.5)), sqrt(g01), g01, mode=\"linear\");\r\n\t// shelf/pass (damp) control\r\n\td1\t= -(pow(4, damp) - 1);\t\t\t// !! this is just horrible, must fix !!\r\n\t// extend attenuation range to make pass choice\r\n\td1\t=  (d1 > 0) ? (d1 * 1.333333) : d1;\r\n\r\n\treturn g1, d1;\t\t\t\t\t\t// rc filter warped cf (g)\t// rc filter warped gain (k)\r\n}\r\n*/\r\n\r\n",
+					"fontface" : 0,
+					"fontname" : "Menlo",
+					"fontsize" : 12.0,
+					"id" : "obj-3",
+					"maxclass" : "codebox",
+					"numinlets" : 1,
+					"numoutlets" : 4,
+					"outlettype" : [ "", "", "", "" ],
+					"patching_rect" : [ 49.0, 58.0, 928.0, 705.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-4",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 49.0, 780.0, 120.0, 22.0 ],
+					"text" : "out 1 low \"g / (1 + g)\""
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-10",
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 438.0, 20.0, 150.0, 20.0 ],
+					"text" : "for gen no tilde",
+					"textjustification" : 1
+				}
+
+			}
+ ],
+		"lines" : [ 			{
+				"patchline" : 				{
+					"destination" : [ "obj-3", 0 ],
+					"source" : [ "obj-1", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-4", 0 ],
+					"source" : [ "obj-3", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-5", 0 ],
+					"source" : [ "obj-3", 1 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-7", 0 ],
+					"source" : [ "obj-3", 3 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-8", 0 ],
+					"source" : [ "obj-3", 2 ]
+				}
+
+			}
+ ],
+		"autosave" : 0
+	}
+
+}

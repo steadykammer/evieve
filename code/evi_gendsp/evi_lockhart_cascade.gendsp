@@ -1,0 +1,75 @@
+{
+    "patcher": {
+        "fileversion": 1,
+        "appversion": {
+            "major": 9,
+            "minor": 1,
+            "revision": 1,
+            "architecture": "x64",
+            "modernui": 1
+        },
+        "classnamespace": "dsp.gen",
+        "rect": [ 134.0, 172.0, 994.0, 688.0 ],
+        "gridonopen": 2,
+        "subpatcher_template": "<none>",
+        "integercoordinates": 1,
+        "boxes": [
+            {
+                "box": {
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 12.0,
+                    "id": "obj-1",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 30.0, 17.0, 111.0, 22.0 ],
+                    "text": "in 1 Oscillator Input"
+                }
+            },
+            {
+                "box": {
+                    "code": "\r\n// based on the paper:\r\n// \"Virtual Analog Model of the Lockhart Wavefolder\"\r\n// by Fabian Esqueda, Henri Pontynen, Julian D. Parker, Stefan Bilbao\r\n// SMC, 2017\r\n\r\nlogsmooth(x, s)\n{\n\tHistory z(0);\n\tad = LN2 / (s * samplerate);\n\ty  = ((x - z) * ad) + z;\n\tz  = y;\n\treturn y;\n}\r\n\r\nexpApprox(x)\n{\n\tx = 1 + (0.062500309 + (0.0019527233 + (0.0000408663 + (0.00000060184965 + 0.000000010856791*x)*x)*x)*x)*x;\n\tx *= x; x *= x; x *= x;\n\treturn x*x;\n}\r\n\r\n// Lambert-W function\r\nlambertW(x, ln1, loop, thresh)\r\n{\r\n\t// initial guess (use previous value)\r\n\tw\t\t= ln1;\r\n    err     = 1;\r\n    i       = 0;\n\r\n\t// Haley's method (section 4.2 of the paper)\n\twhile ( (i < loop) && (abs(err) > thresh) ) {\r\n//\t\texpw\t= expApprox(w);\r\n\t\texpw\t= exp(w);       // :-(\r\n        w1      = w + 1;\r\n\r\n\t\tp\t\t= (w * expw) - x;\r\n\t\tr\t\t= w1 * expw;\r\n\t\ts\t\t= (w + 2) / (w1 + w1);\r\n\t\terr\t\t= (p / (r - (p * s)));\r\n\r\n\t\tw\t   -= err;\r\n        i      += 1;\r\n\t}\r\n\r\n\treturn\tw;\r\n}\r\n\r\n// Antialiased Lockhart wavefolder with Lambert-W function\r\nlockhartAA(Xo, loop=1000)\r\n{\r\n\t// declare previous state\r\n\tHistory\tLn1(0), Fn1(0), Xn1(0);\r\n\r\n\t// constants, only VT used\r\n    // but play with these values and calcs to hack the sound :-)\r\n\tRL\t= 7.5e3;    R\t= 15e3;     VT\t= 26e-3;    Is\t= 10e-16;\r\n\ta\t= 1; // not used        //  2 * RL / R;\r\n\tb\t= 76.923076923076923;   // (R + 2 * RL) / (VT * R);\r\n\td\t= 0.000000000288462;    // (RL * Is) / VT;\r\n    VTb = 0.000169;\t\t\t\t//  0.5 * VT / b\r\n\r\n\t// antialiasing (adaa) error threshold\r\n\tepsilon\t= 10e-10;\r\n\r\n\t// input\r\n\tl\t= sign(Xo); \r\n\r\n\t// compute antiderivative (adaa, 1st order)\r\n//\tu\t= d * expApprox(l * b * Xo);\r\n\tu\t= d * exp(l * b * Xo);  // :-(\r\n\tLn\t= lambertW(u, Ln1, loop, epsilon);\r\n    Lp1 = 1 + Ln;\r\n//\tFn\t= (0.5 * VT / b) * (1 + Ln) * (1 + Ln) - 0.5 * a * Xo * Xo;\r\n\tFn\t= VTb * Lp1 * Lp1 - 0.5 * Xo * Xo;\r\n\r\n\tYn\t= 0;\r\n\t// check for ill-conditioning\r\n\tif (abs(Xo - Xn1) < epsilon) { // pete not convinced by this, surely it doesn't need to contain the lambetW()\r\n\t\t// compute averaged wavefolder output\r\n\t\tXn\t= 0.5 * (Xo + Xn1);\r\n\t\t//\t!! original \"d * pow(e, (l * b * Xo))\" code from the paper is wrong <<-- Xn !!\r\n\t\tu\t= d * expApprox(l * b * Xn);\n//\t\tu\t= d * exp(l * b * Xn);\n\t\tLn\t= lambertW(u, Ln1, loop, epsilon);\n//\t\tYn\t= (l * VT * Ln) - (a * Xo); // ?? \"(l * VT * Ln) - (a * Xn)\" <<-- Xn ??\r\n\t\tYn\t= (l * VT * Ln) - Xn;\r\n\t} else {\r\n\t\t// apply antialiased form\n\t\tYn\t= (Fn - Fn1) / (Xo - Xn1);\r\n\t}\r\n\r\n\t// update state\r\n\tLn1\t= Ln;\r\n    Fn1\t= Fn;\r\n    Xn1\t= Xo;\r\n\r\n\treturn\tdcblock(Yn);\r\n}\r\n\r\n// Antialiased Lockhart wavefolder with Lambert-W function, written for cascade with Data() and external constants\r\nlockhartAAcascade(Xo, Ln1, Fn1, Xn1, VT, b, d, VTb, epsilon, loop=1000)\r\n{\t// input\r\n\tl\t= sign(Xo); \r\n\r\n\t// compute antiderivative (adaa, 1st order)\r\n\tu\t= d * exp(l * b * Xo);  // :-(\r\n\tLn\t= lambertW(u, Ln1, loop, epsilon);\r\n\tLnp\t= 1 + Ln;\r\n\tFn\t= VTb * Lnp * Lnp - 0.5 * Xo * Xo;\r\n\r\n\tYn\t= 0;\r\n\t// check for ill-conditioning\r\n\tif (abs(Xo - Xn1) < epsilon) {\r\n\t\t// compute averaged wavefolder output\r\n\t\tXn\t= 0.5 * (Xo + Xn1);\r\n\t\t//\t!! original \"d * pow(e, (l * b * Xo))\" is wrong !!\r\n\t\tu\t= d * exp(l * b * Xn);\n\t\tLn\t= lambertW(u, Ln1, loop, epsilon);\r\n\t\t//\t!! original \"(l * VT * Ln) - (a * Xo)\"\tis wrong !!\n\t\tYn\t= (l * VT * Ln) - (Xn);\r\n\t} else {\r\n\t\t// apply antialiased form\n\t\tYn\t= (Fn - Fn1) / (Xo - Xn1);\r\n\t}\r\n\r\n\treturn\tYn, Ln, Fn, Xo;\r\n}\r\n\r\nData\tlockhartState(16, 3);\t\t// cascade up to 16 sections, 3 channels state (Ln, Fn, Xn)\r\nHistory\tstateInit(1);\t\t\t\t// initialise lockhartState\r\nHistory\tfuncsH(4);\r\nParam\tcascade(4, min=1, max=16);\r\nfuncs\t= int(cascade);\r\nlhdim\t= dim(lockhartState);\r\n\r\nif (stateInit)                      // horrible\r\n{\r\n\tfor (h = 0; h < lhdim; h += 1) {\r\n\t\tlockhartState.poke(0, h, 0, 0, index=\"samples\");\r\n\t\tlockhartState.poke(0, h, 1, 0, index=\"samples\");\r\n\t\tlockhartState.poke(0, h, 2, 0, index=\"samples\");\r\n\t}\r\n\r\n\tstateInit\t= 0;\r\n}\r\n\r\n//\tprecomputed constants\r\n//\tRL = 7.5e3\t\tR = 15e3\t\tIs = 10e-16\t\ta = 2 * RL / R [a = 1]\r\nVT\t\t\t= 26e-3;\r\nb\t\t\t= 76.92307692307692;\t\t// (R + 2 * RL) / (VT * R)\r\nd\t\t\t= 0.000000000288462;\t    // (RL * Is) / VT\r\nVTb         = 0.000169;\t\t\t\t\t//  0.5 * VT / b\r\nepsilon\t\t= 10e-10;\t\t\t\t\t//  antialiasing (adaa) error threshold\r\n\r\nfuncsm1\t\t= maximum((funcs - 1), 2);\r\ncompensate  = 1 / funcsm1;              // 1 / sqrt(funcs);\r\nattenuation = sqrt1_2 * funcsm1;\r\n\r\ngain        = logsmooth((compensate * attenuation), 0.111);\r\n\r\nY           = in1 + 0;\r\n\r\n// lockhart cascade\r\nfor (i = 0; i < funcs; i += 1) {\r\n\tLn1\t= lockhartState.peek(i, 0, index=\"samples\", interp=\"none\");\r\n\tFn1\t= lockhartState.peek(i, 1, index=\"samples\", interp=\"none\");\r\n\tXn1\t= lockhartState.peek(i, 2, index=\"samples\", interp=\"none\");\r\n\tY, Ln0, Fn0, Xn0\t= lockhartAAcascade(Y, Ln1, Fn1, Xn1, VT, b, d, VTb, epsilon, loop=666);\r\n\tlockhartState.poke(Ln0, i, 0, 0, index=\"samples\");\r\n\tlockhartState.poke(Fn0, i, 1, 0, index=\"samples\");\r\n\tlockhartState.poke(Xn0, i, 2, 0, index=\"samples\");\r\n}\r\n\r\n// if changed...\r\nif (funcs != funcsH)\r\n{\t// ...zero remainder\r\n\tfor (j = funcs; j < lhdim; j += 1) {\r\n\t\tlockhartState.poke(0, j, 0, 0, index=\"samples\");\r\n\t\tlockhartState.poke(0, j, 1, 0, index=\"samples\");\r\n\t\tlockhartState.poke(0, j, 2, 0, index=\"samples\");\r\n\t}\r\n}\r\nfuncsH\t= funcs;\r\n\r\nout1\t= dcblock(Y * gain);\r\n\r\n",
+                    "fontface": 0,
+                    "fontname": "<Monospaced>",
+                    "fontsize": 12.0,
+                    "id": "obj-3",
+                    "maxclass": "codebox",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 30.0, 54.0, 921.0, 572.0 ]
+                }
+            },
+            {
+                "box": {
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 12.0,
+                    "id": "obj-4",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 30.0, 645.0, 141.0, 22.0 ],
+                    "text": "out 1 Wavefolded Output"
+                }
+            }
+        ],
+        "lines": [
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 0 ],
+                    "source": [ "obj-1", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-4", 0 ],
+                    "source": [ "obj-3", 0 ]
+                }
+            }
+        ],
+        "toolbarexclusions": [ "lessonbrowser" ]
+    }
+}

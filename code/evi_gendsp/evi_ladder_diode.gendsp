@@ -1,0 +1,176 @@
+{
+	"patcher" : 	{
+		"fileversion" : 1,
+		"appversion" : 		{
+			"major" : 9,
+			"minor" : 0,
+			"revision" : 3,
+			"architecture" : "x64",
+			"modernui" : 1
+		}
+,
+		"classnamespace" : "dsp.gen",
+		"rect" : [ 146.0, 66.0, 1366.0, 916.0 ],
+		"gridonopen" : 2,
+		"gridsize" : [ 15.0, 15.0 ],
+		"toolbarvisible" : 0,
+		"lefttoolbarpinned" : 2,
+		"toptoolbarpinned" : 2,
+		"righttoolbarpinned" : 2,
+		"bottomtoolbarpinned" : 2,
+		"toolbars_unpinned_last_save" : 15,
+		"boxanimatetime" : 0,
+		"subpatcher_template" : "PeteSub12",
+		"boxes" : [ 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 12.0,
+					"id" : "obj-8",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 862.0, 19.0, 212.0, 22.0 ],
+					"text" : "in 4 (signal) Cutoff Hz Mod @default 0"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 12.0,
+					"id" : "obj-3",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 621.0, 19.0, 224.0, 22.0 ],
+					"text" : "in 3 (signal) Cutoff Pitch Mod @default 0"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 12.0,
+					"id" : "obj-4",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 353.0, 19.0, 251.0, 22.0 ],
+					"text" : "in 2 (signal/float) Cutoff (in Hz) or Pitch (MIDI)"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 12.0,
+					"id" : "obj-2",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 1128.0, 19.0, 201.0, 22.0 ],
+					"text" : "in 5 (signal/float) resonance (0..1..2)"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 12.0,
+					"id" : "obj-7",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 34.0, 875.0, 113.0, 22.0 ],
+					"text" : "out 1 (signal) Diode"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 12.0,
+					"id" : "obj-6",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 34.0, 19.0, 101.0, 22.0 ],
+					"text" : "in 1 (signal) Input"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"code" : "/*\r\n\r\nZDF Diode Ladder, like Roland-TB303 (not like the 5-pole EMS-VCS3)\r\nby Dom Wurtz (2012)\r\nalso Oli Larkin (2013), Pete Dowling (2014) for evieve\r\nNote, unlike the (Moog) Transistor Ladder, the Diode Ladder resonance peaks, rather than scales\r\n\r\nThe MIT License\nCopyright (c) 2012 Dominique Wurtz (www.blaukraut.info)\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in\nall copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN\nTHE SOFTWARE.\r\n\r\n*/\r\n\nexpA(x0)\t\t\t\t\t\t// more accurate than 'fastexp()'\n{\n\tx = 0.999996 + (0.031261316 + (0.00048274797 + 0.000006 * x0) * x0) * x0;\n\tx *= x; x *= x; x *= x; x *= x; x *= x;\n\treturn x;\n}\n\ntauA(t)\n{\n\ty = expA(-1 / (t * samplerate));\n\treturn y + 0.000128;\n}\r\n\r\nexpsmooth(x, t)\t\t\t\t\t// t is smooth time in seconds\n{\n\tHistory w(0);\n\tz = tauA(t);\n\ty = (z * w) + (x * (1 - z));\n\tw = y;\n\treturn y;\n}\n\r\n// tan approximation for cutoff warping\ntnA(x) {\n\tx2 = (x * x);\n\tx3 = (x2 * x);\n\tx5 = (x2 * x3);\n\treturn ((x5 * 0.133333333333) + (x3 * 0.333333333333)) + x;\n}\r\n\r\n// atan approximation\r\natnA(x)\n{\n\to = 8 * x;\n\tq = (o + o) * INVPI;\n\ts = 25 + (q * q);\n\tu = 3 + sqrt(s);\n\treturn o / u;\n}\n\n// tanh approximation\ntnhL(x) {\r\n\tx2 = x * x;\r\n\ta = (((x2 + 378) * x2 + 17325) * x2 + 135135) * x;\r\n\tb = ((28 * x2 + 3150) * x2 + 62370) * x2 + 135135;\r\n\treturn clamp((a / b), -1, 1);\r\n}\n\n// cubic josIII\ncnl(x) {\n\tx = clip(x, -1, 1);\n\treturn x * (1 - 0.333333333333 * x * x);\n}\n\n// cubic thb\nthb(x) {\n\tx = clip(x, -1, 1);\n\tnx = 0.55032120814910446 * x;\r\n\tnx3 = nx * nx * nx;\n\treturn x - (nx3 + nx3);\n}\n\n// polynomial saturator\npolysat(x) {\r\n\tx2 = x * x;\r\n\tx3 = x * x2;\r\n\tp531 = (x + (x3 * -0.18963)) + ((x3 * x2) * 0.016182);\r\n\tpn = -1.8153 > x ? -1 : p531;\r\n\treturn x > 1.8153 ? 1 : pn;\n}\n\r\n// fb loop nonlinearity selector (should be oversampled)\nsat(x, nl) {\n\ty = 0;\r\n\tif (nl == 1) {\t\t\t\t// polysat\r\n\t\ty = polysat(x);\n\t} else if (nl == 2) {\t\t// cubic1\r\n\t\ty = cnl(x);\n\t} else if (nl == 3) {\t\t// cubic2\r\n\t\ty = thb(x);\n\t} else if (nl == 4) {\t\t// atan\r\n\t\ty = atnA(x);\n\t} else { // nl == 0\t\t\t// tanh\r\n\t\ty = tnhL(x);\n\t}\n\treturn dcblock(y);\n}\n\r\n// fixed 3x (not really) quasi oversampling\nsat3x(XIN, nl)\n{\t// up 3\n\tHistory\tumTm1_0(0), umT0_0(0), umT1_0(0);\n\t// down 3\n\tHistory\tdmT2_1(0), dmT1_1(0), dmT0_1(0);\n\tHistory\tdmT2_2(0), dmT1_2(0), dmT0_2(0);\n\t// align\n\tHistory\tdoX0(0);\n\n\tODT\t\t= 0.3333333333333333;\n\tTDT\t\t= 0.6666666666666667;\n\n\t// up 3x\n\tx0_0_a\t= XIN + 0;\n\tx1_0\t= umT0_0 + 0;\n\tx2_0\t= interp(ODT, umTm1_0, umT0_0, umT1_0, x0_0_a, mode=\"spline\");\n\tx3_0\t= interp(TDT, umTm1_0, umT0_0, umT1_0, x0_0_a, mode=\"spline\");\n\n\t// process 3x\n\ty1_0\t= sat(x1_0, nl);\n\ty2_0\t= sat(x2_0, nl);\n\ty3_0\t= sat(x3_0, nl);\n\n\t// down 3x\n\ty2_0_a\t= y2_0 + 0;\n\ty2_1\t= interp(TDT,\ty2_0_a,\tdmT0_1, dmT1_1, dmT2_1, mode=\"spline\");\n\ty3_0_a\t= y3_0 + 0;\n\ty3_1\t= interp(ODT,\ty3_0_a,\tdmT0_2, dmT1_2, dmT2_2, mode=\"spline\");\n\n\ty0_0\t= (doX0 + y2_1 + y3_1) * ODT;\n\n\t// update\n\tumTm1_0\t= umT0_0;\n\tumT0_0\t= umT1_0;\n\tumT1_0\t= x0_0_a;\n\n\tdoX0\t= y1_0;\n\n\tdmT2_1\t= dmT1_1;\n\tdmT1_1\t= dmT0_1;\n\tdmT0_1\t= y2_0;\n\n\tdmT2_2\t= dmT1_2;\n\tdmT1_2\t= dmT0_2;\n\tdmT0_2\t= y3_0;\n\n\treturn dcblock(y0_0);\n}\r\n\r\n/// /// /// ///\r\n\r\n// the filter\n//diode(x0, freq, res, tune=0.356788, shape=23.7, nonlin=2) {\ndiode(x0, freq, res, tune, shape, nonlin) {\n\tHistory z0(0), z1(0), z2(0), z3(0);\n\r\n\t// \"shape\": tuned by Pete for specific nonlinearity choices\n\tk = ((res * 0.911264) + 0.088736) * shape;\n\tA = 1 + (0.5 * k);\n\r\n\t// \"tune\": Oli = 0.5, Pete = base 0.356788 and mul up\n\twc0 = PI * freq / samplerate;\t// pi is nyquist (Pete: this doesn't work very well, so we reshape and retune)\r\n\twtune = (0.178712 * wc0 * wc0 * wc0 * wc0) + tune;\r\n\twc01 = tnA(wtune * wc0);\t\t// warping, approximation & tuning\r\n\r\n\t// Pete: i did this sorry, and it looks horrid and ridiculous, 'cos it is, but worth it for cpu savings in integrator output computations\n\twc1 = wc01 + wc01;\r\n\twc12 = wc1 + wc1;\r\n\twc14 = wc12 + wc12;\r\n\twc16 = wc14 + wc12;\r\n\twc18 = wc14 + wc14;\n\r\n\twc2 = wc1 * wc1;\r\n\twc22 = wc2 + wc2;\r\n\twc23 = wc22 + wc2;\r\n\twc24 = wc23 + wc2;\r\n\twc29 = wc24 + wc24 + wc2;\r\n\twc210 = wc29 + wc2;\r\n\twc211 = wc210 + wc2;\r\n\twc212 = wc29 + wc23;\r\n\twc220 = wc210 + wc210;\n\r\n\twc3 = wc2 * wc1;\r\n\twc32 = wc3 + wc3;\r\n\twc34 = wc32 + wc32;\r\n\twc36 = wc34 + wc32;\r\n\twc38 = wc34 + wc34;\r\n\twc316 = wc38 + wc38;\r\n\twc320 = wc316 + wc34;\n\r\n\twc4 = wc3 * wc1;\r\n\twc42 = wc4 + wc4;\r\n\twc44 = wc42 + wc42;\r\n\twc46 = wc42 + wc42 + wc42;\r\n\twc48 = wc44 + wc44;\n\r\n\t// coefficients\n\tb = 1 / (1 + wc18 + wc220 + wc316 + wc42);\n\tg = wc42 * b;\n\r\n\t// current state\n\ts = ((z0 * wc3) + (z1 * (wc2 + wc32)) + (z2 * (wc1 + wc24 + wc32)) + (z3 * (1 + wc16 + wc29 + wc32))) * b;\n\r\n\t// solve feedback loop (linear)\n\ty4 = ((g * x0) + s) / (1 + (g * k));\n\r\n\t// input shaping\n\ty0 = sat((x0 - (k * y4)), nonlin);\t// Pete: selectable nonlinearity (\"i like 'nl 2 (cnl)' and 'nl 4 (atan)' best\")\r\n\n\t// compute all integrator outputs\n\t// Dom: \"unlike the moog transistor, this gets quite nasty due to the inherent coupling between filter stages\"\r\n\t// Oli: \"no shit!\"\r\n\t// Pete: \"it is even worse now i got rid of all those multipliers\"\n\ty1 = ((y0 * (wc12 + wc212 + wc320 + wc48)) + (z0 * (1 + wc16 + wc210 + wc34)) + (z1 * (wc12 + wc24 + wc24 + wc36)) + (z2 * (wc22 + wc34)) + (z3 * wc32)) * b;\n\ty2 = ((y0 * (wc22 + wc38 + wc46)) + (z0 * (wc1 + wc24 + (wc32 + wc3))) + (z1 * (1 + wc16 + wc211 + wc36)) + (z2 * (wc1 + wc24 + wc34)) + (z3 * (wc2 + wc32))) * b;\n\ty3 = ((y0 * (wc32 + wc44)) + (z0 * (wc2 + wc32)) + (z1 * (wc1 + wc24 + wc34)) + (z2 * (1 + wc16 + wc210 + wc34)) + (z3 * (wc1 + wc24 + wc32))) * b;\n\ty4 = ( y0 * g ) + s;\n\r\n\t// update state\n\tz0 += wc14 * (y0 -  y1 + y2);\n\tz1 += wc12 * (y1 - (y2 + y2) + y3);\n\tz2 += wc12 * (y2 - (y3 + y3) + y4);\n\tz3 += wc12 * (y3 - (y4 + y4));\n\r\n\t// scale output\n\treturn A * y4;\n}\r\n\r\n// fixed 3x (not really) quasi oversampling\ndiode3x(XIN, freq, res, t, s, n)\n{\t// up 3\n\tHistory\tumTm1_0(0), umT0_0(0), umT1_0(0);\n\t// down 3\n\tHistory\tdmT2_1(0), dmT1_1(0), dmT0_1(0);\n\tHistory\tdmT2_2(0), dmT1_2(0), dmT0_2(0);\n\t// align\n\tHistory\tdoX0(0);\n\n\tODT\t\t= 0.3333333333333333;\n\tTDT\t\t= 0.6666666666666667;\n\n\t// up 3x\n\tx0_0_a\t= XIN + 0;\n\tx1_0\t= umT0_0 + 0;\n\tx2_0\t= interp(ODT, umTm1_0, umT0_0, umT1_0, x0_0_a, mode=\"spline\");\n\tx3_0\t= interp(TDT, umTm1_0, umT0_0, umT1_0, x0_0_a, mode=\"spline\");\n\n\t// process 3x\n\ty1_0\t= diode(x1_0, freq, res, t, s, n);\n\ty2_0\t= diode(x2_0, freq, res, t, s, n);\n\ty3_0\t= diode(x3_0, freq, res, t, s, n);\n\n\t// down 3x\n\ty2_0_a\t= y2_0 + 0;\n\ty2_1\t= interp(TDT,\ty2_0_a,\tdmT0_1, dmT1_1, dmT2_1, mode=\"spline\");\n\ty3_0_a\t= y3_0 + 0;\n\ty3_1\t= interp(ODT,\ty3_0_a,\tdmT0_2, dmT1_2, dmT2_2, mode=\"spline\");\n\n\ty0_0\t= (doX0 + y2_1 + y3_1) * ODT;\n\n\t// update\n\tumTm1_0\t= umT0_0;\n\tumT0_0\t= umT1_0;\n\tumT1_0\t= x0_0_a;\n\n\tdoX0\t= y1_0;\n\n\tdmT2_1\t= dmT1_1;\n\tdmT1_1\t= dmT0_1;\n\tdmT0_1\t= y2_0;\n\n\tdmT2_2\t= dmT1_2;\n\tdmT1_2\t= dmT0_2;\n\tdmT0_2\t= y3_0;\n\n\treturn dcblock(y0_0);\n}\r\n\r\n/// /// /// ///\r\n\r\nParam\ttuning(0.356788, min=0, max=1);\t\t// constant (do not change unless...)\r\nParam\tshaping(23.7, min=1, max=40);\t\t// constant (do not change unless...)\r\n\r\nParam\tcfmode(1, min=0, max=1);\t\t\t// in2 cutoff in: 1 = pitch, 0 = Hz\r\nParam\tcfsmooth(20, min=0, max=1000);\t\t// smooth in2 in ms, 0 == off (turn off for FM etc)\r\nParam\tressmooth(20, min=0, max=333);\t\t// smooth in5 in ms, 0 = off\r\n\r\nParam\tnonlin(2, min=0, max=5);\t\t\t// select nonlinearity in fb loop (default cnl) (5 is secret)\r\nnl\t\t= int(nonlin);\r\n\r\nfreq, limit\t= evi_hzpitchmods(in2, in3, in4, mode=cfmode, smooth=cfsmooth, high=0.5);\r\n\r\nq\t\t= clip(in5, 0, 2);\t\t\t\t\t// 0..1 is normal, ..2 still works but be careful (diode peaks!)\r\n\t\t\t\t\t\t\t\t\t\t\t// (if you drive towards ..2 your usable frequency range gets truncated)\r\n\r\n// \"shape\": tuned by Pete for specific nonlinearity choices\nshape\t= selector(nl+1, 19.7, 18.9, 23.7, 23.8, (5.8 * (1 - (maximum(q, 1) - 1)) + 14.3), shaping);\r\n\r\nres\t\t= q;\r\nif (ressmooth > 0) {\r\n\tres\t= expsmooth(q, ressmooth*0.001);\r\n}\r\n\r\nout1\t= diode3x(in1, freq, res, tuning, shape, nl);\r\n\r\n/// /// /// ///\r\n\r\n",
+					"fontface" : 0,
+					"fontname" : "<Monospaced>",
+					"fontsize" : 12.0,
+					"id" : "obj-5",
+					"maxclass" : "codebox",
+					"numinlets" : 5,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 34.0, 58.0, 1295.0, 800.0 ]
+				}
+
+			}
+ ],
+		"lines" : [ 			{
+				"patchline" : 				{
+					"destination" : [ "obj-5", 4 ],
+					"midpoints" : [ 1137.5, 49.0, 1319.5, 49.0 ],
+					"source" : [ "obj-2", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-5", 2 ],
+					"midpoints" : [ 630.5, 49.0, 681.5, 49.0 ],
+					"source" : [ "obj-3", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-5", 1 ],
+					"source" : [ "obj-4", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-7", 0 ],
+					"source" : [ "obj-5", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-5", 0 ],
+					"source" : [ "obj-6", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-5", 3 ],
+					"midpoints" : [ 871.5, 49.0, 1000.5, 49.0 ],
+					"source" : [ "obj-8", 0 ]
+				}
+
+			}
+ ],
+		"originid" : "pat-14",
+		"toolbaradditions" : [ "transport", "audiosolo", "audiomute" ],
+		"toolbarexclusions" : [ "audiopowerctrl", "browsebeap", "browsevizzie", "lessonbrowser" ],
+		"bgcolor" : [ 0.94902, 0.94902, 0.94902, 1.0 ],
+		"editing_bgcolor" : [ 0.94902, 0.94902, 0.94902, 1.0 ]
+	}
+
+}

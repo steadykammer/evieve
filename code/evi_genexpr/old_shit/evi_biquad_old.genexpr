@@ -1,0 +1,1258 @@
+
+//	//	//	"evi_biquad.genexpr"
+//	//	//	a collection of biquads and coefficients calculators in GenExpr
+//	//	//	by Pete Dowling for evieve, 2015
+//	//	//	based on RBJ, Dodge/Jerse, Orfanidis, Massberg
+//	//	//	thanks to Alex Harker and Richard Dudas
+//	//	//	N.B. - see "evi_svf.genexpr" for modern way of building 12dB sections
+
+
+//	//	//	local utilities (see "evi_trig.genexpr" & "evi_approx.genexpr" for more)
+
+// cheap cos & sin approximations for coefficients calculations
+cosQ73(x)
+{
+	c1 =  0.999999953464;
+	c2 = -0.499999053455;
+	c3 =  0.0416635846769;
+	c4 = -0.0013853704264;
+	c5 =  0.00002315393167;  	
+
+	x2 = x * x;
+	return (c1 + x2 * (c2 + x2 * (c3 + x2 * (c4 + c5 * x2))));
+}
+
+cos_73(x)
+{
+	two_over_pi = 0.63661977236758;	// 2 / pi
+	x = x % twopi;					// get rid of values > 2 * pi
+	if (x < 0) {
+		x = -x;						// cos(-x) = cos(x)
+	}
+	quad = int(x * two_over_pi);	// get quadrant # (0 to 3) we're in
+	cosreturn = 0;
+	if 				(quad == 0) {
+		cosreturn =  cosQ73(x);
+	} else if 		(quad == 1) {
+		cosreturn = -cosQ73(pi - x);
+	} else if 		(quad == 2) {
+		cosreturn = -cosQ73(x - pi);
+	} else {	//	(quad == 3)
+		cosreturn =  cosQ73(twopi - x);
+	}
+	return cosreturn;
+}
+
+sin_73(x)
+{
+	return cos_73(halfpi - x);
+}
+
+//	cheap but accurate tan approximation for buttercoeff()
+tanO14(x)
+{
+	c1 = -34287.4662577359568109624;
+	c2 =  2566.7175462315050423295;
+	c3 = -26.5366371951731325438;
+	c4 = -43656.1579281292375769579;
+	c5 =  12244.4839556747426927793;
+	c6 = -336.611376245464339493;
+
+	x2 = x * x;
+	return (x * (c1 + x2 * (c2 + x2 * c3))) / (c4 + x2 * (c5 + x2 * (c6 + x2)));
+}
+
+tan_14(x)
+{
+	four_over_pi = 1.27323954473516;	// 4 / pi
+	threehalfpi = 4.7123889803847;		// 3 * halfpi
+	x = x % twopi;						// get rid of values > 2 * pi
+	octant = int(x * four_over_pi);		// get octant # (0 to 7)	[int(x * qtrpi) ??]
+	tanreturn = 0;
+	if 				(octant == 0) {
+		tanreturn = 	 tanO14(x					* four_over_pi);
+	} else if 		(octant == 1) {
+		tanreturn =  1 / tanO14((halfpi - x)		* four_over_pi);
+	} else if 		(octant == 2) {
+		tanreturn = -1 / tanO14((x - halfpi)		* four_over_pi);
+	} else if 		(octant == 3) {
+		tanreturn = 	-tanO14((pi - x)			* four_over_pi);
+	} else if 		(octant == 4) {
+		tanreturn = 	 tanO14((x - pi)			* four_over_pi);
+	} else if 		(octant == 5) {
+		tanreturn =  1 / tanO14((threehalfpi - x)	* four_over_pi);
+	} else if 		(octant == 6) {
+		tanreturn = -1 / tanO14((x - threehalfpi)	* four_over_pi);
+	} else {	//	(octant == 7)
+		tanreturn = 	-tanO14((twopi - x)		* four_over_pi);
+	}
+	return tanreturn;
+}
+
+// cheap but accurate exp approximation for coefficients (more accurate than 'fastexp()')
+expA(x0)
+{
+	x = 0.999996 + (0.031261316 + (0.00048274797 + 0.000006 * x0) * x0) * x0;
+	x *= x; x *= x; x *= x; x *= x; x *= x;
+	return x;
+}
+
+// lazy quasi taylor series...
+logApprox(x)	// for (x > 0)
+{
+	// coefs
+	y = (x - 1) / (x + 1);
+	w = y;
+	y = y * y;
+	z = 0;
+
+	// follow pattern (could be a for-loop)...
+	// (update w)...
+	z = z + w;
+	w = w * y;
+	z = z + w / 3;
+	w = w * y;
+	z = z + w / 5;
+	w = w * y;
+	z = z + w / 7;
+	// etc?...
+
+	z = z * 2;
+	return z;
+}
+
+mtofApprox(pitch)					// using 'expA()' for approximated accuracy
+{
+	mtofA = 440 * expA(0.057762265 * (pitch - 69));
+	return mtofA + 0.120906;		// + offset = accurate for input 48..69
+}
+
+// excellent accuracy to about +36 dB, after which you are on your own
+dbtoaApprox(db)						// using 'expA()' for approximated accuracy
+{
+	dbtoaA = expA(0.11512925464970 * db);
+	return dbtoaA + 0.000128;		// + offset = 0 dB == 1 amplitude
+}
+
+// cheaper than above 'dbtoaApprox()', but far less accurate
+dbtoaApproxF(db)					// i know this is shit
+{
+	return fastpow(10, (db * 0.05)) + 0.028652;	// + offset = 0 dB == 1 amplitude
+}
+
+// excellent accuracy around amplitude == 1 (-6 +6 dB),
+// terrible accuracy very near input == 0 or input == very large
+atodbApprox(amplitude)
+{
+	adbconst	= 8.685889638065036553;
+	return 		adbconst * logApprox(abs(amplitude));
+}
+
+
+//	//	//	sections
+
+// two-pole, two-zero Biquad filter,
+// "Direct form 1", like MSP [biquad~]
+// y(n) = a0 * x(n) + a1 * x(n - 1) + a2 * x(n - 2) – b1 * y(n - 1) – b2 * y(n - 2)
+biquadDf1(x, a0, a1, a2, b1, b2)
+{
+	History x1(0), x2(0), y1(0), y2(0);
+
+	a0w = x * a0;
+	a1w = x1 * a1;
+	a2w = x2 * a2;
+	w = a0w + a1w + a2w;
+
+	b1y = y1 * b1;
+	b2y = y2 * b2;
+	y = w - b1y - b2y;
+
+	x2 = x1;
+	x1 = x;
+	y2 = y1;
+	y1 = y;
+
+	return y;
+}
+
+// two-pole, two-zero Biquad filter,
+// "Direct form 2"
+// y(n) = a0w(n) + a1w(n - 1) + a2w(n - 2), where w(n) = x(n) - b1w(n - 1) - b2w(n - 2)
+biquadDf2(x, a0, a1, a2, b1, b2)
+{
+	History x1(0), x2(0);
+
+	b1w = x1 * b1;
+	b2w = x2 * b2;
+	w = x - b1w - b2w;
+
+	a0w = w * a0;
+	a1w = x1 * a1;
+	a2w = x2 * a2;
+	y = a0w + a1w + a2w;
+
+	x2 = x1;
+	x1 = w;
+
+	return y;
+}
+
+// two-pole, two-zero Biquad filter,
+// "Transposed direct form 2"
+biquadTdf2(x, a0, a1, a2, b1, b2)
+{
+	History x1(0), x2(0);
+
+	y = (x * a0) + x2;
+
+	x2 = ((x * a1) - (y * b1)) + x1;
+	x1 = (x * a2) - (y * b2);
+
+	return y;
+}
+
+// one pole one zero section for odd ordered cascades
+polezeroDf1(x, a0, _a1, _a2, b1, _b2)
+{
+	History y1(0);
+//	a1, a2, b2 = 0;
+
+	w = x * a0;
+	z = y1 * b1;
+	y = w - z;
+
+	y1 = y;
+
+	return y;
+}
+
+// 6dB iir, no coef wastage
+polezeroDf1s(x, a0, b1)
+{
+	History y1(0);
+
+	w = x * a0;
+	z = y1 * b1;
+	y = w - z;
+
+	y1 = y;
+
+	return y;
+}
+
+
+//	//	//	cascades
+
+// biquad direct form 2...
+// ...in gen~ cascade form with History()s written out to / read from Data()
+// (for building cascades for eq's etc)
+biquadDf2cascade(x0, a0, a1, a2, b1, b2, x1, x2)
+{
+	b1w = x1 * b1;
+	b2w = x2 * b2;
+	w0 = x0 - b1w - b2w;
+
+	a0w = w0 * a0;
+	a1w = x1 * a1;
+	a2w = x2 * a2;
+	y0 = a0w + a1w + a2w;
+
+	return y0, w0, x1;
+}
+
+// biquad direct form 2 but with coefficients reduced rather than repeated for ALLPASS
+// in gen~ cascade form with History()s written out to / read from Data()
+// for building cascades for phaser fx etc (see 'allpasscoeff()' below)
+allpassBiquadDf2cascade(x0, a0, a1, a2, x1, x2)
+{
+	b1w = x1 * a1;
+	b2w = x2 * a0;
+	w0 = x0 - b1w - b2w;
+
+	a0w = w0 * a0;
+	a1w = x1 * a1;
+	a2w = x2 * a2;
+	y0 = a0w + a1w + a2w;
+
+	return y0, w0, x1;
+}
+
+// biquad transposed direct form 2...
+// ...in gen~ cascade form with History()s written out to / read from Data()
+// (for building cheap cascades etc)
+biquadTdf2cascade(x0, a0, a1, a2, b1, b2, x1, x2)
+{
+	y0 = (x0 * a0) + x2;
+
+	w2 = ((x0 * a1) - (y0 * b1)) + x1;	// x2
+	w1 = (x0 * a2) - (y0 * b2);			// x1
+
+	return y0, w1, w2;
+}
+
+// incorrect four-pole using Df2
+biquadDf2single(x, a0, a1, a2, b1, b2)
+{
+	History df2sdummy(0);
+
+	y0	= biquadDf2(x,	a0, a1, a2, b1, b2);
+	y	= biquadDf2(y0,	a0, a1, a2, b1, b2);
+
+	return y;
+}
+
+// parallel double, for bandreject etc using Df2
+biquadDf2parallel(x, a0_1, a1_1, a2_1, b1_1, b2_1, a0_2, a1_2, a2_2, b1_2, b2_2)
+{
+	History df2ddummy(0);
+
+	y0	= biquadDf2(x,	a0_1, a1_1, a2_1, b1_1, b2_1);
+	y1	= biquadDf2(x,	a0_2, a1_2, a2_2, b1_2, b2_2);
+
+	return (y0 + y1) * sqrt1_2;
+}
+
+// cascade double, for shelving etc using Df2
+biquadDf2double(x, a0_1, a1_1, a2_1, b1_1, b2_1, a0_2, a1_2, a2_2, b1_2, b2_2)
+{
+	History df2ddummy(0);
+
+	y0	= biquadDf2(x,	a0_1, a1_1, a2_1, b1_1, b2_1);
+	y	= biquadDf2(y0,	a0_2, a1_2, a2_2, b1_2, b2_2);
+
+	return y;
+}
+
+// cascade three, for simple eq-ing using Df2
+biquadDf2triple(x0, a0_1, a1_1, a2_1, b1_1, b2_1, a0_2, a1_2, a2_2, b1_2, b2_2, a0_3, a1_3, a2_3, b1_3, b2_3)
+{
+	History df2tdummy(0);
+
+	y0	= biquadDf2(x0, a0_1, a1_1, a2_1, b1_1, b2_1);
+	y1	= biquadDf2(y0, a0_2, a1_2, a2_2, b1_2, b2_2);
+	y2	= biquadDf2(y1, a0_3, a1_3, a2_3, b1_3, b2_3);
+
+	return y2;
+}
+
+// cascade three, for simple eq-ing using mathworks I, II, TII cascade
+biquadDf2tmw(x0, a0_1, a1_1, a2_1, b1_1, b2_1, a0_2, a1_2, a2_2, b1_2, b2_2, a0_3, a1_3, a2_3, b1_3, b2_3)
+{
+	History tmwdummy(0);
+
+	y0	= biquadDf1(x0, a0_1, a1_1, a2_1, b1_1, b2_1);
+	y1	= biquadDf2(y0, a0_2, a1_2, a2_2, b1_2, b2_2);
+	y2	= biquadTdf2(y1, a0_3, a1_3, a2_3, b1_3, b2_3);
+
+	return y2;
+}
+
+//	//	//	hilberts
+/*
+// hilbert quadrature (fudge) - Emmanuel Favreau (Miller Puckette)
+hilbertDf2(x0)
+{
+	History hilbert1dummy(0);
+
+	x1 = biquadDf2(x0,  0.94657,  -1.94632, 1., -1.94632,  0.94657);
+	x2 = biquadDf2(x1,  0.06338,  -0.83774, 1., -0.83774,  0.06338);
+
+	y1 = biquadDf2(x0, -0.260502,  0.02569, 1.,  0.02569, -0.260502);
+	y2 = biquadDf2(y1,  0.870686, -1.8685,  1., -1.8685,   0.870686);
+
+	// real, imaginary
+	return x2, y2;
+}
+
+// polyphase IIR (hilbert) - Olli Niemitalo (Katja Vetter)
+polyphaseIIR(y0)
+{
+	History hilbert2dummy(0);
+	History x0(0);
+
+	// first phase allpass cascade
+	x1 = biquadDf2(x0, 0.479401,	0., -1., 0.,	-0.479401);
+	x2 = biquadDf2(x1, 0.876218,	0., -1., 0.,	-0.876218);
+	x3 = biquadDf2(x2, 0.976599,	0., -1., 0.,	-0.976599);
+	x4 = biquadDf2(x3, 0.9975,		0., -1., 0.,	-0.9975);
+
+	// second phase allpass cascade
+	y1 = biquadDf2(y0, 0.161758,	0., -1., 0.,	-0.161758);
+	y2 = biquadDf2(y1, 0.733029,	0., -1., 0.,	-0.733029);
+	y3 = biquadDf2(y2, 0.94535,		0., -1., 0.,	-0.94535);
+	y4 = biquadDf2(y3, 0.990598,	0., -1., 0.,	-0.990598);
+
+	// update
+	x0 = y0;
+
+	// real, imaginary
+	return x4, y4;
+}
+*/
+
+//	//	//	generalise frequency clipping here
+
+fcClip(cutoff, units)		// 'units' is cutoff type (0 = Hz, 1 = MIDI Pitch)
+{
+	cf		= cutoff;
+	if (units > 0) {
+		cf	= mtofApprox(cutoff);
+	}
+	fcmin	= samplerate / 24576;
+	fcmax	= samplerate / 2.125;
+	return clip(cf, fcmin, fcmax);
+}
+
+fcClipFULL(cutoff, units)	// 'units' is cutoff type (0 = Hz, 1 = MIDI Pitch)
+{
+	cf		= cutoff;
+	if (units > 0) {
+		cf	= mtof(cutoff);
+	}
+	fcmin	= samplerate / 24576;
+	fcmax	= samplerate / 2.125;
+	return clip(cf, fcmin, fcmax);
+}
+
+
+//	//	//	coefficients
+
+/*
+- in both 'biquadcoeff()' & 'buttercoeff()' below, "funits" param is an integer to choose cutoff input style:
+- 0 = Hz
+- 1 = MIDI Pitch
+
+- in both 'biquadcoeff()' & 'buttercoeff()' below, "gunits" param is an integer to choose gain input style:
+- 0 = amplitude or dB depending on filter (like [filtercoeff~])
+- 1 = always amplitude (like [filtergraph~])
+- 2 = always dB (evieve)
+- (using dB gain is the only significant area of inaccuracy in the approximations versions)
+*/
+
+
+//	//	//	coefficients - rbj cookbook ish
+
+/*
+'biquadcoeff()' "type" (available filter types):		// integer to choose filter type
+// fixed unity gain:
+0		= lowpass
+1		= highpass
+2		= bandpass
+3		= notch (bandstop)
+4		= allpass
+5		= reson~
+6		= bp~
+// variable gain input:
+7		= lowpass
+8		= highpass
+9		= bandpass
+10		= notch (bandstop)
+11		= allpass
+12		= reson~
+13		= bp~
+// always variable gain:
+14		= peak notch
+15		= peak eq
+16		= low shelf
+17		= high shelf
+*/
+
+// biquad calculator, a bit like MSP [filtercoeff~], with differences
+// f0, gain, Q, in MSP-like order, 'funits' is cutoff mode, 'gunits' is gain mode, 'type' switches filter
+biquadcoeff(f0, gain, Q, funits, gunits, type)
+{
+	// init
+	a0, b0			= 1;
+	b1, b2, a1, a2	= 0;
+	// common
+	f0			= fcClip(f0, funits);
+	Q			= maximum(Q, 0.001);
+	w0 			= twopi * f0 / samplerate;				// omega0
+	alpha 		= sin_73(w0) / (2 * Q);					// r0
+
+	// switch filters
+	if (type == 0) {				// LPF, fixed
+		c0		 = cos_73(w0);
+		b1 =	 1 - c0;
+		b0 =	 b1 / 2;
+		b2 =	 b0;
+		a0 =	 1 + alpha;
+		a1 =	-2 * c0;
+		a2 =	 1 - alpha;
+	} else if (type == 1) {			// HPF, fixed
+		c0		 = cos_73(w0);
+		b0 =	(1 + c0) / 2;
+		b1 =	-1 - c0;
+		b2 =	 b0;
+		a0 =	 1 + alpha;
+		a1 =	-2 * c0;
+		a2 =	 1 - alpha;		
+	} else if (type == 2) {			// BPF (constant 0 dB peak gain), fixed
+		b0 =	 alpha;
+		b1 =	 0;
+		b2 =	-alpha;
+		a0 =	 1 + alpha;
+		a1 =	-2 * cos_73(w0);
+		a2 =	 1 - alpha;
+	} else if (type == 3) {			// Notch ('Band Stop'), fixed
+		b0 =	 1;
+		b1 =	-2 * cos_73(w0);
+		b2 =	 1;
+		a0 =	 1 + alpha;
+		a1 =	 b1;
+		a2 =	 1 - alpha;
+	} else if (type == 4) {			// APF, fixed
+		b0 =	 1 - alpha;
+		b1 =	-2 * cos_73(w0);
+		b2 =	 1 + alpha;
+		a0 =	 b2;
+		a1 =	 b1;
+		a2 =	 b0;
+	} else if (type == 5) {			 // resonant like MSP [reson~], fixed
+		bw		 = f0 / maximum(Q, 0.009377);			// additional clip needed
+		omega	 = twopi / samplerate;
+		r1		 = expA(-bw * omega) + 0.000161;		// offset for accuracy
+        b0 =	 1 - r1;
+        b1 =	 0;
+        b2 =	-(r1 - (r1 * r1));
+        a0 =	 1;
+        a1 =	-((2 * r1) * cos_73(f0 * omega));		// w0
+        a2 =	-(-r1 * r1);
+	} else if (type == 6) {			// bandpass like Pd [bp~], fixed
+		qw		 = minimum((w0 / Q), 1);
+		r2		 = 1 - qw;
+        b0 =	 2 * qw * (qw + r2 * w0);
+        b1 =	 0;
+        b2 =	 0;
+        a0 =	 1;
+        a1 =	-2 * cos_73(w0) * r2;					// omega
+        a2 =	 r2 * r2;
+	} else if ((type >= 7) && (type <= 14)) {
+		gainA		 = gain;
+		if (gunits == 2) {
+			gainA	 = dbtoaApprox(gain);
+		}
+		if (type == 7) {			// LPF, variable
+			c0		 = cos_73(w0);
+			b1 =	 1 - c0;
+			b0 =	 b1 / 2;
+			b0 =	 b0 * gainA;
+			b1 =	 b1 * gainA;
+			b2 =	 b0;
+			a0 =	 1 + alpha;
+			a1 =	-2 * c0;
+			a2 =	 1 - alpha;
+		} else if (type == 8) {		// HPF, variable
+			c0		 = cos_73(w0);
+			b0 =	(1 + c0) / 2;
+			b0 =	 b0 * gainA;
+			b1 =	-1 - c0;
+			b1 =	 b1 * gainA;
+			b2 =	 b0;
+			a0 =	 1 + alpha;
+			a1 =	-2 * c0;
+			a2 =	 1 - alpha;		
+		} else if (type == 9) {		// BPF, variable
+			b0 =	 alpha;
+			b0 =	 b0 * gainA;
+			b1 =	 0;
+			b2 =	-alpha;
+			b2 =	 b2 * gainA;
+			a0 =	 1 + alpha;
+			a1 =	-2 * cos_73(w0);
+			a2 =	 1 - alpha;
+		} else if (type == 10) {	// Notch ('Band Stop'), variable
+			b0 =	 1;
+			b0 =	 b0 * gainA;
+			b1 =	-2 * cos_73(w0);
+			b2 =	 b0;
+			a0 =	 1 + alpha;
+			a1 =	 b1;
+			b1 =	 b1 * gainA;
+			a2 =	 1 - alpha;
+		} else if (type == 11) {	// APF, variable
+			b0 =	 1 - alpha;
+			b1 =	-2 * cos_73(w0);
+			b2 =	 1 + alpha;
+			a0 =	 b2;
+			a1 =	 b1;
+			a2 =	 b0;
+			b0 =	 b0 * gainA;
+			b1 =	 b1 * gainA;
+			b2 =	 b2 * gainA;
+		} else if (type == 12) {	// resonant like MSP [reson~], variable
+			bw		 = f0 / maximum(Q, 0.009377);		// additional clip needed
+			omega	 = twopi / samplerate;
+			r1		 = expA(-bw * omega) + 0.000161;	// offset for accuracy
+        	b0 =	 1 - r1;
+			b0 =	 b0 * gainA;
+        	b1 =	 0;
+        	b2 =	-(r1 - (r1 * r1));
+			b2 =	 b2 * gainA;
+        	a0 =	 1;
+        	a1 =	-((2 * r1) * cos_73(f0 * omega));	// w0
+			a2 =	-(-r1 * r1);
+		} else if (type == 13) {	// bandpass like Pd [bp~], variable
+			qw		 = minimum((w0 / Q), 1);
+			r2		 = 1 - qw;
+        	b0 =	 2 * qw * (qw + r2 * w0);
+			b0 =	 b0 * gainA;
+			b1 =	 0;
+        	b2 =	 0;
+        	a0 =	 1;
+        	a1 =	-2 * cos_73(w0) * r2;				// omega
+        	a2 =	 r2 * r2;
+		} else {	// (type == 14)	// peakNotch, always variable
+			G  		 = sqrt(maximum(gainA, 0.001));// gain is in linear amplitude directly (not in dB)
+			amG		 = alpha * G;
+			adG		 = alpha / G;
+        	b0 =	 1 + amG;
+        	b1 =	-2 * cos_73(w0);
+        	b2 =	 1 - amG;
+        	a0 =	 1 + adG;
+        	a1 =	 b1;
+        	a2 =	 1 - adG;
+		}
+	} else if ((type >= 15) && (type <= 17)) {			// peakEQ, lowShelf, highShelf, always in dB
+		dBgain		 = gain;
+		if (gunits == 1) {
+			dBgain	 = atodb(gain);
+		}
+		A  		 	 = fastpow(10, (dBgain * 0.025)) + 0.028652;// gain is in dB directly, offset for accuracy
+		if (type == 15) {			// peakEQ, always variable, (more useful than 'peakNotch')
+			amA		 = alpha * A;
+			adA		 = alpha / A;
+        	b0 =	 1 + amA;
+        	b1 =	-2 * cos_73(w0);
+        	b2 =	 1 - amA;
+        	a0 =	 1 + adA;
+        	a1 =	 b1;
+        	a2 =	 1 - adA;
+		} else if (type == 16) {	// lowShelf, always variable
+			c0		 = cos_73(w0);
+			sA		 = sqrt(A) * alpha;
+			Am1		 = A - 1;
+			Ap1		 = A + 1;
+			b0 =	 A * (Ap1 - Am1 * c0 + 2 * sA);
+        	b1 =	 2 * A * (Am1 - Ap1 * c0);
+        	b2 =	 A * (Ap1 - Am1 * c0 - 2 * sA);
+        	a0 =	 Ap1 + Am1 * c0 + 2 * sA;
+        	a1 =	-2 * (Am1 + Ap1 * c0);
+        	a2 =	 Ap1 + Am1 * c0 - 2 * sA;
+		} else {	// (type == 17)	// highShelf, always variable
+			c0		 = cos_73(w0);
+			sA		 = sqrt(A) * alpha;
+			Am1		 = A - 1;
+			Ap1		 = A + 1;
+			b0 =	 A * (Ap1 + Am1 * c0 + 2 * sA);
+			b1 =	-2 * A * (Am1 + Ap1 * c0);			// b1 has minor inaccuracy
+			b2 =	 A * (Ap1 + Am1 * c0 - 2 * sA);
+			a0 =	 Ap1 - Am1 * c0 + 2 * sA;
+			a1 =	 2 * (Am1 - Ap1 * c0);
+			a2 =	 Ap1 - Am1 * c0 - 2 * sA;
+		}
+	} else {		// (-1)			// zero				// initial state, zero biquad, (like [filtercoeff~])
+		a0, b0				= 1;
+		b1, b2, a1, a2		= 0;
+	}
+
+	// convert rbj coeffs (b0, b1, b2, a0, a1, a2) to FF0, FF1, FF2, FB1, FB2 (a0, a1, a2, b1, b2)
+	a0m		=	1 / a0;
+	return (b0 * a0m), (b1 * a0m), (b2 * a0m), (a1 * a0m), (a2 * a0m);	// a0, a1, a2, b1, b2
+}
+
+
+//	//	//	no approximations version of 'biquadcoeff()', if that is your thang, just add "FULL"
+
+// biquad calculator, a bit like MSP [filtercoeff~], with differences
+// f0, gain, Q, in MSP-like order, 'funits' is cutoff mode, 'gunits' is gain mode, 'type' switches filter
+biquadcoeffFULL(f0, gain, Q, funits, gunits, type)
+{
+	// init
+	a0, b0			= 1;
+	b1, b2, a1, a2	= 0;
+	// common
+	f0			= fcClipFULL(f0, funits);
+	Q			= maximum(Q, 0.001);
+	w0 			= twopi * f0 / samplerate;				// omega0
+	alpha 		= sin(w0) / (2 * Q);					// r0
+
+	// switch filters
+	if (type == 0) {				// LPF, fixed
+		c0		 = cos(w0);
+		b1 =	 1 - c0;
+		b0 =	 b1 / 2;
+		b2 =	 b0;
+		a0 =	 1 + alpha;
+		a1 =	-2 * c0;
+		a2 =	 1 - alpha;
+	} else if (type == 1) {			// HPF, fixed
+		c0		 = cos(w0);
+		b0 =	(1 + c0) / 2;
+		b1 =	-1 - c0;
+		b2 =	 b0;
+		a0 =	 1 + alpha;
+		a1 =	-2 * c0;
+		a2 =	 1 - alpha;		
+	} else if (type == 2) {			// BPF (constant 0 dB peak gain), fixed
+		b0 =	 alpha;
+		b1 =	 0;
+		b2 =	-alpha;
+		a0 =	 1 + alpha;
+		a1 =	-2 * cos(w0);
+		a2 =	 1 - alpha;
+	} else if (type == 3) {			// Notch ('Band Stop'), fixed
+		b0 =	 1;
+		b1 =	-2 * cos(w0);
+		b2 =	 1;
+		a0 =	 1 + alpha;
+		a1 =	 b1;
+		a2 =	 1 - alpha;
+	} else if (type == 4) {			// APF, fixed
+		b0 =	 1 - alpha;
+		b1 =	-2 * cos(w0);
+		b2 =	 1 + alpha;
+		a0 =	 b2;
+		a1 =	 b1;
+		a2 =	 b0;
+	} else if (type == 5) {			 // resonant like MSP [reson~], fixed
+		bw		 = f0 / Q;
+		omega	 = twopi / samplerate;
+		r1		 = exp(-bw * omega);
+        b0 =	 1 - r1;
+        b1 =	 0;
+        b2 =	-(r1 - (r1 * r1));
+        a0 =	 1;
+        a1 =	-((2 * r1) * cos(f0 * omega));		// w0
+        a2 =	-(-r1 * r1);
+	} else if (type == 6) {			// bandpass like Pd [bp~], fixed
+		qw		 = minimum((w0 / Q), 1);
+		r2		 = 1 - qw;
+        b0 =	 2 * qw * (qw + r2 * w0);
+        b1 =	 0;
+        b2 =	 0;
+        a0 =	 1;
+        a1 =	-2 * cos(w0) * r2;					// omega
+        a2 =	 r2 * r2;
+	} else if ((type >= 7) && (type <= 14)) {
+		gainA		 = gain;
+		if (gunits == 2) {
+			gainA	 = dbtoa(gain);
+		}
+		if (type == 7) {			// LPF, variable
+			c0		 = cos(w0);
+			b1 =	 1 - c0;
+			b0 =	 b1 / 2;
+			b0 =	 b0 * gainA;
+			b1 =	 b1 * gainA;
+			b2 =	 b0;
+			a0 =	 1 + alpha;
+			a1 =	-2 * c0;
+			a2 =	 1 - alpha;
+		} else if (type == 8) {		// HPF, variable
+			c0		 = cos(w0);
+			b0 =	(1 + c0) / 2;
+			b0 =	 b0 * gainA;
+			b1 =	-1 - c0;
+			b1 =	 b1 * gainA;
+			b2 =	 b0;
+			a0 =	 1 + alpha;
+			a1 =	-2 * c0;
+			a2 =	 1 - alpha;		
+		} else if (type == 9) {		// BPF, variable
+			b0 =	 alpha;
+			b0 =	 b0 * gainA;
+			b1 =	 0;
+			b2 =	-alpha;
+			b2 =	 b2 * gainA;
+			a0 =	 1 + alpha;
+			a1 =	-2 * cos(w0);
+			a2 =	 1 - alpha;
+		} else if (type == 10) {	// Notch ('Band Stop'), variable
+			b0 =	 1;
+			b0 =	 b0 * gainA;
+			b1 =	-2 * cos(w0);
+			b2 =	 b0;
+			a0 =	 1 + alpha;
+			a1 =	 b1;
+			b1 =	 b1 * gainA;
+			a2 =	 1 - alpha;
+		} else if (type == 11) {	// APF, variable
+			b0 =	 1 - alpha;
+			b1 =	-2 * cos(w0);
+			b2 =	 1 + alpha;
+			a0 =	 b2;
+			a1 =	 b1;
+			a2 =	 b0;
+			b0 =	 b0 * gainA;
+			b1 =	 b1 * gainA;
+			b2 =	 b2 * gainA;
+		} else if (type == 12) {	// resonant like MSP [reson~], variable
+			bw		 = f0 / Q;
+			omega	 = twopi / samplerate;
+			r1		 = exp(-bw * omega);
+        	b0 =	 1 - r1;
+			b0 =	 b0 * gainA;
+        	b1 =	 0;
+        	b2 =	-(r1 - (r1 * r1));
+			b2 =	 b2 * gainA;
+        	a0 =	 1;
+        	a1 =	-((2 * r1) * cos(f0 * omega));		// w0
+			a2 =	-(-r1 * r1);
+		} else if (type == 13) {	// bandpass like Pd [bp~], variable
+			qw		 = minimum((w0 / Q), 1);
+			r2		 = 1 - qw;
+        	b0 =	 2 * qw * (qw + r2 * w0);
+			b0 =	 b0 * gainA;
+			b1 =	 0;
+        	b2 =	 0;
+        	a0 =	 1;
+        	a1 =	-2 * cos(w0) * r2;					// omega
+        	a2 =	 r2 * r2;
+		} else {	// (type == 14)	// peakNotch, always variable
+			G  		 = sqrt(maximum(gainA, 0.001));		// gain is in linear amplitude (not in dB) directly
+			amG		 = alpha * G;
+			adG		 = alpha / G;
+        	b0 =	 1 + amG;
+        	b1 =	-2 * cos(w0);
+        	b2 =	 1 - amG;
+        	a0 =	 1 + adG;
+        	a1 =	 b1;
+        	a2 =	 1 - adG;
+		}
+	} else if ((type >= 15) && (type <= 17)) {			// peakEQ, lowShelf, highShelf, always in dB
+		dBgain		 = gain;
+		if (gunits == 1) {
+			dBgain	 = atodb(gain);
+		}
+		if (type == 15) {			// peakEQ, always variable, (more useful than 'peakNotch')
+			A  		 = pow(10, (dBgain / 40));			// gain is in dB directly
+			amA		 = alpha * A;
+			adA		 = alpha / A;
+        	b0 =	 1 + amA;
+        	b1 =	-2 * cos(w0);
+        	b2 =	 1 - amA;
+        	a0 =	 1 + adA;
+        	a1 =	 b1;
+        	a2 =	 1 - adA;
+        	// !! COOKBOOK:
+/*		} else if (type == 16) {	// lowShelf, always variable
+			A  		 = pow(10, (dBgain / 40));			// gain is in dB directly
+			c0		 = cos(w0);
+			sA		 = sqrt(A) * alpha;
+			Am1		 = A - 1;
+			Ap1		 = A + 1;
+			b0 =	 A * (Ap1 - Am1 * c0 + 2 * sA);
+        	b1 =	 2 * A * (Am1 - Ap1 * c0);
+        	b2 =	 A * (Ap1 - Am1 * c0 - 2 * sA);
+        	a0 =	 Ap1 + Am1 * c0 + 2 * sA;
+        	a1 =	-2 * (Am1 + Ap1 * c0);
+        	a2 =	 Ap1 + Am1 * c0 - 2 * sA;
+        	// !! COOKBOOK:
+		} else {	// (type == 17)	// highShelf, always variable
+			A  		 = pow(10, (dBgain / 40));			// gain is in dB directly
+			c0		 = cos(w0);
+			sA		 = sqrt(A) * alpha;
+			Am1		 = A - 1;
+			Ap1		 = A + 1;
+			b0 =	 A * (Ap1 + Am1 * c0 + 2 * sA);
+			b1 =	-2 * A * (Am1 + Ap1 * c0);
+			b2 =	 A * (Ap1 + Am1 * c0 - 2 * sA);
+			a0 =	 Ap1 - Am1 * c0 + 2 * sA;
+			a1 =	 2 * (Am1 - Ap1 * c0);
+			a2 =	 Ap1 - Am1 * c0 - 2 * sA;
+			// !! MSP:
+*/		} else if (type == 16) {	// lowShelf, always variable
+			A  		 = pow(10, (dBgain / 40));			// gain is in dB directly
+			Am1		 = A - 1;
+			Ap1		 = A + 1;
+			alphashelf = (A * A + 1) / Q - Am1 * Am1;
+			sA		 = sin(w0) * ((alphashelf < 0) ? 0 : sqrt(alphashelf));
+			c0		 = cos(w0);
+			b0 =	 A * (Ap1 - Am1 * c0 + sA);
+        	b1 =	 2 * A * (Am1 - Ap1 * c0);
+        	b2 =	 A * (Ap1 - Am1 * c0 - sA);
+        	a0 =	 Ap1 + Am1 * c0 + sA;
+        	a1 =	-2 * (Am1 + Ap1 * c0);
+        	a2 =	 Ap1 + Am1 * c0 - sA;
+        	// !! MSP:
+		} else {	// (type == 17)	// highShelf, always variable
+			A  		 = pow(10, (dBgain / 40));			// gain is in dB directly
+			Am1		 = A - 1;
+			Ap1		 = A + 1;
+			alphashelf = (A * A + 1) / Q - Am1 * Am1;
+			sA		 = sin(w0) * ((alphashelf < 0) ? 0 : sqrt(alphashelf));
+			c0		 = cos(w0);
+			b0 =	 A * (Ap1 + Am1 * c0 + sA);
+			b1 =	-2 * A * (Am1 + Ap1 * c0);
+			b2 =	 A * (Ap1 + Am1 * c0 - sA);
+			a0 =	 Ap1 - Am1 * c0 + sA;
+			a1 =	 2 * (Am1 - Ap1 * c0);
+			a2 =	 Ap1 - Am1 * c0 - sA;
+		}
+	} else {						// zero (-1)		// initial state, zero biquad, (like [filtercoeff~])
+		a0, b0				= 1;
+		b1, b2, a1, a2		= 0;
+	}
+
+	// convert rbj coeffs (b0, b1, b2, a0, a1, a2) to FF0, FF1, FF2, FB1, FB2 (a0, a1, a2, b1, b2)
+	a0m		=	1 / a0;
+	return (b0 * a0m), (b1 * a0m), (b2 * a0m), (a1 * a0m), (a2 * a0m);	// a0, a1, a2, b1, b2
+}
+
+
+//	//	//	coefficients - dodge/jerse butterworths ish
+
+/*
+'buttercoeff()' "type" (available filter types):		// integer to choose filter type
+// fixed unity gain:
+0		= butterworth lowpass
+1		= butterworth highpass
+2		= butterworth bandpass							// actually technically a 'multiple-feedback bandpass'	*
+3		= butterworth bandreject						// actually technically a 'multiple-feedback notch'		*
+// variable gain input:
+4		= butterworth lowpass
+5		= butterworth highpass
+6		= butterworth bandpass							// actually technically a 'multiple-feedback bandpass'	*
+7		= butterworth bandreject						// actually technically a 'multiple-feedback notch'		*
+// * for 'flattop' band- pass & reject (like [filterdesign]), cascade highpass / lowpass & do some extra maths :-)
+*/
+
+// a bit like 'biquadcoeff()' (MSP [filtercoeff~]), but for butterworth filter types
+// q for band- pass & reject width, 'funits' is cutoff mode, 'gunits' is gain mode, 'type' switches filter
+buttercoeff(cf, gain, q, funits, gunits, type)
+{
+	// init
+	b0				= 1;
+	b1, b2, a1, a2	= 0;
+	// common
+	cf		= fcClip(cf, funits);
+	cfdiv	= cf / samplerate;
+
+	// switch filters
+	if (type == 0) {									// lowpass, fixed
+		cdiv	= 1 / tan_14(pi * cfdiv);
+		cdiv2	= cdiv * cdiv;		
+		sc		= sqrt2 * cdiv;		// separate (sc + cdiv2) !
+		b0	= 1 / (1 + sc + cdiv2);	// 
+		b1	= b0 * 2;
+		b2	= b0;
+		a1	= 2 * b0 * (1 - cdiv2);
+		a2	= b0 * (1 - sc + cdiv2);// 
+	} else if (type == 1) {								// highpass, fixed
+		c		= tan_14(pi * cfdiv);
+		c2		= c * c;
+		sc		= sqrt2 * c;		// separate (sc + c2) !
+		b0	= 1 / (1 + sc + c2);	// 
+		b1	= b0 * -2;
+		b2	= b0;
+		a1	= 2 * b0 * (c2 - 1);
+		a2	= b0 * (1 - sc + c2);	// 
+	} else if (type == 2) {								// bandpass, fixed
+		q		= maximum(q, 1);
+		bw		= cf / q;
+		bwdiv	= bw / samplerate;
+		w		= 2 * cos_73(twopi * cfdiv);
+		tdiv	= 1 / (tan_14(pi * bwdiv));
+		b0	=  1 / (1 + tdiv);
+		b1	=  0;
+		b2	=  b0 * -1;
+		a1	= -1 * w * b0 * tdiv;
+		a2	=  b0 * (tdiv - 1);
+	} else if (type == 3) {								// bandreject, fixed
+		q		= maximum(q, 1);
+		bw		= cf / q;
+		bwdiv	= bw / samplerate;
+		w		= 2 * cos_73(twopi * cfdiv);
+		t		= tan_14(pi * bwdiv);
+		b0	= 1 / (1 + t);
+		b1	= w * (b0 * -1);
+		b2	= b0;
+		a1	= b1;
+		a2	= b0 * (1 - t);
+	} else if ((type >= 4) && (type <= 7)) {
+		gainA		 = gain;
+		if (gunits == 2) {
+			gainA	 = dbtoaApprox(gain);
+		}
+		if (type == 4) {								// lowpass, variable
+			cdiv	= 1 / tan_14(pi * cfdiv);
+			cdiv2	= cdiv * cdiv;		
+			sc		= sqrt2 * cdiv;
+			b0	= 1 / (1 + sc + cdiv2);
+			a1	= 2 * b0 * (1 - cdiv2);
+			a2	= b0 * (1 - sc + cdiv2);
+			b0  = b0 * gainA;
+			b1	= b0 * 2;
+			b2	= b0;
+		} else if (type == 5) {							// highpass, variable
+			c		= tan_14(pi * cfdiv);
+			c2		= c * c;
+			sc		= sqrt2 * c;
+			b0	= 1 / (1 + sc + c2);
+			a1	= 2 * b0 * (c2 - 1);
+			a2	= b0 * (1 - sc + c2);
+			b0  = b0 * gainA;
+			b1	= b0 * -2;
+			b2	= b0;
+		} else if (type == 6) {							// bandpass, variable
+			q		= maximum(q, 1);
+			bw		= cf / q;
+			bwdiv	= bw / samplerate;
+			w		= 2 * cos_73(twopi * cfdiv);
+			tdiv	= 1 / (tan_14(pi * bwdiv));
+			b0	=  1 / (1 + tdiv);
+			b1	=  0;
+			a1	= -1 * w * b0 * tdiv;
+			a2	=  b0 * (tdiv - 1);
+			b0  =  b0 * gainA;
+			b2	=  b0 * -1;
+		} else {	// (type == 7)						// bandreject, variable
+			q		= maximum(q, 1);
+			bw		= cf / q;
+			bwdiv	= bw / samplerate;
+			w		= 2 * cos_73(twopi * cfdiv);
+			t		= tan_14(pi * bwdiv);
+			b0	= 1 / (1 + t);
+			b1	= w * (b0 * -1);
+			a1	= b1;
+			a2	= b0 * (1 - t);
+			b0  = b0 * gainA;
+			b1  = b1 * gainA;
+			b2	= b0;
+		}
+	} else {						// zero				// initial state, zero biquad, (like [filtercoeff~])
+		b0				= 1;
+		b1, b2, a1, a2	= 0;
+	}
+
+	// return dodge/jerse coeffs (b0, b1, b2, a1, a2) as FF0, FF1, FF2, FB1, FB2
+	return b0, b1, b2, a1, a2;		// a0, a1, a2, b1, b2
+}
+
+
+//	//	//	no approximations version of 'buttercoeff()', if that is your thang, just add "FULL"
+
+// a bit like 'biquadcoeff()' (MSP [filtercoeff~]), but for butterworth filter types
+// q for band- pass & reject width, 'funits' is cutoff mode, 'gunits' is gain mode, 'type' switches filter
+buttercoeffFULL(cf, gain, q, funits, gunits, type)
+{
+	// init
+	b0				= 1;
+	b1, b2, a1, a2	= 0;
+	// common
+	cf		= fcClipFULL(cf, funits);
+	cfdiv	= cf / samplerate;
+
+	// switch filters
+	if (type == 0) {									// lowpass, fixed
+		cdiv	= 1 / tan(pi * cfdiv);
+		cdiv2	= cdiv * cdiv;		
+		sc		= sqrt2 * cdiv;		// separate (sc + cdiv2) !
+		b0	= 1 / (1 + sc + cdiv2);	// 
+		b1	= b0 * 2;
+		b2	= b0;
+		a1	= 2 * b0 * (1 - cdiv2);
+		a2	= b0 * (1 - sc + cdiv2);// 
+	} else if (type == 1) {								// highpass, fixed
+		c		= tan(pi * cfdiv);
+		c2		= c * c;
+		sc		= sqrt2 * c;		// separate (sc + c2) !
+		b0	= 1 / (1 + sc + c2);	// 
+		b1	= b0 * -2;
+		b2	= b0;
+		a1	= 2 * b0 * (c2 - 1);
+		a2	= b0 * (1 - sc + c2);	// 
+	} else if (type == 2) {								// bandpass, fixed
+		q		= maximum(q, 1);
+		bw		= cf / q;
+		bwdiv	= bw / samplerate;
+		w		= 2 * cos(twopi * cfdiv);
+		tdiv	= 1 / (tan(pi * bwdiv));
+		b0	=  1 / (1 + tdiv);
+		b1	=  0;
+		b2	=  b0 * -1;
+		a1	= -1 * w * b0 * tdiv;
+		a2	=  b0 * (tdiv - 1);
+	} else if (type == 3) {								// bandreject, fixed
+		q		= maximum(q, 1);
+		bw		= cf / q;
+		bwdiv	= bw / samplerate;
+		w		= 2 * cos(twopi * cfdiv);
+		t		= tan(pi * bwdiv);
+		b0	= 1 / (1 + t);
+		b1	= w * (b0 * -1);
+		b2	= b0;
+		a1	= b1;
+		a2	= b0 * (1 - t);
+	} else if ((type >= 4) && (type <= 7)) {
+		gainA		 = gain;
+		if (gunits == 2) {
+			gainA	 = dbtoa(gain);
+		}
+		if (type == 4) {								// lowpass, variable
+			cdiv	= 1 / tan(pi * cfdiv);
+			cdiv2	= cdiv * cdiv;		
+			sc		= sqrt2 * cdiv;
+			b0	= 1 / (1 + sc + cdiv2);
+			a1	= 2 * b0 * (1 - cdiv2);
+			a2	= b0 * (1 - sc + cdiv2);
+			b0  = b0 * gainA;
+			b1	= b0 * 2;
+			b2	= b0;
+		} else if (type == 5) {							// highpass, variable
+			c		= tan(pi * cfdiv);
+			c2		= c * c;
+			sc		= sqrt2 * c;
+			b0	= 1 / (1 + sc + c2);
+			a1	= 2 * b0 * (c2 - 1);
+			a2	= b0 * (1 - sc + c2);
+			b0  = b0 * gainA;
+			b1	= b0 * -2;
+			b2	= b0;
+		} else if (type == 6) {							// bandpass, variable
+			q		= maximum(q, 1);
+			bw		= cf / q;
+			bwdiv	= bw / samplerate;
+			w		= 2 * cos(twopi * cfdiv);
+			tdiv	= 1 / (tan(pi * bwdiv));
+			b0	=  1 / (1 + tdiv);
+			b1	=  0;
+			a1	= -1 * w * b0 * tdiv;
+			a2	=  b0 * (tdiv - 1);
+			b0  =  b0 * gainA;
+			b2	=  b0 * -1;
+		} else {	// (type == 7)						// bandreject, variable
+			q		= maximum(q, 1);
+			bw		= cf / q;
+			bwdiv	= bw / samplerate;
+			w		= 2 * cos(twopi * cfdiv);
+			t		= tan(pi * bwdiv);
+			b0	= 1 / (1 + t);
+			b1	= w * (b0 * -1);
+			a1	= b1;
+			a2	= b0 * (1 - t);
+			b0  = b0 * gainA;
+			b1  = b1 * gainA;
+			b2	= b0;
+		}
+	} else {						// zero				// initial state, zero biquad, (like [filtercoeff~])
+		b0				= 1;
+		b1, b2, a1, a2	= 0;
+	}
+
+	// return dodge/jerse coeffs (b0, b1, b2, a1, a2) as FF0, FF1, FF2, FB1, FB2
+	return b0, b1, b2, a1, a2;		// a0, a1, a2, b1, b2
+}
+
+
+//	//	//	special 'eq' / 'damping' coefficients only (for low/high shelving, or simple 2/3 bands eq's, etc)
+
+// just passes, shelves and peak from 'biquadcoeff()'
+eqcoeff(f0, gain, Q, funits, gunits, type)
+{
+	// init
+	a0, b0			= 1;
+	b1, b2, a1, a2	= 0;
+	// common
+	f0			= fcClip(f0, funits);
+	Q			= maximum(Q, 0.001);
+	w0 			= twopi * f0 / samplerate;				// omega0
+	alpha 		= sin_73(w0) / (2 * Q);					// r0
+	gainA		= gain;
+	if (gunits == 2) {
+		gainA	 = dbtoaApprox(gain);
+	}
+
+	// switch filters
+	if (type == 0) {				// LPF, variable gain
+		c0		 = cos_73(w0);
+		b1 =	 1 - c0;
+		b0 =	 b1 / 2;
+		b0 =	 b0 * gainA;
+		b1 =	 b1 * gainA;
+		b2 =	 b0;
+		a0 =	 1 + alpha;
+		a1 =	-2 * c0;
+		a2 =	 1 - alpha;
+	} else if (type == 1) {			// HPF, variable gain
+		c0		 = cos_73(w0);
+		b0 =	(1 + c0) / 2;
+		b0 =	 b0 * gainA;
+		b1 =	-1 - c0;
+		b1 =	 b1 * gainA;
+		b2 =	 b0;
+		a0 =	 1 + alpha;
+		a1 =	-2 * c0;
+		a2 =	 1 - alpha;	
+	} else if ((type >= 2) && (type <= 4)) {			// peakEQ, lowShelf, highShelf, always in dB
+		dBgain		 = gain;
+		if (gunits == 1) {
+			dBgain	 = atodb(gain);
+		}												// gain is in dB directly, offset for accuracy
+		A  		 	 = fastpow(10, (dBgain * 0.025)) + 0.028652;
+		if (type == 2) {			// peakEQ, variable gain
+			amA		 = alpha * A;
+			adA		 = alpha / A;
+        	b0 =	 1 + amA;
+        	b1 =	-2 * cos_73(w0);
+        	b2 =	 1 - amA;
+        	a0 =	 1 + adA;
+        	a1 =	 b1;
+        	a2 =	 1 - adA;
+		} else if (type == 3) {		// lowShelf, variable gain
+			c0		 = cos_73(w0);
+			sA		 = sqrt(A) * alpha;
+			Am1		 = A - 1;
+			Ap1		 = A + 1;
+			b0 =	 A * (Ap1 - Am1 * c0 + 2 * sA);
+        	b1 =	 2 * A * (Am1 - Ap1 * c0);
+        	b2 =	 A * (Ap1 - Am1 * c0 - 2 * sA);
+        	a0 =	 Ap1 + Am1 * c0 + 2 * sA;
+        	a1 =	-2 * (Am1 + Ap1 * c0);
+        	a2 =	 Ap1 + Am1 * c0 - 2 * sA;
+		} else {	// (type == 4)	// highShelf, variable gain
+			c0		 = cos_73(w0);
+			sA		 = sqrt(A) * alpha;
+			Am1		 = A - 1;
+			Ap1		 = A + 1;
+			b0 =	 A * (Ap1 + Am1 * c0 + 2 * sA);
+			b1 =	-2 * A * (Am1 + Ap1 * c0);			// b1 has minor inaccuracy
+			b2 =	 A * (Ap1 + Am1 * c0 - 2 * sA);
+			a0 =	 Ap1 - Am1 * c0 + 2 * sA;
+			a1 =	 2 * (Am1 - Ap1 * c0);
+			a2 =	 Ap1 - Am1 * c0 - 2 * sA;
+		}
+	} else {		// (-1)			// zero				// initial state, zero biquad, (like [filtercoeff~])
+		a0, b0				= 1;
+		b1, b2, a1, a2		= 0;
+	}
+
+	// convert rbj coeffs (b0, b1, b2, a0, a1, a2) to FF0, FF1, FF2, FB1, FB2 (a0, a1, a2, b1, b2)
+	a0m		=	1 / a0;
+	return (b0 * a0m), (b1 * a0m), (b2 * a0m), (a1 * a0m), (a2 * a0m);	// a0, a1, a2, b1, b2
+}
+
+
+//	//	//	special allpass coefficients only (for building evieve digital phaser cascade)
+
+// R == 1 = Reaktor-ish, R == 0 = MSP-ish
+// (see 'allpassBiquadDf2cascade()' above)
+allpasscoeff(F, Q, R=0)	// 'F' = Hz / 'Q' = special scale depending on 'R' / 'R' = resonance style flag 0/1 (param)
+{
+	// setup
+	f0		= fcClip(F);
+	omega 	= twopi * f0 / samplerate;
+	alpha	= sin_73(omega);
+	alpha	= R ? alpha * (1 - Q) : alpha / (2 * Q);	// must scale 'Q' externally in correct manner for each 'res style'
+
+	// allpass
+	b0		=	 1 - alpha;
+	b1		=	-2 * cos_73(omega);
+	b2		=	 1 + alpha;
+
+	// convert to FF0, FF1, FF2
+	a0m		=	 1 / b2;
+	return (b0 * a0m), (b1 * a0m), (b2 * a0m);			// (a0, a1, a2)
+}
+

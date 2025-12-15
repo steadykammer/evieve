@@ -1,0 +1,189 @@
+{
+    "patcher": {
+        "fileversion": 1,
+        "appversion": {
+            "major": 9,
+            "minor": 1,
+            "revision": 1,
+            "architecture": "x64",
+            "modernui": 1
+        },
+        "classnamespace": "dsp.gen",
+        "rect": [ 49.0, 100.0, 911.0, 848.0 ],
+        "gridonopen": 2,
+        "subpatcher_template": "sub",
+        "integercoordinates": 1,
+        "boxes": [
+            {
+                "box": {
+                    "id": "obj-9",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 802.0, 811.0, 85.0, 22.0 ],
+                    "text": "out 5 b2 (FB2)"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-8",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 614.0, 811.0, 85.0, 22.0 ],
+                    "text": "out 4 b1 (FB1)"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-7",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 426.0, 811.0, 85.0, 22.0 ],
+                    "text": "out 3 a2 (FF2)"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-6",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 238.0, 811.0, 85.0, 22.0 ],
+                    "text": "out 2 a1 (FF1)"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-5",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 649.0, 19.0, 239.0, 22.0 ],
+                    "text": "in 3 (signal/float) Q or S @default 0.707107"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-1",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 50.0, 19.0, 267.0, 22.0 ],
+                    "text": "in 1 (signal/float) Cutoff or Center @default 1000"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-2",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 426.0, 19.0, 187.0, 22.0 ],
+                    "text": "in 2 (signal/float) Gain @default 0"
+                }
+            },
+            {
+                "box": {
+                    "code": "\r\n// evieve Biquad Coefficients Calculators\r\n\r\nrequire(\"evi_biquad.genexpr\");\r\n\r\n// eviBiquadCoeff(index, cutoff, gain, Q)\n/*\n    index   calculator                              \tparameters\n    0       bypass                                  \tnone\n\t1\t\teviBiquadCoeffLowpass \t\t\t\t\t\tcutoff, Q\n\t2\t\teviBiquadCoeffHighpass \t\t\t\t\t\tcutoff, Q\n\t3\t\teviBiquadCoeffBandpass \t\t\t\t\t\tcutoff, Q\n\t4\t\teviBiquadCoeffNotch \t\t\t\t\t\tcutoff, Q\n\t5\t\teviBiquadCoeffPeakNotch \t\t\t\t\tcutoff, gain, Q\n\t6\t\teviBiquadCoeffLowShelf \t\t\t\t\t\tcutoff, gain, Q\n\t7\t\teviBiquadCoeffLowShelfCookbook \t\t\t\tcutoff, gain, Q\n\t8\t\teviBiquadCoeffHighShelf \t\t\t\t\tcutoff, gain, Q\n\t9\t\teviBiquadCoeffHighShelfCookbook \t\t\tcutoff, gain, Q\n\t10\t\teviBiquadCoeffReson \t\t\t\t\t\tcutoff, Q\n\t11\t\teviBiquadCoeffBp \t\t\t\t\t\t\tcutoff, Q\n\t12\t\teviBiquadCoeffAllpass \t\t\t\t\t\tcutoff, Q\n\t13\t\teviBiquadCoeffLowpassGain \t\t\t\t\tcutoff, gain, Q\n\t14\t\teviBiquadCoeffHighpassGain \t\t\t\t\tcutoff, gain, Q\n\t15\t\teviBiquadCoeffBandpassGain \t\t\t\t\tcutoff, gain, Q\n\t16\t\teviBiquadCoeffNotchGain \t\t\t\t\tcutoff, gain, Q\n\t17\t\teviBiquadCoeffResonGain \t\t\t\t\tcutoff, gain, Q\n\t18\t\teviBiquadCoeffBpGain \t\t\t\t\t\tcutoff, gain, Q\n\t19\t\teviBiquadCoeffAllpassGain \t\t\t\t\tcutoff, gain, Q\n\t20\t\teviBiquadCoeffLowpassAnalog \t\t\t\tcutoff, Q\n\t21\t\teviBiquadCoeffBandpassAnalog \t\t\t\tcutoff, Q\n\t22\t\teviBiquadCoeffBandpassGainAnalog \t\t\tcutoff, gain, Q\n\t23\t\teviBiquadCoeffPeakNotchAnalog \t\t\t\tcutoff, gain, Q\n\t24\t\teviBiquadCoeffLowShelfAnalog \t\t\t\tcutoff, gain\n\t25\t\teviBiquadCoeffHighShelfAnalog \t\t\t\tcutoff, gain\n\t26\t\teviBiquadCoeffButterworthLowpass \t\t\tcutoff\n\t27\t\teviBiquadCoeffButterworthHighpass \t\t\tcutoff\n\t28\t\teviBiquadCoeffButterworthBandpass \t\t\tcutoff, Q\n\t29\t\teviBiquadCoeffButterworthBandreject \t\tcutoff, Q\n\t30\t\teviBiquadCoeffButterworthLowpassGain \t\tcutoff, gain\n\t31\t\teviBiquadCoeffButterworthHighpassGain \t\tcutoff, gain\n\t32\t\teviBiquadCoeffButterworthBandpassGain \t\tcutoff, gain, Q\n\t33\t\teviBiquadCoeffButterworthBandrejectGain \tcutoff, gain, Q\n*/\n\nParam   cutoffunits(0, min=0, max=1);   // 0 = in Hz (default), 1 = in Pitch\r\nParam   gainunits(1, min=0, max=1);     // 0 = linear gain, 1 = gain in dB (default)\r\nParam   filter(0, min=0, max=33);\r\nfilt    = int(filter);\r\ngunits  = int(gainunits);\r\ncfunits = int(cutoffunits);\r\n\r\nQ       = maximum(in3, 0.1);            // standard biquad clipping\r\n\r\ngain    = 1;\r\nif (gunits) {\r\n    gain    = dbtoa(in2);\r\n} else {\r\n    gain    = in2;\r\n}\r\n//gain  = clip(gain, 0.0625, 16);       // like [filtergraph~] ±24dB\r\n\r\ncutoff  = 1000;\r\nif (cfunits) {\r\n    cutoff  = mtof(in1);\r\n} else {\r\n    cutoff  = in1;\r\n}\r\ncutoff  = maximum(cutoff, 1);\r\n\r\nout1, out2, out3, out4, out5    = eviBiquadCoeff(filt, cutoff, gain, Q);\r\n\r\n",
+                    "fontface": 0,
+                    "fontname": "<Monospaced>",
+                    "fontsize": 12.0,
+                    "id": "obj-3",
+                    "maxclass": "codebox",
+                    "numinlets": 3,
+                    "numoutlets": 5,
+                    "outlettype": [ "", "", "", "", "" ],
+                    "patching_rect": [ 50.0, 58.0, 771.0, 736.0 ]
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-4",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 50.0, 811.0, 85.0, 22.0 ],
+                    "text": "out 1 a0 (FF0)"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-12",
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 252.0, 39.0, 67.0, 20.0 ],
+                    "text": "default Hz",
+                    "textjustification": 2
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-11",
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 548.0, 39.0, 67.0, 20.0 ],
+                    "text": "default dB",
+                    "textjustification": 2
+                }
+            }
+        ],
+        "lines": [
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 0 ],
+                    "source": [ "obj-1", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 1 ],
+                    "source": [ "obj-2", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-4", 0 ],
+                    "source": [ "obj-3", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-6", 0 ],
+                    "source": [ "obj-3", 1 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-7", 0 ],
+                    "source": [ "obj-3", 2 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-8", 0 ],
+                    "source": [ "obj-3", 3 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-9", 0 ],
+                    "source": [ "obj-3", 4 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 2 ],
+                    "midpoints": [ 658.5, 49.5, 811.5, 49.5 ],
+                    "source": [ "obj-5", 0 ]
+                }
+            }
+        ]
+    }
+}

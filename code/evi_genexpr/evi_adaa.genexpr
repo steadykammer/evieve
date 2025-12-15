@@ -1,0 +1,1428 @@
+
+// i spent a long time doing antiderivative anti aliasing techniques based on the ubiquitous literature / code:
+// TODO: efflam, parker et al, holters, vicanek, chowdry <<-- must link
+// TODO: the vicanek pre/post filter idea in the kernel?
+// TODO: investigate stefan's 3rd order?
+
+// ...but i did not find it easy until encountering Takamitsu Endo's overview of all of the above.
+// @see: https://github.com/ryukau/filter_notes/tree/master/antiderivative_antialiasing
+// Thanks so much Takamitsu for all your work. Endo does not have a license for the antiderivatives part of his repo. Here we use the standard evieve license for the evieve bits.
+
+// pete says: if you are interested in the topic, look at the references above, not the code below.
+
+
+require("evi_utilities.genexpr"); // includes "evi_approx.genexpr"
+
+
+// antiderivatives, f(x) (F0), 1st order (F1), 2nd order (F2)
+
+
+// 
+
+hardclipF0(x)
+{
+  return clamp(x, -1, 1);
+}
+
+hardclipF1(x)
+{
+  z = abs(x);
+  if (z < 1) {
+    return x * x * 0.5;
+  } else {
+    return z - 0.5;
+  }
+}
+
+hardclipF2(x)
+{
+  ods = 0.166666666666667;
+  if (abs(x) < 1) {
+    return x * x * x * ods;
+  } else {
+    x05 = x * 0.5;
+    xt6 = x * x05 + ods;
+    return eviCopysign(xt6, x) - x05;
+  }
+}
+
+hardclipAdaa1(x0)
+{
+  History x1(0), s1(0);
+  eps = 0.000001;  // TODO, work out precision
+
+  y1 = 0;
+  d0 = x0 - x1;
+  s0 = hardclipF1(x0);    // func1
+  if ((x1 == 0 && s1 == 0) || (abs(d0) < eps)) {  // ill condition
+    y1 = hardclipF0(0.5 * (x0 + x1)); // func0
+  } else {
+    y1 = (s0 - s1) / d0;
+  }
+
+  s1 = s0;
+  x1 = x0;
+  return y1;
+}
+
+hardclipAdaa2(x0)
+{
+  History x1(0), x2(0), s1(0);
+  eps = 0.000001;  // TODO, work out precision
+
+  s0 = x0;//0;
+  d0 = x0 - x1;
+  f2_x1 = hardclipF2(x1); // func2
+  if (abs(d0) < eps) {  // ill condition
+    s0 = hardclipF1(0.5 * (x0 + x1)); // func1
+  } else {
+    s0 = (hardclipF2(x0) - f2_x1) / d0; // func2
+  }
+
+  y1 = x0;//0;
+  d1 = x0 - x2;
+  if (x1 == 0 && x2 == 0) { // ill condition
+    y1 = hardclipF0(x0 + (x1 + x1) + x2) * 0.25; // func0
+  } else if (abs(d1) < eps) { // ill condition
+    x_bar = 0.5 * (x0 + x2);
+    x_delta = x_bar - x1;
+    if (x_delta < eps) {  // ill condition
+      y1 = hardclipF0((x_bar + x1) * 0.5);  // func0
+    } else {
+      y1 = (2 / x_delta) * (hardclipF1(x_bar) + (f2_x1 - hardclipF2(x_bar)) / x_delta); // func1, func2
+    }
+  } else {
+    s0s1 = s0 - s1;
+    y1 = (s0s1 + s0s1) / d1;
+  }
+
+  s1 = s0;
+  x2 = x1;
+  x1 = x0;
+  return y1;
+}
+
+
+// 
+
+halfrectF0(x)
+{
+  return x < 0 ? 0 : x;
+}
+
+halfrectF1(x)
+{
+  return x < 0 ? 0 : x * x * 0.5;
+}
+
+halfrectF2(x)
+{
+  return x < 0 ? 0 : x * x * x * 0.166666666666667;
+}
+
+halfrectAdaa1(x0)
+{
+  History x1(0), s1(0);
+  eps = 0.000001;  // TODO, work out precision
+
+  y1 = 0;
+  d0 = x0 - x1;
+  s0 = halfrectF1(x0);    // func1
+  if ((x1 == 0 && s1 == 0) || (abs(d0) < eps)) {  // ill condition
+    y1 = halfrectF0(0.5 * (x0 + x1)); // func0
+  } else {
+    y1 = (s0 - s1) / d0;
+  }
+
+  s1 = s0;
+  x1 = x0;
+  return dcblock(y1); // debatable dc
+}
+
+halfrectAdaa2(x0)
+{
+  History x1(0), x2(0), s1(0);
+  eps = 0.000001;  // TODO, work out precision
+
+  s0 = x0;//0;
+  d0 = x0 - x1;
+  f2_x1 = halfrectF2(x1); // func2
+  if (abs(d0) < eps) {  // ill condition
+    s0 = halfrectF1(0.5 * (x0 + x1)); // func1
+  } else {
+    s0 = (halfrectF2(x0) - f2_x1) / d0; // func2
+  }
+
+  y1 = x0;//0;
+  d1 = x0 - x2;
+  if (x1 == 0 && x2 == 0) { // ill condition
+    y1 = halfrectF0(x0 + (x1 + x1) + x2) * 0.25; // func0
+  } else if (abs(d1) < eps) { // ill condition
+    x_bar = 0.5 * (x0 + x2);
+    x_delta = x_bar - x1;
+    if (x_delta < eps) {  // ill condition
+      y1 = halfrectF0((x_bar + x1) * 0.5);  // func0
+    } else {
+      y1 = (2 / x_delta) * (halfrectF1(x_bar) + (f2_x1 - halfrectF2(x_bar)) / x_delta); // func1, func2
+    }
+  } else {
+    s0s1 = s0 - s1;
+    y1 = (s0s1 + s0s1) / d1;
+  }
+
+  s1 = s0;
+  x2 = x1;
+  x1 = x0;
+  return dcblock(y1); // debatable dc
+}
+
+
+// 
+
+powerF0(x, beta=2.345)
+{
+  pab = pow(abs(x), beta);
+  return eviCopysign(pab, x);
+}
+
+powerF1(x, beta=2.345)
+{
+  // must be beta > 0
+  b1 = beta + 1;
+  return pow(abs(x), b1) / b1;
+}
+
+powerF2(x, beta=2.345)
+{
+  // must be beta > 0
+  b1 = beta + 1;
+  b2 = beta + 2;
+  output = pow(abs(x), b2) / (b1 * b2);
+
+  return eviCopysign(output, x);
+}
+
+// TODO: beta
+
+powerAdaa1(x0)
+{
+  History x1(0), s1(0);
+  eps = 0.000001;  // TODO, work out precision
+
+  y1 = 0;
+  d0 = x0 - x1;
+  s0 = powerF1(x0);    // func1
+  if ((x1 == 0 && s1 == 0) || (abs(d0) < eps)) {  // ill condition
+    y1 = powerF0(0.5 * (x0 + x1)); // func0
+  } else {
+    y1 = (s0 - s1) / d0;
+  }
+
+  s1 = s0;
+  x1 = x0;
+  return y1;
+}
+
+powerAdaa2(x0)
+{
+  History x1(0), x2(0), s1(0);
+  eps = 0.000001;  // TODO, work out precision
+
+  s0 = x0;//0;
+  d0 = x0 - x1;
+  f2_x1 = powerF2(x1); // func2
+  if (abs(d0) < eps) {  // ill condition
+    s0 = powerF1(0.5 * (x0 + x1)); // func1
+  } else {
+    s0 = (powerF2(x0) - f2_x1) / d0; // func2
+  }
+
+  y1 = x0;//0;
+  d1 = x0 - x2;
+  if (x1 == 0 && x2 == 0) { // ill condition
+    y1 = powerF0(x0 + (x1 + x1) + x2) * 0.25; // func0
+  } else if (abs(d1) < eps) { // ill condition
+    x_bar = 0.5 * (x0 + x2);
+    x_delta = x_bar - x1;
+    if (x_delta < eps) {  // ill condition
+      y1 = powerF0((x_bar + x1) * 0.5);  // func0
+    } else {
+      y1 = (2 / x_delta) * (powerF1(x_bar) + (f2_x1 - powerF2(x_bar)) / x_delta); // func1, func2
+    }
+  } else {
+    s0s1 = s0 - s1;
+    y1 = (s0s1 + s0s1) / d1;
+  }
+
+  s1 = s0;
+  x2 = x1;
+  x1 = x0;
+  return y1;
+}
+
+
+// softclip2 is an original Takamitsu Endo idea
+
+// softclip2 works mostly the same as hard-cliping. However, there's
+// a 2nd order (quadratic) region near threshold.
+//
+// - `h`: threshold of clipping.
+// - `ratio`: the ratio between linear region and quadratic curve region.
+//    0 is fully linear, 1 is fully quadratic.
+softclip2F0(x, h=1, ratio=0.5)
+{
+  z = abs(x);
+
+  a1 = h * ratio;
+  if (z <= a1)
+    return x;
+
+  a2 = (h + h) - a1;
+  if (z >= a2) {
+    return eviCopysign(h, x);
+  }
+
+  C1 = a2 - z;
+  hct = h + C1 * C1 / (a1 - h) * 0.25;
+  return eviCopysign(hct, x);
+}
+
+softclip2F1(x, h=1, ratio=0.5)
+{
+  z = abs(x);
+
+  a1 = h * ratio;
+  if (z <= a1)
+    return z * z * 0.5;
+
+  a2 = (h + h) - a1;
+  ha12 = (h - a1) * 0.083333333333333;
+  ahz = a1 * (a1 * 0.5 - h) + h * z;
+  C0 = a1 - a2;
+  if (z >= a2)
+    return ahz + C0 * C0 * C0 / ha12;
+
+  C1 = z - a2;
+  return ahz + (C0 * C0 * C0 - C1 * C1 * C1) / ha12;
+}
+
+softclip2F2(x, h=1, ratio=0.5)
+{
+  ods = 0.166666666666667;
+  z = abs(x);
+
+  a1 = h * ratio;
+  if (z <= a1)
+    return x * x * x * ods;
+
+  a2 = (h + h) - a1;
+  C0 = a1 - a2;
+  C1 = z - a1;
+  z3 = z + z + z;
+  z4 = z + z + z + z;//z3 + z;
+  a13 = a1 + a1 + a1;
+  h05 = h * 0.5;
+  h36 = a1 * a1 * (z3 - (a1 + a1)) * ods + C1 * C1;
+  h48 = (h - a1) * 0.020833333333333;
+  if (z >= a2) {
+    output = (h36 * h05 + (C0 * C0 * C0 * (z4 - a13 - a2)) / h48);
+    return eviCopysign(output, x);
+  }
+
+  a24 = a2 + a2 + a2 + a2;
+  C00 = C0 + C0;
+  C2 = z + a1;
+  output = (h36 * (h05 - (C2 * C2 + C00 * C0 - a24 * (C0 + z)) / h48));
+  return eviCopysign(output, x);
+}
+
+// TODO: h & ratio
+
+softclip2Adaa1(x0)
+{
+  History x1(0), s1(0);
+  eps = 0.000001;  // TODO, work out precision
+
+  y1 = 0;
+  d0 = x0 - x1;
+  s0 = softclip2F1(x0);    // func1
+  if ((x1 == 0 && s1 == 0) || (abs(d0) < eps)) {  // ill condition
+    y1 = softclip2F0(0.5 * (x0 + x1)); // func0
+  } else {
+    y1 = (s0 - s1) / d0;
+  }
+
+  s1 = s0;
+  x1 = x0;
+  return y1;
+}
+
+softclip2Adaa2(x0)
+{
+  History x1(0), x2(0), s1(0);
+  eps = 0.000001;  // TODO, work out precision
+
+  s0 = x0;//0;
+  d0 = x0 - x1;
+  f2_x1 = softclip2F2(x1); // func2
+  if (abs(d0) < eps) {  // ill condition
+    s0 = softclip2F1(0.5 * (x0 + x1)); // func1
+  } else {
+    s0 = (softclip2F2(x0) - f2_x1) / d0; // func2
+  }
+
+  y1 = x0;//0;
+  d1 = x0 - x2;
+  if (x1 == 0 && x2 == 0) { // ill condition
+    y1 = softclip2F0(x0 + (x1 + x1) + x2) * 0.25; // func0
+  } else if (abs(d1) < eps) { // ill condition
+    x_bar = 0.5 * (x0 + x2);
+    x_delta = x_bar - x1;
+    if (x_delta < eps) {  // ill condition
+      y1 = softclip2F0((x_bar + x1) * 0.5);  // func0
+    } else {
+      y1 = (2 / x_delta) * (softclip2F1(x_bar) + (f2_x1 - softclip2F2(x_bar)) / x_delta); // func1, func2
+    }
+  } else {
+    s0s1 = s0 - s1;
+    y1 = (s0s1 + s0s1) / d1;
+  }
+
+  s1 = s0;
+  x2 = x1;
+  x1 = x0;
+  return y1;
+}
+
+
+// softclipN is an original Takamitsu Endo idea
+
+// softclipN draws a curve that can be used as an
+// input/output response of a compressor.
+// `C` is the threshold, `R` and `beta` controls knee,
+// `1 / S` is compression ratio.
+//
+// - `C`: Clipping threshold.
+// - `R`: Ratio of polynomial region.
+// - `beta`: Order of polynomial.
+// - `S`: Slope of secondary linear region.
+softclipNF0(x0, C=1, R=0.5, beta=2, S=0.1)
+{
+  z = abs(x0);
+
+  rc = C * R;
+  if (z <= rc)
+    return x0;
+
+  xc = rc + beta * (C - rc);
+  A = (rc - C) / pow(xc - rc, beta);
+  xs = xc - pow(-S / (A * beta), 1 / (beta - 1));
+
+  output = 0;
+  if (z < xs) {
+    output = A * pow(xc - z, beta) + C;
+  } else {
+    output = A * pow(xc - xs, beta) + C + S * (z - xs);
+  }
+
+  return eviCopysign(output, x0);
+}
+
+softclipNF1(x0, C=1, R=0.5, beta=2, S=0.1)
+{
+  z = abs(x0);
+
+  rc = C * R;
+  if (z <= rc)
+    return x0 * x0 * 0.5;
+
+  xc = rc + beta * (C - rc);
+  Q0 = xc - rc;
+  A = (rc - C) / pow(Q0, beta);
+  xs = xc - pow(-S / (A * beta), 1 / (beta - 1));
+  b1 = 1 + beta;
+  Q0_pow_b1 = pow(Q0, b1);
+
+  if (z < xs) {
+    return A * (Q0_pow_b1 - pow(xc - z, b1)) / b1 + rc * rc * 0.5 + C * (z - rc);
+  } else {
+    return (A * Q0_pow_b1 / b1 + C * Q0 + S * (z * z - xc * xc) * 0.5 + rc * rc * 0.5 + (z - xc) * (A * pow(xc - xs, beta) + C - S * xs));
+  }
+}
+
+softclipNF2(x0, C=1, R=0.5, beta=2, S=0.1)
+{
+  odt = 0.333333333333333;
+  ods = 0.166666666666667;
+  z = abs(x0);
+
+  rc = C * R;
+  if (z <= rc)
+    return x0 * x0 * x0 * ods;
+
+  xc = rc + beta * (C - rc);
+  Q0 = xc - rc;
+  A = (rc - C) / pow(Q0, beta);
+  xs = xc - pow(-S / (A * beta), 1 / (beta - 1));
+  b1 = 1 + beta;
+  b2 = 2 + beta;
+
+  if (z < xs) {
+    Q1 = z - rc;
+    output = (A * ((pow(xc - z, b2) - pow(Q0, b2)) / (b1 * b2) + pow(Q0, b1) * Q1 / b1) + rc * rc * (z * 0.5 - rc * odt) + C * Q1 * Q1 * 0.5);
+    return eviCopysign(output, x0);
+  }
+
+  Q2 = xc - xs;
+  Q2_pow_beta = pow(Q2, beta);
+  output = (A * pow(Q0, b2) * (1 - 1 / b2) / b1 + C * Q0 * Q0 * 0.5 + S * (z * z * z - xc * xc * xc) * ods + rc * rc * (xc * 0.5 - rc * odt) + (z - xc) * (A * (pow(Q0, b1) / b1 - xc * Q2_pow_beta) - C * rc + S * xc * (xs - xc * 0.5) + rc * rc * 0.5 + (z + xc) * 0.5 * (A * Q2_pow_beta + C - S * xs)));
+  return eviCopysign(output, x0);
+}
+
+// TODO: C, R, beta & S
+
+softclipNAdaa1(x0)
+{
+  History x1(0), s1(0);
+  eps = 0.000001;  // TODO, work out precision
+
+  y1 = 0;
+  d0 = x0 - x1;
+  s0 = softclipNF1(x0);    // func1
+  if ((x1 == 0 && s1 == 0) || (abs(d0) < eps)) {  // ill condition
+    y1 = softclipNF0(0.5 * (x0 + x1)); // func0
+  } else {
+    y1 = (s0 - s1) / d0;
+  }
+
+  s1 = s0;
+  x1 = x0;
+  return y1;
+}
+
+softclipNAdaa2(x0)
+{
+  History x1(0), x2(0), s1(0);
+  eps = 0.000001;  // TODO, work out precision
+
+  s0 = x0;//0;
+  d0 = x0 - x1;
+  f2_x1 = softclipNF2(x1); // func2
+  if (abs(d0) < eps) {  // ill condition
+    s0 = softclipNF1(0.5 * (x0 + x1)); // func1
+  } else {
+    s0 = (softclipNF2(x0) - f2_x1) / d0; // func2
+  }
+
+  y1 = x0;//0;
+  d1 = x0 - x2;
+  if (x1 == 0 && x2 == 0) { // ill condition
+    y1 = softclipNF0(x0 + (x1 + x1) + x2) * 0.25; // func0
+  } else if (abs(d1) < eps) { // ill condition
+    x_bar = 0.5 * (x0 + x2);
+    x_delta = x_bar - x1;
+    if (x_delta < eps) {  // ill condition
+      y1 = softclipNF0((x_bar + x1) * 0.5);  // func0
+    } else {
+      y1 = (2 / x_delta) * (softclipNF1(x_bar) + (f2_x1 - softclipNF2(x_bar)) / x_delta); // func1, func2
+    }
+  } else {
+    s0s1 = s0 - s1;
+    y1 = (s0s1 + s0s1) / d1;
+  }
+
+  s1 = s0;
+  x2 = x1;
+  x1 = x0;
+  return y1;
+}
+
+
+// 
+
+atanF0(x)
+{       // 2 / PI
+  return 0.636619772367581 * atan(x);
+}
+
+atanF1(x)
+{
+  return 0.636619772367581 * (x * atan(x) - eviLog1p(x * x) * 0.5);
+}
+
+atanF2(x)
+{
+//x2 = x * x; <<-- NO !!                          // / PI
+  return (x - x * eviLog1p(x*x) + (x*x - 1) * atan(x)) * 0.3183098861837907;
+}
+
+atanAdaa1(x0)
+{
+  History x1(0), s1(0);
+  eps = 0.000001;  // TODO, work out precision
+
+  y1 = 0;
+  d0 = x0 - x1;
+  s0 = atanF1(x0);    // func1
+  if ((x1 == 0 && s1 == 0) || (abs(d0) < eps)) {  // ill condition
+    y1 = atanF0(0.5 * (x0 + x1)); // func0
+  } else {
+    y1 = (s0 - s1) / d0;
+  }
+
+  s1 = s0;
+  x1 = x0;
+  return y1;
+}
+
+atanAdaa2(x0)
+{
+  History x1(0), x2(0), s1(0);
+  eps = 0.000001;  // TODO, work out precision
+
+  s0 = x0;//0;
+  d0 = x0 - x1;
+  f2_x1 = atanF2(x1); // func2
+  if (abs(d0) < eps) {  // ill condition
+    s0 = atanF1(0.5 * (x0 + x1)); // func1
+  } else {
+    s0 = (atanF2(x0) - f2_x1) / d0; // func2
+  }
+
+  y1 = x0;//0;
+  d1 = x0 - x2;
+  if (x1 == 0 && x2 == 0) { // ill condition
+    y1 = atanF0(x0 + (x1 + x1) + x2) * 0.25; // func0
+  } else if (abs(d1) < eps) { // ill condition
+    x_bar = 0.5 * (x0 + x2);
+    x_delta = x_bar - x1;
+    if (x_delta < eps) {  // ill condition
+      y1 = atanF0((x_bar + x1) * 0.5);  // func0
+    } else {
+      y1 = (2 / x_delta) * (atanF1(x_bar) + (f2_x1 - atanF2(x_bar)) / x_delta); // func1, func2
+    }
+  } else {
+    s0s1 = s0 - s1;
+    y1 = (s0s1 + s0s1) / d1;
+  }
+
+  s1 = s0;
+  x2 = x1;
+  x1 = x0;
+  return y1;
+}
+
+
+// 
+
+algebraicF0(x)
+{
+  return x / (abs(x) + 1);
+}
+
+algebraicF1(x)
+{
+  z = abs(x);
+  return z - eviLog1p(z);
+}
+
+algebraicF2(x)
+{
+  z = abs(x);
+  w = eviLog1p(z);
+
+  return eviCopysign(z * (1 + z * 0.5 - w) - w, x);     // original (cheapest)
+//return eviCopysign(-(z + 1) * w + z + x*x * 0.5, x);  // pete test for sanity (phew)
+}
+
+algebraicAdaa1(x0)
+{
+  History x1(0), s1(0);
+  eps = 0.000001;  // TODO, work out precision
+
+  y1 = 0;
+  d0 = x0 - x1;
+  s0 = algebraicF1(x0);    // func1
+  if ((x1 == 0 && s1 == 0) || (abs(d0) < eps)) {  // ill condition
+    y1 = algebraicF0(0.5 * (x0 + x1)); // func0
+  } else {
+    y1 = (s0 - s1) / d0;
+  }
+
+  s1 = s0;
+  x1 = x0;
+  return y1;
+}
+
+algebraicAdaa2(x0)
+{
+  History x1(0), x2(0), s1(0);
+  eps = 0.000001;  // TODO, work out precision
+
+  s0 = x0;//0;
+  d0 = x0 - x1;
+  f2_x1 = algebraicF2(x1); // func2
+  if (abs(d0) < eps) {  // ill condition
+    s0 = algebraicF1(0.5 * (x0 + x1)); // func1
+  } else {
+    s0 = (algebraicF2(x0) - f2_x1) / d0; // func2
+  }
+
+  y1 = x0;//0;
+  d1 = x0 - x2;
+  if (x1 == 0 && x2 == 0) { // ill condition
+    y1 = algebraicF0(x0 + (x1 + x1) + x2) * 0.25; // func0
+  } else if (abs(d1) < eps) { // ill condition
+    x_bar = 0.5 * (x0 + x2);
+    x_delta = x_bar - x1;
+    if (x_delta < eps) {  // ill condition
+      y1 = algebraicF0((x_bar + x1) * 0.5);  // func0
+    } else {
+      y1 = (2 / x_delta) * (algebraicF1(x_bar) + (f2_x1 - algebraicF2(x_bar)) / x_delta); // func1, func2
+    }
+  } else {
+    s0s1 = s0 - s1;
+    y1 = (s0s1 + s0s1) / d1;
+  }
+
+  s1 = s0;
+  x2 = x1;
+  x1 = x0;
+  return y1;
+}
+
+
+// 
+
+log1pF0(x)
+{
+  return eviCopysign(eviLog1p(abs(x)), x);
+}
+
+log1pF1(x)
+{
+  z = abs(x);
+  return (z + 1) * eviLog1p(z) - z;
+}
+
+log1pF2(x)
+{
+  z = abs(x);
+  z1 = z + 1;
+  return eviCopysign(((z1 + z1) * z1 * eviLog1p(z) - (z + z + z + 2) * z) * 0.25, x);
+}
+
+log1pAdaa1(x0)
+{
+  History x1(0), s1(0);
+  eps = 0.000001;  // TODO, work out precision
+
+  y1 = 0;
+  d0 = x0 - x1;
+  s0 = log1pF1(x0);    // func1
+  if ((x1 == 0 && s1 == 0) || (abs(d0) < eps)) {  // ill condition
+    y1 = log1pF0(0.5 * (x0 + x1)); // func0
+  } else {
+    y1 = (s0 - s1) / d0;
+  }
+
+  s1 = s0;
+  x1 = x0;
+  return y1;
+}
+
+log1pAdaa2(x0)
+{
+  History x1(0), x2(0), s1(0);
+  eps = 0.000001;  // TODO, work out precision
+
+  s0 = x0;//0;
+  d0 = x0 - x1;
+  f2_x1 = log1pF2(x1); // func2
+  if (abs(d0) < eps) {  // ill condition
+    s0 = log1pF1(0.5 * (x0 + x1)); // func1
+  } else {
+    s0 = (log1pF2(x0) - f2_x1) / d0; // func2
+  }
+
+  y1 = x0;//0;
+  d1 = x0 - x2;
+  if (x1 == 0 && x2 == 0) { // ill condition
+    y1 = log1pF0(x0 + (x1 + x1) + x2) * 0.25; // func0
+  } else if (abs(d1) < eps) { // ill condition
+    x_bar = 0.5 * (x0 + x2);
+    x_delta = x_bar - x1;
+    if (x_delta < eps) {  // ill condition
+      y1 = log1pF0((x_bar + x1) * 0.5);  // func0
+    } else {
+      y1 = (2 / x_delta) * (log1pF1(x_bar) + (f2_x1 - log1pF2(x_bar)) / x_delta); // func1, func2
+    }
+  } else {
+    s0s1 = s0 - s1;
+    y1 = (s0s1 + s0s1) / d1;
+  }
+
+  s1 = s0;
+  x2 = x1;
+  x1 = x0;
+  return y1;
+}
+
+
+// these are the antiderivatives of the approximation, not of a real tanh - that is crucial !
+// sadly we still end up with a bloody Li2 in the 2nd order :-(
+
+// note: this tanh approx becomes not-tanh-like above about +22dB input gain (wave folds)
+// note: the entire approx is -6dB down, but we boost it on input before adaa to match tanh()
+
+altTanhF0(x)
+{
+  // not one of the better tanh() approxes, but the antiderivatives are more manageable
+  // than many of the others, swings and roundabouts
+  ex = (-1 / (expApprox(x) + 1));
+  return ex + ex + 1;
+}
+
+altTanhF1(x)
+{
+  lex = log(exp(x) + 1); // not exp- or log- Approx() !
+  return lex + lex - x;
+}
+
+altTanhF11(x)
+{
+  lex = logApprox(expApprox(x) + 1); // ok for just Adaa1 ?
+  return lex + lex - x;
+}
+
+altTanhF2(x)
+{
+  li2ex = Li2Approx(-exp(x)); // not expApprox() !
+  return -(li2ex + li2ex + li2ex + li2ex + x*x) * 0.5;
+}
+
+altTanhAdaa1(x0, reset)
+{
+  History x1(0), s1(0);
+  eps = 0.000001; // TODO, precision
+  if (reset) {
+    x1 = 0; s1 = 0;
+  }
+
+  y1 = x0;
+  d0 = x0 - x1;
+  s0 = altTanhF11(x0); // func1
+  if ((x1 == 0 && s1 == 0) || (abs(d0) < eps)) {  // ill condition
+    y1 = altTanhF0(0.5 * (x0 + x1));  // func0
+  } else {
+    y1 = (s0 - s1) / d0;
+  }
+
+  s1 = s0;
+  x1 = x0;
+  return y1;
+}
+
+altTanhAdaa2(x0, reset)
+{
+  History x1(0), x2(0), s1(0);
+  eps = 0.000001; // TODO, precision
+  if (reset) {
+    x1 = 0; x2 = 0; s1 = 0;
+  }
+
+  s0 = x0;
+  d0 = x0 - x1;
+  f2_x1 = altTanhF2(x1);  // func2
+  if (abs(d0) < eps) {  // ill condition
+    s0 = altTanhF1(0.5 * (x0 + x1));  // func1
+  } else {
+    s0 = (altTanhF2(x0) - f2_x1) / d0;  // func2
+  }
+
+  y1 = x0;
+  d1 = x0 - x2;
+  if (x1 == 0 && x2 == 0) { // ill condition
+    y1 = altTanhF0(x0 + (x1 + x1) + x2) * 0.25; // func0
+  } else if (abs(d1) < eps) { // ill condition
+    x_bar = 0.5 * (x0 + x2);
+    x_delta = x_bar - x1;
+    if (x_delta < eps) {  // ill condition
+      y1 = altTanhF0((x_bar + x1) * 0.5); // func0
+    } else {
+      y1 = (2 / x_delta) * (altTanhF1(x_bar) + (f2_x1 - altTanhF2(x_bar)) / x_delta); // func1, func2
+    }
+  } else {
+    s0s1 = s0 - s1;
+    y1 = (s0s1 + s0s1) / d1;
+  }
+
+  s1 = s0;
+  x2 = x1;
+  x1 = x0;
+  return y1;
+}
+
+
+// Pete says: this is a "buzzy" tanh approx, be warned
+// actually "sin(atan(x))" written algebraically
+
+altTanhSqrtF0(x)
+{
+  return x / sqrt(1 + (x*x));
+}
+
+altTanhSqrtF1(x)
+{
+  return sqrt(1 + (x*x));
+}
+
+altTanhSqrtF2(x)
+{
+//  return (asinh(x) + x * sqrt(1 + (x*x))) * 0.5;
+    xs = sqrt(1 + (x*x));
+    return (log(abs(xs + x)) + x * xs) * 0.5;
+}
+
+altTanhSqrtAdaa1(x0)
+{
+  History x1(0), s1(0);
+  eps = 0.000001;  // TODO, work out precision
+
+  y1 = 0;
+  d0 = x0 - x1;
+  s0 = altTanhSqrtF1(x0);    // func1
+  if ((x1 == 0 && s1 == 0) || (abs(d0) < eps)) {  // ill condition
+    y1 = altTanhSqrtF0(0.5 * (x0 + x1)); // func0
+  } else {
+    y1 = (s0 - s1) / d0;
+  }
+
+  s1 = s0;
+  x1 = x0;
+  return y1;
+}
+
+altTanhSqrtAdaa2(x0)
+{
+  History x1(0), x2(0), s1(0);
+  eps = 0.000001;  // TODO, work out precision
+
+  s0 = x0;//0;
+  d0 = x0 - x1;
+  f2_x1 = altTanhSqrtF2(x1); // func2
+  if (abs(d0) < eps) {  // ill condition
+    s0 = altTanhSqrtF1(0.5 * (x0 + x1)); // func1
+  } else {
+    s0 = (altTanhSqrtF2(x0) - f2_x1) / d0; // func2
+  }
+
+  y1 = x0;//0;
+  d1 = x0 - x2;
+  if (x1 == 0 && x2 == 0) { // ill condition
+    y1 = altTanhSqrtF0(x0 + (x1 + x1) + x2) * 0.25; // func0
+  } else if (abs(d1) < eps) { // ill condition
+    x_bar = 0.5 * (x0 + x2);
+    x_delta = x_bar - x1;
+    if (x_delta < eps) {  // ill condition
+      y1 = altTanhSqrtF0((x_bar + x1) * 0.5);  // func0
+    } else {
+      y1 = (2 / x_delta) * (altTanhSqrtF1(x_bar) + (f2_x1 - altTanhSqrtF2(x_bar)) / x_delta); // func1, func2
+    }
+  } else {
+    s0s1 = s0 - s1;
+    y1 = (s0s1 + s0s1) / d1;
+  }
+
+  s1 = s0;
+  x2 = x1;
+  x1 = x0;
+  return y1;
+}
+
+
+// 
+
+altTanhPolyF0(x)
+{
+  return x / (1 + (0.28 * x*x));
+}
+
+altTanhPolyF1(x)
+{     // Adaa1 works with logApprox() here but not in low freq input, but then Adaa2 does not work at all
+  return (25 * log(7 * x*x + 25)) * 0.071428571428571;
+}
+
+altTanhPolyF2(x)
+{                                   // atanA() does not work here, regardless of precision
+  return (25 * (x * log(7 * x*x + 25) - 14 * (x * 0.142857142857143 - (5 * atan((2.645751311064591 * x) * 0.2)) * 0.053994924715604))) * 0.071428571428571;
+}
+
+altTanhPolyAdaa1(x0)
+{
+  History x1(0), s1(0);
+  eps = 0.000001;  // TODO, work out precision
+
+  y1 = 0;
+  d0 = x0 - x1;
+  s0 = altTanhPolyF1(x0);    // func1
+  if ((x1 == 0 && s1 == 0) || (abs(d0) < eps)) {  // ill condition
+    y1 = altTanhPolyF0(0.5 * (x0 + x1)); // func0
+  } else {
+    y1 = (s0 - s1) / d0;
+  }
+
+  s1 = s0;
+  x1 = x0;
+  return y1;
+}
+
+altTanhPolyAdaa2(x0)
+{
+  History x1(0), x2(0), s1(0);
+  eps = 0.000001;  // TODO, work out precision
+
+  s0 = x0;//0;
+  d0 = x0 - x1;
+  f2_x1 = altTanhPolyF2(x1); // func2
+  if (abs(d0) < eps) {  // ill condition
+    s0 = altTanhPolyF1(0.5 * (x0 + x1)); // func1
+  } else {
+    s0 = (altTanhPolyF2(x0) - f2_x1) / d0; // func2
+  }
+
+  y1 = x0;//0;
+  d1 = x0 - x2;
+  if (x1 == 0 && x2 == 0) { // ill condition
+    y1 = altTanhPolyF0(x0 + (x1 + x1) + x2) * 0.25; // func0
+  } else if (abs(d1) < eps) { // ill condition
+    x_bar = 0.5 * (x0 + x2);
+    x_delta = x_bar - x1;
+    if (x_delta < eps) {  // ill condition
+      y1 = altTanhPolyF0((x_bar + x1) * 0.5);  // func0
+    } else {
+      y1 = (2 / x_delta) * (altTanhPolyF1(x_bar) + (f2_x1 - altTanhPolyF2(x_bar)) / x_delta); // func1, func2
+    }
+  } else {
+    s0s1 = s0 - s1;
+    y1 = (s0s1 + s0s1) / d1;
+  }
+
+  s1 = s0;
+  x2 = x1;
+  x1 = x0;
+  return y1;
+}
+
+
+// you think this is stupid, but, we make it nonlinear in the process...
+
+sinF0(x)
+{
+  return sin(x);
+}
+
+sinF1(x)
+{
+  return -cos(x);
+}
+
+sinF2(x)
+{
+    return -sin(x);
+}
+
+sinAdaa1(x0)
+{
+  History x1(0), s1(0);
+  eps = 0.000001;  // TODO, work out precision
+
+  y1 = 0;
+  d0 = x0 - x1;
+  s0 = sinF1(x0);    // func1
+  if ((x1 == 0 && s1 == 0) || (abs(d0) < eps)) {  // ill condition
+    y1 = sinF0(0.5 * (x0 + x1)); // func0
+  } else {
+    y1 = (s0 - s1) / d0;
+  }
+
+  s1 = s0;
+  x1 = x0;
+  return y1;
+}
+
+sinAdaa2(x0)
+{
+  History x1(0), x2(0), s1(0);
+  eps = 0.000001;  // TODO, work out precision
+
+  s0 = x0;//0;
+  d0 = x0 - x1;
+  f2_x1 = sinF2(x1); // func2
+  if (abs(d0) < eps) {  // ill condition
+    s0 = sinF1(0.5 * (x0 + x1)); // func1
+  } else {
+    s0 = (sinF2(x0) - f2_x1) / d0; // func2
+  }
+
+  y1 = x0;//0;
+  d1 = x0 - x2;
+  if (x1 == 0 && x2 == 0) { // ill condition
+    y1 = sinF0(x0 + (x1 + x1) + x2) * 0.25; // func0
+  } else if (abs(d1) < eps) { // ill condition
+    x_bar = 0.5 * (x0 + x2);
+    x_delta = x_bar - x1;
+    if (x_delta < eps) {  // ill condition
+      y1 = sinF0((x_bar + x1) * 0.5);  // func0
+    } else {
+      y1 = (2 / x_delta) * (sinF1(x_bar) + (f2_x1 - sinF2(x_bar)) / x_delta); // func1, func2
+    }
+  } else {
+    s0s1 = s0 - s1;
+    y1 = (s0s1 + s0s1) / d1;
+  }
+
+  s1 = s0;
+  x2 = x1;
+  x1 = x0;
+  return y1;
+}
+
+
+// 
+
+eCubicF0(x)
+{
+//  x = clip(x, -1, 1);
+  return x * (1 - 0.333333333333 * x * x);
+}
+
+eCubicF1(x)
+{
+//  x = clip(x, -1, 1);
+  xm3 = x*x - 3;
+  return -xm3*xm3 * 0.083333333333333;
+}
+
+eCubicF2(x)
+{
+//  x = clip(x, -1, 1);
+//  x2 = x*x;
+//  return -(x * (x2*x2 - 10 * x2 + 45)) * 0.016666666666667;
+  return -(x * (x*x*x*x - 10 * x*x + 45)) * 0.016666666666667;
+}
+
+eCubicAdaa1(x)
+{
+  History x1(0), s1(0);
+  eps = 0.000001;  // TODO, work out precision
+  x0 = clip(x, -1, 1);
+
+  y1 = 0;
+  d0 = x0 - x1;
+  s0 = eCubicF1(x0);    // func1
+  if ((x1 == 0 && s1 == 0) || (abs(d0) < eps)) {  // ill condition
+    y1 = eCubicF0(0.5 * (x0 + x1)); // func0
+  } else {
+    y1 = (s0 - s1) / d0;
+  }
+
+  s1 = s0;
+  x1 = x0;
+  return y1;
+}
+
+eCubicAdaa2(x)
+{
+  History x1(0), x2(0), s1(0);
+  eps = 0.000001;  // TODO, work out precision
+  x0 = clip(x, -1, 1);
+
+  s0 = 0;
+  d0 = x0 - x1;
+  f2_x1 = eCubicF2(x1); // func2
+  if (abs(d0) < eps) {  // ill condition
+    s0 = eCubicF1(0.5 * (x0 + x1)); // func1
+  } else {
+    s0 = (eCubicF2(x0) - f2_x1) / d0; // func2
+  }
+
+  y1 = 0;
+  d1 = x0 - x2;
+  if (x1 == 0 && x2 == 0) { // ill condition
+    y1 = eCubicF0(x0 + (x1 + x1) + x2) * 0.25; // func0
+  } else if (abs(d1) < eps) { // ill condition
+    x_bar = 0.5 * (x0 + x2);
+    x_delta = x_bar - x1;
+    if (x_delta < eps) {  // ill condition
+      y1 = eCubicF0((x_bar + x1) * 0.5);  // func0
+    } else {
+      y1 = (2 / x_delta) * (eCubicF1(x_bar) + (f2_x1 - eCubicF2(x_bar)) / x_delta); // func1, func2
+    }
+  } else {
+    s0s1 = s0 - s1;
+    y1 = (s0s1 + s0s1) / d1;
+  }
+
+  s1 = s0;
+  x2 = x1;
+  x1 = x0;
+  return y1;
+}
+
+// 
+
+tarrabiaF0(x, a)
+{
+    k = (a + a) / (1 - a);
+    return ((1 + k) * x) / (1 + (k * abs(x)));
+}
+
+tarrabiaF1(x, a)
+{
+    ax = abs(x);
+    return ((a + 1) * ((a - 1) * logApprox(abs(a * (ax + ax - 1) + 1)) + (a + a) * ax)) / (4 * a*a);
+}
+
+tarrabiaF2(x, a)
+{
+    ax = abs(x);
+    am1 = a - 1;
+    apa = a + a;
+    loma = logApprox(1 - a);
+    return (sign(x) * ((a + 1) * ((am1 + am1) * a * ax * logApprox(abs(a * (ax + ax - 1) + 1)) - am1 * (am1 * logApprox(abs(apa * ax - a + 1)) + apa * ax) + 2 * a*a * x*x) + loma * a*a*a - loma * a*a - loma * a + loma)) / (8 * a*a*a);
+}
+
+tarrabiaAdaa1(x0, a)
+{
+  History x1(0), s1(0);
+  eps = 0.00001;  // TODO, work out precision
+
+  y1 = 0;
+  d0 = x0 - x1;
+  s0 = tarrabiaF1(x0, a);    // func1
+  if ((x1 == 0 && s1 == 0) || (abs(d0) < eps)) {  // ill condition
+    y1 = tarrabiaF0(0.5 * (x0 + x1), a); // func0
+  } else {
+    y1 = (s0 - s1) / d0;
+  }
+
+  s1 = s0;
+  x1 = x0;
+  return y1;
+}
+
+// this does not work when changing / modulating 'a'
+tarrabiaAdaa2(x0, a)
+{
+  History x1(0), x2(0), s1(0);
+  eps = 0.00000000001;  // TODO, work out precision
+
+  s0 = 0;
+  d0 = x0 - x1;
+  f2_x1 = tarrabiaF2(x1, a); // func2
+  if (abs(d0) < eps) {  // ill condition
+    s0 = tarrabiaF1(0.5 * (x0 + x1), a); // func1
+  } else {
+    s0 = (tarrabiaF2(x0, a) - f2_x1) / d0; // func2
+  }
+
+  y1 = 0;
+  d1 = x0 - x2;
+  if (x1 == 0 && x2 == 0) { // ill condition
+    y1 = tarrabiaF0(x0 + (x1 + x1) + x2, a) * 0.25; // func0
+  } else if (abs(d1) < eps) { // ill condition
+    x_bar = 0.5 * (x0 + x2);
+    x_delta = x_bar - x1;
+    if (x_delta < eps) {  // ill condition
+      y1 = tarrabiaF0((x_bar + x1) * 0.5, a);  // func0
+    } else {
+      y1 = (2 / x_delta) * (tarrabiaF1(x_bar, a) + (f2_x1 - tarrabiaF2(x_bar, a)) / x_delta); // func1, func2
+    }
+  } else {
+    s0s1 = s0 - s1;
+    y1 = (s0s1 + s0s1) / d1;
+  }
+
+  s1 = s0;
+  x2 = x1;
+  x1 = x0;
+  return y1;
+}
+
+
+// the Adaa templates
+// these are just like the previous evieve and the Chowdry, but the adaa2 is cleverer
+
+/*
+F0(x) { return x + 0; }
+
+F1(x) { return x + 0; }
+
+F2(x) { return x + 0; }
+
+adaa_1_template(x0)
+{
+  History x1(0), s1(0);
+  eps = 0.00001;  // TODO, work out precision
+
+  y1 = 0;
+  d0 = x0 - x1;
+  s0 = F1(x0);    // func1
+  if ((x1 == 0 && s1 == 0) || (abs(d0) < eps)) {  // ill condition
+    y1 = F0(0.5 * (x0 + x1)); // func0
+  } else {
+    y1 = (s0 - s1) / d0;
+  }
+
+  s1 = s0;
+  x1 = x0;
+  return y1;
+}
+
+adaa_2_template(x0)
+{
+  History x1(0), x2(0), s1(0);
+  eps = 0.00001;  // TODO, work out precision
+
+  s0 = x0;//0;
+  d0 = x0 - x1;
+  f2_x1 = F2(x1); // func2
+  if (abs(d0) < eps) {  // ill condition
+    s0 = F1(0.5 * (x0 + x1)); // func1
+  } else {
+    s0 = (F2(x0) - f2_x1) / d0; // func2
+  }
+
+  y1 = x0;//0;
+  d1 = x0 - x2;
+  if (x1 == 0 && x2 == 0) { // ill condition
+    y1 = F0(x0 + (x1 + x1) + x2) * 0.25; // func0
+  } else if (abs(d1) < eps) { // ill condition
+    x_bar = 0.5 * (x0 + x2);
+    x_delta = x_bar - x1;
+    if (x_delta < eps) {  // ill condition
+      y1 = F0((x_bar + x1) * 0.5);  // func0
+    } else {
+      y1 = (2 / x_delta) * (F1(x_bar) + (f2_x1 - F2(x_bar)) / x_delta); // func1, func2
+    }
+  } else {
+    s0s1 = s0 - s1;
+    y1 = (s0s1 + s0s1) / d1;
+  }
+
+  s1 = s0;
+  x2 = x1;
+  x1 = x0;
+  return y1;
+}
+*/
+
+// other
+
+/*
+// Lambert-W function
+lambertW(x, ln1, loop, thresh)
+{
+  // initial guess (use previous value)
+  w   = ln1;
+
+  // Haley's method (section 4.2 of the paper)
+  for (i = 0; i < loop; i += 1) {
+//    expw  = expApprox(w);
+    expw  = exp(w);       // :-(
+        w1      = w + 1;
+
+    p   = (w * expw) - x;
+    r   = w1 * expw;
+    s   = (w + 2) / (w1 + w1);
+    err   = (p / (r - (p * s)));
+
+    if (abs(err) < thresh) {
+        break;
+    }
+
+    w    -= err;
+  }
+
+  return  w;
+}
+*/
+// Lambert-W function
+lambertW(x, ln1, loop, thresh)
+{
+  // initial guess (use previous value)
+  w   = ln1;
+    err     = 1;
+    i       = 0;
+
+  // Haley's method (section 4.2 of the paper)
+  while ( (i < loop) && (abs(err) > thresh) ) {
+//    expw  = expApprox(w);
+    expw  = exp(w);       // :-(
+        w1      = w + 1;
+
+    p   = (w * expw) - x;
+    r   = w1 * expw;
+    s   = (w + 2) / (w1 + w1);
+    err   = (p / (r - (p * s)));
+
+    w    -= err;
+        i      += 1;
+  }
+
+  return  w;
+}
+
+// Antialiased Lockhart wavefolder with Lambert-W function
+lockhartAA(Xo, loop=1000)
+{
+  // declare previous state
+  History Ln1(0), Fn1(0), Xn1(0);
+
+  // constants, only VT used
+    // but play with these values and calcs to hack the sound :-)
+  RL  = 7.5e3;    R = 15e3;     VT  = 26e-3;    Is  = 10e-16;
+  a = 1; // not used        //  2 * RL / R;
+  b = 76.923076923076923;   // (R + 2 * RL) / (VT * R);
+  d = 0.000000000288462;    // (RL * Is) / VT;
+    VTb = 0.000169;       //  0.5 * VT / b
+
+  // antialiasing (adaa) error threshold
+  epsilon = 10e-10;
+
+  // input
+  l = sign(Xo); 
+
+  // compute antiderivative (adaa, 1st order)
+//  u = d * expApprox(l * b * Xo);
+  u = d * exp(l * b * Xo);  // :-(
+  Ln  = lambertW(u, Ln1, loop, epsilon);
+    Lp1 = 1 + Ln;
+//  Fn  = (0.5 * VT / b) * (1 + Ln) * (1 + Ln) - 0.5 * a * Xo * Xo;
+  Fn  = VTb * Lp1 * Lp1 - 0.5 * Xo * Xo;
+
+  Yn  = 0;
+  // check for ill-conditioning
+  if (abs(Xo - Xn1) < epsilon) { // pete not convinced by this, surely it doesn't need to contain the lambetW()
+    // compute averaged wavefolder output
+    Xn  = 0.5 * (Xo + Xn1);
+    //  !! original "d * pow(e, (l * b * Xo))" code from the paper is wrong <<-- Xn !!
+    u = d * expApprox(l * b * Xn);
+//    u = d * exp(l * b * Xn);
+    Ln  = lambertW(u, Ln1, loop, epsilon);
+//    Yn  = (l * VT * Ln) - (a * Xo); // ?? "(l * VT * Ln) - (a * Xn)" <<-- Xn ??
+    Yn  = (l * VT * Ln) - Xn;
+  } else {
+    // apply antialiased form
+    Yn  = (Fn - Fn1) / (Xo - Xn1);
+  }
+
+  // update state
+  Ln1 = Ln;
+    Fn1 = Fn;
+    Xn1 = Xo;
+
+  return  dcblock(Yn);
+}
+

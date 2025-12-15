@@ -1,0 +1,175 @@
+{
+	"patcher" : 	{
+		"fileversion" : 1,
+		"appversion" : 		{
+			"major" : 9,
+			"minor" : 0,
+			"revision" : 0,
+			"architecture" : "x64",
+			"modernui" : 1
+		}
+,
+		"classnamespace" : "dsp.gen",
+		"rect" : [ 737.0, 160.0, 736.0, 583.0 ],
+		"bglocked" : 0,
+		"openinpresentation" : 0,
+		"default_fontsize" : 12.0,
+		"default_fontface" : 0,
+		"default_fontname" : "Arial",
+		"gridonopen" : 2,
+		"gridsize" : [ 15.0, 15.0 ],
+		"gridsnaponopen" : 1,
+		"objectsnaponopen" : 1,
+		"statusbarvisible" : 2,
+		"toolbarvisible" : 1,
+		"lefttoolbarpinned" : 0,
+		"toptoolbarpinned" : 0,
+		"righttoolbarpinned" : 0,
+		"bottomtoolbarpinned" : 0,
+		"toolbars_unpinned_last_save" : 0,
+		"tallnewobj" : 0,
+		"boxanimatetime" : 200,
+		"enablehscroll" : 1,
+		"enablevscroll" : 1,
+		"devicewidth" : 0.0,
+		"description" : "",
+		"digest" : "",
+		"tags" : "",
+		"style" : "",
+		"subpatcher_template" : "sub",
+		"assistshowspatchername" : 0,
+		"cluebar" : 0,
+		"boxes" : [ 			{
+				"box" : 				{
+					"id" : "obj-6",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 656.0, 543.0, 55.0, 22.0 ],
+					"text" : "out 3 HP"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-5",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 352.5, 543.0, 53.0, 22.0 ],
+					"text" : "out 2 LP"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-1",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 49.0, 19.0, 91.0, 22.0 ],
+					"text" : "in 1 Audio Input"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-2",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 620.0, 19.0, 91.0, 22.0 ],
+					"text" : "in 2 cuttof in Hz"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"code" : "\r\n// Puckette's vcf~ from Pd by pete for evieve\r\n\r\ncosQ73(x) {\n\tc1 =  0.999999953464;\n\tc2 = -0.499999053455;\n\tc3 =  0.0416635846769;\n\tc4 = -0.0013853704264;\n\tc5 =  0.00002315393167;  \t\n\n\tx2 = x * x;\n\treturn (c1 + x2 * (c2 + x2 * (c3 + x2 * (c4 + c5 * x2))));\n}\n\r\n// optimised version: x is already clamped to 0.. and at audio rate\r\n// 6 muls at any one time, plus the branching\r\ncos73nc(x) {\n\t// get quadrant # (0 to 2) we're in\r\n\tquad = int(x * 0.63661977236758);// 2 / pi\n\tcosreturn = 0;\n\tif \t\t\t\t(quad == 0) {\n\t\tcosreturn =  cosQ73(x);\n\t} else if \t\t(quad == 1) {\n\t\tcosreturn = -cosQ73(pi - x);\n\t} else if \t\t(quad == 2) {\t// we only might reach the 3rd quadrant\n\t\tcosreturn = -cosQ73(x - pi);\n\t} else {\t//\t(quad == 3)\t\t// we never reach the 4th quadrant here\n\t\tcosreturn =  cosQ73(twopi - x);\n\t}\n\treturn cosreturn;\n}\n\r\nsin73nc(x) {\n\treturn cos73nc(halfpi - x);\n}\r\n\r\n// [vcf~] from Pd is just a direct form 2 solved for sin()\r\n// (this is basically just [bp~] but better)\r\npd_vcf(x0, hz)\r\n{\r\n\tHistory\tb1(0), b2(0);\r\n\tParam\tq(sqrt2, min=0.1);\r\n\r\n\todq\t= 1 / q;\r\n\tcf\t= hz * twopi / samplerate;\r\n\tr\t= maximum((1 - cf * odq), 0);\r\n\r\n\ta1\t= cos73nc(cf) * r;\t// cf needs up to pi rather than just halfpi\r\n\ta2\t= sin73nc(cf) * r;\r\n\r\n\tbp\t= ((x0 * (1 - r) * (2 - 2 / (q + 2))) + (b1 * a1)) - (b2 * a2);\r\n\tlp\t=  (b1 * a2) + (a1 * b2);\r\n\thp\t=  (x0 - (q * bp) - lp) * odq;\r\n\r\n\tb1\t= bp;\r\n\tb2\t= lp;\r\n\r\n\treturn bp, lp, hp;\t\t// real, imaginary, pete\r\n}\r\n\r\nParam\tq(sqrt2, min=0.1, max=10000);\t// max ?\r\n\r\n// in terms of Hz (\"in 2\"), anything above (samplerate/twopi)\r\n// can be a bit funky if q is low, depending on filter type\r\n// but still much larger and more stable range than [bp~]\r\nhz\t\t= clamp(in2, 0.01, 18000);\r\n\r\nout1, out2, out3\t= pd_vcf(in1, hz, q=q);\r\n// others: peak = (hp - lp), broken notch = (hp + lp)\r\n\r\n",
+					"fontface" : 0,
+					"fontname" : "<Monospaced>",
+					"fontsize" : 12.0,
+					"id" : "obj-3",
+					"maxclass" : "codebox",
+					"numinlets" : 2,
+					"numoutlets" : 3,
+					"outlettype" : [ "", "", "" ],
+					"patching_rect" : [ 49.0, 58.0, 626.0, 468.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-4",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 49.0, 543.0, 55.0, 22.0 ],
+					"text" : "out 1 BP"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-8",
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 256.0, 20.0, 238.0, 20.0 ],
+					"text" : "Param \tq(sqrt2, min=0.1, max=10000);",
+					"textjustification" : 1
+				}
+
+			}
+ ],
+		"lines" : [ 			{
+				"patchline" : 				{
+					"destination" : [ "obj-3", 0 ],
+					"source" : [ "obj-1", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-3", 1 ],
+					"midpoints" : [ 629.5, 49.0, 665.5, 49.0 ],
+					"source" : [ "obj-2", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-4", 0 ],
+					"source" : [ "obj-3", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-5", 0 ],
+					"source" : [ "obj-3", 1 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-6", 0 ],
+					"source" : [ "obj-3", 2 ]
+				}
+
+			}
+ ],
+		"originid" : "pat-6",
+		"oscsendmode" : 0,
+		"oscsendudpaddr" : "127.0.0.1",
+		"oscsendudpport" : 30337,
+		"oscreceivemode" : 0,
+		"oscreceiveudpport" : 30338,
+		"oscqueryenable" : 0,
+		"oscprefixmode" : 0,
+		"oscprefix" : ""
+	}
+
+}

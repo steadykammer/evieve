@@ -1,0 +1,245 @@
+
+// utilities, by pete for evieve
+
+
+require("evi_approx.genexpr");
+
+
+preWarp(cutoff)
+{
+	g0		=  tanA2(PI * cutoff / SAMPLERATE);
+	return	g0 / (1 + g0);
+}
+
+eviCopysign(y, x) // <<-- HA HA !!
+{
+  return (x >= 0) ? y : -y;
+/*
+  if (x >= 0) {
+    return y;
+  } else {
+    return -y;
+  }
+*/
+}
+
+eviLog1p(value)   // :-(
+{
+  if (value > -1.0e-8 && value < 1.0e-8)
+    return value - (value * value) * 0.5;
+
+  return log(1 + value);
+}
+
+xSgn(x) // no zero
+{
+  return (0 < x) - (x < 0);
+}
+
+xRange(x)
+{
+  return abs(x) <= 1;
+}
+
+// octaves to Q
+bandwidth2Q(bandwidth)
+{
+	x = expA(0.346573590279973 * bandwidth);					// exp(0.5 * log(2) * bandwidth)
+	return	1 / (x - 1 / x);
+}
+
+Q2bandwidth(Q)
+{
+	x	= 0.5 / Q;
+	x2	= x * x;
+	return	2 / LN2 * logApprox(x + sqrt(x2 + 1));		// 2 / log(2) * log(x + sqrt((x * x) + 1))
+}
+
+/*
+ * Post-filter to decolorate oscillator waveshapers when antialiasing is used.
+ *
+ * Linear time-invariant filter can be added in series of
+ * oscillator waveshapers that use PolyBLEP antialiasing,
+ * to compensate for high-frequency attenuation.
+ *
+ * Copyright (C) 2022-2024 Orastron Srl unipersonale
+ * Stefano D'Angelo, GPL v3
+ */
+// works for oscillators & waveshapers :-)
+decorelate(x)
+{
+	History	z1(0);
+	y = 1.371308261611209 * x + z1;
+	z1 = 0.08785458027104826 * x - 0.45916284188226 * y;
+	return y;
+}
+
+// segment must be linear (ramp) 0..1
+eviScurve(segment)
+{
+	s2		= segment * segment;
+	rec		= 1 - segment;
+	r2		= rec * rec;
+	return	(segment < 0.5) ? (s2 * 2) : (1 - (r2 * 2));
+}
+
+// basic linear scaling like linear part of [scale]
+eviMap(valueIn, inLow, inHigh, outLow, outHigh)
+{
+    multiplier = (outLow - outHigh) / (inLow - inHigh);
+    return (valueIn - inLow) * multiplier + outLow;
+}
+
+// simple parabolic approx crossfader (stereo)
+stereoXfadePar(L1, R1, L2, R2, x0)
+{
+	xx = x0 * x0;
+	x1 = 1 - xx;
+	x2 = x0 + x0  - xx;
+	fadeL = (L1 * x1) + (L2 * x2);
+	fadeR = (R1 * x1) + (R2 * x2);
+	return fadeL, fadeR;
+}
+
+ctrlSqrt(x)
+{
+	cL = sqrt(1 - x);
+	cR = sqrt(x);
+	return cL, cR;
+}
+
+xfadeSqrtStereo(a, b, c, d, x)
+{
+	cL, cR	= ctrlSqrt(x);
+	return ((a * cL) + (c * cR)), ((b * cL) + (d * cR));
+}
+
+xfadeQuartApproxMono(a, c, q)								// q is control, must be clamped 0..1
+{
+	qL, qR	= quartParOneApprox(q);							// cos/sin
+	return	((a * qL) + (c * qR));							// out mix L + out mix R
+}
+
+xfadeQuartApproxStereo(a, b, c, d, q)						// q is control, must be clipped 0..1
+{
+	qL, qR	= quartParOneApprox(q);							// cos/sin
+	return	((a * qL) + (c * qR)), ((b * qL) + (d * qR));	// out mix L, out mix R
+}
+
+xfadeQuartApproxSwap(a, b, q)								// q is control, must be clipped 0..1
+{
+	qL, qR	= quartParOneApprox(q);							// cos/sin
+	return	((a * qL) + (b * qR)), ((b * qL) + (a * qR));	// out swap L, out swap R
+}
+
+panQuartApproxMono(x, p)									// p is control, must be clipped 0..1
+{
+	pL, pR	= quartParOneApprox(p);							// cos/sin(/quart)
+	return	(x * pL), (x * pR);								// out pan L, out pan R
+}
+
+panQuartApproxDual(xL, xR, pL, pR)							// p's are controls, must be clipped 0..1
+{
+	yLL, yLR	= panQuartApproxMono(xL, pL);				// pan L
+	yRL, yRR	= panQuartApproxMono(xR, pR);				// pan R
+	return		(yLL + yRL), (yLR + yRR);					// out sum L, out sum R
+}
+
+butterfly8(i1, i2, i3, i4, i5, i6, i7, i8)
+{
+	b1	= i1 + i5;
+	b2	= i2 + i6;
+	b3	= i3 + i7;
+	b4	= i4 + i8;
+
+	b5	= i1 - i5;
+	b6	= i2 - i6;
+	b7	= i3 - i7;
+	b8	= i4 - i8;
+
+	return	b1, b2, b3, b4, b5, b6, b7, b8;
+}
+
+butterfly4(i1, i2, i3, i4)
+{
+	b1	= i1 + i3;
+	b2	= i2 + i4;
+
+	b3	= i1 - i3;
+	b4	= i2 - i4;
+
+	return	b1, b2, b3, b4;
+}
+
+butterfly2(i1, i2)
+{
+	b1	= i1 + i2;
+	b2	= i1 - i2;
+
+	return	b1, b2;
+}
+
+hadamard8(i1, i2, i3, i4, i5, i6, i7, i8)
+{
+	b1, b2, b3, b4, b5, b6, b7, b8	= butterfly8(i1, i2, i3, i4, i5, i6, i7, i8);
+	c1, c2, c3, c4					= butterfly4(b1, b2, b3, b4);
+	c5, c6, c7, c8					= butterfly4(b5, b6, b7, b8);
+	o1, o2							= butterfly2(c1, c2);
+	o3, o4							= butterfly2(c3, c4);
+	o5, o6							= butterfly2(c5, c6);
+	o7, o8							= butterfly2(c7, c8);
+
+	return	o1, o2, o3, o4, o5, o6, o7, o8;
+}
+
+// idiot proof, idiot made
+butterfly16(bf0_1, bf0_2, bf0_3, bf0_4, bf0_5, bf0_6, bf0_7, bf0_8, bf0_9, bf0_10, bf0_11, bf0_12, bf0_13, bf0_14, bf0_15, bf0_16)
+{
+	bf1_1,	bf1_2	= butterfly2(bf0_1,		bf0_2);
+	bf1_3,	bf1_4	= butterfly2(bf0_3,		bf0_4);
+	bf1_5,	bf1_6	= butterfly2(bf0_5,		bf0_6);
+	bf1_7,	bf1_8	= butterfly2(bf0_7,		bf0_8);
+	bf1_9,	bf1_10	= butterfly2(bf0_9,		bf0_10);
+	bf1_11,	bf1_12	= butterfly2(bf0_11,	bf0_12);
+	bf1_13,	bf1_14	= butterfly2(bf0_13,	bf0_14);
+	bf1_15,	bf1_16	= butterfly2(bf0_15,	bf0_16);
+
+	bf2_1,	bf2_3	= butterfly2(bf1_1,		bf1_3);
+	bf2_2,	bf2_4	= butterfly2(bf1_2,		bf1_4);
+	bf2_5,	bf2_7	= butterfly2(bf1_5,		bf1_7);
+	bf2_6,	bf2_8	= butterfly2(bf1_6,		bf1_8);
+	bf2_9,	bf2_11	= butterfly2(bf1_9,		bf1_11);
+	bf2_10,	bf2_12	= butterfly2(bf1_10,	bf1_12);
+	bf2_13,	bf2_15	= butterfly2(bf1_13,	bf1_15);
+	bf2_14,	bf2_16	= butterfly2(bf1_14,	bf1_16);
+
+	bf3_1,	bf3_5	= butterfly2(bf2_1,		bf2_5);
+	bf3_2,	bf3_6	= butterfly2(bf2_2,		bf2_6);
+	bf3_3,	bf3_7	= butterfly2(bf2_3,		bf2_7);
+	bf3_4,	bf3_8	= butterfly2(bf2_4,		bf2_8);
+	bf3_9,	bf3_13	= butterfly2(bf2_9,		bf2_13);
+	bf3_10,	bf3_14	= butterfly2(bf2_10,	bf2_14);
+	bf3_11,	bf3_15	= butterfly2(bf2_11,	bf2_15);
+	bf3_12,	bf3_16	= butterfly2(bf2_12,	bf2_16);
+
+	bf4_1,	bf4_9	= butterfly2(bf3_1,		bf3_9);
+	bf4_2,	bf4_10	= butterfly2(bf3_2,		bf3_10);
+	bf4_3,	bf4_11	= butterfly2(bf3_3,		bf3_11);
+	bf4_4,	bf4_12	= butterfly2(bf3_4,		bf3_12);
+	bf4_5,	bf4_13	= butterfly2(bf3_5,		bf3_13);
+	bf4_6,	bf4_14	= butterfly2(bf3_6,		bf3_14);
+	bf4_7,	bf4_15	= butterfly2(bf3_7,		bf3_15);
+	bf4_8,	bf4_16	= butterfly2(bf3_8,		bf3_16);
+
+	return	bf4_1, bf4_2, bf4_3, bf4_4, bf4_5, bf4_6, bf4_7, bf4_8, bf4_9, bf4_10, bf4_11, bf4_12, bf4_13, bf4_14, bf4_15, bf4_16;
+}
+
+butterflyMatrix(i1, i2, i3, i4)
+{
+	a1, a2			= butterfly2(i1, i2);
+	a3, a4			= butterfly2(i3, i4);
+	b1, b2, b3, b4	= butterfly4(a1, a2, a3, a4);
+
+	return	b1, b2, b3, b4;
+}
+

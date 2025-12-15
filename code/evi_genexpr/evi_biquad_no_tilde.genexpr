@@ -1,0 +1,1258 @@
+
+// "evi_biquad_no_tilde.genexpr": some evieve Biquad code for posterity
+// Biquads are shit, use TPT instead, @see: "evi_svf.genexpr"
+// Note in this gen (no tilde) version you must pass in the audio samplerate, because Max
+
+// @see: "evi_biquad.genexpr" for versions to use everywhere else (including at audio rate)
+// @see in Max: [evi.biquadcoeff] & [evi.biquadcoeff~] & [evi.biquadfilter~] for examples of wrappers
+
+// This file:
+// Part 1: Coefficients Calculators
+// Part 2: Filter Selectors
+
+
+//	//	//	Part 1: Coefficients Calculators
+
+// all Cutoffs in Hz, all Gains are linear (sorry, see wrappers), all Qs are Q or S
+// all returns are a0, a1, a2, b1, b2 coefficients
+/*
+	calculator                              	parameters
+
+	eviBiquadCoeffLowpass 						cutoff, Q
+	eviBiquadCoeffHighpass 						cutoff, Q
+	eviBiquadCoeffBandpass 						cutoff, Q
+	eviBiquadCoeffNotch 						cutoff, Q
+	eviBiquadCoeffPeakNotch 					cutoff, gain, Q
+	eviBiquadCoeffLowShelf 						cutoff, gain, Q
+	eviBiquadCoeffLowShelfCookbook 				cutoff, gain, Q
+	eviBiquadCoeffHighShelf 					cutoff, gain, Q
+	eviBiquadCoeffHighShelfCookbook 			cutoff, gain, Q
+	eviBiquadCoeffReson 						cutoff, Q
+	eviBiquadCoeffBp 							cutoff, Q
+	eviBiquadCoeffAllpass 						cutoff, Q
+	eviBiquadCoeffLowpassGain 					cutoff, gain, Q
+	eviBiquadCoeffHighpassGain 					cutoff, gain, Q
+	eviBiquadCoeffBandpassGain 					cutoff, gain, Q
+	eviBiquadCoeffNotchGain 					cutoff, gain, Q
+	eviBiquadCoeffResonGain 					cutoff, gain, Q
+	eviBiquadCoeffBpGain 						cutoff, gain, Q
+	eviBiquadCoeffAllpassGain 					cutoff, gain, Q
+	eviBiquadCoeffLowpassAnalog 				cutoff, Q
+	eviBiquadCoeffBandpassAnalog 				cutoff, Q
+	eviBiquadCoeffBandpassGainAnalog 			cutoff, gain, Q
+	eviBiquadCoeffPeakNotchAnalog 				cutoff, gain, Q
+	eviBiquadCoeffLowShelfAnalog 				cutoff, gain
+	eviBiquadCoeffHighShelfAnalog 				cutoff, gain
+	eviBiquadCoeffButterworthLowpass 			cutoff
+	eviBiquadCoeffButterworthHighpass 			cutoff
+	eviBiquadCoeffButterworthBandpass 			cutoff, Q
+	eviBiquadCoeffButterworthBandreject 		cutoff, Q
+	eviBiquadCoeffButterworthLowpassGain 		cutoff, gain
+	eviBiquadCoeffButterworthHighpassGain 		cutoff, gain
+	eviBiquadCoeffButterworthBandpassGain 		cutoff, gain, Q
+	eviBiquadCoeffButterworthBandrejectGain 	cutoff, gain, Q
+*/
+
+eviBiquadCoeffLowpass(cutoff, Q, AUDIO_SR=48000)
+{
+	w0      = TWOPI * cutoff / AUDIO_SR;    // omega0
+	alpha   = sin(w0) / (Q + Q);            // r0
+
+		c0  =  cos(w0);
+		b1  =  1 - c0;
+		b0  =  b1 / 2;
+		b2  =  b0;
+		a0  =  1 + alpha;
+		a1  = -2 * c0;
+		a2  =  1 - alpha;
+
+	// convert rbj coeffs (b0, b1, b2, a0, a1, a2) to FF0, FF1, FF2, FB1, FB2
+	a0m		=  1 / a0;
+	return  (b0 * a0m), (b1 * a0m), (b2 * a0m), (a1 * a0m), (a2 * a0m);	// a0, a1, a2, b1, b2
+}
+
+eviBiquadCoeffHighpass(cutoff, Q, AUDIO_SR=48000)
+{
+	w0      = TWOPI * cutoff / AUDIO_SR;    // omega0
+	alpha   = sin(w0) / (Q + Q);            // r0
+
+		c0  =  cos(w0);
+		b0  = (1 + c0) * 0.5;
+		b1  = -1 - c0;
+		b2  =  b0;
+		a0  =  1 + alpha;
+		a1  = -2 * c0;
+		a2  =  1 - alpha;		
+
+	// convert rbj coeffs (b0, b1, b2, a0, a1, a2) to FF0, FF1, FF2, FB1, FB2
+	a0m		=  1 / a0;
+	return  (b0 * a0m), (b1 * a0m), (b2 * a0m), (a1 * a0m), (a2 * a0m);	// a0, a1, a2, b1, b2
+}
+
+eviBiquadCoeffBandpass(cutoff, Q, AUDIO_SR=48000)
+{
+	w0      = TWOPI * cutoff / AUDIO_SR;    // omega0
+	alpha   = sin(w0) / (Q + Q);            // r0
+
+		b0  =  alpha;
+		b1  =  0;
+		b2  = -alpha;
+		a0  =  1 + alpha;
+		a1  = -2 * cos(w0);
+		a2  =  1 - alpha;
+
+	// convert rbj coeffs (b0, b1, b2, a0, a1, a2) to FF0, FF1, FF2, FB1, FB2
+	a0m		=  1 / a0;
+	return  (b0 * a0m), (b1 * a0m), (b2 * a0m), (a1 * a0m), (a2 * a0m);	// a0, a1, a2, b1, b2
+}
+
+eviBiquadCoeffNotch(cutoff, Q, AUDIO_SR=48000)              // "Bandstop"
+{
+	w0      = TWOPI * cutoff / AUDIO_SR;    // omega0
+	alpha   = sin(w0) / (Q + Q);            // r0
+
+		b0  =  1;
+		b1  = -2 * cos(w0);
+		b2  =  1;
+		a0  =  1 + alpha;
+		a1  =  b1;
+		a2  =  1 - alpha;
+
+	// convert rbj coeffs (b0, b1, b2, a0, a1, a2) to FF0, FF1, FF2, FB1, FB2
+	a0m		=  1 / a0;
+	return  (b0 * a0m), (b1 * a0m), (b2 * a0m), (a1 * a0m), (a2 * a0m);	// a0, a1, a2, b1, b2
+}
+
+eviBiquadCoeffPeakNotch(cutoff, gain, Q, AUDIO_SR=48000)
+{
+	w0      = TWOPI * cutoff / AUDIO_SR;  // omega0
+	alpha   = sin(w0) / (Q + Q);            // r0
+    G       = sqrt(maximum(gain, 0.001));
+//  G       = pow(10, (gain * 0.025));      // if gain in dB directly
+
+		amG =  alpha * G;
+		adG =  alpha / G;
+        b0  =  1 + amG;
+        b1  = -2 * cos(w0);
+        b2  =  1 - amG;
+        a0  =  1 + adG;
+        a1  =  b1;
+        a2  =  1 - adG;
+
+	// convert rbj coeffs (b0, b1, b2, a0, a1, a2) to FF0, FF1, FF2, FB1, FB2
+	a0m		=  1 / a0;
+	return  (b0 * a0m), (b1 * a0m), (b2 * a0m), (a1 * a0m), (a2 * a0m);	// a0, a1, a2, b1, b2
+}
+
+eviBiquadCoeffLowShelf(cutoff, gain, Q, AUDIO_SR=48000)     // like MSP (see below for RBJ)
+{
+	w0      = TWOPI * cutoff / AUDIO_SR;    // omega0
+    A       = sqrt(maximum(gain, 0.001));
+//  A       = pow(10, (gain * 0.025));      // if gain in dB directly
+
+	Am1     =  A - 1;
+	Ap1     =  A + 1;
+    alpha   = (A * A + 1) / Q - Am1 * Am1;
+    shelf   =  sin(w0) * (alpha < 0 ? 0 : sqrt(alpha)); 
+
+		c0  =  cos(w0);
+        mc0 =  Am1 * c0;
+        pc0 =  Ap1 * c0;
+		b0  =  A * (Ap1 - mc0 + shelf);
+        b1  = (A + A) * (Am1 - pc0);
+        b2  =  A * (Ap1 - mc0 - shelf);
+        a0  =  Ap1 + mc0 + shelf;
+        a1  = -2 * (Am1 + pc0);
+        a2  =  Ap1 + mc0 - shelf;
+
+	// convert rbj coeffs (b0, b1, b2, a0, a1, a2) to FF0, FF1, FF2, FB1, FB2
+	a0m		=  1 / a0;
+	return  (b0 * a0m), (b1 * a0m), (b2 * a0m), (a1 * a0m), (a2 * a0m);	// a0, a1, a2, b1, b2
+}
+
+eviBiquadCoeffLowShelfCookbook(cutoff, gain, Q, AUDIO_SR=48000) // RBJ (see above for MSP style)
+{
+	w0      = TWOPI * cutoff / AUDIO_SR;    // omega0
+    A       = sqrt(maximum(gain, 0.001));
+//  A       = pow(10, (gain * 0.025));      // if gain in dB directly
+
+	alpha   =  sin(w0) / (Q + Q);           // r0
+	sA      =  sqrt(A) * alpha;
+    shelf   =  sA + sA;
+
+		c0  =  cos(w0);
+	    Am1 =  A - 1;
+	    Ap1 =  A + 1;
+        mc0 =  Am1 * c0;
+        pc0 =  Ap1 * c0;
+		b0  =  A * (Ap1 - mc0 + shelf);
+        b1  = (A + A) * (Am1 - pc0);
+        b2  =  A * (Ap1 - mc0 - shelf);
+        a0  =  Ap1 + mc0 + shelf;
+        a1  = -2 * (Am1 + pc0);
+        a2  =  Ap1 + mc0 - shelf;
+
+	// convert rbj coeffs (b0, b1, b2, a0, a1, a2) to FF0, FF1, FF2, FB1, FB2
+	a0m		=  1 / a0;
+	return  (b0 * a0m), (b1 * a0m), (b2 * a0m), (a1 * a0m), (a2 * a0m);	// a0, a1, a2, b1, b2
+}
+
+eviBiquadCoeffHighShelf(cutoff, gain, Q, AUDIO_SR=48000)
+{
+	w0      = TWOPI * cutoff / AUDIO_SR;    // omega0
+    A       = sqrt(maximum(gain, 0.001));
+//  A       = pow(10, (gain * 0.025));      // if gain in dB directly
+
+	Am1     =  A - 1;
+	Ap1     =  A + 1;
+    alpha   = (A * A + 1) / Q - Am1 * Am1;
+    shelf   =  sin(w0) * (alpha < 0 ? 0 : sqrt(alpha)); 
+
+		c0  =  cos(w0);
+        mc0 =  Am1 * c0;
+        pc0 =  Ap1 * c0;
+		b0  =  A * (Ap1 + mc0 + shelf);
+		b1  = -2 * A * (Am1 + pc0);
+		b2  =  A * (Ap1 + mc0 - shelf);
+		a0  =  Ap1 - mc0 + shelf;
+		a1  =  2 * (Am1 - pc0);
+		a2  =  Ap1 - mc0 - shelf;
+
+	// convert rbj coeffs (b0, b1, b2, a0, a1, a2) to FF0, FF1, FF2, FB1, FB2
+	a0m		=  1 / a0;
+	return  (b0 * a0m), (b1 * a0m), (b2 * a0m), (a1 * a0m), (a2 * a0m);	// a0, a1, a2, b1, b2
+}
+
+eviBiquadCoeffHighShelfCookbook(cutoff, gain, Q, AUDIO_SR=48000)
+{
+	w0      = TWOPI * cutoff / AUDIO_SR;    // omega0
+    A       = sqrt(maximum(gain, 0.001));
+//  A       = pow(10, (gain * 0.025));      // if gain in dB directly
+
+	alpha   =  sin(w0) / (Q + Q);           // r0
+	sA      =  sqrt(A) * alpha;
+    shelf   =  sA + sA;
+
+		c0  =  cos(w0);
+	    Am1 =  A - 1;
+	    Ap1 =  A + 1;
+        mc0 =  Am1 * c0;
+        pc0 =  Ap1 * c0;
+		b0  =  A * (Ap1 + mc0 + shelf);
+		b1  = -2 * A * (Am1 + pc0);
+		b2  =  A * (Ap1 + mc0 - shelf);
+		a0  =  Ap1 - mc0 + shelf;
+		a1  =  2 * (Am1 - pc0);
+		a2  =  Ap1 - mc0 - shelf;
+
+	// convert rbj coeffs (b0, b1, b2, a0, a1, a2) to FF0, FF1, FF2, FB1, FB2
+	a0m		=  1 / a0;
+	return  (b0 * a0m), (b1 * a0m), (b2 * a0m), (a1 * a0m), (a2 * a0m);	// a0, a1, a2, b1, b2
+}
+
+eviBiquadCoeffReson(cutoff, Q, AUDIO_SR=48000)                  // "Resonant" ([reson~])
+{
+	omega   = TWOPI / AUDIO_SR;
+	bw      = cutoff / Q;
+    r1      = exp(-bw * omega);
+
+        b0  =   1 - r1;
+        b1  =   0;
+        b2  = -(r1 - (r1 * r1));
+        a0  =   1;
+        a1  = -((r1 + r1) * cos(cutoff * omega));// w0
+        a2  = -(-r1 * r1);
+
+	return  b0, b1, b2, a1, a2;             // a0, a1, a2, b1, b2
+}
+
+eviBiquadCoeffBp(cutoff, Q, AUDIO_SR=48000)                     // [bp~] from Pd, also like [vcf~]
+{
+	w0      = TWOPI * cutoff / AUDIO_SR;    // omega0
+	qw      = minimum((w0 / Q), 1);
+	r2      = 1 - qw;
+
+        b0  = (qw + qw) * (qw + r2 * w0);
+        b1  =  0;
+        b2  =  0;
+        a0  =  1;
+        a1  = -2 * cos(w0) * r2;            // omega
+        a2  =  r2 * r2;
+
+	return  b0, b1, b2, a1, a2;             // a0, a1, a2, b1, b2
+}
+
+eviBiquadCoeffAllpass(cutoff, Q, AUDIO_SR=48000)
+{
+	w0      = TWOPI * cutoff / AUDIO_SR;  // omega0
+	alpha   = sin(w0) / (Q + Q);            // r0
+
+		b0  =  1 - alpha;
+		b1  = -2 * cos(w0);
+		b2  =  1 + alpha;
+		a0  =  b2;
+		a1  =  b1;
+		a2  =  b0;
+
+	// convert rbj coeffs (b0, b1, b2, a0, a1, a2) to FF0, FF1, FF2, FB1, FB2
+	a0m		=  1 / a0;
+	return  (b0 * a0m), (b1 * a0m), (b2 * a0m), (a1 * a0m), (a2 * a0m);	// a0, a1, a2, b1, b2
+}
+
+eviBiquadCoeffLowpassGain(cutoff, gain, Q, AUDIO_SR=48000)
+{
+	w0      = TWOPI * cutoff / AUDIO_SR;    // omega0
+	alpha   = sin(w0) / (Q + Q);            // r0
+
+		c0  =  cos(w0);
+		b1  =  1 - c0;
+		b0  =  b1 / 2;
+        b0  =  b0 * gain;
+        b1  =  b1 * gain;
+		b2  =  b0;
+		a0  =  1 + alpha;
+		a1  = -2 * c0;
+		a2  =  1 - alpha;
+
+	// convert rbj coeffs (b0, b1, b2, a0, a1, a2) to FF0, FF1, FF2, FB1, FB2
+	a0m		=  1 / a0;
+	return  (b0 * a0m), (b1 * a0m), (b2 * a0m), (a1 * a0m), (a2 * a0m);	// a0, a1, a2, b1, b2
+}
+
+eviBiquadCoeffHighpassGain(cutoff, gain, Q, AUDIO_SR=48000)
+{
+	w0      = TWOPI * cutoff / AUDIO_SR;    // omega0
+	alpha   = sin(w0) / (Q + Q);            // r0
+
+		c0  =  cos(w0);
+		b0  = (1 + c0) * 0.5;
+        b0  =  b0 * gain;
+		b1  = -1 - c0;
+        b1  =  b1 * gain;
+		b2  =  b0;
+		a0  =  1 + alpha;
+		a1  = -2 * c0;
+		a2  =  1 - alpha;		
+
+	// convert rbj coeffs (b0, b1, b2, a0, a1, a2) to FF0, FF1, FF2, FB1, FB2
+	a0m		=  1 / a0;
+	return  (b0 * a0m), (b1 * a0m), (b2 * a0m), (a1 * a0m), (a2 * a0m);	// a0, a1, a2, b1, b2
+}
+
+eviBiquadCoeffBandpassGain(cutoff, gain, Q, AUDIO_SR=48000)
+{
+	w0      = TWOPI * cutoff / AUDIO_SR;    // omega0
+	alpha   = sin(w0) / (Q + Q);            // r0
+
+		b0  =  alpha;
+        b0  =  b0 * gain;
+		b1  =  0;
+		b2  = -alpha;
+        b2  =  b2 * gain;
+		a0  =  1 + alpha;
+		a1  = -2 * cos(w0);
+		a2  =  1 - alpha;
+
+	// convert rbj coeffs (b0, b1, b2, a0, a1, a2) to FF0, FF1, FF2, FB1, FB2
+	a0m		=  1 / a0;
+	return  (b0 * a0m), (b1 * a0m), (b2 * a0m), (a1 * a0m), (a2 * a0m);	// a0, a1, a2, b1, b2
+}
+
+eviBiquadCoeffNotchGain(cutoff, gain, Q, AUDIO_SR=48000)        // "Bandstop"
+{
+	w0      = TWOPI * cutoff / AUDIO_SR;    // omega0
+	alpha   = sin(w0) / (Q + Q);            // r0
+
+		b0  =  gain;
+		b1  = -2 * cos(w0);
+		b2  =  b0;
+		a0  =  1 + alpha;
+		a1  =  b1;
+        b1  =  b1 * gain;
+		a2  =  1 - alpha;
+
+	// convert rbj coeffs (b0, b1, b2, a0, a1, a2) to FF0, FF1, FF2, FB1, FB2
+	a0m		=  1 / a0;
+	return  (b0 * a0m), (b1 * a0m), (b2 * a0m), (a1 * a0m), (a2 * a0m);	// a0, a1, a2, b1, b2
+}
+
+eviBiquadCoeffResonGain(cutoff, gain, Q, AUDIO_SR=48000)        // "Resonant" ([reson~])
+{
+	omega   = TWOPI / AUDIO_SR;
+	bw      = cutoff / Q;
+    r1      = exp(-bw * omega);
+
+        b0  =   1 - r1;
+        b0  =   b0 * gain;
+        b1  =   0;
+        b2  = -(r1 - (r1 * r1));
+        b2  =   b2 * gain;
+        a0  =   1;
+        a1  = -((r1 + r1) * cos(cutoff * omega));// w0
+        a2  = -(-r1 * r1);
+
+	return  b0, b1, b2, a1, a2;             // a0, a1, a2, b1, b2
+}
+
+eviBiquadCoeffBpGain(cutoff, gain, Q, AUDIO_SR=48000)           // [bp~] from Pd
+{
+	w0      = TWOPI * cutoff / AUDIO_SR;    // omega0
+	qw      = minimum((w0 / Q), 1);
+	r2      = 1 - qw;
+
+        b0  = (qw + qw) * (qw + r2 * w0);
+        b0  =  b0 * gain;
+        b1  =  0;
+        b2  =  0;
+        a0  =  1;
+        a1  = -2 * cos(w0) * r2;            // omega
+        a2  =  r2 * r2;
+
+	return  b0, b1, b2, a1, a2;             // a0, a1, a2, b1, b2
+}
+
+eviBiquadCoeffAllpassGain(cutoff, gain, Q, AUDIO_SR=48000)
+{
+	w0      = TWOPI * cutoff / AUDIO_SR;    // omega0
+	alpha   = sin(w0) / (Q + Q);            // r0
+
+		b0  =  1 - alpha;
+		b1  = -2 * cos(w0);
+		b2  =  1 + alpha;
+		a0  =  b2;
+		a1  =  b1;
+		a2  =  b0;
+        b0  =  b0 * gain;
+        b1  =  b1 * gain;
+        b2  =  b2 * gain;
+
+	// convert rbj coeffs (b0, b1, b2, a0, a1, a2) to FF0, FF1, FF2, FB1, FB2
+	a0m		=  1 / a0;
+	return  (b0 * a0m), (b1 * a0m), (b2 * a0m), (a1 * a0m), (a2 * a0m);	// a0, a1, a2, b1, b2
+}
+
+
+// Michael Massberg coefficients for analog matched LPF
+eviBiquadCoeffLowpassAnalog(cutoff, Q, AUDIO_SR=48000)
+{   // !! need to low clip Q depending on omegaC ??
+
+	// terms
+	omegaC	= TWOPI * cutoff / AUDIO_SR;
+	Q2		= Q * Q;
+	QoC		= Q * omegaC;
+
+	m		= 4.442882938158366 / omegaC;   // (SQRT2 * PI) / omegaC
+	m2		= m * m;
+	n		= TWOPI / QoC;
+	n2		= n * n;
+	tmm2	= 2 - m2;
+	denom	= sqrt((tmm2 * tmm2) + n2);
+
+	// step 1, find g1 gain at Nyquist
+	g1		= 2 / denom;
+	g12		= g1 * g1;
+
+	// branch on Q
+	omegaS		= 0;
+    q4          = (Q2 + Q2);
+	if (Q > sqrt1_2) {
+		// resonant gain (standard equation)
+		gr		= q4 / sqrt((q4 + q4) - 1);
+		gr2		= gr * gr;
+		wr		= omegaC * sqrt(1 - (1 / q4));
+		// this is wr/2fs in the paper - does fs cancel out from wn calc?
+		omegaR	= tan(wr * 0.5);
+
+		om		= (gr2 - g12) / (gr2 - 1);
+		omegaS	= omegaR * sqrt(sqrt(om));	// omegaR * pow(om, 0.25)
+	} else {
+		// shelf equations
+		a		= 2 - 1 / Q2;
+		b		= sqrt(1 - (q4 + q4) / Q2 * Q2 + 4 / g1);
+
+		coeff	= sqrt((a + b) * 0.5);
+		wr		= omegaC * coeff;
+
+		omegaM	=  tan(wr * 0.5);
+		omegaS	= (omegaC * sqrt(sqrt(1 - g12))) * 0.5;  // (omegaC * pow((1 - g12), 0.25)) / 2
+		omegaS	=  minimum(omegaS, omegaM);
+	}
+
+	// calculalte peak freq
+    wo  = atan(omegaS);
+	wp	= wo + wo;
+
+	q	= wp / omegaC;
+	q2	= q * q;
+	r	= wp / QoC;
+	r2	= r * r;
+
+	// calculalte gain at POLE
+	omq	= 1 - q2;
+	gp	= 1 / sqrt((omq * omq) + r2);
+	gp2	= gp * gp;
+	
+	// calculalte gain at ZERO
+	pg1	= sqrt(g1);
+    wy  = atan(omegaS / pg1);
+	wz	= wy + wy;
+
+	q	= wz / omegaC;
+	q2	= q * q;
+	r	= wz / QoC;
+	r2	= r * r;
+
+	omq	= 1 - q2;
+	gz	= 1 / sqrt((omq * omq) + r2);
+	gz2	= gz * gz;
+
+	// calculalte required Q @ POLE
+	gpmgz	= gp2 - gz2;
+	g1m1	= g1 - 1;
+	g1m12	= g1m1 * g1m1;
+	qp		= sqrt((g1 * gpmgz) / ((g1 + gz2) * g1m12));
+
+	// calculalte required Q @ ZERO
+	num	= g12 * gpmgz;
+	den	= gz2 * (g1 + gp2) * g1m12;
+	qz	= sqrt(num / den);
+
+	// finally calculalte the coeffs
+	oS2		= omegaS * omegaS;
+	odqp	= omegaS / qp;
+	b0		= oS2 + odqp + 1;
+
+	alpha	= omegaS * pg1 / qz + g1;
+	alpha0	= oS2 + alpha;
+    os2g1   = oS2 - g1;
+	alpha1	= os2g1 + os2g1;
+	alpha2	= oS2 - alpha;
+
+    os21    = oS2 - 1;
+	beta1	= os21 + os21;
+	beta2	= oS2 - odqp + 1;
+
+    b0m = 1 / b0;
+	a0	= alpha0    * b0m;
+	a1	= alpha1    * b0m;
+	a2	= alpha2    * b0m;
+	b1	= beta1     * b0m;
+	b2	= beta2     * b0m;
+
+	return a0, a1, a2, b1, b2;
+}
+
+// Orfanidis / Dudas analog matched BPF, like [filtergraph~]
+eviBiquadCoeffBandpassAnalog(cutoff, Q, AUDIO_SR=48000)
+{
+    w 		= TWOPI * cutoff / AUDIO_SR;        // omega0
+	bw		= w/Q;			    // bw in rads/sample
+	GB		= sqrt1_2;			// gain at bw: sqrt((G*G)/2) works best for bandpass
+	w2		= w*w;
+	bw2		= bw*bw;
+	GB2		= GB*GB;
+	PISQ	= 9.869604401089359;// pi*pi;
+
+	F	= 1 /	abs(1 -	GB2);	// gain^2 - BWgain^2
+	F00	=		abs(	GB2);	// BWgain^2 - DCgain^2
+
+	num	= F00 * PISQ * bw2 * F;
+	den	= (w2 - PISQ) * (w2 - PISQ) + num;
+
+	G12	= num / den;			// nyquist freq gain squared
+	G1	= sqrt(G12);			// nyquist freq gain
+
+	G11	= abs(1		- G12);
+	F01	= abs(GB2);
+	F11	= abs(GB2	- G12);
+
+	tw		= tan(w * 0.5);
+	sG11	= sqrt(G11);
+	W2		= sG11 * (tw*tw);
+	DW		= (1 + sqrt(F00 / F11) * W2) * tan(bw * 0.5);
+
+	C	= F11 * DW*DW -	(W2 + W2) * (F01	- sqrt(F00 * F11));
+	D	=				(W2 + W2) * (1		- sG11);
+
+	A	= sqrt((C + D)       * F);
+	B	= sqrt((C + GB2 * D) * F);
+
+	b0	=			 1 / (1 + W2 + A);
+	a0	= b0 *		(G1 + B);
+	a1	= b0 * -2 *	 G1;
+	a2	= b0 *		(G1 - B);
+	b1	= b0 * -2 *	(1 - W2);
+	b2	= b0 *		(1 + W2 - A);
+
+	return	a0, a1, a2, b1, b2;
+}
+
+// Orfanidis / Dudas analog matched BPF, like [filtergraph~]
+eviBiquadCoeffBandpassGainAnalog(cutoff, gain, Q, AUDIO_SR=48000)
+{
+    w 		= TWOPI * cutoff / AUDIO_SR;        // omega0
+	bw		= w/Q; 		// bw in rads/sample
+	G2		= gain*gain;
+	GB		= sqrt(G2*0.5);		// gain at bw: sqrt((G*G)/2) works best for bandpass
+	w2		= w*w;
+	GB2		= GB*GB;
+	bw2		= bw*bw;
+	PISQ	= 9.869604401089359;// pi*pi;
+
+	F	= 1 /	abs(G2	- GB2);	// gain^2 - BWgain^2
+	G00	=		abs(G2	- 0);	// gain^2 - DCgain^2
+	F00	=		abs(GB2	- 0);	// BWgain^2 - DCgain^2
+
+	bw2p2	= F00 * PISQ * bw2 * F;
+	num		= G2 * bw2p2;
+	den		= (w2 - PISQ) * (w2 - PISQ) + bw2p2;
+
+	G12		= num/den;
+	G1		= sqrt(G12);		// nyquist freq gain
+
+	G01	= abs(G2 );
+	G11	= abs(G2	- G12);
+	F01	= abs(GB2);
+	F11	= abs(GB2	- G12);
+
+	tw	= tan(w * 0.5);
+	W2	= sqrt(G11 / G00) * (tw*tw);
+	DW	= (1 + sqrt(F00 / F11) * W2) * tan(bw * 0.5);
+
+	C	= F11 * DW*DW - (W2 + W2) * (F01 - sqrt(F00 * F11));
+	D	=               (W2 + W2) * (G01 - sqrt(G00 * G11));
+
+	A	= sqrt(		(C + D)			* F);
+	B	= sqrt((G2 * C + GB2 * D)	* F);
+
+	b0	=			 1 / (1 + W2 + A);
+	a0	= b0 *		(G1 + B);
+	a1	= b0 * -2 *	 G1;
+	a2	= b0 *		(G1 - B);
+	b1	= b0 * -2 *	(1 - W2);
+	b2	= b0 *		(1 + W2 - A);
+
+	return	a0, a1, a2, b1, b2;
+}
+
+// Orfanidis / Dudas analog matched PeakNotch, like [filtergraph~]
+eviBiquadCoeffPeakNotchAnalog(cutoff, gain, Q, AUDIO_SR=48000)
+{
+	a0				= 1;
+	a1, a2, b1, b2	= 0;
+    w 		        = TWOPI * cutoff / AUDIO_SR;            // omega0
+	bw				= w/(Q+1);	    // bw in rads/sample	// w/Q
+	
+	if (gain == 1) {
+    // in the case of unity gain (G = DCgain) we use the following:
+		B	= tan(bw * 0.5);
+		b0	= 1 / (1 + B);
+		a0	= 1;					// b0*(1+beta) = (1+beta)/(1+beta) = 1
+		b1	= b0 * -2 * cos(w);// 
+		a1	= b1;
+		b2	= b0 * (1 - B);
+		a2	= b2;
+
+	} else {
+	
+		GB		= sqrt(gain);		// bandwidth gain: sqrt(G0*G) seems to work best for peaknotch
+		w2		= w*w;	            // squared versions
+		G2		= gain*gain;
+		GB2		= GB*GB; 			// guess this is redundant since GB = sqrt(G) ?
+		bw2		= bw*bw;
+		PISQ	= 9.869604401089359;// pi*pi;
+
+		F	= 1 /	abs(G2	- GB2);	// gain^2 - BWgain^2 (recrip)
+		G00	=		abs(G2	- 1);	// gain^2 - DCgain^2
+		F00	=		abs(GB2	- 1);	// BWgain^2 - DCgain^2
+	
+		w2p2	= (w2 - PISQ) * (w2 - PISQ);				// (cf^2-pi^2)^2
+		bw2p2	= F00 * PISQ * bw2 * F;
+		num		= w2p2 + (G2 * bw2p2);
+		den		= w2p2 + bw2p2;
+
+		G12	= num/den;  			// nyquist freq gain squared
+		G1	= sqrt(G12); 			// nyquist freq gain
+
+		G01	= abs(G2	- G1 );
+		G11	= abs(G2	- G12);
+		F01	= abs(GB2	- G1 );
+		F11	= abs(GB2	- G12);
+
+		tw	= tan(w * 0.5);
+		W2	= sqrt(G11 / G00) * (tw*tw); 					// big Omega^2
+		DW	= (1 + sqrt(F00 / F11) * W2) * tan(bw * 0.5);	// Delta big Omega
+
+		C	= F11 * DW*DW -	(W2 + W2) * (F01 - sqrt(F00 * F11));
+		D	=				(W2 + W2) * (G01 - sqrt(G00 * G11));
+
+		A	= sqrt(		(C + D)			* F);
+		B	= sqrt((G2 * C + GB2 * D)	* F);
+
+		b0	=			 1 / (1 + W2 + A);
+		a0	= b0 *		(G1 + W2 + B);
+		a1	= b0 * -2 *	(G1 - W2);
+		a2	= b0 *		(G1 + W2 - B);
+		b1	= b0 * -2 *	(1 - W2);
+		b2	= b0 *		(1 + W2 - A);
+	}
+
+	return	a0, a1, a2, b1, b2;
+}
+
+// Martin Vicanek analog matched Butterworth LowShelf
+eviBiquadCoeffLowShelfAnalog(cutoff, gain, AUDIO_SR=48000) // !! no Q, cutoff @ high (yes, high) gain
+{
+    // (center frequency / Nyquist frequency)
+    fc   = cutoff / AUDIO_SR*0.5;
+    // special case gain = 1 (flat response)
+    g    = (abs(1 - gain) < 1e-6) ? 1.00001 : 1/gain;
+    invg = 1/g;
+
+    // matching gain at Nyquist
+    fc4 = fc*fc*fc*fc;
+    hny = (fc4 + g)/(fc4 + invg);
+
+    // matching gain at f_1
+    f1   = fc/sqrt(0.160 + 1.543*fc*fc);
+    f14  = f1*f1*f1*f1;
+    h1   = (fc4 + f14*g)/(fc4 + f14*invg);
+    phi0 = sin(HALFPI*f1);
+    phi1 = phi0*phi0;
+
+    // matching gain at f_2
+    f2   = fc/sqrt(0.947 + 3.806*fc*fc);
+    f24  = f2*f2*f2*f2;
+    h2   = (fc4 + f24*g)/(fc4 + f24*invg);
+    phi2 = sin(HALFPI*f2);
+    phi3 = phi2*phi2;
+
+    // linear equations coefficients
+    d1  = (h1 - 1)*(1 - phi1);
+    c11 = -phi1*d1;
+    c12 = phi1*phi1*(hny - h1);
+    d2  = (h2 - 1)*(1 - phi3);
+    c21 = -phi3*d2;
+    c22 = phi3*phi3*(hny - h2);
+
+    // linear equations solution
+    alfa1 = (c22*d1 - c12*d2)/(c11*c22 - c12*c21);
+    aa1   = (d1 - c11*alfa1)/c12;
+    bb1   = hny*aa1;
+
+    // compute A_2 and B_2
+    aa2 = 0.25*(alfa1 - aa1);
+    bb2 = 0.25*(alfa1 - bb1);
+
+    // compute biquad coefficients scaled with 1/a_0
+    v     = 0.5*(1 + sqrt(aa1));
+    w     = 0.5*(1 + sqrt(bb1));
+    a0    = 0.5*(v + sqrt(v*v + aa2));
+
+    inva0 =  1/a0;
+    a1    = (1 - v)*inva0;
+    a2    = -0.25*aa2*inva0*inva0;
+	//ginva0 = g*inva0; // !! bug, Martin fixed this for me with below
+	ginva0 = invg*inva0;
+	b0    = (0.5*(w + sqrt(w*w + bb2)));
+	b1    = (1 - w)*ginva0;
+	b2    = (-0.25*bb2/b0)*ginva0;
+	b0    = b0*ginva0;
+
+    return b0, b1, b2, a1, a2;  // a0, a1, a2, b1, b2
+}
+
+// Martin Vicanek analog matched Butterworth HighShelf
+eviBiquadCoeffHighShelfAnalog(cutoff, gain, AUDIO_SR=48000) // !! no Q, cutoff @ high gain
+{
+    // (center frequency / Nyquist frequency)
+    fc   = cutoff / AUDIO_SR*0.5;
+    // special case gain = 1 (flat response)
+    g    = (abs(1 - gain) < 1e-6) ? 1.00001 : gain;
+    invg = 1/g;
+
+    // matching gain at Nyquist
+    fc4 = fc*fc*fc*fc;
+    hny = (fc4 + g)/(fc4 + invg);
+
+    // matching gain at f_1
+    f1   = fc/sqrt(0.160 + 1.543*fc*fc);
+    f14  = f1*f1*f1*f1;
+    h1   = (fc4 + f14*g)/(fc4 + f14*invg);
+    phi0 = sin(HALFPI*f1);
+    phi1 = phi0*phi0;
+
+    // matching gain at f_2
+    f2   = fc/sqrt(0.947 + 3.806*fc*fc);
+    f24  = f2*f2*f2*f2;
+    h2   = (fc4 + f24*g)/(fc4 + f24*invg);
+    phi2 = sin(HALFPI*f2);
+    phi3 = phi2*phi2;
+
+    // linear equations coefficients
+    d1  = (h1 - 1)*(1 - phi1);
+    c11 = -phi1*d1;
+    c12 = phi1*phi1*(hny - h1);
+    d2  = (h2 - 1)*(1 - phi3);
+    c21 = -phi3*d2;
+    c22 = phi3*phi3*(hny - h2);
+
+    // linear equations solution
+    alfa1 = (c22*d1 - c12*d2)/(c11*c22 - c12*c21);
+    aa1   = (d1 - c11*alfa1)/c12;
+    bb1   = hny*aa1;
+
+    // compute A_2 and B_2
+    aa2 = 0.25*(alfa1 - aa1);
+    bb2 = 0.25*(alfa1 - bb1);
+
+    // compute biquad coefficients scaled with 1/a_0
+    v     = 0.5*(1 + sqrt(aa1));
+    w     = 0.5*(1 + sqrt(bb1));
+    a0    = 0.5*(v + sqrt(v*v + aa2));
+
+    inva0 =  1/a0;
+    a1    = (1 - v)*inva0;
+    a2    = -0.25*aa2*inva0*inva0;
+    b0    = (0.5*(w + sqrt(w*w + bb2)))*inva0;
+    b1    = (1 - w)*inva0;
+    b2    = (-0.25*bb2/b0)*inva0*inva0;
+
+    return b0, b1, b2, a1, a2;  // a0, a1, a2, b1, b2
+}
+
+eviBiquadCoeffButterworthLowpass(cutoff, AUDIO_SR=48000)
+{
+    cfdiv	= cutoff / AUDIO_SR;
+	cdiv	= 1 / tan(PI * cfdiv);
+	cdiv2	= cdiv * cdiv;		
+	sc		= sqrt2 * cdiv;		    // separate (sc + cdiv2)
+
+		b0	= 1 / (1 + sc + cdiv2);
+        b00 = b0 + b0;
+		b1	= b00;
+		b2	= b0;
+		a1	= b00 * (1 - cdiv2);
+		a2	= b0 * (1 - sc + cdiv2);
+
+	// return dodge/jerse coeffs (b0, b1, b2, a1, a2) as FF0, FF1, FF2, FB1, FB2
+	return  b0, b1, b2, a1, a2;		// a0, a1, a2, b1, b2
+}
+
+eviBiquadCoeffButterworthHighpass(cutoff, AUDIO_SR=48000)
+{
+    cfdiv	= cutoff / AUDIO_SR;
+	c		= tan(pi * cfdiv);
+	c2		= c * c;
+	sc		= sqrt2 * c;		    // separate (sc + c2)
+
+		b0	=  1 / (1 + sc + c2);
+		b1	=  b0 * -2;
+		b2	=  b0;
+		a1	= (b0 + b0) * (c2 - 1);
+		a2	=  b0 * (1 - sc + c2);
+
+	// return dodge/jerse coeffs (b0, b1, b2, a1, a2) as FF0, FF1, FF2, FB1, FB2
+	return  b0, b1, b2, a1, a2;		// a0, a1, a2, b1, b2
+}
+
+eviBiquadCoeffButterworthBandpass(cutoff, Q, AUDIO_SR=48000)
+{
+    cfdiv	= cutoff / AUDIO_SR;
+	q		= maximum(Q, 1);
+	bw		= cutoff / q;
+	bwdiv	= bw / AUDIO_SR;
+    w0      = cos(TWOPI * cfdiv);
+	w1		= w0 + w0;
+	tdiv	= 1 / (tan(PI * bwdiv));
+
+		b0	=  1 / (1 + tdiv);
+		b1	=  0;
+		b2	= -b0;                  // b0 * -1
+		a1	= -1 * w1 * b0 * tdiv;
+		a2	=  b0 * (tdiv - 1);
+
+	// return dodge/jerse coeffs (b0, b1, b2, a1, a2) as FF0, FF1, FF2, FB1, FB2
+	return  b0, b1, b2, a1, a2;		// a0, a1, a2, b1, b2
+}
+
+eviBiquadCoeffButterworthBandreject(cutoff, Q, AUDIO_SR=48000)
+{
+    cfdiv	= cutoff / AUDIO_SR;
+	q		= maximum(Q, 1);
+	bw		= cutoff / q;
+	bwdiv	= bw / AUDIO_SR;
+    w0      = cos(TWOPI * cfdiv);
+	w1		= w0 + w0;
+	t	    = tan(PI * bwdiv);
+
+		b0	= 1 / (1 + t);
+		b1	= w1 * -b0;             // w1 * (b0 * -1)
+		b2	= b0;
+		a1	= b1;
+		a2	= b0 * (1 - t);
+
+	// return dodge/jerse coeffs (b0, b1, b2, a1, a2) as FF0, FF1, FF2, FB1, FB2
+	return  b0, b1, b2, a1, a2;		// a0, a1, a2, b1, b2
+}
+
+
+eviBiquadCoeffButterworthLowpassGain(cutoff, gain, AUDIO_SR=48000)
+{
+    cfdiv	= cutoff / AUDIO_SR;
+	cdiv	= 1 / tan(PI * cfdiv);
+	cdiv2	= cdiv * cdiv;		
+	sc		= sqrt2 * cdiv;		    // separate (sc + cdiv2)
+
+		b0	=  1 / (1 + sc + cdiv2);
+		a1	= (b0 + b0) * (1 - cdiv2);
+		a2	=  b0 * (1 - sc + cdiv2);
+		b0  =  b0 * gain;
+		b1	=  b0 + b0;
+		b2	=  b0;
+
+	// return dodge/jerse coeffs (b0, b1, b2, a1, a2) as FF0, FF1, FF2, FB1, FB2
+	return  b0, b1, b2, a1, a2;		// a0, a1, a2, b1, b2
+}
+
+eviBiquadCoeffButterworthHighpassGain(cutoff, gain, AUDIO_SR=48000)
+{
+    cfdiv	= cutoff / AUDIO_SR;
+	c		= tan(pi * cfdiv);
+	c2		= c * c;
+	sc		= sqrt2 * c;		    // separate (sc + c2)
+
+		b0	=  1 / (1 + sc + c2);
+		a1	= (b0 + b0) * (c2 - 1);
+		a2	=  b0 * (1 - sc + c2);
+		b0  =  b0 * gain;
+		b1	=  b0 * -2;
+		b2	=  b0;
+
+	// return dodge/jerse coeffs (b0, b1, b2, a1, a2) as FF0, FF1, FF2, FB1, FB2
+	return  b0, b1, b2, a1, a2;		// a0, a1, a2, b1, b2
+}
+
+eviBiquadCoeffButterworthBandpassGain(cutoff, gain, Q, AUDIO_SR=48000)
+{
+    cfdiv	= cutoff / AUDIO_SR;
+	q		= maximum(Q, 1);
+	bw		= cutoff / q;
+	bwdiv	= bw / AUDIO_SR;
+    w0      = cos(TWOPI * cfdiv);
+	w1		= w0 + w0;
+	tdiv	= 1 / (tan(PI * bwdiv));
+
+		b0	=  1 / (1 + tdiv);
+		b1	=  0;
+		a1	= -1 * w1 * b0 * tdiv;
+		a2	=  b0 * (tdiv - 1);
+        b0  =  b0 * gain;
+		b2	= -b0;                  // b0 * -1
+
+	// return dodge/jerse coeffs (b0, b1, b2, a1, a2) as FF0, FF1, FF2, FB1, FB2
+	return  b0, b1, b2, a1, a2;		// a0, a1, a2, b1, b2
+}
+
+eviBiquadCoeffButterworthBandrejectGain(cutoff, gain, Q, AUDIO_SR=48000)
+{
+    cfdiv	= cutoff / AUDIO_SR;
+	q		= maximum(Q, 1);
+	bw		= cutoff / q;
+	bwdiv	= bw / AUDIO_SR;
+    w0      = cos(TWOPI * cfdiv);
+	w1		= w0 + w0;
+	t	    = tan(PI * bwdiv);
+
+		b0	= 1 / (1 + t);
+		b1	= w1 * -b0;             // w1 * (b0 * -1)
+		a1	= b1;
+		a2	= b0 * (1 - t);
+        b0  = b0 * gain;
+        b1  = b1 * gain;
+		b2	= b0;
+
+	// return dodge/jerse coeffs (b0, b1, b2, a1, a2) as FF0, FF1, FF2, FB1, FB2
+	return  b0, b1, b2, a1, a2;		// a0, a1, a2, b1, b2
+}
+
+
+//	//	//	Part 2: Filter Selectors
+
+// 1) eviBiquadCoeff(index, cutoff, gain, Q, samplerate)
+/*
+    index   calculator                              	parameters
+    0       bypass                                  	none
+	1		eviBiquadCoeffLowpass 						cutoff, Q
+	2		eviBiquadCoeffHighpass 						cutoff, Q
+	3		eviBiquadCoeffBandpass 						cutoff, Q
+	4		eviBiquadCoeffNotch 						cutoff, Q
+	5		eviBiquadCoeffPeakNotch 					cutoff, gain, Q
+	6		eviBiquadCoeffLowShelf 						cutoff, gain, Q
+	7		eviBiquadCoeffLowShelfCookbook 				cutoff, gain, Q
+	8		eviBiquadCoeffHighShelf 					cutoff, gain, Q
+	9		eviBiquadCoeffHighShelfCookbook 			cutoff, gain, Q
+	10		eviBiquadCoeffReson 						cutoff, Q
+	11		eviBiquadCoeffBp 							cutoff, Q
+	12		eviBiquadCoeffAllpass 						cutoff, Q
+	13		eviBiquadCoeffLowpassGain 					cutoff, gain, Q
+	14		eviBiquadCoeffHighpassGain 					cutoff, gain, Q
+	15		eviBiquadCoeffBandpassGain 					cutoff, gain, Q
+	16		eviBiquadCoeffNotchGain 					cutoff, gain, Q
+	17		eviBiquadCoeffResonGain 					cutoff, gain, Q
+	18		eviBiquadCoeffBpGain 						cutoff, gain, Q
+	19		eviBiquadCoeffAllpassGain 					cutoff, gain, Q
+	20		eviBiquadCoeffLowpassAnalog 				cutoff, Q
+	21		eviBiquadCoeffBandpassAnalog 				cutoff, Q
+	22		eviBiquadCoeffBandpassGainAnalog 			cutoff, gain, Q
+	23		eviBiquadCoeffPeakNotchAnalog 				cutoff, gain, Q
+	24		eviBiquadCoeffLowShelfAnalog 				cutoff, gain
+	25		eviBiquadCoeffHighShelfAnalog 				cutoff, gain
+	26		eviBiquadCoeffButterworthLowpass 			cutoff
+	27		eviBiquadCoeffButterworthHighpass 			cutoff
+	28		eviBiquadCoeffButterworthBandpass 			cutoff, Q
+	29		eviBiquadCoeffButterworthBandreject 		cutoff, Q
+	30		eviBiquadCoeffButterworthLowpassGain 		cutoff, gain
+	31		eviBiquadCoeffButterworthHighpassGain 		cutoff, gain
+	32		eviBiquadCoeffButterworthBandpassGain 		cutoff, gain, Q
+	33		eviBiquadCoeffButterworthBandrejectGain 	cutoff, gain, Q
+*/
+eviBiquadCoeff(filter, cutoff, gain, fullQ, AUDIO_SAMPLERATE=48000)
+{
+    Q       = minimum(fullQ, 18);
+
+    a0, a1, a2, b1, b2  = 0;
+
+    if (filter == 1) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffLowpass(cutoff, Q, AUDIO_SR=AUDIO_SAMPLERATE);
+    }
+    else if (filter == 2) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffHighpass(cutoff, Q, AUDIO_SR=AUDIO_SAMPLERATE);
+    }
+    else if (filter == 3) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffBandpass(cutoff, Q, AUDIO_SR=AUDIO_SAMPLERATE);
+    }
+    else if (filter == 4) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffNotch(cutoff, Q, AUDIO_SR=AUDIO_SAMPLERATE);
+    }
+    else if (filter == 5) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffPeakNotch(cutoff, gain, Q, AUDIO_SR=AUDIO_SAMPLERATE);
+    }
+    else if (filter == 6) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffLowShelf(cutoff, gain, Q, AUDIO_SR=AUDIO_SAMPLERATE);
+    }
+    else if (filter == 7) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffLowShelfCookbook(cutoff, gain, Q, AUDIO_SR=AUDIO_SAMPLERATE);
+    }
+    else if (filter == 8) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffHighShelf(cutoff, gain, Q, AUDIO_SR=AUDIO_SAMPLERATE);
+    }
+    else if (filter == 9) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffHighShelfCookbook(cutoff, gain, Q, AUDIO_SR=AUDIO_SAMPLERATE);
+    }
+    else if (filter == 10) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffReson(cutoff, fullQ, AUDIO_SR=AUDIO_SAMPLERATE);
+    }
+    else if (filter == 11) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffBp(cutoff, fullQ, AUDIO_SR=AUDIO_SAMPLERATE);
+    }
+    else if (filter == 12) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffAllpass(cutoff, Q, AUDIO_SR=AUDIO_SAMPLERATE);
+    }
+    else if (filter == 13) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffLowpassGain(cutoff, gain, Q, AUDIO_SR=AUDIO_SAMPLERATE);
+    }
+    else if (filter == 14) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffHighpassGain(cutoff, gain, Q, AUDIO_SR=AUDIO_SAMPLERATE);
+    }
+    else if (filter == 15) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffBandpassGain(cutoff, gain, Q, AUDIO_SR=AUDIO_SAMPLERATE);
+    }
+    else if (filter == 16) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffNotchGain(cutoff, gain, Q, AUDIO_SR=AUDIO_SAMPLERATE);
+    }
+    else if (filter == 17) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffResonGain(cutoff, gain, fullQ, AUDIO_SR=AUDIO_SAMPLERATE);
+    }
+    else if (filter == 18) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffBpGain(cutoff, gain, fullQ, AUDIO_SR=AUDIO_SAMPLERATE);
+    }
+    else if (filter == 19) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffAllpassGain(cutoff, gain, Q, AUDIO_SR=AUDIO_SAMPLERATE);
+    }
+    else if (filter == 20) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffLowpassAnalog(cutoff, Q, AUDIO_SR=AUDIO_SAMPLERATE);
+    }
+    else if (filter == 21) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffBandpassAnalog(cutoff, Q, AUDIO_SR=AUDIO_SAMPLERATE);
+    }
+    else if (filter == 22) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffBandpassGainAnalog(cutoff, gain, Q, AUDIO_SR=AUDIO_SAMPLERATE);
+    }
+    else if (filter == 23) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffPeakNotchAnalog(cutoff, gain, Q, AUDIO_SR=AUDIO_SAMPLERATE);
+    }
+    else if (filter == 24) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffLowShelfAnalog(cutoff, gain, AUDIO_SR=AUDIO_SAMPLERATE);
+    }
+    else if (filter == 25) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffHighShelfAnalog(cutoff, gain, AUDIO_SR=AUDIO_SAMPLERATE);
+    }
+    else if (filter == 26) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffButterworthLowpass(cutoff, AUDIO_SR=AUDIO_SAMPLERATE);
+    }
+    else if (filter == 27) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffButterworthHighpass(cutoff, AUDIO_SR=AUDIO_SAMPLERATE);
+    }
+    else if (filter == 28) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffButterworthBandpass(cutoff, Q, AUDIO_SR=AUDIO_SAMPLERATE);
+    }
+    else if (filter == 29) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffButterworthBandreject(cutoff, Q, AUDIO_SR=AUDIO_SAMPLERATE);
+    }
+    else if (filter == 30) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffButterworthLowpassGain(cutoff, gain, AUDIO_SR=AUDIO_SAMPLERATE);
+    }
+    else if (filter == 31) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffButterworthHighpassGain(cutoff, gain, AUDIO_SR=AUDIO_SAMPLERATE);
+    }
+    else if (filter == 32) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffButterworthBandpassGain(cutoff, gain, Q, AUDIO_SR=AUDIO_SAMPLERATE);
+    }
+    else if (filter == 33) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffButterworthBandrejectGain(cutoff, gain, Q, AUDIO_SR=AUDIO_SAMPLERATE);
+    }
+    else {  // bypass
+        a0  = 1;
+        a1, a2, b1, b2  = 0;
+    }
+
+    return a0, a1, a2, b1, b2;
+}
+
+// 2) eviBiquadCoeffEQ(index, cutoff, gain, Q, samplerate)
+/*
+    index   calculator                              	parameters
+    0       bypass                                  	none
+	1		eviBiquadCoeffHighpassGain 					cutoff, gain, Q
+	2		eviBiquadCoeffLowShelf 						cutoff, gain, Q
+	3		eviBiquadCoeffLowShelfCookbook 				cutoff, gain, Q
+	4		eviBiquadCoeffLowShelfAnalog 				cutoff, gain
+	5		eviBiquadCoeffPeakNotch 					cutoff, gain, Q
+	6		eviBiquadCoeffPeakNotchAnalog 				cutoff, gain, Q
+	7		eviBiquadCoeffNotchGain 					cutoff, gain, Q
+	8		eviBiquadCoeffHighShelf 					cutoff, gain, Q
+	9		eviBiquadCoeffHighShelfCookbook 			cutoff, gain, Q
+	10		eviBiquadCoeffHighShelfAnalog 				cutoff, gain
+	11		eviBiquadCoeffLowpassGain 					cutoff, gain, Q
+	12		eviBiquadCoeffAllpassGain 					cutoff, gain, Q
+*/
+eviBiquadCoeffEQ(filter, cutoff, gain, fullQ, AUDIO_SAMPLERATE=48000)
+{
+    Q       = clip(fullQ, 0.1, 18);
+
+    a0, a1, a2, b1, b2  = 0;
+
+    if (filter == 1) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffHighpassGain(cutoff, gain, Q, AUDIO_SR=AUDIO_SAMPLERATE);
+    }
+    else if (filter == 2) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffLowShelf(cutoff, gain, Q, AUDIO_SR=AUDIO_SAMPLERATE);
+    }
+    else if (filter == 3) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffLowShelfCookbook(cutoff, gain, Q, AUDIO_SR=AUDIO_SAMPLERATE);
+    }
+    else if (filter == 4) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffLowShelfAnalog(cutoff, gain, AUDIO_SR=AUDIO_SAMPLERATE);
+    }
+    else if (filter == 5) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffPeakNotch(cutoff, gain, Q, AUDIO_SR=AUDIO_SAMPLERATE);
+    }
+    else if (filter == 6) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffPeakNotchAnalog(cutoff, gain, Q, AUDIO_SR=AUDIO_SAMPLERATE);
+    }
+    else if (filter == 7) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffNotchGain(cutoff, gain, Q, AUDIO_SR=AUDIO_SAMPLERATE);
+    }
+    else if (filter == 8) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffHighShelf(cutoff, gain, Q, AUDIO_SR=AUDIO_SAMPLERATE);
+    }
+    else if (filter == 9) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffHighShelfCookbook(cutoff, gain, Q, AUDIO_SR=AUDIO_SAMPLERATE);
+    }
+    else if (filter == 10) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffHighShelfAnalog(cutoff, gain, AUDIO_SR=AUDIO_SAMPLERATE);
+    }
+    else if (filter == 11) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffLowpassGain(cutoff, gain, Q, AUDIO_SR=AUDIO_SAMPLERATE);
+    }
+    else if (filter == 12) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffAllpassGain(cutoff, gain, Q, AUDIO_SR=AUDIO_SAMPLERATE);
+    }
+    else {  // bypass
+        a0  = 1;
+        a1, a2, b1, b2  = 0;
+    }
+
+    return a0, a1, a2, b1, b2;
+}
+
+// 3) eviBiquadCoeffButterworth(index, cutoff, gain, Q, samplerate)
+/*
+    index   calculator                              	parameters
+    0       bypass                                  	none
+	1		eviBiquadCoeffButterworthLowpass 			cutoff
+	2		eviBiquadCoeffButterworthHighpass 			cutoff
+	3		eviBiquadCoeffButterworthBandpass 			cutoff, Q
+	4		eviBiquadCoeffButterworthBandreject 		cutoff, Q
+	5		eviBiquadCoeffButterworthLowpassGain 		cutoff, gain
+	6		eviBiquadCoeffButterworthHighpassGain 		cutoff, gain
+	7		eviBiquadCoeffButterworthBandpassGain 		cutoff, gain, Q
+	8		eviBiquadCoeffButterworthBandrejectGain 	cutoff, gain, Q
+	9		eviBiquadCoeffLowShelfAnalog 				cutoff, gain
+	10		eviBiquadCoeffHighShelfAnalog 				cutoff, gain
+*/
+eviBiquadCoeffButterworth(filter, cutoff, gain, fullQ, AUDIO_SAMPLERATE=48000)
+{
+    Q       = clip(fullQ, 0.1, 18);
+
+    a0, a1, a2, b1, b2  = 0;
+
+    if (filter == 1) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffButterworthLowpass(cutoff, AUDIO_SR=AUDIO_SAMPLERATE);
+    }
+    else if (filter == 2) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffButterworthHighpass(cutoff, AUDIO_SR=AUDIO_SAMPLERATE);
+    }
+    else if (filter == 3) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffButterworthBandpass(cutoff, Q, AUDIO_SR=AUDIO_SAMPLERATE);
+    }
+    else if (filter == 4) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffButterworthBandreject(cutoff, Q, AUDIO_SR=AUDIO_SAMPLERATE);
+    }
+    else if (filter == 5) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffButterworthLowpassGain(cutoff, gain, AUDIO_SR=AUDIO_SAMPLERATE);
+    }
+    else if (filter == 6) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffButterworthHighpassGain(cutoff, gain, AUDIO_SR=AUDIO_SAMPLERATE);
+    }
+    else if (filter == 7) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffButterworthBandpassGain(cutoff, gain, Q, AUDIO_SR=AUDIO_SAMPLERATE);
+    }
+    else if (filter == 8) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffButterworthBandrejectGain(cutoff, gain, Q, AUDIO_SR=AUDIO_SAMPLERATE);
+    }
+    else if (filter == 9) {  // is a butterworth :-)
+        a0, a1, a2, b1, b2  = eviBiquadCoeffLowShelfAnalog(cutoff, gain, AUDIO_SR=AUDIO_SAMPLERATE);
+    }
+    else if (filter == 10) { // is a butterworth :-)
+        a0, a1, a2, b1, b2  = eviBiquadCoeffHighShelfAnalog(cutoff, gain, AUDIO_SR=AUDIO_SAMPLERATE);
+    }
+    else {  // bypass
+        a0  = 1;
+        a1, a2, b1, b2  = 0;
+    }
+
+    return a0, a1, a2, b1, b2;
+}
+

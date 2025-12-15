@@ -1,0 +1,122 @@
+{
+	"patcher" : 	{
+		"fileversion" : 1,
+		"appversion" : 		{
+			"major" : 9,
+			"minor" : 0,
+			"revision" : 3,
+			"architecture" : "x64",
+			"modernui" : 1
+		}
+,
+		"classnamespace" : "dsp.gen",
+		"rect" : [ 560.0, 100.0, 918.0, 848.0 ],
+		"gridonopen" : 2,
+		"gridsize" : [ 15.0, 15.0 ],
+		"boxes" : [ 			{
+				"box" : 				{
+					"code" : "/*\r\nMoog Ladder implementation by Antti Huovilainen, 2004\r\n\nThis GenExpr is a port of the CSound Moogladder opcode, originally by Victor Lazzarini.\nBy Pete, originally January 2012 for the Max/gen~ examples folder (thanks to Graham Wakefield).\nThis evieve version a minor update for better CPU etc some time later (thanks to Peter McCulloch).\r\n\r\nThere are much better proper 'zdf' Ladder filters in the evieve package, but this filter is very\r\nfamous in terms of DSP history, as it is a brilliant z-1 implementation often cited by the later\r\nDSP zdf proponents. It is part of evieve for the sake of pedagogy. (It is much more concise\r\nand easier to understand than the ICST BEAP z-1 ladder).\r\n\n-------\r\nOriginal Victor Lazzarini opcode description:\r\n\nThis is a new digital implementation of the Moog ladder filter based on the work of\nAntti Huovilainen, described in the paper \"Non-Linear Digital Implementation of the\nMoog Ladder Filter\" (Proceedings of DaFX04, Univ of Napoli). This implementation is\nprobably a more accurate digital representation of the original analogue filter.\nThis is version 2 (revised 14/DEC/2004), with improved amplitude/resonance scaling\nand frequency correction using a couple of polynomials, as suggested by Antti.\r\n-------\n*/\n\nexpA(x0)\t\t\t\t// more accurate than 'fastexp()'\n{\n\tx = 0.999996 + (0.031261316 + (0.00048274797 + 0.000006 * x0) * x0) * x0;\n\tx *= x; x *= x; x *= x; x *= x; x *= x;\n\treturn x;\n}\n\r\n// tanh approximations\r\ntnhA(x)\t\t\t\t\t// bright and cheap\r\n{\r\n\tx = x + x;\r\n\tx = 0.999996 + (0.031261316 + (0.00048274797 + 0.000006 * x) * x) * x;\n\tx *= x; x *= x; x *= x; x *= x; x *= x;\t// exp\r\n\treturn ((-1 / (x + 1)) * 2) + 1;\t\t// tanh\n}\r\n\r\ntnhC(x)\t\t\t\t\t// dark and dirty\r\n{\r\n\txc = clip(x, -3, 3);\r\n\txc2 = xc * xc;\r\n\treturn xc * ((27 + xc2) / (27 + (9 * xc2)));\r\n}\r\n\r\ntnhL(x)\t\t\t\t\t// HQ tanh lambert\n{\n\tx2 = x * x;\n\ta  = (((x2 + 378) * x2 + 17325) * x2 + 135135) * x;\n\tb  = ((28 * x2 + 3150) * x2 + 62370) * x2 + 135135;\n\treturn clamp((a / b), -1, 1);\n}\n\r\n// nonlinear onepole\r\nstage(z, tvg, y, rv)\r\n{\t// whichever tanh approx you use here, it must be identical on either side of this subtraction\r\n\treturn z + (tvg * (tnhA(y * rv) - tnhA(z * rv)));\r\n}\r\n\r\n// the filter\r\n// input signal, cutoff frequency (Hz), resonance (0..1)\nanttiLadder(asig, cf, res)\r\n{\n\tHistory z1(0), z2(0), z3(0), z4(0);\t// 4 poles\n\tHistory\tml(0);\t\t// ml() is the problem with this filter\r\n\n\ti2v = 40000;\t\t// \"twice the 'thermal voltage of a transistor'\"\r\n\tri2v = 0.000025;\t// 1 / i2v;\r\n\takf =  cf / samplerate;\t\t\t\t// div by the upsampled sampling rate\n \takfc = akf * 0.5;\t// sr is half the actual (upsampled) filter sampling rate\n\n\t// frequency and amplitude correction  \n\tfcr = (1.8730 * akfc * akfc * akfc) + (0.4955 * akfc * akfc) - (0.6490 * akfc) + 0.9988;\n\tacr = (-3.9364 * akfc * akfc) + (1.8409 * akfc) + 0.9968;\n\ttwovg = i2v * (1 - expA(-TWOPI * fcr * akf)) + ri2v;\t// filter tuning\r\n\trma = (res + res + res + res) * ml * acr; \t\t\t\t// resonance factored in to z-1\r\n\n\t// cascade of nonlinear sections\n\ty1 = stage(z1, twovg, (asig - rma), ri2v);\r\n\ty2 = stage(z2, twovg, y1, ri2v);\n\ty3 = stage(z3, twovg, y2, ri2v);\n\ty4 = stage(z4, twovg, y3, ri2v);\n\t// half sample delay for nonlinear phase compensation\n\tml = tnhL((y4 + z4) * 0.5);\r\n\t// update\n\tz1 = y1;\n\tz2 = y2;\n\tz3 = y3;\n\tz4 = y4;\n\n\treturn ml;\n}\n\r\n// fixed 2x (not really) quasi oversampling, ignore this voodoo\nanttiLadder2x(XIN, cf, res)\n{\t// up 2\n\tHistory\tumTm1_0(0), umT0_0(0), umT1_0(0);\n\t// down 2\n\tHistory\tdmT2_1(0), dmT1_1(0), dmT0_1(0);\n\t// align\n\tHistory\tdoX0(0);\n\n\t// up 2x\n\tx0_0_a\t= XIN + 0;\n\tx1_0\t= interp(0.5,\tumTm1_0, umT0_0, umT1_0, x0_0_a, mode=\"spline\");\n\tx2_0\t= umT1_0 + 0;\n\n\t// process 2x\n\ty1_0\t= anttiLadder(x1_0, cf, res);\n\ty2_0\t= anttiLadder(x2_0, cf, res);\n\n\t// down 2x\n\ty2_0_a\t= y2_0 + 0;\n\ty2_1\t= interp(0.5,\ty2_0_a,\tdmT0_1, dmT1_1, dmT2_1, mode=\"spline\");\n\n\ty0_0\t= (doX0 + y2_1) * 0.5;\n\n\t// update\n\tumTm1_0\t= umT0_0;\n\tumT0_0\t= umT1_0;\n\tumT1_0\t= x0_0_a;\n\n\tdoX0\t= y1_0;\n\n\tdmT2_1\t= dmT1_1;\n\tdmT1_1\t= dmT0_1;\n\tdmT0_1\t= y2_0;\n\n\treturn\tdcblock(y0_0);\n}\r\n\r\n// Hermite 6-point 5th-order, Olli Niemitalo\t//\t23 muls, 24 ±\t// NOT gen~ [interp mode=\"spline6\"]\n\n// (This is what Niemitalo calls \"6-point, 5th-order 2nd-order-osculating z-form implementation\"\n// and is actually different to the gen~ \"spline6\" which uses the slightly cheaper\n// \"6-point, 5th-order B-spline x-form implementation\", but which I think is not as useful\n// (the B-spline is not as useful for audio samples representation)).\n\nhermite_sixpoint_interp(f0, ym2, ym1, y0, y1, y2, y3)\n{\n\tf1\t\t=  f0 - 0.5;\n\teven1\t= ym2 + y3;\n\todd1\t= ym2 - y3;\n\teven2\t= ym1 + y2;\n\todd2\t= ym1 - y2;\n\teven3\t=  y0 + y1;\n\todd3\t=  y0 - y1;\n\n\tc0\t= 0.01171875*even1\t\t- 0.09765625*even2\t\t+ 0.5859375*even3;\n\tc1\t= 0.2109375*odd2\t\t- 1.463541666667*odd3\t- 0.033854166667*odd1;\n\tc2\t= 0.40625*even2\t\t\t- 0.354166666667*even3\t- 0.052083333333*even1;\n\tc3\t= 0.1875*odd1\t\t\t- 1.104166666667*odd2\t+ 2.375*odd3;\n\tc4\t= 0.020833333333*even1\t- 0.0625*even2\t\t\t+ 0.041666666667*even3;\n\tc5\t= 1.041666666667*odd2\t- 2.083333333333*odd3\t- 0.208333333333*odd1;\n\n\treturn ((((c5*f1 + c4)*f1 + c3)*f1 + c2)*f1 + c1)*f1 + c0;\n}\n\n// fixed 2x quasi oversampling 6 point, ignore this voodoo\nanttiLadder2x6p(XIN, cf, res)\n{\t// up 2\n\tHistory\tumTm2_0(0), umTm1_0(0), umT0_0(0), umT1_0(0), umT2_0(0);\n\t// down 2\n\tHistory\tdmT3_1(0), dmT2_1(0), dmT1_1(0), dmT0_1(0), dmTm1_1(0);\n\t// align\n\tHistory\tdoX0(0);\n\n\t// up 2x\n\tx0_0_a\t= XIN + 0;\n\tx1_0\t= hermite_sixpoint_interp(0.5,\tumTm2_0, umTm1_0, umT0_0, umT1_0, umT2_0, x0_0_a);\n\tx2_0\t= umT2_0 + 0;\n\n\t// process 2x\n\ty1_0\t= anttiLadder(x1_0, cf, res);\n\ty2_0\t= anttiLadder(x2_0, cf, res);\n\n\t// down 2x\n\ty2_0_a\t= y2_0 + 0;\n\ty2_1\t= hermite_sixpoint_interp(0.5,\ty2_0_a,\tdmTm1_1, dmT0_1, dmT1_1, dmT2_1, dmT3_1);\n\n\ty0_0\t= (doX0 + y2_1) * 0.5;\n\n\t// update\n\tumTm2_0\t= umTm1_0;\n\tumTm1_0\t= umT0_0;\n\tumT0_0\t= umT1_0;\n\tumT1_0 \t= umT2_0;\n\tumT2_0\t= x0_0_a;\n\n\tdoX0\t= y1_0;\n\n\tdmT3_1\t= dmT2_1;\n\tdmT2_1\t= dmT1_1;\n\tdmT1_1\t= dmT0_1;\n\tdmT0_1\t= dmTm1_1;\n\tdmTm1_1\t= y2_0;\n\n\treturn dcblock(y0_0);\n}\r\n\r\nfreq\t= clip(in2, 10, 9000);\t\t\t\t// maximum because of shit 'oversampling' used here\r\nres\t\t= clip(in3, 0, 1);\r\n\r\nout1\t= anttiLadder2x6p(in1, freq, res);\r\n\r\n",
+					"fontface" : 0,
+					"fontname" : "<Monospaced>",
+					"fontsize" : 12.0,
+					"id" : "obj-3",
+					"maxclass" : "codebox",
+					"numinlets" : 3,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 34.0, 58.0, 845.0, 732.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 12.0,
+					"id" : "obj-6",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 713.0, 19.0, 166.0, 22.0 ],
+					"text" : "in 3 (signal) Resonance (0..1)"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 12.0,
+					"id" : "obj-7",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 34.0, 19.0, 101.0, 22.0 ],
+					"text" : "in 1 (signal) Input"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 12.0,
+					"id" : "obj-8",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 447.0, 19.0, 157.0, 22.0 ],
+					"text" : "in 2 (signal) Frequency (Hz)"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 12.0,
+					"id" : "obj-9",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 34.0, 807.0, 119.0, 22.0 ],
+					"text" : "out 1 (signal) Ladder"
+				}
+
+			}
+ ],
+		"lines" : [ 			{
+				"patchline" : 				{
+					"destination" : [ "obj-9", 0 ],
+					"source" : [ "obj-3", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-3", 2 ],
+					"midpoints" : [ 722.5, 49.0, 869.5, 49.0 ],
+					"source" : [ "obj-6", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-3", 0 ],
+					"source" : [ "obj-7", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-3", 1 ],
+					"source" : [ "obj-8", 0 ]
+				}
+
+			}
+ ],
+		"originid" : "pat-9",
+		"bgcolor" : [ 0.9, 0.9, 0.9, 1.0 ],
+		"editing_bgcolor" : [ 0.9, 0.9, 0.9, 1.0 ]
+	}
+
+}

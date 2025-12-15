@@ -1,0 +1,185 @@
+{
+	"patcher" : 	{
+		"fileversion" : 1,
+		"appversion" : 		{
+			"major" : 9,
+			"minor" : 0,
+			"revision" : 2,
+			"architecture" : "x64",
+			"modernui" : 1
+		}
+,
+		"classnamespace" : "dsp.gen",
+		"rect" : [ 127.0, 66.0, 1095.0, 848.0 ],
+		"gridonopen" : 2,
+		"gridsize" : [ 15.0, 15.0 ],
+		"lefttoolbarpinned" : 2,
+		"toptoolbarpinned" : 2,
+		"righttoolbarpinned" : 2,
+		"bottomtoolbarpinned" : 1,
+		"toolbars_unpinned_last_save" : 7,
+		"boxes" : [ 			{
+				"box" : 				{
+					"fontface" : 0,
+					"fontname" : "Arial",
+					"fontsize" : 12.0,
+					"id" : "obj-7",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 947.0, 808.0, 119.0, 22.0 ],
+					"text" : "out 2 nothing / Right"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontface" : 0,
+					"fontname" : "Arial",
+					"fontsize" : 12.0,
+					"id" : "obj-6",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 32.0, 808.0, 102.0, 22.0 ],
+					"text" : "out 1 Mono / Left"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontface" : 0,
+					"fontname" : "Arial",
+					"fontsize" : 12.0,
+					"id" : "obj-5",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 753.0, 41.0, 313.0, 22.0 ],
+					"text" : "in 4 Resonance 0..1 @min 0 @max 1 @default 0.878281"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontface" : 0,
+					"fontname" : "Arial",
+					"fontsize" : 12.0,
+					"id" : "obj-4",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 490.0, 41.0, 246.0, 22.0 ],
+					"text" : "in 3 Cutoff in MIDI Pitch @default 71.213095"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontface" : 0,
+					"fontname" : "Arial",
+					"fontsize" : 12.0,
+					"id" : "obj-3",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 337.0, 41.0, 112.0, 22.0 ],
+					"text" : "in 2 nothing / Right"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontface" : 0,
+					"fontname" : "Arial",
+					"fontsize" : 12.0,
+					"id" : "obj-2",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 32.0, 41.0, 94.0, 22.0 ],
+					"text" : "in 1 Mono / Left"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"code" : "\r\n// Deluxe but dirty MS20-inspired old-school-style filter emulation,\r\n// 12dB lowpass or 6dB highpass\r\n// Based on a classic by Tony Hardie-Bick (\"DFM-1 Digital Filter Module\"), 2010\r\n// Thanks to Jonny Stutters for his SuperCollider port, 2011\r\n// Dirty MSP/gen~ reworking by fat Pete, 2013 (thanks to Matt Jackson for the LUT assistance)\r\n// LICENSE: GPLv2\r\n\r\n// N.B. - see 'evi_k35.gendsp' & 'evi_kota.gendsp' for better (?) emulations of the Korg MS-10 / MS-20 filter chips\r\n\r\n\r\n// // // lib\r\n\r\nrequire(\"evi_dfm_lib.genexpr\");\r\n\r\n\r\n// // // declare\r\n\r\nBuffer\tdfm(); \t\t\t\t\t\t\t\t// alias to LUT[] (32-bit truncated values)\r\n\r\nParam\tfilter(1, min=0, max=2);\t\t\t// 0 == bypass, 1 == 12dB lowpass (default), 2 == 6dB highpass\r\nParam\tio(0, min=0, max=5);\t\t\t\t// mono, mono/dual-mono, sum/mono, sum/dual-mono, stereo, true-stereo\r\nParam\tbase(0, min=-100, max=100);\t\t\t// cutoff (mtofApprox()) tuning in cents around A == 440 Hz\r\nParam\tsmooth(22.666, min=0, max=1000);\t// coefs smooth in ms, 0 == (cpu)off, turn off for modulation\r\nParam\tgain(3, min=-6, max=14);\t\t\t// input gain in dB, thb range, ! not rsonance !\r\nParam\tnoiselevel(0.333333, min=0, max=1);\t// amplitude level of noise in filter, 0..1 remapped in code 0..0.1\r\nParam\toversampling(1, min=0, max=2);\t\t// 0 == bypass, 1 == 3x oversampling, 2 == 4x oversampling\r\nParam\textend(0, min=0, max=1);\t\t\t// a secret way for pete to do extra stuff\r\n\r\n\r\n// // // setup\r\n\r\nos\t\t= int(oversampling);\r\ninout\t= int(io);\r\nfilt\t= int(filter);\r\nnoisey\t= (noiselevel * noiselevel * noiselevel) * 0.100001;\t// default 0.333333 = amplitude 0.003704\r\n\r\ninput\t= dbtoaApprox(gain);\r\ntuning\t= 440 * expA(0.057762265 * (((base + 3450) / 50) - 69)) + 0.056317;\r\nroffset = eviScurve(extend) * 8.485284;\t\t\t// one_octave * sqrt1_2\r\n//retune\t= sqrt(sqrt(extend)) * 8.485284;\r\n\r\n//MAX_OSC_FREQ\t= 0.1640625;\t\t\t// (maximum filter self-oscillation frequency == MAX_OSC_FREQ * samplerate)\r\nOCTAVES\t\t\t= 16;\r\nSTEPS\t\t\t= 32;\r\nMIN_LUT_FREQ\t= 0.00000762939453;\t\t// 1 / 131072\r\nMAX_LUT_FREQ\t= 0.5 - 1 / (STEPS * 4) - 0.001;\r\nPG\t\t\t\t= 0.70175438596491;\t\t// 1 / (1 - 0.05) * 3 / 2\r\n\r\n// find octave\r\noct\t\t\t\t= 0;\r\noctBaseFreq\t\t= MIN_LUT_FREQ;\r\nnextOctBaseFreq\t= MIN_LUT_FREQ + MIN_LUT_FREQ;\r\n\r\nxL\t\t\t=\tin1;\r\nxR\t\t\t=\tin2;\r\ncutoff\t\t=\tin3;\t\t\t// in MIDI Pitch\r\nresonance\t=\tsqrt(in4) * 1.1204 + roffset;\r\n\r\n\r\n// // // maybe audio rate from here\r\n\r\nretune = 0;\r\nif (extend > 0) {\r\n\tretune\t= scale(roffset, 0, 12, 0, 12, 0.25);\t// this is horrible, but...\r\n}\r\nfrequency\t= mtofApprox(cutoff + retune, tuning);\r\nfreq\t\t= clip((frequency / samplerate), MIN_LUT_FREQ, MAX_LUT_FREQ);\r\n\r\n\r\n// // // definitely audio rate from here\r\n\r\nyL\t= xL;\r\nyR\t= xR;\r\nif (filt > 0) {\t\t\t\t\t// true cpu bypass if filter == 0\r\n\n\r\nwhile (oct < OCTAVES) {\r\n\tif (freq < nextOctBaseFreq)\r\n\t\tbreak;\r\n\toctBaseFreq = nextOctBaseFreq;\r\n\tnextOctBaseFreq += nextOctBaseFreq;\r\n\toct += 1;\r\n}\n\r\npfs = 0;\r\npfss = 0;\r\nres = resonance;\r\nif (smooth > 0) {\r\n\tpfs\t\t\t= smooth * 0.001;\r\n\tpfss\t\t= pfs * samplerate;\r\n\tfreq\t\t= logsmooth(freq, pfs);\r\n\tres\t\t\t= expsmooth(resonance, pfs);\r\n}\n\r\n// // // get coefficients via LUT\r\n\r\n// find step, contains int and fract\r\noctFreqSpan = octBaseFreq;\t\t// (thb deliberately pedantic)\r\nstp\t\t= STEPS * (freq - octBaseFreq) / octFreqSpan;\r\n\r\n// base index & interpolation\r\nindex\t= trunc(stp);\r\nfraction = stp - index;\r\n\r\n// index to LUT\r\naddress\t= trunc(3 * (index + oct * STEPS));\r\nmaddress = address + 3;\r\n\r\n// look up\r\nxa = peek(dfm,  address, \t\tboundmode=\"clamp\", interp=\"none\");\r\nxb = peek(dfm, (address + 1), \tboundmode=\"clamp\", interp=\"none\");\r\nxr = peek(dfm, (address + 2), \tboundmode=\"clamp\", interp=\"none\");\r\n// lookup interp\r\nmxa = peek(dfm,  maddress, \t\t\tboundmode=\"clamp\", interp=\"none\");\r\nmxb = peek(dfm, (maddress + 1), \tboundmode=\"clamp\", interp=\"none\");\r\nmxr = peek(dfm, (maddress + 2), \tboundmode=\"clamp\", interp=\"none\");\r\n\r\n// multiply by 2 to bring lut entries back up to range (custom buffer~ table is divided by 2 for storage)\r\n// and interp\r\na0\t= interp(fraction, xa+xa, mxa+mxa, mode=\"linear\");\t// coef0\r\nb0\t= interp(fraction, xb+xb, mxb+mxb, mode=\"linear\");\t// coef1\r\nr0\t= interp(fraction, xr+xr, mxr+mxr, mode=\"linear\");\t// coef2\r\n\r\n\r\n// // // make parameters\r\n\r\nifilt\t= eviLine((maximum(filt, 1) - 1), 0.1175*samplerate);\t// switch lowpass/highpass\r\npgain\t= eviLine(((input * PG) * 0.501187), pfss);\t// (input * (1 / (1 - 0.05) * 3 / 2)) * -6dB\r\nlgain\t= (pgain * (1 - ifilt)) * (1 - a0);\t\t\t// LP gain conflated with 1st stage integrator gain\r\nhgain\t=  pgain * ifilt;\r\n\r\nl = lgain;\r\nh = hgain;\r\na = a0;\r\nb = b0;\r\nr = r0 * res;\r\nn = noisey;\r\n\r\n\r\n// // // do filtering (depending on 'io', really stupid but it gets used)\r\n\r\n\tif\t\t\t(inout == 1) {\t// mono in, dual mono out\r\n\t\tgn0\t= gaussnoise(1, n);\r\n\t\tyL\t= dfts(xL, l, h, a, b, r, gn0, n, os);\r\n\t\tyR\t= yL;\r\n\t} else if\t(inout == 2) {\t// summed mono in, mono out\r\n\t\tgn0\t= gaussnoise(0.998849, n);\r\n\t\tyL\t= dfts(((xL + xR) * 0.5), l, h, a, b, r, gn0, n, os);\r\n\t\tyR\t= 0;\r\n\t} else if\t(inout == 3) {\t// summed mono in, dual mono out\r\n\t\tgn0\t= gaussnoise(0.998849, n);\r\n\t\tyL\t= dfts(((xL + xR) * sqrt1_2), l, h, a, b, r, gn0, n, os);\r\n\t\tyR\t= yL;\r\n\t} else if\t(inout == 4) {\t// stereo input & output with mono noise injection\r\n\t\tgn0\t= gaussnoise(0.998849,\tn);\r\n\t\tyL\t= dfts(xL, l, h, a, b, r, gn0, n, os);\r\n\t\tyR\t= dfts(xR, l, h, a, b, r, gn0, n, os);\r\n\t} else if\t(inout == 5) {\t// true stereo input & output\r\n\t\tgn1\t= gaussnoise(PG,\t\tn);\r\n\t\tgn2\t= gaussnoise(sqrt1_2,\tn);\r\n\t\tyL\t= dfts(xL, l, h, a, b, r, gn1, n, os);\r\n\t\tyR\t= dfts(xR, l, h, a, b, r, gn2, n, os);\r\n\t} else {//\t(inout == 0)\t// mono in, mono out, DEFAULT\r\n\t\tgn0\t= gaussnoise(1, n);\r\n\t\tyL\t= dfts(xL, l, h, a, b, r, gn0, n, os);\r\n\t\tyR\t= 0;\r\n\t}\r\n\r\n\r\n}\t// END: true cpu bypass if filter == 0\r\n\r\n\r\n// // // outputs\r\n\r\nout1\t= yL;\r\nout2\t= yR;\r\n\r\n\r\n// // // license\r\n\r\n/* -------------------------------------------------------------------------------\n * DFM-1 Digital Filter Module\n * Copyright (C) 2005, 2010, 2013\n *\n * Tony Hardie-Bick <tony@entitysynth.net>\t- Java version (original)\n * Jonny Stutters <jstutters@jeremah.co.uk>\t- SuperCollider port\r\n * fat Pete <hello@fatpete.net>\t- Gen port\n *\n * This program is free software: you can redistribute it and/or modify\n * it under the terms of the GNU General Public License as published by\n * the Free Software Foundation, either version 2 of the License, or\n * (at your option) any later version.\n *\n * This program is distributed in the hope that it will be useful,\n * but WITHOUT ANY WARRANTY; without even the implied warranty of\n * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the\n * GNU General Public License for more details.\n *\n * You should have received a copy of the GNU General Public License\n * along with this program. If not, see <http://www.gnu.org/licenses/>.\n * ------------------------------------------------------------------------------ */\n\r\n",
+					"fontface" : 0,
+					"fontname" : "<Monospaced>",
+					"fontsize" : 12.0,
+					"id" : "obj-1",
+					"maxclass" : "codebox",
+					"numinlets" : 4,
+					"numoutlets" : 2,
+					"outlettype" : [ "", "" ],
+					"patching_rect" : [ 32.0, 80.0, 934.0, 711.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-11",
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 32.0, 18.0, 934.0, 20.0 ],
+					"text" : "N.B. - THIS WILL NOT WORK IN GEN~ ALONE - REQUIRES FILTER LUT BUFFER~ EXTERNALLY",
+					"textjustification" : 1
+				}
+
+			}
+ ],
+		"lines" : [ 			{
+				"patchline" : 				{
+					"destination" : [ "obj-6", 0 ],
+					"source" : [ "obj-1", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-7", 0 ],
+					"source" : [ "obj-1", 1 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-1", 0 ],
+					"source" : [ "obj-2", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-1", 1 ],
+					"source" : [ "obj-3", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-1", 2 ],
+					"midpoints" : [ 499.5, 71.0, 651.5, 71.0 ],
+					"source" : [ "obj-4", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-1", 3 ],
+					"midpoints" : [ 762.5, 71.0, 956.5, 71.0 ],
+					"source" : [ "obj-5", 0 ]
+				}
+
+			}
+ ],
+		"originid" : "pat-185"
+	}
+
+}

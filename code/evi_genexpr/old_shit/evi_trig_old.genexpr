@@ -1,0 +1,944 @@
+
+// some trigonomic approximations: cos, sin, tan, arctan
+// ref: http://www.ganssle.com/approx/sincos.cpp
+// also see: http://www.ganssle.com/approx/approx.pdf
+// © 2001 The Ganssle Group
+// based on "Computer Approximations" by John Hart (ISBN 0-88275-642-7)
+
+// GenExpr code by Pete Dowling for evieve
+// N.B. - everything in Gen is 64-bit doubles, so no separate float casting here - 
+// efficiency of less accurate approximations nothing like it would be in C / C++ / etc;
+// we also have to use if/else blocks rather than 'switch' which further slows things down;
+// but still good savings +/- your outlook on life
+
+
+// *********************************************************
+// ***
+// ***   Routines to compute sine and cosine to 3.2 digits
+// ***  of accuracy. 
+// ***
+// *********************************************************
+//
+//		cosQ32 computes cosine(x)
+//
+//  Accurate to about 3.2 decimal digits over the range [0, pi/2].
+//  The input argument is in radians.
+//
+//  Algorithm:
+//		cos(x)= c1 + c2*x**2 + c3*x**4
+//   which is the same as:
+//		cos(x)= c1 + x**2(c2 + c3*x**2)
+//
+cosQ32(x) {
+	c1 =  0.99940307;
+	c2 = -0.49558072;
+	c3 =  0.03679168;
+
+	x2 =  x * x;
+	return (c1 + x2 * (c2 + c3 * x2));
+}
+//
+// This is the main cosine approximation "driver"
+// It reduces the input argument's range to [0, pi/2],
+// and then calls the approximator. 
+// See the notes for an explanation of the range reduction.
+//
+cos_32(x) {
+	two_over_pi = 0.63661977236758;	// 2 / pi
+	x = x % twopi;					// get rid of values > 2 * pi
+	if (x < 0) {
+		x = -x;						// cos(-x) = cos(x)
+	}
+	quad = int(x * two_over_pi);	// get quadrant # (0 to 3) we're in
+	cosreturn = 0;
+	if 				(quad == 0) {
+		cosreturn =  cosQ32(x);
+	} else if 		(quad == 1) {
+		cosreturn = -cosQ32(pi - x);
+	} else if 		(quad == 2) {
+		cosreturn = -cosQ32(x - pi);
+	} else {	//	(quad == 3)
+		cosreturn =  cosQ32(twopi - x);
+	}
+	return cosreturn;
+}
+//
+// The sine is just cosine shifted a half-pi, so
+// we'll adjust the argument and call the cosine approximation.
+//
+sin_32(x) {
+	return cos_32(halfpi - x);
+}
+
+// *********************************************************
+// ***
+// ***   Routines to compute sine and cosine to 5.2 digits
+// ***  of accuracy. 
+// ***
+// *********************************************************
+//
+//		cosQ52 computes cosine(x)
+//
+//  Accurate to about 5.2 decimal digits over the range [0, pi/2].
+//  The input argument is in radians.
+//
+//  Algorithm:
+//		cos(x)= c1 + c2*x**2 + c3*x**4 + c4*x**6
+//   which is the same as:
+//		cos(x)= c1 + x**2(c2 + c3*x**2 + c4*x**4)
+//		cos(x)= c1 + x**2(c2 + x**2(c3 + c4*x**2))
+//
+cosQ52(x) {
+	c1 =  0.9999932946;
+	c2 = -0.4999124376;
+	c3 =  0.0414877472;
+	c4 = -0.0012712095;
+
+	x2 = x * x;
+	return (c1 + x2 * (c2 + x2 * (c3 + c4 * x2)));
+}
+//
+// This is the main cosine approximation "driver"
+// It reduces the input argument's range to [0, pi/2],
+// and then calls the approximator. 
+// See the notes for an explanation of the range reduction.
+//
+cos_52(x) {
+	two_over_pi = 0.63661977236758;	// 2 / pi
+	x = x % twopi;					// get rid of values > 2 * pi
+	if (x < 0) {
+		x = -x;						// cos(-x) = cos(x)
+	}
+	quad = int(x * two_over_pi);	// get quadrant # (0 to 3) we're in
+	cosreturn = 0;
+	if 				(quad == 0) {
+		cosreturn =  cosQ52(x);
+	} else if 		(quad == 1) {
+		cosreturn = -cosQ52(pi - x);
+	} else if 		(quad == 2) {
+		cosreturn = -cosQ52(x - pi);
+	} else {	//	(quad == 3)
+		cosreturn =  cosQ52(twopi - x);
+	}
+	return cosreturn;
+}
+//
+// The sine is just cosine shifted a half-pi, so
+// we'll adjust the argument and call the cosine approximation.
+//
+
+sin_52(x) {
+	return cos_52(halfpi - x);
+}
+
+// *********************************************************
+// ***
+// ***   Routines to compute sine and cosine to 7.3 digits
+// ***  of accuracy. 
+// ***
+// *********************************************************
+//
+//		cosQ73 computes cosine(x)
+//
+//  Accurate to about 7.3 decimal digits over the range [0, pi/2].
+//  The input argument is in radians.
+//
+//  Algorithm:
+//		cos(x)= c1 + c2*x**2 + c3*x**4 + c4*x**6 + c5*x**8
+//   which is the same as:
+//		cos(x)= c1 + x**2(c2 + c3*x**2 + c4*x**4 + c5*x**6)
+//		cos(x)= c1 + x**2(c2 + x**2(c3 + c4*x**2 + c5*x**4))
+//		cos(x)= c1 + x**2(c2 + x**2(c3 + x**2(c4 + c5*x**2)))
+//
+cosQ73(x) {
+	c1 =  0.999999953464;
+	c2 = -0.499999053455;
+	c3 =  0.0416635846769;
+	c4 = -0.0013853704264;
+	c5 =  0.00002315393167;  	
+
+	x2 = x * x;
+	return (c1 + x2 * (c2 + x2 * (c3 + x2 * (c4 + c5 * x2))));
+}
+//
+// This is the main cosine approximation "driver"
+// It reduces the input argument's range to [0, pi/2],
+// and then calls the approximator. 
+// See the notes for an explanation of the range reduction.
+//
+cos_73(x) {
+	two_over_pi = 0.63661977236758;	// 2 / pi
+	x = x % twopi;					// get rid of values > 2 * pi
+	if (x < 0) {
+		x = -x;						// cos(-x) = cos(x)
+	}
+	quad = int(x * two_over_pi);	// get quadrant # (0 to 3) we're in
+	cosreturn = 0;
+	if 				(quad == 0) {
+		cosreturn =  cosQ73(x);
+	} else if 		(quad == 1) {
+		cosreturn = -cosQ73(pi - x);
+	} else if 		(quad == 2) {
+		cosreturn = -cosQ73(x - pi);
+	} else {	//	(quad == 3)
+		cosreturn =  cosQ73(twopi - x);
+	}
+	return cosreturn;
+}
+//
+// The sine is just cosine shifted a half-pi, so
+// we'll adjust the argument and call the cosine approximation.
+//
+sin_73(x) {
+	return cos_73(halfpi - x);
+}
+
+// *********************************************************
+// ***
+// ***   Routines to compute sine and cosine to 12.1 digits
+// ***  of accuracy. 
+// ***
+// *********************************************************
+//
+//		cosQ121 computes cosine(x)
+//
+//  Accurate to about 12.1 decimal digits over the range [0, pi/2].
+//  The input argument is in radians.
+//
+//  Algorithm:
+//		cos(x)= c1 + c2*x**2 + c3*x**4 + c4*x**6 + c5*x**8 + c6*x**10 + c7*x**12
+//   which is the same as:
+//		cos(x)= c1 + x**2(c2 + c3*x**2 + c4*x**4 + c5*x**6 + c6*x**8 + c7*x**10)
+//		cos(x)= c1 + x**2(c2 + x**2(c3 + c4*x**2 + c5*x**4 + c6*x**6 + c7*x**8 ))
+//		cos(x)= c1 + x**2(c2 + x**2(c3 + x**2(c4 + c5*x**2 + c6*x**4 + c7*x**6 )))
+//		cos(x)= c1 + x**2(c2 + x**2(c3 + x**2(c4 + x**2(c5 + c6*x**2 + c7*x**4 ))))
+//		cos(x)= c1 + x**2(c2 + x**2(c3 + x**2(c4 + x**2(c5 + x**2(c6 + c7*x**2 )))))
+//
+cosQ121(x) {
+	c1 =  0.99999999999925182;
+	c2 = -0.49999999997024012;
+	c3 =  0.041666666473384543;
+	c4 = -0.001388888418000423;
+	c5 =  0.0000248010406484558;
+	c6 = -0.0000002752469638432;
+	c7 =  0.0000000019907856854;
+
+	x2 = x * x;
+	return (c1 + x2 * (c2 + x2 * (c3 + x2 * (c4 + x2 * (c5 + x2 * (c6 + c7 * x2))))));
+}
+//
+// This is the main cosine approximation "driver"
+// It reduces the input argument's range to [0, pi/2],
+// and then calls the approximator. 
+// See the notes for an explanation of the range reduction.
+//
+cos_121(x){
+	two_over_pi = 0.63661977236758;	// 2 / pi
+	x = x % twopi;					// get rid of values > 2 * pi
+	if (x < 0) {
+		x = -x;						// cos(-x) = cos(x)
+	}
+	quad = int(x * two_over_pi);	// get quadrant # (0 to 3) we're in
+	cosreturn = 0;
+	if 				(quad == 0) {
+		cosreturn =  cosQ121(x);
+	} else if 		(quad == 1) {
+		cosreturn = -cosQ121(pi - x);
+	} else if 		(quad == 2) {
+		cosreturn = -cosQ121(x - pi);
+	} else {	//	(quad == 3)
+		cosreturn =  cosQ121(twopi - x);
+	}
+	return cosreturn;
+}
+//
+// The sine is just cosine shifted a half-pi, so
+// we'll adjust the argument and call the cosine approximation.
+//
+sin_121(x) {
+	return cos_121(halfpi - x);
+}
+
+// *********************************************************
+// ***
+// ***   Routines to compute sine and cosine to 14.7 digits
+// ***  of accuracy. 
+// ***
+// *********************************************************
+//
+//		cosQ147 computes cosine(x)
+//
+//  Accurate to about 14.7 decimal digits over the range [0, pi/2].
+//  The input argument is in radians.
+//
+cosQ147(x) {
+	c1 =  0.99999999999999806767;
+	c2 = -0.4999999999998996568;
+	c3 =  0.04166666666581174292;
+	c4 = -0.001388888886113613522;
+	c5 =  0.000024801582876042427;
+	c6 = -0.0000002755693576863181;
+	c7 =  0.0000000020858327958707;
+	c8 = -0.000000000011080716368;
+
+	x2 = x * x;
+	return c1 + x2 * (c2 + x2 * (c3 + x2 * (c4 + x2 * (c5 + x2 * (c6 + x2 * (c7 + x2 * c8))))));
+}
+//
+// This is the main cosine approximation "driver"
+// It reduces the input argument's range to [0, pi/2],
+// and then calls the approximator. 
+// See the notes for an explanation of the range reduction.
+//
+cos_147(x){
+	two_over_pi = 0.63661977236758;	// 2 / pi
+	x = x % twopi;					// get rid of values > 2 * pi
+	if (x < 0) {
+		x = -x;						// cos(-x) = cos(x)
+	}
+	quad = int(x * two_over_pi);	// get quadrant # (0 to 3) we're in
+	cosreturn = 0;
+	if 				(quad == 0) {
+		cosreturn =  cosQ147(x);
+	} else if 		(quad == 1) {
+		cosreturn = -cosQ147(pi - x);
+	} else if 		(quad == 2) {
+		cosreturn = -cosQ147(x - pi);
+	} else {	//	(quad == 3)
+		cosreturn =  cosQ147(twopi - x);
+	}
+	return cosreturn;
+}
+//
+// The sine is just cosine shifted a half-pi, so
+// we'll adjust the argument and call the cosine approximation.
+//
+sin_147(x) {
+	return cos_147(halfpi - x);
+}
+
+// *********************************************************
+// ***
+// ***   Routines to compute sine and cosine to 20.2 digits
+// ***  of accuracy. 
+// ***
+// *********************************************************
+//
+//		cosQ202 computes cosine(x)
+//
+//  Accurate to about 20.2 decimal digits over the range [0, pi/2].
+//  The input argument is in radians.
+//
+cosQ202(x) {
+	c1  =  0.9999999999999999999936329;
+	c2  = -0.49999999999999999948362843;
+	c3  =  0.04166666666666665975670054;
+	c4  = -0.00138888888888885302082298;
+	c5  =  0.000024801587301492746422297;
+	c6  = -0.00000027557319209666748555;
+	c7  =  0.0000000020876755667423458605;
+	c8  = -0.0000000000114706701991777771;
+	c9  =  0.0000000000000477687298095717;
+	c10 = -0.00000000000000015119893746887;
+
+	x2 = x * x;
+	return	c1 + x2 * (c2 + x2 * (c3 + x2 * (c4 + x2 * (c5 + x2 * (c6 + x2 * 
+				(c7 + x2 * (c8 + x2 * (c9 + x2 * c10))))))));
+}
+//
+// This is the main cosine approximation "driver"
+// It reduces the input argument's range to [0, pi/2],
+// and then calls the approximator. 
+// See the notes for an explanation of the range reduction.
+//
+cos_202(x){
+	two_over_pi = 0.63661977236758;	// 2 / pi
+	x = x % twopi;					// get rid of values > 2 * pi
+	if (x < 0) {
+		x = -x;						// cos(-x) = cos(x)
+	}
+	quad = int(x * two_over_pi);	// get quadrant # (0 to 3) we're in
+	cosreturn = 0;
+	if 				(quad == 0) {
+		cosreturn =  cosQ202(x);
+	} else if 		(quad == 1) {
+		cosreturn = -cosQ202(pi - x);
+	} else if 		(quad == 2) {
+		cosreturn = -cosQ202(x - pi);
+	} else {	//	(quad == 3)
+		cosreturn =  cosQ202(twopi - x);
+	}
+	return cosreturn;
+}
+//
+// The sine is just cosine shifted a half-pi, so
+// we'll adjust the argument and call the cosine approximation.
+//
+sin_202(x) {
+	return cos_202(halfpi - x);
+}
+
+// *********************************************************
+// ***
+// ***   Routines to compute sine and cosine to 23.1 digits
+// ***  of accuracy. 
+// ***
+// *********************************************************
+//
+//		cosQ231 computes cosine(x)
+//
+//  Accurate to about 23.1 decimal digits over the range [0, pi/2].
+//  The input argument is in radians.
+//
+cosQ231(x) {
+	c1  =  0.9999999999999999999999914771;
+	c2  = -0.4999999999999999999991637437;
+	c3  =  0.04166666666666666665319411988;
+	c4  = -0.00138888888888888880310186415;
+	c5  =  0.00002480158730158702330045157;
+	c6  = -0.000000275573192239332256421489;
+	c7  =  0.000000002087675698165412591559;
+	c8  = -0.0000000000114707451267755432394;
+	c9  =  0.0000000000000477945439406649917;
+	c10 = -0.00000000000000015612263428827781;
+	c11 =  0.00000000000000000039912654507924;
+
+	x2 = x * x;
+	return	c1 + x2 * (c2 + x2 * (c3 + x2 * (c4 + x2 * (c5 + x2 * (c6 + x2 * 
+				(c7 + x2 * (c8 + x2 * (c9 + x2 * (c10 + x2 * c11)))))))));
+}
+//
+// This is the main cosine approximation "driver"
+// It reduces the input argument's range to [0, pi/2],
+// and then calls the approximator. 
+// See the notes for an explanation of the range reduction.
+//
+cos_231(x){
+	two_over_pi = 0.63661977236758;	// 2 / pi
+	x = x % twopi;					// get rid of values > 2 * pi
+	if (x < 0) {
+		x = -x;						// cos(-x) = cos(x)
+	}
+	quad = int(x * two_over_pi);	// get quadrant # (0 to 3) we're in
+	cosreturn = 0;
+	if 				(quad == 0) {
+		cosreturn =  cosQ231(x);
+	} else if 		(quad == 1) {
+		cosreturn = -cosQ231(pi - x);
+	} else if 		(quad == 2) {
+		cosreturn = -cosQ231(x - pi);
+	} else {	//	(quad == 3)
+		cosreturn =  cosQ231(twopi - x);
+	}
+	return cosreturn;
+}
+//
+// The sine is just cosine shifted a half-pi, so
+// we'll adjust the argument and call the cosine approximation.
+//
+sin_231(x){
+	return cos_231(halfpi - x);
+}
+
+// *********************************************************
+// ***
+// ***   Routines to compute tangent to 3.2 digits
+// ***  of accuracy. 
+// ***
+// *********************************************************
+//
+//		tanO32 computes tan(pi*x/4)
+//
+//  Accurate to about 3.2 decimal digits over the range [0, pi/4].
+//  The input argument is in radians. Note that the function
+//  computes tan(pi*x/4), NOT tan(x); it's up to the range
+//  reduction algorithm that calls this to scale things properly.
+//
+//  Algorithm:
+//		tan(x)= x*c1/(c2 + x**2)
+//
+tanO32(x) {
+	c1 = -3.6112171;
+	c2 = -4.6133253;
+
+	x2 = x * x;
+	return (x * c1 / (c2 + x2));
+}
+//
+// This is the main tangent approximation "driver"
+// It reduces the input argument's range to [0, pi/4],
+// and then calls the approximator. 
+// See the notes for an explanation of the range reduction.
+// Enter with positive angles only.
+//
+// WARNING: We do not test for the tangent approaching infinity,
+// which it will at x=pi/2 and x=3*pi/2. If this is a problem
+// in your application, take appropriate action.
+//
+tan_32(x) {
+	four_over_pi = 1.27323954473516;	// 4 / pi
+	threehalfpi = 4.7123889803847;		// 3 * halfpi
+	x = x % twopi;						// get rid of values > 2 * pi
+	octant = int(x * four_over_pi);		// get octant # (0 to 7)
+	tanreturn = 0;
+	if 				(octant == 0) {
+		tanreturn = 	 tanO32(x					* four_over_pi);
+	} else if 		(octant == 1) {
+		tanreturn =  1 / tanO32((halfpi - x)		* four_over_pi);
+	} else if 		(octant == 2) {
+		tanreturn = -1 / tanO32((x - halfpi)		* four_over_pi);
+	} else if 		(octant == 3) {
+		tanreturn = 	-tanO32((pi - x)			* four_over_pi);
+	} else if 		(octant == 4) {
+		tanreturn = 	 tanO32((x - pi)			* four_over_pi);
+	} else if 		(octant == 5) {
+		tanreturn =  1 / tanO32((threehalfpi - x)	* four_over_pi);
+	} else if 		(octant == 6) {
+		tanreturn = -1 / tanO32((x - threehalfpi)	* four_over_pi);
+	} else {	//	(octant == 7)
+		tanreturn = 	-tanO32((twopi - x)		* four_over_pi);
+	}
+	return tanreturn;
+}
+
+// *********************************************************
+// ***
+// ***   Routines to compute tangent to 5.6 digits
+// ***  of accuracy. 
+// ***
+// *********************************************************
+//
+//		tanO56 computes tan(pi*x/4)
+//
+//  Accurate to about 5.6 decimal digits over the range [0, pi/4].
+//  The input argument is in radians. Note that the function
+//  computes tan(pi*x/4), NOT tan(x); it's up to the range
+//  reduction algorithm that calls this to scale things properly.
+//
+//  Algorithm:
+//		tan(x)= x(c1 + c2*x**2)/(c3 + x**2)
+//
+tanO56(x) {
+	c1 = -3.16783027;
+	c2 =  0.134516124;
+	c3 = -4.033321984;
+
+	x2 = x * x;
+	return (x * (c1 + c2 * x2) / (c3 + x2));
+}
+//
+// This is the main tangent approximation "driver"
+// It reduces the input argument's range to [0, pi/4],
+// and then calls the approximator. 
+// See the notes for an explanation of the range reduction.
+// Enter with positive angles only.
+//
+// WARNING: We do not test for the tangent approaching infinity,
+// which it will at x=pi/2 and x=3*pi/2. If this is a problem
+// in your application, take appropriate action.
+//
+tan_56(x) {
+	four_over_pi = 1.27323954473516;	// 4 / pi
+	threehalfpi = 4.7123889803847;		// 3 * halfpi
+	x = x % twopi;						// get rid of values > 2 * pi
+	octant = int(x * four_over_pi);		// get octant # (0 to 7)
+	tanreturn = 0;
+	if 				(octant == 0) {
+		tanreturn = 	 tanO56(x					* four_over_pi);
+	} else if 		(octant == 1) {
+		tanreturn =  1 / tanO56((halfpi - x)		* four_over_pi);
+	} else if 		(octant == 2) {
+		tanreturn = -1 / tanO56((x - halfpi)		* four_over_pi);
+	} else if 		(octant == 3) {
+		tanreturn = 	-tanO56((pi - x)			* four_over_pi);
+	} else if 		(octant == 4) {
+		tanreturn = 	 tanO56((x - pi)			* four_over_pi);
+	} else if 		(octant == 5) {
+		tanreturn =  1 / tanO56((threehalfpi - x)	* four_over_pi);
+	} else if 		(octant == 6) {
+		tanreturn = -1 / tanO56((x - threehalfpi)	* four_over_pi);
+	} else {	//	(octant == 7)
+		tanreturn = 	-tanO56((twopi - x)		* four_over_pi);
+	}
+	return tanreturn;
+}
+
+// *********************************************************
+// ***
+// ***   Routines to compute tangent to 8.2 digits
+// ***  of accuracy. 
+// ***
+// *********************************************************
+//
+//		tanO82 computes tan(pi*x/4)
+//
+//  Accurate to about 8.2 decimal digits over the range [0, pi/4].
+//  The input argument is in radians. Note that the function
+//  computes tan(pi*x/4), NOT tan(x); it's up to the range
+//  reduction algorithm that calls this to scale things properly.
+//
+//  Algorithm:
+//		tan(x)= x(c1 + c2*x**2)/(c3 + c4*x**2 + x**4)
+//
+tanO82(x) {
+	c1 =  211.849369664121;
+	c2 = -12.5288887278448 ;
+	c3 =  269.7350131214121;
+	c4 = -71.4145309347748;
+
+	x2 = x * x;
+	return (x * (c1 + c2 * x2) / (c3 + x2 * (c4 + x2)));
+}
+//
+// This is the main tangent approximation "driver"
+// It reduces the input argument's range to [0, pi/4],
+// and then calls the approximator. 
+// See the notes for an explanation of the range reduction.
+// Enter with positive angles only.
+//
+// WARNING: We do not test for the tangent approaching infinity,
+// which it will at x=pi/2 and x=3*pi/2. If this is a problem
+// in your application, take appropriate action.
+//
+tan_82(x) {
+	four_over_pi = 1.27323954473516;	// 4 / pi
+	threehalfpi = 4.7123889803847;		// 3 * halfpi
+	x = x % twopi;						// get rid of values > 2 * pi
+	octant = int(x * four_over_pi);		// get octant # (0 to 7)
+	tanreturn = 0;
+	if 				(octant == 0) {
+		tanreturn = 	 tanO82(x					* four_over_pi);
+	} else if 		(octant == 1) {
+		tanreturn =  1 / tanO82((halfpi - x)		* four_over_pi);
+	} else if 		(octant == 2) {
+		tanreturn = -1 / tanO82((x - halfpi)		* four_over_pi);
+	} else if 		(octant == 3) {
+		tanreturn = 	-tanO82((pi - x)			* four_over_pi);
+	} else if 		(octant == 4) {
+		tanreturn = 	 tanO82((x - pi)			* four_over_pi);
+	} else if 		(octant == 5) {
+		tanreturn =  1 / tanO82((threehalfpi - x)	* four_over_pi);
+	} else if 		(octant == 6) {
+		tanreturn = -1 / tanO82((x - threehalfpi)	* four_over_pi);
+	} else {	//	(octant == 7)
+		tanreturn = 	-tanO82((twopi - x)		* four_over_pi);
+	}
+	return tanreturn;
+}
+
+// *********************************************************
+// ***
+// ***   Routines to compute tangent to 14 digits
+// ***  of accuracy. 
+// ***
+// *********************************************************
+//
+//		tanO14 computes tan(pi*x/4)
+//
+//  Accurate to about 14 decimal digits over the range [0, pi/4].
+//  The input argument is in radians. Note that the function
+//  computes tan(pi*x/4), NOT tan(x); it's up to the range
+//  reduction algorithm that calls this to scale things properly.
+//
+//  Algorithm:
+//		tan(x)= x(c1 + c2*x**2 + c3*x**4)/(c4 + c5*x**2 + c6*x**4 + x**6)
+//
+tanO14(x) {
+	c1 = -34287.4662577359568109624;
+	c2 =  2566.7175462315050423295;
+	c3 = -26.5366371951731325438;
+	c4 = -43656.1579281292375769579;
+	c5 =  12244.4839556747426927793;
+	c6 = -336.611376245464339493;
+
+	x2 = x * x;
+	return (x * (c1 + x2 * (c2 + x2 * c3))) / (c4 + x2 * (c5 + x2 * (c6 + x2)));
+}
+//
+// This is the main tangent approximation "driver"
+// It reduces the input argument's range to [0, pi/4],
+// and then calls the approximator. 
+// See the notes for an explanation of the range reduction.
+// Enter with positive angles only.
+//
+// WARNING: We do not test for the tangent approaching infinity,
+// which it will at x=pi/2 and x=3*pi/2. If this is a problem
+// in your application, take appropriate action.
+//
+tan_14(x) {
+	four_over_pi = 1.27323954473516;	// 4 / pi
+	threehalfpi = 4.7123889803847;		// 3 * halfpi
+	x = x % twopi;						// get rid of values > 2 * pi
+	octant = int(x * four_over_pi);		// get octant # (0 to 7)	[int(x * qtrpi) ??]
+	tanreturn = 0;
+	if 				(octant == 0) {
+		tanreturn = 	 tanO14(x					* four_over_pi);
+	} else if 		(octant == 1) {
+		tanreturn =  1 / tanO14((halfpi - x)		* four_over_pi);
+	} else if 		(octant == 2) {
+		tanreturn = -1 / tanO14((x - halfpi)		* four_over_pi);
+	} else if 		(octant == 3) {
+		tanreturn = 	-tanO14((pi - x)			* four_over_pi);
+	} else if 		(octant == 4) {
+		tanreturn = 	 tanO14((x - pi)			* four_over_pi);
+	} else if 		(octant == 5) {
+		tanreturn =  1 / tanO14((threehalfpi - x)	* four_over_pi);
+	} else if 		(octant == 6) {
+		tanreturn = -1 / tanO14((x - threehalfpi)	* four_over_pi);
+	} else {	//	(octant == 7)
+		tanreturn = 	-tanO14((twopi - x)		* four_over_pi);
+	}
+	return tanreturn;
+}
+
+// *********************************************************
+// ***
+// ***   Routines to compute tangent to 20.3 digits
+// ***  of accuracy. 
+// ***
+// *********************************************************
+//
+//		tanO203 computes tan(pi*x/4)
+//
+//  Accurate to about 20.3 decimal digits over the range [0, pi/4].
+//  The input argument is in radians. Note that the function
+//  computes tan(pi*x/4), NOT tan(x); it's up to the range
+//  reduction algorithm that calls this to scale things properly.
+//
+tanO203(x) {
+	c1 =  10881241.46289544215469695742;
+	c2 = -895306.0870564145957447087575;
+	c3 =  14181.99563014366386894487566;
+	c4 = -45.63638305432707847378129653;
+	c5 =  13854426.92637036839270054048;
+	c6 = -3988641.468163077300701338784;
+	c7 =  135299.4744550023680867559195;
+	c8 = -1014.19757617656429288596025;
+
+	x2 = x * x;
+	return x * (c1 + x2 * (c2 + x2 * (c3 + x2 * c4))) / (c5 + x2 * (c6 + x2 * (c7 + x2 * (c8 + x2))));
+}
+//
+// This is the main tangent approximation "driver"
+// It reduces the input argument's range to [0, pi/4],
+// and then calls the approximator. 
+// See the notes for an explanation of the range reduction.
+// Enter with positive angles only.
+//
+// WARNING: We do not test for the tangent approaching infinity,
+// which it will at x=pi/2 and x=3*pi/2. If this is a problem
+// in your application, take appropriate action.
+//
+tan_203(x) {
+	four_over_pi = 1.27323954473516;	// 4 / pi
+	threehalfpi = 4.7123889803847;		// 3 * halfpi
+	x = x % twopi;						// get rid of values > 2 * pi
+	octant = int(x * four_over_pi);		// get octant # (0 to 7)	[int(x * qtrpi) ??]
+	tanreturn = 0;
+	if 				(octant == 0) {
+		tanreturn = 	 tanO203(x					* four_over_pi);
+	} else if 		(octant == 1) {
+		tanreturn =  1 / tanO203((halfpi - x)		* four_over_pi);
+	} else if 		(octant == 2) {
+		tanreturn = -1 / tanO203((x - halfpi)		* four_over_pi);
+	} else if 		(octant == 3) {
+		tanreturn = 	-tanO203((pi - x)			* four_over_pi);
+	} else if 		(octant == 4) {
+		tanreturn = 	 tanO203((x - pi)			* four_over_pi);
+	} else if 		(octant == 5) {
+		tanreturn =  1 / tanO203((threehalfpi - x)	* four_over_pi);
+	} else if 		(octant == 6) {
+		tanreturn = -1 / tanO203((x - threehalfpi)	* four_over_pi);
+	} else {	//	(octant == 7)
+		tanreturn = 	-tanO203((twopi - x)		* four_over_pi);
+	}
+	return tanreturn;
+}
+
+// *********************************************************
+// ***
+// ***   Routines to compute tangent to 23.6 digits
+// ***  of accuracy. 
+// ***
+// *********************************************************
+//
+//		tanO236 computes tan(pi*x/4)
+//
+//  Accurate to about 23.6 decimal digits over the range [0, pi/4].
+//  The input argument is in radians. Note that the function
+//  computes tan(pi*x/4), NOT tan(x); it's up to the range
+//  reduction algorithm that calls this to scale things properly.
+//
+tanO236(x) {
+	c1 =  4130240.588996024013440146267;
+	c2 = -349781.8562517381616631012487;
+	c3 =  6170.317758142494245331944348;
+	c4 = -27.94920941380194872760036319;
+	c5 =  0.0175143807040383602666563058;
+	c6 =  5258785.647179987798541780825;
+	c7 = -1526650.549072940686776259893;
+	c8 =  54962.51616062905361152230566;
+	c9 = -497.495460280917265024506937;
+
+	x2 = x * x;
+	return x * (c1 + x2 * (c2 + x2 * (c3 + x2 * (c4 + x2 * c5)))) / (c6 + x2 * (c7 + x2 * (c8 + x2 * (c9 + x2))));
+}
+//
+// This is the main tangent approximation "driver"
+// It reduces the input argument's range to [0, pi/4],
+// and then calls the approximator. 
+// See the notes for an explanation of the range reduction.
+// Enter with positive angles only.
+//
+// WARNING: We do not test for the tangent approaching infinity,
+// which it will at x=pi/2 and x=3*pi/2. If this is a problem
+// in your application, take appropriate action.
+//
+tan_236(x) {
+	four_over_pi = 1.27323954473516;	// 4 / pi
+	threehalfpi = 4.7123889803847;		// 3 * halfpi
+	x = x % twopi;						// get rid of values > 2 * pi
+	octant = int(x * four_over_pi);		// get octant # (0 to 7)	[int(x * qtrpi) ??]
+	tanreturn = 0;
+	if 				(octant == 0) {
+		tanreturn = 	 tanO236(x					* four_over_pi);
+	} else if 		(octant == 1) {
+		tanreturn =  1 / tanO236((halfpi - x)		* four_over_pi);
+	} else if 		(octant == 2) {
+		tanreturn = -1 / tanO236((x - halfpi)		* four_over_pi);
+	} else if 		(octant == 3) {
+		tanreturn = 	-tanO236((pi - x)			* four_over_pi);
+	} else if 		(octant == 4) {
+		tanreturn = 	 tanO236((x - pi)			* four_over_pi);
+	} else if 		(octant == 5) {
+		tanreturn =  1 / tanO236((threehalfpi - x)	* four_over_pi);
+	} else if 		(octant == 6) {
+		tanreturn = -1 / tanO236((x - threehalfpi)	* four_over_pi);
+	} else {	//	(octant == 7)
+		tanreturn = 	-tanO236((twopi - x)		* four_over_pi);
+	}
+	return tanreturn;
+}
+
+// *********************************************************
+// ***
+// ***   Routines to compute arctangent to 6.6 digits
+// ***  of accuracy. 
+// ***
+// *********************************************************
+//
+//		atanT66 computes atan(x)
+//
+//  Accurate to about 6.6 decimal digits over the range [0, pi/12].
+//
+//  Algorithm:
+//		atan(x)= x(c1 + c2*x**2)/(c3 + x**2)
+//
+atanT66(x) {
+	c1 = 1.6867629106;
+	c2 = 0.4378497304;
+	c3 = 1.6867633134;
+
+	x2 = x * x;
+	return (x * (c1 + x2 * c2) / (c3 + x2));
+}
+//
+// This is the main arctangent approximation "driver"
+// It reduces the input argument's range to [0, pi/12],
+// and then calls the approximator. 
+//
+//
+atan_66(x) {
+	sixthpi = 0.5235987755983;		// pi / 6
+	tansixthpi = 0.577350269189627;	// tan(radians(pi / 6))
+	tantwelfthpi = 0.267949192431123;// tan(radians(pi / 12)) [tan(radians(0.26179938779915))]
+
+	complement	= int(0);			// true if arg was > 1 
+	region		= int(0);			// true depending on region arg is in
+	sign		= int(0);			// true if arg was < 0
+
+	if (x < 0) {
+		x = -x;
+		sign = int(1);				// arctan(-x) = -arctan(x)
+	}
+	if (x > 1) {
+		x = 1 / x;					// keep arg between 0 and 1
+		complement = int(1);
+	}
+	if (x > tantwelfthpi) {
+		x = (x - tansixthpi) / (1 + tansixthpi * x);// reduce arg to under tan(pi/12)
+		region = int(1);
+	}
+
+	y = atanT66(x);				// run the approximation
+
+	if (region) y += sixthpi;		// correct for region we're in
+	if (complement) y = halfpi - y;	// correct for 1/x if we did that
+	if (sign) y = -y;				// correct for negative arg
+
+	return y;
+}
+
+// *********************************************************
+// ***
+// ***   Routines to compute arctangent to 13.7 digits
+// ***  of accuracy. 
+// ***
+// *********************************************************
+//
+//		atanT137 computes atan(x)
+//
+//  Accurate to about 13.7 decimal digits over the range [0, pi/12].
+//
+//  Algorithm:
+//		atan(x)= x(c1 + c2*x**2 + c3*x**4)/(c4 + c5*x**2 + c6*x**4 + x**6)
+//
+atanT137(x) {
+	c1 = 48.70107004404898384;
+	c2 = 49.5326263772254345;
+	c3 = 9.40604244231624;
+	c4 = 48.70107004404996166;
+	c5 = 65.7663163908956299;
+	c6 = 21.587934067020262;
+
+	x2 = x * x;
+	return (x * (c1 + x2 * (c2 + x2 * c3)) / (c4 + x2 * (c5 + x2 * (c6 + x2))));
+}
+//
+// This is the main arctangent approximation "driver"
+// It reduces the input argument's range to [0, pi/12],
+// and then calls the approximator. 
+//
+//
+atan_137(x) {
+	sixthpi = 0.5235987755983;		// pi / 6
+	tansixthpi = 0.577350269189627;	// tan(radians(pi / 6))
+	tantwelfthpi = 0.267949192431123;// tan(radians(pi / 12)) [tan(radians(0.26179938779915))]
+
+	complement	= int(0);			// true if arg was > 1 
+	region		= int(0);			// true depending on region arg is in
+	sign		= int(0);			// true if arg was < 0
+
+	if (x < 0) {
+		x = -x;
+		sign = int(1);				// arctan(-x) = -arctan(x)
+	}
+	if (x > 1) {
+		x = 1 / x;					// keep arg between 0 and 1
+		complement = int(1);
+	}
+	if (x > tantwelfthpi) {
+		x = (x - tansixthpi) / (1 + tansixthpi * x);// reduce arg to under tan(pi/12)
+		region = int(1);
+	}
+
+	y = atanT137(x);				// run the approximation
+
+	if (region) y += sixthpi;		// correct for region we're in
+	if (complement) y = halfpi - y;	// correct for 1/x if we did that
+	if (sign) y = -y;				// correct for negative arg
+
+	return y;
+}
+
+// *********************************************************

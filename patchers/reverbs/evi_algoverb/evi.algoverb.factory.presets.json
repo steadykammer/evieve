@@ -1,0 +1,474 @@
+{
+	"pattrstorage" : 	{
+		"name" : "evi.algoverb.factory.presets",
+		"slots" : 		{
+			"1" : 			{
+				"id" : 1,
+				"name" : "Studio 1",
+				"data" : 				{
+					"eviAlgoverb::preTime" : [ 6.0 ],
+					"eviAlgoverb::preSymmetry" : [ -0.25 ],
+					"eviAlgoverb::earlySize" : [ 0.028 ],
+					"eviAlgoverb::earlySymmetry" : [ 0.0 ],
+					"eviAlgoverb::earlyDiffusion" : [ 0.37 ],
+					"eviAlgoverb::lateSize" : [ 0.028 ],
+					"eviAlgoverb::lateSymmetry" : [ -3.0 ],
+					"eviAlgoverb::lateDiffusion" : [ 0.6 ],
+					"eviAlgoverb::decay" : [ 0.3 ],
+					"eviAlgoverb::absorbtion" : [ 0.44 ],
+					"eviAlgoverb::earlyLate" : [ 0.57 ],
+					"eviAlgoverb::modFrequency" : [ 0.1 ],
+					"eviAlgoverb::modAmplitude" : [ 0.1 ],
+					"eviAlgoverb::smoothTime" : [ 50.0 ],
+					"eviAlgoverb::dryWet" : [ 0.8 ],
+					"eviAlgoverb::highDampFrequency" : [ 329.6 ],
+					"eviAlgoverb::highDampGain" : [ -0.9 ],
+					"eviAlgoverb::lowDampFrequency" : [ 329.6 ],
+					"eviAlgoverb::lowDampGain" : [ -0.55 ],
+					"eviAlgoverb::highEqFrequency" : [ 329.6 ],
+					"eviAlgoverb::lowEqFrequency" : [ 329.6 ],
+					"eviAlgoverb::highEqGain" : [ -2.5 ],
+					"eviAlgoverb::lowEqGain" : [ 0.0 ]
+				}
+
+			}
+,
+			"2" : 			{
+				"id" : 2,
+				"name" : "Studio 2",
+				"data" : 				{
+					"eviAlgoverb::preTime" : [ 6.0 ],
+					"eviAlgoverb::preSymmetry" : [ -0.25 ],
+					"eviAlgoverb::earlySize" : [ 0.028 ],
+					"eviAlgoverb::earlySymmetry" : [ 0.0 ],
+					"eviAlgoverb::earlyDiffusion" : [ 0.37 ],
+					"eviAlgoverb::lateSize" : [ 0.28 ],
+					"eviAlgoverb::lateSymmetry" : [ 0.4 ],
+					"eviAlgoverb::lateDiffusion" : [ 0.62 ],
+					"eviAlgoverb::decay" : [ 0.417 ],
+					"eviAlgoverb::absorbtion" : [ 0.37 ],
+					"eviAlgoverb::earlyLate" : [ 0.35 ],
+					"eviAlgoverb::modFrequency" : [ 0.08 ],
+					"eviAlgoverb::modAmplitude" : [ 0.08 ],
+					"eviAlgoverb::smoothTime" : [ 50.0 ],
+					"eviAlgoverb::dryWet" : [ 0.4 ],
+					"eviAlgoverb::highDampFrequency" : [ 740.0 ],
+					"eviAlgoverb::highDampGain" : [ -0.9 ],
+					"eviAlgoverb::lowDampFrequency" : [ 233.1 ],
+					"eviAlgoverb::lowDampGain" : [ -0.55 ],
+					"eviAlgoverb::highEqFrequency" : [ 329.6 ],
+					"eviAlgoverb::lowEqFrequency" : [ 329.6 ],
+					"eviAlgoverb::highEqGain" : [ -2.5 ],
+					"eviAlgoverb::lowEqGain" : [ 0.0 ]
+				}
+
+			}
+,
+			"3" : 			{
+				"id" : 3,
+				"name" : "Studio 3",
+				"data" : 				{
+					"eviAlgoverb::preTime" : [ 6.0 ],
+					"eviAlgoverb::preSymmetry" : [ -0.25 ],
+					"eviAlgoverb::earlySize" : [ 0.028 ],
+					"eviAlgoverb::earlySymmetry" : [ 0.0 ],
+					"eviAlgoverb::earlyDiffusion" : [ 0.37 ],
+					"eviAlgoverb::lateSize" : [ 0.28 ],
+					"eviAlgoverb::lateSymmetry" : [ 0.4 ],
+					"eviAlgoverb::lateDiffusion" : [ 0.62 ],
+					"eviAlgoverb::decay" : [ 0.417 ],
+					"eviAlgoverb::absorbtion" : [ 0.29 ],
+					"eviAlgoverb::earlyLate" : [ 0.35 ],
+					"eviAlgoverb::modFrequency" : [ 0.08 ],
+					"eviAlgoverb::modAmplitude" : [ 0.08 ],
+					"eviAlgoverb::smoothTime" : [ 50.0 ],
+					"eviAlgoverb::dryWet" : [ 0.4 ],
+					"eviAlgoverb::highDampFrequency" : [ 740.0 ],
+					"eviAlgoverb::highDampGain" : [ -0.9 ],
+					"eviAlgoverb::lowDampFrequency" : [ 233.1 ],
+					"eviAlgoverb::lowDampGain" : [ -0.55 ],
+					"eviAlgoverb::highEqFrequency" : [ 329.6 ],
+					"eviAlgoverb::lowEqFrequency" : [ 329.6 ],
+					"eviAlgoverb::highEqGain" : [ -2.5 ],
+					"eviAlgoverb::lowEqGain" : [ 0.0 ]
+				}
+
+			}
+,
+			"4" : 			{
+				"id" : 4,
+				"name" : "Room 1",
+				"data" : 				{
+					"eviAlgoverb::preTime" : [ 14.0 ],
+					"eviAlgoverb::preSymmetry" : [ -0.56 ],
+					"eviAlgoverb::earlySize" : [ 0.28 ],
+					"eviAlgoverb::earlySymmetry" : [ 1.7 ],
+					"eviAlgoverb::earlyDiffusion" : [ 0.7 ],
+					"eviAlgoverb::lateSize" : [ 0.39 ],
+					"eviAlgoverb::lateSymmetry" : [ -1.3 ],
+					"eviAlgoverb::lateDiffusion" : [ 0.58 ],
+					"eviAlgoverb::decay" : [ 0.358 ],
+					"eviAlgoverb::absorbtion" : [ 0.212 ],
+					"eviAlgoverb::earlyLate" : [ 0.25 ],
+					"eviAlgoverb::modFrequency" : [ 0.23 ],
+					"eviAlgoverb::modAmplitude" : [ 0.15 ],
+					"eviAlgoverb::smoothTime" : [ 50.0 ],
+					"eviAlgoverb::dryWet" : [ 0.31 ],
+					"eviAlgoverb::highDampFrequency" : [ 1760.0 ],
+					"eviAlgoverb::highDampGain" : [ -1.5 ],
+					"eviAlgoverb::lowDampFrequency" : [ 69.3 ],
+					"eviAlgoverb::lowDampGain" : [ -0.7 ],
+					"eviAlgoverb::highEqFrequency" : [ 1046.5 ],
+					"eviAlgoverb::lowEqFrequency" : [ 92.5 ],
+					"eviAlgoverb::highEqGain" : [ -6.0 ],
+					"eviAlgoverb::lowEqGain" : [ -3.5 ]
+				}
+
+			}
+,
+			"5" : 			{
+				"id" : 5,
+				"name" : "Room 2",
+				"data" : 				{
+					"eviAlgoverb::preTime" : [ 14.0 ],
+					"eviAlgoverb::preSymmetry" : [ -0.56 ],
+					"eviAlgoverb::earlySize" : [ 0.264 ],
+					"eviAlgoverb::earlySymmetry" : [ 2.0 ],
+					"eviAlgoverb::earlyDiffusion" : [ 0.66 ],
+					"eviAlgoverb::lateSize" : [ 0.417 ],
+					"eviAlgoverb::lateSymmetry" : [ -1.5 ],
+					"eviAlgoverb::lateDiffusion" : [ 0.64 ],
+					"eviAlgoverb::decay" : [ 0.375 ],
+					"eviAlgoverb::absorbtion" : [ 0.21 ],
+					"eviAlgoverb::earlyLate" : [ 0.43 ],
+					"eviAlgoverb::modFrequency" : [ 0.23 ],
+					"eviAlgoverb::modAmplitude" : [ 0.2 ],
+					"eviAlgoverb::smoothTime" : [ 50.0 ],
+					"eviAlgoverb::dryWet" : [ 0.4 ],
+					"eviAlgoverb::highDampFrequency" : [ 1760.0 ],
+					"eviAlgoverb::highDampGain" : [ -1.5 ],
+					"eviAlgoverb::lowDampFrequency" : [ 69.3 ],
+					"eviAlgoverb::lowDampGain" : [ -0.7 ],
+					"eviAlgoverb::highEqFrequency" : [ 830.6 ],
+					"eviAlgoverb::lowEqFrequency" : [ 92.5 ],
+					"eviAlgoverb::highEqGain" : [ -6.0 ],
+					"eviAlgoverb::lowEqGain" : [ -3.5 ]
+				}
+
+			}
+,
+			"6" : 			{
+				"id" : 6,
+				"name" : "Room 3",
+				"data" : 				{
+					"eviAlgoverb::preTime" : [ 14.0 ],
+					"eviAlgoverb::preSymmetry" : [ -0.56 ],
+					"eviAlgoverb::earlySize" : [ 0.264 ],
+					"eviAlgoverb::earlySymmetry" : [ 2.0 ],
+					"eviAlgoverb::earlyDiffusion" : [ 0.66 ],
+					"eviAlgoverb::lateSize" : [ 0.417 ],
+					"eviAlgoverb::lateSymmetry" : [ -1.5 ],
+					"eviAlgoverb::lateDiffusion" : [ 0.64 ],
+					"eviAlgoverb::decay" : [ 0.375 ],
+					"eviAlgoverb::absorbtion" : [ 0.202 ],
+					"eviAlgoverb::earlyLate" : [ 0.82 ],
+					"eviAlgoverb::modFrequency" : [ 0.23 ],
+					"eviAlgoverb::modAmplitude" : [ 0.2 ],
+					"eviAlgoverb::smoothTime" : [ 50.0 ],
+					"eviAlgoverb::dryWet" : [ 0.61 ],
+					"eviAlgoverb::highDampFrequency" : [ 1760.0 ],
+					"eviAlgoverb::highDampGain" : [ -1.5 ],
+					"eviAlgoverb::lowDampFrequency" : [ 69.3 ],
+					"eviAlgoverb::lowDampGain" : [ -0.7 ],
+					"eviAlgoverb::highEqFrequency" : [ 830.6 ],
+					"eviAlgoverb::lowEqFrequency" : [ 92.5 ],
+					"eviAlgoverb::highEqGain" : [ -6.0 ],
+					"eviAlgoverb::lowEqGain" : [ -3.5 ]
+				}
+
+			}
+,
+			"7" : 			{
+				"id" : 7,
+				"name" : "Hall 1",
+				"data" : 				{
+					"eviAlgoverb::preTime" : [ 16.0 ],
+					"eviAlgoverb::preSymmetry" : [ 0.33 ],
+					"eviAlgoverb::earlySize" : [ 0.389 ],
+					"eviAlgoverb::earlySymmetry" : [ 1.7 ],
+					"eviAlgoverb::earlyDiffusion" : [ 0.7 ],
+					"eviAlgoverb::lateSize" : [ 0.653 ],
+					"eviAlgoverb::lateSymmetry" : [ -1.3 ],
+					"eviAlgoverb::lateDiffusion" : [ 0.7 ],
+					"eviAlgoverb::decay" : [ 0.475 ],
+					"eviAlgoverb::absorbtion" : [ 0.189 ],
+					"eviAlgoverb::earlyLate" : [ 0.27 ],
+					"eviAlgoverb::modFrequency" : [ 0.23 ],
+					"eviAlgoverb::modAmplitude" : [ 0.15 ],
+					"eviAlgoverb::smoothTime" : [ 50.0 ],
+					"eviAlgoverb::dryWet" : [ 0.36 ],
+					"eviAlgoverb::highDampFrequency" : [ 1108.7 ],
+					"eviAlgoverb::highDampGain" : [ -1.2 ],
+					"eviAlgoverb::lowDampFrequency" : [ 69.3 ],
+					"eviAlgoverb::lowDampGain" : [ -0.7 ],
+					"eviAlgoverb::highEqFrequency" : [ 2217.5 ],
+					"eviAlgoverb::lowEqFrequency" : [ 92.5 ],
+					"eviAlgoverb::highEqGain" : [ -7.0 ],
+					"eviAlgoverb::lowEqGain" : [ -3.5 ]
+				}
+
+			}
+,
+			"8" : 			{
+				"id" : 8,
+				"name" : "Hall 2",
+				"data" : 				{
+					"eviAlgoverb::preTime" : [ 16.0 ],
+					"eviAlgoverb::preSymmetry" : [ 0.33 ],
+					"eviAlgoverb::earlySize" : [ 0.389 ],
+					"eviAlgoverb::earlySymmetry" : [ 1.7 ],
+					"eviAlgoverb::earlyDiffusion" : [ 0.7 ],
+					"eviAlgoverb::lateSize" : [ 0.653 ],
+					"eviAlgoverb::lateSymmetry" : [ -1.3 ],
+					"eviAlgoverb::lateDiffusion" : [ 0.7 ],
+					"eviAlgoverb::decay" : [ 0.475 ],
+					"eviAlgoverb::absorbtion" : [ 0.186 ],
+					"eviAlgoverb::earlyLate" : [ 0.46 ],
+					"eviAlgoverb::modFrequency" : [ 0.23 ],
+					"eviAlgoverb::modAmplitude" : [ 0.15 ],
+					"eviAlgoverb::smoothTime" : [ 50.0 ],
+					"eviAlgoverb::dryWet" : [ 0.4 ],
+					"eviAlgoverb::highDampFrequency" : [ 1108.7 ],
+					"eviAlgoverb::highDampGain" : [ -1.2 ],
+					"eviAlgoverb::lowDampFrequency" : [ 69.3 ],
+					"eviAlgoverb::lowDampGain" : [ -0.7 ],
+					"eviAlgoverb::highEqFrequency" : [ 2217.5 ],
+					"eviAlgoverb::lowEqFrequency" : [ 92.5 ],
+					"eviAlgoverb::highEqGain" : [ -7.0 ],
+					"eviAlgoverb::lowEqGain" : [ -3.5 ]
+				}
+
+			}
+,
+			"9" : 			{
+				"id" : 9,
+				"name" : "Hall 3",
+				"data" : 				{
+					"eviAlgoverb::preTime" : [ 24.0 ],
+					"eviAlgoverb::preSymmetry" : [ 0.33 ],
+					"eviAlgoverb::earlySize" : [ 0.389 ],
+					"eviAlgoverb::earlySymmetry" : [ 1.7 ],
+					"eviAlgoverb::earlyDiffusion" : [ 0.7 ],
+					"eviAlgoverb::lateSize" : [ 0.653 ],
+					"eviAlgoverb::lateSymmetry" : [ -1.3 ],
+					"eviAlgoverb::lateDiffusion" : [ 0.7 ],
+					"eviAlgoverb::decay" : [ 0.475 ],
+					"eviAlgoverb::absorbtion" : [ 0.181 ],
+					"eviAlgoverb::earlyLate" : [ 0.71 ],
+					"eviAlgoverb::modFrequency" : [ 0.23 ],
+					"eviAlgoverb::modAmplitude" : [ 0.15 ],
+					"eviAlgoverb::smoothTime" : [ 50.0 ],
+					"eviAlgoverb::dryWet" : [ 0.62 ],
+					"eviAlgoverb::highDampFrequency" : [ 1108.7 ],
+					"eviAlgoverb::highDampGain" : [ -1.2 ],
+					"eviAlgoverb::lowDampFrequency" : [ 69.3 ],
+					"eviAlgoverb::lowDampGain" : [ -0.7 ],
+					"eviAlgoverb::highEqFrequency" : [ 2217.5 ],
+					"eviAlgoverb::lowEqFrequency" : [ 92.5 ],
+					"eviAlgoverb::highEqGain" : [ -7.0 ],
+					"eviAlgoverb::lowEqGain" : [ -3.5 ]
+				}
+
+			}
+,
+			"10" : 			{
+				"id" : 10,
+				"name" : "Church 1",
+				"data" : 				{
+					"eviAlgoverb::preTime" : [ 16.0 ],
+					"eviAlgoverb::preSymmetry" : [ 0.33 ],
+					"eviAlgoverb::earlySize" : [ 0.514 ],
+					"eviAlgoverb::earlySymmetry" : [ 2.0 ],
+					"eviAlgoverb::earlyDiffusion" : [ 0.7 ],
+					"eviAlgoverb::lateSize" : [ 0.676 ],
+					"eviAlgoverb::lateSymmetry" : [ -1.5 ],
+					"eviAlgoverb::lateDiffusion" : [ 0.7 ],
+					"eviAlgoverb::decay" : [ 0.625 ],
+					"eviAlgoverb::absorbtion" : [ 0.16 ],
+					"eviAlgoverb::earlyLate" : [ 0.4 ],
+					"eviAlgoverb::modFrequency" : [ 0.27 ],
+					"eviAlgoverb::modAmplitude" : [ 0.25 ],
+					"eviAlgoverb::smoothTime" : [ 50.0 ],
+					"eviAlgoverb::dryWet" : [ 0.28 ],
+					"eviAlgoverb::highDampFrequency" : [ 392.0 ],
+					"eviAlgoverb::highDampGain" : [ -0.65 ],
+					"eviAlgoverb::lowDampFrequency" : [ 247.0 ],
+					"eviAlgoverb::lowDampGain" : [ -0.7 ],
+					"eviAlgoverb::highEqFrequency" : [ 2217.5 ],
+					"eviAlgoverb::lowEqFrequency" : [ 92.5 ],
+					"eviAlgoverb::highEqGain" : [ -8.5 ],
+					"eviAlgoverb::lowEqGain" : [ -3.5 ]
+				}
+
+			}
+,
+			"11" : 			{
+				"id" : 11,
+				"name" : "Church 2",
+				"data" : 				{
+					"eviAlgoverb::preTime" : [ 16.0 ],
+					"eviAlgoverb::preSymmetry" : [ 0.33 ],
+					"eviAlgoverb::earlySize" : [ 0.514 ],
+					"eviAlgoverb::earlySymmetry" : [ 2.0 ],
+					"eviAlgoverb::earlyDiffusion" : [ 0.7 ],
+					"eviAlgoverb::lateSize" : [ 0.676 ],
+					"eviAlgoverb::lateSymmetry" : [ -1.5 ],
+					"eviAlgoverb::lateDiffusion" : [ 0.7 ],
+					"eviAlgoverb::decay" : [ 0.625 ],
+					"eviAlgoverb::absorbtion" : [ 0.15 ],
+					"eviAlgoverb::earlyLate" : [ 0.51 ],
+					"eviAlgoverb::modFrequency" : [ 0.27 ],
+					"eviAlgoverb::modAmplitude" : [ 0.25 ],
+					"eviAlgoverb::smoothTime" : [ 50.0 ],
+					"eviAlgoverb::dryWet" : [ 0.43 ],
+					"eviAlgoverb::highDampFrequency" : [ 622.26 ],
+					"eviAlgoverb::highDampGain" : [ -0.65 ],
+					"eviAlgoverb::lowDampFrequency" : [ 261.63 ],
+					"eviAlgoverb::lowDampGain" : [ -0.7 ],
+					"eviAlgoverb::highEqFrequency" : [ 2217.5 ],
+					"eviAlgoverb::lowEqFrequency" : [ 92.5 ],
+					"eviAlgoverb::highEqGain" : [ -8.0 ],
+					"eviAlgoverb::lowEqGain" : [ -3.5 ]
+				}
+
+			}
+,
+			"12" : 			{
+				"id" : 12,
+				"name" : "Church 3",
+				"data" : 				{
+					"eviAlgoverb::preTime" : [ 16.0 ],
+					"eviAlgoverb::preSymmetry" : [ 0.33 ],
+					"eviAlgoverb::earlySize" : [ 0.514 ],
+					"eviAlgoverb::earlySymmetry" : [ 2.0 ],
+					"eviAlgoverb::earlyDiffusion" : [ 0.7 ],
+					"eviAlgoverb::lateSize" : [ 0.676 ],
+					"eviAlgoverb::lateSymmetry" : [ -1.5 ],
+					"eviAlgoverb::lateDiffusion" : [ 0.7 ],
+					"eviAlgoverb::decay" : [ 0.625 ],
+					"eviAlgoverb::absorbtion" : [ 0.14 ],
+					"eviAlgoverb::earlyLate" : [ 0.68 ],
+					"eviAlgoverb::modFrequency" : [ 0.27 ],
+					"eviAlgoverb::modAmplitude" : [ 0.25 ],
+					"eviAlgoverb::smoothTime" : [ 50.0 ],
+					"eviAlgoverb::dryWet" : [ 0.66 ],
+					"eviAlgoverb::highDampFrequency" : [ 622.26 ],
+					"eviAlgoverb::highDampGain" : [ -0.65 ],
+					"eviAlgoverb::lowDampFrequency" : [ 311.13 ],
+					"eviAlgoverb::lowDampGain" : [ -0.55 ],
+					"eviAlgoverb::highEqFrequency" : [ 2217.5 ],
+					"eviAlgoverb::lowEqFrequency" : [ 246.94 ],
+					"eviAlgoverb::highEqGain" : [ -5.0 ],
+					"eviAlgoverb::lowEqGain" : [ -3.5 ]
+				}
+
+			}
+,
+			"13" : 			{
+				"id" : 13,
+				"name" : "Big Verb",
+				"data" : 				{
+					"eviAlgoverb::preTime" : [ 6.0 ],
+					"eviAlgoverb::preSymmetry" : [ -0.31 ],
+					"eviAlgoverb::earlySize" : [ 0.583 ],
+					"eviAlgoverb::earlySymmetry" : [ -2.0 ],
+					"eviAlgoverb::earlyDiffusion" : [ 0.66 ],
+					"eviAlgoverb::lateSize" : [ 0.611 ],
+					"eviAlgoverb::lateSymmetry" : [ 1.5 ],
+					"eviAlgoverb::lateDiffusion" : [ 0.66 ],
+					"eviAlgoverb::decay" : [ 0.6 ],
+					"eviAlgoverb::absorbtion" : [ 0.14 ],
+					"eviAlgoverb::earlyLate" : [ 0.35 ],
+					"eviAlgoverb::modFrequency" : [ 0.36 ],
+					"eviAlgoverb::modAmplitude" : [ 0.38 ],
+					"eviAlgoverb::smoothTime" : [ 50.0 ],
+					"eviAlgoverb::dryWet" : [ 0.4 ],
+					"eviAlgoverb::highDampFrequency" : [ 2217.5 ],
+					"eviAlgoverb::highDampGain" : [ -1.2 ],
+					"eviAlgoverb::lowDampFrequency" : [ 65.4 ],
+					"eviAlgoverb::lowDampGain" : [ -0.7 ],
+					"eviAlgoverb::highEqFrequency" : [ 2959.96 ],
+					"eviAlgoverb::lowEqFrequency" : [ 233.08 ],
+					"eviAlgoverb::highEqGain" : [ -2.0 ],
+					"eviAlgoverb::lowEqGain" : [ -5.5 ]
+				}
+
+			}
+,
+			"14" : 			{
+				"id" : 14,
+				"name" : "Bigger Verb",
+				"data" : 				{
+					"eviAlgoverb::preTime" : [ 6.0 ],
+					"eviAlgoverb::preSymmetry" : [ -0.31 ],
+					"eviAlgoverb::earlySize" : [ 0.583 ],
+					"eviAlgoverb::earlySymmetry" : [ -2.0 ],
+					"eviAlgoverb::earlyDiffusion" : [ 0.66 ],
+					"eviAlgoverb::lateSize" : [ 0.611 ],
+					"eviAlgoverb::lateSymmetry" : [ 1.5 ],
+					"eviAlgoverb::lateDiffusion" : [ 0.66 ],
+					"eviAlgoverb::decay" : [ 0.867 ],
+					"eviAlgoverb::absorbtion" : [ 0.11 ],
+					"eviAlgoverb::earlyLate" : [ 0.35 ],
+					"eviAlgoverb::modFrequency" : [ 0.36 ],
+					"eviAlgoverb::modAmplitude" : [ 0.38 ],
+					"eviAlgoverb::smoothTime" : [ 50.0 ],
+					"eviAlgoverb::dryWet" : [ 0.6 ],
+					"eviAlgoverb::highDampFrequency" : [ 2217.5 ],
+					"eviAlgoverb::highDampGain" : [ -1.2 ],
+					"eviAlgoverb::lowDampFrequency" : [ 65.4 ],
+					"eviAlgoverb::lowDampGain" : [ -0.7 ],
+					"eviAlgoverb::highEqFrequency" : [ 2959.96 ],
+					"eviAlgoverb::lowEqFrequency" : [ 233.08 ],
+					"eviAlgoverb::highEqGain" : [ -2.0 ],
+					"eviAlgoverb::lowEqGain" : [ -5.5 ]
+				}
+
+			}
+,
+			"15" : 			{
+				"id" : 15,
+				"name" : "Biggest Verb",
+				"data" : 				{
+					"eviAlgoverb::preTime" : [ 6.0 ],
+					"eviAlgoverb::preSymmetry" : [ -0.31 ],
+					"eviAlgoverb::earlySize" : [ 0.583 ],
+					"eviAlgoverb::earlySymmetry" : [ -2.0 ],
+					"eviAlgoverb::earlyDiffusion" : [ 0.66 ],
+					"eviAlgoverb::lateSize" : [ 0.611 ],
+					"eviAlgoverb::lateSymmetry" : [ 1.5 ],
+					"eviAlgoverb::lateDiffusion" : [ 0.66 ],
+					"eviAlgoverb::decay" : [ 0.867 ],
+					"eviAlgoverb::absorbtion" : [ 0.08 ],
+					"eviAlgoverb::earlyLate" : [ 0.35 ],
+					"eviAlgoverb::modFrequency" : [ 0.36 ],
+					"eviAlgoverb::modAmplitude" : [ 0.38 ],
+					"eviAlgoverb::smoothTime" : [ 50.0 ],
+					"eviAlgoverb::dryWet" : [ 0.84 ],
+					"eviAlgoverb::highDampFrequency" : [ 2217.5 ],
+					"eviAlgoverb::highDampGain" : [ -1.2 ],
+					"eviAlgoverb::lowDampFrequency" : [ 65.4 ],
+					"eviAlgoverb::lowDampGain" : [ -0.7 ],
+					"eviAlgoverb::highEqFrequency" : [ 2959.96 ],
+					"eviAlgoverb::lowEqFrequency" : [ 233.08 ],
+					"eviAlgoverb::highEqGain" : [ -2.0 ],
+					"eviAlgoverb::lowEqGain" : [ -5.5 ]
+				}
+
+			}
+
+		}
+
+	}
+
+}

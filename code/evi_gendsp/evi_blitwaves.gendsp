@@ -1,0 +1,262 @@
+{
+	"patcher" : 	{
+		"fileversion" : 1,
+		"appversion" : 		{
+			"major" : 9,
+			"minor" : 1,
+			"revision" : 0,
+			"architecture" : "x64",
+			"modernui" : 1
+		}
+,
+		"classnamespace" : "dsp.gen",
+		"rect" : [ 134.0, 159.0, 974.0, 690.0 ],
+		"gridonopen" : 2,
+		"gridsize" : [ 15.0, 15.0 ],
+		"subpatcher_template" : "<none>",
+		"assistshowspatchername" : 0,
+		"commentary" : "",
+		"showcommentary" : 0,
+		"integercoordinates" : 1,
+		"boxes" : [ 			{
+				"box" : 				{
+					"fontface" : 0,
+					"fontname" : "Arial",
+					"fontsize" : 12.0,
+					"id" : "obj-9",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 744.0, 649.0, 211.0, 22.0 ],
+					"text" : "out 6 Sync 0..1 (if param addsync set)"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-10",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 521.0, 649.0, 206.0, 22.0 ],
+					"text" : "out 5 Train 0/1 (if param addtrain set)"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontface" : 0,
+					"fontname" : "Arial",
+					"fontsize" : 12.0,
+					"id" : "obj-7",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 858.0, 19.0, 97.0, 22.0 ],
+					"text" : "in 3 Naive Reset"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontface" : 0,
+					"fontname" : "Arial",
+					"fontsize" : 12.0,
+					"id" : "obj-6",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 204.0, 649.0, 58.0, 22.0 ],
+					"text" : "out 3 TRI"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontface" : 0,
+					"fontname" : "Arial",
+					"fontsize" : 12.0,
+					"id" : "obj-5",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 116.0, 649.0, 71.0, 22.0 ],
+					"text" : "out 2 RECT"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontface" : 0,
+					"fontname" : "Arial",
+					"fontsize" : 12.0,
+					"id" : "obj-1",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 34.0, 19.0, 119.0, 22.0 ],
+					"text" : "in 1 Frequency in Hz"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontface" : 0,
+					"fontname" : "Arial",
+					"fontsize" : 12.0,
+					"id" : "obj-2",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 446.0, 19.0, 190.0, 22.0 ],
+					"text" : "in 2 Pulse Width 0..1 @default 0.5"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"code" : "\r\n// zero aliasing classic synth wave shapes, dsf-blit-like algo, sweep/modulation works with no noise, & very cheap :-)\r\n// good for subtractive because we stay very bright right up to nyquist, but no hard sync :-(\r\n// by pete for evieve, 2019\r\n\n// transposed direct form 2\nbiquadTdf2(x, a0, a1, a2, b1, b2)\n{\n\tHistory x1(0), x2(0);\n\ty = (x * a0) + x2;\n\tx2 = ((x * a1) - (y * b1)) + x1;\n\tx1 = (x * a2) - (y * b2);\n\treturn y;\n}\n\r\n// variable dcblock() so that effect can be bypassed (a0 = 1) \r\n// or active (a0 = 0.9997) or heavy (a0 = ...)\nvarDcblock(x0, a0)\n{\n\tHistory\tx1(0), y1(0);\n\ty0\t\t= x0 - x1 + fixdenorm(y1 * a0);\n\tx1\t\t= x0;\n\ty1\t\t= y0;\n\treturn\ty0;\n}\r\n\r\n// this is rubbish\r\nleaky(x, f)\r\n{\r\n\tHistory\tleak(0);\r\n\ty\t\t= ( (x - leak) * (f * 0.25) ) + leak;\r\n\tleak\t= y;\r\n\treturn\ty;\r\n}\r\n\r\n// cheap tan approx for BLT, x 0..1 input\ntanA(x)\n{\n\tx2 = (x * x);\n\tx3 = (x2 * x);\n\tx5 = (x2 * x3);\n\treturn ((x5 * 0.133333333333) + (x3 * 0.333333333333)) + x;\n}\n\n// slightly 'better' approx than 'tanA()', 0..HALFPI input\ntanA2(x)\n{\n\ta\t= ((((x * -0.0896638) + 0.0388452) * x) + 1.00005) * x;\n\tb\t= (((x * -0.430871) + 0.0404318) * x) + 1;\n\treturn\ta / b;\n}\n\r\n// prewarps\nrcPreWarp1(cutoff)\n{\n\tg0\t\t=  tanA(PI * cutoff / SAMPLERATE);\n\treturn\tg0 / (1 + g0);\n}\n\nrcPreWarp2(cutoff)\n{\n\tg0\t\t=  tanA2(PI * cutoff / SAMPLERATE);\n\treturn\tg0 / (1 + g0);\n}\n\r\n// linear OnePole RC filter (trapezoidal), 1 mul 1 div\nrcFilterLp(Vin, g)\n{\n\tHistory\t  s(0);\n\tVout\t= (g * Vin + s) / (g + 1);\n\ts\t\t= (Vout + Vout) - s;\n\treturn\t  Vout;\n}\n\nrcFilterHp(Vin, g)\n{\n\tHistory\t  s(0);\n\tVoutLp\t= (g * Vin + s) / (g + 1);\n\ts\t\t= (VoutLp + VoutLp) - s;\n\treturn\t  Vin - VoutLp;\n}\r\n\r\ncosQ73(x)\r\n{\n\tc1 =  0.999999953464;\n\tc2 = -0.499999053455;\n\tc3 =  0.0416635846769;\n\tc4 = -0.0013853704264;\n\tc5 =  0.00002315393167;  \t\n\n\tx2 = x * x;\n\treturn (c1 + x2 * (c2 + x2 * (c3 + x2 * (c4 + c5 * x2))));\n}\n\r\ncos73(x)\r\n{\n\tTWOOVERPI = 0.63661977236758;\t// 2 / PI\n\tx = x % TWOPI;\t\t\t\t\t// phasewrap(x) cheaper ?\n\tx = (x < 0) ? -x : x;\n\tQUAD = int(x * TWOOVERPI);\t\t// get quadrant # (0..3) we are in\n\tcosreturn = 0;\n\tif \t\t\t\t(QUAD == 0) {\n\t\tcosreturn =  cosQ73(x);\n\t} else if \t\t(QUAD == 1) {\n\t\tcosreturn = -cosQ73(PI - x);\n\t} else if \t\t(QUAD == 2) {\n\t\tcosreturn = -cosQ73(x - PI);\n\t} else {\t//\t(QUAD == 3)\n\t\tcosreturn =  cosQ73(TWOPI - x);\n\t}\n\treturn cosreturn;\n}\n\r\nsin73(x)\r\n{\n\treturn cos73(HALFPI - x);\n}\r\n\r\ncosQ121(x)\r\n{\n\tc1 =  0.99999999999925182;\n\tc2 = -0.49999999997024012;\n\tc3 =  0.041666666473384543;\n\tc4 = -0.001388888418000423;\n\tc5 =  0.0000248010406484558;\n\tc6 = -0.0000002752469638432;\n\tc7 =  0.0000000019907856854;\n\n\tx2 = x * x;\n\treturn (c1 + x2 * (c2 + x2 * (c3 + x2 * (c4 + x2 * (c5 + x2 * (c6 + c7 * x2))))));\n}\n\r\ncos121(x)\r\n{\n\tTWOOVERPI = 0.63661977236758;\t// 2 / PI\n\tx = x % TWOPI;\t\t\t\t\t// phasewrap(x) cheaper ?\n\tx = (x < 0) ? -x : x;\n\tQUAD = int(x * TWOOVERPI);\t\t// get quadrant # (0..3) we are in\n\tcosreturn = 0;\n\tif \t\t\t\t(QUAD == 0) {\n\t\tcosreturn =  cosQ121(x);\n\t} else if \t\t(QUAD == 1) {\n\t\tcosreturn = -cosQ121(PI - x);\n\t} else if \t\t(QUAD == 2) {\n\t\tcosreturn = -cosQ121(x - PI);\n\t} else {\t//\t(QUAD == 3)\n\t\tcosreturn =  cosQ121(TWOPI - x);\n\t}\n\treturn cosreturn;\n}\n\r\nsin121(x)\r\n{\n\treturn cos121(HALFPI - x);\n}\r\n\r\n//\t//\t//\tBLITs\r\n\r\neviSect(T, P, M)\r\n{\t// we get a tiny bit of noise below -100dB with sin73, switch to sin121 if you care about this\r\n\treturn\t(sin73((T + 0.5) * P) * M) - 1;\r\n}\r\n\r\n// deluxe, a lot more expensive, but crossfades out the top harmonic - much nicer\r\neviBlit(Ph, Mt, Mf)\r\n{\r\n\tMp\t\t= 1 / sin121(0.5 * Ph);\t\t\t\t\t\t// must be at least ...121 for accuracy\r\n\tx0\t\t= eviSect((maximum((Mt - 1), 0)), Ph, Mp);\r\n\tx1\t\t= eviSect(Mt, Ph, Mp);\r\n\treturn\tinterp(Mf*Mf, x0, x1, mode=\"cosine\") * 0.5; // cosine but Mf is squared, ridiculous? i like it\r\n}\r\n\r\n//\t//\t//\r\n\r\nhermite_sixpoint_interp(f0, ym2, ym1, y0, y1, y2, y3)\n{\n\tf1\t\t=  f0 - 0.5;\n\teven1\t= ym2 + y3;\n\todd1\t= ym2 - y3;\n\teven2\t= ym1 + y2;\n\todd2\t= ym1 - y2;\n\teven3\t=  y0 + y1;\n\todd3\t=  y0 - y1;\n\n\tc0\t= 0.01171875*even1\t\t- 0.09765625*even2\t\t+ 0.5859375*even3;\n\tc1\t= 0.2109375*odd2\t\t- 1.463541666667*odd3\t- 0.033854166667*odd1;\n\tc2\t= 0.40625*even2\t\t\t- 0.354166666667*even3\t- 0.052083333333*even1;\n\tc3\t= 0.1875*odd1\t\t\t- 1.104166666667*odd2\t+ 2.375*odd3;\n\tc4\t= 0.020833333333*even1\t- 0.0625*even2\t\t\t+ 0.041666666667*even3;\n\tc5\t= 1.041666666667*odd2\t- 2.083333333333*odd3\t- 0.208333333333*odd1;\n\n\treturn ((((c5*f1 + c4)*f1 + c3)*f1 + c2)*f1 + c1)*f1 + c0;\n}\r\n\r\nexpApprox(x)\n{\n\tx = 1 + (0.062500309 + (0.0019527233 + (0.0000408663 + (0.00000060184965 + 0.000000010856791*x)*x)*x)*x)*x;\n\tx *= x; x *= x; x *= x;\n\treturn x*x;\n}\n\npow2Approx(y) // approx pow(2, y)\n{\n\treturn expApprox(y * LN2);\n}\n\ncoshApprox(x)\n{\n\treturn 0.5 * (expApprox(x) + expApprox(-x));\n}\n\nlog2Approx(x) // sorry\n{\n\treturn (-0.2119568027628040757e-1 + (-0.38815224340108325886 + (-0.8900051141728954376 + (0.4001641794691007527\n\t\t\t+ (0.79615191430677253059 + 0.10303694407435362078*x)*x)*x)*x)*x) /\n\t\t\t\t(0.298115002929551095e-2 + (0.1066700361116609290 + (0.6070463053447878628 + (0.8584931203106122717\n\t\t\t\t\t+ (0.30170842595823793523 + 0.16863931436090069014e-1*x)*x)*x)*x)*x);\n}\n\nlogApprox(x)\n{\n\treturn LN2 * log2Approx(x);\n}\n\nlog10Approx(x)\n{\n\treturn 0.3010299956639811 * log2Approx(x); // log10(2)*log2(x)\n}\r\n\nfuncSc0(x) // tanh Lambert approx\n{\n\tx2 = x * x;\n\ta = (((x2 + 378) * x2 + 17325) * x2 + 135135) * x;\n\tb = ((28 * x2 + 3150) * x2 + 62370) * x2 + 135135;\n\treturn clamp((a / b), -1, 1); // clamp() ?\n}\n\r\nfuncSc1(x)\n{\n\t// only possible to use approxes for first antiderivative, 2nd order does not work with these approxes :-(\r\n\treturn logApprox(coshApprox(x));\n}\n\nadSc1(x)\t// first antiderivative only\n{\n\tHistory x1(0), ad1_x1(0);\n\tTOL = 0.00001; // i've seen this in some sources as 0.018\n\txmx1 = x - x1;\n\tillCondition = abs(xmx1) < TOL;\n\tad1_x = funcSc1(x);\n\n\ty = 0;\n\tif (illCondition) {\n\t\ty = funcSc0(0.5 * (x + x1));\n\t} else {\n\t\ty = (ad1_x - ad1_x1) / xmx1;\n\t}\n\n\tad1_x1 = ad1_x;\n\tx1 = x;\n\n\treturn y;\n}\r\n\r\nadSc1_2x_6POINT(XIN)\n{\t// up 2\n\tHistory\tumTm2_0(0), umTm1_0(0), umT0_0(0), umT1_0(0), umT2_0(0);\n\t// down 2\n\tHistory\tdmT3_1(0), dmT2_1(0), dmT1_1(0), dmT0_1(0), dmTm1_1(0);\n\t// align\n\tHistory\tdoX0(0);\n\n\t// up 2x\n\tx0_0_a\t= XIN + 0;\n\tx1_0\t= hermite_sixpoint_interp(0.5,\tumTm2_0, umTm1_0, umT0_0, umT1_0, umT2_0, x0_0_a);\n\tx2_0\t= umT2_0 + 0;\n\n\t// process 2x\n\ty1_0\t= adSc1(x1_0);\n\ty2_0\t= adSc1(x2_0);\n\n\t// down 2x\n\ty2_0_a\t= y2_0 + 0;\n\ty2_1\t= hermite_sixpoint_interp(0.5,\ty2_0_a,\tdmTm1_1, dmT0_1, dmT1_1, dmT2_1, dmT3_1);\n\n\ty0_0\t= (doX0 + y2_1) * 0.5;\n\n\t// update\n\tumTm2_0\t= umTm1_0;\n\tumTm1_0\t= umT0_0;\n\tumT0_0\t= umT1_0;\n\tumT1_0 \t= umT2_0;\n\tumT2_0\t= x0_0_a;\n\n\tdoX0\t= y1_0;\n\n\tdmT3_1\t= dmT2_1;\n\tdmT2_1\t= dmT1_1;\n\tdmT1_1\t= dmT0_1;\n\tdmT0_1\t= dmTm1_1;\n\tdmTm1_1\t= y2_0;\n\n\treturn dcblock(y0_0);\n}\n\neviMap(valueIn, inLow, inHigh, outLow, outHigh)\t// basic linear scaling like linear part of [scale]\n{\n    multiplier = (outLow - outHigh) / (inLow - inHigh);\n    return (valueIn - inLow) * multiplier + outLow;\n}\n\neviLine(target, duration)\t\t\t\t\t\t// target, duration in samples\n{\n\tHistory val(0);\n    trigger\t= change(target);\n    ramp\t= clamp(accum((1 / latch(duration, trigger)), trigger), 0, 1);\n    lin \t= eviMap(ramp, 0, 1, latch(val, trigger), latch(target, trigger));\n    val \t= lin;\n    return  lin, (ramp == 1);\n}\n\r\n//\t//\t//\r\n\r\nHistory\tthisReset(1);//, Ff(0);\r\n//History\tprevSR(0);\r\nParam\tsmooth(22, min=0, max=333);\t\t\t\t// ms\r\nParam\taddsync(1, min=0, max=2);\t\t\t\t// out6: 0 = off, 1 = main phase output, 2 = pwm phase output\r\nParam\taddtrain(0, min=0, max=2);\t\t\t\t// out5: 0 = off, 1 = train based on main phase, 2 = train based on pwm phase\r\nParam\taddsine(0, min=0, max=1);\t\t\t\t// out4: 0 = SINE off, 1 = SINE on (considerable CPU management)\r\nsmoothsamps = mstosamps(smooth);\r\nLAURA\t= 1.059463094359;\r\nJASON\t= 2.221441469079183;\r\nCPS_LIMIT\t= 0.0001;\r\n\r\nHz\t\t\t= in1;\r\nWidth\t\t= in2;\r\nnaiveReset\t= in3;\t\t\t\t\t\t\t\t// <<-- do not use (does not work properly if freq really high anyway)\r\n/*\r\n// why doesn't this work ?!\r\nsr05 = 0;\r\nsr01 = 0;\r\nsrWN = 0;\r\nomWN = 0;\r\nMaxFreq = 0;\r\nfilterRolloff = 0;\r\n// we only need to update these values if SR changes (& on init)\r\nif (prevSR != SAMPLERATE) {\r\n\tsr05 = SAMPLERATE * 0.5;\r\n\tsr01 = SAMPLERATE * 0.01;\r\n\tMaxFreq\t= sr05 - sr01;\r\n\tsrWN = sr01 / SAMPLERATE;\r\n\tomWN = 1 - (srWN + srWN);\r\n//\tfilterRolloff = rcPreWarp2(MaxFreq);\r\n\tprevSR = SAMPLERATE;\r\n}\r\n*/\r\nsr05 = SAMPLERATE * 0.5;\r\nsr01 = SAMPLERATE * 0.01;\r\nMaxFreq\t= sr05 - sr01;\t\t\t\t\t\t\t// we want it to kick in a bit below nyquist\r\nsrWN = sr01 / SAMPLERATE;\r\nomWN = 1 - (srWN + srWN);\r\n//filterRolloff = rcPreWarp2(MaxFreq);\r\n/*\r\n// unlike pure DSF BLIT, we do not have to latch changes as rolloff/etc takes care of this for us\r\nF\t\t= latch(maximum(Hz, 0), thisReset);\t\t\t\t\t\t// Hz\r\nFf\t\t= latch(maximum(F / SAMPLERATE, CPS_LIMIT), thisReset);\t// Increment\r\nFn\t\t= latch(Ff * TWOPI, thisReset);\r\nP\t\t= latch((Width * omWN) + srWN, thisReset);\t\t\t\t// 0..1, edges SR dependent\r\n*/\r\n// if no latching option, we should exact-smooth \"F\" (because trunc/fract) and exact-smooth \"P\" (because center)\r\nF\t\t= maximum(Hz, 0);\t\t\t\t\t\t// Hz\r\nif (smooth > 0) {\r\n\tF\t= eviLine(F, smoothsamps);\r\n}\r\nFf\t\t= maximum(F / SAMPLERATE, CPS_LIMIT);\t// Increment\r\nFn\t\t= Ff * TWOPI;\r\nP\t\t= (Width * omWN) + srWN;\t\t\t\t// 0..1, edges SR dependent\t// NOTE: Width not clipped so wraps around if desired\r\nPp\t\t= P;\t\t\t\t\t\t\t\t\t// Pp = no smoothing\r\nif (smooth > 0) {\r\n\tP\t= eviLine(P, smoothsamps);\r\n}\r\n\r\n//filterZero = rcPreWarp1(76.1268 * Fn);\r\n\r\nM\t\t= abs((P + P) - 1);\t\t\t\t\t\t// maintain energy in TRI, sort of...\r\nWt\t\t= ((M * M * M * M) * 16) + 4;\r\nFa\t\t= 2 - maximum(Fn, 1);\r\n\r\nMFdF\t= MaxFreq / F;\r\nMt\t\t= trunc(MFdF);\r\nMf\t\t= fract(MFdF);\r\n\r\nPhase\t= phasor(F, naiveReset);//naiveReset ? 0 : Phase + Ff;\r\nPhW\t\t= wrap((Phase + P), 0, 1);\r\nPh\t\t= (Phase * TWOPI);\r\nPwm\t\t= (PhW * TWOPI);\r\noutPhase = 0;\r\noutPh\t = latch(int(addsync), thisReset);\r\nif (outPh > 0) {\r\n\toutPhase = (outPh - 1) ? PhW : Phase;\r\n}\r\npeteTrain\t= 0;\r\ntrnPh\t\t= latch(int(addtrain), thisReset);\r\nif (trnPh > 0) {\r\n\tpetePhase\t= (trnPh - 1) ? PhW : Phase;\r\n\tpeteTrain\t= petePhase < latch(Pp, thisReset);\r\n}\r\n\r\nblit_1\t= eviBlit(Ph, Mt, Mf);\r\nblit_2\t= eviBlit(Pwm, Mt, Mf);\r\n\r\nblit_saw\t= dcblock(blit_1);\r\nblit_rect\t= blit_1 - blit_2;\r\n\r\nbottom\t\t= minimum(F, 10) * 0.1;\t// extend down to zero Hz, no DC\r\nthisReset\t= (delta(Phase) < 0) + (Ff <= CPS_LIMIT) + naiveReset;\r\n\r\n// integrate...\r\n\r\n// these are much nicer \"straight lines\" buzzy oscillators, but sadly we get\r\n// the nightmare blit-dc-dropout problem using the direct forms with mul Fn externally\r\n\r\n//SAW\t\t= biquadTdf2(blit_saw, -0.331, 0, 0, -0.999, 0) * Fn;\r\n//RECT\t\t= biquadTdf2(blit_rect, 0.31, 0, 0, -0.9997, 0) * Fn;\r\n//TRI\t\t= biquadTdf2(RECT * 2, 0.397, 0, 0, -0.9997, 0) * Fn;\r\n\r\n// so we just use the cheap leaky instead with Fn in the filter - these oscs are solid at least\r\n\r\nSAW\t\t\t= leaky(-blit_saw, Fn) * LAURA * bottom;\r\nRECT\t\t= leaky(blit_rect, Fn) * bottom;\r\nTRI\t\t\t= leaky((RECT * Wt) * Fa, Fn) * LAURA * bottom;\r\n\r\nSINE\t\t= 0;\r\nadsn\t\t= latch(int(addsine), thisReset);\r\nif (adsn) {\t// ...73 fine for accuracy here\t// you think \"leaky()\" is wrong here, but it is not :-)\r\n//\tSINE\t= adSc1(leaky(cos73(Ph), Fn) * JASON) * SQRT2 * bottom;\r\n\tSINE\t= adSc1_2x_6POINT(leaky(cos73(Ph), Fn) * JASON) * SQRT2 * bottom;\r\n\t// ^^ all sine variations work fine: cos73(Ph), cos73(Pwm), sin73(Ph), sin73(Pwm), just depends what you want (phase)\r\n\t// ^^ sadly, the SINE phase does not line up at exact zero crossings, regardless of which function or phase driver you use\r\n//\tSINE\t= rcFilterHp(SINE, filterZero);\t// leaves residual DC at bottom of bottom\r\n}\r\n\r\n// interesting weird SAW that also works...\r\n//interestingPwmSAW\t= leaky(SAW - blit_2, Fn) * LAURA * LAURA * bottom;\r\n//interestingPwmSAW\t= rcFilterHp(interestingPwmSAW, filterZero);\t// leaves residual DC at bottom of bottom\r\n\r\n//SAW\t= rcFilterLp(SAW, filterRolloff);\t// some people might like it (but not needed with this algo)\r\n//SAW\t= rcFilterHp(SAW, filterZero);\t\t// leaves residual DC at bottom of bottom\r\n\r\n//RECT\t= rcFilterLp(RECT, filterRolloff);\t// some people might like it (but not needed with this algo)\r\n//RECT\t= rcFilterHp(RECT, filterZero);\t\t// leaves residual DC at bottom of bottom\r\n\r\n//TRI\t= rcFilterHp(TRI, filterZero);\t\t// leaves residual DC at bottom of bottom\r\n\r\nout1\t= SAW;\r\nout2\t= RECT;\r\nout3\t= TRI;\r\nout4\t= SINE;\r\n\r\nout5\t= peteTrain;\t\t\t\t\t\t// Train is a rectified naive square 0/1 running at period, like [train] or [train~]\r\nout6\t= outPhase;\t\t\t\t\t\t\t// ^^ needed for certain weird things, don't worry\r\n\r\n",
+					"fontface" : 0,
+					"fontname" : "<Monospaced>",
+					"fontsize" : 10.0,
+					"id" : "obj-3",
+					"maxclass" : "codebox",
+					"numinlets" : 3,
+					"numoutlets" : 6,
+					"outlettype" : [ "", "", "", "", "", "" ],
+					"patching_rect" : [ 34.0, 56.0, 843.0, 576.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontface" : 0,
+					"fontname" : "Arial",
+					"fontsize" : 12.0,
+					"id" : "obj-4",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 34.0, 649.0, 65.0, 22.0 ],
+					"text" : "out 1 SAW"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontface" : 0,
+					"fontname" : "Arial",
+					"fontsize" : 12.0,
+					"id" : "obj-11",
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 638.0, 20.0, 216.0, 20.0 ],
+					"text" : "<<-- for RECT & TRI & Train"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-13",
+					"linecount" : 2,
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 155.0, 14.0, 289.0, 33.0 ],
+					"text" : "<<-- use @smooth param for smoothing -->>\n(if not modulating)",
+					"textjustification" : 1
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontface" : 0,
+					"fontname" : "Arial",
+					"fontsize" : 12.0,
+					"id" : "obj-8",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 279.0, 649.0, 186.0, 22.0 ],
+					"text" : "out 4 SINE (if param addsine set)"
+				}
+
+			}
+ ],
+		"lines" : [ 			{
+				"patchline" : 				{
+					"destination" : [ "obj-3", 0 ],
+					"source" : [ "obj-1", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-3", 1 ],
+					"source" : [ "obj-2", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-10", 0 ],
+					"midpoints" : [ 702.700000000000045, 643.53125, 530.5, 643.53125 ],
+					"source" : [ "obj-3", 4 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-4", 0 ],
+					"source" : [ "obj-3", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-5", 0 ],
+					"midpoints" : [ 208.300000000000011, 640.5, 125.5, 640.5 ],
+					"source" : [ "obj-3", 1 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-6", 0 ],
+					"midpoints" : [ 373.100000000000023, 636.2109375, 213.5, 636.2109375 ],
+					"source" : [ "obj-3", 2 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-8", 0 ],
+					"midpoints" : [ 537.899999999999977, 640.5, 288.5, 640.5 ],
+					"source" : [ "obj-3", 3 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-9", 0 ],
+					"midpoints" : [ 867.5, 640.5, 753.5, 640.5 ],
+					"source" : [ "obj-3", 5 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-3", 2 ],
+					"source" : [ "obj-7", 0 ]
+				}
+
+			}
+ ],
+		"toolbarexclusions" : [ "lessonbrowser" ]
+	}
+
+}

@@ -1,0 +1,173 @@
+{
+	"patcher" : 	{
+		"fileversion" : 1,
+		"appversion" : 		{
+			"major" : 9,
+			"minor" : 0,
+			"revision" : 4,
+			"architecture" : "x64",
+			"modernui" : 1
+		}
+,
+		"classnamespace" : "dsp.gen",
+		"rect" : [ 0.0, 70.0, 928.0, 912.0 ],
+		"gridonopen" : 2,
+		"gridsize" : [ 15.0, 15.0 ],
+		"toolbarvisible" : 0,
+		"lefttoolbarpinned" : 2,
+		"toptoolbarpinned" : 2,
+		"righttoolbarpinned" : 2,
+		"bottomtoolbarpinned" : 2,
+		"toolbars_unpinned_last_save" : 15,
+		"boxanimatetime" : 0,
+		"subpatcher_template" : "PeteSub12",
+		"boxes" : [ 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 12.0,
+					"id" : "obj-8",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 579.0, 19.0, 169.0, 22.0 ],
+					"text" : "in 4 Cutoff Hz Mod @default 0"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 12.0,
+					"id" : "obj-7",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 385.0, 19.0, 181.0, 22.0 ],
+					"text" : "in 3 Cutoff Pitch Mod @default 0"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 12.0,
+					"id" : "obj-5",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 765.0, 19.0, 132.0, 22.0 ],
+					"text" : "in 5 resonance (0..1..2)"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 12.0,
+					"id" : "obj-1",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 49.0, 19.0, 101.0, 22.0 ],
+					"text" : "in 1 (signal) Input"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 12.0,
+					"id" : "obj-2",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 191.0, 19.0, 182.0, 22.0 ],
+					"text" : "in 2 Cutoff (in Hz) or Pitch (MIDI)"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"code" : "//\r\n// Transistor Ladder by Teemu Voipio\r\n// mods by Pete for evieve\r\n// Pete: this is tuned to be quite 'hot' and aggressive compared to \"evi_ladder_deluxe.gendsp\".\n\r\n// @see: https://www.kvraudio.com/forum/viewtopic.php?t=349859\r\n// (^^ that is the legendary kvr thread where there is lots of useful stuff,\r\n// as well as lots of annoying men with feelings)\r\n\r\n//// LICENSE TERMS: Copyright 2012 Teemu Voipio\n// \n// You can use this however you like for pretty much any purpose,\n// as long as you don't claim you wrote it. There is no warranty.\n//\n// Distribution of substantial portions of this code in source form\n// must include this copyright notice and list of conditions.\n//\n\r\n// mystran's tanh(x)/x approximation, flatlines at very high inputs\n// so might not be safe for very large feedback gains\n// (limit is 1/15 so very large means ~15 or +23dB)\ntanhXdX(x)\n{\n   a = x*x;\n   // mystran: IIRC I got this as Pade-approx for tanh(sqrt(x))/sqrt(x) \n   return ((a + 105)*a + 945) / ((15*a + 420)*a + 945);\n}\n\n// Lambert approximation, excellent mathematical and sonic closeness to 'real' tanh\n// amplitude of 'x' must be clamped ± 120 dB otherwise numerical innacuracy\ntanhL(x)\n{\n   x2 = x*x;\n   a = (((x2 + 378)*x2 + 17325)*x2 + 135135)*x;\n   b = ((28*x2 + 3150)*x2 + 62370)*x2 + 135135;\n   return clamp(a/b, -1, 1);\n}\r\n\r\n// cheap but sonically and mathematically accurate\r\natanA(x)\n{\n\to = 8 * x;\n\tq = (o + o) * INVPI;\n\treturn o / (3 + sqrt(25 + (q * q)));\n}\r\n\r\n// wrap atanA with boost/cut & x div x\r\natanAdA(x, d)\t// d must be clipped maximum(d, 1)\r\n{\n\treturn atanA(x * d) * (maximum((1 / atanA(d)), 0.1)) / x;\n}\n\n// Pete: 'tanA2()' is much more accurate across full (Hz) 'range' than 'tanA()',\n// but very slightly less accurate in very bottom of range.\ntanA2(x)\n{   // approx tan(0..halfpi)\n    a\t= ((((x * -0.0896638) + 0.0388452) * x) + 1.00005) * x;\n    b\t= (((x * -0.430871) + 0.0404318) * x) + 1;\n    return\ta / b;\n}\n\r\ndenominator(f, t)\r\n{\r\n\treturn 1 / (1 + f*t);\r\n}\r\n\n// cutoff as frequency in Hz (0..nyquist)\n// resonance 0..1.., self-oscillates over 0.9 ('4')\ntransistorLadder(inX, cutoff, resonance)\n{\n\t// input delay and state\n\tHistory zi(0);\n\tHistory s0(0), s1(0), s2(0), s3(0);\r\n\n\t// tuning and feedback (this mess is by pete)\r\n\tfo = 0.977377;\r\n\tro = 0.063846;\r\n\trt = maximum(resonance, 1) - 1;\r\n\tr2 = rt*rt;\r\n\tt  = 1 + (sqrt(sqrt(r2)) * ro);\n\tfg = tanA2(PI * cutoff * fo / samplerate * t);\r\n\tf  = fg + fg*fg*ro * r2*ro;\r\n\tff = f+f;\n\tr  = 4.444444444444 * resonance;\t\t// mystran's overshoot, pete: i like it\r\n\tp  = 1.141;\r\n\tsk = 0.906329;\r\n\n\t// input with half delay for nonlinearities <<-- this is mystran's clever idea\n\tih = 0.5 * (inX + zi);\n\tzi = inX;\n\n\t// evaluate the nonlinear gains\r\n\tir = ih - r*s3;\n//\tt0 = atanAdA(ir, p);\n\tt0 = atanA(ir*sk) / ir;\t\t\t\t\t// pete: atan\n\tt1 = tanhXdX(s0);\n\tt2 = tanhXdX(s1);\n\tt3 = tanhXdX(s2);\n\tt4 = tanhL(s3) / tanhL(s3) * p;\t\t\t// pete: this is emulation-wrong, but i like it\r\n\n\t// g# the denominators for solutions of individual stages\n\tg0 = denominator(f, t1);\n\tg1 = denominator(f, t2);\n\tg2 = denominator(f, t3);\n\tg3 = denominator(f, t4);\r\n\n\t// f# are factored out of the feedback solution below\n\tf3 = f*t3*g3;\n\tf2 = f*t2*g2*f3;\n\tf1 = f*t1*g1*f2;\n\tf0 = f*t0*g0*f1;\n\n\t// feedback solver\n\ty3 = (g3*s3 + f3*g2*s2 + f2*g1*s1 + f1*g0*s0 + f0*inX) / (1 + r*f0);\n\n\t// solve the remaining g & s here (with the nonlinear gains)\n\txx = t0*(inX - r*p*y3);\n\ty0 = t1*g0*(s0 + f*xx);\n\ty1 = t2*g1*(s1 + f*y0);\n\ty2 = t3*g2*(s2 + f*y1);\n\n\t// update state\n\ts0 += ff * (sk*xx - y0);\n\ts1 += ff * (y0 - y1);\n\ts2 += ff * (y1 - y2);\n\ts3 += ff * (p*y2 - t4*y3);\n\n\treturn dcblock(y3*p);\n}\r\n\r\n// fixed 3x (not really) quasi oversampling\ntransistorLadder3x(XIN, freq, res)\n{\t// up 3\n\tHistory\tumTm1_0(0), umT0_0(0), umT1_0(0);\n\t// down 3\n\tHistory\tdmT2_1(0), dmT1_1(0), dmT0_1(0);\n\tHistory\tdmT2_2(0), dmT1_2(0), dmT0_2(0);\n\t// align\n\tHistory\tdoX0(0);\n\n\tODT\t\t= 0.3333333333333333;\n\tTDT\t\t= 0.6666666666666667;\n\n\t// up 3x\n\tx0_0_a\t= XIN + 0;\n\tx1_0\t= umT0_0 + 0;\n\tx2_0\t= interp(ODT, umTm1_0, umT0_0, umT1_0, x0_0_a, mode=\"spline\");\n\tx3_0\t= interp(TDT, umTm1_0, umT0_0, umT1_0, x0_0_a, mode=\"spline\");\n\n\t// process 3x\n\ty1_0\t= transistorLadder(x1_0, freq, res);\n\ty2_0\t= transistorLadder(x2_0, freq, res);\n\ty3_0\t= transistorLadder(x3_0, freq, res);\n\n\t// down 3x\n\ty2_0_a\t= y2_0 + 0;\n\ty2_1\t= interp(TDT,\ty2_0_a,\tdmT0_1, dmT1_1, dmT2_1, mode=\"spline\");\n\ty3_0_a\t= y3_0 + 0;\n\ty3_1\t= interp(ODT,\ty3_0_a,\tdmT0_2, dmT1_2, dmT2_2, mode=\"spline\");\n\n\ty0_0\t= (doX0 + y2_1 + y3_1) * ODT;\n\n\t// update\n\tumTm1_0\t= umT0_0;\n\tumT0_0\t= umT1_0;\n\tumT1_0\t= x0_0_a;\n\n\tdoX0\t= y1_0;\n\n\tdmT2_1\t= dmT1_1;\n\tdmT1_1\t= dmT0_1;\n\tdmT0_1\t= y2_0;\n\n\tdmT2_2\t= dmT1_2;\n\tdmT1_2\t= dmT0_2;\n\tdmT0_2\t= y3_0;\n\n\treturn dcblock(y0_0);\n}\r\n\r\nParam\tcfmode(1, min=0, max=1);\t\t\t// in2 cutoff in: 1 = pitch, 0 = Hz\r\nParam\tcfsmooth(10, min=0, max=666);\t\t// smooth in2 in ms, 0 == off (turn off for FM etc)\r\nParam\tressmooth(20, min=0, max=333);\t\t// smooth in5 in ms, 0 == off\r\nParam\toversampling(0, min=0, max=1);\t\t// quasi oversample whole filter\r\nos\t\t= int(oversampling);\r\nboost\t= 1.995262;\t\t\t\t\t\t\t// +6dB\r\n\r\nfreq, limit\t= evi_hzpitchmods(in2, in3, in4, mode=cfmode, smooth=cfsmooth, high=0.41);\r\n\t\t\t\t// + oops\r\nres\t\t= clip(in5 + 0.02, 0, 2);\t\t\t// 0..1 is as expected, ..2 still works but...\r\nif (ressmooth > 0) {\t\t\t\t\t\t// ...lose a little tuning accuracy above 2kHz\r\n\tres\t= expsmooth(res, ressmooth*0.001);\r\n}\r\n\r\nif (os) {\r\n\tout1 = transistorLadder3x(in1, freq, res) * boost;\r\n} else {\r\n\tout1 = transistorLadder(in1, freq, res) * boost;\n}\r\n\r\n",
+					"fontface" : 0,
+					"fontname" : "<Monospaced>",
+					"fontsize" : 12.0,
+					"id" : "obj-3",
+					"maxclass" : "codebox",
+					"numinlets" : 5,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 49.0, 58.0, 795.0, 796.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-4",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 49.0, 871.0, 134.0, 22.0 ],
+					"text" : "out 1 (signal) Transistor"
+				}
+
+			}
+ ],
+		"lines" : [ 			{
+				"patchline" : 				{
+					"destination" : [ "obj-3", 0 ],
+					"source" : [ "obj-1", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-3", 1 ],
+					"midpoints" : [ 200.5, 49.0, 252.5, 49.0 ],
+					"source" : [ "obj-2", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-4", 0 ],
+					"source" : [ "obj-3", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-3", 4 ],
+					"midpoints" : [ 774.5, 49.0, 834.5, 49.0 ],
+					"source" : [ "obj-5", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-3", 2 ],
+					"midpoints" : [ 394.5, 49.0, 446.5, 49.0 ],
+					"source" : [ "obj-7", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-3", 3 ],
+					"midpoints" : [ 588.5, 49.0, 640.5, 49.0 ],
+					"source" : [ "obj-8", 0 ]
+				}
+
+			}
+ ],
+		"originid" : "pat-211",
+		"toolbaradditions" : [ "transport", "audiosolo", "audiomute" ],
+		"toolbarexclusions" : [ "audiopowerctrl", "browsebeap", "browsevizzie", "lessonbrowser" ]
+	}
+
+}

@@ -1,0 +1,116 @@
+{
+	"patcher" : 	{
+		"fileversion" : 1,
+		"appversion" : 		{
+			"major" : 9,
+			"minor" : 1,
+			"revision" : 0,
+			"architecture" : "x64",
+			"modernui" : 1
+		}
+,
+		"classnamespace" : "dsp.gen",
+		"rect" : [ 489.0, 100.0, 989.0, 848.0 ],
+		"gridonopen" : 2,
+		"gridsize" : [ 15.0, 15.0 ],
+		"subpatcher_template" : "sub",
+		"assistshowspatchername" : 0,
+		"commentary" : "",
+		"showcommentary" : 0,
+		"integercoordinates" : 1,
+		"boxes" : [ 			{
+				"box" : 				{
+					"id" : "obj-7",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 756.0, 807.0, 189.0, 22.0 ],
+					"text" : "out 2 Reset (Param has changed)"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-5",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 539.0, 19.0, 406.0, 22.0 ],
+					"text" : "in 2 (signal/float) Shape (linear gain 1..100) @default 1 @min 1 @max 100"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-1",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 49.0, 19.0, 137.0, 22.0 ],
+					"text" : "in 1 (signal) Input Signal"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"code" : "\r\n// this is an anti-aliased atan(x) (with gain compensation wrapper)\r\n// for saturating your audio, not for Maths.\r\n\r\natanApprox(x)\n{\r\n\tINVPI = 0.3183098861837907;\n\to = 8 * x;\n\tq = (o + o) * INVPI;\n\ts = 25 + (q * q);\n\tu = 3 + sqrt(s);\n\treturn o / u;\n}\r\n\r\neviLog1p(value)   // :-(\n{\n\tif (value > -1.0e-8 && value < 1.0e-8)\n\t\treturn value - (value * value) * 0.5;\n\n\treturn log(1 + value);\n}\r\n\r\nlog2Approx(x) // sorry\n{\n  return (-0.2119568027628040757e-1 + (-0.38815224340108325886 + (-0.8900051141728954376 + (0.4001641794691007527\n      + (0.79615191430677253059 + 0.10303694407435362078*x)*x)*x)*x)*x) /\n        (0.298115002929551095e-2 + (0.1066700361116609290 + (0.6070463053447878628 + (0.8584931203106122717\n          + (0.30170842595823793523 + 0.16863931436090069014e-1*x)*x)*x)*x)*x);\n}\n\nlogApprox(x)\n{\n  return LN2 * log2Approx(x);\n}\r\n\nlog1pApprox(x)\n{\n  if (x > -1.0e-8 && x < 1.0e-8)\n    return x - (x * x) * 0.5;\n\n  return logApprox(1 + x);\n}\r\n\r\nhermite_sixpoint_interp(f0, ym2, ym1, y0, y1, y2, y3)\n{\n\tf1    =  f0 - 0.5;\n\teven1 = ym2 + y3;\n\todd1  = ym2 - y3;\n\teven2 = ym1 + y2;\n\todd2  = ym1 - y2;\n\teven3 =  y0 + y1;\n\todd3  =  y0 - y1;\n\n\tc0  = 0.01171875*even1\t\t- 0.09765625*even2\t\t+ 0.5859375*even3;\n\tc1  = 0.2109375*odd2\t\t- 1.463541666667*odd3\t- 0.033854166667*odd1;\n\tc2  = 0.40625*even2\t\t\t- 0.354166666667*even3\t- 0.052083333333*even1;\n\tc3  = 0.1875*odd1\t\t\t- 1.104166666667*odd2\t+ 2.375*odd3;\n\tc4  = 0.020833333333*even1\t- 0.0625*even2\t\t\t+ 0.041666666667*even3;\n\tc5  = 1.041666666667*odd2\t- 2.083333333333*odd3\t- 0.208333333333*odd1;\n\n\treturn ((((c5*f1 + c4)*f1 + c3)*f1 + c2)*f1 + c1)*f1 + c0;\n}\r\n\r\n//\r\n\r\natanF00(x)\n{\t\t// 2/PI\n\treturn 0.636619772367581 * atanApprox(x);\n}\n\r\natanF0(x)\n{\n\treturn 0.636619772367581 * atan(x);\n}\n\r\natanF10(x)\n{\r\n\treturn 0.636619772367581 * (x * atanApprox(x) - log1pApprox(x * x) * 0.5);\n}\n\natanF1(x)\n{\r\n\treturn 0.636619772367581 * (x * atan(x) - eviLog1p(x * x) * 0.5);\n}\n\natanF2(x)\n{\n//\tx2 = x * x; <<-- NO !!\t\t\t\t\t\t\t  // /PI\n\treturn (x - x * eviLog1p(x*x) + (x*x - 1) * atan(x)) * 0.3183098861837907;\n}\n\r\natanAdaa1(x0, reset)\n{\n\tHistory x1(0), s1(0);\r\n\teps = 0.00000001;\t// TODO, precision\n\tif (reset) {\r\n\t\tx1 = 0; s1 = 0;\r\n\t}\n\n\ty1 = x0;\n\td0 = x0 - x1;\n\ts0 = atanF10(x0);\t// func1, !! might need to revert to \"...F1\" here !!\n\tif ((x1 == 0 && s1 == 0) || (abs(d0) < eps)) {\t// ill condition\n\t\ty1 = atanF00(0.5 * (x0 + x1));\t// func0\n\t} else {\n\t\ty1 = (s0 - s1) / d0;\n\t}\n\n\ts1 = s0;\n\tx1 = x0;\n\treturn y1;\n}\n\natanAdaa2(x0, reset)\n{\n\tHistory x1(0), x2(0), s1(0);\n\teps = 0.000000001;\t// TODO, this precision is exactly correct ?\n\tif (reset) {\r\n\t\tx1 = 0; x2 = 0; s1 = 0;\r\n\t}\n\n\ts0 = x0;\n\td0 = x0 - x1;\n\tf2_x1 = atanF2(x1);\t// func2\n\tif (abs(d0) < eps) {\t// ill condition\n\t\ts0 = atanF1(0.5 * (x0 + x1));\t// func1\n\t} else {\n\t\ts0 = (atanF2(x0) - f2_x1) / d0;\t// func2\n\t}\n\n\ty1 = x0;\n\td1 = x0 - x2;\n\tif (x1 == 0 && x2 == 0) {\t// ill condition\n\t\ty1 = atanF0(x0 + (x1 + x1) + x2) * 0.25; // func0\n\t} else if (abs(d1) < eps) {\t// ill condition\n\t\tx_bar = 0.5 * (x0 + x2);\n\t\tx_delta = x_bar - x1;\n\t\tif (x_delta < eps) {\t// ill condition\n\t\t\ty1 = atanF0((x_bar + x1) * 0.5);  // func0\n\t\t} else {\n\t\t\ty1 = (2 / x_delta) * (atanF1(x_bar) + (f2_x1 - atanF2(x_bar)) / x_delta);\t// func1, func2\n\t\t}\n\t} else {\n\t\ts0s1 = s0 - s1;\n\t\ty1 = (s0s1 + s0s1) / d1;\n\t}\n\n\ts1 = s0;\n\tx2 = x1;\n\tx1 = x0;\n\treturn y1;\n}\n\n// altTanhAdaa1 oversampling...\n\n// fixed 2x quasi oversampling (hermite6)\natanAdaa1_2x_6POINT(XIN, reset)\n{\t// up 2\n\tHistory umTm2_0(0), umTm1_0(0), umT0_0(0), umT1_0(0), umT2_0(0);\n\t// down 2\n\tHistory dmT3_1(0), dmT2_1(0), dmT1_1(0), dmT0_1(0), dmTm1_1(0);\n\t// align\n\tHistory doX0(0);\n\n\t// up 2x\n\tx0_0_a  = XIN + 0;\n\tx1_0  = hermite_sixpoint_interp(0.5,  umTm2_0, umTm1_0, umT0_0, umT1_0, umT2_0, x0_0_a);\n\tx2_0  = umT2_0 + 0;\n\n\t// process 2x\n\ty1_0  = atanAdaa1(x1_0, reset);\n\ty2_0  = atanAdaa1(x2_0, reset);\n\n\t// down 2x\n\ty2_0_a  = y2_0 + 0;\n\ty2_1  = hermite_sixpoint_interp(0.5,  y2_0_a, dmTm1_1, dmT0_1, dmT1_1, dmT2_1, dmT3_1);\n\n\ty0_0  = (doX0 + y2_1) * 0.5;\n\n\t// update\n\tumTm2_0 = umTm1_0;\n\tumTm1_0 = umT0_0;\n\tumT0_0  = umT1_0;\n\tumT1_0  = umT2_0;\n\tumT2_0  = x0_0_a;\r\n\r\n\tdoX0  = y1_0;\n\n\tdmT3_1  = dmT2_1;\n\tdmT2_1  = dmT1_1;\n\tdmT1_1  = dmT0_1;\n\tdmT0_1  = dmTm1_1;\n\tdmTm1_1 = y2_0;\n\n\treturn dcblock(y0_0);\n}\n\n// fixed 4x quasi oversampling (hermite6)\natanAdaa1_4x_6POINT(XIN, reset)\n{\t// up 2\n\tHistory umTm2_0(0), umTm1_0(0), umT0_0(0), umT1_0(0), umT2_0(0);\n\t// down 2\n\tHistory dmT3_1(0), dmT2_1(0), dmT1_1(0), dmT0_1(0), dmTm1_1(0);\n\t// align\n\tHistory doX0(0);\n\n\t// up 2x\n\tx0_0_a  = XIN + 0;\n\tx1_0  = hermite_sixpoint_interp(0.5,  umTm2_0, umTm1_0, umT0_0, umT1_0, umT2_0, x0_0_a);\n\tx2_0  = umT2_0 + 0;\n\n\t// process 2x\n\ty1_0  = atanAdaa1_2x_6POINT(x1_0, reset);\n\ty2_0  = atanAdaa1_2x_6POINT(x2_0, reset);\n\n\t// down 2x\n\ty2_0_a  = y2_0 + 0;\n\ty2_1  = hermite_sixpoint_interp(0.5,  y2_0_a, dmTm1_1, dmT0_1, dmT1_1, dmT2_1, dmT3_1);\n\n\ty0_0  = (doX0 + y2_1) * 0.5;\n\n\t// update\n\tumTm2_0 = umTm1_0;\n\tumTm1_0 = umT0_0;\n\tumT0_0  = umT1_0;\n\tumT1_0  = umT2_0;\n\tumT2_0  = x0_0_a;\r\n\r\n\tdoX0  = y1_0;\n\n\tdmT3_1  = dmT2_1;\n\tdmT2_1  = dmT1_1;\n\tdmT1_1  = dmT0_1;\n\tdmT0_1  = dmTm1_1;\n\tdmTm1_1 = y2_0;\n\n\treturn dcblock(y0_0);\n}\n\n// altTanhAdaa2 oversampling...\n\n// fixed 2x quasi oversampling (hermite6)\natanAdaa2_2x_6POINT(XIN, reset)\n{\t// up 2\n\tHistory umTm2_0(0), umTm1_0(0), umT0_0(0), umT1_0(0), umT2_0(0);\n\t// down 2\n\tHistory dmT3_1(0), dmT2_1(0), dmT1_1(0), dmT0_1(0), dmTm1_1(0);\n\t// align\n\tHistory doX0(0);\n\n\t// up 2x\n\tx0_0_a  = XIN + 0;\n\tx1_0  = hermite_sixpoint_interp(0.5,  umTm2_0, umTm1_0, umT0_0, umT1_0, umT2_0, x0_0_a);\n\tx2_0  = umT2_0 + 0;\n\n\t// process 2x\n\ty1_0  = atanAdaa2(x1_0, reset);\n\ty2_0  = atanAdaa2(x2_0, reset);\n\n\t// down 2x\n\ty2_0_a  = y2_0 + 0;\n\ty2_1  = hermite_sixpoint_interp(0.5,  y2_0_a, dmTm1_1, dmT0_1, dmT1_1, dmT2_1, dmT3_1);\n\n\ty0_0  = (doX0 + y2_1) * 0.5;\n\n\t// update\n\tumTm2_0 = umTm1_0;\n\tumTm1_0 = umT0_0;\n\tumT0_0  = umT1_0;\n\tumT1_0  = umT2_0;\n\tumT2_0  = x0_0_a;\r\n\r\n\tdoX0  = y1_0;\n\n\tdmT3_1  = dmT2_1;\n\tdmT2_1  = dmT1_1;\n\tdmT1_1  = dmT0_1;\n\tdmT0_1  = dmTm1_1;\n\tdmTm1_1 = y2_0;\n\n\treturn dcblock(y0_0);\n}\n\n// fixed 4x quasi oversampling (hermite6)\natanAdaa2_4x_6POINT(XIN, reset)\n{\t// up 2\n\tHistory umTm2_0(0), umTm1_0(0), umT0_0(0), umT1_0(0), umT2_0(0);\n\t// down 2\n\tHistory dmT3_1(0), dmT2_1(0), dmT1_1(0), dmT0_1(0), dmTm1_1(0);\n\t// align\n\tHistory doX0(0);\n\n\t// up 2x\n\tx0_0_a  = XIN + 0;\n\tx1_0  = hermite_sixpoint_interp(0.5,  umTm2_0, umTm1_0, umT0_0, umT1_0, umT2_0, x0_0_a);\n\tx2_0  = umT2_0 + 0;\n\n\t// process 2x\n\ty1_0  = atanAdaa2_2x_6POINT(x1_0, reset);\n\ty2_0  = atanAdaa2_2x_6POINT(x2_0, reset);\n\n\t// down 2x\n\ty2_0_a  = y2_0 + 0;\n\ty2_1  = hermite_sixpoint_interp(0.5,  y2_0_a, dmTm1_1, dmT0_1, dmT1_1, dmT2_1, dmT3_1);\n\n\ty0_0  = (doX0 + y2_1) * 0.5;\n\n\t// update\n\tumTm2_0 = umTm1_0;\n\tumTm1_0 = umT0_0;\n\tumT0_0  = umT1_0;\n\tumT1_0  = umT2_0;\n\tumT2_0  = x0_0_a;\r\n\r\n\tdoX0  = y1_0;\n\n\tdmT3_1  = dmT2_1;\n\tdmT2_1  = dmT1_1;\n\tdmT1_1  = dmT0_1;\n\tdmT0_1  = dmTm1_1;\n\tdmTm1_1 = y2_0;\n\n\treturn dcblock(y0_0);\n}\n\r\n//\r\n\r\n// This gain compensation wrapper around the atan() function makes a great non-linear\r\n// shaper. Many thanks to Volker Böhm. With no anti-aliasing it sounds like crap, but here\r\n// the atan(x)s in the functions above are anti-aliased and much nicer.\r\natanDrive(drive)\r\n{\n\tpre = maximum(drive, 1);\n\tpost = maximum((1 / atanApprox(drive)), 0.1);\t// approx for control rate\n\treturn pre, post;\r\n}\n\r\n// works for waveshapers too :-)\ndecorelate(x)\n{\n\tHistory\tz1(0);\n\ty = 1.371308261611209 * x + z1;\n\tz1 = 0.08785458027104826 * x - 0.45916284188226 * y;\n\treturn y;\n}\r\n\r\n//\r\n\r\nHistory\treset(1);\r\n\r\n//Param\tshape(1, min=1, max=100);\t\t\t// linear gain, 0..40 dB\r\n//Param\tsmoothshape(22.666, min=0, max=333);// ms\r\nParam\thfcompensate(1, min=0, max=1);\t\t// default on\r\nParam\taa(3, min=0, max=5);\t\t\t\t// default Adaa2\r\nadaaxx\t= int(aa);\r\nhfcomp\t= int(hfcompensate);\r\n//smooth\t= smoothshape * 0.001;\t\t\t// secs\r\n\r\nresetaa\t= delta(change(adaaxx)) < 0;\r\nresethf\t= delta(change(hfcomp)) < 0;\r\nreset\t= resetaa + resethf;\r\n\r\ningain, outgain = atanDrive(in2);\r\nataninput = in1 * ingain;\r\natanoutput\t= 0;\r\nif (adaaxx == 1) {\r\n\tatanoutput = atanAdaa1_2x_6POINT(ataninput, reset);\r\n} else if (adaaxx == 2) {\r\n\tatanoutput = atanAdaa1_4x_6POINT(ataninput, reset);\r\n} else if (adaaxx == 3) {\t// default\r\n\tatanoutput = atanAdaa2(ataninput, reset);\r\n} else if (adaaxx == 4) {\r\n\tatanoutput = atanAdaa2_2x_6POINT(ataninput, reset);\r\n} else if (adaaxx == 5) {\r\n\tatanoutput = atanAdaa2_4x_6POINT(ataninput, reset);\r\n} else {\t\t\t\t\t// (adaaxx == 0)\r\n\tatanoutput = atanAdaa1(ataninput, reset);\r\n}\r\n\r\nif (hfcomp) {\r\n\tatanoutput = decorelate(atanoutput);\r\n}\r\n\r\nout1\t= atanoutput * outgain * HALFPI;\r\nout2\t= reset;\r\n\r\n",
+					"fontface" : 0,
+					"fontname" : "<Monospaced>",
+					"fontsize" : 12.0,
+					"id" : "obj-3",
+					"maxclass" : "codebox",
+					"numinlets" : 2,
+					"numoutlets" : 2,
+					"outlettype" : [ "", "" ],
+					"patching_rect" : [ 49.0, 58.0, 896.0, 732.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-4",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 49.0, 807.0, 381.0, 22.0 ],
+					"text" : "out 1 (signal) Atan(x) Output - anti-aliased for your audio not for Maths"
+				}
+
+			}
+ ],
+		"lines" : [ 			{
+				"patchline" : 				{
+					"destination" : [ "obj-3", 0 ],
+					"source" : [ "obj-1", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-4", 0 ],
+					"source" : [ "obj-3", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-7", 0 ],
+					"midpoints" : [ 935.5, 798.5, 765.5, 798.5 ],
+					"source" : [ "obj-3", 1 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-3", 1 ],
+					"midpoints" : [ 548.5, 49.5, 935.5, 49.5 ],
+					"source" : [ "obj-5", 0 ]
+				}
+
+			}
+ ]
+	}
+
+}

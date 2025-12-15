@@ -1,0 +1,117 @@
+{
+	"patcher" : 	{
+		"fileversion" : 1,
+		"appversion" : 		{
+			"major" : 9,
+			"minor" : 0,
+			"revision" : 0,
+			"architecture" : "x64",
+			"modernui" : 1
+		}
+,
+		"classnamespace" : "dsp.gen",
+		"rect" : [ 59.0, 100.0, 780.0, 848.0 ],
+		"bglocked" : 0,
+		"openinpresentation" : 0,
+		"default_fontsize" : 12.0,
+		"default_fontface" : 0,
+		"default_fontname" : "Arial",
+		"gridonopen" : 2,
+		"gridsize" : [ 15.0, 15.0 ],
+		"gridsnaponopen" : 1,
+		"objectsnaponopen" : 1,
+		"statusbarvisible" : 2,
+		"toolbarvisible" : 1,
+		"lefttoolbarpinned" : 0,
+		"toptoolbarpinned" : 0,
+		"righttoolbarpinned" : 0,
+		"bottomtoolbarpinned" : 0,
+		"toolbars_unpinned_last_save" : 0,
+		"tallnewobj" : 0,
+		"boxanimatetime" : 200,
+		"enablehscroll" : 1,
+		"enablevscroll" : 1,
+		"devicewidth" : 0.0,
+		"description" : "",
+		"digest" : "",
+		"tags" : "",
+		"style" : "",
+		"subpatcher_template" : "",
+		"assistshowspatchername" : 0,
+		"boxes" : [ 			{
+				"box" : 				{
+					"id" : "obj-1",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 49.0, 19.0, 91.0, 22.0 ],
+					"text" : "in 1 Audio Input"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-2",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 499.0, 19.0, 229.0, 22.0 ],
+					"text" : "in 2 Cutoff @default samplerate*0.5-1800"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"code" : "\r\ntnA2(x)\t\t\t\t\t\t\t\t// approx tan(0..halfpi)\n{\n\ta\t= ((((x * -0.0896638) + 0.0388452) * x) + 1.00005) * x;\r\n\tb\t= (((x * -0.430871) + 0.0404318) * x) + 1;\r\n\treturn\ta / b;\r\n}\r\n\nfWarp(cf)\r\n{\n\tf = (cf * (pi / samplerate)) * (1 / twopi);\n\tw = (f - trunc(f)) * twopi;\n\treturn tnA2(w);\t\t\t\t\t// tan approximation (G for butterworth)\n}\n\nlogsmooth(x, s)\t\t\t\t\t\t// s = time to drop 6dB (in seconds)\n{\n\tHistory z(0);\n//\tad = LN2 / maximum((s * samplerate), 1);\n\tad = LN2 / (s * samplerate);\n\ty  = ((x - z) * ad) + z;\n\tz  = y;\n\treturn y;\n}\n\r\nlp1p(x, g)\t\t\t\t\t\t\t// 1-pole 'zdf' section\r\n{\r\n\tHistory p(0);\r\n\tc = (x - p) * (g / (g + 1));\r\n\ty = c + p;\r\n\tp = c + y;\r\n\treturn y;\r\n}\r\n\r\nlp2p(x, g, r)\t\t\t\t\t\t// 2-pole zdf section\r\n{\r\n\tHistory p0(0), p1(0);\r\n\tc0 = r + g;\r\n\tc1 = (g / ((c0 * g) + 1)) * (x - (p1 + (p0 * c0)));\r\n\tc2 = c1 + p0;\r\n\tc3 = c2 * g;\r\n\ty  = c3 + p1;\r\n\tp0 = c1 + c2;\r\n\tp1 = c3 + y;\r\n\treturn y;\r\n}\r\n\r\n// @see: 'evi_butterworth8_coeffs.js' for stupid calculation\r\nParam\tbutt_coeff_1(1.4142135623730951, min=-16, max=16);\nParam\tbutt_coeff_2(1.0000000000000002, min=-16, max=16);\nParam\tbutt_coeff_3(0.7653668647301797, min=-16, max=16);\nParam\tbutt_coeff_4(1.8477590650225735, min=-16, max=16);\nParam\tbutt_coeff_5(0.6180339887498949, min=-16, max=16);\nParam\tbutt_coeff_6(1.618033988749895, min=-16, max=16);\nParam\tbutt_coeff_7(0.5176380902050419, min=-16, max=16);\nParam\tbutt_coeff_8(1.4142135623730951, min=-16, max=16);\nParam\tbutt_coeff_9(1.9318516525781366, min=-16, max=16);\nParam\tbutt_coeff_10(0.4450418679126289, min=-16, max=16);\nParam\tbutt_coeff_11(1.2469796037174672, min=-16, max=16);\nParam\tbutt_coeff_12(1.8019377358048383, min=-16, max=16);\nParam\tbutt_coeff_13(0.39018064403225666, min=-16, max=16);\nParam\tbutt_coeff_14(1.1111404660392046, min=-16, max=16);\nParam\tbutt_coeff_15(1.6629392246050905, min=-16, max=16);\nParam\tbutt_coeff_16(1.9615705608064609, min=-16, max=16);\n\r\nParam\tsmooth(0.030111, min=0, max=0.30111);\t// in seconds\r\nParam\torder(3, min=0, max=8);\r\nord\t\t= int(order);\r\n\r\n//X  = dcblock(in1);\r\nX  = in1;\r\nCF = clip(in2, samplerate*0.00125, samplerate*0.5);\nif (smooth > 0) {\r\n\tCF\t= logsmooth(CF, smooth);\r\n}\r\n\r\nG = 0;\r\nY = 0;\r\n// linear Butterworth\r\nif (ord > 0) {\r\n\tG\t= fWarp(CF);\t\t\t\t\t\t\t// get G if not bypassed\r\n\tif\t\t\t(ord == 1) {\r\n\t\tY\t= lp1p(X,\tG);\r\n\t} else if\t(ord == 2) {\r\n\t\tY\t= lp2p(X,\tG, butt_coeff_1);\r\n\t} else if\t(ord == 4) {\r\n\t\ty0\t= lp2p(X,\tG, butt_coeff_3);\r\n\t\tY\t= lp2p(y0,\tG, butt_coeff_4);\r\n\t} else if\t(ord == 5) {\r\n\t\ty0\t= lp2p(X,\tG, butt_coeff_5);\r\n\t\ty1\t= lp2p(y0,\tG, butt_coeff_6);\r\n\t\tY\t= lp1p(y1,\tG);\r\n\t} else if\t(ord == 6) {\r\n\t\ty0\t= lp2p(X,\tG, butt_coeff_7);\r\n\t\ty1\t= lp2p(y0,\tG, butt_coeff_8);\r\n\t\tY\t= lp2p(y1,\tG, butt_coeff_9);\r\n\t} else if\t(ord == 7) {\r\n\t\ty0\t= lp2p(X,\tG, butt_coeff_10);\r\n\t\ty1\t= lp2p(y0,\tG, butt_coeff_11);\r\n\t\ty2\t= lp2p(y1,\tG, butt_coeff_12);\r\n\t\tY\t= lp1p(y2,\tG);\r\n\t} else if\t(ord == 8) {\r\n\t\ty0\t= lp2p(X,\tG, butt_coeff_13);\r\n\t\ty1\t= lp2p(y0,\tG, butt_coeff_14);\r\n\t\ty2\t= lp2p(y1,\tG, butt_coeff_15);\r\n\t\tY\t= lp2p(y2,\tG, butt_coeff_16);\r\n\t} else {//\t(ord == 3)\t\t\t\t\t\t// default\r\n\t\ty0\t= lp2p(X,\tG, butt_coeff_2);\r\n\t\tY\t= lp1p(y0,\tG);\r\n\t}\r\n\r\n} else {\t//\t(ord == 0)\t\t\t\t\t\t// bypassed\r\n\tG\t= 0.414226;\r\n\tY\t= X;\r\n}\r\n\r\nout1 = Y;\n\r\n",
+					"fontface" : 0,
+					"fontname" : "<Monospaced>",
+					"fontsize" : 12.0,
+					"id" : "obj-3",
+					"maxclass" : "codebox",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 49.0, 56.0, 679.0, 734.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-4",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 49.0, 807.0, 151.0, 22.0 ],
+					"text" : "out 1 Butterworth Lowpass"
+				}
+
+			}
+ ],
+		"lines" : [ 			{
+				"patchline" : 				{
+					"destination" : [ "obj-3", 0 ],
+					"source" : [ "obj-1", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-3", 1 ],
+					"midpoints" : [ 508.5, 48.0, 718.5, 48.0 ],
+					"source" : [ "obj-2", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-4", 0 ],
+					"source" : [ "obj-3", 0 ]
+				}
+
+			}
+ ]
+	}
+
+}

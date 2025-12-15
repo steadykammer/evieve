@@ -1,0 +1,213 @@
+{
+    "patcher": {
+        "fileversion": 1,
+        "appversion": {
+            "major": 9,
+            "minor": 1,
+            "revision": 1,
+            "architecture": "x64",
+            "modernui": 1
+        },
+        "classnamespace": "dsp.gen",
+        "rect": [ 134.0, 100.0, 824.0, 848.0 ],
+        "gridonopen": 2,
+        "subpatcher_template": "<none>",
+        "integercoordinates": 1,
+        "boxes": [
+            {
+                "box": {
+                    "id": "obj-12",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 599.0, 807.0, 73.0, 22.0 ],
+                    "text": "out 6 Reson"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-9",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 485.0, 807.0, 70.0, 22.0 ],
+                    "text": "out 5 Notch"
+                }
+            },
+            {
+                "box": {
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 12.0,
+                    "id": "obj-11",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 372.0, 807.0, 66.0, 22.0 ],
+                    "text": "out 4 Peak"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-8",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 583.0, 17.0, 207.0, 22.0 ],
+                    "text": "in 3 Q @min 0.05 @default 0.707107"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-7",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 144.0, 807.0, 67.0, 22.0 ],
+                    "text": "out 2 Band"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-6",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 258.0, 807.0, 61.0, 22.0 ],
+                    "text": "out 3 Low"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-5",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 713.0, 807.0, 77.0, 22.0 ],
+                    "text": "out 7 Allpass"
+                }
+            },
+            {
+                "box": {
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 12.0,
+                    "id": "obj-1",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 30.0, 17.0, 58.0, 22.0 ],
+                    "text": "in 1 Input"
+                }
+            },
+            {
+                "box": {
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 12.0,
+                    "id": "obj-2",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 230.0, 17.0, 336.0, 22.0 ],
+                    "text": "in 2 Cutoff in Hz @min 1 @max samplerate*0.5 @default 500"
+                }
+            },
+            {
+                "box": {
+                    "code": "\r\n// simultaneous outputs for all filters available from a linear TPT SVF Topology\r\n// that use just Cutoff & Q, with optional cutoff & resonance smoothing baked in\r\n// by pete for evieve\r\n// this is probably useless in practice, but maybe someone will find it useful\r\n\r\n//require(\"evi_approx.genexpr\");\r\n//require(\"evi_utilities.genexpr\");\r\n//require(\"evi_smooth.genexpr\");\r\n\r\n// ^^ gen~ is broken, so...\r\n\r\ntanA(x)\n{\n\tx2 = (x * x);\n\tx3 = (x2 * x);\n\tx5 = (x2 * x3);\n\treturn ((x5 * 0.133333333333) + (x3 * 0.333333333333)) + x;\n}\r\n\r\ntanA2(x)\n{\n\ta\t= ((((x * -0.0896638) + 0.0388452) * x) + 1.00005) * x;\n\tb\t= (((x * -0.430871) + 0.0404318) * x) + 1;\n\treturn\ta / b;\n}\n\r\nexpA(x0)\n{\n\tx = 0.999996 + (0.031261316 + (0.00048274797 + 0.000006 * x0) * x0) * x0;\n\tx *= x; x *= x; x *= x; x *= x; x *= x;\n\treturn x;\n}\r\n\r\ntauA(t)\t\t\t\t\t\t\t\t\t\t// t = seconds\n{\n\ty = expA(-1 / (t * samplerate));\n\treturn y + 0.000128;\n}\t\r\n\r\nexpsmooth(x, t)                             // t is smooth time in seconds\n{\n\tHistory w(0);\n\tz = tauA(t);\n\ty = (z * w) + (x * (1 - z));\n\tw = y;\n\treturn y;\n}\r\n\r\ncfSmoothLinearCoeff(hz, ms)\t\t\t        // Hz, ms, defaults: 1, 5\n{\n\tw0\t\t= tanA(pi * (hz / samplerate));\n\tg0\t\t= (2 * w0) / (1 + w0);\n\ts0\t\t= (1 - tauA(ms * 0.001)) * 4;   // this is stupid\n\treturn\t  g0, s0;\n}\n\ncfSmoothLinearFilter(x0, g0, s0)\t\t\t        // g0 / s0\n{\n\tHistory\tlow1(0), low2(0);\n\n\tlow1z\t= low1;\n\tlow2z\t= low2;\n\n\tbandz\t= low1z - low2z;\n\tg\t\t= minimum(g0 + s0 * abs(bandz), 1);\n\n\tlow1\t= low1z + g * (x0 - low1z);\n\tlow2\t= low2z + g * (low1 - low2z);\n\n\treturn\t  low2;\n}\n\ncfSmoothLinear(x1, hz, ms)\n{\n\tHistory\t  cfsl1dummy(0);\n\tg0, s0\t= cfSmoothLinearCoeff(hz, ms);\n\ty1\t\t= cfSmoothLinearFilter(x1, g0, s0);\n\treturn\t  y1;\n}\r\n\r\nHistory\tstate1(0), state2(0);\r\n\r\nParam\tcutoffsmoothbase(2, min=0, max=10); // Hz\r\nParam\tcutoffsmooth(20, min=0, max=100);\t// ms\r\nParam\tresonancesmooth(10, min=0, max=100);// ms\r\n\r\nQ\t\t= in3;\t\t\t\t\t            // Q\r\nR\t\t= 1 / (Q + Q);                      // resonance\r\nif (resonancesmooth > 0)\r\n\tR\t= expsmooth(R, (resonancesmooth * 0.001));\r\nR2\t\t= R + R;\r\n\r\nC\t\t= in2;\t\t\t\t\t            // cutoff in Hz\r\ng       = tanA2( PI * C / SAMPLERATE );\r\nif (cutoffsmooth > 0)\r\n\tg\t= cfSmoothLinear(g, cutoffsmoothbase, cutoffsmooth);\r\n\r\nX\t\t= in1;\r\n\r\n// filter core\r\nHp\t\t= (X - ((R2 + g) * state1) - state2) / (1 + (R2 * g) + (g * g));    // highpass\r\ngHp\t\t=  g * Hp;\r\nBp\t\t=  gHp + state1;        // bandpass\r\ngBp\t\t=  g * Bp;\r\nLp\t\t=  gBp + state2;        // lowpass\r\n\r\n// update state\r\nstate1\t=  gHp + Bp;\r\nstate2\t=  gBp + Lp;\r\n\r\n// types\r\nUp\t\t= R2 * Bp;\t\t\t\t// reson (can take very high Q)\r\nPp\t\t= Lp - Hp;\t\t\t\t// peak\r\nNp\t\t= X -  Up;\t\t\t\t// notch\r\nAp\t\t= X - (Up + Up);\t\t// allpass\r\n\r\n// crazy simultaneous outputs\r\nout1\t= Hp;\r\nout2\t= Bp;\r\nout3\t= Lp;\r\nout4\t= Pp;\r\nout5\t= Np;\r\nout6\t= Up;\r\nout7\t= Ap;\r\n\r\n",
+                    "fontface": 0,
+                    "fontname": "<Monospaced>",
+                    "fontsize": 12.0,
+                    "id": "obj-3",
+                    "maxclass": "codebox",
+                    "numinlets": 3,
+                    "numoutlets": 7,
+                    "outlettype": [ "", "", "", "", "", "", "" ],
+                    "patching_rect": [ 30.0, 54.0, 702.0, 736.0 ]
+                }
+            },
+            {
+                "box": {
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 12.0,
+                    "id": "obj-4",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 30.0, 807.0, 63.0, 22.0 ],
+                    "text": "out 1 High"
+                }
+            }
+        ],
+        "lines": [
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 0 ],
+                    "source": [ "obj-1", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 1 ],
+                    "midpoints": [ 239.5, 46.5, 381.0, 46.5 ],
+                    "source": [ "obj-2", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-11", 0 ],
+                    "source": [ "obj-3", 3 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-12", 0 ],
+                    "source": [ "obj-3", 5 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-4", 0 ],
+                    "source": [ "obj-3", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-5", 0 ],
+                    "source": [ "obj-3", 6 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-6", 0 ],
+                    "source": [ "obj-3", 2 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-7", 0 ],
+                    "source": [ "obj-3", 1 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-9", 0 ],
+                    "source": [ "obj-3", 4 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 2 ],
+                    "midpoints": [ 592.5, 46.5, 722.5, 46.5 ],
+                    "source": [ "obj-8", 0 ]
+                }
+            }
+        ],
+        "toolbarexclusions": [ "lessonbrowser" ]
+    }
+}

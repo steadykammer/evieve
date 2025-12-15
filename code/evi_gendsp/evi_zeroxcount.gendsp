@@ -1,0 +1,125 @@
+{
+	"patcher" : 	{
+		"fileversion" : 1,
+		"appversion" : 		{
+			"major" : 9,
+			"minor" : 1,
+			"revision" : 0,
+			"architecture" : "x64",
+			"modernui" : 1
+		}
+,
+		"classnamespace" : "dsp.gen",
+		"rect" : [ 964.0, 87.0, 765.0, 735.0 ],
+		"gridonopen" : 2,
+		"gridsize" : [ 15.0, 15.0 ],
+		"subpatcher_template" : "sub",
+		"assistshowspatchername" : 0,
+		"commentary" : "",
+		"showcommentary" : 0,
+		"integercoordinates" : 1,
+		"boxes" : [ 			{
+				"box" : 				{
+					"id" : "obj-5",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 553.0, 691.0, 177.0, 22.0 ],
+					"text" : "out 3 (signal) the Zerocrossings"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-8",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 373.0, 691.0, 133.0, 22.0 ],
+					"text" : "out 2 (gate) > threshold"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-1",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 34.0, 20.0, 58.0, 22.0 ],
+					"text" : "in 1 Input"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"code" : "\r\n// basically from the RNBO operator, with additions\r\nlikeZerox(x, windowSize=0, threshold=0.1)\n{\r\n\tHistory\tcount(0), index(0);\n\tHistory\tlastSign(0), lastCount(0);\r\n\tHistory\tlastWindowSize(64);\r\n\n\tif ((windowSize > 1) && (windowSize != lastWindowSize)) {\n\t\tcount = 0;\n\t\tindex = 0;\n\t\tlastSign = 0;\n\t\tlastWindowSize = windowSize;\n\t\tlastCount = 0;\n\t}\n\r\n\tcurrentSign = x < 0;\r\n\tcrossing = change(currentSign);\n\tif (currentSign != lastSign) {\n\t\tcount += 1;\n\t}\n\tlastSign = currentSign;\n\tindex += 1;\n\n\tif (index >= lastWindowSize) {\n\t\tlastCount = count;\n\t\tcount = 0;\n\t\tindex = 0;\n\t}\n\tvoiced = (lastCount / lastWindowSize) > threshold;\r\n\r\n\treturn lastCount, voiced, crossing;\n}\n\r\nParam\tsize(vectorsize, min=1, max=4096);\t// window in samples (default vectorsize)\r\nParam\tthresh(0.1, min=0, max=1);\t\t\t// thresh in amplitude (default -20dB)\n\r\nout1, out2, out3\t= likeZerox(in1, windowSize=size, threshold=thresh);\r\n\r\n",
+					"fontface" : 0,
+					"fontname" : "<Monospaced>",
+					"fontsize" : 12.0,
+					"id" : "obj-3",
+					"maxclass" : "codebox",
+					"numinlets" : 1,
+					"numoutlets" : 3,
+					"outlettype" : [ "", "", "" ],
+					"patching_rect" : [ 34.0, 59.0, 696.0, 615.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-4",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 34.0, 691.0, 264.0, 22.0 ],
+					"text" : "out 1 (int) Number of Zerocrossings per Window"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-6",
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 109.0, 21.0, 362.0, 20.0 ],
+					"text" : "@see: \"evi_zerox.gendsp\" for less features (& less cpu)"
+				}
+
+			}
+ ],
+		"lines" : [ 			{
+				"patchline" : 				{
+					"destination" : [ "obj-3", 0 ],
+					"source" : [ "obj-1", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-4", 0 ],
+					"source" : [ "obj-3", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-5", 0 ],
+					"midpoints" : [ 720.5, 682.5, 562.5, 682.5 ],
+					"source" : [ "obj-3", 2 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-8", 0 ],
+					"source" : [ "obj-3", 1 ]
+				}
+
+			}
+ ]
+	}
+
+}

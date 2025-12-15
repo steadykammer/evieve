@@ -1,0 +1,123 @@
+
+// some well known Padé approximations, assembled by pete for evieve
+
+// for other approximations in evieve @see:
+// evi_approx.genexpr
+// evi_trig.genexpr
+// evi_cossin.genexpr
+// evi_tanh.genexpr
+// evi_fastskew.genexpr
+
+// fast cosh(x), x range -5..5
+pCosh(x)
+{
+    x2 = x * x;
+    numerator = -(39251520 + x2 * (18471600 + x2 * (1075032 + 14615 * x2)));
+    denominator = -39251520 + x2 * (1154160 + x2 * (-16632 + 127 * x2));
+    return numerator / denominator;
+}
+
+// fast sinh(x), x range -5..5
+pSinh(x)
+{
+    x2 = x * x;
+    numerator = -x * (11511339840 + x2 * (1640635920 + x2 * (52785432 + x2 * 479249)));
+    denominator = -11511339840 + x2 * (277920720 + x2 * (-3177720 + x2 * 18361));
+    return numerator / denominator;
+}
+
+// fast tanh(x), x range -5..5
+pTanh(x)
+{
+    x2 = x * x;
+    numerator = x * (135135 + x2 * (17325 + x2 * (378 + x2)));
+    denominator = 135135 + x2 * (62370 + x2 * (3150 + 28 * x2));
+    return numerator / denominator;
+}
+
+// fast cos(x), x range -PI..PI
+pCos(x)
+{
+    x2 = x * x;
+    numerator = -(-39251520 + x2 * (18471600 + x2 * (-1075032 + 14615 * x2)));
+    denominator = 39251520 + x2 * (1154160 + x2 * (16632 + x2 * 127));
+    return numerator / denominator;
+}
+
+// BROKEN
+// fast sin(x), x range -PI..PI
+pSin(x)
+{
+    x2 = x * x;
+    numerator = -x * (-11511339840 + x2 * (1640635920 + x2 * (-52785432 + x2 * 479249)));
+    denominator = 11511339840 + x2 * (277920720 + x2 * (3177720 + x2 * 18361));
+    return numerator / denominator;
+}
+
+// fast tan(x), x range -HALFPI..HALFPI
+pTan(x)
+{
+    x2 = x * x;
+    numerator = x * (-135135 + x2 * (17325 + x2 * (-378 + x2)));
+    denominator = -135135 + x2 * (62370 + x2 * (-3150 + 28 * x2));
+    return numerator / denominator;
+}
+
+// fast tan(x), quite accurate, positive output only, x range 0..1
+pTan2(x)
+{
+    x2  =  x  * x;
+    x3  =  x2 * x;
+    A   = -15 * x + x3;
+    B   =  3  * (-5 + 2 * x2);
+    return  A / B;
+}
+
+// fast tan(x), very accurate, produces negative output, x range 0..1
+pTan3(x)
+{
+    x2  = x   * x;
+    x3  = x2  * x;
+    x4  = x2  * x2;
+    A   = 5   * (-21 * x + (x3 + x3));
+    B   = 105 - 45 * x2 + x4;   
+    return  A / B;
+}
+
+// fast exp(x), x range -6..4
+pExp(x)
+{
+    numerator = 1680 + x * (840 + x * (180 + x * (20 + x)));
+    denominator = 1680 + x * (-840 + x * (180 + x * (-20 + x)));
+    return numerator / denominator;
+}
+
+// fast log(x+1) (often known as "log1p()"), x range -0.8..5
+pLog1p(x)
+{
+    numerator = x * (7560 + x * (15120 + x * (9870 + x * (2310 + x * 137))));
+    denominator = 7560 + x * (18900 + x * (16800 + x * (6300 + x * (900 + 30 * x))));
+    return numerator / denominator;
+}
+
+// fast atan(x), very accurate, x range ?..?
+pAtan(x)
+{
+    x2 = x * x;
+    x3 = x2 * x;
+    x4 = x2 * x2;
+    x5 = x3 * x2;
+    //             (7.0 / 9.0)                (64.0 / 945.0)
+    o  = (x + (0.777777777777778 * x3)) + (0.067724867724868 * x5);
+    //             (10.0 / 9.0)               (5.0 / 21.0)
+    u  = (1.0 + (1.111111111111111 * x2)) + (0.238095238095238 * x4);
+    return o / u;
+}
+
+// Padé approximation for tanh(sqrt(x))/sqrt(x)
+pTanhXdX(x)
+{
+    a = x * x;
+    return ((a + 105) * a + 945) / ((15 * a + 420) * a + 945);
+}
+

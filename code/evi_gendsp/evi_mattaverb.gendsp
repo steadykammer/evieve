@@ -1,0 +1,120 @@
+{
+	"patcher" : 	{
+		"fileversion" : 1,
+		"appversion" : 		{
+			"major" : 9,
+			"minor" : 0,
+			"revision" : 1,
+			"architecture" : "x64",
+			"modernui" : 1
+		}
+,
+		"classnamespace" : "dsp.gen",
+		"rect" : [ 0.0, 70.0, 1049.0, 912.0 ],
+		"gridonopen" : 2,
+		"gridsize" : [ 15.0, 15.0 ],
+		"toolbarvisible" : 0,
+		"lefttoolbarpinned" : 2,
+		"toptoolbarpinned" : 2,
+		"righttoolbarpinned" : 2,
+		"bottomtoolbarpinned" : 2,
+		"toolbars_unpinned_last_save" : 15,
+		"boxanimatetime" : 0,
+		"subpatcher_template" : "PeteSub12",
+		"boxes" : [ 			{
+				"box" : 				{
+					"id" : "obj-5",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 947.0, 874.0, 91.0, 22.0 ],
+					"text" : "out 2 rvrb Right"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-1",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 49.0, 19.0, 64.0, 22.0 ],
+					"text" : "in 1 in Left"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-2",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 947.0, 19.0, 72.0, 22.0 ],
+					"text" : "in 2 in Right"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"code" : "\r\n// evi_mattaverb.gendsp by Pete for evieve\r\n// a simple allpass diffusion reverb with minimal controls interaction\r\n// true stereo input/output, no early reflections, designed wet and spacey but very dampable\r\n// based on ancient macroisations by my friend Matt Jackson, has elements of our Diffuse.amxd\r\n\r\n\r\n// lib\r\n\r\nrequire(\"evi_mattaverb.genexpr\");\r\n\r\n\r\n// declare...\r\n\r\nHistory xL(0), xR(0);\t// align\r\n\r\nDelay fbStage(int(samplerate*0.082645042+1.5), 2, feedback=1);\r\n\r\nParam low(0.333333, min=0, max=1);\t// damp 0..1, none..100% damping ...\r\nParam high(0.666666, min=0, max=1);\t// ...\r\nParam damp(0, min=0, max=1);\t\t// 0/1 = one/two-pole damping filters (!! clicks)\r\nParam space(1, min=0, max=1);\t\t// 0/1 = yes/no to damping filters in feedback path (!! clicks)\r\nParam size(0.5, min=0, max=1);\t\t// % 0..1, small..large (does all reverby stuff in one knob)\r\nParam drywet(sqrt1_2, min=0, max=1);// % 0..1\r\n\r\n\r\n// param rate...\r\n\r\nd2 = int(damp);\r\ns1 = int(space);\r\ns0 = 1 - s1;\r\n\r\n// small amount of damping always present if space == 1\r\nmLow = s1 ? low : low * 0.803821;\r\nmHigh = ( s1 ? sqrt(high) : high ) * 0.803821 + (0.196179 * s1);\r\n\r\nhiPass, hiAtten, loPass, loAtten = filterParams(mLow, mHigh, 439);\r\ndampEqHighG, dampEqHighK = rcDampCoeffs0(loPass, loAtten);\r\ndampEqLowG, dampEqLowK = rcDampCoeffs0(hiPass, hiAtten);\r\n\r\nmSize = s1 ? size : sqrt(size);\r\nsizeL, sizeR, diff, rt60dB, modAmount, modSpread = sizeParams(mSize);\r\ntimeL = pitch2time(sizeL);\r\ntimeR = pitch2time(sizeR);\r\ndivRT60 = 1 / pitch2time(rt60dB);\r\n\r\nsmoothsamps = 0.03 * samplerate;\r\n\r\n\r\n// audio rate...\r\n\r\ndryWet = eviSline(drywet, (samplerate * 0.301));\r\n//iDryWet = 1 - dryWet;\r\n\r\nxL = in1 + 0;\r\nxR = in2 + 0;\r\nrvrbL = 0;//in1 * iDryWet;\r\nrvrbR = 0;//in2 * iDryWet;\r\n\r\nif (dryWet > 0)\t\t//\t//\t//\tSTART: cpu bypass if dryWet == 0 (stupid because cannot clear delay lines)\r\n{\r\n\r\nEqHighG, EqLowG = expsmoothBank2(dampEqHighG, dampEqLowG, 0.03);\r\nEqHighK = eviLine(dampEqHighK, smoothsamps);\r\nEqLowK = eviSline(dampEqLowK, (smoothsamps + smoothsamps));\r\nHighKatten =  EqHighK * 0.803821;\r\nLowKatten = EqLowK * 0.506392;\r\n\r\ndelayTimeL, delayTimeR = logsmoothBank2(timeL, timeR, 0.31);\r\ndiffusion, modA = logsmoothBank2(diff, modAmount, 0.601);\r\nsRT60, modS = expsmoothBank2(divRT60, modSpread, 0.29);\r\nmodF = ((1 - modS) * 0.111111) + 0.666666;\r\n\r\nmod1, mod2, mod3, mod4, mod5, mod6, mod7, mod8 = eightModMatt(modF, modA, modS);\r\n\r\nfbDelayL = (delayTimeL * 1.48934) + mod4;\r\nfbDelayR = (delayTimeR * 1.48934) + mod8;\r\n\r\nrt60L = dbtoaApprox(maximum(((fbDelayL * sRT60) * -60), -144));\r\nrt60R = dbtoaApprox(maximum(((fbDelayR * sRT60) * -60), -144));\r\n\r\nfbL = fbStage.read(fbDelayL, 0, interp=\"spline\") * rt60L;\r\nfbR = fbStage.read(fbDelayR, 1, interp=\"spline\") * rt60R;\r\n\r\npreFdnL = xL + fbR;\r\npreFdnR = xR + fbL;\r\n\r\n// highshelfs/passes\r\nif (EqHighK != 0) {\r\n\tdamp0L, preFdnL\t= rcFilterDamp(preFdnL, EqHighG, EqHighK);\r\n\tdamp0R, preFdnR\t= rcFilterDamp(preFdnR, EqHighG, EqHighK);\r\n\tif (d2) {\r\n\t\tdamp1L, preFdnL\t= rcFilterDamp(preFdnL, EqHighG, HighKatten);\r\n\t\tdamp1R, preFdnR\t= rcFilterDamp(preFdnR, EqHighG, HighKatten);\r\n\t}\r\n}\r\n\r\n// lowshelfs/passes\r\n//if (EqLowK != 0) {\t// cpu manage not click-free for low :-(\r\n\tpreFdnL, damp0L\t= rcFilterDamp(preFdnL, EqLowG, EqLowK);\r\n\tpreFdnR, damp0R\t= rcFilterDamp(preFdnR, EqLowG, EqLowK);\r\n\tif (d2) {\r\n\t\tpreFdnL, damp1L\t= rcFilterDamp(preFdnL, EqLowG, LowKatten);\r\n\t\tpreFdnR, damp1R\t= rcFilterDamp(preFdnR, EqLowG, LowKatten);\r\n\t}\r\n//}\r\n\r\nrvrbL = allpassDiffuseShort(preFdnL, ((delayTimeL * 0.506392) + mod1), diffusion);\r\nrvrbR = allpassDiffuseShort(preFdnR, ((delayTimeR * 0.506392) + mod5), diffusion);\r\n\r\nrvrbL = allpassDiffuseLong(rvrbL, ((delayTimeL * 0.803821) + mod2), diffusion);\r\nrvrbR = allpassDiffuseLong(rvrbR, ((delayTimeR * 0.803821) + mod6), diffusion);\r\n\r\n// + shelfs if (!space)\r\nrvrbL = allpassDiffuseDamp(rvrbL, (delayTimeL + mod3), diffusion, EqHighG, HighKatten, EqLowG, LowKatten, s0);\r\nrvrbR = allpassDiffuseDamp(rvrbR, (delayTimeR + mod7), diffusion, EqHighG, HighKatten, EqLowG, LowKatten, s0);\r\n\r\n}\t//\t//\t//\tEND: cpu bypass if dryWet == 0\r\n\r\nfbStage.write(fixdenorm(rvrbL), 0);\r\nfbStage.write(fixdenorm(rvrbR), 1);\r\n\r\nout1, out2 = xfadeQuartApproxStereo(xL, xR, dcblock(rvrbL), dcblock(rvrbR), dryWet);\r\n\r\n",
+					"fontface" : 0,
+					"fontname" : "<Monospaced>",
+					"fontsize" : 12.0,
+					"id" : "obj-3",
+					"maxclass" : "codebox",
+					"numinlets" : 2,
+					"numoutlets" : 2,
+					"outlettype" : [ "", "" ],
+					"patching_rect" : [ 49.0, 58.0, 917.0, 797.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-4",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 49.0, 874.0, 83.0, 22.0 ],
+					"text" : "out 1 rvrb Left"
+				}
+
+			}
+ ],
+		"lines" : [ 			{
+				"patchline" : 				{
+					"destination" : [ "obj-3", 0 ],
+					"source" : [ "obj-1", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-3", 1 ],
+					"source" : [ "obj-2", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-4", 0 ],
+					"source" : [ "obj-3", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-5", 0 ],
+					"source" : [ "obj-3", 1 ]
+				}
+
+			}
+ ],
+		"originid" : "pat-776",
+		"toolbaradditions" : [ "transport", "audiosolo", "audiomute" ],
+		"toolbarexclusions" : [ "audiopowerctrl", "browsebeap", "browsevizzie", "lessonbrowser" ]
+	}
+
+}

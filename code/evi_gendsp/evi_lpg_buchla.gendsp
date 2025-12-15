@@ -1,0 +1,205 @@
+{
+	"patcher" : 	{
+		"fileversion" : 1,
+		"appversion" : 		{
+			"major" : 9,
+			"minor" : 0,
+			"revision" : 0,
+			"architecture" : "x64",
+			"modernui" : 1
+		}
+,
+		"classnamespace" : "dsp.gen",
+		"rect" : [ 34.0, 100.0, 1109.0, 848.0 ],
+		"bglocked" : 0,
+		"openinpresentation" : 0,
+		"default_fontsize" : 12.0,
+		"default_fontface" : 0,
+		"default_fontname" : "Arial",
+		"gridonopen" : 2,
+		"gridsize" : [ 15.0, 15.0 ],
+		"gridsnaponopen" : 1,
+		"objectsnaponopen" : 1,
+		"statusbarvisible" : 2,
+		"toolbarvisible" : 1,
+		"lefttoolbarpinned" : 0,
+		"toptoolbarpinned" : 0,
+		"righttoolbarpinned" : 0,
+		"bottomtoolbarpinned" : 0,
+		"toolbars_unpinned_last_save" : 0,
+		"tallnewobj" : 0,
+		"boxanimatetime" : 200,
+		"enablehscroll" : 1,
+		"enablevscroll" : 1,
+		"devicewidth" : 0.0,
+		"description" : "",
+		"digest" : "",
+		"tags" : "",
+		"style" : "",
+		"subpatcher_template" : "sub",
+		"assistshowspatchername" : 0,
+		"boxes" : [ 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 12.0,
+					"id" : "obj-5",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 976.0, 807.0, 94.0, 22.0 ],
+					"text" : "out 3 something"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 12.0,
+					"id" : "obj-32",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 505.0, 807.0, 94.0, 22.0 ],
+					"text" : "out 2 something"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 12.0,
+					"id" : "obj-23",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 34.0, 807.0, 63.0, 22.0 ],
+					"text" : "out 1 LPG"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 12.0,
+					"id" : "obj-11",
+					"linecount" : 2,
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 976.0, 12.5, 114.0, 35.0 ],
+					"text" : "in 4 resonance 0..2 @default 1"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"code" : "\r\n// TPT emulation of the Buchla Lowpass-Gate, unique version of a two-pole Sallen & Key filter,\r\n// based on \"A Digital Model of the Buchla Lowpass-Gate\" by Julian Parker and Stefano D’Angelo, 2013\r\n\r\n/*\r\n\tIdeally this should all be oversampled properly, and the only native way we have of doing\r\n\tthat in Max is [poly~]. The only way to achieve the pure whistling resonance sound is\r\n\toversampling by 8 times when using the specific resampling filters in [poly~] (only 4 times\r\n\tdoes not work well). However, one can use this evi_lpg_buchla.gendsp without [poly~]\r\n\toversampling and with reasonable quality quasi anti-aliased sound using the \"localResampling()\"\r\n\tfunction in this .gendsp code fine - it just will not have that VA Buchla resonance sound.\r\n*/\r\n\r\nexpA(x0)\t\t\t\t\t\t\t\t\t\t// more accurate than 'fastexp()'\r\n{\n\tx = 0.999996 + (0.031261316 + (0.00048274797 + 0.000006 * x0) * x0) * x0;\n\tx *= x; x *= x; x *= x; x *= x; x *= x;\n\treturn x;\n}\n\r\ntnA(x)\t\t\t\t\t\t\t\t\t\t\t// valid for 0..1 input\n{\n\tx2\t\t= (x * x);\n\tx3\t\t= (x2 * x);\n\tx5\t\t= (x2 * x3);\n\treturn\t ((x5 * 0.133333333333) + (x3 * 0.333333333333)) + x;\n}\n\r\ntauA(t)\r\n{\n\ty = expA(-1 / (t * samplerate));\n\treturn y + 0.000128;\t\t\t\t\t\t// approximation has excellent accuracy\n}\t\t\t\t\t\t\t\t\t\t\t\t// above 10 milliseconds input\n\r\nlogsad(s)\n{\n\treturn\tLN2 / (s * samplerate);\t\t\t\t// LN2 / maximum((s * samplerate), 1);\n}\n\r\nlogsmooth(x, s)\t\t\t\t\t\t\t\t\t// s = time to drop 6dB (in seconds)\n{\n\tHistory z(0);\n\tad = logsad(s);\n\ty  = ((x - z) * ad) + z;\n\tz  = y;\n\treturn y;\n}\r\n\nlogso(x, ad)\n{\n\tHistory z(0);\n\ty = ((x - z) * ad) + z;\n\tz = y;\n\treturn y;\n}\n\nlogsmoothBank2(x1, x2, s)\n{\n\tHistory\tlogsdummy2(0);\n\tad\t\t= logsad(s);\n\ty1\t\t= logso(x1, ad);\n\ty2\t\t= logso(x2, ad);\n\treturn\ty1, y2;\n}\r\n\r\neviMap(valueIn, inLow, inHigh, outLow, outHigh)\t// basic linear scaling like linear part of [scale]\n{\n\tmultiplier = (outLow - outHigh) / (inLow - inHigh);\n\treturn (valueIn - inLow) * multiplier + outLow;\n}\n\r\neviScurve(segment)\t\t\t\t\t\t\t\t// segment must be linear ramp 0..1\n{\n\ts2\t\t= segment * segment;\n\trec\t\t= 1 - segment;\n\tr2\t\t= rec * rec;\n\treturn\t(segment < 0.5) ? (s2 * 2) : (1 - (r2 * 2));\n}\n\r\n// like MSP [line~], i.e. exact destination\neviLine(target, duration)\t\t\t\t\t\t// target, duration in samples\n{\n\tHistory\tvalue(0);\n\ttrigger\t= change(target);\n\tramp\t= clip(accum((1 / latch(duration, trigger)), trigger), 0, 1);\n\tline\t= eviMap(ramp, 0, 1, latch(value, trigger), latch(target, trigger));\n\tvalue\t= line;\n\treturn\tline, (ramp == 1);\n}\r\n\r\neviSline(target, duration)\t\t\t\t\t\t// target, duration in samples\n{\n\tHistory\tvalue(0);\n\ttrigger\t= change(target);\n\tramp\t= clip(accum((1 / latch(duration, trigger)), trigger), 0, 1);\n\tcramp\t= eviScurve(ramp);\n\tcurve\t= eviMap(cramp, 0, 1, latch(value, trigger), latch(target, trigger));\n\tvalue\t= curve;\n\treturn\tcurve, (ramp == 1);\n}\r\n\r\ncfSmoothLinearWarp(hz, ms)\t\t\t\t\t\t// Hz / ms, defaults: 1, 5\n{\n\tw0\t\t= tnA(pi * (hz / samplerate));\n\tg0\t\t= (2 * w0) / (1 + w0);\n\ts0\t\t= (1 - tauA(ms * 0.001)) * 4;\n\treturn\t  g0, s0;\n}\n\ncfSmoothLinearCoeff(x0, g0, s0)\t\t\t\t\t// g0 / s0, defaults: 0.000142 / 0.018104\n{\n\tHistory\tlow1(0), low2(0);\n\tlow1z\t= low1;\n\tlow2z\t= low2;\n\tbandz\t= low1z - low2z;\n\tg\t\t= minimum(g0 + s0 * abs(bandz), 1);\n\tlow1\t= low1z + g * (x0 - low1z);\n\tlow2\t= low2z + g * (low1 - low2z);\n\treturn\t  low2;\n}\n\ncfSmoothLinear(x1, hz, ms)\t\t\t\t\t\t// 2-pole lp smoother for cf\n{\n\tHistory\t  cfsldummy(0);\n\tg0, s0\t= cfSmoothLinearWarp(hz, ms);\n\ty1\t\t= cfSmoothLinearCoeff(x1, g0, s0);\n\treturn\t  y1;\n}\r\n\r\ntnhL(x)\t\t\t\t\t\t\t\t\t\t\t// tanh lambert\n{\n\tx2 = x * x;\n\ta  = (((x2 + 378) * x2 + 17325) * x2 + 135135) * x;\n\tb  = ((28 * x2 + 3150) * x2 + 62370) * x2 + 135135;\n\treturn clamp((a / b), -1, 1);\n}\r\n\r\ncubicClip(x)\t\t\t\t\t\t\t\t\t// cubic addition\r\n{\r\n\tx05 = x * 0.5;\r\n\tx03 = x * 0.333333333333;\r\n\tw = x*x*x03;\r\n\tv = x*x05 - 0.166666666666;\r\n\treturn\t(x > 1) ? v : ((x < -1) ? -v : w);\r\n}\r\n\r\nnonlin(x, nl)\t\t\t\t\t\t\t\t\t// choice\r\n{\r\n\ty = 0;\r\n\tif (nl) {\r\n\t\ty = cubicClip(x);\r\n\t} else {\r\n\t\ty = tnhL(x);\r\n\t}\r\n\treturn y;\r\n}\r\n\r\n// filter based on \"A Digital Model of the Buchla Lowpass-Gate\" by Julian Parker and Stefano D’Angelo, 2013\r\nbuchlaLpg(x, rf, res, resist, vcamode, lpgmode, nl)\r\n{\r\n\tHistory\tso(0), sx(0), sd(0);\r\n\tHistory\txo(0);\r\n\tthing = 1 - (nl * (1 - sqrt1_2));\r\n\tthong = resist * (1 - nl); \r\n\r\n\t// constants\r\n\tc1 = 0.000000001;\r\n\tc2 = 0.00000000022;\r\n\tc3 = lpgmode*0.0000000047;\r\n\tc2c3 = c2+c3;\r\n\r\n\tr1 = 1000;\r\n\tr3 = (1 - vcamode)*5000000 + 10000;\t\t\t\t\t// \"ra\"\r\n\r\n\t// resonance / feedback\r\n\tmax_res = ((c1+c1)*r3 + c2c3*(r3+rf)) / (c3*r3);\t// this surely should not work (div by 0) ?\r\n\ta = minimum(res, max_res) * thing;\r\n\tresi05 = resist*0.5;\r\n\tresiComp = (1 - resi05*1.333333333333);\r\n\r\n\t// frequency\r\n\tsr = samplerate;\r\n\tf = 0.5/sr;\r\n\t//f = twopi*(rf + 0.001)*0.5/samplerate;\t\t\t// todo, Hz input version\r\n\tff = f+f;\r\n\trf1 = sr+sr;\t// 1/f\r\n\trf2 = rf1+rf1;\t// 2/f\r\n\trfc2 = rf*c2;\r\n\trfc2c3 = rf*c2c3;\r\n\tr1rf = 1/(1 + r1/rf);\r\n\tac3c1 = a*c3/c1;\r\n\r\n\t// coefficients\r\n\ta1 = 1/(c1*rf);\r\n\ta2 = -(1/rf + 1/r3)/c1;\r\n\tb1 = 1/rfc2;\r\n\tbm2 = resist*0.8101 + 0.1899;\r\n\tbm22 = bm2*bm2;\r\n\trfbm22 = rfc2c3*bm22;\r\n\tb2a = -2/rfc2;\r\n\tb2b = (ac3c1 - 1 - r1rf)/rfbm22;\r\n\tb2 = interp(thong, b2a, b2b, mode=\"linear\");\t\t// morph feedback resistors...\r\n\tb3a = b1;\r\n\tb3b = (r1rf - (1 + rf/r3)*ac3c1)/rfbm22;\r\n\tb3 = interp(thong, b3a, b3b, mode=\"cosine\");\t\t// ...\r\n\tb4 = c3/c2;\r\n\td1 = a;\r\n\r\n\t// intermediates\r\n\txb1 = b1*x;\r\n\tDx = 1/(1 - b2*f);\r\n\tDo = 1/(1 - a2*f);\r\n\tfb3d = f*b3*Do;\r\n\tfb4 = b4*f;\r\n\trf1d1 = rf1*d1;\r\n\r\n\t// solve nonlinear\r\n\ttanh_xo  = nonlin(xo*(1 - (resi05*0.333333333333)), nl);\r\n\trtanh_xo2 = 1 - tanh_xo*tanh_xo;\r\n\td1rthx = d1*rtanh_xo2;\r\n\trtanh_mo2 = tanh_xo - xo*rtanh_xo2;\r\n\td1rthm = d1*rtanh_mo2;\r\n\tDmas = 1/(1 - Dx*(f*fb3d*a1 + fb4*d1rthx*Do*a1 - b4));\r\n\trf1d1rth = rf1*d1rthm;\r\n\r\n\t// compute integrators\r\n\tyx = (sx + f*xb1 + fb3d*so + fb4*(sd + rf1d1rth) + b4*d1rthx*Do*so)*Dx*Dmas;\r\n\ta1yx = a1*yx;\r\n\tyo = (so + f*a1yx)*Do;\r\n\td1rthyx = d1rthx*yo - yx;\r\n\tyd = (sd + rf1d1rth) + rf1*d1rthyx;\r\n\r\n\t// update state\r\n\tsx +=   ff*(xb1 + b2*yx + b3*yo + b4*yd);\r\n\tso +=   ff*(a1yx + a2*yo);\r\n\tsd  = -(sd + rf2*d1rthm) - rf2*d1rthyx;\r\n\txo  =   yo;\r\n\r\n\t// \"outputs can be mixed to produce other filter modes\", pete: \"good luck with that\"\r\n\treturn\tyo*resiComp;//, yx*resiComp, yd*0.011111111111;\r\n}\r\n\r\n// fixed 3x (not really) quasi oversampling\nbuchlaLpg3x(XIN, rf, res, resist, vcamode, lpgmode, nl)\n{\t// up 3\n\tHistory\tumTm1_0(0), umT0_0(0), umT1_0(0);\n\t// down 3\n\tHistory\tdmT2_1(0), dmT1_1(0), dmT0_1(0);\n\tHistory\tdmT2_2(0), dmT1_2(0), dmT0_2(0);\n\t// align\n\tHistory\tdoX0(0);\n\n\tODT\t\t= 0.3333333333333333;\n\tTDT\t\t= 0.6666666666666667;\n\n\t// up 3x\n\tx0_0_a\t= XIN + 0;\n\tx1_0\t= umT0_0 + 0;\n\tx2_0\t= interp(ODT, umTm1_0, umT0_0, umT1_0, x0_0_a, mode=\"spline\");\n\tx3_0\t= interp(TDT, umTm1_0, umT0_0, umT1_0, x0_0_a, mode=\"spline\");\n\n\t// process 3x\n//\ty1_0, nyx1, nyd1\t= buchlaLpg(x1_0, rf, res, resist, vcamode, lpgmode, nl);\n//\ty2_0, nyx2, nyd2\t= buchlaLpg(x2_0, rf, res, resist, vcamode, lpgmode, nl);\n//\ty3_0, nyx3, nyd3\t= buchlaLpg(x3_0, rf, res, resist, vcamode, lpgmode, nl);\n\ty1_0\t= buchlaLpg(x1_0, rf, res, resist, vcamode, lpgmode, nl);\n\ty2_0\t= buchlaLpg(x2_0, rf, res, resist, vcamode, lpgmode, nl);\n\ty3_0\t= buchlaLpg(x3_0, rf, res, resist, vcamode, lpgmode, nl);\n\n\t// down 3x\n\ty2_0_a\t= y2_0 + 0;\n\ty2_1\t= interp(TDT,\ty2_0_a,\tdmT0_1, dmT1_1, dmT2_1, mode=\"spline\");\n\ty3_0_a\t= y3_0 + 0;\n\ty3_1\t= interp(ODT,\ty3_0_a,\tdmT0_2, dmT1_2, dmT2_2, mode=\"spline\");\n\n\ty0_0\t= (doX0 + y2_1 + y3_1) * ODT;\n\n\t// update\n\tumTm1_0\t= umT0_0;\n\tumT0_0\t= umT1_0;\n\tumT1_0\t= x0_0_a;\n\n\tdoX0\t= y1_0;\n\n\tdmT2_1\t= dmT1_1;\n\tdmT1_1\t= dmT0_1;\n\tdmT0_1\t= y2_0;\n\n\tdmT2_2\t= dmT1_2;\n\tdmT1_2\t= dmT0_2;\n\tdmT0_2\t= y3_0;\n\n\treturn\tdcblock(y0_0);\n}\r\n\r\n// fixed 9x (not really) quasi oversampling\nbuchlaLpg9x(XIN, rf, res, resist, vcamode, lpgmode, nl)\n{\t// up 3\n\tHistory\tumTm1_0(0), umT0_0(0), umT1_0(0);\n\t// down 3\n\tHistory\tdmT2_1(0), dmT1_1(0), dmT0_1(0);\n\tHistory\tdmT2_2(0), dmT1_2(0), dmT0_2(0);\n\t// align\n\tHistory\tdoX0(0);\n\n\tODT\t\t= 0.3333333333333333;\n\tTDT\t\t= 0.6666666666666667;\n\n\t// up 3x\n\tx0_0_a\t= XIN + 0;\n\tx1_0\t= umT0_0 + 0;\n\tx2_0\t= interp(ODT, umTm1_0, umT0_0, umT1_0, x0_0_a, mode=\"spline\");\n\tx3_0\t= interp(TDT, umTm1_0, umT0_0, umT1_0, x0_0_a, mode=\"spline\");\n\n\t// process 9x\n\ty1_0\t= buchlaLpg3x(x1_0, rf, res, resist, vcamode, lpgmode, nl);\n\ty2_0\t= buchlaLpg3x(x2_0, rf, res, resist, vcamode, lpgmode, nl);\n\ty3_0\t= buchlaLpg3x(x3_0, rf, res, resist, vcamode, lpgmode, nl);\n\n\t// down 3x\n\ty2_0_a\t= y2_0 + 0;\n\ty2_1\t= interp(TDT,\ty2_0_a,\tdmT0_1, dmT1_1, dmT2_1, mode=\"spline\");\n\ty3_0_a\t= y3_0 + 0;\n\ty3_1\t= interp(ODT,\ty3_0_a,\tdmT0_2, dmT1_2, dmT2_2, mode=\"spline\");\n\n\ty0_0\t= (doX0 + y2_1 + y3_1) * ODT;\n\n\t// update\n\tumTm1_0\t= umT0_0;\n\tumT0_0\t= umT1_0;\n\tumT1_0\t= x0_0_a;\n\n\tdoX0\t= y1_0;\n\n\tdmT2_1\t= dmT1_1;\n\tdmT1_1\t= dmT0_1;\n\tdmT0_1\t= y2_0;\n\n\tdmT2_2\t= dmT1_2;\n\tdmT1_2\t= dmT0_2;\n\tdmT0_2\t= y3_0;\n\n\treturn\tdcblock(y0_0);\n}\r\n\r\n// quasi resampling options are for when NOT using an external poly~ (not as good but...)\r\nlocalResampling(xin, freq, res, resistors, vca, lpg, nl, resample)\r\n{\r\n\tbuchla = 0;\r\n\tif (resample == 1) {\t\t// 3x\r\n\t\tbuchla = buchlaLpg3x(xin, freq, res, resistors, vca, lpg, nl);\r\n\t} else if (resample == 2) {\t// 9x\r\n\t\tbuchla = buchlaLpg9x(xin, freq, res, resistors, vca, lpg, nl);\r\n\t} else {// resample == 0, 1x, default\r\n//\t\tbuchla, ybp, yhp = buchlaLpg(xin, freq, res, resistors, vca, lpg, nl);\r\n\t\tbuchla = buchlaLpg(xin, freq, res, resistors, vca, lpg, nl);\r\n\t}\r\n\treturn buchla;\r\n}\r\n\r\n// if \"controlrate\" == 0 use audio rate inlets, if == 1 use parameter rate inlets\r\nParam\tcontrolrate(0, min=0, max=1);\r\n// only if \"controlrate\" == 1 :\r\nParam\trf(0, min=0, max=1000000);\r\nParam\tvca(0, min=0, max=1);\r\nParam\tresonance(1, min=0, max=2);\r\n\r\n// use if NOT resampling in poly~\r\nParam\tlocalresample(0, min=0, max=2);\t// 0 = 1x, 1 = 3x, 2 = 9x\r\nParam\tnonlin(0, min=0, max=1);\t\t// 0 = tanh, 1 = cubic\r\n// all smoothing is off by default as usually we use this in an upsampled poly~ where\r\n// audio rate control inlets get annoyingly smoothed by the global resampling filters anyway\r\nParam\trfsmooth(0, min=0, max=666);\t// ms, if 0, rf smoothing off (switch off for audio rate modulation etc)\r\nParam\trfhz(1, min=0.0001, max=19.2);\t// hz\r\nParam\tsmooth(0, min=0, max=333);\t\t// ms, if 0, vca/res smoothing off (switch off for audio rate modulation etc)\r\n\r\nParam\tboom(0, min=0, max=1);\t\t\t// xfade extra feedback resistors, smoothed below\r\nParam\tmulti(0, min=0, max=1);\t\t\t// produce mutliple outlets? (feature not added yet anyway) (not for lpg anyway)\r\nParam\tlpg(1, min=0, max=1);\t\t\t// flag, switch filter/lpg - can be switched clicklessly in real time\r\n\t\t\t\t\t\t\t\t\t\t// (conceived as a switch, but works continuously variable like the \"vca\", too)\r\n//ilpg\t= int(lpg);\r\nimulti\t= int(multi);\r\nover\t= int(localresample);\r\ncontrol\t= int(controlrate);\r\nnl\t\t= int(nonlin);\r\n\r\nfreq = control ? rf : in2;\t\t\t\t// maintain param rate if \"controlrate\" == 1 ...\r\ndamp = control ? vca : in3;\r\nres = control ? resonance : in4;\r\n\r\nfreq = maximum(freq, 0);\t\t\t\t// voltage not \"freq\" (can be very high numbers)\r\ndamp = evi_log2sqrt01(damp);\t\t\t// vca 0..1 (affectionately referred to as a \"Damp\" control)\r\nres = maximum(res, 0);\t\t\t\t\t// resonance 0..2..\r\n\r\nsmoothsecs\t= smooth*0.001;\r\nsmoothsamps\t= 0.0333*samplerate;\r\n\r\nif (rfsmooth > 0) {\r\n\tfreq\t= cfSmoothLinear(freq, rfhz, rfsmooth);\r\n}\r\n\r\nif (smooth > 0) {\r\n\tdamp, res\t= logsmoothBank2(damp, res, smoothsecs);\r\n}\r\n\r\n// make gate/lpg switching real time capable (unfortunately we need exact ramp for cpu management)\r\nslpg, nlpg\t= eviSline(lpg, smoothsamps);\t\t\t// (ilpg)\r\nresistors\t= eviLine(boom, smoothsamps) * slpg;\t// boom is off if not \"lpg\" mode\r\n\r\nybp, yhp = 0;\r\nylp\t\t = localResampling(in1, freq, res, resistors, damp, slpg, nl, over);\r\n\r\nout1\t = ylp;\r\nout2\t = ybp;\r\nout3\t = yhp;\r\n\r\n/*\r\nylp, ybp, yhp = 0;\r\nif (slpg == 1) {\t\t// lpg on\r\n\tylp\t= buchlaLpg3x(in1, freq, damp, res, resistors, 1);\r\n} else if (slpg == 0) {\t// lpg off\r\n\tylp\t= buchlaLpg3x(in1, freq, damp, res, resistors, 0);\r\n} else {\t\t\t\t// ramping\r\n\tblp, bbp, bhp\t= buchlaLpg(in1, freq, damp, res, resistors, slpg);\r\n\tllp, lbp, lhp\t= buchlaLpg(in1, freq, damp, res, resistors, slpg);\r\n\tylp\t= interp(slpg, blp, llp, mode=\"cosine\");\t// cosine + scurve in silly attempt to make switching sound cooler...\r\n}\r\n\r\nout1\t= ylp;\r\nout2\t= ybp;\r\nout3\t= yhp;\r\n*/\r\n\r\n/*\r\nylp, ybp, yhp = 0;\r\nif (slpg == 1) {\t\t// lpg on\r\n\tylp\t= buchlaLpg9x(in1, freq, damp, res, resistors, 1);\r\n\tybp\t= 0;\r\n\tyhp\t= 0;\r\n} else if (slpg == 0) {\t// lpg off\r\n\tif (imulti) {\r\n\t\tylp, ybp, yhp\t= buchlaLpg(in1, freq, damp, res, resistors, 0);\r\n\t} else {\r\n\t\tylp\t= buchlaLpg3x(in1, freq, damp, res, resistors, 0);\r\n\t\tybp\t= 0;\r\n\t\tyhp\t= 0;\r\n\t}\r\n} else {\t\t\t\t// ramping\r\n\trslpg = 1 - slpg;\r\n\tblp, bbp, bhp = 0;\r\n\tif (imulti) {\r\n\t\tblp, bbp, bhp\t= buchlaLpg(in1, freq, damp, res, resistors, slpg);\r\n\t} else {\r\n\t\tblp\t= buchlaLpg3x(in1, freq, damp, res, resistors, slpg);\r\n\t\tbbp\t= 0;\r\n\t\tbhp\t= 0;\r\n\t}\r\n\tllp\t= buchlaLpg9x(in1, freq, damp, res, resistors, slpg);\r\n\tylp\t= interp(slpg, blp, llp, mode=\"cosine\");\t// cosine + scurve in silly attempt to make switching sound cooler\r\n\tybp\t= bbp * rslpg;\r\n\tyhp\t= bhp * rslpg;\r\n}\r\n\r\nout1\t= ylp;\r\nout2\t= ybp;\r\nout3\t= yhp;\r\n*/\r\n",
+					"fontface" : 0,
+					"fontname" : "<Monospaced>",
+					"fontsize" : 12.0,
+					"id" : "obj-10",
+					"maxclass" : "codebox",
+					"numinlets" : 4,
+					"numoutlets" : 3,
+					"outlettype" : [ "", "", "" ],
+					"patching_rect" : [ 34.0, 58.0, 961.0, 732.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 12.0,
+					"id" : "obj-4",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 662.0, 19.0, 73.0, 22.0 ],
+					"text" : "in 3 vca 0..1"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 12.0,
+					"id" : "obj-3",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 348.0, 19.0, 99.0, 22.0 ],
+					"text" : "in 2 frequency Rf"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 12.0,
+					"id" : "obj-2",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 34.0, 19.0, 91.0, 22.0 ],
+					"text" : "in 1 Audio Input"
+				}
+
+			}
+ ],
+		"lines" : [ 			{
+				"patchline" : 				{
+					"destination" : [ "obj-23", 0 ],
+					"source" : [ "obj-10", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-32", 0 ],
+					"source" : [ "obj-10", 1 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-5", 0 ],
+					"source" : [ "obj-10", 2 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-10", 3 ],
+					"source" : [ "obj-11", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-10", 0 ],
+					"source" : [ "obj-2", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-10", 1 ],
+					"source" : [ "obj-3", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-10", 2 ],
+					"source" : [ "obj-4", 0 ]
+				}
+
+			}
+ ]
+	}
+
+}

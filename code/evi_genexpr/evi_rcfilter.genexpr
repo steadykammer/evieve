@@ -1,0 +1,351 @@
+
+require("evi_tanh.genexpr");	// includes "evi_approx.genexpr"
+require("evi_interp.genexpr");
+
+//	//	//	coefficients
+
+// prewarps
+rcPreWarp(cutoff)
+{
+	g0		=  tanA(PI * cutoff / SAMPLERATE);
+	return	g0 / (1 + g0);
+}
+
+rcPreWarp2(cutoff)
+{
+	g0		=  tanA2(PI * cutoff / SAMPLERATE);
+	return	g0 / (1 + g0);
+}
+
+// i never use this, see functions immediately below
+rcDampCoeffs(cutoff, damp, mode)		// *)
+{
+	d1		= 0;
+	// prewarp
+	g0		=  tanA(PI * cutoff / SAMPLERATE);
+	// account for pass/shelf
+	ka	=  abs(damp);					// 0..1 = sqrt..lin
+	ks	= (ka * 0.5) + 0.5;
+	g01	=  1 + g0;
+	g1 	=  g0 / interp((2 * (ks - 0.5)), sqrt(g01), g01, mode="linear");
+	// shelf/pass (damp) control
+	if (mode > 0) {			// nice way of getting approx ± 10dB
+		d1		= -(pow(4, damp) - 1);	// this is just horrible
+		if (mode == 2) {	// extend attenuation range to make pass choice
+			d1	=  (d1 > 0) ? (d1 * 1.333333333333) : d1;
+		}
+	} else {// (mode == 0)	// for attenuation ('damping') only (0..1 input)
+		d1	= interp((2 * (((1 - ks) + 0.5) - 0.5)), sqrt(ka), ka, mode="linear");
+	}
+
+	return g1, d1;			// rc filter warped cf (g)	// rc filter warped gain (k)
+
+	// *) N.B., 'damp' -1..1 maps to d1 (k) as...
+	//		if mode==0:	 0=bypass..shelfattenuate..+1=pass (abs or clip damp)
+	//		if mode==1:	+0.75=shelfattenuate..0=bypass..-3=shelfboost
+	//		if mode==2:	+1=pass..shelfattenuate..0=bypass..-3=shelfboost
+}
+
+// fixed mode=0 version, no branching, keep out of while loop in export
+rcDampCoeffs0(cutoff, damp)			// cutoff in Hz, damp must clamp 0..1 (1 = highpass/lowpass)
+{
+	g0		=  tanA(PI * cutoff / SAMPLERATE);	// prewarp
+	ks		= (damp * 0.5) + 0.5;	// damp 0..1 = sqrt..lin
+	ks05	= (ks - 0.5);
+	ksom	= ((1 - ks) + 0.5) - 0.5;
+	g01		=  1 + g0;
+	g1 		=  g0 / interp((ks05 + ks05), sqrt(g01), g01, mode="linear");
+	d1		= interp((ksom + ksom), sqrt(damp), damp, mode="linear");
+	return	g1, d1;					// rc filter warped cf (g)	// rc filter warped gain (k)
+}
+
+// fixed mode=1 version, no branching, keep out of while loop in export
+rcDampCoeffs1(cutoff, damp)				// damp -1..1
+{
+	// prewarp
+	g0	=  tanA(PI * cutoff / SAMPLERATE);
+	// account for pass/shelf
+	ka	=  abs(damp);					// 0..1 = (lin..)..sqrt..lin
+	ks	= (ka * 0.5) + 0.5;
+	k05	= (ks - 0.5);
+	g01	=  1 + g0;
+	g1 	=  g0 / interp((k05 + k05), sqrt(g01), g01, mode="linear");
+	// shelf/pass (damp) control
+	d1	= -(pow(4, damp) - 1);			// this is just horrible, need a curve fit
+
+	return g1, d1;						// rc filter warped cf (g)	// rc filter warped gain (k)
+}
+
+// fixed mode=2 version, no branching, keep out of while loop in export
+rcDampCoeffs2(cutoff, damp)				// damp -1..1
+{
+	g1, d0 	= rcDampCoeffs1(cutoff, damp);
+	// extend attenuation range to make pass choice
+	d1	=  (d0 > 0) ? (d0 * 1.333333333333) : d0;
+	return g1, d1;						// rc filter warped cf (g)	// rc filter warped gain (k)
+}
+
+//	//	//	filters linear
+
+// linear OnePole RC filter (trapezoidal), 1 mul 1 div
+rcFilter(Vin, g)
+{
+	History	  s(0);
+	Vout	= (g * Vin + s) / (g + 1);
+	s		= (Vout + Vout) - s;
+	return	  Vout;
+}
+
+rcFilterHpLp(Vin, g)
+{
+	History	  s(0);
+	VoutLp	= (g * Vin + s) / (g + 1);
+	s		= (VoutLp + VoutLp) - s;
+//	Hp		= Vin - VoutLp;
+	return	  Vin - VoutLp, VoutLp;
+}
+
+// dual bandpass version, one in one out
+rcFilterBandpass(xp, ghp, glp)
+{
+	History	rcfbdummy(0);
+	lp		= rcFilter(xp, glp);
+	hp, _hl	= rcFilterHpLp(lp, ghp);
+	return	hp;
+}
+
+// High or Low Pass if k == 1, Bypass if k == 0, else Low or High Shelf attenuation
+rcFilterDamp(Vin, g, k)
+{
+	History	   s(0);
+	Lp		= (g * Vin + s) / (g + 1);
+	s		= (Lp + Lp) - s;
+//	Hp		=  Lp - Vin;				// must be y-x
+
+	return	Vin + (k * (Lp - Vin));
+}
+
+rcFilterDampHpLp(Vin, g, k)
+{
+	History	   s(0);
+	Lp		= (g * Vin + s) / (g + 1);
+	s		= (Lp + Lp) - s;
+//	Hp		=  Lp - Vin;				// must be y-x
+
+//	LpHs	=  Vin + (k * (Lp - Vin));
+//	HpLs	= (k * Lp) - Vin;
+
+	return	(k * Lp) - Vin, Vin + (k * (Lp - Vin));
+}
+
+rcFilterDampBandpass(Vin, ghp, glp, hk, lk)
+{
+	History	rcfdbdummy(0);
+	lphs1			= rcFilterDamp(Vin, glp, lk);
+	hpls2, _lphs2	= rcFilterDampHpLp(lphs1, ghp, hk);
+	return	hpls2;
+}
+
+//	//	//	filters nonlinear
+
+/*
+	Analogue One Pole RC Filter building block
+	with solved zdf path / nonlinearity
+	based on example by Urs Heckmann @see: https://urs.silvrback.com/
+	thrown into GenExpr by Pete for evieve
+
+	Take original non-linear equation:
+	Vout = g * ( tanh(input) - tanh(Vout) ) + s;	// [ wc/2 * ( x - y ) + z ) ]
+
+	Replace:
+	tanh(Vout) with: a * Vout + b
+
+	Such that:
+	Vin = tanh(input);
+	Vout = g * ( Vin - (a * Vout + b) ) + s;		// (a * Vout + b) is the difficult bit !
+
+	Now Vout can be isolated (term rewrite):
+	Vout = (Vin * g - b * g + s) / (a * g + 1)
+
+	N.B. if a = 1 and b = 0 we get linear version: Vout = ( Vin * g + s) / ( g + 1 )
+*/
+/*
+// tanh Lambert approx
+tanhL( x )
+{
+	x2	= x * x;
+	a	= ( ( ( x2 + 378 ) * x2 + 17325 ) * x2 + 135135 ) * x;
+	b	= ( ( 28 * x2 + 3150 ) * x2 + 62370 ) * x2 + 135135;
+	return	clamp((a / b), -1, 1);
+}
+*/
+
+// 1st order antiderivative from "evi_tanh.genexpr"
+tanhL1(x)
+{
+	return altTanhAdaa1( x );
+}
+
+// 2nd order antiderivative from "evi_tanh.genexpr"
+tanhL2(x)
+{
+	return altTanhAdaa2( x );
+}
+
+sech2_with_tanh( tanh_value )
+{
+	return 1 - tanh_value * tanh_value;
+}
+/*
+tanh_derivative( x )
+{
+	return sech2_with_tanh( tanhL1( x ) );
+}
+*/
+/*
+// analog (KCL) linear OnePole RC filter (trapezoidal)
+onePole ( Vin, g )
+{
+	History	  s(0);									// state (integrator)
+	// filter (solve implicit)
+	Vout	= ( g * Vin + s ) / ( g + 1 );
+	// update state (integrator) (trapezoidal rule)
+	s		= ( Vout + Vout ) - s;
+	// output ("the integrated current over the capcitor is our filter output")
+	return	  Vout;
+}
+*/
+rcOnePole ( Vin, g )
+{
+	History				s( 0 );						// state (iceq)
+
+	MAX_NEWTON_ERROR	= 0.000001;
+	MAX_ITERATIONS		= 10;
+	numIterations		= 1;
+
+	b			= 0;
+	a			= 1;
+
+	tanh_input	= tanhL1( Vin );
+	// "Linear State Prediction"
+	Vout		= ( g * ( tanh_input - b ) + s ) / ( a * g + 1 );
+	// "Tangential" (Newton-like linearisation)
+	base		= Vout;								// base variable for tangent/angle
+	tBase		= tanhL1( base );
+	a			= sech2_with_tanh( tBase );			// tanh'(x) = 1 - tanh^2(x)
+	b			= tBase - base * a;
+
+	// "Linear State Estimate"
+	estimate	= ( g * ( tanh_input - b ) + s ) / ( a * g + 1 );
+	tanh_result = tanhL1( estimate );
+	residue 	= ( g * ( tanh_input - tanh_result ) + s ) - estimate;
+
+	// new_estimate	= old_estimate - residue/derivative
+	while( ( abs(residue) > MAX_NEWTON_ERROR ) || ( numIterations <= MAX_ITERATIONS ) ) {
+		// tanh'(x)	=  1 - tanh^2(x)
+		derivative	= -g * sech2_with_tanh( tanh_result ) - 1;
+		estimate	=  estimate - residue / derivative;
+		// get next residue
+		residue 	= ( g * ( tanh_input - tanh_result ) + s ) - estimate;
+		// loop
+		numIterations += 1;
+	}
+
+	Vout			= estimate;
+	// updateState();
+	s				= ( Vout + Vout ) - s;			// trapezoidal rule
+	numIterations	= 1;
+
+	Lp			= Vout;
+	return		Lp;
+}
+
+rcOnePoleHpLp ( Vin, g )
+{
+	History				s( 0 );						// state (iceq)
+
+	MAX_NEWTON_ERROR	= 0.000001;
+	MAX_ITERATIONS		= 10;
+	numIterations		= 1;
+
+	b			= 0;
+	a			= 1;
+
+	tanh_input	= tanhL1( Vin );
+	// "Linear State Prediction"
+	Vout		= ( g * ( tanh_input - b ) + s ) / ( a * g + 1 );
+	// "Tangential" (Newton-like linearisation)
+	base		= Vout;								// base variable for tangent/angle
+	tBase		= tanhL1( base );
+	a			= sech2_with_tanh( tBase );			// tanh'(x) = 1 - tanh^2(x)
+	b			= tBase - base * a;
+
+	// "Linear State Estimate"
+	estimate	= ( g * ( tanh_input - b ) + s ) / ( a * g + 1 );
+	tanh_result = tanhL1( estimate );
+	residue 	= ( g * ( tanh_input - tanh_result ) + s ) - estimate;
+
+	// new_estimate	= old_estimate - residue/derivative
+	while( ( abs(residue) > MAX_NEWTON_ERROR ) || ( numIterations <= MAX_ITERATIONS ) ) {
+		// tanh'(x)	=  1 - tanh^2(x)
+		derivative	= -g * sech2_with_tanh( tanh_result ) - 1;
+		estimate	=  estimate - residue / derivative;
+		// get next residue
+		residue 	= ( g * ( tanh_input - tanh_result ) + s ) - estimate;
+		// loop
+		numIterations += 1;
+	}
+
+	Vout			= estimate;
+	// updateState();
+	s				= ( Vout + Vout ) - s;			// trapezoidal rule
+	numIterations	= 1;
+
+	Lp			= Vout;								// Lp
+//	Hp			= tanh_input - Lp;					// Hp tenous
+	Hp			= Vin - Vout;
+	return		Hp, Lp;
+}
+
+// fixed 2x quasi oversampling (hermite6)
+rcOnePole_x2( XIN, g )
+{	// up 2
+	History	umTm2_0(0), umTm1_0(0), umT0_0(0), umT1_0(0), umT2_0(0);
+	// down 2
+	History	dmT3_1(0), dmT2_1(0), dmT1_1(0), dmT0_1(0), dmTm1_1(0);
+	// align
+	History	doX0(0);
+
+	// up 2x
+	x0_0_a	= XIN + 0;
+	x1_0	= hermite_sixpoint_interp(0.5,	umTm2_0, umTm1_0, umT0_0, umT1_0, umT2_0, x0_0_a);
+	x2_0	= umT2_0 + 0;
+
+	// process 2x
+	y1_0	= rcOnePole( x1_0, g );
+	y2_0	= rcOnePole( x2_0, g );
+
+	// down 2x
+	y2_0_a	= y2_0 + 0;
+	y2_1	= hermite_sixpoint_interp(0.5,	y2_0_a,	dmTm1_1, dmT0_1, dmT1_1, dmT2_1, dmT3_1);
+
+	y0_0	= (doX0 + y2_1) * 0.5;
+
+	// update
+	umTm2_0	= umTm1_0;
+	umTm1_0	= umT0_0;
+	umT0_0	= umT1_0;
+	umT1_0 	= umT2_0;
+	umT2_0	= x0_0_a;
+
+	doX0	= y1_0;
+
+	dmT3_1	= dmT2_1;
+	dmT2_1	= dmT1_1;
+	dmT1_1	= dmT0_1;
+	dmT0_1	= dmTm1_1;
+	dmTm1_1	= y2_0;
+
+	return dcblock(y0_0);
+}
+

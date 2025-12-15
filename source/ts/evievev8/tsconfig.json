@@ -1,0 +1,28 @@
+{
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "compilerOptions": {
+        "rootDir": "./src",
+        "outDir": "./dist",
+        "typeRoots": ["../types", "../node_modules/@types"],
+        // "types": ["maxmsp"],
+        "module": "CommonJS",
+        "noImplicitAny": true,
+        "removeComments": true,
+        "preserveConstEnums": true,
+        "sourceMap": true,
+        "lib": ["ES2022"],
+        "target": "ES2022",
+        "skipLibCheck": true,
+        "declaration": true,
+        "declarationMap": true,
+        "composite": false,
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "strictNullChecks": true,
+        "paths": {
+        }
+    },
+    "include": ["src"],
+    // "exclude": ["**/**.test.ts"]
+
+}

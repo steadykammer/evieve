@@ -1,0 +1,1285 @@
+
+//	//	//	Self contained linear SVF filters with coefficients calculators
+//	//	//	For use in place of biquads, including EQ-ing, when you actually need good quality :-)
+
+require("evi_smooth.genexpr");	// includes '_utilities' & '_approx'
+
+
+//	//	//	TPT (Topology Preserving Transform, Zavalishin et al)
+//	//	//	This linear core is also used as the basis for many of the nonlinear filters in evieve
+//	//	//	This is also used in the linear [evi.svf~] replacement
+
+// the linear filter
+// we use this filter section to create all of our filter types by summing the outputs
+tptSvf(x, g, r, a)
+{
+	History	s1(0), s2(0);
+
+	// compute highpass output
+	yH	= (x - (r + g) * s1 - s2) * a;	// (x - r * s1 - g * s1 - s2) * a
+
+	// compute bandpass output by applying 1st integrator to highpass output
+	gyH	= g * yH;
+	yB	= gyH + s1;
+	s1	= gyH + yB;						// state update in 1st integrator
+
+	// compute lowpass output by applying 2nd integrator to bandpass output
+	gyB	= g * yB;
+	yL	= gyB + s2;
+	s2	= gyB + yL;						// state update in 2nd integrator
+
+	return	yL, yB, yH;					// lowpass, bandpass, highpass
+}
+
+tptSvfReset(x, g, r, a, reset)
+{
+	History	s1(0), s2(0);
+	if (reset) {
+		s1 = 0;
+		s2 = 0;
+	}
+
+	// compute highpass output
+	yH	= (x - (r + g) * s1 - s2) * a;	// (x - r * s1 - g * s1 - s2) * a
+
+	// compute bandpass output by applying 1st integrator to highpass output
+	gyH	= g * yH;
+	yB	= gyH + s1;
+	s1	= gyH + yB;						// state update in 1st integrator
+
+	// compute lowpass output by applying 2nd integrator to bandpass output
+	gyB	= g * yB;
+	yL	= gyB + s2;
+	s2	= gyB + yL;						// state update in 2nd integrator
+
+	return	yL, yB, yH;					// lowpass, bandpass, highpass
+}
+
+/*
+	Calculators ("filter" parameter is integer index - sorry, that is gen~)
+
+	Index	Filter
+
+	0 		Bypass
+	1 		Lowpass
+	2 		Highpass
+	3 		Bandpass
+	4 		Notch
+	5 		Resonant
+	6 		Bell
+	7 		Lowshelf
+	8 		Highshelf
+	9 		Allpass
+*/
+// make g, r, h & summing gains
+// look how simple this is compared to Direct Form !
+tptSvfCoeff(filter, cutoff, gain, Q)	// gain is linear !
+{
+	cL, cB, cH	= 0;					// LP, BP, HP gain staging for summing the outputs
+
+	w	= PI * cutoff / SAMPLERATE;		// prewarp cutoff
+	g 	= tanA2(w);						// embedded integrator gain
+	r 	= sqrt2;						// damp, pre gain
+
+	if			(filter == 1) {			// LOWPASS
+		r 	= 1 / Q;
+		cL	= gain;
+		cB	= 0;
+		cH	= 0;
+	} else if	(filter == 2) {			// HIGHPASS
+		r 	= 1 / Q;
+		cL	= 0;
+		cB	= 0;
+		cH	= gain;
+	} else if	(filter == 3) {			// BANDPASS_SKIRT 
+		r 	= 1 / Q;
+		cL	= 0;
+		cB	= gain;
+		cH	= 0;
+	} else if	(filter == 4) {			// BANDREJECT (NOTCH)
+		r 	= 1 / Q;
+		cL	= gain;
+		cB	= 0;
+		cH	= gain;
+	} else if	(filter == 5) {			// BANDPASS_PEAK (RESON) (accepts much higher 'Q')
+		r 	= 1 / Q;
+		cL	= 0;
+		cB	= r * gain;
+		cH	= 0;
+	} else if	(filter == 6) {			// BELL
+		r	= w / ((g + g) * Q);		// access w for bell
+		r	= g / tanA2(w / (r + sqrt(r * r + 1)));
+		r	= r * r;
+		s 	= sqrt(((r * r + 1) / r - 2) / (gain + gain + gain + gain));
+		r	= (s + s);
+		cL	= 1;
+		cB	= r * gain;
+		cH	= 1;
+	} else if	(filter == 7) {			// LOWSHELF
+		A	= sqrt(gain);
+		g  /= sqrt(A);					// scale cutoff frequency for shelfs
+		rh	= 0.5 / Q;
+		rh += sqrt((rh * rh) + 1);
+		r  -= 1 / rh;
+		cL	= gain;
+		cB	= r * A;
+		cH	= 1;
+	} else if	(filter == 8) {			// HIGHSHELF
+		A	= sqrt(gain);
+		g  *= sqrt(A);					// scale cutoff frequency for shelfs
+		rh	= 0.5 / Q;
+		rh += sqrt((rh * rh) + 1);
+		r  -= 1 / rh;
+		cL	= 1;
+		cB	= r * A;
+		cH	= gain;
+	} else if	(filter == 9) {			// ALLPASS (normalised)
+		r 	=  1 / Q;
+		cL	=  1;                       // gain ?
+		cB	= -r;
+		cH	=  1;                       // gain ?
+	} else { // (filter == 0)			// BYPASS
+		g	= 0;						// tanA2(halfpi) (tan approx is safely 0)
+		r	= 1;						// 1 / Q
+		cL	= 1; 
+		cB	= r;
+		cH	= 1;
+	}
+
+	// feedback factor
+	h	= 1 / (1 + (r + g) * g);		// 1 / (1 + r * g + g * g)
+
+	return	g, r, h, cL, cB, cH;
+}
+
+// version for gen no tilde, because Max
+tptSvfCoeffNoTilde(filter, cutoff, gain, Q, AUDIO_SR=48000)	// gain is linear !
+{
+	cL, cB, cH	= 0;					// LP, BP, HP gain staging for summing the outputs
+
+	w	= PI * cutoff / AUDIO_SR;		// prewarp cutoff
+	g 	= tanA2(w);						// embedded integrator gain
+	r 	= sqrt2;						// damp, pre gain
+
+	if			(filter == 1) {			// LOWPASS
+		r 	= 1 / Q;
+		cL	= gain;
+		cB	= 0;
+		cH	= 0;
+	} else if	(filter == 2) {			// HIGHPASS
+		r 	= 1 / Q;
+		cL	= 0;
+		cB	= 0;
+		cH	= gain;
+	} else if	(filter == 3) {			// BANDPASS_SKIRT 
+		r 	= 1 / Q;
+		cL	= 0;
+		cB	= gain;
+		cH	= 0;
+	} else if	(filter == 4) {			// BANDREJECT (NOTCH)
+		r 	= 1 / Q;
+		cL	= gain;
+		cB	= 0;
+		cH	= gain;
+	} else if	(filter == 5) {			// BANDPASS_PEAK (RESON) (accepts much higher 'Q')
+		r 	= 1 / Q;
+		cL	= 0;
+		cB	= r * gain;
+		cH	= 0;
+	} else if	(filter == 6) {			// BELL
+		r	= w / ((g + g) * Q);		// access w for bell
+		r	= g / tanA2(w / (r + sqrt(r * r + 1)));
+		r	= r * r;
+		s 	= sqrt(((r * r + 1) / r - 2) / (gain + gain + gain + gain));
+		r	= (s + s);
+		cL	= 1;
+		cB	= r * gain;
+		cH	= 1;
+	} else if	(filter == 7) {			// LOWSHELF
+		A	= sqrt(gain);
+		g  /= sqrt(A);					// scale cutoff frequency for shelfs
+		rh	= 0.5 / Q;
+		rh += sqrt((rh * rh) + 1);
+		r  -= 1 / rh;
+		cL	= gain;
+		cB	= r * A;
+		cH	= 1;
+	} else if	(filter == 8) {			// HIGHSHELF
+		A	= sqrt(gain);
+		g  *= sqrt(A);					// scale cutoff frequency for shelfs
+		rh	= 0.5 / Q;
+		rh += sqrt((rh * rh) + 1);
+		r  -= 1 / rh;
+		cL	= 1;
+		cB	= r * A;
+		cH	= gain;
+	} else if	(filter == 9) {			// ALLPASS (normalised)
+		r 	=  1 / Q;
+		cL	=  1;                       // gain ?
+		cB	= -r;
+		cH	=  1;                       // gain ?
+	} else { // (filter == 0)			// BYPASS
+		g	= 0;						// tanA2(halfpi) (tan approx is safely 0)
+		r	= 1;						// 1 / Q
+		cL	= 1; 
+		cB	= r;
+		cH	= 1;
+	}
+
+	// feedback factor
+	h	= 1 / (1 + (r + g) * g);		// 1 / (1 + r * g + g * g)
+
+	return	g, r, h, cL, cB, cH;
+}
+
+// all in one section for use in gen~/GenExpr
+eviFilterTpt(x, cutoff, db, Q, filter, smooth=0)	// gain in dB, smooth time in ms
+{
+	History eftdummy(0);
+	smoothsecs	= smooth * 0.001;
+	gain 		= dbtoaApprox(db);
+	g, r, h, cL, cB, cH = tptSvfCoeff(filter, cutoff, gain, Q);
+	yL, yB, yH 	= tptSvf(x, g, r, h);
+	if (smooth > 0) {
+		cL, cB, cH 		= expsmoothBank3(cL, cB, cH, smoothsecs);
+	}
+	filtered	= (yL * cL) + (yB * cB) + (yH * cH);
+	return 		filtered;
+}
+
+eviFilterTptReset(x, cutoff, db, Q, filter, reset, smooth=0)	// gain in dB, smooth time in ms
+{
+	History eftrdummy(0);
+	smoothsecs	= smooth * 0.001;
+	gain 		= dbtoaApprox(db);
+	g, r, h, cL, cB, cH = tptSvfCoeff(filter, cutoff, gain, Q);
+	yL, yB, yH 	= tptSvfReset(x, g, r, h, reset);
+	if (smooth > 0) {
+		cL, cB, cH 		= expsmoothBank3(cL, cB, cH, smoothsecs);
+	}
+	filtered	= (yL * cL) + (yB * cB) + (yH * cH);
+	return 		filtered;
+}
+
+/*
+	EQ Calculators ("filter" parameter is integer index - sorry, that is gen~)
+
+	Index	Filter
+
+	0 		Bypass
+	1 		Highpass
+	2 		Lowshelf
+	3 		Bell
+	4 		Notch
+	5 		Highshelf
+	6 		Lowpass
+*/
+// coefficients just for EQ-ing, note different ordering as well
+tptSvfCoeffEq(filter, cutoff, gain, Q)	// gain is linear !
+{
+	cL, cB, cH	= 0;					// LP, BP, HP gain staging for summing the outputs
+
+	w	= PI * cutoff / SAMPLERATE;		// prewarp cutoff
+	g 	= tanA2(w);						// embedded integrator gain
+	r 	= sqrt2;						// damp, pre gain
+
+	if			(filter == 1) {			// HIGHPASS
+		r 	= 1 / Q;
+		cL	= 0;
+		cB	= 0;
+		cH	= gain;
+	} else if	(filter == 2) {			// LOWSHELF
+		A	= sqrt(gain);
+		g  /= sqrt(A);					// scale cutoff frequency for shelfs
+		rh	= 0.5 / Q;
+		rh += sqrt((rh * rh) + 1);
+		r  -= 1 / rh;
+		cL	= gain;
+		cB	= r * A;
+		cH	= 1;
+	} else if	(filter == 3) {			// BELL
+		r	= w / ((g + g) * Q);		// access w for bell
+		r	= g / tanA2(w / (r + sqrt(r * r + 1)));
+		r	= r * r;
+		s 	= sqrt(((r * r + 1) / r - 2) / (gain + gain + gain + gain));
+		r	= (s + s);
+		cL	= 1;
+		cB	= r * gain;
+		cH	= 1;
+	} else if	(filter == 4) {			// NOTCH
+		r 	= 1 / Q;
+		cL	= gain;
+		cB	= 0;
+		cH	= gain;
+	} else if	(filter == 5) {			// HIGHSHELF
+		A	= sqrt(gain);
+		g  *= sqrt(A);					// scale cutoff frequency for shelfs
+		rh	= 0.5 / Q;
+		rh += sqrt((rh * rh) + 1);
+		r  -= 1 / rh;
+		cL	= 1;
+		cB	= r * A;
+		cH	= gain;
+	} else if	(filter == 6) {			// LOWPASS
+		r 	= 1 / Q;
+		cL	= gain;
+		cB	= 0;
+		cH	= 0;
+	} else { // (filter == 0)			// BYPASS
+		g	= 0;						// tanA2(halfpi) (tan approx is safely 0)
+		r	= 1;						// 1 / Q
+		cL	= 1; 
+		cB	= r;
+		cH	= 1;
+	}
+
+	// feedback factor
+	h	= 1 / (1 + (r + g) * g);		// 1 / (1 + r * g + g * g)
+
+	return	g, r, h, cL, cB, cH;
+}
+
+// version for gen no tilde, because Max
+tptSvfCoeffEqNoTilde(filter, cutoff, gain, Q, AUDIO_SR=48000)	// gain is linear !
+{
+	cL, cB, cH	= 0;					// LP, BP, HP gain staging for summing the outputs
+
+	w	= PI * cutoff / AUDIO_SR;		// prewarp cutoff
+	g 	= tanA2(w);						// embedded integrator gain
+	r 	= sqrt2;						// damp, pre gain
+
+	if			(filter == 1) {			// HIGHPASS
+		r 	= 1 / Q;
+		cL	= 0;
+		cB	= 0;
+		cH	= gain;
+	} else if	(filter == 2) {			// LOWSHELF
+		A	= sqrt(gain);
+		g  /= sqrt(A);					// scale cutoff frequency for shelfs
+		rh	= 0.5 / Q;
+		rh += sqrt((rh * rh) + 1);
+		r  -= 1 / rh;
+		cL	= gain;
+		cB	= r * A;
+		cH	= 1;
+	} else if	(filter == 3) {			// BELL
+		r	= w / ((g + g) * Q);		// access w for bell
+		r	= g / tanA2(w / (r + sqrt(r * r + 1)));
+		r	= r * r;
+		s 	= sqrt(((r * r + 1) / r - 2) / (gain + gain + gain + gain));
+		r	= (s + s);
+		cL	= 1;
+		cB	= r * gain;
+		cH	= 1;
+	} else if	(filter == 4) {			// NOTCH
+		r 	= 1 / Q;
+		cL	= gain;
+		cB	= 0;
+		cH	= gain;
+	} else if	(filter == 5) {			// HIGHSHELF
+		A	= sqrt(gain);
+		g  *= sqrt(A);					// scale cutoff frequency for shelfs
+		rh	= 0.5 / Q;
+		rh += sqrt((rh * rh) + 1);
+		r  -= 1 / rh;
+		cL	= 1;
+		cB	= r * A;
+		cH	= gain;
+	} else if	(filter == 6) {			// LOWPASS
+		r 	= 1 / Q;
+		cL	= gain;
+		cB	= 0;
+		cH	= 0;
+	} else { // (filter == 0)			// BYPASS
+		g	= 0;						// tanA2(halfpi) (tan approx is safely 0)
+		r	= 1;						// 1 / Q
+		cL	= 1; 
+		cB	= r;
+		cH	= 1;
+	}
+
+	// feedback factor
+	h	= 1 / (1 + (r + g) * g);		// 1 / (1 + r * g + g * g)
+
+	return	g, r, h, cL, cB, cH;
+}
+
+// the linear filter, summed internally for EQ sections
+tptSvfEq(x, g, r, h, cL, cB, cH)
+{
+	History	s1(0), s2(0);
+	yH	= (x - (r + g) * s1 - s2) * h;
+	gyH	= g * yH;
+	yB	= gyH + s1;
+	s1	= gyH + yB;
+	gyB	= g * yB;
+	yL	= gyB + s2;
+	s2	= gyB + yL;
+	// summed low, band, high
+	return	(yL * cL) + (yB * cB) + (yH * cH);
+}
+
+tptSvfEqReset(x, g, r, h, cL, cB, cH, reset)
+{
+	History	s1(0), s2(0);
+	if (reset) {
+		s1 = 0;
+		s2 = 0;
+	}
+	yH	= (x - (r + g) * s1 - s2) * h;
+	gyH	= g * yH;
+	yB	= gyH + s1;
+	s1	= gyH + yB;
+	gyB	= g * yB;
+	yL	= gyB + s2;
+	s2	= gyB + yL;
+	// summed low, band, high
+	return	(yL * cL) + (yB * cB) + (yH * cH);
+}
+
+/*
+//	//	//	all in one sections for using in parametric EQ-ing etc
+//	//	//	not using, see below in LTO section
+
+eviFilterEq(x, cutoff, db, Q, filter, smooth=0)	// gain in dB, smooth time in ms)
+{
+	History efedummy(0);
+	smoothsecs	= smooth * 0.001;
+	gain 		= dbtoaApprox(db);
+	g, r, h, cL, cB, cH = tptSvfCoeffEq(filter, cutoff, gain, Q);
+	if (smooth > 0) {
+		cL, cB, cH 		= expsmoothBank3(cL, cB, cH, smoothsecs);
+	}
+	eq			= tptSvfEq(x, g, r, h, cL, cB, cH);
+	return 		eq;
+}
+
+eviFilterEqStereo(xL, xR, cutoff, db, Q, filter, smooth=0)	// gain in dB, smooth time in ms)
+{
+	History efesdummy(0);
+	smoothsecs	= smooth * 0.001;
+	gain 		= dbtoaApprox(db);
+	g, r, h, cL, cB, cH = tptSvfCoeffEq(filter, cutoff, gain, Q);
+	if (smooth > 0) {
+		cL, cB, cH 		= expsmoothBank3(cL, cB, cH, smoothsecs);
+	}
+	eqL			= tptSvfEq(xL, g, r, h, cL, cB, cH);
+	eqR			= tptSvfEq(xR, g, r, h, cL, cB, cH);
+	return 		eqL, eqR;
+}
+*/
+
+// special morphing filter section, use with 'tptSvf()'
+// ...'morph' 0..1 interpolates LP..BP..HP
+
+// morph filter coefficients (based on Schmidt)
+tptSvfCoeffMorph(cutoff, gain, Q, morph)			// gain is Linear
+{
+	g	= tanA2(PI * cutoff / SAMPLERATE);
+//	a	= expA(0.11512925464970 * db) + 0.000128;	// dBtoA
+	r	= 1 / Q;
+	x	= (morph + morph) - 1;
+
+	cL	= maximum(-x, 0);
+	cH	= maximum( x, 0);
+	cB	= 1 - (cL + cH);
+//	cB	= fastpow( cB, 0.25) * 1.02196;	// function should map the range 0..1 monotonically
+	cB	= sqrt(sqrt(cB));
+	// 'sc' scaling ensures constant gain at cutoff
+	sc	= Q * sqrt((r * r) / (cL * cL + cB * cB + cH * cH - (cL + cL) * cH)) * gain;
+	cL *= sc;
+	cB *= sc;
+	cH *= sc;
+
+	// feedback factor
+	h	= 1 / (1 + (r + g) * g);		// 1 / (1 + r * g + g * g)
+
+	return	g, r, h, cL, cB, cH;
+}
+
+// 'morph' 0..1 interpolates LP..BP..HP
+eviFilterMorph(x, hz, db, bw, morph, smooth=22.666)	// gain in dB, bandwidth 0..1, smooth in ms
+{
+	History efmdummy(0);
+	smoothsecs	= smooth * 0.001;
+	gain		= dbtoaApprox(db);
+	q 			= bandwidth2Q(((1 - sqrt(bw)) * 9.95) + 0.05);	// bw 0..1 to bandwidth to q, 10 octaves range
+	g, r, h, cL, cB, cH = tptSvfCoeffMorph(hz, gain, q, morph);
+	yL, yB, yH 	= tptSvf(x, g, r, h);
+	if (smooth > 0) {
+		cL, cB, cH 		= expsmoothBank3(cL, cB, cH, smoothsecs);
+	}
+	morphed		= (yL * cL) + (yB * cB) + (yH * cH);
+	return 		morphed;
+}
+
+// 'morph' 0..1 interpolates LP..BP..HP
+eviFilterMorphStereo(xL, xR, hz, db, bw, morph, smooth=22.666)	// gain in dB, bandwidth 0..1, smooth in ms
+{
+	History efmsdummy(0);
+	smoothsecs	= smooth * 0.001;
+	gain		= dbtoaApprox(db);
+	q 			= bandwidth2Q(((1 - sqrt(bw)) * 9.95) + 0.05);	// bw 0..1 to bandwidth to q, 10 octaves range
+	g, r, h, cL, cB, cH = tptSvfCoeffMorph(hz, gain, q, morph);
+	yLL, yBL, yHL 		= tptSvf(xL, g, r, h);
+	yLR, yBR, yHR 		= tptSvf(xR, g, r, h);
+	if (smooth > 0) {
+		cL, cB, cH 		= expsmoothBank3(cL, cB, cH, smoothsecs);
+	}
+	morphL		= (yLL * cL) + (yBL * cB) + (yHL * cH);
+	morphR		= (yLR * cL) + (yBR * cB) + (yHR * cH);
+	return 		morphL, morphR;
+}
+
+
+//	//	//	LTO (Linear Trapezoidal Optimised, Simper)
+//	//	//	Alternative version, in practice we use these for EQ-ing, above for individual filters
+
+// the linear filter - as far as I know this is the core filter used in Ableton Live 'EQ8'
+// we use this filter section to create all of our filters, types summed on output
+svfSection(v0, a1, a2, a3, m0, m1, m2)			// a's = coefficients, m's = mixing gains
+{
+	History	ic1eq(0), ic2eq(0);
+
+	v3		=  v0 - ic2eq;
+	v1		= (a1 * ic1eq) + (a2 * v3);
+	v2		=  ic2eq + (a2 * ic1eq) + (a3 * v3);
+	ic1eq	= (v1 + v1) - ic1eq;
+	ic2eq	= (v2 + v2) - ic2eq;
+
+	return	(m0 * v0) + (m1 * v1) + (m2 * v2);
+}
+
+svfSectionReset(v0, a1, a2, a3, m0, m1, m2, reset)	// a's = coefficients, m's = mixing gains
+{
+	History	ic1eq(0), ic2eq(0);
+	if (reset) {
+		ic1eq = 0;
+		ic2eq = 0;
+	}
+
+	v3		=  v0 - ic2eq;
+	v1		= (a1 * ic1eq) + (a2 * v3);
+	v2		=  ic2eq + (a2 * ic1eq) + (a3 * v3);
+	ic1eq	= (v1 + v1) - ic1eq;
+	ic2eq	= (v2 + v2) - ic2eq;
+
+	return	(m0 * v0) + (m1 * v1) + (m2 * v2);
+}
+
+/*
+	Calculators ("filter" parameter is integer index - sorry, that is gen~)
+
+	Index	Filter
+
+	0 		Bypass
+	1 		Lowpass
+	2 		Highpass
+	3 		Bandpass
+	4 		Peak
+	5 		Notch
+	6 		Resonant
+	7 		Allpass
+	8 		Bell
+	9 		Lowshelf
+	10 		Highshelf
+*/
+// make a1, a2, a3 & summing gains
+// look how simple this is compared to Direct Form !
+svfSectionCoeff(filter, cutoff, gain, Q)		// gain is Linear !
+{
+	a1, a2, a3		= 0;						// coefficients
+	m0, m1, m2		= 0;						// mixing gains
+
+	g	= tanA2(PI * cutoff / SAMPLERATE);
+
+	if ((filter > 0) && (filter < 8)) {
+
+//		A	= expA(0.11512925464970 * gain) + 0.000128;	// dBtoA, if gain was in dB
+		A 	= maximum(gain, 0.001);
+		k	= 1 / Q;							// 'adaptive Q' goes here ...
+		a1	= 1 / (1 + g * (g + k));
+		a2	= g * a1;
+		a3	= g * a2;
+
+		if				(filter == 1) {			// LOWPASS
+				m0	=  0;
+				m1	=  0;
+				m2	=  A;
+		} else if		(filter == 2) {			// HIGHPASS
+				m0	=  A;
+				m1	= -k * A;
+				m2	= -A;
+		} else if		(filter == 3) {			// BANDPASS (CLASSIC)
+				m0	=  0;
+				m1	=  A;
+				m2	=  0;
+		} else if		(filter == 4) {			// PEAK
+				m0	=  A;
+				m1	= -k * A;
+				m2	= -2 * A;
+		} else if		(filter == 5) {			// NOTCH
+				m0	=  A;
+				m1	= -k * A;
+				m2	=  0;
+		} else if       (filter == 6) {			// RESONANT (BANDPASS) (accepts much higher 'Q')
+				m0	=  0;
+				m1	=  k * A;
+				m2	=  0;
+		} else {	//	(filter == 7) {			// ALLPASS (normalised)
+				m0	=  1;
+				m1	= -k;
+				m2	=  1;
+		}
+
+	} else if ((filter >= 8) && (filter <= 10)) {
+
+//		A	= fastpow(10, (gain * 0.025)) + 0.028652;	// if gain was in dB, instead of below
+		A 	= sqrt(maximum(gain, 0.001));
+		AA	= A * A;
+
+		if				(filter == 8) {			// BELL
+			k	= 1 / (Q * A);
+			a1	= 1 / (1 + g * (g + k));
+			a2	= g * a1;
+			a3	= g * a2;
+
+			m0	= 1;
+			m1	= k * (AA - 1);
+			m2	= 0;
+
+		} else {	//	(filter == 9 || 10)
+
+			sA	= sqrt(A);
+			k	= 1 / Q;
+
+			if			(filter == 9) {			// LOWSHELF
+				g	= g / sA;
+				a1	= 1 / (1 + g * (g + k));
+				a2	= g * a1;
+				a3	= g * a2;
+
+				m0	= 1;
+				m1	= k * (A - 1);
+				m2	= AA - 1;
+
+			} else { //	(filter == 10)			// HIGHSELF
+
+				g	= g * sA;
+				a1	= 1 / (1 + g * (g + k));
+				a2	= g * a1;
+				a3	= g * a2;
+
+				m0	= AA;
+				m1	= k * (1 - A) * A;
+				m2	= 1 - AA;
+			}
+
+		}
+
+	} else {	//		(filter <= 0 || >= 11)	// BYPASS
+		a1, a2, a3	= 0;
+		m1, m2		= 0;
+		m0			= 1;
+	}
+
+	return	a1, a2, a3, m0, m1, m2;
+}
+
+// version for gen no tilde, because Max, must pass in samplerate
+svfSectionCoeffNoTilde(filter, cutoff, gain, Q, AUDIO_SR=48000)	// gain is Linear !
+{
+	a1, a2, a3		= 0;						// coefficients
+	m0, m1, m2		= 0;						// mixing gains
+
+	g	= tanA2(PI * cutoff / AUDIO_SR);
+
+	if ((filter > 0) && (filter < 8)) {
+
+//		A	= expA(0.11512925464970 * gain) + 0.000128;	// dBtoA, if gain was in dB
+		A 	= maximum(gain, 0.001);
+		k	= 1 / Q;							// 'adaptive Q' goes here ...
+		a1	= 1 / (1 + g * (g + k));
+		a2	= g * a1;
+		a3	= g * a2;
+
+		if				(filter == 1) {			// LOWPASS
+				m0	=  0;
+				m1	=  0;
+				m2	=  A;
+		} else if		(filter == 2) {			// HIGHPASS
+				m0	=  A;
+				m1	= -k * A;
+				m2	= -A;
+		} else if		(filter == 3) {			// BANDPASS (CLASSIC)
+				m0	=  0;
+				m1	=  A;
+				m2	=  0;
+		} else if		(filter == 4) {			// PEAK
+				m0	=  A;
+				m1	= -k * A;
+				m2	= -2 * A;
+		} else if		(filter == 5) {			// NOTCH
+				m0	=  A;
+				m1	= -k * A;
+				m2	=  0;
+		} else if       (filter == 6) {			// RESONANT (BANDPASS) (accepts much higher 'Q')
+				m0	=  0;
+				m1	=  k * A;
+				m2	=  0;
+		} else {	//	(filter == 7) {			// ALLPASS (normalised)
+				m0	=  1;
+				m1	= -k;
+				m2	=  1;
+		}
+
+	} else if ((filter >= 8) && (filter <= 10)) {
+
+//		A	= fastpow(10, (gain * 0.025)) + 0.028652;	// if gain was in dB, instead of below
+		A 	= sqrt(maximum(gain, 0.001));
+		AA	= A * A;
+
+		if				(filter == 8) {			// BELL
+			k	= 1 / (Q * A);
+			a1	= 1 / (1 + g * (g + k));
+			a2	= g * a1;
+			a3	= g * a2;
+
+			m0	= 1;
+			m1	= k * (AA - 1);
+			m2	= 0;
+
+		} else {	//	(filter == 9 || 10)
+
+			sA	= sqrt(A);
+			k	= 1 / Q;
+
+			if			(filter == 9) {			// LOWSHELF
+				g	= g / sA;
+				a1	= 1 / (1 + g * (g + k));
+				a2	= g * a1;
+				a3	= g * a2;
+
+				m0	= 1;
+				m1	= k * (A - 1);
+				m2	= AA - 1;
+
+			} else { //	(filter == 10)			// HIGHSELF
+
+				g	= g * sA;
+				a1	= 1 / (1 + g * (g + k));
+				a2	= g * a1;
+				a3	= g * a2;
+
+				m0	= AA;
+				m1	= k * (1 - A) * A;
+				m2	= 1 - AA;
+			}
+
+		}
+
+	} else {	//		(filter <= 0 || >= 11)	// BYPASS
+		a1, a2, a3	= 0;
+		m1, m2		= 0;
+		m0			= 1;
+	}
+
+	return	a1, a2, a3, m0, m1, m2;
+}
+
+// all in one section for use in gen~/GenExpr
+eviFilterLto(x, cutoff, db, Q, filter, smooth=0)	// gain in dB, smooth time in ms
+{
+	History efldummy(0);
+	smoothsecs	= smooth * 0.001;
+	gain 		= dbtoaApprox(db);
+	a1, a2, a3, m0, m1, m2	= svfSectionCoeff(filter, cutoff, gain, Q);
+	if (smooth > 0) {
+		m0, m1, m2 			= expsmoothBank3(m0, m1, m2, smoothsecs);
+	}
+	filtered 	= svfSection(x, a1, a2, a3, m0, m1, m2);
+	return 		filtered;
+}
+
+eviFilterLtoReset(x, cutoff, db, Q, filter, reset, smooth=0)	// gain in dB, smooth time in ms
+{
+	History eflrdummy(0);
+	smoothsecs	= smooth * 0.001;
+	gain 		= dbtoaApprox(db);
+	a1, a2, a3, m0, m1, m2	= svfSectionCoeff(filter, cutoff, gain, Q);
+	if (smooth > 0) {
+		m0, m1, m2 			= expsmoothBank3(m0, m1, m2, smoothsecs);
+	}
+	filtered 	= svfSectionReset(x, a1, a2, a3, m0, m1, m2, reset);
+	return 		filtered;
+}
+
+/*
+	EQ Calculators ("filter" parameter is integer index - sorry, that is gen~)
+
+	Index	Filter
+
+	0 		Bypass
+	1 		Highpass
+	2 		Lowshelf
+	3 		Bell
+	4 		Notch
+	5 		Highshelf
+	6 		Lowpass
+*/
+// coefficients just for EQ-ing, note different ordering as well
+svfSectionCoeffEq(filter, cutoff, gain, Q)		// gain is Linear !
+{
+	a1, a2, a3		= 0;						// coefficients
+	m0, m1, m2		= 0;						// mixing gains
+
+	g	= tanA2(PI * cutoff / SAMPLERATE);
+
+	if				(filter == 1) {				// HIGHPASS
+		A 	= maximum(gain, 0.001);
+		k	= 1 / Q;
+		a1	= 1 / (1 + g * (g + k));
+		a2	= g * a1;
+		a3	= g * a2;
+		
+		m0	=  A;
+		m1	= -k * A;
+		m2	= -A;
+	} else if		(filter == 2) {				// LOWSHELF
+		A 	= sqrt(maximum(gain, 0.001));
+		AA	= A * A;
+		sA	= sqrt(A);
+		k	= 1 / Q;
+
+		g	= g / sA;
+		a1	= 1 / (1 + g * (g + k));
+		a2	= g * a1;
+		a3	= g * a2;
+
+		m0	= 1;
+		m1	= k * (A - 1);
+		m2	= AA - 1;
+	} else if		(filter == 3) {				// BELL
+		A 	= sqrt(maximum(gain, 0.001));
+		AA	= A * A;
+		k	= 1 / (Q * A);
+
+		a1	= 1 / (1 + g * (g + k));
+		a2	= g * a1;
+		a3	= g * a2;
+
+		m0	= 1;
+		m1	= k * (AA - 1);
+		m2	= 0;
+	} else if		(filter == 4) {				// NOTCH
+		A 	= maximum(gain, 0.001);
+		k	= 1 / Q;
+		a1	= 1 / (1 + g * (g + k));
+		a2	= g * a1;
+		a3	= g * a2;
+
+		m0	=  A;
+		m1	= -k * A;
+		m2	=  0;
+
+	} else if 		(filter == 5) {				// HIGHSELF
+		A 	= sqrt(maximum(gain, 0.001));
+		AA	= A * A;
+		sA	= sqrt(A);
+		k	= 1 / Q;
+
+		g	= g * sA;
+		a1	= 1 / (1 + g * (g + k));
+		a2	= g * a1;
+		a3	= g * a2;
+
+		m0	= AA;
+		m1	= k * (1 - A) * A;
+		m2	= 1 - AA;
+	} else if		(filter == 6) {				// LOWPASS
+		A 	= maximum(gain, 0.001);
+		k	= 1 / Q;
+		a1	= 1 / (1 + g * (g + k));
+		a2	= g * a1;
+		a3	= g * a2;
+
+		m0	=  0;
+		m1	=  0;
+		m2	=  A;
+	} else {	//	(filter <= 0 || >= 7)		// BYPASS
+		a1, a2, a3	= 0;
+		m1, m2		= 0;
+		m0			= 1;
+	}
+
+	return	a1, a2, a3, m0, m1, m2;
+}
+
+// version for gen no tilde, because Max, must pass in samplerate
+svfSectionCoeffEqNoTilde(filter, cutoff, gain, Q, AUDIO_SR=48000)	// gain is Linear !
+{
+	a1, a2, a3		= 0;						// coefficients
+	m0, m1, m2		= 0;						// mixing gains
+
+	g	= tanA2(PI * cutoff / AUDIO_SR);
+
+	if				(filter == 1) {				// HIGHPASS
+		A 	= maximum(gain, 0.001);
+		k	= 1 / Q;
+		a1	= 1 / (1 + g * (g + k));
+		a2	= g * a1;
+		a3	= g * a2;
+		
+		m0	=  A;
+		m1	= -k * A;
+		m2	= -A;
+	} else if		(filter == 2) {				// LOWSHELF
+		A 	= sqrt(maximum(gain, 0.001));
+		AA	= A * A;
+		sA	= sqrt(A);
+		k	= 1 / Q;
+
+		g	= g / sA;
+		a1	= 1 / (1 + g * (g + k));
+		a2	= g * a1;
+		a3	= g * a2;
+
+		m0	= 1;
+		m1	= k * (A - 1);
+		m2	= AA - 1;
+	} else if		(filter == 3) {				// BELL
+		A 	= sqrt(maximum(gain, 0.001));
+		AA	= A * A;
+		k	= 1 / (Q * A);
+
+		a1	= 1 / (1 + g * (g + k));
+		a2	= g * a1;
+		a3	= g * a2;
+
+		m0	= 1;
+		m1	= k * (AA - 1);
+		m2	= 0;
+	} else if		(filter == 4) {				// NOTCH
+		A 	= maximum(gain, 0.001);
+		k	= 1 / Q;
+		a1	= 1 / (1 + g * (g + k));
+		a2	= g * a1;
+		a3	= g * a2;
+
+		m0	=  A;
+		m1	= -k * A;
+		m2	=  0;
+
+	} else if 		(filter == 5) {				// HIGHSELF
+		A 	= sqrt(maximum(gain, 0.001));
+		AA	= A * A;
+		sA	= sqrt(A);
+		k	= 1 / Q;
+
+		g	= g * sA;
+		a1	= 1 / (1 + g * (g + k));
+		a2	= g * a1;
+		a3	= g * a2;
+
+		m0	= AA;
+		m1	= k * (1 - A) * A;
+		m2	= 1 - AA;
+	} else if		(filter == 6) {				// LOWPASS
+		A 	= maximum(gain, 0.001);
+		k	= 1 / Q;
+		a1	= 1 / (1 + g * (g + k));
+		a2	= g * a1;
+		a3	= g * a2;
+
+		m0	=  0;
+		m1	=  0;
+		m2	=  A;
+	} else {	//	(filter <= 0 || >= 7)		// BYPASS
+		a1, a2, a3	= 0;
+		m1, m2		= 0;
+		m0			= 1;
+	}
+
+	return	a1, a2, a3, m0, m1, m2;
+}
+
+//	//	//	all in one sections for using in parametric EQ-ing etc
+
+eviFilterEq(x, cutoff, db, Q, filter, smooth=0)	// gain in dB, smooth time in ms)
+{
+	History 	efedummy(0);
+	smoothsecs	= smooth * 0.001;
+	gain 		= dbtoaApprox(db);
+	a1, a2, a3, m0, m1, m2	= svfSectionCoeffEq(filter, cutoff, gain, Q);
+	if (smooth > 0) {
+		m0, m1, m2 			= expsmoothBank3(m0, m1, m2, smoothsecs);
+	}
+	eq 			= svfSection(x, a1, a2, a3, m0, m1, m2);
+	return 		eq;
+}
+
+// for 'eviFilterEq4()' "filter" must only be lowpass or highpass !
+eviFilterEq4(x, cutoff, db, Q, filter, smooth=0)	// gain in dB, smooth time in ms)
+{
+	History 	efe4dummy(0);
+	smoothsecs	= smooth * 0.001;
+	gain 		= dbtoaApprox(db);
+	a11, a21, a31, m01, m11, m21	= svfSectionCoeffEq(filter, cutoff, gain, Q * 0.666666);//sqrt2);
+	a12, a22, a32, m02, m12, m22	= svfSectionCoeffEq(filter, cutoff, gain, Q * 0.333333);//sqrt1_2);
+	if (smooth > 0) {
+		m01, m11, m21	= expsmoothBank3(m01, m11, m21, smoothsecs);
+		m02, m12, m22	= expsmoothBank3(m02, m12, m22, smoothsecs);
+	}
+	eq1 		= svfSection(x, a11, a21, a31, m01, m11, m21);
+	eq2 		= svfSection(eq1, a12, a22, a32, m02, m12, m22);
+	return 		eq2;
+}
+
+eviFilterEqStereo(xL, xR, cutoff, db, Q, filter, smooth=0)	// gain in dB, smooth time in ms)
+{
+	History 	efesdummy(0);
+	smoothsecs	= smooth * 0.001;
+	gain 		= dbtoaApprox(db);
+	a1, a2, a3, m0, m1, m2	= svfSectionCoeffEq(filter, cutoff, gain, Q);
+	if (smooth > 0) {
+		m0, m1, m2 			= expsmoothBank3(m0, m1, m2, smoothsecs);
+	}
+	eqL			= svfSection(xL, a1, a2, a3, m0, m1, m2);
+	eqR			= svfSection(xR, a1, a2, a3, m0, m1, m2);
+	return 		eqL, eqR;
+}
+
+// for 'eviFilterEqStereo4()' "filter" must only be lowpass or highpass !
+eviFilterEqStereo4(xL, xR, cutoff, db, Q, filter, smooth=0)	// gain in dB, smooth time in ms)
+{
+	History 	efes4dummy(0);
+	smoothsecs	= smooth * 0.001;
+	gain 		= dbtoaApprox(db);
+	a11, a21, a31, m01, m11, m21	= svfSectionCoeffEq(filter, cutoff, gain, Q * 0.666666);//sqrt2);
+	a12, a22, a32, m02, m12, m22	= svfSectionCoeffEq(filter, cutoff, gain, Q * 0.333333);//sqrt1_2);
+	if (smooth > 0) {
+		m01, m11, m21	= expsmoothBank3(m01, m11, m21, smoothsecs);
+		m02, m12, m22	= expsmoothBank3(m02, m12, m22, smoothsecs);
+	}
+	eq1L 		= svfSection(xL, a11, a21, a31, m01, m11, m21);
+	eq1R 		= svfSection(xR, a11, a21, a31, m01, m11, m21);
+	eq2L 		= svfSection(eq1L, a12, a22, a32, m02, m12, m22);
+	eq2R 		= svfSection(eq1R, a12, a22, a32, m02, m12, m22);
+	return 		eq2L, eq2R;
+}
+
+eviParametric2(x, filter1, cutoff1, db1, Q1, filter2, cutoff2, db2, Q2, smooth=0)
+{
+	History ep2dummy(0);
+	band1	= eviFilterEq(x, cutoff1, db1, Q1, filter1, smooth=smooth);
+	band2	= eviFilterEq(band1, cutoff2, db2, Q2, filter2, smooth=smooth);
+	return 	band2;
+}
+
+eviParametric3(x, filter1, cutoff1, db1, Q1, filter2, cutoff2, db2, Q2, filter3, cutoff3, db3, Q3, smooth=0)
+{
+	History ep3dummy(0);
+	band1	= eviFilterEq(x,		cutoff1, db1, Q1, filter1, smooth=smooth);
+	band2	= eviFilterEq(band1,	cutoff2, db2, Q2, filter2, smooth=smooth);
+	band3	= eviFilterEq(band2,	cutoff3, db3, Q3, filter3, smooth=smooth);
+	return 	band3;
+}
+
+eviParametricStereo2(xL, xR, filter1, cutoff1, db1, Q1, filter2, cutoff2, db2, Q2, smooth=0)
+{
+	History eps2dummy(0);
+	band1L, band1R	= eviFilterEqStereo(xL, xR, cutoff1, db1, Q1, filter1, smooth=smooth);
+	band2L, band2R	= eviFilterEqStereo(band1L, band1R, cutoff2, db2, Q2, filter2, smooth=smooth);
+	return 	band2L, band2R;
+}
+
+eviParametricStereo3(xL, xR, filter1, cutoff1, db1, Q1, filter2, cutoff2, db2, Q2, filter3, cutoff3, db3, Q3, smooth=0)
+{
+	History eps3dummy(0);
+	band1L, band1R	= eviFilterEqStereo(xL,		xR,		cutoff1, db1, Q1, filter1, smooth=smooth);
+	band2L, band2R	= eviFilterEqStereo(band1L, band1R,	cutoff2, db2, Q2, filter2, smooth=smooth);
+	band3L, band3R	= eviFilterEqStereo(band2L, band2R,	cutoff3, db3, Q3, filter3, smooth=smooth);
+	return 	band3L, band3R;
+}
+
+// ...note, we have reached the limit of args to a GenExpr function
+// ...for higher order EQ-ing, build from 'eviFilterEq()' etc inline
+
+
+//	//	//	all-in-one sections (Simper)
+
+//	//	//	LTO
+
+svfLtoMulti(v0, cutoff, Q)
+{
+	History v0z(0), v1(0), v2(0);
+
+	g	= tanA2(PI * cutoff / SAMPLERATE);
+	k	= 1 / Q;
+	gk	= g + k;
+
+	ginv = g / (1 + g * gk);
+	g1	 = ginv;
+	g2	 = (gk + gk) * ginv;
+	g3	 = g * ginv;
+	g4	 = ginv + ginv;
+
+	vlz	= v1;
+	v2z	= v2;
+	v3	= v0 + v0z - (v2z + v2z);
+	v1 += g1 * v3 - g2 * vlz;
+	v2 += g3 * v3 + g4 * vlz;
+	v0z	= v0;
+
+	notch	= v0 - k * band;		// notch
+	low		= v2;					// low
+	band	= v1;					// band
+	high	= notch - low;			// high
+
+	return	low, band, high, notch;
+}
+
+svfLtoSingle(v0, cutoff, Q, filt)
+{
+	History v0z(0), v1(0), v2(0);
+
+	g	= tanA2(PI * cutoff / SAMPLERATE);
+	k	= 1 / Q;
+	gk	= g + k;
+
+	ginv = g / (1 + g * gk);
+	g1	 = ginv;
+	g2	 = (gk + gk) * ginv;
+	g3	 = g * ginv;
+	g4	 = ginv + ginv;
+
+	vlz	= v1;
+	v2z	= v2;
+	v3	= v0 + v0z - (v2z + v2z);
+	v1 += g1 * v3 - g2 * vlz;
+	v2 += g3 * v3 + g4 * vlz;
+	v0z	= v0;
+
+	y	= 0;
+	if (filt == 1) {
+		y	= v1;					// band
+	} else if (filt == 2) {
+		y	= v0 - k * v1 - v2;		// high
+	} else if (filt == 3) {
+		y	= v0 - k * v1;			// notch
+	} else {// filt == 0
+		y	= v2;					// low
+    }
+
+	return	y;
+}
+
+svfLtoBell(v00, cutoff, gain, Q)	// gain in dB !
+{
+	History v0z(0), v1(0), v2(0);
+
+	gb	= fastpow(10, (gain * 0.025)) + 0.028652;
+	g	= tanA2(PI * cutoff / SAMPLERATE);
+	k	= (1 / Q) / gb;
+	gk	= g + k;
+
+	gi	 = k * (gb * gb - 1);
+	ginv = g / (1 + g * gk);
+	g1	 = ginv;
+	g2	 = (gk + gk) * ginv;
+	g3	 = g * ginv;
+	g4	 = ginv + ginv;
+
+	v0	= gi * v00;
+	vlz	= v1;
+	v2z	= v2;
+	v3	= v0 + v0z - (v2z + v2z);
+	v1 += g1 * v3 - g2 * vlz;
+	v2 += g3 * v3 + g4 * vlz;
+	v0z	= v0;
+
+	return	v00 + v1;				// bell
+}
+
+//	//	//	Sin
+
+// Solved for SIN (theoretically more stable low-end response when modulating
+// but in always-64-bit-doubles environment of Gen should not make much difference.
+// But these filters are different and interesting and support easy non-linear
+// behaviour in a simple way
+
+// i think this is the filter i manipulate for [evi.lores~]
+svfSinMulti(X, cutoff, damp)
+{
+	History ic1eq(0), ic2eq(0);
+
+	k	= 1 - (damp * 0.992);//1 - damp;	// shitty
+	w	= PI * cutoff / SAMPLERATE;
+	s1	= sin73(w);
+	s2	= sin73(w + w);
+	nrm	= 1 / (2 + (k * s1));				// k == damp
+	g0	= s2 * nrm;
+	g1	= ((-2 * s1 * s1) - (k * s2)) * nrm;
+	g2	= ((s1 + s1) * s1) * nrm;
+
+	t0	=   X - ic2eq;						// X == v0
+	gt1	=  g1 * ic1eq;
+	gt0	=  g0 * ic1eq;
+	t1	= (g0 * t0) + gt1;
+	t2	= (g2 * t0) + gt0;
+
+	band	=  t1   +  ic1eq;
+	low		=  t2   +  ic2eq;
+	high	= (X    - (damp * band)) - low;
+	peak	=  high -  low;
+	notch	=  high +  low;
+
+	ic1eq  += (t1 + t1);
+	ic2eq  += (t2 + t2);
+
+	return low, band, high, peak, notch;
+}
+
+svfSinSingle(X, cutoff, damp, filt)
+{
+	History ic1eq(0), ic2eq(0);
+
+	k	= 1 - (damp * 0.992);//1 - damp;	// shitty
+	w	= PI * cutoff / SAMPLERATE;
+	s1	= sin73(w);
+	s2	= sin73(w + w);
+	nrm	= 1 / (2 + (k * s1));				// k == damp
+	g0	= s2 * nrm;
+	g1	= ((-2 * s1 * s1) - (k * s2)) * nrm;
+	g2	= ((s1 + s1) * s1) * nrm;
+
+	t0	=   X - ic2eq;						// X == v0
+	gt1	=  g1 * ic1eq;
+	gt0	=  g0 * ic1eq;
+	t1	= (g0 * t0) + gt1;
+	t2	= (g2 * t0) + gt0;
+
+	y	= 0;
+	if 				(filt == 0) {
+		y		= t2 + ic2eq;				// low
+	} else if 		(filt == 1) {
+		y		= t1 + ic1eq;				// band
+	} else {	//	(filt > 1) {
+		band	= t1 + ic1eq;
+		low		= t2 + ic2eq;
+		high	= (X - (k * band)) - low;
+		if			(filt == 2) {
+			y	= high;						// high
+		} else if	(filt == 3) {
+			y	= high - low;				// peak
+		} else { //  filt == 4) {
+			y	= high + low;				// notch
+		}
+	}
+
+	ic1eq  += (t1 + t1);
+	ic2eq  += (t2 + t2);
+
+	return	y;
+}
+
