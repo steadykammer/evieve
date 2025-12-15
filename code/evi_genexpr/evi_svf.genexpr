@@ -7,7 +7,7 @@ require("evi_smooth.genexpr");	// includes '_utilities' & '_approx'
 
 //	//	//	TPT (Topology Preserving Transform, Zavalishin et al)
 //	//	//	This linear core is also used as the basis for many of the nonlinear filters in evieve
-//	//	//	This is also used in the linear [evi.svf~] replacement
+//	//	//	This is also used in the linear [evi.svf~] replacement & [evi.multimode~]
 
 // the linear filter
 // we use this filter section to create all of our filter types by summing the outputs
@@ -1106,7 +1106,434 @@ eviParametricStereo3(xL, xR, filter1, cutoff1, db1, Q1, filter2, cutoff2, db2, Q
 // ...for higher order EQ-ing, build from 'eviFilterEq()' etc inline
 
 
-//	//	//	all-in-one sections (Simper)
+//	//	//	individual filter sections using TPT
+
+// individual filter coefficients for the TPT SVF
+
+tptSvfCoeffLowpass(cutoff, gain, Q)		// gain is linear !
+{
+	w	= PI * cutoff / SAMPLERATE;		// prewarp cutoff
+	g 	= tanA2(w);						// embedded integrator gain
+	r 	= 1 / Q;						// damp
+
+	cL	= gain;
+	cB	= 0;
+	cH	= 0;
+
+	h	= 1 / (1 + (r + g) * g);		// feedback factor
+
+	return	g, r, h, cL, cB, cH;
+}
+
+tptSvfCoeffHighpass(cutoff, gain, Q)	// gain is linear !
+{
+	w	= PI * cutoff / SAMPLERATE;		// prewarp cutoff
+	g 	= tanA2(w);						// embedded integrator gain
+	r 	= 1 / Q;						// damp
+
+	cL	= 0;
+	cB	= 0;
+	cH	= gain;
+
+	h	= 1 / (1 + (r + g) * g);		// feedback factor
+
+	return	g, r, h, cL, cB, cH;
+}
+
+tptSvfCoeffBandpass(cutoff, gain, Q)	// gain is linear !
+{
+	w	= PI * cutoff / SAMPLERATE;		// prewarp cutoff
+	g 	= tanA2(w);						// embedded integrator gain
+	r 	= 1 / Q;						// damp
+
+	cL	= 0;
+	cB	= gain;
+	cH	= 0;
+
+	h	= 1 / (1 + (r + g) * g);		// feedback factor
+
+	return	g, r, h, cL, cB, cH;
+}
+
+tptSvfCoeffBandreject(cutoff, gain, Q)	// gain is linear !
+{
+	w	= PI * cutoff / SAMPLERATE;		// prewarp cutoff
+	g 	= tanA2(w);						// embedded integrator gain
+	r 	= 1 / Q;						// damp
+
+	cL	= gain;
+	cB	= 0;
+	cH	= gain;
+
+	h	= 1 / (1 + (r + g) * g);		// feedback factor
+
+	return	g, r, h, cL, cB, cH;
+}
+
+tptSvfCoeffResonant(cutoff, gain, Q)	// gain is linear !
+{
+	w	= PI * cutoff / SAMPLERATE;		// prewarp cutoff
+	g 	= tanA2(w);						// embedded integrator gain
+	r 	= 1 / Q;						// damp
+
+	cL	= 0;
+	cB	= r * gain;
+	cH	= 0;
+
+	h	= 1 / (1 + (r + g) * g);		// feedback factor
+
+	return	g, r, h, cL, cB, cH;
+}
+
+tptSvfCoeffPeakNotch(cutoff, gain, Q)	// gain is linear !
+{
+	w	= PI * cutoff / SAMPLERATE;		// prewarp cutoff
+	g 	= tanA2(w);						// embedded integrator gain
+
+	r	= w / ((g + g) * Q);
+	r	= g / tanA2(w / (r + sqrt(r * r + 1)));
+	r	= r * r;
+	s 	= sqrt(((r * r + 1) / r - 2) / (gain + gain + gain + gain));
+	r	= (s + s);
+	cL	= 1;
+	cB	= r * gain;
+	cH	= 1;
+
+	h	= 1 / (1 + (r + g) * g);		// feedback factor
+
+	return	g, r, h, cL, cB, cH;
+}
+
+tptSvfCoeffLowshelf(cutoff, gain, Q)	// gain is linear !
+{
+	w	= PI * cutoff / SAMPLERATE;		// prewarp cutoff
+	g 	= tanA2(w);						// embedded integrator gain
+
+	A	= sqrt(gain);
+	g  /= sqrt(A);
+	rh	= 0.5 / Q;
+	rh += sqrt((rh * rh) + 1);
+	r  -= 1 / rh;
+	cL	= gain;
+	cB	= r * A;
+	cH	= 1;
+
+	h	= 1 / (1 + (r + g) * g);		// feedback factor
+
+	return	g, r, h, cL, cB, cH;
+}
+
+tptSvfCoeffHighshelf(cutoff, gain, Q)	// gain is linear !
+{
+	w	= PI * cutoff / SAMPLERATE;		// prewarp cutoff
+	g 	= tanA2(w);						// embedded integrator gain
+
+	A	= sqrt(gain);
+	g  *= sqrt(A);
+	rh	= 0.5 / Q;
+	rh += sqrt((rh * rh) + 1);
+	r  -= 1 / rh;
+	cL	= 1;
+	cB	= r * A;
+	cH	= gain;
+
+	h	= 1 / (1 + (r + g) * g);		// feedback factor
+
+	return	g, r, h, cL, cB, cH;
+}
+
+// no "gain" used in this filter, but we remain consistent
+// with inlets in case of patching situations, bad idea?
+// (we might actually add gain one day)
+tptSvfCoeffAllpassNorm(cutoff, gain, Q)	// gain is linear !
+{
+	w	= PI * cutoff / SAMPLERATE;		// prewarp cutoff
+	g 	= tanA2(w);						// embedded integrator gain
+	r 	= 1 / Q;						// damp
+
+	cL	=  1;
+	cB	= -r;
+	cH	=  1;
+
+	h	= 1 / (1 + (r + g) * g);		// feedback factor
+
+	return	g, r, h, cL, cB, cH;
+}
+
+// filter sections (individual sections for use in gen~/GenExpr)
+
+eviFilterLowpass(x, cutoff, db, Q, smooth=0)	// gain in dB, smooth time in ms
+{
+	History efldummy(0);
+	smoothsecs	= smooth * 0.001;
+	gain 		= dbtoaApprox(db);
+	g, r, h, cL, cB, cH = tptSvfCoeffLowpass(cutoff, gain, Q);
+	yL, yB, yH 	= tptSvf(x, g, r, h);
+	if (smooth > 0) {
+		cL 		= expsmooth(cL, smoothsecs);
+	}
+	lowpass		= (yL * cL);
+	return 		lowpass;
+}
+
+eviFilterLowpassStereo(xL, xR, cutoff, db, Q, smooth=0)
+{
+	History eflsdummy(0);
+	smoothsecs	= smooth * 0.001;
+	gain 		= dbtoaApprox(db);
+	g, r, h, cL, cB, cH = tptSvfCoeffLowpass(cutoff, gain, Q);
+	yLL, yBL, yHL 	= tptSvf(xL, g, r, h);
+	yLR, yBR, yHR 	= tptSvf(xR, g, r, h);
+	if (smooth > 0) {
+		cL 		= expsmooth(cL, smoothsecs);
+	}
+	lowpassL	= (yLL * cL);
+	lowpassR	= (yLR * cL);
+	return 		lowpassL, lowpassR;
+}
+
+eviFilterHighpass(x, cutoff, db, Q, smooth=0)	// gain in dB, smooth time in ms
+{
+	History efhdummy(0);
+	smoothsecs	= smooth * 0.001;
+	gain 		= dbtoaApprox(db);
+	g, r, h, cL, cB, cH = tptSvfCoeffHighpass(cutoff, gain, Q);
+	yL, yB, yH 	= tptSvf(x, g, r, h);
+	if (smooth > 0) {
+		cH 		= expsmooth(cH, smoothsecs);
+	}
+	highpass	= (yH * cH);
+	return 		highpass;
+}
+
+eviFilterHighpassStereo(xL, xR, cutoff, db, Q, smooth=0)
+{
+	History efhsdummy(0);
+	smoothsecs	= smooth * 0.001;
+	gain 		= dbtoaApprox(db);
+	g, r, h, cL, cB, cH = tptSvfCoeffHighpass(cutoff, gain, Q);
+	yLL, yBL, yHL 	= tptSvf(xL, g, r, h);
+	yLR, yBR, yHR 	= tptSvf(xR, g, r, h);
+	if (smooth > 0) {
+		cH		= expsmooth(cH, smoothsecs);
+	}
+	highpassL	= (yHL * cH);
+	highpassR	= (yHR * cH);
+	return 		highpassL, highpassR;
+}
+
+eviFilterBandpass(x, cutoff, db, Q, smooth=0)	// gain in dB, smooth time in ms
+{
+	History efbdummy(0);
+	smoothsecs	= smooth * 0.001;
+	gain 		= dbtoaApprox(db);
+	g, r, h, cL, cB, cH = tptSvfCoeffBandpass(cutoff, gain, Q);
+	yL, yB, yH 	= tptSvf(x, g, r, h);
+	if (smooth > 0) {
+		cB 		= expsmooth(cB, smoothsecs);
+	}
+	bandpass	= (yB * cB);
+	return 		bandpass;
+}
+
+eviFilterBandpassStereo(xL, xR, cutoff, db, Q, smooth=0)
+{
+	History efbsdummy(0);
+	smoothsecs	= smooth * 0.001;
+	gain 		= dbtoaApprox(db);
+	g, r, h, cL, cB, cH = tptSvfCoeffBandpass(cutoff, gain, Q);
+	yLL, yBL, yHL 	= tptSvf(xL, g, r, h);
+	yLR, yBR, yHR 	= tptSvf(xR, g, r, h);
+	if (smooth > 0) {
+		cB 		= expsmooth(cB, smoothsecs);
+	}
+	bandpassL	= (yBL * cB);
+	bandpassR	= (yBR * cB);
+	return 		bandpassL, bandpassR;
+}
+
+eviFilterNotch(x, cutoff, db, Q, smooth=0)		// gain in dB, smooth time in ms
+{
+	History efndummy(0);
+	smoothsecs	= smooth * 0.001;
+	gain 		= dbtoaApprox(db);
+	g, r, h, cL, cB, cH = tptSvfCoeffBandreject(cutoff, gain, Q);
+	yL, yB, yH 	= tptSvf(x, g, r, h);
+	if (smooth > 0) {
+		cL, cH 	= expsmoothBank2(cL, cH, smoothsecs);
+	}
+	notch		= (yL * cL) + (yH * cH);
+	return 		notch;
+}
+
+eviFilterNotchStereo(xL, xR, cutoff, db, Q, smooth=0)
+{
+	History efnsdummy(0);
+	smoothsecs	= smooth * 0.001;
+	gain 		= dbtoaApprox(db);
+	g, r, h, cL, cB, cH = tptSvfCoeffBandreject(cutoff, gain, Q);
+	yLL, yBL, yHL 	= tptSvf(xL, g, r, h);
+	yLR, yBR, yHR 	= tptSvf(xR, g, r, h);
+	if (smooth > 0) {
+		cL, cH 	= expsmoothBank2(cL, cH, smoothsecs);
+	}
+	notchL		= (yLL * cL) + (yHL * cH);
+	notchR		= (yLR * cL) + (yHR * cH);
+	return 		notchL, notchR;
+}
+
+eviFilterResonant(x, cutoff, db, Q, smooth=0)		// gain in dB, smooth time in ms
+{
+	History efrdummy(0);
+	smoothsecs	= smooth * 0.001;
+	gain 		= dbtoaApprox(db);
+	g, r, h, cL, cB, cH = tptSvfCoeffResonant(cutoff, gain, Q);
+	yL, yB, yH 	= tptSvf(x, g, r, h);
+	if (smooth > 0) {
+		cB 		= expsmooth(cB, smoothsecs);
+	}
+	reson		= (yB * cB);
+	return 		reson;
+}
+
+eviFilterResonantStereo(xL, xR, cutoff, db, Q, smooth=0)
+{
+	History efrsdummy(0);
+	smoothsecs	= smooth * 0.001;
+	gain 		= dbtoaApprox(db);
+	g, r, h, cL, cB, cH = tptSvfCoeffResonant(cutoff, gain, Q);
+	yLL, yBL, yHL 	= tptSvf(xL, g, r, h);
+	yLR, yBR, yHR 	= tptSvf(xR, g, r, h);
+	if (smooth > 0) {
+		cB 		= expsmooth(cB, smoothsecs);
+	}
+	resonL		= (yBL * cB);
+	resonL		= (yBR * cB);
+	return 		resonL, resonR;
+}
+
+eviFilterBell(x, cutoff, db, Q, smooth=0)		// gain in dB, smooth time in ms
+{
+	History efbedummy(0);
+	smoothsecs	= smooth * 0.001;
+	gain 		= dbtoaApprox(db);
+	g, r, h, cL, cB, cH = tptSvfCoeffPeakNotch(cutoff, gain, Q);
+	yL, yB, yH 	= tptSvf(x, g, r, h);
+	if (smooth > 0) {
+		cB 		= expsmooth(cB, smoothsecs);
+	}
+	bell		= yL + (yB * cB) + yH;
+	return 		bell;
+}
+
+eviFilterBellStereo(xL, xR, cutoff, db, Q, smooth=0)
+{
+	History efbedummy(0);
+	smoothsecs	= smooth * 0.001;
+	gain 		= dbtoaApprox(db);
+	g, r, h, cL, cB, cH = tptSvfCoeffPeakNotch(cutoff, gain, Q);
+	yLL, yBL, yHL 	= tptSvf(xL, g, r, h);
+	yLR, yBR, yHR 	= tptSvf(xR, g, r, h);
+	if (smooth > 0) {
+		cB 		= expsmooth(cB, smoothsecs);
+	}
+	bellL		= yLL + (yBL * cB) + yHL;
+	bellR		= yLR + (yBR * cB) + yHR;
+	return 		bellL, bellR;
+}
+
+eviFilterLowshelf(x, cutoff, db, Q, smooth=0)	// gain in dB, smooth time in ms
+{
+	History eflsdummy(0);
+	smoothsecs	= smooth * 0.001;
+	gain 		= dbtoaApprox(db);
+	g, r, h, cL, cB, cH = tptSvfCoeffLowshelf(cutoff, gain, Q);
+	yL, yB, yH 	= tptSvf(x, g, r, h);
+	if (smooth > 0) {
+		cL, cB 	= expsmoothBank2(cL, cB, smoothsecs);
+	}
+	lowshelf	= (yL * cL) + (yB * cB) + yH;
+	return 		lowshelf;
+}
+
+eviFilterLowshelfStereo(xL, xR, cutoff, db, Q, smooth=0)
+{
+	History eflssdummy(0);
+	smoothsecs	= smooth * 0.001;
+	gain 		= dbtoaApprox(db);
+	g, r, h, cL, cB, cH = tptSvfCoeffLowshelf(cutoff, gain, Q);
+	yLL, yBL, yHL 	= tptSvf(xL, g, r, h);
+	yLR, yBR, yHR 	= tptSvf(xR, g, r, h);
+	if (smooth > 0) {
+		cL, cB 	= expsmoothBank2(cL, cB, smoothsecs);
+	}
+	lowshelfL	= (yLL * cL) + (yBL * cB) + yHL;
+	lowshelfR	= (yLR * cL) + (yBR * cB) + yHR;
+	return 		lowshelfL, lowshelfR;
+}
+
+eviFilterHighshelf(x, cutoff, db, Q, smooth=0)	// gain in dB, smooth time in ms
+{
+	History efhsdummy(0);
+	smoothsecs	= smooth * 0.001;
+	gain 		= dbtoaApprox(db);
+	g, r, h, cL, cB, cH = tptSvfCoeffHighshelf(cutoff, gain, Q);
+	yL, yB, yH 	= tptSvf(x, g, r, h);
+	if (smooth > 0) {
+		cB, cH 	= expsmoothBank2(cB, cH, smoothsecs);
+	}
+	highshelf	= yL + (yB * cB) + (yH * cH);
+	return 		highshelf;
+}
+
+eviFilterHighshelfStereo(xL, xR, cutoff, db, Q, smooth=0)
+{
+	History efhssdummy(0);
+	smoothsecs	= smooth * 0.001;
+	gain 		= dbtoaApprox(db);
+	g, r, h, cL, cB, cH = tptSvfCoeffHighshelf(cutoff, gain, Q);
+	yLL, yBL, yHL 	= tptSvf(xL, g, r, h);
+	yLR, yBR, yHR 	= tptSvf(xR, g, r, h);
+	if (smooth > 0) {
+		cB, cH 	= expsmoothBank2(cB, cH, smoothsecs);
+	}
+	highshelfL	= yLL + (yBL * cB) + (yHL * cH);
+	highshelfR	= yLR + (yBR * cB) + (yHR * cH);
+	return 		highshelfL, highshelfR;
+}
+
+// no "gain" used in this filter, but we remain consistent
+// with inlets in case of patching situations, bad idea?
+eviFilterAllpassNorm(x, cutoff, db, Q, smooth=0)// smooth time in ms
+{
+	History efandummy(0);
+	smoothsecs	= smooth * 0.001;
+	g, r, h, cL, cB, cH = tptSvfCoeffAllpassNorm(cutoff, 1, Q);
+	yL, yB, yH 	= tptSvf(x, g, r, h);
+	if (smooth > 0) {
+		cB 		= expsmooth(cB, smoothsecs);
+	}
+	allpass		= yL + (yB * cB) + yH;
+	return 		allpass;
+}
+
+eviFilterAllpassNormStereo(xL, xR, cutoff, db, Q, smooth=0)
+{
+	History efansdummy(0);
+	smoothsecs	= smooth * 0.001;
+	g, r, h, cL, cB, cH = tptSvfCoeffAllpassNorm(cutoff, 1, Q);
+	yLL, yBL, yHL 	= tptSvf(xL, g, r, h);
+	yLR, yBR, yHR 	= tptSvf(xR, g, r, h);
+	if (smooth > 0) {
+		cB 		= expsmooth(cB, smoothsecs);
+	}
+	allpassL	= yLL + (yBL * cB) + yHL;
+	allpassR	= yLR + (yBR * cB) + yHR;
+	return 		allpassL, allpassR;
+}
+
+
+//	//	//	different all-in-one sections (Simper)
 
 //	//	//	LTO
 

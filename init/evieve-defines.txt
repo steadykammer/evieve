@@ -60,3 +60,30 @@ max define mc.evi.biquadfilter~ mc.gen~ @gen evi_biquad_filter.gendsp @chans 2;
 
 max define evi.filter.morph~ gen~ @gen evi_filter_morph.gendsp;
 max define mc.evi.filter.morph~ mc.gen~ @gen evi_filter_morph.gendsp @chans 2;
+
+max define evi.filter.lowpass~ gen~ @gen evi_filter_lowpass.gendsp;
+max define mc.evi.filter.lowpass~ mc.gen~ @gen evi_filter_lowpass.gendsp @chans 2;
+
+max define evi.filter.highpass~ gen~ @gen evi_filter_highpass.gendsp;
+max define mc.evi.filter.highpass~ mc.gen~ @gen evi_filter_highpass.gendsp @chans 2;
+
+max define evi.filter.bandpass~ gen~ @gen evi_filter_bandpass.gendsp;
+max define mc.evi.filter.bandpass~ mc.gen~ @gen evi_filter_bandpass.gendsp @chans 2;
+
+max define evi.filter.notch~ gen~ @gen evi_filter_notch.gendsp;
+max define mc.evi.filter.notch~ mc.gen~ @gen evi_filter_notch.gendsp @chans 2;
+
+max define evi.filter.resonant~ gen~ @gen evi_filter_resonant.gendsp;
+max define mc.evi.filter.resonant~ mc.gen~ @gen evi_filter_resonant.gendsp @chans 2;
+
+max define evi.filter.bell~ gen~ @gen evi_filter_bell.gendsp;
+max define mc.evi.filter.bell~ mc.gen~ @gen evi_filter_bell.gendsp @chans 2;
+
+max define evi.filter.lowshelf~ gen~ @gen evi_filter_lowshelf.gendsp;
+max define mc.evi.filter.lowshelf~ mc.gen~ @gen evi_filter_lowshelf.gendsp @chans 2;
+
+max define evi.filter.highshelf~ gen~ @gen evi_filter_highshelf.gendsp;
+max define mc.evi.filter.highshelf~ mc.gen~ @gen evi_filter_highshelf.gendsp @chans 2;
+
+max define evi.filter.allpass~ gen~ @gen evi_filter_allpass.gendsp;
+max define mc.evi.filter.allpass~ mc.gen~ @gen evi_filter_allpass.gendsp @chans 2;
