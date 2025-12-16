@@ -82,6 +82,9 @@ max define mc.evi.filter.tilt~ mc.gen~ @gen evi_filter_tilt.gendsp @chans 2;
 max define evi.filter.allpass~ gen~ @gen evi_filter_allpass.gendsp;
 max define mc.evi.filter.allpass~ mc.gen~ @gen evi_filter_allpass.gendsp @chans 2;
 
+max define evi.filter.shelving~ gen~ @gen evi_filter_shelving.gendsp;
+max define mc.evi.filter.shelving~ mc.gen~ @gen evi_filter_shelving.gendsp @chans 2;
+
 max define evi.biquadcoeff~ gen~ @gen evi_biquad_coeff.gendsp;
 max define mc.evi.biquadcoeff~ mc.gen~ @gen evi_biquad_coeff.gendsp @chans 2;
 

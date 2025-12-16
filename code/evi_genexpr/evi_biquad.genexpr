@@ -10,7 +10,7 @@
 // Part 1: Coefficients Calculators
 // Part 2: Filter Selectors
 // Part 3: Biquad Filters
-
+// Part 4: Other Stuff
 
 //	//	//	Part 1: Coefficients Calculators
 
@@ -1368,7 +1368,7 @@ biquadTdf2(x, a0, a1, a2, b1, b2)
 	return y;
 }
 
-biquadTdf2reset(x, a0, a1, a2, b1, b2)
+biquadTdf2reset(x, a0, a1, a2, b1, b2, reset)
 {
 	History x1(0), x2(0);
 	if (reset) {
@@ -1577,6 +1577,47 @@ eviBiquadBpButterworth6(x0, cutoff)
 	return y2;
 }
 */
+
+// Hilbert transform 90º phase shifting filter using high quality 8-pole Polyphase 
+// IIR Halfband Allpass Cascade coefficients (De Soras / Niemitalo). Theoretically 
+// 'better' than the MSP (6-pole fudged) [hilbert~] :-)
+
+// @see: [evi.polyphaseiirhilbertcoeffs] and 'evi_hilbert_coefficients.js'.
+// @see: [evi.freqshift.hilbert~] abstraction for an example.
+// @see also: 'evi_freqshift_hilbert.gendsp' and 'evi_freqshift_weaver.gendsp'
+
+// Transposed Direct Form 2, with a1, a2, b1 & b2 factored out as per hilbert allpass
+hilbertTdf2(x0, a0)
+{
+	History	x1(0), x2(0);
+
+	y1	= (x0  *  a0) +  x2;
+	x2	=  x1;
+	x1	= -x0  - (y1  * -a0);
+
+	return	y1;
+}
+
+// Biquad Cascade
+eviHilbertCascade(y0, hc1, hc2, hc3, hc4, hc5, hc6, hc7, hc8)
+{
+	// align
+	History x0(0);
+	// first phase allpass cascade (phase reference path c coefficients)
+	x1	= hilbertTdf2(x0,	hc1);
+	x2	= hilbertTdf2(x1,	hc2);
+	x3	= hilbertTdf2(x2,	hc3);
+	x4	= hilbertTdf2(x3,	hc4);
+	// second phase allpass cascade (+90 degrees path c coefficients)
+	y1	= hilbertTdf2(y0,	hc5);
+	y2	= hilbertTdf2(y1,	hc6);
+	y3	= hilbertTdf2(y2,	hc7);
+	y4	= hilbertTdf2(y3,	hc8);
+	// update
+	x0	= y0;
+	// real, imaginary
+	return	x4, y4;
+}
 
 
 //	//	//	

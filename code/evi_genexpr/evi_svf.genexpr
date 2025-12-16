@@ -1302,9 +1302,9 @@ tptSvfCoeffLowshelf(cutoff, gain, Q)	// gain is linear !
 
 	A	= sqrt(gain);
 	g  /= sqrt(A);
-	rh	= 0.5 / Q;
-	rh += sqrt((rh * rh) + 1);
-	r  -= 1 / rh;
+	r	= 0.5 / Q;
+	r  += sqrt((r * r) + 1);
+	r  -= 1 / r;
 	cL	= gain;
 	cB	= r * A;
 	cH	= 1;
@@ -1321,9 +1321,9 @@ tptSvfCoeffHighshelf(cutoff, gain, Q)	// gain is linear !
 
 	A	= sqrt(gain);
 	g  *= sqrt(A);
-	rh	= 0.5 / Q;
-	rh += sqrt((rh * rh) + 1);
-	r  -= 1 / rh;
+	r	= 0.5 / Q;
+	r  += sqrt((r * r) + 1);
+	r  -= 1 / r;
 	cL	= 1;
 	cB	= r * A;
 	cH	= gain;
