@@ -35,7 +35,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 436.0, 13.0, 179.0, 35.0 ],
-                    "text": "in 3 (signal/float) Gain in dB @min -15 @max 15 @default 0"
+                    "text": "in 3 (signal/float) Gain in dB @min -30 @max 30 @default 0"
                 }
             },
             {
