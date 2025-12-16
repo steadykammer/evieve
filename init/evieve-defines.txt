@@ -49,6 +49,9 @@ max define mc.evi.multimode~ mc.gen~ @gen evi_multimode.gendsp @chans 2;
 max define evi.dahdshr~ gen~ @gen evi_DAHDSHR.gendsp;
 max define mc.evi.dahdshr~ mc.gen~ @gen evi_DAHDSHR.gendsp @chans 2;
 
+max define evi.filter~ gen~ @gen evi_filter.gendsp;
+max define mc.evi.filter~ mc.gen~ @gen evi_filter.gendsp @chans 2;
+
 max define evi.filter.morph~ gen~ @gen evi_filter_morph.gendsp;
 max define mc.evi.filter.morph~ mc.gen~ @gen evi_filter_morph.gendsp @chans 2;
 
@@ -84,6 +87,9 @@ max define mc.evi.filter.allpass~ mc.gen~ @gen evi_filter_allpass.gendsp @chans 
 
 max define evi.filter.shelving~ gen~ @gen evi_filter_shelving.gendsp;
 max define mc.evi.filter.shelving~ mc.gen~ @gen evi_filter_shelving.gendsp @chans 2;
+
+max define evi.filter.eq~ gen~ @gen evi_filter_eq.gendsp;
+max define mc.evi.filter.eq~ mc.gen~ @gen evi_filter_eq.gendsp @chans 2;
 
 max define evi.biquadcoeff~ gen~ @gen evi_biquad_coeff.gendsp;
 max define mc.evi.biquadcoeff~ mc.gen~ @gen evi_biquad_coeff.gendsp @chans 2;
