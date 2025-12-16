@@ -2,7 +2,77 @@
 //	//	//	Self contained linear SVF filters with coefficients calculators
 //	//	//	For use in place of biquads, including EQ-ing, when you actually need good quality :-)
 
-require("evi_smooth.genexpr");	// includes '_utilities' & '_approx'
+//require("evi_smooth.genexpr");	// includes '_utilities' & '_approx'
+// ^^ gen~ is broken, so temporarily we declare extra stuff here:
+//==================================begin temp
+tanA2(x)
+{
+	a	= ((((x * -0.0896638) + 0.0388452) * x) + 1.00005) * x;
+	b	= (((x * -0.430871) + 0.0404318) * x) + 1;
+	return	a / b;
+}
+
+expA(x0)
+{
+	x = 0.999996 + (0.031261316 + (0.00048274797 + 0.000006 * x0) * x0) * x0;
+	x *= x; x *= x; x *= x; x *= x; x *= x;
+	return x;
+}
+
+tauA(t)											// t = seconds
+{
+	y = expA(-1 / (t * samplerate));
+	return y + 0.000128;
+}
+
+dbtoaApprox(db)
+{
+	dbtoaA = expA(0.11512925464970 * db);
+	return dbtoaA + 0.000128;					// + offset = 0 dB == 1 amplitude
+}
+
+expso(x, z)										// z is pole
+{
+	History w(0);
+	y = (z * w) + (x * (1 - z));
+	w = y;
+	return y;
+}
+
+expsmooth(x, t)									// t is smooth time in seconds
+{
+	History w(0);
+	z = tauA(t);
+	y = (z * w) + (x * (1 - z));
+	w = y;
+	return y;
+}
+
+expsmoothBank2(x1, x2, t)
+{
+	History	expsdummy2(0);
+	z		= tauA(t);
+	y1		= expso(x1, z);
+	y2		= expso(x2, z);
+	return	y1, y2;
+}
+
+expsmoothBank3(x1, x2, x3, t)
+{
+	History	expsdummy3(0);
+	z		= tauA(t);
+	y1		= expso(x1, z);
+	y2		= expso(x2, z);
+	y3		= expso(x3, z);
+	return	y1, y2, y3;
+}
+
+bandwidth2Q(bandwidth)
+{
+	x = expA(0.346573590279973 * bandwidth);	// exp(0.5 * log(2) * bandwidth)
+	return	1 / (x - 1 / x);
+}
+//==================================end temp
 
 
 //	//	//	TPT (Topology Preserving Transform, Zavalishin et al)
@@ -69,7 +139,8 @@ tptSvfReset(x, g, r, a, reset)
 	6 		Bell
 	7 		Lowshelf
 	8 		Highshelf
-	9 		Allpass
+	9 		Tilt
+	10 		Allpass
 */
 // make g, r, h & summing gains
 // look how simple this is compared to Direct Form !
@@ -133,7 +204,17 @@ tptSvfCoeff(filter, cutoff, gain, Q)	// gain is linear !
 		cL	= 1;
 		cB	= r * A;
 		cH	= gain;
-	} else if	(filter == 9) {			// ALLPASS (normalised)
+	} else if (filter == 9) {			// TILT
+		A	= sqrt(gain);
+        AA	= A * A;
+        g	= g * A;					// g *= sqrt(A) ??
+        dQ  = 1 / Q - 1;
+        rs	= 1 / (sqrt(dQ + dQ + 2));
+        r	= 1 / rs;
+        cL	= 1 / AA;
+        cB	= 1;
+        cH	= AA;
+	} else if	(filter == 10) {		// ALLPASS (normalised)
 		r 	=  1 / Q;
 		cL	=  1;                       // gain ?
 		cB	= -r;
@@ -213,7 +294,17 @@ tptSvfCoeffNoTilde(filter, cutoff, gain, Q, AUDIO_SR=48000)	// gain is linear !
 		cL	= 1;
 		cB	= r * A;
 		cH	= gain;
-	} else if	(filter == 9) {			// ALLPASS (normalised)
+	} else if (filter == 9) {			// TILT
+		A	= sqrt(gain);
+        AA	= A * A;
+        g	= g * A;					// g *= sqrt(A) ??
+        dQ  = 1 / Q - 1;
+        rs	= 1 / (sqrt(dQ + dQ + 2));
+        r	= 1 / rs;
+        cL	= 1 / AA;
+        cB	= 1;
+        cH	= AA;
+	} else if	(filter == 10) {		// ALLPASS (normalised)
 		r 	=  1 / Q;
 		cL	=  1;                       // gain ?
 		cB	= -r;
@@ -1242,6 +1333,26 @@ tptSvfCoeffHighshelf(cutoff, gain, Q)	// gain is linear !
 	return	g, r, h, cL, cB, cH;
 }
 
+tptSvfCoeffTilt(cutoff, gain, Q)		// gain is linear !
+{
+	w	= PI * cutoff / SAMPLERATE;		// prewarp cutoff
+	g 	= tanA2(w);						// embedded integrator gain
+
+	A	= sqrt(gain);
+    AA	= A * A;
+    g	= g * A;
+    dQ  = 1 / Q - 1;
+    rs	= 1 / (sqrt(dQ + dQ + 2));
+    r	= 1 / rs;
+    cL	= 1 / AA;
+    cB	= 1;
+    cH	= AA;
+
+	h	= 1 / (1 + (r + g) * g);		// feedback factor
+
+	return	g, r, h, cL, cB, cH;
+}
+
 // no "gain" used in this filter, but we remain consistent
 // with inlets in case of patching situations, bad idea?
 // (we might actually add gain one day)
@@ -1500,6 +1611,36 @@ eviFilterHighshelfStereo(xL, xR, cutoff, db, Q, smooth=0)
 	highshelfL	= yLL + (yBL * cB) + (yHL * cH);
 	highshelfR	= yLR + (yBR * cB) + (yHR * cH);
 	return 		highshelfL, highshelfR;
+}
+
+eviFilterTilt(x, cutoff, db, Q, smooth=0)		// gain in dB, smooth time in ms
+{
+	History eftidummy(0);
+	smoothsecs	= smooth * 0.001;
+	gain 		= dbtoaApprox(db);
+	g, r, h, cL, cB, cH = tptSvfCoeffTilt(cutoff, gain, Q);
+	yL, yB, yH 	= tptSvf(x, g, r, h);
+	if (smooth > 0) {
+		cL, cH 	= expsmoothBank2(cL, cH, smoothsecs);
+	}
+	tilt		= (yL * cL) + yB + (yH * cH);
+	return 		tilt;
+}
+
+eviFilterTiltStereo(xL, xR, cutoff, db, Q, smooth=0)
+{
+	History eftisdummy(0);
+	smoothsecs	= smooth * 0.001;
+	gain 		= dbtoaApprox(db);
+	g, r, h, cL, cB, cH = tptSvfCoeffTilt(cutoff, gain, Q);
+	yLL, yBL, yHL 	= tptSvf(xL, g, r, h);
+	yLR, yBR, yHR 	= tptSvf(xR, g, r, h);
+	if (smooth > 0) {
+		cL, cH 	= expsmoothBank2(cL, cH, smoothsecs);
+	}
+	tiltL		= (yLL * cL) + yBL + (yHL * cH);
+	tiltR		= (yLR * cL) + yBR + (yHR * cH);
+	return 		tiltL, tiltR;
 }
 
 // no "gain" used in this filter, but we remain consistent

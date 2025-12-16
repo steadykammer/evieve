@@ -4,6 +4,7 @@
 // Note in this gen (no tilde) version you must pass in the audio samplerate, because Max
 
 // @see: "evi_biquad.genexpr" for versions to use everywhere else (including at audio rate)
+// Note: never require both evieve biquad files in the same code !!
 // @see in Max: [evi.biquadcoeff] & [evi.biquadcoeff~] & [evi.biquadfilter~] for examples of wrappers
 
 // This file:
@@ -1255,4 +1256,15 @@ eviBiquadCoeffButterworth(filter, cutoff, gain, fullQ, AUDIO_SAMPLERATE=48000)
 
     return a0, a1, a2, b1, b2;
 }
+
+
+//	//	//	Part 3: Other Stuff
+
+eviBiquadCoeffBpButterworth6(cutoff, AUDIO_SAMPLERATE=48000)
+{
+	a01, a11, a21, b11, b21 	= eviBiquadCoeffBp(cutoff * 0.258819,	0.267948,	AUDIO_SR=AUDIO_SAMPLERATE);
+	a02, a12, a22, b12, b22 	= eviBiquadCoeffBp(cutoff * sqrt1_2,	1,			AUDIO_SR=AUDIO_SAMPLERATE);
+	a03, a13, a23, b13, b23 	= eviBiquadCoeffBp(cutoff * 0.965926,	3.73203,	AUDIO_SR=AUDIO_SAMPLERATE);
+	return 	a01, a11, a21, b11, b21, a02, a12, a22, b12, b22, a03, a13, a23, b13, b23;
+}	// N.B. must usePuckette 'fudge factor' in reciprical biquads downstream
 

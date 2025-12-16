@@ -8,6 +8,10 @@
 // evi_tanh.genexpr
 // evi_fastskew.genexpr
 
+// Note: you should be very careful using approximations - they can break your code.
+// In evieve all approximations are tested to work on the code in which they are used.
+
+
 // @see "about 'quartParApproxFull()'" below this function
 // based on the famous "simultaneous parabolic approximation of sin and cos" by Olli Niemitalo
 // @see: http://dspguru.com/book/export/html/62

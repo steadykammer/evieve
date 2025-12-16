@@ -80,7 +80,7 @@ eviScurve(segment)
 	s2		= segment * segment;
 	rec		= 1 - segment;
 	r2		= rec * rec;
-	return	(segment < 0.5) ? (s2 * 2) : (1 - (r2 * 2));
+	return	(segment < 0.5) ? (s2 + s2) : (1 - (r2 + r2));
 }
 
 // basic linear scaling like linear part of [scale]

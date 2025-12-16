@@ -14,6 +14,9 @@
 // evi_pade.genexpr
 // evi_tanh.genexpr
 
+// Note: you should be very careful using approximations - they can break your code.
+// In evieve all approximations are tested to work on the code in which they are used.
+
 
 // legacy, original, (rough) approx of pow(x, 0.5..2)
 // Alex Harker made this for me, we use it in Surreal Machines Modnetic VST

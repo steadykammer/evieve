@@ -49,15 +49,6 @@ max define mc.evi.multimode~ mc.gen~ @gen evi_multimode.gendsp @chans 2;
 max define evi.dahdshr~ gen~ @gen evi_DAHDSHR.gendsp;
 max define mc.evi.dahdshr~ mc.gen~ @gen evi_DAHDSHR.gendsp @chans 2;
 
-max define evi.biquadcoeff~ gen~ @gen evi_biquad_coeff.gendsp;
-max define mc.evi.biquadcoeff~ mc.gen~ @gen evi_biquad_coeff.gendsp @chans 2;
-
-max define evi.biquad~ gen~ @gen evi_biquad.gendsp;
-max define mc.evi.biquad~ mc.gen~ @gen evi_biquad.gendsp @chans 2;
-
-max define evi.biquadfilter~ gen~ @gen evi_biquad_filter.gendsp;
-max define mc.evi.biquadfilter~ mc.gen~ @gen evi_biquad_filter.gendsp @chans 2;
-
 max define evi.filter.morph~ gen~ @gen evi_filter_morph.gendsp;
 max define mc.evi.filter.morph~ mc.gen~ @gen evi_filter_morph.gendsp @chans 2;
 
@@ -85,5 +76,56 @@ max define mc.evi.filter.lowshelf~ mc.gen~ @gen evi_filter_lowshelf.gendsp @chan
 max define evi.filter.highshelf~ gen~ @gen evi_filter_highshelf.gendsp;
 max define mc.evi.filter.highshelf~ mc.gen~ @gen evi_filter_highshelf.gendsp @chans 2;
 
+max define evi.filter.tilt~ gen~ @gen evi_filter_tilt.gendsp;
+max define mc.evi.filter.tilt~ mc.gen~ @gen evi_filter_tilt.gendsp @chans 2;
+
 max define evi.filter.allpass~ gen~ @gen evi_filter_allpass.gendsp;
 max define mc.evi.filter.allpass~ mc.gen~ @gen evi_filter_allpass.gendsp @chans 2;
+
+max define evi.biquadcoeff~ gen~ @gen evi_biquad_coeff.gendsp;
+max define mc.evi.biquadcoeff~ mc.gen~ @gen evi_biquad_coeff.gendsp @chans 2;
+
+max define evi.biquad~ gen~ @gen evi_biquad.gendsp;
+max define mc.evi.biquad~ mc.gen~ @gen evi_biquad.gendsp @chans 2;
+
+max define evi.biquad.filter~ gen~ @gen evi_biquad_filter.gendsp;
+max define mc.evi.biquad.filter~ mc.gen~ @gen evi_biquad_filter.gendsp @chans 2;
+
+max define evi.biquad.allpass~ gen~ @gen evi_biquad_allpass.gendsp;
+max define mc.evi.biquad.allpass~ mc.gen~ @gen evi_biquad_allpass.gendsp @chans 2;
+
+max define evi.biquad.bandpass~ gen~ @gen evi_biquad_bandpass.gendsp;
+max define mc.evi.biquad.bandpass~ mc.gen~ @gen evi_biquad_bandpass.gendsp @chans 2;
+
+max define evi.biquad.butterworth~ gen~ @gen evi_biquad_butterworth.gendsp;
+max define mc.evi.biquad.butterworth~ mc.gen~ @gen evi_biquad_butterworth.gendsp @chans 2;
+
+max define evi.biquad.eqfilter~ gen~ @gen evi_biquad_eqfilter.gendsp;
+max define mc.evi.biquad.eqfilter~ mc.gen~ @gen evi_biquad_eqfilter.gendsp @chans 2;
+
+max define evi.biquad.highpass~ gen~ @gen evi_biquad_highpass.gendsp;
+max define mc.evi.biquad.highpass~ mc.gen~ @gen evi_biquad_highpass.gendsp @chans 2;
+
+max define evi.biquad.highshelf~ gen~ @gen evi_biquad_highshelf.gendsp;
+max define mc.evi.biquad.highshelf~ mc.gen~ @gen evi_biquad_highshelf.gendsp @chans 2;
+
+max define evi.biquad.lowpass~ gen~ @gen evi_biquad_lowpass.gendsp;
+max define mc.evi.biquad.lowpass~ mc.gen~ @gen evi_biquad_lowpass.gendsp @chans 2;
+
+max define evi.biquad.lowshelf~ gen~ @gen evi_biquad_lowshelf.gendsp;
+max define mc.evi.biquad.lowshelf~ mc.gen~ @gen evi_biquad_lowshelf.gendsp @chans 2;
+
+max define evi.biquad.notch~ gen~ @gen evi_biquad_notch.gendsp;
+max define mc.evi.biquad.notch~ mc.gen~ @gen evi_biquad_notch.gendsp @chans 2;
+
+max define evi.biquad.peaknotch~ gen~ @gen evi_biquad_peaknotch.gendsp;
+max define mc.evi.biquad.peaknotch~ mc.gen~ @gen evi_biquad_peaknotch.gendsp @chans 2;
+
+max define evi.biquad.resonant~ gen~ @gen evi_biquad_resonant.gendsp;
+max define mc.evi.biquad.resonant~ mc.gen~ @gen evi_biquad_resonant.gendsp @chans 2;
+
+max define evi.bp~ gen~ @gen evi_bp.gendsp;
+max define mc.evi.bp~ mc.gen~ @gen evi_bp.gendsp @chans 2;
+
+max define evi.bp.butterworth~ gen~ @gen evi_bp_butterworth.gendsp;
+max define mc.evi.bp.butterworth~ mc.gen~ @gen evi_bp_butterworth.gendsp @chans 2;

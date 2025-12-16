@@ -19,6 +19,9 @@
 // evi_tanh.genexpr
 // evi_fastskew.genexpr
 
+// Note: you should be very careful using approximations - they can break your code.
+// In evieve all approximations are tested to work on the code in which they are used.
+
 
 // *********************************************************
 

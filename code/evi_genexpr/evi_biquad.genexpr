@@ -3,7 +3,8 @@
 // Biquads are shit, use TPT instead, @see: "evi_svf.genexpr"
 
 // @see: "evi_biquad_no_tilde.genexpr" for versions that work with gen no tilde
-// @see in Max: [evi.biquadcoeff] & [evi.biquadcoeff~] & [evi.biquadfilter~] for examples of wrappers
+// Note: never require both evieve biquad files in the same code !!
+// @see in Max: [evi.biquadcoeff] & [evi.biquadcoeff~] & [evi.biquad.filter~] for examples of wrappers
 
 // This file:
 // Part 1: Coefficients Calculators
@@ -1533,7 +1534,51 @@ biquadDf2tmw(x0, a0_1, a1_1, a2_1, b1_1, b2_1, a0_2, a1_2, a2_2, b1_2, b2_2, a0_
 
 /*
 
-	out1 = biquadDf2(in1, eviBiquadCoeffLowpassGain(cutoff, gain, Q));
+	out1 = biquadDf2(in1, eviBiquadCoeffLowpassGain(cutoffHz, linearGain, Q));
 
 */
+
+
+//	//	//	Part 4: Other Stuff
+
+/*
+	puckette: "frequencies are (cutoff) times sin(pi/12), sin(3pi/12), and sin(5pi/12),
+	and the Q values are tan(pi/12), etc. Multiplier at the end is a fudge factor."
+	pete says: none of ^^ this makes sense, i tried it. but this is a good filter.
+	by the way i changed puckette's fudge factor as i found it to match passband better.
+*/
+eviBiquadCoeffBpButterworth6(cutoff)
+{
+	a01, a11, a21, b11, b21 	= eviBiquadCoeffBp(cutoff * 0.258819,	0.267948);
+	a02, a12, a22, b12, b22 	= eviBiquadCoeffBp(cutoff * sqrt1_2,	1);
+	a03, a13, a23, b13, b23 	= eviBiquadCoeffBp(cutoff * 0.965926,	3.73203);
+	return 	a01, a11, a21, b11, b21, a02, a12, a22, b12, b22, a03, a13, a23, b13, b23;
+}
+
+// butterworth lowpass 6-pole, by Miller Puckette, from "SMECK"
+// created from three "bp~" objects
+eviBiquadBpButterworth6(x0, cutoff)
+{
+	History ebbb6dummy(0);
+	a01, a11, a21, b11, b21, a02, a12, a22, b12, b22, a03, a13, a23, b13, b23 = eviBiquadCoeffBpButterworth6(cutoff);
+	return biquadDf2triple(x0, a01, a11, a21, b11, b21, a02, a12, a22, b12, b22, a03, a13, a23, b13, b23) * 0.354813;
+}
+/*
+eviBiquadBpButterworth6(x0, cutoff)
+{
+	History ebbb6dummy(0);
+	a01, a11, a21, b11, b21 	= eviBiquadCoeffBp(cutoff * 0.258819,	0.267948);
+	a02, a12, a22, b12, b22 	= eviBiquadCoeffBp(cutoff * sqrt1_2,	1);
+	a03, a13, a23, b13, b23 	= eviBiquadCoeffBp(cutoff * 0.965926,	3.73203);
+	y0	= biquadDf2(x0, a01, a11, a21, b11, b21);
+	y1	= biquadDf2(y0, a02, a12, a22, b12, b22);
+	y2	= biquadDf2(y1, a03, a13, a23, b13, b23);
+
+	return y2;
+}
+*/
+
+
+//	//	//	
+
 

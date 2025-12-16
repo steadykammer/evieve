@@ -9,7 +9,7 @@
             "modernui": 1
         },
         "classnamespace": "dsp.gen",
-        "rect": [ 588.0, 188.0, 825.0, 720.0 ],
+        "rect": [ 588.0, 188.0, 764.0, 565.0 ],
         "gridonopen": 2,
         "subpatcher_template": "sub",
         "integercoordinates": 1,
@@ -22,8 +22,8 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 632.0, 13.0, 167.0, 35.0 ],
-                    "text": "in 4 (signal/float) Q @min 0.1 @max 18 @default 0.707107"
+                    "patching_rect": [ 632.0, 13.0, 115.0, 35.0 ],
+                    "text": "in 4 (signal/float) Q @default 0.707107"
                 }
             },
             {
@@ -63,7 +63,7 @@
             },
             {
                 "box": {
-                    "code": "\r\nrequire(\"evi_biquad.genexpr\");\r\n\r\n/*\r\n    0   eviBiquadCoeffBandpass                  cutoff, Q\r\n    1   eviBiquadCoeffBandpassGain              cutoff, gain, Q\r\n    2   eviBiquadCoeffBandpassAnalog            cutoff, Q\r\n    3   eviBiquadCoeffBandpassGainAnalog        cutoff, gain, Q   (default)\r\n    4   eviBiquadCoeffButterworthBandpass       cutoff\r\n    5   eviBiquadCoeffButterworthBandpassGain   cutoff, gain\r\n*/\r\nParam   filter(3, min=0, max=5);\r\nfilt    = int(filter);\r\nreset   = delta(change(filt)) < 0;\r\n\r\na0, a1, a2, b1, b2  = 0;\r\nif (filt == 1) {\r\n    a0, a1, a2, b1, b2  = eviBiquadCoeffBandpassGain(in2, dbtoa(in3), in4);\r\n}\r\nelse if (filt == 2) {\r\n    a0, a1, a2, b1, b2  = eviBiquadCoeffBandpassAnalog(in2, in4);\r\n}\r\nelse if (filt == 3) {\r\n    a0, a1, a2, b1, b2  = eviBiquadCoeffBandpassGainAnalog(in2, dbtoa(in3), in4);\r\n}\r\nelse if (filt == 4) {\r\n    a0, a1, a2, b1, b2  = eviBiquadCoeffButterworthBandpass(in2);\r\n}\r\nelse if (filt == 5) {\r\n    a0, a1, a2, b1, b2  = eviBiquadCoeffButterworthBandpassGain(in2, dbtoa(in3));\r\n}\r\nelse {\r\n    a0, a1, a2, b1, b2  = eviBiquadCoeffBandpass(in2, in4);\r\n}\r\n\r\nout1    = biquadDf2reset(in1, a0, a1, a2, b1, b2, reset);\r\n\r\n",
+                    "code": "\r\nrequire(\"evi_biquad.genexpr\");\r\n\r\n/*\n    filter  calculator                              \tparameters\n    0       bypass                                  \tnone\n\t1\t\teviBiquadCoeffHighpassGain \t\t\t\t\tcutoff, gain, Q\n\t2\t\teviBiquadCoeffLowShelf \t\t\t\t\t\tcutoff, gain, Q\n\t3\t\teviBiquadCoeffLowShelfCookbook \t\t\t\tcutoff, gain, Q\n\t4\t\teviBiquadCoeffLowShelfAnalog \t\t\t\tcutoff, gain\n\t5\t\teviBiquadCoeffPeakNotch         (default)   cutoff, gain, Q\n\t6\t\teviBiquadCoeffPeakNotchAnalog \t\t\t\tcutoff, gain, Q\n\t7\t\teviBiquadCoeffNotchGain \t\t\t\t\tcutoff, gain, Q\n\t8\t\teviBiquadCoeffHighShelf \t\t\t\t\tcutoff, gain, Q\n\t9\t\teviBiquadCoeffHighShelfCookbook \t\t\tcutoff, gain, Q\n\t10\t\teviBiquadCoeffHighShelfAnalog \t\t\t\tcutoff, gain\n\t11\t\teviBiquadCoeffLowpassGain \t\t\t\t\tcutoff, gain, Q\n\t12\t\teviBiquadCoeffAllpassGain \t\t\t\t\tcutoff, gain, Q\n*/\nParam   filter(5, min=0, max=12);\r\nfilt    = int(filter);\r\nreset   = delta(change(filt)) < 0;\r\n\r\na0, a1, a2, b1, b2  = eviBiquadCoeffEQ(filt, in2, dbtoa(in3), in4);\r\n\r\nout1    = biquadDf2reset(in1, a0, a1, a2, b1, b2, reset);\r\n\r\n",
                     "fontface": 0,
                     "fontname": "<Monospaced>",
                     "fontsize": 12.0,
@@ -72,7 +72,7 @@
                     "numinlets": 4,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 34.0, 58.0, 674.0, 597.0 ]
+                    "patching_rect": [ 34.0, 58.0, 617.0, 445.0 ]
                 }
             },
             {
@@ -81,8 +81,8 @@
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 34.0, 672.0, 174.0, 22.0 ],
-                    "text": "out 1 (signal) Bandpass Output"
+                    "patching_rect": [ 34.0, 520.0, 168.0, 22.0 ],
+                    "text": "out 1 (signal) EQ Filter Output"
                 }
             }
         ],
