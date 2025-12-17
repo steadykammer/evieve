@@ -19,7 +19,7 @@ expA(x0)
 	return x;
 }
 
-tauA(t)											// t = seconds
+tauA(t)
 {
 	y = expA(-1 / (t * samplerate));
 	return y + 0.000128;
@@ -28,10 +28,10 @@ tauA(t)											// t = seconds
 dbtoaApprox(db)
 {
 	dbtoaA = expA(0.11512925464970 * db);
-	return dbtoaA + 0.000128;					// + offset = 0 dB == 1 amplitude
+	return dbtoaA + 0.000128;
 }
 
-expso(x, z)										// z is pole
+expso(x, z)
 {
 	History w(0);
 	y = (z * w) + (x * (1 - z));
@@ -39,7 +39,7 @@ expso(x, z)										// z is pole
 	return y;
 }
 
-expsmooth(x, t)									// t is smooth time in seconds
+expsmooth(x, t)
 {
 	History w(0);
 	z = tauA(t);
@@ -69,8 +69,44 @@ expsmoothBank3(x1, x2, x3, t)
 
 bandwidth2Q(bandwidth)
 {
-	x = expA(0.346573590279973 * bandwidth);	// exp(0.5 * log(2) * bandwidth)
+	x = expA(0.346573590279973 * bandwidth);
 	return	1 / (x - 1 / x);
+}
+
+cosQ73(x)
+{
+	c1 =  0.999999953464;
+	c2 = -0.499999053455;
+	c3 =  0.0416635846769;
+	c4 = -0.0013853704264;
+	c5 =  0.00002315393167;  	
+
+	x2 = x * x;
+	return (c1 + x2 * (c2 + x2 * (c3 + x2 * (c4 + c5 * x2))));
+}
+
+cos73(x)
+{
+	TWOOVERPI = 0.63661977236758;
+	x = x % TWOPI;
+	x = (x < 0) ? -x : x;
+	QUAD = int(x * TWOOVERPI);
+	cosreturn = 0;
+	if 				(QUAD == 0) {
+		cosreturn =  cosQ73(x);
+	} else if 		(QUAD == 1) {
+		cosreturn = -cosQ73(PI - x);
+	} else if 		(QUAD == 2) {
+		cosreturn = -cosQ73(x - PI);
+	} else {	//	(QUAD == 3)
+		cosreturn =  cosQ73(TWOPI - x);
+	}
+	return cosreturn;
+}
+
+sin73(x)
+{
+	return cos73(HALFPI - x);
 }
 //==================================end temp
 
@@ -539,7 +575,7 @@ tptSvfEqReset(x, g, r, h, cL, cB, cH, reset)
 }
 
 //	//	//	all in one sections for using in parametric EQ-ing etc
-//	//	//	not using, see below in LTO section
+//	//	//	also see below in LTO section
 
 eviFilterTptEq(x, cutoff, db, Q, filter, reset, smooth=0)	// gain in dB, smooth time in ms)
 {
@@ -1139,7 +1175,7 @@ eviFilterEq(x, cutoff, db, Q, filter, smooth=0)	// gain in dB, smooth time in ms
 
 eviFilterEqReset(x, cutoff, db, Q, filter, reset, smooth=0)	// gain in dB, smooth time in ms)
 {
-	History 	efedummy(0);
+	History 	eferdummy(0);
 	smoothsecs	= smooth * 0.001;
 	gain 		= dbtoaApprox(db);
 	a1, a2, a3, m0, m1, m2	= svfSectionCoeffEq(filter, cutoff, gain, Q);
@@ -1156,8 +1192,8 @@ eviFilterEq4(x, cutoff, db, Q, filter, smooth=0)	// gain in dB, smooth time in m
 	History 	efe4dummy(0);
 	smoothsecs	= smooth * 0.001;
 	gain 		= dbtoaApprox(db);
-	a11, a21, a31, m01, m11, m21	= svfSectionCoeffEq(filter, cutoff, gain, Q * 0.666666);//sqrt2);
-	a12, a22, a32, m02, m12, m22	= svfSectionCoeffEq(filter, cutoff, gain, Q * 0.333333);//sqrt1_2);
+	a11, a21, a31, m01, m11, m21	= svfSectionCoeffEq(filter, cutoff, gain, Q * 0.5);//0.666666);//sqrt2);
+	a12, a22, a32, m02, m12, m22	= svfSectionCoeffEq(filter, cutoff, gain, Q * 0.25);//0.333333);//sqrt1_2);
 	if (smooth > 0) {
 		m01, m11, m21	= expsmoothBank3(m01, m11, m21, smoothsecs);
 		m02, m12, m22	= expsmoothBank3(m02, m12, m22, smoothsecs);
@@ -1167,13 +1203,16 @@ eviFilterEq4(x, cutoff, db, Q, filter, smooth=0)	// gain in dB, smooth time in m
 	return 		eq2;
 }
 
+// @see: "evi_eq5.gendsp" for basic example of wrapping the two
+// and four pole sections into a single eq filter
+
 eviFilterEq4Reset(x, cutoff, db, Q, filter, reset, smooth=0)	// gain in dB, smooth time in ms)
 {
-	History 	efe4dummy(0);
+	History 	efe4rdummy(0);
 	smoothsecs	= smooth * 0.001;
 	gain 		= dbtoaApprox(db);
-	a11, a21, a31, m01, m11, m21	= svfSectionCoeffEq(filter, cutoff, gain, Q * 0.666666);//sqrt2);
-	a12, a22, a32, m02, m12, m22	= svfSectionCoeffEq(filter, cutoff, gain, Q * 0.333333);//sqrt1_2);
+	a11, a21, a31, m01, m11, m21	= svfSectionCoeffEq(filter, cutoff, gain, Q * 0.5);//0.666666);//sqrt2);
+	a12, a22, a32, m02, m12, m22	= svfSectionCoeffEq(filter, cutoff, gain, Q * 0.25);//0.333333);//sqrt1_2);
 	if (smooth > 0) {
 		m01, m11, m21	= expsmoothBank3(m01, m11, m21, smoothsecs);
 		m02, m12, m22	= expsmoothBank3(m02, m12, m22, smoothsecs);
@@ -1252,6 +1291,7 @@ eviParametricStereo3(xL, xR, filter1, cutoff1, db1, Q1, filter2, cutoff2, db2, Q
 
 // ...note, we have reached the limit of args to a GenExpr function
 // ...for higher order EQ-ing, build from 'eviFilterEq()' etc inline
+// e.g. @see: "evi_eq5.gendsp" & "evi_eq8.gendsp" for basic examples
 
 
 //	//	//	individual filter sections using TPT

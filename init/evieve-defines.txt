@@ -52,6 +52,16 @@ max define mc.evi.dahdshr~ mc.gen~ @gen evi_DAHDSHR.gendsp @chans 2;
 max define evi.filter~ gen~ @gen evi_filter.gendsp;
 max define mc.evi.filter~ mc.gen~ @gen evi_filter.gendsp @chans 2;
 
+max define evi.eq3~ gen~ @gen evi_eq3.gendsp;
+
+max define evi.eq3stereo~ gen~ @gen evi_eq3_stereo.gendsp;
+
+max define evi.eq5~ gen~ @gen evi_eq5.gendsp;
+max define mc.evi.eq5~ mc.gen~ @gen evi_eq5.gendsp @chans 2;
+
+max define evi.eq8~ gen~ @gen evi_eq8.gendsp;
+max define mc.evi.eq8~ mc.gen~ @gen evi_eq8.gendsp @chans 2;
+
 max define evi.filter.morph~ gen~ @gen evi_filter_morph.gendsp;
 max define mc.evi.filter.morph~ mc.gen~ @gen evi_filter_morph.gendsp @chans 2;
 
