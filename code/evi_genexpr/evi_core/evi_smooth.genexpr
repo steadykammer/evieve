@@ -229,6 +229,20 @@ cfSmoothCubic2(x1, x2, hz, s)
 	return	  y1, y2;
 }
 
+// coefficients for using a biquad as a smoother, perhaps stupid.
+// if we fixed "smooth" we'd only have to update if samplerate changes.
+// can be entirely param rate. TODO: use 'cosQ73()' directly.
+smoothCoeff(smooth, q=0.54945)				// (q=0.54945 = 0.09 on normalised scale)
+{
+	w0		= TWOPI * smooth / SAMPLERATE;	// omega0
+	alpha	= sin73param(w0) / (q + q);		// r0
+	omega 	= cos73param(w0);
+	a0m		= 1 / (1 + alpha);				// convert to FF0, FF1, FF2, FB1, FB2
+	b1a0m	= (1 - omega) * a0m;
+	b0a0m	= b1a0m * 0.5;
+	return b0a0m, b1a0m, b0a0m, (-(omega + omega) * a0m), ((1 - alpha) * a0m);	// a0, a1, a2, b1, b2
+}	// ^^ stupid because we don't need coeffs b0a0m & b1a0m (a0, a1, a2) below 10Hz input.
+
 // for log banks
 logsad(s)									// s = time to drop 6dB (in seconds)
 {

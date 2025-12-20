@@ -31,6 +31,17 @@ eviLog1p(value)   // :-(
   return log(1 + value);
 }
 
+getMax(xL, xR)
+{
+	return maximum(abs(xL), abs(xR));
+}
+
+xMega(X, xCONST=SQRT1_2)	// sqrt1_2 or ln2 or log10e	// who says pete ?
+{
+	MEGA = xCONST * 1000;
+	return dcblock(clamp(X, -MEGA, MEGA));
+}
+
 xSgn(x) // no zero
 {
   return (0 < x) - (x < 0);

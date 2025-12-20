@@ -1,0 +1,120 @@
+{
+    "patcher": {
+        "fileversion": 1,
+        "appversion": {
+            "major": 9,
+            "minor": 2,
+            "revision": 0,
+            "architecture": "x64",
+            "modernui": 1
+        },
+        "classnamespace": "dsp.gen",
+        "rect": [ 34.0, 100.0, 841.0, 848.0 ],
+        "gridonopen": 2,
+        "subpatcher_template": "sub",
+        "integercoordinates": 1,
+        "boxes": [
+            {
+                "box": {
+                    "id": "obj-6",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 607.0, 807.0, 205.0, 22.0 ],
+                    "text": "out 3 (signal) AGC Envelope (Linear)"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-5",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 234.0, 807.0, 191.0, 22.0 ],
+                    "text": "out 2 (signal) Limited Output Right"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-1",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 34.0, 19.0, 157.0, 22.0 ],
+                    "text": "in 1 (signal) Audio Input Left"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-2",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 647.0, 19.0, 165.0, 22.0 ],
+                    "text": "in 2 (signal) Audio Input Right"
+                }
+            },
+            {
+                "box": {
+                    "code": "\r\n// a fast limiter. i made this for my friend james bradbury, based on\r\n// some very old surreal machines code i had lying around.\r\n\r\nrequire(\"evi_smooth.genexpr\");  // incl. _utilities & _approx\r\nrequire(\"evi_clip.genexpr\");    // incl. _interp\r\nrequire(\"evi_biquad.genexpr\");\r\n\r\n// release is in ms, knee is % 0..1\n// choochoo is int, 0 = 2nd order Adaa, 1 = 2nd order + 2x oversample, 2 = ... + 4x oversample\n\n// N.B. - there is no lookahead in this limiter, so we engage the crunch quite a lot,\n// the anti-aliased clipping system (choochoo) makes the crunch sound good\n\nlimiterFastStereo(xL, xR, release, knee, choochoo, a0, a1, a2, b1, b2)\n{\n\tHistory\t\tlfsdummy(0);\n\n\tinPeak\t\t= getMax(xL, xR);\n\tenvAttack\t= 0.000002;\t\t\t\t\t\t\t\t\t// secs, small amount of bullshit\n\tenvRelease\t= release * 0.001;\t\t\t\t\t\t\t// ms to secs\n\n\te1\t= logattackdecay(inPeak, envAttack, envRelease);\n\te2\t= biquadDf2(e1, a0, a1, a2, b1, b2);\t\t\t\t// e2 is bullshit\n\tk0\t= maximum(((e2 - 1) + knee), 0) * (1 / knee);\n\tk1\t= minimum(k0, 2) * 0.25;\n\tk2\t= k1 - (k1 * k1);\n\tenv\t= 1 / (((k0 - (k2 + k2 + k2 + k2)) * knee) + 1);\t// 1..0 (amplitude)\n\n\tyL\t\t= dcblock(xL * env) * 1.033947; // hard clip @ -0.3dB into 2nd order antiderivative\n\tyR\t\t= dcblock(xR * env) * 1.033949;\n\r\n    // clipping\n\tif (choochoo == 2) {\n\t\tyL\t= adHc2_4x_6POINT(yL);\t\t\t// 2nd order + oversampling)...\n\t\tyR\t= adHc2_4x_6POINT(yR);\n\t} else if (choochoo == 1) {\n\t\tyL\t= adHc2_2x_6POINT(yL);\t\t\t// ...\n\t\tyR\t= adHc2_2x_6POINT(yR);\n\t} else {\n\t\tyL\t= adHc2(yL);                    // just 2nd order adaa, this is fine for most needs\n\t\tyR\t= adHc2(yR);\n\t}\n\n\treturn\tyL, yR, env;\n}\r\n\r\n// env\r\nParam\tknee(0.55, min=0.001, max=1);\t\t\t// % 0..1\r\nParam\tsmooth(0.05, min=0, max=1);\t\t\t\t// % 0..1\r\nParam\trelease(52, min=1, max=376);\t\t\t// ms\r\n\r\n// audio\r\nParam\tingain(1, min=-20, max=40);\t\t\t\t// dB\r\nParam\tclip(0, min=0, max=2);\t\t\t\t\t// 0 = 2nd order, 1 = + 2x, 2 = + 4x\r\n\r\n// param rate\r\n\r\nchoochoo = int(clip);\r\n\r\nenvsmooth = ((1 - smooth*smooth) * 99) + 1;\t\t// stupid, map 0..1 to hz\r\na0, a1, a2, b1, b2 = smoothCoeff(envsmooth);\r\n\r\ninputgain = dbtoaApprox(ingain);\r\n\r\n// audio rate\r\n\r\ninputgainsmooth\t= logsmooth(inputgain, 0.022666);\r\n\r\nxL = in1 * inputgainsmooth;\r\nxR = in2 * inputgainsmooth;\r\n\r\n// yL, yR, env\r\nout1, out2, out3 = limiterFastStereo(xL, xR, release, knee, choochoo, a0, a1, a2, b1, b2);\r\n\r\n",
+                    "fontface": 0,
+                    "fontname": "<Monospaced>",
+                    "fontsize": 12.0,
+                    "id": "obj-3",
+                    "maxclass": "codebox",
+                    "numinlets": 2,
+                    "numoutlets": 3,
+                    "outlettype": [ "", "", "" ],
+                    "patching_rect": [ 34.0, 58.0, 778.0, 732.0 ]
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-4",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 34.0, 807.0, 183.0, 22.0 ],
+                    "text": "out 1 (signal) Limited Output Left"
+                }
+            }
+        ],
+        "lines": [
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 0 ],
+                    "source": [ "obj-1", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 1 ],
+                    "midpoints": [ 656.5, 49.5, 802.5, 49.5 ],
+                    "source": [ "obj-2", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-4", 0 ],
+                    "source": [ "obj-3", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-5", 0 ],
+                    "midpoints": [ 423.0, 798.5, 243.5, 798.5 ],
+                    "source": [ "obj-3", 1 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-6", 0 ],
+                    "midpoints": [ 802.5, 798.5, 616.5, 798.5 ],
+                    "source": [ "obj-3", 2 ]
+                }
+            }
+        ]
+    }
+}

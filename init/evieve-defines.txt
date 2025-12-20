@@ -14,6 +14,9 @@ max define mc.evi.overdrive.atan~ mc.gen~ @gen evi_atanwrap.gendsp @chans 2;
 max define evi.overdrive.sqrt~ gen~ @gen evi_sqrtwrap.gendsp;
 max define mc.evi.overdrive.sqrt~ mc.gen~ @gen evi_sqrtwrap.gendsp @chans 2;
 
+max define evi.limiter~ gen~ @gen evi_limiterfast.gendsp;
+max define mc.evi.limiter~ mc.gen~ @gen evi_limiterfast.gendsp @chans 2;
+
 max define evi.ringmod~ gen~ @gen evi_ringmod.gendsp;
 max define mc.evi.ringmod~ mc.gen~ @gen evi_ringmod.gendsp @chans 2;
 
