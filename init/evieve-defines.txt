@@ -52,6 +52,9 @@ max define mc.evi.multimode~ mc.gen~ @gen evi_multimode.gendsp @chans 2;
 max define evi.dahdshr~ gen~ @gen evi_DAHDSHR.gendsp;
 max define mc.evi.dahdshr~ mc.gen~ @gen evi_DAHDSHR.gendsp @chans 2;
 
+max define evi.butterworthlp8~ gen~ @gen evi_butterworth8.gendsp;
+max define mc.evi.butterworthlp8~ mc.gen~ @gen evi_butterworth8.gendsp @chans 2;
+
 max define evi.onepole~ gen~ @gen evi_onepole.gendsp;
 max define mc.evi.onepole~ mc.gen~ @gen evi_onepole.gendsp @chans 2;
 
@@ -163,3 +166,6 @@ max define mc.evi.bp~ mc.gen~ @gen evi_bp.gendsp @chans 2;
 
 max define evi.bp.butterworth~ gen~ @gen evi_bp_butterworth.gendsp;
 max define mc.evi.bp.butterworth~ mc.gen~ @gen evi_bp_butterworth.gendsp @chans 2;
+
+max define evi.butterworthlp6~ gen~ @gen evi_bp_butterworth.gendsp;
+max define mc.evi.butterworthlp6~ mc.gen~ @gen evi_bp_butterworth.gendsp @chans 2;

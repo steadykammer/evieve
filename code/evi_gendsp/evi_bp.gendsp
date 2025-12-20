@@ -58,7 +58,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 172.0, 13.0, 242.0, 35.0 ],
-                    "text": "in 2 (signal/float) Cutoff in Hz @min samplerate/24576 @max samplerate/2.125"
+                    "text": "in 2 (signal/float) Cutoff in Hz @min samplerate*0.00022 @max samplerate*0.458334"
                 }
             },
             {
