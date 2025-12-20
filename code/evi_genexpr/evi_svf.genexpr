@@ -2,9 +2,10 @@
 //	//	//	Self contained linear SVF filters with coefficients calculators
 //	//	//	For use in place of biquads, including EQ-ing, when you actually need good quality :-)
 
-//require("evi_smooth.genexpr");	// includes '_utilities' & '_approx'
+require("evi_smooth.genexpr");	// includes 'evi_utilities.genexpr' & 'evi_approx.genexpr'
 // ^^ gen~ is broken, so temporarily we declare extra stuff here:
 //==================================begin temp
+/*
 tanA2(x)
 {
 	a	= ((((x * -0.0896638) + 0.0388452) * x) + 1.00005) * x;
@@ -109,7 +110,7 @@ sin73(x)
 	return cos73(HALFPI - x);
 }
 //==================================end temp
-
+*/
 
 //	//	//	TPT (Topology Preserving Transform, Zavalishin et al)
 //	//	//	This linear core is also used as the basis for many of the nonlinear filters in evieve
@@ -1203,8 +1204,8 @@ eviFilterEq4(x, cutoff, db, Q, filter, smooth=0)	// gain in dB, smooth time in m
 	return 		eq2;
 }
 
-// @see: "evi_eq5.gendsp" for basic example of wrapping the two
-// and four pole sections into a single eq filter
+// @see: "evi_eq5.gendsp" for basic example of wrapping the
+// two and four pole sections into a single eq filter
 
 eviFilterEq4Reset(x, cutoff, db, Q, filter, reset, smooth=0)	// gain in dB, smooth time in ms)
 {
@@ -1237,13 +1238,13 @@ eviFilterEqStereo(xL, xR, cutoff, db, Q, filter, smooth=0)	// gain in dB, smooth
 }
 
 // for 'eviFilterEqStereo4()' "filter" must only be lowpass or highpass !
-eviFilterEqStereo4(xL, xR, cutoff, db, Q, filter, smooth=0)	// gain in dB, smooth time in ms)
+eviFilterEq4Stereo(xL, xR, cutoff, db, Q, filter, smooth=0)	// gain in dB, smooth time in ms)
 {
 	History 	efes4dummy(0);
 	smoothsecs	= smooth * 0.001;
 	gain 		= dbtoaApprox(db);
-	a11, a21, a31, m01, m11, m21	= svfSectionCoeffEq(filter, cutoff, gain, Q * 0.666666);//sqrt2);
-	a12, a22, a32, m02, m12, m22	= svfSectionCoeffEq(filter, cutoff, gain, Q * 0.333333);//sqrt1_2);
+	a11, a21, a31, m01, m11, m21	= svfSectionCoeffEq(filter, cutoff, gain, Q * 0.5);//0.666666);//sqrt2);
+	a12, a22, a32, m02, m12, m22	= svfSectionCoeffEq(filter, cutoff, gain, Q * 0.25);//0.333333);//sqrt1_2);
 	if (smooth > 0) {
 		m01, m11, m21	= expsmoothBank3(m01, m11, m21, smoothsecs);
 		m02, m12, m22	= expsmoothBank3(m02, m12, m22, smoothsecs);
@@ -1801,7 +1802,7 @@ svfLtoMulti(v0, cutoff, Q)
 	band	= v1;					// band
 	high	= notch - low;			// high
 
-	return	low, band, high, notch;
+	return	low, band, high, notch;	// !! different order to MSP [svf~] !!
 }
 
 svfLtoSingle(v0, cutoff, Q, filt)
@@ -1902,7 +1903,7 @@ svfSinMulti(X, cutoff, damp)
 	ic1eq  += (t1 + t1);
 	ic2eq  += (t2 + t2);
 
-	return low, band, high, peak, notch;
+	return low, band, high, peak, notch;	// !! different order to MSP [svf~] !!
 }
 
 svfSinSingle(X, cutoff, damp, filt)

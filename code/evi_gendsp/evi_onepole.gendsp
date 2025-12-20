@@ -1,0 +1,120 @@
+{
+    "patcher": {
+        "fileversion": 1,
+        "appversion": {
+            "major": 9,
+            "minor": 2,
+            "revision": 0,
+            "architecture": "x64",
+            "modernui": 1
+        },
+        "classnamespace": "dsp.gen",
+        "rect": [ 34.0, 100.0, 779.0, 646.0 ],
+        "gridonopen": 2,
+        "subpatcher_template": "sub",
+        "integercoordinates": 1,
+        "boxes": [
+            {
+                "box": {
+                    "id": "obj-6",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 583.0, 604.0, 156.0, 22.0 ],
+                    "text": "out 3 (signal) 6dB Highpass"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-5",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 313.0, 604.0, 144.0, 22.0 ],
+                    "text": "out 2 (signal) 6dB Allpass"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-1",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 34.0, 19.0, 101.0, 22.0 ],
+                    "text": "in 1 (signal) Input"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-2",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 379.0, 19.0, 360.0, 22.0 ],
+                    "text": "in 2 (signal/float) Hz (default) or g depending on 'prewarp' attribute"
+                }
+            },
+            {
+                "box": {
+                    "code": "\r\n// onepole filter using trapezoidal integration, simultaneous outputs,\r\n// very smooth and very cheap.\r\n\r\n// this is not like MSP [onepole~], which is a strange sort of highshelf. evi.onepole~\r\n// is strictly lowpass/highpass with zeros at Nyquist/DC.\r\n\r\n// here we have a choice of frequency input in Hz (default) or normalised 0..1,\r\n// optional smoothing is default off\r\n\r\n// @see: \"evi_rcfilter.gendsp\" / [evi.rcfilter~] for nonlinear analog version.\r\n// @see: \"evi_damp.gendsp\" / [evi.damp~] for a filter closer to MSP [onepole~].\r\n\r\nrequire(\"evi_rcfilters.genexpr\");\r\nrequire(\"evi_smooth.genexpr\");\r\n\r\nParam   smooth(0, min=0, max=333);  // ms\r\nParam   prewarp(1, min=0, max=1);   // 1 = input in Hz, 0 = input in 0..1 quasi radians\r\npw      = int(prewarp);\r\n\r\ng       = pw ? rcPreWarp2(clamp(in2, 1, samplerate*0.5)) : clamp(in2, 0, 1);\r\n\r\nif (smooth > 0) {\r\n    g   = logsmooth(g, smooth*0.001);\r\n}\r\n\r\nrclp, rcap, rchp    = rcFilterLpApHp(in1, g);\r\n\r\nout1    = rclp;     // lowpass\r\nout2    = rcap;     // allpass\r\nout3    = rchp;     // highpass\r\n\r\n",
+                    "fontface": 0,
+                    "fontname": "<Monospaced>",
+                    "fontsize": 12.0,
+                    "id": "obj-3",
+                    "maxclass": "codebox",
+                    "numinlets": 2,
+                    "numoutlets": 3,
+                    "outlettype": [ "", "", "" ],
+                    "patching_rect": [ 34.0, 58.0, 705.0, 529.0 ]
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-4",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 34.0, 604.0, 153.0, 22.0 ],
+                    "text": "out 1 (signal) 6dB Lowpass"
+                }
+            }
+        ],
+        "lines": [
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 0 ],
+                    "source": [ "obj-1", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 1 ],
+                    "midpoints": [ 388.5, 49.5, 729.5, 49.5 ],
+                    "source": [ "obj-2", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-4", 0 ],
+                    "source": [ "obj-3", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-5", 0 ],
+                    "midpoints": [ 386.5, 595.5, 322.5, 595.5 ],
+                    "source": [ "obj-3", 1 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-6", 0 ],
+                    "midpoints": [ 729.5, 595.5, 592.5, 595.5 ],
+                    "source": [ "obj-3", 2 ]
+                }
+            }
+        ]
+    }
+}

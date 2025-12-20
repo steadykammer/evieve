@@ -17,7 +17,8 @@ require("evi_approx.genexpr");
 
 
 // 'high quality' Lambert approx, excellent mathematical and sonic closeness to 'real' tanh
-// !! amplitude of 'x' must be clamped ± 120 dB otherwise numerical innacuracy !!
+// !! amplitude of 'x' must be clamped ± 120 dB (?!) otherwise numerical innacuracy !!
+// in general we always use this one
 tanhL(x)
 {
 	x2 = x * x;
@@ -99,14 +100,14 @@ altTanhF0(x)
 {
 	// not one of the better tanh() approxes, but the antiderivatives are more
 	// manageable than many of the others, swings and roundabouts
-    xx = x + x;
+  xx = x + x;
 	ex = (-1 / (exp(xx) + 1));
 	return ex + ex + 1;
 }
 
 altTanhF00(x)
 {
-    xx = x + x;
+  xx = x + x;
 	ex = (-1 / (expApprox(xx) + 1));
 	return ex + ex + 1;
 }

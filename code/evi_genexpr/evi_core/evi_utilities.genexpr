@@ -5,7 +5,7 @@
 require("evi_approx.genexpr");
 
 
-preWarp(cutoff)
+preWarpG(cutoff)
 {
 	g0		=  tanA2(PI * cutoff / SAMPLERATE);
 	return	g0 / (1 + g0);
@@ -114,35 +114,35 @@ xfadeSqrtStereo(a, b, c, d, x)
 	return ((a * cL) + (c * cR)), ((b * cL) + (d * cR));
 }
 
-xfadeQuartApproxMono(a, c, q)								// q is control, must be clamped 0..1
+xfadeQuartApproxMono(a, c, q)												// q is control, must be clamped 0..1
 {
-	qL, qR	= quartParOneApprox(q);							// cos/sin
-	return	((a * qL) + (c * qR));							// out mix L + out mix R
+	qL, qR	= quartParOneApprox(q);										// cos/sin
+	return	((a * qL) + (c * qR));										// out mix L + out mix R
 }
 
-xfadeQuartApproxStereo(a, b, c, d, q)						// q is control, must be clipped 0..1
+xfadeQuartApproxStereo(a, b, c, d, q)								// q is control, must be clipped 0..1
 {
-	qL, qR	= quartParOneApprox(q);							// cos/sin
+	qL, qR	= quartParOneApprox(q);										// cos/sin
 	return	((a * qL) + (c * qR)), ((b * qL) + (d * qR));	// out mix L, out mix R
 }
 
-xfadeQuartApproxSwap(a, b, q)								// q is control, must be clipped 0..1
+xfadeQuartApproxSwap(a, b, q)												// q is control, must be clipped 0..1
 {
-	qL, qR	= quartParOneApprox(q);							// cos/sin
+	qL, qR	= quartParOneApprox(q);										// cos/sin
 	return	((a * qL) + (b * qR)), ((b * qL) + (a * qR));	// out swap L, out swap R
 }
 
-panQuartApproxMono(x, p)									// p is control, must be clipped 0..1
+panQuartApproxMono(x, p)														// p is control, must be clipped 0..1
 {
-	pL, pR	= quartParOneApprox(p);							// cos/sin(/quart)
-	return	(x * pL), (x * pR);								// out pan L, out pan R
+	pL, pR	= quartParOneApprox(p);										// cos/sin(/quart)
+	return	(x * pL), (x * pR);												// out pan L, out pan R
 }
 
-panQuartApproxDual(xL, xR, pL, pR)							// p's are controls, must be clipped 0..1
+panQuartApproxDual(xL, xR, pL, pR)									// p's are controls, must be clipped 0..1
 {
-	yLL, yLR	= panQuartApproxMono(xL, pL);				// pan L
-	yRL, yRR	= panQuartApproxMono(xR, pR);				// pan R
-	return		(yLL + yRL), (yLR + yRR);					// out sum L, out sum R
+	yLL, yLR	= panQuartApproxMono(xL, pL);						// pan L
+	yRL, yRR	= panQuartApproxMono(xR, pR);						// pan R
+	return		(yLL + yRL), (yLR + yRR);								// out sum L, out sum R
 }
 
 butterfly8(i1, i2, i3, i4, i5, i6, i7, i8)

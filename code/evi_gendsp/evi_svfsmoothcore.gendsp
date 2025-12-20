@@ -3,15 +3,13 @@
         "fileversion": 1,
         "appversion": {
             "major": 9,
-            "minor": 1,
-            "revision": 1,
+            "minor": 2,
+            "revision": 0,
             "architecture": "x64",
             "modernui": 1
         },
         "classnamespace": "dsp.gen",
-        "rect": [ 134.0, 100.0, 819.0, 795.0 ],
-        "default_fontsize": 12.0,
-        "default_fontname": "Arial",
+        "rect": [ 254.0, 100.0, 819.0, 795.0 ],
         "gridonopen": 2,
         "subpatcher_template": "<none>",
         "integercoordinates": 1,
@@ -27,8 +25,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 411.0, 17.0, 189.0, 22.0 ],
-                    "text": "in 3 resonance 0..2 @default 1.88",
-                    "textjustification": 0
+                    "text": "in 3 resonance 0..2 @default 1.88"
                 }
             },
             {
@@ -42,9 +39,8 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 193.0, 11.0, 201.0, 35.0 ],
-                    "text": "in 2 normalised & warped frequency (w/2) @default 0.062783",
-                    "textjustification": 0
+                    "patching_rect": [ 193.0, 11.0, 203.0, 35.0 ],
+                    "text": "in 2 normalised & warped frequency (w/2) @default 0.062783"
                 }
             },
             {
@@ -57,8 +53,7 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 421.0, 742.0, 169.0, 22.0 ],
-                    "text": "out 3 audio output HIGHPASS",
-                    "textjustification": 0
+                    "text": "out 3 audio output HIGHPASS"
                 }
             },
             {
@@ -71,8 +66,7 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 226.0, 742.0, 172.0, 22.0 ],
-                    "text": "out 2 audio output BANDPASS",
-                    "textjustification": 0
+                    "text": "out 2 audio output BANDPASS"
                 }
             },
             {
@@ -85,8 +79,7 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 617.0, 742.0, 151.0, 22.0 ],
-                    "text": "out 4 audio output NOTCH",
-                    "textjustification": 0
+                    "text": "out 4 audio output NOTCH"
                 }
             },
             {
@@ -100,8 +93,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 30.0, 17.0, 90.0, 22.0 ],
-                    "text": "in 1 audio input",
-                    "textjustification": 0
+                    "text": "in 1 audio input"
                 }
             },
             {
@@ -115,13 +107,12 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 617.0, 17.0, 180.0, 22.0 ],
-                    "text": "in 4 saturation level @default 10",
-                    "textjustification": 0
+                    "text": "in 4 saturation level @default 10"
                 }
             },
             {
                 "box": {
-                    "code": "\r\nrequire(\"evi_tanh.genexpr\");\r\n\r\nHistory\tstate1(0), state2(0);\t\t\t\t// SVF state initialise\r\n\r\nX\t= in1;\r\nw2\t= in2;\r\nr2\t= in3;\r\ntl\t= in4;\r\n\r\n// integrators, post state, feedback\r\ns1\t= state1;\r\ng2\t= w2 * w2;\r\ns2\t= state2 + (s1 * w2);\r\n\r\n// resonance\r\ngG\t=   w2 * r2;\r\nsG\t=   s1 * r2;\r\ngS\t= -(g2 + gG);                           // invert feedback\r\nsS\t= -(s2 + sG);\r\n\r\n// solve\r\nonedivgS\t= 1 / (1 - gS);\r\nx0\t\t\t= ((X * gS) + sS) * onedivgS;\t// audio input\r\ny0\t\t\t= X + x0;\t\t\t\t\t\t// y0 = HP\r\n\r\n// integrator 1, post state, nonlinear\r\nx1\t= y0 * w2;\r\ny1\t= tanhLxA((x1 + state1), tl);\t\t\t// y1 = BP\r\n\r\n// integrator 2, post state, nonlinear\r\nx2\t= y1 * w2;\r\ny2\t= tanhLxA((x2 + state2), tl);\t\t\t// y2 = LP\r\ny3\t= y0 + y2;\t\t\t\t\t\t\t\t// y3 = BN\t// (y1 * r2)\r\n\r\n// integrator 1, update state\r\nstate1\t\t= x1 + y1;\r\n\r\n// integrator 2, update state\r\nstate2\t\t= x2 + y2;\r\n\r\nout1, out2, out3, out4\t= y2, y1, y0, y3;\t// LP, BP, HP, BN\r\n\r\n",
+                    "code": "\r\n//require(\"evi_tanh.genexpr\");\r\n// ^^ still does not work even with\r\n// 9.2 fix from jkc. something to do with requiring in an abstraction\r\n// that gets instantiated inside further genexpr code?\r\n\r\ntanhL(x)\n{\n\tx2\t=\tx * x;\n\ta\t= (((x2 + 378) * x2 + 17325) * x2 + 135135) * x;\n\tb\t= ((28 * x2 + 3150) * x2 + 62370) * x2 + 135135;\n\treturn\tclamp((a / b), -1, 1);\n}\n\r\ntanhLxA(x, a)\r\n{\r\n\treturn\ttanhL(x / a) * a;\r\n}\r\n\r\nHistory\tstate1(0), state2(0);\t\t\t\t// SVF state initialise\r\n\r\nX\t= in1;\r\nw2\t= in2;\r\nr2\t= in3;\r\ntl\t= in4;\r\n\r\n// integrators, post state, feedback\r\ns1\t= state1;\r\ng2\t= w2 * w2;\r\ns2\t= state2 + (s1 * w2);\r\n\r\n// resonance\r\ngG\t=   w2 * r2;\r\nsG\t=   s1 * r2;\r\ngS\t= -(g2 + gG);                           // invert feedback\r\nsS\t= -(s2 + sG);\r\n\r\n// solve\r\nonedivgS\t= 1 / (1 - gS);\r\nx0\t\t\t= ((X * gS) + sS) * onedivgS;\t// audio input\r\ny0\t\t\t= X + x0;\t\t\t\t\t\t// y0 = HP\r\n\r\n// integrator 1, post state, nonlinear\r\nx1\t= y0 * w2;\r\ny1\t= tanhLxA((x1 + state1), tl);\t\t\t// y1 = BP\r\n\r\n// integrator 2, post state, nonlinear\r\nx2\t= y1 * w2;\r\ny2\t= tanhLxA((x2 + state2), tl);\t\t\t// y2 = LP\r\ny3\t= y0 + y2;\t\t\t\t\t\t\t\t// y3 = BN\t// (y1 * r2)\r\n\r\n// integrator 1, update state\r\nstate1\t\t= x1 + y1;\r\n\r\n// integrator 2, update state\r\nstate2\t\t= x2 + y2;\r\n\r\nout1, out2, out3, out4\t= y2, y1, y0, y3;\t// LP, BP, HP, BN\r\n\r\n",
                     "fontface": 0,
                     "fontname": "<Monospaced>",
                     "fontsize": 12.0,
@@ -143,8 +134,7 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 30.0, 742.0, 166.0, 22.0 ],
-                    "text": "out 1 audio output LOWPASS",
-                    "textjustification": 0
+                    "text": "out 1 audio output LOWPASS"
                 }
             }
         ],

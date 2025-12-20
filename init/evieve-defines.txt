@@ -37,6 +37,9 @@ max define mc.evi.ladder.poles~ mc.gen~ @gen evi_ladder_poles.gendsp @chans 2;
 
 max define evi.ladder.antti~ gen~ @gen evi_moogsnake.gendsp;
 
+max define evi.svfsmooth~ gen~ @gen evi_svfsmooth.gendsp;
+max define mc.evi.svfsmooth~ mc.gen~ @gen evi_svfsmooth.gendsp @chans 2;
+
 max define evi.lores~ gen~ @gen evi_lores.gendsp;
 max define mc.evi.lores~ mc.gen~ @gen evi_lores.gendsp @chans 2;
 
@@ -48,6 +51,18 @@ max define mc.evi.multimode~ mc.gen~ @gen evi_multimode.gendsp @chans 2;
 
 max define evi.dahdshr~ gen~ @gen evi_DAHDSHR.gendsp;
 max define mc.evi.dahdshr~ mc.gen~ @gen evi_DAHDSHR.gendsp @chans 2;
+
+max define evi.onepole~ gen~ @gen evi_onepole.gendsp;
+max define mc.evi.onepole~ mc.gen~ @gen evi_onepole.gendsp @chans 2;
+
+max define evi.rcfilter~ gen~ @gen evi_rcfilter.gendsp;
+max define mc.evi.rcfilter~ mc.gen~ @gen evi_rcfilter.gendsp @chans 2;
+
+max define evi.damp~ gen~ @gen evi_damp.gendsp;
+max define mc.evi.damp~ mc.gen~ @gen evi_damp.gendsp @chans 2;
+
+max define evi.onepole.shelving~ gen~ @gen evi_onepole_shelving.gendsp;
+max define mc.evi.onepole.shelving~ mc.gen~ @gen evi_onepole_shelving.gendsp @chans 2;
 
 max define evi.filter~ gen~ @gen evi_filter.gendsp;
 max define mc.evi.filter~ mc.gen~ @gen evi_filter.gendsp @chans 2;

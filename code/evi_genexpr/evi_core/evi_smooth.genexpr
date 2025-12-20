@@ -557,7 +557,7 @@ eviRampsmooth(input, rampup, rampdown)		// input, up in samples, down in samples
 // the only side effect of using 'expA()' approximation (with no compensation offsets)...
 // ...is that 'curvature' values < -0.95 && > 0.95 produce curves not quite as steep as the original...
 // ...this is totally fine by me, and probably worth it
-// N.B. - this is really stupid and you should never use it
+// N.B. - this is really stupidly expensive and you should never use it
 eviCurve(target, duration, curvature)		// target, duration in samples, curvature -1..1
 {
 	History v(0), v0(0), v1(0), vrange(0);			// value: current, from, to, range

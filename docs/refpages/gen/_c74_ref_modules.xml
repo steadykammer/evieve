@@ -18,7 +18,5 @@
   OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 -->
 <root>
-  <module>common</module>
-  <module>dsp</module>
-  <module>jit</module>
+  <module>evieve</module>
 </root>

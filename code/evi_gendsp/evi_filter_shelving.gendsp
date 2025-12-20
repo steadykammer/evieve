@@ -3,13 +3,13 @@
         "fileversion": 1,
         "appversion": {
             "major": 9,
-            "minor": 1,
-            "revision": 2,
+            "minor": 2,
+            "revision": 0,
             "architecture": "x64",
             "modernui": 1
         },
         "classnamespace": "dsp.gen",
-        "rect": [ 34.0, 100.0, 990.0, 479.0 ],
+        "rect": [ 34.0, 100.0, 990.0, 524.0 ],
         "gridonopen": 2,
         "subpatcher_template": "sub",
         "integercoordinates": 1,
@@ -27,7 +27,7 @@
             },
             {
                 "box": {
-                    "code": "\r\n// lowshelf / highshelf chain\r\n\r\nrequire(\"evi_svf.genexpr\");\r\n\r\nParam   smooth(22.666, min=0, max=333);\r\n\r\nParam   lowcutoff(250, min=1, max=10000);\r\nParam   lowdb(0, min=-15, max=15);\r\nParam   lowq(1, min=0.05, max=20);\r\n\r\nParam   highcutoff(2000, min=500, max=samplerate*0.5);\r\nParam   highdb(0, min=-15, max=15);\r\nParam   highq(1, min=0.05, max=20);\r\n\r\nlowshelf = 2;\r\nhighshelf = 5;\r\n\r\nout1 = eviParametric2(in1, lowshelf, lowcutoff, lowdb, lowq, highshelf, highcutoff, highdb, highq, smooth=smooth);\r\n\r\n",
+                    "code": "\r\n// twopoles lowshelf / highshelf chain\r\n// @see: \"evi_damp.gendsp\" / [evi.damp~] for onepole damping.\r\n// @see: \"evi_onepole_shelving\" / [evi.onepole.shelving~] for variable onepole shelfs.\r\n\r\nrequire(\"evi_svf.genexpr\");\r\n\r\nParam   smooth(22.666, min=0, max=333);\r\n\r\nParam   lowcutoff(250, min=1, max=10000);\r\nParam   lowdb(0, min=-30, max=30);\r\nParam   lowq(1, min=0.05, max=20);\r\n\r\nParam   highcutoff(2000, min=500, max=samplerate*0.5);\r\nParam   highdb(0, min=-30, max=30);\r\nParam   highq(1, min=0.05, max=20);\r\n\r\nlowshelf = 2;\r\nhighshelf = 5;\r\n\r\nout1 = eviParametric2(in1, lowshelf, lowcutoff, lowdb, lowq, highshelf, highcutoff, highdb, highq, smooth=smooth);\r\n\r\n",
                     "fontface": 0,
                     "fontname": "<Monospaced>",
                     "fontsize": 12.0,
@@ -36,7 +36,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 34.0, 58.0, 916.0, 350.0 ]
+                    "patching_rect": [ 34.0, 58.0, 918.0, 401.0 ]
                 }
             },
             {
@@ -45,7 +45,7 @@
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 34.0, 425.0, 161.0, 22.0 ],
+                    "patching_rect": [ 34.0, 476.0, 161.0, 22.0 ],
                     "text": "out 1 (signal) Shelfed Output"
                 }
             }
