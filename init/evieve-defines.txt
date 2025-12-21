@@ -70,6 +70,12 @@ max define mc.evi.damp~ mc.gen~ @gen evi_damp.gendsp @chans 2;
 max define evi.onepole.shelving~ gen~ @gen evi_onepole_shelving.gendsp;
 max define mc.evi.onepole.shelving~ mc.gen~ @gen evi_onepole_shelving.gendsp @chans 2;
 
+max define evi.reson~ gen~ @gen evi_reson.gendsp;
+max define mc.evi.reson~ mc.gen~ @gen evi_reson.gendsp @chans 2;
+
+max define evi.svf~ gen~ @gen evi_svf.gendsp;
+max define mc.evi.svf~ mc.gen~ @gen evi_svf.gendsp @chans 2;
+
 max define evi.filter~ gen~ @gen evi_filter.gendsp;
 max define mc.evi.filter~ mc.gen~ @gen evi_filter.gendsp @chans 2;
 

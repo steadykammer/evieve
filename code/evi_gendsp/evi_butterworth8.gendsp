@@ -20,8 +20,8 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 49.0, 19.0, 91.0, 22.0 ],
-                    "text": "in 1 Audio Input"
+                    "patching_rect": [ 49.0, 19.0, 134.0, 22.0 ],
+                    "text": "in 1 (signal) Audio Input"
                 }
             },
             {
@@ -31,8 +31,8 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 499.0, 19.0, 229.0, 22.0 ],
-                    "text": "in 2 Cutoff @default samplerate*0.5-1800"
+                    "patching_rect": [ 399.0, 19.0, 329.0, 22.0 ],
+                    "text": "in 2 (signal/float) Cutoff in Hz @default samplerate*0.5-1800"
                 }
             },
             {
@@ -55,8 +55,8 @@
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 49.0, 807.0, 151.0, 22.0 ],
-                    "text": "out 1 Butterworth Lowpass"
+                    "patching_rect": [ 49.0, 807.0, 193.0, 22.0 ],
+                    "text": "out 1 (signal) Butterworth Lowpass"
                 }
             }
         ],
@@ -70,7 +70,7 @@
             {
                 "patchline": {
                     "destination": [ "obj-3", 1 ],
-                    "midpoints": [ 508.5, 48.0, 718.5, 48.0 ],
+                    "midpoints": [ 408.5, 48.0, 718.5, 48.0 ],
                     "source": [ "obj-2", 0 ]
                 }
             },

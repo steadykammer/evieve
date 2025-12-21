@@ -57,7 +57,7 @@ rcFilterBandpass(xp, ghp, glp)
 
 //	//	//	damp filters coefficients
 
-// i never use this, see functions immediately below
+// i never use this, see individual functions below
 rcDampCoeffs(cutoff, damp, mode)		// *)
 {
 	d1		= 0;
@@ -84,6 +84,30 @@ rcDampCoeffs(cutoff, damp, mode)		// *)
 	//		if mode==0:	 0=bypass..shelfattenuate..+1=pass (abs or clip damp)
 	//		if mode==1:	+0.75=shelfattenuate..0=bypass..-3=shelfboost
 	//		if mode==2:	+1=pass..shelfattenuate..0=bypass..-3=shelfboost
+}
+
+// same as above but for no tilde, see individual functions immediately below for audio
+rcDampCoeffsNoTilde(cutoff, damp, mode, AUDIO_SR=48000)
+{
+	d1		= 0;
+	// prewarp
+	g0		=  tanA(PI * cutoff / AUDIO_SR);
+	// account for pass/shelf
+	ka	=  abs(damp);					// 0..1 = sqrt..lin
+	ks	= (ka * 0.5) + 0.5;
+	g01	=  1 + g0;
+	g1 	=  g0 / interp((2 * (ks - 0.5)), sqrt(g01), g01, mode="linear");
+	// shelf/pass (damp) control
+	if (mode > 0) {			// nice way of getting approx ± 10dB
+		d1		= -(pow(4, damp) - 1);	// this is just horrible
+		if (mode == 2) {	// extend attenuation range to make pass choice
+			d1	=  (d1 > 0) ? (d1 * 1.333333333333) : d1;
+		}
+	} else {// (mode == 0)	// for attenuation ('damping') only (0..1 input)
+		d1	= interp((2 * (((1 - ks) + 0.5) - 0.5)), sqrt(ka), ka, mode="linear");
+	}
+
+	return g1, d1;			// rc filter warped cf (g)	// rc filter warped gain (k)
 }
 
 // fixed mode=0 version, no branching, keep out of while loop in export

@@ -162,6 +162,15 @@ tptSvfReset(x, g, r, a, reset)
 	return	yL, yB, yH;					// lowpass, bandpass, highpass
 }
 
+// simple calculator for single 'tptSvf()' unit as in [evi.svf~]
+tptSvfUnit(cutoff, Q)					// Q is full, must be remapped from 0..1 upstream
+{
+	g 	= tanA2(PI * cutoff / SAMPLERATE);
+	r 	= 1 / Q;
+	h	= 1 / (1 + (r + g) * g);
+	return 	g, r, h;
+}
+
 /*
 	Calculators ("filter" parameter is integer index - sorry, that is gen~)
 
@@ -1374,6 +1383,20 @@ tptSvfCoeffResonant(cutoff, gain, Q)	// gain is linear !
 	return	g, r, h, cL, cB, cH;
 }
 
+tptSvfCoeffReson(cutoff, gain, Q, compensate)	// gain is linear !, compensate 0/1
+{
+	w	= PI * cutoff / SAMPLERATE;		// prewarp cutoff
+	g 	= tanA2(w);						// embedded integrator gain
+	r 	= 1 / Q;						// damp
+
+	autogain = compensate ? maximum(Q * 0.01, 1) : 1;// just a cheap trick
+	cB	= r * gain * 1.995262 * autogain;// * gain compensation option for high Q
+				  // ^^ +6dB to match MSP
+	h	= 1 / (1 + (r + g) * g);		// feedback factor
+
+	return	g, r, h, cB;
+}
+
 tptSvfCoeffPeakNotch(cutoff, gain, Q)	// gain is linear !
 {
 	w	= PI * cutoff / SAMPLERATE;		// prewarp cutoff
@@ -1601,8 +1624,8 @@ eviFilterResonant(x, cutoff, db, Q, smooth=0)		// gain in dB, smooth time in ms
 	if (smooth > 0) {
 		cB 		= expsmooth(cB, smoothsecs);
 	}
-	reson		= (yB * cB);
-	return 		reson;
+	resonant	= (yB * cB);
+	return 		resonant;
 }
 
 eviFilterResonantStereo(xL, xR, cutoff, db, Q, smooth=0)
@@ -1616,8 +1639,37 @@ eviFilterResonantStereo(xL, xR, cutoff, db, Q, smooth=0)
 	if (smooth > 0) {
 		cB 		= expsmooth(cB, smoothsecs);
 	}
+	resonantL	= (yBL * cB);
+	resonantR	= (yBR * cB);
+	return 		resonantL, resonantR;
+}
+
+// MSP ordering of inputs, and like MSP gain is still linear here!
+eviFilterReson(x, gain, cutoff, Q, compensate, smooth=0)	// compensate flag 0/1, smooth time in ms
+{
+	History efrndummy(0);
+	smoothsecs	= smooth * 0.001;
+	g, r, h, cB = tptSvfCoeffReson(cutoff, gain, Q, compensate);
+	yL, yB, yH 	= tptSvf(x, g, r, h);
+	if (smooth > 0) {
+		cB 		= expsmooth(cB, smoothsecs);	// includes autogain if chosen
+	}
+	reson		= (yB * cB);
+	return 		reson;
+}
+
+eviFilterResonStereo(x, gain, cutoff, Q, compensate, smooth=0)// compensate flag 0/1, smooth time in ms
+{
+	History efrnsdummy(0);
+	smoothsecs	= smooth * 0.001;
+	g, r, h, cB = tptSvfCoeffReson(cutoff, gain, Q, compensate);
+	yLL, yBL, yHL 	= tptSvf(xL, g, r, h);
+	yLR, yBR, yHR 	= tptSvf(xR, g, r, h);
+	if (smooth > 0) {
+		cB 		= expsmooth(cB, smoothsecs);	// includes autogain if chosen
+	}
 	resonL		= (yBL * cB);
-	resonL		= (yBR * cB);
+	resonR		= (yBR * cB);
 	return 		resonL, resonR;
 }
 
