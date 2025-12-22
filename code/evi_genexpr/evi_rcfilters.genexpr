@@ -157,7 +157,7 @@ rcFilterDamp(Vin, g, k)
 	History	   s(0);
 	Lp		= (g * Vin + s) / (g + 1);
 	s		= (Lp + Lp) - s;
-//	Hp		=  Lp - Vin;				// must be y-x
+//	Hp		=  Lp - Vin;				// must be y-x for phase
 
 	return	Vin + (k * (Lp - Vin));
 }
@@ -167,7 +167,7 @@ rcFilterDampLpHp(Vin, g, k)
 	History	   s(0);
 	Lp		= (g * Vin + s) / (g + 1);
 	s		= (Lp + Lp) - s;
-	Hp		=  Lp - Vin;				// must be y-x
+	Hp		=  Lp - Vin;				// must be y-x for phase
 
 	LpHs	=  Vin + (k * (Lp - Vin));
 	HpLs	= (k * Lp) - Vin;

@@ -1353,6 +1353,22 @@ tptSvfCoeffBandpass(cutoff, gain, Q)	// gain is linear !
 	return	g, r, h, cL, cB, cH;
 }
 
+ltoSvfCoeffPeak(cutoff, gain, Q)
+{
+	g	= tanA2(PI * cutoff / SAMPLERATE);
+	A 	= maximum(gain, 0.001);
+	k	= 1 / Q;
+	a1	= 1 / (1 + g * (g + k));
+	a2	= g * a1;
+	a3	= g * a2;
+
+	m0	=  A;
+	m1	= -k * A;
+	m2	= -2 * A;
+
+	return	a1, a2, a3, m0, m1, m2;
+}
+
 tptSvfCoeffBandreject(cutoff, gain, Q)	// gain is linear !
 {
 	w	= PI * cutoff / SAMPLERATE;		// prewarp cutoff
@@ -1582,6 +1598,33 @@ eviFilterBandpassStereo(xL, xR, cutoff, db, Q, smooth=0)
 	bandpassL	= (yBL * cB);
 	bandpassR	= (yBR * cB);
 	return 		bandpassL, bandpassR;
+}
+
+eviFilterPeak(x, cutoff, db, Q, smooth=0)
+{
+	History efpdummy(0);
+	smoothsecs	= smooth * 0.001;
+	gain 		= dbtoaApprox(db);
+	a1, a2, a3, m0, m1, m2 	= ltoSvfCoeffPeak(cutoff, gain, Q);
+	if (smooth > 0) {
+		m0, m1, m2 			= expsmoothBank3(m0, m1, m2, smoothsecs);
+	}
+	peak 		= svfSection(x, a1, a2, a3, m0, m1, m2);
+	return 	peak;
+}
+
+eviFilterPeakStereo(xL, xR, cutoff, db, Q, smooth=0)
+{
+	History efpsdummy(0);
+	smoothsecs	= smooth * 0.001;
+	gain 		= dbtoaApprox(db);
+	a1, a2, a3, m0, m1, m2 	= ltoSvfCoeffPeak(cutoff, gain, Q);
+	if (smooth > 0) {
+		m0, m1, m2 			= expsmoothBank3(m0, m1, m2, smoothsecs);
+	}
+	peakL 		= svfSection(xL, a1, a2, a3, m0, m1, m2);
+	peakR 		= svfSection(xR, a1, a2, a3, m0, m1, m2);
+	return 	peakL, peakR;
 }
 
 eviFilterNotch(x, cutoff, db, Q, smooth=0)		// gain in dB, smooth time in ms

@@ -55,6 +55,21 @@ max define mc.evi.multimode~ mc.gen~ @gen evi_multimode.gendsp @chans 2;
 max define evi.dahdshr~ gen~ @gen evi_DAHDSHR.gendsp;
 max define mc.evi.dahdshr~ mc.gen~ @gen evi_DAHDSHR.gendsp @chans 2;
 
+max define evi.cross~ gen~ @gen evi_cross.gendsp;
+max define mc.evi.cross~ mc.gen~ @gen evi_cross.gendsp @chans 2;
+
+max define evi.crossover~ gen~ @gen evi_crossover.gendsp;
+max define mc.evi.crossover~ mc.gen~ @gen evi_crossover.gendsp @chans 2;
+
+max define evi.crossover.3band~ gen~ @gen evi_crossover_3band.gendsp;
+max define mc.evi.crossover.3band~ mc.gen~ @gen evi_crossover_3band.gendsp @chans 2;
+
+max define evi.crossover.sum~ gen~ @gen evi_crossover_sum.gendsp;
+max define mc.evi.crossover.sum~ mc.gen~ @gen evi_crossover_sum.gendsp @chans 2;
+
+max define evi.crossover.allpass~ gen~ @gen evi_crossover_allpass.gendsp;
+max define mc.evi.crossover.allpass~ mc.gen~ @gen evi_crossover_allpass.gendsp @chans 2;
+
 max define evi.butterworthlp8~ gen~ @gen evi_butterworth8.gendsp;
 max define mc.evi.butterworthlp8~ mc.gen~ @gen evi_butterworth8.gendsp @chans 2;
 
@@ -100,6 +115,9 @@ max define mc.evi.filter.highpass~ mc.gen~ @gen evi_filter_highpass.gendsp @chan
 
 max define evi.filter.bandpass~ gen~ @gen evi_filter_bandpass.gendsp;
 max define mc.evi.filter.bandpass~ mc.gen~ @gen evi_filter_bandpass.gendsp @chans 2;
+
+max define evi.filter.peak~ gen~ @gen evi_filter_peak.gendsp;
+max define mc.evi.filter.peak~ mc.gen~ @gen evi_filter_peak.gendsp @chans 2;
 
 max define evi.filter.notch~ gen~ @gen evi_filter_notch.gendsp;
 max define mc.evi.filter.notch~ mc.gen~ @gen evi_filter_notch.gendsp @chans 2;
@@ -172,6 +190,9 @@ max define mc.evi.biquad.resonant~ mc.gen~ @gen evi_biquad_resonant.gendsp @chan
 
 max define evi.bp~ gen~ @gen evi_bp.gendsp;
 max define mc.evi.bp~ mc.gen~ @gen evi_bp.gendsp @chans 2;
+
+max define evi.vcf~ gen~ @gen evi_vcf_df2.gendsp;
+max define mc.evi.vcf~ mc.gen~ @gen evi_vcf_df2.gendsp @chans 2;
 
 max define evi.bp.butterworth~ gen~ @gen evi_bp_butterworth.gendsp;
 max define mc.evi.bp.butterworth~ mc.gen~ @gen evi_bp_butterworth.gendsp @chans 2;

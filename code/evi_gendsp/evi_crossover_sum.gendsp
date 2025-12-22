@@ -1,0 +1,124 @@
+{
+    "patcher": {
+        "fileversion": 1,
+        "appversion": {
+            "major": 9,
+            "minor": 2,
+            "revision": 0,
+            "architecture": "x64",
+            "modernui": 1
+        },
+        "classnamespace": "dsp.gen",
+        "rect": [ 182.0, 100.0, 943.0, 765.0 ],
+        "gridonopen": 2,
+        "subpatcher_template": "sub",
+        "integercoordinates": 1,
+        "boxes": [
+            {
+                "box": {
+                    "id": "obj-8",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 425.0, 19.0, 160.0, 22.0 ],
+                    "text": "in 3 (signal) High Band Input"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-2",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 238.0, 19.0, 155.0, 22.0 ],
+                    "text": "in 2 (signal) Mid Band Input"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-7",
+                    "linecount": 2,
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 669.0, 13.0, 225.0, 35.0 ],
+                    "text": "in 4 (signal/float) High Crossover Frequency in Hz @min 10 @max 20000"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-1",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 49.0, 19.0, 157.0, 22.0 ],
+                    "text": "in 1 (signal) Low Band Input"
+                }
+            },
+            {
+                "box": {
+                    "code": "\r\n// 3-band (low/mid/high) summing of crossover signals post processing from an\r\n// upstream \"evi_crossover_3band.gendsp\" / [evi.crossover.3band~]\r\n\r\n// Linkwitz-Rileys sum perfectly flat\r\n\r\nrequire(\"evi_crossovers.genexpr\");\r\n\r\nParam   align(1, min=0, max=1); // 0 = no allpass alignment, 1 = allpass align in this sum (default) ?\r\nParam   order(1, min=0, max=1); // 0 = from 2-pole xover ?, 1 = from 4-pole xover ? (default)\r\npoles   = int(order);\r\nap      = int(align);\r\n\r\n// if using \"evi_crossover_3band.gendsp\" / [evi.crossover.3band~] upstream with it's 'align'\r\n// attribute turned off, you must turn 'align' on in this sum abstraction.\r\n// by default 'align' is on in this sum abstraction because that would be the only point of using it :-).\r\n// apparently allpass alignment should come when summing, but i am not sure this makes much difference ?\r\n\r\nSUM = 0;\r\nif (poles > 0) {\r\n    if (ap > 0) {\r\n        SUM = eviXover4pole3bandSum(in1, in2, in3, in4);  // 4-pole (default)\r\n    } else {\r\n        SUM = in1 + in2 + in3;\r\n    }\r\n} else {\r\n    if (ap > 0) {\r\n        SUM = eviXover2pole3bandSum(in1, in2, in3, in4);  // 2-pole\r\n    } else {\r\n        SUM = in1 + in2 + in3;\r\n    }\r\n}\r\n\r\nout1    = SUM;\r\n\r\n// Note: for additional crossovers including 2-band crossovers,\r\n// @see: \"evi_cross.gendsp\" / [evi.cross~] - 4-pole only\r\n// @see: \"evi_crossover.gendsp\" / [evi.crossover~]\r\n// @see: \"evi_crossover_3band.gendsp\" / [evi.crossover.3band~]\r\n// @see: \"evi_crossover_allpass.gendsp\" / [evi.crossover.allpass~]\r\n\r\n",
+                    "fontface": 0,
+                    "fontname": "<Monospaced>",
+                    "fontsize": 12.0,
+                    "id": "obj-3",
+                    "maxclass": "codebox",
+                    "numinlets": 4,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 49.0, 58.0, 845.0, 646.0 ]
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-4",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 49.0, 721.0, 219.0, 22.0 ],
+                    "text": "out 1 (signal) Output of Summed Bands"
+                }
+            }
+        ],
+        "lines": [
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 0 ],
+                    "source": [ "obj-1", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 1 ],
+                    "midpoints": [ 247.5, 49.5, 333.8333333333333, 49.5 ],
+                    "source": [ "obj-2", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-4", 0 ],
+                    "source": [ "obj-3", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 3 ],
+                    "midpoints": [ 678.5, 53.0, 884.5, 53.0 ],
+                    "source": [ "obj-7", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 2 ],
+                    "midpoints": [ 434.5, 49.5, 609.1666666666666, 49.5 ],
+                    "source": [ "obj-8", 0 ]
+                }
+            }
+        ],
+        "autosave": 0
+    }
+}
