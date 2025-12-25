@@ -68,6 +68,17 @@ expsmoothBank3(x1, x2, x3, t)
 	return	y1, y2, y3;
 }
 
+expsmoothBank4(x1, x2, x3, x4, t)
+{
+	History	expsdummy4(0);
+	z		= tauA(t);
+	y1		= expso(x1, z);
+	y2		= expso(x2, z);
+	y3		= expso(x3, z);
+	y4		= expso(x4, z);
+	return	y1, y2, y3, y4;
+}
+
 bandwidth2Q(bandwidth)
 {
 	x = expA(0.346573590279973 * bandwidth);
@@ -614,14 +625,54 @@ eviFilterTptEqStereo(xL, xR, cutoff, db, Q, filter, reset, smooth=0)	// gain in 
 	return 		eqL, eqR;
 }
 
-// special morphing filter section, use with 'tptSvf()'
-// ...'morph' 0..1 interpolates LP..BP..HP
+// special morphing filter sections, use with 'tptSvf()'
 
-// morph filter coefficients (based on Schmidt)
-tptSvfCoeffMorph(cutoff, gain, Q, morph)			// gain is Linear
+// morph filter coefficients LP..BP..HP..NOTCH..LP @like Ableton 'Morph Filter'
+tptSvfCoeffMorphFull(cutoff, gain, Q, morph, comp)		// gain is Linear, morph 0..1, compensate 0/1
 {
 	g	= tanA2(PI * cutoff / SAMPLERATE);
-//	a	= expA(0.11512925464970 * db) + 0.000128;	// dBtoA
+//	gain    = expA(0.11512925464970 * db) + 0.000128;   // dBtoA
+	r	= sqrt2;
+
+    // i'm sure this could be done in a less arse about face sort of a way, but it works
+    cL, cB, cH, cN = 0;
+    if (morph < 0.5) {
+	    r	= 1 / Q;
+        cN  = 1;
+        x0  = morph + morph;
+	    x1	= (x0 + x0) - 1;
+	    cL	= maximum(-x1, 0);
+	    cH	= maximum( x1, 0);
+	    cB	= 1 - (cL + cH);
+	    cB	= sqrt(sqrt(cB));
+	    // scaling ensures constant gain at cutoff
+	    sc	= Q * sqrt((r * r) / (cL * cL + cB * cB + cH * cH - (cL + cL) * cH)) * gain;
+	    cL *= sc;
+	    cB *= sc;
+	    cH *= sc;
+    } else {
+        cB  = 0;
+        x0  = morph - 0.5;
+        cL  = x0 + x0;
+        cH  = 1 - cL;
+	    x1	= (cL + cL) - 1;
+        cN  = 2 - abs(x1);
+        // switch ensures notch clarity at high Q (if compensate is on)
+        r   = comp ? 1 / (Q * (1 / cN)) : 1 / Q;
+        cH *= gain;
+        cN *= gain;
+    }
+
+	h	= 1 / (1 + (r + g) * g);
+
+	return	g, r, h, cL, cB, cH, cN;    // !! 'cN' is extra !!
+}
+
+// morph filter coefficients based on Schmidt
+// ...'morph' 0..1 interpolates LP..BP..HP
+tptSvfCoeffMorphLpBpHp(cutoff, gain, Q, morph)		// gain is Linear
+{
+	g	= tanA2(PI * cutoff / SAMPLERATE);
 	r	= 1 / Q;
 	x	= (morph + morph) - 1;
 
@@ -637,19 +688,73 @@ tptSvfCoeffMorph(cutoff, gain, Q, morph)			// gain is Linear
 	cH *= sc;
 
 	// feedback factor
-	h	= 1 / (1 + (r + g) * g);		// 1 / (1 + r * g + g * g)
+	h	= 1 / (1 + (r + g) * g);
 
 	return	g, r, h, cL, cB, cH;
 }
 
-// 'morph' 0..1 interpolates LP..BP..HP
-eviFilterMorph(x, hz, db, bw, morph, smooth=22.666)	// gain in dB, bandwidth 0..1, smooth in ms
+// ...'morph' 0..1 interpolates LP..NOTCH..HP
+tptSvfCoeffMorphLpBrHp(cutoff, gain, Q, morph, comp)	// gain is Linear, morph 0..1, compensate 0/1
+{
+	g	= tanA2(PI * cutoff / SAMPLERATE);
+	r	= sqrt2;
+
+    cH  = morph;
+    cL  = 1 - cH;
+	x	= (cH + cH) - 1;
+    cN  = 2 - abs(x);
+    // switch ensures notch clarity at high Q (if compensate is on)
+    r   = comp ? 1 / (Q * (1 / cN)) : 1 / Q;
+    cH *= gain;
+    cN *= gain;
+
+	h	= 1 / (1 + (r + g) * g);
+
+	return	g, r, h, cL, cN, cH;    // !! no 'cB', 'cN' instead !!
+}
+
+// 'morph' 0..1 interpolates LP..BP..HP..NOTCH..LP
+eviFilterMorph(x, hz, db, bw, morph, smooth=22.666)       // gain in dB, bandwidth 0..1, smooth in ms
 {
 	History efmdummy(0);
 	smoothsecs	= smooth * 0.001;
 	gain		= dbtoaApprox(db);
 	q 			= bandwidth2Q(((1 - sqrt(bw)) * 9.95) + 0.05);	// bw 0..1 to bandwidth to q, 10 octaves range
-	g, r, h, cL, cB, cH = tptSvfCoeffMorph(hz, gain, q, morph);
+	g, r, h, cL, cB, cH, cN = tptSvfCoeffMorphFull(hz, gain, q, morph, 1);
+	yL, yB, yH 	= tptSvf(x, g, r, h);
+	if (smooth > 0) {
+		cL, cB, cH, cN 		= expsmoothBank4(cL, cB, cH, cN, smoothsecs);
+	}
+	morphed		= cN * (yL * cL) + (yB * cB) + (yH * cH);
+	return 		morphed;
+}
+
+// 'morph' 0..1 interpolates LP..BP..HP..NOTCH..LP
+eviFilterMorphStereo(xL, xR, hz, db, bw, morph, smooth=22.666)    // gain in dB, bandwidth 0..1, smooth in ms
+{
+	History efmsdummy(0);
+	smoothsecs	= smooth * 0.001;
+	gain		= dbtoaApprox(db);
+	q 			= bandwidth2Q(((1 - sqrt(bw)) * 9.95) + 0.05);	// bw 0..1 to bandwidth to q, 10 octaves range
+	g, r, h, cL, cB, cH, cN = tptSvfCoeffMorphFull(hz, gain, q, morph, 1);
+	yLL, yBL, yHL 		= tptSvf(xL, g, r, h);
+	yLR, yBR, yHR 		= tptSvf(xR, g, r, h);
+	if (smooth > 0) {
+		cL, cB, cH, cN 		= expsmoothBank4(cL, cB, cH, cN, smoothsecs);
+	}
+	morphL		= cN * (yLL * cL) + (yBL * cB) + (yHL * cH);
+	morphR		= cN * (yLR * cL) + (yBR * cB) + (yHR * cH);
+	return 		morphL, morphR;
+}
+
+// 'morph' 0..1 interpolates LP..BP..HP
+eviFilterMorphLpBpHp(x, hz, db, bw, morph, smooth=22.666)	// gain in dB, bandwidth 0..1, smooth in ms
+{
+	History efmlbhdummy(0);
+	smoothsecs	= smooth * 0.001;
+	gain		= dbtoaApprox(db);
+	q 			= bandwidth2Q(((1 - sqrt(bw)) * 9.95) + 0.05);	// bw 0..1 to bandwidth to q, 10 octaves range
+	g, r, h, cL, cB, cH = tptSvfCoeffMorphLpBpHp(hz, gain, q, morph);
 	yL, yB, yH 	= tptSvf(x, g, r, h);
 	if (smooth > 0) {
 		cL, cB, cH 		= expsmoothBank3(cL, cB, cH, smoothsecs);
@@ -659,13 +764,13 @@ eviFilterMorph(x, hz, db, bw, morph, smooth=22.666)	// gain in dB, bandwidth 0..
 }
 
 // 'morph' 0..1 interpolates LP..BP..HP
-eviFilterMorphStereo(xL, xR, hz, db, bw, morph, smooth=22.666)	// gain in dB, bandwidth 0..1, smooth in ms
+eviFilterMorphLpBpHpStereo(xL, xR, hz, db, bw, morph, smooth=22.666)	// gain in dB, bandwidth 0..1, smooth in ms
 {
-	History efmsdummy(0);
+	History efmlbhsdummy(0);
 	smoothsecs	= smooth * 0.001;
 	gain		= dbtoaApprox(db);
 	q 			= bandwidth2Q(((1 - sqrt(bw)) * 9.95) + 0.05);	// bw 0..1 to bandwidth to q, 10 octaves range
-	g, r, h, cL, cB, cH = tptSvfCoeffMorph(hz, gain, q, morph);
+	g, r, h, cL, cB, cH = tptSvfCoeffMorphLpBpHp(hz, gain, q, morph);
 	yLL, yBL, yHL 		= tptSvf(xL, g, r, h);
 	yLR, yBR, yHR 		= tptSvf(xR, g, r, h);
 	if (smooth > 0) {
@@ -673,6 +778,40 @@ eviFilterMorphStereo(xL, xR, hz, db, bw, morph, smooth=22.666)	// gain in dB, ba
 	}
 	morphL		= (yLL * cL) + (yBL * cB) + (yHL * cH);
 	morphR		= (yLR * cL) + (yBR * cB) + (yHR * cH);
+	return 		morphL, morphR;
+}
+
+// 'morph' 0..1 interpolates LP..NOTCH..HP
+eviFilterMorphLpBrHp(x, hz, db, bw, morph, smooth=22.666)	// gain in dB, bandwidth 0..1, smooth in ms
+{
+	History efmlnhdummy(0);
+	smoothsecs	= smooth * 0.001;
+	gain		= dbtoaApprox(db);
+	q 			= bandwidth2Q(((1 - sqrt(bw)) * 9.95) + 0.05);	// bw 0..1 to bandwidth to q, 10 octaves range
+	g, r, h, cL, cN, cH = tptSvfCoeffMorphLpBrHp(hz, gain, q, morph, 1);
+	yL, yB, yH 	= tptSvf(x, g, r, h);
+	if (smooth > 0) {
+		cL, cN, cH 		= expsmoothBank3(cL, cN, cH, smoothsecs);
+	}
+	morphed		= cN * (yL * cL) + (yH * cH); // note cN * yL first saves one mul
+	return 		morphed;
+}
+
+// 'morph' 0..1 interpolates LP..NOTCH..HP
+eviFilterMorphLpBrHpStereo(xL, xR, hz, db, bw, morph, smooth=22.666)	// gain in dB, bandwidth 0..1, smooth in ms
+{
+	History efmlnhsdummy(0);
+	smoothsecs	= smooth * 0.001;
+	gain		= dbtoaApprox(db);
+	q 			= bandwidth2Q(((1 - sqrt(bw)) * 9.95) + 0.05);	// bw 0..1 to bandwidth to q, 10 octaves range
+	g, r, h, cL, cN, cH = tptSvfCoeffMorphLpBrHp(hz, gain, q, morph, 1);
+	yLL, yBL, yHL 		= tptSvf(xL, g, r, h);
+	yLR, yBR, yHR 		= tptSvf(xR, g, r, h);
+	if (smooth > 0) {
+		cL, cN, cH 		= expsmoothBank3(cL, cN, cH, smoothsecs);
+	}
+	morphL		= cN * (yLL * cL) + (yHL * cH);
+	morphR		= cN * (yLR * cL) + (yHR * cH);
 	return 		morphL, morphR;
 }
 

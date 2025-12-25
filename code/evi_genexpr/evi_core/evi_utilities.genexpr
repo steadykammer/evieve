@@ -5,6 +5,17 @@
 require("evi_approx.genexpr");
 
 
+logicalClicks(x)
+{
+	History clik(0);				// store
+	klick	= -x + clik;			// make
+	up		= klick < 0;			// from zero (or upwards change) only
+	down	= klick > 0;			// to zero (or downwards change) only
+	updown	= up + down;		// either from zero or to zero (or upwards or downwards changes)
+	clik	= x;							// update
+	return	updown, up, down;
+}
+
 preWarpG(cutoff)
 {
 	g0		=  tanA2(PI * cutoff / SAMPLERATE);

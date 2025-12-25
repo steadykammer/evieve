@@ -51,7 +51,7 @@ rcFilterBandpass(xp, ghp, glp)
 {
 	History	rcfbdummy(0);
 	lp		= rcFilter(xp, glp);
-	bp, _hl	= rcFilterHpLp(lp, ghp);
+	_hl, bp	= rcFilterLpHp(lp, ghp);
 	return	bp;
 }
 
@@ -62,12 +62,13 @@ rcDampCoeffs(cutoff, damp, mode)		// *)
 {
 	d1		= 0;
 	// prewarp
-	g0		=  tanA(PI * cutoff / SAMPLERATE);
+	g0		=  tanA2(PI * cutoff / SAMPLERATE);
 	// account for pass/shelf
 	ka	=  abs(damp);					// 0..1 = sqrt..lin
 	ks	= (ka * 0.5) + 0.5;
+	ks05 = (ks - 0.5);
 	g01	=  1 + g0;
-	g1 	=  g0 / interp((2 * (ks - 0.5)), sqrt(g01), g01, mode="linear");
+	g1 	=  g0 / interp((ks05 + ks05), sqrt(g01), g01, mode="linear");
 	// shelf/pass (damp) control
 	if (mode > 0) {			// nice way of getting approx ± 10dB
 		d1		= -(pow(4, damp) - 1);	// this is just horrible
@@ -86,17 +87,18 @@ rcDampCoeffs(cutoff, damp, mode)		// *)
 	//		if mode==2:	+1=pass..shelfattenuate..0=bypass..-3=shelfboost
 }
 
-// same as above but for no tilde, see individual functions immediately below for audio
+// same as above but for no tilde, see individual functions immediately below
 rcDampCoeffsNoTilde(cutoff, damp, mode, AUDIO_SR=48000)
 {
 	d1		= 0;
 	// prewarp
-	g0		=  tanA(PI * cutoff / AUDIO_SR);
+	g0		=  tanA2(PI * cutoff / AUDIO_SR);
 	// account for pass/shelf
 	ka	=  abs(damp);					// 0..1 = sqrt..lin
 	ks	= (ka * 0.5) + 0.5;
+	ks05 = (ks - 0.5);
 	g01	=  1 + g0;
-	g1 	=  g0 / interp((2 * (ks - 0.5)), sqrt(g01), g01, mode="linear");
+	g1 	=  g0 / interp((ks05 + ks05), sqrt(g01), g01, mode="linear");
 	// shelf/pass (damp) control
 	if (mode > 0) {			// nice way of getting approx ± 10dB
 		d1		= -(pow(4, damp) - 1);	// this is just horrible
@@ -179,7 +181,7 @@ rcFilterDampBandpass(Vin, glp, ghp, lk, hk)
 {
 	History	rcfdbdummy(0);
 	lphs1			= rcFilterDamp(Vin, glp, lk);
-	hpls2, _lphs2	= rcFilterDampHpLp(lphs1, ghp, hk);
+	_lphs2, hpls2	= rcFilterDampLpHp(lphs1, ghp, hk);
 	return	hpls2;
 }
 
