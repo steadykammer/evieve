@@ -3,8 +3,8 @@
         "fileversion": 1,
         "appversion": {
             "major": 9,
-            "minor": 1,
-            "revision": 2,
+            "minor": 2,
+            "revision": 0,
             "architecture": "x64",
             "modernui": 1
         },
@@ -122,7 +122,7 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 171.0, 254.0, 531.0, 20.0 ],
-                    "text": "somewhat pointless, just to have direct form 2 (and sample-accurate reset)"
+                    "text": "just to have direct form 2, as well as sample-accurate reset (like Alex Harker's [rbiquad~])"
                 }
             }
         ],
@@ -175,7 +175,6 @@
                     "source": [ "obj-9", 0 ]
                 }
             }
-        ],
-        "autosave": 0
+        ]
     }
 }

@@ -4,7 +4,11 @@
 
 // @see: "evi_biquad_no_tilde.genexpr" for versions that work with gen no tilde
 // Note: never require both evieve biquad files in the same code !!
-// @see in Max: [evi.biquadcoeff] & [evi.biquadcoeff~] & [evi.biquad.filter~] for examples of wrappers
+// @see in Max: [evi.biquadcoeff] & [evi.biquadcoeff~] & [evi.biquad.filter~] and more for examples of wrappers
+// Note: [filtercoeff~] & [filtergraph~] in MSP have the bandpass/resonant types
+// incorrectly switched, in evieve these are correct, thus the opposite to MSP.
+// Note: there are no evieve approximations here and thus no dependencies,
+// I just could not be bothered to work all that out for the sake of Biquads.
 
 // This file:
 // Part 1: Coefficients Calculators
@@ -17,33 +21,40 @@
 // all Cutoffs in Hz, all Gains are linear (sorry, see wrappers), all Qs are Q or S
 // all returns are a0, a1, a2, b1, b2 coefficients
 /*
-	calculator                              	parameters
+	calculator                              	parameters			notes
 
 	eviBiquadCoeffLowpass 						cutoff, Q
 	eviBiquadCoeffHighpass 						cutoff, Q
-	eviBiquadCoeffBandpass 						cutoff, Q
+	eviBiquadCoeffBandpass 						cutoff, Q 			"resonant" in MSP [filtercoeff~] & [filtergraph~]
 	eviBiquadCoeffNotch 						cutoff, Q
 	eviBiquadCoeffPeakNotch 					cutoff, gain, Q
-	eviBiquadCoeffLowShelf 						cutoff, gain, Q
-	eviBiquadCoeffLowShelfCookbook 				cutoff, gain, Q
-	eviBiquadCoeffHighShelf 					cutoff, gain, Q
-	eviBiquadCoeffHighShelfCookbook 			cutoff, gain, Q
-	eviBiquadCoeffReson 						cutoff, Q
+	eviBiquadCoeffLowshelfMSP 					cutoff, gain, Q 	"lowshelf" in MSP [filtercoeff~] & [filtergraph~]
+	eviBiquadCoeffLowshelfCookbook 				cutoff, gain, Q
+	eviBiquadCoeffHighshelfMSP 					cutoff, gain, Q 	"highshelf" in MSP [filtercoeff~] & [filtergraph~]
+	eviBiquadCoeffHighshelfCookbook 			cutoff, gain, Q
+	eviBiquadCoeffResonant 						cutoff, Q 			"bandpass" in MSP [filtercoeff~] & [filtergraph~]
 	eviBiquadCoeffBp 							cutoff, Q
 	eviBiquadCoeffAllpass 						cutoff, Q
 	eviBiquadCoeffLowpassGain 					cutoff, gain, Q
 	eviBiquadCoeffHighpassGain 					cutoff, gain, Q
-	eviBiquadCoeffBandpassGain 					cutoff, gain, Q
+	eviBiquadCoeffBandpassGain 					cutoff, gain, Q 	"gainresonant" in MSP [filtercoeff~] & [filtergraph~]
 	eviBiquadCoeffNotchGain 					cutoff, gain, Q
-	eviBiquadCoeffResonGain 					cutoff, gain, Q
+	eviBiquadCoeffResonantGain 					cutoff, gain, Q 	"gainbpass" in MSP [filtercoeff~] & [filtergraph~]
 	eviBiquadCoeffBpGain 						cutoff, gain, Q
 	eviBiquadCoeffAllpassGain 					cutoff, gain, Q
-	eviBiquadCoeffLowpassAnalog 				cutoff, Q
-	eviBiquadCoeffBandpassAnalog 				cutoff, Q
-	eviBiquadCoeffBandpassGainAnalog 			cutoff, gain, Q
-	eviBiquadCoeffPeakNotchAnalog 				cutoff, gain, Q
-	eviBiquadCoeffLowShelfAnalog 				cutoff, gain
-	eviBiquadCoeffHighShelfAnalog 				cutoff, gain
+	eviBiquadCoeffLowpassAnalog1 				cutoff, Q
+	eviBiquadCoeffLowpassAnalog2 				cutoff, Q
+	eviBiquadCoeffHighpassAnalog				cutoff, Q
+	eviBiquadCoeffBandpassAnalog 				cutoff, Q 			incorrectly named in both MSP & evieve (life is complex)
+	eviBiquadCoeffBandpassGainAnalog 			cutoff, gain, Q 	incorrectly named in both MSP & evieve (life is complex)
+	eviBiquadCoeffNotchAnalog 					cutoff, Q
+	eviBiquadCoeffPeakNotchAnalog1 				cutoff, gain, Q
+	eviBiquadCoeffPeakNotchAnalog2 				cutoff, gain, Q
+	eviBiquadCoeffLowshelfAnalog1 				cutoff, gain, Q
+	eviBiquadCoeffLowshelfAnalog2 				cutoff, gain 		butterworth
+	eviBiquadCoeffHighshelfAnalog1 				cutoff, gain, Q
+	eviBiquadCoeffHighshelfAnalog2 				cutoff, gain 		butterworth
+	eviBiquadCoeffResonantAnalog				cutoff, Q
 	eviBiquadCoeffButterworthLowpass 			cutoff
 	eviBiquadCoeffButterworthHighpass 			cutoff
 	eviBiquadCoeffButterworthBandpass 			cutoff, Q
@@ -90,6 +101,8 @@ eviBiquadCoeffHighpass(cutoff, Q)
 	return  (b0 * a0m), (b1 * a0m), (b2 * a0m), (a1 * a0m), (a2 * a0m);	// a0, a1, a2, b1, b2
 }
 
+// this is incorrectly called "resonant" in [filtercoeff~] & [filtergraph~]
+// this is a real bandpass - same resonant peak as low- & high- passes
 eviBiquadCoeffBandpass(cutoff, Q)
 {
 	w0      = TWOPI * cutoff / SAMPLERATE;  // omega0
@@ -145,7 +158,8 @@ eviBiquadCoeffPeakNotch(cutoff, gain, Q)
 	return  (b0 * a0m), (b1 * a0m), (b2 * a0m), (a1 * a0m), (a2 * a0m);	// a0, a1, a2, b1, b2
 }
 
-eviBiquadCoeffLowShelf(cutoff, gain, Q)     // like MSP (see below for RBJ)
+// I am not sure who made this MSP version - it has much nicer Q scaling than the cookbook
+eviBiquadCoeffLowshelfMSP(cutoff, gain, Q)	// like MSP (see below for RBJ)
 {
 	w0      = TWOPI * cutoff / SAMPLERATE;  // omega0
     A       = sqrt(maximum(gain, 0.001));
@@ -171,7 +185,7 @@ eviBiquadCoeffLowShelf(cutoff, gain, Q)     // like MSP (see below for RBJ)
 	return  (b0 * a0m), (b1 * a0m), (b2 * a0m), (a1 * a0m), (a2 * a0m);	// a0, a1, a2, b1, b2
 }
 
-eviBiquadCoeffLowShelfCookbook(cutoff, gain, Q) // RBJ (see above for MSP style)
+eviBiquadCoeffLowshelfCookbook(cutoff, gain, Q) // RBJ (see above for MSP style)
 {
 	w0      = TWOPI * cutoff / SAMPLERATE;  // omega0
     A       = sqrt(maximum(gain, 0.001));
@@ -198,7 +212,8 @@ eviBiquadCoeffLowShelfCookbook(cutoff, gain, Q) // RBJ (see above for MSP style)
 	return  (b0 * a0m), (b1 * a0m), (b2 * a0m), (a1 * a0m), (a2 * a0m);	// a0, a1, a2, b1, b2
 }
 
-eviBiquadCoeffHighShelf(cutoff, gain, Q)
+// I am not sure who made this MSP version - it has much nicer Q scaling than the cookbook
+eviBiquadCoeffHighshelfMSP(cutoff, gain, Q)	// like MSP (see below for RBJ)
 {
 	w0      = TWOPI * cutoff / SAMPLERATE;  // omega0
     A       = sqrt(maximum(gain, 0.001));
@@ -224,7 +239,7 @@ eviBiquadCoeffHighShelf(cutoff, gain, Q)
 	return  (b0 * a0m), (b1 * a0m), (b2 * a0m), (a1 * a0m), (a2 * a0m);	// a0, a1, a2, b1, b2
 }
 
-eviBiquadCoeffHighShelfCookbook(cutoff, gain, Q)
+eviBiquadCoeffHighshelfCookbook(cutoff, gain, Q)	// RBJ (see above for MSP style)
 {
 	w0      = TWOPI * cutoff / SAMPLERATE;  // omega0
     A       = sqrt(maximum(gain, 0.001));
@@ -251,7 +266,8 @@ eviBiquadCoeffHighShelfCookbook(cutoff, gain, Q)
 	return  (b0 * a0m), (b1 * a0m), (b2 * a0m), (a1 * a0m), (a2 * a0m);	// a0, a1, a2, b1, b2
 }
 
-eviBiquadCoeffReson(cutoff, Q)              // "Resonant" ([reson~])
+// this is incorrectly called "bandpass" in [filtercoeff~] & [filtergraph~]
+eviBiquadCoeffResonant(cutoff, Q)			// "Resonant" (similar to [reson~])
 {
 	omega   = TWOPI / SAMPLERATE;
 	bw      = cutoff / Q;
@@ -340,6 +356,8 @@ eviBiquadCoeffHighpassGain(cutoff, gain, Q)
 	return  (b0 * a0m), (b1 * a0m), (b2 * a0m), (a1 * a0m), (a2 * a0m);	// a0, a1, a2, b1, b2
 }
 
+// this is incorrectly called "gainresonant" in [filtercoeff~] & [filtergraph~]
+// this is a real bandpass - same resonant peak as low- & high- passes
 eviBiquadCoeffBandpassGain(cutoff, gain, Q)
 {
 	w0      = TWOPI * cutoff / SAMPLERATE;  // omega0
@@ -377,7 +395,8 @@ eviBiquadCoeffNotchGain(cutoff, gain, Q)    // "Bandstop"
 	return  (b0 * a0m), (b1 * a0m), (b2 * a0m), (a1 * a0m), (a2 * a0m);	// a0, a1, a2, b1, b2
 }
 
-eviBiquadCoeffResonGain(cutoff, gain, Q)    // "Resonant" ([reson~])
+// this is incorrectly called "gainbpass" in [filtercoeff~] & [filtergraph~]
+eviBiquadCoeffResonantGain(cutoff, gain, Q)	// "Resonant" (similar to [reson~])
 {
 	omega   = TWOPI / SAMPLERATE;
 	bw      = cutoff / Q;
@@ -432,9 +451,8 @@ eviBiquadCoeffAllpassGain(cutoff, gain, Q)
 	return  (b0 * a0m), (b1 * a0m), (b2 * a0m), (a1 * a0m), (a2 * a0m);	// a0, a1, a2, b1, b2
 }
 
-
-// Michael Massberg coefficients for analog matched LPF
-eviBiquadCoeffLowpassAnalog(cutoff, Q)
+// Michael Massberg coefficients for analog matched LPF, based on his paper and the Will Pirkle
+eviBiquadCoeffLowpassAnalog1(cutoff, Q)
 {   // !! need to low clip Q depending on omegaC ??
 
 	// terms
@@ -543,7 +561,83 @@ eviBiquadCoeffLowpassAnalog(cutoff, Q)
 	return a0, a1, a2, b1, b2;
 }
 
+// Martin Vicanek matched method
+eviBiquadCoeffLowpassAnalog2(cutoff, fullQ)
+{
+	Q 	= maximum(fullQ, 0.5);	// empirical for vicanek analog
+	wc	= cutoff * TWOPI;
+    w0  = wc / SAMPLERATE;
+
+    inv2Q   = 0.5 / Q;
+    expMqw  = exp(-inv2Q * w0);
+    cosArg  = sqrt(1 - inv2Q * inv2Q) * w0;
+    //a0    = 1;
+    a1      = -(expMqw + expMqw) * (inv2Q <= 1 ? cos(cosArg) : cosh(-cosArg));
+    a2      = expMqw * expMqw;
+    sinPd2  = sin(0.5 * w0);
+    p1      = sinPd2 * sinPd2;
+    p0      = 1 - p1;
+    p2      = 4 * p0 * p1;
+    A0e     = 1 + a1 + a2;
+    A0      = A0e * A0e;
+    A1e     = 1 - a1 + a2;
+    A1      = A1e * A1e;
+    A2      = -4 * a2;
+
+    R1  = (A0 * p0 + A1 * p1 + A2 * p2) * Q * Q;
+    B0  =  A0;
+    B1  = (R1 - B0 * p0) / p1;
+
+    sqrtB0  = sqrt(B0);
+    sqrtB1  = sqrt(B1);
+    b0  = 0.5 * (sqrtB0 + sqrtB1);
+    b1  = sqrtB0 - b0;
+    b2  = 0;
+
+    // translate vicanek coefficients to FF0, FF1, FF2, FB1, FB2
+    return  b0, b1, b2, a1, a2; // a0, a1, a2, b1, b2
+}
+
+// Martin Vicanek matched method
+eviBiquadCoeffHighpassAnalog(cutoff, fullQ)
+{
+	Q 	= maximum(fullQ, 0.5);	// empirical for vicanek analog
+
+	b0, b1, b2, a1, a2 = 0;
+	if (cutoff < 2000) {
+		b0, b1, b2, a1, a2 = eviBiquadCoeffHighpass(cutoff, Q);
+	}
+	else {
+		wc	= cutoff * TWOPI;
+	    w0  = wc / SAMPLERATE;
+
+	    inv2Q   = 0.5 / Q;
+	    expMqw  = exp(-inv2Q * w0);
+	    cosArg  = sqrt(1 - inv2Q * inv2Q) * w0;
+	    //a0    = 1;
+	    a1      = -(expMqw + expMqw) * (inv2Q <= 1 ? cos(cosArg) : cosh(-cosArg));
+	    a2      = expMqw * expMqw;
+	    sinPd2  = sin(0.5 * w0);
+	    p1      = sinPd2 * sinPd2;
+	    p0      = 1 - p1;
+	    p2      = 4 * p0 * p1;
+	    A0e     = 1 + a1 + a2;
+	    A0      = A0e * A0e;
+	    A1e     = 1 - a1 + a2;
+	    A1      = A1e * A1e;
+	    A2      = -4 * a2;
+
+	    b0  = sqrt(A0 * p0 + A1 * p1 + A2 * p2) * Q / (4 * p1);
+	    b1  = -(b0 + b0);
+	    b2  = b0;
+	}
+
+    // translate vicanek coefficients to FF0, FF1, FF2, FB1, FB2
+    return  b0, b1, b2, a1, a2; // a0, a1, a2, b1, b2
+}
+
 // Orfanidis / Dudas analog matched BPF, like [filtergraph~]
+// this is incorrectlly named, is actually a "Resonant" filter
 eviBiquadCoeffBandpassAnalog(cutoff, Q)
 {
     w 		= TWOPI * cutoff / SAMPLERATE;      // omega0
@@ -589,6 +683,7 @@ eviBiquadCoeffBandpassAnalog(cutoff, Q)
 }
 
 // Orfanidis / Dudas analog matched BPF, like [filtergraph~]
+// this is incorrectlly named, is actually a "Resonant" filter
 eviBiquadCoeffBandpassGainAnalog(cutoff, gain, Q)
 {
     w 		= TWOPI * cutoff / SAMPLERATE;      // omega0
@@ -636,8 +731,44 @@ eviBiquadCoeffBandpassGainAnalog(cutoff, gain, Q)
 	return	a0, a1, a2, b1, b2;
 }
 
+// Martin Vicanek matched method
+eviBiquadCoeffNotchAnalog(cutoff, fullQ)
+{
+	Q 	= maximum(fullQ, 0.5);	// empirical for vicanek analog
+
+	b0, b1, b2, a1, a2 = 0;
+	if (cutoff < 2000) {
+		b0, b1, b2, a1, a2 = eviBiquadCoeffNotch(cutoff, Q);
+	}
+	else {
+		wc	= cutoff * TWOPI;
+	    w0  = wc / SAMPLERATE;
+
+	    inv2Q   = 0.5 / Q;
+	    expMqw  = exp(-inv2Q * w0);
+	    cosArg  = sqrt(1 - inv2Q * inv2Q) * w0;
+	    //a0    = 1;
+	    a1      = -(expMqw + expMqw) * (inv2Q <= 1 ? cos(cosArg) : cosh(-cosArg));
+	    a2      = expMqw * expMqw;
+
+	    A0e = 1 + a1 + a2;
+	    A0  = A0e * A0e;
+	    b1_cos  = cos(w0);
+	    b1_pre  = -(b1_cos + b1_cos);
+	    b1_scl  = sqrt(A0) / (2 + b1_pre);
+
+	    b0  = b1_scl;
+	    b1  = b1_pre * b1_scl;
+	    b2  = b1_scl;
+	}
+
+    // translate vicanek coefficients to FF0, FF1, FF2, FB1, FB2
+    return  b0, b1, b2, a1, a2; // a0, a1, a2, b1, b2
+}
+
+
 // Orfanidis / Dudas analog matched PeakNotch, like [filtergraph~]
-eviBiquadCoeffPeakNotchAnalog(cutoff, gain, Q)
+eviBiquadCoeffPeakNotchAnalog1(cutoff, gain, Q)
 {
 	a0				= 1;
 	a1, a2, b1, b2	= 0;
@@ -701,8 +832,113 @@ eviBiquadCoeffPeakNotchAnalog(cutoff, gain, Q)
 	return	a0, a1, a2, b1, b2;
 }
 
-// Martin Vicanek analog matched Butterworth LowShelf
-eviBiquadCoeffLowShelfAnalog(cutoff, gain) // !! no Q, cutoff @ high (yes, high) gain
+// Martin Vicanek matched method
+// this is not really a 'PeakNotch', it is a 'Peaking' filter with bonus Notch
+eviBiquadCoeffPeakNotchAnalog2(cutoff, gain, fullQ)
+{
+	Q 	= maximum(fullQ, 0.5);	// empirical for vicanek analog
+	wc	= cutoff * TWOPI;
+    w0  = wc / SAMPLERATE;
+
+    inv2Q   = 0.5 / Q;
+    expMqw  = exp(-inv2Q * w0);
+    cosArg  = sqrt(1 - inv2Q * inv2Q) * w0;
+    //a0    = 1;
+    a1      = -(expMqw + expMqw) * (inv2Q <= 1 ? cos(cosArg) : cosh(-cosArg));
+    a2      = expMqw * expMqw;
+    sinPd2  = sin(0.5 * w0);
+    p1      = sinPd2 * sinPd2;
+    p0      = 1 - p1;
+    p2      = 4 * p0 * p1;
+    A0e     = 1 + a1 + a2;
+    A0      = A0e * A0e;
+    A1e     = 1 - a1 + a2;
+    A1      = A1e * A1e;
+    A2      = -4 * a2;
+
+    G2  = gain * gain;
+    R1  = (A0 * p0 + A1 * p1 + A2 * p2) * G2;
+    R2  = (-A0 + A1 + 4 * (p0 - p1) * A2) * G2;
+    B0  = A0;
+    B2  = (R1 - R2 * p1 - B0) / (4 * p1 * p1);
+    B1  = R2 + B0 + 4 * (p1 - p0) * B2;
+
+    sqrtB0  = sqrt(B0);
+    sqrtB1  = sqrt(B1);
+    W       = 0.5 * (sqrtB0 + sqrtB1);
+
+    b0      = 0.5 * (W + sqrt(W * W + B2));
+    b1      = 0.5 * (sqrtB0 - sqrtB1);
+    b2      = -B2 / (4 * b0);
+
+    // translate vicanek coefficients to FF0, FF1, FF2, FB1, FB2
+    return  b0, b1, b2, a1, a2; // a0, a1, a2, b1, b2
+}
+
+// worked out by Jatin Chowdhury based on the Vicanek matched method
+eviBiquadCoeffLowshelfAnalog1(cutoff, gain, fullQ)
+{
+	Q 	= maximum(fullQ, 0.5);	// empirical for vicanek analog
+
+	b0, b1, b2, a1, a2 = 0;
+	if (cutoff < 1000) {
+		b0, b1, b2, a1, a2 = eviBiquadCoeffLowshelfCookbook(cutoff, gain, Q);
+	}
+	else {
+		wc	= cutoff * TWOPI;
+	    w0  = wc / SAMPLERATE;
+
+	    Alpha   = sqrt(gain);
+	    invAlpha    = 1 / Alpha;
+	    Beta    = sqrt(Alpha) / (Q + Q);
+	    BetaSq  = Beta * Beta;
+
+	    expBwA  = exp(-Beta * w0 * invAlpha);
+	    cosArg  = sqrt(Alpha - BetaSq) * w0 * invAlpha;
+	    //a0    = 1;
+	    a1      = -(expBwA + expBwA) * (BetaSq <= Alpha ? cos(cosArg) : cosh(-cosArg));
+	    a2      = expBwA * expBwA;
+
+	    f0      = TWOPI / w0;
+	    wN      = 0.5 * f0;
+	    w_N_Sq  = wN * wN;
+	    cB      = Beta * f0;
+	    C       = cB * cB;
+	    gA      = Alpha - w_N_Sq;
+	    Aw      = 1 - Alpha * w_N_Sq;
+	    G2      = gain * (gA * gA + C) / (Aw * Aw + C);
+
+	    sinPd2  = sin(0.5 * w0);
+	    p1      = sinPd2 * sinPd2;
+	    p0      = 1 - p1;
+	    p2      = 4 * p0 * p1;
+
+	    A0e     = 1 + a1 + a2;
+	    A0      = A0e * A0e;
+	    A1e     = 1 - a1 + a2;
+	    A1      = A1e * A1e;
+	    A2      = -4 * a2;
+
+	    R1      = (A0 * p0 + A1 * p1 + A2 * p2) * gain;
+	    B0      = A0 * gain * gain;
+	    B1      = A1 * G2;
+	    B2      = (R1 - B0 * p0 - B1 * p1) / p2;
+
+	    sqrtB0  = sqrt(B0);
+	    sqrtB1  = sqrt(B1);
+	    W       = 0.5 * (sqrtB0 + sqrtB1);
+
+	    b0      = 0.5 * (W + sqrt(W * W + B2));
+	    b1      = 0.5 * (sqrtB0 - sqrtB1);
+	    b2      = -B2 / (4 * b0);
+	}
+
+    // translate chowdhury coefficients to FF0, FF1, FF2, FB1, FB2
+    return  b0, b1, b2, a1, a2; // a0, a1, a2, b1, b2
+}
+
+// Martin Vicanek analog matched Butterworth Lowshelf
+eviBiquadCoeffLowshelfAnalog2(cutoff, gain) // !! no Q, cutoff @ high (yes, high) gain
 {
     // (center frequency / Nyquist frequency)
     fc   = cutoff / SAMPLERATE*0.5;
@@ -763,8 +999,69 @@ eviBiquadCoeffLowShelfAnalog(cutoff, gain) // !! no Q, cutoff @ high (yes, high)
     return b0, b1, b2, a1, a2;  // a0, a1, a2, b1, b2
 }
 
-// Martin Vicanek analog matched Butterworth HighShelf
-eviBiquadCoeffHighShelfAnalog(cutoff, gain) // !! no Q, cutoff @ high gain
+// worked out by Jatin Chowdhury based on the Vicanek matched method
+eviBiquadCoeffHighshelfAnalog1(cutoff, gain, fullQ)
+{
+	Q 	= maximum(fullQ, 0.5);	// empirical for vicanek analog
+
+	b0, b1, b2, a1, a2 = 0;
+	if (cutoff < 1000) {
+		b0, b1, b2, a1, a2 = eviBiquadCoeffHighshelfCookbook(cutoff, gain, Q);
+	}
+	else {
+		wc	= cutoff * TWOPI;
+	    w0  = wc / SAMPLERATE;
+
+	    Alpha   = sqrt(gain);
+	    Beta    = sqrt(Alpha) / (Q + Q);
+	    BetaSq  = Beta * Beta;
+
+	    expBw   = exp(-Beta * w0);
+	    cosArg  = sqrt(Alpha - BetaSq) * w0;
+	    //a0    = 1;
+	    a1      = -(expBw + expBw) * (BetaSq <= Alpha ? cos(cosArg) : cosh(-cosArg));
+	    a2      = expBw * expBw;
+
+	    f0      = TWOPI / w0;
+	    wN      = 0.5 * f0;
+	    w_N_Sq  = wN * wN;
+	    cB      = Beta * f0;
+	    C       = cB * cB;
+	    Aw      = 1 - Alpha * w_N_Sq;
+	    gA      = Alpha - w_N_Sq;
+	    G2      = gain * (Aw * Aw + C) / (gA * gA + C);
+
+	    sinPd2  = sin(0.5 * w0);
+	    p1      = sinPd2 * sinPd2;
+	    p0      = 1 - p1;
+	    p2      = 4 * p0 * p1;
+
+	    A0e     = 1 + a1 + a2;
+	    A0      = A0e * A0e;
+	    A1e     = 1 - a1 + a2;
+	    A1      = A1e * A1e;
+	    A2      = -4 * a2;
+
+	    R1      = (A0 * p0 + A1 * p1 + A2 * p2) * gain;
+	    B0      = A0;
+	    B1      = A1 * G2;
+	    B2      = (R1 - B0 * p0 - B1 * p1) / p2;
+
+	    sqrtB0  = sqrt(B0);
+	    sqrtB1  = sqrt(B1);
+	    W       = 0.5 * (sqrtB0 + sqrtB1);
+
+	    b0      = 0.5 * (W + sqrt(W * W + B2));
+	    b1      = 0.5 * (sqrtB0 - sqrtB1);
+	    b2      = -B2 / (4 * b0);
+	}
+
+    // translate chowdhury coefficients to FF0, FF1, FF2, FB1, FB2
+    return  b0, b1, b2, a1, a2; // a0, a1, a2, b1, b2
+}
+
+// Martin Vicanek analog matched Butterworth Highshelf
+eviBiquadCoeffHighshelfAnalog2(cutoff, gain) // !! no Q, cutoff @ high gain
 {
     // (center frequency / Nyquist frequency)
     fc   = cutoff / SAMPLERATE*0.5;
@@ -820,6 +1117,42 @@ eviBiquadCoeffHighShelfAnalog(cutoff, gain) // !! no Q, cutoff @ high gain
     b2    = (-0.25*bb2/b0)*inva0*inva0;
 
     return b0, b1, b2, a1, a2;  // a0, a1, a2, b1, b2
+}
+
+// Martin Vicanek matched method
+// incoreectly called "Bandpass" in the paper
+eviBiquadCoeffResonantAnalog(cutoff, fullQ)
+{
+	Q 	= maximum(fullQ, 0.5);	// empirical for vicanek analog
+	wc	= cutoff * TWOPI;
+    w0  = wc / SAMPLERATE;
+
+    inv2Q   = 0.5 / Q;
+    expMqw  = exp(-inv2Q * w0);
+    cosArg  = sqrt(1 - inv2Q * inv2Q) * w0;
+    //a0    = 1;
+    a1      = -(expMqw + expMqw) * (inv2Q <= 1 ? cos(cosArg) : cosh(-cosArg));
+    a2      = expMqw * expMqw;
+    sinPd2  = sin(0.5 * w0);
+    p1      = sinPd2 * sinPd2;
+    p0      = 1 - p1;
+    p2      = 4 * p0 * p1;
+    A0e     = 1 + a1 + a2;
+    A0      = A0e * A0e;
+    A1e     = 1 - a1 + a2;
+    A1      = A1e * A1e;
+    A2      = -4 * a2;
+
+    R1  = A0 * p0 + A1 * p1 + A2 * p2;
+    R2  = -A0 + A1 + 4 * (p0 - p1) * A2;
+    B2  = (R1 - R2 * p1) / (4 * p1 * p1);
+    B1  = R2 + 4 * (p1 - p0) * B2;
+    b1  = -0.5 * sqrt(B1);
+    b0  = 0.5 * (sqrt(B2 + 0.25 * B1) - b1);
+    b2  = -b0 - b1;
+
+    // translate vicanek coefficients to FF0, FF1, FF2, FB1, FB2
+    return  b0, b1, b2, a1, a2; // a0, a1, a2, b1, b2
 }
 
 eviBiquadCoeffButterworthLowpass(cutoff)
@@ -989,34 +1322,41 @@ eviBiquadCoeffButterworthBandrejectGain(cutoff, gain, Q)
 	3		eviBiquadCoeffBandpass 						cutoff, Q
 	4		eviBiquadCoeffNotch 						cutoff, Q
 	5		eviBiquadCoeffPeakNotch 					cutoff, gain, Q
-	6		eviBiquadCoeffLowShelf 						cutoff, gain, Q
-	7		eviBiquadCoeffLowShelfCookbook 				cutoff, gain, Q
-	8		eviBiquadCoeffHighShelf 					cutoff, gain, Q
-	9		eviBiquadCoeffHighShelfCookbook 			cutoff, gain, Q
-	10		eviBiquadCoeffReson 						cutoff, Q
+	6		eviBiquadCoeffLowshelfMSP 					cutoff, gain, Q
+	7		eviBiquadCoeffLowshelfCookbook 				cutoff, gain, Q
+	8		eviBiquadCoeffHighshelfMSP 					cutoff, gain, Q
+	9		eviBiquadCoeffHighshelfCookbook 			cutoff, gain, Q
+	10		eviBiquadCoeffResonant 						cutoff, Q
 	11		eviBiquadCoeffBp 							cutoff, Q
 	12		eviBiquadCoeffAllpass 						cutoff, Q
 	13		eviBiquadCoeffLowpassGain 					cutoff, gain, Q
 	14		eviBiquadCoeffHighpassGain 					cutoff, gain, Q
 	15		eviBiquadCoeffBandpassGain 					cutoff, gain, Q
 	16		eviBiquadCoeffNotchGain 					cutoff, gain, Q
-	17		eviBiquadCoeffResonGain 					cutoff, gain, Q
+	17		eviBiquadCoeffResonantGain 					cutoff, gain, Q
 	18		eviBiquadCoeffBpGain 						cutoff, gain, Q
 	19		eviBiquadCoeffAllpassGain 					cutoff, gain, Q
-	20		eviBiquadCoeffLowpassAnalog 				cutoff, Q
-	21		eviBiquadCoeffBandpassAnalog 				cutoff, Q
-	22		eviBiquadCoeffBandpassGainAnalog 			cutoff, gain, Q
-	23		eviBiquadCoeffPeakNotchAnalog 				cutoff, gain, Q
-	24		eviBiquadCoeffLowShelfAnalog 				cutoff, gain
-	25		eviBiquadCoeffHighShelfAnalog 				cutoff, gain
-	26		eviBiquadCoeffButterworthLowpass 			cutoff
-	27		eviBiquadCoeffButterworthHighpass 			cutoff
-	28		eviBiquadCoeffButterworthBandpass 			cutoff, Q
-	29		eviBiquadCoeffButterworthBandreject 		cutoff, Q
-	30		eviBiquadCoeffButterworthLowpassGain 		cutoff, gain
-	31		eviBiquadCoeffButterworthHighpassGain 		cutoff, gain
-	32		eviBiquadCoeffButterworthBandpassGain 		cutoff, gain, Q
-	33		eviBiquadCoeffButterworthBandrejectGain 	cutoff, gain, Q
+	20		eviBiquadCoeffLowpassAnalog1				cutoff, Q
+	21 		eviBiquadCoeffLowpassAnalog2				cutoff, Q
+	22 		eviBiquadCoeffHighpassAnalog				cutoff, Q
+	23		eviBiquadCoeffBandpassAnalog 				cutoff, Q
+	24		eviBiquadCoeffBandpassGainAnalog 			cutoff, gain, Q
+	25 		eviBiquadCoeffNotchAnalog 					cutoff, Q
+	26		eviBiquadCoeffPeakNotchAnalog1 				cutoff, gain, Q
+	27		eviBiquadCoeffPeakNotchAnalog2 				cutoff, gain, Q
+	28 		eviBiquadCoeffLowshelfAnalog1				cutoff, gain, Q
+	29		eviBiquadCoeffLowshelfAnalog2 				cutoff, gain
+	30 		eviBiquadCoeffHighshelfAnalog1				cutoff, gain, Q
+	31		eviBiquadCoeffHighshelfAnalog2 				cutoff, gain
+	32 		eviBiquadCoeffResonantAnalog				cutoff, Q
+	33		eviBiquadCoeffButterworthLowpass 			cutoff
+	34		eviBiquadCoeffButterworthHighpass 			cutoff
+	35		eviBiquadCoeffButterworthBandpass 			cutoff, Q
+	36		eviBiquadCoeffButterworthBandreject 		cutoff, Q
+	37		eviBiquadCoeffButterworthLowpassGain 		cutoff, gain
+	38		eviBiquadCoeffButterworthHighpassGain 		cutoff, gain
+	39		eviBiquadCoeffButterworthBandpassGain 		cutoff, gain, Q
+	40		eviBiquadCoeffButterworthBandrejectGain 	cutoff, gain, Q
 */
 eviBiquadCoeff(filter, cutoff, gain, fullQ)
 {
@@ -1040,19 +1380,19 @@ eviBiquadCoeff(filter, cutoff, gain, fullQ)
         a0, a1, a2, b1, b2  = eviBiquadCoeffPeakNotch(cutoff, gain, Q);
     }
     else if (filter == 6) {
-        a0, a1, a2, b1, b2  = eviBiquadCoeffLowShelf(cutoff, gain, Q);
+        a0, a1, a2, b1, b2  = eviBiquadCoeffLowshelfMSP(cutoff, gain, Q);
     }
     else if (filter == 7) {
-        a0, a1, a2, b1, b2  = eviBiquadCoeffLowShelfCookbook(cutoff, gain, Q);
+        a0, a1, a2, b1, b2  = eviBiquadCoeffLowshelfCookbook(cutoff, gain, Q);
     }
     else if (filter == 8) {
-        a0, a1, a2, b1, b2  = eviBiquadCoeffHighShelf(cutoff, gain, Q);
+        a0, a1, a2, b1, b2  = eviBiquadCoeffHighshelfMSP(cutoff, gain, Q);
     }
     else if (filter == 9) {
-        a0, a1, a2, b1, b2  = eviBiquadCoeffHighShelfCookbook(cutoff, gain, Q);
+        a0, a1, a2, b1, b2  = eviBiquadCoeffHighshelfCookbook(cutoff, gain, Q);
     }
     else if (filter == 10) {
-        a0, a1, a2, b1, b2  = eviBiquadCoeffReson(cutoff, fullQ);
+        a0, a1, a2, b1, b2  = eviBiquadCoeffResonant(cutoff, fullQ);
     }
     else if (filter == 11) {
         a0, a1, a2, b1, b2  = eviBiquadCoeffBp(cutoff, fullQ);
@@ -1073,7 +1413,7 @@ eviBiquadCoeff(filter, cutoff, gain, fullQ)
         a0, a1, a2, b1, b2  = eviBiquadCoeffNotchGain(cutoff, gain, Q);
     }
     else if (filter == 17) {
-        a0, a1, a2, b1, b2  = eviBiquadCoeffResonGain(cutoff, gain, fullQ);
+        a0, a1, a2, b1, b2  = eviBiquadCoeffResonantGain(cutoff, gain, fullQ);
     }
     else if (filter == 18) {
         a0, a1, a2, b1, b2  = eviBiquadCoeffBpGain(cutoff, gain, fullQ);
@@ -1082,45 +1422,66 @@ eviBiquadCoeff(filter, cutoff, gain, fullQ)
         a0, a1, a2, b1, b2  = eviBiquadCoeffAllpassGain(cutoff, gain, Q);
     }
     else if (filter == 20) {
-        a0, a1, a2, b1, b2  = eviBiquadCoeffLowpassAnalog(cutoff, Q);
+        a0, a1, a2, b1, b2  = eviBiquadCoeffLowpassAnalog1(cutoff, Q);
     }
     else if (filter == 21) {
-        a0, a1, a2, b1, b2  = eviBiquadCoeffBandpassAnalog(cutoff, Q);
+        a0, a1, a2, b1, b2  = eviBiquadCoeffLowpassAnalog2(cutoff, Q);
     }
     else if (filter == 22) {
-        a0, a1, a2, b1, b2  = eviBiquadCoeffBandpassGainAnalog(cutoff, gain, Q);
+        a0, a1, a2, b1, b2  = eviBiquadCoeffHighpassAnalog(cutoff, Q);
     }
     else if (filter == 23) {
-        a0, a1, a2, b1, b2  = eviBiquadCoeffPeakNotchAnalog(cutoff, gain, Q);
+        a0, a1, a2, b1, b2  = eviBiquadCoeffBandpassAnalog(cutoff, fullQ);
     }
     else if (filter == 24) {
-        a0, a1, a2, b1, b2  = eviBiquadCoeffLowShelfAnalog(cutoff, gain);
+        a0, a1, a2, b1, b2  = eviBiquadCoeffBandpassGainAnalog(cutoff, gain, fullQ);
     }
     else if (filter == 25) {
-        a0, a1, a2, b1, b2  = eviBiquadCoeffHighShelfAnalog(cutoff, gain);
+        a0, a1, a2, b1, b2  = eviBiquadCoeffNotchAnalog(cutoff, Q);
     }
     else if (filter == 26) {
-        a0, a1, a2, b1, b2  = eviBiquadCoeffButterworthLowpass(cutoff);
+        a0, a1, a2, b1, b2  = eviBiquadCoeffPeakNotchAnalog1(cutoff, gain, Q);
     }
     else if (filter == 27) {
-        a0, a1, a2, b1, b2  = eviBiquadCoeffButterworthHighpass(cutoff);
+        a0, a1, a2, b1, b2  = eviBiquadCoeffPeakNotchAnalog2(cutoff, gain, Q);
     }
     else if (filter == 28) {
-        a0, a1, a2, b1, b2  = eviBiquadCoeffButterworthBandpass(cutoff, Q);
+        a0, a1, a2, b1, b2  = eviBiquadCoeffLowshelfAnalog1(cutoff, gain, Q);
     }
     else if (filter == 29) {
-        a0, a1, a2, b1, b2  = eviBiquadCoeffButterworthBandreject(cutoff, Q);
+        a0, a1, a2, b1, b2  = eviBiquadCoeffLowshelfAnalog2(cutoff, gain);
     }
     else if (filter == 30) {
-        a0, a1, a2, b1, b2  = eviBiquadCoeffButterworthLowpassGain(cutoff, gain);
+        a0, a1, a2, b1, b2  = eviBiquadCoeffHighshelfAnalog1(cutoff, gain, Q);
     }
     else if (filter == 31) {
-        a0, a1, a2, b1, b2  = eviBiquadCoeffButterworthHighpassGain(cutoff, gain);
+        a0, a1, a2, b1, b2  = eviBiquadCoeffHighshelfAnalog2(cutoff, gain);
     }
     else if (filter == 32) {
-        a0, a1, a2, b1, b2  = eviBiquadCoeffButterworthBandpassGain(cutoff, gain, Q);
+        a0, a1, a2, b1, b2  = eviBiquadCoeffResonantAnalog(cutoff, fullQ);
     }
     else if (filter == 33) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffButterworthLowpass(cutoff);
+    }
+    else if (filter == 34) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffButterworthHighpass(cutoff);
+    }
+    else if (filter == 35) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffButterworthBandpass(cutoff, Q);
+    }
+    else if (filter == 36) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffButterworthBandreject(cutoff, Q);
+    }
+    else if (filter == 37) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffButterworthLowpassGain(cutoff, gain);
+    }
+    else if (filter == 38) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffButterworthHighpassGain(cutoff, gain);
+    }
+    else if (filter == 39) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffButterworthBandpassGain(cutoff, gain, Q);
+    }
+    else if (filter == 40) {
         a0, a1, a2, b1, b2  = eviBiquadCoeffButterworthBandrejectGain(cutoff, gain, Q);
     }
     else {  // bypass
@@ -1136,17 +1497,19 @@ eviBiquadCoeff(filter, cutoff, gain, fullQ)
     index   calculator                              	parameters
     0       bypass                                  	none
 	1		eviBiquadCoeffHighpassGain 					cutoff, gain, Q
-	2		eviBiquadCoeffLowShelf 						cutoff, gain, Q
-	3		eviBiquadCoeffLowShelfCookbook 				cutoff, gain, Q
-	4		eviBiquadCoeffLowShelfAnalog 				cutoff, gain
-	5		eviBiquadCoeffPeakNotch 					cutoff, gain, Q
-	6		eviBiquadCoeffPeakNotchAnalog 				cutoff, gain, Q
-	7		eviBiquadCoeffNotchGain 					cutoff, gain, Q
-	8		eviBiquadCoeffHighShelf 					cutoff, gain, Q
-	9		eviBiquadCoeffHighShelfCookbook 			cutoff, gain, Q
-	10		eviBiquadCoeffHighShelfAnalog 				cutoff, gain
-	11		eviBiquadCoeffLowpassGain 					cutoff, gain, Q
-	12		eviBiquadCoeffAllpassGain 					cutoff, gain, Q
+	2		eviBiquadCoeffLowshelfMSP 					cutoff, gain, Q
+	3		eviBiquadCoeffLowshelfCookbook 				cutoff, gain, Q
+	4		eviBiquadCoeffLowshelfAnalog1 				cutoff, gain, Q
+	5		eviBiquadCoeffLowshelfAnalog2 				cutoff, gain
+	6		eviBiquadCoeffPeakNotch 					cutoff, gain, Q
+	7		eviBiquadCoeffPeakNotchAnalog1 				cutoff, gain, Q
+	8		eviBiquadCoeffPeakNotchAnalog2 				cutoff, gain, Q
+	9		eviBiquadCoeffNotchGain 					cutoff, gain, Q
+	10		eviBiquadCoeffHighshelfMSP 					cutoff, gain, Q
+	11		eviBiquadCoeffHighshelfCookbook 			cutoff, gain, Q
+	12		eviBiquadCoeffHighshelfAnalog1 				cutoff, gain, Q
+	13		eviBiquadCoeffHighshelfAnalog2 				cutoff, gain
+	14		eviBiquadCoeffLowpassGain 					cutoff, gain, Q
 */
 eviBiquadCoeffEQ(filter, cutoff, gain, fullQ)
 {
@@ -1158,37 +1521,43 @@ eviBiquadCoeffEQ(filter, cutoff, gain, fullQ)
         a0, a1, a2, b1, b2  = eviBiquadCoeffHighpassGain(cutoff, gain, Q);
     }
     else if (filter == 2) {
-        a0, a1, a2, b1, b2  = eviBiquadCoeffLowShelf(cutoff, gain, Q);
+        a0, a1, a2, b1, b2  = eviBiquadCoeffLowshelfMSP(cutoff, gain, Q);
     }
     else if (filter == 3) {
-        a0, a1, a2, b1, b2  = eviBiquadCoeffLowShelfCookbook(cutoff, gain, Q);
+        a0, a1, a2, b1, b2  = eviBiquadCoeffLowshelfCookbook(cutoff, gain, Q);
     }
     else if (filter == 4) {
-        a0, a1, a2, b1, b2  = eviBiquadCoeffLowShelfAnalog(cutoff, gain);
+        a0, a1, a2, b1, b2  = eviBiquadCoeffLowshelfAnalog1(cutoff, gain, Q);
     }
     else if (filter == 5) {
-        a0, a1, a2, b1, b2  = eviBiquadCoeffPeakNotch(cutoff, gain, Q);
+        a0, a1, a2, b1, b2  = eviBiquadCoeffLowshelfAnalog2(cutoff, gain);
     }
     else if (filter == 6) {
-        a0, a1, a2, b1, b2  = eviBiquadCoeffPeakNotchAnalog(cutoff, gain, Q);
+        a0, a1, a2, b1, b2  = eviBiquadCoeffPeakNotch(cutoff, gain, Q);
     }
     else if (filter == 7) {
-        a0, a1, a2, b1, b2  = eviBiquadCoeffNotchGain(cutoff, gain, Q);
+        a0, a1, a2, b1, b2  = eviBiquadCoeffPeakNotchAnalog1(cutoff, gain, Q);
     }
     else if (filter == 8) {
-        a0, a1, a2, b1, b2  = eviBiquadCoeffHighShelf(cutoff, gain, Q);
+        a0, a1, a2, b1, b2  = eviBiquadCoeffPeakNotchAnalog2(cutoff, gain, Q);
     }
     else if (filter == 9) {
-        a0, a1, a2, b1, b2  = eviBiquadCoeffHighShelfCookbook(cutoff, gain, Q);
+        a0, a1, a2, b1, b2  = eviBiquadCoeffNotchGain(cutoff, gain, Q);
     }
     else if (filter == 10) {
-        a0, a1, a2, b1, b2  = eviBiquadCoeffHighShelfAnalog(cutoff, gain);
+        a0, a1, a2, b1, b2  = eviBiquadCoeffHighshelfMSP(cutoff, gain, Q);
     }
     else if (filter == 11) {
-        a0, a1, a2, b1, b2  = eviBiquadCoeffLowpassGain(cutoff, gain, Q);
+        a0, a1, a2, b1, b2  = eviBiquadCoeffHighshelfCookbook(cutoff, gain, Q);
     }
     else if (filter == 12) {
-        a0, a1, a2, b1, b2  = eviBiquadCoeffAllpassGain(cutoff, gain, Q);
+        a0, a1, a2, b1, b2  = eviBiquadCoeffHighshelfAnalog1(cutoff, gain, Q);
+    }
+    else if (filter == 13) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffHighshelfAnalog2(cutoff, gain);
+    }
+    else if (filter == 14) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffLowpassGain(cutoff, gain, Q);
     }
     else {  // bypass
         a0  = 1;
@@ -1210,8 +1579,8 @@ eviBiquadCoeffEQ(filter, cutoff, gain, fullQ)
 	6		eviBiquadCoeffButterworthHighpassGain 		cutoff, gain
 	7		eviBiquadCoeffButterworthBandpassGain 		cutoff, gain, Q
 	8		eviBiquadCoeffButterworthBandrejectGain 	cutoff, gain, Q
-	9		eviBiquadCoeffLowShelfAnalog 				cutoff, gain
-	10		eviBiquadCoeffHighShelfAnalog 				cutoff, gain
+	9		eviBiquadCoeffLowshelfAnalog2 				cutoff, gain
+	10		eviBiquadCoeffHighshelfAnalog2 				cutoff, gain
 */
 eviBiquadCoeffButterworth(filter, cutoff, gain, fullQ)
 {
@@ -1244,10 +1613,81 @@ eviBiquadCoeffButterworth(filter, cutoff, gain, fullQ)
         a0, a1, a2, b1, b2  = eviBiquadCoeffButterworthBandrejectGain(cutoff, gain, Q);
     }
     else if (filter == 9) {	 // is a butterworth :-)
-        a0, a1, a2, b1, b2  = eviBiquadCoeffLowShelfAnalog(cutoff, gain);
+        a0, a1, a2, b1, b2  = eviBiquadCoeffLowshelfAnalog2(cutoff, gain);
     }
     else if (filter == 10) { // is a butterworth :-)
-        a0, a1, a2, b1, b2  = eviBiquadCoeffHighShelfAnalog(cutoff, gain);
+        a0, a1, a2, b1, b2  = eviBiquadCoeffHighshelfAnalog2(cutoff, gain);
+    }
+    else {  // bypass
+        a0  = 1;
+        a1, a2, b1, b2  = 0;
+    }
+
+    return a0, a1, a2, b1, b2;
+}
+
+// 4) eviBiquadCoeffAnalog(index, cutoff, gain, Q)
+/*
+    index   calculator                              	parameters
+    0       bypass                                  	none
+	1		eviBiquadCoeffLowpassAnalog1				cutoff, Q
+	2 		eviBiquadCoeffLowpassAnalog2				cutoff, Q
+	3 		eviBiquadCoeffHighpassAnalog				cutoff, Q
+	4		eviBiquadCoeffBandpassAnalog 				cutoff, Q
+	5		eviBiquadCoeffBandpassGainAnalog 			cutoff, gain, Q
+	6 		eviBiquadCoeffNotchAnalog 					cutoff, Q
+	7		eviBiquadCoeffPeakNotchAnalog1 				cutoff, gain, Q
+	8		eviBiquadCoeffPeakNotchAnalog2 				cutoff, gain, Q
+	9 		eviBiquadCoeffLowshelfAnalog1				cutoff, gain, Q
+	10		eviBiquadCoeffLowshelfAnalog2 				cutoff, gain
+	11 		eviBiquadCoeffHighshelfAnalog1				cutoff, gain, Q
+	12		eviBiquadCoeffHighshelfAnalog2 				cutoff, gain
+	13 		eviBiquadCoeffResonantAnalog				cutoff, Q
+*/
+eviBiquadCoeffAnalog(filter, cutoff, gain, fullQ)
+{
+    Q       = minimum(fullQ, 18);
+
+    a0, a1, a2, b1, b2  = 0;
+
+    if (filter == 1) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffLowpassAnalog1(cutoff, Q);
+    }
+    else if (filter == 2) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffLowpassAnalog2(cutoff, Q);
+    }
+    else if (filter == 3) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffHighpassAnalog(cutoff, Q);
+    }
+    else if (filter == 4) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffBandpassAnalog(cutoff, Q);
+    }
+    else if (filter == 5) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffBandpassGainAnalog(cutoff, gain, Q);
+    }
+    else if (filter == 6) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffNotchAnalog(cutoff, Q);
+    }
+    else if (filter == 7) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffPeakNotchAnalog1(cutoff, gain, Q);
+    }
+    else if (filter == 8) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffPeakNotchAnalog2(cutoff, gain, Q);
+    }
+    else if (filter == 9) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffLowshelfAnalog1(cutoff, gain, Q);
+    }
+    else if (filter == 10) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffLowshelfAnalog2(cutoff, gain);
+    }
+    else if (filter == 11) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffHighshelfAnalog1(cutoff, gain, Q);
+    }
+    else if (filter == 12) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffHighshelfAnalog2(cutoff, gain);
+    }
+    else if (filter == 13) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffResonantAnalog(cutoff, fullQ);
     }
     else {  // bypass
         a0  = 1;

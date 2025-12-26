@@ -58,6 +58,9 @@ max define mc.evi.teeth~ mc.gen~ @gen evi_teeth.gendsp @chans 2;
 max define evi.comb~ gen~ @gen evi_comb.gendsp;
 max define mc.evi.comb~ mc.gen~ @gen evi_comb.gendsp @chans 2;
 
+max define evi.allpass~ gen~ @gen evi_allpass.gendsp;
+max define mc.evi.allpass~ mc.gen~ @gen evi_allpass.gendsp @chans 2;
+
 max define evi.multimode~ gen~ @gen evi_multimode.gendsp;
 max define mc.evi.multimode~ mc.gen~ @gen evi_multimode.gendsp @chans 2;
 
@@ -169,6 +172,9 @@ max define mc.evi.biquad~ mc.gen~ @gen evi_biquad.gendsp @chans 2;
 
 max define evi.biquad.filter~ gen~ @gen evi_biquad_filter.gendsp;
 max define mc.evi.biquad.filter~ mc.gen~ @gen evi_biquad_filter.gendsp @chans 2;
+
+max define evi.biquad.analog~ gen~ @gen evi_biquad_analog.gendsp;
+max define mc.evi.biquad.analog~ mc.gen~ @gen evi_biquad_analog.gendsp @chans 2;
 
 max define evi.biquad.allpass~ gen~ @gen evi_biquad_allpass.gendsp;
 max define mc.evi.biquad.allpass~ mc.gen~ @gen evi_biquad_allpass.gendsp @chans 2;

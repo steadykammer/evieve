@@ -9,7 +9,7 @@
             "modernui": 1
         },
         "classnamespace": "dsp.gen",
-        "rect": [ 588.0, 188.0, 779.0, 613.0 ],
+        "rect": [ 488.0, 106.0, 796.0, 765.0 ],
         "gridonopen": 2,
         "subpatcher_template": "sub",
         "integercoordinates": 1,
@@ -63,7 +63,7 @@
             },
             {
                 "box": {
-                    "code": "\r\nrequire(\"evi_biquad.genexpr\");\r\n\r\n/*                                    (these filters can take very high Q)\r\n    0   eviBiquadCoeffReson            cutoff, Q\r\n    1   eviBiquadCoeffResonGain        cutoff, gain, Q   (default)\r\n    2   eviBiquadCoeffBp               cutoff, Q         ([bp~] from Pd)\r\n    3   eviBiquadCoeffBpGain           cutoff, gain, Q\r\n*/\r\nParam   filter(1, min=0, max=3);\r\nfilt    = int(filter);\r\nreset   = delta(change(filt)) < 0;\r\n\r\na0, a1, a2, b1, b2  = 0;\r\nif (filt == 1) {\r\n    a0, a1, a2, b1, b2  = eviBiquadCoeffResonGain(in2, dbtoa(in3), in4);\r\n}\r\nelse if (filt == 2) {\r\n    a0, a1, a2, b1, b2  = eviBiquadCoeffBp(in2, in4);\r\n}\r\nelse if (filt == 3) {\r\n    a0, a1, a2, b1, b2  = eviBiquadCoeffBpGain(in2, dbtoa(in3), in4);\r\n}\r\nelse {\r\n    a0, a1, a2, b1, b2  = eviBiquadCoeffReson(in2, in4);\r\n}\r\n\r\nout1    = biquadDf2reset(in1, a0, a1, a2, b1, b2, reset);\r\n\r\n",
+                    "code": "\r\nrequire(\"evi_biquad.genexpr\");\r\n\r\n/*                                         (these filters can take very high Q)\r\n    0   eviBiquadCoeffResonant              cutoff, Q\r\n    1   eviBiquadCoeffResonantGain          cutoff, gain, Q     (default)\r\n    2   eviBiquadCoeffBp                    cutoff, Q           ([bp~] from Pd)\r\n    3   eviBiquadCoeffBpGain                cutoff, gain, Q\r\n    4   eviBiquadCoeffBandpassAnalog        cutoff, Q           (actually resonant)\r\n    5   eviBiquadCoeffBandpassGainAnalog    cutoff, gain, Q     (actually resonant)\r\n    6   eviBiquadCoeffResonantAnalog        cutoff, Q\r\n*/\r\nParam   filter(1, min=0, max=6);\r\nfilt    = int(filter);\r\nreset   = delta(change(filt)) < 0;\r\n\r\na0, a1, a2, b1, b2  = 0;\r\nif (filt == 1) {\r\n    a0, a1, a2, b1, b2  = eviBiquadCoeffResonantGain(in2, dbtoa(in3), in4);\r\n}\r\nelse if (filt == 2) {\r\n    a0, a1, a2, b1, b2  = eviBiquadCoeffBp(in2, in4);\r\n}\r\nelse if (filt == 3) {\r\n    a0, a1, a2, b1, b2  = eviBiquadCoeffBpGain(in2, dbtoa(in3), in4);\r\n}\r\nelse if (filt == 4) {\r\n    a0, a1, a2, b1, b2  = eviBiquadCoeffBandpassAnalog(in2, in4);\r\n}\r\nelse if (filt == 5) {\r\n    a0, a1, a2, b1, b2  = eviBiquadCoeffBandpassGainAnalog(in2, dbtoa(in3), in4);\r\n}\r\nelse if (filt == 6) {\r\n    a0, a1, a2, b1, b2  = eviBiquadCoeffResonantAnalog(in2, in4);\r\n}\r\nelse {\r\n    a0, a1, a2, b1, b2  = eviBiquadCoeffResonant(in2, in4);\r\n}\r\n\r\nout1    = biquadDf2reset(in1, a0, a1, a2, b1, b2, reset);\r\n\r\n",
                     "fontface": 0,
                     "fontname": "<Monospaced>",
                     "fontsize": 12.0,
@@ -72,7 +72,7 @@
                     "numinlets": 4,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 34.0, 58.0, 617.0, 484.0 ]
+                    "patching_rect": [ 34.0, 58.0, 723.0, 642.0 ]
                 }
             },
             {
@@ -81,7 +81,7 @@
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 34.0, 559.0, 172.0, 22.0 ],
+                    "patching_rect": [ 34.0, 717.0, 172.0, 22.0 ],
                     "text": "out 1 (signal) Resonant Output"
                 }
             }

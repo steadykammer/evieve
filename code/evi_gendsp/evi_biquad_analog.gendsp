@@ -9,7 +9,7 @@
             "modernui": 1
         },
         "classnamespace": "dsp.gen",
-        "rect": [ 588.0, 188.0, 825.0, 643.0 ],
+        "rect": [ 150.0, 100.0, 764.0, 598.0 ],
         "gridonopen": 2,
         "subpatcher_template": "sub",
         "integercoordinates": 1,
@@ -22,8 +22,8 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 632.0, 13.0, 167.0, 35.0 ],
-                    "text": "in 4 (signal/float) Q @min 0.1 @max 18 @default 0.707107"
+                    "patching_rect": [ 632.0, 13.0, 115.0, 35.0 ],
+                    "text": "in 4 (signal/float) Q @default 0.707107"
                 }
             },
             {
@@ -34,8 +34,8 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 448.0, 13.0, 179.0, 35.0 ],
-                    "text": "in 3 (signal/float) Gain in dB @min -24 @max 24 @default 0"
+                    "patching_rect": [ 433.0, 13.0, 178.0, 35.0 ],
+                    "text": "in 3 (signal/float) Gain in dB @min -30 @max 30 @default 0"
                 }
             },
             {
@@ -57,13 +57,13 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 171.0, 13.0, 272.0, 35.0 ],
+                    "patching_rect": [ 152.0, 13.0, 272.0, 35.0 ],
                     "text": "in 2 (signal/float) Cutoff in Hz @min samplerate*0.00022 @max samplerate*0.458334"
                 }
             },
             {
                 "box": {
-                    "code": "\r\nrequire(\"evi_biquad.genexpr\");\r\n\r\n/*\r\n    0   eviBiquadCoeffHighpass                  cutoff, Q\r\n    1   eviBiquadCoeffHighpassGain              cutoff, gain, Q   (default)\r\n    2   eviBiquadCoeffHighpassAnalog            cutoff, Q\r\n    3   eviBiquadCoeffButterworthHighpass       cutoff\r\n    4   eviBiquadCoeffButterworthHighpassGain   cutoff, gain\r\n*/\r\nParam   filter(1, min=0, max=4);\r\nfilt    = int(filter);\r\nreset   = delta(change(filt)) < 0;\r\n\r\na0, a1, a2, b1, b2  = 0;\r\nif (filt == 1) {\r\n    a0, a1, a2, b1, b2  = eviBiquadCoeffHighpassGain(in2, dbtoa(in3), in4);\r\n}\r\nelse if (filt == 2) {\r\n    a0, a1, a2, b1, b2  = eviBiquadCoeffHighpassAnalog(in2);\r\n}\r\nelse if (filt == 3) {\r\n    a0, a1, a2, b1, b2  = eviBiquadCoeffButterworthHighpass(in2);\r\n}\r\nelse if (filt == 4) {\r\n    a0, a1, a2, b1, b2  = eviBiquadCoeffButterworthHighpassGain(in2, dbtoa(in3));\r\n}\r\nelse {\r\n    a0, a1, a2, b1, b2  = eviBiquadCoeffHighpass(in2, in4);\r\n}\r\n\r\nout1    = biquadDf2reset(in1, a0, a1, a2, b1, b2, reset);\r\n\r\n",
+                    "code": "\r\nrequire(\"evi_biquad.genexpr\");\r\n\r\n/*\n    filter  calculator                              \t    parameters\n    0       bypass                                  \tnone\n\t1\t\teviBiquadCoeffLowpassAnalog1\t\t\t\tcutoff, Q\n\t2 \t\teviBiquadCoeffLowpassAnalog2\t(default)\tcutoff, Q\n\t3 \t\teviBiquadCoeffHighpassAnalog\t\t\t\tcutoff, Q\n\t4\t\teviBiquadCoeffBandpassAnalog \t\t\t\tcutoff, Q\n\t5\t\teviBiquadCoeffBandpassGainAnalog \t\t\tcutoff, gain, Q\n\t6 \t\teviBiquadCoeffNotchAnalog \t\t\t\t\tcutoff, Q\n\t7\t\teviBiquadCoeffPeakNotchAnalog1 \t\t\t\tcutoff, gain, Q\n\t8\t\teviBiquadCoeffPeakNotchAnalog2 \t\t\t\tcutoff, gain, Q\n\t9 \t\teviBiquadCoeffLowshelfAnalog1\t\t\t\tcutoff, gain, Q\n\t10\t\teviBiquadCoeffLowshelfAnalog2 \t\t\t\tcutoff, gain\n\t11 \t\teviBiquadCoeffHighshelfAnalog1\t\t\t\tcutoff, gain, Q\n\t12\t\teviBiquadCoeffHighshelfAnalog2 \t\t\t\tcutoff, gain\n\t13 \t\teviBiquadCoeffResonantAnalog\t\t\t\tcutoff, Q\n*/\nParam   filter(2, min=0, max=13);\r\nfilt    = int(filter);\r\nreset   = delta(change(filt)) < 0;\r\n\r\na0, a1, a2, b1, b2  = eviBiquadCoeffAnalog(filt, in2, dbtoa(in3), in4);\r\n\r\nout1    = biquadDf2reset(in1, a0, a1, a2, b1, b2, reset);\r\n\r\n",
                     "fontface": 0,
                     "fontname": "<Monospaced>",
                     "fontsize": 12.0,
@@ -72,7 +72,7 @@
                     "numinlets": 4,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 34.0, 58.0, 663.0, 533.0 ]
+                    "patching_rect": [ 34.0, 58.0, 617.0, 473.0 ]
                 }
             },
             {
@@ -81,8 +81,8 @@
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 34.0, 608.0, 171.0, 22.0 ],
-                    "text": "out 1 (signal) Highpass Output"
+                    "patching_rect": [ 34.0, 548.0, 228.0, 22.0 ],
+                    "text": "out 1 (signal) Biquad Analog Filter Output"
                 }
             }
         ],

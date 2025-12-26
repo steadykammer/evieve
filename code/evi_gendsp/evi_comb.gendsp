@@ -46,7 +46,7 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 419.0, 22.0, 134.0, 49.0 ],
+                    "patching_rect": [ 419.0, 22.0, 135.0, 49.0 ],
                     "text": "in 3 (signal/float) Direct Gain Coefficient @min -1 @max 1"
                 }
             },
@@ -69,13 +69,13 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 235.0, 29.0, 164.0, 35.0 ],
+                    "patching_rect": [ 235.0, 29.0, 166.0, 35.0 ],
                     "text": "in 2 (signal/float) Delay in ms @min 0 @max 1000"
                 }
             },
             {
                 "box": {
-                    "code": "\r\n// \"evi_comb.gendsp\" is the same structure as MSP [comb~], but with cubic interpolation\r\n// (softer in the high end) and no digital clipping at FB Gain == 1 (via internal saturation,\r\n// which makes the whole filter softer but will not clip your precious audio).\r\n// @see: evi_teeth / [evi.teeth~] for identical solution for that filter.\r\n// @see evi_damp_macro.gendsp / [evi.damp.macro~] for post processing.\r\n\r\nrequire(\"evi_approx.genexpr\");\r\n\r\nDelay   FFdelay(samplerate, 1, feedback=0);\r\nDelay   FBdelay(samplerate, 1, feedback=1);\r\n\r\nFFtime  = mstosamps(in2);\r\nFBtime  = FFtime;   // both delays the same for [comb~] (this is the only difference)\r\n\r\nDgain   = in3;      // direct\r\nFFgain  = in4;      // feed forward\r\nFBgain  = in5;      // feed back\r\n\r\nX = in1;\r\n\r\nFFdelay.write(X);\r\n\r\ninA = X * Dgain;\r\n\r\nFFdelayOut = FFdelay.read(FFtime, 0, interp=\"spline\");\r\nFFdelayOut = FFdelayOut * FFgain;\r\n\r\nForward = inA + FFdelayOut;\r\n\r\nFBdelayOut = FBdelay.read(FBtime, 0, interp=\"spline\");\r\nFBdelayOut = FBdelayOut * -FBgain;\r\n\r\n// Adaa no good here (timing)\r\ninternalSat = atanA(FBdelayOut) * 2.152778; // multiply taken from 'atanDrive()'\r\n\r\nY = Forward - FBdelayOut;\r\n\r\nFBdelay.write(Forward - internalSat);\r\n\r\nout1 =  Y;                                  // comb\r\n\r\n",
+                    "code": "\r\n// \"evi_comb.gendsp\" is the same structure as MSP [comb~], but with cubic interpolation\r\n// (softer in the high end) and no digital clipping at FB Gain == 1 (via internal saturation,\r\n// which makes the whole filter softer but will not clip your precious audio).\r\n// @see: evi_teeth / [evi.teeth~] for identical solution for that filter.\r\n// @see evi_damp_macro.gendsp / [evi.damp.macro~] for post processing.\r\n\r\nrequire(\"evi_approx.genexpr\");\r\n\r\nDelay   FFdelay(samplerate, 1, feedback=0);\r\nDelay   FBdelay(samplerate, 1, feedback=1);\r\n\r\nFFtime  = mstosamps(in2);\r\nFBtime  = FFtime;   // both delays the same for [comb~] (this is the only difference)\r\n\r\nDgain   = in3;      // direct\r\nFFgain  = in4;      // feed forward\r\nFBgain  = in5;      // feed back\r\n\r\nX = in1;\r\n\r\nFFdelay.write(X);\r\n\r\ninA = X * Dgain;\r\n\r\nFFdelayOut = FFdelay.read(FFtime, 0, interp=\"spline\");\r\nFFdelayOut = FFdelayOut * FFgain;\r\n\r\nForward = inA + FFdelayOut;\r\n\r\nFBdelayOut = FBdelay.read(FBtime, 0, interp=\"spline\");\r\nFBdelayOut = FBdelayOut * -FBgain;\r\n\r\n// Adaa no good here (timing)\r\ninternalSat = atanA(FBdelayOut) * 2.152778; // multiply taken from 'atanDrive()'\r\n\r\nY = fixdenorm(Forward - FBdelayOut);\r\n\r\nFBdelay.write(fixdenorm(Forward - internalSat));\r\n\r\nout1 =  Y;                                  // comb\r\n\r\n",
                     "fontface": 0,
                     "fontname": "<Monospaced>",
                     "fontsize": 12.0,
@@ -135,7 +135,6 @@
                     "source": [ "obj-9", 0 ]
                 }
             }
-        ],
-        "autosave": 0
+        ]
     }
 }

@@ -9,7 +9,7 @@
             "modernui": 1
         },
         "classnamespace": "dsp.gen",
-        "rect": [ 588.0, 188.0, 825.0, 552.0 ],
+        "rect": [ 435.0, 113.0, 825.0, 601.0 ],
         "gridonopen": 2,
         "subpatcher_template": "sub",
         "integercoordinates": 1,
@@ -63,7 +63,7 @@
             },
             {
                 "box": {
-                    "code": "\r\nrequire(\"evi_biquad.genexpr\");\r\n\r\n/*\r\n    0   eviBiquadCoeffHighShelf             cutoff, gain, Q     (default)\r\n    1   eviBiquadCoeffHighShelfCookbook     cutoff, gain, Q\r\n    2   eviBiquadCoeffHighShelfAnalog       cutoff, gain\r\n*/\r\nParam   filter(0, min=0, max=2);\r\nfilt    = int(filter);\r\nreset   = delta(change(filt)) < 0;\r\n\r\na0, a1, a2, b1, b2  = 0;\r\nif (filt == 1) {\r\n    a0, a1, a2, b1, b2  = eviBiquadCoeffHighShelfCookbook(in2, dbtoa(in3), in4);\r\n}\r\nelse if (filt == 2) {\r\n    a0, a1, a2, b1, b2  = eviBiquadCoeffHighShelfAnalog(in2, dbtoa(in3));\r\n}\r\nelse {\r\n    a0, a1, a2, b1, b2  = eviBiquadCoeffHighShelf(in2, dbtoa(in3), in4);\r\n}\r\n\r\nout1    = biquadDf2reset(in1, a0, a1, a2, b1, b2, reset);\r\n\r\n",
+                    "code": "\r\nrequire(\"evi_biquad.genexpr\");\r\n\r\n/*\r\n    0   eviBiquadCoeffHighshelfMSP          cutoff, gain, Q     (default)\r\n    1   eviBiquadCoeffHighshelfCookbook     cutoff, gain, Q\r\n    2   eviBiquadCoeffHighshelfAnalog1      cutoff, gain, Q\r\n    3   eviBiquadCoeffHighshelfAnalog2      cutoff, gain\r\n*/\r\nParam   filter(0, min=0, max=3);\r\nfilt    = int(filter);\r\nreset   = delta(change(filt)) < 0;\r\n\r\na0, a1, a2, b1, b2  = 0;\r\nif (filt == 1) {\r\n    a0, a1, a2, b1, b2  = eviBiquadCoeffHighshelfCookbook(in2, dbtoa(in3), in4);\r\n}\r\nelse if (filt == 2) {\r\n    a0, a1, a2, b1, b2  = eviBiquadCoeffHighshelfAnalog1(in2, dbtoa(in3), in4);\r\n}\r\nelse if (filt == 3) {\r\n    a0, a1, a2, b1, b2  = eviBiquadCoeffHighshelfAnalog2(in2, dbtoa(in3));\r\n}\r\nelse {\r\n    a0, a1, a2, b1, b2  = eviBiquadCoeffHighshelfMSP(in2, dbtoa(in3), in4);\r\n}\r\n\r\nout1    = biquadDf2reset(in1, a0, a1, a2, b1, b2, reset);\r\n\r\n",
                     "fontface": 0,
                     "fontname": "<Monospaced>",
                     "fontsize": 12.0,
@@ -72,7 +72,7 @@
                     "numinlets": 4,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 34.0, 58.0, 659.0, 436.0 ]
+                    "patching_rect": [ 34.0, 58.0, 660.0, 484.0 ]
                 }
             },
             {
@@ -81,7 +81,7 @@
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 34.0, 511.0, 171.0, 22.0 ],
+                    "patching_rect": [ 34.0, 559.0, 171.0, 22.0 ],
                     "text": "out 1 (signal) Highshelf Output"
                 }
             }
