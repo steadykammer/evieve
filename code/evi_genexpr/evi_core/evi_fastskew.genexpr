@@ -105,8 +105,8 @@ fastskew0254ar(x, skew)					// !! skew must be clamped 0.25..4 !!
 }
 
 
-// versions for the exponent (skew) being input in human 'curvature' terms (-1..1)
-// directly, without the need for the stupid converters
+// versions for the exponent (skew) being input in human 'curvature' terms
+// (-1..1) directly, without the need for the stupid converters
 
 // negative only
 fastskew11052neg(x, skewneg)			// !! skewneg must be clamped -1..0 !!
@@ -192,6 +192,7 @@ n2p0254(N)
 // less stupid converter around 0=1, 'curve' -1..1 to 'exponent' 0.25..4
 // where -1 == 0.25, -0.5 == 0.5, 0 == 1, 0.5 == 2, 1 == 4
 // !! input (curvature) must be clamped -1..1 !!
+// and yes, i see the irony of using math pow() here :-)
 
 warpcurve(curvature)
 {

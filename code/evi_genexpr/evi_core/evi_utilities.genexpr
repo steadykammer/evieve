@@ -25,21 +25,6 @@ preWarpG(cutoff)
 eviCopysign(y, x) // <<-- HA HA !!
 {
   return (x >= 0) ? y : -y;
-/*
-  if (x >= 0) {
-    return y;
-  } else {
-    return -y;
-  }
-*/
-}
-
-eviLog1p(value)   // :-(
-{
-  if (value > -1.0e-8 && value < 1.0e-8)
-    return value - (value * value) * 0.5;
-
-  return log(1 + value);
 }
 
 getMax(xL, xR)
@@ -96,6 +81,8 @@ decorelate(x)
 	return y;
 }
 
+// for eviLine() etc (@see: evi_smooth.genexpr)
+
 // segment must be linear (ramp) 0..1
 eviScurve(segment)
 {
@@ -111,6 +98,8 @@ eviMap(valueIn, inLow, inHigh, outLow, outHigh)
     multiplier = (outLow - outHigh) / (inLow - inHigh);
     return (valueIn - inLow) * multiplier + outLow;
 }
+
+// mixing
 
 // simple parabolic approx crossfader (stereo)
 stereoXfadePar(L1, R1, L2, R2, x0)

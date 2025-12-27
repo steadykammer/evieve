@@ -1,0 +1,7 @@
+
+// all evi_core & evi_libraries functionality in a single require (but not the object code)
+
+require("evi_core.genexpr");
+
+require("evi_lib.genexpr");
+

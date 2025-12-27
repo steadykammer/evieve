@@ -106,7 +106,7 @@ tanA3(x)
 
 // arctan approximations
 
-atanA(x)
+atanA(x)		// we use this for audio
 {
 	o = 8 * x;
 	q = (o + o) * INVPI;
@@ -115,7 +115,7 @@ atanA(x)
 	return o / u;
 }
 
-atanIT(x)	// for 3rd order x = 0..infinity, maximum approximation error 0.00811º
+atanIT(x)		// for 3rd order x = 0..infinity, maximum approximation error 0.00811º
 {
 	c0	= 0.6403882032022076;	// 'alpha', (1 + sqrt(17)) / 8;
 	c1	= 1.6403882032022076;	// + 1
@@ -162,7 +162,7 @@ atan2Approx(y, x)
 	return at2a;
 }
 
-acosT(x)			// for x 1..0.2, rubbish, but fine for certain specific usages
+acosT(x)			// for x 1..0.2 only, but fine for certain specific usages
 {
 	onediveleven = 0.09090909090909091;
 	sq1x = sqrt(1 - x);

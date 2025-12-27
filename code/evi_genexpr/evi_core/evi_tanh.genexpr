@@ -34,7 +34,7 @@ tanhLxA(x, a)
 
 // by fire-sledge / antto
 // @see: http://www.kvraudio.com/forum/viewtopic.php?f=33&t=262823&start=45
-// we use this for some of the Adaa methods
+// we use this for some of the Adaa methods in evieve
 tanhO(x)
 {
 	xa		= abs(x);

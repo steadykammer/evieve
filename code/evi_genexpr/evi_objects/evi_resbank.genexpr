@@ -319,6 +319,8 @@ svfCoeffReson(hz, q)							// use with "svfSectionReson()"
 
 // used for '1956'
 
+// pete: is there a reason we compute g0 here and we don't just use
+// 'tptSvf()' from 'evi_svf.genexpr' ?
 svfButterBp(x, w, k)			// transposed tpt svf
 {
 	History	s1(0), s2(0);

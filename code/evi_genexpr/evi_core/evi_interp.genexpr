@@ -40,6 +40,7 @@ hermite_sixpoint_interp(f0, ym2, ym1, y0, y1, y2, y3)
 }
 
 
+// i think this is from my friend Alex Harker, i don't use it for audio
 cubic_lagrange_interp(f, y0, y1, y2, y3)
 {
     _1div3	= 0.3333333333333333;
@@ -54,6 +55,7 @@ cubic_lagrange_interp(f, y0, y1, y2, y3)
 }
 
 
+// i think this is from my friend Alex Harker, i don't use it for audio
 cubic_bspline_interp(f, y0, y1, y2, y3)
 {
 	_2div3	= 0.6666666666666666;
