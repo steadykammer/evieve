@@ -1,0 +1,17 @@
+
+//	//	//	a very long time ago this was called "stkr.waveshaping".
+
+//	//	//	a collection of memoryless nonlinearities for waveshaping etc.
+
+//	//	//	NOTE: all of these functions are naive and need anti-aliasing / resampling
+//	//	//	to be of any use. @see: "evi_adaa.genexpr" for anti-derivative anti-aliasing,
+//	//	//	@see: "evi_tanh.genexpr" and "evi_approx.genexpr" for more functions.
+
+
+p531J0(x)
+{
+	x2 = x*x;
+	x3 = x*x2;
+	return (x + (x3 * -0.18963)) + (x3 * x2 * 0.016182);
+}
+

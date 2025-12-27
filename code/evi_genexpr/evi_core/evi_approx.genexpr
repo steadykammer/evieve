@@ -106,7 +106,7 @@ tanA3(x)
 
 // arctan approximations
 
-atanA(x)		// we use this for audio
+atanA(x)		// we also use this for audio
 {
 	o = 8 * x;
 	q = (o + o) * INVPI;
@@ -162,7 +162,7 @@ atan2Approx(y, x)
 	return at2a;
 }
 
-acosT(x)			// for x 1..0.2 only, but fine for certain specific usages
+acosT(x)			// for x 1..0.2 only, fine for certain specific usages
 {
 	onediveleven = 0.09090909090909091;
 	sq1x = sqrt(1 - x);
