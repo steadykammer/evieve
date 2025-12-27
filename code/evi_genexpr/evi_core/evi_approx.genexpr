@@ -171,8 +171,17 @@ acosT(x)			// for x 1..0.2, rubbish, but fine for certain specific usages
 
 // 
 
-// cheapest exp() that evieve offers, the cheaper ones are rubbish, we use this everywhere
-// more accurate than 'fastexp()'
+// classic Padé
+// sort of usable in the input range sort of float -2..2 only
+expP(x)
+{
+    xp3 = x + 3;
+    xm3 = x - 3;
+    return (xp3*xp3 + 3) / (xm3*xm3 + 3);
+}
+
+// cheapest full range exp() that evieve offers, the cheaper ones are rubbish, we use
+// this everywhere. more accurate than 'fastexp()'
 expA(x0)
 {
 	x = 0.999996 + (0.031261316 + (0.00048274797 + 0.000006 * x0) * x0) * x0;

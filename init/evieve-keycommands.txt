@@ -4,3 +4,5 @@ max definecommand G patcher inserttextobj gen.codebox~;
 max definecommandinstructions patcher G "gen~ codebox object";
 max definecommand v patcher inserttextobj evi.;
 max definecommandinstructions patcher v "evieve object\/abstraction";
+max definecommand S patcher inserttextobj spectrumdraw~;
+max definecommandinstructions patcher S "HISSTools spectrumdraw~ ui";

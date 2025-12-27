@@ -1538,15 +1538,16 @@ tptSvfCoeffResonant(cutoff, gain, Q)	// gain is linear !
 	return	g, r, h, cL, cB, cH;
 }
 
+// for MSP [evi.reson~] substitute
 tptSvfCoeffReson(cutoff, gain, Q, compensate)	// gain is linear !, compensate 0/1
 {
-	w	= PI * cutoff / SAMPLERATE;		// prewarp cutoff
+	w	= PI * cutoff / SAMPLERATE;		// prewarp cutoff (post FM correction)
 	g 	= tanA2(w);						// embedded integrator gain
 	r 	= 1 / Q;						// damp
 
 	autogain = compensate ? maximum(Q * 0.01, 1) : 1;// just a cheap trick
 	cB	= r * gain * 1.995262 * autogain;// * gain compensation option for high Q
-				  // ^^ +6dB to match MSP
+				  // ^^ +6dB to match MSP [reson~]
 	h	= 1 / (1 + (r + g) * g);		// feedback factor
 
 	return	g, r, h, cB;
@@ -1632,10 +1633,11 @@ tptSvfCoeffTilt(cutoff, gain, Q)		// gain is linear !
 // no "gain" used in this filter, but we remain consistent
 // with inlets in case of patching situations, bad idea?
 // (we might actually add gain one day)
-tptSvfCoeffAllpassNorm(cutoff, gain, Q)	// gain is linear !
+tptSvfCoeffAllpassNorm(cutoff, gain, Q)
 {
 	w	= PI * cutoff / SAMPLERATE;		// prewarp cutoff
-	g 	= tanA2(w);						// embedded integrator gain
+	// Note: tanA3 for highest accuracy for when using as [evi.phaseshift~]
+	g 	= tanA3(w);						// embedded integrator gain
 	r 	= 1 / Q;						// damp
 
 	cL	=  1;
@@ -1829,10 +1831,14 @@ eviFilterResonantStereo(xL, xR, cutoff, db, Q, smooth=0)
 // MSP ordering of inputs, and like MSP gain is still linear here!
 eviFilterReson(x, gain, cutoff, Q, compensate, smooth=0)	// compensate flag 0/1, smooth time in ms
 {
-	History efrndummy(0);
-	smoothsecs	= smooth * 0.001;
-	g, r, h, cB = tptSvfCoeffReson(cutoff, gain, Q, compensate);
+	History prev_cf(0);
+	// g corrected for audio rate FM of cutoff
+    lin_cf  = cutoff - prev_cf;
+    corr_cf = cutoff + 0.5 * lin_cf;
+    prev_cf = cutoff;
+	g, r, h, cB = tptSvfCoeffReson(corr_cf, gain, Q, compensate);
 	yL, yB, yH 	= tptSvf(x, g, r, h);
+	smoothsecs	= smooth * 0.001;
 	if (smooth > 0) {
 		cB 		= expsmooth(cB, smoothsecs);	// includes autogain if chosen
 	}
@@ -1842,11 +1848,15 @@ eviFilterReson(x, gain, cutoff, Q, compensate, smooth=0)	// compensate flag 0/1,
 
 eviFilterResonStereo(x, gain, cutoff, Q, compensate, smooth=0)// compensate flag 0/1, smooth time in ms
 {
-	History efrnsdummy(0);
-	smoothsecs	= smooth * 0.001;
-	g, r, h, cB = tptSvfCoeffReson(cutoff, gain, Q, compensate);
+	History prev_cf(0);
+	// g corrected for audio rate FM of cutoff
+    lin_cf  = cutoff - prev_cf;
+    corr_cf = cutoff + 0.5 * lin_cf;
+    prev_cf = cutoff;
+	g, r, h, cB = tptSvfCoeffReson(corr_cf, gain, Q, compensate);
 	yLL, yBL, yHL 	= tptSvf(xL, g, r, h);
 	yLR, yBR, yHR 	= tptSvf(xR, g, r, h);
+	smoothsecs	= smooth * 0.001;
 	if (smooth > 0) {
 		cB 		= expsmooth(cB, smoothsecs);	// includes autogain if chosen
 	}

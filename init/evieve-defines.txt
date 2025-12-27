@@ -61,6 +61,9 @@ max define mc.evi.comb~ mc.gen~ @gen evi_comb.gendsp @chans 2;
 max define evi.allpass~ gen~ @gen evi_allpass.gendsp;
 max define mc.evi.allpass~ mc.gen~ @gen evi_allpass.gendsp @chans 2;
 
+max define evi.phaseshift~ gen~ @gen evi_phaseshift.gendsp;
+max define mc.evi.phaseshift~ mc.gen~ @gen evi_phaseshift.gendsp @chans 2;
+
 max define evi.multimode~ gen~ @gen evi_multimode.gendsp;
 max define mc.evi.multimode~ mc.gen~ @gen evi_multimode.gendsp @chans 2;
 
