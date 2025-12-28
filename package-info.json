@@ -2,14 +2,14 @@
 	"name" : "evieve",
 	"displayname" : "",
 	"version" : "0.0.1",
-	"author" : "stkr (Pete Dowling)",
+	"author" : "Pete Dowling (stkr)",
 	"authors" : [  ],
-	"description" : "A library of GenExpr code",
-	"tags" : [ "audio", "msp", "gen", "gen~", "Gen", "GenExpr", "genexpr", "javascript", "js" ],
+	"description" : "A library of GenExpr audio code",
+	"tags" : [ "audio", "msp", "gen", "gen~", "Gen", "GenExpr", "genexpr" ],
 	"website" : "http://www.steadykammer.net",
 	"extends" : "",
 	"extensible" : 0,
-	"max_version_min" : "9.0.0",
+	"max_version_min" : "9.2.0",
 	"max_version_max" : "none",
 	"os" : 	{
 		"macintosh" : 		{
@@ -24,5 +24,5 @@
 
 	}
 ,
-	"homepatcher" : ""
+	"homepatcher" : "evieveOverview.maxpat"
 }

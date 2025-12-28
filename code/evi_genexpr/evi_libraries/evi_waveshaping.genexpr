@@ -1,0 +1,261 @@
+
+//	//	//	a very long time ago (2012) this was called "stkr.waveshaping.genexpr".
+
+//	//	//	a collection of memoryless nonlinearities for waveshaping etc.
+//	//	//	Note: this file is standalone and repeats some code from the evieve lib
+
+//	//	//	NOTE: all of these functions are naive and need anti-aliasing / resampling
+//	//	//	to be of any use. @see: "evi_adaa.genexpr" for anti-derivative anti-aliasing,
+//	//	//	@see: "evi_overdrive.genexpr" for other wrapping code
+
+//	//	//	Note: if there is something missing here from the original, it is because it was rubbish :-)
+
+/*
+	"A typical 'waveshaper' is some function which takes an
+	input sample value X and transforms it to an output
+	sample X'. A typical implementation would be a look-up
+	table of some number of points, and some level of
+	interpolation between those points (say, cubic). When
+	people talk about a waveshaper, this is most often what
+	they mean. Note that a waveshaper, as opposed to a
+	filter, does not have any state. The mapping from
+	X -> X' is stateless."
+		- Jon Watte
+*/
+
+// approx exp(x) required for below
+localExpA(x)
+{
+	x = 1 + (0.062500309 + (0.0019527233 + (0.0000408663 + (0.00000060184965 + 0.000000010856791*x)*x)*x)*x)*x;
+	x *= x; x *= x; x *= x;
+	return x*x;
+}
+
+// ---------------------------------------- //
+
+// 'tanhL()' elsewhere in evieve
+tanhLApprox(x)
+{
+	x2 = x * x;
+	a = (((x2 + 378) * x2 + 17325) * x2 + 135135) * x;
+	b = ((28 * x2 + 3150) * x2 + 62370) * x2 + 135135;
+	return clamp((a / b), -1, 1);
+}
+
+// linear wrap of above
+tanhAxA(x, gain)
+{
+	return	tanhLApprox(x / gain) * gain;
+}
+
+// ---------------------------------------- //
+
+// 'atanA()' elsewhere in evieve
+atanApprox(x)
+{
+	o = 8 * x;
+	q = (o + o) * INVPI;
+	s = 25 + (q * q);
+	u = 3 + sqrt(s);
+	return o / u;
+}
+
+// gain wrapping for above
+// thanks to Volker Böhm
+atanDrive(drive)
+{
+	pre = maximum(drive, 1);
+	post = maximum((1 / atanApprox(drive)), 0.1);
+	return pre, post;
+}
+
+// you would use the above something like this
+atanSat(x, drive)
+{
+	ingain, outgain = atanDrive(drive);
+	return 	atanApprox(x * ingain) * outgain; // just anti-alias this part
+}
+
+// ---------------------------------------- //
+
+// a cheaper alternative to tanh, not the same, i describe this as a "buzzy tanh"
+tanhSqrt(x)
+{
+	return x / sqrt(1 + (x*x));
+}
+
+// ---------------------------------------- //
+
+// another cheaper alternative to tanh, behaves differently at very high gain
+// thanks Peter McCulloch
+tanhPoly(x)
+{
+  return x / (1 + (0.28 * x*x));
+}
+
+// ---------------------------------------- //
+
+// by Partice Tarrabia
+tarrabiaShaper(x, a)	// clip a @ ±1
+{
+    k = (a + a) / (1 - a);
+    return ((1 + k) * x) / (1 + (k * abs(x)));
+}
+
+// ---------------------------------------- //
+
+// by Bram de Jong
+// thanks to raja
+jongShaper(x, a)	// a >= 1
+{
+	bx = abs(x);
+	return	(x * (bx + a)) / (((x * x) + (a - 1) * bx + 1));
+}
+
+// ---------------------------------------- //
+
+// ("cnld()" in "stkr.waveshaping")
+// suggested by JOS III
+cubicNL(x)
+{
+	x = clip(x, -1, 1);
+	return x * (1 - 0.333333333333 * x * x);
+}
+
+// ---------------------------------------- //
+
+// a lovely polynom from Reaktor
+polyNom(x)
+{
+	x2 = x*x;
+	x3 = x*x2;
+	return (x + (x3 * -0.18963)) + (x3 * x2 * 0.016182);
+}
+
+// ---------------------------------------- //
+
+// from SuperCollider, by James McCartney
+// like 'distort' UnaryOp
+// thanks to Maurizio Giri
+scDistort(x0, drive) // drive must be clamped 0++
+{
+	x1 = x0 * drive;
+	x2 = abs(x1) + 1;
+	return x1 / x2;
+}
+
+// like 'softclip'/'fold2' UnaryOps
+scSoftClip(x0, drive) // drive must be clamped 0++
+{
+	x1 = x0 * drive;
+	x2 = (x1 * x1) + 0.25;
+	return x1 / x2;
+}
+
+// ---------------------------------------- //
+
+// for 'sinSat()'
+cosQ32p(x)
+{
+	x2 =  x * x;
+	return (0.99940307 + x2 * (-0.49558072 + 0.03679168 * x2));
+}
+
+// for 'sinSat()'
+cos32quad12p(x)
+{
+	return (x < 0.636619772368) ? cosQ32p(x) : -cosQ32p(PI - x);
+}
+
+// gain wrapping for 'sinSat()'
+// based on an idea by jhno & Trond Lossius
+sinParam(drive)
+{
+	pidrive		= drive*3.110176727054 + 0.031415926536;
+	sindrive	= 1 / cos32quad12p(halfpi - minimum(pidrive, halfpi));
+	return	pidrive, sindrive;
+}
+
+// you would use the above something like this:
+// (called "rSinDrive()" in "stkr.waveshaping")
+sinSat(x, drive)
+{
+	pidrive, sindrive = sinParam(drive);
+	return 	sin(x * pidrive) * sindrive; // just anti-alias this part (evieve uses approx sin here)
+}
+
+// ---------------------------------------- //
+
+// modified tanh, a Csound thing
+modHT(x0, d, a) // d must be clipped 0..1, a must be clipped 1..10
+{
+	d = d * sqrt1_2;
+	c = sqrt1_2 - (a * 0.05);
+
+	x = (x0 + d) * a;
+	ex = localExpA(x);
+	y = (ex - localExpA(-x * 1.2)) / (ex + (2/ex)) * c;
+
+	return (y - d) * ((sqrt1_2 - d) + sqrt1_2);
+}
+
+// ---------------------------------------- //
+
+// by hellfire
+foldBD(xin, thresh) // thresh = 0.01..1, but 1..0.5 better
+{
+	thresh2 = thresh + thresh;
+	thresh4 = thresh2 + thresh2;
+
+	y = 0;
+	if ( (xin > thresh) || (xin < -thresh) ) {
+		y = abs(abs(mod(xin - thresh, thresh4)) - thresh2) - thresh;
+	} else {
+		y = xin;
+	}
+
+	return y * (1/thresh);	// do not use (1/thresh) for gate behaviour
+}
+
+// ---------------------------------------- //
+
+// by Tom Szilagyi
+// 'tape' curve == 'sigmoid' @ -5, tanh curve == 'sigmoid' @ -2
+// this is not very useful, it is just a gain into a tanh()
+tapeH(xin, sigmoid)
+{
+	sigmoid = minimum(sigmoid, -2);	// you can drive sigmoid very low
+	x = xin;// * pregain;
+	y = (2 / (1 + localExpA(sigmoid * x))) - 1;
+	return y;// * postgain;
+}
+
+// ---------------------------------------- //
+
+// by Laurent de Soras
+// pete says: the Gloubi Boulga is very hard to anti alias,
+// only naive oversampling works
+gloubiBoulga(x2, drive)		// drive should be linear gain 1..40 ?
+{
+	d  = LN2 * drive;
+	s  = 1 / sqrt(d);
+	x1 = clamp(x2, -1, 1);	// evieve uses the Adaa hard clipper here
+	x0 = clamp(x1 * d, -40, 40);		// chosen for dcblock & approxes
+	a  = 1 + localExpA(sqrt(abs(x0)) * -0.75);
+	ex = localExpA(x0);
+	y  = (ex - localExpA(-x0 * a)) / (ex + 1 / ex);
+	return dcblock(y * s);
+}
+
+// no drive version
+boulgaStatic(xin)
+{
+	x  = clamp(xin, -1, 1) * 2.058918;	// evieve uses the Adaa hard clipper here
+	a  = sqrt1_2 + localExpA(sqrt(abs(x)) * -sqrt1_2);
+	ex = localExpA(x);
+	y  = (ex - localExpA(-x * a)) / (ex + 1 / ex);
+	return dcblock(y * 0.696916063374902);
+}
+
+// ---------------------------------------- //
+

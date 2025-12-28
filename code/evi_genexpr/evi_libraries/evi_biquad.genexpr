@@ -2062,3 +2062,27 @@ biquadDf2cascadeAllpass(x0, a0, a1, a2, x1, x2)
 //	//	//	
 
 
+// fun based on SuperCollider 'resonz()' and 'ringz()' coefficients:
+// you can flip between 'bandpass_skirt' (bandpass) and 'bandpass_peak'
+// (reson) with the 'filt' parameter, maybe someone finds it useful.
+// (this is a pete thing, might not be stable, who knows - i used it and it worked).
+
+// filt=0 = "resonz" ('QorT60' = Q factor 0.001++),
+// filt=1 = "rinqz" ('QorT60' = T60 in samples 0.001++)
+resringzCoeffs(cutoff, QorT60, filt=0)
+{
+	F 		=  cutoff * TWOPI / samplerate;
+	R 		=  filt ? (maximum(t60(QorT60), 0.001)) : (1 - F / maximum(QorT60, 0.001) * 0.5);
+	twoR	=  R + R;
+	R2 		=  R * R;
+	cosF	=  twoR * cos(F) / (1 + R2);
+	b1		=  twoR * cosF;
+	b2		= -R2;
+	a0		=  filt ? 0.5 : ((1 - R2) * 0.5);
+
+	return  a0, b1, b2;		// <<-- a1 & a2 == 0
+}
+
+
+//	//	//
+
