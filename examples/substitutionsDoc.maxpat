@@ -489,7 +489,7 @@
                 "box": {
                     "id": "obj-39",
                     "maxclass": "newobj",
-                    "numinlets": 4,
+                    "numinlets": 3,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
                     "patching_rect": [ 1183.0, 467.0, 97.0, 22.0 ],
@@ -1031,6 +1031,27 @@
             },
             {
                 "box": {
+                    "id": "obj-95",
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 49.0, 64.0, 939.0, 20.0 ],
+                    "text": "The main point of all these is so that they can all be used inside GenExpr code, but they have also been rewritten using superior TPT filters"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-98",
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 1183.0, 445.0, 97.0, 20.0 ],
+                    "text": "no gain input",
+                    "textjustification": 1
+                }
+            },
+            {
+                "box": {
                     "angle": 270.0,
                     "background": 1,
                     "border": 1,
@@ -1063,6 +1084,20 @@
                     "patching_rect": [ 34.0, 563.0, 1343.0, 184.0 ],
                     "proportion": 0.5,
                     "rounded": 2
+                }
+            },
+            {
+                "box": {
+                    "attr": "adaptive",
+                    "id": "obj-93",
+                    "lock": 1,
+                    "maxclass": "attrui",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "parameter_enable": 0,
+                    "patching_rect": [ 754.0, 494.0, 92.0, 22.0 ],
+                    "text_width": 59.0
                 }
             }
         ],
@@ -1184,6 +1219,13 @@
                     "destination": [ "obj-72", 0 ],
                     "midpoints": [ 940.5, 740.0, 922.3671875, 740.0, 922.3671875, 659.0, 940.5, 659.0 ],
                     "source": [ "obj-73", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-33", 0 ],
+                    "midpoints": [ 763.5, 526.0, 747.8671875, 526.0, 747.8671875, 457.0, 763.5, 457.0 ],
+                    "source": [ "obj-93", 0 ]
                 }
             }
         ],

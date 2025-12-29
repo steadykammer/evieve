@@ -3,13 +3,13 @@
         "fileversion": 1,
         "appversion": {
             "major": 9,
-            "minor": 1,
-            "revision": 2,
+            "minor": 2,
+            "revision": 0,
             "architecture": "x64",
             "modernui": 1
         },
         "classnamespace": "dsp.gen",
-        "rect": [ 162.0, 149.0, 825.0, 360.0 ],
+        "rect": [ 162.0, 149.0, 825.0, 465.0 ],
         "gridonopen": 2,
         "subpatcher_template": "sub",
         "integercoordinates": 1,
@@ -63,7 +63,7 @@
             },
             {
                 "box": {
-                    "code": "\r\nrequire(\"evi_svf.genexpr\");\r\n\r\nParam   smooth(0, min=0, max=333);\r\n\r\n                     // In   Hz   dB   Q    ms\r\nout1    = eviFilterBell(in1, in2, in3, in4, smooth=smooth);\r\n\r\n",
+                    "code": "\r\nrequire(\"evi_svf.genexpr\");\r\n\r\nParam   smooth(0, min=0, max=333);\r\nParam   adaptive(0, min=0, max=1);\r\nadaptQ  = int(adaptive);\r\n\r\nBELL = 0;\r\nif (adaptQ) {// adaptive Q\r\n                              // In   Hz   dB   Q    ms\r\n    BELL = eviFilterBellAdaptive(in1, in2, in3, in4, smooth=smooth);\r\n}\r\nelse {       // normal\r\n                      // In   Hz   dB   Q    ms\r\n    BELL = eviFilterBell(in1, in2, in3, in4, smooth=smooth);\r\n}\r\n\r\nout1 = BELL;\r\n\r\n",
                     "fontface": 0,
                     "fontname": "<Monospaced>",
                     "fontsize": 12.0,
@@ -72,7 +72,7 @@
                     "numinlets": 4,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 34.0, 58.0, 617.0, 241.0 ]
+                    "patching_rect": [ 34.0, 58.0, 617.0, 338.0 ]
                 }
             },
             {
@@ -81,7 +81,7 @@
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 34.0, 316.0, 141.0, 22.0 ],
+                    "patching_rect": [ 34.0, 413.0, 141.0, 22.0 ],
                     "text": "out 1 (signal) Bell Output"
                 }
             }

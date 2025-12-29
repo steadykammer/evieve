@@ -3,8 +3,8 @@
         "fileversion": 1,
         "appversion": {
             "major": 9,
-            "minor": 1,
-            "revision": 2,
+            "minor": 2,
+            "revision": 0,
             "architecture": "x64",
             "modernui": 1
         },
@@ -23,18 +23,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 632.0, 13.0, 174.0, 35.0 ],
-                    "text": "in 4 (signal/float) Q @min 0.05 @max 20 @default 0.707107"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-5",
-                    "maxclass": "newobj",
-                    "numinlets": 0,
-                    "numoutlets": 1,
-                    "outlettype": [ "" ],
-                    "patching_rect": [ 433.0, 20.0, 104.0, 22.0 ],
-                    "text": "in 3 (inlet unused)"
+                    "text": "in 3 (signal/float) Q @min 0.05 @max 20 @default 0.707107"
                 }
             },
             {
@@ -56,19 +45,19 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 233.0, 13.0, 175.0, 35.0 ],
+                    "patching_rect": [ 333.0, 13.0, 175.0, 35.0 ],
                     "text": "in 2 (signal/float) Cutoff in Hz @min 1 @max samplerate*0.5"
                 }
             },
             {
                 "box": {
-                    "code": "\r\nrequire(\"evi_svf.genexpr\");\r\n\r\nParam   smooth(0, min=0, max=333);\r\n\r\n                            // In   Hz  dB  Q    ms\r\nout1    = eviFilterAllpassNorm(in1, in2, 0, in4, smooth=smooth);\r\n\r\n",
+                    "code": "\r\nrequire(\"evi_svf.genexpr\");\r\n\r\nParam   smooth(0, min=0, max=333);\r\n\r\n                            // In    Hz   Q    ms\r\nout1    = eviFilterAllpassNorm(in1, in2, in3, smooth=smooth);\r\n\r\n",
                     "fontface": 0,
                     "fontname": "<Monospaced>",
                     "fontsize": 12.0,
                     "id": "obj-3",
                     "maxclass": "codebox",
-                    "numinlets": 4,
+                    "numinlets": 3,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 34.0, 58.0, 617.0, 241.0 ]
@@ -107,12 +96,6 @@
             {
                 "patchline": {
                     "destination": [ "obj-3", 2 ],
-                    "source": [ "obj-5", 0 ]
-                }
-            },
-            {
-                "patchline": {
-                    "destination": [ "obj-3", 3 ],
                     "source": [ "obj-6", 0 ]
                 }
             }

@@ -45,13 +45,13 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 333.0, 13.0, 190.0, 35.0 ],
+                    "patching_rect": [ 333.0, 13.0, 191.0, 35.0 ],
                     "text": "in 2 (signal/float) Frequency in Hz @min 1 @max samplerate*0.5"
                 }
             },
             {
                 "box": {
-                    "code": "\r\n// identical to [evi.filter.allpass~], almost identical to\r\n// [evi.biquad.allpass~] and MSP [phaseshift~] but using a TPT filter.\r\n\r\nrequire(\"evi_svf.genexpr\");\r\n\r\nParam   smooth(0, min=0, max=333);\r\n\r\n                            // In   Hz  dB  Q    ms\r\nout1    = eviFilterAllpassNorm(in1, in2, 0, in3, smooth=smooth);\r\n\r\n",
+                    "code": "\r\n// identical to [evi.filter.allpass~], almost identical to\r\n// [evi.biquad.allpass~] and MSP [phaseshift~] but using a TPT filter.\r\n\r\nrequire(\"evi_svf.genexpr\");\r\n\r\nParam   smooth(0, min=0, max=333);\r\n\r\n                            // In   Hz    Q    ms\r\nout1    = eviFilterAllpassNorm(in1, in2, in3, smooth=smooth);\r\n\r\n",
                     "fontface": 0,
                     "fontname": "<Monospaced>",
                     "fontsize": 12.0,
@@ -99,7 +99,6 @@
                     "source": [ "obj-6", 0 ]
                 }
             }
-        ],
-        "autosave": 0
+        ]
     }
 }

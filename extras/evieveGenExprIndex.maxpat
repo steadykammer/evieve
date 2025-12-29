@@ -13,7 +13,19 @@
         "gridonopen": 2,
         "subpatcher_template": "sub",
         "integercoordinates": 1,
-        "boxes": [],
+        "boxes": [
+            {
+                "box": {
+                    "hidden": 1,
+                    "id": "obj-18",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 15.0, 15.0, 54.0, 22.0 ],
+                    "text": "onecopy"
+                }
+            }
+        ],
         "lines": [],
         "autosave": 0,
         "toolbaradditions": [ "audiosolo", "audiomute" ]
