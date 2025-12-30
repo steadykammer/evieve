@@ -102,6 +102,7 @@ eviBiquadCoeffHighpass(cutoff, Q)
 }
 
 // this is incorrectly called "resonant" in [filtercoeff~] & [filtergraph~]
+// in evieve "bandpass" and "resonant" are switched
 // this is a real bandpass - same resonant peak as low- & high- passes
 eviBiquadCoeffBandpass(cutoff, Q)
 {
@@ -267,6 +268,7 @@ eviBiquadCoeffHighshelfCookbook(cutoff, gain, Q)	// RBJ (see above for MSP style
 }
 
 // this is incorrectly called "bandpass" in [filtercoeff~] & [filtergraph~]
+// in evieve "bandpass" and "resonant" are switched
 eviBiquadCoeffResonant(cutoff, Q)			// "Resonant" (similar to [reson~])
 {
 	omega   = TWOPI / SAMPLERATE;
@@ -276,7 +278,6 @@ eviBiquadCoeffResonant(cutoff, Q)			// "Resonant" (similar to [reson~])
         b0  =   1 - r1;
         b1  =   0;
         b2  = -(r1 - (r1 * r1));
-        a0  =   1;
         a1  = -((r1 + r1) * cos(cutoff * omega));// w0
         a2  = -(-r1 * r1);
 
@@ -292,7 +293,6 @@ eviBiquadCoeffBp(cutoff, Q)                 // [bp~] from Pd, also like [vcf~]
         b0  = (qw + qw) * (qw + r2 * w0);
         b1  =  0;
         b2  =  0;
-        a0  =  1;
         a1  = -2 * cos(w0) * r2;            // omega
         a2  =  r2 * r2;
 
@@ -407,7 +407,6 @@ eviBiquadCoeffResonantGain(cutoff, gain, Q)	// "Resonant" (similar to [reson~])
         b1  =   0;
         b2  = -(r1 - (r1 * r1));
         b2  =   b2 * gain;
-        a0  =   1;
         a1  = -((r1 + r1) * cos(cutoff * omega));// w0
         a2  = -(-r1 * r1);
 
@@ -424,7 +423,6 @@ eviBiquadCoeffBpGain(cutoff, gain, Q)       // [bp~] from Pd
         b0  =  b0 * gain;
         b1  =  0;
         b2  =  0;
-        a0  =  1;
         a1  = -2 * cos(w0) * r2;            // omega
         a2  =  r2 * r2;
 

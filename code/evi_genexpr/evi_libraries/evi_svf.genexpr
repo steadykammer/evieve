@@ -891,10 +891,12 @@ tptSvfCoeffFormlet(cutoff, AT, DT)      // AT/DT are attack/decay times in secon
     LOGTH   = -6.907755278982137;       // ln(0.001) = -60dB
 	w		= PI * cutoff / SAMPLERATE;
 	g 		= tanA2(w);
+	temp 	= samplerate * 0.1;
     // something is wrong with my calculations, time is not right
     // also, at the moment, decay seems to be frequency dependent, which is wrong
-	r1 		= 1 - maximum(expA(LOGTH / (AT * samplerate)), 0);  // t60...
-    r2  	= 1 - maximum(expA(LOGTH / (DT * samplerate)), 0);
+	r1 		= 1 - maximum(expA(LOGTH / (AT * temp)), 0);  // t60...
+    r2  	= 1 - maximum(expA(LOGTH / (DT * temp)), 0);
+//  omg		= 1 - g;
 	h1		= 1 / (1 + (r1 + g) * g);	// problem must be in feedback factor, oder?
 	h2		= 1 / (1 + (r2 + g) * g);
 
