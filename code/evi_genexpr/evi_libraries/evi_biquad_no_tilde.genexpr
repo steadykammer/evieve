@@ -276,14 +276,13 @@ eviBiquadCoeffResonant(cutoff, Q, AUDIO_SR=48000)			// "Resonant" (similar to [r
         b0  =   1 - r1;
         b1  =   0;
         b2  = -(r1 - (r1 * r1));
-        a0  =   1;
         a1  = -((r1 + r1) * cos(cutoff * omega));// w0
         a2  = -(-r1 * r1);
 
 	return  b0, b1, b2, a1, a2;             // a0, a1, a2, b1, b2
 }
 
-eviBiquadCoeffBp(cutoff, Q, AUDIO_SR=48000)                 // [bp~] from Pd, also like [vcf~]
+eviBiquadCoeffBp(cutoff, Q, AUDIO_SR=48000)                 // [bp~] from Pd
 {
 	w0      = TWOPI * cutoff / AUDIO_SR;  // omega0
 	qw      = minimum((w0 / Q), 1);
@@ -292,7 +291,6 @@ eviBiquadCoeffBp(cutoff, Q, AUDIO_SR=48000)                 // [bp~] from Pd, al
         b0  = (qw + qw) * (qw + r2 * w0);
         b1  =  0;
         b2  =  0;
-        a0  =  1;
         a1  = -2 * cos(w0) * r2;            // omega
         a2  =  r2 * r2;
 
@@ -407,7 +405,6 @@ eviBiquadCoeffResonantGain(cutoff, gain, Q, AUDIO_SR=48000)	// "Resonant" (simil
         b1  =   0;
         b2  = -(r1 - (r1 * r1));
         b2  =   b2 * gain;
-        a0  =   1;
         a1  = -((r1 + r1) * cos(cutoff * omega));// w0
         a2  = -(-r1 * r1);
 
@@ -424,7 +421,6 @@ eviBiquadCoeffBpGain(cutoff, gain, Q, AUDIO_SR=48000)       // [bp~] from Pd
         b0  =  b0 * gain;
         b1  =  0;
         b2  =  0;
-        a0  =  1;
         a1  = -2 * cos(w0) * r2;            // omega
         a2  =  r2 * r2;
 
@@ -571,7 +567,6 @@ eviBiquadCoeffLowpassAnalog2(cutoff, fullQ, AUDIO_SR=48000)
     inv2Q   = 0.5 / Q;
     expMqw  = exp(-inv2Q * w0);
     cosArg  = sqrt(1 - inv2Q * inv2Q) * w0;
-    //a0    = 1;
     a1      = -(expMqw + expMqw) * (inv2Q <= 1 ? cos(cosArg) : cosh(-cosArg));
     a2      = expMqw * expMqw;
     sinPd2  = sin(0.5 * w0);
@@ -614,7 +609,6 @@ eviBiquadCoeffHighpassAnalog(cutoff, fullQ, AUDIO_SR=48000)
 	    inv2Q   = 0.5 / Q;
 	    expMqw  = exp(-inv2Q * w0);
 	    cosArg  = sqrt(1 - inv2Q * inv2Q) * w0;
-	    //a0    = 1;
 	    a1      = -(expMqw + expMqw) * (inv2Q <= 1 ? cos(cosArg) : cosh(-cosArg));
 	    a2      = expMqw * expMqw;
 	    sinPd2  = sin(0.5 * w0);
@@ -747,7 +741,6 @@ eviBiquadCoeffNotchAnalog(cutoff, fullQ, AUDIO_SR=48000)
 	    inv2Q   = 0.5 / Q;
 	    expMqw  = exp(-inv2Q * w0);
 	    cosArg  = sqrt(1 - inv2Q * inv2Q) * w0;
-	    //a0    = 1;
 	    a1      = -(expMqw + expMqw) * (inv2Q <= 1 ? cos(cosArg) : cosh(-cosArg));
 	    a2      = expMqw * expMqw;
 
@@ -843,7 +836,6 @@ eviBiquadCoeffPeakNotchAnalog2(cutoff, gain, fullQ, AUDIO_SR=48000)
     inv2Q   = 0.5 / Q;
     expMqw  = exp(-inv2Q * w0);
     cosArg  = sqrt(1 - inv2Q * inv2Q) * w0;
-    //a0    = 1;
     a1      = -(expMqw + expMqw) * (inv2Q <= 1 ? cos(cosArg) : cosh(-cosArg));
     a2      = expMqw * expMqw;
     sinPd2  = sin(0.5 * w0);
@@ -895,7 +887,6 @@ eviBiquadCoeffLowshelfAnalog1(cutoff, gain, fullQ, AUDIO_SR=48000)
 
 	    expBwA  = exp(-Beta * w0 * invAlpha);
 	    cosArg  = sqrt(Alpha - BetaSq) * w0 * invAlpha;
-	    //a0    = 1;
 	    a1      = -(expBwA + expBwA) * (BetaSq <= Alpha ? cos(cosArg) : cosh(-cosArg));
 	    a2      = expBwA * expBwA;
 
@@ -1018,7 +1009,6 @@ eviBiquadCoeffHighshelfAnalog1(cutoff, gain, fullQ, AUDIO_SR=48000)
 
 	    expBw   = exp(-Beta * w0);
 	    cosArg  = sqrt(Alpha - BetaSq) * w0;
-	    //a0    = 1;
 	    a1      = -(expBw + expBw) * (BetaSq <= Alpha ? cos(cosArg) : cosh(-cosArg));
 	    a2      = expBw * expBw;
 
@@ -1130,7 +1120,6 @@ eviBiquadCoeffResonantAnalog(cutoff, fullQ, AUDIO_SR=48000)
     inv2Q   = 0.5 / Q;
     expMqw  = exp(-inv2Q * w0);
     cosArg  = sqrt(1 - inv2Q * inv2Q) * w0;
-    //a0    = 1;
     a1      = -(expMqw + expMqw) * (inv2Q <= 1 ? cos(cosArg) : cosh(-cosArg));
     a2      = expMqw * expMqw;
     sinPd2  = sin(0.5 * w0);

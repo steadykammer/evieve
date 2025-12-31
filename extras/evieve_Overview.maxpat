@@ -1586,7 +1586,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 915.0, 87.0, 210.0, 52.0 ],
+                    "patching_rect": [ 917.0, 86.0, 210.0, 52.0 ],
                     "text": "this is what the evieve package is all about - anything else is a bonus :-)",
                     "textjustification": 1
                 }
@@ -1847,7 +1847,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 845.0, 387.0, 246.0, 47.0 ],
-                                    "text": "...but if you look in the Code sidebar you will see that gen~ unpacks the code contained inside the codebox version...",
+                                    "text": "...but if you look in the Code sidebar you will see that gen~ unpacks the code contained inside the abstraction version...",
                                     "textjustification": 1
                                 }
                             },
@@ -2184,14 +2184,6 @@
         ],
         "parameters": {
             "obj-34": [ "rnbo~", "rnbo~", 0 ],
-            "parameterbanks": {
-                "0": {
-                    "index": 0,
-                    "name": "",
-                    "parameters": [ "-", "-", "-", "-", "-", "-", "-", "-" ],
-                    "buttons": [ "-", "-", "-", "-", "-", "-", "-", "-" ]
-                }
-            },
             "inherited_shortname": 1
         },
         "autosave": 0,

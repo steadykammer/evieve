@@ -126,6 +126,14 @@ eviMap(valueIn, inLow, inHigh, outLow, outHigh)
     return (valueIn - inLow) * multiplier + outLow;
 }
 
+// basic linear scaling, sort of like [zmap]
+eviZmap(valueIn, inLow, inHigh, outLow, outHigh)
+{
+	value	= clamp(valueIn, inLow, inHigh);
+	multiplier = (outLow - outHigh) / (inLow - inHigh);
+	return (value - inLow) * multiplier + outLow;
+}
+
 // mixing
 
 // simple parabolic approx crossfader (stereo)

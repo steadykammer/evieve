@@ -1,0 +1,100 @@
+
+// @see: "sparseVelvetNoise()" for an alternative algorithm ("sparseNoise")
+audioDust(freq)
+{
+	clockThresh	= 1 - (freq * (1 / (SAMPLERATE * 0.5)));
+	Xoshiro1	= noise();
+	sync		= Xoshiro1 > clockThresh;
+	Xoshiro2	= noise();
+
+	dust		= sync * Xoshiro2;
+	return		dust, Xoshiro2, sync;
+}
+
+// sort of based on: Matti Karjalainen and Hanna Jarvelainen, "Reverberation Modeling
+// Using Velvet Noise", in Proc. 30th Int. Conf. Intelligent
+// Audio Environments (AES07), March 2007.
+// Pete: my porting of this algorithm is really stupid with the phasor(), I do not
+// like it, @see: "audioDust()" for cheaper algorithm (compared to "sparseNoise")
+sparseVelvetNoise(freq, mix, amp=1)
+{
+	History		prevClock(0), prevXos(0);
+
+	Xoshiro256	=  noise();
+	clock		=  phasor(freq);
+	latchRandom	= (latch(Xoshiro256, (clock - prevClock)) * 0.5) + 0.5;
+
+	sparseNoise	= prevXos * ((clock >= latchRandom) * (prevClock < latchRandom));
+	prevClock	= clock;
+	prevXos		= Xoshiro256;
+
+	velvetNoise	= (sign(sparseNoise) * amp);
+	mixNoise	= interp(mix, sparseNoise, velvetNoise, mode="cosine");
+
+	return		mixNoise, sparseNoise, velvetNoise;
+}
+
+// not really box-muller gaussian noise distribution estimation, thanks to andy farnell
+// default (gain 0.6403882032022076) gives very close to unity amplitude (-1..1) output
+gaussianNoise(gain)
+{
+	Xoshiro256	= noise();
+	cosXos		= cycle(noise(), index="phase");
+	// can we get rid of this log() please ?
+	gaussian 	= sqrt(log((abs(Xoshiro256) * gain) + (1 - gain)) * -2) * (cosXos * LN2);
+	return		gaussian, Xoshiro256, cosXos;
+}
+
+// basically from the RNBO operator, with additions
+likeZerox(x, windowSize=0, threshold=0.1)
+{
+	History	count(0), index(0);
+	History	lastSign(0), lastCount(0);
+	History	lastWindowSize(64);
+
+	if ((windowSize > 1) && (windowSize != lastWindowSize)) {
+		count = 0;
+		index = 0;
+		lastSign = 0;
+		lastWindowSize = int(windowSize);
+		lastCount = 0;
+	}
+
+	currentSign = x < 0;
+	crossing = change(currentSign);
+	if (currentSign != lastSign) {
+		count += 1;
+	}
+	lastSign = int(currentSign);
+	index += 1;
+
+	if (index >= lastWindowSize) {
+		lastCount = int(count);
+		count = 0;
+		index = 0;
+	}
+	voiced = (lastCount / lastWindowSize) > threshold;
+
+	return lastCount, voiced, crossing;
+}
+
+// basically from the gen~ example, with additions
+simpleZerox(x, threshold=0.1)
+{
+	History	period(0);
+
+	currentSign = x < 0;			// detect zero crossing...
+	crossing = change(currentSign);	// ...& report sign
+
+	periodAccum = period + 1;		// increment period counter
+	periodCount = latch(periodAccum, crossing);
+	voiced = (periodCount / vectorsize) > threshold; // fixed
+	// zero counter on zero crossing
+	period = periodAccum * (crossing == 0);
+
+	return periodCount, voiced, crossing;			 // -voiced ?
+}
+
+
+
+

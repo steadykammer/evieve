@@ -616,3 +616,55 @@ eviSlide(x, u, d)							// input, samples up, samples down
 	return y;
 }
 
+// vactrols
+
+// A digital model of a vactrol filter, quasi 'analog' in behaviour.
+// This needs quite a lot of massaging to work well
+likeAvactrol(V, up, down)
+{
+	History	s0(0);
+
+	F  = clip(((s0 > V) * up) + down, 0.01, HALFPI);
+	w2 = tanA2(F * PI / SAMPLERATE);
+	g0 = w2 / (w2 + 1);
+
+	G  = (V - s0) * g0;
+	Y  =  G + s0;
+
+	s0 =  G + Y;
+	return	Y;
+}
+
+// Vactrol time-domain behaviour filter.
+// A basic not-really-a-model of the Perkin Elmer VTL5C3, the resistive
+// part of a photoresistive opto-isolator.
+// As it turns out, the shape is similar to [slide~] in MSP/RNBO
+// or [slide] in gen~, but not the behaviour in terms of fall or retrigger
+// Based on "A Digital Model of the Buchla Lowpass-Gate"
+// by Julian Parker and Stefano D’Angelo, 2013
+// "...an ad-hoc nonlinear filter structure that will behave similarly
+// to the vactrol with correct setting of parameter values".
+
+vactrolShape(x, a)						// trigger, time
+{
+	return x * a / (1 + a);
+}
+
+buchlaVactrol(i, r, f)					// impulse, rise (samps), fall (samps)
+{
+	History s1(0);
+
+	a_base	= 3141.592653589793238/SAMPLERATE;	// 1000*PI/samplerate
+	t_down	= 10 + f*(1 - 0.9*s1);		// fall time
+	a_down	= a_base/t_down;
+	t_up	= 1 + r*(1 - 0.999*s1);		// rise time
+	a_up	= a_base/t_up;
+
+	x		= i - s1;
+	x 		= (x < 0) ? vactrolShape(x, a_down) : vactrolShape(x, a_up);
+	y		= x + s1;
+	s1		= y + x;
+	return	  y;						// & scale externally
+}
+
+
