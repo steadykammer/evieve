@@ -5,6 +5,8 @@ build
 log.txt
 package-info.json
 .DS_Store
+# vscode
+.vscode
 # clangd
 .cache
 
