@@ -43,6 +43,17 @@ triggerHoldGate(X, hold=10, trigger=1)
     return      gate;
 }
 
+// variable dcblock() so that effect can be bypassed (a0 = 1) 
+// or active (a0 = 0.9997) or heavy (a0 = ...)
+varDcblock(x0, a0)
+{
+	History	x1(0), y1(0);
+	y0		= x0 - x1 + fixdenorm(y1 * a0);
+	x1		= x0;
+	y1		= y0;
+	return	y0;
+}
+
 preWarpG(cutoff)
 {
 	g0		=  tanA2(PI * cutoff / SAMPLERATE);

@@ -5,7 +5,7 @@ require("evi_interp.genexpr");
 
 //	//	//	coefficients
 
-rcPreWarp(cutoff)
+rcPreWarp1(cutoff)
 {
 	g0		=  tanA(PI * cutoff / SAMPLERATE);
 	return	g0 / (1 + g0);
@@ -26,6 +26,14 @@ rcFilter(Vin, g)
 	Vout	= (g * Vin + s) / (g + 1);
 	s		= (Vout + Vout) - s;
 	return	  Vout;
+}
+
+rcFilterHp(Vin, g)
+{
+	History	  s(0);
+	VoutLp	= (g * Vin + s) / (g + 1);
+	s		= (VoutLp + VoutLp) - s;
+	return	  Vin - VoutLp;
 }
 
 rcFilterLpHp(Vin, g)

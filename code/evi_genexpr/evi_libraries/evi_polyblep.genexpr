@@ -1,6 +1,6 @@
 
 // PolyBLEP quasi-bandlimited oscilators
-// Implementation, oversampling, morphing by Pete for evieve, LGPLv3
+// Implementation, oversampling, morphing by Pete for evieve, GPLv2
 // Sources:
 // http://www.acoustics.hut.fi/publications/papers/smc2010-phaseshaping/
 // https://www.taletn.com/reaper/mono_synth/
@@ -17,6 +17,8 @@
 // terms of the "Do What The Fuck You Want To Public License", Version 2,
 // as published by Sam Hocevar:
 // http://www.wtfpl.net/
+
+require("evi_smooth.genexpr");
 
 
 // bandlimiters
@@ -117,42 +119,6 @@ hard_sync(s)
 
 // waveforms
 
-// Routines to compute sine and cosine to 7.3 digits of accuracy, just about ok for audio
-
-cosQ73(x) {
-	c1 =  0.999999953464;
-	c2 = -0.499999053455;
-	c3 =  0.0416635846769;
-	c4 = -0.0013853704264;
-	c5 =  0.00002315393167;  	
-
-	x2 = x * x;
-	return (c1 + x2 * (c2 + x2 * (c3 + x2 * (c4 + c5 * x2))));
-}
-
-cos73(x) {
-	tdp  = 0.6366197723675814;		// 2 / PI
-	x 	 =  x % TWOPI;				// wrap values > 2 * PI 	// or should use [phase]wrap() ??
-	x 	 = (x < 0) ? -x : x;		// cos(-x) = cos(x)
-	quad = int(x * tdp);			// get quadrant # (0 to 3) we're in
-	cosreturn = 0;
-	if 				(quad == 0) {
-		cosreturn =  cosQ73(x);
-	} else if 		(quad == 1) {
-		cosreturn = -cosQ73(PI - x);
-	} else if 		(quad == 2) {
-		cosreturn = -cosQ73(x - PI);
-	} else {	//	(quad == 3)
-		cosreturn =  cosQ73(TWOPI - x);
-	}
-	return cosreturn;
-}
-
-sin73(x) {
-	return cos73(HALFPI - x);
-}
-
-
 // using the approxes, for completeness, not needed ...
 
 poly_sin(t)
@@ -167,8 +133,6 @@ poly_cos(t)
 
 
 // polyblep (etc) waves ...
-// ... all comments below based on 48k samplerate & internal 4x 'fake' oversampling
-
 
 // half-wave rectified sines
 
@@ -669,8 +633,8 @@ poly_cubsaw(t, dt)
 // ok for full range
 poly_sawsin(t, dt)
 {
-	return	((poly_blep(t, dt) + sin73((0.5 - t) * PI)) * -1);
-//	return -(poly_blep(t, dt) + sin73((0.5 - t) * PI));	// ??
+//	return	((poly_blep(t, dt) + sin73((0.5 - t) * PI)) * -1);
+	return -(poly_blep(t, dt) + sin73((0.5 - t) * PI));
 }
 
 // sine sawtooth (-sawtoothsine)
@@ -757,151 +721,8 @@ poly_logit3(t, dt)
 	return	y * freqgain;
 }
 
-// staircases
-
-// something is wrong...
-poly_stairs(t, dt)
-{
-	mtdt	= -0.66666666666666667;		// -2 / 3
-	odt		=  0.33333333333333333;		//  1 / 3
-	t1		= t  + 0.25;
-	t2		= t1 + 0.25;
-	t3		= t2 + 0.25;
-	t00		= wrap(t * 4, 0, 1);
-	t11		= wrap(t1, 0, 1);
-	t22		= wrap(t2, 0, 1);
-	t33		= wrap(t3, 0, 1);
-	y		= t00 * mtdt + 1;
-	y	   += poly_blep(t, dt);
-/*	if (t < dt) {
-		temp	= t / dt - 1;
-		y	   -= (temp * temp);
-	} else if (t > 1 - dt) {
-		temp	= (t - 1) / dt + 1;
-		y	   += (temp * temp);
-	}
-*/	y	   -= poly_blep(t11, dt) * odt;
-/*	if (t11 < dt) {
-		temp	= t1 / dt - 1;
-		y	   += (temp * temp) * odt;
-	} else if (t1 > 1 - dt) {
-		temp	= (t1 - 1) / dt + 1;
-		y	   -= (temp * temp) * odt;
-	}
-*/	y	   -= poly_blep(t22, dt) * odt;
-/*	if (t22 < dt) {
-		temp	= t2 / dt - 1;
-		y	   += (temp * temp) * odt;
-	} else if (t2 > 1 - dt) {
-		temp	= (t2 - 1) / dt + 1;
-		y	   -= (temp * temp) * odt;
-	}
-*/	y	   -= poly_blep(t33, dt) * odt;
-/*	if (t33 < dt) {
-		temp	= t3 / dt - 1;
-		y	   += (temp * temp) * odt;
-	} else if (t3 > 1 - dt) {
-		temp	= (t3 - 1) / dt + 1;
-		y	   -= (temp * temp) * odt;
-	}
-*/	return		y;					// something is wrong...
-}
-/*
-poly_stairs3()
-{
-	return
-}
-
-// uneven staircase
-poly_stairs2()
-{
-	return
-}
-
-// hammond 88 8000 000
-poly_ham()
-{
-	return
-}
-*/
-
 
 //	//	//	morphing oscillators	//	//	//
-
-
-// stupid sine..tri mixing morphing like idea
-
-// this is quite good if width == sqrt1_2, weird and hard to control otherwise...
-// ...but many permutations worth looking into...
-// ...however it doesn't really work as never possible to match phases over zero crossings when mixed
-morph_sinetri_mix(t_o, dt, pwm, width, morph)
-{
-	osc_1	=  0;
-	osc_2	=  0;
-//	t_o		=  wrap(t + 0.25, 0, 1);
-	t_t		=  wrap(t_o + width, 0, 1);
-	if (morph <= 0) {
-		osc_2	=  0;
-		pw_1	= (pwm >= 0.5) ? pwm : pwm * 0.94 + 0.06;
-		osc_1	=  poly_half2(t_o, dt, pw_1);
-	} else if (morph >= 1) {
-		osc_1	=  0;
-		pw_2	=  pwm * 0.99 + 0.05;
-		osc_2	=  poly_tri2(t_t, dt, pw_2) * -1;
-	} else { 	// ( (morph > 0) && (morph < 1) )		// is ramping
-		// !! of course final shape is not technically bandlimited because of this, but works up to 1k in all pwm/morph ranges very well !!
-		pw_1	= (pwm >= 0.5) ? pwm : pwm * 0.94 + 0.06;
-		pw_2	=  pwm * 0.99 + 0.05;
-		osc_1	=  poly_half2(t_o, dt, pw_1) * (1 - morph);
-		osc_2	= (poly_tri2(t_t, dt, pw_2) * -1) * morph;
-	}
-	return	osc_1 - osc_2;								// !! osc_2 - osc_1 also works !! etc etc !!
-}
-
-// fixed 4x cheap (down only) oversampling mono, plus voodoo for GenExpr
-morph_sinetri_down4x(t, dt, pw, a, width, morph)
-{	// down 4
-	History	dmT2_1(0), dmT1_1(0), dmT0_1(0);
-	History	dmT2_2(0), dmT1_2(0), dmT0_2(0);
-	History	dmT2_3(0), dmT1_3(0), dmT0_3(0);
-	// align
-	History	doX0(0);
-
-	// process 4x
-	y1_0	= morph_sinetri_mix(t, dt, pw, width, morph);
-	y2_0	= morph_sinetri_mix(t, dt, pw, width, morph);
-	y3_0	= morph_sinetri_mix(t, dt, pw, width, morph);
-	y4_0	= morph_sinetri_mix(t, dt, pw, width, morph);
-
-	// down 4x
-	y2_0_a	= y2_0 + 0;
-	y2_1	= interp(0.25,	y2_0_a,	dmT0_1, dmT1_1, dmT2_1, mode="spline");
-
-	y3_0_a	= y3_0 + 0;
-	y3_1	= interp(0.5,	y3_0_a,	dmT0_2, dmT1_2, dmT2_2, mode="spline");
-
-	y4_0_a	= y4_0 + 0;
-	y4_1	= interp(0.75,	y4_0_a,	dmT0_3, dmT1_3, dmT2_3, mode="spline");
-
-	y0_0	= (((doX0 + y2_1) + y3_1) + y4_1) * 0.25;
-
-	// update
-	doX0	= y1_0;
-
-	dmT2_1	= dmT1_1;
-	dmT1_1	= dmT0_1;
-	dmT0_1	= y2_0;
-
-	dmT2_2	= dmT1_2;
-	dmT1_2	= dmT0_2;
-	dmT0_2	= y3_0;
-
-	dmT2_3	= dmT1_3;
-	dmT1_3	= dmT0_3;
-	dmT0_3	= y4_0;
-
-	return y0_0;
-}
 
 morph_saw_tri_saw(t, dt, morph)		// morph == 0..1, always perfectly zero crosses
 {
@@ -1588,102 +1409,39 @@ varDcblockReset(x0, a0, r0)
 	return	y0;
 }
 
-// transposed direct form 2
-biquadTdf2(x, a0, a1, a2, b1, b2)
+dynamicDc(osc, dtn, dcn)	// dcn: 0=off, 1=on, 2=auto for lfos, 3=auto for oscillators
 {
-	History x1(0), x2(0);
+	// N.B. varDcblock() must be in an if/else block for reset to work
+	dyndc	= 1;
+	if (dcn > 0) {
 
-	y = (x * a0) + x2;
+		if (dcn == 1) {
 
-	x2 = ((x * a1) - (y * b1)) + x1;
-	x1 = (x * a2) - (y * b2);
+			osc		= varDcblockReset(osc, 0.9997, change(dcn));
 
-	return y;
-}
+		} else {
 
-genLine(D, R)								// target, ramp time in samples
-{
-	History target(0), current(0), remain(0), increment(1);
-	notify = 1;
-	if (delta(D) != 0) {
-		target = D;
-		remain = maximum(R, 0);
-		increment = (target - current) / remain;	
-	}
-	if (remain > 0) {						// is ramping
-		current = target - increment * remain;
-		remain = remain - 1;
-		notify = 0;
-	} else {								// ramp concluded
-		current = target;
-		notify = 1;
-	}
-	return current, notify;
-}
+			// !! gen~ bug (or precision issue?): this sqrt causes NaNs !!
+//			sqrt1224	= sqrt(1 - ((clip(dtn, 0.0005, 0.001) - 0.0005) * 2000));
+			sqrt1224	= pow(1 - ((clip(dtn, 0.0005, 0.001) - 0.0005) * 2000), 0.5);	// :-(
+			dc1			= (sqrt1224 * 0.0003) + 0.9997;
+			dc2			= 0;
 
-expA(x0)									// approx exp(x) (more accurate than 'fastexp()')
-{
-	x = 0.999996 + (0.031261316 + (0.00048274797 + 0.000006 * x0) * x0) * x0;
-	x *= x; x *= x; x *= x; x *= x; x *= x;
-	return x;
-}
+			if (dcn > 2) {
 
-// for portamento, massive overkill, very expensive, probably won't use...
-genCurve(target, duration, curvature)		// target, duration in samples, curvature -1..1
-{
-	History v(0), v0(0), v1(0), vrange(0);			// value: current, from, to, range
-	History samplecount(0), samplesremain(0);		// samples elapsed, samples remaining
-	History divFactorDuration(0), divExpCurve(0);	// cached values to speed up per-sample loop
-	// magic numbers
-	RFACTOR		= 4.34782608695652;			// (1 / 0.23)
-	PFACTOR		= 5;
-	DIV_RFACTOR	= 0.01310440558293;			// 1 / (exp(RFACTOR) - 1)
-	SFACTOR		= 0.005;
+				lin48	= (clip(dtn, 0.166667, 0.333333) - 0.166667) * 6.000022;
+				dc2		= lin48 * -0.0097;
 
-	// calculated only when a new target is set
-	// (one could argue the 'expA()'s in this section are not worth it, but ...)
-	if (change(target)) {
-		// starting a new ramp
-		samplecount = 0;
-		// duration in samples
-		samplesremain = duration;
-		// ramp start & end values
-		v0 = v;
-		v1 = target;
-		// ramp range
-		vrange = v1 - v0;
-		// nonlinear mapping of -1 to 1 curve factor
-		f = 1 - abs(curvature);
-		f = PFACTOR * (expA(f * RFACTOR) - 1) * DIV_RFACTOR;
-		s = sign(curvature);
-		p = (s != 0) ? (s * f) : f;			// must do this to avoid 'curvature == 0' issue
-		// bypass really sharp curves
-		// 'p = fixdenorm(p);' does not work, values too small, +/- SFACTOR fixed by Puckette / Zicarelli ?
-		p = (p >= 0 && p < SFACTOR) ? SFACTOR : ((p < 0 && p > -SFACTOR) ? -SFACTOR : p);
-		// cached factors for the per-sample curve calculation
-		divExpCurve = 1 / (expA(1 / p) - 1);
-		divFactorDuration = 1 / (samplesremain * p);
-	}
+			}
 
-	value, notify = 0;
-	// per sample calculation
-	if (samplesremain > 0.5) {				// still ramping
-		notify	= 0;	
-		value	= v;
-		// compute next ramp sample
-		samplecount += 1;
-		samplesremain -= 1;
-		// compute curvature
-		curv = (expA(samplecount * divFactorDuration) - 1) * divExpCurve;
-		// scale to the output range & integrate
-		v += (v0 - v) + (curv * vrange);
-	} else {								// no longer ramping
-		v		= v1;
-		value	= v;
-		notify	= 1;
-	}
+			dyndc	= eviLine((dc1 + dc2), mstosamps(15.111));
+			osc		= varDcblockReset(osc, dyndc, change(dcn));
 
-	return value, notify;
+		}
+
+	}	// else dcn == 0 == no dcblock()
+
+	return osc;
 }
 
 
