@@ -14,19 +14,10 @@
 
 static t_class* evi_cfsmooth_class;
 
-// one filter, separated for banks, only used for "multi"
-// typedef struct _evi_cfso
-// {
-//     double o_low1; // state 1
-//     double o_low2; // state 2
-//     double o_dest; // float dest val
-// } t_evi_cfso;
-
 // object
 typedef struct _evi_cfsmooth
 {
     t_pxobject p_sob;
-    // t_evi_cfso p_cfso[MAX_NUM_SMOOTHERS];
 
     double s_low1; // state 1
     double s_low2; // state 2
@@ -51,7 +42,6 @@ typedef struct _evi_cfsmooth
     short s_isinitial; // is new instantiation
 } t_evi_cfsmooth;
 
-// void evi_cfsmooth_free(t_evi_cfsmooth* x);
 void evi_cfsmooth_dsp64(t_evi_cfsmooth* x, t_object* dsp64, short* count, double samplerate, long maxvectorsize, long flags);
 void evi_cfsmooth_linear_perform64(t_evi_cfsmooth* x, t_object* dsp64, double** ins, long numins, double** outs, long numouts, long sampleframes, long flags, void* userparam);
 void evi_cfsmooth_linear_perform_float64(t_evi_cfsmooth* x, t_object* dsp64, double** ins, long numins, double** outs, long numouts, long sampleframes, long flags, void* userparam);
@@ -99,28 +89,23 @@ C74_EXPORT void ext_main(void* r)
     CLASS_ATTR_ALIAS(c, "time", "ms");
     CLASS_ATTR_ACCESSORS(c, "time", 0, evi_cfsmooth_attr_setms);
 
-    CLASS_ATTR_LONG(c, "banks", 0, t_evi_cfsmooth, s_banks);
-    CLASS_ATTR_ACCESSORS(c, "banks", 0, evi_cfsmooth_attr_setbanks);
-    CLASS_ATTR_LABEL(c, "banks", 0, "Number of Smoothers"); // not needed ?
-    CLASS_ATTR_FILTER_CLIP(c, "banks", 1, MAX_NUM_SMOOTHERS);
-    CLASS_ATTR_INVISIBLE(c, "banks", 0); // only instantiation @ttribute
-
     CLASS_ATTR_LONG(c, "mode", 0, t_evi_cfsmooth, s_mode);
     CLASS_ATTR_ACCESSORS(c, "mode", 0, evi_cfsmooth_attr_setmode);
     CLASS_ATTR_LABEL(c, "mode", 0, "Operation: Linear or Cubic"); // not needed ?
     CLASS_ATTR_FILTER_CLIP(c, "mode", 0, 1); // 0=linear, 1=cubic
     CLASS_ATTR_INVISIBLE(c, "mode", 0); // only instantiation @ttribute :-( :-(
 
+    // we are not using this at the moment
+    CLASS_ATTR_LONG(c, "banks", 0, t_evi_cfsmooth, s_banks);
+    CLASS_ATTR_ACCESSORS(c, "banks", 0, evi_cfsmooth_attr_setbanks);
+    CLASS_ATTR_LABEL(c, "banks", 0, "Number of Smoothers"); // not needed ?
+    CLASS_ATTR_FILTER_CLIP(c, "banks", 1, MAX_NUM_SMOOTHERS);
+    CLASS_ATTR_INVISIBLE(c, "banks", 0); // only instantiation @ttribute
+
     class_dspinit(c);
     class_register(CLASS_BOX, c);
     evi_cfsmooth_class = c;
 }
-
-// void evi_cfsmooth_free(t_evi_cfsmooth* x)
-// {
-//     dsp_free(&x->p_sob);
-//     object_free(x->p_cfso);
-// }
 
 void evi_cfsmooth_dsp64(t_evi_cfsmooth* x, t_object* dsp64, short* count, double samplerate, long maxvectorsize, long flags)
 {
@@ -394,7 +379,6 @@ void evi_cfsmooth_float(t_evi_cfsmooth* x, double f)
     if (inlet == 0) {
         val = f;
         x->s_dest = val;
-        // x->p_cfso[0].o_dest = val;
     }
     else if (inlet == x->s_banks) { // far right inlet
         val = f;
@@ -405,10 +389,6 @@ void evi_cfsmooth_float(t_evi_cfsmooth* x, double f)
         object_attr_touch((t_object*)x, gensym("time"));
         evi_cfsmooth_coefficients(x);
     }
-    // else if (inlet < x->s_banks) { // if (x->s_banks > 1)
-    //     val = f;
-    //     x->p_cfso[inlet].o_dest = val;
-    // }
 }
 
 t_max_err evi_cfsmooth_attr_setmode(t_evi_cfsmooth* x, void* attr, long argc, t_atom* argv)

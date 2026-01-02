@@ -10,19 +10,10 @@
 
 static t_class* evi_quadosc_class;
 
-// delta/change struct
-// typedef struct _evi_deltachange
-// {
-//     t_sample d_h; // state
-// } t_evi_deltachange;
-
 // the object
 typedef struct _evi_quadosc
 {
     t_pxobject p_qob;
-    // t_evi_deltachange p_delta;
-    // t_evi_deltachange p_changeu;
-    // t_evi_deltachange p_changev;
     t_sample q_dh;
     t_sample q_chu;
     t_sample q_chv;
@@ -44,18 +35,15 @@ typedef struct _evi_quadosc
     short q_isinitial; // is new instantiation
 } t_evi_quadosc;
 
-// void evi_quadosc_free(t_evi_quadosc* x);
 void evi_quadosc_dsp64(t_evi_quadosc* x, t_object* dsp64, short* count, double samplerate, long maxvectorsize, long flags);
 void evi_quadosc_perform64(t_evi_quadosc* x, t_object* dsp64, double** ins, long numins, double** outs, long numouts, long sampleframes, long flags, void* userparam);
 void evi_quadosc_perform_sync64(t_evi_quadosc* x, t_object* dsp64, double** ins, long numins, double** outs, long numouts, long sampleframes, long flags, void* userparam);
 void evi_quadosc_perform_float64(t_evi_quadosc* x, t_object* dsp64, double** ins, long numins, double** outs, long numouts, long sampleframes, long flags, void* userparam);
 void evi_quadosc_perform_sync_float64(t_evi_quadosc* x, t_object* dsp64, double** ins, long numins, double** outs, long numouts, long sampleframes, long flags, void* userparam);
-// void evi_quadosc_perform_unroll64(t_evi_quadosc* x, t_object* dsp64, double** ins, long numins, double** outs, long numouts, long sampleframes, long flags, void* userparam);
 void evi_quadosc_int(t_evi_quadosc* x, long n);
 void evi_quadosc_float(t_evi_quadosc* x, double f);
 void evi_quadosc_coefficients(t_evi_quadosc* x);
 t_max_err evi_quadosc_attr_setfreq(t_evi_quadosc* x, void* attr, long argc, t_atom* argv);
-// t_max_err evi_quadosc_attr_setsyncout(t_evi_quadosc* x, void* attr, long argc, t_atom* argv);
 void evi_quadosc_clear(t_evi_quadosc* x);
 void evi_quadosc_assist(t_evi_quadosc* x, void* b, long m, long a, char* s);
 void* evi_quadosc_new(t_symbol* s, long argc, t_atom* argv);
@@ -81,7 +69,6 @@ C74_EXPORT void ext_main(void* r)
     CLASS_ATTR_ACCESSORS(c, "frequency", 0, evi_quadosc_attr_setfreq);
 
     CLASS_ATTR_LONG(c, "syncout", 0, t_evi_quadosc, q_syncout);
-    // CLASS_ATTR_ACCESSORS(c, "syncout", 0, evi_quadosc_attr_setsyncout);
     CLASS_ATTR_LABEL(c, "syncout", 0, "Provides Two Extra Sync Outlets"); // not needed ?
     CLASS_ATTR_FILTER_CLIP(c, "syncout", 0, 1);
     CLASS_ATTR_INVISIBLE(c, "syncout", 0); // only instantiation @ttribute
@@ -90,14 +77,6 @@ C74_EXPORT void ext_main(void* r)
     class_register(CLASS_BOX, c);
     evi_quadosc_class = c;
 }
-
-// void evi_quadosc_free(t_evi_quadosc* x)
-// {
-//     dsp_free(&x->p_qob);
-//     object_free(&x->p_delta);
-//     object_free(&x->p_changeu);
-//     object_free(&x->p_changev);
-// }
 
 void evi_quadosc_dsp64(t_evi_quadosc* x, t_object* dsp64, short* count, double samplerate, long maxvectorsize, long flags)
 {
@@ -115,13 +94,6 @@ void evi_quadosc_dsp64(t_evi_quadosc* x, t_object* dsp64, short* count, double s
     x->q_resetconnect = count[1]; // signal connected to the resonance inlet?
 
     evi_quadosc_clear(x);
-
-    // if (count[0] || count[1]) {
-    //     dsp_add64(dsp64, (t_object*)x, (t_perfroutine64)evi_quadosc_perform64, 0, NULL);
-    // }
-    // else {
-    //     dsp_add64(dsp64, (t_object*)x, (t_perfroutine64)evi_quadosc_perform_float64, 0, NULL);
-    // }
 
     if (count[0] || count[1]) {
         if (x->q_syncout) {
@@ -392,14 +364,6 @@ void evi_quadosc_perform_sync_float64(t_evi_quadosc* x, t_object* dsp64, double*
     x->q_chv = chv;
 }
 
-/*
-// TODO
-void evi_quadosc_perform_unroll64(t_evi_quadosc* x, t_object* dsp64, double** ins, long numins, double** outs, long numouts, long sampleframes, long flags, void* userparam)
-{
-    ;
-}
-*/
-
 void evi_quadosc_int(t_evi_quadosc* x, long n)
 {
     evi_quadosc_float(x, (double)n);
@@ -438,21 +402,7 @@ t_max_err evi_quadosc_attr_setfreq(t_evi_quadosc* x, void* attr, long argc, t_at
 
     return 0;
 }
-/*
-t_max_err evi_quadosc_attr_setsyncout(t_evi_quadosc* x, void* attr, long argc, t_atom* argv)
-{
-    long sync = atom_getlong(argv);
-    if (sync > 1) {
-        sync = 1;
-    }
-    else if (sync < 0) {
-        sync = 0;
-    }
-    x->q_syncout = sync;
 
-    return 0;
-}
-*/
 void evi_quadosc_clear(t_evi_quadosc* x)
 {
     x->q_u = 1.0; // init cos

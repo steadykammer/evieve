@@ -31,13 +31,10 @@ typedef struct _evi_pan
 void evi_pan_dsp64(t_evi_pan* x, t_object* dsp64, short* count, double samplerate, long maxvectorsize, long flags);
 void evi_pan_perform_mono64(t_evi_pan* x, t_object* dsp64, double** ins, long numins, double** outs, long numouts, long sampleframes, long flags, void* userparam);
 void evi_pan_perform_dual64(t_evi_pan* x, t_object* dsp64, double** ins, long numins, double** outs, long numouts, long sampleframes, long flags, void* userparam);
-// void evi_pan_perform_unroll64(t_evi_pan* x, t_object* dsp64, double** ins, long numins, double** outs, long numouts, long sampleframes, long flags, void* userparam);
-// void evi_pan_int(t_evi_pan* x, long n);
 void evi_pan_float(t_evi_pan* x, double f);
 void evi_pan_coefficients(t_evi_pan* x);
 t_max_err evi_pan_attr_setpan1(t_evi_pan* x, void* attr, long argc, t_atom* argv);
 t_max_err evi_pan_attr_setpan2(t_evi_pan* x, void* attr, long argc, t_atom* argv);
-// t_max_err evi_pan_attr_setmode(t_evi_pan* x, void* attr, long argc, t_atom* argv);
 void evi_pan_assist(t_evi_pan* x, void* b, long m, long a, char* s);
 void* evi_pan_new(t_symbol* s, long argc, t_atom* argv);
 static inline double evi_pan_calc(double x0);
@@ -61,6 +58,7 @@ C74_EXPORT void ext_main(void* r)
     CLASS_ATTR_ACCESSORS(c, "pan1", 0, evi_pan_attr_setpan1);
     CLASS_ATTR_FILTER_CLIP(c, "pan1", 0.0, 1.0);
 
+    // TODO: must deactivate when not used
     CLASS_ATTR_DOUBLE(c, "pan2", 0, t_evi_pan, p_xp2);
     CLASS_ATTR_BASIC(c, "pan2", 0);
     CLASS_ATTR_LABEL(c, "pan2", 0, "Panning (Right) 0..1");
@@ -69,7 +67,6 @@ C74_EXPORT void ext_main(void* r)
     CLASS_ATTR_FILTER_CLIP(c, "pan2", 0.0, 1.0);
 
     CLASS_ATTR_LONG(c, "mode", 0, t_evi_pan, p_mode);
-    // CLASS_ATTR_ACCESSORS(c, "mode", 0, evi_pan_attr_setmode);
     CLASS_ATTR_LABEL(c, "mode", 0, "Mono or Dual/Stereo"); // not needed ?
     CLASS_ATTR_FILTER_CLIP(c, "mode", 0, 1);
     CLASS_ATTR_INVISIBLE(c, "mode", 0); // only instantiation @ttribute
@@ -199,11 +196,6 @@ void evi_pan_perform_dual64(t_evi_pan* x, t_object* dsp64, double** ins, long nu
     }
 }
 
-// void evi_pan_int(t_evi_pan* x, long n)
-// {
-//     evi_pan_float(x, (double)n);
-// }
-
 void evi_pan_float(t_evi_pan* x, double f)
 {
     long inlet = proxy_getinlet((t_object*)x);
@@ -272,19 +264,7 @@ t_max_err evi_pan_attr_setpan2(t_evi_pan* x, void* attr, long argc, t_atom* argv
 
     return 0;
 }
-/*
-t_max_err evi_pan_attr_setmode(t_evi_pan* x, void* attr, long argc, t_atom* argv)
-{
-    long mode = atom_getlong(argv);
-    if (mode > 1) {
-        mode = 1;
-    }
-    else if (mode < 0) {
-        mode = 0;
-    }
-    x->p_mode = mode;
-}
-*/
+
 // 2/4 muls
 void evi_pan_coefficients(t_evi_pan* x)
 {

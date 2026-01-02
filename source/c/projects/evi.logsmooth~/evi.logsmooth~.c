@@ -13,18 +13,10 @@
 
 static t_class* evi_logsmooth_class;
 
-// one filter, separated for banks, only used for "multi"
-// typedef struct _evi_logso
-// {
-//     double o_w; // state
-//     double o_dest; // float dest val
-// } t_evi_logso;
-
 // object
 typedef struct _evi_logsmooth
 {
     t_pxobject p_sob;
-    // t_evi_logso p_logso[MAX_NUM_SMOOTHERS];
 
     double s_z; // state
     double s_initial; // init arg
@@ -39,14 +31,9 @@ typedef struct _evi_logsmooth
     short s_isinitial; // is new instantiation
 } t_evi_logsmooth;
 
-// void evi_logsmooth_free(t_evi_logsmooth* x);
 void evi_logsmooth_dsp64(t_evi_logsmooth* x, t_object* dsp64, short* count, double samplerate, long maxvectorsize, long flags);
 void evi_logsmooth_perform64(t_evi_logsmooth* x, t_object* dsp64, double** ins, long numins, double** outs, long numouts, long sampleframes, long flags, void* userparam);
 void evi_logsmooth_perform_float64(t_evi_logsmooth* x, t_object* dsp64, double** ins, long numins, double** outs, long numouts, long sampleframes, long flags, void* userparam);
-// void evi_logsmooth_perform_unroll64(t_evi_logsmooth* x, t_object* dsp64, double** ins, long numins, double** outs, long numouts, long sampleframes, long flags, void* userparam);
-// void evi_logsmooth_perform_multi64(t_evi_logsmooth* x, t_object* dsp64, double** ins, long numins, double** outs, long numouts, long sampleframes, long flags, void* userparam);
-// void evi_logsmooth_perform_multifloat64(t_evi_logsmooth* x, t_object* dsp64, double** ins, long numins, double** outs, long numouts, long sampleframes, long flags, void* userparam);
-// void evi_logsmooth_perform_multiunroll64(t_evi_logsmooth* x, t_object* dsp64, double** ins, long numins, double** outs, long numouts, long sampleframes, long flags, void* userparam);
 void evi_logsmooth_int(t_evi_logsmooth* x, long n);
 void evi_logsmooth_float(t_evi_logsmooth* x, double f);
 void evi_logsmooth_coefficients(t_evi_logsmooth* x);
@@ -55,7 +42,6 @@ t_max_err evi_logsmooth_attr_setbanks(t_evi_logsmooth* x, void* attr, long argc,
 void evi_logsmooth_clear(t_evi_logsmooth* x);
 void evi_logsmooth_assist(t_evi_logsmooth* x, void* b, long m, long a, char* s);
 void* evi_logsmooth_new(t_symbol* s, long argc, t_atom* argv);
-// static inline double evi_exp_A(double x0);
 static inline double evi_log_sad(double s, double sr);
 
 C74_EXPORT void ext_main(void* r)
@@ -77,6 +63,7 @@ C74_EXPORT void ext_main(void* r)
     CLASS_ATTR_ALIAS(c, "time", "ms");
     CLASS_ATTR_ACCESSORS(c, "time", 0, evi_logsmooth_attr_setms);
 
+    // we are not using this at the moment
     CLASS_ATTR_LONG(c, "banks", 0, t_evi_logsmooth, s_banks);
     CLASS_ATTR_ACCESSORS(c, "banks", 0, evi_logsmooth_attr_setbanks);
     CLASS_ATTR_LABEL(c, "banks", 0, "Number of Smoothers"); // not needed ?
@@ -87,12 +74,6 @@ C74_EXPORT void ext_main(void* r)
     class_register(CLASS_BOX, c);
     evi_logsmooth_class = c;
 }
-
-// void evi_logsmooth_free(t_evi_logsmooth* x)
-// {
-//     dsp_free(&x->p_sob);
-//     object_free(x->p_logso);
-// }
 
 void evi_logsmooth_dsp64(t_evi_logsmooth* x, t_object* dsp64, short* count, double samplerate, long maxvectorsize, long flags)
 {
@@ -107,10 +88,6 @@ void evi_logsmooth_dsp64(t_evi_logsmooth* x, t_object* dsp64, short* count, doub
     evi_logsmooth_coefficients(x);
     x->s_isinitial = 1;
 
-    // for (i = 0; i < MAX_NUM_SMOOTHERS; i++) {
-    //     x->s_inconnect[i] = count[i]; // signal connected to the ramp inlet(s)?
-    // }
-    // x->s_msconnect = count[MAX_NUM_SMOOTHERS]; // signal connected to the time inlet?
     for (i = 0; i < x->s_banks; i++) {
         x->s_inconnect[i] = count[i]; // signal connected to the ramp inlet(s)?
         anycount += x->s_inconnect[i];
@@ -119,31 +96,12 @@ void evi_logsmooth_dsp64(t_evi_logsmooth* x, t_object* dsp64, short* count, doub
 
     evi_logsmooth_clear(x);
 
-    // if (x->s_banks > 1) { // multi (banks)
-    //     if (anycount > 0 || count[x->s_banks]) {
-    //         dsp_add64(dsp64, (t_object*)x, (t_perfroutine64)evi_logsmooth_perform_multi64, 0, NULL);
-    //     }
-    //     else {
-    //         dsp_add64(dsp64, (t_object*)x, (t_perfroutine64)evi_logsmooth_perform_multifloat64, 0, NULL);
-    //     }
-    // }
-    // else { // 1 in 1 out
-        if (anycount > 0 || count[x->s_banks]) {
-            dsp_add64(dsp64, (t_object*)x, (t_perfroutine64)evi_logsmooth_perform64, 0, NULL);
-        }
-        else {
-            dsp_add64(dsp64, (t_object*)x, (t_perfroutine64)evi_logsmooth_perform_float64, 0, NULL);
-        }
-    // }
-/*
-    // TODO
-    if (maxvectorsize >= 4) {
-        dsp_add64(dsp64, (t_object*)x, (t_perfroutine64)evi_logsmooth_perform_unroll64, 0, NULL);
-    }
-    else {
+    if (anycount > 0 || count[x->s_banks]) {
         dsp_add64(dsp64, (t_object*)x, (t_perfroutine64)evi_logsmooth_perform64, 0, NULL);
     }
-*/
+    else {
+        dsp_add64(dsp64, (t_object*)x, (t_perfroutine64)evi_logsmooth_perform_float64, 0, NULL);
+    }
 }
 
 void evi_logsmooth_perform64(t_evi_logsmooth* x, t_object* dsp64, double** ins, long numins, double** outs, long numouts, long sampleframes, long flags, void* userparam)
@@ -225,33 +183,6 @@ void evi_logsmooth_perform_float64(t_evi_logsmooth* x, t_object* dsp64, double**
     x->s_z = z;
 }
 
-/*
-// TODO
-void evi_logsmooth_perform_unroll64(t_evi_logsmooth* x, t_object* dsp64, double** ins, long numins, double** outs, long numouts, long sampleframes, long flags, void* userparam)
-{
-    ;
-}
-*/
-/*
-void evi_logsmooth_perform_multi64(t_evi_logsmooth* x, t_object* dsp64, double** ins, long numins, double** outs, long numouts, long sampleframes, long flags, void* userparam)
-{
-    ;
-}
-*/
-/*
-void evi_logsmooth_perform_multifloat64(t_evi_logsmooth* x, t_object* dsp64, double** ins, long numins, double** outs, long numouts, long sampleframes, long flags, void* userparam)
-{
-    ;
-}
-*/
-/*
-// TODO
-void evi_logsmooth_perform_multiunroll64(t_evi_logsmooth* x, t_object* dsp64, double** ins, long numins, double** outs, long numouts, long sampleframes, long flags, void* userparam)
-{
-    ;
-}
-*/
-
 void evi_logsmooth_int(t_evi_logsmooth* x, long n)
 {
     evi_logsmooth_float(x, (double)n);
@@ -266,7 +197,6 @@ void evi_logsmooth_float(t_evi_logsmooth* x, double f)
     if (inlet == 0) {
         val = f;
         x->s_dest = val;
-        // x->p_logso[0].o_dest = val;
     }
     else if (inlet == x->s_banks) { // far right inlet
         val = f;
@@ -277,10 +207,6 @@ void evi_logsmooth_float(t_evi_logsmooth* x, double f)
         object_attr_touch((t_object*)x, gensym("time"));
         evi_logsmooth_coefficients(x);
     }
-    // else if (inlet < x->s_banks) { // if (x->s_banks > 1)
-    //     val = f;
-    //     x->p_logso[inlet].o_dest = val;
-    // }
 }
 
 t_max_err evi_logsmooth_attr_setbanks(t_evi_logsmooth* x, void* attr, long argc, t_atom* argv)
@@ -316,14 +242,6 @@ void evi_logsmooth_coefficients(t_evi_logsmooth* x)
 {
     x->s_ad = evi_log_sad(x->s_ms * 0.001, x->s_sr);
 }
-
-// cheap approx exp(x)
-// static inline double evi_exp_A(double x0)
-// {
-// 	double x = 0.999996 + (0.031261316 + (0.00048274797 + 0.000006 * x0) * x0) * x0;
-// 	x *= x; x *= x; x *= x; x *= x; x *= x;
-// 	return x;
-// }
 
 // approx time to pole, has excellent accuracy above 0.01 seconds input
 static inline double evi_log_sad(double s, double sr) // s = time to drop 6dB in seconds, sr = samplerate

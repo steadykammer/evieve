@@ -1,7 +1,7 @@
 /**
  @file
  evi.lagsmooth~ - A non-exact buttery signal smoother,
- based on [lag3] from SuperCollider,
+ based on [lag3] from SuperCollider, GPLv2,
  not to be confused with evi.lOgsmooth~ !!
  */
 
@@ -34,11 +34,9 @@ typedef struct _evi_lagsmooth
     short s_isinitial; // is new instantiation
 } t_evi_lagsmooth;
 
-// void evi_lagsmooth_free(t_evi_lagsmooth* x);
 void evi_lagsmooth_dsp64(t_evi_lagsmooth* x, t_object* dsp64, short* count, double samplerate, long maxvectorsize, long flags);
 void evi_lagsmooth_perform64(t_evi_lagsmooth* x, t_object* dsp64, double** ins, long numins, double** outs, long numouts, long sampleframes, long flags, void* userparam);
 void evi_lagsmooth_perform_float64(t_evi_lagsmooth* x, t_object* dsp64, double** ins, long numins, double** outs, long numouts, long sampleframes, long flags, void* userparam);
-// void evi_lagsmooth_perform_unroll64(t_evi_lagsmooth* x, t_object* dsp64, double** ins, long numins, double** outs, long numouts, long sampleframes, long flags, void* userparam);
 void evi_lagsmooth_int(t_evi_lagsmooth* x, long n);
 void evi_lagsmooth_float(t_evi_lagsmooth* x, double f);
 void evi_lagsmooth_coefficients(t_evi_lagsmooth* x);
@@ -74,12 +72,6 @@ C74_EXPORT void ext_main(void* r)
     evi_lagsmooth_class = c;
 }
 
-// void evi_lagsmooth_free(t_evi_lagsmooth* x)
-// {
-//     dsp_free(&x->p_sob);
-//     object_free(x->p_lagso);
-// }
-
 void evi_lagsmooth_dsp64(t_evi_lagsmooth* x, t_object* dsp64, short* count, double samplerate, long maxvectorsize, long flags)
 {
     long i;
@@ -104,15 +96,6 @@ void evi_lagsmooth_dsp64(t_evi_lagsmooth* x, t_object* dsp64, short* count, doub
     else {
         dsp_add64(dsp64, (t_object*)x, (t_perfroutine64)evi_lagsmooth_perform_float64, 0, NULL);
     }
-/*
-    // TODO
-    if (maxvectorsize >= 4) {
-        dsp_add64(dsp64, (t_object*)x, (t_perfroutine64)evi_lagsmooth_perform_unroll64, 0, NULL);
-    }
-    else {
-        dsp_add64(dsp64, (t_object*)x, (t_perfroutine64)evi_lagsmooth_perform64, 0, NULL);
-    }
-*/
 }
 
 void evi_lagsmooth_perform64(t_evi_lagsmooth* x, t_object* dsp64, double** ins, long numins, double** outs, long numouts, long sampleframes, long flags, void* userparam)
@@ -200,33 +183,6 @@ void evi_lagsmooth_perform_float64(t_evi_lagsmooth* x, t_object* dsp64, double**
     x->s_lp2 = lp2;
     x->s_lp3 = lp3;
 }
-
-/*
-// TODO
-void evi_lagsmooth_perform_unroll64(t_evi_lagsmooth* x, t_object* dsp64, double** ins, long numins, double** outs, long numouts, long sampleframes, long flags, void* userparam)
-{
-    ;
-}
-*/
-/*
-void evi_lagsmooth_perform_multi64(t_evi_lagsmooth* x, t_object* dsp64, double** ins, long numins, double** outs, long numouts, long sampleframes, long flags, void* userparam)
-{
-    ;
-}
-*/
-/*
-void evi_lagsmooth_perform_multifloat64(t_evi_lagsmooth* x, t_object* dsp64, double** ins, long numins, double** outs, long numouts, long sampleframes, long flags, void* userparam)
-{
-    ;
-}
-*/
-/*
-// TODO
-void evi_lagsmooth_perform_multiunroll64(t_evi_lagsmooth* x, t_object* dsp64, double** ins, long numins, double** outs, long numouts, long sampleframes, long flags, void* userparam)
-{
-    ;
-}
-*/
 
 void evi_lagsmooth_int(t_evi_lagsmooth* x, long n)
 {

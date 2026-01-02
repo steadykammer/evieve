@@ -28,13 +28,10 @@ void evi_xfade_dsp64(t_evi_xfade* x, t_object* dsp64, short* count, double sampl
 void evi_xfade_perform_mono64(t_evi_xfade* x, t_object* dsp64, double** ins, long numins, double** outs, long numouts, long sampleframes, long flags, void* userparam);
 void evi_xfade_perform_swap64(t_evi_xfade* x, t_object* dsp64, double** ins, long numins, double** outs, long numouts, long sampleframes, long flags, void* userparam);
 void evi_xfade_perform_stereo64(t_evi_xfade* x, t_object* dsp64, double** ins, long numins, double** outs, long numouts, long sampleframes, long flags, void* userparam);
-// void evi_xfade_perform_unroll64(t_evi_xfade* x, t_object* dsp64, double** ins, long numins, double** outs, long numouts, long sampleframes, long flags, void* userparam);
-// void evi_xfade_int(t_evi_xfade* x, long n);
 void evi_xfade_float(t_evi_xfade* x, double f);
 void evi_xfade_coefficients(t_evi_xfade* x);
 double evi_xfade_calc(double x0);
 t_max_err evi_xfade_attr_setxfade(t_evi_xfade* x, void* attr, long argc, t_atom* argv);
-// t_max_err evi_xfade_attr_setmode(t_evi_xfade* x, void* attr, long argc, t_atom* argv);
 void evi_xfade_assist(t_evi_xfade* x, void* b, long m, long a, char* s);
 void* evi_xfade_new(t_symbol* s, long argc, t_atom* argv);
 
@@ -46,7 +43,6 @@ C74_EXPORT void ext_main(void* r)
 
     class_addmethod(c, (method)evi_xfade_dsp64, "dsp64", A_CANT, 0);
     class_addmethod(c, (method)evi_xfade_assist, "assist", A_CANT, 0);
-    // class_addmethod(c, (method)evi_xfade_int, "int", A_LONG, 0);
     class_addmethod(c, (method)evi_xfade_float, "float", A_FLOAT, 0);
 
     CLASS_ATTR_DOUBLE(c, "xfade", 0, t_evi_xfade, x_xf);
@@ -57,7 +53,6 @@ C74_EXPORT void ext_main(void* r)
     CLASS_ATTR_FILTER_CLIP(c, "xfade", 0.0, 1.0);
 
     CLASS_ATTR_LONG(c, "mode", 0, t_evi_xfade, x_mode);
-    // CLASS_ATTR_ACCESSORS(c, "mode", 0, evi_xfade_attr_setmode);
     CLASS_ATTR_LABEL(c, "mode", 0, "Mono, Swap or Stereo"); // not needed ?
     CLASS_ATTR_FILTER_CLIP(c, "mode", 0, 2);
     CLASS_ATTR_INVISIBLE(c, "mode", 0); // only instantiation @ttribute
@@ -214,11 +209,6 @@ void evi_xfade_perform_stereo64(t_evi_xfade* x, t_object* dsp64, double** ins, l
     }
 }
 
-// void evi_xfade_int(t_evi_xfade* x, long n)
-// {
-//     evi_xfade_float(x, (double)n);
-// }
-
 void evi_xfade_float(t_evi_xfade* x, double f)
 {
     long inlet = proxy_getinlet((t_object*)x);
@@ -261,19 +251,7 @@ t_max_err evi_xfade_attr_setxfade(t_evi_xfade* x, void* attr, long argc, t_atom*
 
     return 0;
 }
-/*
-t_max_err evi_xfade_attr_setmode(t_evi_xfade* x, void* attr, long argc, t_atom* argv)
-{
-    long mode = atom_getlong(argv);
-    if (mode > 2) {
-        mode = 2;
-    }
-    else if (mode < 0) {
-        mode = 0;
-    }
-    x->x_mode = mode;
-}
-*/
+
 // 2 muls
 void evi_xfade_coefficients(t_evi_xfade* x)
 {
@@ -353,7 +331,6 @@ void* evi_xfade_new(t_symbol* s, long argc, t_atom* argv)
     t_evi_xfade* x = object_alloc(evi_xfade_class);
     long offset;
     long mode = 0;
-    // t_symbol *mode_sym;
     double xfade = 0.0;
 
     if (!x)
@@ -369,25 +346,7 @@ void* evi_xfade_new(t_symbol* s, long argc, t_atom* argv)
             xfade = 0.0;
         }
         if (offset > 1) {
-            // if (atom_gettype(argv + 1) == A_SYM && atom_getsym(argv + 1) != gensym("@mode")) {
-            //     mode_sym = argv + 1;
-            //     if (mode_sym == gensym("mono")) {
-            //         mode = 0;
-            //     }
-            //     else if (mode_sym == gensym("swap")) {
-            //         mode = 1;
-            //     }
-            //     else if (mode_sym == gensym("stereo")) {
-            //         mode = 2;
-            //     }
-            //     else {
-            //         mode = 0;
-            //         object_error((t_object *) x, "unknown mode: %s", mode_sym->s_name);
-            //     }
-            // }
-            // else if (atom_gettype(argv + 1) == A_LONG) {
-                mode = atom_getlong(argv + 1);
-            // }
+            mode = atom_getlong(argv + 1);
             if (mode > 2) {
                 mode = 2;
             }

@@ -11,18 +11,10 @@
 
 static t_class* evi_expsmooth_class;
 
-// one filter, separated for banks, only used for "multi"
-// typedef struct _evi_expso
-// {
-//     double o_w; // state
-//     double o_dest; // float dest val
-// } t_evi_expso;
-
 // object
 typedef struct _evi_expsmooth
 {
     t_pxobject p_sob;
-    // t_evi_expso p_expso[MAX_NUM_SMOOTHERS];
 
     double s_w; // state
     double s_initial; // init arg
@@ -37,14 +29,9 @@ typedef struct _evi_expsmooth
     short s_isinitial; // is new instantiation
 } t_evi_expsmooth;
 
-// void evi_expsmooth_free(t_evi_expsmooth* x);
 void evi_expsmooth_dsp64(t_evi_expsmooth* x, t_object* dsp64, short* count, double samplerate, long maxvectorsize, long flags);
 void evi_expsmooth_perform64(t_evi_expsmooth* x, t_object* dsp64, double** ins, long numins, double** outs, long numouts, long sampleframes, long flags, void* userparam);
 void evi_expsmooth_perform_float64(t_evi_expsmooth* x, t_object* dsp64, double** ins, long numins, double** outs, long numouts, long sampleframes, long flags, void* userparam);
-// void evi_expsmooth_perform_unroll64(t_evi_expsmooth* x, t_object* dsp64, double** ins, long numins, double** outs, long numouts, long sampleframes, long flags, void* userparam);
-// void evi_expsmooth_perform_multi64(t_evi_expsmooth* x, t_object* dsp64, double** ins, long numins, double** outs, long numouts, long sampleframes, long flags, void* userparam);
-// void evi_expsmooth_perform_multifloat64(t_evi_expsmooth* x, t_object* dsp64, double** ins, long numins, double** outs, long numouts, long sampleframes, long flags, void* userparam);
-// void evi_expsmooth_perform_multiunroll64(t_evi_expsmooth* x, t_object* dsp64, double** ins, long numins, double** outs, long numouts, long sampleframes, long flags, void* userparam);
 void evi_expsmooth_int(t_evi_expsmooth* x, long n);
 void evi_expsmooth_float(t_evi_expsmooth* x, double f);
 void evi_expsmooth_coefficients(t_evi_expsmooth* x);
@@ -75,6 +62,7 @@ C74_EXPORT void ext_main(void* r)
     CLASS_ATTR_ALIAS(c, "time", "ms");
     CLASS_ATTR_ACCESSORS(c, "time", 0, evi_expsmooth_attr_setms);
 
+    // we are not using this at the moment
     CLASS_ATTR_LONG(c, "banks", 0, t_evi_expsmooth, s_banks);
     CLASS_ATTR_ACCESSORS(c, "banks", 0, evi_expsmooth_attr_setbanks);
     CLASS_ATTR_LABEL(c, "banks", 0, "Number of Smoothers"); // not needed ?
@@ -85,15 +73,6 @@ C74_EXPORT void ext_main(void* r)
     class_register(CLASS_BOX, c);
     evi_expsmooth_class = c;
 }
-
-// void evi_expsmooth_free(t_evi_expsmooth* x)
-// {
-//     long i;
-//     dsp_free(&x->p_sob);
-//     for (i = 0; i < MAX_NUM_SMOOTHERS; i++) {
-//         object_free(&x->p_expso[i]);
-//     }
-// }
 
 void evi_expsmooth_dsp64(t_evi_expsmooth* x, t_object* dsp64, short* count, double samplerate, long maxvectorsize, long flags)
 {
@@ -108,10 +87,6 @@ void evi_expsmooth_dsp64(t_evi_expsmooth* x, t_object* dsp64, short* count, doub
     evi_expsmooth_coefficients(x);
     x->s_isinitial = 1;
 
-    // for (i = 0; i < MAX_NUM_SMOOTHERS; i++) {
-    //     x->s_inconnect[i] = count[i]; // signal connected to the ramp inlet(s)?
-    // }
-    // x->s_msconnect = count[MAX_NUM_SMOOTHERS]; // signal connected to the time inlet?
     for (i = 0; i < x->s_banks; i++) {
         x->s_inconnect[i] = count[i]; // signal connected to the ramp inlet(s)?
         anycount += x->s_inconnect[i];
@@ -120,31 +95,12 @@ void evi_expsmooth_dsp64(t_evi_expsmooth* x, t_object* dsp64, short* count, doub
 
     evi_expsmooth_clear(x);
 
-    // if (x->s_banks > 1) { // multi (banks)
-    //     if (anycount > 0 || count[x->s_banks]) {
-    //         dsp_add64(dsp64, (t_object*)x, (t_perfroutine64)evi_expsmooth_perform_multi64, 0, NULL);
-    //     }
-    //     else {
-    //         dsp_add64(dsp64, (t_object*)x, (t_perfroutine64)evi_expsmooth_perform_multifloat64, 0, NULL);
-    //     }
-    // }
-    // else { // 1 in 1 out
-        if (anycount > 0 || count[x->s_banks]) {
-            dsp_add64(dsp64, (t_object*)x, (t_perfroutine64)evi_expsmooth_perform64, 0, NULL);
-        }
-        else {
-            dsp_add64(dsp64, (t_object*)x, (t_perfroutine64)evi_expsmooth_perform_float64, 0, NULL);
-        }
-    // }
-/*
-    // TODO
-    if (maxvectorsize >= 4) {
-        dsp_add64(dsp64, (t_object*)x, (t_perfroutine64)evi_expsmooth_perform_unroll64, 0, NULL);
-    }
-    else {
+    if (anycount > 0 || count[x->s_banks]) {
         dsp_add64(dsp64, (t_object*)x, (t_perfroutine64)evi_expsmooth_perform64, 0, NULL);
     }
-*/
+    else {
+        dsp_add64(dsp64, (t_object*)x, (t_perfroutine64)evi_expsmooth_perform_float64, 0, NULL);
+    }
 }
 
 void evi_expsmooth_perform64(t_evi_expsmooth* x, t_object* dsp64, double** ins, long numins, double** outs, long numouts, long sampleframes, long flags, void* userparam)
@@ -229,123 +185,6 @@ void evi_expsmooth_perform_float64(t_evi_expsmooth* x, t_object* dsp64, double**
     x->s_w = w;
 }
 
-/*
-// TODO
-void evi_expsmooth_perform_unroll64(t_evi_expsmooth* x, t_object* dsp64, double** ins, long numins, double** outs, long numouts, long sampleframes, long flags, void* userparam)
-{
-    ;
-}
-*/
-/*
-void evi_expsmooth_perform_multi64(t_evi_expsmooth* x, t_object* dsp64, double** ins, long numins, double** outs, long numouts, long sampleframes, long flags, void* userparam)
-{
-    long AMOUNT = x->s_banks;
-    int vs = sampleframes;
-    long i, j;
-
-    t_double w[AMOUNT];
-    t_double xin[AMOUNT];
-    for (i = 0; i < AMOUNT; i++) {
-        xin[i] = x->s_inconnect[i] ? *ins[i] : x->p_expso[i].o_dest;
-        w[i] = x->p_expso[i].o_w;
-    }
-    t_double ms = x->s_msconnect ? *ins[AMOUNT] : x->s_ms;
-    double y[AMOUNT];
-
-    double z = x->s_z;
-    double invz = 1.0 - z;
-
-	if (x->p_sob.z_disabled)
-		return;
-
-    // constrain ms value
-    if (ms < 0.0) {
-        ms = 0.0;
-    }
-
-    // do we need to recompute?
-    if (ms != x->s_ms) {
-        z = evi_tau_A(ms * 0.001, x->s_sr);
-        invz = 1.0 - z;
-        x->s_ms = ms;
-        x->s_z = z;
-    }
-
-    while (vs--) {
-
-        for (j = 0; j < AMOUNT; j++) {
-            y[j] = (z * w[j]) + (xin[j] * invz);
-            w[j] = y[j];
-
-            *outs[j]++ = y[j];
-        }
-
-    }
-
-    for (i = 0; i < AMOUNT; i++) {
-        x->p_expso[i].o_w = w[i];
-    }
-}
-*/
-/*
-void evi_expsmooth_perform_multifloat64(t_evi_expsmooth* x, t_object* dsp64, double** ins, long numins, double** outs, long numouts, long sampleframes, long flags, void* userparam)
-{
-    long AMOUNT = x->s_banks;
-    int vs = sampleframes;
-    long i, j;
-
-    t_double w[AMOUNT];
-    double xin[AMOUNT];
-    for (i = 0; i < AMOUNT; i++) {
-        xin[i] = x->p_expso[i].o_dest;
-        w[i] = x->p_expso[i].o_w;
-    }
-    double ms = x->s_ms;
-    double y[AMOUNT];
-
-    double z = x->s_z;
-    double invz = 1.0 - z;
-
-	if (x->p_sob.z_disabled)
-		return;
-
-    // constrain ms value
-    if (ms < 0.0) {
-        ms = 0.0;
-    }
-
-    // do we need to recompute?
-    if (ms != x->s_ms) {
-        z = evi_tau_A(ms * 0.001, x->s_sr);
-        invz = 1.0 - z;
-        x->s_ms = ms;
-        x->s_z = z;
-    }
-
-    while (vs--) {
-
-        for (j = 0; j < AMOUNT; j++) {
-            y[j] = (z * w[j]) + (xin[j] * invz);
-            w[j] = y[j];
-
-            *outs[j]++ = y[j];
-        }
-
-    }
-
-    for (i = 0; i < AMOUNT; i++) {
-        x->p_expso[i].o_w = w[i];
-    }
-}
-*/
-/*
-// TODO
-void evi_expsmooth_perform_multiunroll64(t_evi_expsmooth* x, t_object* dsp64, double** ins, long numins, double** outs, long numouts, long sampleframes, long flags, void* userparam)
-{
-    ;
-}
-*/
-
 void evi_expsmooth_int(t_evi_expsmooth* x, long n)
 {
     evi_expsmooth_float(x, (double)n);
@@ -360,7 +199,6 @@ void evi_expsmooth_float(t_evi_expsmooth* x, double f)
     if (inlet == 0) {
         val = f;
         x->s_dest = val;
-        // x->p_expso[0].o_dest = val;
     }
     else if (inlet == x->s_banks) { // far right inlet
         val = f;
@@ -371,10 +209,6 @@ void evi_expsmooth_float(t_evi_expsmooth* x, double f)
         object_attr_touch((t_object*)x, gensym("time"));
         evi_expsmooth_coefficients(x);
     }
-    // else if (inlet < x->s_banks) { // if (x->s_banks > 1)
-    //     val = f;
-    //     x->p_expso[inlet].o_dest = val;
-    // }
 }
 
 // we do not need this
