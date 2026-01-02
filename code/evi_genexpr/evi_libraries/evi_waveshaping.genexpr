@@ -50,6 +50,23 @@ tanhAxA(x, gain)
 
 // ---------------------------------------- //
 
+// a cheaper alternative to tanh, not the same, i describe this as a "buzzy tanh"
+tanhSqrt(x)
+{
+	return x / sqrt(1 + (x*x));
+}
+
+// ---------------------------------------- //
+
+// another cheaper alternative to tanh, behaves differently at very high gain
+// thanks Peter McCulloch
+tanhPoly(x)
+{
+  return x / (1 + (0.28 * x*x));
+}
+
+// ---------------------------------------- //
+
 // 'atanA()' elsewhere in evieve
 atanApprox(x)
 {
@@ -74,23 +91,6 @@ atanSat(x, drive)
 {
 	ingain, outgain = atanDrive(drive);
 	return 	atanApprox(x * ingain) * outgain; // just anti-alias this part
-}
-
-// ---------------------------------------- //
-
-// a cheaper alternative to tanh, not the same, i describe this as a "buzzy tanh"
-tanhSqrt(x)
-{
-	return x / sqrt(1 + (x*x));
-}
-
-// ---------------------------------------- //
-
-// another cheaper alternative to tanh, behaves differently at very high gain
-// thanks Peter McCulloch
-tanhPoly(x)
-{
-  return x / (1 + (0.28 * x*x));
 }
 
 // ---------------------------------------- //
@@ -124,12 +124,20 @@ cubicNL(x)
 
 // ---------------------------------------- //
 
-// a lovely polynom from Reaktor
+// a lovely polynom from Reaktor, unbounded
 polyNom(x)
 {
 	x2 = x*x;
 	x3 = x*x2;
 	return (x + (x3 * -0.18963)) + (x3 * x2 * 0.016182);
+}
+
+// you need to wrap the above in something like this:
+polySat(x)
+{
+	p531 = polyNom(x);
+	pn = -1.8153 > x ? -1 : p531;
+	return x > 1.8153 ? 1 : pn;
 }
 
 // ---------------------------------------- //
@@ -150,6 +158,19 @@ scSoftClip(x0, drive) // drive must be clamped 0++
 	x1 = x0 * drive;
 	x2 = (x1 * x1) + 0.25;
 	return x1 / x2;
+}
+
+// ---------------------------------------- //
+
+// unbounded, does almost nothing, nice
+RaffelBBD(x)
+{
+    a = 0.006024096385542;
+    b = 0.03125;
+    c = 0.0625;
+    x2 = x * x;
+    y = x - a * x2 - b * x * x2 + c;
+    return dcblock(y);
 }
 
 // ---------------------------------------- //

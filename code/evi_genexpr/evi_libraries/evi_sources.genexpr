@@ -1,4 +1,6 @@
 
+// non-oscillator sources, etc
+
 // @see: "sparseVelvetNoise()" for an alternative algorithm ("sparseNoise")
 audioDust(freq)
 {
@@ -15,7 +17,8 @@ audioDust(freq)
 // Using Velvet Noise", in Proc. 30th Int. Conf. Intelligent
 // Audio Environments (AES07), March 2007.
 // Pete: my porting of this algorithm is really stupid with the phasor(), I do not
-// like it, @see: "audioDust()" for cheaper algorithm (compared to "sparseNoise")
+// like it, @see: "audioDust()" for cheaper algorithm (compared to "sparseNoise"),
+// but if you need velvet noise in evieve, this is it
 sparseVelvetNoise(freq, mix, amp=1)
 {
 	History		prevClock(0), prevXos(0);
@@ -95,6 +98,36 @@ simpleZerox(x, threshold=0.1)
 	return periodCount, voiced, crossing;			 // -voiced ?
 }
 
+// like [rand~] (linear)
+// very predictable and gives exact notches
+eviRand(p) {										// phasor input, not frequency
+	History prev(0);
+	rr = (delta(p)) < 0;                            // assumes positive freq only
+	a  = latch(prev, rr);
+	b  = latch(noise(), rr);
+	nv = mix(a, b, p);								// interp(p, a, b, mode="cosine") for more fun
+	prev = b;
+	return nv;
+}
 
+// like [rand~] but cubic interpolated
+// rolls off much faster than eviRand()
+eviRandy(p) {										// phasor input, not frequency
+	History z, zz, y, yy, x, xx, w;
+	q0 = (delta(p)) < 0;                            // assumes positive freq only
+	q1 = switch(q0, (noise() * sqrt1_2), z);		// lame mul is quasi empirical and related to "fastcubic" algo
+	q2 = switch(q0, zz, y);
+	q3 = switch(q0, yy, x);
+	q4 = switch(q0, xx, w);
+	r  = interp(p, q4, q3, q2, q1, mode="fastcubic");// & "cubic" does not work for eviRandy() anyway
+	z  = q1;
+	zz = q1;
+	y  = q2;
+	yy = q2;
+	x  = q3;
+	xx = q3;
+	w  = q4;
+	return r;
+}
 
 
