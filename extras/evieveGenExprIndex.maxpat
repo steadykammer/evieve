@@ -11,6 +11,12 @@
         "classnamespace": "box",
         "rect": [ 63.0, 131.0, 812.0, 790.0 ],
         "gridonopen": 2,
+        "toolbarvisible": 0,
+        "lefttoolbarpinned": 2,
+        "toptoolbarpinned": 2,
+        "righttoolbarpinned": 2,
+        "bottomtoolbarpinned": 2,
+        "toolbars_unpinned_last_save": 15,
         "subpatcher_template": "sub",
         "integercoordinates": 1,
         "boxes": [
