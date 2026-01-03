@@ -1,6 +1,5 @@
 
 require("evi_approx.genexpr");
-//require("evi_tanh.genexpr");	// includes "evi_approx.genexpr"
 require("evi_interp.genexpr");
 
 //	//	//	coefficients

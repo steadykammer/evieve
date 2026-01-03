@@ -1,0 +1,121 @@
+{
+    "patcher": {
+        "fileversion": 1,
+        "appversion": {
+            "major": 9,
+            "minor": 2,
+            "revision": 0,
+            "architecture": "x64",
+            "modernui": 1
+        },
+        "classnamespace": "dsp.gen",
+        "rect": [ 34.0, 100.0, 929.0, 765.0 ],
+        "gridonopen": 2,
+        "subpatcher_template": "sub",
+        "integercoordinates": 1,
+        "boxes": [
+            {
+                "box": {
+                    "id": "obj-6",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 644.0, 19.0, 256.0, 22.0 ],
+                    "text": "in 3 (signal/float) Curve -1..1 @min -1 @max 1"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-5",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 536.0, 730.0, 364.0, 22.0 ],
+                    "text": "out 2 (signal) 1 When Ramp Reaches Destination (0 During Ramp)"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-1",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 34.0, 19.0, 193.0, 22.0 ],
+                    "text": "in 1 (signal/float) Destination Value"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-2",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 350.0, 19.0, 234.0, 22.0 ],
+                    "text": "in 2 (signal/float) Ramp Time in SAMPLES"
+                }
+            },
+            {
+                "box": {
+                    "code": "\r\nexpA(x0)\n{\n\tx = 0.999996 + (0.031261316 + (0.00048274797 + 0.000006 * x0) * x0) * x0;\n\tx *= x; x *= x; x *= x; x *= x; x *= x;\n\treturn x;\n}\r\n\r\n// like MSP [curve~], exact destination\n// Miller Puckette, David Zicarelli, Graham Wakefield, me\n// the only side effect of using 'expA()' approximation (with no compensation offsets)...\n// ...is that 'curvature' values < -0.95 && > 0.95 produce curves not quite as steep as the original...\n// ...this is totally fine by me, and probably worth it\n// N.B. - this is expensive in gen~ and you should probably avoid using it\neviCurve(target, duration, curvature)\t\t// target, duration in samples, curvature -1..1\n{\n\tHistory v(0), v0(0), v1(0), vrange(0);\t\t\t// value: current, from, to, range\n\tHistory samplecount(0), samplesremain(0);\t\t// samples elapsed, samples remaining\n\tHistory divFactorDuration(0), divExpCurve(0);\t// cached values to speed up per-sample loop\n\t// magic numbers\n\tRFACTOR\t\t= 4.34782608695652;\t\t\t// float(1 / 0.23)\n\tPFACTOR\t\t= 5;\n\tDIV_RFACTOR\t= 0.01310440558293;\t\t\t// float(1 / (exp(RFACTOR) - 1))\n\tSFACTOR\t\t= 0.005;\n\n\t// calculated only when a new target is set\n\tif (change(target)) {\n\t\t// starting a new ramp\n\t\tsamplecount = 0;\n\t\t// duration in samples\n\t\tsamplesremain = duration;\n\t\t// ramp start & end values\n\t\tv0, v1 = v, target;\n\t\t// ramp range\n\t\tvrange = v1 - v0;\n\t\t// nonlinear mapping of -1 to 1 curve factor\n\t\tf = 1 - abs(curvature);\n\t\tf = PFACTOR * (expA(f * RFACTOR) - 1) * DIV_RFACTOR;\n\t\ts = sign(curvature);\n\t\tp = (s != 0) ? (s * f) : f;\t\t\t// must do this to avoid 'curvature == 0' issue\n\t\t// bypass really sharp curves\n\t\t// 'p = fixdenorm(p);' does not work, values too small, +/- SFACTOR fixed by Puckette / Zicarelli ?\n\t\tp = (p >= 0 && p < SFACTOR) ? SFACTOR : ((p < 0 && p > -SFACTOR) ? -SFACTOR : p);\n\t\t// cached factors for the per-sample curve calculation\n\t\tdivExpCurve = 1 / (expA(1 / p) - 1);\n\t\tdivFactorDuration = 1 / (samplesremain * p);\n\t}\n\n\tvalue, notify = 0;\n\t// per sample calculation\n\tif (samplesremain > 0.5) {\t\t\t\t// still ramping\n\t\tvalue\t= v;\n\t\tnotify\t= 0;\t\n\t\t// compute next ramp sample\n\t\tsamplecount += 1;\n\t\tsamplesremain -= 1;\n\t\t// compute curvature\n\t\tcurv = (expA(samplecount * divFactorDuration) - 1) * divExpCurve;\n\t\t// scale to the output range & integrate\n\t\tv += (v0 - v) + (curv * vrange);\n\t} else {\t\t\t\t\t\t\t\t// no longer ramping\n\t\tv\t\t= v1;\n\t\tvalue\t= v;\n\t\tnotify\t= 1;\n\t}\n\n\treturn value, notify;\n}\r\n\r\nout1, out2 = eviCurve(in1, in2, in3);\r\n\r\n",
+                    "fontface": 0,
+                    "fontname": "<Monospaced>",
+                    "fontsize": 12.0,
+                    "id": "obj-3",
+                    "maxclass": "codebox",
+                    "numinlets": 3,
+                    "numoutlets": 2,
+                    "outlettype": [ "", "" ],
+                    "patching_rect": [ 34.0, 58.0, 866.0, 655.0 ]
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-4",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 34.0, 730.0, 186.0, 22.0 ],
+                    "text": "out 1 (signal) Exact Output Ramp"
+                }
+            }
+        ],
+        "lines": [
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 0 ],
+                    "source": [ "obj-1", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 1 ],
+                    "midpoints": [ 359.5, 49.5, 467.0, 49.5 ],
+                    "source": [ "obj-2", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-4", 0 ],
+                    "source": [ "obj-3", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-5", 0 ],
+                    "midpoints": [ 890.5, 721.5, 545.5, 721.5 ],
+                    "source": [ "obj-3", 1 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 2 ],
+                    "midpoints": [ 653.5, 49.5, 890.5, 49.5 ],
+                    "source": [ "obj-6", 0 ]
+                }
+            }
+        ]
+    }
+}

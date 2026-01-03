@@ -104,30 +104,73 @@ eviRand(p) {										// phasor input, not frequency
 	History prev(0);
 	rr = (delta(p)) < 0;                            // assumes positive freq only
 	a  = latch(prev, rr);
-	b  = latch(noise(), rr);
+	n  = noise();
+	b  = latch(n, rr);
 	nv = mix(a, b, p);								// interp(p, a, b, mode="cosine") for more fun
 	prev = b;
-	return nv;
+	return nv, n;
+}
+
+// like [rand~] but ready for cubic interpolation
+eviRands(d0, x2)									// delta input, not frequency; x2 is source
+{
+	History	xm1(0), x0(0), x1(0);
+	vm1	= latch(xm1, d0);
+	v0	= latch(x0,  d0);
+	v1	= latch(x1,  d0);
+	v2	= latch(x2,  d0);
+	xm1	= v0;
+	x0	= v1;
+	x1	= v2;
+	return	vm1, v0, v1, v2;						// 4 values for 4-point interpolator
 }
 
 // like [rand~] but cubic interpolated
 // rolls off much faster than eviRand()
 eviRandy(p) {										// phasor input, not frequency
-	History z, zz, y, yy, x, xx, w;
-	q0 = (delta(p)) < 0;                            // assumes positive freq only
-	q1 = switch(q0, (noise() * sqrt1_2), z);		// lame mul is quasi empirical and related to "fastcubic" algo
-	q2 = switch(q0, zz, y);
-	q3 = switch(q0, yy, x);
-	q4 = switch(q0, xx, w);
-	r  = interp(p, q4, q3, q2, q1, mode="fastcubic");// & "cubic" does not work for eviRandy() anyway
-	z  = q1;
-	zz = q1;
-	y  = q2;
-	yy = q2;
-	x  = q3;
-	xx = q3;
-	w  = q4;
-	return r;
+	d = (delta(p)) < 0;                            	// assumes positive freq only
+	n = noise();
+    ym1, y0, y1, y2 = eviRands(d, n * sqrt1_2);
+    r = interp(p, ym1, y0, y1, y2, mode="fastcubic");// & "cubic" does not work for eviRandy() anyway
+    return r, n;
 }
 
+// Catmull-Rom Spline Bias Tension	// 13 muls, 22 ±
+catmullRomSplineDynamic(f, y0, y1, y2, y3, bias, tension)
+{
+	f2		=  f * f;
+	f3		=  f * f2;
+	f6		=  f2 + f2 + f2;
+	y2my1	=  y2 - y1;
+
+	bp		= (1 + bias);
+	bm		= (1 - bias);
+	mt		= (1 - tension) * 0.5;
+	m0		= ((y1 - y0) * bp +   y2my1   * bm) * mt;
+	m1		= (  y2my1   * bp + (y3 - y2) * bm) * mt;
+
+	c0		=  (f3 + f3) -  f6 + 1;
+   	c1		=		 f3  - (f2 + f2) + f;
+   	c2		=		 f3  -  f2;
+   	c3		= -(f3 + f3) +  f6;
+
+   	return	(c0 * y1) + (c1 * m0) + (c2 * m1) + (c3 * y2);
+}
+
+// a very (and needlessly?) expensive random LFO
+eviRandLfo(hz, skew, reset)		// skew must be clamped -1..1
+{
+	p	= phasor(hz, reset);
+	d	= delta(p) < 0;
+	x	= noise();
+
+	bias = skew * 4;
+	tension = skew * -3;
+	attenuate = fastpow(7, abs(skew));
+
+	ym1, y0, y1, y2	= eviRands(d, x);
+	dynamicAtten = catmullRomSplineDynamic(p, ym1, y0, y1, y2, bias, tension) * 0.834251;
+
+	return 	(dynamicAtten / attenuate), x;
+}
 

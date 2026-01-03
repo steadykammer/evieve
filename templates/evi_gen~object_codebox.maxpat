@@ -43,8 +43,13 @@
                             "modernui": 1
                         },
                         "classnamespace": "dsp.gen",
-                        "rect": [ 34.0, 100.0, 871.0, 848.0 ],
+                        "rect": [ 21.0, 85.0, 871.0, 848.0 ],
                         "gridonopen": 2,
+                        "lefttoolbarpinned": 2,
+                        "toptoolbarpinned": 2,
+                        "righttoolbarpinned": 2,
+                        "bottomtoolbarpinned": 1,
+                        "toolbars_unpinned_last_save": 7,
                         "subpatcher_template": "sub",
                         "integercoordinates": 1,
                         "boxes": [

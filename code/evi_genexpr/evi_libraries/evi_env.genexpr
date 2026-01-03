@@ -1,0 +1,107 @@
+
+// like [average~ 250 absolute]
+averageAbsolute(inputSample, windowSizeInSamples)
+{
+	Delay	lastValues(samplerate*0.25, interp="none");
+	History	accumulation(0);
+	
+	absoluteValue	= abs(inputSample);
+	accumulation	= accumulation - lastValues.read(512);
+	accumulation   += absoluteValue;
+	lastValues.write(absoluteValue);
+	
+	return accumulation / windowSizeInSamples;
+}
+
+// generalised for options
+averageCore(X, reset, windowSize=0)			// windowSize in samples
+{
+	Data	averageFrame(samplerate, 1);	// maximum always 1s
+
+	History	frameReset(1);
+	History	indexCount(0), indexRead(0);
+	History	accumX(0);
+
+	History	prevSize(1000);					// init 1000 samps like MSP
+	size	= int(windowSize);
+
+	audioReset	= delta(reset > 0) > 0;
+	thisReset	= frameReset + audioReset;
+
+	if ((size != prevSize) && (size > 0) && (size < samplerate)) {
+		prevSize	= size;
+		thisReset	= 1;
+		for (i = prevSize; i < dim(averageFrame); i += 1)
+		{
+			poke(averageFrame, 0, i, 0, 0, index="samples");
+		}
+	}
+
+	if (thisReset  != 0) {
+		accumX		= 0;
+		indexCount	= 0;
+		indexRead	= 0;
+		frameReset	= 0;
+		thisReset	= 0;
+	}
+
+	indexCount	= minimum(indexCount, prevSize);
+	indexRead	= wrap(indexRead, 0, prevSize);
+	if (indexCount == prevSize) {
+		accumX	   -= peek(averageFrame, indexRead, 0, index="samples");
+		indexCount -= 1;	// never exceed the window size
+	}
+	accumX	   += X;
+	poke(averageFrame, X, indexRead, 0, 0, index="samples");
+	indexRead  += 1;
+	indexCount += 1;
+
+	return 		(accumX / indexCount), indexRead;		// mean, count
+}
+
+// wrap generalised, more expensive
+averageWrap(X, reset, interval=500, mode=0)	// interval in samples, mode 0=bipolar, 1=absolute, 2=rms
+{
+	type	= int(mode);
+	typerms	= type == 2;
+
+	Xin		= 0;
+	if (type > 0)
+	{
+		if (typerms)
+		{
+			Xin	= (X * X);
+		}
+		else
+		{
+			Xin	= abs(X);
+		}
+	}
+	else
+	{
+		Xin	= X;
+	}
+
+	average, index	= averageCore(Xin, reset, windowSize=interval);
+
+	if (typerms)
+	{
+		average		= sqrt(average);
+	}
+
+	return 	average, index;
+
+	/*
+		Xin		= (type > 0) ? (typerms ? (X * X) : abs(X)) : X;
+
+		average, index	= averageCore(Xin, reset, windowSize=interval);
+		average			= typerms ? sqrt(average) : average;
+
+		return 	average, index;
+	*/
+}
+
+
+
+
+

@@ -1,0 +1,194 @@
+{
+    "patcher": {
+        "fileversion": 1,
+        "appversion": {
+            "major": 9,
+            "minor": 2,
+            "revision": 0,
+            "architecture": "x64",
+            "modernui": 1
+        },
+        "classnamespace": "dsp.gen",
+        "rect": [ 21.0, 85.0, 1064.0, 718.0 ],
+        "gridonopen": 2,
+        "lefttoolbarpinned": 2,
+        "toptoolbarpinned": 2,
+        "righttoolbarpinned": 2,
+        "bottomtoolbarpinned": 1,
+        "toolbars_unpinned_last_save": 7,
+        "subpatcher_template": "sub",
+        "integercoordinates": 1,
+        "boxes": [
+            {
+                "box": {
+                    "id": "obj-10",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 885.0, 673.0, 139.0, 22.0 ],
+                    "text": "out 5 (signal) Phase 180"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-6",
+                    "linecount": 2,
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 611.0, 13.0, 186.0, 35.0 ],
+                    "text": "in 3 (signal/float) BW in Hz @min 0 @max 18000 @default 110"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-5",
+                    "linecount": 2,
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 408.0, 13.0, 186.0, 35.0 ],
+                    "text": "in 2 (signal/float) CF in Hz @min 0 @max 18000 @default 440"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-9",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 755.0, 673.0, 125.0, 22.0 ],
+                    "text": "out 4 (signal) Phase 0"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-8",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 520.0, 673.0, 128.0, 22.0 ],
+                    "text": "out 3 (signal) Packet 2"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-7",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 284.0, 673.0, 128.0, 22.0 ],
+                    "text": "out 2 (signal) Packet 1"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-1",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 49.0, 19.0, 261.0, 22.0 ],
+                    "text": "in 1 (signal/float) Fundamental Frequency in Hz"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-2",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 881.0, 20.0, 143.0, 22.0 ],
+                    "text": "in 4 (signal) Reset Phase"
+                }
+            },
+            {
+                "box": {
+                    "code": "\r\n// a basic PAF (WavePacket) oscillator\r\n\r\nrequire(\"evi_trig.genexpr\");\r\nrequire(\"evi_rcfilters.genexpr\");\r\n\r\n// like a Puckette wavepacket alternative to PAF\r\nwavePacket(ph, cf, bw)\r\n{\r\n\tsync\t= delta(ph) < 0;\r\n\tph05\t= ph - 0.5;\r\n\tpacket\t= (cos73((ph05 * latch(cf, sync)) * twopi)) * (cos73(clip((ph05 * latch(bw, sync)), -0.5, 0.5) * twopi) + 1);\r\n\treturn\tdcblock(packet) * 0.5;\r\n}\r\n\r\nParam\thighpass(31.25, min=10, max=1000);\r\ng       = rcPreWarp1(highpass);\r\n\r\nfund\t= clip(in1, 0, 18000);\r\ninvfund\t= 1 / fund;\r\n\r\ncff\t\t= in2 * invfund;\r\nbwf\t\t= maximum((in3 * invfund), 1);\r\n\r\nph0\t\t= phasor(fund, in4);\r\nph180\t= wrap((ph0 + 0.5), 0, 1);\r\n\r\npackt1\t= wavePacket(ph0, cff, bwf);\r\npackt2\t= wavePacket(ph180,\tcff, bwf);\r\n\r\nWP\t\t= dcblock(packt1 + packt2);\r\n\r\nout1\t= rcFilterHp(WP, g);\r\nout2\t= packt1;\r\nout3\t= packt2;\r\nout4    = ph0;\r\nout5    = ph180;\r\n\r\n",
+                    "fontface": 0,
+                    "fontname": "<Monospaced>",
+                    "fontsize": 12.0,
+                    "id": "obj-3",
+                    "maxclass": "codebox",
+                    "numinlets": 4,
+                    "numoutlets": 5,
+                    "outlettype": [ "", "", "", "", "" ],
+                    "patching_rect": [ 49.0, 58.0, 960.0, 598.0 ]
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-4",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 49.0, 673.0, 157.0, 22.0 ],
+                    "text": "out 1 (signal) PAF Oscillator"
+                }
+            }
+        ],
+        "lines": [
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 0 ],
+                    "source": [ "obj-1", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 3 ],
+                    "midpoints": [ 890.5, 49.5, 999.5, 49.5 ],
+                    "source": [ "obj-2", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-10", 0 ],
+                    "midpoints": [ 999.5, 664.5, 894.5, 664.5 ],
+                    "source": [ "obj-3", 4 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-4", 0 ],
+                    "source": [ "obj-3", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-7", 0 ],
+                    "source": [ "obj-3", 1 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-8", 0 ],
+                    "source": [ "obj-3", 2 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-9", 0 ],
+                    "source": [ "obj-3", 3 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 1 ],
+                    "midpoints": [ 417.5, 53.0, 372.1666666666667, 53.0 ],
+                    "source": [ "obj-5", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 2 ],
+                    "midpoints": [ 620.5, 53.0, 685.8333333333334, 53.0 ],
+                    "source": [ "obj-6", 0 ]
+                }
+            }
+        ]
+    }
+}

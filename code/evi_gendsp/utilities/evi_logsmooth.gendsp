@@ -9,7 +9,7 @@
             "modernui": 1
         },
         "classnamespace": "dsp.gen",
-        "rect": [ 342.0, 100.0, 749.0, 553.0 ],
+        "rect": [ 215.0, 100.0, 749.0, 389.0 ],
         "gridonopen": 2,
         "subpatcher_template": "sub",
         "integercoordinates": 1,
@@ -38,7 +38,7 @@
             },
             {
                 "box": {
-                    "code": "\r\nexpA(x0)\n{\n\tx = 0.999996 + (0.031261316 + (0.00048274797 + 0.000006 * x0) * x0) * x0;\n\tx *= x; x *= x; x *= x; x *= x; x *= x;\n\treturn x;\n}\n\r\ntauA(t)\n{\n\ty = expA(-1 / (t * samplerate));\n\treturn y + 0.000128;\n}\r\n\r\nexpsmooth(x, t)\t\t// x = value\t\t\t// t is smooth time in seconds\n{\n\tHistory w(0);\n\tz = tauA(t);\n\ty = (z * w) + (x * (1 - z));\n\tw = y;\n\treturn y;\n}\r\n\r\nout1    = expsmooth(in1, in2*0.001);\r\n\r\n",
+                    "code": "\r\nlogsmooth(x, s)\t\t// x = value\t// s = time to drop 6dB (in seconds)\n{\n\tHistory z(0);\n\tad = LN2 / (s * samplerate);\t// (0.69314718056 / samples), no maximum check\n\ty  = ((x - z) * ad) + z;\n\tz  = y;\n\treturn y;\n}\n\r\nout1    = logsmooth(in1, in2*0.001);\r\n\r\n",
                     "fontface": 0,
                     "fontname": "<Monospaced>",
                     "fontsize": 12.0,
@@ -47,7 +47,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 49.0, 58.0, 660.0, 429.0 ]
+                    "patching_rect": [ 49.0, 58.0, 660.0, 264.0 ]
                 }
             },
             {
@@ -56,7 +56,7 @@
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 49.0, 504.0, 153.0, 22.0 ],
+                    "patching_rect": [ 49.0, 339.0, 153.0, 22.0 ],
                     "text": "out 1 (signal) Output Ramp"
                 }
             }

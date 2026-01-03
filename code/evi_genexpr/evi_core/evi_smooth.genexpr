@@ -8,6 +8,13 @@
 require("evi_utilities.genexpr");	// includes "evi_approx.genexpr"
 
 
+// like Pd / RNBO smoothstep
+smoothStep(x, y, a)	// in x, in y, interp 0..1
+{
+	step = clamp((a - x) / (y - a), 0, 1);
+	return step * step * (3 - (2 * step));
+}
+
 // like Faust [smooth], like 'expsmooth()' without 'tauA()' time compensation
 polesmooth(x, s)	// x = value			// s = smoothing amount, pole range, e.g. 0.999
 {
@@ -27,7 +34,7 @@ expsmooth(x, t)		// x = value			// t is smooth time in seconds
 	return y;
 }
 
-// excellent cheap generic smoother, slow(er) response
+// excellent cheap(est) generic smoother, slow(er) response
 logsmooth(x, s)		// x = value			// s = time to drop 6dB (in seconds)
 {
 	History z(0);
