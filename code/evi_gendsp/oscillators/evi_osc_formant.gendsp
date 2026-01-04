@@ -1,0 +1,171 @@
+{
+    "patcher": {
+        "fileversion": 1,
+        "appversion": {
+            "major": 9,
+            "minor": 2,
+            "revision": 0,
+            "architecture": "x64",
+            "modernui": 1
+        },
+        "classnamespace": "dsp.gen",
+        "rect": [ 16.0, 85.0, 1244.0, 848.0 ],
+        "gridonopen": 2,
+        "lefttoolbarpinned": 2,
+        "toptoolbarpinned": 2,
+        "righttoolbarpinned": 2,
+        "bottomtoolbarpinned": 1,
+        "toolbars_unpinned_last_save": 7,
+        "subpatcher_template": "sub",
+        "integercoordinates": 1,
+        "boxes": [
+            {
+                "box": {
+                    "id": "obj-12",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 1058.0, 807.0, 139.0, 22.0 ],
+                    "text": "out 3 (signal) Phase 180"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-7",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 916.0, 807.0, 125.0, 22.0 ],
+                    "text": "out 2 (signal) Phase 0"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-6",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 990.0, 19.0, 207.0, 22.0 ],
+                    "text": "in 4 (signal) Naive Reset (do not use)"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-5",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 659.0, 19.0, 219.0, 22.0 ],
+                    "text": "in 3 (signal/float) Vowel Interpolator 0..1"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-1",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 49.0, 19.0, 230.0, 22.0 ],
+                    "text": "in 1 (signal/float) Fundamental Frequency"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-2",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 425.0, 19.0, 217.0, 22.0 ],
+                    "text": "in 2 (signal/float) Voice Interpolator 0..1"
+                }
+            },
+            {
+                "box": {
+                    "code": "\r\n// requires external LUT (@see: evieve/media/lut/evi_formants_LUT.wav)\r\n// expensive but the only way i could think of doing it.\r\n\r\nrequire(\"evi_smooth\");\r\nrequire(\"evi_trig\");\r\nrequire(\"evi_rcfilters\");\r\n\r\n// parse data as formatted in external LUT\r\nformantIndex(voicephase, vowelphase, numvoices, numvowels, datatype)    // 'datatype' is already int and synced\r\n{\r\n\t// constants\r\n\ttypejump\t= 75;\tvoxjump\t\t= 15;\tvowjump\t\t= 3;\r\n\r\n\t// parse\r\n\tvox\t\t\t= int(numvoices) - 1;\t\t// .. B .. T .. CT .. A .. S ..\r\n\tvow\t\t\t= int(numvowels) - 1;\t\t// .. A .. E .. I .. O .. U ..\r\n\ttype\t\t= datatype ? typejump : 0;\r\n\tvoxdrive\t= voicephase * vox;\r\n\tvowdrive\t= vowelphase * vow;\r\n\r\n\t// get fract / trunc\r\n\tvoxfract\t= fract(voxdrive);\r\n\tvoxtrunc\t= trunc(voxdrive);\r\n\tvowfract\t= fract(vowdrive);\r\n\tvowtrunc\t= trunc(vowdrive);\r\n\r\n\t// get voice indeces\r\n\tvoxoffset1\t= (voxtrunc * voxjump) + type;\r\n\tvoxoffset2\t= (wrap((voxtrunc + 1), 0, vox) * voxjump) + type;\r\n\r\n\t// get vowel indeces\r\n\tvowmul1\t\t= vowtrunc * vowjump;\r\n\tvowmul2\t\t= wrap((vowtrunc + 1), 0, vow) * vowjump;\r\n\r\n\treturn\tvoxfract, vowfract, voxoffset1, voxoffset2, vowmul1, vowmul2;\r\n}\r\n\r\nwavePacket(ph, cf, bw)\r\n{\r\n\tsync\t= delta(ph) < 0;\r\n\tph05\t= ph - 0.5;\r\n\tpacket\t= (cos121((ph05 * latch(cf, sync)) * twopi)) * (cos52(clip((ph05 * latch(bw, sync)), -0.5, 0.5) * twopi) + 1);\r\n\treturn\tdcblock(packet) * 0.5;\r\n}\r\n\r\nBuffer\tformantData(\"#0_formantData\");\t\t// alias to MSP ('#0_' for building / testing only) LUT[]\r\n// channels   (5):\t 0\t=\tf1,\t\t1 = f2,\t\t2 = f3,\t\t3 = f4,\t\t4 = f5\r\n// \r\n// indeces  (150):\t 0\t=\tbass A: cf_hz, bw_hz, amp; \t 3 = E: ...  6 = I: ...  9 = O: ... 12 = U: ...\r\n// \t\t\t\t\t15\t=\ttenor\t\t\tA: ... \t\t18 = E: ... 21 = I: ... 24 = O: ... 27 = U: ...\r\n// \t\t\t\t\t30\t=\tcountertenor\tA: ... \t\t33 = E: ... 36 = I: ... 39 = O: ... 42 = U: ...\r\n// \t\t\t\t\t45\t=\talto\t\t\tA: ... \t\t48 = E: ... 51 = I: ... 54 = O: ... 57 = U: ...\r\n// \t\t\t\t\t60\t=\tsoprano\t\t\tA: ... \t\t63 = E: ... 66 = I: ... 69 = O: ... 72 = U: ...\r\n//\t\t\t\t\t\t...\t(& +75 for repeats with pitch / db data) ...\r\n\r\nHistory\tmtrig0(1), mtrig180(1);\t\t\t\t// master syncs (locked to fundamental frequency)\r\n\r\nParam\tformants(5, min=1, max=5);\t\t\t// # formants to use (default full = 5)\r\nParam\tformantsoffset(0, min=0);\t\t\t// formant index to offset from (default none = 0, channelmode wrap)\r\nParam\tdatatype(0, min=0, max=1);\t\t\t// 0 = read hz/amp data, 1 = read pitch/db data\r\n// ^^ 'datatype' affects the way the vox/vow interpolation sounds (interpolates lin or log data)\r\n\r\nParam\tvoices(5, min=1, max=5);            // # of voices, do not change\r\nParam\tvowels(5, min=1, max=5);            // # of vowels, do not change\r\n\r\nParam\tgain(0, min=-80, max=20);\t\t\t// global gain in dB\r\n\r\n// manually warp the formant data\r\nParam\twarpsmooth(1, min=0, max=1);\t\t// warp parameters (cf & bw & gain) smoothing off / on ?\r\nParam\tcfwarp(1, min=0.025, max=4);\t\t// multiply (warp) formant frequency size ?\r\nParam\tbwwarp(1, min=0.00625, max=32);\t\t// multiply (warp) formant bandwidth size ?\r\nParam\tgainwarp(1, min=0.025, max=4);\t\t// multiply (warp) formant gain size ?\r\nParam\tgainnorm(0, min=0, max=1);\t\t\t// normalise higher formants' gain in for-loop ?\r\n\r\nParam\tzerophasor(1, min=0, max=1);\t\t// 0 = free running, 1 = zero phasor reset (fundamental frequency and warps)\r\nParam\tfundfreqmode(0, min=0, max=1);\t\t// 0 = in Hz, 1 = in pitch (in1)\r\nParam\tparamsmooth(15.111, min=0, max=333);// global param smoothing in ms (if not 'zerophase')\r\n\r\nParam\thighpass(31.25, min=15.625, max=1000);// highpass in Hz\r\nhpcf    = rcPreWarp1(highpass);\r\n\r\n//fsize\t= dim(formantData);\r\nfchns\t= channels(formantData);\r\n\r\nparmsmsecs  = paramsmooth * 0.001;          // to secs\r\nparsmsamps\t= parmsmsecs * samplerate;      // to samps\r\n\r\nzero\t    = int(zerophasor);\t\t\t\t// fundamental sync to fundamental off / on (default on)\r\nffmode\t    = int(fundfreqmode);\t\t\t// 0 = in Hz, 1 = in pitch\r\n\r\nbwc\t\t\t=  0.5;                         // bandwidth clip\r\nbwc0\t\t=  bwc;\r\nbwc180\t\t=  bwc;\r\nwsmooth\t\t=  int(warpsmooth);\r\n\r\nosclevel\t= dbtoaApprox(gain);\r\n\r\n// audio rate\r\n\r\nfund\t= in1;\t\t\t\t\t\t\t\t// fundamental freq in Hz or pitch\r\n\r\n// morphing vox / vowel lookup controls\r\nvoicephase\t= clip(in2, 0, 1);              // 0..1 bass..tenor..countertenor..alto..soprano\r\nvowelphase\t= clip(in3, 0, 1);              // 0..1 A..E..I..O..U\r\n\r\nreset\t= in4;                              // naive\r\nglobal\t= 0;\t\t\t\t\t\t\t\t// for later ...\r\nglobrst\t= reset + global;\t\t\t\t\t// ...\r\n\r\n// select # of / which formants\r\nnumform\t\t= latch(int(minimum(formants, fchns)), mtrig0);    // (sync to fundamental)\r\nfoffset\t\t= latch(int(formantsoffset), mtrig0);   // offset formant # (wrap 'channelmode') (sync to fundamental)\r\n\r\nff\t\t\t= fund;\r\nif (ffmode)\r\n\tff\t\t= mtofApproxAccurate(ff);\r\n\r\nmfreq\t\t\t\t= maximum(ff, 1);\r\nif (zero) {\t\t\t\t\t\t\t\t\t\t    // default\r\n\tmfreq\t\t\t= latch(mfreq, mtrig0);\r\n} else {\r\n\tmfreq, msync\t= eviLine(mfreq, parsmsamps);\t// only smoothed if not zerophase updates\r\n}\r\n\r\ninvff\t\t= 1 / mfreq;\r\ninvff0\t\t= invff;\r\ninvff180\t= invff;\r\n\r\nmphse0\t\t= phasor(mfreq, globrst);\t\t\t\t// main phase(s)\r\nmphse180\t= wrap((mphse0 + 0.5), 0, 1);\r\n\r\ncfw, bww, gnnorm\t=  0;\r\ngnw\t\t\t\t\t=  expsmooth(gainwarp, parmsmsecs); // always smoothed (why?)\r\nif (wsmooth > 0) {\r\n\tcfw, bww\t\t=  expsmoothBank2(cfwarp, bwwarp, parmsmsecs);\r\n\tgnnorm\t\t\t=  int(gainnorm);\r\n} else {\r\n\tcfw\t\t\t\t=  latch(cfwarp, mtrig0);\r\n\tbww\t\t\t\t=  latch(bwwarp, mtrig0);\r\n\tgnnorm\t\t\t=  latch(gainnorm, mtrig0);\r\n}\r\n\r\nglobalgain\t= logsmooth(osclevel, parmsmsecs);\t\t// always smoothed\r\ndtype       = latch(int(datatype), mtrig0);         // always synced\r\n\r\nvoxfract, vowfract, voxoffset1, voxoffset2, vowmul1, vowmul2\r\n\t\t\t= formantIndex(voicephase, vowelphase, voices, vowels, dtype);\r\n\r\n// channels   (5):\t 0\t=\tf1,\t\t1 = f2,\t\t2 = f3,\t\t3 = f4,\t\t4 = f5\r\n// \r\n// indeces  (150):\t 0\t=\tbass A: cf_hz, bw_hz, amp; \t 3 = E: ...  6 = I: ...  9 = O: ... 12 = U: ...\r\n// \t\t\t\t\t15\t=\ttenor\t\t\tA: ... \t\t18 = E: ... 21 = I: ... 24 = O: ... 27 = U: ...\r\n// \t\t\t\t\t30\t=\tcountertenor\tA: ... \t\t33 = E: ... 36 = I: ... 39 = O: ... 42 = U: ...\r\n// \t\t\t\t\t45\t=\talto\t\t\tA: ... \t\t48 = E: ... 51 = I: ... 54 = O: ... 57 = U: ...\r\n// \t\t\t\t\t60\t=\tsoprano\t\t\tA: ... \t\t63 = E: ... 66 = I: ... 69 = O: ... 72 = U: ...\r\n//\t\t\t\t\t\t...\t(& +75 for repeat with pitch / db data) ...\r\n\r\nWP = 0;\r\nfor (k = 0; k < numform; k += 1) {\r\n\t// setup\r\n\tformantchan\t=  k + foffset;\r\n\r\n\t// parse data from LUT\r\n\tCF1\t\t\t= peek(formantData, (vowmul1 + (voxoffset1 + 0)), formantchan, index=\"samples\", boundmode=\"wrap\", channelmode=\"wrap\", interp=\"none\");\r\n\tBW1\t\t\t= peek(formantData, (vowmul1 + (voxoffset1 + 1)), formantchan, index=\"samples\", boundmode=\"wrap\", channelmode=\"wrap\", interp=\"none\");\r\n\tGN1\t\t\t= peek(formantData, (vowmul1 + (voxoffset1 + 2)), formantchan, index=\"samples\", boundmode=\"wrap\", channelmode=\"wrap\", interp=\"none\");\r\n\tCF2\t\t\t= peek(formantData, (vowmul2 + (voxoffset1 + 0)), formantchan, index=\"samples\", boundmode=\"wrap\", channelmode=\"wrap\", interp=\"none\");\r\n\tBW2\t\t\t= peek(formantData, (vowmul2 + (voxoffset1 + 1)), formantchan, index=\"samples\", boundmode=\"wrap\", channelmode=\"wrap\", interp=\"none\");\r\n\tGN2\t\t\t= peek(formantData, (vowmul2 + (voxoffset1 + 2)), formantchan, index=\"samples\", boundmode=\"wrap\", channelmode=\"wrap\", interp=\"none\");\r\n\tCF3\t\t\t= peek(formantData, (vowmul1 + (voxoffset2 + 0)), formantchan, index=\"samples\", boundmode=\"wrap\", channelmode=\"wrap\", interp=\"none\");\r\n\tBW3\t\t\t= peek(formantData, (vowmul1 + (voxoffset2 + 1)), formantchan, index=\"samples\", boundmode=\"wrap\", channelmode=\"wrap\", interp=\"none\");\r\n\tGN3\t\t\t= peek(formantData, (vowmul1 + (voxoffset2 + 2)), formantchan, index=\"samples\", boundmode=\"wrap\", channelmode=\"wrap\", interp=\"none\");\r\n\tCF4\t\t\t= peek(formantData, (vowmul2 + (voxoffset2 + 0)), formantchan, index=\"samples\", boundmode=\"wrap\", channelmode=\"wrap\", interp=\"none\");\r\n\tBW4\t\t\t= peek(formantData, (vowmul2 + (voxoffset2 + 1)), formantchan, index=\"samples\", boundmode=\"wrap\", channelmode=\"wrap\", interp=\"none\");\r\n\tGN4\t\t\t= peek(formantData, (vowmul2 + (voxoffset2 + 2)), formantchan, index=\"samples\", boundmode=\"wrap\", channelmode=\"wrap\", interp=\"none\");\r\n\r\n\t// interpolate data\r\n\tCFinterp1\t= interp(vowfract, CF1, CF2, mode=\"linear\");\r\n\tBWinterp1\t= interp(vowfract, BW1, BW2, mode=\"linear\");\r\n\tGNinterp1\t= interp(vowfract, GN1, GN2, mode=\"linear\");\r\n\tCFinterp2\t= interp(vowfract, CF3, CF4, mode=\"linear\");\r\n\tBWinterp2\t= interp(vowfract, BW3, BW4, mode=\"linear\");\r\n\tGNinterp2\t= interp(vowfract, GN3, GN4, mode=\"linear\");\r\n\r\n\t// return formant data\r\n\tcfloop\t\t= interp(voxfract, CFinterp1, CFinterp2, mode=\"linear\");\r\n\tbwloop\t\t= interp(voxfract, BWinterp1, BWinterp2, mode=\"linear\");\r\n\tgnloop\t\t= interp(voxfract, GNinterp1, GNinterp2, mode=\"linear\");\r\n\r\n    // convert if option\r\n    if (dtype) {\r\n        cfloop  = mtofApproxAccurate0(cfloop);\r\n        bwloop  = mtofApproxAccurate0(bwloop);\r\n        gnloop  = dbtoaApprox(gnloop);\r\n    }\r\n\r\n\t// frequency & bandwidth\r\n\tcfd\t\t\t= cfloop  * cfw;\r\n\tbwd\t\t\t= bwloop  * bww;\r\n\tgnd\t\t\t= expsmooth((gnnorm ? ((1 - gnloop) + gnloop) : gnloop), (parmsmsecs * 0.5)) * gnw;\r\n\r\n\t// wavepacket 1\r\n\twpph1\t\t=  mphse0\t- 0.5;\r\n\tosc1\t\t= (wpph1 * (cfd * invff0)) * twopi;\r\n\twin1\t\t=  clip((wpph1 * maximum((bwd * invff0), 1)), -bwc0, bwc0) * twopi;\r\n\tpacket1\t\t=  cos121(osc1) * (cos52(win1) + 1);\r\n\twp1\t\t\t=  dcblock(packet1);\r\n\t// wavepacket 2\r\n\twpph2\t\t=  mphse180\t- 0.5;\r\n\tosc2\t\t= (wpph2 * (cfd * invff180)) * twopi;\r\n\twin2\t\t=  clip((wpph2 * maximum((bwd * invff180), 1)), -bwc180, bwc180) * twopi;\r\n\tpacket2\t\t=  cos121(osc2) * (cos52(win2) + 1);\r\n\twp2\t\t\t=  dcblock(packet2);\r\n\r\n\t// sum WP (# of formants) and gain\r\n\tWP\t\t   +=  dcblock(((wp1 + wp2) * sqrt1_2) * gnd);\t// and do (1 / (b + 1)) attenuation ?...\r\n}\r\n\r\nhpg\t\t    = logsmooth(hpcf, parmsmsecs);\r\nWPvox\t\t= rcFilterHp((WP * (1 / fchns) * globalgain), hpg);  // HP & global attenuation\r\n\r\nmtrig0\t\t= delta(mphse0) < 0;\t\t\t\t\t\t    // update 0\r\nmtrig180\t= delta(mphse180) < 0;\t\t\t\t\t\t    // update 180\r\n\r\nout1\t\t= WPvox;\t\t\t\t\t\t\t\t\t\t// the oscillator\r\nout2\t\t= mphse0;                                       // sync 0\r\nout3        = mphse180;                                     // sync 180\r\n\r\n",
+                    "fontface": 0,
+                    "fontname": "<Monospaced>",
+                    "fontsize": 12.0,
+                    "id": "obj-3",
+                    "maxclass": "codebox",
+                    "numinlets": 4,
+                    "numoutlets": 3,
+                    "outlettype": [ "", "", "" ],
+                    "patching_rect": [ 49.0, 58.0, 1148.0, 732.0 ]
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-4",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 49.0, 807.0, 179.0, 22.0 ],
+                    "text": "out 1 (signal) Formant Oscillator"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-11",
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 49.0, 38.0, 230.0, 20.0 ],
+                    "text": "@param fundfreqmode 0/1 Hz/Pitch"
+                }
+            }
+        ],
+        "lines": [
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 0 ],
+                    "source": [ "obj-1", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 1 ],
+                    "source": [ "obj-2", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-12", 0 ],
+                    "midpoints": [ 1187.5, 798.5, 1067.5, 798.5 ],
+                    "source": [ "obj-3", 2 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-4", 0 ],
+                    "source": [ "obj-3", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-7", 0 ],
+                    "midpoints": [ 623.0, 798.5, 925.5, 798.5 ],
+                    "source": [ "obj-3", 1 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 2 ],
+                    "midpoints": [ 668.5, 49.5, 811.1666666666666, 49.5 ],
+                    "source": [ "obj-5", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 3 ],
+                    "midpoints": [ 999.5, 49.5, 1187.5, 49.5 ],
+                    "source": [ "obj-6", 0 ]
+                }
+            }
+        ],
+        "autosave": 0
+    }
+}

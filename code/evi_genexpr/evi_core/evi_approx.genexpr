@@ -242,6 +242,7 @@ transratioApprox(pitch)				// pitch default = 0
 	return expA(0.05776226504666 * pitch) + 0.000128;
 }
 
+// maximum error at pitch 127 = -0.501315 Hz
 mtofApprox(pitch, base=440)		// 'base' should be 440 (hz) for default operation
 {
 	mtofA = base * expA(0.05776226504666 * (pitch - 69));
@@ -254,13 +255,22 @@ mtofApproxBaseless(pitch)
 	return mtofA + 0.120906;		// + offset = accurate for input 48..69
 }
 
-// perfect for input 0..81, very close to ..134..
+// perfect for input 0..81, basically accurate to ..134..
 mtofApproxAccurate(pitch)				// by alex harker, no 'base'
 {
 	mtofMul	= 0.05776226504666;		// N.B.	mtofMul = log(2) / 12
 	mtofAdd	= 2.10117843869262;		// N.B.	mtofAdd = log(440) - (log(2) * 69 / 12)
 
 	return	exp((mtofMul * pitch) + mtofAdd);
+}
+
+// maximum error at pitch 127 = -0.00788 Hz
+mtofApproxAccurate0(pitch)			// no 'base'
+{
+	mtofMul	= 0.05776226504666;		// N.B.	mtofMul = log(2) / 12
+	mtofAdd	= 2.10117843869262;		// N.B.	mtofAdd = log(440) - (log(2) * 69 / 12)
+
+	return	expApprox((mtofMul * pitch) + mtofAdd);	// it still works
 }
 
 // very accurate from approx 20..5000 Hz input,
