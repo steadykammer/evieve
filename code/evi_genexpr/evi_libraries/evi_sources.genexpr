@@ -37,7 +37,7 @@ sparseVelvetNoise(freq, mix, amp=1)
 	return		mixNoise, sparseNoise, velvetNoise;
 }
 
-// not really box-muller gaussian noise distribution estimation, thanks to andy farnell
+// not-really box-muller gaussian noise distribution estimation, thanks to Andy Farnell
 // default (gain 0.6403882032022076) gives very close to unity amplitude (-1..1) output
 gaussianNoise(gain)
 {
@@ -128,6 +128,7 @@ eviRands(d0, x2)									// delta input, not frequency; x2 is source
 // like [rand~] but cubic interpolated
 // rolls off much faster than eviRand()
 eviRandy(p) {										// phasor input, not frequency
+	History randy(0);
 	d = (delta(p)) < 0;                            	// assumes positive freq only
 	n = noise();
     ym1, y0, y1, y2 = eviRands(d, n * sqrt1_2);
@@ -157,11 +158,11 @@ catmullRomSplineDynamic(f, y0, y1, y2, y3, bias, tension)
    	return	(c0 * y1) + (c1 * m0) + (c2 * m1) + (c3 * y2);
 }
 
-// a very (and needlessly?) expensive random LFO
+// a very (and needlessly) expensive random LFO
 eviRandLfo(hz, skew, reset)		// skew must be clamped -1..1
 {
 	p	= phasor(hz, reset);
-	d	= delta(p) < 0;
+	d	= delta(p) < 0;			// assumes positive freq only
 	x	= noise();
 
 	bias = skew * 4;

@@ -757,7 +757,7 @@ tptSvfCoeffMorphLpBrHp(cutoff, gain, Q, morph, comp)	// gain is Linear, morph 0.
 }
 
 // 'morph' 0..1 interpolates LP..BP..HP..NOTCH..LP
-eviFilterMorph(x, hz, db, bw, morph, smooth=22.666)       // gain in dB, bandwidth 0..1, smooth in ms
+eviFilterMorph(x, hz, db, bw, morph, smooth=22.666)     // gain in dB, bandwidth 0..1, smooth in ms
 {
 	History efmdummy(0);
 	smoothsecs	= smooth * 0.001;
@@ -773,7 +773,7 @@ eviFilterMorph(x, hz, db, bw, morph, smooth=22.666)       // gain in dB, bandwid
 }
 
 // 'morph' 0..1 interpolates LP..BP..HP..NOTCH..LP
-eviFilterMorphStereo(xL, xR, hz, db, bw, morph, smooth=22.666)    // gain in dB, bandwidth 0..1, smooth in ms
+eviFilterMorphStereo(xL, xR, hz, db, bw, morph, smooth=22.666)  // gain in dB, bandwidth 0..1, smooth in ms
 {
 	History efmsdummy(0);
 	smoothsecs	= smooth * 0.001;
@@ -2013,7 +2013,7 @@ eviFilterResonantStereo(xL, xR, cutoff, db, Q, smooth=0)
 	return 		resonantL, resonantR;
 }
 
-// MSP ordering of inputs, and like MSP gain is still linear here!
+// [evi.reson~], MSP ordering of inputs, and like MSP gain is still linear here!
 eviFilterReson(x, gain, cutoff, Q, compensate, smooth=0)	// compensate flag 0/1, smooth time in ms
 {
 	History prev_cf(0);
