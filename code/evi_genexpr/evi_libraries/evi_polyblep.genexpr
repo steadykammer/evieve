@@ -1,6 +1,84 @@
 
+// evieve ploy bleps etc
+
+require("evi_smooth.genexpr");
+
+
+// these 4-point poly bleps are much better than the rest of this file in terms of anti aliasing
+
+polyblep4(t, dt)
+{
+    y = 0;
+    if (0 <= t && t < (dt + dt)) {
+        x = t / dt;
+        u = 2 - x;
+        u *= u;
+        u *= u;
+        y += u;
+        if (t < dt) {
+            v = 1 - x;
+            v *= v;
+            v *= v;
+            y -= (v * 4);
+        }
+    }
+    return y * 0.083333333333333;
+}
+
+polyblamp4(t, dt)
+{
+    y = 0;
+    if (0 <= t && t < (dt + dt)) {
+        x = t / dt;
+        u = 2 - x;
+        u2 = u * u;
+        u *= u2 * u2;
+        y -= u;
+        if (t < dt) {
+            v = 1 - x;
+            v2 = v * v;
+            v *= v2 * v2;
+            y += (v * 4);
+        }
+    }
+    return y * dt * 0.066666666666667;
+}
+
+polysaw4(t, dt)
+{
+    v = (t + t) - 1;
+    v += polyblep4(t, dt);
+    v -= polyblep4(1 - t, dt);
+    return v;
+}
+
+polyrect4(t, dt)
+{
+    v = sign((t + t) - 1);
+    v += polyblep4(t, dt);
+    v -= polyblep4(1 - t, dt);
+    v += polyblep4(0.5 - t, dt);
+    v -= polyblep4(t - 0.5, dt);
+    return v;
+}
+
+polytri4(t, dt)
+{
+    u = abs((t + t) - 1) - 1;
+    v = u + u;
+    v += polyblamp4(t, dt);
+    v += polyblamp4(1 - t, dt);
+    t += 0.5;
+    t -= floor(t);
+    v -= polyblamp4(t, dt);
+    v -= polyblamp4(1 - t, dt);
+    return v;
+}
+
+//	//	//	below are 2-point poly bleps ...
+
 // PolyBLEP quasi-bandlimited oscilators
-// Implementation, oversampling, morphing by Pete for evieve, GPLv2
+// Implementation, oversampling, morphing by Pete for evieve
 // Sources:
 // http://www.acoustics.hut.fi/publications/papers/smc2010-phaseshaping/
 // https://www.taletn.com/reaper/mono_synth/
@@ -17,9 +95,6 @@
 // terms of the "Do What The Fuck You Want To Public License", Version 2,
 // as published by Sam Hocevar:
 // http://www.wtfpl.net/
-
-require("evi_smooth.genexpr");
-
 
 // bandlimiters
 
@@ -74,48 +149,6 @@ poly_bluh(t, dt)
 	return	ybluh;
 }
 
-// BLEP, bandlimited step, with hard sync
-poly_blep_sync(t, dt, ph)	// ph = sync phase 0..1
-{
-	History prev_sync_phase(0);
-	History sync_flag(0);
-
-	sync_diff 		= ph - prev_sync_phase;
-	prev_sync_phase	= ph;
-	sync_lookahead	= (ph + sync_diff) > 1;
-
-	yblep	= 0;
-	if (t < dt) {
-		alpha	=  (t / dt) - 1;
-		yblep	= -(alpha * alpha);
-	} else if (t > 1 - dt) {
-		alpha	=  (t - 1) / dt + 1;
-		yblep	=  (alpha * alpha);
-	} else if (sync_flag) {
-		yblep 		= 0;
-		sync_flag	= 0;
-	} else if (sync_lookahead) {
-		yblep 	   *= 0.5;
-//		t 			= 0;	// !! must rewrite externally ??
-		sync_flag	= 1;
-	} else {
-		yblep	=  0;
-	}
-	return	yblep;
-}
-
-// quasi Hard Sync
-hard_sync(s)
-{
-	t = s;
-	if (t >= 0)
-		t -= trunc(t);
-	else
-		t += 1 - trunc(t);
-
-	return 	t;
-}
-
 
 // waveforms
 
@@ -131,8 +164,7 @@ poly_cos(t)
 	return	cos73(TWOPI * t);
 }
 
-
-// polyblep (etc) waves ...
+// polyblep waves ...
 
 // half-wave rectified sines
 
@@ -258,7 +290,7 @@ poly_alt(t, dt)
 
 // camel sine
 
-// warning: shit above about 1k, schade, i love this osc
+// warning: shit above about 1k,
 // almost zero crosses with phase, could be nudged
 poly_camel(t, dt)
 {
@@ -459,7 +491,6 @@ poly_sqr(t, dt)
 poly_lpsqr2(t, dt)
 {
 	fdt		= dt + dt + dt + dt;
-//	optdt	= 1.3333333333333333 * dt;
 	t2		= t + 0.5;
 	t22		= wrap(t2, 0, 1);
 	y		= 0;
@@ -472,33 +503,14 @@ poly_lpsqr2(t, dt)
 	}
 	y2		= y * 2;
 	y2	   += poly_blamp(t, dt) * fdt;
-/*	if (t < dt) {
-		temp	= t / dt - 1;
-		y2	   -= (temp * temp * temp) * optdt;
-	} else if (t > 1 - dt) {
-		temp	= (t - 1) / dt + 1;
-		y2	   += (temp * temp * temp) * optdt;
-	} else {
-		y2		= y2;
-	}
-*/	y2	   -= poly_blamp(t22, dt) * fdt;
-/*	if (t22 < dt) {
-		temp	= t2 / dt - 1;
-		y2	   += (temp * temp * temp) * optdt;
-	} else if (t2 > 1 - dt) {
-		temp	= (t2 - 1) / dt + 1;
-		y2	   -= (temp * temp * temp) * optdt;
-	} else {
-		y2		= y2;
-	}
-*/	return		y2;
+	y2	   -= poly_blamp(t22, dt) * fdt;
+	return		y2;
 }
 
 // ok for full range, but of course does not zero cross
 poly_lpsqr3(t, dt)
 {
 	sdt	= 6 * dt;
-//	tdt	= dt + dt;
 	t2	= t + 0.5;
 	t22	= wrap(t2, 0, 1);
 	y	= 0;
@@ -511,26 +523,8 @@ poly_lpsqr3(t, dt)
 	}
 	y3	= y + 0;
 	y3 += poly_blamp(t, dt) * sdt;
-/*	if (t < dt) {
-		temp	= t / dt - 1;
-		y3	   -= (temp * temp * temp) * tdt;
-	} else if (t > 1 - dt) {
-		temp	= (t - 1) / dt + 1;
-		y3	   += (temp * temp * temp) * tdt;
-	} else {
-		y3		= y3;
-	}
-*/	y3 -= poly_blamp(t22, dt) * sdt;
-/*	if (t22 < dt) {
-		temp	= t2 / dt - 1;
-		y3	   += (temp * temp * temp) * tdt;
-	} else if (t2 > 1 - dt) {
-		temp	= (t2 - 1) / dt + 1;
-		y3	   -= (temp * temp * temp) * tdt;
-	} else {
-		y3		= y3;
-	}
-*/	return	y3;
+	y3 -= poly_blamp(t22, dt) * sdt;
+	return	y3;
 }
 
 // modified square
@@ -583,9 +577,12 @@ poly_saw(t, dt)
 	return	sw;
 }
 */
+// i am not convinced trunc() cheaper than wrap() in gen~ land
+// - need to test (could be extrapolated to other oscillators)
+
 // ok for full range
 poly_saw(t, dt)
-{	// i am not convinced trunc() cheaper than wrap() in gen~ land - need to test (could be extrapolated to other oscillators)
+{
 	t2 	= t + 0.5;
 	t2 -= trunc(t2);
 	sw	= (t2 + t2) - 1;
@@ -656,7 +653,6 @@ poly_hpsaw6(t, dt)													// this does not zero cross regardless of phase
 	freqgain = 1;					// this should be the dynamic gain function suggested in above comment
 	t15	= wrap(1.5 - t, 0, 1);
 	y	= (t15 * t15 * t15 * t15 * t15 * t15) * -2 + tds;
-	// y += poly_blep(t15, dt) + poly_blamp(t15, dt) * 6 * dt;
 	if (t15 < dt) {
 		temp	= t15 / dt - 1;
 		y	   -= (temp * temp * (dt + dt) + temp) * temp;
@@ -679,10 +675,8 @@ poly_hwsaw(t, dt, pw)
 	t1		= t2 + pw;
 	t11		= wrap(t1, 0, 1);
 	t22		= wrap(t2, 0, 1);
-//	t222	= t2 - t22;
 	y		= (t11 < pw) ? t1 * 2 / pw : 0;
 	y1		= y - pw;
-//	y1	   += poly_blamp(t1, dt) / pw * dt;
  	if (t1 < dt) {
 		temp	= t1 / dt - 1;
 		y1	   -= (temp * temp * temp) / pw3dt;
@@ -690,7 +684,6 @@ poly_hwsaw(t, dt, pw)
 		temp	= (t1 - 1) / dt + 1;
 		y1	   += (temp * temp * temp) / pw3dt;
 	}
-//	y1	   -= poly_blamp(t22, dt) / pw * dt + poly_blep(t22, dt);
 	if (t22 < dt) {
 		temp	= t2 / dt - 1;
 		y1	   += ((temp * temp) / pw3dt + temp) * temp;
@@ -724,6 +717,8 @@ poly_logit3(t, dt)
 
 //	//	//	morphing oscillators	//	//	//
 
+// saw..tri..saw
+
 morph_saw_tri_saw(t, dt, morph)		// morph == 0..1, always perfectly zero crosses
 {
 	morph_osc	= 0;
@@ -735,51 +730,6 @@ morph_saw_tri_saw(t, dt, morph)		// morph == 0..1, always perfectly zero crosses
 		morph_osc	= poly_saw(t, dt);
 	}
 	return	morph_osc;
-}
-
-// fixed 4x cheap (down only) oversampling mono, plus voodoo for GenExpr
-morph_sawtrisaw_down4x(t, dt, morph)
-{	// down 4
-	History	dmT2_1(0), dmT1_1(0), dmT0_1(0);
-	History	dmT2_2(0), dmT1_2(0), dmT0_2(0);
-	History	dmT2_3(0), dmT1_3(0), dmT0_3(0);
-	// align
-	History	doX0(0);
-
-	// process 4x
-	y1_0	= morph_saw_tri_saw(t, dt, morph);
-	y2_0	= morph_saw_tri_saw(t, dt, morph);
-	y3_0	= morph_saw_tri_saw(t, dt, morph);
-	y4_0	= morph_saw_tri_saw(t, dt, morph);
-
-	// down 4x
-	y2_0_a	= y2_0 + 0;
-	y2_1	= interp(0.25,	y2_0_a,	dmT0_1, dmT1_1, dmT2_1, mode="spline");
-
-	y3_0_a	= y3_0 + 0;
-	y3_1	= interp(0.5,	y3_0_a,	dmT0_2, dmT1_2, dmT2_2, mode="spline");
-
-	y4_0_a	= y4_0 + 0;
-	y4_1	= interp(0.75,	y4_0_a,	dmT0_3, dmT1_3, dmT2_3, mode="spline");
-
-	y0_0	= (((doX0 + y2_1) + y3_1) + y4_1) * 0.25;
-
-	// update
-	doX0	= y1_0;
-
-	dmT2_1	= dmT1_1;
-	dmT1_1	= dmT0_1;
-	dmT0_1	= y2_0;
-
-	dmT2_2	= dmT1_2;
-	dmT1_2	= dmT0_2;
-	dmT0_2	= y3_0;
-
-	dmT2_3	= dmT1_3;
-	dmT1_3	= dmT0_3;
-	dmT0_3	= y4_0;
-
-	return y0_0;
 }
 
 // from saw to rect through triangle/trapezoid
@@ -802,50 +752,7 @@ morph_saw_tri_square(t, dt, morph)						// morph controls pwm, perfectly zero cr
 	return	morph_osc;
 }
 
-// fixed 4x cheap (down only) oversampling mono, plus voodoo for GenExpr
-morph_sawtrisquare_down4x(t, dt, morph, a)
-{	// down 4
-	History	dmT2_1(0), dmT1_1(0), dmT0_1(0);
-	History	dmT2_2(0), dmT1_2(0), dmT0_2(0);
-	History	dmT2_3(0), dmT1_3(0), dmT0_3(0);
-	// align
-	History	doX0(0);
-
-	// process 4x
-	y1_0	= morph_saw_tri_square(t, dt, morph);
-	y2_0	= morph_saw_tri_square(t, dt, morph);
-	y3_0	= morph_saw_tri_square(t, dt, morph);
-	y4_0	= morph_saw_tri_square(t, dt, morph);
-
-	// down 4x
-	y2_0_a	= y2_0 + 0;
-	y2_1	= interp(0.25,	y2_0_a,	dmT0_1, dmT1_1, dmT2_1, mode="spline");
-
-	y3_0_a	= y3_0 + 0;
-	y3_1	= interp(0.5,	y3_0_a,	dmT0_2, dmT1_2, dmT2_2, mode="spline");
-
-	y4_0_a	= y4_0 + 0;
-	y4_1	= interp(0.75,	y4_0_a,	dmT0_3, dmT1_3, dmT2_3, mode="spline");
-
-	y0_0	= (((doX0 + y2_1) + y3_1) + y4_1) * 0.25;
-
-	// update
-	doX0	= y1_0;
-
-	dmT2_1	= dmT1_1;
-	dmT1_1	= dmT0_1;
-	dmT0_1	= y2_0;
-
-	dmT2_2	= dmT1_2;
-	dmT1_2	= dmT0_2;
-	dmT0_2	= y3_0;
-
-	dmT2_3	= dmT1_3;
-	dmT1_3	= dmT0_3;
-	dmT0_3	= y4_0;
-
-	return y0_0;
-}
+// pulse..tri..pulse
 
 morph_pulse_tri_pulse(t, dt, morph)			// !! clip morph 0..1
 {
@@ -862,51 +769,6 @@ morph_pulse_tri_pulse(t, dt, morph)			// !! clip morph 0..1
 		morph_osc	= poly_trip(t22, dt, pw_22) * -1;
 	}
 	return		morph_osc;
-}
-
-// fixed 4x cheap (down only) oversampling mono, plus voodoo for GenExpr
-morph_pulsetripulse_down4x(t, dt, morph)
-{	// down 4
-	History	dmT2_1(0), dmT1_1(0), dmT0_1(0);
-	History	dmT2_2(0), dmT1_2(0), dmT0_2(0);
-	History	dmT2_3(0), dmT1_3(0), dmT0_3(0);
-	// align
-	History	doX0(0);
-
-	// process 4x
-	y1_0	= morph_pulse_tri_pulse(t, dt, morph);
-	y2_0	= morph_pulse_tri_pulse(t, dt, morph);
-	y3_0	= morph_pulse_tri_pulse(t, dt, morph);
-	y4_0	= morph_pulse_tri_pulse(t, dt, morph);
-
-	// down 4x
-	y2_0_a	= y2_0 + 0;
-	y2_1	= interp(0.25,	y2_0_a,	dmT0_1, dmT1_1, dmT2_1, mode="spline");
-
-	y3_0_a	= y3_0 + 0;
-	y3_1	= interp(0.5,	y3_0_a,	dmT0_2, dmT1_2, dmT2_2, mode="spline");
-
-	y4_0_a	= y4_0 + 0;
-	y4_1	= interp(0.75,	y4_0_a,	dmT0_3, dmT1_3, dmT2_3, mode="spline");
-
-	y0_0	= (((doX0 + y2_1) + y3_1) + y4_1) * 0.25;
-
-	// update
-	doX0	= y1_0;
-
-	dmT2_1	= dmT1_1;
-	dmT1_1	= dmT0_1;
-	dmT0_1	= y2_0;
-
-	dmT2_2	= dmT1_2;
-	dmT1_2	= dmT0_2;
-	dmT0_2	= y3_0;
-
-	dmT2_3	= dmT1_3;
-	dmT1_3	= dmT0_3;
-	dmT0_3	= y4_0;
-
-	return y0_0;
 }
 
 // from saw to rect negative pulse through triangle and trapezoid
@@ -932,51 +794,6 @@ morph_sawpulse_trirect(t, dt, morph)				// morph controls pwm and always perfect
 	return	morph_osc;
 }
 
-// fixed 4x cheap (down only) oversampling mono, plus voodoo for GenExpr
-morph_sawpulse_down4x(t, dt, morph)
-{	// down 4
-	History	dmT2_1(0), dmT1_1(0), dmT0_1(0);
-	History	dmT2_2(0), dmT1_2(0), dmT0_2(0);
-	History	dmT2_3(0), dmT1_3(0), dmT0_3(0);
-	// align
-	History	doX0(0);
-
-	// process 4x
-	y1_0	= morph_sawpulse_trirect(t, dt, morph);
-	y2_0	= morph_sawpulse_trirect(t, dt, morph);
-	y3_0	= morph_sawpulse_trirect(t, dt, morph);
-	y4_0	= morph_sawpulse_trirect(t, dt, morph);
-
-	// down 4x
-	y2_0_a	= y2_0 + 0;
-	y2_1	= interp(0.25,	y2_0_a,	dmT0_1, dmT1_1, dmT2_1, mode="spline");
-
-	y3_0_a	= y3_0 + 0;
-	y3_1	= interp(0.5,	y3_0_a,	dmT0_2, dmT1_2, dmT2_2, mode="spline");
-
-	y4_0_a	= y4_0 + 0;
-	y4_1	= interp(0.75,	y4_0_a,	dmT0_3, dmT1_3, dmT2_3, mode="spline");
-
-	y0_0	= (((doX0 + y2_1) + y3_1) + y4_1) * 0.25;
-
-	// update
-	doX0	= y1_0;
-
-	dmT2_1	= dmT1_1;
-	dmT1_1	= dmT0_1;
-	dmT0_1	= y2_0;
-
-	dmT2_2	= dmT1_2;
-	dmT1_2	= dmT0_2;
-	dmT0_2	= y3_0;
-
-	dmT2_3	= dmT1_3;
-	dmT1_3	= dmT0_3;
-	dmT0_3	= y4_0;
-
-	return y0_0;
-}
-
 // from positive triangle pulse to negative rect pulse through triangle and trapezoid
 
 // believe it or not, this pretty much works perfectly with no audio mixing on the oscillator output
@@ -997,51 +814,6 @@ morph_pulsepulse_trirect(t, dt, morph)				// morph controls pwm, zero crossing o
 		morph_osc	= poly_rect(t, dt, pw_33);
 	}
 	return	morph_osc;
-}
-
-// fixed 4x cheap (down only) oversampling mono, plus voodoo for GenExpr
-morph_pulsepulse_down4x(t, dt, morph)
-{	// down 4
-	History	dmT2_1(0), dmT1_1(0), dmT0_1(0);
-	History	dmT2_2(0), dmT1_2(0), dmT0_2(0);
-	History	dmT2_3(0), dmT1_3(0), dmT0_3(0);
-	// align
-	History	doX0(0);
-
-	// process 4x
-	y1_0	= morph_pulsepulse_trirect(t, dt, morph);
-	y2_0	= morph_pulsepulse_trirect(t, dt, morph);
-	y3_0	= morph_pulsepulse_trirect(t, dt, morph);
-	y4_0	= morph_pulsepulse_trirect(t, dt, morph);
-
-	// down 4x
-	y2_0_a	= y2_0 + 0;
-	y2_1	= interp(0.25,	y2_0_a,	dmT0_1, dmT1_1, dmT2_1, mode="spline");
-
-	y3_0_a	= y3_0 + 0;
-	y3_1	= interp(0.5,	y3_0_a,	dmT0_2, dmT1_2, dmT2_2, mode="spline");
-
-	y4_0_a	= y4_0 + 0;
-	y4_1	= interp(0.75,	y4_0_a,	dmT0_3, dmT1_3, dmT2_3, mode="spline");
-
-	y0_0	= (((doX0 + y2_1) + y3_1) + y4_1) * 0.25;
-
-	// update
-	doX0	= y1_0;
-
-	dmT2_1	= dmT1_1;
-	dmT1_1	= dmT0_1;
-	dmT0_1	= y2_0;
-
-	dmT2_2	= dmT1_2;
-	dmT1_2	= dmT0_2;
-	dmT0_2	= y3_0;
-
-	dmT2_3	= dmT1_3;
-	dmT1_3	= dmT0_3;
-	dmT0_3	= y4_0;
-
-	return y0_0;
 }
 
 // from positive triangle pulse to bipolar square pulse through triangle and trapezoid
@@ -1065,52 +837,6 @@ morph_pulsebipulse_trirect(t, dt, morph)			// morph controls pwm, zero crossing 
 	}
 	return	morph_osc;
 }
-
-// fixed 4x cheap (down only) oversampling mono, plus voodoo for GenExpr
-morph_pulsebipulse_down4x(t, dt, morph)
-{	// down 4
-	History	dmT2_1(0), dmT1_1(0), dmT0_1(0);
-	History	dmT2_2(0), dmT1_2(0), dmT0_2(0);
-	History	dmT2_3(0), dmT1_3(0), dmT0_3(0);
-	// align
-	History	doX0(0);
-
-	// process 4x
-	y1_0	= morph_pulsebipulse_trirect(t, dt, morph);
-	y2_0	= morph_pulsebipulse_trirect(t, dt, morph);
-	y3_0	= morph_pulsebipulse_trirect(t, dt, morph);
-	y4_0	= morph_pulsebipulse_trirect(t, dt, morph);
-
-	// down 4x
-	y2_0_a	= y2_0 + 0;
-	y2_1	= interp(0.25,	y2_0_a,	dmT0_1, dmT1_1, dmT2_1, mode="spline");
-
-	y3_0_a	= y3_0 + 0;
-	y3_1	= interp(0.5,	y3_0_a,	dmT0_2, dmT1_2, dmT2_2, mode="spline");
-
-	y4_0_a	= y4_0 + 0;
-	y4_1	= interp(0.75,	y4_0_a,	dmT0_3, dmT1_3, dmT2_3, mode="spline");
-
-	y0_0	= (((doX0 + y2_1) + y3_1) + y4_1) * 0.25;
-
-	// update
-	doX0	= y1_0;
-
-	dmT2_1	= dmT1_1;
-	dmT1_1	= dmT0_1;
-	dmT0_1	= y2_0;
-
-	dmT2_2	= dmT1_2;
-	dmT1_2	= dmT0_2;
-	dmT0_2	= y3_0;
-
-	dmT2_3	= dmT1_3;
-	dmT1_3	= dmT0_3;
-	dmT0_3	= y4_0;
-
-	return y0_0;
-}
-
 
 // !! N.B. gain and dcblocking only used from here onwards !!
 // !! if you call any of the above functions independently you must deal with gain & dc yourself !!
@@ -1215,6 +941,8 @@ poly_osc(freqInHz, pwm, a, t, dt, morph, wave)	// Hz, pulsewidth, amplitude, pha
 
 	return	osc * a;
 }
+
+// these interpolation downsamps are quite pointless and should probably be avoided
 
 // fixed 3x cheap (down only) oversampling mono, plus voodoo for GenExpr
 poly_down3x(freqInHz, pw, a, t, dt, morph, wave)
@@ -1445,7 +1173,7 @@ dynamicDc(osc, dtn, dcn)	// dcn: 0=off, 1=on, 2=auto for lfos, 3=auto for oscill
 }
 
 
-//	//	//	TODO, 8-point bleps:
+//	//	//	TODO
 
 xab(x, a, b)
 {

@@ -17,7 +17,7 @@ audioDust(freq)
 // Using Velvet Noise", in Proc. 30th Int. Conf. Intelligent
 // Audio Environments (AES07), March 2007.
 // Pete: my porting of this algorithm is really stupid with the phasor(), I do not
-// like it, @see: "audioDust()" for cheaper algorithm (compared to "sparseNoise"),
+// like it, @see: "audioDust()" for different algorithm (compared to "sparseNoise"),
 // but if you need velvet noise in evieve, this is it
 sparseVelvetNoise(freq, mix, amp=1)
 {
