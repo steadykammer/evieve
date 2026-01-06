@@ -1,5 +1,5 @@
 
-// evieve ploy bleps etc
+// evieve poly bleps etc
 
 require("evi_smooth.genexpr");
 
@@ -75,7 +75,8 @@ polytri4(t, dt)
     return v;
 }
 
-//	//	//	below are 2-point poly bleps ...
+
+//	//	//	below are 2-point poly bleps, not as good ...
 
 // PolyBLEP quasi-bandlimited oscilators
 // Implementation, oversampling, morphing by Pete for evieve

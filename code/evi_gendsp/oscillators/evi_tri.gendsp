@@ -1,0 +1,86 @@
+{
+    "patcher": {
+        "fileversion": 1,
+        "appversion": {
+            "major": 9,
+            "minor": 2,
+            "revision": 0,
+            "architecture": "x64",
+            "modernui": 1
+        },
+        "classnamespace": "dsp.gen",
+        "rect": [ 34.0, 100.0, 628.0, 359.0 ],
+        "gridonopen": 2,
+        "subpatcher_template": "sub",
+        "integercoordinates": 1,
+        "boxes": [
+            {
+                "box": {
+                    "id": "obj-5",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 440.0, 19.0, 147.0, 22.0 ],
+                    "text": "in 2 (signal) Reset (Naive)"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-1",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 49.0, 19.0, 187.0, 22.0 ],
+                    "text": "in 1 (signal/float) Frequency in Hz"
+                }
+            },
+            {
+                "box": {
+                    "code": "\r\nrequire(\"evi_polyblep\");\r\n\r\nreset       = in2;      // naive, do not use\r\n\r\nfreqInHz    = in1;\r\nt\t        = phasor(freqInHz, reset);\r\ndt\t        = freqInHz / SAMPLERATE;\r\n\r\nout1        = decorelateOsc(polytri4(t, dt));\r\n\r\n// TODO: PWM, HardSync\r\n\r\n",
+                    "fontface": 0,
+                    "fontname": "<Monospaced>",
+                    "fontsize": 12.0,
+                    "id": "obj-3",
+                    "maxclass": "codebox",
+                    "numinlets": 2,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 49.0, 58.0, 538.0, 245.0 ]
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-4",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 49.0, 320.0, 213.0, 22.0 ],
+                    "text": "out 1 (signal) Anti Aliased Tri Oscillator"
+                }
+            }
+        ],
+        "lines": [
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 0 ],
+                    "source": [ "obj-1", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-4", 0 ],
+                    "source": [ "obj-3", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 1 ],
+                    "midpoints": [ 449.5, 49.5, 577.5, 49.5 ],
+                    "source": [ "obj-5", 0 ]
+                }
+            }
+        ]
+    }
+}
