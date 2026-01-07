@@ -4,7 +4,8 @@
 require("evi_smooth.genexpr");
 
 
-// these 4-point poly bleps are much better than the rest of this file in terms of anti aliasing
+// these 4-point poly bleps are much better than the rest of this file
+// (2-points) in terms of anti aliasing
 
 polyblep4(t, dt)
 {
@@ -44,26 +45,23 @@ polyblamp4(t, dt)
     return y * dt * 0.066666666666667;
 }
 
-polysaw4(t, dt)
-{
+polysaw4(t, dt) {
     v = (t + t) - 1;
     v += polyblep4(t, dt);
     v -= polyblep4(1 - t, dt);
-    return v;
+    return v * 0.5;
 }
 
-polyrect4(t, dt)
-{
+polyrect4(t, dt) {
     v = sign((t + t) - 1);
     v += polyblep4(t, dt);
     v -= polyblep4(1 - t, dt);
     v += polyblep4(0.5 - t, dt);
     v -= polyblep4(t - 0.5, dt);
-    return v;
+    return v * 0.5;
 }
 
-polytri4(t, dt)
-{
+polytri4(t, dt) {
     u = abs((t + t) - 1) - 1;
     v = u + u;
     v += polyblamp4(t, dt);
@@ -72,7 +70,7 @@ polytri4(t, dt)
     t -= floor(t);
     v -= polyblamp4(t, dt);
     v -= polyblamp4(1 - t, dt);
-    return v;
+    return (v + 1) * 0.5;
 }
 
 
@@ -568,7 +566,7 @@ poly_rect(t, dt, pw)
 	return	r;
 }
 
-// sawtooth √√√
+// sawtooth
 /*
 poly_saw(t, dt)
 {
@@ -578,8 +576,8 @@ poly_saw(t, dt)
 	return	sw;
 }
 */
-// i am not convinced trunc() cheaper than wrap() in gen~ land
-// - need to test (could be extrapolated to other oscillators)
+// i am not convinced trunc() cheaper than wrap() in gen~ land (it
+// should be) - need to test (could be extrapolated to other oscillators)
 
 // ok for full range
 poly_saw(t, dt)

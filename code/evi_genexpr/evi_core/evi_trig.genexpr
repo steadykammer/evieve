@@ -167,6 +167,19 @@ sin52param(x)
 	return cos52param(HALFPI - x);
 }
 
+// sin mixer
+/*
+	// usage e.g. 3-way mixer:
+
+	m0    = mixSin(in1, 0.5);
+	m1    = mixSin(in1, 0);
+	m2    = mixSin(in1, -0.5);
+*/
+mixSin(x, a)
+{    // with fudges, 1 extra mul but still cheaper
+    return    sin52param(clip((x + a), 0, 1) * PI + 0.000007) * 1.000007;
+}
+
 //
 //		cosQ73 computes cosine(x)
 //

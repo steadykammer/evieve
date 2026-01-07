@@ -3,6 +3,7 @@
 //	//	//	For use in place of biquads, including EQ-ing, when you actually need good quality :-)
 
 require("evi_smooth.genexpr");	// includes 'evi_utilities.genexpr' & 'evi_approx.genexpr'
+//require("evi_tanh.genexpr");	// only for input mixing SVF option
 // ^^ gen~ is broken, so temporarily we declare extra stuff here:
 //==================================begin temp
 /*
@@ -2405,5 +2406,81 @@ svfSinSingle(X, cutoff, damp, filt)
 	ic2eq  += (t2 + t2);
 
 	return	y;
+}
+
+
+// andy simper, state variable filter topology, input mixing version
+// http://cytomic.com/files/dsp/SvfInputMixing.pdf
+// mixing for low, band, high, decoupling mixing from coeffs, possibly different inputs
+// genexpr port by pete for evieve
+
+// param rate version
+
+inputMixingSvfCoefficients(cutoff, res)
+{
+    w	= PI * cutoff / SAMPLERATE;
+    s1	= sin73param(w);
+    s2	= sin73param(w + w);
+
+    rc  = clip(res, (s1 * 0.5), minimum((1 - w), 0.97));
+    rc2 = rc + rc;
+    k   = 2 - rc2;
+
+    nrm	= 1 / (2 + rc2 * s2);
+    s1n	= (s1 + s1) * s1 * nrm;
+    s2n	= s2 * nrm;
+
+    return  (k * s1n) + s2n, s1n, s2n, -s1n - (k * s2n);    // g0, g1, g2, g3
+}
+
+inputMixingSvfLoop(vlow, vband, vhigh, g0, g1, g2, g3)
+{
+    History	ic1eq(0), ic2eq(0);
+
+    t1  = vlow * g0 + vband * -g1 + vhigh * -g2 + ic1eq * -g1 + ic2eq * -g2;
+    // this works, it's just optional
+	//t2  = altTanhAdaa1(vlow * 1.995262) * g1 + vband * g2 + vhigh * g3 + ic1eq * g2 + ic2eq * g3;
+    t2  = vlow * g1 + vband * g2 + vhigh * g3 + ic1eq * g2 + ic2eq * g3;
+    vc2	= (t2 + ic2eq);
+
+    ic1eq  += (t1 + t1);
+    ic2eq  += (t2 + t2);
+
+    return vhigh + vc2;
+}
+
+// all audio rate version
+
+inputMixingSvf(vlow, vband, vhigh, cutoff, res)
+{
+    History	ic1eq(0), ic2eq(0);
+
+    w	= PI * cutoff / SAMPLERATE;
+    s1	= sin73(w);
+    s2	= sin73(w + w);
+
+    rc  = clip(res, (s1 * 0.5), minimum((1 - w), 0.97));
+    rc2 = rc + rc;
+    k   = 2 - rc2;
+
+    nrm	= 1 / (2 + rc2 * s2);
+    s1n	= (s1 + s1) * s1 * nrm;
+    s2n	= s2 * nrm;
+
+    g0 	= (k * s1n) + s2n;
+    g1 	= s1n;
+    g2 	= s2n;
+    g3 	= -s1n - (k * s2n);
+
+    t1  = vlow * g0 + vband * -g1 + vhigh * -g2 + ic1eq * -g1 + ic2eq * -g2;
+    // this works, it's just optional
+	//t2  = altTanhAdaa1(vlow * 1.995262) * g1 + vband * g2 + vhigh * g3 + ic1eq * g2 + ic2eq * g3;
+    t2  = vlow * g1 + vband * g2 + vhigh * g3 + ic1eq * g2 + ic2eq * g3;
+    vc2	= (t2 + ic2eq);
+
+    ic1eq  += (t1 + t1);
+    ic2eq  += (t2 + t2);
+
+    return vhigh + vc2;
 }
 
