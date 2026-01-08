@@ -19,6 +19,7 @@ require("evi_approx.genexpr");
 // 'high quality' Lambert approx, excellent mathematical and sonic closeness to 'real' tanh
 // !! amplitude of 'x' must be clamped ± 120 dB (?!) otherwise numerical innacuracy !!
 // in general we always use this one
+// 2 x faster than library tanh()
 tanhL(x)
 {
 	x2 = x * x;

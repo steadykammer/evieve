@@ -27,6 +27,7 @@ cosQ73(x)
 	return (c1 + x2 * (c2 + x2 * (c3 + x2 * (c4 + c5 * x2))));
 }
 
+// only about 1.2 x faster than library cos()
 cos73(x)
 {
 	TWOOVERPI = 0.63661977236758;	// 2 / PI
@@ -90,6 +91,7 @@ tanA(x)
 }
 
 // slightly 'better' approx than 'tanA()', & 0..HALFPI input
+// about 1.8 to 2 x faster than library tan()
 tanA2(x)
 {
 	a	= ((((x * -0.0896638) + 0.0388452) * x) + 1.00005) * x;
@@ -106,7 +108,8 @@ tanA3(x)
 
 // arctan approximations
 
-atanA(x)		// we also use this for audio
+// more than 2 x faster than library atan()
+atanA(x)		// we also use this for audio as it is very accurate
 {
 	o = 8 * x;
 	q = (o + o) * INVPI;
@@ -173,6 +176,7 @@ acosT(x)			// for x 1..0.2 only, fine for certain specific usages
 
 // classic Padé
 // sort of usable in the input range sort of float -2..2 only
+// almost 2 x faster than library exp()
 expP(x)
 {
     xp3 = x + 3;
@@ -182,6 +186,7 @@ expP(x)
 
 // cheapest full range exp() that evieve offers, the cheaper ones are rubbish, we use
 // this everywhere. more accurate than 'fastexp()'
+// at least 1.5 x faster than library exp()
 expA(x0)
 {
 	x = 0.999996 + (0.031261316 + (0.00048274797 + 0.000006 * x0) * x0) * x0;
@@ -190,6 +195,7 @@ expA(x0)
 }
 
 // slightly more accurate
+// about 1.5 x faster than library exp()
 expApprox(x)
 {
 	x = 1 + (0.062500309 + (0.0019527233 + (0.0000408663 + (0.00000060184965 + 0.000000010856791*x)*x)*x)*x)*x;
@@ -207,6 +213,7 @@ coshApprox(x)
 	return 0.5 * (expApprox(x) + expApprox(-x));
 }
 
+// 1.7 to 2 x faster than library log2()
 log2Approx(x) // sorry
 {
 	return (-0.2119568027628040757e-1 + (-0.38815224340108325886 + (-0.8900051141728954376 + (0.4001641794691007527

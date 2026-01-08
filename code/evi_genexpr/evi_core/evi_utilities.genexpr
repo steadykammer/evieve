@@ -54,35 +54,6 @@ varDcblock(x0, a0)
 	return	y0;
 }
 
-// like [rand~] (linear)
-eviRand(p) {										// phasor input, not frequency
-	History prev(0);
-	rr = (delta(p)) < 0;
-	a = latch(prev, rr);
-	b = latch(noise(), rr);
-	nv = mix(a, b, p);
-	prev = b;
-	return nv;
-}
-
-// like [rand~] but cubic interpolated
-eviRandy(p) {										// phasor input, not frequency
-	History z, zz, y, yy, x, xx, w;
-	q0 = (delta(p)) < 0;
-	q1 = switch(q0, (noise() * 0.891251), z);	// lame mul should actually be dynamic or a factor of frequency
-	q2 = switch(q0, zz, y);
-	q3 = switch(q0, yy, x);
-	q4 = switch(q0, xx, w);
-	z = q1;
-	zz = q1;
-	y = q2;
-	yy = q2;
-	x = q3;
-	xx = q3;
-	w = q4;
-	return interp(p, q4, q3, q2, q1, mode="cubic");
-}
-
 preWarpG(cutoff)
 {
 	g0		=  tanA2(PI * cutoff / SAMPLERATE);

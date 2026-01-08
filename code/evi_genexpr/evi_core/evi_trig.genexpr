@@ -9,8 +9,10 @@
 // N.B. - everything in Gen is 64-bit doubles, so no separate casting here - 
 // efficiency of less accurate approximations nothing like it would be in C / C++ / etc;
 // we also have to use if/else blocks rather than 'switch';
-// but still potentially good savings +/- your outlook on life.
 // in evieve we mainly just use some of the cos/sin approxes
+
+// NOTE: in terms of cos/sin CPU savings, only '73' or lower are
+// worthwhile, for 121 or higher there is no point over library cos/sin
 
 // for other approximations in evieve @see:
 // evi_approx.genexpr
@@ -209,6 +211,7 @@ cosQ73(x)
 // It reduces the input argument's range to [0, PI/2],
 // and then calls the approximator. 
 //
+// about 1.2 x faster than library cos()
 cos73(x)
 {
 	x, QUAD = makeCosPhase(x);
@@ -279,6 +282,7 @@ cosQ121(x)
 // It reduces the input argument's range to [0, PI/2],
 // and then calls the approximator. 
 //
+// about 1.2 x SLOWER than library cos() :-(
 cos121(x)
 {
 	x, QUAD = makeCosPhase(x);
