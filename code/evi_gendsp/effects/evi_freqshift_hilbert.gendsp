@@ -1,232 +1,207 @@
 {
-	"patcher" : 	{
-		"fileversion" : 1,
-		"appversion" : 		{
-			"major" : 9,
-			"minor" : 1,
-			"revision" : 0,
-			"architecture" : "x64",
-			"modernui" : 1
-		}
-,
-		"classnamespace" : "dsp.gen",
-		"rect" : [ 100.0, 127.0, 1006.0, 821.0 ],
-		"gridonopen" : 2,
-		"gridsize" : [ 15.0, 15.0 ],
-		"lefttoolbarpinned" : 2,
-		"toptoolbarpinned" : 2,
-		"righttoolbarpinned" : 2,
-		"bottomtoolbarpinned" : 1,
-		"toolbars_unpinned_last_save" : 7,
-		"subpatcher_template" : "sk_notoolbars_arial12",
-		"assistshowspatchername" : 0,
-		"commentary" : "",
-		"showcommentary" : 0,
-		"integercoordinates" : 1,
-		"boxes" : [ 			{
-				"box" : 				{
-					"id" : "obj-10",
-					"maxclass" : "newobj",
-					"numinlets" : 0,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 524.0, 19.0, 219.0, 22.0 ],
-					"text" : "in 3 (signal) Frequency Shift FM in Hz ±"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-9",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 570.0, 780.0, 117.0, 22.0 ],
-					"text" : "out 4 Quad Osc Cos"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-11",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 743.0, 780.0, 113.0, 22.0 ],
-					"text" : "out 5 Quad Osc Sin"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-8",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 49.0, 780.0, 131.0, 22.0 ],
-					"text" : "out 1 Sidebands Mixed"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-7",
-					"maxclass" : "newobj",
-					"numinlets" : 0,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 775.0, 19.0, 207.0, 22.0 ],
-					"text" : "in 4 Signal Rate Phase Reset (Naive)"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-6",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 917.0, 780.0, 65.0, 22.0 ],
-					"text" : "out 6 Sync"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-5",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 396.199999999999989, 780.0, 61.0, 22.0 ],
-					"text" : "out 3 LSB"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-1",
-					"maxclass" : "newobj",
-					"numinlets" : 0,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 49.0, 19.0, 91.0, 22.0 ],
-					"text" : "in 1 Audio Input"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-2",
-					"maxclass" : "newobj",
-					"numinlets" : 0,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 293.0, 19.0, 214.0, 22.0 ],
-					"text" : "in 2 (float/int) Frequency Shift in Hz +/-"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"code" : "\r\n// Time domain frequency shifter by Pete for evieve. A bit like MSP [freqshift~].\r\n\r\n// Defaults for 48kHz samplerate. If using other samplerates you will need to provide \r\n// coefficients externally (e.g. from [evi.polyphaseiirhilbertcoeffs], or \r\n// 'evi_hilbert_coefficients.js' directly). @see the [evi.freqshift.hilbert~]\r\n// abstraction for an example.\r\n\r\n// @see also:\r\n// 'evi_freqshift_weaver.gendsp'\t<<-- does not rely on externally computed coefficients :-)\r\n// 'evi_hilbert.gendsp'\r\n// 'evi_ringmod.gendsp'\r\n\r\n\r\n// lib\r\n\r\nrequire(\"evi_ssb.genexpr\");\r\n\r\n// declare\r\n\r\nHistory\tautoreset(1);\r\n\r\n// 64-bit Polyphase IIR Halfband Allpass Cascade Coefficients updated\r\n// from Javascript, defaults are for 48kHz Samplerate & 40Hz bandwidth\r\n\r\n// Phase reference path c coefficients\r\nParam\tcoef1(0.486604368613682, min=-10, max=10);\r\nParam\tcoef2(0.880779435272467, min=-10, max=10);\r\nParam\tcoef3(0.977931255616324, min=-10, max=10);\r\nParam\tcoef4(0.997673861850732, min=-10, max=10);\r\n// +90 degrees path c coefficients\r\nParam\tcoef5(0.165149093559079, min=-10, max=10);\r\nParam\tcoef6(0.739829012544530, min=-10, max=10);\r\nParam\tcoef7(0.947940906329181, min=-10, max=10);\r\nParam\tcoef8(0.991209712705258, min=-10, max=10);\r\n\r\nParam\tsaturation(0, min=0, max=1);\t\t// 0/1 off/on, default off\r\nParam\tdrive(0.5, min=0, max=2);\t\t\t// % 0..1.. , if sat on\r\nParam\tresetauto(1, min=0, max=1);\t\t\t// 0/1 off/on, default on\r\nParam\tbandsmix(0.5, min=0, max=1);\t\t// % 0..1, default equal mix\r\nParam\tsmooth(22.666, min=0, max=333);\t\t// ms\r\nParam\tfreqsmooth(20, min=0, max=666);\t\t// ms\r\n\r\nmodclamp\t= samplerate*0.0625;\r\nsmoothsecs\t= smooth*0.001;\r\nsmoothsamps\t= smoothsecs*samplerate;\r\nsmoothfreq\t= mstosamps(freqsmooth);\r\nsat\t\t\t= int(saturation);\r\nrauto\t\t= int(resetauto);\r\nresettime\t= maximum(smoothsamps * 2, vectorsize * 8);\t\t\t\t// need to test this\r\nspread\t\t= 0.75;\t\t\t\t\t\t\t// might do funky AM stuff with this la'er\r\nmix\t\t\t= bandsmix;\r\n\r\ndrivepi, drivesin\t= sinParam(drive);\t\t// cheaper to keep out of audio branches and out of the while loop\r\n\r\n// audio rate ...\r\n\r\nx\t\t= in1;\r\nhz\t\t= in2;\r\nfm\t\t= in3;\r\nreset\t= delta(in4) < 0;\t\t\t\t\t// manual reset, will click, but useful if Hz @ zero\r\n\r\nif (smoothsecs > 0)\t\t\t\t\t\t\t// only smooth if requested\r\n{\r\n\tmix\t= logsmooth(mix, smoothsecs * 1.005);\r\n\tdrivepi, drivesin\t= expsmoothBank2(drivepi, drivesin, smoothsecs * 0.995);\r\n}\r\n\r\nif (smoothfreq > 0)\t\t\t\t\t\t\t// turn off smoothing if feeding with audio rate modulation\r\n{\r\n\thz, hn\t= eviLine(hz, smoothfreq);\r\n}\r\n\r\nhz\t\t\t= clamp(hz + fm, -modclamp, modclamp);\t\t\t\t\t// + audio rate modultion input\r\n\r\n// auto reset\r\nsync\t\t= phasor(hz, (reset + autoreset));\r\nstatic\t\t= delta(sync) != 0;\t\t\t\t// phasor is / is not moving\r\nresetramp, rrn\t= eviLine(static, resettime);\r\nautoreset\t= rauto ? ((change(rrn == 1) > 0) * (static == 0)) : 0;\t// end of down ramp only, not up\r\n\r\n// freqshift\r\nrm, im\t\t= quadratureOsc(sync, spread);\r\nreal, imag\t= evi_hilbert_cascade(x, coef1, coef2, coef3, coef4, coef5, coef6, coef7, coef8);\r\nusb, lsb, cosam, sinam\t= complexRing(real, imag, rm, im);\r\n\r\n// for hz zero reset\r\nusb\t\t\t= xfadeQuartApproxMono(real, usb, resetramp);\r\nlsb\t\t\t= xfadeQuartApproxMono(imag, lsb, resetramp);\r\n\r\nbands\t\t= xfadeQuartApproxMono(usb, lsb, mix);\t\t\t\t\t// mix bands\r\n\r\n// saturation\r\nif (sat) {\r\n\tout1\t= sinFoldAdaa2_4x(bands*0.984292036732, drivepi, drivesin);\t// sidebands mixed & saturated\r\n} else {\r\n\tout1\t= bands;\r\n}\r\n\r\n// extra stuff\r\nout2\t= usb;\t\t// positive sideband\r\nout3\t= lsb;\t\t// negative sideband\r\n\r\nout4 \t= rm;\t\t// quad osc cos\r\nout5 \t= im;\t\t// quad osc sin\r\n\r\nout6\t= sync;\r\n\r\n",
-					"fontface" : 0,
-					"fontname" : "<Monospaced>",
-					"fontsize" : 12.0,
-					"id" : "obj-3",
-					"maxclass" : "codebox",
-					"numinlets" : 4,
-					"numoutlets" : 6,
-					"outlettype" : [ "", "", "", "", "", "" ],
-					"patching_rect" : [ 49.0, 58.0, 887.0, 705.0 ]
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-4",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 222.599999999999994, 780.0, 63.0, 22.0 ],
-					"text" : "out 2 USB"
-				}
-
-			}
- ],
-		"lines" : [ 			{
-				"patchline" : 				{
-					"destination" : [ "obj-3", 0 ],
-					"source" : [ "obj-1", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-3", 2 ],
-					"midpoints" : [ 533.5, 49.5, 637.166666666666629, 49.5 ],
-					"source" : [ "obj-10", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-3", 1 ],
-					"midpoints" : [ 302.5, 49.5, 347.833333333333314, 49.5 ],
-					"source" : [ "obj-2", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-11", 0 ],
-					"source" : [ "obj-3", 4 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-4", 0 ],
-					"source" : [ "obj-3", 1 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-5", 0 ],
-					"source" : [ "obj-3", 2 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-6", 0 ],
-					"source" : [ "obj-3", 5 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-8", 0 ],
-					"source" : [ "obj-3", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-9", 0 ],
-					"source" : [ "obj-3", 3 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-3", 3 ],
-					"midpoints" : [ 784.5, 49.0, 926.5, 49.0 ],
-					"source" : [ "obj-7", 0 ]
-				}
-
-			}
- ]
-	}
-
+    "patcher": {
+        "fileversion": 1,
+        "appversion": {
+            "major": 9,
+            "minor": 2,
+            "revision": 0,
+            "architecture": "x64",
+            "modernui": 1
+        },
+        "classnamespace": "dsp.gen",
+        "rect": [ 100.0, 127.0, 1020.0, 821.0 ],
+        "gridonopen": 2,
+        "lefttoolbarpinned": 2,
+        "toptoolbarpinned": 2,
+        "righttoolbarpinned": 2,
+        "bottomtoolbarpinned": 1,
+        "toolbars_unpinned_last_save": 7,
+        "subpatcher_template": "sk_notoolbars_arial12",
+        "integercoordinates": 1,
+        "boxes": [
+            {
+                "box": {
+                    "id": "obj-10",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 517.0, 19.0, 241.0, 22.0 ],
+                    "text": "in 3 @c (signal) Frequency Shift FM in Hz ±"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-9",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 570.0, 780.0, 139.0, 22.0 ],
+                    "text": "out 4 @c Quad Osc Cos"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-11",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 743.0, 780.0, 135.0, 22.0 ],
+                    "text": "out 5 @c Quad Osc Sin"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-8",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 49.0, 780.0, 152.0, 22.0 ],
+                    "text": "out 1 @c Sidebands Mixed"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-7",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 775.0, 19.0, 229.0, 22.0 ],
+                    "text": "in 4 @c Signal Rate Phase Reset (Naive)"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-6",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 917.0, 780.0, 87.0, 22.0 ],
+                    "text": "out 6 @c Sync"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-5",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 396.2, 780.0, 83.0, 22.0 ],
+                    "text": "out 3 @c LSB"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-1",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 49.0, 19.0, 113.0, 22.0 ],
+                    "text": "in 1 @c Audio Input"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-2",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 265.0, 19.0, 235.0, 22.0 ],
+                    "text": "in 2 @c (float/int) Frequency Shift in Hz +/-"
+                }
+            },
+            {
+                "box": {
+                    "code": "\r\n// Time domain frequency shifter by Pete for evieve. A bit like MSP [freqshift~].\r\n\r\n// Defaults for 48kHz samplerate. If using other samplerates you will need to provide \r\n// coefficients externally (e.g. from [evi.polyphaseiirhilbertcoeffs], or \r\n// 'evi_hilbert_coefficients.js' directly). @see the [evi.freqshift.hilbert~]\r\n// abstraction for an example.\r\n\r\n// @see also:\r\n// 'evi_freqshift_weaver.gendsp'\t<<-- does not rely on externally computed coefficients :-)\r\n// 'evi_hilbert.gendsp'\r\n// 'evi_ringmod.gendsp'\r\n\r\n\r\n// lib\r\n\r\nrequire(\"evi_ssb.genexpr\");\r\n\r\n// declare\r\n\r\nHistory\tautoreset(1);\r\n\r\n// 64-bit Polyphase IIR Halfband Allpass Cascade Coefficients updated\r\n// from Javascript, defaults are for 48kHz Samplerate & 40Hz bandwidth\r\n\r\n// Phase reference path c coefficients\r\nParam\tcoef1(0.486604368613682, min=-10, max=10);\r\nParam\tcoef2(0.880779435272467, min=-10, max=10);\r\nParam\tcoef3(0.977931255616324, min=-10, max=10);\r\nParam\tcoef4(0.997673861850732, min=-10, max=10);\r\n// +90 degrees path c coefficients\r\nParam\tcoef5(0.165149093559079, min=-10, max=10);\r\nParam\tcoef6(0.739829012544530, min=-10, max=10);\r\nParam\tcoef7(0.947940906329181, min=-10, max=10);\r\nParam\tcoef8(0.991209712705258, min=-10, max=10);\r\n\r\nParam\tsaturation(0, min=0, max=1);\t\t// 0/1 off/on, default off\r\nParam\tdrive(0.5, min=0, max=2);\t\t\t// % 0..1.. , if sat on\r\nParam\tresetauto(1, min=0, max=1);\t\t\t// 0/1 off/on, default on\r\nParam\tbandsmix(0.5, min=0, max=1);\t\t// % 0..1, default equal mix\r\nParam\tsmooth(22.666, min=0, max=333);\t\t// ms\r\nParam\tfreqsmooth(20, min=0, max=666);\t\t// ms\r\n\r\nmodclamp\t= samplerate*0.0625;\r\nsmoothsecs\t= smooth*0.001;\r\nsmoothsamps\t= smoothsecs*samplerate;\r\nsmoothfreq\t= mstosamps(freqsmooth);\r\nsat\t\t\t= int(saturation);\r\nrauto\t\t= int(resetauto);\r\nresettime\t= maximum(smoothsamps * 2, vectorsize * 8);\t\t\t\t// need to test this\r\nspread\t\t= 0.75;\t\t\t\t\t\t\t// might do funky AM stuff with this la'er\r\nmix\t\t\t= bandsmix;\r\n\r\ndrivepi, drivesin\t= sinParam(drive);\t\t// cheaper to keep out of audio branches and out of the while loop\r\n\r\n// audio rate ...\r\n\r\nx\t\t= in1;\r\nhz\t\t= in2;\r\nfm\t\t= in3;\r\nreset\t= delta(in4) < 0;\t\t\t\t\t// manual reset, will click, but useful if Hz @ zero\r\n\r\nif (smoothsecs > 0)\t\t\t\t\t\t\t// only smooth if requested\r\n{\r\n\tmix\t= logsmooth(mix, smoothsecs * 1.005);\r\n\tdrivepi, drivesin\t= expsmoothBank2(drivepi, drivesin, smoothsecs * 0.995);\r\n}\r\n\r\nif (smoothfreq > 0)\t\t\t\t\t\t\t// turn off smoothing if feeding with audio rate modulation\r\n{\r\n\thz, hn\t= eviLine(hz, smoothfreq);\r\n}\r\n\r\nhz\t\t\t= clamp(hz + fm, -modclamp, modclamp);\t\t\t\t\t// + audio rate modultion input\r\n\r\n// auto reset\r\nsync\t\t= phasor(hz, (reset + autoreset));\r\nstatic\t\t= delta(sync) != 0;\t\t\t\t// phasor is / is not moving\r\nresetramp, rrn\t= eviLine(static, resettime);\r\nautoreset\t= rauto ? ((change(rrn == 1) > 0) * (static == 0)) : 0;\t// end of down ramp only, not up\r\n\r\n// freqshift\r\nrm, im\t\t= quadratureOsc(sync, spread);\r\nreal, imag\t= evi_hilbert_cascade(x, coef1, coef2, coef3, coef4, coef5, coef6, coef7, coef8);\r\nusb, lsb, cosam, sinam\t= complexRing(real, imag, rm, im);\r\n\r\n// for hz zero reset\r\nusb\t\t\t= xfadeQuartApproxMono(real, usb, resetramp);\r\nlsb\t\t\t= xfadeQuartApproxMono(imag, lsb, resetramp);\r\n\r\nbands\t\t= xfadeQuartApproxMono(usb, lsb, mix);\t\t\t\t\t// mix bands\r\n\r\n// saturation\r\nif (sat) {\r\n\tout1\t= sinFoldAdaa2_4x(bands*0.984292036732, drivepi, drivesin);\t// sidebands mixed & saturated\r\n} else {\r\n\tout1\t= bands;\r\n}\r\n\r\n// extra stuff\r\nout2\t= usb;\t\t// positive sideband\r\nout3\t= lsb;\t\t// negative sideband\r\n\r\nout4 \t= rm;\t\t// quad osc cos\r\nout5 \t= im;\t\t// quad osc sin\r\n\r\nout6\t= sync;\r\n\r\n",
+                    "fontface": 0,
+                    "fontname": "<Monospaced>",
+                    "fontsize": 12.0,
+                    "id": "obj-3",
+                    "maxclass": "codebox",
+                    "numinlets": 4,
+                    "numoutlets": 6,
+                    "outlettype": [ "", "", "", "", "", "" ],
+                    "patching_rect": [ 49.0, 58.0, 887.0, 705.0 ]
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-4",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 222.6, 780.0, 85.0, 22.0 ],
+                    "text": "out 2 @c USB"
+                }
+            }
+        ],
+        "lines": [
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 0 ],
+                    "source": [ "obj-1", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 2 ],
+                    "midpoints": [ 526.5, 49.5, 637.1666666666666, 49.5 ],
+                    "source": [ "obj-10", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 1 ],
+                    "midpoints": [ 274.5, 49.5, 347.8333333333333, 49.5 ],
+                    "source": [ "obj-2", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-11", 0 ],
+                    "source": [ "obj-3", 4 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-4", 0 ],
+                    "source": [ "obj-3", 1 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-5", 0 ],
+                    "source": [ "obj-3", 2 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-6", 0 ],
+                    "source": [ "obj-3", 5 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-8", 0 ],
+                    "source": [ "obj-3", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-9", 0 ],
+                    "source": [ "obj-3", 3 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 3 ],
+                    "midpoints": [ 784.5, 49.0, 926.5, 49.0 ],
+                    "source": [ "obj-7", 0 ]
+                }
+            }
+        ]
+    }
 }

@@ -1,0 +1,103 @@
+{
+    "patcher": {
+        "fileversion": 1,
+        "appversion": {
+            "major": 9,
+            "minor": 2,
+            "revision": 0,
+            "architecture": "x64",
+            "modernui": 1
+        },
+        "classnamespace": "dsp.gen",
+        "rect": [ 34.0, 100.0, 929.0, 848.0 ],
+        "gridonopen": 2,
+        "subpatcher_template": "sub",
+        "integercoordinates": 1,
+        "boxes": [
+            {
+                "box": {
+                    "id": "obj-5",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 743.0, 19.0, 141.0, 22.0 ],
+                    "text": "in 2 (signal) None / Right"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-2",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 723.0, 807.0, 161.0, 22.0 ],
+                    "text": "out 2 (signal) Nothing / Right"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-1",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 49.0, 19.0, 134.0, 22.0 ],
+                    "text": "in 1 (signal) Mono / Left"
+                }
+            },
+            {
+                "box": {
+                    "code": "\r\n// cheap Df2-based classic \"Baxandall\" (treble/bass 'tone') EQ with no smoothing.\r\n// mono or stereo.\r\n\r\n// a bit like the airwindows Baxandall, MIT licensed.\r\n\r\ncoeffs(freq, recres, divres)\r\n{\r\n\tK\t\t= tan(PI * freq) * recres;\t// * 1 / resampling factor\r\n\tK2\t\t= K * K;\r\n\tKw1\t\t= K / divres;\t\t\t\t// div resample\r\n\tnorm\t= 1 / (1 + Kw1 + K2);\r\n\tK2norm\t= (K2 - 1) * norm;\r\n\r\n\ta1\t\t= K2 * norm;\r\n\ta2\t\t= a1 + a1;\r\n\tb1\t\t= K2norm + K2norm;\r\n\tb2\t\t= (1 - Kw1 + K2) * norm;\r\n\r\n\treturn\ta1, a2, b1, b2;\r\n}\r\n\r\n// Df2\r\n\r\nfilter(x0, a1, a2, b1, b2)\r\n{\r\n\tHistory\ty0(0), y1(0);\r\n\r\n\tx1\t\t\t\t=  x0 * a1;\r\n\toutputSample\t=  x1 + y0;\n\ty0\t\t\t\t= (x0 * a2) - (outputSample * b1) + y1;\n\ty1\t\t\t\t=  x1 - (outputSample * b2);\n\r\n\treturn\t\t\toutputSample;\r\n}\r\n\r\n// setup\r\n\r\nParam\tstereo(0, min=0, max=1);    // 0/1\r\nParam\ttreble(0, min=-24, max=24); // dB\r\nParam\tbass(0, min=-24, max=24);   // dB\r\n\r\nDBLIN\t= 0.11512925464970228;\r\n\r\nstereoOp\t\t= int(stereo);\r\ninputSample\t\t= in1;\r\ninputSampleR\t= in2;\r\n\r\n// controls\r\n\r\ntrebleGain\t= exp(DBLIN * treble);\t\t// smooth here\r\ntrebleFreq\t= minimum((4800 * trebleGain) / samplerate, 0.45);\r\n\r\ngainBass\t= bass;\t\t\t\t\t\t// smooth here\r\nbassGain\t= exp(DBLIN * gainBass);\r\nbassFreq\t= exp(DBLIN * -gainBass);\r\nbassFreq\t= minimum((9600 * bassFreq) / samplerate, 0.45);\r\n\r\n// coefficients\r\n\r\nta1, ta2, tb1, tb2\t= coeffs(trebleFreq, 0.5, 0.4);\r\nba1, ba2, bb1, bb2\t= coeffs(bassFreq, 0.5, 0.2);\r\n\r\n// filters\r\n\r\ntrebleSample\t= inputSample - filter(inputSample, ta1, ta2, tb1, tb2);\r\nbassSample\t\t= filter(inputSample, ba1, ba2, bb1, bb2);\r\n\r\n// output\r\n\r\ntrebleSample   *= trebleGain;\nbassSample\t   *= bassGain;\noutputSample\t= bassSample + trebleSample;\n\r\nout1\t\t\t= outputSample;\r\nout2\t\t\t= 0;\r\n\r\nif (stereoOp)\r\n{\r\n\t// filters\r\n\t\r\n\ttrebleSampleR\t= inputSampleR - filter(inputSampleR, ta1, ta2, tb1, tb2);\r\n\tbassSampleR\t\t= filter(inputSampleR, ba1, ba2, bb1, bb2);\r\n\t\r\n\t// output\r\n\t\r\n\ttrebleSampleR  *= trebleGain;\n\tbassSampleR\t   *= bassGain;\n\toutputSampleR\t= bassSampleR + trebleSampleR;\n\t\r\n\tout2\t\t\t= outputSampleR;\r\n}\r\n",
+                    "fontface": 0,
+                    "fontname": "<Monospaced>",
+                    "fontsize": 12.0,
+                    "id": "obj-3",
+                    "maxclass": "codebox",
+                    "numinlets": 2,
+                    "numoutlets": 2,
+                    "outlettype": [ "", "" ],
+                    "patching_rect": [ 49.0, 58.0, 835.0, 732.0 ]
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-4",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 49.0, 807.0, 131.0, 22.0 ],
+                    "text": "out 1 (signal) Out / Left"
+                }
+            }
+        ],
+        "lines": [
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 0 ],
+                    "source": [ "obj-1", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-2", 0 ],
+                    "midpoints": [ 874.5, 798.5, 732.5, 798.5 ],
+                    "source": [ "obj-3", 1 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-4", 0 ],
+                    "source": [ "obj-3", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 1 ],
+                    "midpoints": [ 752.5, 49.0, 874.5, 49.0 ],
+                    "source": [ "obj-5", 0 ]
+                }
+            }
+        ]
+    }
+}

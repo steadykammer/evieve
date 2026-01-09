@@ -139,7 +139,7 @@ atanT(x)		// third order using atanIT
 }
 
 // atan2 approximation
-
+// more than 2 x faster than library atan2()
 atan2Approx(y, x)
 {
 	onequarterpi = 0.785398163397448;

@@ -1,187 +1,149 @@
 {
-	"patcher" : 	{
-		"fileversion" : 1,
-		"appversion" : 		{
-			"major" : 9,
-			"minor" : 0,
-			"revision" : 0,
-			"architecture" : "x64",
-			"modernui" : 1
-		}
-,
-		"classnamespace" : "dsp.gen",
-		"rect" : [ 473.0, 100.0, 1005.0, 848.0 ],
-		"bglocked" : 0,
-		"openinpresentation" : 0,
-		"default_fontsize" : 12.0,
-		"default_fontface" : 0,
-		"default_fontname" : "Arial",
-		"gridonopen" : 2,
-		"gridsize" : [ 15.0, 15.0 ],
-		"gridsnaponopen" : 1,
-		"objectsnaponopen" : 1,
-		"statusbarvisible" : 2,
-		"toolbarvisible" : 1,
-		"lefttoolbarpinned" : 0,
-		"toptoolbarpinned" : 0,
-		"righttoolbarpinned" : 0,
-		"bottomtoolbarpinned" : 0,
-		"toolbars_unpinned_last_save" : 0,
-		"tallnewobj" : 0,
-		"boxanimatetime" : 200,
-		"enablehscroll" : 1,
-		"enablevscroll" : 1,
-		"devicewidth" : 0.0,
-		"description" : "",
-		"digest" : "",
-		"tags" : "",
-		"style" : "",
-		"subpatcher_template" : "",
-		"assistshowspatchername" : 0,
-		"boxes" : [ 			{
-				"box" : 				{
-					"id" : "obj-3",
-					"maxclass" : "newobj",
-					"numinlets" : 0,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 716.0, 19.0, 266.0, 22.0 ],
-					"text" : "in 4 Sweep @min 0 @max 1 @default 0.408141"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"fontname" : "Arial",
-					"fontsize" : 12.0,
-					"id" : "obj-13",
-					"maxclass" : "newobj",
-					"numinlets" : 0,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 463.0, 19.0, 236.0, 22.0 ],
-					"text" : "in 3 Scaler @min 0 @max 1 @default 0.48"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"fontname" : "Arial",
-					"fontsize" : 12.0,
-					"id" : "obj-12",
-					"maxclass" : "newobj",
-					"numinlets" : 0,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 218.0, 19.0, 228.0, 22.0 ],
-					"text" : "in 2 Offset @min 0 @max 1 @default 0.1"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"code" : "\r\ntnA(x)\t\t\t\t\t\t\t\t\t\t\t// valid for 0..1 input\n{\n\tx2\t\t= (x * x);\n\tx3\t\t= (x2 * x);\n\tx5\t\t= (x2 * x3);\n\treturn\t ((x5 * 0.133333333333) + (x3 * 0.333333333333)) + x;\n}\n\r\n// fixed mode=0 version, no branching, can keep out of while loop\r\nrcDampCoeffs(cutoff, ka)\t\t\t\t\t\t// cutoff in Hz, ka = \"damp\" = sqrt..lin = must be clamped 0..1\n{\n\t// prewarp\n\tg0\t=  tnA(pi * cutoff / samplerate);\n\tks\t= (ka * 0.5) + 0.5;\n\tg01\t=  1 + g0;\n\tg1 \t=  g0 / interp((2 * (ks - 0.5)), sqrt(g01), g01);\n\td1\t= interp((2 * (((1 - ks) + 0.5) - 0.5)), sqrt(ka), ka);\n\treturn g1, d1;\t\t\t\t\t\t\t\t// rc filter warped cf (g)\t// rc filter warped gain (k)\n}\n\r\n// High or Low Pass if k == 1, Bypass if k == 0, else Low or High Shelf attenuation (k 0..1)\nrcFilterDamp(Vin, g, k)\t\t\t\t\t\t\t// g = pre-warped normalised frequency (g / (1 + g))\n{\n\tHistory\t   s(0);\n\tLp\t\t= ( g * Vin + s) / (g + 1);\n\ts\t\t= (Lp + Lp) - s;\n\tHp\t\t=  Lp - Vin;\t\t\t\t\t\t// !! must be y-x way round for shelfs !!\n\tLpHs\t= Vin + ( k * Hp);\n\tHpLs\t= ( k * Lp) - Vin;\n\treturn\t   HpLs, LpHs;\n}\n\nlogsmooth(x, s)\t\t\t\t\t\t\t\t\t// s = time to drop 6dB (in seconds)\n{\n\tHistory z(0);\n\tad = LN2 / (s * samplerate);\t\t\t\t// \tad = LN2 / maximum((s * samplerate), 1);\n\ty  = ((x - z) * ad) + z;\n\tz  = y;\n\treturn y;\n}\n\neviMap(valueIn, inLow, inHigh, outLow, outHigh)\t// basic linear scaling like linear part of [scale]\n{\n\tmultiplier = (outLow - outHigh) / (inLow - inHigh);\n\treturn (valueIn - inLow) * multiplier + outLow;\n}\n\n// a bit like MSP [line~], i.e. exact destination\neviLine(target, duration)\t\t\t\t\t\t// target, duration in samples\n{\n\tHistory\tvalue(0);\n\ttrigger\t= change(target);\n\tramp\t= clip(accum((1 / latch(duration, trigger)), trigger), 0, 1);\n\tline\t= eviMap(ramp, 0, 1, latch(value, trigger), latch(target, trigger));\n\tvalue\t= line;\n\treturn\tline, (ramp == 1);\n}\r\n\r\n// Buchla nonlinear control circuit maps V_b to R_f (vactrol resistance),\r\n// based on \"A Digital Model of the Buchla Lowpass-Gate\" by Julian Parker and Stefano D’Angelo, 2013\r\n\r\n// control, offset, scaler, power, response\r\nbuchlaControlCircuit(V_b, offset, scaler, Ifpow, Ifmax)\r\n{\r\n\t// constants\r\n\tA = 3.4645912;\t\t\t\t// A & B just taken from datasheet: \"Perkin Elmer Optoelectronics,\r\n\tB = 1136.2129956;\t\t\t// Photoconductive Cells and Analog Optoisolators (Vactrols), 2001\"\r\n\tIfmin = 0.0000101;\r\n\tR2max = 10000;\r\n\tR6max = 20000;\r\n\tR7 = 33000;\r\n\tR3 = 150000;\r\n\trR3 = 0.000006666666667;\r\n\tR5 = 100000;\r\n\trR5 = 0.00001;\r\n\trR8 = 0.000212765957447;\r\n\tR9 = 470;\r\n\tVB = 3.9;\r\n\tVT = 0.026;\r\n\tn = 3.9696;\r\n\tkl = 6.3862;\r\n\tG = 200000;\r\n\tVs = 15;\r\n\tk0 = 146.8;\r\n\tk1 = 0.49202;\r\n\tk2 = 0.00041667;\r\n\tk3 = 0.0000000073915;\r\n\tgamma = 0.0001;\r\n\tgammaG = 20;\r\n\txi = 600;\t\t\t\t\t// \"corresponds to a maximum variation in terms of Vb of circa ±0.01 V\"\r\n\r\n\t// inputs\r\n\tVb = clip(V_b, -10, 50);\t// why ??\r\n\tR6 = scaler*R6max;\t\t\t// scaler 0..1\r\n\tR1 = (1 - offset)*R2max;\t// offset 0.0001..1 (and shaped)\r\n\tR2 = offset*R2max;\r\n\r\n\t// intermediates\r\n\tr1r2 = R1/R2;\r\n\tr6r7 = R6 + R7;\r\n\talpha = 1 + r6r7*(rR3 + rR5);\r\n\tralpha = 1/alpha;\r\n\tbeta = (ralpha - 1)/r6r7 - rR8;\r\n\tnVT = n*VT;\r\n\talphanVT = alpha*nVT;\r\n\talphabeta = alpha*beta;\r\n\tralphabeta = 1/alphabeta;\r\n\talphaR9 = alpha*R9;\r\n\r\n\t// compute V3, LambertW\r\n\tbound1 = xi*alphanVT/(G*(r6r7 - ralphabeta)); \r\n\tIa = Vb/R5 + Vs/(R3*(1 + r1r2));\r\n\tV3 = 0;\r\n\tif (Ia <= -bound1) {\r\n\t\tV3 = -Ia*ralphabeta;\r\n\t} else if (Ia < bound1) {\r\n\t\tx = G*Ia*(r6r7 - ralphabeta)/alphanVT;\r\n\t\tw = k0 + k1*x + k2*x*x + k3*x*x*x;\t\t\t\t\t// \"not-a-knot cubic spline otherwise\"\r\n\t\tV3 = -(alpha/G)*nVT*w - Ia*ralphabeta;\r\n\t} else {\n\t\tV3 = kl*alpha/G*nVT - Ia*r6r7;\n\t}\r\n\r\n\t// compute If, \"very close in the region below the zener breakdown\" but...\r\n\tbetaV3 = beta*V3;\r\n\tIfbound1 = alpha*(Ifmin - betaV3);\r\n\tIfbound2 = VB/r6r7;\r\n\tIfbound3 = (gammaG*VB + alphaR9*(VB*beta + Ifmax))/(gammaG*r6r7 + R9);\r\n\tIf = 0;\r\n\tif (Ia <= Ifbound1) {\r\n\t\tIf = Ifmin;\r\n\t} else if (Ia <= Ifbound2) {\r\n\t\tIf = betaV3 + Ia*ralpha;\r\n\t} else if (Ia <= Ifbound3) {\r\n\t\tIf = gammaG*(Ia*r6r7 - VB)/alphaR9 - beta*VB + Ia*ralpha;\r\n\t} else {\r\n\t\tIf = Ifmax;\r\n\t}\r\n\r\n\t// compute R_f: 'If' current-to-resistance mapping power is 'Rf'\r\n\t// the input to fastpow (If) is in a range where boundaries are not affected too badly by the approximation,\r\n\t// and the piecewise approx also produces more musical kinks in the output ramps, at least pete thinks so\r\n\treturn B + A/fastpow(If, Ifpow);\t\t\t\t\t\t// Ifpow (sweep) 0.999938..1.997, default 1.398717\r\n\t//return B + A/mix(If, If*If, Ifpow);\t\t\t\t\t// ?? then Ifpow would be 0..1 defaulting to 0.4\r\n}\r\n\r\nHistory\tbcc(0);\r\n\r\nParam\tmapcutoff(143, min=7, max=788);\r\nParam\tmapdamp(0, min=0, max=1);\t\t\t\t\t\t\t// default bypassed\r\n\r\n// all smoothers default to off\r\nParam\toffsetsmooth(0, min=0, max=0.333333);\t\t\t\t// in seconds\r\nParam\tscalersmooth(0, min=0, max=0.111111);\t\t\t\t// in seconds\r\nParam\tsweepsmooth(0, min=0, max=0.222222);\t\t\t\t// in seconds\r\nParam\tcontrol(1, min=0, max=2);\t\t\t\t\t\t\t// int, select control response, default 0.04\r\n\r\ngamma\t= 0.0001;\r\nigamma\t= 0.9999;\r\n// param rate\r\ndamp_g, damp_k\t= rcDampCoeffs(mapcutoff, mapdamp);\t\t\t// \"...it makes little difference\"\r\nresponse  = selector(int(control)+1, 0.01, 0.04, 0.12);\t\t// this also makes little difference :-)\r\n\r\n// default 0.1 seems like a good idea\r\noffset\t= (igamma * in2*in2) + gamma;\t// 0.0001..1\t\t// must scale like this before input to function\r\nif (offsetsmooth > 0) {\t\t\t\t\t// turn off if modulating\r\n\toffset = logsmooth(offset, offsetsmooth);\r\n}\r\n// 0.48 = tuned for original fixed input range\r\nscaler\t= in3;\t\t\t\t\t\t\t// 0..1\t\t\t\t// should default to input \"0.48\"\r\nif (scalersmooth > 0) {\t\t\t\t\t// turn off if static or modulating\r\n\tscaler = logsmooth(scaler, scalersmooth);\r\n}\r\n// 0.408141 tuned for original fixed power output but taking into account fastpow() approximation here\r\nsweep\t= (in4 * 0.977062) + 0.999938;\t// 0.999938..1.997\t// must default to input \"0.408141\" output \"1.398717\"\r\nif (sweepsmooth > 0) {\t\t\t\t\t// turn off if static or modulating\r\n\tsweep  = eviLine(sweep, sweepsmooth*samplerate);\r\n}\r\n\r\nV_c\t\t\t= in1;\r\n// low shelving filter optionally maps between V_c and V_b\r\nN_b, V_b\t= rcFilterDamp(V_c, damp_g, damp_k);\r\n\r\nR_f\t\t\t= buchlaControlCircuit(V_b, offset, scaler, sweep, response);\r\nout1\t\t= R_f;\t\t\t\t\t\t// to LPG\r\n\r\n",
-					"fontface" : 0,
-					"fontname" : "<Monospaced>",
-					"fontsize" : 12.0,
-					"id" : "obj-11",
-					"maxclass" : "codebox",
-					"numinlets" : 4,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 34.0, 58.0, 918.0, 732.0 ]
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"fontname" : "Arial",
-					"fontsize" : 12.0,
-					"id" : "obj-1",
-					"maxclass" : "newobj",
-					"numinlets" : 0,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 34.0, 19.0, 127.0, 22.0 ],
-					"text" : "in 1 V_c (from Vactrol)"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"fontname" : "Arial",
-					"fontsize" : 12.0,
-					"id" : "obj-4",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 34.0, 807.0, 106.0, 22.0 ],
-					"text" : "out 1 R_f (to LPG)"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-6",
-					"maxclass" : "comment",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 716.0, 1.0, 266.0, 20.0 ],
-					"text" : "0.408141 = tuned for original fixed output range"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-5",
-					"maxclass" : "comment",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 463.0, 1.0, 236.0, 20.0 ],
-					"text" : "0.48 = tuned for original fixed input range"
-				}
-
-			}
- ],
-		"lines" : [ 			{
-				"patchline" : 				{
-					"destination" : [ "obj-11", 0 ],
-					"source" : [ "obj-1", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-4", 0 ],
-					"source" : [ "obj-11", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-11", 1 ],
-					"midpoints" : [ 227.5, 49.0, 343.166666666666686, 49.0 ],
-					"source" : [ "obj-12", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-11", 2 ],
-					"midpoints" : [ 472.5, 49.0, 642.833333333333371, 49.0 ],
-					"source" : [ "obj-13", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-11", 3 ],
-					"midpoints" : [ 725.5, 49.0, 942.5, 49.0 ],
-					"source" : [ "obj-3", 0 ]
-				}
-
-			}
- ]
-	}
-
+    "patcher": {
+        "fileversion": 1,
+        "appversion": {
+            "major": 9,
+            "minor": 2,
+            "revision": 0,
+            "architecture": "x64",
+            "modernui": 1
+        },
+        "classnamespace": "dsp.gen",
+        "rect": [ 356.0, 100.0, 1052.0, 848.0 ],
+        "gridonopen": 2,
+        "integercoordinates": 1,
+        "boxes": [
+            {
+                "box": {
+                    "id": "obj-3",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 755.0, 19.0, 287.0, 22.0 ],
+                    "text": "in 4 @c Sweep @min 0 @max 1 @default 0.408141"
+                }
+            },
+            {
+                "box": {
+                    "fontname": "Arial",
+                    "fontsize": 12.0,
+                    "id": "obj-13",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 480.0, 19.0, 258.0, 22.0 ],
+                    "text": "in 3 @c Scaler @min 0 @max 1 @default 0.48"
+                }
+            },
+            {
+                "box": {
+                    "fontname": "Arial",
+                    "fontsize": 12.0,
+                    "id": "obj-12",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 214.0, 19.0, 249.0, 22.0 ],
+                    "text": "in 2 @c Offset @min 0 @max 1 @default 0.1"
+                }
+            },
+            {
+                "box": {
+                    "code": "\r\ntnA(x)\t\t\t\t\t\t\t\t\t\t\t// valid for 0..1 input\n{\n\tx2\t\t= (x * x);\n\tx3\t\t= (x2 * x);\n\tx5\t\t= (x2 * x3);\n\treturn\t ((x5 * 0.133333333333) + (x3 * 0.333333333333)) + x;\n}\n\r\n// fixed mode=0 version, no branching, can keep out of while loop\r\nrcDampCoeffs(cutoff, ka)\t\t\t\t\t\t// cutoff in Hz, ka = \"damp\" = sqrt..lin = must be clamped 0..1\n{\n\t// prewarp\n\tg0\t=  tnA(pi * cutoff / samplerate);\n\tks\t= (ka * 0.5) + 0.5;\n\tg01\t=  1 + g0;\n\tg1 \t=  g0 / interp((2 * (ks - 0.5)), sqrt(g01), g01);\n\td1\t= interp((2 * (((1 - ks) + 0.5) - 0.5)), sqrt(ka), ka);\n\treturn g1, d1;\t\t\t\t\t\t\t\t// rc filter warped cf (g)\t// rc filter warped gain (k)\n}\n\r\n// High or Low Pass if k == 1, Bypass if k == 0, else Low or High Shelf attenuation (k 0..1)\nrcFilterDamp(Vin, g, k)\t\t\t\t\t\t\t// g = pre-warped normalised frequency (g / (1 + g))\n{\n\tHistory\t   s(0);\n\tLp\t\t= ( g * Vin + s) / (g + 1);\n\ts\t\t= (Lp + Lp) - s;\n\tHp\t\t=  Lp - Vin;\t\t\t\t\t\t// !! must be y-x way round for shelfs !!\n\tLpHs\t= Vin + ( k * Hp);\n\tHpLs\t= ( k * Lp) - Vin;\n\treturn\t   HpLs, LpHs;\n}\n\nlogsmooth(x, s)\t\t\t\t\t\t\t\t\t// s = time to drop 6dB (in seconds)\n{\n\tHistory z(0);\n\tad = LN2 / (s * samplerate);\t\t\t\t// \tad = LN2 / maximum((s * samplerate), 1);\n\ty  = ((x - z) * ad) + z;\n\tz  = y;\n\treturn y;\n}\n\neviMap(valueIn, inLow, inHigh, outLow, outHigh)\t// basic linear scaling like linear part of [scale]\n{\n\tmultiplier = (outLow - outHigh) / (inLow - inHigh);\n\treturn (valueIn - inLow) * multiplier + outLow;\n}\n\n// a bit like MSP [line~], i.e. exact destination\neviLine(target, duration)\t\t\t\t\t\t// target, duration in samples\n{\n\tHistory\tvalue(0);\n\ttrigger\t= change(target);\n\tramp\t= clip(accum((1 / latch(duration, trigger)), trigger), 0, 1);\n\tline\t= eviMap(ramp, 0, 1, latch(value, trigger), latch(target, trigger));\n\tvalue\t= line;\n\treturn\tline, (ramp == 1);\n}\r\n\r\n// Buchla nonlinear control circuit maps V_b to R_f (vactrol resistance),\r\n// based on \"A Digital Model of the Buchla Lowpass-Gate\" by Julian Parker and Stefano D’Angelo, 2013\r\n\r\n// control, offset, scaler, power, response\r\nbuchlaControlCircuit(V_b, offset, scaler, Ifpow, Ifmax)\r\n{\r\n\t// constants\r\n\tA = 3.4645912;\t\t\t\t// A & B just taken from datasheet: \"Perkin Elmer Optoelectronics,\r\n\tB = 1136.2129956;\t\t\t// Photoconductive Cells and Analog Optoisolators (Vactrols), 2001\"\r\n\tIfmin = 0.0000101;\r\n\tR2max = 10000;\r\n\tR6max = 20000;\r\n\tR7 = 33000;\r\n\tR3 = 150000;\r\n\trR3 = 0.000006666666667;\r\n\tR5 = 100000;\r\n\trR5 = 0.00001;\r\n\trR8 = 0.000212765957447;\r\n\tR9 = 470;\r\n\tVB = 3.9;\r\n\tVT = 0.026;\r\n\tn = 3.9696;\r\n\tkl = 6.3862;\r\n\tG = 200000;\r\n\tVs = 15;\r\n\tk0 = 146.8;\r\n\tk1 = 0.49202;\r\n\tk2 = 0.00041667;\r\n\tk3 = 0.0000000073915;\r\n\tgamma = 0.0001;\r\n\tgammaG = 20;\r\n\txi = 600;\t\t\t\t\t// \"corresponds to a maximum variation in terms of Vb of circa ±0.01 V\"\r\n\r\n\t// inputs\r\n\tVb = clip(V_b, -10, 50);\t// why ??\r\n\tR6 = scaler*R6max;\t\t\t// scaler 0..1\r\n\tR1 = (1 - offset)*R2max;\t// offset 0.0001..1 (and shaped)\r\n\tR2 = offset*R2max;\r\n\r\n\t// intermediates\r\n\tr1r2 = R1/R2;\r\n\tr6r7 = R6 + R7;\r\n\talpha = 1 + r6r7*(rR3 + rR5);\r\n\tralpha = 1/alpha;\r\n\tbeta = (ralpha - 1)/r6r7 - rR8;\r\n\tnVT = n*VT;\r\n\talphanVT = alpha*nVT;\r\n\talphabeta = alpha*beta;\r\n\tralphabeta = 1/alphabeta;\r\n\talphaR9 = alpha*R9;\r\n\r\n\t// compute V3, LambertW\r\n\tbound1 = xi*alphanVT/(G*(r6r7 - ralphabeta)); \r\n\tIa = Vb/R5 + Vs/(R3*(1 + r1r2));\r\n\tV3 = 0;\r\n\tif (Ia <= -bound1) {\r\n\t\tV3 = -Ia*ralphabeta;\r\n\t} else if (Ia < bound1) {\r\n\t\tx = G*Ia*(r6r7 - ralphabeta)/alphanVT;\r\n\t\tw = k0 + k1*x + k2*x*x + k3*x*x*x;\t\t\t\t\t// \"not-a-knot cubic spline otherwise\"\r\n\t\tV3 = -(alpha/G)*nVT*w - Ia*ralphabeta;\r\n\t} else {\n\t\tV3 = kl*alpha/G*nVT - Ia*r6r7;\n\t}\r\n\r\n\t// compute If, \"very close in the region below the zener breakdown\" but...\r\n\tbetaV3 = beta*V3;\r\n\tIfbound1 = alpha*(Ifmin - betaV3);\r\n\tIfbound2 = VB/r6r7;\r\n\tIfbound3 = (gammaG*VB + alphaR9*(VB*beta + Ifmax))/(gammaG*r6r7 + R9);\r\n\tIf = 0;\r\n\tif (Ia <= Ifbound1) {\r\n\t\tIf = Ifmin;\r\n\t} else if (Ia <= Ifbound2) {\r\n\t\tIf = betaV3 + Ia*ralpha;\r\n\t} else if (Ia <= Ifbound3) {\r\n\t\tIf = gammaG*(Ia*r6r7 - VB)/alphaR9 - beta*VB + Ia*ralpha;\r\n\t} else {\r\n\t\tIf = Ifmax;\r\n\t}\r\n\r\n\t// compute R_f: 'If' current-to-resistance mapping power is 'Rf'\r\n\t// the input to fastpow (If) is in a range where boundaries are not affected too badly by the approximation,\r\n\t// and the piecewise approx also produces more musical kinks in the output ramps, at least pete thinks so\r\n\treturn B + A/fastpow(If, Ifpow);\t\t\t\t\t\t// Ifpow (sweep) 0.999938..1.997, default 1.398717\r\n\t//return B + A/mix(If, If*If, Ifpow);\t\t\t\t\t// ?? then Ifpow would be 0..1 defaulting to 0.4\r\n}\r\n\r\nHistory\tbcc(0);\r\n\r\nParam\tmapcutoff(143, min=7, max=788);\r\nParam\tmapdamp(0, min=0, max=1);\t\t\t\t\t\t\t// default bypassed\r\n\r\n// all smoothers default to off\r\nParam\toffsetsmooth(0, min=0, max=0.333333);\t\t\t\t// in seconds\r\nParam\tscalersmooth(0, min=0, max=0.111111);\t\t\t\t// in seconds\r\nParam\tsweepsmooth(0, min=0, max=0.222222);\t\t\t\t// in seconds\r\nParam\tcontrol(1, min=0, max=2);\t\t\t\t\t\t\t// int, select control response, default 0.04\r\n\r\ngamma\t= 0.0001;\r\nigamma\t= 0.9999;\r\n// param rate\r\ndamp_g, damp_k\t= rcDampCoeffs(mapcutoff, mapdamp);\t\t\t// \"...it makes little difference\"\r\nresponse  = selector(int(control)+1, 0.01, 0.04, 0.12);\t\t// this also makes little difference :-)\r\n\r\n// default 0.1 seems like a good idea\r\noffset\t= (igamma * in2*in2) + gamma;\t// 0.0001..1\t\t// must scale like this before input to function\r\nif (offsetsmooth > 0) {\t\t\t\t\t// turn off if modulating\r\n\toffset = logsmooth(offset, offsetsmooth);\r\n}\r\n// 0.48 = tuned for original fixed input range\r\nscaler\t= in3;\t\t\t\t\t\t\t// 0..1\t\t\t\t// should default to input \"0.48\"\r\nif (scalersmooth > 0) {\t\t\t\t\t// turn off if static or modulating\r\n\tscaler = logsmooth(scaler, scalersmooth);\r\n}\r\n// 0.408141 tuned for original fixed power output but taking into account fastpow() approximation here\r\nsweep\t= (in4 * 0.977062) + 0.999938;\t// 0.999938..1.997\t// must default to input \"0.408141\" output \"1.398717\"\r\nif (sweepsmooth > 0) {\t\t\t\t\t// turn off if static or modulating\r\n\tsweep  = eviLine(sweep, sweepsmooth*samplerate);\r\n}\r\n\r\nV_c\t\t\t= in1;\r\n// low shelving filter optionally maps between V_c and V_b\r\nN_b, V_b\t= rcFilterDamp(V_c, damp_g, damp_k);\r\n\r\nR_f\t\t\t= buchlaControlCircuit(V_b, offset, scaler, sweep, response);\r\nout1\t\t= R_f;\t\t\t\t\t\t// to LPG\r\n\r\n",
+                    "fontface": 0,
+                    "fontname": "<Monospaced>",
+                    "fontsize": 12.0,
+                    "id": "obj-11",
+                    "maxclass": "codebox",
+                    "numinlets": 4,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 34.0, 58.0, 918.0, 732.0 ]
+                }
+            },
+            {
+                "box": {
+                    "fontname": "Arial",
+                    "fontsize": 12.0,
+                    "id": "obj-1",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 34.0, 19.0, 148.0, 22.0 ],
+                    "text": "in 1 @c V_c (from Vactrol)"
+                }
+            },
+            {
+                "box": {
+                    "fontname": "Arial",
+                    "fontsize": 12.0,
+                    "id": "obj-4",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 34.0, 807.0, 127.0, 22.0 ],
+                    "text": "out 1 @c R_f (to LPG)"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-6",
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 755.0, 1.0, 266.0, 20.0 ],
+                    "text": "0.408141 = tuned for original fixed output range"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-5",
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 480.0, 1.0, 236.0, 20.0 ],
+                    "text": "0.48 = tuned for original fixed input range"
+                }
+            }
+        ],
+        "lines": [
+            {
+                "patchline": {
+                    "destination": [ "obj-11", 0 ],
+                    "source": [ "obj-1", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-4", 0 ],
+                    "source": [ "obj-11", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-11", 1 ],
+                    "midpoints": [ 223.5, 49.0, 343.1666666666667, 49.0 ],
+                    "source": [ "obj-12", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-11", 2 ],
+                    "midpoints": [ 489.5, 49.0, 642.8333333333334, 49.0 ],
+                    "source": [ "obj-13", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-11", 3 ],
+                    "midpoints": [ 764.5, 49.0, 942.5, 49.0 ],
+                    "source": [ "obj-3", 0 ]
+                }
+            }
+        ]
+    }
 }

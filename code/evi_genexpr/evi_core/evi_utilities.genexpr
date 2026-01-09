@@ -16,8 +16,8 @@ logicalClicks(x)
 	return	updown, up, down;
 }
 
-// 'hold' = ms, (0 = 1 sample 'click')
-// 'trigger' = trigger type, 0 = up/down, 1 = up only, 2 = down only
+// 'hold' = ms (0 = 1 sample 'click'),
+// 'trigger' = trigger type: 0 = up/down, 1 = up only, 2 = down only
 triggerHoldGate(X, hold=10, trigger=1)
 {
     History		prev_value(0);
@@ -130,7 +130,8 @@ eviScurve(segment)
 	return	(segment < 0.5) ? (s2 + s2) : (1 - (r2 + r2));
 }
 
-// basic linear scaling like linear part of [scale]
+// basic linear scaling like linear part of [scale], for when only linear is needed
+// only about 1.15 x faster than using library scale(), but still worth it
 eviMap(valueIn, inLow, inHigh, outLow, outHigh)
 {
     multiplier = (outLow - outHigh) / (inLow - inHigh);
@@ -145,6 +146,26 @@ eviZmap(valueIn, inLow, inHigh, outLow, outHigh)
 	return (value - inLow) * multiplier + outLow;
 }
 
+// todo: we need a knee version
+kinky(p, k)
+{
+	pk = p * k;
+	pk05 = pk < 0.5;
+	pksh = delta(pk05) < 0;
+	pos = latch(p, pksh);
+	slope = eviMap(p, pos, 1, 0.5, 1);
+	return pk05 ? pk : slope;
+}
+
+sin7(x1)	// 5 muls, 3 plus, terrible accuracy, for lfos etc only
+{
+	x2 = x1 * x1;
+	x3 = x2 * -0.540347 + 2.53566;
+	x4 = x3 * x2 + -5.16651;
+	x5 = x4 * x2 + PI;
+	return x5 * x1;
+}
+
 // mixing
 
 // simple parabolic approx crossfader (stereo)
@@ -152,7 +173,7 @@ stereoXfadePar(L1, R1, L2, R2, x0)
 {
 	xx = x0 * x0;
 	x1 = 1 - xx;
-	x2 = x0 + x0  - xx;
+	x2 = x0 + x0 - xx;
 	fadeL = (L1 * x1) + (L2 * x2);
 	fadeR = (R1 * x1) + (R2 * x2);
 	return fadeL, fadeR;
@@ -170,6 +191,8 @@ xfadeSqrtStereo(a, b, c, d, x)
 	cL, cR	= ctrlSqrt(x);
 	return ((a * cL) + (c * cR)), ((b * cL) + (d * cR));
 }
+
+// these are the ones we use the most in evieve
 
 xfadeQuartApproxMono(a, c, q)												// q is control, must be clamped 0..1
 {
