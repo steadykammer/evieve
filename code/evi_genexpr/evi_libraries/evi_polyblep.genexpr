@@ -1,8 +1,6 @@
 
 // evieve poly bleps etc
 
-require("evi_smooth.genexpr");
-
 
 // these 4-point poly bleps are much better than the rest of this file
 // (2-points) in terms of anti aliasing, and better than 3rd order PTR, too
@@ -361,9 +359,9 @@ poly_circ(t, dt)
 	t3		= t2 + 0.5;
 	t22		= wrap(t2, 0, 1);
 	t33		= wrap(t3, 0, 1);
-	// Mimic linear-phase filter by mixing 1st-order low-pass filtered square...
+	// "mimic linear-phase filter by mixing 1st-order low-pass filtered square...
 	lp	   += (poly_blep(t22, dt) - poly_blep(t3 - t33, dt) + ((t22 < 0.5) * 2 - 1) - lp) / (dt + od2psn) * dt;
-	cc		= (lp + sin73(t * TWOPI)) * 0.5;//odt;						// ... with sine
+	cc		= (lp + sin73(t * TWOPI)) * 0.5;//odt;						// ... with sine"
 	return	cc;
 }
 
@@ -660,7 +658,7 @@ poly_sinsaw(t, dt)
 // surprisingly good for full range, but for the (samplerate / 4) switch
 // 'jumps' to sine() because of gain disparity by that point in frequency range...
 // ...should probably make a gain compensation as function of freq
-poly_hpsaw6(t, dt)													// this does not zero cross regardless of phase
+poly_hpsaw6(t, dt)					// this does not zero cross regardless of phase
 {
 	tds	= 0.28571428571428571;		// 2 / 7
 	freqgain = 1;					// this should be the dynamic gain function suggested in above comment
@@ -946,8 +944,9 @@ poly_osc(freqInHz, pwm, a, t, dt, morph, wave)	// Hz, pulsewidth, amplitude, pha
 			} else if		(wave == 35) {
 				osc	= morph_pulsebipulse_trirect(t, dt, morph);
 			} else {	//	(wave == 36)
-				width	= sqrt1_2;					// for future
-				osc		= morph_sinetri_mix(t, dt, pwm, width, morph);
+//				width	= sqrt1_2;					// for future
+//				osc		= morph_sinetri_mix(t, dt, pwm, width, morph);
+				osc = 0;
 			}
 		}
 	}
@@ -1150,6 +1149,17 @@ varDcblockReset(x0, a0, r0)
 	return	y0;
 }
 
+// eviLine()
+exactLine(target, duration)	// target, duration in samples
+{
+	History val(0);
+    trigger	= change(target);
+    ramp	= clamp(accum((1 / latch(duration, trigger)), trigger), 0, 1);
+    lin 	= eviMap(ramp, 0, 1, latch(val, trigger), latch(target, trigger));
+    val 	= lin;
+    return  lin, (ramp == 1);
+}
+
 dynamicDc(osc, dtn, dcn)	// dcn: 0=off, 1=on, 2=auto for lfos, 3=auto for oscillators
 {
 	// N.B. varDcblock() must be in an if/else block for reset to work
@@ -1175,7 +1185,7 @@ dynamicDc(osc, dtn, dcn)	// dcn: 0=off, 1=on, 2=auto for lfos, 3=auto for oscill
 
 			}
 
-			dyndc	= eviLine((dc1 + dc2), mstosamps(15.111));
+			dyndc	= exactLine((dc1 + dc2), mstosamps(15.111));
 			osc		= varDcblockReset(osc, dyndc, change(dcn));
 
 		}
