@@ -1,0 +1,109 @@
+{
+    "patcher": {
+        "fileversion": 1,
+        "appversion": {
+            "major": 9,
+            "minor": 2,
+            "revision": 0,
+            "architecture": "x64",
+            "modernui": 1
+        },
+        "classnamespace": "dsp.gen",
+        "rect": [ 21.0, 85.0, 946.0, 765.0 ],
+        "gridonopen": 2,
+        "lefttoolbarpinned": 2,
+        "toptoolbarpinned": 2,
+        "righttoolbarpinned": 2,
+        "bottomtoolbarpinned": 1,
+        "toolbars_unpinned_last_save": 7,
+        "subpatcher_template": "sub",
+        "integercoordinates": 1,
+        "boxes": [
+            {
+                "box": {
+                    "id": "obj-5",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 618.0, 19.0, 281.0, 22.0 ],
+                    "text": "in 3 (signal/float) Resonant Decay Time in Seconds"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-1",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 49.0, 19.0, 111.0, 22.0 ],
+                    "text": "in 1 (signal) Trigger"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-2",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 388.0, 19.0, 213.0, 22.0 ],
+                    "text": "in 2 (signal/float) Low Frequency in Hz"
+                }
+            },
+            {
+                "box": {
+                    "code": "\r\nrequire(\"evi_approx.genexpr\");\r\n\r\n// Max Matthews complex resonator, thanks to Oli Larkin & Julian Parker\r\n// @see: M. Mathews and J. O. Smith, https://ccrma.stanford.edu/~jos/smac03maxjos/smac03maxjos.pdf\r\nmaxRes(x, cps, decay, inviter, histAx, histBx)\n{\n    decayc = tauA(decay * inviter);\r\n    v  = cps * TWOPI / samplerate;\r\n    cv = cos73(v) * decayc;\n    sv = sin73(v) * decayc;\n    y  = (sv * histAx) + (histBx * cv);\n    histAy = x + (histAx * cv) + (histBx * -sv);\n    histBy = y;\n\n    return y, histAy, histBy;\n}\r\n\r\nData    hist(2, 1);\r\n\r\nITERATIONS  = 10;           // pitch changes with iterations\r\ninvITER     = 1 / ITERATIONS;\r\n\r\nX       = in1;\r\nfreq    = in2;\r\ndecay   = maximum(in3, 0);  // this is not seconds ?!\r\n\r\nsum = 0;\r\nfor (i = 1; i <= ITERATIONS; i += 1)\r\n{\r\n    histAx = peek(hist, 0);\r\n    histBx = peek(hist, 1);\r\n\tsum, histAy, histBy = maxRes(X, freq * i, decay * (1 - i / ITERATIONS), invITER, histAx, histBx);\r\n    poke(hist, histAy, 0);\r\n    poke(hist, histBy, 1);\r\n    sum += sum;\r\n}\r\n\r\nout1 = sum * (1 / (ITERATIONS + ITERATIONS));\r\n\r\n",
+                    "fontface": 0,
+                    "fontname": "<Monospaced>",
+                    "fontsize": 12.0,
+                    "id": "obj-3",
+                    "maxclass": "codebox",
+                    "numinlets": 3,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 49.0, 58.0, 850.0, 647.0 ]
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-4",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 49.0, 722.0, 171.0, 22.0 ],
+                    "text": "out 1 (signal) Resonant Object"
+                }
+            }
+        ],
+        "lines": [
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 0 ],
+                    "source": [ "obj-1", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 1 ],
+                    "midpoints": [ 397.5, 49.5, 474.0, 49.5 ],
+                    "source": [ "obj-2", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-4", 0 ],
+                    "source": [ "obj-3", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 2 ],
+                    "midpoints": [ 627.5, 49.5, 889.5, 49.5 ],
+                    "source": [ "obj-5", 0 ]
+                }
+            }
+        ]
+    }
+}
