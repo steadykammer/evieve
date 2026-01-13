@@ -186,6 +186,12 @@ ctrlSqrt(x)
 	return cL, cR;
 }
 
+xfadeSqrt(a, c, x)
+{
+	cL, cR	= ctrlSqrt(x);
+	return (a * cL) + (c * cR);
+}
+
 xfadeSqrtStereo(a, b, c, d, x)
 {
 	cL, cR	= ctrlSqrt(x);

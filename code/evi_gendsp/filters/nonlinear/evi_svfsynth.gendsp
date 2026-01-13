@@ -1,0 +1,126 @@
+{
+    "patcher": {
+        "fileversion": 1,
+        "appversion": {
+            "major": 9,
+            "minor": 2,
+            "revision": 0,
+            "architecture": "x64",
+            "modernui": 1
+        },
+        "classnamespace": "dsp.gen",
+        "rect": [ 578.0, 67.0, 825.0, 848.0 ],
+        "gridonopen": 2,
+        "lefttoolbarpinned": 2,
+        "toptoolbarpinned": 2,
+        "righttoolbarpinned": 2,
+        "bottomtoolbarpinned": 1,
+        "toolbars_unpinned_last_save": 7,
+        "subpatcher_template": "sub",
+        "integercoordinates": 1,
+        "boxes": [
+            {
+                "box": {
+                    "id": "obj-7",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 446.0, 807.0, 333.0, 22.0 ],
+                    "text": "out 2 (signal) 24dB Filter Outputs (if 'slope' attribute selected)"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-5",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 496.0, 19.0, 283.0, 22.0 ],
+                    "text": "in 3 (signal/float) Resonance 0..1++ @default 0.984"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-1",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 49.0, 19.0, 134.0, 22.0 ],
+                    "text": "in 1 (signal) Audio Input"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-2",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 204.0, 19.0, 275.0, 22.0 ],
+                    "text": "in 2 (signal/float) Cutoff in Hz or Pitch @default 77"
+                }
+            },
+            {
+                "box": {
+                    "code": "\r\n//  TPT nonlinear SVF with selectable or crossfading outputs\r\n//\tby Pete for Maurizio Giri / evieve, 2016\r\n//  @see also: \"evi_svfsmooth.gendsp\" & \"evi_arpnotch.gendsp\"\r\n\r\n//  nonlinear behaviour based on \"Computational optimization of nonlinear\r\n//\tzero-delay feedback by second-order piecewise approximation\"\r\n//\tby Vadim Zavalishin, 2008\r\n\r\nrequire(\"evi_smooth.genexpr\");\r\n\r\nmix3sqrt(i1, i2, i3, ii)\r\n{\r\n\tm1\t\t=\txfadeSqrt(i1, i2,\t clip(ii, 0, 1));\r\n\treturn\t\txfadeSqrt(m1, i3,   (clip(ii, 1, 2) - 1));\r\n}\r\n\r\npreWarp(c, t)\r\n{\r\n\tf\t\t= minimum(c, (samplerate * 0.408164));\r\n\tif (t) {\t\t\t\t\t\t    // only compute if required\r\n\t\tf\t= mtofApprox(minimum(c, 133.2522));\r\n\t}\r\n\treturn\ttanA2(f * PI / samplerate); // w/2\r\n}\r\n\r\n// svf, post warped version\r\n\r\nsexySVF(X, w2, res, mod)\r\n{\r\n\t// integrators state\r\n\tHistory\tbli1(0), bli2(0);\r\n\r\n\t// two pole filter part 2 (pass state)\r\n\ts1\t\t= bli1 + bli1;\r\n\ts2\t\t= bli2 + bli2;\r\n\r\n\t// filter output 1 (nonlin & solve fb, piecewise zavalishin)\r\n\txms\t=    X - s2;\r\n\tg2p\t=    1 / ((w2 * w2) + 1);\r\n\tmu\t=   (w2 * -2) * g2p;\r\n\tnu\t=  ((xms * w2) + s1) * g2p;\r\n\tSN\t=    sign(nu);\r\n\tmd1\t=    1 / mod;\r\n\tP\t=  ((md1 + md1) * (2 - md1)) - (res + res);\r\n\tS\t=   (1 - res) * SN;\r\n\tQ\t=   (P * mu) - 1;\r\n\tC\t= (((P * nu) - S) - S) * nu;\r\n\tB\t=  ((S * mu) - SN) - (Q * nu);\r\n\tA\t=   (Q - 1) * mu;\r\n\tfnc\t=    sqrt((B * B) - (A * C)) * SN;\r\n\tt\t=  ((B * SN) > 0) ? ((fnc + B) / A) : (C / (B - fnc));\r\n\tyH\t=  ((xms - (w2 * s1)) - (t + t)) * g2p;\r\n\r\n\t// two pole filter part 1 (integrators)\r\n\txmw1\t= (yH  * w2) + bli1;\r\n\tlp1\t\t=  xmw1 + bli1;\r\n\txmw2\t= (lp1 * w2) + bli2;\r\n\tlp2\t\t=  xmw2 + bli2;\r\n\r\n\t// filter output 2\r\n\tyB\t\t= (lp1 * res) + t;\r\n\tyL\t\t=  lp2;\r\n\r\n\t// two pole filter part 3 (update state)\r\n\tbli1\t=  xmw1;\r\n\tbli2\t=  xmw2;\r\n\r\n\t// simultaneous outputs\r\n\treturn\tyL, yB, yH;\r\n}\r\n\r\n// declare\r\n\r\nParam   slope(0, min=0, max=1);         // 0 = 12dB filters only, 1 = and 24dB filters\r\nParam\tcutoffmode(1, min=0, max=1);    // cutoff (in2), 0 = in Hz, 1 = in pitch\r\nParam\tshape(sqrt1_2, min=0, max=1);   // y(1) (0.603553), do not touch\r\nParam\tshapesmooth(0, min=0, max=100); // in ms (22.666)\r\nParam\tfiltinterp(0, min=0, max=1);    // 0=LP, 0.5=BP, 1=HP\r\nParam\tfiltinterpsmooth(30.222, min=0, max=100);// in ms\r\nParam\ttunesmooth(15.111, min=0, max=100);// in ms\r\ntfdb    = int(slope);\r\n\r\n// inputs (smooth || mod res & cutoff externally)\r\n\r\nres\t\t= clip(\t\tin3, 0, 2);\t\t    // if shape <= 0.603553, max res \r\ncutoff\t= maximum(\tin2, 0);\t\t    // cutoff freq (default in pitch)\r\n\r\nx\t\t= \t\t\tin1 * sqrt1_2;\t    // audio input\r\nX\t\t=\t\t\tdcblock(x);\t\t    // clean, why?\r\n\r\n// freq warp\r\n\r\ntype\t= int(cutoffmode);\t\t        // 0 = in Hz, 1 = (default) in pitch\r\nw1\t\t= preWarp(cutoff, type);        // warp for both\r\n\r\n// tune (TODO: make nice polynomials for this crap)\r\n\r\nrtune   = 1;\r\nwres    = res;\r\nwshape  = shape;\r\nif (res > 1) {\r\n    wmodH\t= 1 - (sqrt(maximum(((w1 - 0.217027) / 1.661039), 0)) * 0.5);\r\n    wmodL\t= sqrt((minimum(w1, 0.007836) * 63) + 0.506332);\r\n    wshape\t= shape * wmodH * wmodL;\r\n    wres\t= res * wmodH * wmodL;\r\n    resqrt\t= sqrt(clip(wres, 1, 2) - 1);\r\n    rtune\t= ((((wshape * wshape) * resqrt) * resqrt) * 0.828428) + 1;\r\n}\r\n\r\n// parse\r\n\r\nwtune\t\t= rtune;\r\nif (tunesmooth > 0) {\t\t\t\t    // only compute if required\r\n\twtune\t= expsmooth(wtune, tunesmooth*0.001);               // better smoother here ?\r\n}\r\nw2\t\t\t= w1 * wtune;\r\n\r\nwmod\t\t= (wshape * 0.792893) + 0.207107;\r\nif (shapesmooth > 0) {\t\t\t\t    // only compute if required\r\n\twmod\t= expsmooth(wmod, shapesmooth*0.001);\r\n}\r\n\r\nfiltint\t\t= filtinterp * 2;\r\nif (filtinterpsmooth > 0) {\t\t\t    // only compute if required\r\n\tfiltint\t= logsmooth(filtint, filtinterpsmooth*0.001);\r\n}\r\n\r\n// (sexy) filter(s)\r\n\r\nyL,       yB,   yH\t\t= sexySVF( X, w2, wres, wmod);          // singles\r\nyX\t\t\t\t\t\t= mix3sqrt(yL, yB, yH, filtint);        // 2 poles\r\nyX\t\t\t\t\t\t= dcblock( yX);\r\nyY  = 0;\r\nif (tfdb) {\r\n    wres4\t\t        = wres * 0.25;  // attenuate for four poles (0.5)\r\n    wmod4\t\t        = wmod * 0.5;   // attenuate for four poles (sqrt1_2)\r\n    yL24, yB24, yH24\t= sexySVF( yX, w2, wres4, wmod4);       // mixed\r\n    yY\t\t\t\t\t= mix3sqrt(yL24, yB24, yH24, filtint);  // 4 poles\r\n    yY\t\t\t\t\t= dcblock( yY * sqrt2);\r\n}\r\n\r\nout1\t= yX;\t\t\t// 12 dB filter outputs (mixed)\r\nout2\t= yY;\t\t\t// 24 dB filter outputs (mixed)\r\n\r\n",
+                    "fontface": 0,
+                    "fontname": "<Monospaced>",
+                    "fontsize": 12.0,
+                    "id": "obj-3",
+                    "maxclass": "codebox",
+                    "numinlets": 3,
+                    "numoutlets": 2,
+                    "outlettype": [ "", "" ],
+                    "patching_rect": [ 49.0, 58.0, 730.0, 732.0 ]
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-4",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 49.0, 807.0, 185.0, 22.0 ],
+                    "text": "out 1 (signal) 12dB Filter Outputs"
+                }
+            }
+        ],
+        "lines": [
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 0 ],
+                    "source": [ "obj-1", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 1 ],
+                    "midpoints": [ 213.5, 49.5, 414.0, 49.5 ],
+                    "source": [ "obj-2", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-4", 0 ],
+                    "source": [ "obj-3", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-7", 0 ],
+                    "midpoints": [ 769.5, 798.5, 455.5, 798.5 ],
+                    "source": [ "obj-3", 1 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 2 ],
+                    "midpoints": [ 505.5, 49.5, 769.5, 49.5 ],
+                    "source": [ "obj-5", 0 ]
+                }
+            }
+        ]
+    }
+}
