@@ -88,6 +88,15 @@ tanhR(x0)
 	return ((ex - 1) / (ex + 1));
 }
 
+// mystran's tanh(x)/x approximation, flatlines at very high inputs
+// so might not be safe for very large feedback gains
+// (limit is 1/15 so very large means ~15 or +23dB)
+tanhXdX(x)
+{
+    a = x * x;
+    return ((a + 105) * a + 945) / ((15 * a + 420) * a + 945);
+}
+
 
 // adaa
 

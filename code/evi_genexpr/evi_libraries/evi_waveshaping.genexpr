@@ -124,6 +124,16 @@ cubicNL(x)
 
 // ---------------------------------------- //
 
+// cubic alternate
+thbNL(x) {
+	x = clip(x, -1, 1);
+	nx = 0.55032120814910446 * x;
+	nx3 = nx * nx * nx;
+	return x - (nx3 + nx3);
+}
+
+// ---------------------------------------- //
+
 // a lovely polynom from Reaktor, unbounded
 polyNom(x)
 {
