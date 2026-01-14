@@ -1,6 +1,4 @@
 
-max define evi.pitchdetect~ retune~ @retune 0 @pitchdetection 1 @use_16bit 1 @correction_ambience_threshold 0.1 @reportlatency 1;
-
 max define evi.softclip~ gen~ @gen evi_softclip.gendsp;
 max define mc.evi.softclip~ mc.gen~ @gen evi_softclip.gendsp @chans 2;
 
