@@ -9,7 +9,7 @@ By Pete Dowling a.k.a. 'stkr'. **© Peter Dowling 2010 - 2025,  GPL v2**.
 About 50% of the code in `evieve` is original, the rest is ported from various other well known sources. Credits and code-specific licenses are given locally in code. Please respect the licencing. Otherwise defer to the `evieve` **GPL v2** license.
 
 ### Disclaimer
-This is mainly my personal **GenExpr** library but organised and documented for the masses. I am not and do not claim to be a DSP developer. I am just a creative hacker. Any mistakes, bugs or bad code are mine and mine alone.
+This is part of my personal **GenExpr** library but organised and documented for the masses. I am not and do not claim to be a DSP developer. I am just a creative hacker. Any mistakes, bugs or bad code are mine and mine alone.
 
 Please consider helping to make `evieve` better by contributing via the Github or by getting in touch, evieve@steadykammer.net
 

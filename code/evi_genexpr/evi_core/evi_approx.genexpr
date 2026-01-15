@@ -337,6 +337,33 @@ tauA(t)											// t = seconds
 
 // 
 
+// accurate to about 4kHz, increasingly less accurate above
+hz2barkApprox(f)
+{
+	f1 = f / 600;//599.89654;
+	return	logApprox(f1 + sqrt(f1 * f1 + 1)) * 6.073264;
+}
+
+// very accurate for full range
+bark2hzApprox(b)
+{
+	return	(expApprox(b / 6) - expApprox(b / -6)) * 299.999257;
+}
+
+// increasingly innaccurate above about 4kHz
+hz2melApprox(f)
+{
+	return	1127.0217501048 * logApprox(f / 700 + 1);
+}
+
+// accurate enough for full range
+mel2hzApprox(m)
+{
+	return	699.9993 * (expApprox(m / 1127.01048) - 1);
+}
+
+// 
+
 // cartopol approx
 c2pApprox(real, imag)
 {
