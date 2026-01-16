@@ -9,7 +9,7 @@ require("evi_utilities.genexpr");	// includes "evi_approx.genexpr"
 
 
 // like Pd / Gen / RNBO smoothstep
-stepSmooth(x, y, a)	// in x, in y, interp 0..1
+stepsmooth(x, y, a)	// in x, in y, interp 0..1
 {
 	step = clamp((a - x) / (y - a), 0, 1);
 	return step * step * (3 - (2 * step));

@@ -76,7 +76,7 @@
             },
             {
                 "box": {
-                    "code": "\r\n// the theory is that this will be cheaper than using [scale]\r\n// everywhere when all you need is linear scaling, but in MSP\r\n// (instead of [scale~]) definitely not, but in gen~ yes?\r\n\r\n// basic linear scaling like linear part of [scale]\neviMap(valueIn, inLow, inHigh, outLow, outHigh)\n{\n    multiplier = (outLow - outHigh) / (inLow - inHigh);\n    return (valueIn - inLow) * multiplier + outLow;\n}\r\n\r\nout1 = eviMap(in1, in2, in3, in4, in5);\r\n\r\n",
+                    "code": "\r\n// the theory is that this will be cheaper than using [scale]\r\n// everywhere when all you need is linear scaling, but in MSP\r\n// (instead of [scale~]) definitely not, but in gen~ yes\r\n\r\n// basic linear scaling like linear part of [scale]\neviMap(valueIn, inLow, inHigh, outLow, outHigh)\n{\n    multiplier = (outLow - outHigh) / (inLow - inHigh);\n    return (valueIn - inLow) * multiplier + outLow;\n}\r\n\r\nout1 = eviMap(in1, in2, in3, in4, in5);\r\n\r\n",
                     "fontface": 0,
                     "fontname": "<Monospaced>",
                     "fontsize": 12.0,

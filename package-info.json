@@ -9,7 +9,7 @@
 	"website" : "http://www.steadykammer.net",
 	"extends" : "",
 	"extensible" : 0,
-	"max_version_min" : "9.2.0",
+	"max_version_min" : "9.0.0",
 	"max_version_max" : "none",
 	"os" : 	{
 		"macintosh" : 		{

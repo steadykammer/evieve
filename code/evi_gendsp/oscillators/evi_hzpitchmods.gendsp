@@ -1,164 +1,129 @@
 {
-	"patcher" : 	{
-		"fileversion" : 1,
-		"appversion" : 		{
-			"major" : 8,
-			"minor" : 6,
-			"revision" : 1,
-			"architecture" : "x64",
-			"modernui" : 1
-		}
-,
-		"classnamespace" : "dsp.gen",
-		"rect" : [ 34.0, 100.0, 960.0, 848.0 ],
-		"bglocked" : 0,
-		"openinpresentation" : 0,
-		"default_fontsize" : 12.0,
-		"default_fontface" : 0,
-		"default_fontname" : "Arial",
-		"gridonopen" : 2,
-		"gridsize" : [ 15.0, 15.0 ],
-		"gridsnaponopen" : 1,
-		"objectsnaponopen" : 1,
-		"statusbarvisible" : 2,
-		"toolbarvisible" : 1,
-		"lefttoolbarpinned" : 0,
-		"toptoolbarpinned" : 0,
-		"righttoolbarpinned" : 0,
-		"bottomtoolbarpinned" : 0,
-		"toolbars_unpinned_last_save" : 0,
-		"tallnewobj" : 0,
-		"boxanimatetime" : 200,
-		"enablehscroll" : 1,
-		"enablevscroll" : 1,
-		"devicewidth" : 0.0,
-		"description" : "",
-		"digest" : "",
-		"tags" : "",
-		"style" : "",
-		"subpatcher_template" : "",
-		"assistshowspatchername" : 0,
-		"boxes" : [ 			{
-				"box" : 				{
-					"id" : "obj-9",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 769.0, 807.0, 143.0, 22.0 ],
-					"text" : "out 2 @comment Hz limit"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-6",
-					"maxclass" : "newobj",
-					"numinlets" : 0,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 618.0, 19.0, 294.0, 22.0 ],
-					"text" : "in 3 @comment Frequency Hz Modulation @default 0"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-2",
-					"maxclass" : "newobj",
-					"numinlets" : 0,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 355.0, 19.0, 246.0, 22.0 ],
-					"text" : "in 2 @comment Pitch Modulation @default 0"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"fontface" : 0,
-					"fontname" : "Arial",
-					"fontsize" : 12.0,
-					"id" : "obj-7",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 32.0, 807.0, 313.0, 22.0 ],
-					"text" : "out 1 @comment Optionally smoothed and scaled cf (Hz)"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"code" : "\r\n// expensive all audio rate frequency calc for filters and oscillators etc\r\n\r\n//\t//\t//\tlocal functions\r\n\r\nexpA(x0)\t\t\t\t\t\t\t\t\t// more accurate than 'fastexp()'\r\n{\n\tx = 0.999996 + (0.031261316 + (0.00048274797 + 0.000006 * x0) * x0) * x0;\n\tx *= x; x *= x; x *= x; x *= x; x *= x;\n\treturn x;\n}\n\ntauA(t)\r\n{\n\ty = expA(-1 / (t * samplerate));\n\treturn y + 0.000128;\t\t\t\t\t// approximation has excellent accuracy above\n}\t\t\t\t\t\t\t\t\t\t\t// 0.01 seconds (10 milliseconds) input\n\nmtnA(x)\t\t\t\t\t\t\t\t\t\t// valid for -halfpi < x < +halfpi\n{\n\tx2\t\t= x * x;\n\treturn\tx * (0.999999492001 + x2 * -0.096524608111) / (1 + x2 * (-0.429867256894 + x2 * 0.009981877999));\n}\n\ntnA(x)\t\t\t\t\t\t\t\t\t\t// valid for 0..1 input\n{\n\tx2\t\t= (x * x);\n\tx3\t\t= (x2 * x);\n\tx5\t\t= (x2 * x3);\n\treturn\t ((x5 * 0.133333) + (x3 * 0.333333)) + x;\n}\n\r\nexpsmooth(x, t)\t\t\t\t\t\t\t\t// t is smooth time in seconds\r\n{\n\tHistory w(0);\n\tz = tauA(t);\n\ty = (z * w) + (x * (1 - z));\n\tw = y;\n\treturn y;\n}\r\n\r\nlogsmooth(x, s)\t\t\t\t\t\t\t\t// s = time to drop 6dB (in seconds)\r\n{\n\tHistory z(0);\n//\tad = LN2 / maximum((s * samplerate), 1);\n\tad = LN2 / (s * samplerate);\t\t\t// no maximum check\n\ty = ((x - z) * ad) + z;\n\tz = y;\n\treturn y;\n}\r\n\r\ncfSmoothLinearCoeff(hz, ms)\t\t\t\t\t// Hz / ms, defaults: 1, 5\n{\n\tw0\t\t= tnA(pi * (hz / samplerate));\n\tg0\t\t= (2 * w0) / (1 + w0);\n\ts0\t\t= (1 - tauA(ms * 0.001)) * 4;\n\treturn\t  g0, s0;\n}\n\ncfSmoothLinear0(x0, g0, s0)\t\t\t\t\t// g0 / s0, defaults: 0.000142 / 0.018104\n{\n\tHistory\tlow1(0), low2(0);\n\n\tlow1z\t= low1;\n\tlow2z\t= low2;\n\n\tbandz\t= low1z - low2z;\n\tg\t\t= minimum(g0 + s0 * abs(bandz), 1);\n\n\tlow1\t= low1z + g * (x0 - low1z);\n\tlow2\t= low2z + g * (low1 - low2z);\n\n\treturn\t  low2;\n}\n\ncfSmoothLinear(x1, hz, ms)\t\t\t\t\t// 2-pole lp smoother for cf\n{\n\tHistory\t  cfsldummy(0);\n\tg0, s0\t= cfSmoothLinearCoeff(hz, ms);\n\ty1\t\t= cfSmoothLinear0(x1, g0, s0);\n\treturn\t  y1;\n}\n\r\neviScurve(segment)\t\t\t\t\t\t\t// segment must be linear ramp 0..1\n{\n\ts2\t\t= segment * segment;\n\trec\t\t= 1 - segment;\n\tr2\t\t= rec * rec;\n\treturn\t(segment < 0.5) ? (s2 * 2) : (1 - (r2 * 2));\n}\n\n// basic linear scaling like linear part of [scale]\neviMap(valueIn, inLow, inHigh, outLow, outHigh)\n{\n\tmultiplier = (outLow - outHigh) / (inLow - inHigh);\n\treturn (valueIn - inLow) * multiplier + outLow;\n}\n\neviLine(target, duration)\t\t\t\t\t// target, duration in samples\n{\n\tHistory\tvalue(0);\n\ttrigger\t= change(target);\n\tramp\t= clip(accum((1 / latch(duration, trigger)), trigger), 0, 1);\n\tline\t= eviMap(ramp, 0, 1, latch(value, trigger), latch(target, trigger));\n\tvalue\t= line;\n\treturn\tline, (ramp == 1);\n}\n\r\neviSline(target, duration)\t\t\t\t\t// target, duration in samples\n{\n\tHistory\tvalue(0);\n\ttrigger\t= change(target);\n\tramp\t= clip(accum((1 / latch(duration, trigger)), trigger), 0, 1);\n\tcramp\t= eviScurve(ramp);\n\tcurve\t= eviMap(cramp, 0, 1, latch(value, trigger), latch(target, trigger));\n\tvalue\t= curve;\n\treturn\tcurve, (ramp == 1);\n}\n\r\nlagpole(x, c, l)\t\t\t\t\t\t\t// value / coefficient / previous\n{\n\treturn ((1 - abs(c)) * x) + (c * l);\n}\n\nlagsmooth(v, lp0)\t\t\t\t\t\t\t// destination value / time (in seconds)\n{\n\tHistory coef(   0.9928302477768374);\t// default: @20ms @48kHz samplerate\n\tHistory lp1(0), lp2(0), lp3(0);\n\tLOGTH\t\t = -6.907755278982137;\t\t// ln(0.0001); i.e. a fixed threshold of 0.0001\n\tif (change(lp0))\n\t\tcoef\t= maximum(expA(LOGTH / (lp0 * samplerate)), 0);\n\tlp1\t\t= lagpole(v,\tcoef,\tlp1);\n\tlp2\t\t= lagpole(lp1,\tcoef,\tlp2);\n\tlp3\t\t= lagpole(lp2,\tcoef,\tlp3);\n\treturn\tlp3;\n}\r\n\r\nsmoothCutoff(cutoff, smooth, smoothtype)\r\n{\r\n\tHistory scdummy(0);\r\n\tcf = cutoff;\r\n\tif (smooth > 0) {\r\n\t\tsm = smooth * 0.001;\r\n\r\n\t\tif (smoothtype == 1) {\r\n\t\t\tcf = logsmooth(cf, sm);\r\n\t\t} else if (smoothtype == 2) {\r\n\t\t\tcf = eviLine(cf, sm*samplerate);\r\n\t\t} else if (smoothtype == 3) {\r\n\t\t\tcf = eviSline(cf, sm*samplerate);\r\n\t\t} else if (smoothtype == 4) {\r\n\t\t\tcf = lagsmooth(cf, sm);\r\n\t\t} else {// smoothtype == 0, default\r\n\t\t\thz = 1;\r\n\t\t\tcf = cfSmoothLinear(cf, hz, smooth);\r\n\t\t}\r\n\t\t\r\n\t}\r\n\treturn cf;\r\n}\r\n\r\nmtofApprox(pitch, base)\t\t\t\t\t\t// base = 440 default\r\n{\r\n\tmtofA = base * expA(0.057762265046662105 * (pitch - 69));\n\treturn mtofA + 0.120906;\t\t\t\t// + offset = accurate for input 48..69\n}\n\r\nmtofBaseless(pitch)\n{\n\tmtofMul\t= 0.05776226504666;\t\t\t\t// log(2) / 12\n\tmtofAdd\t= 2.10117843869262;\t\t\t\t// log(440) - (log(2) * 69 / 12)\n\n\treturn\texp((mtofMul * pitch) + mtofAdd);\n}\r\n\r\n//\t//\t//\tdeclare\r\n\r\n// choose cutoff input in Hz (0) or pitch (1, default)\r\nParam\tmode(1, min=0, max=1);\r\nParam\ttuning(440, min=415, max=467);// tuning around 440 Hz\r\n// cutoff smooth time in ms; if == 0 then no cpu used for\r\n// smoothing and in1 can be signal rate modulator (e.g. lfo/env modified)\r\nParam\tsmooth(0, min=0, max=1000);\t// ms, default off\r\nParam\tsmoothtype(0, min=0, max=4);// select smoother, 0=lp default, 1=log, 2=line, 3=sline, 4=lag\r\nParam\tlow(0, min=-samplerate*0.5, max=samplerate*0.5);\t// in Hz\r\nParam\thigh(0.5, min=0, max=0.5);\t// multiplier of samplerate\r\nParam\tcliplimit(1, min=0, max=1);\t// use limit to clip cf output?\r\n\r\nucl\t\t= int(cliplimit);\r\ncfm\t\t= int(mode);\r\ncst\t\t= int(smoothtype);\r\nlimit\t= samplerate * high;\r\n\r\ncutoff\t\t= in1 + 0;\r\npitchmod\t= in2 + 0;\t\t\t\t\t\t// pitchmod ignored if cutoffmode == 0\r\nfreqmod\t\t= in3 + 0;\r\n\r\n//\t//\t//\toptional cutoff smoothing (turn cutoffsmooth off for direct modulated in1)\r\n\r\ncutoff\t\t= smoothCutoff(cutoff, smooth, cst);\r\n\r\n//\t//\t//\tand scale pitch cutoff\r\n\r\nif (cfm > 0) {\t\t\t\t\t\t\t\t// if pitch input chosen for cutoffmode\r\n\tcutoff\t= cutoff + pitchmod;\r\n\tcutoff\t= mtofApprox(cutoff, tuning);\r\n}\r\n\r\n//\t//\t//\tand scale hz cutoff\r\n\r\ncutoff\t= cutoff + freqmod;\r\n\r\n//\t//\t//\tfinal clip is at hz level\r\n\r\ncf\t\t= clip(cutoff, minimum(low, limit), (ucl ? limit : samplerate*0.5));\r\n\r\n//\t//\t//\toutput scaled and optionally smoothed Hz\r\n\r\nout1\t= cf;\r\nout2\t= limit;\r\n\r\n",
-					"fontface" : 0,
-					"fontname" : "<Monospaced>",
-					"fontsize" : 12.0,
-					"id" : "obj-3",
-					"maxclass" : "codebox",
-					"numinlets" : 3,
-					"numoutlets" : 2,
-					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 32.0, 56.0, 880.0, 734.0 ]
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"fontface" : 0,
-					"fontname" : "Arial",
-					"fontsize" : 12.0,
-					"id" : "obj-1",
-					"maxclass" : "newobj",
-					"numinlets" : 0,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 32.0, 19.0, 203.0, 22.0 ],
-					"text" : "in 1 @comment Cutoff in Pitch or Hz"
-				}
-
-			}
- ],
-		"lines" : [ 			{
-				"patchline" : 				{
-					"destination" : [ "obj-3", 0 ],
-					"source" : [ "obj-1", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-3", 1 ],
-					"midpoints" : [ 364.5, 48.0, 472.0, 48.0 ],
-					"source" : [ "obj-2", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-7", 0 ],
-					"source" : [ "obj-3", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-9", 0 ],
-					"midpoints" : [ 902.5, 798.0, 778.5, 798.0 ],
-					"source" : [ "obj-3", 1 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-3", 2 ],
-					"midpoints" : [ 627.5, 48.0, 902.5, 48.0 ],
-					"source" : [ "obj-6", 0 ]
-				}
-
-			}
- ],
-		"bgcolor" : [ 0.9, 0.9, 0.9, 1.0 ],
-		"editing_bgcolor" : [ 0.9, 0.9, 0.9, 1.0 ]
-	}
-
+    "patcher": {
+        "fileversion": 1,
+        "appversion": {
+            "major": 9,
+            "minor": 2,
+            "revision": 0,
+            "architecture": "x64",
+            "modernui": 1
+        },
+        "classnamespace": "dsp.gen",
+        "rect": [ 34.0, 100.0, 960.0, 848.0 ],
+        "gridonopen": 2,
+        "integercoordinates": 1,
+        "boxes": [
+            {
+                "box": {
+                    "id": "obj-9",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 769.0, 807.0, 143.0, 22.0 ],
+                    "text": "out 2 @comment Hz limit"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-6",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 618.0, 19.0, 294.0, 22.0 ],
+                    "text": "in 3 @comment Frequency Hz Modulation @default 0"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-2",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 355.0, 19.0, 246.0, 22.0 ],
+                    "text": "in 2 @comment Pitch Modulation @default 0"
+                }
+            },
+            {
+                "box": {
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 12.0,
+                    "id": "obj-7",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 32.0, 807.0, 336.0, 22.0 ],
+                    "text": "out 1 @comment Optionally smoothed\\, scaled & FM-ed f (Hz)"
+                }
+            },
+            {
+                "box": {
+                    "code": "\r\n// expensive all audio rate frequency calc for filters and oscillators etc\r\n\r\n//\t//\t//\tlocal functions\r\n\r\nexpA(x0)\t\t\t\t\t\t\t\t\t// more accurate than 'fastexp()'\r\n{\n\tx = 0.999996 + (0.031261316 + (0.00048274797 + 0.000006 * x0) * x0) * x0;\n\tx *= x; x *= x; x *= x; x *= x; x *= x;\n\treturn x;\n}\n\ntauA(t)\r\n{\n\ty = expA(-1 / (t * samplerate));\n\treturn y + 0.000128;\t\t\t\t\t// approximation has excellent accuracy above\n}\t\t\t\t\t\t\t\t\t\t\t// 0.01 seconds (10 milliseconds) input\n\nmtnA(x)\t\t\t\t\t\t\t\t\t\t// valid for -halfpi < x < +halfpi\n{\n\tx2\t\t= x * x;\n\treturn\tx * (0.999999492001 + x2 * -0.096524608111) / (1 + x2 * (-0.429867256894 + x2 * 0.009981877999));\n}\n\ntnA(x)\t\t\t\t\t\t\t\t\t\t// valid for 0..1 input\n{\n\tx2\t\t= (x * x);\n\tx3\t\t= (x2 * x);\n\tx5\t\t= (x2 * x3);\n\treturn\t ((x5 * 0.133333) + (x3 * 0.333333)) + x;\n}\n\r\nexpsmooth(x, t)\t\t\t\t\t\t\t\t// t is smooth time in seconds\r\n{\n\tHistory w(0);\n\tz = tauA(t);\n\ty = (z * w) + (x * (1 - z));\n\tw = y;\n\treturn y;\n}\r\n\r\nlogsmooth(x, s)\t\t\t\t\t\t\t\t// s = time to drop 6dB (in seconds)\r\n{\n\tHistory z(0);\n//\tad = LN2 / maximum((s * samplerate), 1);\n\tad = LN2 / (s * samplerate);\t\t\t// no maximum check\n\ty = ((x - z) * ad) + z;\n\tz = y;\n\treturn y;\n}\r\n\r\ncfSmoothLinearCoeff(hz, ms)\t\t\t\t\t// Hz / ms, defaults: 1, 5\n{\n\tw0\t\t= tnA(pi * (hz / samplerate));\n\tg0\t\t= (2 * w0) / (1 + w0);\n\ts0\t\t= (1 - tauA(ms * 0.001)) * 4;\n\treturn\t  g0, s0;\n}\n\ncfSmoothLinear0(x0, g0, s0)\t\t\t\t\t// g0 / s0, defaults: 0.000142 / 0.018104\n{\n\tHistory\tlow1(0), low2(0);\n\n\tlow1z\t= low1;\n\tlow2z\t= low2;\n\n\tbandz\t= low1z - low2z;\n\tg\t\t= minimum(g0 + s0 * abs(bandz), 1);\n\n\tlow1\t= low1z + g * (x0 - low1z);\n\tlow2\t= low2z + g * (low1 - low2z);\n\n\treturn\t  low2;\n}\n\ncfSmoothLinear(x1, hz, ms)\t\t\t\t\t// 2-pole lp smoother for cf\n{\n\tHistory\t  cfsldummy(0);\n\tg0, s0\t= cfSmoothLinearCoeff(hz, ms);\n\ty1\t\t= cfSmoothLinear0(x1, g0, s0);\n\treturn\t  y1;\n}\n\r\neviScurve(segment)\t\t\t\t\t\t\t// segment must be linear ramp 0..1\n{\n\ts2\t\t= segment * segment;\n\trec\t\t= 1 - segment;\n\tr2\t\t= rec * rec;\n\treturn\t(segment < 0.5) ? (s2 * 2) : (1 - (r2 * 2));\n}\n\n// basic linear scaling like linear part of [scale]\neviMap(valueIn, inLow, inHigh, outLow, outHigh)\n{\n\tmultiplier = (outLow - outHigh) / (inLow - inHigh);\n\treturn (valueIn - inLow) * multiplier + outLow;\n}\n\neviLine(target, duration)\t\t\t\t\t// target, duration in samples\n{\n\tHistory\tvalue(0);\n\ttrigger\t= change(target);\n\tramp\t= clip(accum((1 / latch(duration, trigger)), trigger), 0, 1);\n\tline\t= eviMap(ramp, 0, 1, latch(value, trigger), latch(target, trigger));\n\tvalue\t= line;\n\treturn\tline, (ramp == 1);\n}\n\r\neviSline(target, duration)\t\t\t\t\t// target, duration in samples\n{\n\tHistory\tvalue(0);\n\ttrigger\t= change(target);\n\tramp\t= clip(accum((1 / latch(duration, trigger)), trigger), 0, 1);\n\tcramp\t= eviScurve(ramp);\n\tcurve\t= eviMap(cramp, 0, 1, latch(value, trigger), latch(target, trigger));\n\tvalue\t= curve;\n\treturn\tcurve, (ramp == 1);\n}\n\r\nlagpole(x, c, l)\t\t\t\t\t\t\t// value / coefficient / previous\n{\n\treturn ((1 - abs(c)) * x) + (c * l);\n}\n\nlagsmooth(v, lp0)\t\t\t\t\t\t\t// destination value / time (in seconds)\n{\n\tHistory coef(   0.9928302477768374);\t// default: @20ms @48kHz samplerate\n\tHistory lp1(0), lp2(0), lp3(0);\n\tLOGTH\t\t = -6.907755278982137;\t\t// ln(0.0001); i.e. a fixed threshold of 0.0001\n\tif (change(lp0))\n\t\tcoef\t= maximum(expA(LOGTH / (lp0 * samplerate)), 0);\n\tlp1\t\t= lagpole(v,\tcoef,\tlp1);\n\tlp2\t\t= lagpole(lp1,\tcoef,\tlp2);\n\tlp3\t\t= lagpole(lp2,\tcoef,\tlp3);\n\treturn\tlp3;\n}\r\n\r\nsmoothCutoff(cutoff, smooth, smoothtype)\r\n{\r\n\tHistory scdummy(0);\r\n\tcf = cutoff;\r\n\tif (smooth > 0) {\r\n\t\tsm = smooth * 0.001;\r\n\r\n\t\tif (smoothtype == 1) {\r\n\t\t\tcf = logsmooth(cf, sm);\r\n\t\t} else if (smoothtype == 2) {\r\n\t\t\tcf = eviLine(cf, sm*samplerate);\r\n\t\t} else if (smoothtype == 3) {\r\n\t\t\tcf = eviSline(cf, sm*samplerate);\r\n\t\t} else if (smoothtype == 4) {\r\n\t\t\tcf = lagsmooth(cf, sm);\r\n\t\t} else {// smoothtype == 0, default\r\n\t\t\thz = 1;\r\n\t\t\tcf = cfSmoothLinear(cf, hz, smooth);\r\n\t\t}\r\n\t\t\r\n\t}\r\n\treturn cf;\r\n}\r\n\r\nmtofApprox(pitch, base)\t\t\t\t\t\t// base = 440 default\r\n{\r\n\tmtofA = base * expA(0.057762265046662105 * (pitch - 69));\n\treturn mtofA + 0.120906;\t\t\t\t// + offset = accurate for input 48..69\n}\n\r\nmtofBaseless(pitch)\n{\n\tmtofMul\t= 0.05776226504666;\t\t\t\t// log(2) / 12\n\tmtofAdd\t= 2.10117843869262;\t\t\t\t// log(440) - (log(2) * 69 / 12)\n\n\treturn\texp((mtofMul * pitch) + mtofAdd);\n}\r\n\r\n//\t//\t//\tdeclare\r\n\r\nHistory prev_f(0);\r\n\r\n// choose cutoff input in Hz (0) or pitch (1, default)\r\nParam\tmode(1, min=0, max=1);\r\nParam\ttuning(440, min=415, max=467);// tuning around 440 Hz\r\n// cutoff smooth time in ms; if == 0 then no cpu used for\r\n// smoothing and in1 can be signal rate modulator (e.g. lfo/env modified)\r\nParam\tsmooth(0, min=0, max=1000);\t// ms, default off\r\nParam\tsmoothtype(0, min=0, max=4);// select smoother, 0=lp default, 1=log, 2=line, 3=sline, 4=lag\r\nParam\tlow(0, min=-samplerate*0.5, max=samplerate*0.5);\t// in Hz\r\nParam\thigh(0.5, min=0, max=0.5);\t// multiplier of samplerate\r\nParam\tcliplimit(1, min=0, max=1);\t// use limit to clip cf output?\r\n\r\nucl\t\t= int(cliplimit);\r\ncfm\t\t= int(mode);\r\ncst\t\t= int(smoothtype);\r\nlimit\t= samplerate * high;\r\n\r\nfreq\t\t= in1 + 0;\r\npitchmod\t= in2 + 0;\t\t\t\t\t\t// pitchmod ignored if cutoffmode == 0\r\nfreqmod\t\t= in3 + 0;\r\n\r\n//\t//\t//\toptional cutoff smoothing (turn cutoffsmooth off for direct modulated in1)\r\n\r\nfreq\t\t= smoothCutoff(freq, smooth, cst);\r\n\r\n//\t//\t//\tand scale pitch cutoff\r\n\r\nif (cfm > 0) {\t\t\t\t\t\t\t\t// if pitch input chosen for cutoffmode\r\n\tfreq\t= freq + pitchmod;\r\n\tfreq\t= mtofApprox(freq, tuning);\r\n}\r\n\r\n//\t//\t//\tand scale hz cutoff\r\n\r\nfreq\t= freq + freqmod;\r\n// corrected for audio rate FM etc\nlin_f  = freq - prev_f;\ncorr_f = freq + 0.5 * lin_f;\nprev_f = freq;\r\n\r\n//\t//\t//\tfinal clip is at hz level\r\n\r\nf\t\t= clip(corr_f, minimum(low, limit), (ucl ? limit : samplerate*0.5));\r\n\r\n//\t//\t//\toutput scaled and optionally smoothed Hz\r\n\r\nout1\t= f;\r\nout2\t= limit;\r\n\r\n",
+                    "fontface": 0,
+                    "fontname": "<Monospaced>",
+                    "fontsize": 12.0,
+                    "id": "obj-3",
+                    "maxclass": "codebox",
+                    "numinlets": 3,
+                    "numoutlets": 2,
+                    "outlettype": [ "", "" ],
+                    "patching_rect": [ 32.0, 56.0, 880.0, 734.0 ]
+                }
+            },
+            {
+                "box": {
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 12.0,
+                    "id": "obj-1",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 32.0, 19.0, 203.0, 22.0 ],
+                    "text": "in 1 @comment Cutoff in Pitch or Hz"
+                }
+            }
+        ],
+        "lines": [
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 0 ],
+                    "source": [ "obj-1", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 1 ],
+                    "midpoints": [ 364.5, 48.0, 472.0, 48.0 ],
+                    "source": [ "obj-2", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-7", 0 ],
+                    "source": [ "obj-3", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-9", 0 ],
+                    "midpoints": [ 902.5, 798.0, 778.5, 798.0 ],
+                    "source": [ "obj-3", 1 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 2 ],
+                    "midpoints": [ 627.5, 48.0, 902.5, 48.0 ],
+                    "source": [ "obj-6", 0 ]
+                }
+            }
+        ],
+        "autosave": 0,
+        "bgcolor": [ 0.9, 0.9, 0.9, 1.0 ],
+        "editing_bgcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+    }
 }

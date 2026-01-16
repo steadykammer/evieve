@@ -15,7 +15,7 @@
 // @see "about 'quartParApproxFull()'" below this function
 // based on the famous "simultaneous parabolic approximation of sin and cos" by Olli Niemitalo
 // @see: http://dspguru.com/book/export/html/62
-// the below function is silly and for pedagogy only
+// the below function is silly and for pedagogy only, you should extract a fixed precision from it
 quartParApproxFull(modphase, precision)	// 'modphase' must be wrapped 0..1
 {
 	mphse	= modphase * 4;				// parse in quart branch
@@ -143,7 +143,7 @@ quadratureOsc(thisphase, thisspread)// thisspread is of course nuts and experime
 }
 
 // tan approx valid for -HALFPI..HALFPI input
-tanA3(x)
+tanApprox(x)
 {
 	x2		= x * x;
 	return	x * (0.999999492001 + x2 * -0.096524608111) / (1 + x2 * (-0.429867256894 + x2 * 0.009981877999));
@@ -155,7 +155,7 @@ quadOsc(frequency, reset)
 	History	u(1), v(0);				// init cos, init sin
 
 	w1		= TWOPI * frequency / samplerate;
-	k1		= tanA3(0.5*w1);
+	k1		= tanApprox(0.5*w1);
 	k2		= (k1 + k1) / (1 + k1*k1);
 
 	omega	= u - k1*v;
@@ -171,7 +171,7 @@ quadOscSync(frequency, reset)
 	History	u(1), v(0);				// init cos, init sin
 
 	w1		= TWOPI * frequency / samplerate;
-	k1		= tanA3(0.5*w1);
+	k1		= tanApprox(0.5*w1);
 	k2		= (k1 + k1) / (1 + k1*k1);
 
 	omega	= u - k1*v;
@@ -214,7 +214,7 @@ tptSvfQuadOsc(cutoff, sync, reset, soft=0.1)
     lin_cf  = cutoff - prev_cf;
     corr_cf = cutoff + 0.5 * lin_cf;
     prev_cf = cutoff;
-    g       = tanA3(PI * corr_cf / SAMPLERATE);
+    g       = tanApprox(PI * corr_cf / SAMPLERATE);
     // and A corrected for scaling
     A       = 1 / (1 + g*g);	// R = 0;
     d       = 0.000001;
