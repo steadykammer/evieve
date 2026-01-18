@@ -1,197 +1,43 @@
 
 // Deluxe but dirty MS20-inspired old-school-style filter emulation,
-// 12dB lowpass or 6dB highpass
-// Based on a classic by Tony Hardie-Bick ("DFM-1 Digital Filter Module"), 2010
-// Thanks to Jonny Stutters for his SuperCollider port, 2011
-// Dirty MSP/gen~ reworking by fat Pete, 2013 (thanks to Matt Jackson for the LUT assistance)
-// LICENSE: GPLv2
+// 12dB lowpass or 6dB highpass.
+// Based on a classic by Tony Hardie-Bick ("DFM-1 Digital Filter Module"), 2010.
+// Thanks to Jonny Stutters for his SuperCollider port, 2011.
+// Dirty MSP/gen~ reworking by fat Pete, 2013 (thanks to Matt Jackson for the LUT assistance).
+// LICENSE: GPLv2.
 
-// N.B. - see 'evi_k35.gendsp' for better (?) zdf emulations of the Korg MS-10 / MS-20 filter chip
+// @see: "evi_korgms10.gendsp", "evi_korgms20.gendsp" & "evi_korgms20_select.gendsp"
+// for better (?) 'emulations' of the Korg MS-10 / MS-20 filter chips.
 
-// exact ramp smoothing...
-
-eviScurve(segment)							// segment must be linear ramp 0..1
-{
-	s2		= segment * segment;
-	rec		= 1 - segment;
-	r2		= rec * rec;
-	return	(segment < 0.5) ? (s2 * 2) : (1 - (r2 * 2));
-}
-
-// basic linear scaling like linear part of [scale]
-eviMap(valueIn, inLow, inHigh, outLow, outHigh)
-{
-	multiplier = (outLow - outHigh) / (inLow - inHigh);
-	return (valueIn - inLow) * multiplier + outLow;
-}
-
-eviLine(target, duration)					// target, duration in samples
-{
-	History	value(0);
-	trigger	= change(target);
-	ramp	= clip(accum((1 / latch(duration, trigger)), trigger), 0, 1);
-	line	= eviMap(ramp, 0, 1, latch(value, trigger), latch(target, trigger));
-	value	= line;
-	return	line, (ramp == 1);
-}
-
-eviSline(target, duration)					// target, duration in samples
-{
-	History	value(0);
-	trigger	= change(target);
-	ramp	= clip(accum((1 / latch(duration, trigger)), trigger), 0, 1);
-	cramp	= eviScurve(ramp);
-	curve	= eviMap(cramp, 0, 1, latch(value, trigger), latch(target, trigger));
-	value	= curve;
-	return	curve, (ramp == 1);
-}
-
-// non-exact smoothing...
-
-expA(x0)									// approx exp(x) (more accurate than 'fastexp()')
-{
-	x = 0.999996 + (0.031261316 + (0.00048274797 + 0.000006 * x0) * x0) * x0;
-	x *= x; x *= x; x *= x; x *= x; x *= x;
-	return x;
-}
-
-tauA(t)
-{
-	y = expA(-1 / (t * samplerate));
-	return y + 0.000128;					// approximation has excellent accuracy above...
-}											// ...0.01 seconds (10 milliseconds) input
-
-expso(x, z)									// z is pole
-{
-	History w(0);
-	y = (z * w) + (x * (1 - z));
-	w = y;
-	return y;
-}
-
-expsmooth(x, t)								// t is smooth time in seconds
-{
-	History w(0);
-	z = tauA(t);
-	y = (z * w) + (x * (1 - z));
-	w = y;
-	return y;
-}
-
-expsmoothBank4(x1, x2, x3, x4, t)			// t is smooth time in seconds
-{
-	History	exps4dummy(0);
-	z		= tauA(t);
-	y1		= expso(x1, z);
-	y2		= expso(x2, z);
-	y3		= expso(x3, z);
-	y4		= expso(x4, z);
-	return	y1, y2, y3, y4;
-}
-
-logsmooth(x, s)		// x = value			// s = time to drop 6dB (in seconds)
-{
-	History z(0);
-//	ad = LN2 / maximum((s * samplerate), 1);// incl. maximum check
-	ad = LN2 / (s * samplerate);
-	y  = ((x - z) * ad) + z;
-	z  = y;
-	return y;
-}
-
-// approx...
-
-// quadrant for cos approx
-cosQ52(x)
-{
-	c1 =  0.9999932946;
-	c2 = -0.4999124376;
-	c3 =  0.0414877472;
-	c4 = -0.0012712095;
-
-	x2 = x * x;
-	return (c1 + x2 * (c2 + x2 * (c3 + c4 * x2)));
-}
-
-// cos approx 5.2 digits of precision
-cos_52(x)
-{
-	two_over_pi = 0.63661977236758;	// 2 / pi
-	x = x % twopi;					// get rid of values > 2 * pi
-	if (x < 0) {
-		x = -x;						// cos(-x) = cos(x)
-	}
-	quad = int(x * two_over_pi);	// get quadrant # (0 to 3) we're in
-	cosreturn = 0;
-	if 				(quad == 0) {
-		cosreturn =  cosQ52(x);
-	} else if 		(quad == 1) {
-		cosreturn = -cosQ52(pi - x);
-	} else if 		(quad == 2) {
-		cosreturn = -cosQ52(x - pi);
-	} else {	//	(quad == 3)
-		cosreturn =  cosQ52(twopi - x);
-	}
-	return cosreturn;
-}
-
-// + offset = accurate for input pitch 48 .. pitch 69
-mtofApprox(pitch, base)
-{
-	mtofA = base * expA(0.057762265 * (pitch - 69));
-	return mtofA + 0.120906;
-}
-
-// accuracy as native
-mtofApproxBaseless(pitch)
-{
-	mtofMul	= 0.05776226504666;		// = log(2) / 12
-	mtofAdd	= 2.10117843869262;		// = log(440) - (log(2) * 69 / 12)
-
-	return	expA((mtofMul * pitch) + mtofAdd) + 0.120906;
-}
-
-dbtoaApprox(db)
-{
-	dbtoaA = expA(0.11512925464970 * db);
-	return dbtoaA + 0.000128;		// + offset = 0 dB == 1 amplitude
-}
+require("evi_smooth.genexpr");				// incl. "_utilities" & _approx"
+require("evi_sources.genexpr");
+require("evi_interp.genexpr");
 
 // noise...
 
-// quasi box-muller algo (not 'ziggurat' but ok !)
-guassRng(gain)
-{
-	gnm1 = 1 - gain;
-	nz = noise();
-	cz = cos_52((noise() * pi) + pi) + 0.000007;	// + offset = accurate for extremes (-1/1) not around zero
-	nzmax = maximum(nz, 0);
-	nzmin = minimum(nz, 0) * -1;
-	return sqrt((ln(((nzmax + nzmin) * gain) + gnm1) * -2)) * cz;
-}
-
-// wrap box-muller with gain stage
-gaussnoise(gain, ngain)
+// wrap box-muller with local gain stage
+gaussnoise(ngain)
 {
 	History noisedummy(0);
 	nc = 0.00001;
 	ng = (ngain < nc) ? nc : (ngain * 0.05);
-	return ng * guassRng(gain);
+	return ng * gaussianNoise(0.6403882032022076);
 }
 
 // nonlinear...
 
-// cubic non-linearity (thb)
-dnl(x0, nb)						// nb = 0.55032120814910446
+// cubic nonlinearity (thb)
+dnl(x0)
 {
+	nb = 0.55032120814910446;	// thb 'transfer function'
 	x1	= clip(x0, -1, 1);
-	nx	= nb * x1;				// transfer function * clamped input
+	nx	= nb * x1;
 	nx3 = nx * nx * nx;
 	return	x1 - (nx3 + nx3);
 }
 
-// fixed 3x oversampling, plus voodoo for GenExpr
-dnl3x(XIN, n)
+// fixed 3x fake oversampling
+dnl3x(XIN)
 {	// up 3
 	History	umTm1_0(0), umT0_0(0), umT1_0(0);
 	// down 3
@@ -210,9 +56,9 @@ dnl3x(XIN, n)
 	x3_0	= interp(TDT, umTm1_0, umT0_0, umT1_0, x0_0_a, mode="spline");
 
 	// process 3x
-	y1_0	= dnl(x1_0, n);
-	y2_0	= dnl(x2_0, n);
-	y3_0	= dnl(x3_0, n);
+	y1_0	= dnl(x1_0);
+	y2_0	= dnl(x2_0);
+	y3_0	= dnl(x3_0);
 
 	// down 3x
 	y2_0_a	= y2_0 + 0;
@@ -240,73 +86,16 @@ dnl3x(XIN, n)
 	return dcblock(y0_0);
 }
 
-// fixed 4x oversampling, plus voodoo for GenExpr
-dnl4x(XIN, n)
-{	// up 4
-	History	umTm1_0(0), umT0_0(0), umT1_0(0);
-	// down 4
-	History	dmT2_1(0), dmT1_1(0), dmT0_1(0);
-	History	dmT2_2(0), dmT1_2(0), dmT0_2(0);
-	History	dmT2_3(0), dmT1_3(0), dmT0_3(0);
-	// align
-	History	doX0(0);
-
-	// up 4x
-	x0_0_a	= XIN + 0;
-	x1_0	= interp(0.25,	umTm1_0, umT0_0, umT1_0, x0_0_a, mode="spline");
-	x2_0	= interp(0.5,	umTm1_0, umT0_0, umT1_0, x0_0_a, mode="spline");
-	x3_0	= interp(0.75,	umTm1_0, umT0_0, umT1_0, x0_0_a, mode="spline");
-
-	// process 4x
-	y1_0	= dnl(x1_0, n);
-	y2_0	= dnl(x2_0, n);
-	y3_0	= dnl(x3_0, n);
-	y4_0	= dnl(umT1_0 + 0, n);
-
-	// down 4x
-	y2_0_a	= y2_0 + 0;
-	y2_1	= interp(0.25,	y2_0_a,	dmT0_1, dmT1_1, dmT2_1, mode="spline");
-
-	y3_0_a	= y3_0 + 0;
-	y3_1	= interp(0.5,	y3_0_a,	dmT0_2, dmT1_2, dmT2_2, mode="spline");
-
-	y4_0_a	= y4_0 + 0;
-	y4_1	= interp(0.75,	y4_0_a,	dmT0_3, dmT1_3, dmT2_3, mode="spline");
-
-	y0_0	= (((doX0 + y2_1) + y3_1) + y4_1) * 0.25;
-
-	// update
-	umTm1_0	= umT0_0;
-	umT0_0	= umT1_0;
-	umT1_0	= x0_0_a;
-
-	doX0	= y1_0;
-
-	dmT2_1	= dmT1_1;
-	dmT1_1	= dmT0_1;
-	dmT0_1	= y2_0;
-
-	dmT2_2	= dmT1_2;
-	dmT1_2	= dmT0_2;
-	dmT0_2	= y3_0;
-
-	dmT2_3	= dmT1_3;
-	dmT1_3	= dmT0_3;
-	dmT0_3	= y4_0;
-
-	return dcblock(y0_0);
-}
-
 // make oversampling choice on nonlinearity
 dnlNonlin(xin, oversampling)
 {
-	History dnldummy(0);			// for embedding
-	N = 0.55032120814910446;
+	History dnldummy(0);
+//	N = 0.55032120814910446;
 	y = 0;
-	if (oversampling > 0) {			// use 3x oversampling
-		y = dnl3x(xin, N);
-	} else {						// use 1x sampling
-		y = dnl(xin, N);
+	if (oversampling > 0) {			// use 3x
+		y = dnl3x(xin);
+	} else {						// use 1x
+		y = dnl(xin);
 	}
 	return y;
 }
@@ -319,11 +108,11 @@ dnlNonlin(xin, oversampling)
 // a = stage 1 coefficient (factor of cutoff & lut);
 // b = stage 2 coefficient (factor of cutoff & lut);
 // r = resonance corrected (factor of cutoff, resonance & lut);
-// noisegen = noise injection (gaussian distribution);
+// noisegain = noise injection level;
 // POSTGAIN = postgain const;
 // HEADROOM = headroom (factor of noise in filter);
-// nl = internal nonlinearity oversampling choice;
-dft(x, l, h, a, b, r, noisegen, POSTGAIN, HEADROOM, nl)
+// nl = internal nonlinearity 'oversampling' choice;
+dft(x, l, h, a, b, r, noisegain, POSTGAIN, HEADROOM, nl)
 {
 	History za(0), zb(0), zr(0), zh(0);
 	History zy(0), zn(0);								// output
@@ -332,18 +121,132 @@ dft(x, l, h, a, b, r, noisegen, POSTGAIN, HEADROOM, nl)
 	zy = dnlNonlin(zb, nl);
 
 	// filter
-	za = x * l + r * (zy - zr) + a * za;// + noisegen;	// stage 1
+	za = x * l + r * (zy - zr) + a * za;				// stage 1
 	zb = za * (1 - b) + (x - zh) * h + b * zb + zn;		// stage 2
 
 	// update
 	zh = x;
 	zr = zy;
-	zn = noisegen;
+	zn = gaussnoise(noisegain);
 
-	return dcblock((zy * HEADROOM) + noisegen) * POSTGAIN;
+	return (zy * HEADROOM) * POSTGAIN;
 }
 
-// fixed 3x oversampling, plus voodoo for GenExpr
+dft2(x0, x1, l, h, a, b, r, noisegain, POSTGAIN, HEADROOM, nl)
+{
+	History za(0), zb(0), zr(0), zh(0);
+	History zy0(0), zy1(0), zn(0);						// output
+
+	// pass 1
+
+	// nonlinearity
+	zy0 = dnlNonlin(zb, nl);
+
+	// filter
+	za = x0 * l + r * (zy0 - zr) + a * za;				// stage 1
+	zb = za * (1 - b) + (x0 - zh) * h + b * zb + zn;	// stage 2
+
+	// update
+	zh = x0;
+	zr = zy0;
+
+	zn = gaussnoise(noisegain);
+
+	// pass 2
+
+	// nonlinearity
+	zy1 = dnlNonlin(zb, nl);
+
+	// filter
+	za = x1 * l + r * (zy1 - zr) + a * za;				// stage 1
+	zb = za * (1 - b) + (x1 - zh) * h + b * zb + zn;	// stage 2
+
+	// update
+	zh = x1;
+	zr = zy1;
+
+	return (zy0 * HEADROOM) * POSTGAIN, (zy1 * HEADROOM) * POSTGAIN;
+}
+
+// fixed 2x quasi oversampling (hermite6)
+dft2_2x6( XIN, l, h, a, b, r, noisegain, POSTGAIN, HEADROOM, nl )
+{	// up 2
+	History	umTm2_0(0), umTm1_0(0), umT0_0(0), umT1_0(0), umT2_0(0);
+	// down 2
+	History	dmT3_1(0), dmT2_1(0), dmT1_1(0), dmT0_1(0), dmTm1_1(0);
+	// align
+	History	doX0(0);
+
+	// up 2x
+	x0_0_a	= XIN + 0;
+	x1_0	= hermite_sixpoint_interp(0.5,	umTm2_0, umTm1_0, umT0_0, umT1_0, umT2_0, x0_0_a);
+	x2_0	= umT2_0 + 0;
+
+	// process 2x
+    y1_0, y2_0 = dft2(x1_0, x2_0, l, h, a, b, r, noisegain, POSTGAIN, HEADROOM, nl);
+
+	// down 2x
+	y2_0_a	= y2_0 + 0;
+	y2_1	= hermite_sixpoint_interp(0.5,	y2_0_a,	dmTm1_1, dmT0_1, dmT1_1, dmT2_1, dmT3_1);
+
+	y0_0	= (doX0 + y2_1) * 0.5;
+
+	// update
+	umTm2_0	= umTm1_0;
+	umTm1_0	= umT0_0;
+	umT0_0	= umT1_0;
+	umT1_0 	= umT2_0;
+	umT2_0	= x0_0_a;
+
+	doX0	= y1_0;
+
+	dmT3_1	= dmT2_1;
+	dmT2_1	= dmT1_1;
+	dmT1_1	= dmT0_1;
+	dmT0_1	= dmTm1_1;
+	dmTm1_1	= y2_0;
+
+	return y0_0;
+}
+
+// fixed 2x quasi oversampling (cubic4)
+dft2_2x4( XIN, l, h, a, b, r, noisegain, POSTGAIN, HEADROOM, nl )
+{	// up 2
+	History	umTm1_0(0), umT0_0(0), umT1_0(0);
+	// down 2
+	History	dmT2_1(0), dmT1_1(0), dmT0_1(0);
+	// align
+	History	doX0(0);
+
+	// up 2x
+	x0_0_a	= XIN + 0;
+	x1_0	= cubic_hermite_interp(0.5,	umTm1_0, umT0_0, umT1_0, x0_0_a);
+	x2_0	= umT1_0 + 0;
+
+	// process 2x
+	y1_0, y2_0	= dft2(x1_0, x2_0, l, h, a, b, r, noisegain, POSTGAIN, HEADROOM, nl);
+
+	// down 2x
+	y2_0_a	= y2_0 + 0;
+	y2_1	= cubic_hermite_interp(0.5,	y2_0_a,	dmT0_1, dmT1_1, dmT2_1);
+
+	y0_0	= (doX0 + y2_1) * 0.5;
+
+	// update
+	umTm1_0	= umT0_0;
+	umT0_0	= umT1_0;
+	umT1_0	= x0_0_a;
+
+	doX0	= y1_0;
+
+	dmT2_1	= dmT1_1;
+	dmT1_1	= dmT0_1;
+	dmT0_1	= y2_0;
+
+	return y0_0;
+}
+
+// fixed 3x bad oversampling
 dft3x(XIN, l, h, a, b, r, ng, n, nl)
 {	// up 3
 	History	umTm1_0(0), umT0_0(0), umT1_0(0);
@@ -393,7 +296,7 @@ dft3x(XIN, l, h, a, b, r, ng, n, nl)
 	return dcblock(y0_0);
 }
 
-// fixed 12x oversampling, plus voodoo for GenExpr
+// fixed 12x very bad oversampling
 dft12x(XIN, l, h, a, b, r, ng, n, nl)
 {	// up 4
 	History	umTm1_0(0), umT0_0(0), umT1_0(0);
@@ -406,9 +309,9 @@ dft12x(XIN, l, h, a, b, r, ng, n, nl)
 
 	// up 4x
 	x0_0_a	= XIN + 0;
-	x1_0	= interp(0.25,	umTm1_0, umT0_0, umT1_0, x0_0_a, mode="cubic");
-	x2_0	= interp(0.5,	umTm1_0, umT0_0, umT1_0, x0_0_a, mode="cubic");
-	x3_0	= interp(0.75,	umTm1_0, umT0_0, umT1_0, x0_0_a, mode="cubic");
+	x1_0	= interp(0.25,	umTm1_0, umT0_0, umT1_0, x0_0_a, mode="spline");
+	x2_0	= interp(0.5,	umTm1_0, umT0_0, umT1_0, x0_0_a, mode="spline");
+	x3_0	= interp(0.75,	umTm1_0, umT0_0, umT1_0, x0_0_a, mode="spline");
 
 	// process 12x
 	y1_0	= dft3x(x1_0,		l, h, a, b, r, ng, n, nl);
@@ -418,13 +321,13 @@ dft12x(XIN, l, h, a, b, r, ng, n, nl)
 
 	// down 4x
 	y2_0_a	= y2_0 + 0;
-	y2_1	= interp(0.25,	y2_0_a,	dmT0_1, dmT1_1, dmT2_1, mode="cubic");
+	y2_1	= interp(0.25,	y2_0_a,	dmT0_1, dmT1_1, dmT2_1, mode="spline");
 
 	y3_0_a	= y3_0 + 0;
-	y3_1	= interp(0.5,	y3_0_a,	dmT0_2, dmT1_2, dmT2_2, mode="cubic");
+	y3_1	= interp(0.5,	y3_0_a,	dmT0_2, dmT1_2, dmT2_2, mode="spline");
 
 	y4_0_a	= y4_0 + 0;
-	y4_1	= interp(0.75,	y4_0_a,	dmT0_3, dmT1_3, dmT2_3, mode="cubic");
+	y4_1	= interp(0.75,	y4_0_a,	dmT0_3, dmT1_3, dmT2_3, mode="spline");
 
 	y0_0	= (((doX0 + y2_1) + y3_1) + y4_1) * 0.25;
 
@@ -451,19 +354,26 @@ dft12x(XIN, l, h, a, b, r, ng, n, nl)
 }
 
 // make oversampling etc choice on entire filter
-dfts(x, l, h, a, b, r, noisegen, n, os)
-{
-	History dftsdummy(0);			// for embedding
+dfts(x, l, h, a, b, r, N, os)		// os fades between 1..2..1 if filter switched lowpass..highpass..lowpass,
+{									//  otherwise 'int' selector
+	History dftsdummy(0);
 	POSTGAIN = 1.425;				// (1 - 0.05) * 3 / 2
-	HEADROOM = (1 - (n * 0.05)) * 0.998849;
+	HEADROOM = (1 - (N * 0.05)) * 0.998849;
 	NLOS = 0;//(os == 0);
 	y = 0;
-	if (os == 1) {					// use 3x oversampling
-		y = dft3x(x, l, h, a, b, r, noisegen, POSTGAIN, HEADROOM, NLOS);
-	} else if (os == 2) {			// use 12x oversampling
-		y = dft12x(x, l, h, a, b, r, noisegen, POSTGAIN, HEADROOM, NLOS);
-	} else {						// use 1x sampling
-		y = dft(x, l, h, a, b, r, noisegen, POSTGAIN, HEADROOM, NLOS);
+	if (os == 1) {					// use 2x oversampling lowpass
+		y = dft2_2x6(x, l, h, a, b, r, N, POSTGAIN, HEADROOM, NLOS);
+	} else if (os > 1 && os < 2) {
+		y = interp(os,
+			dft2_2x6(x, l, h, a, b, r, N, POSTGAIN, HEADROOM, NLOS),
+			dft2_2x4(x, l, h, a, b, r, N, POSTGAIN, HEADROOM, NLOS),
+			mode="cosine");			// better plop
+	} else if (os == 2) {			// use 2x oversampling highpass
+		y = dft2_2x4(x, l, h, a, b, r, N, POSTGAIN, HEADROOM, NLOS);
+	} else if (os == 3) {			// use fake 12x
+		y = dft12x(x, l, h, a, b, r, N, POSTGAIN, HEADROOM, NLOS);
+	} else {						// 1x
+		y = dft(x, l, h, a, b, r, N, POSTGAIN, HEADROOM, NLOS);
 	}
 	return dcblock(y);
 }
