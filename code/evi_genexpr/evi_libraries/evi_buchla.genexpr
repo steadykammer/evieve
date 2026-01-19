@@ -1,5 +1,8 @@
 
 require("evi_interp.genexpr");
+require("evi_smooth.genexpr");
+
+//	//	//
 
 tanhLapprox(x)									// tanh lambert
 {
@@ -29,13 +32,17 @@ nonlin(x, nl)									// choice
 	return y;
 }
 
-// filter based on "A Digital Model of the Buchla Lowpass-Gate" by Julian Parker and Stefano D’Angelo, 2013
+//	//	//
+
+// filter modified from "A Digital Model of the Buchla Lowpass-Gate" by Julian Parker and Stefano D’Angelo, 2013
 buchlaLpg1(x, rf, res, resist, vcamode, lpgmode, nl)
 {
 	History	so(0), sx(0), sd(0);
 	History	xo(0);
-	thing = 1 - (nl * (1 - sqrt1_2));
-	thong = resist * (1 - nl); 
+	nl1 = nl - 1;
+	nls = clamp(nl1, 0, 1);
+	thing = 1 - (nls * (1 - sqrt1_2));
+	thong = resist * (1 - nls);							// why did i do this?
 
 	// constants
 	c1 = 0.000000001;
@@ -45,12 +52,20 @@ buchlaLpg1(x, rf, res, resist, vcamode, lpgmode, nl)
 
 	r1 = 1000;
 	r3 = (1 - vcamode)*5000000 + 10000;					// "ra"
+	// In the real circuits, the ’VCA’ switch also changes the input op-amp configuration
+	// so that it has a gain of +4..5dB instead of unity, presumably
+	// to normalize loudness between the modes"
+	r4 = vcamode*1.778279;
 
 	// resonance / feedback
+	// "This makes the filter more controllable, but it means that the
+	// resonance no longer strictly behaves as it does in the real system"
 	max_res = ((c1+c1)*r3 + c2c3*(r3+rf)) / (c3*r3);	// this surely should not work (div by 0) ?
 	a = minimum(res, max_res) * thing;
 	resi05 = resist*0.5;
 	resiComp = (1 - resi05*1.333333333333);
+	rCr4 = resiComp + r4;
+	rCr4L = rCr4;
 
 	// frequency
 	sr = samplerate;
@@ -85,41 +100,72 @@ buchlaLpg1(x, rf, res, resist, vcamode, lpgmode, nl)
 	Do = 1/(1 - a2*f);
 	fb3d = f*b3*Do;
 	fb4 = b4*f;
-	rf1d1 = rf1*d1;
+	//rf1d1 = rf1*d1;
 
-	// solve nonlinear
+	yx, yo, yd = 0;
 	xb1 = b1*x;
-	tanh_xo  = nonlin(xo*(1 - (resi05*0.333333333333)), nl);
-	rtanh_xo2 = 1 - tanh_xo*tanh_xo;
-	d1rthx = d1*rtanh_xo2;
-	rtanh_mo2 = tanh_xo - xo*rtanh_xo2;
-	d1rthm = d1*rtanh_mo2;
-	Dmas = 1/(1 - Dx*(f*fb3d*a1 + fb4*d1rthx*Do*a1 - b4));
-	rf1d1rth = rf1*d1rthm;
+	if (nl > 0) {
+		rCr4L = rCr4;
 
-	// compute integrators
-	yx = (sx + f*xb1 + fb3d*so + fb4*(sd + rf1d1rth) + b4*d1rthx*Do*so)*Dx*Dmas;
-	a1yx = a1*yx;
-	yo = (so + f*a1yx)*Do;
-	d1rthyx = d1rthx*yo - yx;
-	yd = (sd + rf1d1rth) + rf1*d1rthyx;
+		// solve nonlinear
+		tanh_xo  = nonlin(xo*(1 - (resi05*0.333333333333)), nls);
+		rtanh_xo2 = 1 - tanh_xo*tanh_xo;
+		d1rthx = d1*rtanh_xo2;
+		rtanh_mo2 = tanh_xo - xo*rtanh_xo2;
+		d1rthm = d1*rtanh_mo2;
+		rf1d1rth = rf1*d1rthm;
+		Dmas = 1/(1 - Dx*(f*fb3d*a1 + fb4*d1rthx*Do*a1 - b4));
 
-	// update state
-	sx +=   ff*(xb1 + b2*yx + b3*yo + b4*yd);
-	so +=   ff*(a1yx + a2*yo);
-	sd  = -(sd + rf2*d1rthm) - rf2*d1rthyx;
-	xo  =   yo;
+		// compute integrators
+		// "Alternatively, a more efficient approach is to solve the linear system for
+		// only one of the outputs and then re-arrange the other two output equations
+		// to allow them to be calculated consecutively from the other outputs in
+		// addition to the states and input"
+		yx = (sx + f*xb1 + fb3d*so + fb4*(sd + rf1d1rth) + b4*d1rthx*Do*so)*Dx*Dmas;
+		a1yx = a1*yx;
+		yo = (so + f*a1yx)*Do;
+		d1rthyx = d1rthx*yo - yx;
+		yd = (sd + rf1d1rth) + rf1*d1rthyx;
 
-	// "outputs can be mixed to produce other filter modes", pete: "good luck with that"
-	return	yo*resiComp;//, yx*resiComp, yd*0.011111111111;
+		// update state
+		sx +=   ff*(xb1 + b2*yx + b3*yo + b4*yd);
+		so +=   ff*(a1yx + a2*yo);
+		sd  = -(sd + rf2*d1rthm) - rf2*d1rthyx;
+		xo  =   yo;
+
+	} else {
+		// if linear
+		rCr4L = rCr4 * (max_res - res + 0.125); // a hack which does not work, but better than original, so it stays
+		d1do = d1*Do;
+		Dmas = 1/(1 - Dx*(f*fb3d*a1 + fb4*d1do*a1 - b4));
+		
+		// compute integrators
+		yx = (sx + f*xb1 + fb3d*so + fb4*sd + b4*d1do*so)*Dx*Dmas;
+		a1yx = a1*yx;
+		yo = (so + f*a1yx)*Do;
+		d1yoyx = d1*yo - yx;
+		yd = sd + rf1*d1yoyx;
+		
+		// update state
+		sx +=  ff*(xb1 + b2*yx + b3*yo + b4*yd);
+		so +=  ff*(a1yx + a2*yo);
+		sd  = -sd - rf2*d1yoyx;
+		xo  =  0;
+
+	}
+
+	// "outputs can be mixed to produce other filter modes", pete: "good luck with that, but i tried"
+	return	yo*rCr4L, yx*rCr4L, yd*(0.000041111111); // problem with yd (HP) @nyquist
 }
 
 buchlaLpg2(x0, x1, rf, res, resist, vcamode, lpgmode, nl)
 {
 	History	so(0), sx(0), sd(0);
 	History	xo0(0), xo1(0);
-	thing = 1 - (nl * (1 - sqrt1_2));
-	thong = resist * (1 - nl); 
+	nl1 = nl - 1;
+	nls = clamp(nl1, 0, 1);
+	thing = 1 - (nls * (1 - sqrt1_2));
+	thong = resist * (1 - nls);
 
 	// constants
 	c1 = 0.000000001;
@@ -129,12 +175,15 @@ buchlaLpg2(x0, x1, rf, res, resist, vcamode, lpgmode, nl)
 
 	r1 = 1000;
 	r3 = (1 - vcamode)*5000000 + 10000;
+	r4 = vcamode*1.778279;
 
 	// resonance / feedback
 	max_res = ((c1+c1)*r3 + c2c3*(r3+rf)) / (c3*r3);
 	a = minimum(res, max_res) * thing;
 	resi05 = resist*0.5;
 	resiComp = (1 - resi05*1.333333333333);
+	rCr4 = resiComp + r4;
+	rCr4L = rCr4;
 
 	// frequency
 	sr = samplerate;
@@ -168,67 +217,111 @@ buchlaLpg2(x0, x1, rf, res, resist, vcamode, lpgmode, nl)
 	Do = 1/(1 - a2*f);
 	fb3d = f*b3*Do;
 	fb4 = b4*f;
-	rf1d1 = rf1*d1;
+	//rf1d1 = rf1*d1;
 
-    // pass 1
-
-	// solve nonlinear
+	yo0, yo1 = 0;
 	xb10 = b1*x0;
-	tanh_xo0  = nonlin(xo0*(1 - (resi05*0.333333333333)), nl);
-	rtanh_xo20 = 1 - tanh_xo0*tanh_xo0;
-	d1rthx0 = d1*rtanh_xo20;
-	rtanh_mo20 = tanh_xo0 - xo0*rtanh_xo20;
-	d1rthm0 = d1*rtanh_mo20;
-	Dmas0 = 1/(1 - Dx*(f*fb3d*a1 + fb4*d1rthx0*Do*a1 - b4));
-	rf1d1rth0 = rf1*d1rthm0;
-
-	// compute integrators
-	yx0 = (sx + f*xb10 + fb3d*so + fb4*(sd + rf1d1rth0) + b4*d1rthx0*Do*so)*Dx*Dmas0;
-	a1yx0 = a1*yx0;
-	yo0 = (so + f*a1yx0)*Do;
-	d1rthyx0 = d1rthx0*yo0 - yx0;
-	yd0 = (sd + rf1d1rth0) + rf1*d1rthyx0;
-
-	// update state
-	sx +=   ff*(xb10 + b2*yx0 + b3*yo0 + b4*yd0);
-	so +=   ff*(a1yx0 + a2*yo0);
-	sd  = -(sd + rf2*d1rthm0) - rf2*d1rthyx0;
-	xo0 =   yo0;
-
-    // pass 2
-
-	// solve nonlinear
 	xb11 = b1*x1;
-	tanh_xo1  = nonlin(xo1*(1 - (resi05*0.333333333333)), nl);
-	rtanh_xo21 = 1 - tanh_xo1*tanh_xo1;
-	d1rthx1 = d1*rtanh_xo21;
-	rtanh_mo21 = tanh_xo1 - xo1*rtanh_xo21;
-	d1rthm1 = d1*rtanh_mo21;
-	Dmas1 = 1/(1 - Dx*(f*fb3d*a1 + fb4*d1rthx1*Do*a1 - b4));
-	rf1d1rth1 = rf1*d1rthm1;
+	if (nl > 0) {
+		rCr4L = rCr4;
 
-	// compute integrators
-	yx1 = (sx + f*xb11 + fb3d*so + fb4*(sd + rf1d1rth1) + b4*d1rthx1*Do*so)*Dx*Dmas1;
-	a1yx1 = a1*yx1;
-	yo1 = (so + f*a1yx1)*Do;
-	d1rthyx1 = d1rthx1*yo1 - yx1;
-	yd1 = (sd + rf1d1rth1) + rf1*d1rthyx1;
+    	// pass 1
 
-	// update state
-	sx +=   ff*(xb11 + b2*yx1 + b3*yo1 + b4*yd1);
-	so +=   ff*(a1yx1 + a2*yo1);
-	sd  = -(sd + rf2*d1rthm1) - rf2*d1rthyx1;
-	xo1 =   yo1;
+		// solve nonlinear
+		tanh_xo0  = nonlin(xo0*(1 - (resi05*0.333333333333)), nls);
+		rtanh_xo20 = 1 - tanh_xo0*tanh_xo0;
+		d1rthx0 = d1*rtanh_xo20;
+		rtanh_mo20 = tanh_xo0 - xo0*rtanh_xo20;
+		d1rthm0 = d1*rtanh_mo20;
+		rf1d1rth0 = rf1*d1rthm0;
+		Dmas0 = 1/(1 - Dx*(f*fb3d*a1 + fb4*d1rthx0*Do*a1 - b4));
 
-	return	yo0*resiComp, yo1*resiComp;
+		// compute integrators
+		yx0 = (sx + f*xb10 + fb3d*so + fb4*(sd + rf1d1rth0) + b4*d1rthx0*Do*so)*Dx*Dmas0;
+		a1yx0 = a1*yx0;
+		yo0 = (so + f*a1yx0)*Do;
+		d1rthyx0 = d1rthx0*yo0 - yx0;
+		yd0 = (sd + rf1d1rth0) + rf1*d1rthyx0;
+
+		// update state
+		sx +=   ff*(xb10 + b2*yx0 + b3*yo0 + b4*yd0);
+		so +=   ff*(a1yx0 + a2*yo0);
+		sd  = -(sd + rf2*d1rthm0) - rf2*d1rthyx0;
+		xo0 =   yo0;
+
+	    // pass 2
+
+		// solve nonlinear
+		tanh_xo1  = nonlin(xo1*(1 - (resi05*0.333333333333)), nls);
+		rtanh_xo21 = 1 - tanh_xo1*tanh_xo1;
+		d1rthx1 = d1*rtanh_xo21;
+		rtanh_mo21 = tanh_xo1 - xo1*rtanh_xo21;
+		d1rthm1 = d1*rtanh_mo21;
+		rf1d1rth1 = rf1*d1rthm1;
+		Dmas1 = 1/(1 - Dx*(f*fb3d*a1 + fb4*d1rthx1*Do*a1 - b4));
+
+		// compute integrators
+		yx1 = (sx + f*xb11 + fb3d*so + fb4*(sd + rf1d1rth1) + b4*d1rthx1*Do*so)*Dx*Dmas1;
+		a1yx1 = a1*yx1;
+		yo1 = (so + f*a1yx1)*Do;
+		d1rthyx1 = d1rthx1*yo1 - yx1;
+		yd1 = (sd + rf1d1rth1) + rf1*d1rthyx1;
+
+		// update state
+		sx +=   ff*(xb11 + b2*yx1 + b3*yo1 + b4*yd1);
+		so +=   ff*(a1yx1 + a2*yo1);
+		sd  = -(sd + rf2*d1rthm1) - rf2*d1rthyx1;
+		xo1 =   yo1;
+
+	} else {
+		// if linear
+		rCr4L = rCr4 * (max_res - res + 0.125);
+		d1do = d1*Do;
+		Dmas = 1/(1 - Dx*(f*fb3d*a1 + fb4*d1do*a1 - b4));
+
+		// pass 1
+
+		// compute integrators
+		yx0 = (sx + f*xb10 + fb3d*so + fb4*sd + b4*d1do*so)*Dx*Dmas;
+		a1yx = a1*yx0;
+		yo0 = (so + f*a1yx)*Do;
+		d1yoyx0 = d1*yo0 - yx0;
+		yd0 = sd + rf1*d1yoyx0;
+		
+		// update state
+		sx +=  ff*(xb10 + b2*yx0 + b3*yo0 + b4*yd0);
+		so +=  ff*(a1yx + a2*yo0);
+		sd  = -sd - rf2*d1yoyx0;
+		xo0 =  0;
+
+		// pass 2
+
+		// compute integrators
+		yx1 = (sx + f*xb11 + fb3d*so + fb4*sd + b4*d1do*so)*Dx*Dmas;
+		a1yx = a1*yx1;
+		yo1 = (so + f*a1yx)*Do;
+		d1yoyx1 = d1*yo1 - yx1;
+		yd1 = sd + rf1*d1yoyx1;
+		
+		// update state
+		sx +=  ff*(xb11 + b2*yx1 + b3*yo1 + b4*yd1);
+		so +=  ff*(a1yx + a2*yo1);
+		sd  = -sd - rf2*d1yoyx1;
+		xo1 =  0;
+
+	}
+
+	return	yo0*rCr4L, yo1*rCr4L;
 }
 
 buchlaLpg3(x0, x1, x2, rf, res, resist, vcamode, lpgmode, nl)
 {
 	History	so(0), sx(0), sd(0);
 	History	xo0(0), xo1(0), xo2(0);
-	thing = 1 - (nl * (1 - sqrt1_2));
-	thong = resist * (1 - nl); 
+	nl1 = nl - 1;
+	nls = clamp(nl1, 0, 1);
+	thing = 1 - (nls * (1 - sqrt1_2));
+	thong = resist * (1 - nls);
 
 	// constants
 	c1 = 0.000000001;
@@ -238,12 +331,14 @@ buchlaLpg3(x0, x1, x2, rf, res, resist, vcamode, lpgmode, nl)
 
 	r1 = 1000;
 	r3 = (1 - vcamode)*5000000 + 10000;
+	r4 = vcamode*1.778279;
 
 	// resonance / feedback
 	max_res = ((c1+c1)*r3 + c2c3*(r3+rf)) / (c3*r3);
 	a = minimum(res, max_res) * thing;
 	resi05 = resist*0.5;
 	resiComp = (1 - resi05*1.333333333333);
+	rCr4 = resiComp + r4;
 
 	// frequency
 	sr = samplerate;
@@ -277,19 +372,19 @@ buchlaLpg3(x0, x1, x2, rf, res, resist, vcamode, lpgmode, nl)
 	Do = 1/(1 - a2*f);
 	fb3d = f*b3*Do;
 	fb4 = b4*f;
-	rf1d1 = rf1*d1;
+	//rf1d1 = rf1*d1;
 
     // pass 1
 
 	// solve nonlinear
 	xb10 = b1*x0;
-	tanh_xo0  = nonlin(xo0*(1 - (resi05*0.333333333333)), nl);
+	tanh_xo0  = nonlin(xo0*(1 - (resi05*0.333333333333)), nls);
 	rtanh_xo20 = 1 - tanh_xo0*tanh_xo0;
 	d1rthx0 = d1*rtanh_xo20;
 	rtanh_mo20 = tanh_xo0 - xo0*rtanh_xo20;
 	d1rthm0 = d1*rtanh_mo20;
-	Dmas0 = 1/(1 - Dx*(f*fb3d*a1 + fb4*d1rthx0*Do*a1 - b4));
 	rf1d1rth0 = rf1*d1rthm0;
+	Dmas0 = 1/(1 - Dx*(f*fb3d*a1 + fb4*d1rthx0*Do*a1 - b4));
 
 	// compute integrators
 	yx0 = (sx + f*xb10 + fb3d*so + fb4*(sd + rf1d1rth0) + b4*d1rthx0*Do*so)*Dx*Dmas0;
@@ -308,13 +403,13 @@ buchlaLpg3(x0, x1, x2, rf, res, resist, vcamode, lpgmode, nl)
 
 	// solve nonlinear
 	xb11 = b1*x1;
-	tanh_xo1  = nonlin(xo1*(1 - (resi05*0.333333333333)), nl);
+	tanh_xo1  = nonlin(xo1*(1 - (resi05*0.333333333333)), nls);
 	rtanh_xo21 = 1 - tanh_xo1*tanh_xo1;
 	d1rthx1 = d1*rtanh_xo21;
 	rtanh_mo21 = tanh_xo1 - xo1*rtanh_xo21;
 	d1rthm1 = d1*rtanh_mo21;
-	Dmas1 = 1/(1 - Dx*(f*fb3d*a1 + fb4*d1rthx1*Do*a1 - b4));
 	rf1d1rth1 = rf1*d1rthm1;
+	Dmas1 = 1/(1 - Dx*(f*fb3d*a1 + fb4*d1rthx1*Do*a1 - b4));
 
 	// compute integrators
 	yx1 = (sx + f*xb11 + fb3d*so + fb4*(sd + rf1d1rth1) + b4*d1rthx1*Do*so)*Dx*Dmas1;
@@ -333,13 +428,13 @@ buchlaLpg3(x0, x1, x2, rf, res, resist, vcamode, lpgmode, nl)
 
 	// solve nonlinear
 	xb12 = b1*x2;
-	tanh_xo2  = nonlin(xo2*(1 - (resi05*0.333333333333)), nl);
+	tanh_xo2  = nonlin(xo2*(1 - (resi05*0.333333333333)), nls);
 	rtanh_xo22 = 1 - tanh_xo2*tanh_xo2;
 	d1rthx2 = d1*rtanh_xo22;
 	rtanh_mo22 = tanh_xo2 - xo2*rtanh_xo22;
 	d1rthm2 = d1*rtanh_mo22;
-	Dmas2 = 1/(1 - Dx*(f*fb3d*a1 + fb4*d1rthx2*Do*a1 - b4));
 	rf1d1rth2 = rf1*d1rthm2;
+	Dmas2 = 1/(1 - Dx*(f*fb3d*a1 + fb4*d1rthx2*Do*a1 - b4));
 
 	// compute integrators
 	yx2 = (sx + f*xb12 + fb3d*so + fb4*(sd + rf1d1rth2) + b4*d1rthx2*Do*so)*Dx*Dmas2;
@@ -354,15 +449,17 @@ buchlaLpg3(x0, x1, x2, rf, res, resist, vcamode, lpgmode, nl)
 	sd  = -(sd + rf2*d1rthm2) - rf2*d1rthyx2;
 	xo2 =   yo2;
 
-	return	yo0*resiComp, yo1*resiComp, yo2*resiComp;
+	return	yo0*rCr4, yo1*rCr4, yo2*rCr4;
 }
 
 buchlaLpg4(x0, x1, x2, x3, rf, res, resist, vcamode, lpgmode, nl)
 {
 	History	so(0), sx(0), sd(0);
 	History	xo0(0), xo1(0), xo2(0), xo3(0);
-	thing = 1 - (nl * (1 - sqrt1_2));
-	thong = resist * (1 - nl); 
+	nl1 = nl - 1;
+	nls = clamp(nl1, 0, 1);
+	thing = 1 - (nls * (1 - sqrt1_2));
+	thong = resist * (1 - nls);
 
 	// constants
 	c1 = 0.000000001;
@@ -372,12 +469,14 @@ buchlaLpg4(x0, x1, x2, x3, rf, res, resist, vcamode, lpgmode, nl)
 
 	r1 = 1000;
 	r3 = (1 - vcamode)*5000000 + 10000;
+	r4 = vcamode*1.778279;
 
 	// resonance / feedback
 	max_res = ((c1+c1)*r3 + c2c3*(r3+rf)) / (c3*r3);
 	a = minimum(res, max_res) * thing;
 	resi05 = resist*0.5;
 	resiComp = (1 - resi05*1.333333333333);
+	rCr4 = resiComp + r4;
 
 	// frequency
 	sr = samplerate;
@@ -411,19 +510,19 @@ buchlaLpg4(x0, x1, x2, x3, rf, res, resist, vcamode, lpgmode, nl)
 	Do = 1/(1 - a2*f);
 	fb3d = f*b3*Do;
 	fb4 = b4*f;
-	rf1d1 = rf1*d1;
+	//rf1d1 = rf1*d1;
 
     // pass 1
 
 	// solve nonlinear
 	xb10 = b1*x0;
-	tanh_xo0  = nonlin(xo0*(1 - (resi05*0.333333333333)), nl);
+	tanh_xo0  = nonlin(xo0*(1 - (resi05*0.333333333333)), nls);
 	rtanh_xo20 = 1 - tanh_xo0*tanh_xo0;
 	d1rthx0 = d1*rtanh_xo20;
 	rtanh_mo20 = tanh_xo0 - xo0*rtanh_xo20;
 	d1rthm0 = d1*rtanh_mo20;
-	Dmas0 = 1/(1 - Dx*(f*fb3d*a1 + fb4*d1rthx0*Do*a1 - b4));
 	rf1d1rth0 = rf1*d1rthm0;
+	Dmas0 = 1/(1 - Dx*(f*fb3d*a1 + fb4*d1rthx0*Do*a1 - b4));
 
 	// compute integrators
 	yx0 = (sx + f*xb10 + fb3d*so + fb4*(sd + rf1d1rth0) + b4*d1rthx0*Do*so)*Dx*Dmas0;
@@ -442,13 +541,13 @@ buchlaLpg4(x0, x1, x2, x3, rf, res, resist, vcamode, lpgmode, nl)
 
 	// solve nonlinear
 	xb11 = b1*x1;
-	tanh_xo1  = nonlin(xo1*(1 - (resi05*0.333333333333)), nl);
+	tanh_xo1  = nonlin(xo1*(1 - (resi05*0.333333333333)), nls);
 	rtanh_xo21 = 1 - tanh_xo1*tanh_xo1;
 	d1rthx1 = d1*rtanh_xo21;
 	rtanh_mo21 = tanh_xo1 - xo1*rtanh_xo21;
 	d1rthm1 = d1*rtanh_mo21;
-	Dmas1 = 1/(1 - Dx*(f*fb3d*a1 + fb4*d1rthx1*Do*a1 - b4));
 	rf1d1rth1 = rf1*d1rthm1;
+	Dmas1 = 1/(1 - Dx*(f*fb3d*a1 + fb4*d1rthx1*Do*a1 - b4));
 
 	// compute integrators
 	yx1 = (sx + f*xb11 + fb3d*so + fb4*(sd + rf1d1rth1) + b4*d1rthx1*Do*so)*Dx*Dmas1;
@@ -467,13 +566,13 @@ buchlaLpg4(x0, x1, x2, x3, rf, res, resist, vcamode, lpgmode, nl)
 
 	// solve nonlinear
 	xb12 = b1*x2;
-	tanh_xo2  = nonlin(xo2*(1 - (resi05*0.333333333333)), nl);
+	tanh_xo2  = nonlin(xo2*(1 - (resi05*0.333333333333)), nls);
 	rtanh_xo22 = 1 - tanh_xo2*tanh_xo2;
 	d1rthx2 = d1*rtanh_xo22;
 	rtanh_mo22 = tanh_xo2 - xo2*rtanh_xo22;
 	d1rthm2 = d1*rtanh_mo22;
-	Dmas2 = 1/(1 - Dx*(f*fb3d*a1 + fb4*d1rthx2*Do*a1 - b4));
 	rf1d1rth2 = rf1*d1rthm2;
+	Dmas2 = 1/(1 - Dx*(f*fb3d*a1 + fb4*d1rthx2*Do*a1 - b4));
 
 	// compute integrators
 	yx2 = (sx + f*xb12 + fb3d*so + fb4*(sd + rf1d1rth2) + b4*d1rthx2*Do*so)*Dx*Dmas2;
@@ -492,13 +591,13 @@ buchlaLpg4(x0, x1, x2, x3, rf, res, resist, vcamode, lpgmode, nl)
 
 	// solve nonlinear
 	xb13 = b1*x3;
-	tanh_xo3  = nonlin(xo3*(1 - (resi05*0.333333333333)), nl);
+	tanh_xo3  = nonlin(xo3*(1 - (resi05*0.333333333333)), nls);
 	rtanh_xo23 = 1 - tanh_xo3*tanh_xo3;
 	d1rthx3 = d1*rtanh_xo23;
 	rtanh_mo23 = tanh_xo3 - xo3*rtanh_xo23;
 	d1rthm3 = d1*rtanh_mo23;
-	Dmas3 = 1/(1 - Dx*(f*fb3d*a1 + fb4*d1rthx3*Do*a1 - b4));
 	rf1d1rth3 = rf1*d1rthm3;
+	Dmas3 = 1/(1 - Dx*(f*fb3d*a1 + fb4*d1rthx3*Do*a1 - b4));
 
 	// compute integrators
 	yx3 = (sx + f*xb13 + fb3d*so + fb4*(sd + rf1d1rth3) + b4*d1rthx3*Do*so)*Dx*Dmas3;
@@ -513,15 +612,17 @@ buchlaLpg4(x0, x1, x2, x3, rf, res, resist, vcamode, lpgmode, nl)
 	sd  = -(sd + rf2*d1rthm3) - rf2*d1rthyx3;
 	xo3 =   yo3;
 
-	return	yo0*resiComp, yo1*resiComp, yo2*resiComp, yo3*resiComp;
+	return	yo0*rCr4, yo1*rCr4, yo2*rCr4, yo3*rCr4;
 }
 
 buchlaLpg6(x0, x1, x2, x3, x4, x5, rf, res, resist, vcamode, lpgmode, nl)
 {
 	History	so(0), sx(0), sd(0);
 	History	xo0(0), xo1(0), xo2(0), xo3(0), xo4(0), xo5(0);
-	thing = 1 - (nl * (1 - sqrt1_2));
-	thong = resist * (1 - nl); 
+	nl1 = nl - 1;
+	nls = clamp(nl1, 0, 1);
+	thing = 1 - (nls * (1 - sqrt1_2));
+	thong = resist * (1 - nls);
 
 	// constants
 	c1 = 0.000000001;
@@ -531,12 +632,14 @@ buchlaLpg6(x0, x1, x2, x3, x4, x5, rf, res, resist, vcamode, lpgmode, nl)
 
 	r1 = 1000;
 	r3 = (1 - vcamode)*5000000 + 10000;
+	r4 = vcamode*1.778279;
 
 	// resonance / feedback
 	max_res = ((c1+c1)*r3 + c2c3*(r3+rf)) / (c3*r3);
 	a = minimum(res, max_res) * thing;
 	resi05 = resist*0.5;
 	resiComp = (1 - resi05*1.333333333333);
+	rCr4 = resiComp + r4;
 
 	// frequency
 	sr = samplerate;
@@ -570,19 +673,19 @@ buchlaLpg6(x0, x1, x2, x3, x4, x5, rf, res, resist, vcamode, lpgmode, nl)
 	Do = 1/(1 - a2*f);
 	fb3d = f*b3*Do;
 	fb4 = b4*f;
-	rf1d1 = rf1*d1;
+	//rf1d1 = rf1*d1;
 
     // pass 1
 
 	// solve nonlinear
 	xb10 = b1*x0;
-	tanh_xo0  = nonlin(xo0*(1 - (resi05*0.333333333333)), nl);
+	tanh_xo0  = nonlin(xo0*(1 - (resi05*0.333333333333)), nls);
 	rtanh_xo20 = 1 - tanh_xo0*tanh_xo0;
 	d1rthx0 = d1*rtanh_xo20;
 	rtanh_mo20 = tanh_xo0 - xo0*rtanh_xo20;
 	d1rthm0 = d1*rtanh_mo20;
-	Dmas0 = 1/(1 - Dx*(f*fb3d*a1 + fb4*d1rthx0*Do*a1 - b4));
 	rf1d1rth0 = rf1*d1rthm0;
+	Dmas0 = 1/(1 - Dx*(f*fb3d*a1 + fb4*d1rthx0*Do*a1 - b4));
 
 	// compute integrators
 	yx0 = (sx + f*xb10 + fb3d*so + fb4*(sd + rf1d1rth0) + b4*d1rthx0*Do*so)*Dx*Dmas0;
@@ -601,13 +704,13 @@ buchlaLpg6(x0, x1, x2, x3, x4, x5, rf, res, resist, vcamode, lpgmode, nl)
 
 	// solve nonlinear
 	xb11 = b1*x1;
-	tanh_xo1  = nonlin(xo1*(1 - (resi05*0.333333333333)), nl);
+	tanh_xo1  = nonlin(xo1*(1 - (resi05*0.333333333333)), nls);
 	rtanh_xo21 = 1 - tanh_xo1*tanh_xo1;
 	d1rthx1 = d1*rtanh_xo21;
 	rtanh_mo21 = tanh_xo1 - xo1*rtanh_xo21;
 	d1rthm1 = d1*rtanh_mo21;
-	Dmas1 = 1/(1 - Dx*(f*fb3d*a1 + fb4*d1rthx1*Do*a1 - b4));
 	rf1d1rth1 = rf1*d1rthm1;
+	Dmas1 = 1/(1 - Dx*(f*fb3d*a1 + fb4*d1rthx1*Do*a1 - b4));
 
 	// compute integrators
 	yx1 = (sx + f*xb11 + fb3d*so + fb4*(sd + rf1d1rth1) + b4*d1rthx1*Do*so)*Dx*Dmas1;
@@ -626,13 +729,13 @@ buchlaLpg6(x0, x1, x2, x3, x4, x5, rf, res, resist, vcamode, lpgmode, nl)
 
 	// solve nonlinear
 	xb12 = b1*x2;
-	tanh_xo2  = nonlin(xo2*(1 - (resi05*0.333333333333)), nl);
+	tanh_xo2  = nonlin(xo2*(1 - (resi05*0.333333333333)), nls);
 	rtanh_xo22 = 1 - tanh_xo2*tanh_xo2;
 	d1rthx2 = d1*rtanh_xo22;
 	rtanh_mo22 = tanh_xo2 - xo2*rtanh_xo22;
 	d1rthm2 = d1*rtanh_mo22;
-	Dmas2 = 1/(1 - Dx*(f*fb3d*a1 + fb4*d1rthx2*Do*a1 - b4));
 	rf1d1rth2 = rf1*d1rthm2;
+	Dmas2 = 1/(1 - Dx*(f*fb3d*a1 + fb4*d1rthx2*Do*a1 - b4));
 
 	// compute integrators
 	yx2 = (sx + f*xb12 + fb3d*so + fb4*(sd + rf1d1rth2) + b4*d1rthx2*Do*so)*Dx*Dmas2;
@@ -651,13 +754,13 @@ buchlaLpg6(x0, x1, x2, x3, x4, x5, rf, res, resist, vcamode, lpgmode, nl)
 
 	// solve nonlinear
 	xb13 = b1*x3;
-	tanh_xo3  = nonlin(xo3*(1 - (resi05*0.333333333333)), nl);
+	tanh_xo3  = nonlin(xo3*(1 - (resi05*0.333333333333)), nls);
 	rtanh_xo23 = 1 - tanh_xo3*tanh_xo3;
 	d1rthx3 = d1*rtanh_xo23;
 	rtanh_mo23 = tanh_xo3 - xo3*rtanh_xo23;
 	d1rthm3 = d1*rtanh_mo23;
-	Dmas3 = 1/(1 - Dx*(f*fb3d*a1 + fb4*d1rthx3*Do*a1 - b4));
 	rf1d1rth3 = rf1*d1rthm3;
+	Dmas3 = 1/(1 - Dx*(f*fb3d*a1 + fb4*d1rthx3*Do*a1 - b4));
 
 	// compute integrators
 	yx3 = (sx + f*xb13 + fb3d*so + fb4*(sd + rf1d1rth3) + b4*d1rthx3*Do*so)*Dx*Dmas3;
@@ -676,13 +779,13 @@ buchlaLpg6(x0, x1, x2, x3, x4, x5, rf, res, resist, vcamode, lpgmode, nl)
 
 	// solve nonlinear
 	xb14 = b1*x4;
-	tanh_xo4  = nonlin(xo4*(1 - (resi05*0.333333333333)), nl);
+	tanh_xo4  = nonlin(xo4*(1 - (resi05*0.333333333333)), nls);
 	rtanh_xo24 = 1 - tanh_xo4*tanh_xo4;
 	d1rthx4 = d1*rtanh_xo24;
 	rtanh_mo24 = tanh_xo4 - xo4*rtanh_xo24;
 	d1rthm4 = d1*rtanh_mo24;
-	Dmas4 = 1/(1 - Dx*(f*fb3d*a1 + fb4*d1rthx4*Do*a1 - b4));
 	rf1d1rth4 = rf1*d1rthm4;
+	Dmas4 = 1/(1 - Dx*(f*fb3d*a1 + fb4*d1rthx4*Do*a1 - b4));
 
 	// compute integrators
 	yx4 = (sx + f*xb14 + fb3d*so + fb4*(sd + rf1d1rth4) + b4*d1rthx4*Do*so)*Dx*Dmas4;
@@ -701,13 +804,13 @@ buchlaLpg6(x0, x1, x2, x3, x4, x5, rf, res, resist, vcamode, lpgmode, nl)
 
 	// solve nonlinear
 	xb15 = b1*x5;
-	tanh_xo5  = nonlin(xo5*(1 - (resi05*0.333333333333)), nl);
+	tanh_xo5  = nonlin(xo5*(1 - (resi05*0.333333333333)), nls);
 	rtanh_xo25 = 1 - tanh_xo5*tanh_xo5;
 	d1rthx5 = d1*rtanh_xo25;
 	rtanh_mo25 = tanh_xo5 - xo5*rtanh_xo25;
 	d1rthm5 = d1*rtanh_mo25;
-	Dmas5 = 1/(1 - Dx*(f*fb3d*a1 + fb4*d1rthx5*Do*a1 - b4));
 	rf1d1rth5 = rf1*d1rthm5;
+	Dmas5 = 1/(1 - Dx*(f*fb3d*a1 + fb4*d1rthx5*Do*a1 - b4));
 
 	// compute integrators
 	yx5 = (sx + f*xb15 + fb3d*so + fb4*(sd + rf1d1rth5) + b4*d1rthx5*Do*so)*Dx*Dmas5;
@@ -722,15 +825,17 @@ buchlaLpg6(x0, x1, x2, x3, x4, x5, rf, res, resist, vcamode, lpgmode, nl)
 	sd  = -(sd + rf2*d1rthm5) - rf2*d1rthyx5;
 	xo5 =   yo5;
 
-	return	yo0*resiComp, yo1*resiComp, yo2*resiComp, yo3*resiComp, yo4*resiComp, yo5*resiComp;
+	return	yo0*rCr4, yo1*rCr4, yo2*rCr4, yo3*rCr4, yo4*rCr4, yo5*rCr4;
 }
 
 buchlaLpg8(x0, x1, x2, x3, x4, x5, x6, x7, rf, res, resist, vcamode, lpgmode, nl)
 {
 	History	so(0), sx(0), sd(0);
 	History	xo0(0), xo1(0), xo2(0), xo3(0), xo4(0), xo5(0), xo6(0), xo7(0);
-	thing = 1 - (nl * (1 - sqrt1_2));
-	thong = resist * (1 - nl); 
+	nl1 = nl - 1;
+	nls = clamp(nl1, 0, 1);
+	thing = 1 - (nls * (1 - sqrt1_2));
+	thong = resist * (1 - nls);
 
 	// constants
 	c1 = 0.000000001;
@@ -740,12 +845,14 @@ buchlaLpg8(x0, x1, x2, x3, x4, x5, x6, x7, rf, res, resist, vcamode, lpgmode, nl
 
 	r1 = 1000;
 	r3 = (1 - vcamode)*5000000 + 10000;
+	r4 = vcamode*1.778279;
 
 	// resonance / feedback
 	max_res = ((c1+c1)*r3 + c2c3*(r3+rf)) / (c3*r3);
 	a = minimum(res, max_res) * thing;
 	resi05 = resist*0.5;
 	resiComp = (1 - resi05*1.333333333333);
+	rCr4 = resiComp + r4;
 
 	// frequency
 	sr = samplerate;
@@ -779,19 +886,19 @@ buchlaLpg8(x0, x1, x2, x3, x4, x5, x6, x7, rf, res, resist, vcamode, lpgmode, nl
 	Do = 1/(1 - a2*f);
 	fb3d = f*b3*Do;
 	fb4 = b4*f;
-	rf1d1 = rf1*d1;
+	//rf1d1 = rf1*d1;
 
     // pass 1
 
 	// solve nonlinear
 	xb10 = b1*x0;
-	tanh_xo0  = nonlin(xo0*(1 - (resi05*0.333333333333)), nl);
+	tanh_xo0  = nonlin(xo0*(1 - (resi05*0.333333333333)), nls);
 	rtanh_xo20 = 1 - tanh_xo0*tanh_xo0;
 	d1rthx0 = d1*rtanh_xo20;
 	rtanh_mo20 = tanh_xo0 - xo0*rtanh_xo20;
 	d1rthm0 = d1*rtanh_mo20;
-	Dmas0 = 1/(1 - Dx*(f*fb3d*a1 + fb4*d1rthx0*Do*a1 - b4));
 	rf1d1rth0 = rf1*d1rthm0;
+	Dmas0 = 1/(1 - Dx*(f*fb3d*a1 + fb4*d1rthx0*Do*a1 - b4));
 
 	// compute integrators
 	yx0 = (sx + f*xb10 + fb3d*so + fb4*(sd + rf1d1rth0) + b4*d1rthx0*Do*so)*Dx*Dmas0;
@@ -810,13 +917,13 @@ buchlaLpg8(x0, x1, x2, x3, x4, x5, x6, x7, rf, res, resist, vcamode, lpgmode, nl
 
 	// solve nonlinear
 	xb11 = b1*x1;
-	tanh_xo1  = nonlin(xo1*(1 - (resi05*0.333333333333)), nl);
+	tanh_xo1  = nonlin(xo1*(1 - (resi05*0.333333333333)), nls);
 	rtanh_xo21 = 1 - tanh_xo1*tanh_xo1;
 	d1rthx1 = d1*rtanh_xo21;
 	rtanh_mo21 = tanh_xo1 - xo1*rtanh_xo21;
 	d1rthm1 = d1*rtanh_mo21;
-	Dmas1 = 1/(1 - Dx*(f*fb3d*a1 + fb4*d1rthx1*Do*a1 - b4));
 	rf1d1rth1 = rf1*d1rthm1;
+	Dmas1 = 1/(1 - Dx*(f*fb3d*a1 + fb4*d1rthx1*Do*a1 - b4));
 
 	// compute integrators
 	yx1 = (sx + f*xb11 + fb3d*so + fb4*(sd + rf1d1rth1) + b4*d1rthx1*Do*so)*Dx*Dmas1;
@@ -835,13 +942,13 @@ buchlaLpg8(x0, x1, x2, x3, x4, x5, x6, x7, rf, res, resist, vcamode, lpgmode, nl
 
 	// solve nonlinear
 	xb12 = b1*x2;
-	tanh_xo2  = nonlin(xo2*(1 - (resi05*0.333333333333)), nl);
+	tanh_xo2  = nonlin(xo2*(1 - (resi05*0.333333333333)), nls);
 	rtanh_xo22 = 1 - tanh_xo2*tanh_xo2;
 	d1rthx2 = d1*rtanh_xo22;
 	rtanh_mo22 = tanh_xo2 - xo2*rtanh_xo22;
 	d1rthm2 = d1*rtanh_mo22;
-	Dmas2 = 1/(1 - Dx*(f*fb3d*a1 + fb4*d1rthx2*Do*a1 - b4));
 	rf1d1rth2 = rf1*d1rthm2;
+	Dmas2 = 1/(1 - Dx*(f*fb3d*a1 + fb4*d1rthx2*Do*a1 - b4));
 
 	// compute integrators
 	yx2 = (sx + f*xb12 + fb3d*so + fb4*(sd + rf1d1rth2) + b4*d1rthx2*Do*so)*Dx*Dmas2;
@@ -860,13 +967,13 @@ buchlaLpg8(x0, x1, x2, x3, x4, x5, x6, x7, rf, res, resist, vcamode, lpgmode, nl
 
 	// solve nonlinear
 	xb13 = b1*x3;
-	tanh_xo3  = nonlin(xo3*(1 - (resi05*0.333333333333)), nl);
+	tanh_xo3  = nonlin(xo3*(1 - (resi05*0.333333333333)), nls);
 	rtanh_xo23 = 1 - tanh_xo3*tanh_xo3;
 	d1rthx3 = d1*rtanh_xo23;
 	rtanh_mo23 = tanh_xo3 - xo3*rtanh_xo23;
 	d1rthm3 = d1*rtanh_mo23;
-	Dmas3 = 1/(1 - Dx*(f*fb3d*a1 + fb4*d1rthx3*Do*a1 - b4));
 	rf1d1rth3 = rf1*d1rthm3;
+	Dmas3 = 1/(1 - Dx*(f*fb3d*a1 + fb4*d1rthx3*Do*a1 - b4));
 
 	// compute integrators
 	yx3 = (sx + f*xb13 + fb3d*so + fb4*(sd + rf1d1rth3) + b4*d1rthx3*Do*so)*Dx*Dmas3;
@@ -885,13 +992,13 @@ buchlaLpg8(x0, x1, x2, x3, x4, x5, x6, x7, rf, res, resist, vcamode, lpgmode, nl
 
 	// solve nonlinear
 	xb14 = b1*x4;
-	tanh_xo4  = nonlin(xo4*(1 - (resi05*0.333333333333)), nl);
+	tanh_xo4  = nonlin(xo4*(1 - (resi05*0.333333333333)), nls);
 	rtanh_xo24 = 1 - tanh_xo4*tanh_xo4;
 	d1rthx4 = d1*rtanh_xo24;
 	rtanh_mo24 = tanh_xo4 - xo4*rtanh_xo24;
 	d1rthm4 = d1*rtanh_mo24;
-	Dmas4 = 1/(1 - Dx*(f*fb3d*a1 + fb4*d1rthx4*Do*a1 - b4));
 	rf1d1rth4 = rf1*d1rthm4;
+	Dmas4 = 1/(1 - Dx*(f*fb3d*a1 + fb4*d1rthx4*Do*a1 - b4));
 
 	// compute integrators
 	yx4 = (sx + f*xb14 + fb3d*so + fb4*(sd + rf1d1rth4) + b4*d1rthx4*Do*so)*Dx*Dmas4;
@@ -910,13 +1017,13 @@ buchlaLpg8(x0, x1, x2, x3, x4, x5, x6, x7, rf, res, resist, vcamode, lpgmode, nl
 
 	// solve nonlinear
 	xb15 = b1*x5;
-	tanh_xo5  = nonlin(xo5*(1 - (resi05*0.333333333333)), nl);
+	tanh_xo5  = nonlin(xo5*(1 - (resi05*0.333333333333)), nls);
 	rtanh_xo25 = 1 - tanh_xo5*tanh_xo5;
 	d1rthx5 = d1*rtanh_xo25;
 	rtanh_mo25 = tanh_xo5 - xo5*rtanh_xo25;
 	d1rthm5 = d1*rtanh_mo25;
-	Dmas5 = 1/(1 - Dx*(f*fb3d*a1 + fb4*d1rthx5*Do*a1 - b4));
 	rf1d1rth5 = rf1*d1rthm5;
+	Dmas5 = 1/(1 - Dx*(f*fb3d*a1 + fb4*d1rthx5*Do*a1 - b4));
 
 	// compute integrators
 	yx5 = (sx + f*xb15 + fb3d*so + fb4*(sd + rf1d1rth5) + b4*d1rthx5*Do*so)*Dx*Dmas5;
@@ -935,13 +1042,13 @@ buchlaLpg8(x0, x1, x2, x3, x4, x5, x6, x7, rf, res, resist, vcamode, lpgmode, nl
 
 	// solve nonlinear
 	xb16 = b1*x6;
-	tanh_xo6  = nonlin(xo6*(1 - (resi05*0.333333333333)), nl);
+	tanh_xo6  = nonlin(xo6*(1 - (resi05*0.333333333333)), nls);
 	rtanh_xo26 = 1 - tanh_xo6*tanh_xo6;
 	d1rthx6 = d1*rtanh_xo26;
 	rtanh_mo26 = tanh_xo6 - xo6*rtanh_xo26;
 	d1rthm6 = d1*rtanh_mo26;
-	Dmas6 = 1/(1 - Dx*(f*fb3d*a1 + fb4*d1rthx6*Do*a1 - b4));
 	rf1d1rth6 = rf1*d1rthm6;
+	Dmas6 = 1/(1 - Dx*(f*fb3d*a1 + fb4*d1rthx6*Do*a1 - b4));
 
 	// compute integrators
 	yx6 = (sx + f*xb16 + fb3d*so + fb4*(sd + rf1d1rth6) + b4*d1rthx6*Do*so)*Dx*Dmas6;
@@ -960,13 +1067,13 @@ buchlaLpg8(x0, x1, x2, x3, x4, x5, x6, x7, rf, res, resist, vcamode, lpgmode, nl
 
 	// solve nonlinear
 	xb17 = b1*x7;
-	tanh_xo7  = nonlin(xo7*(1 - (resi05*0.333333333333)), nl);
+	tanh_xo7  = nonlin(xo7*(1 - (resi05*0.333333333333)), nls);
 	rtanh_xo27 = 1 - tanh_xo7*tanh_xo7;
 	d1rthx7 = d1*rtanh_xo27;
 	rtanh_mo27 = tanh_xo7 - xo7*rtanh_xo27;
 	d1rthm7 = d1*rtanh_mo27;
-	Dmas7 = 1/(1 - Dx*(f*fb3d*a1 + fb4*d1rthx7*Do*a1 - b4));
 	rf1d1rth7 = rf1*d1rthm7;
+	Dmas7 = 1/(1 - Dx*(f*fb3d*a1 + fb4*d1rthx7*Do*a1 - b4));
 
 	// compute integrators
 	yx7 = (sx + f*xb17 + fb3d*so + fb4*(sd + rf1d1rth7) + b4*d1rthx7*Do*so)*Dx*Dmas7;
@@ -983,6 +1090,8 @@ buchlaLpg8(x0, x1, x2, x3, x4, x5, x6, x7, rf, res, resist, vcamode, lpgmode, nl
 
 	return	yo0*resiComp, yo1*resiComp, yo2*resiComp, yo3*resiComp, yo4*resiComp, yo5*resiComp, yo6*resiComp, yo7*resiComp;
 }
+
+//	//	//
 
 // fixed 2x quasi oversampling (cubic4)
 buchlaLpg2_2x(XIN, rf, res, resist, vcamode, lpgmode, nl)
@@ -1044,10 +1153,10 @@ buchlaLpg3_3x(XIN, rf, res, resist, vcamode, lpgmode, nl)
 	y1_0, y2_0, y3_0	= buchlaLpg3(x1_0, x2_0, x3_0, rf, res, resist, vcamode, lpgmode, nl);
 
 	// down 3x
-	y2_0_a	= y2_0 + 0;		// WAIT !! TDT / ODT WRONG WAY ROUND ?!
-	y2_1	= cubic_hermite_interp(TDT,	y2_0_a,	dmT0_1, dmT1_1, dmT2_1);
+	y2_0_a	= y2_0 + 0;		// WAIT !! TDT / ODT WERE WRONG WAY ROUND ?!
+	y2_1	= cubic_hermite_interp(ODT,	y2_0_a,	dmT0_1, dmT1_1, dmT2_1);
 	y3_0_a	= y3_0 + 0;
-	y3_1	= cubic_hermite_interp(ODT,	y3_0_a,	dmT0_2, dmT1_2, dmT2_2);
+	y3_1	= cubic_hermite_interp(TDT,	y3_0_a,	dmT0_2, dmT1_2, dmT2_2);
 
     // this seems the wrong way to sum to me
 	y0_0	= (doX0 + y2_1 + y3_1) * ODT;
@@ -1295,4 +1404,6 @@ buchlaLpg8_8x(XIN, rf, res, resist, vcamode, lpgmode, nl)
 
 	return y0_0;
 }
+
+//	//	//
 
