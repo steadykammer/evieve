@@ -233,10 +233,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 838.0, 271.0, 42.0, 22.0 ],
-                    "saved_object_attributes": {
-                        "attr_comment": "",
-                        "c": ""
-                    },
                     "text": "out~ 3"
                 }
             },
@@ -249,10 +245,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 739.0, 271.0, 42.0, 22.0 ],
-                    "saved_object_attributes": {
-                        "attr_comment": "",
-                        "c": ""
-                    },
                     "text": "out~ 2"
                 }
             },
@@ -304,11 +296,11 @@
                 "box": {
                     "id": "obj-5",
                     "maxclass": "newobj",
-                    "numinlets": 4,
-                    "numoutlets": 4,
-                    "outlettype": [ "", "", "", "" ],
-                    "patching_rect": [ 378.0, 127.0, 191.0, 22.0 ],
-                    "text": "routepass controlrate rf resonance"
+                    "numinlets": 5,
+                    "numoutlets": 5,
+                    "outlettype": [ "", "", "", "", "" ],
+                    "patching_rect": [ 378.0, 127.0, 234.0, 22.0 ],
+                    "text": "routepass controlrf controlres rf resonance"
                 }
             },
             {
@@ -399,10 +391,6 @@
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
                     "patching_rect": [ 838.0, 73.0, 35.0, 22.0 ],
-                    "saved_object_attributes": {
-                        "attr_comment": "",
-                        "c": ""
-                    },
                     "text": "in~ 3"
                 }
             },
@@ -482,7 +470,7 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 378.0, 95.0, 213.0, 33.0 ],
-                    "text": "if controlrate == 1, control filter using messages (default controlrate == 0)"
+                    "text": "if control* == 1, control filter using messages (default control* == 0)"
                 }
             },
             {
@@ -492,8 +480,8 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 711.0, 23.0, 210.0, 33.0 ],
-                    "text": "___ only if \"controlrate\" == 0 ___\n|                                                   |"
+                    "patching_rect": [ 720.0, 23.0, 210.0, 33.0 ],
+                    "text": "___ only if \"control*\" == 0 ___\n|                                              |"
                 }
             },
             {
@@ -505,7 +493,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 878.0, 39.0, 217.0, 91.0 ],
+                    "patching_rect": [ 878.0, 39.0, 218.0, 91.0 ],
                     "text": "[in~ 2] & [in~ 3] pose a big problem, the [poly~] conundrum, as the resampling filters smooth these values, but we do not want them smoothed (we only really want [in~ 1] resampled)"
                 }
             }
@@ -581,7 +569,7 @@
                 "patchline": {
                     "destination": [ "obj-1", 0 ],
                     "hidden": 1,
-                    "midpoints": [ 340.5, 303.0, 612.80859375, 303.0, 612.80859375, 200.16796875, 648.5, 200.16796875 ],
+                    "midpoints": [ 340.5, 303.0, 621.33203125, 303.0, 621.33203125, 200.16796875, 648.5, 200.16796875 ],
                     "source": [ "obj-28", 0 ]
                 }
             },
@@ -643,14 +631,21 @@
             {
                 "patchline": {
                     "destination": [ "obj-1", 0 ],
-                    "midpoints": [ 502.1666666666667, 175.0, 648.5, 175.0 ],
+                    "midpoints": [ 548.75, 175.29296875, 648.5, 175.29296875 ],
+                    "source": [ "obj-5", 3 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-1", 0 ],
+                    "midpoints": [ 495.0, 175.0, 648.5, 175.0 ],
                     "source": [ "obj-5", 2 ]
                 }
             },
             {
                 "patchline": {
                     "destination": [ "obj-1", 0 ],
-                    "midpoints": [ 444.83333333333337, 175.0, 648.5, 175.0 ],
+                    "midpoints": [ 441.25, 175.0, 648.5, 175.0 ],
                     "source": [ "obj-5", 1 ]
                 }
             },
@@ -665,8 +660,8 @@
                 "patchline": {
                     "destination": [ "obj-28", 1 ],
                     "hidden": 1,
-                    "midpoints": [ 559.5, 254.42578125, 371.5, 254.42578125 ],
-                    "source": [ "obj-5", 3 ]
+                    "midpoints": [ 602.5, 254.42578125, 371.5, 254.42578125 ],
+                    "source": [ "obj-5", 4 ]
                 }
             },
             {
@@ -676,7 +671,6 @@
                 }
             }
         ],
-        "autosave": 0,
         "toolbaradditions": [ "audiosolo", "audiomute" ]
     }
 }
