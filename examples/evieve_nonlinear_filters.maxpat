@@ -18,11 +18,11 @@
                 "box": {
                     "id": "obj-3",
                     "maxclass": "newobj",
-                    "numinlets": 4,
+                    "numinlets": 8,
                     "numoutlets": 3,
-                    "outlettype": [ "signal", "", "" ],
-                    "patching_rect": [ 90.0, 583.0, 146.0, 22.0 ],
-                    "text": "poly~ evi.lpg.core~ 1 up 8"
+                    "outlettype": [ "signal", "signal", "signal" ],
+                    "patching_rect": [ 90.0, 583.0, 92.5, 22.0 ],
+                    "text": "evi.lpg~"
                 }
             },
             {
@@ -54,11 +54,22 @@
                             "modernui": 1
                         },
                         "classnamespace": "dsp.gen",
-                        "rect": [ 329.0, 140.0, 589.0, 530.0 ],
+                        "rect": [ 329.0, 140.0, 589.0, 570.0 ],
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
                         "integercoordinates": 1,
                         "boxes": [
+                            {
+                                "box": {
+                                    "id": "obj-16",
+                                    "maxclass": "newobj",
+                                    "numinlets": 3,
+                                    "numoutlets": 3,
+                                    "outlettype": [ "", "", "" ],
+                                    "patching_rect": [ 382.0, 453.0, 89.0, 22.0 ],
+                                    "text": "evi_lpg_buchla"
+                                }
+                            },
                             {
                                 "box": {
                                     "id": "obj-22",
@@ -66,7 +77,7 @@
                                     "numinlets": 3,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 382.0, 453.0, 91.0, 22.0 ],
+                                    "patching_rect": [ 382.0, 492.0, 91.0, 22.0 ],
                                     "text": "evi_skfinputmix"
                                 }
                             },

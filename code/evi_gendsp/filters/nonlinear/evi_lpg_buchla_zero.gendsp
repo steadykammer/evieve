@@ -1,0 +1,148 @@
+{
+    "patcher": {
+        "fileversion": 1,
+        "appversion": {
+            "major": 9,
+            "minor": 2,
+            "revision": 0,
+            "architecture": "x64",
+            "modernui": 1
+        },
+        "classnamespace": "dsp.gen",
+        "rect": [ 443.0, 100.0, 1035.0, 848.0 ],
+        "gridonopen": 2,
+        "subpatcher_template": "sub",
+        "integercoordinates": 1,
+        "boxes": [
+            {
+                "box": {
+                    "fontname": "Arial",
+                    "fontsize": 12.0,
+                    "id": "obj-5",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 881.0, 807.0, 114.0, 22.0 ],
+                    "text": "out 3 something HP"
+                }
+            },
+            {
+                "box": {
+                    "fontname": "Arial",
+                    "fontsize": 12.0,
+                    "id": "obj-32",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 505.0, 807.0, 113.0, 22.0 ],
+                    "text": "out 2 something BP"
+                }
+            },
+            {
+                "box": {
+                    "fontname": "Arial",
+                    "fontsize": 12.0,
+                    "id": "obj-23",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 34.0, 807.0, 63.0, 22.0 ],
+                    "text": "out 1 LPG"
+                }
+            },
+            {
+                "box": {
+                    "fontname": "Arial",
+                    "fontsize": 12.0,
+                    "id": "obj-11",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 818.0, 19.0, 177.0, 22.0 ],
+                    "text": "in 3 Resonance 0..2 @default 1"
+                }
+            },
+            {
+                "box": {
+                    "code": "\r\n// TPT emulation of the Buchla Lowpass-Gate, unique version of a two-pole Sallen & Key filter,\r\n// based on \"A Digital Model of the Buchla Lowpass-Gate\" by Julian Parker and Stefano D’Angelo, 2013\r\n// @see: http://research.spa.aalto.fi/publications/papers/dafx13-lpg/DAFx2013-LPG.pdf\r\n\r\n/*\r\n\tIdeally this should all be oversampled properly, and the only native way we have of doing\r\n\tthat in Max is [poly~]. The best way to achieve the pure whistling resonance sound is\r\n\toversampling by 8 times when using the specific resampling filters of [poly~].\r\n    This \"evi_lpg_buchla_zero\" file is a special version which calls only the single rate\r\n    version of the filter with no wrapping for-loop, for optimising for calling\r\n    from [poly~] in MSP. @see: \"evi_lpg_buchla.gendsp\" for the full gen~ version of this\r\n    filter with in-place local resampling etc (which is actually cheaper).\r\n*/\r\n\r\n//require(\"evi_buchla.genexpr\");                // local only for [poly~] version\r\n\r\ntanhLapprox(x)\t\t\t\t\t\t\t\t\t// tanh lambert\n{\n\tx2 = x * x;\n\ta  = (((x2 + 378) * x2 + 17325) * x2 + 135135) * x;\n\tb  = ((28 * x2 + 3150) * x2 + 62370) * x2 + 135135;\n\treturn clamp((a / b), -1, 1);\n}\n\n// filter modified from \"A Digital Model of the Buchla Lowpass-Gate\" by Julian Parker and Stefano D’Angelo, 2013\nbuchlaLpg1(x, rf, res, resist, vcamode, lpgmode, nl)\n{\n\tHistory\tso(0), sx(0), sd(0);\n\tHistory\txo(0);\n//\tnl1 = nl - 1;\n//\tnls = clamp(nl1, 0, 1);\n\tthing = 1;// - (nls * (1 - sqrt1_2));\n\tthong = resist;// * (1 - nls);\n\n\t// constants\n\tc1 = 0.000000001;\n\tc2 = 0.00000000022;\n\tc3 = lpgmode*0.0000000047;\n\tc2c3 = c2+c3;\n\n\tr1 = 1000;\n\tr3 = (1 - vcamode)*5000000 + 10000;\t\t\t\t\t// \"ra\"\n\t// \"In the real circuits, the ’VCA’ switch also changes the input op-amp configuration\n\t// so that it has a gain of +4..5dB instead of unity, presumably\n\t// to normalize loudness between the modes\"\n\tr4 = vcamode*1.778279;\n\n\t// resonance / feedback\n\t// \"This makes the filter more controllable, but it means that the\n\t// resonance no longer strictly behaves as it does in the real system\"\n\tmax_res = ((c1+c1)*r3 + c2c3*(r3+rf)) / (c3*r3);\t// this surely should not work (div by 0) ?\n\ta = minimum(res, max_res) * thing;\n\tresi05 = resist*0.5;\n\tresiComp = (1 - resi05*1.333333333333);\n\trCr4 = resiComp + r4;\n\trCr4L = rCr4;\n\n\t// frequency\n\tsr = samplerate;\n\tf = 0.5/sr;\n\t//f = twopi*(rf + 0.001)*0.5/samplerate;\t\t\t// todo, Hz input version\n\tff = f+f;\n\trf1 = sr+sr;\t// 1/f\n\trf2 = rf1+rf1;\t// 2/f\n\trfc2 = rf*c2;\n\trfc2c3 = rf*c2c3;\n\tr1rf = 1/(1 + r1/rf);\n\tac3c1 = a*c3/c1;\n\n\t// coefficients\n\ta1 = 1/(c1*rf);\n\ta2 = -(1/rf + 1/r3)/c1;\n\tb1 = 1/rfc2;\n\tbm2 = resist*0.8101 + 0.1899;\n\tbm22 = bm2*bm2;\n\trfbm22 = rfc2c3*bm22;\n\tb2a = -2/rfc2;\n\tb2b = (ac3c1 - 1 - r1rf)/rfbm22;\n\tb2 = interp(thong, b2a, b2b, mode=\"linear\");\t\t// morph feedback resistors...\n\tb3a = b1;\n\tb3b = (r1rf - (1 + rf/r3)*ac3c1)/rfbm22;\n\tb3 = interp(thong, b3a, b3b, mode=\"linear\");\t\t// ...\n\tb4 = c3/c2;\n\td1 = a;\n\n\t// intermediates\n\tDx = 1/(1 - b2*f);\n\tDo = 1/(1 - a2*f);\n\tfb3d = f*b3*Do;\n\tfb4 = b4*f;\n\n\tyx, yo, yd = 0;\n\txb1 = b1*x;\n\tif (nl > 0) {\n\t\trCr4L = rCr4;\n\n\t\t// solve nonlinear\n\t\ttanh_xo  = tanhLapprox(xo*(1 - (resi05*0.333333333333)));\n\t\trtanh_xo2 = 1 - tanh_xo*tanh_xo;\n\t\td1rthx = d1*rtanh_xo2;\n\t\trtanh_mo2 = tanh_xo - xo*rtanh_xo2;\n\t\td1rthm = d1*rtanh_mo2;\n\t\trf1d1rth = rf1*d1rthm;\n\t\tDmas = 1/(1 - Dx*(f*fb3d*a1 + fb4*d1rthx*Do*a1 - b4));\n\n\t\t// compute integrators\n\t\tyx = (sx + f*xb1 + fb3d*so + fb4*(sd + rf1d1rth) + b4*d1rthx*Do*so)*Dx*Dmas;\n\t\ta1yx = a1*yx;\n\t\tyo = (so + f*a1yx)*Do;\n\t\td1rthyx = d1rthx*yo - yx;\n\t\tyd = (sd + rf1d1rth) + rf1*d1rthyx;\n\n\t\t// update state\n\t\tsx +=   ff*(xb1 + b2*yx + b3*yo + b4*yd);\n\t\tso +=   ff*(a1yx + a2*yo);\n\t\tsd  = -(sd + rf2*d1rthm) - rf2*d1rthyx;\n\t\txo  =   yo;\n\n\t} else {\n\t\t// if linear\n\t\trCr4L = rCr4 * (max_res - res + 0.125); // a hack which does not work, but better than original, so it stays\n\t\td1do = d1*Do;\n\t\tDmas = 1/(1 - Dx*(f*fb3d*a1 + fb4*d1do*a1 - b4));\n\t\t\n\t\t// compute integrators\n\t\tyx = (sx + f*xb1 + fb3d*so + fb4*sd + b4*d1do*so)*Dx*Dmas;\n\t\ta1yx = a1*yx;\n\t\tyo = (so + f*a1yx)*Do;\n\t\td1yoyx = d1*yo - yx;\n\t\tyd = sd + rf1*d1yoyx;\n\t\t\n\t\t// update state\n\t\tsx +=  ff*(xb1 + b2*yx + b3*yo + b4*yd);\n\t\tso +=  ff*(a1yx + a2*yo);\n\t\tsd  = -sd - rf2*d1yoyx;\n\t\txo  =  0;\n\n\t}\n\n\t// \"outputs can be mixed to produce other filter modes\", pete: \"good luck with that (but i tried)\"\n\treturn\tyo*rCr4L, yx*rCr4L, yd*(0.000041111111); // problem with yd (HP) @nyquist\n}\n\r\nParam\tnonlin(1, min=0, max=1);\t\t// 0 = linear, 1 = tanh (default)\r\nParam\tsmooth(15.111, min=3, max=333);\t// in ms, for 'vca'\r\n\r\nParam\tvca(0, min=0, max=1);           // switch or variable, smoothed below\r\nParam\tboom(0, min=0, max=1);\t\t\t// xfade extra feedback resistors, smoothed below\r\nParam\tlpg(1, min=0, max=1);\t\t\t// flag, switch filter/lpg - can be switched clicklessly in real time\r\n\t\t\t\t\t\t\t\t\t\t// (conceived as a switch, but works continuously variable like the \"vca\", too)\r\nnl\t\t= int(nonlin);\r\nsmsecs\t= smooth*0.001;\r\n\r\nrf = in2;\r\nrs = in3;\r\n\r\nfreq = maximum(rf, 0);\t\t\t\t    // voltage not \"freq\" (can be very high numbers)\r\nres  = maximum(rs, 0);\t\t\t\t\t// resonance 0..2..\r\ndamp = vca*vca;                         // vca 0..1 (affectionately referred to as a \"Damp\" control)\r\ndamp = evi_logsmooth(damp, smsecs);\r\n\r\n// make gate/lpg switching real time capable\r\n// these should both be exact ramps, but \"evi_line()\" is so expensive inside [poly~] for some reason\r\nslpg\t    = evi_logsmooth(lpg, smsecs);\r\nresistors\t= evi_logsmooth(boom*lpg, smsecs);\t// boom is off if not \"lpg\" mode\r\n\r\nylp, ybp, yhp   = buchlaLpg1(in1, freq, res, resistors, damp, slpg, nl);\r\n\r\nout1\t = ylp;\r\nout2\t = ybp;\r\nout3\t = yhp;\r\n\r\n",
+                    "fontface": 0,
+                    "fontname": "<Monospaced>",
+                    "fontsize": 12.0,
+                    "id": "obj-10",
+                    "maxclass": "codebox",
+                    "numinlets": 3,
+                    "numoutlets": 3,
+                    "outlettype": [ "", "", "" ],
+                    "patching_rect": [ 34.0, 58.0, 961.0, 732.0 ]
+                }
+            },
+            {
+                "box": {
+                    "fontname": "Arial",
+                    "fontsize": 12.0,
+                    "id": "obj-3",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 505.0, 19.0, 103.0, 22.0 ],
+                    "text": "in 2 Frequency Rf"
+                }
+            },
+            {
+                "box": {
+                    "fontname": "Arial",
+                    "fontsize": 12.0,
+                    "id": "obj-2",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 34.0, 19.0, 91.0, 22.0 ],
+                    "text": "in 1 Audio Input"
+                }
+            }
+        ],
+        "lines": [
+            {
+                "patchline": {
+                    "destination": [ "obj-23", 0 ],
+                    "source": [ "obj-10", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-32", 0 ],
+                    "source": [ "obj-10", 1 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-5", 0 ],
+                    "midpoints": [ 985.5, 798.5, 890.5, 798.5 ],
+                    "source": [ "obj-10", 2 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-10", 2 ],
+                    "midpoints": [ 827.5, 49.5, 985.5, 49.5 ],
+                    "source": [ "obj-11", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-10", 0 ],
+                    "source": [ "obj-2", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-10", 1 ],
+                    "source": [ "obj-3", 0 ]
+                }
+            }
+        ]
+    }
+}

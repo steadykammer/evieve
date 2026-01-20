@@ -52,7 +52,7 @@ buchlaLpg1(x, rf, res, resist, vcamode, lpgmode, nl)
 
 	r1 = 1000;
 	r3 = (1 - vcamode)*5000000 + 10000;					// "ra"
-	// In the real circuits, the ’VCA’ switch also changes the input op-amp configuration
+	// "In the real circuits, the ’VCA’ switch also changes the input op-amp configuration
 	// so that it has a gain of +4..5dB instead of unity, presumably
 	// to normalize loudness between the modes"
 	r4 = vcamode*1.778279;
