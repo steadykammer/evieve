@@ -16,12 +16,34 @@
         "boxes": [
             {
                 "box": {
+                    "id": "obj-30",
+                    "maxclass": "newobj",
+                    "numinlets": 3,
+                    "numoutlets": 1,
+                    "outlettype": [ "multichannelsignal" ],
+                    "patching_rect": [ 368.0, 576.0, 89.0, 22.0 ],
+                    "text": "mc.evi.vactrol~"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-29",
+                    "maxclass": "newobj",
+                    "numinlets": 3,
+                    "numoutlets": 1,
+                    "outlettype": [ "signal" ],
+                    "patching_rect": [ 368.0, 537.0, 70.0, 22.0 ],
+                    "text": "evi.vactrol~"
+                }
+            },
+            {
+                "box": {
                     "id": "obj-27",
                     "maxclass": "newobj",
                     "numinlets": 3,
                     "numoutlets": 1,
                     "outlettype": [ "multichannelsignal" ],
-                    "patching_rect": [ 452.0, 245.0, 60.0, 22.0 ],
+                    "patching_rect": [ 452.0, 200.0, 60.0, 22.0 ],
                     "text": "mc.slide~"
                 }
             },
@@ -32,7 +54,7 @@
                     "numinlets": 3,
                     "numoutlets": 1,
                     "outlettype": [ "multichannelsignal" ],
-                    "patching_rect": [ 328.0, 245.0, 102.0, 22.0 ],
+                    "patching_rect": [ 328.0, 200.0, 102.0, 22.0 ],
                     "text": "mc.rampsmooth~"
                 }
             },
@@ -43,7 +65,7 @@
                     "numinlets": 3,
                     "numoutlets": 3,
                     "outlettype": [ "multichannelsignal", "", "" ],
-                    "patching_rect": [ 169.0, 245.0, 64.0, 22.0 ],
+                    "patching_rect": [ 169.0, 200.0, 64.0, 22.0 ],
                     "text": "mc.curve~"
                 }
             },
@@ -54,7 +76,7 @@
                     "numinlets": 2,
                     "numoutlets": 3,
                     "outlettype": [ "multichannelsignal", "", "" ],
-                    "patching_rect": [ 92.0, 245.0, 54.0, 22.0 ],
+                    "patching_rect": [ 92.0, 200.0, 54.0, 22.0 ],
                     "text": "mc.line~"
                 }
             },
@@ -65,7 +87,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "multichannelsignal" ],
-                    "patching_rect": [ 495.0, 405.0, 102.0, 22.0 ],
+                    "patching_rect": [ 495.0, 360.0, 102.0, 22.0 ],
                     "text": "mc.evi.cfsmooth~"
                 }
             },
@@ -76,7 +98,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "multichannelsignal" ],
-                    "patching_rect": [ 368.0, 405.0, 109.0, 22.0 ],
+                    "patching_rect": [ 368.0, 360.0, 109.0, 22.0 ],
                     "text": "mc.evi.lagsmooth~"
                 }
             },
@@ -87,7 +109,7 @@
                     "numinlets": 4,
                     "numoutlets": 1,
                     "outlettype": [ "multichannelsignal" ],
-                    "patching_rect": [ 90.0, 685.0, 87.0, 22.0 ],
+                    "patching_rect": [ 90.0, 670.0, 87.0, 22.0 ],
                     "text": "mc.evi.logahr~"
                 }
             },
@@ -98,7 +120,7 @@
                     "numinlets": 3,
                     "numoutlets": 1,
                     "outlettype": [ "multichannelsignal" ],
-                    "patching_rect": [ 90.0, 591.0, 134.0, 22.0 ],
+                    "patching_rect": [ 90.0, 576.0, 134.0, 22.0 ],
                     "text": "mc.evi.logattackdecay~"
                 }
             },
@@ -109,7 +131,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "multichannelsignal" ],
-                    "patching_rect": [ 92.0, 498.0, 102.0, 22.0 ],
+                    "patching_rect": [ 92.0, 483.0, 102.0, 22.0 ],
                     "text": "mc.evi.logdecay~"
                 }
             },
@@ -120,7 +142,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "multichannelsignal" ],
-                    "patching_rect": [ 224.0, 405.0, 112.0, 22.0 ],
+                    "patching_rect": [ 224.0, 360.0, 112.0, 22.0 ],
                     "text": "mc.evi.expsmooth~"
                 }
             },
@@ -131,7 +153,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "multichannelsignal" ],
-                    "patching_rect": [ 92.0, 405.0, 109.0, 22.0 ],
+                    "patching_rect": [ 92.0, 360.0, 109.0, 22.0 ],
                     "text": "mc.evi.logsmooth~"
                 }
             },
@@ -141,7 +163,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 92.0, 102.0, 150.0, 20.0 ],
+                    "patching_rect": [ 92.0, 57.0, 150.0, 20.0 ],
                     "text": "Smoothing in Max"
                 }
             },
@@ -152,7 +174,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 495.0, 366.0, 83.0, 22.0 ],
+                    "patching_rect": [ 495.0, 321.0, 83.0, 22.0 ],
                     "text": "evi.cfsmooth~"
                 }
             },
@@ -162,8 +184,8 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 92.0, 314.0, 500.0, 20.0 ],
-                    "text": "Additional smoothing in evieve (all evieve smoothers can take signals or floats as input)"
+                    "patching_rect": [ 92.0, 269.0, 600.0, 20.0 ],
+                    "text": "Additional smoothing in evieve (all evieve smoothers can take signals or floats as input, apart from the vactrol)"
                 }
             },
             {
@@ -172,7 +194,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 328.0, 154.0, 150.0, 20.0 ],
+                    "patching_rect": [ 328.0, 109.0, 150.0, 20.0 ],
                     "text": "MSP"
                 }
             },
@@ -182,7 +204,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 92.0, 154.0, 150.0, 20.0 ],
+                    "patching_rect": [ 92.0, 109.0, 150.0, 20.0 ],
                     "text": "Max & MSP"
                 }
             },
@@ -193,7 +215,7 @@
                     "numinlets": 3,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 452.0, 206.0, 40.0, 22.0 ],
+                    "patching_rect": [ 452.0, 161.0, 40.0, 22.0 ],
                     "text": "slide~"
                 }
             },
@@ -204,7 +226,7 @@
                     "numinlets": 3,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 328.0, 206.0, 82.0, 22.0 ],
+                    "patching_rect": [ 328.0, 161.0, 82.0, 22.0 ],
                     "text": "rampsmooth~"
                 }
             },
@@ -215,7 +237,7 @@
                     "numinlets": 3,
                     "numoutlets": 2,
                     "outlettype": [ "signal", "bang" ],
-                    "patching_rect": [ 169.0, 206.0, 45.0, 22.0 ],
+                    "patching_rect": [ 169.0, 161.0, 45.0, 22.0 ],
                     "text": "curve~"
                 }
             },
@@ -226,7 +248,7 @@
                     "numinlets": 2,
                     "numoutlets": 2,
                     "outlettype": [ "signal", "bang" ],
-                    "patching_rect": [ 92.0, 206.0, 34.0, 22.0 ],
+                    "patching_rect": [ 92.0, 161.0, 34.0, 22.0 ],
                     "text": "line~"
                 }
             },
@@ -237,7 +259,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 92.0, 459.0, 82.0, 22.0 ],
+                    "patching_rect": [ 92.0, 444.0, 82.0, 22.0 ],
                     "text": "evi.logdecay~"
                 }
             },
@@ -248,7 +270,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 368.0, 366.0, 90.0, 22.0 ],
+                    "patching_rect": [ 368.0, 321.0, 90.0, 22.0 ],
                     "text": "evi.lagsmooth~"
                 }
             },
@@ -259,7 +281,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 92.0, 366.0, 90.0, 22.0 ],
+                    "patching_rect": [ 92.0, 321.0, 90.0, 22.0 ],
                     "text": "evi.logsmooth~"
                 }
             },
@@ -270,7 +292,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 224.0, 366.0, 93.0, 22.0 ],
+                    "patching_rect": [ 224.0, 321.0, 93.0, 22.0 ],
                     "text": "evi.expsmooth~"
                 }
             },
@@ -281,7 +303,7 @@
                     "numinlets": 4,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 90.0, 645.0, 68.0, 22.0 ],
+                    "patching_rect": [ 90.0, 630.0, 68.0, 22.0 ],
                     "text": "evi.logahr~"
                 }
             },
@@ -292,7 +314,7 @@
                     "numinlets": 3,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 90.0, 552.0, 114.0, 22.0 ],
+                    "patching_rect": [ 90.0, 537.0, 114.0, 22.0 ],
                     "text": "evi.logattackdecay~"
                 }
             },
@@ -367,7 +389,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 585.0, 408.0, 66.0, 20.0 ],
+                                    "patching_rect": [ 518.0, 408.0, 66.0, 20.0 ],
                                     "text": "extra",
                                     "textjustification": 1
                                 }
@@ -477,8 +499,8 @@
                                     "numinlets": 3,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 564.0, 430.0, 108.0, 22.0 ],
-                                    "text": "evi_vactrol_buchla"
+                                    "patching_rect": [ 328.0, 430.0, 66.0, 22.0 ],
+                                    "text": "evi_vactrol"
                                 }
                             },
                             {
@@ -488,8 +510,8 @@
                                     "numinlets": 3,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 328.0, 430.0, 66.0, 22.0 ],
-                                    "text": "evi_vactrol"
+                                    "patching_rect": [ 499.0, 430.0, 105.0, 22.0 ],
+                                    "text": "evi_vactrol_shape"
                                 }
                             },
                             {
@@ -599,7 +621,6 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 197.0, 239.0, 113.0, 20.0 ],
-                                    "presentation_linecount": 2,
                                     "text": "<- very similar ->",
                                     "textjustification": 1
                                 }
@@ -615,24 +636,12 @@
                                     "text": "|  \n|  \n|  \n|  \n|  \nenvelopes --   \n|  \n|  \n|  \n|  \n|",
                                     "textjustification": 2
                                 }
-                            },
-                            {
-                                "box": {
-                                    "id": "obj-31",
-                                    "maxclass": "comment",
-                                    "numinlets": 1,
-                                    "numoutlets": 0,
-                                    "patching_rect": [ 396.0, 431.0, 167.0, 20.0 ],
-                                    "presentation_linecount": 2,
-                                    "text": "<- similar to [slide] ->",
-                                    "textjustification": 1
-                                }
                             }
                         ],
                         "lines": []
                     },
-                    "patching_rect": [ 441.0, 685.0, 156.0, 22.0 ],
-                    "text": "gen~ @t smoothing_in_gen"
+                    "patching_rect": [ 495.0, 670.0, 197.0, 22.0 ],
+                    "text": "gen~ @t evieve_smoothing_in_gen"
                 }
             },
             {
@@ -645,7 +654,7 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "orientation": 0,
-                    "patching_rect": [ 496.0, 566.0, 46.0, 101.0 ]
+                    "patching_rect": [ 571.0, 551.0, 46.0, 101.0 ]
                 }
             }
         ],

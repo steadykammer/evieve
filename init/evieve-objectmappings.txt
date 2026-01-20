@@ -7,4 +7,5 @@ max objectfile mc.evi.logdecay~ mc.wrapper~ evi.logdecay~;
 max objectfile mc.evi.logsmooth~ mc.wrapper~ evi.logsmooth~;
 max objectfile mc.evi.pan~ mc.wrapper~ evi.pan~;
 max objectfile mc.evi.quadosc~ mc.wrapper~ evi.quadosc~;
+max objectfile mc.evi.vactrol~ mc.wrapper~ evi.vactrol~;
 max objectfile mc.evi.xfade~ mc.wrapper~ evi.xfade~;

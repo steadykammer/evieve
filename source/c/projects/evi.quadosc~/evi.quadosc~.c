@@ -28,7 +28,7 @@ typedef struct _evi_quadosc
 
     double q_sr; // cache samplerate
     double q_nyquist; // cache nyquist
-    double q_twoeviivsr; // cache TWOPI / samplerate
+    double q_twopidivsr; // cache TWOPI / samplerate
 
     short q_freqconnect; // is a signal connected to the frequency inlet
     short q_resetconnect; // is a signal connected to the reset inlet
@@ -86,7 +86,7 @@ void evi_quadosc_dsp64(t_evi_quadosc* x, t_object* dsp64, short* count, double s
         x->q_sr = samplerate;
     }
     x->q_nyquist = x->q_sr * 0.5 - 1.0;
-    x->q_twoeviivsr = TWOPI / x->q_sr;
+    x->q_twopidivsr = TWOPI / x->q_sr;
     evi_quadosc_coefficients(x);
     x->q_isinitial = 1;
 
@@ -146,7 +146,7 @@ void evi_quadosc_perform64(t_evi_quadosc* x, t_object* dsp64, double** ins, long
 
     // do we need to recompute coefficients?
     if (freq != x->q_freq) {
-        x->q_k1 = k1 = evi_tan_A3(0.5 * freq * x->q_twoeviivsr);
+        x->q_k1 = k1 = evi_tan_A3(0.5 * freq * x->q_twopidivsr);
         x->q_k2 = k2 = (k1 + k1) / (1.0 + (k1 * k1));
 
         x->q_freq = freq;
@@ -207,7 +207,7 @@ void evi_quadosc_perform_sync64(t_evi_quadosc* x, t_object* dsp64, double** ins,
 
     // do we need to recompute coefficients?
     if (freq != x->q_freq) {
-        x->q_k1 = k1 = evi_tan_A3(0.5 * freq * x->q_twoeviivsr);
+        x->q_k1 = k1 = evi_tan_A3(0.5 * freq * x->q_twopidivsr);
         x->q_k2 = k2 = (k1 + k1) / (1.0 + (k1 * k1));
 
         x->q_freq = freq;
@@ -275,7 +275,7 @@ void evi_quadosc_perform_float64(t_evi_quadosc* x, t_object* dsp64, double** ins
 
     // do we need to recompute coefficients?
     if (freq != x->q_freq) {
-        x->q_k1 = k1 = evi_tan_A3(0.5 * freq * x->q_twoeviivsr);
+        x->q_k1 = k1 = evi_tan_A3(0.5 * freq * x->q_twopidivsr);
         x->q_k2 = k2 = (k1 + k1) / (1.0 + (k1 * k1));
 
         x->q_freq = freq;
@@ -330,7 +330,7 @@ void evi_quadosc_perform_sync_float64(t_evi_quadosc* x, t_object* dsp64, double*
 
     // do we need to recompute coefficients?
     if (freq != x->q_freq) {
-        x->q_k1 = k1 = evi_tan_A3(0.5 * freq * x->q_twoeviivsr);
+        x->q_k1 = k1 = evi_tan_A3(0.5 * freq * x->q_twopidivsr);
         x->q_k2 = k2 = (k1 + k1) / (1.0 + (k1 * k1));
 
         x->q_freq = freq;
@@ -411,7 +411,7 @@ void evi_quadosc_clear(t_evi_quadosc* x)
 
 void evi_quadosc_coefficients(t_evi_quadosc* x)
 {
-    x->q_k1 = evi_tan_A3(0.5 * x->q_freq * x->q_twoeviivsr);
+    x->q_k1 = evi_tan_A3(0.5 * x->q_freq * x->q_twopidivsr);
     x->q_k2 = (x->q_k1 + x->q_k1) / (1.0 + (x->q_k1 * x->q_k1));
 }
 
@@ -467,7 +467,7 @@ void* evi_quadosc_new(t_symbol* s, long argc, t_atom* argv)
         x->q_sr = (double)sys_getsr();
     }
     x->q_nyquist = nyquist = x->q_sr * 0.5 - 1.0;
-    x->q_twoeviivsr = TWOPI / x->q_sr;
+    x->q_twopidivsr = TWOPI / x->q_sr;
 
     if (offset) {
         freq = atom_getfloat(argv);

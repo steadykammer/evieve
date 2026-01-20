@@ -652,12 +652,12 @@ likeAvactrol(V, up, down)
 // "...an ad-hoc nonlinear filter structure that will behave similarly
 // to the vactrol with correct setting of parameter values".
 
-vactrolShape(x, a)						// trigger, time
+vactrolSection(x, a)					// trigger, time
 {
 	return x * a / (1 + a);
 }
 
-buchlaVactrol(i, r, f)					// impulse, rise (samps), fall (samps)
+vactrolBuchla(i, r, f)					// impulse, rise (samps), fall (samps)
 {
 	History s1(0);
 
@@ -668,10 +668,9 @@ buchlaVactrol(i, r, f)					// impulse, rise (samps), fall (samps)
 	a_up	= a_base/t_up;
 
 	x		= i - s1;
-	x 		= (x < 0) ? vactrolShape(x, a_down) : vactrolShape(x, a_up);
+	x 		= (x < 0) ? vactrolSection(x, a_down) : vactrolSection(x, a_up);
 	y		= x + s1;
 	s1		= y + x;
 	return	  y;						// & scale externally
 }
-
 
