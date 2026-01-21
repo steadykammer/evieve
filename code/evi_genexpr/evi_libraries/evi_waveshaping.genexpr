@@ -268,6 +268,7 @@ tapeH(xin, sigmoid)
 // only naive oversampling works
 gloubiBoulga(x2, drive)		// drive should be linear gain 1..40 ?
 {
+	History gba(0);
 	d  = LN2 * drive;
 	s  = 1 / sqrt(d);
 	x1 = clamp(x2, -1, 1);	// evieve uses the Adaa hard clipper here
@@ -281,6 +282,7 @@ gloubiBoulga(x2, drive)		// drive should be linear gain 1..40 ?
 // no drive version
 boulgaStatic(xin)
 {
+	History bas(0);
 	x  = clamp(xin, -1, 1) * 2.058918;	// evieve uses the Adaa hard clipper here
 	a  = sqrt1_2 + localExpA(sqrt(abs(x)) * -sqrt1_2);
 	ex = localExpA(x);

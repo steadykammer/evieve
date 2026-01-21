@@ -1,91 +1,6 @@
 
-// Cubic Hermite, McCartney / Harker	// 8 muls, 11 ±	// NOT gen~ [interp mode="cubic"]
-// This is faster and better quality than the gen~ cubic (which is the interp from [groove~])
-cubic_hermite_interp(f, y0, y1, y2, y3)
-{
-//	c0		= y1;
-	c1		= 0.5 * (y2 - y0);
-	c2		= y0 - 2.5 * y1 + y2 + y2 - 0.5 * y3;
-	c3		= 0.5 * (y3 - y0) + 1.5 * (y1 - y2);
-	return	((c3 * f + c2) * f + c1) * f + y1;
-}
-
-// Hermite 6-point 5th-order, Olli Niemitalo	//	23 muls, 24 ±	// NOT gen~ [interp mode="spline6"]
-// (This is what Niemitalo calls "6-point, 5th-order 2nd-order-osculating z-form implementation"
-// and is actually different to the gen~ "spline6" which uses the slightly cheaper
-// "6-point, 5th-order B-spline x-form implementation", but which I think is not as useful
-// (the B-spline is not as useful for audio samples representation)).
-hermite_sixpoint_interp(f0, ym2, ym1, y0, y1, y2, y3)
-{
-	f1		=  f0 - 0.5;
-	even1	= ym2 + y3;
-	odd1	= ym2 - y3;
-	even2	= ym1 + y2;
-	odd2	= ym1 - y2;
-	even3	=  y0 + y1;
-	odd3	=  y0 - y1;
-
-	c0	= 0.01171875*even1		- 0.09765625*even2		+ 0.5859375*even3;
-	c1	= 0.2109375*odd2		- 1.463541666667*odd3	- 0.033854166667*odd1;
-	c2	= 0.40625*even2			- 0.354166666667*even3	- 0.052083333333*even1;
-	c3	= 0.1875*odd1			- 1.104166666667*odd2	+ 2.375*odd3;
-	c4	= 0.020833333333*even1	- 0.0625*even2			+ 0.041666666667*even3;
-	c5	= 1.041666666667*odd2	- 2.083333333333*odd3	- 0.208333333333*odd1;
-
-	return ((((c5*f1 + c4)*f1 + c3)*f1 + c2)*f1 + c1)*f1 + c0;
-}
-
-xMega(X, xCONST) // sqrt1_2 or ln2 or log10e
-{
-	MEGA = xCONST * 1000;
-	return dcblock(clamp(X, -MEGA, MEGA));
-}
-
-xSgn(x) // no zero
-{
-	return (0 < x) - (x < 0);
-}
-
-xRange(x)
-{
-	return abs(x) <= 1;
-}
-
-expApprox(x)
-{
-	x = 1 + (0.062500309 + (0.0019527233 + (0.0000408663 + (0.00000060184965 + 0.000000010856791*x)*x)*x)*x)*x;
-	x *= x; x *= x; x *= x;
-	return x*x;
-}
-
-pow2Approx(y) // approx pow(2, y)
-{
-	return expApprox(y * LN2);
-}
-
-coshApprox(x)
-{
-	return 0.5 * (expApprox(x) + expApprox(-x));
-}
-
-log2Approx(x) // sorry
-{
-	return (-0.2119568027628040757e-1 + (-0.38815224340108325886 + (-0.8900051141728954376 + (0.4001641794691007527
-			+ (0.79615191430677253059 + 0.10303694407435362078*x)*x)*x)*x)*x) /
-
-				(0.298115002929551095e-2 + (0.1066700361116609290 + (0.6070463053447878628 + (0.8584931203106122717
-					+ (0.30170842595823793523 + 0.16863931436090069014e-1*x)*x)*x)*x)*x);
-}
-
-logApprox(x)
-{
-	return LN2 * log2Approx(x);
-}
-
-log10Approx(x)
-{
-	return 0.3010299956639811 * log2Approx(x);
-}
+require("evi_utilities.genexpr");
+require("evi_interp.genexpr");
 
 
 //	//	//	Hard Clip	//	//	//
@@ -268,7 +183,7 @@ adHc2_4x_6POINT(XIN)
 	return dcblock(y0_0);
 }
 
-// fixed 2x quasi oversampling (cubic)
+// fixed 2x quasi oversampling (cubic4)
 adHc2_2x_4POINT(XIN)
 {	// up 2
 	History	umTm1_0(0), umT0_0(0), umT1_0(0);
@@ -306,7 +221,7 @@ adHc2_2x_4POINT(XIN)
 	return dcblock(y0_0);
 }
 
-// fixed 4x quasi oversampling (cubic)
+// fixed 4x quasi oversampling (cubic4)
 adHc2_4x_4POINT(XIN)
 {	// up 4
 	History	umTm1_0(0), umT0_0(0), umT1_0(0);
@@ -365,6 +280,9 @@ adHc2_4x_4POINT(XIN)
 
 
 //	//	//	Diode Clip	//	//	//
+
+// Copyright (C) 2022-2024 Orastron Srl unipersonale
+// Stefano D'Angelo, GPL v3
 
 w3(x)
 {
@@ -426,6 +344,7 @@ diode(Vin, k1, k2, k3, k4, k5, k6, VT, A1) // audio rate
 	return Vout;
 }
 
+// todo: expose gain & bias
 diodeWrap(Vin, k1, k2, k3, k4, k5, k6, VT, A1, gain=0.999999, bias=0.000001)
 {
 	History didu(0);
@@ -434,7 +353,7 @@ diodeWrap(Vin, k1, k2, k3, k4, k5, k6, VT, A1, gain=0.999999, bias=0.000001)
 	return dcblock(d1 - w4(bias));
 }
 
-// fixed 2x quasi oversampling (cubic)
+// fixed 2x quasi oversampling (cubic4)
 diode_2x_4POINT(XIN, k1, k2, k3, k4, k5, k6, VT, A1)
 {	// up 2
 	History	umTm1_0(0), umT0_0(0), umT1_0(0);
@@ -472,7 +391,7 @@ diode_2x_4POINT(XIN, k1, k2, k3, k4, k5, k6, VT, A1)
 	return (y0_0);
 }
 /*
-// fixed 4x quasi oversampling (cubic)
+// fixed 4x quasi oversampling (cubic4)
 diode_4x_4POINT(XIN, k1, k2, k3, k4, k5, k6, VT, A1)
 {	// up 4
 	History	umTm1_0(0), umT0_0(0), umT1_0(0);
@@ -530,7 +449,7 @@ diode_4x_4POINT(XIN, k1, k2, k3, k4, k5, k6, VT, A1)
 }
 */
 
-// fixed 4x quasi oversampling (cubic)
+// fixed 4x quasi oversampling (cubic4)
 diode_4x_4POINT(XIN, k1, k2, k3, k4, k5, k6, VT, A1)
 {	// up 2
 	History	umTm1_0(0), umT0_0(0), umT1_0(0);
@@ -568,7 +487,7 @@ diode_4x_4POINT(XIN, k1, k2, k3, k4, k5, k6, VT, A1)
 	return (y0_0);
 }
 
-// fixed 8x quasi oversampling (cubic)
+// fixed 8x quasi oversampling (cubic4)
 diode_8x_4POINT(XIN, k1, k2, k3, k4, k5, k6, VT, A1)
 {	// up 2
 	History	umTm1_0(0), umT0_0(0), umT1_0(0);
@@ -607,9 +526,9 @@ diode_8x_4POINT(XIN, k1, k2, k3, k4, k5, k6, VT, A1)
 }
 
 
-//	//	//	Shape Clip	//	//	//
+//	//	//	Asym Clip	//	//	//
 
-shape(xin)
+asym(xin)
 {
 	History hd(0);
 	x  = adHc2(xin) * 2.058918;
@@ -620,7 +539,7 @@ shape(xin)
 	return dcblock(y * 0.696916063374902);
 }
 
-shapeWrap(x2, drive) // basically the Gloubi-boulga by Laurent de Soras
+asymWrap(x2, drive) // basically the Gloubi-boulga by Laurent de Soras
 {
 	History hdw(0);
 	d  = LN2 * drive;
@@ -635,7 +554,7 @@ shapeWrap(x2, drive) // basically the Gloubi-boulga by Laurent de Soras
 }
 
 // fixed 2x quasi oversampling (hermite6)
-shape_2x_6POINT(XIN)
+asym_2x_6POINT(XIN)
 {	// up 2
 	History	umTm2_0(0), umTm1_0(0), umT0_0(0), umT1_0(0), umT2_0(0);
 	// down 2
@@ -649,8 +568,8 @@ shape_2x_6POINT(XIN)
 	x2_0	= umT2_0 + 0;
 
 	// process 2x
-	y1_0	= shape(x1_0);
-	y2_0	= shape(x2_0);
+	y1_0	= asym(x1_0);
+	y2_0	= asym(x2_0);
 
 	// down 2x
 	y2_0_a	= y2_0 + 0;
@@ -677,7 +596,7 @@ shape_2x_6POINT(XIN)
 }
 
 // fixed 4x quasi oversampling (hermite6)
-shape_4x_6POINT(XIN)
+asym_4x_6POINT(XIN)
 {	// up 2
 	History	umTm2_0(0), umTm1_0(0), umT0_0(0), umT1_0(0), umT2_0(0);
 	// down 2
@@ -691,8 +610,8 @@ shape_4x_6POINT(XIN)
 	x2_0	= umT2_0 + 0;
 
 	// process 4x
-	y1_0	= shape_2x_6POINT(x1_0);
-	y2_0	= shape_2x_6POINT(x2_0);
+	y1_0	= asym_2x_6POINT(x1_0);
+	y2_0	= asym_2x_6POINT(x2_0);
 
 	// down 2x
 	y2_0_a	= y2_0 + 0;
@@ -721,105 +640,6 @@ shape_4x_6POINT(XIN)
 
 //	//	//	Soft Clip	//	//	//
 
-/**
- * Li2() ::
- * @brief Real dilogarithm mathrm{Li}_2(x)
- * @param x real argument
- * @return mathrm{Li}_2(x)
- * @author Alexander Voigt
- * @license GPL v3
- * 
- * Implemented as an economized Pade approximation with a
- * maximum error of 4.16e-18 <<-- definitely worse with my implementation :-)
- */
-Li2Approx(x) // this is really stupid in gen~, & N.B. - cannot use the Approxes in negative branches
-{
-	MPIPI6	= -1.6449340668482264;	// -PI*PI/6
-	MPIPI12	= -0.8224670334241132;	// -PI*PI/12
-	PIPI6	=  1.6449340668482264;	//  PI*PI/6
-	PIPI3	=  3.289868133696453;	//  PI*PI/3
-
-	li1 = 0;
-	horner = 0;
-	y = 0;
-	r = 0;
-	s = 1;
-
-	// transform to [0, 1/2)
-	if (x < -1) {
-		omx = 1 - x;
-		l = log(omx); // must be log()
-		y = 1/omx;
-		r = MPIPI6 + l*(0.5*l - log(-x)); // must be log()
-		s = 1;
-		horner = 1;
-	} else if (x == -1) {
-		li1 = MPIPI12;
-		horner = 0;
-	} else if (x < 0) {
-		l = fixdenorm(log(-x + 1)); // no "log1p()" in gen~ :-(
-		y = x/(x - 1);
-		r = -0.5*l*l;
-		s = -1;
-		horner = 1;
-	} else if (x == 0) {
-		li1 = 0;
-		horner = 0;
-	} else if (x < 0.5) {
-		y = x;
-		r = 0;
-		s = 1;
-		horner = 1;
-	} else if (x < 1) {
-		omx = 1 - x;
-		y = omx;
-		r = PIPI6 - logApprox(x)*logApprox(omx);
-		s = -1;
-		horner = 1;
-	} else if (x == 1) {
-		li1 = PIPI6;
-		horner = 0;
-	} else if (x < 2) {
-		omodx = 1 - 1/x;
-		l = logApprox(x);
-		y = omodx;
-		r = PIPI6 - l*(logApprox(omodx) + 0.5*l);
-		s = 1;
-		horner = 1;
-	} else {
-		l = logApprox(x);
-		y = 1/x;
-		r = PIPI3 - 0.5*l*l;
-		s = -1;
-		horner = 1;
-	}
-
-	z = y - 0.25;
-
-	// unroll horner because gen~, sorry :-(
-
-	p = -2.4630612614645039828e-4;
-	p = p*z +  3.1608910440687221695e-2;
-	p = p*z + -4.6937565143754629578e-1;
-	p = p*z +  2.4733515209909815443;
-	p = p*z + -6.0516124315132409155;
-	p = p*z +  7.4819657596286408905;
-	p = p*z + -4.5353562730201404017;
-	p = p*z +  1.0706105563309304277;
-
-	q = -3.2116618742475189569e-3;
-	q = q*z +  9.8554565816757007266e-2;
-	q = q*z + -8.9936784740041174897e-1;
-	q = q*z +  3.6245392503925290187;
-	q = q*z + -7.4634190853767468810;
-	q = q*z +  8.1790029773247428573;
-	q = q*z + -4.5355682121856044935;
-	q = q*z +  1.0000000000000000000;
-
-	li2 = r + s*y*p/q;
-
-	return horner ? li2 : li1;
-}
 /*
 funcSc0(x) // tanh Lambert approx
 {
@@ -984,7 +804,6 @@ adSc2_2x_6POINT_fix2(XIN)
 	// up 2x
 	x0_0_a	= XIN + 0;
 	x1_0	= hermite_sixpoint_interp(0.5,	umTm2_0, umTm1_0, umT0_0, umT1_0, umT2_0, x0_0_a);
-//	x1_0	= interp(0.5,	umTm2_0, umTm1_0, umT0_0, umT1_0, umT2_0, x0_0_a, mode="spline6");
 	x2_0	= umT2_0 + 0;
 
 	// process 2x
@@ -994,7 +813,6 @@ adSc2_2x_6POINT_fix2(XIN)
 	// down 2x
 	y2_0_a	= y2_0 + 0;
 	y2_1	= hermite_sixpoint_interp(0.5,	y2_0_a,	dmTm1_1, dmT0_1, dmT1_1, dmT2_1, dmT3_1);
-//	y2_1	= interp(0.5,	y2_0_a,	dmTm1_1, dmT0_1, dmT1_1, dmT2_1, dmT3_1, mode="spline6");
 
 	y0_0	= (doX0 + y2_1) * 0.5;
 
@@ -1100,7 +918,7 @@ adSc2_4x_6POINT(XIN)
 	return dcblock(y0_0);
 }
 
-// fixed 2x quasi oversampling (cubic) fixed 2x
+// fixed 2x quasi oversampling (cubic4) fixed 2x
 adSc2_2x_4POINT(XIN)
 {	// up 2
 	History	umTm1_0(0), umT0_0(0), umT1_0(0);
@@ -1138,7 +956,7 @@ adSc2_2x_4POINT(XIN)
 	return dcblock(y0_0);
 }
 
-// fixed 4x quasi oversampling (cubic)
+// fixed 4x quasi oversampling (cubic4)
 adSc2_4x_4POINT(XIN)
 {	// up 4
 	History	umTm1_0(0), umT0_0(0), umT1_0(0);
@@ -1193,30 +1011,5 @@ adSc2_4x_4POINT(XIN)
 	dmT0_3	= y4_0;
 
 	return dcblock(y0_0);
-}
-
-
-//	//	//
-
-tanA2(x)						// simple approx tan(0..halfpi)
-{
-	a	= ((((x * -0.0896638) + 0.0388452) * x) + 1.00005) * x;
-	b	= (((x * -0.430871) + 0.0404318) * x) + 1;
-	return	a / b;
-}
-
-rcPreWarp(cutoff)				// prewarp
-{
-	g0		=  tanA2(PI * cutoff / SAMPLERATE);
-	return	g0 / (1 + g0);
-}
-
-rcFilterHpLp(Vin, g)			// g = prewarped normalised frequency (g / (1 + g))
-{
-	History	  s(0);
-	Lp	= (g * Vin + s) / (g + 1);
-	s	= (Lp + Lp) - s;
-	Hp	= Vin - Lp;
-	return Hp, Lp;
 }
 

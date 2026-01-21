@@ -171,6 +171,16 @@ rcFilterDamp(Vin, g, k)
 	return	Vin + (k * (Lp - Vin));
 }
 
+rcFilterDampHp(Vin, g, k)
+{
+	History	   s(0);
+	Lp		= (g * Vin + s) / (g + 1);
+	s		= (Lp + Lp) - s;
+//	Hp		=  Lp - Vin;				// must be y-x for phase
+
+	return	Lp - Vin;
+}
+
 rcFilterDampLpHp(Vin, g, k)
 {
 	History	   s(0);
@@ -217,7 +227,7 @@ rcFilterDampBandpass(Vin, glp, ghp, lk, hk)
 */
 
 // tanh Lambert approx
-tanhL( x )
+tanhLApprox( x )
 {
 	x2	= x * x;
 	a	= ( ( ( x2 + 378 ) * x2 + 17325 ) * x2 + 135135 ) * x;
@@ -226,13 +236,13 @@ tanhL( x )
 }
 /*
 // 1st order antiderivative from "evi_tanh.genexpr"
-tanhL1(x)
+tanhLApprox1(x)
 {
 	return altTanhAdaa1( x );
 }
 
 // 2nd order antiderivative from "evi_tanh.genexpr"
-tanhL2(x)
+tanhLApprox2(x)
 {
 	return altTanhAdaa2( x );
 }
@@ -244,7 +254,7 @@ sech2_with_tanh( tanh_value )
 /*
 tanh_derivative( x )
 {
-	return sech2_with_tanh( tanhL( x ) );
+	return sech2_with_tanh( tanhLApprox( x ) );
 }
 */
 /*
@@ -271,18 +281,18 @@ rcOnePole ( Vin, g )
 	b			= 0;
 	a			= 1;
 
-	tanh_input	= tanhL( Vin );
+	tanh_input	= tanhLApprox( Vin );
 	// "Linear State Prediction"
 	Vout		= ( g * ( tanh_input - b ) + s ) / ( a * g + 1 );
 	// "Tangential" (Newton-like linearisation)
 	base		= Vout;								// base variable for tangent/angle
-	tBase		= tanhL( base );
+	tBase		= tanhLApprox( base );
 	a			= sech2_with_tanh( tBase );			// tanh'(x) = 1 - tanh^2(x)
 	b			= tBase - base * a;
 
 	// "Linear State Estimate"
 	estimate	= ( g * ( tanh_input - b ) + s ) / ( a * g + 1 );
-	tanh_result = tanhL( estimate );
+	tanh_result = tanhLApprox( estimate );
 	residue 	= ( g * ( tanh_input - tanh_result ) + s ) - estimate;
 
 	// new_estimate	= old_estimate - residue/derivative
@@ -316,18 +326,18 @@ rcOnePoleLpHp ( Vin, g )
 	b			= 0;
 	a			= 1;
 
-	tanh_input	= tanhL( Vin );
+	tanh_input	= tanhLApprox( Vin );
 	// "Linear State Prediction"
 	Vout		= ( g * ( tanh_input - b ) + s ) / ( a * g + 1 );
 	// "Tangential" (Newton-like linearisation)
 	base		= Vout;								// base variable for tangent/angle
-	tBase		= tanhL( base );
+	tBase		= tanhLApprox( base );
 	a			= sech2_with_tanh( tBase );			// tanh'(x) = 1 - tanh^2(x)
 	b			= tBase - base * a;
 
 	// "Linear State Estimate"
 	estimate	= ( g * ( tanh_input - b ) + s ) / ( a * g + 1 );
-	tanh_result = tanhL( estimate );
+	tanh_result = tanhLApprox( estimate );
 	residue 	= ( g * ( tanh_input - tanh_result ) + s ) - estimate;
 
 	// new_estimate	= old_estimate - residue/derivative

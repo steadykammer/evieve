@@ -136,6 +136,7 @@ quartParOneApprox(modphase)								// 'modphase' must be clamped 0..1
 // in this setup the quad osc is high quality and precise, not approx
 quadratureOsc(thisphase, thisspread)// thisspread is of course nuts and experimental, must == 0.75
 {
+	History qodummy(0);
 	re		= cycle(thisphase, index="phase");
 	im		= cycle(wrap(thisphase + thisspread, 0, 1), index="phase");
 

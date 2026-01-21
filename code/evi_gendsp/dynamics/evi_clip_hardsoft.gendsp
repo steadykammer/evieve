@@ -21,13 +21,13 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 49.0, 19.0, 240.0, 22.0 ],
-                    "text": "in 1 @c Audio In that must be treated nicely"
+                    "patching_rect": [ 49.0, 19.0, 219.0, 22.0 ],
+                    "text": "in 1 Audio In that must be treated nicely"
                 }
             },
             {
                 "box": {
-                    "code": "// simple but antialiased clipping for your audio\r\n// antiderivative method + oversampling, by Pete for evieve, 2022\r\n// \"Diode\" aliases far sooner than \"Hard\" or \"Soft\", sorry\r\nrequire(\"evi_clip.genexpr\");\r\nParam\toversampling(2, min=0, max=2);\t// 0 = 1x, 1 = 2x, 2 = 4x\r\nParam\tclip(0, min=0, max=3);\t\t\t// 0 = Hard, 1 = Soft, 2 = Diode, 3 = Asym\r\ncp\t\t= int(clip);\r\nos\t\t= int(oversampling);\r\nk1, k2, k3, k4, k5, k6, VT, A1 = diodeCoeffs(SAMPLERATE); // param rate\r\nX\t\t= xMega(in1, 0.1); // ..+40dB\r\nY\t\t= 0;\r\n// Y gains for fake oversampling are tuned to take up to +40dB input\r\nif (cp == 1) { // soft clip\r\n\tif (os == 1) {\r\n\t\tY = adSc2_2x_6POINT_fix2(X) * 0.955101; // not perfect\r\n\t} else if (os == 2) {\r\n\t\tY = adSc2_4x_6POINT(X) * 0.93656;\r\n\t} else {\r\n\t\tY = adSc2(X, 1) * 0.998008;\r\n\t}\r\n} else if (cp == 2) { // diode clip\r\n\tif (os == 1) {\r\n\t\tY = diode_4x_4POINT(X, k1, k2, k3, k4, k5, k6, VT, A1);\r\n\t} else if (os == 2) {\r\n\t\tY = diode_8x_4POINT(X, k1, k2, k3, k4, k5, k6, VT, A1);\r\n\t} else {\r\n\t\tY = diode_2x_4POINT(X, k1, k2, k3, k4, k5, k6, VT, A1); // not great\r\n\t}\r\n\tY = Y * 3.162278; // this seems a bit strange, pete\r\n} else if (cp == 3) { // asymmetric clip\r\n\tif (os == 1) {\r\n\t\tY = shape_2x_6POINT(X);\r\n\t} else if (os == 2) {\r\n\t\tY = shape_4x_6POINT(X);\r\n\t} else {\r\n\t\tY = shape(X);\r\n\t}\r\n} else { // cp == 0 // hard clip\r\n\tif (os == 1) {\r\n\t\tY = adHc2_2x_6POINT(X) * 0.953396;\r\n\t} else if (os == 2) {\r\n\t\tY = adHc2_4x_6POINT(X) * 0.92928;\t// // // default\r\n\t} else {\r\n\t\tY = adHc2(X) * 0.996263;\r\n\t}\r\n}\r\nout1 = dcblock(Y * 0.999999);\r\n",
+                    "code": "// simple but antialiased clipping for your audio\r\n// antiderivative anti aliasing + quasi oversampling, by Pete for evieve, 2022\r\n// \"Diode\" aliases far sooner than \"Hard\" or \"Soft\", sorry\r\nrequire(\"evi_clip.genexpr\");\r\nParam\toversampling(2, min=0, max=2);\t// 0 = 1x, 1 = 2x, 2 = 4x\r\nParam\tclip(0, min=0, max=3);\t\t\t// 0 = Hard, 1 = Soft, 2 = Diode, 3 = Asym\r\ncp\t\t= int(clip);\r\nos\t\t= int(oversampling);\r\nk1, k2, k3, k4, k5, k6, VT, A1 = diodeCoeffs(SAMPLERATE); // param rate\r\nX\t\t= xMega(in1, xCONST=0.1);       // ..+40dB\r\nY\t\t= 0;\r\n// Y gains for fake oversampling are tuned to take up to +40dB input\r\nif (cp == 1) { // soft clip\r\n\tif (os == 1) {\r\n\t\tY = adSc2_2x_6POINT_fix2(X) * 0.955101; // not perfect\r\n\t} else if (os == 2) {\r\n\t\tY = adSc2_4x_6POINT(X) * 0.93656;\r\n\t} else {\r\n\t\tY = adSc2(X, 1) * 0.998008;\r\n\t}\r\n} else if (cp == 2) { // diode clip\r\n\tif (os == 1) {\r\n\t\tY = diode_4x_4POINT(X, k1, k2, k3, k4, k5, k6, VT, A1);\r\n\t} else if (os == 2) {\r\n\t\tY = diode_8x_4POINT(X, k1, k2, k3, k4, k5, k6, VT, A1);\r\n\t} else {\r\n\t\tY = diode_2x_4POINT(X, k1, k2, k3, k4, k5, k6, VT, A1); // not great\r\n\t}\r\n\tY = Y * 3.162278; // not wrong\r\n} else if (cp == 3) { // asymmetric clip\r\n\tif (os == 1) {\r\n\t\tY = asym_2x_6POINT(X);\r\n\t} else if (os == 2) {\r\n\t\tY = asym_4x_6POINT(X);\r\n\t} else {\r\n\t\tY = asym(X); // avoid\r\n\t}\r\n} else { // cp == 0 // hard clip\r\n\tif (os == 1) {\r\n\t\tY = adHc2_2x_6POINT(X) * 0.953396;\r\n\t} else if (os == 2) {\r\n\t\tY = adHc2_4x_6POINT(X) * 0.92928;\t// // // default\r\n\t} else {\r\n\t\tY = adHc2(X) * 0.996263;\r\n\t}\r\n}\r\nout1 = dcblock(Y * 0.999999);\r\n",
                     "fontface": 0,
                     "fontname": "<Monospaced>",
                     "fontsize": 12.0,
@@ -45,8 +45,8 @@
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 49.0, 807.0, 222.0, 22.0 ],
-                    "text": "out 1 @c Anti Aliased Clipped Audio Out"
+                    "patching_rect": [ 49.0, 807.0, 201.0, 22.0 ],
+                    "text": "out 1 Anti Aliased Clipped Audio Out"
                 }
             }
         ],

@@ -1,523 +1,7 @@
 
 // over complex ring modulator, by Pete for evieve
 
-tanA(x)                             // cheaper approx tan(0..1)
-{
-	x2      = (x * x);
-	x3      = (x2 * x);
-	x5      = (x2 * x3);
-	return   ((x5 * 0.133333333333) + (x3 * 0.333333333333)) + x;
-}
-
-tanA2(x)                            // better approx tan(0..halfpi)
-{
-	a   = ((((x * -0.0896638) + 0.0388452) * x) + 1.00005) * x;
-	b   = (((x * -0.430871) + 0.0404318) * x) + 1;
-	return  a / b;
-}
-
-expA(x0)                            // more accurate than 'fastexp()'
-{
-	x = 0.999996 + (0.031261316 + (0.00048274797 + 0.000006 * x0) * x0) * x0;
-	x *= x; x *= x; x *= x; x *= x; x *= x;
-	return x;
-}
-
-tauA(t)                             // t is time in seconds
-{
-	y = expA(-1 / (t * samplerate));
-	return y + 0.000128;
-}
-
-cosQ32(x)
-{
-	c1 =  0.99940307;
-	c2 = -0.49558072;
-	c3 =  0.03679168;
-
-	x2 =  x * x;
-	return (c1 + x2 * (c2 + c3 * x2));
-}
-
-cos32quad12(x)  // cheap cheat, not exactly correct, but cheap
-{
-	return (x < 0.636619772368) ? cosQ32(x) : -cosQ32(pi - x);
-}
-
-// based on an idea by jhno, Trond Lossius, Tim Place
-sinParam(drive)
-{
-	pidrive     = drive*3.110176727054 + 0.031415926536;
-	sindrive    = 1 / cos32quad12(HALFPI - minimum(pidrive, HALFPI));
-	return  pidrive, sindrive;
-}
-
-// actually different to what we end up with post-Adaa
-sinFoldNaive(x, pidrive, sindrive)
-{
-	return sin(x * pidrive) * sindrive;
-}
-
-//  //  //
-
-eviCopysign(y, x) // <<-- HA HA !!
-{
-  return (x >= 0) ? y : -y;
-}
-
-eviLog1p(value)   // :-(
-{
-  if (value > -1.0e-8 && value < 1.0e-8)
-	return value - (value * value) * 0.5;
-
-  return log(1 + value);
-}
-
-hermite_sixpoint_interp(f0, ym2, ym1, y0, y1, y2, y3)
-{
-  f1    =  f0 - 0.5;
-  even1 = ym2 + y3;
-  odd1  = ym2 - y3;
-  even2 = ym1 + y2;
-  odd2  = ym1 - y2;
-  even3 =  y0 + y1;
-  odd3  =  y0 - y1;
-
-  c0 	= 0.01171875*even1 		- 0.09765625*even2 		+ 0.5859375*even3;
-  c1 	= 0.2109375*odd2 		- 1.463541666667*odd3 	- 0.033854166667*odd1;
-  c2 	= 0.40625*even2 		- 0.354166666667*even3 	- 0.052083333333*even1;
-  c3 	= 0.1875*odd1 			- 1.104166666667*odd2 	+ 2.375*odd3;
-  c4 	= 0.020833333333*even1 	- 0.0625*even2 			+ 0.041666666667*even3;
-  c5 	= 1.041666666667*odd2 	- 2.083333333333*odd3 	- 0.208333333333*odd1;
-
-  return ((((c5*f1 + c4)*f1 + c3)*f1 + c2)*f1 + c1)*f1 + c0;
-}
-
-//  //  //
-
-/*
-// these approximations work fine with no oversampling,
-// but the interpolation destroys them with our fake oversampling,
-// regardless of eps precision :-(
-
-cosQ121(x)
-{
-	c1 =  0.99999999999925182;
-	c2 = -0.49999999997024012;
-	c3 =  0.041666666473384543;
-	c4 = -0.001388888418000423;
-	c5 =  0.0000248010406484558;
-	c6 = -0.0000002752469638432;
-	c7 =  0.0000000019907856854;
-
-	x2 = x * x;
-	return (c1 + x2 * (c2 + x2 * (c3 + x2 * (c4 + x2 * (c5 + x2 * (c6 + c7 * x2))))));
-}
-
-cos121(x)
-{
-	TWOOVERPI = 0.63661977236758;   // 2 / PI
-	x = x % TWOPI;                              // phasewrap(x) cheaper ?
-	x = (x < 0) ? -x : x;
-	QUAD = int(x * TWOOVERPI);      // get quadrant # (0..3) we are in
-	cosreturn = 0;
-	if              (QUAD == 0) {
-		cosreturn =  cosQ121(x);
-	} else if       (QUAD == 1) {
-		cosreturn = -cosQ121(PI - x);
-	} else if       (QUAD == 2) {
-		cosreturn = -cosQ121(x - PI);
-	} else {    //  (QUAD == 3)
-		cosreturn =  cosQ121(TWOPI - x);
-	}
-	return cosreturn;
-}
-
-sin121(x)
-{
-	return cos121(HALFPI - x);
-}
-
-sinJ0(x)
-{
-  return sin121(x);
-}
-
-sinJ1(x)
-{
-  return -cos121(x);
-}
-
-sinJ2(x)
-{
-  return -sin121(x);
-}
-*/
-
-sinJ0(x)
-{
-  return sin(x);
-}
-
-sinJ1(x)
-{
-  return -cos(x);
-}
-
-sinJ2(x)
-{
-  return -sin(x);
-}
-
-// About "eps" precision in the Adaa1 & Adaa2:
-// "0.00000001" just about works for all oversampling factors we use here,
-// but it is not perfect. It is very hard to get the sweet spot.
-// The problem is is that our oversampling is not real oversampling but
-// just an interpolation hack, and this has an effect on the very small numbers.
-// I might program something like this:
-/*
-	eps = (osf == 2) ? 0.000000000001 : ((osf == 4) ? 0.00000001 : 0.000001);
-*/
-// ...where "osf" is the integer oversampling factor 2, 4 or 8,
-// passed into the Adaa* function. This would be horrible of course.
-
-sinAdaa1(x0)
-{
-  History x1(0), s1(0);
-  eps = 0.00000001;	//
-
-  y1 = x0;
-  d0 = x0 - x1;
-  s0 = sinJ1(x0);	// func1
-  if ((x1 == 0 && s1 == 0) || (abs(d0) < eps)) {	// ill condition
-	y1 = sinJ0(0.5 * (x0 + x1));	// func0
-  } else {
-	y1 = (s0 - s1) / d0;
-  }
-
-  s1 = s0;
-  x1 = x0;
-  return y1;
-}
-
-sinAdaa2(x0)
-{
-  History x1(0), x2(0), s1(0);
-  eps = 0.000001;	//
-
-  s0 = x0;
-  d0 = x0 - x1;
-  f2_x1 = sinJ2(x1);	// func2
-  if (abs(d0) < eps) {	// ill condition
-	s0 = sinJ1(0.5 * (x0 + x1));	// func1
-  } else {
-	s0 = (sinJ2(x0) - f2_x1) / d0;	// func2
-  }
-
-  y1 = x0;
-  d1 = x0 - x2;
-  if (x1 == 0 && x2 == 0) {	// ill condition
-	y1 = sinJ0(x0 + (x1 + x1) + x2) * 0.25;	// func0
-  } else if (abs(d1) < eps) {	// ill condition
-	x_bar = 0.5 * (x0 + x2);
-	x_delta = x_bar - x1;
-	if (x_delta < eps) {	// ill condition
-	  y1 = sinJ0((x_bar + x1) * 0.5);	// func0
-	} else {
-	  y1 = (2 / x_delta) * (sinJ1(x_bar) + (f2_x1 - sinJ2(x_bar)) / x_delta);	// func1, func2
-	}
-  } else {
-	s0s1 = s0 - s1;
-	y1 = (s0s1 + s0s1) / d1;
-  }
-
-  s1 = s0;
-  x2 = x1;
-  x1 = x0;
-  return y1;
-}
-
-// sinAdaa1 oversampling...
-
-// fixed 2x quasi oversampling (hermite6)
-sinAdaa1_2x_6POINT(XIN)
-{ // up 2
-  History umTm2_0(0), umTm1_0(0), umT0_0(0), umT1_0(0), umT2_0(0);
-  // down 2
-  History dmT3_1(0), dmT2_1(0), dmT1_1(0), dmT0_1(0), dmTm1_1(0);
-  // align
-  History doX0(0);
-
-  // up 2x
-  x0_0_a  = XIN + 0;
-  x1_0  = hermite_sixpoint_interp(0.5,  umTm2_0, umTm1_0, umT0_0, umT1_0, umT2_0, x0_0_a);
-  x2_0  = umT2_0 + 0;
-
-  // process 2x
-  y1_0  = sinAdaa1(x1_0);
-  y2_0  = sinAdaa1(x2_0);
-
-  // down 2x
-  y2_0_a  = y2_0 + 0;
-  y2_1  = hermite_sixpoint_interp(0.5,  y2_0_a, dmTm1_1, dmT0_1, dmT1_1, dmT2_1, dmT3_1);
-
-  y0_0  = (doX0 + y2_1) * 0.5;
-
-  // update
-  umTm2_0 = umTm1_0;
-  umTm1_0 = umT0_0;
-  umT0_0  = umT1_0;
-  umT1_0  = umT2_0;
-  umT2_0  = x0_0_a;
-
-  doX0  = y1_0;
-
-  dmT3_1  = dmT2_1;
-  dmT2_1  = dmT1_1;
-  dmT1_1  = dmT0_1;
-  dmT0_1  = dmTm1_1;
-  dmTm1_1 = y2_0;
-
-  return dcblock(y0_0);
-}
-
-// fixed 4x quasi oversampling (hermite6)
-sinAdaa1_4x_6POINT(XIN)
-{ // up 2
-  History umTm2_0(0), umTm1_0(0), umT0_0(0), umT1_0(0), umT2_0(0);
-  // down 2
-  History dmT3_1(0), dmT2_1(0), dmT1_1(0), dmT0_1(0), dmTm1_1(0);
-  // align
-  History doX0(0);
-
-  // up 2x
-  x0_0_a  = XIN + 0;
-  x1_0  = hermite_sixpoint_interp(0.5,  umTm2_0, umTm1_0, umT0_0, umT1_0, umT2_0, x0_0_a);
-  x2_0  = umT2_0 + 0;
-
-  // process 4x
-  y1_0  = sinAdaa1_2x_6POINT(x1_0);
-  y2_0  = sinAdaa1_2x_6POINT(x2_0);
-
-  // down 2x
-  y2_0_a  = y2_0 + 0;
-  y2_1  = hermite_sixpoint_interp(0.5,  y2_0_a, dmTm1_1, dmT0_1, dmT1_1, dmT2_1, dmT3_1);
-
-  y0_0  = (doX0 + y2_1) * 0.5;
-
-  // update
-  umTm2_0 = umTm1_0;
-  umTm1_0 = umT0_0;
-  umT0_0  = umT1_0;
-  umT1_0  = umT2_0;
-  umT2_0  = x0_0_a;
-
-  doX0  = y1_0;
-
-  dmT3_1  = dmT2_1;
-  dmT2_1  = dmT1_1;
-  dmT1_1  = dmT0_1;
-  dmT0_1  = dmTm1_1;
-  dmTm1_1 = y2_0;
-
-  return dcblock(y0_0);
-}
-
-// sinAdaa2 oversampling...
-
-// fixed 2x quasi oversampling (hermite6)
-sinAdaa2_2x_6POINT(XIN)
-{ // up 2
-  History umTm2_0(0), umTm1_0(0), umT0_0(0), umT1_0(0), umT2_0(0);
-  // down 2
-  History dmT3_1(0), dmT2_1(0), dmT1_1(0), dmT0_1(0), dmTm1_1(0);
-  // align
-  History doX0(0);
-
-  // up 2x
-  x0_0_a  = XIN + 0;
-  x1_0  = hermite_sixpoint_interp(0.5,  umTm2_0, umTm1_0, umT0_0, umT1_0, umT2_0, x0_0_a);
-  x2_0  = umT2_0 + 0;
-
-  // process 2x
-  y1_0  = sinAdaa2(x1_0);
-  y2_0  = sinAdaa2(x2_0);
-
-  // down 2x
-  y2_0_a  = y2_0 + 0;
-  y2_1  = hermite_sixpoint_interp(0.5,  y2_0_a, dmTm1_1, dmT0_1, dmT1_1, dmT2_1, dmT3_1);
-
-  y0_0  = (doX0 + y2_1) * 0.5;
-
-  // update
-  umTm2_0 = umTm1_0;
-  umTm1_0 = umT0_0;
-  umT0_0  = umT1_0;
-  umT1_0  = umT2_0;
-  umT2_0  = x0_0_a;
-
-  doX0  = y1_0;
-
-  dmT3_1  = dmT2_1;
-  dmT2_1  = dmT1_1;
-  dmT1_1  = dmT0_1;
-  dmT0_1  = dmTm1_1;
-  dmTm1_1 = y2_0;
-
-  return dcblock(y0_0);
-}
-
-// fixed 4x quasi oversampling (hermite6)
-sinAdaa2_4x_6POINT(XIN)
-{ // up 2
-  History umTm2_0(0), umTm1_0(0), umT0_0(0), umT1_0(0), umT2_0(0);
-  // down 2
-  History dmT3_1(0), dmT2_1(0), dmT1_1(0), dmT0_1(0), dmTm1_1(0);
-  // align
-  History doX0(0);
-
-  // up 2x
-  x0_0_a  = XIN + 0;
-  x1_0  = hermite_sixpoint_interp(0.5,  umTm2_0, umTm1_0, umT0_0, umT1_0, umT2_0, x0_0_a);
-  x2_0  = umT2_0 + 0;
-
-  // process 4x
-  y1_0  = sinAdaa2_2x_6POINT(x1_0);
-  y2_0  = sinAdaa2_2x_6POINT(x2_0);
-
-  // down 2x
-  y2_0_a  = y2_0 + 0;
-  y2_1  = hermite_sixpoint_interp(0.5,  y2_0_a, dmTm1_1, dmT0_1, dmT1_1, dmT2_1, dmT3_1);
-
-  y0_0  = (doX0 + y2_1) * 0.5;
-
-  // update
-  umTm2_0 = umTm1_0;
-  umTm1_0 = umT0_0;
-  umT0_0  = umT1_0;
-  umT1_0  = umT2_0;
-  umT2_0  = x0_0_a;
-
-  doX0  = y1_0;
-
-  dmT3_1  = dmT2_1;
-  dmT2_1  = dmT1_1;
-  dmT1_1  = dmT0_1;
-  dmT0_1  = dmTm1_1;
-  dmTm1_1 = y2_0;
-
-  return dcblock(y0_0);
-}
-
-//  //  //
-
-sinFoldAdaa1(x, pidrive, sindrive)
-{
-	return sinAdaa1(x * pidrive) * sindrive;
-}
-
-sinFoldAdaa1_2x(x, pidrive, sindrive)
-{
-	return sinAdaa1_2x_6POINT(x * pidrive) * sindrive;
-}
-
-sinFoldAdaa1_4x(x, pidrive, sindrive)
-{
-	return sinAdaa1_4x_6POINT(x * pidrive) * sindrive;
-}
-
-sinFoldAdaa2(x, pidrive, sindrive)
-{
-	return sinAdaa2(x * pidrive) * sindrive;
-}
-
-sinFoldAdaa2_2x(x, pidrive, sindrive)
-{
-	return sinAdaa2_2x_6POINT(x * pidrive) * sindrive;
-}
-
-sinFoldAdaa2_4x(x, pidrive, sindrive)
-{
-	return sinAdaa2_4x_6POINT(x * pidrive) * sindrive;
-}
-
-//  //  //
-
-logsmooth(x, s)                     // s = time to drop 6dB (in seconds)
-{
-	History z(0);
-//  ad = LN2 / maximum((s * samplerate), 1);
-	ad = LN2 / (s * samplerate);
-	y  = ((x - z) * ad) + z;
-	z  = y;
-	return y;
-}
-
-expso(x, z)                         // z is pole
-{
-	History w(0);
-	y = (z * w) + (x * (1 - z));
-	w = y;
-	return y;
-}
-
-expsmoothBank2(x1, x2, t)           // t is smooth time in seconds
-{
-	History exps2dummy(0);
-	z       = tauA(t);
-	y1      = expso(x1, z);
-	y2      = expso(x2, z);
-	return  y1, y2;
-}
-
-fWarp(cf)
-{
-	f = (cf * (pi / samplerate)) * (1 / twopi);
-	w = (f - trunc(f)) * twopi;
-	return tanA2(w);                // tan approximation (G for butterworth)
-}
-
-rcPreWarp(cutoff)
-{
-	g0      =  tanA(pi * cutoff / samplerate);
-	return  g0 / (1 + g0);
-}
-
-rcFilterHpLp(Vin, g)                // g = prewarped normalised frequency (g / (1 + g))
-{
-	History   s(0);
-	VoutLp  = (g * Vin + s) / (g + 1);
-	s       = (VoutLp + VoutLp) - s;
-	Hp      = Vin - VoutLp;         // must be y-x
-	return    Hp, VoutLp;
-}
-
-// fixed mode=0 version, no branching, keep out of while loop
-rcDampCoeffs(cutoff, damp)          // cutoff in Hz, damp clamp 0..1 (1 = highpass/lowpass)
-{
-	g0      =  tanA(pi * cutoff / samplerate);  // prewarp
-	ks      = (damp * 0.5) + 0.5;   // damp 0..1 = sqrt..lin
-	ks05    = (ks - 0.5);
-	ksom    = ((1 - ks) + 0.5) - 0.5;
-	g01     =  1 + g0;
-	g1      =  g0 / interp((ks05 + ks05), sqrt(g01), g01, mode="linear");
-	d1      = interp((ksom + ksom), sqrt(damp), damp, mode="linear");
-	return  g1, d1;                 // rc filter warped cf (g)  // rc filter warped gain (k)
-}
-
-// High or Low Pass if k == 1, Bypass if k == 0, else Low or High Shelf boost / attenuation
-rcFilterDamp(Vin, g, k)             // g = pre-warped normalised frequency (g / (1 + g))
-{
-	History    s(0);
-	Lp      = ( g * Vin + s) / (g + 1);
-	s       = (Lp + Lp) - s;
-	Hp      =  Lp - Vin;            // must be y-x
-
-	LpHs    =  Vin + (k * Hp);
-	HpLs    = (k * Lp) - Vin;
-
-	return     HpLs, LpHs;
-}
+require("evi_ssb.genexpr");
 
 //  //  //
 
@@ -585,10 +69,11 @@ invknee	= invvolt + (1 - knee);
 out1	= pRingmod(in1, in2, invvolt, invknee, slope);
 */
 // ...but do not bother without insane amounts of oversampling :-(
+// just see: [evi.ringmod.diode~] for a wrapper
 
 
 // theoretically "evieveRingmod*()" could have even further
-// output gain compensation depending on "sinFold*()"" drive ?
+// output gain compensation depending on "sinFold*()" drive ?
 
 evieveRingmodAdaa1(xin1, xin2, g, p, s, t)
 {
@@ -598,7 +83,7 @@ evieveRingmodAdaa1(xin1, xin2, g, p, s, t)
 
 	stage1  = xin1 + x1;
 	stage2  = xin2 + x2;
-	smix, l = rcFilterHpLp(stage1 * stage2 * fdt, g);
+	smix		= rcFilterHp(stage1 * stage2 * fdt, g);
 	
 	rmod, emod  = 0;
 	if (t) {    // waveshape mid chain, sometimes really cool
@@ -624,7 +109,7 @@ evieveRingmodAdaa2(xin1, xin2, g, p, s, t)
 
 	stage1  = xin1 + x1;
 	stage2  = xin2 + x2;
-	smix, l = rcFilterHpLp(stage1 * stage2 * fdt, g);
+	smix		= rcFilterHp(stage1 * stage2 * fdt, g);
 	
 	rmod, emod  = 0;
 	if (t) {    // waveshape mid chain, sometimes really cool
@@ -650,7 +135,7 @@ evieveRingmodAdaa1_2x(xin1, xin2, g, p, s, t)
 
 	stage1  = xin1 + x1;
 	stage2  = xin2 + x2;
-	smix, l = rcFilterHpLp(stage1 * stage2 * fdt, g);
+	smix		= rcFilterHp(stage1 * stage2 * fdt, g);
 	
 	rmod, emod  = 0;
 	if (t) {    // waveshape mid chain, sometimes really cool
@@ -676,7 +161,7 @@ evieveRingmodAdaa1_4x(xin1, xin2, g, p, s, t)
 
 	stage1  = xin1 + x1;
 	stage2  = xin2 + x2;
-	smix, l = rcFilterHpLp(stage1 * stage2 * fdt, g);
+	smix		= rcFilterHp(stage1 * stage2 * fdt, g);
 	
 	rmod, emod  = 0;
 	if (t) {    // waveshape mid chain, sometimes really cool
@@ -702,7 +187,7 @@ evieveRingmodAdaa2_2x(xin1, xin2, g, p, s, t)
 
 	stage1  = xin1 + x1;
 	stage2  = xin2 + x2;
-	smix, l = rcFilterHpLp(stage1 * stage2 * fdt, g);
+	smix		= rcFilterHp(stage1 * stage2 * fdt, g);
 	
 	rmod, emod  = 0;
 	if (t) {    // waveshape mid chain, sometimes really cool
@@ -728,7 +213,7 @@ evieveRingmodAdaa2_4x(xin1, xin2, g, p, s, t)
 
 	stage1  = xin1 + x1;
 	stage2  = xin2 + x2;
-	smix, l = rcFilterHpLp(stage1 * stage2 * fdt, g);
+	smix		= rcFilterHp(stage1 * stage2 * fdt, g);
 	
 	rmod, emod  = 0;
 	if (t) {    // waveshape mid chain, sometimes really cool
@@ -1174,7 +659,7 @@ lp2p(x, g, r)                       // 2-pole zdf section
 	return y;
 }
 
-linearButterworthLP8(X, cutoff, order)
+linearButterworthLP8(X, cutoff, order=3)
 {
 	Y       = 0;
 	if (order > 0) {
@@ -1205,12 +690,12 @@ linearButterworthLP8(X, cutoff, order)
 			y1  = lp2p(y0,  G, 1.1111404660392046);
 			y2  = lp2p(y1,  G, 1.6629392246050905);
 			Y   = lp2p(y2,  G, 1.9615705608064609);
-		} else {//  (order == 3)            // default
+		} else {//  (order == 3)				// default
 			y0  = lp2p(X,   G, 1.0000000000000002);
 			Y   = lp1p(y0,  G);
 		}
 
-	} else {    //  (order == 0)            // bypassed
+	} else {    //  (order == 0)			// bypassed
 		Y   = X;
 	}
 
