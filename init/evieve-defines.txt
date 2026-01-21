@@ -5,14 +5,14 @@ max define mc.evi.softclip~ mc.gen~ @gen evi_softclip.gendsp @chans 2;
 max define evi.clip~ gen~ @gen evi_clip_hardsoft.gendsp;
 max define mc.evi.clip~ mc.gen~ @gen evi_clip_hardsoft.gendsp @chans 2;
 
-max define evi.overdrive.tanh~ gen~ @gen evi_tanhwrap.gendsp;
-max define mc.evi.overdrive.tanh~ mc.gen~ @gen evi_tanhwrap.gendsp @chans 2;
+max define evi.overdrive.tanh~ gen~ @gen evi_overdrive_tanh.gendsp;
+max define mc.evi.overdrive.tanh~ mc.gen~ @gen evi_overdrive_tanh.gendsp @chans 2;
 
-max define evi.overdrive.atan~ gen~ @gen evi_atanwrap.gendsp;
-max define mc.evi.overdrive.atan~ mc.gen~ @gen evi_atanwrap.gendsp @chans 2;
+max define evi.overdrive.atan~ gen~ @gen evi_overdrive_atan.gendsp;
+max define mc.evi.overdrive.atan~ mc.gen~ @gen evi_overdrive_atan.gendsp @chans 2;
 
-max define evi.overdrive.sqrt~ gen~ @gen evi_sqrtwrap.gendsp;
-max define mc.evi.overdrive.sqrt~ mc.gen~ @gen evi_sqrtwrap.gendsp @chans 2;
+max define evi.overdrive.sqrt~ gen~ @gen evi_overdrive_sqrt.gendsp;
+max define mc.evi.overdrive.sqrt~ mc.gen~ @gen evi_overdrive_sqrt.gendsp @chans 2;
 
 max define evi.limiter~ gen~ @gen evi_limiterfast.gendsp;
 max define mc.evi.limiter~ mc.gen~ @gen evi_limiterfast.gendsp @chans 2;

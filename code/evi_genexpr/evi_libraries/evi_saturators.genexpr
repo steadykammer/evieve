@@ -1,69 +1,12 @@
 
-// the antiderivative functions etc:
-
+// the antiderivative anti aliasing functions are here:
 require("evi_adaa.genexpr"); // f(x), F1 & F2, and Adaa1 & Adaa2 in here
 
+// for quasi resampling:
+require("evi_interp.genexpr");
 
-// the saturators ( all typed out because... ...gen~ :-( )
+// the saturators ( all typed out because... ...gen~ :-( ) are in this file:
 
-
-// hardclip
-
-hardclipAdaa1(x0)
-{
-  History x1(0), s1(0);
-  eps = 0.000001;  // TODO, work out precision
-
-  y1 = 0;
-  d0 = x0 - x1;
-  s0 = hardclipJ1(x0);    // func1
-  if ((x1 == 0 && s1 == 0) || (abs(d0) < eps)) {  // ill condition
-    y1 = hardclipJ0(0.5 * (x0 + x1)); // func0
-  } else {
-    y1 = (s0 - s1) / d0;
-  }
-
-  s1 = s0;
-  x1 = x0;
-  return y1;
-}
-
-hardclipAdaa2(x0)
-{
-  History x1(0), x2(0), s1(0);
-  eps = 0.000001;  // TODO, work out precision
-
-  s0 = x0;//0;
-  d0 = x0 - x1;
-  f2_x1 = hardclipJ2(x1); // func2
-  if (abs(d0) < eps) {  // ill condition
-    s0 = hardclipJ1(0.5 * (x0 + x1)); // func1
-  } else {
-    s0 = (hardclipJ2(x0) - f2_x1) / d0; // func2
-  }
-
-  y1 = x0;//0;
-  d1 = x0 - x2;
-  if (x1 == 0 && x2 == 0) { // ill condition
-    y1 = hardclipJ0(x0 + (x1 + x1) + x2) * 0.25; // func0
-  } else if (abs(d1) < eps) { // ill condition
-    x_bar = 0.5 * (x0 + x2);
-    x_delta = x_bar - x1;
-    if (x_delta < eps) {  // ill condition
-      y1 = hardclipJ0((x_bar + x1) * 0.5);  // func0
-    } else {
-      y1 = (2 / x_delta) * (hardclipJ1(x_bar) + (f2_x1 - hardclipJ2(x_bar)) / x_delta); // func1, func2
-    }
-  } else {
-    s0s1 = s0 - s1;
-    y1 = (s0s1 + s0s1) / d1;
-  }
-
-  s1 = s0;
-  x2 = x1;
-  x1 = x0;
-  return y1;
-}
 
 // hardclipAdaa1 oversampling...
 
@@ -238,64 +181,6 @@ hardclipAdaa2_4x_6POINT(XIN)
 }
 
 
-// halfrect
-
-halfrectAdaa1(x0)
-{
-  History x1(0), s1(0);
-  eps = 0.000001;  // TODO, work out precision
-
-  y1 = 0;
-  d0 = x0 - x1;
-  s0 = halfrectJ1(x0);    // func1
-  if ((x1 == 0 && s1 == 0) || (abs(d0) < eps)) {  // ill condition
-    y1 = halfrectJ0(0.5 * (x0 + x1)); // func0
-  } else {
-    y1 = (s0 - s1) / d0;
-  }
-
-  s1 = s0;
-  x1 = x0;
-  return dcblock(y1); // debatable dc
-}
-
-halfrectAdaa2(x0)
-{
-  History x1(0), x2(0), s1(0);
-  eps = 0.000001;  // TODO, work out precision
-
-  s0 = x0;//0;
-  d0 = x0 - x1;
-  f2_x1 = halfrectJ2(x1); // func2
-  if (abs(d0) < eps) {  // ill condition
-    s0 = halfrectJ1(0.5 * (x0 + x1)); // func1
-  } else {
-    s0 = (halfrectJ2(x0) - f2_x1) / d0; // func2
-  }
-
-  y1 = x0;//0;
-  d1 = x0 - x2;
-  if (x1 == 0 && x2 == 0) { // ill condition
-    y1 = halfrectJ0(x0 + (x1 + x1) + x2) * 0.25; // func0
-  } else if (abs(d1) < eps) { // ill condition
-    x_bar = 0.5 * (x0 + x2);
-    x_delta = x_bar - x1;
-    if (x_delta < eps) {  // ill condition
-      y1 = halfrectJ0((x_bar + x1) * 0.5);  // func0
-    } else {
-      y1 = (2 / x_delta) * (halfrectJ1(x_bar) + (f2_x1 - halfrectJ2(x_bar)) / x_delta); // func1, func2
-    }
-  } else {
-    s0s1 = s0 - s1;
-    y1 = (s0s1 + s0s1) / d1;
-  }
-
-  s1 = s0;
-  x2 = x1;
-  x1 = x0;
-  return dcblock(y1); // debatable dc
-}
-
 // halfrectAdaa1 oversampling...
 
 // fixed 2x quasi oversampling (hermite6)
@@ -468,64 +353,6 @@ halfrectAdaa2_4x_6POINT(XIN)
   return dcblock(y0_0);
 }
 
-
-// power
-
-powerAdaa1(x0)
-{
-  History x1(0), s1(0);
-  eps = 0.000001;  // TODO, work out precision
-
-  y1 = 0;
-  d0 = x0 - x1;
-  s0 = powerJ1(x0);    // func1
-  if ((x1 == 0 && s1 == 0) || (abs(d0) < eps)) {  // ill condition
-    y1 = powerJ0(0.5 * (x0 + x1)); // func0
-  } else {
-    y1 = (s0 - s1) / d0;
-  }
-
-  s1 = s0;
-  x1 = x0;
-  return y1;
-}
-
-powerAdaa2(x0)
-{
-  History x1(0), x2(0), s1(0);
-  eps = 0.000001;  // TODO, work out precision
-
-  s0 = x0;//0;
-  d0 = x0 - x1;
-  f2_x1 = powerJ2(x1); // func2
-  if (abs(d0) < eps) {  // ill condition
-    s0 = powerJ1(0.5 * (x0 + x1)); // func1
-  } else {
-    s0 = (powerJ2(x0) - f2_x1) / d0; // func2
-  }
-
-  y1 = x0;//0;
-  d1 = x0 - x2;
-  if (x1 == 0 && x2 == 0) { // ill condition
-    y1 = powerJ0(x0 + (x1 + x1) + x2) * 0.25; // func0
-  } else if (abs(d1) < eps) { // ill condition
-    x_bar = 0.5 * (x0 + x2);
-    x_delta = x_bar - x1;
-    if (x_delta < eps) {  // ill condition
-      y1 = powerJ0((x_bar + x1) * 0.5);  // func0
-    } else {
-      y1 = (2 / x_delta) * (powerJ1(x_bar) + (f2_x1 - powerJ2(x_bar)) / x_delta); // func1, func2
-    }
-  } else {
-    s0s1 = s0 - s1;
-    y1 = (s0s1 + s0s1) / d1;
-  }
-
-  s1 = s0;
-  x2 = x1;
-  x1 = x0;
-  return y1;
-}
 
 // powerAdaa1 oversampling...
 
@@ -700,64 +527,6 @@ powerAdaa2_4x_6POINT(XIN)
 }
 
 
-// softclip2
-
-softclip2Adaa1(x0)
-{
-  History x1(0), s1(0);
-  eps = 0.000001;  // TODO, work out precision
-
-  y1 = 0;
-  d0 = x0 - x1;
-  s0 = softclip2J1(x0);    // func1
-  if ((x1 == 0 && s1 == 0) || (abs(d0) < eps)) {  // ill condition
-    y1 = softclip2J0(0.5 * (x0 + x1)); // func0
-  } else {
-    y1 = (s0 - s1) / d0;
-  }
-
-  s1 = s0;
-  x1 = x0;
-  return y1;
-}
-
-softclip2Adaa2(x0)
-{
-  History x1(0), x2(0), s1(0);
-  eps = 0.000001;  // TODO, work out precision
-
-  s0 = x0;//0;
-  d0 = x0 - x1;
-  f2_x1 = softclip2J2(x1); // func2
-  if (abs(d0) < eps) {  // ill condition
-    s0 = softclip2J1(0.5 * (x0 + x1)); // func1
-  } else {
-    s0 = (softclip2J2(x0) - f2_x1) / d0; // func2
-  }
-
-  y1 = x0;//0;
-  d1 = x0 - x2;
-  if (x1 == 0 && x2 == 0) { // ill condition
-    y1 = softclip2J0(x0 + (x1 + x1) + x2) * 0.25; // func0
-  } else if (abs(d1) < eps) { // ill condition
-    x_bar = 0.5 * (x0 + x2);
-    x_delta = x_bar - x1;
-    if (x_delta < eps) {  // ill condition
-      y1 = softclip2J0((x_bar + x1) * 0.5);  // func0
-    } else {
-      y1 = (2 / x_delta) * (softclip2J1(x_bar) + (f2_x1 - softclip2J2(x_bar)) / x_delta); // func1, func2
-    }
-  } else {
-    s0s1 = s0 - s1;
-    y1 = (s0s1 + s0s1) / d1;
-  }
-
-  s1 = s0;
-  x2 = x1;
-  x1 = x0;
-  return y1;
-}
-
 // softclip2Adaa1 oversampling...
 
 // fixed 2x quasi oversampling (hermite6)
@@ -930,64 +699,6 @@ softclip2Adaa2_4x_6POINT(XIN)
   return dcblock(y0_0);
 }
 
-
-// softclipN
-
-softclipNAdaa1(x0)
-{
-  History x1(0), s1(0);
-  eps = 0.000001;  // TODO, work out precision
-
-  y1 = 0;
-  d0 = x0 - x1;
-  s0 = softclipNJ1(x0);    // func1
-  if ((x1 == 0 && s1 == 0) || (abs(d0) < eps)) {  // ill condition
-    y1 = softclipNJ0(0.5 * (x0 + x1)); // func0
-  } else {
-    y1 = (s0 - s1) / d0;
-  }
-
-  s1 = s0;
-  x1 = x0;
-  return y1;
-}
-
-softclipNAdaa2(x0)
-{
-  History x1(0), x2(0), s1(0);
-  eps = 0.000001;  // TODO, work out precision
-
-  s0 = x0;//0;
-  d0 = x0 - x1;
-  f2_x1 = softclipNJ2(x1); // func2
-  if (abs(d0) < eps) {  // ill condition
-    s0 = softclipNJ1(0.5 * (x0 + x1)); // func1
-  } else {
-    s0 = (softclipNJ2(x0) - f2_x1) / d0; // func2
-  }
-
-  y1 = x0;//0;
-  d1 = x0 - x2;
-  if (x1 == 0 && x2 == 0) { // ill condition
-    y1 = softclipNJ0(x0 + (x1 + x1) + x2) * 0.25; // func0
-  } else if (abs(d1) < eps) { // ill condition
-    x_bar = 0.5 * (x0 + x2);
-    x_delta = x_bar - x1;
-    if (x_delta < eps) {  // ill condition
-      y1 = softclipNJ0((x_bar + x1) * 0.5);  // func0
-    } else {
-      y1 = (2 / x_delta) * (softclipNJ1(x_bar) + (f2_x1 - softclipNJ2(x_bar)) / x_delta); // func1, func2
-    }
-  } else {
-    s0s1 = s0 - s1;
-    y1 = (s0s1 + s0s1) / d1;
-  }
-
-  s1 = s0;
-  x2 = x1;
-  x1 = x0;
-  return y1;
-}
 
 // softclipNAdaa1 oversampling...
 
@@ -1162,64 +873,6 @@ softclipNAdaa2_4x_6POINT(XIN)
 }
 
 
-// atan
-
-atanAdaa1(x0)
-{
-  History x1(0), s1(0);
-  eps = 0.000001;  // TODO, work out precision
-
-  y1 = 0;
-  d0 = x0 - x1;
-  s0 = atanJ1(x0);    // func1
-  if ((x1 == 0 && s1 == 0) || (abs(d0) < eps)) {  // ill condition
-    y1 = atanJ0(0.5 * (x0 + x1)); // func0
-  } else {
-    y1 = (s0 - s1) / d0;
-  }
-
-  s1 = s0;
-  x1 = x0;
-  return y1;
-}
-
-atanAdaa2(x0)
-{
-  History x1(0), x2(0), s1(0);
-  eps = 0.000001;  // TODO, work out precision
-
-  s0 = x0;//0;
-  d0 = x0 - x1;
-  f2_x1 = atanJ2(x1); // func2
-  if (abs(d0) < eps) {  // ill condition
-    s0 = atanJ1(0.5 * (x0 + x1)); // func1
-  } else {
-    s0 = (atanJ2(x0) - f2_x1) / d0; // func2
-  }
-
-  y1 = x0;//0;
-  d1 = x0 - x2;
-  if (x1 == 0 && x2 == 0) { // ill condition
-    y1 = atanJ0(x0 + (x1 + x1) + x2) * 0.25; // func0
-  } else if (abs(d1) < eps) { // ill condition
-    x_bar = 0.5 * (x0 + x2);
-    x_delta = x_bar - x1;
-    if (x_delta < eps) {  // ill condition
-      y1 = atanJ0((x_bar + x1) * 0.5);  // func0
-    } else {
-      y1 = (2 / x_delta) * (atanJ1(x_bar) + (f2_x1 - atanJ2(x_bar)) / x_delta); // func1, func2
-    }
-  } else {
-    s0s1 = s0 - s1;
-    y1 = (s0s1 + s0s1) / d1;
-  }
-
-  s1 = s0;
-  x2 = x1;
-  x1 = x0;
-  return y1;
-}
-
 // atanAdaa1 oversampling...
 
 // fixed 2x quasi oversampling (hermite6)
@@ -1392,64 +1045,6 @@ atanAdaa2_4x_6POINT(XIN)
   return dcblock(y0_0);
 }
 
-
-// algebraic
-
-algebraicAdaa1(x0)
-{
-  History x1(0), s1(0);
-  eps = 0.000001;  // TODO, work out precision
-
-  y1 = 0;
-  d0 = x0 - x1;
-  s0 = algebraicJ1(x0);    // func1
-  if ((x1 == 0 && s1 == 0) || (abs(d0) < eps)) {  // ill condition
-    y1 = algebraicJ0(0.5 * (x0 + x1)); // func0
-  } else {
-    y1 = (s0 - s1) / d0;
-  }
-
-  s1 = s0;
-  x1 = x0;
-  return y1;
-}
-
-algebraicAdaa2(x0)
-{
-  History x1(0), x2(0), s1(0);
-  eps = 0.000001;  // TODO, work out precision
-
-  s0 = x0;//0;
-  d0 = x0 - x1;
-  f2_x1 = algebraicJ2(x1); // func2
-  if (abs(d0) < eps) {  // ill condition
-    s0 = algebraicJ1(0.5 * (x0 + x1)); // func1
-  } else {
-    s0 = (algebraicJ2(x0) - f2_x1) / d0; // func2
-  }
-
-  y1 = x0;//0;
-  d1 = x0 - x2;
-  if (x1 == 0 && x2 == 0) { // ill condition
-    y1 = algebraicJ0(x0 + (x1 + x1) + x2) * 0.25; // func0
-  } else if (abs(d1) < eps) { // ill condition
-    x_bar = 0.5 * (x0 + x2);
-    x_delta = x_bar - x1;
-    if (x_delta < eps) {  // ill condition
-      y1 = algebraicJ0((x_bar + x1) * 0.5);  // func0
-    } else {
-      y1 = (2 / x_delta) * (algebraicJ1(x_bar) + (f2_x1 - algebraicJ2(x_bar)) / x_delta); // func1, func2
-    }
-  } else {
-    s0s1 = s0 - s1;
-    y1 = (s0s1 + s0s1) / d1;
-  }
-
-  s1 = s0;
-  x2 = x1;
-  x1 = x0;
-  return y1;
-}
 
 // algebraicAdaa1 oversampling...
 
@@ -1624,64 +1219,6 @@ algebraicAdaa2_4x_6POINT(XIN)
 }
 
 
-// log1p
-
-log1pAdaa1(x0)
-{
-  History x1(0), s1(0);
-  eps = 0.000001;  // TODO, work out precision
-
-  y1 = 0;
-  d0 = x0 - x1;
-  s0 = log1pJ1(x0);    // func1
-  if ((x1 == 0 && s1 == 0) || (abs(d0) < eps)) {  // ill condition
-    y1 = log1pJ0(0.5 * (x0 + x1)); // func0
-  } else {
-    y1 = (s0 - s1) / d0;
-  }
-
-  s1 = s0;
-  x1 = x0;
-  return y1;
-}
-
-log1pAdaa2(x0)
-{
-  History x1(0), x2(0), s1(0);
-  eps = 0.000001;  // TODO, work out precision
-
-  s0 = x0;//0;
-  d0 = x0 - x1;
-  f2_x1 = log1pJ2(x1); // func2
-  if (abs(d0) < eps) {  // ill condition
-    s0 = log1pJ1(0.5 * (x0 + x1)); // func1
-  } else {
-    s0 = (log1pJ2(x0) - f2_x1) / d0; // func2
-  }
-
-  y1 = x0;//0;
-  d1 = x0 - x2;
-  if (x1 == 0 && x2 == 0) { // ill condition
-    y1 = log1pJ0(x0 + (x1 + x1) + x2) * 0.25; // func0
-  } else if (abs(d1) < eps) { // ill condition
-    x_bar = 0.5 * (x0 + x2);
-    x_delta = x_bar - x1;
-    if (x_delta < eps) {  // ill condition
-      y1 = log1pJ0((x_bar + x1) * 0.5);  // func0
-    } else {
-      y1 = (2 / x_delta) * (log1pJ1(x_bar) + (f2_x1 - log1pJ2(x_bar)) / x_delta); // func1, func2
-    }
-  } else {
-    s0s1 = s0 - s1;
-    y1 = (s0s1 + s0s1) / d1;
-  }
-
-  s1 = s0;
-  x2 = x1;
-  x1 = x0;
-  return y1;
-}
-
 // log1pAdaa1 oversampling...
 
 // fixed 2x quasi oversampling (hermite6)
@@ -1854,64 +1391,6 @@ log1pAdaa2_4x_6POINT(XIN)
   return dcblock(y0_0);
 }
 
-
-// substitute (cheap and uncomplicated alternative to tanh(x))
-
-altTanhAdaa1(x0)
-{
-  History x1(0), s1(0);
-  eps = 0.000001;  // TODO, work out precision
-
-  y1 = 0;
-  d0 = x0 - x1;
-  s0 = altTanhJ1(x0);    // func1
-  if ((x1 == 0 && s1 == 0) || (abs(d0) < eps)) {  // ill condition
-    y1 = altTanhJ0(0.5 * (x0 + x1)); // func0
-  } else {
-    y1 = (s0 - s1) / d0;
-  }
-
-  s1 = s0;
-  x1 = x0;
-  return y1;
-}
-
-altTanhAdaa2(x0)
-{
-  History x1(0), x2(0), s1(0);
-  eps = 0.000001;  // TODO, work out precision
-
-  s0 = x0;//0;
-  d0 = x0 - x1;
-  f2_x1 = altTanhJ2(x1); // func2
-  if (abs(d0) < eps) {  // ill condition
-    s0 = altTanhJ1(0.5 * (x0 + x1)); // func1
-  } else {
-    s0 = (altTanhJ2(x0) - f2_x1) / d0; // func2
-  }
-
-  y1 = x0;//0;
-  d1 = x0 - x2;
-  if (x1 == 0 && x2 == 0) { // ill condition
-    y1 = altTanhJ0(x0 + (x1 + x1) + x2) * 0.25; // func0
-  } else if (abs(d1) < eps) { // ill condition
-    x_bar = 0.5 * (x0 + x2);
-    x_delta = x_bar - x1;
-    if (x_delta < eps) {  // ill condition
-      y1 = altTanhJ0((x_bar + x1) * 0.5);  // func0
-    } else {
-      y1 = (2 / x_delta) * (altTanhJ1(x_bar) + (f2_x1 - altTanhJ2(x_bar)) / x_delta); // func1, func2
-    }
-  } else {
-    s0s1 = s0 - s1;
-    y1 = (s0s1 + s0s1) / d1;
-  }
-
-  s1 = s0;
-  x2 = x1;
-  x1 = x0;
-  return y1;
-}
 
 // altTanhAdaa1 oversampling...
 
@@ -2086,63 +1565,178 @@ altTanhAdaa2_4x_6POINT(XIN)
 }
 
 
-// sin
+// altTanhSqrtAdaa1 oversampling...
 
-sinAdaa1(x0)
-{
-  History x1(0), s1(0);
-  eps = 0.000001;  // TODO, work out precision
+// fixed 2x quasi oversampling (hermite6)
+altTanhSqrtAdaa1_2x_6POINT(XIN)
+{ // up 2
+  History umTm2_0(0), umTm1_0(0), umT0_0(0), umT1_0(0), umT2_0(0);
+  // down 2
+  History dmT3_1(0), dmT2_1(0), dmT1_1(0), dmT0_1(0), dmTm1_1(0);
+  // align
+  History doX0(0);
 
-  y1 = 0;
-  d0 = x0 - x1;
-  s0 = sinJ1(x0);    // func1
-  if ((x1 == 0 && s1 == 0) || (abs(d0) < eps)) {  // ill condition
-    y1 = sinJ0(0.5 * (x0 + x1)); // func0
-  } else {
-    y1 = (s0 - s1) / d0;
-  }
+  // up 2x
+  x0_0_a  = XIN + 0;
+  x1_0  = hermite_sixpoint_interp(0.5,  umTm2_0, umTm1_0, umT0_0, umT1_0, umT2_0, x0_0_a);
+  x2_0  = umT2_0 + 0;
 
-  s1 = s0;
-  x1 = x0;
-  return y1;
+  // process 2x
+  y1_0  = altTanhSqrtAdaa1(x1_0);
+  y2_0  = altTanhSqrtAdaa1(x2_0);
+
+  // down 2x
+  y2_0_a  = y2_0 + 0;
+  y2_1  = hermite_sixpoint_interp(0.5,  y2_0_a, dmTm1_1, dmT0_1, dmT1_1, dmT2_1, dmT3_1);
+
+  y0_0  = (doX0 + y2_1) * 0.5;
+
+  // update
+  umTm2_0 = umTm1_0;
+  umTm1_0 = umT0_0;
+  umT0_0  = umT1_0;
+  umT1_0  = umT2_0;
+  umT2_0  = x0_0_a;
+
+  doX0  = y1_0;
+
+  dmT3_1  = dmT2_1;
+  dmT2_1  = dmT1_1;
+  dmT1_1  = dmT0_1;
+  dmT0_1  = dmTm1_1;
+  dmTm1_1 = y2_0;
+
+  return dcblock(y0_0);
 }
 
-sinAdaa2(x0)
-{
-  History x1(0), x2(0), s1(0);
-  eps = 0.000001;  // TODO, work out precision
+// fixed 4x quasi oversampling (hermite6)
+altTanhSqrtAdaa1_4x_6POINT(XIN)
+{ // up 2
+  History umTm2_0(0), umTm1_0(0), umT0_0(0), umT1_0(0), umT2_0(0);
+  // down 2
+  History dmT3_1(0), dmT2_1(0), dmT1_1(0), dmT0_1(0), dmTm1_1(0);
+  // align
+  History doX0(0);
 
-  s0 = x0;//0;
-  d0 = x0 - x1;
-  f2_x1 = sinJ2(x1); // func2
-  if (abs(d0) < eps) {  // ill condition
-    s0 = sinJ1(0.5 * (x0 + x1)); // func1
-  } else {
-    s0 = (sinJ2(x0) - f2_x1) / d0; // func2
-  }
+  // up 2x
+  x0_0_a  = XIN + 0;
+  x1_0  = hermite_sixpoint_interp(0.5,  umTm2_0, umTm1_0, umT0_0, umT1_0, umT2_0, x0_0_a);
+  x2_0  = umT2_0 + 0;
 
-  y1 = x0;//0;
-  d1 = x0 - x2;
-  if (x1 == 0 && x2 == 0) { // ill condition
-    y1 = sinJ0(x0 + (x1 + x1) + x2) * 0.25; // func0
-  } else if (abs(d1) < eps) { // ill condition
-    x_bar = 0.5 * (x0 + x2);
-    x_delta = x_bar - x1;
-    if (x_delta < eps) {  // ill condition
-      y1 = sinJ0((x_bar + x1) * 0.5);  // func0
-    } else {
-      y1 = (2 / x_delta) * (sinJ1(x_bar) + (f2_x1 - sinJ2(x_bar)) / x_delta); // func1, func2
-    }
-  } else {
-    s0s1 = s0 - s1;
-    y1 = (s0s1 + s0s1) / d1;
-  }
+  // process 4x
+  y1_0  = altTanhSqrtAdaa1_2x_6POINT(x1_0);
+  y2_0  = altTanhSqrtAdaa1_2x_6POINT(x2_0);
 
-  s1 = s0;
-  x2 = x1;
-  x1 = x0;
-  return y1;
+  // down 2x
+  y2_0_a  = y2_0 + 0;
+  y2_1  = hermite_sixpoint_interp(0.5,  y2_0_a, dmTm1_1, dmT0_1, dmT1_1, dmT2_1, dmT3_1);
+
+  y0_0  = (doX0 + y2_1) * 0.5;
+
+  // update
+  umTm2_0 = umTm1_0;
+  umTm1_0 = umT0_0;
+  umT0_0  = umT1_0;
+  umT1_0  = umT2_0;
+  umT2_0  = x0_0_a;
+
+  doX0  = y1_0;
+
+  dmT3_1  = dmT2_1;
+  dmT2_1  = dmT1_1;
+  dmT1_1  = dmT0_1;
+  dmT0_1  = dmTm1_1;
+  dmTm1_1 = y2_0;
+
+  return dcblock(y0_0);
 }
+
+// altTanhAdaa2 oversampling...
+
+// fixed 2x quasi oversampling (hermite6)
+altTanhSqrtAdaa2_2x_6POINT(XIN)
+{ // up 2
+  History umTm2_0(0), umTm1_0(0), umT0_0(0), umT1_0(0), umT2_0(0);
+  // down 2
+  History dmT3_1(0), dmT2_1(0), dmT1_1(0), dmT0_1(0), dmTm1_1(0);
+  // align
+  History doX0(0);
+
+  // up 2x
+  x0_0_a  = XIN + 0;
+  x1_0  = hermite_sixpoint_interp(0.5,  umTm2_0, umTm1_0, umT0_0, umT1_0, umT2_0, x0_0_a);
+  x2_0  = umT2_0 + 0;
+
+  // process 2x
+  y1_0  = altTanhSqrtAdaa2(x1_0);
+  y2_0  = altTanhSqrtAdaa2(x2_0);
+
+  // down 2x
+  y2_0_a  = y2_0 + 0;
+  y2_1  = hermite_sixpoint_interp(0.5,  y2_0_a, dmTm1_1, dmT0_1, dmT1_1, dmT2_1, dmT3_1);
+
+  y0_0  = (doX0 + y2_1) * 0.5;
+
+  // update
+  umTm2_0 = umTm1_0;
+  umTm1_0 = umT0_0;
+  umT0_0  = umT1_0;
+  umT1_0  = umT2_0;
+  umT2_0  = x0_0_a;
+
+  doX0  = y1_0;
+
+  dmT3_1  = dmT2_1;
+  dmT2_1  = dmT1_1;
+  dmT1_1  = dmT0_1;
+  dmT0_1  = dmTm1_1;
+  dmTm1_1 = y2_0;
+
+  return dcblock(y0_0);
+}
+
+// fixed 4x quasi oversampling (hermite6)
+altTanhSqrtAdaa2_4x_6POINT(XIN)
+{ // up 2
+  History umTm2_0(0), umTm1_0(0), umT0_0(0), umT1_0(0), umT2_0(0);
+  // down 2
+  History dmT3_1(0), dmT2_1(0), dmT1_1(0), dmT0_1(0), dmTm1_1(0);
+  // align
+  History doX0(0);
+
+  // up 2x
+  x0_0_a  = XIN + 0;
+  x1_0  = hermite_sixpoint_interp(0.5,  umTm2_0, umTm1_0, umT0_0, umT1_0, umT2_0, x0_0_a);
+  x2_0  = umT2_0 + 0;
+
+  // process 4x
+  y1_0  = altTanhSqrtAdaa2_2x_6POINT(x1_0);
+  y2_0  = altTanhSqrtAdaa2_2x_6POINT(x2_0);
+
+  // down 2x
+  y2_0_a  = y2_0 + 0;
+  y2_1  = hermite_sixpoint_interp(0.5,  y2_0_a, dmTm1_1, dmT0_1, dmT1_1, dmT2_1, dmT3_1);
+
+  y0_0  = (doX0 + y2_1) * 0.5;
+
+  // update
+  umTm2_0 = umTm1_0;
+  umTm1_0 = umT0_0;
+  umT0_0  = umT1_0;
+  umT1_0  = umT2_0;
+  umT2_0  = x0_0_a;
+
+  doX0  = y1_0;
+
+  dmT3_1  = dmT2_1;
+  dmT2_1  = dmT1_1;
+  dmT1_1  = dmT0_1;
+  dmT0_1  = dmTm1_1;
+  dmTm1_1 = y2_0;
+
+  return dcblock(y0_0);
+}
+
 
 // sinAdaa1 oversampling...
 
@@ -2317,7 +1911,7 @@ sinAdaa2_4x_6POINT(XIN)
 }
 
 
-// For all the core code, see:
+// For the core code, see:
 // "evi_adaa.genexpr"
 
 

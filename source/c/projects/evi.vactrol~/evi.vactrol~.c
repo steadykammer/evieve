@@ -298,7 +298,7 @@ void* evi_vactrol_new(t_symbol* s, long argc, t_atom* argv)
 {
     t_evi_vactrol* x = object_alloc(evi_vactrol_class);
     long offset;
-    double rise = 20.0, fall = 3000.0, scalar = 10.0;
+    double rise = 20.0, fall = 3000.0, scalar = 1.0;
 
     if (!x)
         return x;

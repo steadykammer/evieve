@@ -90,7 +90,7 @@ atanDrive(drive)
 atanSat(x, drive)
 {
 	ingain, outgain = atanDrive(drive);
-	return 	atanApprox(x * ingain) * outgain; // just anti-alias this part
+	return 	atanApprox(x * ingain) * outgain; // just anti-alias this line
 }
 
 // ---------------------------------------- //
@@ -212,7 +212,7 @@ sinParam(drive)
 sinSat(x, drive)
 {
 	pidrive, sindrive = sinParam(drive);
-	return 	sin(x * pidrive) * sindrive; // just anti-alias this part (evieve uses approx sin here)
+	return 	sin(x * pidrive) * sindrive; // just anti-alias this line (evieve uses approx sin here)
 }
 
 // ---------------------------------------- //

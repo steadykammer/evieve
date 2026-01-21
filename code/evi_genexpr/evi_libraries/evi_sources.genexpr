@@ -5,12 +5,12 @@
 audioDust(freq)
 {
 	clockThresh	= 1 - (freq * (1 / (SAMPLERATE * 0.5)));
-	Xoshiro1	= noise();
-	sync		= Xoshiro1 > clockThresh;
-	Xoshiro2	= noise();
+	Xoshiro	= noise();
+	sync	= Xoshiro > clockThresh;
+	white	= noise();
 
-	dust		= sync * Xoshiro2;
-	return		dust, Xoshiro2, sync;
+	dust	= sync * white;
+	return	dust, white, sync;
 }
 
 // sort of based on: Matti Karjalainen and Hanna Jarvelainen, "Reverberation Modeling
