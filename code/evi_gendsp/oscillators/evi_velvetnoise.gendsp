@@ -1,147 +1,131 @@
 {
-	"patcher" : 	{
-		"fileversion" : 1,
-		"appversion" : 		{
-			"major" : 9,
-			"minor" : 1,
-			"revision" : 0,
-			"architecture" : "x64",
-			"modernui" : 1
-		}
-,
-		"classnamespace" : "dsp.gen",
-		"rect" : [ 669.0, 365.0, 809.0, 539.0 ],
-		"gridonopen" : 2,
-		"gridsize" : [ 15.0, 15.0 ],
-		"subpatcher_template" : "sub",
-		"assistshowspatchername" : 0,
-		"commentary" : "",
-		"showcommentary" : 0,
-		"integercoordinates" : 1,
-		"boxes" : [ 			{
-				"box" : 				{
-					"id" : "obj-7",
-					"linecount" : 2,
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 700.0, 494.0, 94.0, 35.0 ],
-					"text" : "out 3 So Called \"Velvet Noise\""
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-6",
-					"linecount" : 2,
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 375.0, 494.0, 94.0, 35.0 ],
-					"text" : "out 2 So Called \"Sparse Noise\""
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-5",
-					"maxclass" : "newobj",
-					"numinlets" : 0,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 553.0, 19.0, 238.0, 22.0 ],
-					"text" : "in 2 Mix 0..1 @default 0.5 @min 0 @max 1"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-1",
-					"maxclass" : "newobj",
-					"numinlets" : 0,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 49.0, 19.0, 193.0, 22.0 ],
-					"text" : "in 1 Frequency in Hz @default 100"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"code" : "\r\n// Pete: this algorithm is really stupid with the phasor(), I do not like it\r\n// @see: \"evi_audiodust.gendsp\" for cheaper algorithm (compared to \"sparseNoise\")\r\nsparseVelvetNoise(freq, mix, amp=1)\r\n{\r\n\tHistory\t\tprevClock(0), prevXox(0);\r\n\r\n\tXoxhiro256\t=  noise();\r\n\tclock\t\t=  phasor(freq);\r\n\tlatchRandom\t= (latch(Xoxhiro256, (clock - prevClock)) * 0.5) + 0.5;\r\n\r\n\tsparseNoise\t= prevXox * ((clock >= latchRandom) * (prevClock < latchRandom));\r\n\tprevClock\t= clock;\r\n\tprevXox\t\t= Xoxhiro256;\r\n\r\n\tvelvetNoise\t= (sign(sparseNoise) * amp);\r\n\tmixNoise\t= interp(mix, sparseNoise, velvetNoise, mode=\"cosine\");\r\n\r\n\treturn\t\tmixNoise, sparseNoise, velvetNoise;\r\n}\r\n\r\nParam\tamplitude(1, min=0, max=1);\r\n\r\nout1, out2, out3\t= sparseVelvetNoise(in1, in2, amp=amplitude);\r\n\r\n",
-					"fontface" : 0,
-					"fontname" : "<Monospaced>",
-					"fontsize" : 12.0,
-					"id" : "obj-3",
-					"maxclass" : "codebox",
-					"numinlets" : 2,
-					"numoutlets" : 3,
-					"outlettype" : [ "", "", "" ],
-					"patching_rect" : [ 49.0, 60.0, 670.0, 423.0 ]
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-4",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 49.0, 500.0, 290.0, 22.0 ],
-					"text" : "out 1 Mixed Sparse..Velvet (Based on \"in 2\" Mix 0..1)"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-9",
-					"linecount" : 4,
-					"maxclass" : "comment",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 244.0, 0.0, 306.0, 60.0 ],
-					"text" : "sort of based on: Matti Karjalainen and Hanna Jarvelainen, \"Reverberation Modeling Using Velvet Noise\", in Proc. 30th Int. Conf. Intelligent Audio Environments (AES07), March 2007."
-				}
-
-			}
- ],
-		"lines" : [ 			{
-				"patchline" : 				{
-					"destination" : [ "obj-3", 0 ],
-					"source" : [ "obj-1", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-4", 0 ],
-					"source" : [ "obj-3", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-6", 0 ],
-					"source" : [ "obj-3", 1 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-7", 0 ],
-					"source" : [ "obj-3", 2 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-3", 1 ],
-					"midpoints" : [ 562.5, 50.5, 709.5, 50.5 ],
-					"source" : [ "obj-5", 0 ]
-				}
-
-			}
- ]
-	}
-
+    "patcher": {
+        "fileversion": 1,
+        "appversion": {
+            "major": 9,
+            "minor": 2,
+            "revision": 0,
+            "architecture": "x64",
+            "modernui": 1
+        },
+        "classnamespace": "dsp.gen",
+        "rect": [ 669.0, 342.0, 809.0, 562.0 ],
+        "gridonopen": 2,
+        "subpatcher_template": "sub",
+        "integercoordinates": 1,
+        "boxes": [
+            {
+                "box": {
+                    "id": "obj-7",
+                    "linecount": 2,
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 700.0, 509.0, 94.0, 35.0 ],
+                    "text": "out 3 So Called \"Velvet Noise\""
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-6",
+                    "linecount": 2,
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 375.0, 509.0, 94.0, 35.0 ],
+                    "text": "out 2 So Called \"Sparse Noise\""
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-5",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 553.0, 19.0, 238.0, 22.0 ],
+                    "text": "in 2 Mix 0..1 @default 0.5 @min 0 @max 1"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-1",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 49.0, 19.0, 193.0, 22.0 ],
+                    "text": "in 1 Frequency in Hz @default 100"
+                }
+            },
+            {
+                "box": {
+                    "code": "\r\n// Pete: my porting of this algorithm is a bit stupid with the phasor(), I do not\n// like it, @see: \"evi_audiodust.gendsp\" for different algorithm (compared to\r\n// \"sparseNoise\"), but if you need velvet noise in evieve, this is it\nsparseVelvetNoise(freq, mix, amp=1)\n{\n\tHistory\t\tprevClock(0), prevXos(0);\n\n\tXoshiro256\t=  noise();\n\tclock\t\t=  phasor(freq);\n\tlatchRandom\t= (latch(Xoshiro256, (clock - prevClock)) * 0.5) + 0.5;\n\n\tsparseNoise\t= prevXos * ((clock >= latchRandom) * (prevClock < latchRandom));\n\tprevClock\t= clock;\n\tprevXos\t\t= Xoshiro256;\n\n\tvelvetNoise\t= (sign(sparseNoise) * amp);\n\tmixNoise\t= interp(mix, sparseNoise, velvetNoise, mode=\"cosine\");\n\n\treturn\t\tmixNoise, sparseNoise, velvetNoise;\n}\n\r\nParam\tamplitude(1, min=0, max=1);\r\n\r\nout1, out2, out3\t= sparseVelvetNoise(in1, in2, amp=amplitude);\r\n\r\n",
+                    "fontface": 0,
+                    "fontname": "<Monospaced>",
+                    "fontsize": 12.0,
+                    "id": "obj-3",
+                    "maxclass": "codebox",
+                    "numinlets": 2,
+                    "numoutlets": 3,
+                    "outlettype": [ "", "", "" ],
+                    "patching_rect": [ 49.0, 60.0, 670.0, 434.0 ]
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-4",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 49.0, 515.0, 290.0, 22.0 ],
+                    "text": "out 1 Mixed Sparse..Velvet (Based on \"in 2\" Mix 0..1)"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-9",
+                    "linecount": 4,
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 244.0, 0.0, 306.0, 60.0 ],
+                    "text": "sort of based on: Matti Karjalainen and Hanna Jarvelainen, \"Reverberation Modeling Using Velvet Noise\", in Proc. 30th Int. Conf. Intelligent Audio Environments (AES07), March 2007."
+                }
+            }
+        ],
+        "lines": [
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 0 ],
+                    "source": [ "obj-1", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-4", 0 ],
+                    "source": [ "obj-3", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-6", 0 ],
+                    "source": [ "obj-3", 1 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-7", 0 ],
+                    "source": [ "obj-3", 2 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 1 ],
+                    "midpoints": [ 562.5, 50.5, 709.5, 50.5 ],
+                    "source": [ "obj-5", 0 ]
+                }
+            }
+        ]
+    }
 }

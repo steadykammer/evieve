@@ -3,8 +3,8 @@
         "fileversion": 1,
         "appversion": {
             "major": 9,
-            "minor": 1,
-            "revision": 1,
+            "minor": 2,
+            "revision": 0,
             "architecture": "x64",
             "modernui": 1
         },
@@ -61,7 +61,7 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 477.0, 19.0, 170.0, 22.0 ],
+                    "patching_rect": [ 440.0, 19.0, 170.0, 22.0 ],
                     "text": "in 3 Freq (Hz) Mod @default 0"
                 }
             },
@@ -74,8 +74,8 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 277.0, 19.0, 183.0, 22.0 ],
-                    "text": "in 2 Pitch (MIDI) Mod @default 0"
+                    "patching_rect": [ 277.0, 19.0, 146.0, 22.0 ],
+                    "text": "in 2 Pitch Mod @default 0"
                 }
             },
             {
@@ -113,8 +113,8 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 34.0, 19.0, 175.0, 22.0 ],
-                    "text": "in 1 Freq (in Hz) or Pitch (MIDI)"
+                    "patching_rect": [ 34.0, 19.0, 131.0, 22.0 ],
+                    "text": "in 1 Freq in Hz or Pitch"
                 }
             },
             {

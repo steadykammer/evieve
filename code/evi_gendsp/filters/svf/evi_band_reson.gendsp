@@ -1,80 +1,73 @@
 {
-	"patcher" : 	{
-		"fileversion" : 1,
-		"appversion" : 		{
-			"major" : 9,
-			"minor" : 0,
-			"revision" : 6,
-			"architecture" : "x64",
-			"modernui" : 1
-		}
-,
-		"classnamespace" : "dsp.gen",
-		"rect" : [ 100.0, 138.0, 750.0, 553.0 ],
-		"gridonopen" : 2,
-		"gridsize" : [ 15.0, 15.0 ],
-		"lefttoolbarpinned" : 2,
-		"toptoolbarpinned" : 2,
-		"righttoolbarpinned" : 2,
-		"bottomtoolbarpinned" : 1,
-		"toolbars_unpinned_last_save" : 7,
-		"subpatcher_template" : "tap.template.dark",
-		"integercoordinates" : 1,
-		"boxes" : [ 			{
-				"box" : 				{
-					"id" : "obj-1",
-					"maxclass" : "newobj",
-					"numinlets" : 0,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 34.0, 19.0, 28.0, 22.0 ],
-					"text" : "in 1"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"code" : "\n// ZDF version of [reson~] with smoothing etc, for evieve\n\n// library\n\r\nrequire(\"evi_band_reson_lib.genexpr\");\r\n\r\n// declare\r\n\r\nParam\t\t\tHz(20, min=1, max=22000);\r\nParam\t\t\tQ(0.044194, min=0.01, max=100000);\r\nParam\t\t\tSmooth(20, min=0, max=1000);\r\n\r\n// param rate\r\n\r\nsmoothsamps\t\t= mstosamps(Smooth);\r\n\r\n// keep this out of the while loop\r\na0, a1, a2, b1\t= svfCoeffReson(Hz, Q);\r\n\r\n// filter\r\ny\t\t\t\t= svfSectionReson(in1, a0, a1, a2);\n\nout1\t\t\t= y * eviLine(b1, smoothsamps);\n\r\n",
-					"fontface" : 0,
-					"fontname" : "<Monospaced>",
-					"fontsize" : 12.0,
-					"id" : "obj-3",
-					"maxclass" : "codebox",
-					"numinlets" : 1,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 34.0, 58.0, 667.0, 430.0 ]
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-4",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 34.0, 505.0, 35.0, 22.0 ],
-					"text" : "out 1"
-				}
-
-			}
- ],
-		"lines" : [ 			{
-				"patchline" : 				{
-					"destination" : [ "obj-3", 0 ],
-					"source" : [ "obj-1", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-4", 0 ],
-					"source" : [ "obj-3", 0 ]
-				}
-
-			}
- ],
-		"autosave" : 0
-	}
-
+    "patcher": {
+        "fileversion": 1,
+        "appversion": {
+            "major": 9,
+            "minor": 2,
+            "revision": 0,
+            "architecture": "x64",
+            "modernui": 1
+        },
+        "classnamespace": "dsp.gen",
+        "rect": [ 101.0, 84.0, 827.0, 810.0 ],
+        "gridonopen": 2,
+        "lefttoolbarpinned": 2,
+        "toptoolbarpinned": 2,
+        "righttoolbarpinned": 2,
+        "bottomtoolbarpinned": 1,
+        "toolbars_unpinned_last_save": 7,
+        "subpatcher_template": "tap.template.dark",
+        "integercoordinates": 1,
+        "boxes": [
+            {
+                "box": {
+                    "id": "obj-1",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 34.0, 19.0, 134.0, 22.0 ],
+                    "text": "in 1 (signal) Audio Input"
+                }
+            },
+            {
+                "box": {
+                    "code": "\n// a simplified version of evi_reson.gendsp with smoothing etc, for evieve [mc.evi.bands~]\n\n// coefficients calc\n// no dB gain required for filterbank usage\nsvfCoeffReson(hz, q)\n{\n\tg \t= evi_tan(PI * hz / SAMPLERATE);\n\tk \t= 1 / q;\t\t\t\t\t\t\t\t// ('adaptive Q' goes here)\n\ta0\t= 1 / (1 + g * (g + k));\n\ta1\t= g * a0;\n\ta2 \t= g * a1;\n\treturn \ta0, a1, a2, k;\n}\r\n\r\n// filter core\nsvfSectionReson(v0, a0, a1, a2)\t\t\t\t\t// linear trapezoidal zdf\n{\n\tHistory ic1eq(0), ic2eq(0);\n    v3\t\t=  v0 - ic2eq;\n    v2\t\t=  ic2eq + (a1 * ic1eq) + (a2 * v3);\n    v1\t\t= (a0 * ic1eq) + (a1 * v3);\n    ic1eq\t= fixdenorm(v1 + v1) - ic1eq;\n    ic2eq\t= fixdenorm(v2 + v2) - ic2eq;\n    return \tv1;\t\t\t\t\t\t\t\t\t// only v1 required for reson filter\n}\r\n\r\n// declare\r\nParam\t\t\tHz(20, min=1, max=22000);\r\nParam\t\t\tQ(0.044194, min=0.01, max=100000);\r\nParam\t\t\tSmooth(20, min=0, max=1000);\r\n\r\n// param rate\r\n\r\nsmoothsamps\t\t= mstosamps(Smooth);\r\n\r\n// keep this out of the while loop\r\na0, a1, a2, b1\t= svfCoeffReson(Hz, Q);\r\n\r\n// filter\r\ny\t\t\t\t= svfSectionReson(in1, a0, a1, a2);\n\nout1\t\t\t= y * evi_line(b1, smoothsamps);\n\r\n",
+                    "fontface": 0,
+                    "fontname": "<Monospaced>",
+                    "fontsize": 12.0,
+                    "id": "obj-3",
+                    "maxclass": "codebox",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 34.0, 58.0, 742.0, 686.0 ]
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-4",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 34.0, 761.0, 242.0, 22.0 ],
+                    "text": "out 1 (signal) Resonant Filter for Filterbanks"
+                }
+            }
+        ],
+        "lines": [
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 0 ],
+                    "source": [ "obj-1", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-4", 0 ],
+                    "source": [ "obj-3", 0 ]
+                }
+            }
+        ]
+    }
 }

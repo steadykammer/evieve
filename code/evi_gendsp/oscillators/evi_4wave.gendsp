@@ -25,8 +25,8 @@
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 617.0, 663.0, 94.0, 22.0 ],
-                    "text": "out 5 @c Phase"
+                    "patching_rect": [ 617.0, 663.0, 73.0, 22.0 ],
+                    "text": "out 5 Phase"
                 }
             },
             {
@@ -35,8 +35,8 @@
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 475.0, 663.0, 88.0, 22.0 ],
-                    "text": "out 4 @c SINE"
+                    "patching_rect": [ 475.0, 663.0, 67.0, 22.0 ],
+                    "text": "out 4 SINE"
                 }
             },
             {
@@ -45,8 +45,8 @@
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 333.0, 663.0, 79.0, 22.0 ],
-                    "text": "out 3 @c TRI"
+                    "patching_rect": [ 333.0, 663.0, 58.0, 22.0 ],
+                    "text": "out 3 TRI"
                 }
             },
             {
@@ -55,8 +55,8 @@
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 191.0, 663.0, 93.0, 22.0 ],
-                    "text": "out 2 @c RECT"
+                    "patching_rect": [ 191.0, 663.0, 71.0, 22.0 ],
+                    "text": "out 2 RECT"
                 }
             },
             {
@@ -101,8 +101,8 @@
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 49.0, 663.0, 87.0, 22.0 ],
-                    "text": "out 1 @c SAW"
+                    "patching_rect": [ 49.0, 663.0, 65.0, 22.0 ],
+                    "text": "out 1 SAW"
                 }
             }
         ],

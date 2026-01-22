@@ -14,4 +14,4 @@ This is part of my personal **GenExpr** library but organised and documented for
 Please consider helping to make `evieve` better by contributing via the Github or by getting in touch, evieve@steadykammer.net
 
 ### Thanks to...
-Alex Harker, Rodrigo Constanzo, James Bradbury, Tom Whiston, Vincent Goudard, Matt Jackson, Volker Böhm, Martijn Zwartjes, Martin Vicanek, Richard Dudas, Graham Wakefield, Joshua Kit Clayton.
+Alex Harker, Rodrigo Constanzo, James Bradbury, Tom Whiston, Vincent Goudard, Matt Jackson, Maurizio Giri, Volker Böhm, Martijn Zwartjes, Martin Vicanek, Richard Dudas, Graham Wakefield, Joshua Kit Clayton.

@@ -363,6 +363,7 @@ rcOnePoleLpHp ( Vin, g )
 }
 
 // fixed 2x quasi oversampling (hermite6)
+// this is a really bad way to 'oversample' this filter
 rcOnePole_x2( XIN, g )
 {	// up 2
 	History	umTm2_0(0), umTm1_0(0), umT0_0(0), umT1_0(0), umT2_0(0);

@@ -240,7 +240,7 @@ tptSvfQuadOsc(cutoff, sync, reset, soft=0.1)
 }
 
 // cheap parabolic approx for LFOs etc
-parabolWrap(phase)
+parabolApprox(phase)
 {
 	x	= wrap(phase, -0.5, 0.5);
 	y	= (8 - (abs(x) * 16)) * x;

@@ -952,6 +952,13 @@ svfSectionOnePole(x, g)	// m0 m2 to mix
 	return lp, hp;
 }
 
+svfSectionStereo(xL, xR, a1, a2, a3, m0, m1, m2)
+{
+	yL			= svfSection(xL, a1, a2, a3, m0, m1, m2);
+	yR			= svfSection(xR, a1, a2, a3, m0, m1, m2);
+	return 		yL, yR;
+}
+
 /*
 	Calculators ("filter" parameter is integer index - sorry, that is gen~)
 
@@ -1567,6 +1574,39 @@ eviFilterEq4Stereo(xL, xR, cutoff, db, Q, filter, smooth=0)	// gain in dB, smoot
 	eq2L 		= svfSection(eq1L, a12, a22, a32, m02, m12, m22);
 	eq2R 		= svfSection(eq1R, a12, a22, a32, m02, m12, m22);
 	return 		eq2L, eq2R;
+}
+
+// raw svfSections, used in reverbs etc
+// 0 dB gain input zeros cpu of gain filters (shelfs, bell),
+// (if gain coefficients are smoothed, must be by exact ramps, not logs)
+eviSvfTwoSections(band0, a11, a21, a31, m01, m11, m21, a12, a22, a32, m02, m12, m22)
+{
+	History	twosecsdummy(0);
+	band1	= band0;
+	if ( (m11 + m21) != 0 ) {
+		band1	= svfSection(band0,	a11, a21, a31, m01, m11, m21);
+	}
+	band2	= band1;
+	if ( (m12 + m22) != 0 ) {
+		band2	= svfSection(band1,	a12, a22, a32, m02, m12, m22);
+	}
+	return	band2;
+}
+
+eviSvfTwoSectionsStereo(band0L, band0R, a11, a21, a31, m01, m11, m21, a12, a22, a32, m02, m12, m22)
+{
+	History	twosecstdummy(0);
+	band1L	= band0L+0;
+	band1R	= band0R+0;
+	if ( (m11 + m21) != 0 ) {
+		band1L, band1R	= svfSectionStereo(band0L+0, band0R+0,	a11, a21, a31, m01, m11, m21);
+	}
+	band2L	= band1L+0;
+	band2R	= band1R+0;
+	if ( (m12 + m22) != 0 ) {
+		band2L, band2R	= svfSectionStereo(band1L+0, band1R+0,	a12, a22, a32, m02, m12, m22);
+	}
+	return	band2L, band2R;
 }
 
 eviParametric2(x, filter1, cutoff1, db1, Q1, filter2, cutoff2, db2, Q2, smooth=0)

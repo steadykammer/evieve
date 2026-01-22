@@ -388,6 +388,12 @@ p2cApproxParam(alpha, theta)
 	return real, imag;
 }
 
+p2cApproxQuart(al, th)						// al is depth, th is mix must be clamped 0..1
+{
+	re, im = quartParOneApprox(th);	// cos/sin
+	return	(al * re), (al * im);		// out mul 1, out mul 2
+}
+
 // for adaa etc
 
 // not an approx :-(

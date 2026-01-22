@@ -3,13 +3,13 @@
         "fileversion": 1,
         "appversion": {
             "major": 9,
-            "minor": 1,
+            "minor": 2,
             "revision": 0,
             "architecture": "x64",
             "modernui": 1
         },
         "classnamespace": "dsp.gen",
-        "rect": [ 1151.0, 238.0, 718.0, 404.0 ],
+        "rect": [ 760.0, 238.0, 718.0, 404.0 ],
         "gridonopen": 2,
         "subpatcher_template": "sub",
         "integercoordinates": 1,
@@ -47,7 +47,7 @@
             },
             {
                 "box": {
-                    "code": "\r\n// @see: \"evi_velvetnoise.gendsp\" for an alternative algorithm (\"sparseNoise\")\r\n\r\naudioDust(freq)\r\n{\r\n\tclockThresh\t= 1 - (freq * (1 / (SAMPLERATE * 0.5)));\r\n\tXoxhiro1\t= noise();\r\n\tsync\t\t= Xoxhiro1 > clockThresh;\r\n\tXoxhiro2\t= noise();\r\n\r\n\tdust\t\t= sync * Xoxhiro2;\r\n\treturn\t\tdust, Xoxhiro2, sync;\r\n}\r\n\r\nout1, out2, out3\t= audioDust(in1);\r\n\r\n",
+                    "code": "\r\n// @see: \"evi_velvetnoise.gendsp\" for an alternative algorithm (\"sparseNoise\")\r\n\r\naudioDust(freq)\r\n{\r\n\tclockThresh\t= 1 - (freq * (1 / (SAMPLERATE * 0.5)));\r\n\tXoxhiro\t    = noise();\r\n\tsync\t\t= Xoxhiro > clockThresh;\r\n\twhite\t    = noise();\r\n\r\n\tdust\t\t= sync * white;\r\n\treturn\t\tdust, white, sync;\r\n}\r\n\r\nout1, out2, out3\t= audioDust(in1);\r\n\r\n",
                     "fontface": 0,
                     "fontname": "<Monospaced>",
                     "fontsize": 12.0,
