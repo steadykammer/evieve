@@ -152,6 +152,18 @@ polySat(x)
 
 // ---------------------------------------- //
 
+// parabolic saturation
+parabolSat(x, a, c)	// a=amplitude (default 1), c=clip (default 2)
+{
+	c2 = c + c;
+	p  = clip((x * a), -c2, c2);
+	m  = 1 - (abs(p) * (0.25 / c));
+	y  = p * m;
+	return y;
+}
+
+// ---------------------------------------- //
+
 // from SuperCollider, by James McCartney
 // like 'distort' UnaryOp
 // thanks to Maurizio Giri

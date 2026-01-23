@@ -100,6 +100,18 @@ Q2bandwidth(Q)
 	return	2 / LN2 * logApprox(x + sqrt(x2 + 1));		// 2 / log(2) * log(x + sqrt((x * x) + 1))
 }
 
+pitch2timeSamps(size, offset)			// pitch in, samples out
+{
+//	return (1 / (440 * exp(0.057762265046662105 * ((size + offset) - 69)))) * samplerate;
+	return (1 / exp((0.057762265046662105 * (size + offset)) + 2.10117843869262)) * samplerate;
+}
+
+// for modulation (late reflections)
+pitch2timeSecs(size, offset)			// pitch in, seconds out
+{
+	return	1 / mtofApprox(size + offset);
+}
+
 /*
  * Post-filter to decolorate oscillator waveshapers when antialiasing is used.
  *

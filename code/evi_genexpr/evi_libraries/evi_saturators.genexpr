@@ -1911,7 +1911,99 @@ sinAdaa2_4x_6POINT(XIN)
 }
 
 
-// For the core code, see:
-// "evi_adaa.genexpr"
+//  //  //  the below are NOT Adaa
+
+parabolSat(x, a, c) // a=amplitude (default 1), c=clip (default 2)
+{
+  c2 = c + c;
+  p  = clip((x * a), -c2, c2);
+  m  = 1 - (abs(p) * (0.25 / c));
+  y  = p * m;
+  return y;
+}
+
+// fixed 2x quasi oversampling (hermite6)
+parabolSat_2x_6POINT(XIN, a, c)
+{ // up 2
+  History umTm2_0(0), umTm1_0(0), umT0_0(0), umT1_0(0), umT2_0(0);
+  // down 2
+  History dmT3_1(0), dmT2_1(0), dmT1_1(0), dmT0_1(0), dmTm1_1(0);
+  // align
+  History doX0(0);
+
+  // up 2x
+  x0_0_a  = XIN + 0;
+  x1_0  = hermite_sixpoint_interp(0.5,  umTm2_0, umTm1_0, umT0_0, umT1_0, umT2_0, x0_0_a);
+  x2_0  = umT2_0 + 0;
+
+  // process 2x
+  y1_0  = parabolSat(x1_0, a, c);
+  y2_0  = parabolSat(x2_0, a, c);
+
+  // down 2x
+  y2_0_a  = y2_0 + 0;
+  y2_1  = hermite_sixpoint_interp(0.5,  y2_0_a, dmTm1_1, dmT0_1, dmT1_1, dmT2_1, dmT3_1);
+
+  y0_0  = (doX0 + y2_1) * 0.5;
+
+  // update
+  umTm2_0 = umTm1_0;
+  umTm1_0 = umT0_0;
+  umT0_0  = umT1_0;
+  umT1_0  = umT2_0;
+  umT2_0  = x0_0_a;
+
+  doX0  = y1_0;
+
+  dmT3_1  = dmT2_1;
+  dmT2_1  = dmT1_1;
+  dmT1_1  = dmT0_1;
+  dmT0_1  = dmTm1_1;
+  dmTm1_1 = y2_0;
+
+  return dcblock(y0_0);
+}
+
+// fixed 4x quasi oversampling (hermite6)
+parabolSat_4x_6POINT(XIN, a, c)
+{ // up 2
+  History umTm2_0(0), umTm1_0(0), umT0_0(0), umT1_0(0), umT2_0(0);
+  // down 2
+  History dmT3_1(0), dmT2_1(0), dmT1_1(0), dmT0_1(0), dmTm1_1(0);
+  // align
+  History doX0(0);
+
+  // up 2x
+  x0_0_a  = XIN + 0;
+  x1_0  = hermite_sixpoint_interp(0.5,  umTm2_0, umTm1_0, umT0_0, umT1_0, umT2_0, x0_0_a);
+  x2_0  = umT2_0 + 0;
+
+  // process 4x
+  y1_0  = parabolSat_2x_6POINT(x1_0, a, c);
+  y2_0  = parabolSat_2x_6POINT(x2_0, a, c);
+
+  // down 2x
+  y2_0_a  = y2_0 + 0;
+  y2_1  = hermite_sixpoint_interp(0.5,  y2_0_a, dmTm1_1, dmT0_1, dmT1_1, dmT2_1, dmT3_1);
+
+  y0_0  = (doX0 + y2_1) * 0.5;
+
+  // update
+  umTm2_0 = umTm1_0;
+  umTm1_0 = umT0_0;
+  umT0_0  = umT1_0;
+  umT1_0  = umT2_0;
+  umT2_0  = x0_0_a;
+
+  doX0  = y1_0;
+
+  dmT3_1  = dmT2_1;
+  dmT2_1  = dmT1_1;
+  dmT1_1  = dmT0_1;
+  dmT0_1  = dmTm1_1;
+  dmTm1_1 = y2_0;
+
+  return dcblock(y0_0);
+}
 
 

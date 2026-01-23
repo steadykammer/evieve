@@ -3,9 +3,8 @@
 //	//	//	by Pete for evieve
 
 
-require("evi_smooth.genexpr");	// incl. "_utilities" & "_approx"
-require("evi_rcfilters.genexpr");
-require("evi_svf.genexpr");
+require("evi_svf.genexpr");	// incl. "_smooth", incl. "_utilities" & "_approx"
+require("evi_rcfilters.genexpr");	// incl. "_interp"
 
 
 // Sadeharju 'spread' & times for late diffusion
@@ -20,59 +19,6 @@ spreadLate(diffscale, mul1, mul2, spread)		// diffscale is int(), others doubles
 	return	t1, t2, t3;							// Sadeharju has truncated ints
 }
 
-// quirky noise lfo...
-// ...(really stupid literal port of Randy Jones' MSP lores~ hack)...
-// ...should do fastcubic rand instead ??
-noiseMod(depth)
-{
-	History	h2(0), h1(0);
-	c0		=  3.902431071622914e-7;
-	c1		= -1.998750611177923;
-	c2		=  0.9987510014210301;
-	H		=	noise();
-	h0		= ( H  *  c0 ) - ( (h1 * c1) + (h2 * c2) );
-	h2		=	fixdenorm(h1);
-	h1		=	fixdenorm(h0);
-	return	h0  *  depth;
-}
-
-pitch2timeSamps(size, offset)
-{
-//	return (1 / (440 * exp(0.057762265046662105 * ((size + offset) - 69)))) * samplerate;
-	return (1 / exp((0.057762265046662105 * (size + offset)) + 2.10117843869262)) * samplerate;
-}
-
-// for modulation (late reflections)
-pitch2timeSecs(size, offset)			// midi pitch in, seconds out
-{
-	return	1 / mtofApprox(size + offset);
-}
-
-// 8 sine modulators (4 L, 4 R), 1 phase
-// pete really doesn't like this, must rewrite
-eightMod(modFreq, modDepth)
-{
-	modulation1, modulation3, modulation6, modulation8	= 0;
-	modulation2, modulation4, modulation5, modulation7	= 0;
-
-	if (modDepth > 0) {
-
-		modPhase	= phasor(modFreq);
-
-		modulation1	= parabolWrap(modPhase + 0.125)	* modDepth;
-		modulation2	= parabolWrap(modPhase + 0.25)	* modDepth;
-		modulation3	= parabolWrap(modPhase + 0.375)	* modDepth;
-		modulation4	= parabolWrap(modPhase + 0.5)	* modDepth;
-		modulation5	= modulation1 * -1;	// stupid
-		modulation6	= modulation2 * -1;
-		modulation7	= modulation3 * -1;
-		modulation8	= modulation4 * -1;
-
-	}
-
-	return	modulation1, modulation2, modulation3, modulation4, modulation5, modulation6, modulation7, modulation8;
-}
-
 gainCoeff(normalised)
 {
 	return (2 - normalised) * normalised;
@@ -80,8 +26,8 @@ gainCoeff(normalised)
 
 filterParams(high, low, base)		// 0..1 % = no damp .. maximum damp
 {
-	hiPass	= mtofApprox((high * 24) + 40, base);
-	loPass	= mtofApprox(((1 - low) * 34) + 86, base);
+	hiPass	= mtofApprox((high * 24) + 40, base=base);
+	loPass	= mtofApprox(((1 - low) * 34) + 86, base=base);
 	hiAtten	= gainCoeff(high);// * -18;					// not dB anymore...
 	loAtten	= gainCoeff(low);// * -12;					// ...
 	return	hiPass, hiAtten, loPass, loAtten;			// Hz, % 0..1, Hz, % 0..1
@@ -105,52 +51,117 @@ sizeParams(size)					// a(n almost) faithful matt's macroisation homage
 	return sizeL, sizeR, diff, rt60dB, modAmount, modSpread;
 }
 
-pitch2time(pitch)	// 'pitch' in, samples out
+// sadly this is a repeat from "evi_fastskew.genexpr" to avoid another require in "evi_majorverb"
+
+// negative only
+fastskewlfo052neg(x, skewneg)				// !! skewneg must be clamped 0.5..1 !!
 {
-//	return (1 / (440 * expA(0.057762265046662105 * (pitch - 69)))) * samplerate;
-	// we need the exp() accuracy here low in the range
-	return (1 / exp((0.057762265046662105 * pitch) + 2.10117843869262)) * samplerate;
+	sk5	= skewneg - 0.5;
+	return mix(sqrt(x), x, sk5 + sk5);	// Alex and I hate mix(), but sadly it is a tiny bit cheaper
 }
 
-
-allpassDiffuseShort(x, time, diffusion)
+// positive only, generally positive is far less accurate in terms of pow(), especially for greater ranges
+fastskewlfo052pos(x, skewpos)				// !! skewpos must be clamped 1..2 !!
 {
-	History	apdiffshort(0);
-	Delay	AllpassDiffuseS(int(samplerate*0.029090208+1.5), 1, feedback=1);
-
-	fb		= AllpassDiffuseS.read(time, interp="cubic");
-	y		= (x * -(diffusion)) + fb;
-	AllpassDiffuseS.write(x + (fixdenorm(y) * diffusion));
-
-	return	y;
+ 	return mix(x, x*x, skewpos - 1);
 }
 
-allpassDiffuseLong(x, time, diffusion)
+// pow(x, 0.5..2), audio rate version (branch, only compute neccessary)
+// a branch to select between a sqrt & a multiply does not make much difference for audio rate
+fastskewlfo052ar(x, skew)					// !! skew must be clamped 0.5..2 !!
 {
-	History	apdifflong(0);
-	Delay	AllpassDiffuseL(int(samplerate*0.045295298+1.5), 1, feedback=1);
-
-	fb		= AllpassDiffuseL.read(time, interp="cubic");
-	y		= (x * -(diffusion)) + fb;
-	AllpassDiffuseL.write(x + (fixdenorm(y) * diffusion));
-
-	return	y;
-}
-
-allpassDiffuseDamp(x, time, diffusion, g0, k0, g1, k1, damp)
-{
-	History	apdiffdamp(0);
-	Delay	AllpassDiffuseD(int(samplerate*0.055983894+1.5), 1, feedback=1);
-
-	fb		= AllpassDiffuseD.read(time, interp="spline");
-	if ( (damp) && ( (k0 != 0) || (k1 != 0) ) ) {
-		fb	= rcFilterDamp(fb, g0, k0);
-		fb	= rcFilterDamp(fb, g1, k1);
+	y = 0;
+	if (skew < 1) {
+		y = fastskewlfo052neg(x, skew);
+	} else {
+		y = fastskewlfo052pos(x, skew);
 	}
-	y		= (x * -(diffusion)) + fb;
-	AllpassDiffuseD.write(x + (fixdenorm(y) * diffusion));
+	return y;
+}
 
-	return	y;
+// thanks Alex
+lfoCalc(phase, duty, shape, skew)	// input phase must be wrapped 0..1 for tri phase
+{
+    tri = (phase < duty) ? (phase / duty) : (1 - phase) / (1 - duty);
+
+	sphase = wrap(phase - 0.25, 0, 1);
+   	sine = (sphase > 0.5) ? sphase - 1 : sphase;
+    sine = sine * (4 - (abs(sine) * 8)) + 0.5;
+            
+    return fastskewlfo052ar(interp(shape, tri, sine), skew);
+}
+
+oneMod1(modFreq, modDepth, modOffset, _modDuty, _modShape, _modSkew)
+{
+	History 	onemod1dummy(0);
+	modPhase	= phasor(modFreq);
+	return		parabolWrap(modPhase + modOffset) * modDepth;
+}
+
+oneMod2(modFreq, modDepth, modOffset, modDuty, modShape, modSkew)
+{
+	History 	onemod2dummy(0);
+	modPhase	= wrap(phasor(modFreq) + modOffset, 0, 1);
+	return		(lfoCalc(modPhase, modDuty, modShape, modSkew) * (modDepth + modDepth)) - modDepth;
+}
+
+delmod2(delay1, delay2, rate, depth, offset1, offset2)
+{
+	History delmod2dummy(0);
+	mod1	= oneMod1(rate, depth, offset1, 0, 0, 0);
+	mod2	= oneMod1(rate, depth, offset2, 0, 0, 0);
+	time1	= delay1 + mod1;
+	time2	= delay2 + mod2;
+	return	time1, time2;
+}
+
+delmod4(delay1, delay2, delay3, delay4, rate1, rate2, depth, offset1, offset2, offset3, offset4)
+{
+	History delmod4dummy(0);
+	time1, time2	= delmod2(delay1, delay2, rate1, depth, offset1, offset2);
+	time3, time4	= delmod2(delay3, delay4, rate2, depth, offset3, offset4);
+	return	time1, time2, time3, time4;
+}
+
+// quirky noise lfo...
+// ...(really stupid literal port of Randy Jones' MSP lores~ hack)...
+// ...should do fastcubic rand instead ??
+noiseMod(depth)
+{
+	History	h2(0), h1(0);
+	c0		=  3.902431071622914e-7;
+	c1		= -1.998750611177923;
+	c2		=  0.9987510014210301;
+	H		=	noise();
+	h0		= ( H  *  c0 ) - ( (h1 * c1) + (h2 * c2) );
+	h2		=	fixdenorm(h1);
+	h1		=	fixdenorm(h0);
+	return	h0  *  depth;
+}
+
+// 8 sine modulators (4 L, 4 R), 1 phase
+// pete really doesn't like this, must rewrite
+eightMod(modFreq, modDepth)
+{
+	modulation1, modulation3, modulation6, modulation8	= 0;
+	modulation2, modulation4, modulation5, modulation7	= 0;
+
+	if (modDepth > 0) {
+
+		modPhase	= phasor(modFreq);
+
+		modulation1	= parabolWrap(modPhase + 0.125)	* modDepth;
+		modulation2	= parabolWrap(modPhase + 0.25)	* modDepth;
+		modulation3	= parabolWrap(modPhase + 0.375)	* modDepth;
+		modulation4	= parabolWrap(modPhase + 0.5)	* modDepth;
+		modulation5	= -modulation1;	// stupid
+		modulation6	= -modulation2;
+		modulation7	= -modulation3;
+		modulation8	= -modulation4;
+
+	}
+
+	return	modulation1, modulation2, modulation3, modulation4, modulation5, modulation6, modulation7, modulation8;
 }
 
 // 8 sine modulators (4 L, 4 R), 1 phase
@@ -192,6 +203,8 @@ eightModMatt(modFreq, modDepth, modSpread)
 	return	modulation1, modulation2, modulation3, modulation4, modulation5, modulation6, modulation7, modulation8;
 }
 
+// freezeverb and plateverb
+
 calcDelays(delay, time)										// delay in units, time in samples
 {
 	History direction(-1), ramp(0), del1(0), del2(0);	
@@ -210,6 +223,8 @@ calcDelays(delay, time)										// delay in units, time in samples
 }
 
 // we cannot instantiate delay sizes dynamically as we can in genexpr global code :-(
+
+// freezeverb
 
 // pre delay variable 											// very expensive but very lovely
 preDelayVar(x0, pdTime, pdRamp)
@@ -254,8 +269,9 @@ preDelayVar(x0, pdTime, pdRamp)
 
 	return	x1;
 }
-/*					//	pdWindow == Hz
-preDelayVar(x0, pdTime0, pdWindow)								// less expensive but not as lovely
+/*
+// less expensive but not as lovely
+preDelayVar(x0, pdTime0, pdWindow)	// pdWindow == Hz
 {
 	History	pdvdummy(0);
 	Delay	preDelay(27456, 2, feedback=0);
@@ -280,6 +296,8 @@ preDelayVar(x0, pdTime0, pdWindow)								// less expensive but not as lovely
 
 // the following zero hold delays are very expensive
 // & we cannot dynamically allocate delay memory here as in global code
+
+// for plateverb
 
 delayReadZero1(x0, dTime, dRamp)
 {
@@ -438,6 +456,7 @@ delayReadZero2(x0, dTime1, dTime2, dRamp)// this is stupid
 
 // additional filters
 
+// plateverb, should replace with rcfilters?
 poleZeroDamp(x, a)						// a = prewarped normalised frequency 0..1
 {
 	History		y1(0);
@@ -445,6 +464,8 @@ poleZeroDamp(x, a)						// a = prewarped normalised frequency 0..1
 	y1		=	y0;
 	return		y0;
 }
+
+// freezeverb
 
 fbComb(cIn, cDamp1, cDamp2, cFeedback, cTime)
 {
@@ -473,6 +494,7 @@ fbAllpass(aIn, aFeedback, aTime)
 	return	aIn - aRead;
 }
 
+// not currently used ?
 fbAllpass3(aIn, aFeedback, aTime)
 {
 	History	ap3dummy(0);
@@ -486,6 +508,8 @@ fbAllpass3(aIn, aFeedback, aTime)
 	allpass	= aRead0 - (aRead1 * aFeedback);
 	return	allpass;
 }
+
+// plateverbs
 
 fffbAllpassShort(aIn, aGain, aTime)		// MSPish
 {
@@ -533,6 +557,8 @@ fffbAllpassLong(aIn, aGain, aTime)		// MSPish
 	return	apSum;
 }
 
+// gigaverb
+
 // allpass diffusion
 DiffAllpass(xIn, xCoeff, xTime)			// xCoeff = 0.75 or 0.625 for gigaverb original
 {
@@ -545,6 +571,8 @@ DiffAllpass(xIn, xCoeff, xTime)			// xCoeff = 0.75 or 0.625 for gigaverb origina
 	xDiffuse.write(xFb);
 	return		xOut;
 }
+
+// not currently used ?
 
 AllpassDiffuseShort(x, time, diffusion, apgain)
 {
@@ -570,16 +598,49 @@ AllpassDiffuseLong(x, time, diffusion, apgain)
 	return	y;
 }
 
-apDelaySingleAlt(apIn, apTime, apGain)		// sort of allpass comb
+// mattaverb
+
+allpassDiffuseShort(x, time, diffusion)
 {
-	History	apHa(0);
-	Delay	apDelay(6069, 1, feedback=1);
-	apRead	= apDelay.read(apTime, interp="none");	// times all ints & fixed...
-	apD		= apIn		+ (apRead	*	-apGain);
-	apOut	= apRead	+ (apD		*	 apGain);
-	apDelay.write(apD);
-	return	apOut;
+	History	apdiffshort(0);
+	Delay	AllpassDiffuseS(int(samplerate*0.029090208+1.5), 1, feedback=1);
+
+	fb		= AllpassDiffuseS.read(time, interp="cubic");
+	y		= (x * -(diffusion)) + fb;
+	AllpassDiffuseS.write(x + (fixdenorm(y) * diffusion));
+
+	return	y;
 }
+
+allpassDiffuseLong(x, time, diffusion)
+{
+	History	apdifflong(0);
+	Delay	AllpassDiffuseL(int(samplerate*0.045295298+1.5), 1, feedback=1);
+
+	fb		= AllpassDiffuseL.read(time, interp="cubic");
+	y		= (x * -(diffusion)) + fb;
+	AllpassDiffuseL.write(x + (fixdenorm(y) * diffusion));
+
+	return	y;
+}
+
+allpassDiffuseDamp(x, time, diffusion, g0, k0, g1, k1, damp)
+{
+	History	apdiffdamp(0);
+	Delay	AllpassDiffuseD(int(samplerate*0.055983894+1.5), 1, feedback=1);
+
+	fb		= AllpassDiffuseD.read(time, interp="spline");
+	if ( (damp) && ( (k0 != 0) || (k1 != 0) ) ) {
+		fb	= rcFilterDamp(fb, g0, k0);
+		fb	= rcFilterDamp(fb, g1, k1);
+	}
+	y		= (x * -(diffusion)) + fb;
+	AllpassDiffuseD.write(x + (fixdenorm(y) * diffusion));
+
+	return	y;
+}
+
+// algoverb
 
 // core SHORT allpass filter 'diffuse' delay with (high/low-shelf) filters in feedback path
 DiffuseDelayShort(x, time, diffusion, apgain, hs_a1, hs_a2, hs_a3, hs_m0, hs_m1, hs_m2, ls_a1, ls_a2, ls_a3, ls_m0, ls_m1, ls_m2)
@@ -609,6 +670,19 @@ DiffuseDelayLong(x, time, diffusion, apgain, hs_a1, hs_a2, hs_a3, hs_m0, hs_m1, 
 	DiffuseDelay.write((x + (fixdenorm(y) * diffusion)) * apgain);
 
 	return	y;
+}
+
+// zitaverb
+
+apDelaySingle(apIn, apTime, apGain)		// sort of allpass comb
+{
+	History	apHa(0);
+	Delay	apDelay(6069, 1, feedback=1);
+	apRead	= apDelay.read(apTime, interp="none");	// times all ints & fixed...
+	apD		= apIn		+ (apRead	*	-apGain);
+	apOut	= apRead	+ (apD		*	 apGain);
+	apDelay.write(apD);
+	return	apOut;
 }
 
 // would be nice to separate processing but...

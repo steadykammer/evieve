@@ -54,11 +54,11 @@ rcFilterLpApHp(Vin, g)
 }
 
 // dual bandpass version, one in one out
-rcFilterBandpass(xp, ghp, glp)
+rcFilterBandpass(xp, glp, ghp)
 {
 	History	rcfbdummy(0);
 	lp		= rcFilter(xp, glp);
-	_hl, bp	= rcFilterLpHp(lp, ghp);
+	bp		= rcFilterHp(lp, ghp);
 	return	bp;
 }
 
@@ -197,8 +197,8 @@ rcFilterDampLpHp(Vin, g, k)
 rcFilterDampBandpass(Vin, glp, ghp, lk, hk)
 {
 	History	rcfdbdummy(0);
-	lphs1			= rcFilterDamp(Vin, glp, lk);
-	_lphs2, hpls2	= rcFilterDampLpHp(lphs1, ghp, hk);
+	lphs1	= rcFilterDamp(Vin, glp, lk);
+	hpls2	= rcFilterDampHp(lphs1, ghp, hk);
 	return	hpls2;
 }
 
