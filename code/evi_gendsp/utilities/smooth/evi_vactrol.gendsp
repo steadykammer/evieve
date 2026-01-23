@@ -20,8 +20,8 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 564.0, 23.0, 198.0, 22.0 ],
-                    "text": "in 3 @c Fall @min 0 @default 3000"
+                    "patching_rect": [ 564.0, 23.0, 177.0, 22.0 ],
+                    "text": "in 3 Fall @min 0 @default 3000"
                 }
             },
             {
@@ -31,8 +31,8 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 357.0, 23.0, 190.0, 22.0 ],
-                    "text": "in 2 @c Rise @min 0 @default 20"
+                    "patching_rect": [ 357.0, 23.0, 168.0, 22.0 ],
+                    "text": "in 2 Rise @min 0 @default 20"
                 }
             },
             {
@@ -42,8 +42,8 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 34.0, 23.0, 152.0, 22.0 ],
-                    "text": "in 1 @c Trigger @default 0"
+                    "patching_rect": [ 34.0, 23.0, 130.0, 22.0 ],
+                    "text": "in 1 Trigger @default 0"
                 }
             },
             {
@@ -66,8 +66,8 @@
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 34.0, 804.0, 187.0, 22.0 ],
-                    "text": "out 1 @c scaled Vactrol envelope"
+                    "patching_rect": [ 34.0, 804.0, 165.0, 22.0 ],
+                    "text": "out 1 scaled Vactrol envelope"
                 }
             },
             {

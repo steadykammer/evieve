@@ -2,12 +2,10 @@
 //	//	//	functions for the evieve single side band processors
 //	//	//	@see: 'evi_freqshift_weaver.gendsp' & 'evi_freqshift_hilbert.gendsp'
 
-require("evi_smooth.genexpr");
+require("evi_sinfold_lib.genexpr");
 require("evi_cossin.genexpr");
-require("evi_trig.genexpr");
 require("evi_biquad.genexpr");
 require("evi_rcfilters.genexpr");
-require("evi_saturators.genexpr");
 
 //  //  //
 
@@ -23,64 +21,12 @@ complexRing(real, imag, rmod, imod) {
 	return uppersideband, lowersideband, cosp, sinp;
 }
 
-// based on an idea by jhno & Trond Lossius
-sinParam(drive)						// for param rate
-{
-	pidrive		= drive*3.110176727054 + 0.031415926536;
-	sindrive	= 1 / cos32quad12(HALFPI - minimum(pidrive, HALFPI));
-	return	pidrive, sindrive;
-}
-
 //  //  //
 
 // actually different to what we end up with post-Adaa
 sinFoldNaive(x, pidrive, sindrive)
 {
 	return sin(x * pidrive) * sindrive;
-}
-
-// About "eps" precision in the Adaa1 & Adaa2:
-// "0.00000001" just about works for all oversampling factors we use here,
-// but it is not perfect. It is very hard to get the sweet spot.
-// The problem is is that our oversampling is not real oversampling but
-// just an interpolation hack, and this has an effect on the very small numbers.
-// I might program something like this:
-/*
-	eps = (osf == 2) ? 0.000000000001 : ((osf == 4) ? 0.00000001 : 0.000001);
-*/
-// ...where "osf" is the integer oversampling factor 2, 4 or 8,
-// passed into the Adaa* function. This would be horrible of course.
-
-//  //  //
-
-sinFoldAdaa1(x, pidrive, sindrive)
-{
-	return sinAdaa1(x * pidrive) * sindrive;
-}
-
-sinFoldAdaa1_2x(x, pidrive, sindrive)
-{
-	return sinAdaa1_2x_6POINT(x * pidrive) * sindrive;
-}
-
-sinFoldAdaa1_4x(x, pidrive, sindrive)
-{
-	return sinAdaa1_4x_6POINT(x * pidrive) * sindrive;
-}
-
-sinFoldAdaa2(x, pidrive, sindrive)
-{
-	return sinAdaa2(x * pidrive) * sindrive;
-}
-
-sinFoldAdaa2_2x(x, pidrive, sindrive)
-{
-	return sinAdaa2_2x_6POINT(x * pidrive) * sindrive;
-}
-
-sinFoldAdaa2_4x(x, pidrive, sindrive)
-{
-	return sinAdaa2_4x_6POINT(x * pidrive) * sindrive;
 }
 
 //  //  //

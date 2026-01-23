@@ -1031,7 +1031,7 @@ altTanhPolyAdaa2(x0)
 }
 
 
-// you think this is stupid, but, we make it nonlinear in the process...
+// you think this is stupid, but it is correct...
 
 sinF0(x)
 {
@@ -1048,10 +1048,10 @@ sinF2(x)
     return -sin(x);
 }
 
-sinAdaa1(x0)
+sinAdaa1(x0, osf)
 {
   History x1(0), s1(0);
-  eps = 0.000001;  // TODO, work out precision
+  eps = (osf <= 2) ? 0.000000000001 : ((osf == 4) ? 0.00000001 : 0.000001);
 
   y1 = 0;
   d0 = x0 - x1;
@@ -1067,10 +1067,10 @@ sinAdaa1(x0)
   return y1;
 }
 
-sinAdaa2(x0)
+sinAdaa2(x0, osf)
 {
   History x1(0), x2(0), s1(0);
-  eps = 0.000001;  // TODO, work out precision
+  eps = (osf <= 2) ? 0.000000000001 : ((osf == 4) ? 0.00000001 : 0.000001);
 
   s0 = x0;//0;
   d0 = x0 - x1;

@@ -3,8 +3,8 @@
         "fileversion": 1,
         "appversion": {
             "major": 9,
-            "minor": 1,
-            "revision": 1,
+            "minor": 2,
+            "revision": 0,
             "architecture": "x64",
             "modernui": 1
         },
@@ -25,8 +25,8 @@
                         "fileversion": 1,
                         "appversion": {
                             "major": 9,
-                            "minor": 1,
-                            "revision": 1,
+                            "minor": 2,
+                            "revision": 0,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -75,8 +75,8 @@
                         "fileversion": 1,
                         "appversion": {
                             "major": 9,
-                            "minor": 1,
-                            "revision": 1,
+                            "minor": 2,
+                            "revision": 0,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -146,7 +146,7 @@
                                     "numoutlets": 4,
                                     "outlettype": [ "", "", "", "" ],
                                     "patching_rect": [ 235.0, 150.0, 168.0, 22.0 ],
-                                    "text": "routepass drive smooth select"
+                                    "text": "routepass drive smooth aa"
                                 }
                             },
                             {

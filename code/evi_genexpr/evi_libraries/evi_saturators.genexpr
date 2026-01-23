@@ -1741,7 +1741,7 @@ altTanhSqrtAdaa2_4x_6POINT(XIN)
 // sinAdaa1 oversampling...
 
 // fixed 2x quasi oversampling (hermite6)
-sinAdaa1_2x_6POINT(XIN)
+sinAdaa1_2x_6POINT(XIN, osf)
 { // up 2
   History umTm2_0(0), umTm1_0(0), umT0_0(0), umT1_0(0), umT2_0(0);
   // down 2
@@ -1755,8 +1755,8 @@ sinAdaa1_2x_6POINT(XIN)
   x2_0  = umT2_0 + 0;
 
   // process 2x
-  y1_0  = sinAdaa1(x1_0);
-  y2_0  = sinAdaa1(x2_0);
+  y1_0  = sinAdaa1(x1_0, osf);
+  y2_0  = sinAdaa1(x2_0, osf);
 
   // down 2x
   y2_0_a  = y2_0 + 0;
@@ -1783,7 +1783,7 @@ sinAdaa1_2x_6POINT(XIN)
 }
 
 // fixed 4x quasi oversampling (hermite6)
-sinAdaa1_4x_6POINT(XIN)
+sinAdaa1_4x_6POINT(XIN, osf)
 { // up 2
   History umTm2_0(0), umTm1_0(0), umT0_0(0), umT1_0(0), umT2_0(0);
   // down 2
@@ -1797,8 +1797,8 @@ sinAdaa1_4x_6POINT(XIN)
   x2_0  = umT2_0 + 0;
 
   // process 4x
-  y1_0  = sinAdaa1_2x_6POINT(x1_0);
-  y2_0  = sinAdaa1_2x_6POINT(x2_0);
+  y1_0  = sinAdaa1_2x_6POINT(x1_0, osf);
+  y2_0  = sinAdaa1_2x_6POINT(x2_0, osf);
 
   // down 2x
   y2_0_a  = y2_0 + 0;
@@ -1827,7 +1827,7 @@ sinAdaa1_4x_6POINT(XIN)
 // sinAdaa2 oversampling...
 
 // fixed 2x quasi oversampling (hermite6)
-sinAdaa2_2x_6POINT(XIN)
+sinAdaa2_2x_6POINT(XIN, osf)
 { // up 2
   History umTm2_0(0), umTm1_0(0), umT0_0(0), umT1_0(0), umT2_0(0);
   // down 2
@@ -1841,8 +1841,8 @@ sinAdaa2_2x_6POINT(XIN)
   x2_0  = umT2_0 + 0;
 
   // process 2x
-  y1_0  = sinAdaa2(x1_0);
-  y2_0  = sinAdaa2(x2_0);
+  y1_0  = sinAdaa2(x1_0, osf);
+  y2_0  = sinAdaa2(x2_0, osf);
 
   // down 2x
   y2_0_a  = y2_0 + 0;
@@ -1869,7 +1869,7 @@ sinAdaa2_2x_6POINT(XIN)
 }
 
 // fixed 4x quasi oversampling (hermite6)
-sinAdaa2_4x_6POINT(XIN)
+sinAdaa2_4x_6POINT(XIN, osf)
 { // up 2
   History umTm2_0(0), umTm1_0(0), umT0_0(0), umT1_0(0), umT2_0(0);
   // down 2
@@ -1883,8 +1883,8 @@ sinAdaa2_4x_6POINT(XIN)
   x2_0  = umT2_0 + 0;
 
   // process 4x
-  y1_0  = sinAdaa2_2x_6POINT(x1_0);
-  y2_0  = sinAdaa2_2x_6POINT(x2_0);
+  y1_0  = sinAdaa2_2x_6POINT(x1_0, osf);
+  y2_0  = sinAdaa2_2x_6POINT(x2_0, osf);
 
   // down 2x
   y2_0_a  = y2_0 + 0;
@@ -1981,6 +1981,97 @@ parabolSat_4x_6POINT(XIN, a, c)
   // process 4x
   y1_0  = parabolSat_2x_6POINT(x1_0, a, c);
   y2_0  = parabolSat_2x_6POINT(x2_0, a, c);
+
+  // down 2x
+  y2_0_a  = y2_0 + 0;
+  y2_1  = hermite_sixpoint_interp(0.5,  y2_0_a, dmTm1_1, dmT0_1, dmT1_1, dmT2_1, dmT3_1);
+
+  y0_0  = (doX0 + y2_1) * 0.5;
+
+  // update
+  umTm2_0 = umTm1_0;
+  umTm1_0 = umT0_0;
+  umT0_0  = umT1_0;
+  umT1_0  = umT2_0;
+  umT2_0  = x0_0_a;
+
+  doX0  = y1_0;
+
+  dmT3_1  = dmT2_1;
+  dmT2_1  = dmT1_1;
+  dmT1_1  = dmT0_1;
+  dmT0_1  = dmTm1_1;
+  dmTm1_1 = y2_0;
+
+  return dcblock(y0_0);
+}
+
+thbNL(x) {
+  x = clip(x, -1, 1);
+  nx = 0.55032120814910446 * x;
+  nx3 = nx * nx * nx;
+  return x - (nx3 + nx3);
+}
+
+// fixed 2x quasi oversampling (hermite6)
+thbNL_2x_6POINT(XIN)
+{ // up 2
+  History umTm2_0(0), umTm1_0(0), umT0_0(0), umT1_0(0), umT2_0(0);
+  // down 2
+  History dmT3_1(0), dmT2_1(0), dmT1_1(0), dmT0_1(0), dmTm1_1(0);
+  // align
+  History doX0(0);
+
+  // up 2x
+  x0_0_a  = XIN + 0;
+  x1_0  = hermite_sixpoint_interp(0.5,  umTm2_0, umTm1_0, umT0_0, umT1_0, umT2_0, x0_0_a);
+  x2_0  = umT2_0 + 0;
+
+  // process 2x
+  y1_0  = thbNL(x1_0);
+  y2_0  = thbNL(x2_0);
+
+  // down 2x
+  y2_0_a  = y2_0 + 0;
+  y2_1  = hermite_sixpoint_interp(0.5,  y2_0_a, dmTm1_1, dmT0_1, dmT1_1, dmT2_1, dmT3_1);
+
+  y0_0  = (doX0 + y2_1) * 0.5;
+
+  // update
+  umTm2_0 = umTm1_0;
+  umTm1_0 = umT0_0;
+  umT0_0  = umT1_0;
+  umT1_0  = umT2_0;
+  umT2_0  = x0_0_a;
+
+  doX0  = y1_0;
+
+  dmT3_1  = dmT2_1;
+  dmT2_1  = dmT1_1;
+  dmT1_1  = dmT0_1;
+  dmT0_1  = dmTm1_1;
+  dmTm1_1 = y2_0;
+
+  return dcblock(y0_0);
+}
+
+// fixed 4x quasi oversampling (hermite6)
+thbNL_4x_6POINT(XIN)
+{ // up 2
+  History umTm2_0(0), umTm1_0(0), umT0_0(0), umT1_0(0), umT2_0(0);
+  // down 2
+  History dmT3_1(0), dmT2_1(0), dmT1_1(0), dmT0_1(0), dmTm1_1(0);
+  // align
+  History doX0(0);
+
+  // up 2x
+  x0_0_a  = XIN + 0;
+  x1_0  = hermite_sixpoint_interp(0.5,  umTm2_0, umTm1_0, umT0_0, umT1_0, umT2_0, x0_0_a);
+  x2_0  = umT2_0 + 0;
+
+  // process 4x
+  y1_0  = thbNL_2x_6POINT(x1_0);
+  y2_0  = thbNL_2x_6POINT(x2_0);
 
   // down 2x
   y2_0_a  = y2_0 + 0;
