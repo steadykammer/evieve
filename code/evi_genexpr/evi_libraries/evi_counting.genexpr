@@ -1,0 +1,105 @@
+
+// evieve counting stuff
+
+// zero reset phasor with options
+eviPhasor0(frequency, reset)    // Hz, Trigger
+{
+    History init(1);
+    History jump(0);
+
+    Param   minimumhz(0.125, min=0, max=1); // minimum zero reset frequency in hz 0..1
+    Param   mode(1, min=0, max=1);          // free running or zero reset ? 0/1
+    Param   reverse(1, min=0, max=1);       // reverse allowed ? 0/1
+    Param   pause(0, min=0, max=1);         // pause current ramp ? 0/1
+    Param   phase(0, min=0, max=1);         // set phase on next reset 0..1
+
+    intpause    = int(pause);
+    intreverse  = int(reverse);
+    intmode     = int(mode);
+
+    firstfreq   = 0;
+    freqnotzero = delta(change(frequency)) < 0;
+    if (freqnotzero && init) {
+        firstfreq   = 1;
+        init        = 0;
+    } else {
+        firstfreq   = 0;
+    }
+
+    thisphase = wrap(jump, 0, 1);
+    thisinvphase = 1 - thisphase;
+    invdelta = delta(thisinvphase) > 0;
+    revsignreset = invdelta + reset;
+
+    freqsign = sign(frequency);
+    revsignlatch = latch(intreverse ? (freqsign < 0) : 0, revsignreset);
+
+    thisdelta = revsignlatch ? invdelta : (delta(thisphase) < 0);
+    freqreset = firstfreq + reset + thisdelta;
+
+    thisfrequency = intmode ? (latch(maximum(abs(frequency), minimumhz), freqreset)) : frequency;
+
+    currentramp = intmode ? (revsignlatch ? thisinvphase : thisphase) : thisphase;
+    thisphasor = intpause ? latch(currentramp, (delta(intpause) > 0)) : currentramp;
+
+    jump = reset ? phase : (thisphase + (intpause ? 0 : thisfrequency / SAMPLERATE));
+
+    return  thisphasor, (freqsign * thisfrequency), thisdelta; // Phasor, Hz, Sync
+}
+
+/*
+// bullshit
+eviPhasorRate0(frequency, rate, reset)
+{
+	thisphasor, currentfrequency, thisdelta = eviPhasor0(frequency, reset);
+	currentrate = latch(rate, thisdelta);
+	thisrate = rate(thisphasor, currentrate);
+	ratedelta = delta(thisrate) < 0;
+	return thisphasor, thisrate, currentfrequency, currentrate, thisdelta, ratedelta;
+}
+*/
+
+eviPhasorRate0(frequency, rate, reset)
+{
+    History init(1);
+    History jump(0);
+
+    Param   minimumhz(0.125, min=0, max=1); // minimum zero reset frequency in hz 0..1
+    Param   mode(1, min=0, max=1);          // free running or zero reset ? 0/1
+    Param   reverse(1, min=0, max=1);       // reverse allowed ? 0/1
+    Param   pause(0, min=0, max=1);         // pause current ramp ? 0/1
+    Param   phase(0, min=0, max=1);         // set phase on next reset 0..1
+
+    intpause    = int(pause);
+    intreverse  = int(reverse);
+    intmode     = int(mode);
+
+    firstfreq   = 0;
+    freqnotzero = delta(change(frequency)) < 0;
+    if (freqnotzero && init) {
+        firstfreq   = 1;
+        init        = 0;
+    } else {
+        firstfreq   = 0;
+    }
+
+    thisphase = wrap(jump, 0, 1);
+    thisinvphase = 1 - thisphase;
+    invdelta = delta(thisinvphase) > 0;
+    revsignreset = invdelta + reset;
+
+    freqsign = sign(frequency);
+    revsignlatch = latch(intreverse ? (freqsign < 0) : 0, revsignreset);
+
+    thisdelta = revsignlatch ? invdelta : (delta(thisphase) < 0);
+    freqreset = firstfreq + reset + thisdelta;
+
+    thisfrequency = intmode ? (latch(maximum(abs(frequency), minimumhz), freqreset)) : frequency;
+
+    currentramp = intmode ? (revsignlatch ? thisinvphase : thisphase) : thisphase;
+    thisphasor = intpause ? latch(currentramp, (delta(intpause) > 0)) : currentramp;
+
+    jump = reset ? phase : (thisphase + (intpause ? 0 : thisfrequency / SAMPLERATE));
+
+    return  thisphasor, (freqsign * thisfrequency), thisdelta; // Phasor, Hz, Sync
+}
