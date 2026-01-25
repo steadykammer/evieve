@@ -59,7 +59,7 @@ averageCore(X, reset, windowSize=0)			// windowSize in samples
 	return 		(accumX / indexCount), indexRead;		// mean, count
 }
 
-// wrap generalised, more expensive
+// wrap generalised, expensive
 averageWrap(X, reset, interval=500, mode=0)	// interval in samples, mode 0=bipolar, 1=absolute, 2=rms
 {
 	type	= int(mode);
@@ -91,17 +91,98 @@ averageWrap(X, reset, interval=500, mode=0)	// interval in samples, mode 0=bipol
 
 	return 	average, index;
 
-	/*
-		Xin		= (type > 0) ? (typerms ? (X * X) : abs(X)) : X;
+/*
+	Xin		= (type > 0) ? (typerms ? (X * X) : abs(X)) : X;
 
-		average, index	= averageCore(Xin, reset, windowSize=interval);
-		average			= typerms ? sqrt(average) : average;
+	average, index	= averageCore(Xin, reset, windowSize=interval);
+	average			= typerms ? sqrt(average) : average;
 
-		return 	average, index;
-	*/
+	return 	average, index;
+*/
 }
 
+envRawDetect(x, attack, release)  // clamp attack / release to 0..1
+{
+    History state(0);
 
+    envdelta = abs(x) - state;
+    envcoef = (envdelta > 0) ? attack : release;
 
+    state += envdelta * envcoef;
+
+    return maximum(state, 0);
+}
+
+envSad(s)									// s = time to drop 6dB (in seconds)
+{
+//	return	LN2 / (s * samplerate);
+	return	LN2 / maximum((s * samplerate), 1);// (0.69314718056 / samples), incl. maximum check
+}
+
+// log smooth (decay) envelope follower
+envDecay(x,	d)									// d = decay time (to drop 6dB) in seconds
+{
+	History	z(0);
+	ad		= envSad(d);
+	ff		= x - z;
+	y		= (ff > 0) ? x : ((ff * ad) + z);
+	z		= y;
+	return	y;
+}
+
+// log smooth (attack/decay) envelope follower
+envAttackDecay(x, a, d)							// a/d = attack/decay times (to 6dB) in seconds
+{
+	History	z(0);
+	ff		= x - z;
+	tt		= (ff > 0) ? a : d;
+	ad		= envSad(tt);
+	y		= (ff * ad) + z;
+//	y		= (ff * ((ff > 0) ? envSad(a) : envSad(d))) + z;
+	z		= y;
+	return	y;
+}
+
+// log smooth (AHR) envelope follower (branching version, cheaper than 'simultaneous version')
+envAttackHoldRelease(x, a, h, r)				// a/h/r = attack/hold/release times (to 6dB) in seconds
+{
+	History	z(0), g(0);
+	ff		= x - z;
+	hh, env	= 0;
+	if (ff > 0)	{
+		hh	= maximum((h * samplerate), 1) - 1;
+		env	= envSad(a);
+	} else {
+		hh	= g - 1;
+		env	= (hh > 0.000001) ? 0 : envSad(r);
+	}
+	y		= (ff * env) + z;
+	g		= hh;
+	z		= y;
+	return	y;
+}
+
+vactrolSad(x, a)							// trigger, time
+{
+	return x * a / (1 + a);
+}
+
+// "vactrolBuchla()" elsewhere in evieve
+vactrol(impulse, rise, fall)				// trigger, rise (samps), fall (samps)
+{
+	History s1(0);
+
+	a_base	= 3141.592653589793238/SAMPLERATE;// 1000*PI/samplerate :-)
+	t_down	= 10 + fall*(1 - 0.9*s1);		// fall time
+	a_down	= a_base/t_down;
+	t_up	= 1 + rise*(1 - 0.999*s1);		// rise time
+	a_up	= a_base/t_up;
+
+	x		= impulse - s1;
+	x 		= (x < 0) ? vactrolSad(x, a_down) : vactrolSad(x, a_up);
+	y		= x + s1;
+	s1		= y + x;
+	return	  y;							// & scale externally
+}
 
 

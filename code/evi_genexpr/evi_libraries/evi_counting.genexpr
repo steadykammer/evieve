@@ -47,18 +47,152 @@ eviPhasor0(frequency, reset)    // Hz, Trigger
     return  thisphasor, (freqsign * thisfrequency), thisdelta; // Phasor, Hz, Sync
 }
 
-/*
-// bullshit
-eviPhasorRate0(frequency, rate, reset)
-{
-	thisphasor, currentfrequency, thisdelta = eviPhasor0(frequency, reset);
-	currentrate = latch(rate, thisdelta);
-	thisrate = rate(thisphasor, currentrate);
-	ratedelta = delta(thisrate) < 0;
-	return thisphasor, thisrate, currentfrequency, currentrate, thisdelta, ratedelta;
-}
-*/
+// these rate() related codes are just taken directly from the Gen source code
+// but so that we can hack them for our own purposes
 
+quantF(f1, f2)
+{
+    return floor(f1*f2 + 0.5) / f2;
+}
+
+multChange(x2, mult, invmult, wantlock)
+{
+	if (x2 != mult) {// && !isnan(x2)) {
+		mult = x2;
+		invmult = 1 / mult;
+		wantlock = 1;
+	}
+    return mult, invmult, wantlock;
+}
+
+wrapDiff(diff)
+{
+	if (diff < -0.5) {
+		diff += 1;
+	} else if (diff > 0.5) {
+		diff -= 1;
+	}
+    return diff;
+}
+
+rateLock(mainphase, multiplier, reset)
+{
+    History phase(0), mult(1), invmult(1), diff(0), prev(0), wantlock(1);
+    if (reset) {
+        phase, diff, prev = 0;
+        mult, invmult = 1;
+        wantlock = 1;
+    }
+
+    // did multiplier change?
+    mult, invmult, wantlock = multChange(multiplier, mult, invmult, wantlock);
+    diff = mainphase - prev;
+    diff = wrapDiff(diff);
+
+	if (wantlock) {
+		// recalculate phase
+		phase = (mainphase - floor(mainphase + 0.5)) * invmult + quantF(mainphase, mult);
+		diff = 0;
+		wantlock = 0;
+	} else {
+		// diff is always between -0.5 and 0.5
+		phase += diff * invmult;
+	}
+
+	if (phase > 1 || phase < 0) { // phase < -0 ??
+		phase = phase - floor(phase); // !! do NOT use trunc() !! (reset breaks)
+	}
+
+	prev = mainphase;
+	return phase;
+}
+
+rateOff(mainphase, multiplier, reset)
+{
+    History phase(0), mult(1), invmult(1), diff(0), prev(0), wantlock(1);
+    if (reset) {
+        phase, diff, prev = 0;
+        mult, invmult = 1;
+        wantlock = 1;
+    }
+
+    // did multiplier change?
+    mult, invmult, wantlock = multChange(multiplier, mult, invmult, wantlock);
+    diff = mainphase - prev;
+    diff = wrapDiff(diff);
+
+	// diff is always between -0.5 and 0.5
+	phase += diff * invmult;
+
+	if (phase > 1 || phase < 0) {
+		phase = phase - floor(phase);
+	}
+
+	prev = mainphase;
+	return phase;
+}
+
+rateCycle(mainphase, multiplier, reset)
+{
+    History phase(0), mult(1), invmult(1), diff(0), prev(0), wantlock(1);
+    if (reset) {
+        phase, diff, prev = 0;
+        mult, invmult = 1;
+        wantlock = 1;
+    }
+
+    // did multiplier change?
+    mult, invmult, wantlock = multChange(multiplier, mult, invmult, wantlock);
+    diff = mainphase - prev;
+
+	if (diff < -0.5) {
+		if (wantlock) {
+			wantlock = 0;
+			phase = mainphase * invmult;
+			diff = 0;
+		} else {
+			diff += 1;
+		}
+	} else if (diff > 0.5) {
+		if (wantlock) {
+			wantlock = 0;
+			phase = mainphase * invmult;
+			diff = 0;
+		} else {
+			diff -= 1;
+		}
+	}
+
+	// diff is always between -0.5 and 0.5
+	phase += diff * invmult;
+
+	if (phase > 1 || phase < 0) {
+		phase = phase - floor(phase);
+	}
+
+	prev = mainphase;
+	return phase;
+}
+
+// pointless, use rate() instead
+// sync: 0 = lock, 1 = off, 2 = cycle <<-- MSP / Gen native ordering, not me !
+eviRate(mainphase, multiplier, reset, sync=0)
+{								// ^^ so that we can rest phase when sync source changes
+    thisrate = 0;
+    if (sync == 1) {
+        thisrate = rateOff(mainphase, multiplier, reset);
+    }
+    else if (sync == 2) {
+        thisrate = rateCycle(mainphase, multiplier, reset);
+    }
+    else { // sync == 0
+        thisrate = rateLock(mainphase, multiplier, reset);
+    }
+
+    return  thisrate;
+}
+
+// zero reset phasor/rate with options
 eviPhasorRate0(frequency, rate, reset)
 {
     History init(1);
@@ -69,6 +203,7 @@ eviPhasorRate0(frequency, rate, reset)
     Param   reverse(1, min=0, max=1);       // reverse allowed ? 0/1
     Param   pause(0, min=0, max=1);         // pause current ramp ? 0/1
     Param   phase(0, min=0, max=1);         // set phase on next reset 0..1
+//  Param   sync(1, min=0, max=2);			// rate sync, 0=lock, 1=off, 2=cycle
 
     intpause    = int(pause);
     intreverse  = int(reverse);
@@ -83,23 +218,85 @@ eviPhasorRate0(frequency, rate, reset)
         firstfreq   = 0;
     }
 
+    ratereset = 0;	// todo
+
     thisphase = wrap(jump, 0, 1);
     thisinvphase = 1 - thisphase;
     invdelta = delta(thisinvphase) > 0;
     revsignreset = invdelta + reset;
 
     freqsign = sign(frequency);
-    revsignlatch = latch(intreverse ? (freqsign < 0) : 0, revsignreset);
+    revsignlatch = latch((intreverse ? (freqsign < 0) : 0), revsignreset);
 
     thisdelta = revsignlatch ? invdelta : (delta(thisphase) < 0);
     freqreset = firstfreq + reset + thisdelta;
 
     thisfrequency = intmode ? (latch(maximum(abs(frequency), minimumhz), freqreset)) : frequency;
+    currentrate = intmode ? latch(rate, freqreset) : rate;
+    currentfrequency = freqsign * thisfrequency;
 
     currentramp = intmode ? (revsignlatch ? thisinvphase : thisphase) : thisphase;
     thisphasor = intpause ? latch(currentramp, (delta(intpause) > 0)) : currentramp;
+    thisrate = rateLock(thisphasor, currentrate, ratereset);
+    ratedelta = revsignlatch ? (delta(thisrate) > 0) : (delta(thisrate) < 0);
 
     jump = reset ? phase : (thisphase + (intpause ? 0 : thisfrequency / SAMPLERATE));
 
-    return  thisphasor, (freqsign * thisfrequency), thisdelta; // Phasor, Hz, Sync
+	return thisphasor, thisrate, currentfrequency, currentrate, thisdelta, ratedelta;
 }
+
+// zero reset ramp with options
+// i made this for my friend rodrigo constanzo
+eviRamp0(trig)
+{
+	History jump(0);
+
+	Param   duration(1000, min=0, max=60000);   // ramp duration in ms
+	Param   zeroreset(0, min=0, max=1);         // zero reset phase off/on 0/1
+	Param   retrigger(1, min=0, max=1);         // allow retriggering of ramp during ramp off/on 0/1
+	Param   loop(0, min=0, max=1);              // loop ramp off/on 0/1 (@loop 1 = a phasor)
+	Param   restingstate(1, min=0, max=1);      // oneshot mode (@loop=0) 'rests' at zero or one 0/1
+	Param   curve(0, min=0, max=1);             // make ramp s-curve off/on 0/1
+	Param   pause(0, min=0, max=1);             // pause ramp output 0/1
+
+	zr      = int(zeroreset);
+	rt      = int(retrigger);
+	lp      = int(loop);
+	rs      = int(restingstate);
+	cv      = int(curve);
+	powsah  = int(pause);
+
+	trigger = delta(trig) < 0;   // can be blocked by @retrigger 0
+
+	thisphase = wrap(jump, 0, 1);
+	ramp = powsah ? latch(thisphase, (delta(powsah) > 0)) : thisphase;
+	syncstart = delta(ramp) < 0;
+
+	// increment
+	incr = (1000 / duration) / SAMPLERATE;
+	incrlatch = latch(incr, (syncstart + trigger)); // is zero on load
+	// init & zero reset, before the reset gate, in case user sets retrigger to zero on load
+	firsttrig = accum(trigger) > 0; // # of triggers in object lifetime
+	firstgate = gate(firsttrig, incr);  // is zero on load
+	increment = selector((zr + 1), firstgate, incrlatch);
+
+	// this minimum() 0.999 is a horrid hack gen~ bug fix
+	// if SR <= 44.1kHz (works fine without @ SR >= 48kHz)
+	end = ramp < minimum((1 - increment), 0.999);   // if not loop, stop phase at end
+	end0 = end == 0;
+	syncend = delta(end) < 0;
+
+	ramptrigger = gate((end0 || rt), trigger);
+	carrycount = accum(syncstart, ramptrigger) - 1;
+
+	jump = ramptrigger ? 0 : (powsah ? 0 : (latch(lp, (syncstart + syncend)) ? increment : (increment * end))) + thisphase;
+
+	rest = rs ? ramp : (ramp - end0);
+	rtrt = rest * rest;
+	rtinv = 1 - rest;
+	rtirti = rtinv * rtinv;
+	outramp = latch(cv, syncstart) ? ( (rest < 0.5) ? (rtrt + rtrt) : 1 - (rtirti + rtirti) ) : rest;   // s-curve or linear
+
+    return  outramp, carrycount, syncstart, syncend;
+}
+

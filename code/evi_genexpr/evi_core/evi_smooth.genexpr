@@ -34,7 +34,7 @@ expsmooth(x, t)		// x = value			// t is smooth time in seconds
 	return y;
 }
 
-// excellent cheap(est) generic smoother, slow(er) response
+// excellent & cheapest generic smoother, slow(er) response
 logsmooth(x, s)		// x = value			// s = time to drop 6dB (in seconds)
 {
 	History z(0);
@@ -369,12 +369,11 @@ logattackdecay(x, a, d)							// a/d = attack/decay times (to 6dB) in seconds
 	tt		= (ff > 0) ? a : d;
 	ad		= logsad(tt);
 	y		= (ff * ad) + z;
-//	y		= (ff * ((ff > 0) ? logsad(a) : logsad(d))) + z;
 	z		= y;
 	return	y;
 }
 
-// log smooth (AHR) envelope follower (branching version, cheaper than 'simultaneous version')
+// log smooth (AHR) envelope follower
 logattackholdrelease(x, a, h, r)				// a/h/r = attack/hold/release times (to 6dB) in seconds
 {
 	History	z(0), g(0);
@@ -393,7 +392,7 @@ logattackholdrelease(x, a, h, r)				// a/h/r = attack/hold/release times (to 6dB
 	return	y;
 }
 
-// for 'lagsmooth()' & 'lagsmoothThresh()', but works fine alone as well
+// for 'lagsmooth()' & 'lagsmoothThresh()'
 lagpole(x, c, l)							// value / coefficient / previous
 {
 	return ((1 - c) * x) + (c * l);			// no need for abs here ?
@@ -405,7 +404,7 @@ lagpoleAbs(x, c, l)
 }
 
 // a bit like Supercollider [lag3]
-// original by James MacCartney, mod by me
+// original by James MacCartney, mod by me, fixed threshold
 lagsmooth(v, lp0)							// destination value / time (in seconds)
 {
 	History coef(  0.9928302477768374);		// default: @20ms @48kHz
@@ -650,7 +649,7 @@ likeAvactrol(V, up, down)
 // Based on "A Digital Model of the Buchla Lowpass-Gate"
 // by Julian Parker and Stefano D’Angelo, 2013
 // "...an ad-hoc nonlinear filter structure that will behave similarly
-// to the vactrol with correct setting of parameter values".
+// to the [Buchla] vactrol with correct setting of parameter values".
 
 vactrolSection(x, a)					// trigger, time
 {
