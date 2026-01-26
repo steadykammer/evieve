@@ -936,6 +936,18 @@
                                     "patching_rect": [ 332.0, 619.0, 243.0, 20.0 ],
                                     "text": "in case user wants to match a delay~ / etc"
                                 }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-6",
+                                    "linecount": 2,
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 382.0, 293.0, 176.0, 33.0 ],
+                                    "presentation_linecount": 3,
+                                    "text": "this mirrors what is happening in the GenExpr code"
+                                }
                             }
                         ],
                         "lines": [
@@ -1150,6 +1162,9 @@
                     "numoutlets": 2,
                     "outlettype": [ "signal", "signal" ],
                     "patching_rect": [ 34.0, 340.0, 152.0, 22.0 ],
+                    "saved_object_attributes": {
+                        "exportfolder": "pants:/Users/stkr/Desktop/"
+                    },
                     "text": "gen~ evi_freezeverb"
                 }
             },
@@ -1559,7 +1574,7 @@
                 "box": {
                     "comment": "dumpout (pattrstorage)",
                     "id": "obj-58",
-                    "index": 0,
+                    "index": 3,
                     "maxclass": "outlet",
                     "numinlets": 1,
                     "numoutlets": 0,
@@ -1570,7 +1585,7 @@
                 "box": {
                     "comment": "(signal) Audio Out Right",
                     "id": "obj-57",
-                    "index": 0,
+                    "index": 2,
                     "maxclass": "outlet",
                     "numinlets": 1,
                     "numoutlets": 0,
@@ -1581,7 +1596,7 @@
                 "box": {
                     "comment": "(signal) Audio Out Left",
                     "id": "obj-56",
-                    "index": 0,
+                    "index": 1,
                     "maxclass": "outlet",
                     "numinlets": 1,
                     "numoutlets": 0,
@@ -1827,7 +1842,7 @@
                                         "valueof": {
                                             "parameter_initial": [ 0.0 ],
                                             "parameter_linknames": 1,
-                                            "parameter_longname": "eqLowGain",
+                                            "parameter_longname": "eqLowGain[2]",
                                             "parameter_mmax": 1.0,
                                             "parameter_mmin": -1.0,
                                             "parameter_modmode": 3,
@@ -1860,7 +1875,7 @@
                                         "valueof": {
                                             "parameter_initial": [ 500.0 ],
                                             "parameter_linknames": 1,
-                                            "parameter_longname": "eqLowFreq",
+                                            "parameter_longname": "eqLowFreq[2]",
                                             "parameter_mmax": 4000.0,
                                             "parameter_mmin": 63.5,
                                             "parameter_modmode": 3,
@@ -1893,7 +1908,7 @@
                                         "valueof": {
                                             "parameter_initial": [ 0.0 ],
                                             "parameter_linknames": 1,
-                                            "parameter_longname": "eqHighGain",
+                                            "parameter_longname": "damp[2]",
                                             "parameter_mmax": 1.0,
                                             "parameter_mmin": -1.0,
                                             "parameter_modmode": 3,
@@ -1926,7 +1941,7 @@
                                         "valueof": {
                                             "parameter_initial": [ 2000.0 ],
                                             "parameter_linknames": 1,
-                                            "parameter_longname": "eqHighFreq",
+                                            "parameter_longname": "eqHighFreq[2]",
                                             "parameter_mmax": 15000.0,
                                             "parameter_mmin": 500.0,
                                             "parameter_modmode": 3,
@@ -2452,7 +2467,7 @@
                                         "valueof": {
                                             "parameter_initial": [ 49.0 ],
                                             "parameter_linknames": 1,
-                                            "parameter_longname": "smoothTime",
+                                            "parameter_longname": "smoothTime[2]",
                                             "parameter_mmax": 500.0,
                                             "parameter_modmode": 3,
                                             "parameter_shortname": "smoothTime",
@@ -2484,7 +2499,7 @@
                                         "valueof": {
                                             "parameter_initial": [ -12 ],
                                             "parameter_linknames": 1,
-                                            "parameter_longname": "dryGain",
+                                            "parameter_longname": "dryGain[2]",
                                             "parameter_mmax": 0.0,
                                             "parameter_mmin": -90.0,
                                             "parameter_modmode": 3,
@@ -2930,7 +2945,7 @@
                                         "valueof": {
                                             "parameter_initial": [ 0.0 ],
                                             "parameter_linknames": 1,
-                                            "parameter_longname": "bypass",
+                                            "parameter_longname": "bypass[2]",
                                             "parameter_mmax": 1.0,
                                             "parameter_modmode": 0,
                                             "parameter_shortname": "bypass",
@@ -2962,7 +2977,7 @@
                                         "valueof": {
                                             "parameter_initial": [ -9.542434 ],
                                             "parameter_linknames": 1,
-                                            "parameter_longname": "wetGain",
+                                            "parameter_longname": "dryWet",
                                             "parameter_mmax": 0.0,
                                             "parameter_mmin": -90.0,
                                             "parameter_modmode": 3,
@@ -2994,7 +3009,7 @@
                                         "valueof": {
                                             "parameter_initial": [ -3.0 ],
                                             "parameter_linknames": 1,
-                                            "parameter_longname": "earlyGain",
+                                            "parameter_longname": "fdnGain",
                                             "parameter_mmax": 20.0,
                                             "parameter_mmin": -80.0,
                                             "parameter_modmode": 3,
@@ -3026,7 +3041,7 @@
                                         "valueof": {
                                             "parameter_initial": [ 0.42 ],
                                             "parameter_linknames": 1,
-                                            "parameter_longname": "damping",
+                                            "parameter_longname": "crossover",
                                             "parameter_mmax": 300.0,
                                             "parameter_mmin": 1.0,
                                             "parameter_modmode": 3,
@@ -3059,7 +3074,7 @@
                                         "valueof": {
                                             "parameter_initial": [ 0.7 ],
                                             "parameter_linknames": 1,
-                                            "parameter_longname": "width",
+                                            "parameter_longname": "midDecay",
                                             "parameter_mmax": 1.0,
                                             "parameter_modmode": 3,
                                             "parameter_shortname": "width",
@@ -3091,7 +3106,7 @@
                                         "valueof": {
                                             "parameter_initial": [ 0.78 ],
                                             "parameter_linknames": 1,
-                                            "parameter_longname": "reverbSize",
+                                            "parameter_longname": "lowDecay[2]",
                                             "parameter_mmax": 1.0,
                                             "parameter_modmode": 3,
                                             "parameter_shortname": "reverbSize",
@@ -3752,11 +3767,11 @@
                 "box": {
                     "comment": "(signal) Audio In Nothing or Right or 2 / messages to evi.freezeverb~",
                     "id": "obj-47",
-                    "index": 0,
+                    "index": 2,
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
-                    "outlettype": [ "" ],
+                    "outlettype": [ "signal" ],
                     "patching_rect": [ 167.0, 43.5, 30.0, 30.0 ]
                 }
             },
@@ -3764,11 +3779,11 @@
                 "box": {
                     "comment": "(signal) Audio In Mono or Left or 1 / messages to evi.freezeverb~",
                     "id": "obj-46",
-                    "index": 0,
+                    "index": 1,
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
-                    "outlettype": [ "" ],
+                    "outlettype": [ "signal" ],
                     "patching_rect": [ 34.0, 43.5, 30.0, 30.0 ]
                 }
             },
@@ -4119,31 +4134,6 @@
                 }
             }
         ],
-        "parameters": {
-            "obj-54::obj-10": [ "eqHighGain", "eqHighGain", 0 ],
-            "obj-54::obj-12": [ "earlyGain", "earlyGain", 0 ],
-            "obj-54::obj-15": [ "eqLowGain", "eqLowGain", 0 ],
-            "obj-54::obj-16": [ "eqLowFreq", "eqLowFreq", 0 ],
-            "obj-54::obj-2": [ "preDelay", "preDelay", 0 ],
-            "obj-54::obj-3": [ "reverbSize", "reverbSize", 0 ],
-            "obj-54::obj-33": [ "wetGain", "wetGain", 0 ],
-            "obj-54::obj-35": [ "bypass", "bypass", 0 ],
-            "obj-54::obj-4": [ "dryGain", "dryGain", 0 ],
-            "obj-54::obj-5": [ "width", "width", 0 ],
-            "obj-54::obj-7": [ "eqHighFreq", "eqHighFreq", 0 ],
-            "obj-54::obj-8": [ "smoothTime", "smoothTime", 0 ],
-            "obj-54::obj-9": [ "damping", "damping", 0 ],
-            "parameterbanks": {
-                "0": {
-                    "index": 0,
-                    "name": "",
-                    "parameters": [ "-", "-", "-", "-", "-", "-", "-", "-" ],
-                    "buttons": [ "-", "-", "-", "-", "-", "-", "-", "-" ]
-                }
-            },
-            "inherited_shortname": 1
-        },
-        "autosave": 0,
         "styles": [
             {
                 "name": "AudioStatus_Menu",

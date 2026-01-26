@@ -102,6 +102,7 @@ averageWrap(X, reset, interval=500, mode=0)	// interval in samples, mode 0=bipol
 }
 
 // this is raw, requires post smoothing (such as 'envAttackDecay()' or 'vactrol()')
+// @see: 'envFollSimple()' below
 envRawDetect(x, attack, release)	// clamp attack / release to 0..1
 {
     History state(0);
@@ -111,7 +112,8 @@ envRawDetect(x, attack, release)	// clamp attack / release to 0..1
 
     state += envdelta * envcoef;
 
-    return maximum(state, 0);		// do not need this maximum() ?
+//  return maximum(state, 0);		// do not need this maximum() ?
+	return state;
 }
 
 envSad(s)									// s = time to drop 6dB (in seconds)
@@ -186,4 +188,16 @@ vactrol(impulse, rise, fall)				// trigger, rise (samps), fall (samps)
 	return	  y;							// & scale externally
 }
 
+// quick, simple, cheap
+envFollSimple(X, attack, release)	// attack/release % 0..1
+{
+	History efsdummy(0);
+	att = maximum(attack, 0.001);
+	rel = maximum(release, 0.001);
+	up = mstosamps(att * 10);
+	down = mstosamps(rel * 100);
+	detect = envRawDetect(X, att, rel);
+	env = slide(detect, up, down);
+	return env;
+}
 
