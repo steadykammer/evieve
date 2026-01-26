@@ -1483,7 +1483,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "" ],
                                     "patching_rect": [ 664.0, 495.0, 99.0, 22.0 ],
-                                    "restore": [ -7.0 ],
+                                    "restore": [ -5.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_initial": [ -7.0 ],
@@ -1516,7 +1516,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "" ],
                                     "patching_rect": [ 523.0, 612.0, 125.0, 22.0 ],
-                                    "restore": [ 92.5 ],
+                                    "restore": [ 246.94 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_initial": [ 92.5 ],
@@ -1586,7 +1586,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "" ],
                                     "patching_rect": [ 335.0, 573.0, 111.0, 22.0 ],
-                                    "restore": [ -0.7 ],
+                                    "restore": [ -0.55 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_initial": [ -0.7 ],
@@ -1619,7 +1619,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "" ],
                                     "patching_rect": [ 288.0, 612.0, 143.0, 22.0 ],
-                                    "restore": [ 69.3 ],
+                                    "restore": [ 311.13 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_initial": [ 69.3 ],
@@ -1653,7 +1653,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "" ],
                                     "patching_rect": [ 429.0, 495.0, 116.0, 22.0 ],
-                                    "restore": [ -1.2 ],
+                                    "restore": [ -0.65 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_initial": [ -1.2 ],
@@ -1686,7 +1686,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "" ],
                                     "patching_rect": [ 382.0, 534.0, 147.0, 22.0 ],
-                                    "restore": [ 1108.7 ],
+                                    "restore": [ 622.26 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_initial": [ 1108.7 ],
@@ -1721,7 +1721,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "" ],
                                     "patching_rect": [ 714.0, 612.0, 74.0, 22.0 ],
-                                    "restore": [ 0.4 ],
+                                    "restore": [ 1.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_initial": [ 0.4 ],
@@ -1784,7 +1784,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "" ],
                                     "patching_rect": [ 771.0, 370.0, 113.0, 22.0 ],
-                                    "restore": [ 0.15 ],
+                                    "restore": [ 0.25 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_initial": [ 0.15 ],
@@ -1815,7 +1815,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "" ],
                                     "patching_rect": [ 711.0, 394.0, 116.0, 22.0 ],
-                                    "restore": [ 0.23 ],
+                                    "restore": [ 0.27 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_initial": [ 0.23 ],
@@ -1847,7 +1847,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "" ],
                                     "patching_rect": [ 831.0, 394.0, 85.0, 22.0 ],
-                                    "restore": [ 0.46 ],
+                                    "restore": [ 0.68 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_initial": [ 0.46 ],
@@ -1878,7 +1878,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "" ],
                                     "patching_rect": [ 651.0, 370.0, 92.0, 22.0 ],
-                                    "restore": [ 0.186 ],
+                                    "restore": [ 0.14 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_initial": [ 0.186 ],
@@ -1909,7 +1909,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "" ],
                                     "patching_rect": [ 591.0, 394.0, 68.0, 22.0 ],
-                                    "restore": [ 0.475 ],
+                                    "restore": [ 0.625 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_initial": [ 0.475 ],
@@ -1971,7 +1971,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "" ],
                                     "patching_rect": [ 471.0, 322.0, 109.0, 22.0 ],
-                                    "restore": [ -1.3 ],
+                                    "restore": [ -1.5 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_initial": [ -1.3 ],
@@ -2003,7 +2003,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "" ],
                                     "patching_rect": [ 411.0, 346.0, 79.0, 22.0 ],
-                                    "restore": [ 0.653 ],
+                                    "restore": [ 0.676 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_initial": [ 0.653 ],
@@ -2065,7 +2065,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "" ],
                                     "patching_rect": [ 291.0, 346.0, 116.0, 22.0 ],
-                                    "restore": [ 1.7 ],
+                                    "restore": [ 2.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_initial": [ 1.7 ],
@@ -2097,7 +2097,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "" ],
                                     "patching_rect": [ 231.0, 322.0, 85.0, 22.0 ],
-                                    "restore": [ 0.389 ],
+                                    "restore": [ 0.514 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_initial": [ 0.389 ],
@@ -5950,7 +5950,7 @@
                 "box": {
                     "comment": "dumpout (pattrstorage)",
                     "id": "obj-64",
-                    "index": 0,
+                    "index": 3,
                     "maxclass": "outlet",
                     "numinlets": 1,
                     "numoutlets": 0,
@@ -6063,7 +6063,7 @@
                 "box": {
                     "comment": "(signal) Audio Out Right",
                     "id": "obj-10",
-                    "index": 0,
+                    "index": 2,
                     "maxclass": "outlet",
                     "numinlets": 1,
                     "numoutlets": 0,
@@ -6074,7 +6074,7 @@
                 "box": {
                     "comment": "(signal) Audio Out Left",
                     "id": "obj-6",
-                    "index": 0,
+                    "index": 1,
                     "maxclass": "outlet",
                     "numinlets": 1,
                     "numoutlets": 0,
@@ -6085,11 +6085,11 @@
                 "box": {
                     "comment": "(signal) Audio In Right",
                     "id": "obj-5",
-                    "index": 0,
+                    "index": 2,
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
-                    "outlettype": [ "" ],
+                    "outlettype": [ "signal" ],
                     "patching_rect": [ 195.418335, 150.0, 30.0, 30.0 ]
                 }
             },
@@ -6119,11 +6119,11 @@
                 "box": {
                     "comment": "(signal) Audio In Left / (messages) [bypass mute pattrstorage factorypreset outputmode predelay pretime predelaytime presymmetry earlysize earlysymmetry earlydiffusion latesize latesymmetry latediffusion highdampfrequency highdampgain lowdampfrequency lowdampgain decay absorbtion modrate modfrequency moddepth modepth modamplitude earlylate higheqfrequency higheqgain loweqfrequency loweqgain drywet earlylatehysterisis smoothtime]",
                     "id": "obj-2",
-                    "index": 0,
+                    "index": 1,
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
-                    "outlettype": [ "" ],
+                    "outlettype": [ "signal" ],
                     "patching_rect": [ 34.418343, 150.0, 30.0, 30.0 ]
                 }
             },
@@ -7144,41 +7144,6 @@
                 }
             }
         ],
-        "parameters": {
-            "obj-120::obj-20": [ "preTime", "preTime", 0 ],
-            "obj-120::obj-21": [ "preSymmetry", "preSymmetry", 0 ],
-            "obj-120::obj-22": [ "earlySize", "earlySize", 0 ],
-            "obj-120::obj-41": [ "earlySymmetry", "earlySymmetry", 0 ],
-            "obj-120::obj-42": [ "earlyDiffusion", "earlyDiffusion", 0 ],
-            "obj-120::obj-43": [ "lateSize", "lateSize", 0 ],
-            "obj-120::obj-44": [ "lateSymmetry", "lateSymmetry", 0 ],
-            "obj-120::obj-45": [ "lateDiffusion", "lateDiffusion", 0 ],
-            "obj-120::obj-46": [ "decay", "decay", 0 ],
-            "obj-120::obj-48": [ "absorbtion", "absorbtion", 0 ],
-            "obj-120::obj-53": [ "earlyLate", "earlyLate", 0 ],
-            "obj-120::obj-54": [ "modFrequency", "modFrequency", 0 ],
-            "obj-120::obj-55": [ "modAmplitude", "modAmplitude", 0 ],
-            "obj-120::obj-59": [ "smoothTime", "smoothTime", 0 ],
-            "obj-120::obj-60": [ "dryWet", "dryWet", 0 ],
-            "obj-120::obj-61": [ "highDampFrequency", "highDampFrequency", 0 ],
-            "obj-120::obj-62": [ "highDampGain", "highDampGain", 0 ],
-            "obj-120::obj-63": [ "lowDampFrequency", "lowDampFrequency", 0 ],
-            "obj-120::obj-64": [ "lowDampGain", "lowDampGain", 0 ],
-            "obj-120::obj-65": [ "highEqFrequency", "highEqFrequency", 0 ],
-            "obj-120::obj-66": [ "lowEqFrequency", "lowEqFrequency", 0 ],
-            "obj-120::obj-67": [ "highEqGain", "highEqGain", 0 ],
-            "obj-120::obj-68": [ "lowEqGain", "lowEqGain", 0 ],
-            "parameterbanks": {
-                "0": {
-                    "index": 0,
-                    "name": "",
-                    "parameters": [ "-", "-", "-", "-", "-", "-", "-", "-" ],
-                    "buttons": [ "-", "-", "-", "-", "-", "-", "-", "-" ]
-                }
-            },
-            "inherited_shortname": 1
-        },
-        "autosave": 0,
         "styles": [
             {
                 "name": "AudioStatus_Menu",

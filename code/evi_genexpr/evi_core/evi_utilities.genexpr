@@ -89,7 +89,7 @@ xRange(x)
 // octaves to Q
 bandwidth2Q(bandwidth)
 {
-	x = expA(0.346573590279973 * bandwidth);					// exp(0.5 * log(2) * bandwidth)
+	x = expApprox(0.346573590279973 * bandwidth);			// exp(0.5 * log(2) * bandwidth)
 	return	1 / (x - 1 / x);
 }
 
@@ -100,16 +100,17 @@ Q2bandwidth(Q)
 	return	2 / LN2 * logApprox(x + sqrt(x2 + 1));		// 2 / log(2) * log(x + sqrt((x * x) + 1))
 }
 
-pitch2timeSamps(size, offset)			// pitch in, samples out
+pitch2timeSamps(size)			// pitch in, samples out
 {
-//	return (1 / (440 * exp(0.057762265046662105 * ((size + offset) - 69)))) * samplerate;
-	return (1 / exp((0.057762265046662105 * (size + offset)) + 2.10117843869262)) * samplerate;
+//	return (1 / (440 * exp(0.057762265046662105 * (size - 69)))) * samplerate;
+	return (1 / expApprox((0.057762265046662105 * size) + 2.10117843869262)) * samplerate;
 }
 
 // for modulation (late reflections)
-pitch2timeSecs(size, offset)			// pitch in, seconds out
+pitch2timeSecs(size)			// pitch in, seconds out
 {
-	return	1 / mtofApprox(size + offset);
+//	return	1 / mtofApprox(size);
+	return 	1 / mtofApproxAccurate0(size);	// same approx as 'pitch2timeSamps()'
 }
 
 /*
@@ -178,7 +179,7 @@ sin7(x1)	// 5 muls, 3 plus, terrible accuracy, for lfos etc only
 	return x5 * x1;
 }
 
-// cheap parabolic approx for LFOs etc
+// very cheap parabolic approx for LFOs etc
 parabolWrap(phase)
 {
 	x	= wrap(phase, -0.5, 0.5);

@@ -101,7 +101,8 @@ averageWrap(X, reset, interval=500, mode=0)	// interval in samples, mode 0=bipol
 */
 }
 
-envRawDetect(x, attack, release)  // clamp attack / release to 0..1
+// this is raw, requires post smoothing (such as 'envAttackDecay()' or 'vactrol()')
+envRawDetect(x, attack, release)	// clamp attack / release to 0..1
 {
     History state(0);
 
@@ -110,7 +111,7 @@ envRawDetect(x, attack, release)  // clamp attack / release to 0..1
 
     state += envdelta * envcoef;
 
-    return maximum(state, 0);
+    return maximum(state, 0);		// do not need this maximum() ?
 }
 
 envSad(s)									// s = time to drop 6dB (in seconds)
