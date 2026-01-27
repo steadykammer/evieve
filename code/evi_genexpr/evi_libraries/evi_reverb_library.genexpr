@@ -238,13 +238,12 @@ preDelayVar(x0, pdTime, pdRamp)
 	preDel.write( x0 );											// always write to delay lines
 	x1 			= x0;
 	if (precompute > 0) {	// manage cpu (only compute if is delayed)
-		mixa 	= x0;
-		mixb	= x0;
 		delayramp, delA, delB	= calcDelays(pdTime, pdRamp);	// delayramp = exact (only compute required)
 		pDelA	= delA - 1;
 		pDelB	= delB - 1;
 
 		if				((delayramp > 0) && (delayramp < 1)) {	// ...is ramping
+			mixa, mixb	= x0;
 			if (pDelA > 0) {
 				mixa	= preDel.read(pDelA, 0, interp="fastcubic");
 			}
@@ -253,11 +252,13 @@ preDelayVar(x0, pdTime, pdRamp)
 			}
 			x1			= xfadeQuartApproxMono(mixa, mixb, delayramp);
 		} else if		(delayramp == 1) {
+			mixb = x0;
 			if (pDelB > 0) {
 				mixb	= preDel.read(pDelB, 1, interp="fastcubic");
 			}
 			x1			= mixb;
 		} else {	//	(delayramp == 0)
+			mixa = x0;
 			if (pDelA > 0) {
 				mixa	= preDel.read(pDelA, 0, interp="fastcubic");
 			}
@@ -265,13 +266,13 @@ preDelayVar(x0, pdTime, pdRamp)
 		}
 
 		x1	= interp(precompute, x0, x1, mode="cosine");
-	}						// (precompute == 0) manage cpu (only compute if is delayed)
+	}
 
 	return	x1;
 }
-/*
-// less expensive but not as lovely
-preDelayVar(x0, pdTime0, pdWindow)	// pdWindow == Hz
+
+// less expensive than 'preDelayVar()' but not as lovely
+preDelayWindow(x0, pdTime0, pdWindow)	// pdWindow == Hz
 {
 	History	pdvdummy(0);
 	Delay	preDelay(27456, 2, feedback=0);
@@ -292,7 +293,6 @@ preDelayVar(x0, pdTime0, pdWindow)	// pdWindow == Hz
 
 	return	(pdmix1 * gater1) + (pdmix2 * gater2);
 }
-*/
 
 // the following zero hold delays are very expensive
 // & we cannot dynamically allocate delay memory here as in global code
@@ -304,41 +304,35 @@ delayReadZero1(x0, dTime, dRamp)
 	History	pdv1sdummy(0);
 	Delay	zeroDel2(24577,	2,	feedback=0);
 
-//	preflag		= dTime > 0;							// manage cpu (1 is 1, 0 is delayed by ramptime)
-//	precompute, pcn	= eviLine(preflag, dRamp);
-
 	zeroDel2.write(x0);									// always write to delay line
-	x1 			= x0;
-//	if (precompute > 0) {	// manage cpu (only compute if is delayed)
-		mixa 	= x0;
-		mixb	= x0;
-		// delayramp = exact (only compute required)
-		delayramp, delA, delB	= calcDelays(dTime, dRamp);
-		pDelA	= delA - 1;
-		pDelB	= delB - 1;
+	x1 		= x0;
+	// delayramp = exact (only compute required)
+	delayramp, delA, delB	= calcDelays(dTime, dRamp);
+	pDelA	= delA - 1;
+	pDelB	= delB - 1;
 
-		if				((delayramp > 0) && (delayramp < 1)) {	// ...is ramping
-			if (pDelA > 0) {
-				mixa	= zeroDel2.read(pDelA, interp="fastcubic");
-			}
-			if (pDelB > 0) {
-				mixb	= zeroDel2.read(pDelB, interp="fastcubic");
-			}
-			x1			= xfadeQuartApproxMono(mixa, mixb, delayramp);
-		} else if		(delayramp == 1) {
-			if (pDelB > 0) {
-				mixb	= zeroDel2.read(pDelB, interp="fastcubic");
-			}
-			x1			= mixb;
-		} else {	//	(delayramp == 0)
-			if (pDelA > 0) {
-				mixa	= zeroDel2.read(pDelA, interp="fastcubic");
-			}
-			x1			= mixa;
+	if				((delayramp > 0) && (delayramp < 1)) {	// ...is ramping
+		mixa, mixb	= x0;
+		if (pDelA > 0) {
+			mixa	= zeroDel2.read(pDelA, interp="fastcubic");
 		}
-
-//		x1	= interp(precompute, x0, x1, mode="cosine");
-//	}						// (precompute == 0) manage cpu (only compute if is delayed)
+		if (pDelB > 0) {
+			mixb	= zeroDel2.read(pDelB, interp="fastcubic");
+		}
+		x1			= xfadeQuartApproxMono(mixa, mixb, delayramp);
+	} else if		(delayramp == 1) {
+		mixb = x0;
+		if (pDelB > 0) {
+			mixb	= zeroDel2.read(pDelB, interp="fastcubic");
+		}
+		x1			= mixb;
+	} else {	//	(delayramp == 0)
+		mixa = x0;
+		if (pDelA > 0) {
+			mixa	= zeroDel2.read(pDelA, interp="fastcubic");
+		}
+		x1			= mixa;
+	}
 
 	return	x1;
 }
@@ -351,14 +345,13 @@ delayReadZero1mod(x0, dTime, dRamp, mDepth)
 	zeroDelm.write(x0);
 	x1 		 = x0;
 	mod		 = noiseMod(mDepth);	// mDepth in seconds	// (-0.037524 / -0.031373)
-	mixa 	 = x0;
-	mixb	 = x0;
 	delayramp, delA, delB	= calcDelays(dTime, dRamp);		// delayramp = exact (only compute required)
 	pDelA	 = delA - 1;
 	pDelB	 = delB - 1;
 	pDelN	 =  mod * samplerate;							// pDelN adder in samples
 
 	if				((delayramp > 0) && (delayramp < 1)) {	// ...is ramping
+		mixa, mixb	= x0;
 		if (pDelA > 0) {
 			mixa	= zeroDelm.read((pDelA + pDelN), interp="cubic");// should [fold] all (... + pDelN) ?
 		}
@@ -367,11 +360,13 @@ delayReadZero1mod(x0, dTime, dRamp, mDepth)
 		}
 		x1			= xfadeQuartApproxMono(mixa, mixb, delayramp);
 	} else if		(delayramp == 1) {
+		mixb = x0;
 		if (pDelB > 0) {
 			mixb	= zeroDelm.read((pDelB + pDelN), interp="cubic");
 		}
 		x1			= mixb;
 	} else {	//	(delayramp == 0)
+		mixa = x0;
 		if (pDelA > 0) {
 			mixa	= zeroDelm.read((pDelA + pDelN), interp="cubic");
 		}
@@ -386,69 +381,62 @@ delayReadZero2(x0, dTime1, dTime2, dRamp)// this is stupid
 	History	pdv2dummy(0);
 	Delay	zeroDel4(49153,	4,	feedback=0);
 
-//	dTime0		= dTime1 + dTime2;
-//	preflag		= dTime0 > 0;							// manage cpu (1 is 1, 0 is delayed by ramptime)
-//	precompute, pcn	= eviLine(preflag, dRamp);
-
 	zeroDel4.write(x0);									// always write to delay line
-	x1 			= x0;
-	x2			= x0;
-//	if (precompute > 0) {	// manage cpu (only compute if is delayed)
-		mixa 	= x0;
-		mixb	= x0;
-		mixc 	= x0;
-		mixd	= x0;
-		// delayramp* = exact (only compute required)
-		delayramp1, delA, delB	= calcDelays(dTime1, dRamp);
-		delayramp2, delC, delD	= calcDelays(dTime2, dRamp);
-		pDelA	= delA - 1;
-		pDelB	= delB - 1;
-		pDelC	= delC - 1;
-		pDelD	= delD - 1;
+	x1 		= x0;
+	x2		= x0;
+	// delayramp* = exact (only compute required)
+	delayramp1, delA, delB	= calcDelays(dTime1, dRamp);
+	delayramp2, delC, delD	= calcDelays(dTime2, dRamp);
+	pDelA	= delA - 1;
+	pDelB	= delB - 1;
+	pDelC	= delC - 1;
+	pDelD	= delD - 1;
 
-		if				((delayramp1 > 0) && (delayramp1 < 1)) {	// ...is ramping
-			if (pDelA > 0) {
-				mixa	= zeroDel4.read(pDelA, interp="fastcubic");
-			}
-			if (pDelB > 0) {
-				mixb	= zeroDel4.read(pDelB, interp="fastcubic");
-			}
-			x1			= xfadeQuartApproxMono(mixa, mixb, delayramp1);
-		} else if		(delayramp1 == 1) {
-			if (pDelB > 0) {
-				mixb	= zeroDel4.read(pDelB, interp="fastcubic");
-			}
-			x1			= mixb;
-		} else {	//	(delayramp1 == 0)
-			if (pDelA > 0) {
-				mixa	= zeroDel4.read(pDelA, interp="fastcubic");
-			}
-			x1			= mixa;
+	if				((delayramp1 > 0) && (delayramp1 < 1)) {	// ...is ramping
+		mixa, mixb	= x0;
+		if (pDelA > 0) {
+			mixa	= zeroDel4.read(pDelA, interp="fastcubic");
 		}
-
-		if				((delayramp2 > 0) && (delayramp2 < 1)) {	// ...is ramping
-			if (pDelC > 0) {
-				mixc	= zeroDel4.read(pDelC, interp="fastcubic");
-			}
-			if (pDelD > 0) {
-				mixd	= zeroDel4.read(pDelD, interp="fastcubic");
-			}
-			x2			= xfadeQuartApproxMono(mixc, mixd, delayramp2);
-		} else if		(delayramp2 == 1) {
-			if (pDelD > 0) {
-				mixd	= zeroDel4.read(pDelD, interp="fastcubic");
-			}
-			x2			= mixd;
-		} else {	//	(delayramp2 == 0)
-			if (pDelC > 0) {
-				mixc	= zeroDel4.read(pDelC, interp="fastcubic");
-			}
-			x2			= mixc;
+		if (pDelB > 0) {
+			mixb	= zeroDel4.read(pDelB, interp="fastcubic");
 		}
+		x1			= xfadeQuartApproxMono(mixa, mixb, delayramp1);
+	} else if		(delayramp1 == 1) {
+		mixb = x0;
+		if (pDelB > 0) {
+			mixb	= zeroDel4.read(pDelB, interp="fastcubic");
+		}
+		x1			= mixb;
+	} else {	//	(delayramp1 == 0)
+		mixa = x0;
+		if (pDelA > 0) {
+			mixa	= zeroDel4.read(pDelA, interp="fastcubic");
+		}
+		x1			= mixa;
+	}
 
-//		x1	= interp(precompute, x0, x1, mode="cosine");
-//		x2	= interp(precompute, x0, x2, mode="cosine");
-//	}						// (precompute == 0) manage cpu (only compute if is delayed)
+	if				((delayramp2 > 0) && (delayramp2 < 1)) {	// ...is ramping
+		mixc, mixd	= x0;
+		if (pDelC > 0) {
+			mixc	= zeroDel4.read(pDelC, interp="fastcubic");
+		}
+		if (pDelD > 0) {
+			mixd	= zeroDel4.read(pDelD, interp="fastcubic");
+		}
+		x2			= xfadeQuartApproxMono(mixc, mixd, delayramp2);
+	} else if		(delayramp2 == 1) {
+		mixd = x0;
+		if (pDelD > 0) {
+			mixd	= zeroDel4.read(pDelD, interp="fastcubic");
+		}
+		x2			= mixd;
+	} else {	//	(delayramp2 == 0)
+		mixc = x0;
+		if (pDelC > 0) {
+			mixc	= zeroDel4.read(pDelC, interp="fastcubic");
+		}
+		x2			= mixc;
+	}
 
 	return	x1, x2;
 }
