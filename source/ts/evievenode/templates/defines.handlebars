@@ -1,0 +1,6 @@
+{{#each gendsp}}
+max define {{@key.define.msp}} gen~ @gen {{@key}};
+{{#if @key.define.mcwrapper}}
+max define mc.{{@key.define.msp}} mc.gen~ @gen {{@key}} @chans 2;
+{{/if}}
+{{/each}}

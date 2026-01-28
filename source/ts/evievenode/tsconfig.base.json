@@ -1,0 +1,21 @@
+// see https://www.typescriptlang.org/tsconfig to better understand tsconfigs
+{
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "compilerOptions": {
+        /* unknown what to do */
+        "incremental": false,
+        "composite": false,
+
+        /* Modules */
+        "resolveJsonModule": true,
+        "sourceMap": true,
+
+        /* Language and Environment */
+        "checkJs": true,
+        "allowJs": true,
+
+        /* Type Checking */
+        "strict": true,
+        "verbatimModuleSyntax": false
+    }
+}

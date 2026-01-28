@@ -3,12 +3,16 @@ inlets = 1;
 outlets = 1;
 
 var reverb = "none";
+var modifier = "none";
 if (jsarguments.length > 1)
 {
     if (jsarguments[1] === "freezeverb" || jsarguments[1] === "sustainverb" || jsarguments[1] === "sustainverblite" || jsarguments[1] === "zitaverb") {
         reverb = jsarguments[1];
     } else {
         reverb = "badname";
+    }
+    if (jsarguments.length > 2) {
+        modifier = jsarguments[2];
     }
 }
 
@@ -271,13 +275,16 @@ function sustainverb_init()
 {
 	var i = 0;
 
-	make_early(this_samplerate);
-	make_fdn(this_samplerate);
+    if (modifier == "none") {
+        make_early(this_samplerate);
 
-	for (i = 1; i <= early_seconds.length; ++i)
-	{
-		outlet(0, "earlyTime"+i.toString(),  early_samples[i-1]);
-	}
+        for (i = 1; i <= early_seconds.length; ++i)
+        {
+            outlet(0, "earlyTime"+i.toString(),  early_samples[i-1]);
+        }
+    }
+
+	make_fdn(this_samplerate);
 
 	for (i = 1; i <= fdn_seconds.length; ++i)
 	{

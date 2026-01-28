@@ -1,0 +1,79 @@
+{
+    "gendsp": {
+        "evi_overdrive_atan.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.overdrive.atan~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "areas": [ "overdrive" ]
+            }
+        },
+        "evi_moogsnake.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.ladder.antti~",
+                "mcwrapper": false
+            },
+            "ref": {
+                "gen": false,
+                "msp": false
+            },
+            "help": {
+                "msp": false,
+                "areas": [ "ladder" ]
+            }
+        },
+        "evi_svf.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.svf~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "areas": [ "substitution" ]
+            }
+        },
+        "evi_filter_lowpass.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.filter.lowpass~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "areas": [ "filter" ]
+            }
+        },
+        "evi_biquad_filter.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.biquad.filter~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "areas": [ "biquad" ]
+            }
+        }
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "evi.adsr~": {
+        "digest": "",
+        "description": "",
+        "module": "evieve",
+        "category": ["evieve"],
+        "seealso": []
+    },
+    "evi.hilbert~": {
+        "digest": "",
+        "description": "",
+        "module": "evieve",
+        "category": ["evieve"],
+        "seealso": []
+    }
+}

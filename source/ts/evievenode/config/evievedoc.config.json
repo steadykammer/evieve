@@ -1,0 +1,33 @@
+{
+    "xml": {
+        "externals": [],
+        "abstractions": [],
+        "defines": []
+    },
+    "qlookup":{
+        "externals": [],
+        "abstractions": [],
+        "defines": []
+    },
+    "helpfiles": {
+        "externals": [],
+        "abstractions": [],
+        "defines": []
+    },
+    "objectmappings": {
+        "aliases": [],
+        "substitutions": [],
+        "defines": []
+    },
+    "objectlisting": {
+        "listing": [],
+        "mcwrapper": []
+    },
+    "gen": {
+        "xml": []
+    },
+    "maxdb": {
+        "browser": [],
+        "autocomplete": []
+    }
+}
