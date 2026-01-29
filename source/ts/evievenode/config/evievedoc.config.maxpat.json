@@ -1,3 +1,52 @@
 {
-   
+    "evi.freqshift.hilbert~.maxpat": {
+        "object": true,
+        "ref": true,
+        "qlookup": true,
+        "helpfile": {
+            "generate": true,
+            "mctab": false,
+            "mcstab": false,
+            "mcparent": "",
+            "mcchild": "",
+            "areas": []
+        },
+        "browser": true,
+        "auto": true
+    },
+    "evi.algoverb~.maxpat": {
+        "object": true,
+        "ref": true,
+        "qlookup": true,
+        "helpfile": {
+            "generate": true,
+            "mctab": false,
+            "mcstab": true,
+            "mcparent": "parent",
+            "mcchild": "mcs.evi.algoverb~.maxpat",
+            "areas": [ "reverb" ]
+        },
+        "browser": true,
+        "auto": true
+    },
+    "mcs.evi.algoverb~.maxpat": {
+        "object": true,
+        "ref": false,
+        "qlookup": false,
+        "helpfile": {
+            "generate": false,
+            "mctab": false,
+            "mcstab": false,
+            "mcparent": "evi.algoverb~.maxpat",
+            "mcchild": "child",
+            "areas": [ "reverb" ]
+        },
+        "browser": true,
+        "auto": true
+    },
+    "evi.pz.maxpat": {
+        "object": false,
+        "browser": false,
+        "auto": false
+    }
 }

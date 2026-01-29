@@ -18,7 +18,7 @@
     "evieve"
   ],
   "author": "evieve",
-  "license": "ISC",
+  "license": "GPL v2",
   "devDependencies": {
     "@types/maxmsp": "^1.0.15",
     "esbuild": "^0.25.8",

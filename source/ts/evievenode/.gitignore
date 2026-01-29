@@ -1,6 +1,7 @@
 node_modules
 dist
 types
+*.js.map
 
 .node-version
 .npmrc
