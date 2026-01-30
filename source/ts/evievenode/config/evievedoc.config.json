@@ -1,33 +1,33 @@
 {
-    "xml": {
-        "externals": [],
-        "abstractions": [],
-        "defines": []
+    "referenceFiles": {
+        "externals": {
+            "input": "../../../../externals",
+            "output": ""
+        },
+        "genExpr": {
+            "input": "../../../../code/evi_genexpr",
+            "output": ""
+        },
+        "genDsp": {
+            "input": "../../../../code/evi_gendsp",
+            "output": ""
+        },
+        "defines": {
+            "input": "",
+            "output": ""
+        },
+        "abstractions": {
+            "input": "../../../../patchers",
+            "output": ""
+        }
     },
-    "qlookup":{
-        "externals": [],
-        "abstractions": [],
-        "defines": []
+    "helpFiles": {
+
     },
-    "helpfiles": {
-        "externals": [],
-        "abstractions": [],
-        "defines": []
+    "initFiles": {
+
     },
-    "objectmappings": {
-        "aliases": [],
-        "substitutions": [],
-        "defines": []
-    },
-    "objectlisting": {
-        "listing": [],
-        "mcwrapper": []
-    },
-    "gen": {
-        "xml": []
-    },
-    "maxdb": {
-        "browser": [],
-        "autocomplete": []
+    "interfaceFiles": {
+
     }
 }

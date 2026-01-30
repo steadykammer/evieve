@@ -2,7 +2,7 @@
   "name": "evievenode",
   "version": "0.0.1",
   "description": "evieve nodejs typescripts",
-  "type": "module",
+  "type": "commonjs",
   "main": "",
   "scripts": {
     "build": "tsc",

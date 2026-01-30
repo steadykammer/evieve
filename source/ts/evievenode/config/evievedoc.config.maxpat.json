@@ -1,52 +1,990 @@
 {
-    "evi.freqshift.hilbert~.maxpat": {
-        "object": true,
-        "ref": true,
-        "qlookup": true,
-        "helpfile": {
-            "generate": true,
-            "mctab": false,
-            "mcstab": false,
-            "mcparent": "",
-            "mcchild": "",
-            "areas": []
+    "evi_abstractions": {
+        "_dummy": {
+            "object": true,
+            "ref": true,
+            "qlookup": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "browser": true,
+            "auto": true
         },
-        "browser": true,
-        "auto": true
-    },
-    "evi.algoverb~.maxpat": {
-        "object": true,
-        "ref": true,
-        "qlookup": true,
-        "helpfile": {
-            "generate": true,
-            "mctab": false,
-            "mcstab": true,
-            "mcparent": "parent",
-            "mcchild": "mcs.evi.algoverb~.maxpat",
-            "areas": [ "reverb" ]
+        "evi.freqshift.hilbert~.maxpat": {
+            "object": true,
+            "ref": true,
+            "qlookup": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "browser": true,
+            "auto": true
         },
-        "browser": true,
-        "auto": true
-    },
-    "mcs.evi.algoverb~.maxpat": {
-        "object": true,
-        "ref": false,
-        "qlookup": false,
-        "helpfile": {
-            "generate": false,
-            "mctab": false,
-            "mcstab": false,
-            "mcparent": "evi.algoverb~.maxpat",
-            "mcchild": "child",
-            "areas": [ "reverb" ]
+        "evi.ringmod.diode.core~.maxpat": {
+            "object": true,
+            "ref": true,
+            "qlookup": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "browser": true,
+            "auto": true
         },
-        "browser": true,
-        "auto": true
-    },
-    "evi.pz.maxpat": {
-        "object": false,
-        "browser": false,
-        "auto": false
+        "evi.ringmod.diode~.maxpat": {
+            "object": true,
+            "ref": true,
+            "qlookup": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "browser": true,
+            "auto": true
+        },
+        "evi.sustainfdn.core~.maxpat": {
+            "object": true,
+            "ref": true,
+            "qlookup": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "browser": true,
+            "auto": true
+        },
+        "evi.biquadcoeff.maxpat": {
+            "object": true,
+            "ref": true,
+            "qlookup": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "browser": true,
+            "auto": true
+        },
+        "evi.dfm~.maxpat": {
+            "object": true,
+            "ref": true,
+            "qlookup": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "browser": true,
+            "auto": true
+        },
+        "evi.hilbert~.maxpat": {
+            "object": true,
+            "ref": true,
+            "qlookup": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "browser": true,
+            "auto": true
+        },
+        "evi.lpg.core~.maxpat": {
+            "object": true,
+            "ref": true,
+            "qlookup": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "browser": true,
+            "auto": true
+        },
+        "evi.lpg~.maxpat": {
+            "object": true,
+            "ref": true,
+            "qlookup": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "browser": true,
+            "auto": true
+        },
+        "mc.evi.bands~.maxpat": {
+            "object": true,
+            "ref": true,
+            "qlookup": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "browser": true,
+            "auto": true
+        },
+        "evi.clipasym~.maxpat": {
+            "object": true,
+            "ref": true,
+            "qlookup": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "browser": true,
+            "auto": true
+        },
+        "evi.sinfold~.maxpat": {
+            "object": true,
+            "ref": true,
+            "qlookup": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "browser": true,
+            "auto": true
+        },
+        "evi.warmer~.maxpat": {
+            "object": true,
+            "ref": true,
+            "qlookup": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "browser": true,
+            "auto": true
+        },
+        "mc.evi.clipasym~.maxpat": {
+            "object": true,
+            "ref": true,
+            "qlookup": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "browser": true,
+            "auto": true
+        },
+        "mc.evi.sinfold~.maxpat": {
+            "object": true,
+            "ref": true,
+            "qlookup": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "browser": true,
+            "auto": true
+        },
+        "mc.evi.warmer~.maxpat": {
+            "object": true,
+            "ref": true,
+            "qlookup": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "browser": true,
+            "auto": true
+        },
+        "evi.adsr~.maxpat": {
+            "object": true,
+            "ref": true,
+            "qlookup": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "browser": true,
+            "auto": true
+        },
+        "evi.atodb.maxpat": {
+            "object": true,
+            "ref": true,
+            "qlookup": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "browser": true,
+            "auto": true
+        },
+        "evi.dbtoa.maxpat": {
+            "object": true,
+            "ref": true,
+            "qlookup": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "browser": true,
+            "auto": true
+        },
+        "evi.dcblock~.maxpat": {
+            "object": true,
+            "ref": true,
+            "qlookup": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "browser": true,
+            "auto": true
+        },
+        "evi.enable.maxpat": {
+            "object": true,
+            "ref": true,
+            "qlookup": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "browser": true,
+            "auto": true
+        },
+        "evi.list.interp.maxpat": {
+            "object": true,
+            "ref": true,
+            "qlookup": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "browser": true,
+            "auto": true
+        },
+        "evi.list.xfade.maxpat": {
+            "object": true,
+            "ref": true,
+            "qlookup": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "browser": true,
+            "auto": true
+        },
+        "evi.notes2ints.maxpat": {
+            "object": true,
+            "ref": true,
+            "qlookup": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "browser": true,
+            "auto": true
+        },
+        "evi.pitchdetect~.maxpat": {
+            "object": true,
+            "ref": true,
+            "qlookup": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "browser": true,
+            "auto": true
+        },
+        "evi.polyphaseiirhilbertcoeffs.maxpat": {
+            "object": true,
+            "ref": true,
+            "qlookup": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "browser": true,
+            "auto": true
+        },
+        "evi.pz.maxpat": {
+            "object": true,
+            "ref": true,
+            "qlookup": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "browser": true,
+            "auto": true
+        },
+        "evi.recursivefolder.maxpat": {
+            "object": true,
+            "ref": true,
+            "qlookup": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "browser": true,
+            "auto": true
+        },
+        "evi.tpqm.maxpat": {
+            "object": true,
+            "ref": true,
+            "qlookup": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "browser": true,
+            "auto": true
+        },
+        "evi.transratio.maxpat": {
+            "object": true,
+            "ref": true,
+            "qlookup": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "browser": true,
+            "auto": true
+        },
+        "evi.typeroute.maxpat": {
+            "object": true,
+            "ref": true,
+            "qlookup": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "browser": true,
+            "auto": true
+        },
+        "evi.voiceexclude.maxpat": {
+            "object": true,
+            "ref": true,
+            "qlookup": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "browser": true,
+            "auto": true
+        },
+        "evi.weightingcoeffs.maxpat": {
+            "object": true,
+            "ref": true,
+            "qlookup": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "browser": true,
+            "auto": true
+        },
+        "mc.evi.dcblock~.maxpat": {
+            "object": true,
+            "ref": true,
+            "qlookup": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "browser": true,
+            "auto": true
+        },
+        "mc.evi.listgen.maxpat": {
+            "object": true,
+            "ref": true,
+            "qlookup": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "browser": true,
+            "auto": true
+        },
+        "mc.evi.nth~.maxpat": {
+            "object": true,
+            "ref": true,
+            "qlookup": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "browser": true,
+            "auto": true
+        },
+        "evi.algoverb.factorypresetsmenu.maxpat": {
+            "object": true,
+            "ref": true,
+            "qlookup": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "browser": true,
+            "auto": true
+        },
+        "evi.algoverb~.maxpat": {
+            "object": true,
+            "ref": true,
+            "qlookup": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "browser": true,
+            "auto": true
+        },
+        "mcs.evi.algoverb~.maxpat": {
+            "object": true,
+            "ref": true,
+            "qlookup": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "browser": true,
+            "auto": true
+        },
+        "evi.backverb~.maxpat": {
+            "object": true,
+            "ref": true,
+            "qlookup": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "browser": true,
+            "auto": true
+        },
+        "mcs.evi.backverb~.maxpat": {
+            "object": true,
+            "ref": true,
+            "qlookup": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "browser": true,
+            "auto": true
+        },
+        "evi.freezeverb~.maxpat": {
+            "object": true,
+            "ref": true,
+            "qlookup": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "browser": true,
+            "auto": true
+        },
+        "mcs.evi.freezeverb~.maxpat": {
+            "object": true,
+            "ref": true,
+            "qlookup": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "browser": true,
+            "auto": true
+        },
+        "evi.gigaverb~.maxpat": {
+            "object": true,
+            "ref": true,
+            "qlookup": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "browser": true,
+            "auto": true
+        },
+        "mcs.evi.gigaverb~.maxpat": {
+            "object": true,
+            "ref": true,
+            "qlookup": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "browser": true,
+            "auto": true
+        },
+        "evi.mattaverb~.maxpat": {
+            "object": true,
+            "ref": true,
+            "qlookup": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "browser": true,
+            "auto": true
+        },
+        "mcs.evi.mattaverb~.maxpat": {
+            "object": true,
+            "ref": true,
+            "qlookup": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "browser": true,
+            "auto": true
+        },
+        "evi.sustainverb_lite~.maxpat": {
+            "object": true,
+            "ref": true,
+            "qlookup": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "browser": true,
+            "auto": true
+        },
+        "evi.sustainverb~.maxpat": {
+            "object": true,
+            "ref": true,
+            "qlookup": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "browser": true,
+            "auto": true
+        },
+        "mcs.evi.sustainverb_lite~.maxpat": {
+            "object": true,
+            "ref": true,
+            "qlookup": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "browser": true,
+            "auto": true
+        },
+        "mcs.evi.sustainverb~.maxpat": {
+            "object": true,
+            "ref": true,
+            "qlookup": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "browser": true,
+            "auto": true
+        },
+        "evi.plateverb_lite~.maxpat": {
+            "object": true,
+            "ref": true,
+            "qlookup": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "browser": true,
+            "auto": true
+        },
+        "evi.plateverb~.maxpat": {
+            "object": true,
+            "ref": true,
+            "qlookup": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "browser": true,
+            "auto": true
+        },
+        "mcs.evi.plateverb_lite~.maxpat": {
+            "object": true,
+            "ref": true,
+            "qlookup": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "browser": true,
+            "auto": true
+        },
+        "mcs.evi.plateverb~.maxpat": {
+            "object": true,
+            "ref": true,
+            "qlookup": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "browser": true,
+            "auto": true
+        },
+        "evi.zitaverb~.maxpat": {
+            "object": true,
+            "ref": true,
+            "qlookup": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "browser": true,
+            "auto": true
+        },
+        "mcs.evi.zitaverb~.maxpat": {
+            "object": true,
+            "ref": true,
+            "qlookup": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "browser": true,
+            "auto": true
+        }
     }
 }

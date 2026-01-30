@@ -1,97 +1,3942 @@
 {
-    "evi_overdrive_atan.gendsp": {
-        "define": {
-            "object": true,
-            "msp": "evi.overdrive.atan~",
-            "mcwrapper": true
+    "evi_gendsp": {
+        "_dummy": {
+            "define": {
+                "object": true,
+                "msp": "",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
         },
-        "ref": {
-            "gen": true,
-            "msp": true
+        "evi_4wave.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.4wave~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
         },
-        "help": {
-            "msp": true,
-            "areas": [ "overdrive" ]
+        "evi_algoverb.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.algoverb~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
         },
-        "db": {
-            "browser": true,
-            "auto": true
-        }
-    },
-    "evi_moogsnake.gendsp": {
-        "define": {
-            "object": true,
-            "msp": "evi.ladder.antti~",
-            "mcwrapper": false
+        "evi_allpass.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.allpass~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
         },
-        "ref": {
-            "gen": false,
-            "msp": false
+        "evi_arpnotch.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.arpnotch~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
         },
-        "help": {
-            "msp": false,
-            "areas": [ "ladder" ]
+        "evi_audiodust.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.audiodust~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
         },
-        "db": {
-            "browser": false,
-            "auto": false
-        }
-    },
-    "evi_svf.gendsp": {
-        "define": {
-            "object": true,
-            "msp": "evi.svf~",
-            "mcwrapper": true
+        "evi_band_reson.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.band.reson~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
         },
-        "ref": {
-            "gen": true,
-            "msp": true
+        "evi_bands_calculate_bandwidth.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.bands.calculate.bandwidth~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
         },
-        "help": {
-            "msp": true,
-            "areas": [ "msp" ]
+        "evi_baxandall.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.baxandall~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
         },
-        "db": {
-            "browser": true,
-            "auto": true
-        }
-    },
-    "evi_filter_lowpass.gendsp": {
-        "define": {
-            "object": true,
-            "msp": "evi.filter.lowpass~",
-            "mcwrapper": true
+        "evi_biquad_allpass.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.biquad.allpass~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
         },
-        "ref": {
-            "gen": true,
-            "msp": true
+        "evi_biquad_analog.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.biquad.analog~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
         },
-        "help": {
-            "msp": true,
-            "areas": [ "filter" ]
+        "evi_biquad_bandpass.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.biquad.bandpass~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
         },
-        "db": {
-            "browser": true,
-            "auto": true
-        }
-    },
-    "evi_biquad_filter.gendsp": {
-        "define": {
-            "object": true,
-            "msp": "evi.biquad.filter~",
-            "mcwrapper": true
+        "evi_biquad_butterworth.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.biquad.butterworth~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
         },
-        "ref": {
-            "gen": true,
-            "msp": true
+        "evi_biquad_coeff.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.biquad.coeff~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
         },
-        "help": {
-            "msp": true,
-            "areas": [ "biquad" ]
+        "evi_biquad_eqfilter.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.biquad.eqfilter~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
         },
-        "db": {
-            "browser": true,
-            "auto": true
+        "evi_biquad_filter.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.biquad.filter~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_biquad_highpass.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.biquad.highpass~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_biquad_highshelf.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.biquad.highshelf~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_biquad_lowpass.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.biquad.lowpass~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_biquad_lowshelf.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.biquad.lowshelf~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_biquad_notch.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.biquad.notch~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_biquad_peaknotch.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.biquad.peaknotch~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_biquad_resonant.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.biquad.resonant~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_biquad_type.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.biquad.type~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_biquad.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.biquad~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_biquadcoeff_notilde.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.biquadcoeff.notilde~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_blitwaves.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.blitwaves~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_bp_butterworth.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.bp.butterworth~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_bp.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.bp~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_butterworth8.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.butterworth8~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_cfsmooth.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.cfsmooth~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_classic_osc.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.classic.osc~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_clip_hardsoft.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.clip.hardsoft~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_clipasym.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.clipasym~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_comb.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.comb~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_control_lpg_buchla.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.control.lpg.buchla~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_controlcircuit_buchla.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.controlcircuit.buchla~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_cross.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.cross~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_crossover_3band.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.crossover.3band~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_crossover_allpass.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.crossover.allpass~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_crossover_sum.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.crossover.sum~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_crossover.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.crossover~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_curve.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.curve~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_DAHDSHR.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.DAHDSHR~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_damp_coeffs.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.damp.coeffs~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_damp_macro.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.damp.macro~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_damp.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.damp~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_dfm.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.dfm~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_eq3_stereo.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.eq3.stereo~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_eq3.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.eq3~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_eq5.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.eq5~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_eq8.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.eq8~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_expsmooth.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.expsmooth~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_filter_allpass.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.filter.allpass~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_filter_bandpass.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.filter.bandpass~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_filter_bell.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.filter.bell~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_filter_eq.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.filter.eq~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_filter_highpass.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.filter.highpass~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_filter_highshelf.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.filter.highshelf~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_filter_lowpass.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.filter.lowpass~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_filter_lowshelf.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.filter.lowshelf~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_filter_morph.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.filter.morph~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_filter_notch.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.filter.notch~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_filter_peak.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.filter.peak~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_filter_resonant.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.filter.resonant~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_filter_shelving.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.filter.shelving~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_filter_tilt.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.filter.tilt~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_filter.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.filter~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_formant_morph.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.formant.morph~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_formant_osc.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.formant.osc~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_formant.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.formant~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_formlet.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.formlet~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_freezeverb.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.freezeverb~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_freezeverbtrigger.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.freezeverbtrigger~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_freqshift_hilbert.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.freqshift.hilbert~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_freqshift_weaver.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.freqshift.weaver~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_gaussiannoise.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.gaussiannoise~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_gigaverb.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.gigaverb~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_hardclip.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.hardclip~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_hilbert.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.hilbert~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_hzpitchmodmods.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.hzpitchmodmods~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_hzpitchmods.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.hzpitchmods~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_korgms10.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.korgms10~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_korgms20_select.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.korgms20.select~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_korgms20.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.korgms20~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_ladder_diode.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.ladder.diode~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_ladder_moog.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.ladder.moog~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_ladder_poles.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.ladder.poles~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_ladder_transistor.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.ladder.transistor~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_lagsmooth.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.lagsmooth~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_limiterfast.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.limiterfast~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_line.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.line~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_lockhart_cascade.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.lockhart.cascade~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_lockhart_simple.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.lockhart.simple~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_log201.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.log201~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_log2sqrt01.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.log2sqrt01~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_logahr.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.logahr~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_logattackdecay.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.logattackdecay~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_logdecay.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.logdecay~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_logsmooth.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.logsmooth~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_lores.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.lores~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_lorez.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.lorez~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_lpg_buchla_zero.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.lpg.buchla.zero~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_lpg_buchla.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.lpg.buchla~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_majorverb.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.majorverb~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_map.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.map~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_mattaverb.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.mattaverb~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_modalres.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.modalres~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_modosc.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.modosc~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_moogsnake_lfo.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.moogsnake.lfo~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_moogsnake.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.moogsnake~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_morph_trap.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.morph.trap~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_morph_tri.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.morph.tri~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_mtofapprox.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.mtofapprox~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_multimode.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.multimode~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_n2p_0254.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.n2p.0254~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_n2p_052.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.n2p.052~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_onepole_shelving.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.onepole.shelving~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_onepole.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.onepole~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_overdrive_atan.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.overdrive.atan~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_overdrive_sqrt.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.overdrive.sqrt~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_overdrive_tanh.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.overdrive.tanh~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_paf.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.paf~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_phaseshift.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.phaseshift~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_phasor0.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.phasor0~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_phasorrate0.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.phasorrate0~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_plateverb_lite.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.plateverb.lite~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_plateverb.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.plateverb~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_pmladder.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.pmladder~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_quadfmpm.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.quadfmpm~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_ramp0.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.ramp0~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_rampsmooth.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.rampsmooth~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_rate.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.rate~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_rcfilter.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.rcfilter~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_rect_select.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.rect.select~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_rect.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.rect~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_reson.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.reson~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_ringmod_parkernaive.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.ringmod.parkernaive~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_ringmod.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.ringmod~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_saw_select.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.saw.select~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_saw.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.saw~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_shaper.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.shaper~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_sine_select.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.sine.select~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_sinesync.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.sinesync~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_sinfold.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.sinfold~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_skfinputmix.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.skfinputmix~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_sline.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.sline~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_smoothstep.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.smoothstep~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_softclip.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.softclip~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_squine_simple.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.squine.simple~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_sustainfdn.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.sustainfdn~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_sustainfdnclear.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.sustainfdnclear~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_sustainverb_lite.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.sustainverb.lite~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_sustainverb.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.sustainverb~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_svf_eq_coeffs.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.svf.eq.coeffs~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_svf.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.svf~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_svfinputmix.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.svfinputmix~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_svfsmooth.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.svfsmooth~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_svfsmoothcore.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.svfsmoothcore~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_svfsynth.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.svfsynth~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_tan.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.tan~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_teeth.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.teeth~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_thirian_allpass.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.thirian.allpass~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_tone_macro.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.tone.macro~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_tpqm.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.tpqm~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_tri_select.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.tri.select~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_tri.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.tri~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_vactrol_shape.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.vactrol.shape~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_vactrol.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.vactrol~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_vcf_df2.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.vcf.df2~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_velvetnoise.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.velvetnoise~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_vosim_basic.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.vosim.basic~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_warmer.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.warmer~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_windows_fft.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.windows.fft~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_zerox.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.zerox~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_zeroxcount.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.zeroxcount~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_zeroxoscnoise.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.zeroxoscnoise~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_zitaverb.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.zitaverb~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_zmap.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.zmap~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "help": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
         }
     }
 }

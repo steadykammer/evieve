@@ -1,3 +1,220 @@
 {
-   
+    "evi_externals": {
+        "_dummy": {
+            "object": true,
+            "mc": true,
+            "ref": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": true,
+                "mcstab": false,
+                "mcseparate": false,
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi.cfsmooth~": {
+            "object": true,
+            "mc": true,
+            "ref": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": true,
+                "mcstab": false,
+                "mcseparate": false,
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi.expsmooth~": {
+            "object": true,
+            "mc": true,
+            "ref": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": true,
+                "mcstab": false,
+                "mcseparate": false,
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi.lagsmooth~": {
+            "object": true,
+            "mc": true,
+            "ref": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": true,
+                "mcstab": false,
+                "mcseparate": false,
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi.logahr~": {
+            "object": true,
+            "mc": true,
+            "ref": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": true,
+                "mcstab": false,
+                "mcseparate": false,
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi.logattackdecay~": {
+            "object": true,
+            "mc": true,
+            "ref": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": true,
+                "mcstab": false,
+                "mcseparate": false,
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi.logdecay~": {
+            "object": true,
+            "mc": true,
+            "ref": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": true,
+                "mcstab": false,
+                "mcseparate": false,
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi.logsmooth~": {
+            "object": true,
+            "mc": true,
+            "ref": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": true,
+                "mcstab": false,
+                "mcseparate": false,
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi.pan~": {
+            "object": true,
+            "mc": true,
+            "ref": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": true,
+                "mcstab": false,
+                "mcseparate": false,
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi.quadosc~": {
+            "object": true,
+            "mc": true,
+            "ref": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": true,
+                "mcstab": false,
+                "mcseparate": false,
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi.vactrol~": {
+            "object": true,
+            "mc": true,
+            "ref": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": true,
+                "mcstab": false,
+                "mcseparate": false,
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi.xfade~": {
+            "object": true,
+            "mc": true,
+            "ref": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": true,
+                "mcstab": false,
+                "mcseparate": false,
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        }
+    }
 }

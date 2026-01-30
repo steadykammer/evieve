@@ -4,6 +4,7 @@
         "description": "",
         "module": "evieve",
         "category": ["evieve"],
+        "keywords": [],
         "seealso": []
     },
     "evi.hilbert~": {
@@ -11,6 +12,7 @@
         "description": "",
         "module": "evieve",
         "category": ["evieve"],
+        "keywords": [],
         "seealso": []
     }
 }
