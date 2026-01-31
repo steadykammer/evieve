@@ -4,6 +4,7 @@ import fs from "fs";
 import { homedir } from "os";
 import { posix, sep } from "path";
 import { cwd } from "process";
+import Handlebars from "handlebars";
 import config from "../config/evievedoc.config.json";
 import gendsp from "../config/evievedoc.config.gendsp.json";
 import maxpat from "../config/evievedoc.config.maxpat.json";
@@ -23,6 +24,18 @@ max.addHandler("test_maxpat_make", () => {
 });
 max.addHandler("test_external_make", () => {
   updateConfigFileExternals();
+});
+max.addHandler("make_externals_refpages", (force = false) => {
+  void max.outlet("array", "clear");
+  createExternalsRefpages(force);
+  void max.outlet("array", "bang");
+  void max.outlet("process", "bang");
+});
+max.addHandler("make_refpages_rename", () => {
+  externalsRefpagesRename();
+});
+max.addHandler("make_refpages_contents", () => {
+  makeRefpagesXmlContents();
 });
 function updateConfigFileGendsp(force = false, writeJson = true) {
   let currentGendsp = gendsp.evi_gendsp;
@@ -83,7 +96,6 @@ function updateConfigFileExternals(force = false, writeJson = true) {
     const externalName = external.replace(".mxo", "");
     if (!Object.hasOwn(currentExternals, externalName)) {
       newExternals[externalName] = JSON.parse(JSON.stringify(externalsDocTemplate));
-      void max.post(`External dict is now: ${JSON.stringify(newExternals[externalName])}`);
     }
   }
   if (Object.keys(newExternals).length === 0 && !force) {
@@ -103,6 +115,51 @@ function updateConfigFileExternals(force = false, writeJson = true) {
     void max.post("Update of externals listings complete!");
     void max.outlet("config", "external", "done");
   }
+}
+function createExternalsRefpages(force) {
+  const externals = getExternalsNames(`${cwd()}/${config.referenceFiles.externals.input}`);
+  let outDir = `${cwd()}/${config.referenceFiles.externals.output}`;
+  void max.outlet("array", "append", `setrefgendestinationpath "${outDir}"`);
+  for (const external of externals) {
+    createExternalsRefpagesLoop(external, force);
+  }
+}
+function createExternalsRefpagesLoop(external, force) {
+  let CREATE;
+  const writeNameIn = external.replace(".mxo", "_ref.xml");
+  const writeNameOut = external.replace(".mxo", ".maxref.xml");
+  const refpageName = external.replace(".mxo", "");
+  let outDir = `${cwd()}/${config.referenceFiles.externals.output}`;
+  const pathNameIn = `${outDir}/${writeNameIn}`;
+  const pathNameOut = `${outDir}/${writeNameOut}`;
+  if (!fs.existsSync(pathNameIn) || !fs.existsSync(pathNameOut) || force) {
+    void max.outlet("array", "append", `setrefgendestinationpath "${outDir}"`);
+    void max.outlet("array", "append", `refgen ${refpageName}`);
+    fs.mkdirSync(outDir, { recursive: true });
+    CREATE = true;
+  } else {
+    void max.post(`Skipping ${external} as reference page already exists!`, max.POST_LEVELS.WARN);
+    CREATE = false;
+  }
+  return CREATE;
+}
+function externalsRefpagesRename() {
+  let refDir = `${cwd()}/${config.referenceFiles.externals.output}`;
+  let refFiles = getFileNamesFromPath(refDir, "xml");
+  const PATTERN = /_c74_contents.xml/;
+  refFiles = refFiles.filter((str) => !PATTERN.test(str));
+  for (const file of refFiles) {
+    const newName = file.replace("_ref.xml", ".maxref.xml");
+    fs.renameSync(`${refDir}/${file}`, `${refDir}/${newName}`);
+    void max.post(`Renamed ${file} to ${newName}`, max.POST_LEVELS.INFO);
+  }
+}
+function makeRefpagesXmlContents() {
+  let refDir = `${cwd()}/${config.referenceFiles.externals.output}`;
+  let refFiles = getFileNamesFromPath(refDir, "xml");
+  const PATTERN = /_c74_contents.xml/;
+  refFiles = refFiles.filter((str) => !PATTERN.test(str));
+  renderFromTemplate("../templates/xmlcontents.handlebars", { ref: refFiles }, `${refDir}/_c74_contents.xml`);
 }
 function getExternalsNames(path) {
   const externalsnames = getFileNamesFromPath(path, "mxo");
@@ -130,6 +187,12 @@ function getFileNamesFromPathRecursive(path, extension) {
     filetypes = filelisting;
   }
   return filetypes;
+}
+function renderFromTemplate(templatePath, dataToRender, writePath) {
+  const template = Handlebars.compile(fs.readFileSync(templatePath, "utf8"));
+  const writeData = template(dataToRender);
+  fs.writeFileSync(writePath, writeData);
+  void max.post("done writing", writePath, max.POST_LEVELS.INFO);
 }
 function writeConfigJsonToDisk(config2) {
   fs.writeFileSync(evievedocConfig, JSON.stringify(config2, null, 4));
@@ -206,6 +269,7 @@ const externalsDocTemplate = {
 };
 const areas = [
   "biquad",
+  "pd",
   "crossover",
   "msp",
   "korg",

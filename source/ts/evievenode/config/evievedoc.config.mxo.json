@@ -1,12 +1,12 @@
 {
     "evi_externals": {
         "_dummy": {
-            "object": true,
-            "mc": true,
-            "ref": true,
+            "object": false,
+            "mc": false,
+            "ref": false,
             "helpfile": {
-                "generate": true,
-                "mctab": true,
+                "generate": false,
+                "mctab": false,
                 "mcstab": false,
                 "mcseparate": false,
                 "gentab": false,
@@ -14,8 +14,8 @@
                 "areas": []
             },
             "db": {
-                "browser": true,
-                "auto": true
+                "browser": false,
+                "auto": false
             }
         },
         "evi.cfsmooth~": {
@@ -27,9 +27,9 @@
                 "mctab": true,
                 "mcstab": false,
                 "mcseparate": false,
-                "gentab": false,
-                "genexprtab": false,
-                "areas": []
+                "gentab": true,
+                "genexprtab": true,
+                "areas": ["smooth"]
             },
             "db": {
                 "browser": true,
@@ -45,9 +45,9 @@
                 "mctab": true,
                 "mcstab": false,
                 "mcseparate": false,
-                "gentab": false,
-                "genexprtab": false,
-                "areas": []
+                "gentab": true,
+                "genexprtab": true,
+                "areas": ["smooth"]
             },
             "db": {
                 "browser": true,
@@ -63,9 +63,9 @@
                 "mctab": true,
                 "mcstab": false,
                 "mcseparate": false,
-                "gentab": false,
-                "genexprtab": false,
-                "areas": []
+                "gentab": true,
+                "genexprtab": true,
+                "areas": ["smooth"]
             },
             "db": {
                 "browser": true,
@@ -81,9 +81,9 @@
                 "mctab": true,
                 "mcstab": false,
                 "mcseparate": false,
-                "gentab": false,
-                "genexprtab": false,
-                "areas": []
+                "gentab": true,
+                "genexprtab": true,
+                "areas": ["smooth"]
             },
             "db": {
                 "browser": true,
@@ -99,9 +99,9 @@
                 "mctab": true,
                 "mcstab": false,
                 "mcseparate": false,
-                "gentab": false,
-                "genexprtab": false,
-                "areas": []
+                "gentab": true,
+                "genexprtab": true,
+                "areas": ["smooth"]
             },
             "db": {
                 "browser": true,
@@ -117,9 +117,9 @@
                 "mctab": true,
                 "mcstab": false,
                 "mcseparate": false,
-                "gentab": false,
-                "genexprtab": false,
-                "areas": []
+                "gentab": true,
+                "genexprtab": true,
+                "areas": ["smooth"]
             },
             "db": {
                 "browser": true,
@@ -135,9 +135,9 @@
                 "mctab": true,
                 "mcstab": false,
                 "mcseparate": false,
-                "gentab": false,
-                "genexprtab": false,
-                "areas": []
+                "gentab": true,
+                "genexprtab": true,
+                "areas": ["smooth"]
             },
             "db": {
                 "browser": true,
@@ -154,7 +154,7 @@
                 "mcstab": false,
                 "mcseparate": false,
                 "gentab": false,
-                "genexprtab": false,
+                "genexprtab": true,
                 "areas": []
             },
             "db": {
@@ -172,8 +172,8 @@
                 "mcstab": false,
                 "mcseparate": false,
                 "gentab": false,
-                "genexprtab": false,
-                "areas": []
+                "genexprtab": true,
+                "areas": ["oscillator"]
             },
             "db": {
                 "browser": true,
@@ -189,9 +189,9 @@
                 "mctab": true,
                 "mcstab": false,
                 "mcseparate": false,
-                "gentab": false,
-                "genexprtab": false,
-                "areas": []
+                "gentab": true,
+                "genexprtab": true,
+                "areas": ["smooth"]
             },
             "db": {
                 "browser": true,
@@ -208,7 +208,7 @@
                 "mcstab": false,
                 "mcseparate": false,
                 "gentab": false,
-                "genexprtab": false,
+                "genexprtab": true,
                 "areas": []
             },
             "db": {

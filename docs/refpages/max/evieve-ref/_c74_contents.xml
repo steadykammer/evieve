@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+<root>
+<refpage name='evi.cfsmooth~.maxref.xml'/>
+<refpage name='evi.expsmooth~.maxref.xml'/>
+<refpage name='evi.lagsmooth~.maxref.xml'/>
+<refpage name='evi.logahr~.maxref.xml'/>
+<refpage name='evi.logattackdecay~.maxref.xml'/>
+<refpage name='evi.logdecay~.maxref.xml'/>
+<refpage name='evi.logsmooth~.maxref.xml'/>
+<refpage name='evi.pan~.maxref.xml'/>
+<refpage name='evi.quadosc~.maxref.xml'/>
+<refpage name='evi.vactrol~.maxref.xml'/>
+<refpage name='evi.xfade~.maxref.xml'/>
+</root>

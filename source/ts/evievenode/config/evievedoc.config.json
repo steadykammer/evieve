@@ -2,7 +2,7 @@
     "referenceFiles": {
         "externals": {
             "input": "../../../../externals",
-            "output": ""
+            "output": "../../../../docs/refpages/max/evieve-ref"
         },
         "genExpr": {
             "input": "../../../../code/evi_genexpr",
@@ -10,15 +10,15 @@
         },
         "genDsp": {
             "input": "../../../../code/evi_gendsp",
-            "output": ""
+            "output": "../../../../docs/refpages/gen/evieve-ref"
         },
         "defines": {
             "input": "",
-            "output": ""
+            "output": "../../../../docs/refpages/max/evieve-ref"
         },
         "abstractions": {
             "input": "../../../../patchers",
-            "output": ""
+            "output": "../../../../docs/refpages/max/evieve-ref"
         }
     },
     "helpFiles": {
