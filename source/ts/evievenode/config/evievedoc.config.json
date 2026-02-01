@@ -10,7 +10,7 @@
         },
         "genDsp": {
             "input": "../../../../code/evi_gendsp",
-            "output": "../../../../docs/refpages/gen/evieve-ref"
+            "output": "../../../../docs/refpages/gen/evi-dsp"
         },
         "defines": {
             "input": "",
@@ -25,6 +25,10 @@
 
     },
     "initFiles": {
+        "defines": {
+            "input": "",
+            "output": "../../../../init"
+        }
 
     },
     "interfaceFiles": {

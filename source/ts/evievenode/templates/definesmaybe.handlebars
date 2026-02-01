@@ -1,0 +1,13 @@
+{{#each evi_gendsp}}
+{{#each this}}
+{{#with define}}
+{{#if object}}
+max define {{msp}} gen~ @gen {{@../key}};
+{{#if mcwrapper}}
+max define mc.{{msp}} mc.gen~ @gen {{@../key}} @chans 2;
+
+{{/if}}
+{{/if}}
+{{/with}}
+{{/each}}
+{{/each}}

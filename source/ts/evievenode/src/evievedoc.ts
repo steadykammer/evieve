@@ -5,13 +5,15 @@ import { homedir } from 'os';
 import { posix, sep } from 'path';
 import { cwd } from 'process';
 import Handlebars from 'handlebars';
-import { XMLParser } from 'fast-xml-parser';
+import { XMLParser, XMLBuilder } from 'fast-xml-parser';
 
 import config from '../config/evievedoc.config.json';// with { type: 'json' };
 import gendsp from '../config/evievedoc.config.gendsp.json';// with { type: 'json' };
 import maxpat from '../config/evievedoc.config.maxpat.json';
 import mxo from '../config/evievedoc.config.mxo.json';
 //import qabs from '../config/evievedoc.abstractions.qlookup.json';
+
+import testJsonXml from '../test/pete_testing.json';
 
 const evievedocConfig = '../config/evievedoc.config.json';
 
@@ -52,6 +54,62 @@ max.addHandler('make_refpages_rename', () => {
 max.addHandler('make_refpages_contents', () => {
     makeRefpagesXmlContents();
 })
+
+max.addHandler('make_gendsp_defines', () => {
+    // createGendspDefines();
+	manuallyCreateGendspDefines();
+})
+
+max.addHandler('make_externals_mappings', () => {
+	// createMxoObjectmappings();
+	manuallyCreateMxoObjectmappings();
+})
+
+// --------------------------------------------- //
+// testing
+
+max.addHandler('pete_test_xml_object', (type: string) => {
+//	const prefix = '@_';
+	if (type === "get") {
+		testGetXml();
+	}
+	else if (type === "build") {
+		testBuildXml();
+	}
+})
+
+function testGetXml(prefix?: string)
+{
+	const options = {
+		preserveOrder: true,
+		ignoreAttributes: false,
+		// attributeNamePrefix: `${prefix}`,
+		attributeNamePrefix: '@_',
+		processEntities: false
+	};
+	const parser = new XMLParser(options);
+
+	const xmlData = fs.readFileSync('../test/msp_delay~.maxref.xml', 'utf8');
+	const result = parser.parse(xmlData);
+	fs.writeFileSync('../test/pete_testing.json', JSON.stringify(result, null, 4));
+}
+
+function testBuildXml(prefix?: string)
+{
+	const options = {
+		format: true,
+		preserveOrder: true,
+		ignoreAttributes: false,
+		// attributeNamePrefix: `${prefix}`,
+		attributeNamePrefix: '@_',
+		processEntities: false
+	};
+	const builder = new XMLBuilder(options);
+
+	// const jsonData = fs.readFileSync('../test/pete_testing.json', 'utf8');
+	const result = builder.build(testJsonXml);
+	fs.writeFileSync('../test/testing_pete.xml', result);
+}
 
 // --------------------------------------------- //
 
@@ -166,6 +224,64 @@ function updateConfigFileExternals(force = false, writeJson = true) {
 		void max.post("Update of externals listings complete!")
 		void max.outlet('config', 'external', 'done');
 	}
+}
+
+// --------------------------------------------- //
+
+function createGendspDefines() {
+	let refDir = `${cwd()}/${config.initFiles.defines.output}`;
+	let refEntries = gendsp;
+
+	renderFromTemplate('../templates/defines.handlebars', { ref: refEntries }, `${refDir}/evieve-defines.txt`);
+}
+
+// because pete is shit at handlebars
+function manuallyCreateGendspDefines() {
+	let refDir = `${cwd()}/${config.initFiles.defines.output}`;
+	let writer = fs.createWriteStream(`${refDir}/evieve-defines.txt`, { flags: 'a' });
+	const genAbstractions = Object.keys(gendsp.evi_gendsp);
+	for (const thisGen of genAbstractions) {
+		// @ts-expect-error
+		const thisAbstraction = gendsp.evi_gendsp[thisGen];
+		const create = thisAbstraction.define.object;
+		const mc = thisAbstraction.define.mcwrapper;
+		const mspName = thisAbstraction.define.msp;
+		if (create) {
+			writer.write(`\nmax define ${mspName} gen~ @gen ${thisGen};`);
+			if (mc) {
+				writer.write(`\nmax define mc.${mspName} mc.gen~ @gen ${thisGen} @chans 2;`);
+			}
+			writer.write('\n');
+		}
+	}
+	writer.end();
+}
+
+function createMxoObjectmappings() {
+	let refDir = `${cwd()}/${config.initFiles.defines.output}`;
+	let refEntries = mxo;
+
+	renderFromTemplate('../templates/objectmappings.handlebars', { ref: refEntries }, `${refDir}/evieve-objectmappings.txt`);
+}
+
+// because pete is shit at handlebars
+function manuallyCreateMxoObjectmappings() {
+	let refDir = `${cwd()}/${config.initFiles.defines.output}`;
+	let writer = fs.createWriteStream(`${refDir}/evieve-objectmappings.txt`, { flags: 'a' });
+	const eviExternals = Object.keys(mxo.evi_externals);
+	for (const thisMxo of eviExternals) {
+		// @ts-expect-error
+		const thisExternal = mxo.evi_externals[thisMxo];
+		const create = thisExternal.object;
+		const mc = thisExternal.mc;
+		if (create) {
+			if (mc) {
+				writer.write(`\nmax objectfile mc.${thisMxo} mc.wrapper~ ${thisMxo};`);
+			}
+			// writer.write('\n');
+		}
+	}
+	writer.end();
 }
 
 // --------------------------------------------- //

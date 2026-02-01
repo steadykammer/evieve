@@ -5,10 +5,12 @@ import { homedir } from "os";
 import { posix, sep } from "path";
 import { cwd } from "process";
 import Handlebars from "handlebars";
+import { XMLParser, XMLBuilder } from "fast-xml-parser";
 import config from "../config/evievedoc.config.json";
 import gendsp from "../config/evievedoc.config.gendsp.json";
 import maxpat from "../config/evievedoc.config.maxpat.json";
 import mxo from "../config/evievedoc.config.mxo.json";
+import testJsonXml from "../test/pete_testing.json";
 const evievedocConfig = "../config/evievedoc.config.json";
 max.addHandler("callback_from_xml_make", (name) => {
   booboo(name);
@@ -37,6 +39,45 @@ max.addHandler("make_refpages_rename", () => {
 max.addHandler("make_refpages_contents", () => {
   makeRefpagesXmlContents();
 });
+max.addHandler("make_gendsp_defines", () => {
+  manuallyCreateGendspDefines();
+});
+max.addHandler("make_externals_mappings", () => {
+  manuallyCreateMxoObjectmappings();
+});
+max.addHandler("pete_test_xml_object", (type) => {
+  if (type === "get") {
+    testGetXml();
+  } else if (type === "build") {
+    testBuildXml();
+  }
+});
+function testGetXml(prefix) {
+  const options = {
+    preserveOrder: true,
+    ignoreAttributes: false,
+    // attributeNamePrefix: `${prefix}`,
+    attributeNamePrefix: "@_",
+    processEntities: false
+  };
+  const parser = new XMLParser(options);
+  const xmlData = fs.readFileSync("../test/msp_delay~.maxref.xml", "utf8");
+  const result = parser.parse(xmlData);
+  fs.writeFileSync("../test/pete_testing.json", JSON.stringify(result, null, 4));
+}
+function testBuildXml(prefix) {
+  const options = {
+    format: true,
+    preserveOrder: true,
+    ignoreAttributes: false,
+    // attributeNamePrefix: `${prefix}`,
+    attributeNamePrefix: "@_",
+    processEntities: false
+  };
+  const builder = new XMLBuilder(options);
+  const result = builder.build(testJsonXml);
+  fs.writeFileSync("../test/testing_pete.xml", result);
+}
 function updateConfigFileGendsp(force = false, writeJson = true) {
   let currentGendsp = gendsp.evi_gendsp;
   const newGendsp = {};
@@ -115,6 +156,54 @@ function updateConfigFileExternals(force = false, writeJson = true) {
     void max.post("Update of externals listings complete!");
     void max.outlet("config", "external", "done");
   }
+}
+function createGendspDefines() {
+  let refDir = `${cwd()}/${config.initFiles.defines.output}`;
+  let refEntries = gendsp;
+  renderFromTemplate("../templates/defines.handlebars", { ref: refEntries }, `${refDir}/evieve-defines.txt`);
+}
+function manuallyCreateGendspDefines() {
+  let refDir = `${cwd()}/${config.initFiles.defines.output}`;
+  let writer = fs.createWriteStream(`${refDir}/evieve-defines.txt`, { flags: "a" });
+  const genAbstractions = Object.keys(gendsp.evi_gendsp);
+  for (const thisGen of genAbstractions) {
+    const thisAbstraction = gendsp.evi_gendsp[thisGen];
+    const create = thisAbstraction.define.object;
+    const mc = thisAbstraction.define.mcwrapper;
+    const mspName = thisAbstraction.define.msp;
+    if (create) {
+      writer.write(`
+max define ${mspName} gen~ @gen ${thisGen};`);
+      if (mc) {
+        writer.write(`
+max define mc.${mspName} mc.gen~ @gen ${thisGen} @chans 2;`);
+      }
+      writer.write("\n");
+    }
+  }
+  writer.end();
+}
+function createMxoObjectmappings() {
+  let refDir = `${cwd()}/${config.initFiles.defines.output}`;
+  let refEntries = mxo;
+  renderFromTemplate("../templates/objectmappings.handlebars", { ref: refEntries }, `${refDir}/evieve-objectmappings.txt`);
+}
+function manuallyCreateMxoObjectmappings() {
+  let refDir = `${cwd()}/${config.initFiles.defines.output}`;
+  let writer = fs.createWriteStream(`${refDir}/evieve-objectmappings.txt`, { flags: "a" });
+  const eviExternals = Object.keys(mxo.evi_externals);
+  for (const thisMxo of eviExternals) {
+    const thisExternal = mxo.evi_externals[thisMxo];
+    const create = thisExternal.object;
+    const mc = thisExternal.mc;
+    if (create) {
+      if (mc) {
+        writer.write(`
+max objectfile mc.${thisMxo} mc.wrapper~ ${thisMxo};`);
+      }
+    }
+  }
+  writer.end();
 }
 function createExternalsRefpages(force) {
   const externals = getExternalsNames(`${cwd()}/${config.referenceFiles.externals.input}`);

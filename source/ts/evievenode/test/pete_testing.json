@@ -1,0 +1,344 @@
+{
+    "?xml": {
+        "@_version": "1.0",
+        "@_encoding": "utf-8",
+        "@_standalone": "yes"
+    },
+    "?xml-stylesheet": {
+        "@_href": "./_c74_ref.xsl",
+        "@_type": "text/xsl"
+    },
+    "c74object": {
+        "digest": "Delay a signal",
+        "description": {
+            "o": "delay~",
+            "link": {
+                "#text": "time format",
+                "@_type": "userguide",
+                "@_name": "time_value_syntax"
+            },
+            "#text": "Use theobject to delay a signal by a certain amount of time. The delay time can be specified in samples (determined by the sampling rate), or using the Maxsyntax for tempo-relative values."
+        },
+        "metadatalist": {
+            "metadata": [
+                {
+                    "#text": "Cycling '74",
+                    "@_name": "author"
+                },
+                {
+                    "#text": "MSP",
+                    "@_name": "tag"
+                },
+                {
+                    "#text": "MSP Delays",
+                    "@_name": "tag"
+                }
+            ]
+        },
+        "inletlist": {
+            "inlet": [
+                {
+                    "digest": "Input to be Delayed",
+                    "description": "TEXT_HERE",
+                    "@_id": "0",
+                    "@_type": "signal"
+                },
+                {
+                    "digest": "Delay Time in Samples",
+                    "description": "TEXT_HERE",
+                    "@_id": "1",
+                    "@_type": "int/signal"
+                }
+            ]
+        },
+        "outletlist": {
+            "outlet": {
+                "digest": "Delayed Output",
+                "description": "TEXT_HERE",
+                "@_id": "0",
+                "@_type": "signal"
+            }
+        },
+        "objarglist": {
+            "objarg": [
+                {
+                    "digest": "Maximum delay time",
+                    "description": "Set maximum delay time in samples. This determines the amount of memory allocated for the delay line.",
+                    "@_name": "maximum-delay-memory",
+                    "@_optional": "0",
+                    "@_default": "512",
+                    "@_units": "samples",
+                    "@_type": "int"
+                },
+                {
+                    "digest": "Initial delay time",
+                    "description": {
+                        "link": {
+                            "#text": "notevalue",
+                            "@_type": "userguide",
+                            "@_name": "time_value_syntax"
+                        },
+                        "#text": "Set the initial delay time. The delay time can be either a number which specifies time in samples (e.g. delay~ 44100 200) or a(e.g. delay~ 2000 2n)."
+                    },
+                    "@_name": "initial-delay-time",
+                    "@_optional": "1",
+                    "@_default": "0",
+                    "@_units": "time-value",
+                    "@_type": "list"
+                },
+                {
+                    "digest": "Delay ramp time",
+                    "description": "Set the delay ramp time, in milliseconds. If the delay time is controlled using a float rather than a signal value, the delay time will be crossfaded.",
+                    "@_name": "ramp-time",
+                    "@_optional": "1",
+                    "@_default": "0",
+                    "@_units": "time-value",
+                    "@_type": "int"
+                }
+            ]
+        },
+        "methodlist": {
+            "method": [
+                {
+                    "arglist": {
+                        "arg": {
+                            "@_name": "delay-time",
+                            "@_optional": "0",
+                            "@_units": "samples",
+                            "@_type": "int"
+                        }
+                    },
+                    "digest": "Set delay time",
+                    "description": "In right inlet: set delay time. The delay time cannot be less than 0 (no delay) nor can it be greater than the maximum delay time.",
+                    "@_name": "int"
+                },
+                {
+                    "arglist": {
+                        "arg": {
+                            "@_name": "delay-time",
+                            "@_optional": "0",
+                            "@_units": "samples",
+                            "@_type": "float"
+                        }
+                    },
+                    "digest": "Set delay time (converted to int)",
+                    "description": "",
+                    "@_name": "float"
+                },
+                {
+                    "arglist": {
+                        "arg": {
+                            "@_name": "time/transport-settings",
+                            "@_optional": "0",
+                            "@_units": "time-value",
+                            "@_type": "list"
+                        }
+                    },
+                    "digest": {
+                        "link": {
+                            "#text": "time format",
+                            "@_type": "userguide",
+                            "@_name": "time_value_syntax"
+                        },
+                        "#text": "Set delay time in a Max."
+                    },
+                    "description": "",
+                    "@_name": "list"
+                },
+                {
+                    "arglist": {
+                        "arg": {
+                            "@_name": "time/transport-settings",
+                            "@_optional": "0",
+                            "@_units": "time-value",
+                            "@_type": "list"
+                        }
+                    },
+                    "digest": {
+                        "link": {
+                            "#text": "time format",
+                            "@_type": "userguide",
+                            "@_name": "time_value_syntax"
+                        },
+                        "#text": "Set delay time in a Max."
+                    },
+                    "description": "",
+                    "@_name": "anything"
+                },
+                {
+                    "arglist": "",
+                    "digest": "Zero the delay memory",
+                    "description": "",
+                    "@_name": "clear"
+                },
+                {
+                    "arglist": {
+                        "arg": {
+                            "@_name": "maximum-delay-memory",
+                            "@_optional": "0",
+                            "@_units": "samples",
+                            "@_type": "int"
+                        }
+                    },
+                    "digest": "Set maximum delay time",
+                    "description": "",
+                    "@_name": "maxsize"
+                },
+                {
+                    "arglist": {
+                        "arg": {
+                            "@_name": "ramp-time",
+                            "@_optional": "0",
+                            "@_units": "ms",
+                            "@_type": "float"
+                        }
+                    },
+                    "digest": "Set the time to ramp to a new delay time",
+                    "description": "",
+                    "@_name": "ramp"
+                },
+                {
+                    "arglist": "",
+                    "digest": "Function depends on inlet",
+                    "description": {
+                        "br": "",
+                        "#text": "In left inlet: Signal to be delayed.In right inlet: Set delay time. Signal-based delay uses interpolation, which introduces a one-sample delay."
+                    },
+                    "@_name": "signal"
+                }
+            ]
+        },
+        "attributelist": {
+            "attribute": {
+                "digest": "Delay time",
+                "description": "",
+                "attributelist": {
+                    "attribute": [
+                        {
+                            "@_name": "category",
+                            "@_get": "1",
+                            "@_set": "1",
+                            "@_type": "symbol",
+                            "@_size": "1",
+                            "@_value": "Timing"
+                        },
+                        {
+                            "@_name": "default",
+                            "@_get": "1",
+                            "@_set": "1",
+                            "@_type": "atom",
+                            "@_size": "2",
+                            "@_value": "0 ms"
+                        },
+                        {
+                            "@_name": "label",
+                            "@_get": "1",
+                            "@_set": "1",
+                            "@_type": "symbol",
+                            "@_size": "1",
+                            "@_value": "Delay Time"
+                        },
+                        {
+                            "@_name": "sampledefault",
+                            "@_get": "1",
+                            "@_set": "1",
+                            "@_type": "int",
+                            "@_size": "1",
+                            "@_value": "1"
+                        },
+                        {
+                            "@_name": "style",
+                            "@_get": "1",
+                            "@_set": "1",
+                            "@_type": "symbol",
+                            "@_size": "1",
+                            "@_value": "time"
+                        },
+                        {
+                            "@_name": "units",
+                            "@_get": "1",
+                            "@_set": "1",
+                            "@_type": "atom",
+                            "@_size": "7",
+                            "@_value": "ms hh:mm:ss ticks bars.beats.units notevalues hz samples"
+                        }
+                    ]
+                },
+                "@_name": "delay",
+                "@_get": "1",
+                "@_set": "1",
+                "@_type": "Time Value",
+                "@_size": "1"
+            }
+        },
+        "examplelist": {
+            "example": {
+                "@_img": "delay~.png",
+                "@_caption": "Delay signal for a specific number of samples, for echo or filtering effects"
+            }
+        },
+        "seealsolist": {
+            "seealso": [
+                {
+                    "@_name": "comb~"
+                },
+                {
+                    "@_name": "tapin~"
+                },
+                {
+                    "@_name": "tapout~"
+                },
+                {
+                    "@_name": "mstosamps~"
+                },
+                {
+                    "@_name": "sampstoms~"
+                },
+                {
+                    "@_name": "pipe"
+                },
+                {
+                    "@_name": "transport"
+                }
+            ]
+        },
+        "discussion": {
+            "o": [
+                "delay~",
+                "tapin~",
+                "tapout~",
+                "delay~",
+                "delay~",
+                "tapin~",
+                "tapout~",
+                "delay~",
+                "comb~",
+                "delay~"
+            ],
+            "link": {
+                "#text": "time formats",
+                "@_type": "userguide",
+                "@_name": "time_value_syntax"
+            },
+            "m": [
+                "interval",
+                "delay 22050 @interval 11025 samples"
+            ],
+            "br": [
+                "",
+                ""
+            ],
+            "#text": "The differences betweenand/are as follows: First, delay times withare specified in terms of samples rather than milliseconds, so they will change duration if the sampling rate changes. Second, theobject can reliably delay a signal a number of samples that is less than a vector size. Finally, unlikeand, you cannot feed the output ofback to its input. If you wish to use feedback with short delays, consider using theobject. Note: While theobject lets you specify time in any of Max's standard, theattribute argument should be used when specifying time in any other time unit besides milliseconds or notevalues (e.g.).If notevalue, ticks, or bars.beats.units are specified for the delay interval, the object will not operate unless the transport is running."
+        },
+        "misc": {
+            "entry": {
+                "description": "The output consists of the input delayed by the specified number of samples.",
+                "@_name": "signal"
+            },
+            "@_name": "Output"
+        },
+        "@_name": "delay~",
+        "@_module": "msp",
+        "@_category": "MSP Delays"
+    }
+}

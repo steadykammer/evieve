@@ -1,5 +1,9 @@
-{{#each mxo}}
+{{#each evi_externals}}
 {{#each this}}
-max objectfile mc.{{{this}}} mc.wrapper~ {{@../key}};
+{{#if object}}
+{{#if mc}}
+max objectfile mc.{{{@key}}} mc.wrapper~ {{@key}};
+{{/if}}
+{{/if}}
 {{/each}}
 {{/each}}
