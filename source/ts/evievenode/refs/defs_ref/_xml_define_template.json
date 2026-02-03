@@ -1,0 +1,58 @@
+{
+    "object": {
+        "name": "",
+        "category": "",
+        "parent": "",
+        "tilde": "~",
+        "description": "TEXT_HERE",
+        "discussion": ""
+    },
+    "metadata": {
+        "author": "",
+        "tags": ["evieve"]
+    },
+    "inlets": [
+        {
+            "type": "",
+            "digest": "",
+            "description": ""
+        }
+    ],
+    "outlets": [
+        {
+            "type": "",
+            "digest": "",
+            "description": ""
+        }
+    ],
+    "messages": [
+        {
+            "name": "",
+            "arg": {
+                "name": "",
+                "type": "",
+                "optional": 1
+            },
+            "digest": "",
+            "description": ""
+        }
+    ],
+    "attributes": [
+        {
+            "name": "",
+            "get": 1,
+            "type": "",
+            "digest": "",
+            "description": "",
+            "default": {
+                "type": "",
+                "value": 0
+            }
+        }
+    ],
+    "example": {
+        "caption": "",
+        "image": ""
+    },
+    "seealso": []
+}

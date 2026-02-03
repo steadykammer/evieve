@@ -1,0 +1,69 @@
+{
+    "object": {
+        "name": "evi.adsr~",
+        "category": "",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE",
+        "discussion": ""
+    },
+    "metadata": {
+        "author": "Pete Dowling",
+        "tags": [
+            "evieve"
+        ]
+    },
+    "inlets": [
+        {
+            "type": "",
+            "digest": "",
+            "description": ""
+        }
+    ],
+    "outlets": [
+        {
+            "type": "",
+            "digest": "",
+            "description": ""
+        }
+    ],
+    "arguments": [
+        {
+            "name": "",
+            "type": "",
+            "optional": 1,
+            "digest": "",
+            "description": ""
+        }
+    ],
+    "messages": [
+        {
+            "name": "",
+            "arg": {
+                "name": "",
+                "type": "",
+                "optional": 1
+            },
+            "digest": "",
+            "description": ""
+        }
+    ],
+    "attributes": [
+        {
+            "name": "",
+            "get": 0,
+            "type": "",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "type": "",
+                "value": 0
+            }
+        }
+    ],
+    "example": {
+        "caption": "",
+        "image": ""
+    },
+    "seealso": []
+}

@@ -14,280 +14,10 @@
                 "genexprtab": false,
                 "areas": []
             },
-            "browser": false,
-            "auto": false
-        },
-        "evi.freqshift.hilbert~.maxpat": {
-            "object": true,
-            "ref": true,
-            "qlookup": true,
-            "helpfile": {
-                "generate": true,
-                "mctab": false,
-                "mcstab": false,
-                "mcparent": "",
-                "mcchild": "",
-                "gentab": true,
-                "genexprtab": true,
-                "areas": []
-            },
-            "browser": true,
-            "auto": true
-        },
-        "evi.ringmod.diode.core~.maxpat": {
-            "object": false,
-            "ref": false,
-            "qlookup": false,
-            "helpfile": {
-                "generate": false,
-                "mctab": false,
-                "mcstab": false,
-                "mcparent": "",
-                "mcchild": "",
-                "gentab": false,
-                "genexprtab": false,
-                "areas": []
-            },
-            "browser": false,
-            "auto": false
-        },
-        "evi.ringmod.diode~.maxpat": {
-            "object": true,
-            "ref": true,
-            "qlookup": true,
-            "helpfile": {
-                "generate": true,
-                "mctab": false,
-                "mcstab": false,
-                "mcparent": "",
-                "mcchild": "",
-                "gentab": true,
-                "genexprtab": false,
-                "areas": []
-            },
-            "browser": true,
-            "auto": true
-        },
-        "evi.sustainfdn.core~.maxpat": {
-            "object": false,
-            "ref": false,
-            "qlookup": false,
-            "helpfile": {
-                "generate": false,
-                "mctab": false,
-                "mcstab": false,
-                "mcparent": "",
-                "mcchild": "",
-                "gentab": false,
-                "genexprtab": false,
-                "areas": ["reverb"]
-            },
-            "browser": false,
-            "auto": false
-        },
-        "evi.biquadcoeff.maxpat": {
-            "object": true,
-            "ref": true,
-            "qlookup": true,
-            "helpfile": {
-                "generate": true,
-                "mctab": false,
-                "mcstab": false,
-                "mcparent": "",
-                "mcchild": "",
-                "gentab": true,
-                "genexprtab": true,
-                "areas": ["biquad"]
-            },
-            "browser": true,
-            "auto": true
-        },
-        "evi.dfm~.maxpat": {
-            "object": true,
-            "ref": true,
-            "qlookup": true,
-            "helpfile": {
-                "generate": true,
-                "mctab": false,
-                "mcstab": false,
-                "mcparent": "",
-                "mcchild": "",
-                "gentab": true,
-                "genexprtab": false,
-                "areas": ["korg"]
-            },
-            "browser": true,
-            "auto": true
-        },
-        "evi.hilbert~.maxpat": {
-            "object": true,
-            "ref": true,
-            "qlookup": true,
-            "helpfile": {
-                "generate": true,
-                "mctab": false,
-                "mcstab": false,
-                "mcparent": "",
-                "mcchild": "",
-                "gentab": true,
-                "genexprtab": true,
-                "areas": ["msp"]
-            },
-            "browser": true,
-            "auto": true
-        },
-        "evi.lpg.core~.maxpat": {
-            "object": false,
-            "ref": false,
-            "qlookup": false,
-            "helpfile": {
-                "generate": false,
-                "mctab": false,
-                "mcstab": false,
-                "mcparent": "",
-                "mcchild": "",
-                "gentab": false,
-                "genexprtab": false,
-                "areas": []
-            },
-            "browser": false,
-            "auto": false
-        },
-        "evi.lpg~.maxpat": {
-            "object": true,
-            "ref": true,
-            "qlookup": true,
-            "helpfile": {
-                "generate": true,
-                "mctab": false,
-                "mcstab": false,
-                "mcparent": "",
-                "mcchild": "",
-                "gentab": true,
-                "genexprtab": false,
-                "areas": []
-            },
-            "browser": true,
-            "auto": true
-        },
-        "mc.evi.bands~.maxpat": {
-            "object": true,
-            "ref": true,
-            "qlookup": true,
-            "helpfile": {
-                "generate": true,
-                "mctab": false,
-                "mcstab": false,
-                "mcparent": "",
-                "mcchild": "",
-                "gentab": false,
-                "genexprtab": false,
-                "areas": []
-            },
-            "browser": true,
-            "auto": true
-        },
-        "evi.clipasym~.maxpat": {
-            "object": true,
-            "ref": true,
-            "qlookup": true,
-            "helpfile": {
-                "generate": true,
-                "mctab": true,
-                "mcstab": false,
-                "mcparent": "",
-                "mcchild": "mc.evi.clipasym~",
-                "gentab": true,
-                "genexprtab": false,
-                "areas": []
-            },
-            "browser": true,
-            "auto": true
-        },
-        "evi.sinfold~.maxpat": {
-            "object": true,
-            "ref": true,
-            "qlookup": true,
-            "helpfile": {
-                "generate": true,
-                "mctab": true,
-                "mcstab": false,
-                "mcparent": "",
-                "mcchild": "mc.evi.sinfold~",
-                "gentab": true,
-                "genexprtab": false,
-                "areas": []
-            },
-            "browser": true,
-            "auto": true
-        },
-        "evi.warmer~.maxpat": {
-            "object": true,
-            "ref": true,
-            "qlookup": true,
-            "helpfile": {
-                "generate": true,
-                "mctab": true,
-                "mcstab": false,
-                "mcparent": "",
-                "mcchild": "mc.evi.warmer~",
-                "gentab": true,
-                "genexprtab": false,
-                "areas": []
-            },
-            "browser": true,
-            "auto": true
-        },
-        "mc.evi.clipasym~.maxpat": {
-            "object": true,
-            "ref": false,
-            "qlookup": true,
-            "helpfile": {
-                "generate": false,
-                "mctab": false,
-                "mcstab": false,
-                "mcparent": "evi.clipsym~",
-                "mcchild": "",
-                "gentab": false,
-                "genexprtab": false,
-                "areas": []
-            },
-            "browser": true,
-            "auto": true
-        },
-        "mc.evi.sinfold~.maxpat": {
-            "object": true,
-            "ref": false,
-            "qlookup": true,
-            "helpfile": {
-                "generate": false,
-                "mctab": false,
-                "mcstab": false,
-                "mcparent": "evi.sinfold~",
-                "mcchild": "",
-                "gentab": false,
-                "genexprtab": false,
-                "areas": []
-            },
-            "browser": true,
-            "auto": true
-        },
-        "mc.evi.warmer~.maxpat": {
-            "object": true,
-            "ref": false,
-            "qlookup": true,
-            "helpfile": {
-                "generate": false,
-                "mctab": false,
-                "mcstab": false,
-                "mcparent": "evi.warmer~",
-                "mcchild": "",
-                "gentab": false,
-                "genexprtab": false,
-                "areas": []
-            },
-            "browser": true,
-            "auto": true
+            "db": {
+                "browser": false,
+				"auto": false
+            }
         },
         "evi.adsr~.maxpat": {
             "object": true,
@@ -303,331 +33,10 @@
                 "genexprtab": false,
                 "areas": []
             },
-            "browser": true,
-            "auto": true
-        },
-        "evi.atodb.maxpat": {
-            "object": true,
-            "ref": false,
-            "qlookup": true,
-            "helpfile": {
-                "generate": false,
-                "mctab": false,
-                "mcstab": false,
-                "mcparent": "",
-                "mcchild": "",
-                "gentab": false,
-                "genexprtab": false,
-                "areas": []
-            },
-            "browser": true,
-            "auto": true
-        },
-        "evi.dbtoa.maxpat": {
-            "object": true,
-            "ref": false,
-            "qlookup": true,
-            "helpfile": {
-                "generate": false,
-                "mctab": false,
-                "mcstab": false,
-                "mcparent": "",
-                "mcchild": "",
-                "gentab": false,
-                "genexprtab": false,
-                "areas": []
-            },
-            "browser": true,
-            "auto": true
-        },
-        "evi.dcblock~.maxpat": {
-            "object": true,
-            "ref": true,
-            "qlookup": true,
-            "helpfile": {
-                "generate": true,
-                "mctab": true,
-                "mcstab": false,
-                "mcparent": "",
-                "mcchild": "mc.evi.dcblock~",
-                "gentab": true,
-                "genexprtab": false,
-                "areas": []
-            },
-            "browser": true,
-            "auto": true
-        },
-        "evi.enable.maxpat": {
-            "object": true,
-            "ref": false,
-            "qlookup": true,
-            "helpfile": {
-                "generate": false,
-                "mctab": false,
-                "mcstab": false,
-                "mcparent": "",
-                "mcchild": "",
-                "gentab": false,
-                "genexprtab": false,
-                "areas": []
-            },
-            "browser": true,
-            "auto": true
-        },
-        "evi.list.interp.maxpat": {
-            "object": true,
-            "ref": false,
-            "qlookup": true,
-            "helpfile": {
-                "generate": false,
-                "mctab": false,
-                "mcstab": false,
-                "mcparent": "",
-                "mcchild": "",
-                "gentab": false,
-                "genexprtab": false,
-                "areas": []
-            },
-            "browser": true,
-            "auto": true
-        },
-        "evi.list.xfade.maxpat": {
-            "object": true,
-            "ref": false,
-            "qlookup": true,
-            "helpfile": {
-                "generate": false,
-                "mctab": false,
-                "mcstab": false,
-                "mcparent": "",
-                "mcchild": "",
-                "gentab": false,
-                "genexprtab": false,
-                "areas": []
-            },
-            "browser": true,
-            "auto": true
-        },
-        "evi.notes2ints.maxpat": {
-            "object": true,
-            "ref": false,
-            "qlookup": true,
-            "helpfile": {
-                "generate": false,
-                "mctab": false,
-                "mcstab": false,
-                "mcparent": "",
-                "mcchild": "",
-                "gentab": false,
-                "genexprtab": false,
-                "areas": []
-            },
-            "browser": true,
-            "auto": true
-        },
-        "evi.pitchdetect~.maxpat": {
-            "object": true,
-            "ref": true,
-            "qlookup": true,
-            "helpfile": {
-                "generate": false,
-                "mctab": false,
-                "mcstab": false,
-                "mcparent": "",
-                "mcchild": "",
-                "gentab": false,
-                "genexprtab": false,
-                "areas": []
-            },
-            "browser": true,
-            "auto": true
-        },
-        "evi.polyphaseiirhilbertcoeffs.maxpat": {
-            "object": true,
-            "ref": true,
-            "qlookup": true,
-            "helpfile": {
-                "generate": true,
-                "mctab": false,
-                "mcstab": false,
-                "mcparent": "",
-                "mcchild": "",
-                "gentab": false,
-                "genexprtab": false,
-                "areas": []
-            },
-            "browser": true,
-            "auto": true
-        },
-        "evi.pz.maxpat": {
-            "object": false,
-            "ref": false,
-            "qlookup": false,
-            "helpfile": {
-                "generate": false,
-                "mctab": false,
-                "mcstab": false,
-                "mcparent": "",
-                "mcchild": "",
-                "gentab": false,
-                "genexprtab": false,
-                "areas": []
-            },
-            "browser": false,
-            "auto": false
-        },
-        "evi.recursivefolder.maxpat": {
-            "object": true,
-            "ref": false,
-            "qlookup": true,
-            "helpfile": {
-                "generate": false,
-                "mctab": false,
-                "mcstab": false,
-                "mcparent": "",
-                "mcchild": "",
-                "gentab": false,
-                "genexprtab": false,
-                "areas": []
-            },
-            "browser": true,
-            "auto": true
-        },
-        "evi.tpqm.maxpat": {
-            "object": true,
-            "ref": true,
-            "qlookup": true,
-            "helpfile": {
-                "generate": true,
-                "mctab": false,
-                "mcstab": false,
-                "mcparent": "",
-                "mcchild": "",
-                "gentab": false,
-                "genexprtab": false,
-                "areas": []
-            },
-            "browser": true,
-            "auto": true
-        },
-        "evi.transratio.maxpat": {
-            "object": true,
-            "ref": true,
-            "qlookup": true,
-            "helpfile": {
-                "generate": true,
-                "mctab": false,
-                "mcstab": false,
-                "mcparent": "",
-                "mcchild": "",
-                "gentab": false,
-                "genexprtab": false,
-                "areas": []
-            },
-            "browser": true,
-            "auto": true
-        },
-        "evi.typeroute.maxpat": {
-            "object": false,
-            "ref": false,
-            "qlookup": false,
-            "helpfile": {
-                "generate": false,
-                "mctab": false,
-                "mcstab": false,
-                "mcparent": "",
-                "mcchild": "",
-                "gentab": false,
-                "genexprtab": false,
-                "areas": []
-            },
-            "browser": false,
-            "auto": false
-        },
-        "evi.voiceexclude.maxpat": {
-            "object": true,
-            "ref": false,
-            "qlookup": true,
-            "helpfile": {
-                "generate": false,
-                "mctab": false,
-                "mcstab": false,
-                "mcparent": "",
-                "mcchild": "",
-                "gentab": false,
-                "genexprtab": false,
-                "areas": []
-            },
-            "browser": true,
-            "auto": true
-        },
-        "evi.weightingcoeffs.maxpat": {
-            "object": true,
-            "ref": true,
-            "qlookup": true,
-            "helpfile": {
-                "generate": true,
-                "mctab": false,
-                "mcstab": false,
-                "mcparent": "",
-                "mcchild": "",
-                "gentab": false,
-                "genexprtab": false,
-                "areas": []
-            },
-            "browser": true,
-            "auto": true
-        },
-        "mc.evi.dcblock~.maxpat": {
-            "object": true,
-            "ref": false,
-            "qlookup": true,
-            "helpfile": {
-                "generate": false,
-                "mctab": false,
-                "mcstab": false,
-                "mcparent": "evi.dcblock~",
-                "mcchild": "",
-                "gentab": false,
-                "genexprtab": false,
-                "areas": []
-            },
-            "browser": true,
-            "auto": true
-        },
-        "mc.evi.listgen.maxpat": {
-            "object": true,
-            "ref": true,
-            "qlookup": true,
-            "helpfile": {
-                "generate": true,
-                "mctab": false,
-                "mcstab": false,
-                "mcparent": "",
-                "mcchild": "",
-                "gentab": false,
-                "genexprtab": false,
-                "areas": []
-            },
-            "browser": true,
-            "auto": true
-        },
-        "mc.evi.nth~.maxpat": {
-            "object": false,
-            "ref": false,
-            "qlookup": false,
-            "helpfile": {
-                "generate": false,
-                "mctab": false,
-                "mcstab": false,
-                "mcparent": "",
-                "mcchild": "",
-                "gentab": false,
-                "genexprtab": false,
-                "areas": []
-            },
-            "browser": true,
-            "auto": true
+            "db": {
+                "browser": true,
+				"auto": true
+            }
         },
         "evi.algoverb.factorypresetsmenu.maxpat": {
             "object": false,
@@ -643,8 +52,10 @@
                 "genexprtab": false,
                 "areas": []
             },
-            "browser": false,
-            "auto": false
+            "db": {
+                "browser": false,
+				"auto": false
+            }
         },
         "evi.algoverb~.maxpat": {
             "object": true,
@@ -658,12 +69,16 @@
                 "mcchild": "mcs.evi.algoverb~",
                 "gentab": true,
                 "genexprtab": false,
-                "areas": ["reverb"]
+                "areas": [
+                    "reverb"
+                ]
             },
-            "browser": true,
-            "auto": true
+            "db": {
+                "browser": true,
+				"auto": true
+            }
         },
-        "mcs.evi.algoverb~.maxpat": {
+        "evi.atodb.maxpat": {
             "object": true,
             "ref": false,
             "qlookup": true,
@@ -671,14 +86,16 @@
                 "generate": false,
                 "mctab": false,
                 "mcstab": false,
-                "mcparent": "evi.algoverb~",
+                "mcparent": "",
                 "mcchild": "",
                 "gentab": false,
                 "genexprtab": false,
-                "areas": ["reverb"]
+                "areas": []
             },
-            "browser": true,
-            "auto": true
+            "db": {
+                "browser": true,
+				"auto": false
+            }
         },
         "evi.backverb~.maxpat": {
             "object": true,
@@ -692,12 +109,56 @@
                 "mcchild": "mcs.evi.backverb~",
                 "gentab": true,
                 "genexprtab": false,
-                "areas": ["reverb"]
+                "areas": [
+                    "reverb"
+                ]
             },
-            "browser": true,
-            "auto": true
+            "db": {
+                "browser": true,
+				"auto": true
+            }
         },
-        "mcs.evi.backverb~.maxpat": {
+        "evi.biquadcoeff.maxpat": {
+            "object": true,
+            "ref": true,
+            "qlookup": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": true,
+                "genexprtab": true,
+                "areas": [
+                    "biquad"
+                ]
+            },
+            "db": {
+                "browser": true,
+				"auto": true
+            }
+        },
+        "evi.clipasym~.maxpat": {
+            "object": true,
+            "ref": true,
+            "qlookup": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": true,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "mc.evi.clipasym~",
+                "gentab": true,
+                "genexprtab": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+				"auto": true
+            }
+        },
+        "evi.dbtoa.maxpat": {
             "object": true,
             "ref": false,
             "qlookup": true,
@@ -705,14 +166,94 @@
                 "generate": false,
                 "mctab": false,
                 "mcstab": false,
-                "mcparent": "evi.backverb~",
+                "mcparent": "",
                 "mcchild": "",
                 "gentab": false,
                 "genexprtab": false,
-                "areas": ["reverb"]
+                "areas": []
             },
-            "browser": true,
-            "auto": true
+            "db": {
+                "browser": true,
+				"auto": false
+            }
+        },
+        "evi.dcblock~.maxpat": {
+            "object": true,
+            "ref": true,
+            "qlookup": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": true,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "mc.evi.dcblock~",
+                "gentab": true,
+                "genexprtab": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+				"auto": true
+            }
+        },
+        "evi.dfm~.maxpat": {
+            "object": true,
+            "ref": true,
+            "qlookup": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": true,
+                "genexprtab": false,
+                "areas": [
+                    "korg"
+                ]
+            },
+            "db": {
+                "browser": true,
+				"auto": true
+            }
+        },
+        "evi.enable.maxpat": {
+            "object": true,
+            "ref": false,
+            "qlookup": true,
+            "helpfile": {
+                "generate": false,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "db": {
+                "browser": false,
+				"auto": false
+            }
+        },
+        "evi.findhost.maxpat": {
+            "object": true,
+            "ref": false,
+            "qlookup": false,
+            "helpfile": {
+                "generate": false,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "db": {
+                "browser": false,
+				"auto": false
+            }
         },
         "evi.freezeverb~.maxpat": {
             "object": true,
@@ -726,27 +267,33 @@
                 "mcchild": "mcs.evi.freezeverb~",
                 "gentab": true,
                 "genexprtab": false,
-                "areas": ["reverb"]
+                "areas": [
+                    "reverb"
+                ]
             },
-            "browser": true,
-            "auto": true
+            "db": {
+                "browser": true,
+				"auto": true
+            }
         },
-        "mcs.evi.freezeverb~.maxpat": {
+        "evi.freqshift.hilbert~.maxpat": {
             "object": true,
-            "ref": false,
+            "ref": true,
             "qlookup": true,
             "helpfile": {
-                "generate": false,
+                "generate": true,
                 "mctab": false,
                 "mcstab": false,
-                "mcparent": "evi.freezeverb~",
+                "mcparent": "",
                 "mcchild": "",
-                "gentab": false,
-                "genexprtab": false,
-                "areas": ["reverb"]
+                "gentab": true,
+                "genexprtab": true,
+                "areas": []
             },
-            "browser": true,
-            "auto": true
+            "db": {
+                "browser": true,
+				"auto": true
+            }
         },
         "evi.gigaverb~.maxpat": {
             "object": true,
@@ -760,12 +307,37 @@
                 "mcchild": "mcs.evi.gigaverb~",
                 "gentab": true,
                 "genexprtab": false,
-                "areas": ["reverb"]
+                "areas": [
+                    "reverb"
+                ]
             },
-            "browser": true,
-            "auto": true
+            "db": {
+                "browser": true,
+				"auto": true
+            }
         },
-        "mcs.evi.gigaverb~.maxpat": {
+        "evi.hilbert~.maxpat": {
+            "object": true,
+            "ref": true,
+            "qlookup": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": true,
+                "genexprtab": true,
+                "areas": [
+                    "msp"
+                ]
+            },
+            "db": {
+                "browser": true,
+				"auto": true
+            }
+        },
+        "evi.list.interp.maxpat": {
             "object": true,
             "ref": false,
             "qlookup": true,
@@ -773,14 +345,111 @@
                 "generate": false,
                 "mctab": false,
                 "mcstab": false,
-                "mcparent": "evi.gigaverb~",
+                "mcparent": "",
                 "mcchild": "",
                 "gentab": false,
                 "genexprtab": false,
-                "areas": ["reverb"]
+                "areas": []
             },
-            "browser": true,
-            "auto": true
+            "db": {
+                "browser": true,
+				"auto": false
+            }
+        },
+        "evi.list.xfade.maxpat": {
+            "object": true,
+            "ref": false,
+            "qlookup": true,
+            "helpfile": {
+                "generate": false,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+				"auto": false
+            }
+        },
+        "evi.listproduct.maxpat": {
+            "object": true,
+            "ref": false,
+            "qlookup": false,
+            "helpfile": {
+                "generate": false,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "db": {
+                "browser": false,
+				"auto": false
+            }
+        },
+        "evi.lpg.core~.maxpat": {
+            "object": false,
+            "ref": false,
+            "qlookup": false,
+            "helpfile": {
+                "generate": false,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+				"auto": false
+            }
+        },
+        "evi.lpg~.maxpat": {
+            "object": true,
+            "ref": true,
+            "qlookup": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": true,
+                "genexprtab": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+				"auto": true
+            }
+        },
+        "evi.magnitude.maxpat": {
+            "object": true,
+            "ref": false,
+            "qlookup": true,
+            "helpfile": {
+                "generate": false,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+				"auto": false
+            }
         },
         "evi.mattaverb~.maxpat": {
             "object": true,
@@ -794,12 +463,16 @@
                 "mcchild": "mcs.evi.mattaverb~",
                 "gentab": true,
                 "genexprtab": false,
-                "areas": ["reverb"]
+                "areas": [
+                    "reverb"
+                ]
             },
-            "browser": true,
-            "auto": true
+            "db": {
+                "browser": true,
+				"auto": true
+            }
         },
-        "mcs.evi.mattaverb~.maxpat": {
+        "evi.notes2ints.maxpat": {
             "object": true,
             "ref": false,
             "qlookup": true,
@@ -807,82 +480,35 @@
                 "generate": false,
                 "mctab": false,
                 "mcstab": false,
-                "mcparent": "evi.mattaverb~",
+                "mcparent": "",
                 "mcchild": "",
                 "gentab": false,
                 "genexprtab": false,
-                "areas": ["reverb"]
+                "areas": []
             },
-            "browser": true,
-            "auto": true
+            "db": {
+                "browser": false,
+				"auto": false
+            }
         },
-        "evi.sustainverb_lite~.maxpat": {
+        "evi.pitchdetect~.maxpat": {
             "object": true,
             "ref": true,
             "qlookup": true,
             "helpfile": {
-                "generate": true,
-                "mctab": false,
-                "mcstab": true,
-                "mcparent": "",
-                "mcchild": "mcs.evi.sustainverb_lite~",
-                "gentab": true,
-                "genexprtab": false,
-                "areas": ["reverb"]
-            },
-            "browser": true,
-            "auto": true
-        },
-        "evi.sustainverb~.maxpat": {
-            "object": true,
-            "ref": true,
-            "qlookup": true,
-            "helpfile": {
-                "generate": true,
-                "mctab": false,
-                "mcstab": true,
-                "mcparent": "",
-                "mcchild": "mcs.evi.sustainverb~",
-                "gentab": true,
-                "genexprtab": false,
-                "areas": ["reverb"]
-            },
-            "browser": true,
-            "auto": true
-        },
-        "mcs.evi.sustainverb_lite~.maxpat": {
-            "object": true,
-            "ref": false,
-            "qlookup": true,
-            "helpfile": {
                 "generate": false,
                 "mctab": false,
                 "mcstab": false,
-                "mcparent": "evi.sustainverb_lite~",
+                "mcparent": "",
                 "mcchild": "",
                 "gentab": false,
                 "genexprtab": false,
-                "areas": ["reverb"]
+                "areas": []
             },
-            "browser": true,
-            "auto": true
-        },
-        "mcs.evi.sustainverb~.maxpat": {
-            "object": true,
-            "ref": false,
-            "qlookup": true,
-            "helpfile": {
-                "generate": false,
-                "mctab": false,
-                "mcstab": false,
-                "mcparent": "evi.sustainverb~",
-                "mcchild": "",
-                "gentab": false,
-                "genexprtab": false,
-                "areas": ["reverb"]
-            },
-            "browser": true,
-            "auto": true
+            "db": {
+                "browser": true,
+				"auto": true
+            }
         },
         "evi.plateverb_lite~.maxpat": {
             "object": true,
@@ -896,10 +522,14 @@
                 "mcchild": "mcs.evi.plateverb_lite~",
                 "gentab": true,
                 "genexprtab": false,
-                "areas": ["reverb"]
+                "areas": [
+                    "reverb"
+                ]
             },
-            "browser": true,
-            "auto": true
+            "db": {
+                "browser": true,
+				"auto": true
+            }
         },
         "evi.plateverb~.maxpat": {
             "object": true,
@@ -913,12 +543,54 @@
                 "mcchild": "mcs.evi.plateverb~",
                 "gentab": true,
                 "genexprtab": false,
-                "areas": ["reverb"]
+                "areas": [
+                    "reverb"
+                ]
             },
-            "browser": true,
-            "auto": true
+            "db": {
+                "browser": true,
+				"auto": true
+            }
         },
-        "mcs.evi.plateverb_lite~.maxpat": {
+        "evi.polyphaseiirhilbertcoeffs.maxpat": {
+            "object": true,
+            "ref": true,
+            "qlookup": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+				"auto": true
+            }
+        },
+        "evi.pz.maxpat": {
+            "object": false,
+            "ref": false,
+            "qlookup": false,
+            "helpfile": {
+                "generate": false,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "db": {
+                "browser": false,
+				"auto": false
+            }
+        },
+        "evi.recursivefolder.maxpat": {
             "object": true,
             "ref": false,
             "qlookup": true,
@@ -926,16 +598,195 @@
                 "generate": false,
                 "mctab": false,
                 "mcstab": false,
-                "mcparent": "evi.plateverb_lite~",
+                "mcparent": "",
                 "mcchild": "",
                 "gentab": false,
                 "genexprtab": false,
-                "areas": ["reverb"]
+                "areas": []
             },
-            "browser": true,
-            "auto": true
+            "db": {
+                "browser": true,
+				"auto": false
+            }
         },
-        "mcs.evi.plateverb~.maxpat": {
+        "evi.ringmod.diode.core~.maxpat": {
+            "object": false,
+            "ref": false,
+            "qlookup": false,
+            "helpfile": {
+                "generate": false,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+				"auto": false
+            }
+        },
+        "evi.ringmod.diode~.maxpat": {
+            "object": true,
+            "ref": true,
+            "qlookup": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": true,
+                "genexprtab": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+				"auto": true
+            }
+        },
+        "evi.sinfold~.maxpat": {
+            "object": true,
+            "ref": true,
+            "qlookup": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": true,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "mc.evi.sinfold~",
+                "gentab": true,
+                "genexprtab": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+				"auto": true
+            }
+        },
+        "evi.sustainfdn.core~.maxpat": {
+            "object": false,
+            "ref": false,
+            "qlookup": false,
+            "helpfile": {
+                "generate": false,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": [
+                    "reverb"
+                ]
+            },
+            "db": {
+                "browser": true,
+				"auto": false
+            }
+        },
+        "evi.sustainverb_lite~.maxpat": {
+            "object": true,
+            "ref": true,
+            "qlookup": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": false,
+                "mcstab": true,
+                "mcparent": "",
+                "mcchild": "mcs.evi.sustainverb_lite~",
+                "gentab": true,
+                "genexprtab": false,
+                "areas": [
+                    "reverb"
+                ]
+            },
+            "db": {
+                "browser": true,
+				"auto": true
+            }
+        },
+        "evi.sustainverb~.maxpat": {
+            "object": true,
+            "ref": true,
+            "qlookup": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": false,
+                "mcstab": true,
+                "mcparent": "",
+                "mcchild": "mcs.evi.sustainverb~",
+                "gentab": true,
+                "genexprtab": false,
+                "areas": [
+                    "reverb"
+                ]
+            },
+            "db": {
+                "browser": true,
+				"auto": true
+            }
+        },
+        "evi.tpqm.maxpat": {
+            "object": true,
+            "ref": true,
+            "qlookup": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+				"auto": true
+            }
+        },
+        "evi.transratio.maxpat": {
+            "object": true,
+            "ref": true,
+            "qlookup": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+				"auto": true
+            }
+        },
+        "evi.typeroute.maxpat": {
+            "object": false,
+            "ref": false,
+            "qlookup": false,
+            "helpfile": {
+                "generate": false,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "db": {
+                "browser": false,
+				"auto": false
+            }
+        },
+        "evi.voiceexclude.maxpat": {
             "object": true,
             "ref": false,
             "qlookup": true,
@@ -943,14 +794,54 @@
                 "generate": false,
                 "mctab": false,
                 "mcstab": false,
-                "mcparent": "evi.plateverb~",
+                "mcparent": "",
                 "mcchild": "",
                 "gentab": false,
                 "genexprtab": false,
-                "areas": ["reverb"]
+                "areas": []
             },
-            "browser": true,
-            "auto": true
+            "db": {
+                "browser": false,
+				"auto": false
+            }
+        },
+        "evi.warmer~.maxpat": {
+            "object": true,
+            "ref": true,
+            "qlookup": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": true,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "mc.evi.warmer~",
+                "gentab": true,
+                "genexprtab": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+				"auto": true
+            }
+        },
+        "evi.weightingcoeffs.maxpat": {
+            "object": true,
+            "ref": true,
+            "qlookup": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+				"auto": true
+            }
         },
         "evi.zitaverb~.maxpat": {
             "object": true,
@@ -964,10 +855,355 @@
                 "mcchild": "mcs.evi.zitaverb~",
                 "gentab": true,
                 "genexprtab": false,
-                "areas": ["reverb"]
+                "areas": [
+                    "reverb"
+                ]
             },
-            "browser": true,
-            "auto": true
+            "db": {
+                "browser": true,
+				"auto": true
+            }
+        },
+        "evi.zpk.maxpat": {
+            "object": true,
+            "ref": false,
+            "qlookup": true,
+            "helpfile": {
+                "generate": false,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+				"auto": false
+            }
+        },
+        "mc.evi.bands~.maxpat": {
+            "object": true,
+            "ref": true,
+            "qlookup": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+				"auto": true
+            }
+        },
+        "mc.evi.clipasym~.maxpat": {
+            "object": true,
+            "ref": false,
+            "qlookup": true,
+            "helpfile": {
+                "generate": false,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "evi.clipsym~",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+				"auto": true
+            }
+        },
+        "mc.evi.dcblock~.maxpat": {
+            "object": true,
+            "ref": false,
+            "qlookup": true,
+            "helpfile": {
+                "generate": false,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "evi.dcblock~",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+				"auto": true
+            }
+        },
+        "mc.evi.listgen.maxpat": {
+            "object": true,
+            "ref": true,
+            "qlookup": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+				"auto": true
+            }
+        },
+        "mc.evi.nth~.maxpat": {
+            "object": false,
+            "ref": false,
+            "qlookup": false,
+            "helpfile": {
+                "generate": false,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "db": {
+                "browser": false,
+				"auto": false
+            }
+        },
+        "mc.evi.sinfold~.maxpat": {
+            "object": true,
+            "ref": false,
+            "qlookup": true,
+            "helpfile": {
+                "generate": false,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "evi.sinfold~",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+				"auto": true
+            }
+        },
+        "mc.evi.warmer~.maxpat": {
+            "object": true,
+            "ref": false,
+            "qlookup": true,
+            "helpfile": {
+                "generate": false,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "evi.warmer~",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+				"auto": true
+            }
+        },
+        "mcs.evi.algoverb~.maxpat": {
+            "object": true,
+            "ref": false,
+            "qlookup": true,
+            "helpfile": {
+                "generate": false,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "evi.algoverb~",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": [
+                    "reverb"
+                ]
+            },
+            "db": {
+                "browser": true,
+				"auto": true
+            }
+        },
+        "mcs.evi.backverb~.maxpat": {
+            "object": true,
+            "ref": false,
+            "qlookup": true,
+            "helpfile": {
+                "generate": false,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "evi.backverb~",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": [
+                    "reverb"
+                ]
+            },
+            "db": {
+                "browser": true,
+				"auto": true
+            }
+        },
+        "mcs.evi.freezeverb~.maxpat": {
+            "object": true,
+            "ref": false,
+            "qlookup": true,
+            "helpfile": {
+                "generate": false,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "evi.freezeverb~",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": [
+                    "reverb"
+                ]
+            },
+            "db": {
+                "browser": true,
+				"auto": true
+            }
+        },
+        "mcs.evi.gigaverb~.maxpat": {
+            "object": true,
+            "ref": false,
+            "qlookup": true,
+            "helpfile": {
+                "generate": false,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "evi.gigaverb~",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": [
+                    "reverb"
+                ]
+            },
+            "db": {
+                "browser": true,
+				"auto": true
+            }
+        },
+        "mcs.evi.mattaverb~.maxpat": {
+            "object": true,
+            "ref": false,
+            "qlookup": true,
+            "helpfile": {
+                "generate": false,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "evi.mattaverb~",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": [
+                    "reverb"
+                ]
+            },
+            "db": {
+                "browser": true,
+				"auto": true
+            }
+        },
+        "mcs.evi.plateverb_lite~.maxpat": {
+            "object": true,
+            "ref": false,
+            "qlookup": true,
+            "helpfile": {
+                "generate": false,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "evi.plateverb_lite~",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": [
+                    "reverb"
+                ]
+            },
+            "db": {
+                "browser": true,
+				"auto": true
+            }
+        },
+        "mcs.evi.plateverb~.maxpat": {
+            "object": true,
+            "ref": false,
+            "qlookup": true,
+            "helpfile": {
+                "generate": false,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "evi.plateverb~",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": [
+                    "reverb"
+                ]
+            },
+            "db": {
+                "browser": true,
+				"auto": true
+            }
+        },
+        "mcs.evi.sustainverb_lite~.maxpat": {
+            "object": true,
+            "ref": false,
+            "qlookup": true,
+            "helpfile": {
+                "generate": false,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "evi.sustainverb_lite~",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": [
+                    "reverb"
+                ]
+            },
+            "db": {
+                "browser": true,
+				"auto": true
+            }
+        },
+        "mcs.evi.sustainverb~.maxpat": {
+            "object": true,
+            "ref": false,
+            "qlookup": true,
+            "helpfile": {
+                "generate": false,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "evi.sustainverb~",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": [
+                    "reverb"
+                ]
+            },
+            "db": {
+                "browser": true,
+				"auto": true
+            }
         },
         "mcs.evi.zitaverb~.maxpat": {
             "object": true,
@@ -981,10 +1217,14 @@
                 "mcchild": "",
                 "gentab": false,
                 "genexprtab": false,
-                "areas": ["reverb"]
+                "areas": [
+                    "reverb"
+                ]
             },
-            "browser": true,
-            "auto": true
+            "db": {
+                "browser": true,
+				"auto": true
+            }
         }
     }
 }

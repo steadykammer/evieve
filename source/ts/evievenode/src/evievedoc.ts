@@ -11,22 +11,12 @@ import config from '../config/evievedoc.config.json';// with { type: 'json' };
 import gendsp from '../config/evievedoc.config.gendsp.json';// with { type: 'json' };
 import maxpat from '../config/evievedoc.config.maxpat.json';
 import mxo from '../config/evievedoc.config.mxo.json';
-//import qabs from '../config/evievedoc.abstractions.qlookup.json';
 
-import testJsonXml from '../test/pete_testing.json';
+const attributeXmlPrefix = 'maxattr_';
 
-const evievedocConfig = '../config/evievedoc.config.json';
+// import testJsonXml from '../test/pete_testing_2.json';
 
 // --------------------------------------------- //
-
-max.addHandler('callback_from_xml_make', (name: string) => {
-    booboo(name);
-})
-
-function booboo(name: string)
-{
-    const choochoo = name;
-}
 
 max.addHandler('test_gendsp_make', () => {
     updateConfigFileGendsp();
@@ -47,12 +37,13 @@ max.addHandler('make_externals_refpages', (force = false) => {
   void max.outlet('process', 'bang');
 })
 
+// not needed anymore
 max.addHandler('make_refpages_rename', () => {
     externalsRefpagesRename();
 })
 
 max.addHandler('make_refpages_contents', () => {
-    makeRefpagesXmlContents();
+    makeDocRefpagesXmlContents();
 })
 
 max.addHandler('make_gendsp_defines', () => {
@@ -65,11 +56,18 @@ max.addHandler('make_externals_mappings', () => {
 	manuallyCreateMxoObjectmappings();
 })
 
+max.addHandler('make_abs_ref_jsons', () => {
+	createMaxpatRefJson();
+})
+
+max.addHandler('make_defs_ref_jsons', () => {
+	createDefineRefJson();
+})
+
 // --------------------------------------------- //
 // testing
 
 max.addHandler('pete_test_xml_object', (type: string) => {
-//	const prefix = '@_';
 	if (type === "get") {
 		testGetXml();
 	}
@@ -78,37 +76,200 @@ max.addHandler('pete_test_xml_object', (type: string) => {
 	}
 })
 
+max.addHandler('pete_test_externals_xml_edit', () => {
+	testEditAutoXml();
+})
+
 function testGetXml(prefix?: string)
 {
 	const options = {
-		preserveOrder: true,
+		preserveOrder: false, // shit for getting values, good for rebuilding xml
 		ignoreAttributes: false,
 		// attributeNamePrefix: `${prefix}`,
-		attributeNamePrefix: '@_',
+		attributeNamePrefix: attributeXmlPrefix,
+		alwaysCreateTextNode: true,
 		processEntities: false
 	};
 	const parser = new XMLParser(options);
 
 	const xmlData = fs.readFileSync('../test/msp_delay~.maxref.xml', 'utf8');
 	const result = parser.parse(xmlData);
-	fs.writeFileSync('../test/pete_testing.json', JSON.stringify(result, null, 4));
+	fs.writeFileSync('../test/pete_testing_3.json', JSON.stringify(result, null, 4));
 }
 
-function testBuildXml(prefix?: string)
+function testBuildXml(/*jsonData: any, */prefix?: string)
 {
 	const options = {
 		format: true,
-		preserveOrder: true,
+		preserveOrder: false, // shit for the json, but only to have format correct when building
 		ignoreAttributes: false,
 		// attributeNamePrefix: `${prefix}`,
-		attributeNamePrefix: '@_',
+		attributeNamePrefix: attributeXmlPrefix,
 		processEntities: false
 	};
 	const builder = new XMLBuilder(options);
 
-	// const jsonData = fs.readFileSync('../test/pete_testing.json', 'utf8');
-	const result = builder.build(testJsonXml);
-	fs.writeFileSync('../test/testing_pete.xml', result);
+	const jsonData = fs.readFileSync('../test/pete_testing_3.json', 'utf8');
+	const result = builder.build(jsonData);
+	fs.writeFileSync('../test/testing_pete_3.xml', result);
+}
+
+async function testEditAutoXml()
+{
+	let refDir = `${cwd()}/${config.referenceFiles.externals.config}`;
+	let outDir = `${cwd()}/${config.referenceFiles.externals.output}`;
+	let refFiles = getFileNamesFromPath(refDir, 'xml');
+	const parseOptions = {
+		preserveOrder: false, // shit for getting values, good for rebuilding xml
+		ignoreAttributes: false,
+		attributeNamePrefix: attributeXmlPrefix,
+		alwaysCreateTextNode: true,
+		processEntities: false
+	};
+	const buildOptions = {
+		format: true,
+		preserveOrder: false, // shit for the json, but only to have format correct when building
+		ignoreAttributes: false,
+		attributeNamePrefix: attributeXmlPrefix,
+		processEntities: false
+	};
+	const parser = new XMLParser(parseOptions);
+	const builder = new XMLBuilder(buildOptions);
+
+	for await (const file of refFiles) {
+		const xmlData = fs.readFileSync(`${refDir}/${file}`, 'utf8');
+		const jsonData = parser.parse(xmlData);
+		const outName = file.replace('_ref.xml', '.maxref.xml');
+		jsonData.c74object.metadatalist.metadata = externalsXmlMetadata;
+		jsonData.c74object.maxattr_module = 'evieve';
+		jsonData.c74object.maxattr_category = 'evieve';
+		const editedData = builder.build(jsonData);
+		fs.writeFileSync(`${outDir}/${outName}`, editedData);
+	}
+}
+
+// --------------------------------------------- //
+
+async function parseAbstractionMaxpatLoop(parentPath: string, patcherName: string) {
+	const fullPath = `${parentPath}/${patcherName}`;
+    const maxpatRaw = fs.readFileSync(fullPath, 'utf8');
+    const maxpatJson = JSON.parse(maxpatRaw);
+
+	const NEW_OBJ = "newobj";
+	const PATCHER_ARGS = "patcherargs";
+	let BOX_TEXT: string;
+	let MATCH_ARGS = false;
+
+	const IN_LET = "inlet";
+	const OUT_LET = "outlet";
+	let IO_ASSIST: string;
+
+	// we only need to look at top level for the [patcherargs] we are interested in
+    for (const object of maxpatJson.patcher.boxes) {
+      if (object.box.maxclass === NEW_OBJ) {
+		BOX_TEXT = object.box.text;
+		if (BOX_TEXT.startsWith(PATCHER_ARGS)) {
+			// parse it
+			MATCH_ARGS = true;
+		}
+      }
+      if (MATCH_ARGS) {
+        break;	// only once for [patcherargs]
+      }
+    }
+
+	// if (!MATCH_ARGS) { // do something if [patcherargs] not found?
+
+	// }
+
+	// we only want to look at top level for the [inlet] & [outlet]s
+    for (const object of maxpatJson.patcher.boxes) {
+      if (object.box.maxclass === IN_LET || object.box.maxclass === OUT_LET) {
+		IO_ASSIST = object.box.comment;
+		if (object.box.maxclass === IN_LET) {
+			// push it
+		} else if (object.box.maxclass === OUT_LET) {
+			// push it
+		}
+      }
+    }
+
+	// fs.writeFileSync(fullPath, JSON.stringify(maxpatJson, null, 4));
+}
+
+function parsePatcherArgs(boxText: string, objectConfig: any)
+{
+
+}
+
+function pushIOdata(ioAssist: string, type: string, objectConfig: any)
+{
+
+}
+
+// --------------------------------------------- //
+
+async function createMaxpatRefJson()
+{
+	const maxpatRefsPath = `${cwd()}/${config.referenceFiles.abstractions.config}`;
+	const templateJson = fs.readFileSync(`${maxpatRefsPath}/_xml_abstraction_template.json`, 'utf8');
+    const templateObject = JSON.parse(templateJson);
+
+	let refConfigs = getFileNamesFromPath(maxpatRefsPath, 'json');
+	const IGNORE = /_xml_abstraction_template.json/;
+	// const IGNORE = /_xml_*.json/;
+	refConfigs = refConfigs.filter((str) => !IGNORE.test(str));
+
+	let parsedMaxpats = maxpat.evi_abstractions;
+	const maxpatsArray = Object.keys(parsedMaxpats);
+	for await (const maxpatName of maxpatsArray) {
+		const jsonFileName = maxpatName.replace('.maxpat', '_ref.json')
+        if (!Object.hasOwn(refConfigs, jsonFileName)) {	// maybe create if does not yet exist
+			// @ts-expect-error
+			const thisMaxpatConfig = parsedMaxpats[maxpatName];
+			if (thisMaxpatConfig.ref) { // if ref page is requested in config
+				const newTemplate = JSON.parse(JSON.stringify(templateObject));
+				newTemplate.object.name = maxpatName.replace('.maxpat', '');
+				newTemplate.metadata.author = "Pete Dowling"; // fatPete
+
+				fs.writeFileSync(`${maxpatRefsPath}/${jsonFileName}`, JSON.stringify(newTemplate, null, 4));
+				void max.post(`Creation of ${jsonFileName} success!`)
+			}
+		}
+	}
+}
+
+async function createDefineRefJson()
+{
+	const defineRefsPath = `${cwd()}/${config.referenceFiles.defines.config}`;
+	const templateJson = fs.readFileSync(`${defineRefsPath}/_xml_define_template.json`, 'utf8');
+    const templateObject = JSON.parse(templateJson);
+
+	let refConfigs = getFileNamesFromPath(defineRefsPath, 'json');
+	const IGNORE = /_xml_define_template.json/;
+	refConfigs = refConfigs.filter((str) => !IGNORE.test(str));
+
+	let parsedDefines = gendsp.evi_gendsp;
+	const definesArray = Object.keys(parsedDefines);
+	for await (const defineName of definesArray) {
+		// @ts-expect-error
+		const thisDefineConfig = parsedDefines[defineName];
+		const newDefineName = thisDefineConfig.define.msp;
+		const jsonFileName = `${newDefineName}_ref.json`;
+        if (!Object.hasOwn(refConfigs, jsonFileName)) {	// maybe create if does not yet exist
+			if (thisDefineConfig.define.object) {	// outer double check, might as well
+				if (thisDefineConfig.ref.msp) { // if msp ref page is requested in config
+					const newTemplate = JSON.parse(JSON.stringify(templateObject));
+					newTemplate.object.name = newDefineName;
+					newTemplate.object.parent = defineName;
+					newTemplate.metadata.author = "Pete Dowling"; // fatPete
+
+					fs.writeFileSync(`${defineRefsPath}/${jsonFileName}`, JSON.stringify(newTemplate, null, 4));
+					void max.post(`Creation of ${jsonFileName} success!`)
+				}
+			}
+		}
+	}
 }
 
 // --------------------------------------------- //
@@ -121,7 +282,7 @@ function updateConfigFileGendsp(force = false, writeJson = true) {
 	const gendsps = getFileNamesFromPathRecursive(`${cwd()}/${config.referenceFiles.genDsp.input}`, 'gendsp');
 	for (const gendsp of gendsps) {
         if (!Object.hasOwn(currentGendsp, gendsp)) {
-        	newGendsp[gendsp] = JSON.parse(JSON.stringify(gendspDocTemplate)); // add new entry
+        	newGendsp[gendsp] = JSON.parse(JSON.stringify(gendspConfigTemplate)); // add new entry
         	newGendsp[gendsp].define.msp = gendsp.replaceAll('_', '.').replace('.gendsp', '~');
 		}
 	}
@@ -159,7 +320,7 @@ function updateConfigFileMaxpat(force = false, writeJson = true) {
 	const abstractions = getFileNamesFromPathRecursive(`${cwd()}/${config.referenceFiles.abstractions.input}`, 'maxpat');
 	for (const abs of abstractions) {
         if (!Object.hasOwn(currentMaxpats, abs)) {
-        	newMaxpats[abs] = JSON.parse(JSON.stringify(abstractionsDocTemplate)); // add new entry
+        	newMaxpats[abs] = JSON.parse(JSON.stringify(abstractionsConfigTemplate)); // add new entry
 		}
 	}
 
@@ -171,14 +332,14 @@ function updateConfigFileMaxpat(force = false, writeJson = true) {
 	void max.post("Updating abstractions listings in 'evievedoc.config.maxpat.json'");
 
 	currentMaxpats = Object.assign(currentMaxpats, newMaxpats);
-/*	// i've decided not to sort the abstractions so that they appear for my brain in folder order
+
 	const sortedMaxpats = Object.entries(currentMaxpats).sort((a, b) =>
 		a[0].localeCompare(b[0], undefined, { sensitivity: 'base' })
 	);
 
 	const assignMaxpats = Object.fromEntries(sortedMaxpats);
 	// @ts-expect-error
-*/	maxpat.evi_abstractions = currentMaxpats;//assignMaxpats;
+	maxpat.evi_abstractions = assignMaxpats;
 
 	// write json
 	if (writeJson) {
@@ -197,7 +358,7 @@ function updateConfigFileExternals(force = false, writeJson = true) {
 	for (const external of externals) {
 		const externalName = external.replace('.mxo', '');
         if (!Object.hasOwn(currentExternals, externalName)) {
-        	newExternals[externalName] = JSON.parse(JSON.stringify(externalsDocTemplate)); // add new entry
+        	newExternals[externalName] = JSON.parse(JSON.stringify(externalsConfigTemplate)); // add new entry
 		}
 	}
 
@@ -289,7 +450,7 @@ function manuallyCreateMxoObjectmappings() {
 function createExternalsRefpages(force: boolean) {
 	// search for .mxo files in the externals folder
 	const externals = getExternalsNames(`${cwd()}/${config.referenceFiles.externals.input}`);
-	let outDir = `${cwd()}/${config.referenceFiles.externals.output}`;
+	let outDir = `${cwd()}/${config.referenceFiles.externals.config}`;
 	void max.outlet('array', 'append', `setrefgendestinationpath \"${outDir}\"`)
 	for (const external of externals) {
 		createExternalsRefpagesLoop(external, force)
@@ -299,12 +460,12 @@ function createExternalsRefpages(force: boolean) {
 // pump out two part lists per external to Max [array] object for shifting
 function createExternalsRefpagesLoop(external: string, force: boolean) {
 	let CREATE: boolean;
-	// write name is the name that max will write the output file to
+	// write name is the name that max will write the output file to (eventually)
 	const writeNameIn = external.replace('.mxo', '_ref.xml');
 	const writeNameOut = external.replace('.mxo', '.maxref.xml');
 	const refpageName = external.replace('.mxo', '');
 
-	let outDir = `${cwd()}/${config.referenceFiles.externals.output}`;
+	let outDir = `${cwd()}/${config.referenceFiles.externals.config}`;
 
 	const pathNameIn = `${outDir}/${writeNameIn}`;
 	const pathNameOut = `${outDir}/${writeNameOut}`;
@@ -323,11 +484,12 @@ function createExternalsRefpagesLoop(external: string, force: boolean) {
 	return CREATE
 }
 
+// not used anymore
 function externalsRefpagesRename() {
 	let refDir = `${cwd()}/${config.referenceFiles.externals.output}`;
 	let refFiles = getFileNamesFromPath(refDir, 'xml');
-	const PATTERN = /_c74_contents.xml/;
-	refFiles = refFiles.filter((str) => !PATTERN.test(str));
+	const IGNORE = /_c74_contents.xml/;
+	refFiles = refFiles.filter((str) => !IGNORE.test(str));
 
 	for (const file of refFiles) {
 		const newName = file.replace('_ref.xml', '.maxref.xml');
@@ -336,11 +498,11 @@ function externalsRefpagesRename() {
 	}
 }
 
-function makeRefpagesXmlContents() {
+function makeDocRefpagesXmlContents() {
 	let refDir = `${cwd()}/${config.referenceFiles.externals.output}`;
 	let refFiles = getFileNamesFromPath(refDir, 'xml');
-	const PATTERN = /_c74_contents.xml/;
-	refFiles = refFiles.filter((str) => !PATTERN.test(str));
+	const IGNORE = /_c74_contents.xml/;
+	refFiles = refFiles.filter((str) => !IGNORE.test(str));
 
 	renderFromTemplate('../templates/xmlcontents.handlebars', { ref: refFiles }, `${refDir}/_c74_contents.xml`);
 }
@@ -388,12 +550,12 @@ function renderFromTemplate(templatePath: string, dataToRender: object, writePat
 	fs.writeFileSync(writePath, writeData);
 	void max.post('done writing', writePath, max.POST_LEVELS.INFO);
 }
-
+/*
 function writeConfigJsonToDisk(config: any) {
   fs.writeFileSync(evievedocConfig, JSON.stringify(config, null, 4));
   void max.outlet('config', 'write', 'done');
 }
-
+*/
 // --------------------------------------------- //
 
 function resolveTilde(path: string) {
@@ -414,7 +576,7 @@ function posixPath(path: string) {
 
 // --------------------------------------------- //
 
-const gendspDocTemplate = {
+const gendspConfigTemplate = {
 	"define": {
 		"object": true,
 		"msp": "",
@@ -437,7 +599,7 @@ const gendspDocTemplate = {
 	}
 };
 
-const abstractionsDocTemplate = {
+const abstractionsConfigTemplate = {
 	"object": true,
 	"ref": true,
 	"qlookup": true,
@@ -451,11 +613,13 @@ const abstractionsDocTemplate = {
 		"genexprtab": false,
 		"areas": []
 	},
-	"browser": true,
-	"auto": true
-}
+	"db": {
+		"browser": true,
+		"auto": true
+	}
+};
 
-const externalsDocTemplate = {
+const externalsConfigTemplate = {
 	"object": true,
 	"mc": true,
 	"ref": true,
@@ -472,7 +636,19 @@ const externalsDocTemplate = {
 		"browser": true,
 		"auto": true
 	}
-}
+};
+
+// must be in sync with 'attributeXmlPrefix' const
+const externalsXmlMetadata = [
+	{
+		"#text": "Pete Dowling",
+		"maxattr_name": "author"
+	},
+	{
+		"#text": "evieve",
+		"maxattr_name": "tag"
+	}
+];
 
 // some helpfiles have automatic general tabs covering an 'area'
 const areas = [
@@ -488,4 +664,4 @@ const areas = [
 	"reverb",
 	"overdrive",
 	"smooth"
-]
+];
