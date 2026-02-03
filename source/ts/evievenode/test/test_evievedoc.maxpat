@@ -16,6 +16,18 @@
         "boxes": [
             {
                 "box": {
+                    "id": "obj-22",
+                    "maxclass": "message",
+                    "numinlets": 2,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 643.0, 583.0, 126.0, 22.0 ],
+                    "presentation_linecount": 2,
+                    "text": "make_gens_ref_jsons"
+                }
+            },
+            {
+                "box": {
                     "id": "obj-19",
                     "maxclass": "message",
                     "numinlets": 2,
@@ -864,8 +876,6 @@
                     "saved_object_attributes": {
                         "autostart": 0,
                         "defer": 0,
-                        "node_bin_path": "",
-                        "npm_bin_path": "",
                         "watch": 0
                     },
                     "text": "node.script /Users/stkr/Dev/evieve/source/ts/evievenode/dist/evievedoc.js",
@@ -961,6 +971,12 @@
                 "patchline": {
                     "destination": [ "obj-1", 0 ],
                     "source": [ "obj-21", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-1", 0 ],
+                    "source": [ "obj-22", 0 ]
                 }
             },
             {

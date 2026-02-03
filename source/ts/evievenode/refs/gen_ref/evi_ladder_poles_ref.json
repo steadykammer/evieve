@@ -1,0 +1,37 @@
+{
+    "object": {
+        "name": "evi_ladder_poles",
+        "category": "",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "constructor": {
+        "inlets": []
+    },
+    "inlets": [
+        {
+            "name": "input",
+            "type": "float",
+            "optional": 1,
+            "digest": "TEXT_HERE"
+        }
+    ],
+    "attributes": [
+        {
+            "name": "",
+            "type": "",
+            "digest": "TEXT_HERE",
+            "description": "TEXT_HERE",
+            "default": {
+                "type": "",
+                "value": 0
+            }
+        }
+    ],
+    "seealso": [
+        {
+            "name": "",
+            "display": ""
+        }
+    ]
+}

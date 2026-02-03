@@ -64,6 +64,10 @@ max.addHandler('make_defs_ref_jsons', () => {
 	createDefineRefJson();
 })
 
+max.addHandler('make_gens_ref_jsons', () => {
+	createGendspRefJson();
+})
+
 // --------------------------------------------- //
 // testing
 
@@ -267,6 +271,35 @@ async function createDefineRefJson()
 					fs.writeFileSync(`${defineRefsPath}/${jsonFileName}`, JSON.stringify(newTemplate, null, 4));
 					void max.post(`Creation of ${jsonFileName} success!`)
 				}
+			}
+		}
+	}
+}
+
+async function createGendspRefJson()
+{
+	const gendspRefsPath = `${cwd()}/${config.referenceFiles.genDsp.config}`;
+	const templateJson = fs.readFileSync(`${gendspRefsPath}/_xml_gendsp_template.json`, 'utf8');
+    const templateObject = JSON.parse(templateJson);
+
+	let refConfigs = getFileNamesFromPath(gendspRefsPath, 'json');
+	const IGNORE = /_xml_gendsp_template.json/;
+	refConfigs = refConfigs.filter((str) => !IGNORE.test(str));
+
+	let parsedGendsps = gendsp.evi_gendsp;
+	const gendspsArray = Object.keys(parsedGendsps);
+	for await (const gendspName of gendspsArray) {
+		// @ts-expect-error
+		const thisGendspConfig = parsedGendsps[gendspName];
+		const newGendspName = gendspName.replace('.gendsp', '');;
+		const jsonFileName = `${newGendspName}_ref.json`;
+        if (!Object.hasOwn(refConfigs, jsonFileName)) {	// maybe create if does not yet exist
+			if (thisGendspConfig.ref.gen) { // if gen ref page is requested in config
+				const newTemplate = JSON.parse(JSON.stringify(templateObject));
+				newTemplate.object.name = newGendspName;
+
+				fs.writeFileSync(`${gendspRefsPath}/${jsonFileName}`, JSON.stringify(newTemplate, null, 4));
+				void max.post(`Creation of ${jsonFileName} success!`)
 			}
 		}
 	}
