@@ -14,6 +14,7 @@
     },
     "inlets": [
         {
+            "id": 0,
             "type": "",
             "digest": "",
             "description": ""
@@ -21,6 +22,7 @@
     ],
     "outlets": [
         {
+            "id": 0,
             "type": "",
             "digest": "",
             "description": ""
@@ -30,6 +32,7 @@
         {
             "name": "",
             "type": "",
+            "default": "",
             "optional": 1,
             "digest": "",
             "description": ""
@@ -38,11 +41,14 @@
     "messages": [
         {
             "name": "",
-            "arg": {
-                "name": "",
-                "type": "",
-                "optional": 1
-            },
+            "arg": [
+                {
+                    "name": "",
+                    "type": "",
+                    "units": "",
+                    "optional": 1
+                }
+            ],
             "digest": "",
             "description": ""
         }
@@ -56,7 +62,6 @@
             "description": "",
             "default": {
                 "get": 0,
-                "type": "",
                 "value": 0
             }
         }

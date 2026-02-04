@@ -2,7 +2,8 @@
 import * as max from 'max-api-or-nah';
 import fs from 'fs';
 import { homedir } from 'os';
-import { posix, sep } from 'path';
+import { resolve, posix, sep } from 'path';
+import path from 'path';
 import { cwd } from 'process';
 import Handlebars from 'handlebars';
 import { XMLParser, XMLBuilder } from 'fast-xml-parser';
@@ -66,6 +67,10 @@ max.addHandler('make_defs_ref_jsons', () => {
 
 max.addHandler('make_gens_ref_jsons', () => {
 	createGendspRefJson();
+})
+
+max.addHandler('make_abs_ref_xml_configs', () => {
+	parseAbstractionsData();
 })
 
 // --------------------------------------------- //
@@ -154,63 +159,174 @@ async function testEditAutoXml()
 
 // --------------------------------------------- //
 
+async function parseAbstractionsData()
+{
+	const patchersFolder = `${cwd()}/${config.referenceFiles.abstractions.input}`
+	const fullPatcherPaths = getFilePathsFromPathRecursive(patchersFolder, 'maxpat');
+	for await (const patchPath of fullPatcherPaths) {
+		const dirName = path.dirname(patchPath);
+		const patcherName = path.basename(patchPath);
+		await parseAbstractionMaxpatLoop(dirName, patcherName);
+	}
+}
+
 async function parseAbstractionMaxpatLoop(parentPath: string, patcherName: string) {
 	const fullPath = `${parentPath}/${patcherName}`;
     const maxpatRaw = fs.readFileSync(fullPath, 'utf8');
     const maxpatJson = JSON.parse(maxpatRaw);
+
+	const maxpatRefsPath = `${cwd()}/${config.referenceFiles.abstractions.config}`;
+	// IF !!!
+	const refConfigName = patcherName.replace('.maxpat', '_ref.json');
+	const thisConfigFullPath = `${maxpatRefsPath}/${refConfigName}`;
+	const thisConfigJson = fs.readFileSync(thisConfigFullPath, 'utf8');
+    const thisConfigObject = JSON.parse(thisConfigJson);
 
 	const NEW_OBJ = "newobj";
 	const PATCHER_ARGS = "patcherargs";
 	let BOX_TEXT: string;
 	let MATCH_ARGS = false;
 
+	const isNumericFromString = (string: string) => /^[+-]?\d+(\.\d+)?$/.test(string);
+	const isNumericFinite = (input: string | number) => Number.isFinite(+input);
+	const argumentsConfig: any = {
+		"name": "",
+		"type": "",
+		"default": "",
+		"optional": 1,
+		"digest": "",
+		"description": ""
+	};
+	const attributesConfig: any = {
+		"name": "",
+		"get": 0,
+		"type": "",
+		"digest": "",
+		"description": "",
+		"default": {
+			"get": 0,
+			"value": 0
+		}
+	};
+
+	if (thisConfigObject.arguments.length === 1) {
+		thisConfigObject.arguments.length = 0;
+	}
+	if (thisConfigObject.attributes.length === 1) {
+		thisConfigObject.attributes.length = 0;
+	}
+
+	// we only need to look at top level for the [patcherargs] we are interested in
+    for await (const object of maxpatJson.patcher.boxes) {
+		if (object.box.maxclass === NEW_OBJ) {
+			BOX_TEXT = object.box.text;
+			if (BOX_TEXT.startsWith(PATCHER_ARGS)) {
+				// parse it
+				let AT_PARSED: boolean = false;
+				const BOX_tokens = BOX_TEXT.replace(PATCHER_ARGS, '').split(' ');
+				for (let i = 0; i < BOX_tokens.length; i++) {
+					if (BOX_tokens[i].startsWith('@')) {
+						AT_PARSED = true;
+						let thisAttr: any = JSON.parse(JSON.stringify(attributesConfig));
+						thisAttr.name = BOX_tokens[i].replace('@', '');
+						const thisValue = BOX_tokens[i + 1];
+						thisAttr.default.value = thisValue;
+						thisAttr.type = inferTypeFromString(thisValue);
+						thisConfigObject.attributes.push(thisAttr);
+					} else {
+						if (AT_PARSED) {
+							continue;
+						} else {
+							let thisArgs: any = JSON.parse(JSON.stringify(argumentsConfig));
+							thisArgs.type = inferTypeFromString(BOX_tokens[i]);
+							thisArgs.default = BOX_tokens[i];
+							thisConfigObject.arguments.push(thisArgs);
+						}
+					}
+				}
+				MATCH_ARGS = true;
+			}
+		}
+		if (MATCH_ARGS) {
+			break;	// only once for [patcherargs]
+		}
+    }
+
+	if (!MATCH_ARGS) { // do something if [patcherargs] not found?
+		void max.post(`No [patcherargs] object found in ${patcherName}`);
+	}
+
 	const IN_LET = "inlet";
 	const OUT_LET = "outlet";
 	let IO_ASSIST: string;
+	const inoutletsConfig: any = {
+		"id": 0,
+		"type": "",
+		"digest": "",
+		"description": ""
+	}
 
-	// we only need to look at top level for the [patcherargs] we are interested in
-    for (const object of maxpatJson.patcher.boxes) {
-      if (object.box.maxclass === NEW_OBJ) {
-		BOX_TEXT = object.box.text;
-		if (BOX_TEXT.startsWith(PATCHER_ARGS)) {
-			// parse it
-			MATCH_ARGS = true;
-		}
-      }
-      if (MATCH_ARGS) {
-        break;	// only once for [patcherargs]
-      }
-    }
-
-	// if (!MATCH_ARGS) { // do something if [patcherargs] not found?
-
-	// }
+	// if we are editing a brand new template, clear the template code
+	// i know, this is very weak code, but .maxpat will never have an id/index = 0
+	thisConfigObject.inlets.filter((entry: { id: number; }) => entry.id != 0);
+	thisConfigObject.outlets.filter((entry: { id: number; }) => entry.id != 0);
 
 	// we only want to look at top level for the [inlet] & [outlet]s
-    for (const object of maxpatJson.patcher.boxes) {
-      if (object.box.maxclass === IN_LET || object.box.maxclass === OUT_LET) {
-		IO_ASSIST = object.box.comment;
-		if (object.box.maxclass === IN_LET) {
+    for await (const object of maxpatJson.patcher.boxes) {
+		if (object.box.maxclass === IN_LET || object.box.maxclass === OUT_LET) {
+			let thisIO: any = JSON.parse(JSON.stringify(inoutletsConfig));
+			IO_ASSIST = object.box.comment;
+			// parse it
+			thisIO.id = object.box.index;
+			const IO_tokens = IO_ASSIST.split(' ');
+			if (IO_tokens[0].startsWith('(') && IO_tokens[0].endsWith(')')) {
+				thisIO.type = IO_tokens[0].replace('(', '').replace(')', '');
+				thisIO.digest = IO_ASSIST.replace(IO_tokens[0], '').trim();
+			} else {
+				thisIO.digest = IO_ASSIST;
+			}
 			// push it
-		} else if (object.box.maxclass === OUT_LET) {
-			// push it
+			if (object.box.maxclass === IN_LET) {
+				thisConfigObject.inlets.push(thisIO);
+			} else if (object.box.maxclass === OUT_LET) {
+				thisConfigObject.outlets.push(thisIO);
+			}
 		}
-      }
     }
 
-	// fs.writeFileSync(fullPath, JSON.stringify(maxpatJson, null, 4));
+	fs.writeFileSync(thisConfigFullPath, JSON.stringify(thisConfigObject, null, 4));
 }
 
+// really dumb and does not do lists of attrs
+function inferTypeFromString(thisValue: string)
+{
+	const isNumericFromString = (string: string) => /^[+-]?\d+(\.\d+)?$/.test(string);
+	const isNumericFinite = (input: string | number) => Number.isFinite(+input);
+
+	let thisValueMaxType: string;
+	if (isNumericFinite(thisValue)) {
+		if (thisValue.includes('.')) {
+			thisValueMaxType = "float";
+		} else {
+			thisValueMaxType = "int";
+		}
+	} else {
+		thisValueMaxType = "symbol";
+	}
+	return thisValueMaxType;
+}
+/*
 function parsePatcherArgs(boxText: string, objectConfig: any)
 {
 
 }
-
-function pushIOdata(ioAssist: string, type: string, objectConfig: any)
+*/
+/*
+function pushIOdata(ioAssist: string, type: string, objectConfig: any, boxNum: number)
 {
 
 }
-
+*/
 // --------------------------------------------- //
 
 async function createMaxpatRefJson()
@@ -228,7 +344,7 @@ async function createMaxpatRefJson()
 	const maxpatsArray = Object.keys(parsedMaxpats);
 	for await (const maxpatName of maxpatsArray) {
 		const jsonFileName = maxpatName.replace('.maxpat', '_ref.json')
-        if (!Object.hasOwn(refConfigs, jsonFileName)) {	// maybe create if does not yet exist
+        if (!refConfigs.includes(jsonFileName)) {	// maybe create if does not yet exist
 			// @ts-expect-error
 			const thisMaxpatConfig = parsedMaxpats[maxpatName];
 			if (thisMaxpatConfig.ref) { // if ref page is requested in config
@@ -239,6 +355,9 @@ async function createMaxpatRefJson()
 				fs.writeFileSync(`${maxpatRefsPath}/${jsonFileName}`, JSON.stringify(newTemplate, null, 4));
 				void max.post(`Creation of ${jsonFileName} success!`)
 			}
+		}
+		else {
+			void max.post(`Skipping ${jsonFileName} because it already exists!`);
 		}
 	}
 }
@@ -260,7 +379,7 @@ async function createDefineRefJson()
 		const thisDefineConfig = parsedDefines[defineName];
 		const newDefineName = thisDefineConfig.define.msp;
 		const jsonFileName = `${newDefineName}_ref.json`;
-        if (!Object.hasOwn(refConfigs, jsonFileName)) {	// maybe create if does not yet exist
+        if (!refConfigs.includes(jsonFileName)) {	// maybe create if does not yet exist
 			if (thisDefineConfig.define.object) {	// outer double check, might as well
 				if (thisDefineConfig.ref.msp) { // if msp ref page is requested in config
 					const newTemplate = JSON.parse(JSON.stringify(templateObject));
@@ -272,6 +391,9 @@ async function createDefineRefJson()
 					void max.post(`Creation of ${jsonFileName} success!`)
 				}
 			}
+		}
+		else {
+			void max.post(`Skipping ${jsonFileName} because it already exists!`);
 		}
 	}
 }
@@ -293,7 +415,7 @@ async function createGendspRefJson()
 		const thisGendspConfig = parsedGendsps[gendspName];
 		const newGendspName = gendspName.replace('.gendsp', '');;
 		const jsonFileName = `${newGendspName}_ref.json`;
-        if (!Object.hasOwn(refConfigs, jsonFileName)) {	// maybe create if does not yet exist
+        if (!refConfigs.includes(jsonFileName)) {	// maybe create if does not yet exist
 			if (thisGendspConfig.ref.gen) { // if gen ref page is requested in config
 				const newTemplate = JSON.parse(JSON.stringify(templateObject));
 				newTemplate.object.name = newGendspName;
@@ -301,6 +423,9 @@ async function createGendspRefJson()
 				fs.writeFileSync(`${gendspRefsPath}/${jsonFileName}`, JSON.stringify(newTemplate, null, 4));
 				void max.post(`Creation of ${jsonFileName} success!`)
 			}
+		}
+		else {
+			void max.post(`Skipping ${jsonFileName} because it already exists!`);
 		}
 	}
 }
@@ -574,6 +699,22 @@ function getFileNamesFromPathRecursive(path: string, extension?: string) {
 	} else {
 		filetypes = filelisting;
 	}
+	return filetypes;
+}
+
+function getFilePathsFromPathRecursive(path: string, extension?: string) {
+	let filetypes: string[];
+	const filenames = fs.readdirSync(path, { withFileTypes: true, recursive: true });
+	const filelisting = filenames
+    .filter((file) => file.isFile() && !file.isDirectory())
+    .map((file) => resolve(path, file.parentPath, file.name)); // jayzus
+	if (extension && typeof(extension) === "string") {
+		filetypes = filelisting
+		.filter((file) =>file.match(new RegExp(`.*\.(${extension})$`, 'ig')));
+	} else {
+		filetypes = filelisting;
+	}
+	// void max.post(`${filetypes}`);
 	return filetypes;
 }
 

@@ -18,7 +18,7 @@
 	<!--INLETS-->
 	<inletlist>
         {{#each inlets}}
-		<inlet id="{{@index}}" type="{{type}}">
+		<inlet id="{{id}}" type="{{type}}">
 			<digest>
 				{{digest}}
 			</digest>
@@ -31,7 +31,7 @@
 	<!--OUTLETS-->
 	<outletlist>
         {{#each outlets}}
-		<outlet id="{{@index}}" type="{{type}}">
+		<outlet id="{{id}}" type="{{type}}">
 			<digest>
 				{{digest}}
 			</digest>
@@ -44,7 +44,7 @@
 	<!--ARGUMENTS-->
 	<objarglist>
         {{#each arguments}}
-		<objarg id="{{@index}}" name="{{name}}" type="{{type}}" optional="{{optional}}">
+		<objarg name="{{name}}" type="{{type}}" default="{{default}}" optional="{{optional}}">
 			<digest>
 				{{digest}}
 			</digest>
@@ -60,7 +60,7 @@
 		<method name="{{name}}">
 			<arglist>
                 {{#each arg}}
-				<arg name="{{name}}" type="{{type}}" optional="{{optional}}" />
+				<arg name="{{name}}" type="{{type}}" units="{{units}}" optional="{{optional}}" />
                 {{/each}}
 			</arglist>
 			<digest>
@@ -83,7 +83,7 @@
 				{{description}}
 			</description>
 			<attributelist>
-				<attribute name="default" get="{{default.get}}" set="1" type="{{default.type}}" size="1" value="{{default.value}}" />
+				<attribute name="default" get="{{default.get}}" set="1" type="{{type}}" size="1" value="{{default.value}}" />
 			</attributelist>
 		</attribute>
         {{/each}}
