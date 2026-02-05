@@ -204,14 +204,27 @@ async function parseDefinesGendspsLoop(gendspPath: string, gendspName: string, t
 	const GEN_PARAM = "param";
 	const GEN_HIST = "history";
 	const GEN_CODE = "codebox";
+	const attributesConfig: any = {
+		"name": "",
+		"get": 1,
+		"type": "",
+		"digest": "",
+		"description": "",
+		"default": {
+			"min": 0,
+			"max": 1,
+			"value": 0
+		}
+	};
 /*	const GEN_PARAM_GE = "Param";
 	const GEN_HIST_GE = "History";
 	const REQUIRE_GE = "require";
 */
 	// if we are editing a brand new template, clear the template json
-	// i know, this is very weak code, but .gendsp will never have an id/in/out = 0
+	// i know, this is very weak code, but .gendsp will never have an id/in/out = 0 or name ""
 	thisConfigObject.inlets = thisConfigObject.inlets.filter((entry: { id: number; }) => entry.id !== 0);
 	thisConfigObject.outlets = thisConfigObject.outlets.filter((entry: { id: number; }) => entry.id !== 0);
+	thisConfigObject.attributes = thisConfigObject.attributes.filter((entry: { name: string; }) => entry.name !== "");
 
 	for await (const object of gendspJson.patcher.boxes) {
 		if (object.box.maxclass === NEW_OBJ) {
@@ -242,7 +255,38 @@ async function parseDefinesGendspsLoop(gendspPath: string, gendspName: string, t
 					thisConfigObject.outlets.push(thisIO);
 				}
 			} else if (isParam) {
-				; // to attributes
+				let thisAttr: any = JSON.parse(JSON.stringify(attributesConfig));
+				const ATTR_tokens = BOX_TEXT.split(' ');
+				thisAttr.name = ATTR_tokens[1];
+				let remainder: string[] = [];
+				let NO_TYPE: boolean = false;
+				if (!ATTR_tokens[2].startsWith('@')) {
+					thisAttr.default.value = ATTR_tokens[2];
+					thisAttr.type = inferTypeFromString(ATTR_tokens[2]);
+					remainder = ATTR_tokens.slice(3);
+					NO_TYPE = false;
+				} else {
+					NO_TYPE = true;
+					remainder = ATTR_tokens.slice(2);
+				}
+				if (remainder.length) {
+					for (let i = 0; i < remainder.length; i++) {
+						if (remainder[i].startsWith('@')) {
+							const defKey = remainder[i].replace('@', '');
+							const defValS = remainder[i + 1];
+							const defType = inferTypeFromString(defValS);
+							if (NO_TYPE) {
+								thisAttr.type = defType;
+							}
+							const defVal = (defType === "int") ? parseInt(defValS) : parseFloat(defValS);
+							if (defKey === "default") {
+								thisAttr.default.value = defVal;
+							} else {
+								thisAttr.default[defKey] = defVal;
+							}
+						}
+					}
+				}
 			} else if (isHistory) {
 				; // to messages
 			}
@@ -267,6 +311,11 @@ async function parseDefinesGendspsLoop(gendspPath: string, gendspName: string, t
 			void max.post(GenExprCode);
 		}
 	}
+
+	thisConfigObject.attributes.sort((a: { name: string; }, b: { name: string; }) => {
+		return a.name >= b.name ? 1 : -1;
+	});
+	// & sort messages here
 
 	fs.writeFileSync(thisConfigFullPath, JSON.stringify(thisConfigObject, null, 4));
 }

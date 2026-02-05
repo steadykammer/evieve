@@ -63,7 +63,7 @@
 	<!--ATTRIBUTES-->
 	<attributelist>
         {{#each attributes}}
-		<attribute name="{{name}}" get="{{get}}" set="1" type="{{type}}" size="1">
+		<attribute name="{{name}}" get="{{get}}" set="1" type="{{type}}" min="{{default.min}}" max="{{default.max}}">
 			<digest>
 				{{digest}}
 			</digest>
@@ -71,7 +71,7 @@
 				{{description}}
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="1" type="{{default.type}}" size="1" value="{{default.value}}" />
+				<attribute name="default" get="0" set="0" size="1" value="{{default.value}}" />
 			</attributelist>
 		</attribute>
         {{/each}}

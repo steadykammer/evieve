@@ -50,19 +50,7 @@
             "description": ""
         }
     ],
-    "attributes": [
-        {
-            "name": "",
-            "get": 1,
-            "type": "",
-            "digest": "",
-            "description": "",
-            "default": {
-                "type": "",
-                "value": 0
-            }
-        }
-    ],
+    "attributes": [],
     "example": {
         "caption": "",
         "image": ""
