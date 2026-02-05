@@ -1,0 +1,77 @@
+{
+    "object": {
+        "name": "evi.ladder.moog~",
+        "category": "",
+        "parent": "evi_ladder_moog.gendsp",
+        "tilde": "~",
+        "description": "TEXT_HERE",
+        "discussion": ""
+    },
+    "metadata": {
+        "author": "Pete Dowling",
+        "tags": [
+            "evieve"
+        ]
+    },
+    "inlets": [
+        {
+            "id": 1,
+            "type": "signal",
+            "digest": "Audio In",
+            "description": ""
+        },
+        {
+            "id": 2,
+            "type": "signal/float",
+            "digest": "Cutoff in Hz or Pitch @default 81",
+            "description": ""
+        },
+        {
+            "id": 3,
+            "type": "signal/float",
+            "digest": "Resonance 0..1..2 @default 1",
+            "description": ""
+        }
+    ],
+    "outlets": [
+        {
+            "id": 1,
+            "type": "signal",
+            "digest": "Moog Ladder Output",
+            "description": ""
+        }
+    ],
+    "messages": [
+        {
+            "name": "",
+            "arg": [
+                {
+                    "name": "",
+                    "type": "",
+                    "units": "",
+                    "optional": 1
+                }
+            ],
+            "digest": "",
+            "description": ""
+        }
+    ],
+    "attributes": [
+        {
+            "name": "",
+            "get": 1,
+            "type": "",
+            "digest": "",
+            "description": "",
+            "default": {
+                "type": "",
+                "value": 0
+            }
+        }
+    ],
+    "example": {
+        "caption": "",
+        "image": ""
+    },
+    "seealso": []
+}

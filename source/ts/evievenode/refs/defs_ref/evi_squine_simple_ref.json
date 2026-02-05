@@ -1,0 +1,101 @@
+{
+    "object": {
+        "name": "evi.squine.simple~",
+        "category": "",
+        "parent": "evi_squine_simple.gendsp",
+        "tilde": "~",
+        "description": "TEXT_HERE",
+        "discussion": ""
+    },
+    "metadata": {
+        "author": "Pete Dowling",
+        "tags": [
+            "evieve"
+        ]
+    },
+    "inlets": [
+        {
+            "id": 1,
+            "type": "",
+            "digest": "Freq in Hz or Pitch",
+            "description": ""
+        },
+        {
+            "id": 2,
+            "type": "",
+            "digest": "Pitch Mod @default 0",
+            "description": ""
+        },
+        {
+            "id": 3,
+            "type": "",
+            "digest": "Freq (Hz) Mod @default 0",
+            "description": ""
+        },
+        {
+            "id": 4,
+            "type": "",
+            "digest": "Harmonics 0..1 @default 0.5",
+            "description": ""
+        },
+        {
+            "id": 5,
+            "type": "",
+            "digest": "Duty Cycle 0..1 @default 0.5",
+            "description": ""
+        }
+    ],
+    "outlets": [
+        {
+            "id": 1,
+            "type": "",
+            "digest": "Phase Modulation Oscillator",
+            "description": ""
+        },
+        {
+            "id": 2,
+            "type": "",
+            "digest": "phasemod",
+            "description": ""
+        },
+        {
+            "id": 3,
+            "type": "",
+            "digest": "phaseraw",
+            "description": ""
+        }
+    ],
+    "messages": [
+        {
+            "name": "",
+            "arg": [
+                {
+                    "name": "",
+                    "type": "",
+                    "units": "",
+                    "optional": 1
+                }
+            ],
+            "digest": "",
+            "description": ""
+        }
+    ],
+    "attributes": [
+        {
+            "name": "",
+            "get": 1,
+            "type": "",
+            "digest": "",
+            "description": "",
+            "default": {
+                "type": "",
+                "value": 0
+            }
+        }
+    ],
+    "example": {
+        "caption": "",
+        "image": ""
+    },
+    "seealso": []
+}

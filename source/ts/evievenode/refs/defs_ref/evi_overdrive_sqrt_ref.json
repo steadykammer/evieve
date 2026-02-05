@@ -1,0 +1,65 @@
+{
+    "object": {
+        "name": "evi.overdrive.sqrt~",
+        "category": "",
+        "parent": "evi_overdrive_sqrt.gendsp",
+        "tilde": "~",
+        "description": "TEXT_HERE",
+        "discussion": ""
+    },
+    "metadata": {
+        "author": "Pete Dowling",
+        "tags": [
+            "evieve"
+        ]
+    },
+    "inlets": [
+        {
+            "id": 1,
+            "type": "",
+            "digest": "Input Signal",
+            "description": ""
+        }
+    ],
+    "outlets": [
+        {
+            "id": 1,
+            "type": "",
+            "digest": "Buzzy-tanh(x) Out - anti-aliased for your audio not for Maths",
+            "description": ""
+        }
+    ],
+    "messages": [
+        {
+            "name": "",
+            "arg": [
+                {
+                    "name": "",
+                    "type": "",
+                    "units": "",
+                    "optional": 1
+                }
+            ],
+            "digest": "",
+            "description": ""
+        }
+    ],
+    "attributes": [
+        {
+            "name": "",
+            "get": 1,
+            "type": "",
+            "digest": "",
+            "description": "",
+            "default": {
+                "type": "",
+                "value": 0
+            }
+        }
+    ],
+    "example": {
+        "caption": "",
+        "image": ""
+    },
+    "seealso": []
+}

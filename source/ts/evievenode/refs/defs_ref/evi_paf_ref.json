@@ -1,0 +1,107 @@
+{
+    "object": {
+        "name": "evi.paf~",
+        "category": "",
+        "parent": "evi_paf.gendsp",
+        "tilde": "~",
+        "description": "TEXT_HERE",
+        "discussion": ""
+    },
+    "metadata": {
+        "author": "Pete Dowling",
+        "tags": [
+            "evieve"
+        ]
+    },
+    "inlets": [
+        {
+            "id": 1,
+            "type": "signal/float",
+            "digest": "Fundamental Frequency in Hz",
+            "description": ""
+        },
+        {
+            "id": 2,
+            "type": "signal/float",
+            "digest": "CF in Hz @min 0 @max 18000 @default 440",
+            "description": ""
+        },
+        {
+            "id": 3,
+            "type": "signal/float",
+            "digest": "BW in Hz @min 0 @max 18000 @default 110",
+            "description": ""
+        },
+        {
+            "id": 4,
+            "type": "signal",
+            "digest": "Reset Phase (do not use)",
+            "description": ""
+        }
+    ],
+    "outlets": [
+        {
+            "id": 1,
+            "type": "signal",
+            "digest": "PAF Oscillator",
+            "description": ""
+        },
+        {
+            "id": 2,
+            "type": "signal",
+            "digest": "Packet 1",
+            "description": ""
+        },
+        {
+            "id": 3,
+            "type": "signal",
+            "digest": "Packet 2",
+            "description": ""
+        },
+        {
+            "id": 4,
+            "type": "signal",
+            "digest": "Phase 0",
+            "description": ""
+        },
+        {
+            "id": 5,
+            "type": "signal",
+            "digest": "Phase 180",
+            "description": ""
+        }
+    ],
+    "messages": [
+        {
+            "name": "",
+            "arg": [
+                {
+                    "name": "",
+                    "type": "",
+                    "units": "",
+                    "optional": 1
+                }
+            ],
+            "digest": "",
+            "description": ""
+        }
+    ],
+    "attributes": [
+        {
+            "name": "",
+            "get": 1,
+            "type": "",
+            "digest": "",
+            "description": "",
+            "default": {
+                "type": "",
+                "value": 0
+            }
+        }
+    ],
+    "example": {
+        "caption": "",
+        "image": ""
+    },
+    "seealso": []
+}

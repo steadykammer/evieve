@@ -1,0 +1,95 @@
+{
+    "object": {
+        "name": "evi.freqshift.weaver~",
+        "category": "",
+        "parent": "evi_freqshift_weaver.gendsp",
+        "tilde": "~",
+        "description": "TEXT_HERE",
+        "discussion": ""
+    },
+    "metadata": {
+        "author": "Pete Dowling",
+        "tags": [
+            "evieve"
+        ]
+    },
+    "inlets": [
+        {
+            "id": 1,
+            "type": "signal",
+            "digest": "Audio Input",
+            "description": ""
+        },
+        {
+            "id": 2,
+            "type": "",
+            "digest": "(float/int use freqsmooth attr) Frequency Shift in Hz ±",
+            "description": ""
+        },
+        {
+            "id": 3,
+            "type": "signal",
+            "digest": "Frequency Shift FM in Hz ±",
+            "description": ""
+        },
+        {
+            "id": 4,
+            "type": "signal",
+            "digest": "Phase Reset (Naive)",
+            "description": ""
+        }
+    ],
+    "outlets": [
+        {
+            "id": 1,
+            "type": "signal",
+            "digest": "Sidebandy Audio Output",
+            "description": ""
+        },
+        {
+            "id": 2,
+            "type": "",
+            "digest": "fake quadOsc Cos (if oscout attr)",
+            "description": ""
+        },
+        {
+            "id": 3,
+            "type": "",
+            "digest": "fake quadOsc Sin (if oscout attr)",
+            "description": ""
+        }
+    ],
+    "messages": [
+        {
+            "name": "",
+            "arg": [
+                {
+                    "name": "",
+                    "type": "",
+                    "units": "",
+                    "optional": 1
+                }
+            ],
+            "digest": "",
+            "description": ""
+        }
+    ],
+    "attributes": [
+        {
+            "name": "",
+            "get": 1,
+            "type": "",
+            "digest": "",
+            "description": "",
+            "default": {
+                "type": "",
+                "value": 0
+            }
+        }
+    ],
+    "example": {
+        "caption": "",
+        "image": ""
+    },
+    "seealso": []
+}

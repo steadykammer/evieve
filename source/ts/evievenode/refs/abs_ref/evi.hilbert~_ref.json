@@ -15,29 +15,26 @@
     "inlets": [
         {
             "id": 0,
-            "type": "",
-            "digest": "",
+            "type": "signal",
+            "digest": "Input",
             "description": ""
         }
     ],
     "outlets": [
         {
             "id": 0,
-            "type": "",
-            "digest": "",
+            "type": "signal",
+            "digest": "Sine/Imag Output",
             "description": ""
-        }
-    ],
-    "arguments": [
+        },
         {
-            "name": "",
-            "type": "",
-            "default": "",
-            "optional": 1,
-            "digest": "",
+            "id": 0,
+            "type": "signal",
+            "digest": "Cosine/Real Output",
             "description": ""
         }
     ],
+    "arguments": [],
     "messages": [
         {
             "name": "",
@@ -53,19 +50,7 @@
             "description": ""
         }
     ],
-    "attributes": [
-        {
-            "name": "",
-            "get": 0,
-            "type": "",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": 0
-            }
-        }
-    ],
+    "attributes": [],
     "example": {
         "caption": "",
         "image": ""

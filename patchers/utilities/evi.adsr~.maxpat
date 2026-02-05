@@ -361,7 +361,7 @@
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
-                    "outlettype": [ "signal" ],
+                    "outlettype": [ "" ],
                     "patching_rect": [ 64.0, 147.0, 30.0, 30.0 ]
                 }
             },
@@ -575,6 +575,19 @@
                     "numoutlets": 0,
                     "patching_rect": [ 64.0, 289.0, 104.0, 33.0 ],
                     "text": "^^ this is horrible, but so is Max"
+                }
+            },
+            {
+                "box": {
+                    "hidden": 1,
+                    "id": "obj-5",
+                    "linecount": 2,
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 416.0, 53.0, 578.0, 33.0 ],
+                    "text": "evievedoc @attack 10. @decay 100. @sustain 0.707946 @release 200. @zerophase 0 @constantrate 1 @envmax 127. @velocitysense 0 @velocitycurve 1 @wait 0 @loopsustain 100. @looptrigger 0 @loop 0",
+                    "varname": "evievedoc"
                 }
             }
         ],

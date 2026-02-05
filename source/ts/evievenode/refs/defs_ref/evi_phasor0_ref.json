@@ -1,0 +1,83 @@
+{
+    "object": {
+        "name": "evi.phasor0~",
+        "category": "",
+        "parent": "evi_phasor0.gendsp",
+        "tilde": "~",
+        "description": "TEXT_HERE",
+        "discussion": ""
+    },
+    "metadata": {
+        "author": "Pete Dowling",
+        "tags": [
+            "evieve"
+        ]
+    },
+    "inlets": [
+        {
+            "id": 1,
+            "type": "signal/float",
+            "digest": "Frequency in Hz",
+            "description": ""
+        },
+        {
+            "id": 2,
+            "type": "signal",
+            "digest": "Reset",
+            "description": ""
+        }
+    ],
+    "outlets": [
+        {
+            "id": 1,
+            "type": "signal",
+            "digest": "Phasor 0..1",
+            "description": ""
+        },
+        {
+            "id": 2,
+            "type": "signal",
+            "digest": "Current Frequency in Hz",
+            "description": ""
+        },
+        {
+            "id": 3,
+            "type": "signal",
+            "digest": "Sync",
+            "description": ""
+        }
+    ],
+    "messages": [
+        {
+            "name": "",
+            "arg": [
+                {
+                    "name": "",
+                    "type": "",
+                    "units": "",
+                    "optional": 1
+                }
+            ],
+            "digest": "",
+            "description": ""
+        }
+    ],
+    "attributes": [
+        {
+            "name": "",
+            "get": 1,
+            "type": "",
+            "digest": "",
+            "description": "",
+            "default": {
+                "type": "",
+                "value": 0
+            }
+        }
+    ],
+    "example": {
+        "caption": "",
+        "image": ""
+    },
+    "seealso": []
+}

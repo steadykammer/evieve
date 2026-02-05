@@ -15,8 +15,14 @@
     "inlets": [
         {
             "id": 0,
-            "type": "",
-            "digest": "",
+            "type": "signal",
+            "digest": "Audio In Right / messages to evi.zitaverb~",
+            "description": ""
+        },
+        {
+            "id": 0,
+            "type": "signal",
+            "digest": "Audio In Left / messages to evi.zitaverb~",
             "description": ""
         }
     ],
@@ -24,20 +30,23 @@
         {
             "id": 0,
             "type": "",
-            "digest": "",
+            "digest": "dumpout (pattrstorage)",
             "description": ""
-        }
-    ],
-    "arguments": [
+        },
         {
-            "name": "",
-            "type": "",
-            "default": "",
-            "optional": 1,
-            "digest": "",
+            "id": 0,
+            "type": "signal",
+            "digest": "Audio Out Right",
+            "description": ""
+        },
+        {
+            "id": 0,
+            "type": "signal",
+            "digest": "Audio Out Left",
             "description": ""
         }
     ],
+    "arguments": [],
     "messages": [
         {
             "name": "",
@@ -55,14 +64,146 @@
     ],
     "attributes": [
         {
-            "name": "",
+            "name": "bypass",
             "get": 0,
-            "type": "",
+            "type": "int",
             "digest": "",
             "description": "",
             "default": {
                 "get": 0,
-                "value": 0
+                "value": "0"
+            }
+        },
+        {
+            "name": "crossover",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "315."
+            }
+        },
+        {
+            "name": "damp",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "3780."
+            }
+        },
+        {
+            "name": "drywet",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "0.8666"
+            }
+        },
+        {
+            "name": "eq1cutoff",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "315."
+            }
+        },
+        {
+            "name": "eq1gain",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "0."
+            }
+        },
+        {
+            "name": "eq1type",
+            "get": 0,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "0"
+            }
+        },
+        {
+            "name": "eq2cutoff",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "1260."
+            }
+        },
+        {
+            "name": "eq2gain",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "0."
+            }
+        },
+        {
+            "name": "eq2type",
+            "get": 0,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "0"
+            }
+        },
+        {
+            "name": "lowdecay",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "3.333333"
+            }
+        },
+        {
+            "name": "middecay",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "2.222222"
+            }
+        },
+        {
+            "name": "predelay",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "19."
             }
         }
     ],

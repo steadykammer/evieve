@@ -1,0 +1,83 @@
+{
+    "object": {
+        "name": "evi.formantfilter~",
+        "category": "",
+        "parent": "evi_formant_filter.gendsp",
+        "tilde": "~",
+        "description": "TEXT_HERE",
+        "discussion": ""
+    },
+    "metadata": {
+        "author": "Pete Dowling",
+        "tags": [
+            "evieve"
+        ]
+    },
+    "inlets": [
+        {
+            "id": 1,
+            "type": "signal",
+            "digest": "Audio Input",
+            "description": ""
+        },
+        {
+            "id": 2,
+            "type": "signal/float",
+            "digest": "Voice Interpolator 0..1",
+            "description": ""
+        },
+        {
+            "id": 3,
+            "type": "signal/float",
+            "digest": "Vowel Interpolator 0..1",
+            "description": ""
+        }
+    ],
+    "outlets": [
+        {
+            "id": 1,
+            "type": "signal",
+            "digest": "Formant Filter",
+            "description": ""
+        },
+        {
+            "id": 2,
+            "type": "signal",
+            "digest": "Current Formant Frequency in Hz (depending on 'formantfrequency' param)",
+            "description": ""
+        }
+    ],
+    "messages": [
+        {
+            "name": "",
+            "arg": [
+                {
+                    "name": "",
+                    "type": "",
+                    "units": "",
+                    "optional": 1
+                }
+            ],
+            "digest": "",
+            "description": ""
+        }
+    ],
+    "attributes": [
+        {
+            "name": "",
+            "get": 1,
+            "type": "",
+            "digest": "",
+            "description": "",
+            "default": {
+                "type": "",
+                "value": 0
+            }
+        }
+    ],
+    "example": {
+        "caption": "",
+        "image": ""
+    },
+    "seealso": []
+}

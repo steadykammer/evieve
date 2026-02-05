@@ -73,6 +73,10 @@ max.addHandler('make_abs_ref_xml_configs', () => {
 	parseAbstractionsData();
 })
 
+max.addHandler('make_defs_ref_xml_configs', () => {
+	parseDefinesData();
+})
+
 // --------------------------------------------- //
 // testing
 
@@ -159,36 +163,154 @@ async function testEditAutoXml()
 
 // --------------------------------------------- //
 
+async function parseDefinesData()
+{
+	const gendspsFolder = `${cwd()}/${config.referenceFiles.genDsp.input}`
+	const fullGendspsPaths = getFilePathsFromPathRecursive(gendspsFolder, 'gendsp');
+	const definesRefsPath = `${cwd()}/${config.referenceFiles.defines.config}`;
+	const fullRefsNames = getFileNamesFromPath(definesRefsPath, 'json');
+
+	for await (const gendspPath of fullGendspsPaths) {
+		const gendspName = path.basename(gendspPath, '.gendsp');
+		const potentialRefName = `${gendspName}_ref.json`;
+		if (fullRefsNames.includes(potentialRefName)) {
+			const gendspDirName = path.dirname(gendspPath);
+			const thisConfigFullPath = `${definesRefsPath}/${potentialRefName}`;
+			await parseDefinesGendspsLoop(gendspDirName, gendspName, thisConfigFullPath);
+		// } else {
+		// 	void max.post(`Skipping ${gendspName}.gendsp because it has been configured with no ref page generation!`);
+		}
+	}
+}
+
+async function parseDefinesGendspsLoop(gendspPath: string, gendspName: string, thisConfigFullPath: string)
+{
+	const fullGendspPath = `${gendspPath}/${gendspName}.gendsp`;
+    const gendspRaw = fs.readFileSync(fullGendspPath, 'utf8'); // .gendsp is read only in this logic
+    const gendspJson = JSON.parse(gendspRaw);
+
+	const thisConfigJson = fs.readFileSync(thisConfigFullPath, 'utf8');
+    const thisConfigObject = JSON.parse(thisConfigJson);
+
+	const NEW_OBJ = "newobj";
+	const GEN_INLET = "in "; // note extra space...
+	const GEN_OUTLET = "out ";
+	const inoutletsConfig: any = {
+		"id": 0,
+		"type": "",
+		"digest": "",
+		"description": ""
+	}
+	const GEN_PARAM = "param";
+	const GEN_HIST = "history";
+	const GEN_CODE = "codebox";
+/*	const GEN_PARAM_GE = "Param";
+	const GEN_HIST_GE = "History";
+	const REQUIRE_GE = "require";
+*/
+	// if we are editing a brand new template, clear the template json
+	// i know, this is very weak code, but .gendsp will never have an id/in/out = 0
+	thisConfigObject.inlets = thisConfigObject.inlets.filter((entry: { id: number; }) => entry.id !== 0);
+	thisConfigObject.outlets = thisConfigObject.outlets.filter((entry: { id: number; }) => entry.id !== 0);
+
+	for await (const object of gendspJson.patcher.boxes) {
+		if (object.box.maxclass === NEW_OBJ) {
+			let BOX_TEXT = object.box.text;
+			const isInlet: boolean = BOX_TEXT.startsWith(GEN_INLET);
+			const isOutlet: boolean = BOX_TEXT.startsWith(GEN_OUTLET);
+			const isParam: boolean = BOX_TEXT.startsWith(GEN_PARAM);
+			const isHistory: boolean = BOX_TEXT.startsWith(GEN_HIST);
+			if (isInlet || isOutlet) {
+				// parse it
+				let thisIO: any = JSON.parse(JSON.stringify(inoutletsConfig));
+				const IO_tokens = BOX_TEXT.split(' ');
+				thisIO.id = parseInt(IO_tokens[1]);
+				if (IO_tokens.length > 2) {
+					if (IO_tokens[2].startsWith('(') && IO_tokens[2].endsWith(')')) {
+						thisIO.type = IO_tokens[2].replace('(', '').replace(')', '');
+						if (IO_tokens.length > 3) {
+							thisIO.digest = IO_tokens.slice(3).join(' ').trim();
+						}
+					} else {
+						thisIO.digest = IO_tokens.slice(2).join(' ').trim();
+					}
+				}
+				// push it
+				if (isInlet) {
+					thisConfigObject.inlets.push(thisIO);
+				} else if (isOutlet) {
+					thisConfigObject.outlets.push(thisIO);
+				}
+			} else if (isParam) {
+				; // to attributes
+			} else if (isHistory) {
+				; // to messages
+			}
+		}
+	}
+
+	thisConfigObject.inlets.sort((a: { id: number; }, b: { id: number; }) => {
+		return a.id >= b.id ? 1 : -1;
+	});
+	thisConfigObject.outlets.sort((a: { id: number; }, b: { id: number; }) => {
+		return a.id >= b.id ? 1 : -1;
+	});
+
+	const Require: RegExp = /(?:^|\W)require(?:$|\W)/;
+	const History: RegExp = /(?:^|\W)history(?:$|\W)/;
+	const Param: RegExp = /(?:^|\W)param(?:$|\W)/;
+	// TODO (& use pegjs ?)
+	for await (const object of gendspJson.patcher.boxes) {
+		if (object.box.maxclass === GEN_CODE) {
+			const GenExprCode = object.box.code;
+			// void max.post(JSON.stringify(GenExprCode));
+			void max.post(GenExprCode);
+		}
+	}
+
+	fs.writeFileSync(thisConfigFullPath, JSON.stringify(thisConfigObject, null, 4));
+}
+
+// --------------------------------------------- //
+
 async function parseAbstractionsData()
 {
 	const patchersFolder = `${cwd()}/${config.referenceFiles.abstractions.input}`
 	const fullPatcherPaths = getFilePathsFromPathRecursive(patchersFolder, 'maxpat');
+	const maxpatRefsPath = `${cwd()}/${config.referenceFiles.abstractions.config}`;
+	const fullRefsNames = getFileNamesFromPath(maxpatRefsPath, 'json');
+
 	for await (const patchPath of fullPatcherPaths) {
-		const dirName = path.dirname(patchPath);
-		const patcherName = path.basename(patchPath);
-		await parseAbstractionMaxpatLoop(dirName, patcherName);
+		const patcherName = path.basename(patchPath, '.maxpat');
+		const potentialRefName = `${patcherName}_ref.json`;
+		if (fullRefsNames.includes(potentialRefName)) {
+			const patcherDirName = path.dirname(patchPath);
+			const thisConfigFullPath = `${maxpatRefsPath}/${potentialRefName}`;
+			await parseAbstractionMaxpatLoop(patcherDirName, patcherName, thisConfigFullPath);
+		// } else {
+		// 	void max.post(`Skipping ${patcherName} because it has been configured with no ref page generation!`);
+		}
 	}
 }
 
-async function parseAbstractionMaxpatLoop(parentPath: string, patcherName: string) {
-	const fullPath = `${parentPath}/${patcherName}`;
-    const maxpatRaw = fs.readFileSync(fullPath, 'utf8');
+async function parseAbstractionMaxpatLoop(patcherPath: string, patcherName: string, thisConfigFullPath: string) {
+	const fullPatcherPath = `${patcherPath}/${patcherName}.maxpat`;
+    const maxpatRaw = fs.readFileSync(fullPatcherPath, 'utf8'); // patcher is read only in this logic
     const maxpatJson = JSON.parse(maxpatRaw);
 
-	const maxpatRefsPath = `${cwd()}/${config.referenceFiles.abstractions.config}`;
-	// IF !!!
-	const refConfigName = patcherName.replace('.maxpat', '_ref.json');
-	const thisConfigFullPath = `${maxpatRefsPath}/${refConfigName}`;
 	const thisConfigJson = fs.readFileSync(thisConfigFullPath, 'utf8');
     const thisConfigObject = JSON.parse(thisConfigJson);
 
 	const NEW_OBJ = "newobj";
 	const PATCHER_ARGS = "patcherargs";
-	let BOX_TEXT: string;
 	let MATCH_ARGS = false;
+	const EVI_DOC = "evievedoc";
+	const EVI_COMMENT = "comment";
+	let MATCH_EVI = false;
+	let argNum = 0;
 
-	const isNumericFromString = (string: string) => /^[+-]?\d+(\.\d+)?$/.test(string);
-	const isNumericFinite = (input: string | number) => Number.isFinite(+input);
+	// const isNumericFromString = (string: string) => /^[+-]?\d+(\.\d+)?$/.test(string);
+	// const isNumericFinite = (input: string | number) => Number.isFinite(+input);
 	const argumentsConfig: any = {
 		"name": "",
 		"type": "",
@@ -209,38 +331,46 @@ async function parseAbstractionMaxpatLoop(parentPath: string, patcherName: strin
 		}
 	};
 
-	if (thisConfigObject.arguments.length === 1) {
-		thisConfigObject.arguments.length = 0;
-	}
-	if (thisConfigObject.attributes.length === 1) {
-		thisConfigObject.attributes.length = 0;
-	}
+	// if we are editing a brand new template, clear the template json
+	// i know, this is very weak code, but default/name will never be empty if already parsed
+	thisConfigObject.arguments = thisConfigObject.arguments.filter((entry: { default: string; }) => entry.default !== "");
+	thisConfigObject.attributes = thisConfigObject.attributes.filter((entry: { name: string; }) => entry.name !== "");
 
 	// we only need to look at top level for the [patcherargs] we are interested in
     for await (const object of maxpatJson.patcher.boxes) {
 		if (object.box.maxclass === NEW_OBJ) {
-			BOX_TEXT = object.box.text;
+			let BOX_TEXT = object.box.text;
 			if (BOX_TEXT.startsWith(PATCHER_ARGS)) {
 				// parse it
 				let AT_PARSED: boolean = false;
 				const BOX_tokens = BOX_TEXT.replace(PATCHER_ARGS, '').split(' ');
 				for (let i = 0; i < BOX_tokens.length; i++) {
+					// i know, this does not do attributes with multiple args
 					if (BOX_tokens[i].startsWith('@')) {
 						AT_PARSED = true;
 						let thisAttr: any = JSON.parse(JSON.stringify(attributesConfig));
 						thisAttr.name = BOX_tokens[i].replace('@', '');
-						const thisValue = BOX_tokens[i + 1];
+						const thisValue = (BOX_tokens[i + 1].startsWith('@')) ? "" : BOX_tokens[i + 1];
 						thisAttr.default.value = thisValue;
 						thisAttr.type = inferTypeFromString(thisValue);
 						thisConfigObject.attributes.push(thisAttr);
 					} else {
-						if (AT_PARSED) {
+						if ((AT_PARSED) || (i === BOX_tokens.length - 1)) {
 							continue;
 						} else {
+							argNum += 1;
 							let thisArgs: any = JSON.parse(JSON.stringify(argumentsConfig));
 							thisArgs.type = inferTypeFromString(BOX_tokens[i]);
 							thisArgs.default = BOX_tokens[i];
-							thisConfigObject.arguments.push(thisArgs);
+							// pete bug
+							if (thisArgs.default === "") {
+								argNum -= 1;
+								thisArgs = {};
+								continue;
+							} else {
+								thisArgs.digest = `arg#${argNum}: `;
+								thisConfigObject.arguments.push(thisArgs);
+							}
 						}
 					}
 				}
@@ -252,13 +382,69 @@ async function parseAbstractionMaxpatLoop(parentPath: string, patcherName: strin
 		}
     }
 
+	// we only need to look at top level for the [comment]@varname"evievedoc" we are interested in
+    for await (const object of maxpatJson.patcher.boxes) {
+		if (object.box.varname === EVI_DOC && object.box.maxclass == EVI_COMMENT) {
+			let BOX_TEXT = object.box.text;
+			if (BOX_TEXT.startsWith(EVI_DOC)) {
+				// parse it
+				let ED_PARSED: boolean = false;
+				const BOX_tokens = BOX_TEXT.replace(EVI_DOC, '').split(' ');
+				for (let i = 0; i < BOX_tokens.length; i++) {
+					// the [comment]@varname"evievedoc" feature support is very specific
+					if (BOX_tokens[i].startsWith('@')) {
+						ED_PARSED = true;
+						let thisAttr: any = JSON.parse(JSON.stringify(attributesConfig));
+						thisAttr.name = BOX_tokens[i].replace('@', '');
+						const thisValue = (BOX_tokens[i + 1].startsWith('@')) ? "" : BOX_tokens[i + 1];
+						thisAttr.default.value = thisValue;
+						thisAttr.type = inferTypeFromString(thisValue);
+						thisConfigObject.attributes.push(thisAttr);
+					} else {
+						if ((ED_PARSED) || (i === BOX_tokens.length - 1)) {
+							continue;
+						} else {
+							argNum += 1;
+							let thisArgs: any = JSON.parse(JSON.stringify(argumentsConfig));
+							thisArgs.type = inferTypeFromString(BOX_tokens[i]);
+							thisArgs.default = BOX_tokens[i];
+							// pete bug
+							if (thisArgs.default === "") {
+								argNum -= 1;
+								thisArgs = {};
+								continue;
+							} else {
+								thisArgs.digest = `arg#${argNum}: `;
+								thisConfigObject.arguments.push(thisArgs);
+							}
+						}
+					}
+				}
+				MATCH_EVI = true;
+			}
+		}
+		if (MATCH_EVI) {
+			break;	// only support once for [evievedoc] feature
+		}
+    }
+
 	if (!MATCH_ARGS) { // do something if [patcherargs] not found?
 		void max.post(`No [patcherargs] object found in ${patcherName}`);
+	}
+	if (MATCH_EVI) {
+		void max.post(`Additional eveivedoc features have been parsed for ${patcherName}`);
+	}
+	if (MATCH_ARGS || MATCH_EVI) {
+		thisConfigObject.attributes.sort((a: { name: string; }, b: { name: string; }) => {
+			return a.name >= b.name ? 1 : -1;
+		});
+		thisConfigObject.arguments.sort((a: { digest: string; }, b: { digest: string; }) => {
+			return a.digest >= b.digest ? 1 : -1;
+		});
 	}
 
 	const IN_LET = "inlet";
 	const OUT_LET = "outlet";
-	let IO_ASSIST: string;
 	const inoutletsConfig: any = {
 		"id": 0,
 		"type": "",
@@ -266,16 +452,16 @@ async function parseAbstractionMaxpatLoop(parentPath: string, patcherName: strin
 		"description": ""
 	}
 
-	// if we are editing a brand new template, clear the template code
+	// if we are editing a brand new template, clear the template json
 	// i know, this is very weak code, but .maxpat will never have an id/index = 0
-	thisConfigObject.inlets.filter((entry: { id: number; }) => entry.id != 0);
-	thisConfigObject.outlets.filter((entry: { id: number; }) => entry.id != 0);
+	thisConfigObject.inlets = thisConfigObject.inlets.filter((entry: { id: number; }) => entry.id !== 0);
+	thisConfigObject.outlets = thisConfigObject.outlets.filter((entry: { id: number; }) => entry.id !== 0);
 
 	// we only want to look at top level for the [inlet] & [outlet]s
     for await (const object of maxpatJson.patcher.boxes) {
 		if (object.box.maxclass === IN_LET || object.box.maxclass === OUT_LET) {
 			let thisIO: any = JSON.parse(JSON.stringify(inoutletsConfig));
-			IO_ASSIST = object.box.comment;
+			let IO_ASSIST = object.box.comment;
 			// parse it
 			thisIO.id = object.box.index;
 			const IO_tokens = IO_ASSIST.split(' ');
@@ -294,13 +480,20 @@ async function parseAbstractionMaxpatLoop(parentPath: string, patcherName: strin
 		}
     }
 
+	thisConfigObject.inlets.sort((a: { id: number; }, b: { id: number; }) => {
+		return a.id >= b.id ? 1 : -1;
+	});
+	thisConfigObject.outlets.sort((a: { id: number; }, b: { id: number; }) => {
+		return a.id >= b.id ? 1 : -1;
+	});
+
 	fs.writeFileSync(thisConfigFullPath, JSON.stringify(thisConfigObject, null, 4));
 }
 
 // really dumb and does not do lists of attrs
 function inferTypeFromString(thisValue: string)
 {
-	const isNumericFromString = (string: string) => /^[+-]?\d+(\.\d+)?$/.test(string);
+	// const isNumericFromString = (string: string) => /^[+-]?\d+(\.\d+)?$/.test(string);
 	const isNumericFinite = (input: string | number) => Number.isFinite(+input);
 
 	let thisValueMaxType: string;
@@ -378,7 +571,9 @@ async function createDefineRefJson()
 		// @ts-expect-error
 		const thisDefineConfig = parsedDefines[defineName];
 		const newDefineName = thisDefineConfig.define.msp;
-		const jsonFileName = `${newDefineName}_ref.json`;
+		// const jsonFileName = `${newDefineName}_ref.json`;
+		// easier parsing _ref files later if named as gendsp, not as define :-(
+		const jsonFileName = defineName.replace('.gendsp', '_ref.json');
         if (!refConfigs.includes(jsonFileName)) {	// maybe create if does not yet exist
 			if (thisDefineConfig.define.object) {	// outer double check, might as well
 				if (thisDefineConfig.ref.msp) { // if msp ref page is requested in config

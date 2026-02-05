@@ -1,0 +1,95 @@
+{
+    "object": {
+        "name": "evi.formantosc~",
+        "category": "",
+        "parent": "evi_formant_osc.gendsp",
+        "tilde": "~",
+        "description": "TEXT_HERE",
+        "discussion": ""
+    },
+    "metadata": {
+        "author": "Pete Dowling",
+        "tags": [
+            "evieve"
+        ]
+    },
+    "inlets": [
+        {
+            "id": 1,
+            "type": "signal/float",
+            "digest": "Fundamental Frequency",
+            "description": ""
+        },
+        {
+            "id": 2,
+            "type": "signal/float",
+            "digest": "Voice Interpolator 0..1",
+            "description": ""
+        },
+        {
+            "id": 3,
+            "type": "signal/float",
+            "digest": "Vowel Interpolator 0..1",
+            "description": ""
+        },
+        {
+            "id": 4,
+            "type": "signal",
+            "digest": "Naive Reset (do not use)",
+            "description": ""
+        }
+    ],
+    "outlets": [
+        {
+            "id": 1,
+            "type": "signal",
+            "digest": "Formant Oscillator",
+            "description": ""
+        },
+        {
+            "id": 2,
+            "type": "signal",
+            "digest": "Phase 0",
+            "description": ""
+        },
+        {
+            "id": 3,
+            "type": "signal",
+            "digest": "Phase 180",
+            "description": ""
+        }
+    ],
+    "messages": [
+        {
+            "name": "",
+            "arg": [
+                {
+                    "name": "",
+                    "type": "",
+                    "units": "",
+                    "optional": 1
+                }
+            ],
+            "digest": "",
+            "description": ""
+        }
+    ],
+    "attributes": [
+        {
+            "name": "",
+            "get": 1,
+            "type": "",
+            "digest": "",
+            "description": "",
+            "default": {
+                "type": "",
+                "value": 0
+            }
+        }
+    ],
+    "example": {
+        "caption": "",
+        "image": ""
+    },
+    "seealso": []
+}

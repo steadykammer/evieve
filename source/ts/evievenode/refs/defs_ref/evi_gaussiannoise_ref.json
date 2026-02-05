@@ -1,0 +1,77 @@
+{
+    "object": {
+        "name": "evi.gaussiannoise~",
+        "category": "",
+        "parent": "evi_gaussiannoise.gendsp",
+        "tilde": "~",
+        "description": "TEXT_HERE",
+        "discussion": ""
+    },
+    "metadata": {
+        "author": "Pete Dowling",
+        "tags": [
+            "evieve"
+        ]
+    },
+    "inlets": [
+        {
+            "id": 1,
+            "type": "",
+            "digest": "Dummy",
+            "description": ""
+        }
+    ],
+    "outlets": [
+        {
+            "id": 1,
+            "type": "",
+            "digest": "(Box Muller) Gaussian Noise Distribution",
+            "description": ""
+        },
+        {
+            "id": 2,
+            "type": "",
+            "digest": "Sync White Noise",
+            "description": ""
+        },
+        {
+            "id": 3,
+            "type": "",
+            "digest": "Cos Noise",
+            "description": ""
+        }
+    ],
+    "messages": [
+        {
+            "name": "",
+            "arg": [
+                {
+                    "name": "",
+                    "type": "",
+                    "units": "",
+                    "optional": 1
+                }
+            ],
+            "digest": "",
+            "description": ""
+        }
+    ],
+    "attributes": [
+        {
+            "name": "",
+            "get": 1,
+            "type": "",
+            "digest": "",
+            "description": "",
+            "default": {
+                "type": "",
+                "value": 0
+            }
+        }
+    ],
+    "example": {
+        "caption": "",
+        "image": ""
+    },
+    "seealso": []
+}

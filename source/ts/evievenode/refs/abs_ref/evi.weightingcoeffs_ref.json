@@ -16,28 +16,25 @@
         {
             "id": 0,
             "type": "",
-            "digest": "",
+            "digest": "bang int float filter weighting samplerate init hot",
             "description": ""
         }
     ],
     "outlets": [
         {
             "id": 0,
-            "type": "",
-            "digest": "",
+            "type": "symbol",
+            "digest": "chosen weighting type symbol",
             "description": ""
-        }
-    ],
-    "arguments": [
+        },
         {
-            "name": "",
+            "id": 0,
             "type": "",
-            "default": "",
-            "optional": 1,
-            "digest": "",
+            "digest": "15 filter coefficents out here, plug into [cascade~] (or 3 [biquad~]s)",
             "description": ""
         }
     ],
+    "arguments": [],
     "messages": [
         {
             "name": "",
@@ -55,14 +52,47 @@
     ],
     "attributes": [
         {
-            "name": "",
+            "name": "hot",
             "get": 0,
-            "type": "",
+            "type": "int",
             "digest": "",
             "description": "",
             "default": {
                 "get": 0,
-                "value": 0
+                "value": "0"
+            }
+        },
+        {
+            "name": "init",
+            "get": 0,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "1"
+            }
+        },
+        {
+            "name": "samplerate",
+            "get": 0,
+            "type": "symbol",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "auto"
+            }
+        },
+        {
+            "name": "weighting",
+            "get": 0,
+            "type": "symbol",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "A"
             }
         }
     ],

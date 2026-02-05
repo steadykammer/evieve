@@ -15,26 +15,80 @@
     "inlets": [
         {
             "id": 0,
-            "type": "",
-            "digest": "",
+            "type": "signal",
+            "digest": "input to split",
+            "description": ""
+        },
+        {
+            "id": 0,
+            "type": "int/float",
+            "digest": "bandwidth (% 0..100)",
+            "description": ""
+        },
+        {
+            "id": 0,
+            "type": "int/float",
+            "digest": "high freq bound (Hz)",
+            "description": ""
+        },
+        {
+            "id": 0,
+            "type": "int/float",
+            "digest": "low freq bound (Hz)",
+            "description": ""
+        },
+        {
+            "id": 0,
+            "type": "int",
+            "digest": "# of bands",
             "description": ""
         }
     ],
     "outlets": [
         {
             "id": 0,
+            "type": "multichannelsignal",
+            "digest": "bands",
+            "description": ""
+        },
+        {
+            "id": 0,
             "type": "",
-            "digest": "",
+            "digest": "dumpout",
             "description": ""
         }
     ],
     "arguments": [
         {
             "name": "",
-            "type": "",
-            "default": "",
+            "type": "int",
+            "default": "16",
             "optional": 1,
-            "digest": "",
+            "digest": "arg#1: ",
+            "description": ""
+        },
+        {
+            "name": "",
+            "type": "float",
+            "default": "20.",
+            "optional": 1,
+            "digest": "arg#2: ",
+            "description": ""
+        },
+        {
+            "name": "",
+            "type": "float",
+            "default": "20000.",
+            "optional": 1,
+            "digest": "arg#3: ",
+            "description": ""
+        },
+        {
+            "name": "",
+            "type": "float",
+            "default": "100.",
+            "optional": 1,
+            "digest": "arg#4: ",
             "description": ""
         }
     ],
@@ -55,14 +109,47 @@
     ],
     "attributes": [
         {
-            "name": "",
+            "name": "compensate",
             "get": 0,
-            "type": "",
+            "type": "int",
             "digest": "",
             "description": "",
             "default": {
                 "get": 0,
-                "value": 0
+                "value": "1"
+            }
+        },
+        {
+            "name": "maxbands",
+            "get": 0,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "128"
+            }
+        },
+        {
+            "name": "smooth",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "10."
+            }
+        },
+        {
+            "name": "tuning",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "440."
             }
         }
     ],

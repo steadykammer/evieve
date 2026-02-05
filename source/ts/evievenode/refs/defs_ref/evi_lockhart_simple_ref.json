@@ -1,0 +1,83 @@
+{
+    "object": {
+        "name": "evi.lockhart.simple~",
+        "category": "",
+        "parent": "evi_lockhart_simple.gendsp",
+        "tilde": "~",
+        "description": "TEXT_HERE",
+        "discussion": ""
+    },
+    "metadata": {
+        "author": "Pete Dowling",
+        "tags": [
+            "evieve"
+        ]
+    },
+    "inlets": [
+        {
+            "id": 1,
+            "type": "",
+            "digest": "Osc Input",
+            "description": ""
+        }
+    ],
+    "outlets": [
+        {
+            "id": 1,
+            "type": "",
+            "digest": "4-section",
+            "description": ""
+        },
+        {
+            "id": 2,
+            "type": "",
+            "digest": "3-section",
+            "description": ""
+        },
+        {
+            "id": 3,
+            "type": "",
+            "digest": "2-section",
+            "description": ""
+        },
+        {
+            "id": 4,
+            "type": "",
+            "digest": "1-section",
+            "description": ""
+        }
+    ],
+    "messages": [
+        {
+            "name": "",
+            "arg": [
+                {
+                    "name": "",
+                    "type": "",
+                    "units": "",
+                    "optional": 1
+                }
+            ],
+            "digest": "",
+            "description": ""
+        }
+    ],
+    "attributes": [
+        {
+            "name": "",
+            "get": 1,
+            "type": "",
+            "digest": "",
+            "description": "",
+            "default": {
+                "type": "",
+                "value": 0
+            }
+        }
+    ],
+    "example": {
+        "caption": "",
+        "image": ""
+    },
+    "seealso": []
+}

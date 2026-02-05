@@ -6,6 +6,7 @@
 		{{object.name}} is a 'max define' for the {{object.parent}} gen{{object.tilde}} abstraction.
 	</digest>
 	<description>
+		Because {{object.name}} is a 'max define' it also accepts all messages and attributes that a gen{{object.tilde}} object does.
 		{{object.description}}
 	</description>
 	<!--METADATA-->
@@ -18,9 +19,9 @@
 	<!--INLETS-->
 	<inletlist>
         {{#each inlets}}
-		<inlet id="{{@index}}" type="{{type}}">
+		<inlet id="{{id}}" type="{{type}}">
 			<digest>
-				{{digest}}
+				Inlet #{{id}}: {{digest}}
 			</digest>
 			<description>
 				{{description}}
@@ -31,9 +32,9 @@
 	<!--OUTLETS-->
 	<outletlist>
         {{#each outlets}}
-		<outlet id="{{@index}}" type="{{type}}">
+		<outlet id="{{id}}" type="{{type}}">
 			<digest>
-				{{digest}}
+				Outlet #{{id}}: {{digest}}
 			</digest>
 			<description>
 				{{description}}
@@ -47,7 +48,7 @@
 		<method name="{{name}}">
 			<arglist>
                 {{#each arg}}
-				<arg name="{{name}}" type="{{type}}" optional="{{optional}}" />
+				<arg name="{{name}}" type="{{type}}" units="{{units}}" optional="{{optional}}" />
                 {{/each}}
 			</arglist>
 			<digest>

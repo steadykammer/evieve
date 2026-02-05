@@ -14,30 +14,75 @@
     },
     "inlets": [
         {
-            "id": 0,
-            "type": "",
-            "digest": "",
+            "id": 1,
+            "type": "signal",
+            "digest": "Audio Input to LPG",
+            "description": ""
+        },
+        {
+            "id": 2,
+            "type": "signal",
+            "digest": "Ping the LPG",
+            "description": ""
+        },
+        {
+            "id": 3,
+            "type": "signal/float",
+            "digest": "Resonance 0..2",
+            "description": ""
+        },
+        {
+            "id": 4,
+            "type": "signal/float",
+            "digest": "Vactrol Rise in ms",
+            "description": ""
+        },
+        {
+            "id": 5,
+            "type": "signal/float",
+            "digest": "Vactrol Fall in ms",
+            "description": ""
+        },
+        {
+            "id": 6,
+            "type": "signal/float",
+            "digest": "Control Offset 0..1",
+            "description": ""
+        },
+        {
+            "id": 7,
+            "type": "signal/float",
+            "digest": "Control Scale 0..1",
+            "description": ""
+        },
+        {
+            "id": 8,
+            "type": "signal/float",
+            "digest": "Control Sweep 0..1",
             "description": ""
         }
     ],
     "outlets": [
         {
-            "id": 0,
-            "type": "",
-            "digest": "",
+            "id": 1,
+            "type": "signal",
+            "digest": "LPG",
             "description": ""
-        }
-    ],
-    "arguments": [
+        },
         {
-            "name": "",
-            "type": "",
-            "default": "",
-            "optional": 1,
-            "digest": "",
+            "id": 2,
+            "type": "signal",
+            "digest": "bPG",
+            "description": ""
+        },
+        {
+            "id": 3,
+            "type": "signal",
+            "digest": "hPG",
             "description": ""
         }
     ],
+    "arguments": [],
     "messages": [
         {
             "name": "",
@@ -53,19 +98,7 @@
             "description": ""
         }
     ],
-    "attributes": [
-        {
-            "name": "",
-            "get": 0,
-            "type": "",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": 0
-            }
-        }
-    ],
+    "attributes": [],
     "example": {
         "caption": "",
         "image": ""

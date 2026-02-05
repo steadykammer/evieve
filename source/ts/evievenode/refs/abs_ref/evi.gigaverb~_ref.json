@@ -15,8 +15,14 @@
     "inlets": [
         {
             "id": 0,
-            "type": "",
-            "digest": "",
+            "type": "signal",
+            "digest": "Audio In Nothing or Right or 2 / messages to evi.gigaverb~",
+            "description": ""
+        },
+        {
+            "id": 0,
+            "type": "signal",
+            "digest": "Audio In Mono or Left or 1 / messages to evi.gigaverb~",
             "description": ""
         }
     ],
@@ -24,20 +30,23 @@
         {
             "id": 0,
             "type": "",
-            "digest": "",
+            "digest": "dumpout (pattrstorage)",
             "description": ""
-        }
-    ],
-    "arguments": [
+        },
         {
-            "name": "",
-            "type": "",
-            "default": "",
-            "optional": 1,
-            "digest": "",
+            "id": 0,
+            "type": "signal",
+            "digest": "Audio Out Right",
+            "description": ""
+        },
+        {
+            "id": 0,
+            "type": "signal",
+            "digest": "Audio Out Left",
             "description": ""
         }
     ],
+    "arguments": [],
     "messages": [
         {
             "name": "",
@@ -55,14 +64,168 @@
     ],
     "attributes": [
         {
-            "name": "",
+            "name": "bandwidth",
             "get": 0,
-            "type": "",
+            "type": "float",
             "digest": "",
             "description": "",
             "default": {
                 "get": 0,
-                "value": 0
+                "value": "0.69"
+            }
+        },
+        {
+            "name": "bypass",
+            "get": 0,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "0"
+            }
+        },
+        {
+            "name": "damping",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "0.41"
+            }
+        },
+        {
+            "name": "dry",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "-3."
+            }
+        },
+        {
+            "name": "early",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "-9."
+            }
+        },
+        {
+            "name": "highfrequency",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "2000."
+            }
+        },
+        {
+            "name": "highgain",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "0."
+            }
+        },
+        {
+            "name": "late",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "-11."
+            }
+        },
+        {
+            "name": "lowfrequency",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "500."
+            }
+        },
+        {
+            "name": "lowgain",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "0."
+            }
+        },
+        {
+            "name": "reverb",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "4.85"
+            }
+        },
+        {
+            "name": "size",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "80."
+            }
+        },
+        {
+            "name": "smoothtime",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "50."
+            }
+        },
+        {
+            "name": "spread",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "0.22"
+            }
+        },
+        {
+            "name": "stereo",
+            "get": 0,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "0"
             }
         }
     ],

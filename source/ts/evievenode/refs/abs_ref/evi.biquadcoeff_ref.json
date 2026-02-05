@@ -14,27 +14,69 @@
     },
     "inlets": [
         {
-            "id": 0,
-            "type": "",
-            "digest": "",
+            "id": 1,
+            "type": "float",
+            "digest": "Cutoff in Hz (change units with 'cutoffunits' attribute) / (symbol) Filter",
+            "description": ""
+        },
+        {
+            "id": 2,
+            "type": "float",
+            "digest": "Gain in dB (change units with 'gainunits' attribute)",
+            "description": ""
+        },
+        {
+            "id": 3,
+            "type": "float",
+            "digest": "Q or S",
             "description": ""
         }
     ],
     "outlets": [
         {
-            "id": 0,
-            "type": "",
-            "digest": "",
+            "id": 1,
+            "type": "list",
+            "digest": "List of 5 Filter Coefficients",
+            "description": ""
+        },
+        {
+            "id": 2,
+            "type": "float",
+            "digest": "a0 (FF0)",
+            "description": ""
+        },
+        {
+            "id": 3,
+            "type": "float",
+            "digest": "a1 (FF1)",
+            "description": ""
+        },
+        {
+            "id": 4,
+            "type": "float",
+            "digest": "a2 (FF2)",
+            "description": ""
+        },
+        {
+            "id": 5,
+            "type": "float",
+            "digest": "b1 (FB1)",
+            "description": ""
+        },
+        {
+            "id": 6,
+            "type": "float",
+            "digest": "b2 (FB2)",
             "description": ""
         }
     ],
     "arguments": [
         {
             "name": "",
-            "type": "",
-            "default": "",
+            "type": "symbol",
+            "default": "bypass",
             "optional": 1,
-            "digest": "",
+            "digest": "arg#1: ",
             "description": ""
         }
     ],
@@ -55,14 +97,25 @@
     ],
     "attributes": [
         {
-            "name": "",
+            "name": "cutoffunits",
             "get": 0,
-            "type": "",
+            "type": "int",
             "digest": "",
             "description": "",
             "default": {
                 "get": 0,
-                "value": 0
+                "value": "0"
+            }
+        },
+        {
+            "name": "gainunits",
+            "get": 0,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "1"
             }
         }
     ],

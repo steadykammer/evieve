@@ -1,0 +1,95 @@
+{
+    "object": {
+        "name": "evi.korgms10~",
+        "category": "",
+        "parent": "evi_korgms10.gendsp",
+        "tilde": "~",
+        "description": "TEXT_HERE",
+        "discussion": ""
+    },
+    "metadata": {
+        "author": "Pete Dowling",
+        "tags": [
+            "evieve"
+        ]
+    },
+    "inlets": [
+        {
+            "id": 1,
+            "type": "signal",
+            "digest": "Audio Input",
+            "description": ""
+        },
+        {
+            "id": 2,
+            "type": "signal/float",
+            "digest": "Cutoff Frequency in Hz",
+            "description": ""
+        },
+        {
+            "id": 3,
+            "type": "signal/float",
+            "digest": "Resonance 0..1 @default 0.72",
+            "description": ""
+        }
+    ],
+    "outlets": [
+        {
+            "id": 1,
+            "type": "signal",
+            "digest": "Korg 35 12dB Lowpass",
+            "description": ""
+        },
+        {
+            "id": 2,
+            "type": "signal",
+            "digest": "Korg 35 6dB Highpass",
+            "description": ""
+        },
+        {
+            "id": 3,
+            "type": "signal",
+            "digest": "Bonus 12dB Highpass",
+            "description": ""
+        },
+        {
+            "id": 4,
+            "type": "signal",
+            "digest": "Bonus 12dB Bandpass",
+            "description": ""
+        }
+    ],
+    "messages": [
+        {
+            "name": "",
+            "arg": [
+                {
+                    "name": "",
+                    "type": "",
+                    "units": "",
+                    "optional": 1
+                }
+            ],
+            "digest": "",
+            "description": ""
+        }
+    ],
+    "attributes": [
+        {
+            "name": "",
+            "get": 1,
+            "type": "",
+            "digest": "",
+            "description": "",
+            "default": {
+                "type": "",
+                "value": 0
+            }
+        }
+    ],
+    "example": {
+        "caption": "",
+        "image": ""
+    },
+    "seealso": []
+}

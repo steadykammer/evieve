@@ -16,6 +16,17 @@
         "boxes": [
             {
                 "box": {
+                    "id": "obj-24",
+                    "maxclass": "message",
+                    "numinlets": 2,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 629.0, 419.0, 158.0, 22.0 ],
+                    "text": "make_defs_ref_xml_configs"
+                }
+            },
+            {
+                "box": {
                     "id": "obj-25",
                     "maxclass": "message",
                     "numinlets": 2,
@@ -23,61 +34,6 @@
                     "outlettype": [ "" ],
                     "patching_rect": [ 600.0, 449.0, 155.0, 22.0 ],
                     "text": "make_abs_ref_xml_configs"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-36",
-                    "maxclass": "message",
-                    "numinlets": 2,
-                    "numoutlets": 1,
-                    "outlettype": [ "" ],
-                    "patching_rect": [ 415.0, 603.0, 178.0, 22.0 ],
-                    "text": "/Users/stkr/Dev/evieve/patchers"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-34",
-                    "maxclass": "message",
-                    "numinlets": 2,
-                    "numoutlets": 1,
-                    "outlettype": [ "" ],
-                    "patching_rect": [ 186.0, 484.0, 312.0, 22.0 ],
-                    "text": "/Users/stkr/Dev/evieve/source/ts/evievenode/refs/abs_ref"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-32",
-                    "maxclass": "button",
-                    "numinlets": 1,
-                    "numoutlets": 1,
-                    "outlettype": [ "bang" ],
-                    "parameter_enable": 0,
-                    "patching_rect": [ 365.0, 418.0, 24.0, 24.0 ]
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-27",
-                    "maxclass": "newobj",
-                    "numinlets": 1,
-                    "numoutlets": 2,
-                    "outlettype": [ "", "bang" ],
-                    "patching_rect": [ 359.0, 457.0, 67.0, 22.0 ],
-                    "text": "opendialog"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-26",
-                    "maxclass": "newobj",
-                    "numinlets": 1,
-                    "numoutlets": 1,
-                    "outlettype": [ "" ],
-                    "patching_rect": [ 333.0, 529.0, 150.0, 22.0 ],
-                    "text": "prepend test_stupid_paths"
                 }
             },
             {
@@ -941,6 +897,8 @@
                     "saved_object_attributes": {
                         "autostart": 0,
                         "defer": 0,
+                        "node_bin_path": "",
+                        "npm_bin_path": "",
                         "watch": 0
                     },
                     "text": "node.script /Users/stkr/Dev/evieve/source/ts/evievenode/dist/evievedoc.js",
@@ -1053,19 +1011,13 @@
             {
                 "patchline": {
                     "destination": [ "obj-1", 0 ],
-                    "source": [ "obj-25", 0 ]
+                    "source": [ "obj-24", 0 ]
                 }
             },
             {
                 "patchline": {
                     "destination": [ "obj-1", 0 ],
-                    "source": [ "obj-26", 0 ]
-                }
-            },
-            {
-                "patchline": {
-                    "destination": [ "obj-36", 1 ],
-                    "source": [ "obj-27", 0 ]
+                    "source": [ "obj-25", 0 ]
                 }
             },
             {
@@ -1102,24 +1054,6 @@
                 "patchline": {
                     "destination": [ "obj-1", 0 ],
                     "source": [ "obj-30", 0 ]
-                }
-            },
-            {
-                "patchline": {
-                    "destination": [ "obj-27", 0 ],
-                    "source": [ "obj-32", 0 ]
-                }
-            },
-            {
-                "patchline": {
-                    "destination": [ "obj-26", 0 ],
-                    "source": [ "obj-34", 0 ]
-                }
-            },
-            {
-                "patchline": {
-                    "destination": [ "obj-26", 0 ],
-                    "source": [ "obj-36", 0 ]
                 }
             },
             {

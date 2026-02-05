@@ -15,8 +15,14 @@
     "inlets": [
         {
             "id": 0,
-            "type": "",
-            "digest": "",
+            "type": "signal",
+            "digest": "Audio In Nothing or Right or 2 / messages to evi.plateverb_lite~",
+            "description": ""
+        },
+        {
+            "id": 0,
+            "type": "signal",
+            "digest": "Audio In Mono or Left or 1 / messages to evi.plateverb_lite~",
             "description": ""
         }
     ],
@@ -24,20 +30,23 @@
         {
             "id": 0,
             "type": "",
-            "digest": "",
+            "digest": "dumpout (pattrstorage)",
             "description": ""
-        }
-    ],
-    "arguments": [
+        },
         {
-            "name": "",
-            "type": "",
-            "default": "",
-            "optional": 1,
-            "digest": "",
+            "id": 0,
+            "type": "signal",
+            "digest": "Audio Out Right",
+            "description": ""
+        },
+        {
+            "id": 0,
+            "type": "signal",
+            "digest": "Audio Out Left",
             "description": ""
         }
     ],
+    "arguments": [],
     "messages": [
         {
             "name": "",
@@ -55,14 +64,157 @@
     ],
     "attributes": [
         {
-            "name": "",
+            "name": "bypass",
             "get": 0,
-            "type": "",
+            "type": "int",
             "digest": "",
             "description": "",
             "default": {
                 "get": 0,
-                "value": 0
+                "value": "0"
+            }
+        },
+        {
+            "name": "damp",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "6593."
+            }
+        },
+        {
+            "name": "decay",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "0.6"
+            }
+        },
+        {
+            "name": "diffuse",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "0.3"
+            }
+        },
+        {
+            "name": "dry",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "-15."
+            }
+        },
+        {
+            "name": "highfrequency",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "2000."
+            }
+        },
+        {
+            "name": "highgain",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "0."
+            }
+        },
+        {
+            "name": "lowfrequency",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "500."
+            }
+        },
+        {
+            "name": "lowgain",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "0."
+            }
+        },
+        {
+            "name": "pan",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "0.5"
+            }
+        },
+        {
+            "name": "size",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "0.2"
+            }
+        },
+        {
+            "name": "smoothtime",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "49."
+            }
+        },
+        {
+            "name": "stereo",
+            "get": 0,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "0"
+            }
+        },
+        {
+            "name": "wet",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "-3."
             }
         }
     ],

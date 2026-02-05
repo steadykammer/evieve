@@ -14,30 +14,33 @@
     },
     "inlets": [
         {
-            "id": 0,
-            "type": "",
-            "digest": "",
+            "id": 1,
+            "type": "signal",
+            "digest": "Input to Detect / (messages) to evi.pitchdetect~",
             "description": ""
         }
     ],
     "outlets": [
         {
-            "id": 0,
-            "type": "",
-            "digest": "",
+            "id": 1,
+            "type": "signal",
+            "digest": "Dry Audio, optionally Time Aligned",
             "description": ""
-        }
-    ],
-    "arguments": [
+        },
         {
-            "name": "",
-            "type": "",
-            "default": "",
-            "optional": 1,
-            "digest": "",
+            "id": 2,
+            "type": "signal",
+            "digest": "Detected Frequency in Hz",
+            "description": ""
+        },
+        {
+            "id": 3,
+            "type": "int",
+            "digest": "Current Latency in Samples",
             "description": ""
         }
     ],
+    "arguments": [],
     "messages": [
         {
             "name": "",
@@ -55,14 +58,47 @@
     ],
     "attributes": [
         {
-            "name": "",
+            "name": "ambience",
             "get": 0,
-            "type": "",
+            "type": "float",
             "digest": "",
             "description": "",
             "default": {
                 "get": 0,
-                "value": 0
+                "value": "0.1"
+            }
+        },
+        {
+            "name": "compensate",
+            "get": 0,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "1"
+            }
+        },
+        {
+            "name": "gain",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "0."
+            }
+        },
+        {
+            "name": "highpass",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "100."
             }
         }
     ],

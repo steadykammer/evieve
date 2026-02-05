@@ -15,8 +15,14 @@
     "inlets": [
         {
             "id": 0,
-            "type": "",
-            "digest": "",
+            "type": "signal",
+            "digest": "Audio In Right / messages to evi.sustainverb~",
+            "description": ""
+        },
+        {
+            "id": 0,
+            "type": "signal",
+            "digest": "Audio In Left / messages to evi.sustainverb~",
             "description": ""
         }
     ],
@@ -24,20 +30,59 @@
         {
             "id": 0,
             "type": "",
-            "digest": "",
+            "digest": "AUX Tap 4",
             "description": ""
-        }
-    ],
-    "arguments": [
+        },
         {
-            "name": "",
+            "id": 0,
             "type": "",
-            "default": "",
-            "optional": 1,
-            "digest": "",
+            "digest": "AUX Tap 3",
+            "description": ""
+        },
+        {
+            "id": 0,
+            "type": "",
+            "digest": "AUX Tap 2",
+            "description": ""
+        },
+        {
+            "id": 0,
+            "type": "",
+            "digest": "AUX Tap 1",
+            "description": ""
+        },
+        {
+            "id": 0,
+            "type": "",
+            "digest": "FDN Out Right",
+            "description": ""
+        },
+        {
+            "id": 0,
+            "type": "",
+            "digest": "FDN Out Left",
+            "description": ""
+        },
+        {
+            "id": 0,
+            "type": "",
+            "digest": "RVRB Out Right",
+            "description": ""
+        },
+        {
+            "id": 0,
+            "type": "",
+            "digest": "RVRB Out Left",
+            "description": ""
+        },
+        {
+            "id": 0,
+            "type": "",
+            "digest": "dumpout (pattrstorage)",
             "description": ""
         }
     ],
+    "arguments": [],
     "messages": [
         {
             "name": "",
@@ -55,14 +100,80 @@
     ],
     "attributes": [
         {
-            "name": "",
+            "name": "crossover",
             "get": 0,
-            "type": "",
+            "type": "float",
             "digest": "",
             "description": "",
             "default": {
                 "get": 0,
-                "value": 0
+                "value": "3000."
+            }
+        },
+        {
+            "name": "damp",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "0.1"
+            }
+        },
+        {
+            "name": "drywet",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "0.8666"
+            }
+        },
+        {
+            "name": "early",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "0.707107"
+            }
+        },
+        {
+            "name": "fdnsum",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "0."
+            }
+        },
+        {
+            "name": "late",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "0.803554"
+            }
+        },
+        {
+            "name": "smoothtime",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "22.666"
             }
         }
     ],

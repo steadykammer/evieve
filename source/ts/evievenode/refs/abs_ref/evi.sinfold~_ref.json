@@ -14,30 +14,21 @@
     },
     "inlets": [
         {
-            "id": 0,
-            "type": "",
-            "digest": "",
+            "id": 1,
+            "type": "signal",
+            "digest": "audio in / (anything) messages to evi.sinfold~",
             "description": ""
         }
     ],
     "outlets": [
         {
-            "id": 0,
-            "type": "",
-            "digest": "",
+            "id": 1,
+            "type": "signal",
+            "digest": "sine shaped audio out",
             "description": ""
         }
     ],
-    "arguments": [
-        {
-            "name": "",
-            "type": "",
-            "default": "",
-            "optional": 1,
-            "digest": "",
-            "description": ""
-        }
-    ],
+    "arguments": [],
     "messages": [
         {
             "name": "",
@@ -55,14 +46,25 @@
     ],
     "attributes": [
         {
-            "name": "",
+            "name": "drive",
             "get": 0,
-            "type": "",
+            "type": "float",
             "digest": "",
             "description": "",
             "default": {
                 "get": 0,
-                "value": 0
+                "value": "0.5"
+            }
+        },
+        {
+            "name": "smooth",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "22.666"
             }
         }
     ],

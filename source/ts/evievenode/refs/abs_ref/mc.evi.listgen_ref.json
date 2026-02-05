@@ -14,30 +14,21 @@
     },
     "inlets": [
         {
-            "id": 0,
-            "type": "",
-            "digest": "",
+            "id": 1,
+            "type": "int",
+            "digest": "# chans (same as @chans) / (bang) output previous list / (anything) any mcwrapper method",
             "description": ""
         }
     ],
     "outlets": [
         {
-            "id": 0,
-            "type": "",
-            "digest": "",
+            "id": 1,
+            "type": "list",
+            "digest": "generated list output",
             "description": ""
         }
     ],
-    "arguments": [
-        {
-            "name": "",
-            "type": "",
-            "default": "",
-            "optional": 1,
-            "digest": "",
-            "description": ""
-        }
-    ],
+    "arguments": [],
     "messages": [
         {
             "name": "",
@@ -55,14 +46,14 @@
     ],
     "attributes": [
         {
-            "name": "",
+            "name": "chans",
             "get": 0,
-            "type": "",
+            "type": "int",
             "digest": "",
             "description": "",
             "default": {
                 "get": 0,
-                "value": 0
+                "value": "2"
             }
         }
     ],

@@ -1,0 +1,119 @@
+{
+    "object": {
+        "name": "evi.eq3~",
+        "category": "",
+        "parent": "evi_eq3.gendsp",
+        "tilde": "~",
+        "description": "TEXT_HERE",
+        "discussion": ""
+    },
+    "metadata": {
+        "author": "Pete Dowling",
+        "tags": [
+            "evieve"
+        ]
+    },
+    "inlets": [
+        {
+            "id": 1,
+            "type": "signal",
+            "digest": "Input",
+            "description": ""
+        },
+        {
+            "id": 2,
+            "type": "signal/float",
+            "digest": "freq 1 @min 10 @max 18000 @default 250",
+            "description": ""
+        },
+        {
+            "id": 3,
+            "type": "signal/float",
+            "digest": "dB 1 @min -24 @max 24 @default 0",
+            "description": ""
+        },
+        {
+            "id": 4,
+            "type": "signal/float",
+            "digest": "Q 1 @min 0.1 @max 18 @default 1",
+            "description": ""
+        },
+        {
+            "id": 5,
+            "type": "signal/float",
+            "digest": "freq 2 @min 10 @max 18000 @default 1000",
+            "description": ""
+        },
+        {
+            "id": 6,
+            "type": "signal/float",
+            "digest": "dB 2 @min -24 @max 24 @default 0",
+            "description": ""
+        },
+        {
+            "id": 7,
+            "type": "signal/float",
+            "digest": "Q 2 @min 0.1 @max 18 @default 0.707107",
+            "description": ""
+        },
+        {
+            "id": 8,
+            "type": "signal/float",
+            "digest": "freq 3 @min 10 @max 18000 @default 4000",
+            "description": ""
+        },
+        {
+            "id": 9,
+            "type": "signal/float",
+            "digest": "dB 3 @min -24 @max 24 @default 0",
+            "description": ""
+        },
+        {
+            "id": 10,
+            "type": "signal/float",
+            "digest": "Q 3 @min 0.1 @max 18 @default 1",
+            "description": ""
+        }
+    ],
+    "outlets": [
+        {
+            "id": 1,
+            "type": "signal",
+            "digest": "3 bands EQ Output",
+            "description": ""
+        }
+    ],
+    "messages": [
+        {
+            "name": "",
+            "arg": [
+                {
+                    "name": "",
+                    "type": "",
+                    "units": "",
+                    "optional": 1
+                }
+            ],
+            "digest": "",
+            "description": ""
+        }
+    ],
+    "attributes": [
+        {
+            "name": "",
+            "get": 1,
+            "type": "",
+            "digest": "",
+            "description": "",
+            "default": {
+                "type": "",
+                "value": 0
+            }
+        }
+    ],
+    "example": {
+        "caption": "",
+        "image": ""
+    },
+    "seealso": []
+}

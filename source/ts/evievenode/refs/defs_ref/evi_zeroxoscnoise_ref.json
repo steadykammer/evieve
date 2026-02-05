@@ -1,0 +1,119 @@
+{
+    "object": {
+        "name": "evi.zeroxoscnoise~",
+        "category": "",
+        "parent": "evi_zeroxoscnoise.gendsp",
+        "tilde": "~",
+        "description": "TEXT_HERE",
+        "discussion": ""
+    },
+    "metadata": {
+        "author": "Pete Dowling",
+        "tags": [
+            "evieve"
+        ]
+    },
+    "inlets": [
+        {
+            "id": 1,
+            "type": "signal",
+            "digest": "Audio Input for Analysis",
+            "description": ""
+        },
+        {
+            "id": 2,
+            "type": "signal/float",
+            "digest": "Oscillators Frequency in Hz @min 0 @max 8373",
+            "description": ""
+        },
+        {
+            "id": 3,
+            "type": "signal/float",
+            "digest": "Oscillators PW 0..1 @min 0 @max 1 @default 0.5",
+            "description": ""
+        },
+        {
+            "id": 4,
+            "type": "signal/float",
+            "digest": "Oscillators Mix 0..1 @min 0 @max 1 @default 0.167",
+            "description": ""
+        },
+        {
+            "id": 5,
+            "type": "signal/float",
+            "digest": "Noise Mix 0..1 @min 0 @max 1",
+            "description": ""
+        }
+    ],
+    "outlets": [
+        {
+            "id": 1,
+            "type": "signal",
+            "digest": "Audio Output for Resynthesis",
+            "description": ""
+        },
+        {
+            "id": 2,
+            "type": "signal",
+            "digest": "Just Oscillator",
+            "description": ""
+        },
+        {
+            "id": 3,
+            "type": "signal",
+            "digest": "Just Noise",
+            "description": ""
+        },
+        {
+            "id": 4,
+            "type": "signal",
+            "digest": "Oscillator Sync",
+            "description": ""
+        },
+        {
+            "id": 5,
+            "type": "signal",
+            "digest": "Number of Zero Crossings",
+            "description": ""
+        },
+        {
+            "id": 6,
+            "type": "signal",
+            "digest": "Env",
+            "description": ""
+        }
+    ],
+    "messages": [
+        {
+            "name": "",
+            "arg": [
+                {
+                    "name": "",
+                    "type": "",
+                    "units": "",
+                    "optional": 1
+                }
+            ],
+            "digest": "",
+            "description": ""
+        }
+    ],
+    "attributes": [
+        {
+            "name": "",
+            "get": 1,
+            "type": "",
+            "digest": "",
+            "description": "",
+            "default": {
+                "type": "",
+                "value": 0
+            }
+        }
+    ],
+    "example": {
+        "caption": "",
+        "image": ""
+    },
+    "seealso": []
+}

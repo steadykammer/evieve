@@ -18,6 +18,12 @@
             "type": "",
             "digest": "",
             "description": ""
+        },
+        {
+            "id": 0,
+            "type": "",
+            "digest": "",
+            "description": ""
         }
     ],
     "outlets": [
@@ -28,16 +34,7 @@
             "description": ""
         }
     ],
-    "arguments": [
-        {
-            "name": "",
-            "type": "",
-            "default": "",
-            "optional": 1,
-            "digest": "",
-            "description": ""
-        }
-    ],
+    "arguments": [],
     "messages": [
         {
             "name": "",
@@ -53,19 +50,7 @@
             "description": ""
         }
     ],
-    "attributes": [
-        {
-            "name": "",
-            "get": 0,
-            "type": "",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": 0
-            }
-        }
-    ],
+    "attributes": [],
     "example": {
         "caption": "",
         "image": ""

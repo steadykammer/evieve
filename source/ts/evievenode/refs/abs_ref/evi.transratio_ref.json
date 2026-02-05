@@ -28,16 +28,7 @@
             "description": ""
         }
     ],
-    "arguments": [
-        {
-            "name": "",
-            "type": "",
-            "default": "",
-            "optional": 1,
-            "digest": "",
-            "description": ""
-        }
-    ],
+    "arguments": [],
     "messages": [
         {
             "name": "",
@@ -55,14 +46,58 @@
     ],
     "attributes": [
         {
-            "name": "",
+            "name": "base",
             "get": 0,
-            "type": "",
+            "type": "float",
             "digest": "",
             "description": "",
             "default": {
                 "get": 0,
-                "value": 0
+                "value": "440."
+            }
+        },
+        {
+            "name": "in",
+            "get": 0,
+            "type": "symbol",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "semitones"
+            }
+        },
+        {
+            "name": "init",
+            "get": 0,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "0"
+            }
+        },
+        {
+            "name": "offset",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "60."
+            }
+        },
+        {
+            "name": "out",
+            "get": 0,
+            "type": "symbol",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "ratio"
             }
         }
     ],

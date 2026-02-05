@@ -1,0 +1,95 @@
+{
+    "object": {
+        "name": "evi.vosim.basic~",
+        "category": "",
+        "parent": "evi_vosim_basic.gendsp",
+        "tilde": "~",
+        "description": "TEXT_HERE",
+        "discussion": ""
+    },
+    "metadata": {
+        "author": "Pete Dowling",
+        "tags": [
+            "evieve"
+        ]
+    },
+    "inlets": [
+        {
+            "id": 1,
+            "type": "signal/float",
+            "digest": "T: Pulse Width in ms",
+            "description": ""
+        },
+        {
+            "id": 2,
+            "type": "signal/float",
+            "digest": "M: Delay in ms",
+            "description": ""
+        },
+        {
+            "id": 3,
+            "type": "signal/int",
+            "digest": "N: # of Pulses",
+            "description": ""
+        },
+        {
+            "id": 4,
+            "type": "signal/float",
+            "digest": "A: Amplitude",
+            "description": ""
+        },
+        {
+            "id": 5,
+            "type": "signal/float",
+            "digest": "∂A: inc/dec (decay)",
+            "description": ""
+        }
+    ],
+    "outlets": [
+        {
+            "id": 1,
+            "type": "signal",
+            "digest": "VOSIM-like Oscillator",
+            "description": ""
+        },
+        {
+            "id": 2,
+            "type": "signal",
+            "digest": "Computed Frequency in Hz",
+            "description": ""
+        }
+    ],
+    "messages": [
+        {
+            "name": "",
+            "arg": [
+                {
+                    "name": "",
+                    "type": "",
+                    "units": "",
+                    "optional": 1
+                }
+            ],
+            "digest": "",
+            "description": ""
+        }
+    ],
+    "attributes": [
+        {
+            "name": "",
+            "get": 1,
+            "type": "",
+            "digest": "",
+            "description": "",
+            "default": {
+                "type": "",
+                "value": 0
+            }
+        }
+    ],
+    "example": {
+        "caption": "",
+        "image": ""
+    },
+    "seealso": []
+}

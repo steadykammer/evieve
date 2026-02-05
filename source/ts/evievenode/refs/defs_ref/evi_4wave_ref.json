@@ -1,0 +1,95 @@
+{
+    "object": {
+        "name": "evi.4wave~",
+        "category": "",
+        "parent": "evi_4wave.gendsp",
+        "tilde": "~",
+        "description": "TEXT_HERE",
+        "discussion": ""
+    },
+    "metadata": {
+        "author": "Pete Dowling",
+        "tags": [
+            "evieve"
+        ]
+    },
+    "inlets": [
+        {
+            "id": 1,
+            "type": "signal/float",
+            "digest": "Frequency in Hz",
+            "description": ""
+        },
+        {
+            "id": 2,
+            "type": "signal",
+            "digest": "Naive Reset",
+            "description": ""
+        }
+    ],
+    "outlets": [
+        {
+            "id": 1,
+            "type": "",
+            "digest": "SAW",
+            "description": ""
+        },
+        {
+            "id": 2,
+            "type": "",
+            "digest": "RECT",
+            "description": ""
+        },
+        {
+            "id": 3,
+            "type": "",
+            "digest": "TRI",
+            "description": ""
+        },
+        {
+            "id": 4,
+            "type": "",
+            "digest": "SINE",
+            "description": ""
+        },
+        {
+            "id": 5,
+            "type": "",
+            "digest": "Phase",
+            "description": ""
+        }
+    ],
+    "messages": [
+        {
+            "name": "",
+            "arg": [
+                {
+                    "name": "",
+                    "type": "",
+                    "units": "",
+                    "optional": 1
+                }
+            ],
+            "digest": "",
+            "description": ""
+        }
+    ],
+    "attributes": [
+        {
+            "name": "",
+            "get": 1,
+            "type": "",
+            "digest": "",
+            "description": "",
+            "default": {
+                "type": "",
+                "value": 0
+            }
+        }
+    ],
+    "example": {
+        "caption": "",
+        "image": ""
+    },
+    "seealso": []
+}

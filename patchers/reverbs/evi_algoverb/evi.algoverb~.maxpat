@@ -1483,7 +1483,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "" ],
                                     "patching_rect": [ 664.0, 495.0, 99.0, 22.0 ],
-                                    "restore": [ -5.0 ],
+                                    "restore": [ -7.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_initial": [ -7.0 ],
@@ -1516,7 +1516,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "" ],
                                     "patching_rect": [ 523.0, 612.0, 125.0, 22.0 ],
-                                    "restore": [ 246.94 ],
+                                    "restore": [ 92.5 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_initial": [ 92.5 ],
@@ -1586,7 +1586,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "" ],
                                     "patching_rect": [ 335.0, 573.0, 111.0, 22.0 ],
-                                    "restore": [ -0.55 ],
+                                    "restore": [ -0.7 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_initial": [ -0.7 ],
@@ -1619,7 +1619,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "" ],
                                     "patching_rect": [ 288.0, 612.0, 143.0, 22.0 ],
-                                    "restore": [ 311.13 ],
+                                    "restore": [ 69.3 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_initial": [ 69.3 ],
@@ -1653,7 +1653,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "" ],
                                     "patching_rect": [ 429.0, 495.0, 116.0, 22.0 ],
-                                    "restore": [ -0.65 ],
+                                    "restore": [ -1.2 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_initial": [ -1.2 ],
@@ -1686,7 +1686,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "" ],
                                     "patching_rect": [ 382.0, 534.0, 147.0, 22.0 ],
-                                    "restore": [ 622.26 ],
+                                    "restore": [ 1108.7 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_initial": [ 1108.7 ],
@@ -1721,7 +1721,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "" ],
                                     "patching_rect": [ 714.0, 612.0, 74.0, 22.0 ],
-                                    "restore": [ 1.0 ],
+                                    "restore": [ 0.4 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_initial": [ 0.4 ],
@@ -1784,7 +1784,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "" ],
                                     "patching_rect": [ 771.0, 370.0, 113.0, 22.0 ],
-                                    "restore": [ 0.25 ],
+                                    "restore": [ 0.15 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_initial": [ 0.15 ],
@@ -1815,7 +1815,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "" ],
                                     "patching_rect": [ 711.0, 394.0, 116.0, 22.0 ],
-                                    "restore": [ 0.27 ],
+                                    "restore": [ 0.23 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_initial": [ 0.23 ],
@@ -1847,7 +1847,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "" ],
                                     "patching_rect": [ 831.0, 394.0, 85.0, 22.0 ],
-                                    "restore": [ 0.68 ],
+                                    "restore": [ 0.46 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_initial": [ 0.46 ],
@@ -1878,7 +1878,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "" ],
                                     "patching_rect": [ 651.0, 370.0, 92.0, 22.0 ],
-                                    "restore": [ 0.14 ],
+                                    "restore": [ 0.186 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_initial": [ 0.186 ],
@@ -1909,7 +1909,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "" ],
                                     "patching_rect": [ 591.0, 394.0, 68.0, 22.0 ],
-                                    "restore": [ 0.625 ],
+                                    "restore": [ 0.475 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_initial": [ 0.475 ],
@@ -1971,7 +1971,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "" ],
                                     "patching_rect": [ 471.0, 322.0, 109.0, 22.0 ],
-                                    "restore": [ -1.5 ],
+                                    "restore": [ -1.3 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_initial": [ -1.3 ],
@@ -2003,7 +2003,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "" ],
                                     "patching_rect": [ 411.0, 346.0, 79.0, 22.0 ],
-                                    "restore": [ 0.676 ],
+                                    "restore": [ 0.653 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_initial": [ 0.653 ],
@@ -2065,7 +2065,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "" ],
                                     "patching_rect": [ 291.0, 346.0, 116.0, 22.0 ],
-                                    "restore": [ 2.0 ],
+                                    "restore": [ 1.7 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_initial": [ 1.7 ],
@@ -2097,7 +2097,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "" ],
                                     "patching_rect": [ 231.0, 322.0, 85.0, 22.0 ],
-                                    "restore": [ 0.514 ],
+                                    "restore": [ 0.389 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_initial": [ 0.389 ],
@@ -6089,7 +6089,7 @@
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
-                    "outlettype": [ "signal" ],
+                    "outlettype": [ "" ],
                     "patching_rect": [ 195.418335, 150.0, 30.0, 30.0 ]
                 }
             },
@@ -6123,7 +6123,7 @@
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
-                    "outlettype": [ "signal" ],
+                    "outlettype": [ "" ],
                     "patching_rect": [ 34.418343, 150.0, 30.0, 30.0 ]
                 }
             },
@@ -6681,7 +6681,8 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 497.0, 84.0, 726.5541989999997, 60.0 ],
-                    "text": "patcherargs @predelay 16. @presymmetry 0.33 @earlysize 0.389 @earlysymmetry 1.7 @earlydiffusion 0.7 @latesize 0.653 @latesymmetry -1.3 @latediffusion 0.7 @highdampfrequency 1108.7 @highdampgain -1.2 @lowdampfrequency 69.3 @lowdampgain -0.7 @decay 0.475 @absorbtion 0.186 @modrate 0.23 @moddepth 0.15 @earlylate 0.46 @earlylatehysterisis 3333 @higheqfrequency 2217.5 @higheqgain -7. @loweqfrequency 92.5 @loweqgain -3.5 @drywet 0.4 @smoothtime 50. @outputmode 1"
+                    "text": "evievedoc @predelay 16. @presymmetry 0.33 @earlysize 0.389 @earlysymmetry 1.7 @earlydiffusion 0.7 @latesize 0.653 @latesymmetry -1.3 @latediffusion 0.7 @highdampfrequency 1108.7 @highdampgain -1.2 @lowdampfrequency 69.3 @lowdampgain -0.7 @decay 0.475 @absorbtion 0.186 @modrate 0.23 @moddepth 0.15 @earlylate 0.46 @earlylatehysterisis 3333 @higheqfrequency 2217.5 @higheqgain -7. @loweqfrequency 92.5 @loweqgain -3.5 @drywet 0.4 @smoothtime 50.",
+                    "varname": "evievedoc"
                 }
             },
             {

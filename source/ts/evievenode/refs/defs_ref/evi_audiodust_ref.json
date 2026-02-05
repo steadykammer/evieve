@@ -1,0 +1,77 @@
+{
+    "object": {
+        "name": "evi.audiodust~",
+        "category": "",
+        "parent": "evi_audiodust.gendsp",
+        "tilde": "~",
+        "description": "TEXT_HERE",
+        "discussion": ""
+    },
+    "metadata": {
+        "author": "Pete Dowling",
+        "tags": [
+            "evieve"
+        ]
+    },
+    "inlets": [
+        {
+            "id": 1,
+            "type": "",
+            "digest": "Frequency in Hz @default 10 @min -SAMPLERATE*0.5 @max SAMPLERATE*0.5",
+            "description": ""
+        }
+    ],
+    "outlets": [
+        {
+            "id": 1,
+            "type": "",
+            "digest": "So Called \"Audio Dust\"",
+            "description": ""
+        },
+        {
+            "id": 2,
+            "type": "",
+            "digest": "\"White Noise\"",
+            "description": ""
+        },
+        {
+            "id": 3,
+            "type": "",
+            "digest": "Click (Sample Accurate Unipolar Sync Source)",
+            "description": ""
+        }
+    ],
+    "messages": [
+        {
+            "name": "",
+            "arg": [
+                {
+                    "name": "",
+                    "type": "",
+                    "units": "",
+                    "optional": 1
+                }
+            ],
+            "digest": "",
+            "description": ""
+        }
+    ],
+    "attributes": [
+        {
+            "name": "",
+            "get": 1,
+            "type": "",
+            "digest": "",
+            "description": "",
+            "default": {
+                "type": "",
+                "value": 0
+            }
+        }
+    ],
+    "example": {
+        "caption": "",
+        "image": ""
+    },
+    "seealso": []
+}

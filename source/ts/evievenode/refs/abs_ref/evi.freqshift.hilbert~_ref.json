@@ -14,9 +14,9 @@
     },
     "inlets": [
         {
-            "id": 0,
-            "type": "",
-            "digest": "",
+            "id": 1,
+            "type": "signal",
+            "digest": "Audio Input / (messages) messages / attributes",
             "description": ""
         },
         {
@@ -24,21 +24,9 @@
             "type": "float/int",
             "digest": "Frequency Shift in Hz +/- 0., use @freqsmooth to smooth / (signal) + FM modulation of Freq Shift ± Hz",
             "description": ""
-        },
-        {
-            "id": 1,
-            "type": "signal",
-            "digest": "Audio Input / (messages) messages / attributes",
-            "description": ""
         }
     ],
     "outlets": [
-        {
-            "id": 0,
-            "type": "",
-            "digest": "",
-            "description": ""
-        },
         {
             "id": 1,
             "type": "signal",
@@ -64,16 +52,7 @@
             "description": ""
         }
     ],
-    "arguments": [
-        {
-            "name": "",
-            "type": "int",
-            "default": "",
-            "optional": 1,
-            "digest": "",
-            "description": ""
-        }
-    ],
+    "arguments": [],
     "messages": [
         {
             "name": "",
@@ -91,14 +70,14 @@
     ],
     "attributes": [
         {
-            "name": "saturation",
+            "name": "bandsmix",
             "get": 0,
-            "type": "int",
+            "type": "float",
             "digest": "",
             "description": "",
             "default": {
                 "get": 0,
-                "value": "1"
+                "value": "0.5"
             }
         },
         {
@@ -113,6 +92,17 @@
             }
         },
         {
+            "name": "freqsmooth",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "10."
+            }
+        },
+        {
             "name": "resetauto",
             "get": 0,
             "type": "int",
@@ -124,14 +114,14 @@
             }
         },
         {
-            "name": "bandsmix",
+            "name": "saturation",
             "get": 0,
-            "type": "float",
+            "type": "int",
             "digest": "",
             "description": "",
             "default": {
                 "get": 0,
-                "value": "0.5"
+                "value": "1"
             }
         },
         {
@@ -143,17 +133,6 @@
             "default": {
                 "get": 0,
                 "value": "22.666"
-            }
-        },
-        {
-            "name": "freqsmooth",
-            "get": 0,
-            "type": "float",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "10."
             }
         }
     ],

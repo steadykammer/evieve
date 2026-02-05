@@ -1,0 +1,113 @@
+{
+    "object": {
+        "name": "evi.multimode~",
+        "category": "",
+        "parent": "evi_multimode.gendsp",
+        "tilde": "~",
+        "description": "TEXT_HERE",
+        "discussion": ""
+    },
+    "metadata": {
+        "author": "Pete Dowling",
+        "tags": [
+            "evieve"
+        ]
+    },
+    "inlets": [
+        {
+            "id": 1,
+            "type": "",
+            "digest": "Input",
+            "description": ""
+        },
+        {
+            "id": 2,
+            "type": "",
+            "digest": "Cutoff in Hz @min 1 @max samplerate*0.5 @default 500",
+            "description": ""
+        },
+        {
+            "id": 3,
+            "type": "",
+            "digest": "Q @min 0.05 @default 0.707107",
+            "description": ""
+        }
+    ],
+    "outlets": [
+        {
+            "id": 1,
+            "type": "",
+            "digest": "Low",
+            "description": ""
+        },
+        {
+            "id": 2,
+            "type": "",
+            "digest": "Band",
+            "description": ""
+        },
+        {
+            "id": 3,
+            "type": "",
+            "digest": "High",
+            "description": ""
+        },
+        {
+            "id": 4,
+            "type": "",
+            "digest": "Peak",
+            "description": ""
+        },
+        {
+            "id": 5,
+            "type": "",
+            "digest": "Notch",
+            "description": ""
+        },
+        {
+            "id": 6,
+            "type": "",
+            "digest": "Reson",
+            "description": ""
+        },
+        {
+            "id": 7,
+            "type": "",
+            "digest": "Allpass",
+            "description": ""
+        }
+    ],
+    "messages": [
+        {
+            "name": "",
+            "arg": [
+                {
+                    "name": "",
+                    "type": "",
+                    "units": "",
+                    "optional": 1
+                }
+            ],
+            "digest": "",
+            "description": ""
+        }
+    ],
+    "attributes": [
+        {
+            "name": "",
+            "get": 1,
+            "type": "",
+            "digest": "",
+            "description": "",
+            "default": {
+                "type": "",
+                "value": 0
+            }
+        }
+    ],
+    "example": {
+        "caption": "",
+        "image": ""
+    },
+    "seealso": []
+}

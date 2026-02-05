@@ -14,7 +14,7 @@
     },
     "inlets": [
         {
-            "id": 0,
+            "id": 1,
             "type": "",
             "digest": "",
             "description": ""
@@ -22,19 +22,41 @@
     ],
     "outlets": [
         {
-            "id": 0,
+            "id": 1,
             "type": "",
             "digest": "",
+            "description": ""
+        },
+        {
+            "id": 2,
+            "type": "",
+            "digest": "dumpout",
             "description": ""
         }
     ],
     "arguments": [
         {
             "name": "",
-            "type": "",
-            "default": "",
+            "type": "symbol",
+            "default": "NAME",
             "optional": 1,
-            "digest": "",
+            "digest": "arg#1: ",
+            "description": ""
+        },
+        {
+            "name": "",
+            "type": "int",
+            "default": "0",
+            "optional": 1,
+            "digest": "arg#2: ",
+            "description": ""
+        },
+        {
+            "name": "",
+            "type": "int",
+            "default": "0",
+            "optional": 1,
+            "digest": "arg#3: ",
             "description": ""
         }
     ],
@@ -55,14 +77,14 @@
     ],
     "attributes": [
         {
-            "name": "",
+            "name": "iterate",
             "get": 0,
-            "type": "",
+            "type": "int",
             "digest": "",
             "description": "",
             "default": {
                 "get": 0,
-                "value": 0
+                "value": "1"
             }
         }
     ],

@@ -1,0 +1,77 @@
+{
+    "object": {
+        "name": "evi.zeroxcount~",
+        "category": "",
+        "parent": "evi_zeroxcount.gendsp",
+        "tilde": "~",
+        "description": "TEXT_HERE",
+        "discussion": ""
+    },
+    "metadata": {
+        "author": "Pete Dowling",
+        "tags": [
+            "evieve"
+        ]
+    },
+    "inlets": [
+        {
+            "id": 1,
+            "type": "",
+            "digest": "Input",
+            "description": ""
+        }
+    ],
+    "outlets": [
+        {
+            "id": 1,
+            "type": "int",
+            "digest": "Number of Zerocrossings per Window",
+            "description": ""
+        },
+        {
+            "id": 2,
+            "type": "gate",
+            "digest": "> threshold",
+            "description": ""
+        },
+        {
+            "id": 3,
+            "type": "signal",
+            "digest": "the Zerocrossings",
+            "description": ""
+        }
+    ],
+    "messages": [
+        {
+            "name": "",
+            "arg": [
+                {
+                    "name": "",
+                    "type": "",
+                    "units": "",
+                    "optional": 1
+                }
+            ],
+            "digest": "",
+            "description": ""
+        }
+    ],
+    "attributes": [
+        {
+            "name": "",
+            "get": 1,
+            "type": "",
+            "digest": "",
+            "description": "",
+            "default": {
+                "type": "",
+                "value": 0
+            }
+        }
+    ],
+    "example": {
+        "caption": "",
+        "image": ""
+    },
+    "seealso": []
+}
