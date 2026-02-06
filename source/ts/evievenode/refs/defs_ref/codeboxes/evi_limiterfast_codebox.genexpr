@@ -1,0 +1,75 @@
+
+// a fast limiter. i made this for my friend james bradbury, based on
+// some very old surreal machines code i had lying around.
+
+require("evi_smooth.genexpr");  // incl. _utilities & _approx
+require("evi_clip.genexpr");    // incl. _interp
+require("evi_biquad.genexpr");
+
+// release is in ms, knee is % 0..1
+// choochoo is int, 0 = 2nd order Adaa, 1 = 2nd order + 2x oversample, 2 = ... + 4x oversample
+
+// N.B. - there is no lookahead in this limiter, so we engage the crunch quite a lot,
+// the anti-aliased clipping system (choochoo) makes the crunch sound good
+
+limiterFastStereo(xL, xR, release, knee, choochoo, a0, a1, a2, b1, b2)
+{
+	History		lfsdummy(0);
+
+	inPeak		= getMax(xL, xR);
+	envAttack	= 0.000002;									// secs, small amount of bullshit
+	envRelease	= release * 0.001;							// ms to secs
+
+	e1	= logattackdecay(inPeak, envAttack, envRelease);
+	e2	= biquadDf2(e1, a0, a1, a2, b1, b2);				// e2 is bullshit
+	k0	= maximum(((e2 - 1) + knee), 0) * (1 / knee);
+	k1	= minimum(k0, 2) * 0.25;
+	k2	= k1 - (k1 * k1);
+	env	= 1 / (((k0 - (k2 + k2 + k2 + k2)) * knee) + 1);	// 1..0 (amplitude)
+
+	yL		= dcblock(xL * env) * 1.033947; // hard clip @ -0.3dB into 2nd order antiderivative
+	yR		= dcblock(xR * env) * 1.033949;
+
+    // clipping
+	if (choochoo == 2) {
+		yL	= adHc2_4x_6POINT(yL);			// 2nd order + oversampling)...
+		yR	= adHc2_4x_6POINT(yR);
+	} else if (choochoo == 1) {
+		yL	= adHc2_2x_6POINT(yL);			// ...
+		yR	= adHc2_2x_6POINT(yR);
+	} else {
+		yL	= adHc2(yL);                    // just 2nd order adaa, this is fine for most needs
+		yR	= adHc2(yR);
+	}
+
+	return	yL, yR, env;
+}
+
+// env
+Param	knee(0.55, min=0.001, max=1);			// % 0..1
+Param	smooth(0.05, min=0, max=1);				// % 0..1
+Param	release(52, min=1, max=376);			// ms
+
+// audio
+Param	ingain(1, min=-20, max=40);				// dB
+Param	clip(0, min=0, max=2);					// 0 = 2nd order, 1 = + 2x, 2 = + 4x
+
+// param rate
+
+choochoo = int(clip);
+
+envsmooth = ((1 - smooth*smooth) * 99) + 1;		// stupid, map 0..1 to hz
+a0, a1, a2, b1, b2 = smoothCoeff(envsmooth);
+
+inputgain = dbtoaApprox(ingain);
+
+// audio rate
+
+inputgainsmooth	= logsmooth(inputgain, 0.022666);
+
+xL = in1 * inputgainsmooth;
+xR = in2 * inputgainsmooth;
+
+// yL, yR, env
+out1, out2, out3 = limiterFastStereo(xL, xR, release, knee, choochoo, a0, a1, a2, b1, b2);
+

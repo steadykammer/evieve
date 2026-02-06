@@ -1,0 +1,43 @@
+
+// "evi_teeth.gendsp" is the same structure as MSP [teeth~], but with cubic interpolation
+// (softer in the high end) and no digital clipping at FB Gain == 1 (via internal saturation,
+// which makes the whole filter softer but will not clip your precious audio).
+// @see: evi_comb / [evi.comb~] for identical solution for that filter.
+// @see evi_damp_macro.gendsp / [evi.damp.macro~] for post processing.
+
+require("evi_approx.genexpr");
+
+Delay   FFdelay(samplerate, 1, feedback=0);
+Delay   FBdelay(samplerate, 1, feedback=1);
+
+FFtime  = mstosamps(in2);
+FBtime  = mstosamps(in3);  // for [teeth~], not for [comb~]
+
+Dgain   = in4;  // direct
+FFgain  = in5;  // feed forward
+FBgain  = in6;  // feed back
+
+X = in1;
+
+FFdelay.write(X);
+
+inA = X * Dgain;
+
+FFdelayOut = FFdelay.read(FFtime, 0, interp="spline");
+FFdelayOut = FFdelayOut * FFgain;
+
+Forward = inA + FFdelayOut;
+
+FBdelayOut = FBdelay.read(FBtime, 0, interp="spline");
+FBdelayOut = FBdelayOut * -FBgain;
+
+// Adaa no good here (timing)
+internalSat = atanA(FBdelayOut) * 2.152778; // multiply taken from 'atanDrive()'
+
+Y = fixdenorm(Forward - FBdelayOut);
+
+FBdelay.write(fixdenorm(Forward - internalSat));
+
+out1 =  Y;                                  // teeth
+out2 = (Y + FBdelayOut) * 0.5;              // notches
+

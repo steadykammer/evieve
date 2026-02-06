@@ -1,0 +1,46 @@
+
+// VOSIM-like oscillator (basic, mode 1)
+// jvkr / Gregory Taylor / Oli Larkin / stkr
+// @see also: "evi_paf.gendsp"
+
+sCtrl(p, x)
+{
+	History swch(0);
+	ctrld = p ? x : swch;
+	swch = ctrld;
+	return ctrld;
+}
+
+mCtrl(pf, x)
+{
+	History mixd(0);
+	ctrld = mix(x, mixd, pf);
+	mixd = ctrld;
+	return ctrld;
+}
+
+tanhA(x)
+{
+	x2 = x * x;
+	a = (((x2 + 378) * x2 + 17325) * x2 + 135135) * x;
+	b = ((28 * x2 + 3150) * x2 + 62370) * x2 + 135135;
+	return clamp((a / b), -1, 1);
+}
+
+voSim1(T, M, N, A, aA)  // todo: get rid of the pow()
+{
+    History vsdummy(0);
+
+	freq  = abs(maximum((1000 / ((T * N) + M)), 0));
+	pf    = phasor(freq);
+	p     = delta(pf) < 0;
+	fcoef = clip((pf * (sCtrl(p, (M / T + N)))), 0, (sCtrl(p, (maximum(N, 0)))));
+
+	vsosc = cycle(fract(fcoef), index="phase");
+	vsout = (0.5 - (vsosc * 0.5)) * ((pow(tanhA(mCtrl(pf, aA)), trunc(fcoef)) * mCtrl(pf, A)));
+
+	return dcblock(vsout), freq;
+}
+
+                //  T     M    N    A    ∂A
+out1, out2 = voSim1(in1, in2, in3, in4, in5);

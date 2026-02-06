@@ -1,0 +1,123 @@
+
+// actually: an erratic, out-of-control & out-of-tune aggressive filter
+// for experiments and fun times.
+
+// officially: 'Korg 35' single-amplifier unbuffered modified Sallen-Key topology filter.
+// The 'Korg 35' chip was found in the MS-10 & early MS-20 synthesisers - different to the
+// later dual-amplifier Korg OTA chip found in the later MS-20s & other Korg synthesisers.
+// For 'Korg OTA' (MS-20) style chip 'emulation' @see: "evi_korgms20.gendsp" and
+// "evi_korgms20_select.gendsp". Thanks to Will Pirkle.
+
+require("evi_tanh.genexpr");
+require("evi_sources.genexpr");
+
+// skew nonlin
+
+aTnhLxAS(x, a)
+{
+	tnhXa = 0;
+	if (x > 0) {
+		tnhXa = tanhLxA(x, a * 0.94);
+	} else {
+		tnhXa = tanhLxA(x, a * 1.23);
+	}
+	return tnhXa;
+}
+
+// S&K state initialise
+History	state0(0), state1(0), state2(0);
+
+// do not change
+Param   load(1.333333333333, min=0.25, max=4);
+
+// amplitude level of noise in filter, 0..1 remapped 0.. 10% of gaussian level
+Param	noiselevel(0.05, min=0, max=1); // default 0.05 = gaussian level of 0.000008
+noiz	= (noiselevel * noiselevel * noiselevel) * 0.064038820320221;
+
+// parse
+
+x0	= in1;
+hz	= clamp(in2, 1.07, 14988);          // hz
+k0	= clamp(in3, 0.000003, 1.12000001);
+
+// constants
+
+tr		= 0.55032120814910446;
+// roots for R1C1 == R2C2
+r1		= 2.618033988749895;		    // -0.5 * (-3 - pow(5, 0.5));
+r2		= 0.3819660112501051;		    // -0.5 * (pow(5, 0.5) - 3);
+// lossy RC/CR bpf
+l0		= 0.3819660112501052;           // ('l0' is 'r2')
+
+// prewarp (like BZT but not)
+
+t1 		=  1 / SAMPLERATE;
+t2		=  t1 * 0.5;
+w2		= (2 / t1) * tanA2((TWOPI * hz) * t2);
+g0		=  w2 * t2;
+ff		=  g0 / (1 + g0);			    // feedforward coefficient
+
+// single amplifier model
+
+k1		= (k0 * 3.008912) + (ff * 0.03);// self-oscillation @ 3
+ik1     =  1  /  k1;
+g1		=  r2 *  g0;                    // low edge
+g2		=  r1 *  g0;                    // high edgegl		=  1  +  g1;
+gh		=  1  +  g2;
+
+// coefficients
+
+a1		=  g1 / gl;						// g low
+a2		=  g2 / gh;						// g high
+b1		= -l0 / gl;
+l1		=  l0 * k1;
+l2		=  l1 * a2;
+b2		= (l1 - (l1 * a1)) / gh;
+a0		=  1  / (1 - l2 + (l2 * a1));
+
+ng1	= 0;
+if (noiselevel > 0) {                   // only compute if required
+	ng0		= gaussianNoise(noiz);
+    ng1     = ng0 * (k1 + g0);
+//  N.B. - noise injection not required for self-oscillation, just for noise :-)
+}
+
+// 1st lowpass integrator
+lp1vn	= (x0 - state1) * a1;           // input
+lp1		= lp1vn + state1;
+state1	= lp1vn + lp1;
+hp1		=  x0 - lp1;
+
+// sum feedback
+hp2fb	= state2 * b1;
+bp2fb	= state0 * b2;
+k35		= hp2fb + bp2fb;
+
+hp0     = (k35 - lp1) * a0;
+bp2     = ((k35 - (state1 * b1)) * a0) * sqrt2;	    
+
+// process nonlinear
+u		= a0 * (hp1 + k35) * k1;        // !! * 'k1'
+u       = aTnhLxAS(u, load);
+
+// 2nd lowpass integrator (loaded lpf)
+lp2vn	= (u - state2) * a1;	        // !! not 'a2'
+lp2		= lp2vn + state2;
+state2	= lp2vn + lp2 + ng1;		    // inject noise if highpass
+hp2		=  u - lp2;
+
+YL		= k1 * lp2;									// Korg 12 dB LP (!! level res dependent)
+YH		= u * ik1;								    // Korg 6 dB HP
+YF		= hp2 * ik1;							    // sort of made up 12 dB HP
+YB      = bp2 * ik1;                                // sort of made up 12 dB BP ?
+
+// feedback loop (loaded bpf)
+bp2vn	= (hp2 - state0) * a2;	        // !! 'a2'
+bp2		= bp2vn + state0;
+state0	= bp2vn + bp2 + ng1;	        // inject noise if lowpass
+
+out1	= dcblock(YL * 0.25);                       // 12dB LP
+out2	= dcblock(YH * sqrt1_2);                    // 6dB HP
+out3	= dcblock(YF * 0.5);                        // 12dB HP
+out4    = dcblock(YB * 0.25);                       // 12dB BP
+

@@ -1,0 +1,16 @@
+
+// not really box-muller gaussian noise distribution estimation, thanks to andy farnell
+
+gaussianNoise(gain)
+{
+	Xoxhiro256	= noise();
+	cosXox		= cycle(noise(), index="phase");
+	gaussian 	= sqrt(log((abs(Xoxhiro256) * gain) + (1 - gain)) * -2) * (cosXox * LN2);
+	return		gaussian, Xoxhiro256, cosXox;
+}
+
+// default (alpha 0.6403882032022076) gives very close to unity amplitude (-1..1) output
+Param	amplitude(0.6403882032022076, min=0, max=1);	// this is not really "amplitude" :-)
+
+out1, out2, out3	= gaussianNoise(amplitude);
+

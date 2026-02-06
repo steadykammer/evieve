@@ -1,0 +1,344 @@
+/*
+
+ZDF Diode Ladder, like Roland-TB303 (not like the 5-pole EMS-VCS3)
+by Dom Wurtz (2012)
+also Oli Larkin (2013), Pete Dowling (2014) for evieve
+Note, unlike the (Moog) Transistor Ladder, the Diode Ladder resonance peaks, rather than scales
+@see: evi_ladder_moog.gendsp, evi_ladder_transistor.gendsp & evi_ladder_poles.gendsp for transistor ladder emulations
+
+The MIT License
+Copyright (c) 2012 Dominique Wurtz (www.blaukraut.info)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+*/
+
+require("evi_smooth.genexpr");
+require("evi_waveshaping.genexpr");
+require("evi_interp.genexpr");
+
+// fb loop nonlinearity selector
+sat(x, nl) {
+	y = 0;
+	if (nl == 1) {				// polynom
+		y = polySat(x);
+	} else if (nl == 2) {		// cubic1
+		y = cubicNL(x);
+	} else if (nl == 3) {		// cubic2
+		y = thbNL(x);
+	} else if (nl == 4) {		// atan
+		y = atanApprox(x);
+	} else { // nl == 0			// tanh
+		y = tanhLApprox(x);
+	}
+	return dcblock(y);
+}
+
+/// /// /// ///
+
+// the filter, 1x
+diode1(x0, freq, res, tune=0.356788, shape=23.7, nonlin=2) {
+	History z0(0), z1(0), z2(0), z3(0);
+
+	// "shape": tuned by Pete for specific nonlinearity choices
+	k = ((res * 0.911264) + 0.088736) * shape;
+	A = 1 + (0.5 * k);
+
+	// "tune": Oli = 0.5, Pete = base 0.356788 and mul up
+	wc0 = PI * freq / samplerate;	// pi is nyquist (Pete: this doesn't work very well, so we reshape and retune)
+	wtune = (0.178712 * wc0 * wc0 * wc0 * wc0) + tune;
+	wc01 = tanA2(wtune * wc0);		// warping, approximation & tuning
+
+	// Pete: i did this sorry, and it looks horrid and ridiculous, 'cos it is, but worth it for integrator output computations
+	wc1 = wc01 + wc01;
+	wc12 = wc1 + wc1;
+	wc14 = wc12 + wc12;
+	wc16 = wc14 + wc12;
+	wc18 = wc14 + wc14;
+
+	wc2 = wc1 * wc1;
+	wc22 = wc2 + wc2;
+	wc23 = wc22 + wc2;
+	wc24 = wc23 + wc2;
+	wc29 = wc24 + wc24 + wc2;
+	wc210 = wc29 + wc2;
+	wc211 = wc210 + wc2;
+	wc212 = wc29 + wc23;
+	wc220 = wc210 + wc210;
+
+	wc3 = wc2 * wc1;
+	wc32 = wc3 + wc3;
+	wc34 = wc32 + wc32;
+	wc36 = wc34 + wc32;
+	wc38 = wc34 + wc34;
+	wc316 = wc38 + wc38;
+	wc320 = wc316 + wc34;
+
+	wc4 = wc3 * wc1;
+	wc42 = wc4 + wc4;
+	wc44 = wc42 + wc42;
+	wc46 = wc42 + wc42 + wc42;
+	wc48 = wc44 + wc44;
+
+	// coefficients
+	b = 1 / (1 + wc18 + wc220 + wc316 + wc42);
+	g = wc42 * b;
+
+	// current state
+	s = ((z0 * wc3) + (z1 * (wc2 + wc32)) + (z2 * (wc1 + wc24 + wc32)) + (z3 * (1 + wc16 + wc29 + wc32))) * b;
+
+	// solve feedback loop (linear)
+	y4 = ((g * x0) + s) / (1 + (g * k));
+
+	// input shaping
+	y0 = sat((x0 - (k * y4)), nonlin);	// Pete: selectable nonlinearity ("i like 'nl 2 (cnl)' and 'nl 4 (atan)' best")
+
+	// compute all integrator outputs
+	// Dom: "unlike the moog transistor, this gets quite nasty due to the inherent coupling between filter stages"
+	// Oli: "no shit!"
+	// Pete: "it is even worse now i got rid of all those multipliers"
+	y1 = ((y0 * (wc12 + wc212 + wc320 + wc48)) + (z0 * (1 + wc16 + wc210 + wc34)) + (z1 * (wc12 + wc24 + wc24 + wc36)) + (z2 * (wc22 + wc34)) + (z3 * wc32)) * b;
+	y2 = ((y0 * (wc22 + wc38 + wc46)) + (z0 * (wc1 + wc24 + (wc32 + wc3))) + (z1 * (1 + wc16 + wc211 + wc36)) + (z2 * (wc1 + wc24 + wc34)) + (z3 * (wc2 + wc32))) * b;
+	y3 = ((y0 * (wc32 + wc44)) + (z0 * (wc2 + wc32)) + (z1 * (wc1 + wc24 + wc34)) + (z2 * (1 + wc16 + wc210 + wc34)) + (z3 * (wc1 + wc24 + wc32))) * b;
+	y4 = ( y0 * g ) + s;
+
+	// update state
+	z0 += wc14 * (y0 -  y1 + y2);
+	z1 += wc12 * (y1 - (y2 + y2) + y3);
+	z2 += wc12 * (y2 - (y3 + y3) + y4);
+	z3 += wc12 * (y3 - (y4 + y4));
+
+	// scale output
+	return A * y4;
+}
+
+// the filter 2x
+diode2(x00, x01, freq, res, tune=0.356788, shape=23.7, nonlin=2) {
+	History z0(0), z1(0), z2(0), z3(0);
+
+	// "shape": tuned by Pete for specific nonlinearity choices
+	k = ((res * 0.911264) + 0.088736) * shape;
+	A = 1 + (0.5 * k);
+
+	// "tune": Oli = 0.5, Pete = base 0.356788 and mul up
+	wc0 = PI * freq / samplerate;	// pi is nyquist (Pete: this doesn't work very well, so we reshape and retune)
+	wtune = (0.178712 * wc0 * wc0 * wc0 * wc0) + tune;
+	wc01 = tanA2(wtune * wc0) * 0.5;// warping, approximation & tuning, half for 2x
+
+	// Pete: i did this sorry, and it looks horrid and ridiculous, 'cos it is, but worth it for integrator output computations
+	wc1 = wc01 + wc01;
+	wc12 = wc1 + wc1;
+	wc14 = wc12 + wc12;
+	wc16 = wc14 + wc12;
+	wc18 = wc14 + wc14;
+
+	wc2 = wc1 * wc1;
+	wc22 = wc2 + wc2;
+	wc23 = wc22 + wc2;
+	wc24 = wc23 + wc2;
+	wc29 = wc24 + wc24 + wc2;
+	wc210 = wc29 + wc2;
+	wc211 = wc210 + wc2;
+	wc212 = wc29 + wc23;
+	wc220 = wc210 + wc210;
+
+	wc3 = wc2 * wc1;
+	wc32 = wc3 + wc3;
+	wc34 = wc32 + wc32;
+	wc36 = wc34 + wc32;
+	wc38 = wc34 + wc34;
+	wc316 = wc38 + wc38;
+	wc320 = wc316 + wc34;
+
+	wc4 = wc3 * wc1;
+	wc42 = wc4 + wc4;
+	wc44 = wc42 + wc42;
+	wc46 = wc42 + wc42 + wc42;
+	wc48 = wc44 + wc44;
+
+	// coefficients
+	b = 1 / (1 + wc18 + wc220 + wc316 + wc42);
+	g = wc42 * b;
+
+	// current state
+	s = ((z0 * wc3) + (z1 * (wc2 + wc32)) + (z2 * (wc1 + wc24 + wc32)) + (z3 * (1 + wc16 + wc29 + wc32))) * b;
+
+    // pass 1
+
+	// solve feedback loop (linear)
+	y40 = ((g * x00) + s) / (1 + (g * k));
+
+	// input shaping
+	y00 = sat((x00 - (k * y40)), nonlin);	// Pete: selectable nonlinearity ("i like 'nl 2 (cnl)' and 'nl 4 (atan)' best")
+
+	// compute all integrator outputs
+	// Dom: "unlike the moog transistor, this gets quite nasty due to the inherent coupling between filter stages"
+	// Oli: "no shit!"
+	// Pete: "it is even worse now i got rid of all those multipliers"
+	y10 = ((y00 * (wc12 + wc212 + wc320 + wc48)) + (z0 * (1 + wc16 + wc210 + wc34)) + (z1 * (wc12 + wc24 + wc24 + wc36)) + (z2 * (wc22 + wc34)) + (z3 * wc32)) * b;
+	y20 = ((y00 * (wc22 + wc38 + wc46)) + (z0 * (wc1 + wc24 + (wc32 + wc3))) + (z1 * (1 + wc16 + wc211 + wc36)) + (z2 * (wc1 + wc24 + wc34)) + (z3 * (wc2 + wc32))) * b;
+	y30 = ((y00 * (wc32 + wc44)) + (z0 * (wc2 + wc32)) + (z1 * (wc1 + wc24 + wc34)) + (z2 * (1 + wc16 + wc210 + wc34)) + (z3 * (wc1 + wc24 + wc32))) * b;
+	y40 = ( y00 * g ) + s;
+
+	// update state
+	z0 += wc14 * (y00 -  y10 + y20);
+	z1 += wc12 * (y10 - (y20 + y20) + y30);
+	z2 += wc12 * (y20 - (y30 + y30) + y40);
+	z3 += wc12 * (y30 - (y40 + y40));
+
+    // pass2
+
+	// solve feedback loop (linear)
+	y41 = ((g * x01) + s) / (1 + (g * k));
+
+	// input shaping
+	y01 = sat((x01 - (k * y41)), nonlin);
+
+	y11 = ((y01 * (wc12 + wc212 + wc320 + wc48)) + (z0 * (1 + wc16 + wc210 + wc34)) + (z1 * (wc12 + wc24 + wc24 + wc36)) + (z2 * (wc22 + wc34)) + (z3 * wc32)) * b;
+	y21 = ((y01 * (wc22 + wc38 + wc46)) + (z0 * (wc1 + wc24 + (wc32 + wc3))) + (z1 * (1 + wc16 + wc211 + wc36)) + (z2 * (wc1 + wc24 + wc34)) + (z3 * (wc2 + wc32))) * b;
+	y31 = ((y01 * (wc32 + wc44)) + (z0 * (wc2 + wc32)) + (z1 * (wc1 + wc24 + wc34)) + (z2 * (1 + wc16 + wc210 + wc34)) + (z3 * (wc1 + wc24 + wc32))) * b;
+	y41 = ( y01 * g ) + s;
+
+	// update state
+	z0 += wc14 * (y01 -  y11 + y21);
+	z1 += wc12 * (y11 - (y21 + y21) + y31);
+	z2 += wc12 * (y21 - (y31 + y31) + y41);
+	z3 += wc12 * (y31 - (y41 + y41));
+
+	// scale outputs
+	return A * y40, A * y41;
+}
+
+// fixed 2x quasi oversampling (hermite6)
+diode2_2x6( XIN, freq, res, tune=0.356788, shape=23.7, nonlin=2 )
+{	// up 2
+	History	umTm2_0(0), umTm1_0(0), umT0_0(0), umT1_0(0), umT2_0(0);
+	// down 2
+	History	dmT3_1(0), dmT2_1(0), dmT1_1(0), dmT0_1(0), dmTm1_1(0);
+	// align
+	History	doX0(0);
+
+	// up 2x
+	x0_0_a	= XIN + 0;
+	x1_0	= hermite_sixpoint_interp(0.5,	umTm2_0, umTm1_0, umT0_0, umT1_0, umT2_0, x0_0_a);
+	x2_0	= umT2_0 + 0;
+
+	// process 2x
+    y1_0, y2_0 = diode2(x1_0, x2_0, freq, res, tune=tune, shape=shape, nonlin=nonlin);
+
+	// down 2x
+	y2_0_a	= y2_0 + 0;
+	y2_1	= hermite_sixpoint_interp(0.5,	y2_0_a,	dmTm1_1, dmT0_1, dmT1_1, dmT2_1, dmT3_1);
+
+	y0_0	= (doX0 + y2_1) * 0.5;
+
+	// update
+	umTm2_0	= umTm1_0;
+	umTm1_0	= umT0_0;
+	umT0_0	= umT1_0;
+	umT1_0 	= umT2_0;
+	umT2_0	= x0_0_a;
+
+	doX0	= y1_0;
+
+	dmT3_1	= dmT2_1;
+	dmT2_1	= dmT1_1;
+	dmT1_1	= dmT0_1;
+	dmT0_1	= dmTm1_1;
+	dmTm1_1	= y2_0;
+
+	return dcblock(y0_0);
+}
+
+// fixed 2x quasi oversampling (cubic4)
+diode2_2x4( XIN, freq, res, tune=0.356788, shape=23.7, nonlin=2 )
+{	// up 2
+	History	umTm1_0(0), umT0_0(0), umT1_0(0);
+	// down 2
+	History	dmT2_1(0), dmT1_1(0), dmT0_1(0);
+	// align
+	History	doX0(0);
+
+	// up 2x
+	x0_0_a	= XIN + 0;
+	x1_0	= cubic_hermite_interp(0.5,	umTm1_0, umT0_0, umT1_0, x0_0_a);
+	x2_0	= umT1_0 + 0;
+
+	// process 2x
+	y1_0, y2_0	= diode2(x1_0, x2_0, freq, res, tune=tune, shape=shape, nonlin=nonlin);
+
+	// down 2x
+	y2_0_a	= y2_0 + 0;
+	y2_1	= cubic_hermite_interp(0.5,	y2_0_a,	dmT0_1, dmT1_1, dmT2_1);
+
+	y0_0	= (doX0 + y2_1) * 0.5;
+
+	// update
+	umTm1_0	= umT0_0;
+	umT0_0	= umT1_0;
+	umT1_0	= x0_0_a;
+
+	doX0	= y1_0;
+
+	dmT2_1	= dmT1_1;
+	dmT1_1	= dmT0_1;
+	dmT0_1	= y2_0;
+
+	return y0_0;
+}
+
+/// /// /// ///
+
+Param	tuning(0.356788, min=0, max=1);		// constant (do not change unless...)
+Param	shaping(23.7, min=1, max=40);		// constant (do not change unless...)
+
+Param	cfmode(1, min=0, max=1);			// in2 cutoff in: 1 = pitch, 0 = Hz
+Param	cfsmooth(20, min=0, max=1000);		// smooth in2 in ms, 0 == off (turn off for FM etc)
+Param	ressmooth(20, min=0, max=333);		// smooth in5 in ms, 0 = off
+
+Param	nonlin(2, min=0, max=5);			// select nonlinearity in fb loop (default cnl) (5 is secret)
+Param   oversample(1, min=0, max=1);        // 0=1x, 1=2x
+os      = int(oversample);
+nl		= int(nonlin);
+
+freq, limit	= evi_hzpitchmods(in2, in3, in4, mode=cfmode, smooth=cfsmooth, high=0.5);
+
+r		= clip(in5, 0, 2);					// 0..1 is normal, ..2 still works but be careful (diode peaks!)
+											// (if you drive towards ..2 your usable frequency range gets truncated)
+
+// "shape": tuned by Pete for specific nonlinearity choices
+shape	= selector(nl+1, 19.7, 18.9, 23.7, 23.8, (5.8 * (1 - (maximum(r, 1) - 1)) + 14.3), shaping);
+
+res		= r;
+if (ressmooth > 0) {
+	res	= expsmooth(r, ressmooth*0.001);
+}
+
+diode     = 0;
+if (os == 1) {  // 2x, default
+    diode = diode2_2x4(in1, freq, res, tune=tuning, shape=shape, nonlin=nl);
+}
+else {          // 1x
+    diode = diode1(in1, freq, res, tune=tuning, shape=shape, nonlin=nl);
+}
+
+out1	  = diode;
+
+/// /// /// ///
+

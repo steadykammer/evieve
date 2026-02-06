@@ -1,0 +1,260 @@
+
+// Nonlinear 12dB TPT Lowpass with excellent modulation properties.
+// @see also: "evi_lores.gendsp" (which is a closer match to MSP [lores~]).
+
+require("evi_approx.genexpr");
+require("evi_interp.genexpr");
+
+// 2x
+// two poles of a nonlinear ladder with allpass alignment, 2x oversampled.
+// based on a Will Pirkle 'App Note', thanks. port, nonlin & 2x etc by pete for evieve.
+twopoleLadder2(xin0, xin1, hz, res)
+{
+    History s1(0), s2(0), s3(0);
+
+    // painful coefficients
+    invsr = 1 / samplerate; // !! do not account for 2x here...
+    invsr05 = invsr * 0.5;
+    k = res + res + res;
+    k2 = sqrt2 + 0.353553 * res;
+    w = twopi * hz;         // !! do not account for 2x here...
+    g0 = ((1 / invsr) * tanA3(w * invsr05)) * invsr05;  // !! (1/invsr) not (2/invsr) for 2x...
+    g1 = 1 + g0;                                        // ...because of HF tuning
+    g = g0 / g1;
+    ga = (g + g) - 1;
+    lp1fb = g * ga / g1;
+    lp2fb = ga / g1;
+    ap3fb = 2 / g1;
+    alpha = 1 / (1 + k * ga * g * g);
+
+    // nonlinear
+    // we purposefully do not gain-wrap our atan() inside the loop,
+    // but careful in the 2x version if pushing res > 1
+    mK = ((s1 * lp1fb) + (s2 * lp2fb) + (s3 * ap3fb)) * -k;
+
+    // pass 1
+    X0 = mK + xin0;
+    u0 = atanA(X0 * alpha);
+    // lowpass 1
+    xg0 = (u0 - s1) * g;
+    lp10 = xg0 + s1;
+    s1 = xg0 + lp10;
+    // lowpass 2
+    yg0 = (lp10 - s2) * g;
+    lp20 = yg0 + s2;
+    s2 = yg0 + lp20;
+    // allpass
+    zg0 = (lp20 - s3) * g;
+    lp30 = zg0 + s3;
+    hp30 = lp20 - lp30;
+    ap30 = (lp30 - hp30) * k2;
+    s3 = zg0 + lp30;
+
+    // pass 2
+    X1 = mK + xin1;
+    u1 = atanA(X1 * alpha);
+    // lowpass 1
+    xg1 = (u1 - s1) * g;
+    lp11 = xg1 + s1;
+    s1 = xg1 + lp11;
+    // lowpass 2
+    yg1 = (lp11 - s2) * g;
+    lp21 = yg1 + s2;
+    s2 = yg1 + lp21;
+    // allpass
+    zg1 = (lp21 - s3) * g;
+    lp31 = zg1 + s3;
+    hp31 = lp21 - lp31;
+    ap31 = (lp31 - hp31) * k2;
+    s3 = zg1 + lp31;
+
+    // taps
+    return ap30, ap31;
+}
+
+// fixed 2x quasi oversampling (hermite6)
+twopoleLadder2_2x6( XIN, hz, res )
+{	// up 2
+	History	umTm2_0(0), umTm1_0(0), umT0_0(0), umT1_0(0), umT2_0(0);
+	// down 2
+	History	dmT3_1(0), dmT2_1(0), dmT1_1(0), dmT0_1(0), dmTm1_1(0);
+	// align
+	History	doX0(0);
+
+	// up 2x
+	x0_0_a	= XIN + 0;
+	x1_0	= hermite_sixpoint_interp(0.5,	umTm2_0, umTm1_0, umT0_0, umT1_0, umT2_0, x0_0_a);
+	x2_0	= umT2_0 + 0;
+
+	// process 2x
+    y1_0, y2_0 = twopoleLadder2(x1_0, x2_0, hz, res);
+
+	// down 2x
+	y2_0_a	= y2_0 + 0;
+	y2_1	= hermite_sixpoint_interp(0.5,	y2_0_a,	dmTm1_1, dmT0_1, dmT1_1, dmT2_1, dmT3_1);
+
+	y0_0	= (doX0 + y2_1) * 0.5;
+
+	// update
+	umTm2_0	= umTm1_0;
+	umTm1_0	= umT0_0;
+	umT0_0	= umT1_0;
+	umT1_0 	= umT2_0;
+	umT2_0	= x0_0_a;
+
+	doX0	= y1_0;
+
+	dmT3_1	= dmT2_1;
+	dmT2_1	= dmT1_1;
+	dmT1_1	= dmT0_1;
+	dmT0_1	= dmTm1_1;
+	dmTm1_1	= y2_0;
+
+	return dcblock(y0_0);
+}
+
+// fixed 2x quasi oversampling (cubic4)
+twopoleLadder2_2x4( XIN, hz, res )
+{	// up 2
+	History	umTm1_0(0), umT0_0(0), umT1_0(0);
+	// down 2
+	History	dmT2_1(0), dmT1_1(0), dmT0_1(0);
+	// align
+	History	doX0(0);
+
+	// up 2x
+	x0_0_a	= XIN + 0;
+	x1_0	= cubic_hermite_interp(0.5,	umTm1_0, umT0_0, umT1_0, x0_0_a);
+	x2_0	= umT1_0 + 0;
+
+	// process 2x
+	y1_0, y2_0	= twopoleLadder2(x1_0, x2_0, hz, res);
+
+	// down 2x
+	y2_0_a	= y2_0 + 0;
+	y2_1	= cubic_hermite_interp(0.5,	y2_0_a,	dmT0_1, dmT1_1, dmT2_1);
+
+	y0_0	= (doX0 + y2_1) * 0.5;
+
+	// update
+	umTm1_0	= umT0_0;
+	umT0_0	= umT1_0;
+	umT1_0	= x0_0_a;
+
+	doX0	= y1_0;
+
+	dmT2_1	= dmT1_1;
+	dmT1_1	= dmT0_1;
+	dmT0_1	= y2_0;
+
+	return dcblock(y0_0);
+}
+
+// 1x
+// two poles of a nonlinear ladder with allpass alignment and naive nonlinearity
+// (but works ok here). based on a Will Pirkle 'App Note', thank you.
+twopoleLadder1(xin, hz, res)// self-oscillates at res==1 but gets a bit funky up high,
+{                           // low freq res is very cool, rodrigo should like it.
+    History s1(0), s2(0), s3(0);
+    // painful coefficients
+    invsr = 1 / samplerate;
+    invsr05 = invsr * 0.5;
+    k = res + res + res;
+    k2 = sqrt2 + 0.353553 * res;
+    w = twopi * hz;
+    g0 = ((2 / invsr) * tanA2(w * invsr05)) * invsr05;
+    g1 = 1 + g0;
+    g = g0 / g1;
+    ga = (g + g) - 1;
+    lp1fb = g * ga / g1;
+    lp2fb = ga / g1;
+    ap3fb = 2 / g1;
+    alpha = 1 / (1 + k * ga * g * g);
+    // nonlinear
+    mK = ((s1 * lp1fb) + (s2 * lp2fb) + (s3 * ap3fb)) * -k;
+    X = mK + xin;
+    // we purposefully do not gain-wrap our atan() inside the loop
+    u = atanA(X * alpha);
+    // lowpass 1
+    xg = (u - s1) * g;
+    lp1 = xg + s1;
+    s1 = xg + lp1;
+    // lowpass 2
+    yg = (lp1 - s2) * g;
+    lp2 = yg + s2;
+    s2 = yg + lp2;
+    // allpass
+    zg = (lp2 - s3) * g;
+    lp3 = zg + s3;
+    hp3 = lp2 - lp3;
+    ap3 = (lp3 - hp3) * k2;
+    s3 = zg + lp3;
+    // tap
+    return ap3;
+}
+
+// linear
+
+twopoleLadderLinearCoeff(hz, res)
+{
+    invsr = 1 / samplerate;
+    invsr05 = invsr * 0.5;
+    k = res + res;  // one less for linear
+    k2 = sqrt2 + 0.353553 * res;
+    w = twopi * hz;
+    g0 = ((2 / invsr) * tanA2(w * invsr05)) * invsr05;
+    g1 = 1 + g0;
+    g = g0 / g1;
+    ga = (g + g) - 1;
+    lp1fb = g * ga / g1;
+    lp2fb = ga / g1;
+    ap3fb = 2 / g1;
+    alpha = 1 / (1 + k * ga * g * g);
+    return g, lp1fb, lp2fb, ap3fb, alpha, k, k2;
+}
+
+twopoleLadderLinearFilter(xin, g, lp1fb, lp2fb, ap3fb, alpha, k, k2)
+{
+    History s1(0), s2(0), s3(0);
+    mK = ((s1 * lp1fb) + (s2 * lp2fb) + (s3 * ap3fb)) * -k;
+    X = mK + xin;
+    u = X * alpha;
+    // lowpass 1
+    xg = (u - s1) * g;
+    lp1 = xg + s1;
+    s1 = xg + lp1;
+    // lowpass 2
+    yg = (lp1 - s2) * g;
+    lp2 = yg + s2;
+    s2 = yg + lp2;
+    // allpass
+    zg = (lp2 - s3) * g;
+    lp3 = zg + s3;
+    hp3 = lp2 - lp3;
+    ap3 = (lp3 - hp3) * k2;
+    s3 = zg + lp3;
+    // tap
+    return ap3;
+}
+
+History prev_cf(0);
+
+Param   oversample(1, min=0, max=1); // 0=1x, 1=2x
+os      = int(oversample);
+
+cutoff  = in2;
+// g corrected for audio rate FM of cutoff
+lin_cf  = cutoff - prev_cf;
+corr_cf = cutoff + 0.5 * lin_cf;
+prev_cf = cutoff;
+
+lorez = 0;
+if (os == 1) {  // 2x, default
+    lorez = twopoleLadder2_2x4(in1, corr_cf, in3);
+}
+else {          // 1x
+    lorez = twopoleLadder1(in1, corr_cf, in3);
+}
+
+out1 = lorez;
+

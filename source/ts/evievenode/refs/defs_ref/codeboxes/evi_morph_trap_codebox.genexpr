@@ -1,0 +1,188 @@
+
+require("evi_polyblep.genexpr");
+
+morphOscSelect(phase, norm, morph, gain, wave)
+{
+    osc = 0;
+    if (wave == 1) {            // sawpulse
+        osc	= morph_sawpulse_trirect(phase, norm, morph);
+    }
+    else if (wave == 2) {       // pulsetrirect
+        osc	= morph_pulsepulse_trirect(phase, norm, morph);
+    }
+    else if (wave == 3) {       // pulsetrisquare   // default
+        osc	= morph_pulsebipulse_trirect(phase, norm, morph);
+    }
+    else {  // (wave == 0)      // trirect
+        mph = (morph > 0.5) ? morph * 0.999 + 0.0005 : morph;
+        osc = poly_trap2(phase, norm, mph);
+    }
+
+    return osc * gain;
+}
+
+// only 4-point works for oscillators
+
+// fixed 2x quasi downsampling 
+morphOscSelect_2x_4POINT(phase, norm, morph, gain, wave)
+{	// down 2
+	History	dmT2_1(0), dmT1_1(0), dmT0_1(0);
+	// align
+	History	doX0(0);
+
+	// process 2x
+	y1_0	= morphOscSelect(phase, norm, morph, gain, wave);
+	y2_0	= morphOscSelect(phase, norm, morph, gain, wave);
+
+	// down 2x
+	y2_0_a	= y2_0 + 0;
+	y2_1	= interp(0.5,	y2_0_a,	dmT0_1, dmT1_1, dmT2_1, mode="spline");
+
+	y0_0	= (doX0 + y2_1) * 0.5;
+
+	// update
+	doX0	= y1_0;
+
+	dmT2_1	= dmT1_1;
+	dmT1_1	= dmT0_1;
+	dmT0_1	= y2_0;
+
+	return y0_0;
+}
+
+// fixed 4x quasi downsampling 
+morphOscSelect_4x_4POINT(phase, norm, morph, gain, wave)
+{	// down 2
+	History	dmT2_1(0), dmT1_1(0), dmT0_1(0);
+	// align
+	History	doX0(0);
+
+	// process 4x
+	y1_0	= morphOscSelect_2x_4POINT(phase, norm, morph, gain, wave);
+	y2_0	= morphOscSelect_2x_4POINT(phase, norm, morph, gain, wave);
+
+	// down 2x
+	y2_0_a	= y2_0 + 0;
+	y2_1	= interp(0.5,	y2_0_a,	dmT0_1, dmT1_1, dmT2_1, mode="spline");
+
+	y0_0	= (doX0 + y2_1) * 0.5;
+
+	// update
+	doX0	= y1_0;
+
+	dmT2_1	= dmT1_1;
+	dmT1_1	= dmT0_1;
+	dmT0_1	= y2_0;
+
+	return y0_0;
+}
+
+// fixed 8x quasi downsampling 
+morphOscSelect_8x_4POINT(phase, norm, morph, gain, wave)
+{	// down 2
+	History	dmT2_1(0), dmT1_1(0), dmT0_1(0);
+	// align
+	History	doX0(0);
+
+	// process 8x
+	y1_0	= morphOscSelect_4x_4POINT(phase, norm, morph, gain, wave);
+	y2_0	= morphOscSelect_4x_4POINT(phase, norm, morph, gain, wave);
+
+	// down 2x
+	y2_0_a	= y2_0 + 0;
+	y2_1	= interp(0.5,	y2_0_a,	dmT0_1, dmT1_1, dmT2_1, mode="spline");
+
+	y0_0	= (doX0 + y2_1) * 0.5;
+
+	// update
+	doX0	= y1_0;
+
+	dmT2_1	= dmT1_1;
+	dmT1_1	= dmT0_1;
+	dmT0_1	= y2_0;
+
+	return y0_0;
+}
+
+morphOscSelectOversample(phase, norm, morph, gain, wave, over)
+{
+    History ovdummy(0);
+    osc = 0;
+    if (over == 1) {
+        osc = morphOscSelect_2x_4POINT(phase, norm, morph, gain, wave);
+    }
+    else if (over == 2) {
+        osc = morphOscSelect_4x_4POINT(phase, norm, morph, gain, wave);
+    }
+    else if (over == 3) {
+        osc = morphOscSelect_8x_4POINT(phase, norm, morph, gain, wave);
+    }
+    else {  // (over == 0)
+        osc = morphOscSelect(phase, norm, morph, gain, wave);
+    }
+    return osc;
+}
+
+// morph osc types:
+// 0=trirect, 1=sawpulse, 2=pulsetrirect, 3=pulsetrisquare
+Param   oscillator(3, min=0, max=3);
+// 2=(if using < 20Hz but < 4k), 3=(if using < 20Hz && > 4k)
+Param   dc(1, min=0, max=3);			// 0=off, 1=on,	2=auto for lfos, 3=auto for oscillators
+Param   compensate(1, min=0, max=2);    // decorrelation high frequency compensation filters, off/1/2
+Param   oversample(1, min=0, max=3);	// fake oversampling, 0=1x, 1=2x, 2=4x, 3=8x
+
+wave    = int(oscillator);
+dci		= int(dc);
+filt	= int(compensate);
+over	= int(oversample);
+
+freqInHz	= in1;
+Morph	    = in2;
+syncPhase	= in3;                      // hard sync, NOT IMPLEMENTED YET
+
+t			= 0;
+if (change(syncPhase) != 0) {           // if a sync phasor is attached
+	t		= syncPhase;
+	if (t >= 0)
+		t  -= trunc(t);
+	else
+		t  += 1 - trunc(t);
+} else {
+	t		= phasor(freqInHz);         // no naive reset here
+}
+
+dt			= freqInHz / SAMPLERATE;
+dtn			= clip((dt + dt), 0, 1);
+oscsync		= delta(t) < 0;
+gain		= minimum(scale(clip(freqInHz, 0, 20), 1, 20, 0.9564, 0.5, 3), 0.9564) * (((1 - (filt * (freqInHz < 20))) * 0.157588) + 0.842412);
+smoothsamps = mstosamps(33);
+a, an		= eviLine(gain, smoothsamps);	// 0.5 for Oscillators, 1.0 for LFOs ... oder ?? (dynamic like dc)
+
+ov			= latch(over,	oscsync);
+wv			= latch(wave,	oscsync);
+dcn			= latch(dci,	oscsync);
+ft			= latch(filt,	oscsync);
+
+osc = 0;
+if (freqInHz > (SAMPLERATE * 0.25)) {       // sine if above (samplerate / 4)
+    osc	= sin73(TWOPI * t) * sqrt1_2;
+}
+else {
+    osc = morphOscSelectOversample(t, dt, Morph, a, wv, ov);
+}
+
+// dcblock
+osc = dynamicDc(osc, dtn, dcn);
+
+// restore high frequencies options...
+if (ft > 0) {
+	osc = decorelate(osc);      // for Bleps ?
+	if (ft > 1) {
+		osc = decorelate(osc);  // for Blamps / Bluhs ?
+	}
+}
+
+out1	= osc;
+out2	= t;
+out3	= oscsync;
+

@@ -1,0 +1,265 @@
+
+// Ladder for Robert
+// moog Ladder emulation, by Pete for evieve & Huddersfield friends, 2014,
+// based on Vadim Zavalishin
+// thanks to Martijn Zwartjes
+// this is the smoothest and most in tune of all the evieve ladders, & handles > 1 res really well
+// @see: evi_ladder_transistor.gendsp & evi_ladder_poles.gendsp for alternative ladder emulations
+// @see: evi_ladder_diode.gendsp for a diode ladder emulation
+// @see: evi_lorez.gendsp for an allpass aligned two-pole oversampled ladder
+
+require("evi_smooth.genexpr");
+require("evi_tanh.genexpr");
+require("evi_interp.genexpr");
+
+polySat(x)
+{
+	x2 = x*x;
+	x3 = x*x2;
+	p531 = (x + (x3 * -0.18963)) + (x3 * x2 * 0.016182);
+	pn = -1.8153 > x ? -1 : p531;
+	return x > 1.8153 ? 1 : pn;
+}
+
+sat(x, nl)
+{
+	y = 0;
+	if (nl == 1) {					// polynom saturator		- 'hard'
+		y = polySat(x);
+	} else { // nl == 0				// tanh approx (default)	- 'clean'
+		y = tanhO(x);
+	}
+	return y;
+}
+
+init(x, g, s, k)					// initialise feedback loop settings
+{
+	spg = s + g;
+	smg = s - g;
+	spr = (x <= (smg * k)) ? smg : (x / k);
+	spo = (x >= (spg * k)) ? spg : spr;
+	return spo;
+}
+
+// separating onepole into two parts to resolve ZDF loop
+
+oplpII(g, s, w, n, z)				// onepole part II - only signal after the delayed signal
+{
+	zz = z + z;
+	g = g * w * n;
+	s = ((s * w) + zz) * n;
+	return g, s, zz;
+}
+
+oplpI(y, w, n, z, zz)				// onepole part I - direct signal mixed with the delayed signal
+{
+	t = ((y - (((y * w) + zz) * n)) * w) + z;
+	return t + z, t;
+}
+
+next(y, x, g, s, k)					// resolve tanh approx (should be with exit loop as function of k)
+{
+	t = tanhL((x - (k * y)));
+	return y - (((t * g) + s - y) / ((((t * t) - 1) * k * g) - 1));
+}
+
+// ladder 1x
+// ZDF (Newton-Raphson) model 24dB Transistor Ladder filter
+ZDFNRL1(x, w, k, nl)
+{
+	History z1(0), z2(0), z3(0), z4(0);
+	n = 1 / (w + 1);
+
+	g, s, zz1 = oplpII(1, 0, w, n, z1);		// filter cascade part II with init
+	g, s, zz2 = oplpII(g, s, w, n, z2);
+	g, s, zz3 = oplpII(g, s, w, n, z3);
+	g, s, zz4 = oplpII(g, s, w, n, z4);
+
+	y = init(x, g, s, k);                   // init cascade
+
+    // TODO: get rid of this rubbish and do a proper Newton loop
+	y = next(y, x, g, s, k);		        // resonance cascade
+	y = next(y, x, g, s, k);
+	y = next(y, x, g, s, k);
+	y = next(y, x, g, s, k);
+	y = next(y, x, g, s, k);
+
+	y = sat((x - (y * k)), nl);				// loop nonlinearity (select)
+
+	y, z1 = oplpI(y, w, n, z1, zz1);		// filter cascade part I
+	y, z2 = oplpI(y, w, n, z2, zz2);
+	y, z3 = oplpI(y, w, n, z3, zz3);
+	y, z4 = oplpI(y, w, n, z4, zz4);
+
+	return y;
+}
+
+// ladder 2x
+ZDFNRL2(x0, x1, w, k, nl)
+{
+	History z1(0), z2(0), z3(0), z4(0);
+	n = 1 / (w + 1);
+
+    // pass 1
+
+	g0, s0, zz10 = oplpII(1, 0, w, n, z1);
+	g0, s0, zz20 = oplpII(g0, s0, w, n, z2);
+	g0, s0, zz30 = oplpII(g0, s0, w, n, z3);
+	g0, s0, zz40 = oplpII(g0, s0, w, n, z4);
+
+	y0 = init(x0, g0, s0, k);
+
+	y0 = next(y0, x0, g0, s0, k);
+	y0 = next(y0, x0, g0, s0, k);
+	y0 = next(y0, x0, g0, s0, k);
+
+	y0 = sat((x0 - (y0 * k)), nl);
+
+	y0, z1 = oplpI(y0, w, n, z1, zz10);
+	y0, z2 = oplpI(y0, w, n, z2, zz20);
+	y0, z3 = oplpI(y0, w, n, z3, zz30);
+	y0, z4 = oplpI(y0, w, n, z4, zz40);
+
+    // pass 2
+
+	g1, s1, zz11 = oplpII(1, 0, w, n, z1);
+	g1, s1, zz21 = oplpII(g1, s1, w, n, z2);
+	g1, s1, zz31 = oplpII(g1, s1, w, n, z3);
+	g1, s1, zz41 = oplpII(g1, s1, w, n, z4);
+
+	y1 = init(x1, g1, s1, k);
+
+	y1 = next(y1, x1, g1, s1, k);
+	y1 = next(y1, x1, g1, s1, k);
+	y1 = next(y1, x1, g1, s1, k);
+
+	y1 = sat((x1 - (y1 * k)), nl);
+
+	y1, z1 = oplpI(y1, w, n, z1, zz11);
+	y1, z2 = oplpI(y1, w, n, z2, zz21);
+	y1, z3 = oplpI(y1, w, n, z3, zz31);
+	y1, z4 = oplpI(y1, w, n, z4, zz41);
+
+	return y0, y1;
+}
+
+// fixed 2x quasi oversampling (hermite6)
+ZDFNRL2_2x6( XIN, w, k, nl )
+{	// up 2
+	History	umTm2_0(0), umTm1_0(0), umT0_0(0), umT1_0(0), umT2_0(0);
+	// down 2
+	History	dmT3_1(0), dmT2_1(0), dmT1_1(0), dmT0_1(0), dmTm1_1(0);
+	// align
+	History	doX0(0);
+
+	// up 2x
+	x0_0_a	= XIN + 0;
+	x1_0	= hermite_sixpoint_interp(0.5,	umTm2_0, umTm1_0, umT0_0, umT1_0, umT2_0, x0_0_a);
+	x2_0	= umT2_0 + 0;
+
+	// process 2x
+    y1_0, y2_0 = ZDFNRL2(x1_0, x2_0, w, k, nl);
+
+	// down 2x
+	y2_0_a	= y2_0 + 0;
+	y2_1	= hermite_sixpoint_interp(0.5,	y2_0_a,	dmTm1_1, dmT0_1, dmT1_1, dmT2_1, dmT3_1);
+
+	y0_0	= (doX0 + y2_1) * 0.5;
+
+	// update
+	umTm2_0	= umTm1_0;
+	umTm1_0	= umT0_0;
+	umT0_0	= umT1_0;
+	umT1_0 	= umT2_0;
+	umT2_0	= x0_0_a;
+
+	doX0	= y1_0;
+
+	dmT3_1	= dmT2_1;
+	dmT2_1	= dmT1_1;
+	dmT1_1	= dmT0_1;
+	dmT0_1	= dmTm1_1;
+	dmTm1_1	= y2_0;
+
+	return dcblock(y0_0);
+}
+
+// fixed 2x quasi oversampling (cubic4)
+ZDFNRL2_2x4( XIN, w, k, nl )
+{	// up 2
+	History	umTm1_0(0), umT0_0(0), umT1_0(0);
+	// down 2
+	History	dmT2_1(0), dmT1_1(0), dmT0_1(0);
+	// align
+	History	doX0(0);
+
+	// up 2x
+	x0_0_a	= XIN + 0;
+	x1_0	= cubic_hermite_interp(0.5,	umTm1_0, umT0_0, umT1_0, x0_0_a);
+	x2_0	= umT1_0 + 0;
+
+	// process 2x
+	y1_0, y2_0	= ZDFNRL2(x1_0, x2_0, w, k, nl);
+
+	// down 2x
+	y2_0_a	= y2_0 + 0;
+	y2_1	= cubic_hermite_interp(0.5,	y2_0_a,	dmT0_1, dmT1_1, dmT2_1);
+
+	y0_0	= (doX0 + y2_1) * 0.5;
+
+	// update
+	umTm1_0	= umT0_0;
+	umT0_0	= umT1_0;
+	umT1_0	= x0_0_a;
+
+	doX0	= y1_0;
+
+	dmT2_1	= dmT1_1;
+	dmT1_1	= dmT0_1;
+	dmT0_1	= y2_0;
+
+	return y0_0;
+}
+
+//	//	//	declare
+
+Param	nonlin(0, min=0, max=1);				// choose saturator in loop (default tanh approx)
+Param   cutoffmode(1, min=0, max=1);            // choose cutoff in Pitch (1) or Hz (0)
+Param	cutoffsmooth(0, min=0, max=333);		// optional freq smooth time in ms
+Param	ressmooth(0, min=0, max=333);	        // optional res smooth time in ms
+Param   oversample(1, min=0, max=1);            // 1 = 2x, 0 = 1x
+os      = int(oversample);
+nl		= int(nonlin);
+cfm     = int(cutoffmode);
+
+//	//	//	inputs
+
+res		= clip(in3, 0, 2);						// 0..1..2
+freq    = in2;
+if (cfm) {
+    freq	= mtofApprox(freq);                 // if cutoffmode
+}
+x		= dcblock(in1);							// clean input, why pete?
+
+//	//	//	parse
+
+f		= clip(freq, 1, (samplerate * 0.444444444444444));	// clip at Hz level
+w		= tanA3(f * (PI / samplerate)) * (os ? 0.5 : 1);    // warp
+if (cutoffsmooth > 0) {							// only compute if engaged
+	w	= logsmooth(w, cutoffsmooth*0.001);
+}
+
+k		= res * 4;								// res to k, self oscillates @ res = 1, > 1 = extreme effect
+if (ressmooth > 0) {						    // only compute if engaged
+	k	= expsmooth(k, ressmooth*0.001);
+}
+
+//	//	//	filter
+
+if (os) {
+    out1	= ZDFNRL2_2x4(x, w, k, nl) * sqrt2;
+}
+else {
+    out1	= ZDFNRL1(x, w, k, nl) * sqrt2;
+}
+

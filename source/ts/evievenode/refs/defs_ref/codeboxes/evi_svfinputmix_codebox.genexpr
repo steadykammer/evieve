@@ -1,0 +1,87 @@
+
+// a version of Simper's sVf input mixer
+// for an all-audio-rate version @see: "evi_svf.genexpr"
+// for a similar filter with better HF resonance @see: "evi_skfinputmix.gendsp"
+//                                                          ^K^
+
+require("evi_tanh.genexpr");
+require("evi_trig.genexpr");
+require("evi_smooth.genexpr");
+
+inputMixingSvfCoefficients(cutoff, res)
+{
+    w	= PI * cutoff / SAMPLERATE;
+    s1	= sin73param(w);
+    s2	= sin73param(w + w);
+
+    rc  = clip(res, (s1 * 0.5), minimum((1 - w), 0.97));
+    rc2 = rc + rc;
+    k   = 2 - rc2;
+
+    nrm	= 1 / (2 + rc2 * s2);
+    s1n	= (s1 + s1) * s1 * nrm;
+    s2n	= s2 * nrm;
+
+    return  (k * s1n) + s2n, s1n, s2n, -s1n - (k * s2n);    // g0, g1, g2, g3
+}
+
+inputMixingSvfLoop(vlow, vband, vhigh, g0, g1, g2, g3)
+{
+    History	ic1eq(0), ic2eq(0);
+
+    t1  = vlow * g0 + vband * -g1 + vhigh * -g2 + ic1eq * -g1 + ic2eq * -g2;
+    // extra gain is not extra gain but a factor of the Adaa
+    t2  = altTanhAdaa1(vlow * 1.995262) * g1 + vband * g2 + vhigh * g3 + ic1eq * g2 + ic2eq * g3;
+    vc2	= (t2 + ic2eq);
+
+    ic1eq  += (t1 + t1);
+    ic2eq  += (t2 + t2);
+
+    return vhigh + vc2;
+}
+
+// param rate
+
+Param   cutoff(1000, min=10, max=10000);            // Hz, not much use above about 8kHz
+Param   res(sqrt1_2, min=0, max=1);                 // 0..1, not much use above about 4kHz
+
+Param   coeffsmooth(15.111, min=0, max=333);        // ms
+Param   mixsmooth(22.666, min=0, max=333);          // ms
+Param   mix(0, min=0, max=1);                       // internal 3-way sine mixer
+Param   mixenable(1, min=0, max=1);                 // enable the internal mixer 0/1 ?
+me      = int(mixenable);
+
+// the input mixer is optional, default on
+m0      = mixSin(mix, 0.5);
+m1      = mixSin(mix, 0);
+m2      = mixSin(mix, -0.5);
+
+g0, g1, g2, g3  = inputMixingSvfCoefficients(cutoff, res);
+
+// audio rate from here
+
+if (coeffsmooth > 0) {
+    g0, g1, g2, g3  = logsmoothBank4(g0, g1, g2, g3, coeffsmooth*0.001);
+}
+
+vlow, vband, vhigh  = 0;
+if (me) {
+    if (mixsmooth > 0) {
+        m0, m1, m2  = expsmoothBank3(m0, m1, m2, mixsmooth*0.001);
+    }
+
+    vlow    = in1 * m0;
+    vband   = in2 * m1;
+    vhigh   = in3 * m2;
+}
+else {
+    // for sequencing or fun experiments
+    vlow    = in1;
+    vband   = in2;
+    vhigh   = in3;
+}
+
+iSvf    = inputMixingSvfLoop(vlow, vband, vhigh, g0, g1, g2, g3);
+
+out1    = iSvf;
+

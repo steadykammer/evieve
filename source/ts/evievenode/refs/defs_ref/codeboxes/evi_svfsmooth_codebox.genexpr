@@ -1,0 +1,121 @@
+
+// a cheap nonlinear multimode SVF for when you need a quick cheap synth filter,
+// not perfect but quite good, morphing via the 'morph' attribute is cool.
+// @see also: "evi_filter_morph.gendsp" / [evi.filter.morph~] for linear LP..BP..HP morphing.
+// @see also: "evi_arpnotch.gendsp" / [evi.arpnotch~] for alternative nonlinear morphing.
+// @see also: "evi_svfsynth.gendsp" for a beefy nonlinear 12 & 24 dB svf (with morphing).
+
+require("evi_tanh.genexpr");                    // includes "evi_approx.genexpr"
+require("evi_smooth.genexpr");
+
+// core
+
+eviSvfSmoothCore(X, w2, r2, tl)                 // input, warped freq, full res, nonlin gain
+{
+    History	state1(0), state2(0);				// SVF state initialise
+
+    // integrators, post state, feedback
+    s1	= state1;
+    g2	= w2 * w2;
+    s2	= state2 + (s1 * w2);
+
+    // resonance
+    gG	=   w2 * r2;
+    sG	=   s1 * r2;
+    gS	= -(g2 + gG);                           // invert feedback
+    sS	= -(s2 + sG);
+
+    // solve
+    alpha	= 1 / (1 - gS);
+    x0	    = ((X * gS) + sS) * alpha;	        // audio input
+    y0		= X + x0;						    // y0 = HP
+
+    // integrator 1, post state, nonlinear
+    x1	= y0 * w2;
+    y1	= tanhLxA((x1 + state1), tl);			// y1 = BP
+
+    // integrator 2, post state, nonlinear
+    x2	= y1 * w2;
+    y2	= tanhLxA((x2 + state2), tl);			// y2 = LP
+    y3	= y0 + y2;								// y3 = BN	// (y1 * r2)
+
+    // integrator 1, update state
+    state1		= x1 + y1;
+
+    // integrator 2, update state
+    state2		= x2 + y2;
+
+    return  y2, y1, y0, y3;                     // LP, BP, HP, BN
+}
+
+// filter
+
+preWarp(cutoff, type)
+{
+    hz  = 0;
+	if (type) {
+		hz	= mtofApprox(minimum(cutoff, 133.2522));
+	} else {
+	    hz	= minimum(cutoff, (samplerate * 0.408164));
+    }
+	return	tanA2(hz * PI / samplerate);        // w/2
+}
+
+// mixing
+
+mix3linear(i1, i2, i3, interp)
+{									 //		should be	mode="cosine" ??
+	m1	=	interp( clip(interp, 0, 1),			i1, i2,	mode="linear");
+	return	interp((clip(interp, 1, 2) - 1),	m1, i3,	mode="linear");
+}
+
+// declare
+
+Param	cutoffmode(1, min=0, max=1);			// 0 = Hz, 1 = pitch (default)
+Param	saturation(20, min=-20, max=40);		// internal integrator saturation in dB
+Param	saturationsmooth(0, min=0, max=111);	// in ms
+Param	morphsmooth(30, min=0, max=333);	    // in ms
+
+// inputs (smooth || mod res & cutoff externally)
+morph   = clip(     in4, 0, 1);                 // 0=LP .. 0.5=BP .. 1=HP
+res		= clip(		in3, 0, 1) * 1.01;		    // cheeky for self oscillation
+cutoff	= maximum(	in2, 0);		            // cutoff freq (default in pitch)
+X		=	dcblock(in1 * sqrt1_2);	            // clean audio input, who knows why
+
+// freq warp
+type		= int(cutoffmode);		            // 0 = in Hz, 1 = (default) in pitch
+W			= preWarp(cutoff, type);            // warp
+
+// resonance
+resAtten	= mix(1, sqrt1_2, res);             // attenuate filters for high res (0..1=1..0.707)
+R			= 1 - res;
+R			= R + R;
+
+// integrator saturation
+S			= dbtoaApprox(saturation);
+if (saturationsmooth > 0) {                     // default do not use
+	S		= expsmooth(S, (saturationsmooth * 0.001));
+}
+
+// filter output mixing, exact smoother
+M			= morph + morph;
+if (morphsmooth > 0) {
+	M, fn	= eviLine(M, mstosamps(morphsmooth));
+}
+
+// SVF
+//LP, BP, HP, BN	= evi_svfsmoothcore(X, W, R, S);
+LP, BP, HP, BN	= eviSvfSmoothCore(X, W, R, S);
+LP				= LP * resAtten;
+BP				= BP * resAtten;
+HP				= HP * resAtten;
+BN				= BN * resAtten;
+svfMix			= mix3linear(LP, BP, HP, M);
+
+// outputs
+out1			= dcblock(svfMix);
+out2			= LP;
+out3			= BP;
+out4			= HP;
+out5			= BN;
+

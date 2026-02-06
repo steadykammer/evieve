@@ -1,0 +1,97 @@
+
+// a nonlinear SVF Notch filter which can morph between LP..Notch..HP,
+// as a partial emulation of the ARP 1047 filter/resonator.
+// @see also: "evi_filter_morph.gendsp" / [evi.filter.morph~] for linear morphing.
+// @see also: "evi_svfsmooth.gendsp" / [evi.svfsmooth~] for alternative nonlinear morphing.
+// @see also: "evi_svfsynth.gendsp" for a beefy nonlinear 12 & 24 dB svf (with morphing).
+
+require("evi_tanh.genexpr");
+require("evi_smooth.genexpr");
+
+// core
+
+eviArpSmoothCore(X, w2, r2, lc)                 // input, warped freq, full res
+{
+    History	state1(0), state2(0);				// SVF state initialise
+
+    // integrators, post state, feedback
+    s1	= state1;
+    g2	= w2 * w2;
+    s2	= state2 + (s1 * w2);
+
+    // resonance
+    gG	=   w2 * r2;
+    sG	=   s1 * r2;
+    gS	= -(g2 + gG);                           // invert feedback
+    sS	= -(s2 + sG);
+
+    // solve
+    alpha	= 1 / (1 - gS);
+    x0	    = ((X * gS) + sS) * alpha;	        // audio input
+    y0		= X + x0;						    // y0 = HP
+
+    // integrator 1, post state, nonlinear
+    x1	= y0 * w2;
+    y1	= tanhLxA((x1 + state1), lc);           // y1 = BP
+
+    // integrator 2, post state, nonlinear
+    x2	= y1 * w2;
+    y2	= tanhLxA((x2 + state2), lc);           // y2 = LP
+
+    // integrator 1, update state
+    state1		= x1 + y1;
+
+    // integrator 2, update state
+    state2		= x2 + y2;
+
+    return  y2, y0;                             // LP, HP
+}
+
+// filter
+
+preWarp(cutoff, type)
+{
+    hz  = 0;
+	if (type) {
+		hz	= mtofApprox(minimum(cutoff, 133.2522));
+	} else {
+	    hz	= minimum(cutoff, (samplerate * 0.408164));
+    }
+	return	tanA2(hz * PI / samplerate);        // w/2
+}
+
+// declare
+
+Param	cutoffmode(1, min=0, max=1);			// 0 = Hz, 1 = pitch (default)
+Param	morphsmooth(0, min=0, max=333);	        // in ms, default off
+
+// inputs (smooth || mod res & cutoff externally)
+morph   = clip(     in4, 0, 1);                 // 0=LP .. 0.5=Notch .. 1=HP
+res		= clip(		in3, 0, 1) * 1.1;		    // cheeky
+cutoff	= maximum(	in2, 0);		            // cutoff freq (default in pitch)
+X		=	dcblock(in1);	                    // clean audio input, who knows why
+
+// freq warp
+type	= int(cutoffmode);		                // 0 = in Hz, 1 = (default) in pitch
+W		= preWarp(cutoff, type);                // warp
+
+// mix  // ARP 'notch mix'
+M       = morph + morph - 1;
+makeM   = 2 - abs(M);
+highM   = morph;
+if (morphsmooth > 0) {
+    makeM, highM    = expsmoothBank2(makeM, highM, morphsmooth*0.001);
+}
+lowM    = 1 - highM;
+
+// resonance
+k		= 1.1 - (res * (1 / makeM));            // pete is clever (clear notch)
+R		= k + k;
+
+// SVF                  // ARP 'limit mode'
+LP, HP	= eviArpSmoothCore(X * (k + sqrt2), W, R, 10);
+svfMix  = makeM * (lowM * LP + highM * HP);     // low + high = notch
+
+// outputs
+out1	= dcblock(svfMix);                      // LP..Notch..HP via 'morph'
+

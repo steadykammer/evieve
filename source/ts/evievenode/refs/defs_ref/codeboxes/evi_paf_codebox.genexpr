@@ -1,0 +1,35 @@
+
+// a basic PAF (WavePacket) oscillator, not identical to [paf~] but does the same thing
+// @see also: "evi_vosim_basic.gendsp" & "evi_formant_osc.gendsp"
+
+require("evi_trig.genexpr");
+
+// like a Puckette wavepacket alternative to PAF
+wavePacket(ph, cf, bw)
+{
+	sync	= delta(ph) < 0;
+	ph05	= ph - 0.5;
+	packet	= (cos73((ph05 * latch(cf, sync)) * twopi)) * (cos52(clip((ph05 * latch(bw, sync)), -0.5, 0.5) * twopi) + 1);
+	return	dcblock(packet) * 0.5;
+}
+
+fund	= clip(in1, 0, 18000);
+invfund	= 1 / fund;
+
+cff		= in2 * invfund;
+bwf		= maximum((in3 * invfund), 1);
+
+ph0		= phasor(fund, in4);
+ph180	= wrap((ph0 + 0.5), 0, 1);
+
+packt1	= wavePacket(ph0, cff, bwf);
+packt2	= wavePacket(ph180,	cff, bwf);
+
+WP		= dcblock(packt1 + packt2);
+
+out1	= WP;
+out2	= packt1;
+out3	= packt2;
+out4    = ph0;
+out5    = ph180;
+

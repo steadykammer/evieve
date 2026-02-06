@@ -1,0 +1,39 @@
+
+// basically from the RNBO operator, with additions
+likeZerox(x, windowSize=0, threshold=0.1)
+{
+	History	count(0), index(0);
+	History	lastSign(0), lastCount(0);
+	History	lastWindowSize(64);
+
+	if ((windowSize > 1) && (windowSize != lastWindowSize)) {
+		count = 0;
+		index = 0;
+		lastSign = 0;
+		lastWindowSize = windowSize;
+		lastCount = 0;
+	}
+
+	currentSign = x < 0;
+	crossing = change(currentSign);
+	if (currentSign != lastSign) {
+		count += 1;
+	}
+	lastSign = currentSign;
+	index += 1;
+
+	if (index >= lastWindowSize) {
+		lastCount = count;
+		count = 0;
+		index = 0;
+	}
+	voiced = (lastCount / lastWindowSize) > threshold;
+
+	return lastCount, voiced, crossing;
+}
+
+Param	size(vectorsize, min=1, max=4096);	// window in samples (default vectorsize)
+Param	thresh(0.1, min=0, max=1);			// thresh in amplitude (default -20dB)
+
+out1, out2, out3	= likeZerox(in1, windowSize=size, threshold=thresh);
+

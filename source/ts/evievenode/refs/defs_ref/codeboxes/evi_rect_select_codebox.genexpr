@@ -1,0 +1,198 @@
+
+// @see: "evi_rect.gendsp" for a better standard rect oscillator
+
+require("evi_polyblep.genexpr");
+
+rectOscSelect(phase, norm, width, gain, wave)
+{
+    osc = 0;
+    if (wave == 1) {            // trapezoid
+        osc	= poly_trap(phase, norm);
+    }
+    else if (wave == 2) {       // squared
+        osc	= poly_lpsqr3(phase, norm);
+    }
+    else if (wave == 3) {       // rectpulse
+        pwm = width * 0.9 + 0.05;
+        osc = poly_rect(phase, norm, pwm);
+    }
+    else if (wave == 4) {       // squarepulse
+        pwm = (width >= 0.5) ? width : width * 0.88 + 0.06;
+        osc = poly_sqr2(phase, norm, pwm);
+    }
+    else if (wave == 5) {       // traptri
+        pwm = (width > 0.5) ? width * 0.998 + 0.001 : width;
+        osc = poly_trap2(phase, norm, pwm);
+    }
+    else {  // (wave == 0)      // rect     // default
+        osc	= poly_sqr(phase, norm);
+    }
+
+    return osc * gain;
+}
+
+// only 4-point works for oscillators
+
+// fixed 2x quasi downsampling 
+rectOscSelect_2x_4POINT(phase, norm, width, gain, wave)
+{	// down 2
+	History	dmT2_1(0), dmT1_1(0), dmT0_1(0);
+	// align
+	History	doX0(0);
+
+	// process 2x
+	y1_0	= rectOscSelect(phase, norm, width, gain, wave);
+	y2_0	= rectOscSelect(phase, norm, width, gain, wave);
+
+	// down 2x
+	y2_0_a	= y2_0 + 0;
+	y2_1	= interp(0.5,	y2_0_a,	dmT0_1, dmT1_1, dmT2_1, mode="spline");
+
+	y0_0	= (doX0 + y2_1) * 0.5;
+
+	// update
+	doX0	= y1_0;
+
+	dmT2_1	= dmT1_1;
+	dmT1_1	= dmT0_1;
+	dmT0_1	= y2_0;
+
+	return y0_0;
+}
+
+// fixed 4x quasi downsampling 
+rectOscSelect_4x_4POINT(phase, norm, width, gain, wave)
+{	// down 2
+	History	dmT2_1(0), dmT1_1(0), dmT0_1(0);
+	// align
+	History	doX0(0);
+
+	// process 4x
+	y1_0	= rectOscSelect_2x_4POINT(phase, norm, width, gain, wave);
+	y2_0	= rectOscSelect_2x_4POINT(phase, norm, width, gain, wave);
+
+	// down 2x
+	y2_0_a	= y2_0 + 0;
+	y2_1	= interp(0.5,	y2_0_a,	dmT0_1, dmT1_1, dmT2_1, mode="spline");
+
+	y0_0	= (doX0 + y2_1) * 0.5;
+
+	// update
+	doX0	= y1_0;
+
+	dmT2_1	= dmT1_1;
+	dmT1_1	= dmT0_1;
+	dmT0_1	= y2_0;
+
+	return y0_0;
+}
+
+// fixed 8x quasi downsampling 
+rectOscSelect_8x_4POINT(phase, norm, width, gain, wave)
+{	// down 2
+	History	dmT2_1(0), dmT1_1(0), dmT0_1(0);
+	// align
+	History	doX0(0);
+
+	// process 8x
+	y1_0	= rectOscSelect_4x_4POINT(phase, norm, width, gain, wave);
+	y2_0	= rectOscSelect_4x_4POINT(phase, norm, width, gain, wave);
+
+	// down 2x
+	y2_0_a	= y2_0 + 0;
+	y2_1	= interp(0.5,	y2_0_a,	dmT0_1, dmT1_1, dmT2_1, mode="spline");
+
+	y0_0	= (doX0 + y2_1) * 0.5;
+
+	// update
+	doX0	= y1_0;
+
+	dmT2_1	= dmT1_1;
+	dmT1_1	= dmT0_1;
+	dmT0_1	= y2_0;
+
+	return y0_0;
+}
+
+rectOscSelectOversample(phase, norm, width, gain, wave, over)
+{
+    History ovdummy(0);
+    osc = 0;
+    if (over == 1) {
+        osc = rectOscSelect_2x_4POINT(phase, norm, width, gain, wave);
+    }
+    else if (over == 2) {
+        osc = rectOscSelect_4x_4POINT(phase, norm, width, gain, wave);
+    }
+    else if (over == 3) {
+        osc = rectOscSelect_8x_4POINT(phase, norm, width, gain, wave);
+    }
+    else {  // (over == 0)
+        osc = rectOscSelect(phase, norm, width, gain, wave);
+    }
+    return osc;
+}
+
+// rect osc types:
+// 0=rect, 1=trapezoid, 2=squared, 3=rectpulse, 4=squarepulse, 5=traptri
+Param   oscillator(0, min=0, max=5);
+// 2=(if using < 20Hz but < 4k), 3=(if using < 20Hz && > 4k)
+Param   dc(1, min=0, max=3);			// 0=off, 1=on,	2=auto for lfos, 3=auto for oscillators
+Param   compensate(1, min=0, max=2);    // decorrelation high frequency compensation filters, off/1/2
+Param   oversample(1, min=0, max=3);	// fake oversampling, 0=1x, 1=2x, 2=4x, 3=8x
+
+wave    = int(oscillator);
+dci		= int(dc);
+filt	= int(compensate);
+over	= int(oversample);
+
+freqInHz	= in1;
+pulseWidth	= in2;
+syncPhase	= in3;                      // hard sync, NOT IMPLEMENTED YET
+
+t			= 0;
+if (change(syncPhase) != 0) {           // if a sync phasor is attached
+	t		= syncPhase;
+	if (t >= 0)
+		t  -= trunc(t);
+	else
+		t  += 1 - trunc(t);
+} else {
+	t		= phasor(freqInHz);         // no naive reset here
+}
+
+dt			= freqInHz / SAMPLERATE;
+dtn			= clip((dt + dt), 0, 1);
+oscsync		= delta(t) < 0;
+gain		= minimum(scale(clip(freqInHz, 0, 20), 1, 20, 0.9564, 0.5, 3), 0.9564) * (((1 - (filt * (freqInHz < 20))) * 0.157588) + 0.842412);
+smoothsamps = mstosamps(33);
+a, an		= eviLine(gain, smoothsamps);	// 0.5 for Oscillators, 1.0 for LFOs ... oder ?? (dynamic like dc)
+
+ov			= latch(over,	oscsync);
+wv			= latch(wave,	oscsync);
+dcn			= latch(dci,	oscsync);
+ft			= latch(filt,	oscsync);
+
+osc = 0;
+if (freqInHz > (SAMPLERATE * 0.25)) {       // sine if above (samplerate / 4)
+    osc	= sin73(TWOPI * t) * sqrt1_2;
+}
+else {
+    osc = rectOscSelectOversample(t, dt, pulseWidth, a, wv, ov);
+}
+
+// dcblock
+osc = dynamicDc(osc, dtn, dcn);
+
+// restore high frequencies options...
+if (ft > 0) {
+	osc = decorelate(osc);      // for Bleps ?
+	if (ft > 1) {
+		osc = decorelate(osc);  // for Blamps / Bluhs ?
+	}
+}
+
+out1	= osc;
+out2	= t;
+out3	= oscsync;
+

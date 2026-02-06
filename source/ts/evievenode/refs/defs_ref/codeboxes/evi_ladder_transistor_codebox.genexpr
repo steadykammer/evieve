@@ -1,0 +1,300 @@
+//
+// Transistor Ladder by Teemu Voipio
+// mods by Pete for evieve
+// Pete: this is tuned to be quite 'hot' and aggressive compared to "evi_ladder_moog.gendsp".
+// @see: evi_ladder_moog.gendsp & evi_ladder_poles.gendsp for alternative ladder emulations
+// and @see: evi_ladder_diode.gendsp for a diode ladder emulation
+
+// @see: https://www.kvraudio.com/forum/viewtopic.php?t=349859
+// (^^ that is the legendary kvr thread where there is lots of useful stuff,
+// as well as lots of annoying men with feelings)
+
+//// LICENSE TERMS: Copyright 2012 Teemu Voipio
+// 
+// You can use this however you like for pretty much any purpose,
+// as long as you don't claim you wrote it. There is no warranty.
+//
+// Distribution of substantial portions of this code in source form
+// must include this copyright notice and list of conditions.
+//
+
+require("evi_tanh.genexpr");
+require("evi_interp.genexpr");
+
+// wrap atanA with boost/cut & x div x
+atanAdA(x, d)	// d must be clipped maximum(d, 1)
+{
+	return atanA(x * d) * (maximum((1 / atanA(d)), 0.1)) / x;
+}
+
+denominator(f, t)
+{
+	return 1 / (1 + f*t);
+}
+
+// cutoff as frequency in Hz (0..nyquist)
+// resonance 0..1.., self-oscillates over 0.9 ('4')
+transistorLadder1(inX, cutoff, resonance)
+{
+	// input delay and state
+	History zi(0);
+	History s0(0), s1(0), s2(0), s3(0);
+
+	// tuning and feedback (this mess is by pete)
+	fo = 0.977377;
+	ro = 0.063846;
+	rt = maximum(resonance, 1) - 1;
+	r2 = rt*rt;
+	t  = 1 + (sqrt(sqrt(r2)) * ro);
+	fg = tanA2(PI * cutoff * fo / samplerate * t);
+	f  = fg + fg*fg*ro * r2*ro;
+	ff = f+f*1.189988;
+	r  = 4.444444444444 * resonance;		// mystran's overshoot, pete: i like it
+	p  = 1.141;
+	sk = 0.906329;
+
+	// input with half delay for nonlinearities <<-- this is mystran's clever bit
+	ih = 0.5 * (inX + zi);
+	zi = inX;
+
+	// evaluate the nonlinear gains
+	ir = ih - r*s3;
+//	t0 = atanAdA(ir, p);
+	t0 = atanA(ir*sk) / ir;					// pete: atan
+	t1 = tanhXdX(s0);
+	t2 = tanhXdX(s1);
+	t3 = tanhXdX(s2);
+	t4 = tanhL(s3) / (tanhL(s3) * p);		// pete: this is emulation-wrong, but i like it
+
+	// g# the denominators for solutions of individual stages
+	g0 = denominator(f, t1);
+	g1 = denominator(f, t2);
+	g2 = denominator(f, t3);
+	g3 = denominator(f, t4);
+
+	// f# are factored out of the feedback solution below
+	f3 = f*t3*g3;
+	f2 = f*t2*g2*f3;
+	f1 = f*t1*g1*f2;
+	f0 = f*t0*g0*f1;
+
+	// feedback solver
+	y3 = (g3*s3 + f3*g2*s2 + f2*g1*s1 + f1*g0*s0 + f0*inX) / (1 + r*f0);
+
+	// solve the remaining g & s here (with the nonlinear gains)
+	xx = t0*(inX - r*p*y3);
+	y0 = t1*g0*(s0 + f*xx);
+	y1 = t2*g1*(s1 + f*y0);
+	y2 = t3*g2*(s2 + f*y1);
+
+	// update state
+	s0 += ff * (sk*xx - y0);
+	s1 += ff * (y0 - y1);
+	s2 += ff * (y1 - y2);
+	s3 += ff * (p*y2 - t4*y3);
+
+	return dcblock(y3*p);
+}
+
+transistorLadder2(inX0, inX1, cutoff, resonance)
+{
+	// input delay and state
+	History zi(0), zj(0);
+	History s0(0), s1(0), s2(0), s3(0);
+
+	// tuning and feedback (this mess is by pete)
+	fo = 0.977377;
+	ro = 0.063846;
+	rt = maximum(resonance, 1) - 1;
+	r2 = rt*rt;
+	t  = 1 + (sqrt(sqrt(r2)) * ro);
+	fg = tanA2(PI * cutoff * fo / samplerate * t) * 0.5; // for 2x
+	f  = fg + fg*fg*ro * r2*ro;
+	ff = f+f*1.189988;
+	r  = 4.444444444444 * resonance;
+	p  = 1.141;
+	sk = 0.906329;
+
+    // pass 1
+
+	// input with half delay for nonlinearities
+	ih0 = 0.5 * (inX0 + zi);
+	zi = inX0;
+
+	// evaluate the nonlinear gains
+	ir0 = ih0 - r*s3;
+	t00 = atanA(ir0*sk) / ir0;
+	t10 = tanhXdX(s0);
+	t20 = tanhXdX(s1);
+	t30 = tanhXdX(s2);
+	t40 = tanhL(s3) / (tanhL(s3) * p);
+
+	// g# the denominators for solutions of individual stages
+	g00 = denominator(f, t10);
+	g10 = denominator(f, t20);
+	g20 = denominator(f, t30);
+	g30 = denominator(f, t40);
+
+	// f# are factored out of the feedback solution below
+	f30 = f*t30*g30;
+	f20 = f*t20*g20*f30;
+	f10 = f*t10*g10*f20;
+	f00 = f*t00*g00*f10;
+
+	// feedback solver
+	y30 = (g30*s3 + f30*g20*s2 + f20*g10*s1 + f10*g00*s0 + f00*inX0) / (1 + r*f00);
+
+	// solve the remaining g & s here (with the nonlinear gains)
+	xx0 = t00*(inX0 - r*p*y30);
+	y00 = t10*g00*(s0 + f*xx0);
+	y10 = t20*g10*(s1 + f*y00);
+	y20 = t30*g20*(s2 + f*y10);
+
+	// update state
+	s0 += ff * (sk*xx0 - y00);
+	s1 += ff * (y00 - y10);
+	s2 += ff * (y10 - y20);
+	s3 += ff * (p*y20 - t40*y30);
+
+    // pass 2
+
+	// input with half delay for nonlinearities
+	ih1 = 0.5 * (inX1 + zj);
+	zj = inX1;
+
+	// evaluate the nonlinear gains
+	ir1 = ih1 - r*s3;
+	t01 = atanA(ir1*sk) / ir1;
+	t11 = tanhXdX(s0);
+	t21 = tanhXdX(s1);
+	t31 = tanhXdX(s2);
+	t41 = tanhL(s3) / (tanhL(s3) * p);
+
+	// g# the denominators for solutions of individual stages
+	g01 = denominator(f, t11);
+	g11 = denominator(f, t21);
+	g21 = denominator(f, t31);
+	g31 = denominator(f, t41);
+
+	// f# are factored out of the feedback solution below
+	f31 = f*t31*g31;
+	f21 = f*t21*g21*f31;
+	f11 = f*t11*g11*f21;
+	f01 = f*t01*g01*f11;
+
+	// feedback solver
+	y31 = (g31*s3 + f31*g21*s2 + f21*g11*s1 + f11*g01*s0 + f01*inX1) / (1 + r*f01);
+
+	// solve the remaining g & s here (with the nonlinear gains)
+	xx1 = t01*(inX1 - r*p*y31);
+	y01 = t11*g01*(s0 + f*xx1);
+	y11 = t21*g11*(s1 + f*y01);
+	y21 = t31*g21*(s2 + f*y11);
+
+	// update state
+	s0 += ff * (sk*xx1 - y01);
+	s1 += ff * (y01 - y11);
+	s2 += ff * (y11 - y21);
+	s3 += ff * (p*y21 - t41*y31);
+
+	return dcblock(y30*p), dcblock(y31*p);
+}
+
+// fixed 2x quasi oversampling (hermite6)
+transistorLadder2_2x6( XIN, hz, res )
+{	// up 2
+	History	umTm2_0(0), umTm1_0(0), umT0_0(0), umT1_0(0), umT2_0(0);
+	// down 2
+	History	dmT3_1(0), dmT2_1(0), dmT1_1(0), dmT0_1(0), dmTm1_1(0);
+	// align
+	History	doX0(0);
+
+	// up 2x
+	x0_0_a	= XIN + 0;
+	x1_0	= hermite_sixpoint_interp(0.5,	umTm2_0, umTm1_0, umT0_0, umT1_0, umT2_0, x0_0_a);
+	x2_0	= umT2_0 + 0;
+
+	// process 2x
+    y1_0, y2_0 = transistorLadder2(x1_0, x2_0, hz, res);
+
+	// down 2x
+	y2_0_a	= y2_0 + 0;
+	y2_1	= hermite_sixpoint_interp(0.5,	y2_0_a,	dmTm1_1, dmT0_1, dmT1_1, dmT2_1, dmT3_1);
+
+	y0_0	= (doX0 + y2_1) * 0.5;
+
+	// update
+	umTm2_0	= umTm1_0;
+	umTm1_0	= umT0_0;
+	umT0_0	= umT1_0;
+	umT1_0 	= umT2_0;
+	umT2_0	= x0_0_a;
+
+	doX0	= y1_0;
+
+	dmT3_1	= dmT2_1;
+	dmT2_1	= dmT1_1;
+	dmT1_1	= dmT0_1;
+	dmT0_1	= dmTm1_1;
+	dmTm1_1	= y2_0;
+
+	return dcblock(y0_0);
+}
+
+// fixed 2x quasi oversampling (cubic4)
+transistorLadder2_2x4( XIN, hz, res )
+{	// up 2
+	History	umTm1_0(0), umT0_0(0), umT1_0(0);
+	// down 2
+	History	dmT2_1(0), dmT1_1(0), dmT0_1(0);
+	// align
+	History	doX0(0);
+
+	// up 2x
+	x0_0_a	= XIN + 0;
+	x1_0	= cubic_hermite_interp(0.5,	umTm1_0, umT0_0, umT1_0, x0_0_a);
+	x2_0	= umT1_0 + 0;
+
+	// process 2x
+	y1_0, y2_0	= transistorLadder2(x1_0, x2_0, hz, res);
+
+	// down 2x
+	y2_0_a	= y2_0 + 0;
+	y2_1	= cubic_hermite_interp(0.5,	y2_0_a,	dmT0_1, dmT1_1, dmT2_1);
+
+	y0_0	= (doX0 + y2_1) * 0.5;
+
+	// update
+	umTm1_0	= umT0_0;
+	umT0_0	= umT1_0;
+	umT1_0	= x0_0_a;
+
+	doX0	= y1_0;
+
+	dmT2_1	= dmT1_1;
+	dmT1_1	= dmT0_1;
+	dmT0_1	= y2_0;
+
+	return y0_0;
+}
+
+Param	cfmode(1, min=0, max=1);			// in2 cutoff in: 1 = pitch, 0 = Hz
+Param	cfsmooth(10, min=0, max=666);		// smooth in2 in ms, 0 == off (turn off for FM etc)
+Param	ressmooth(20, min=0, max=333);		// smooth in5 in ms, 0 == off
+Param	oversample(1, min=0, max=1);		// quasi oversample whole filter
+os		= int(oversample);
+boost	= 1.412538;							// +3dB
+
+freq, limit	= evi_hzpitchmods(in2, in3, in4, mode=cfmode, smooth=cfsmooth, high=0.41);
+				// + oops
+res		= clip(in5 + 0.02, 0, 2);			// 0..1 is as expected, ..2 still works but...
+if (ressmooth > 0) {						// ...lose a little tuning accuracy above 2kHz
+	res	= evi_expsmooth(res, ressmooth);
+}
+
+if (os) {
+	out1 = transistorLadder2_2x4(in1, freq, res) * boost;
+} else {
+	out1 = transistorLadder1(in1, freq, res) * boost;
+}
+

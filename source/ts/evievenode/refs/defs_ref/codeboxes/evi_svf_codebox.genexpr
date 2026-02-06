@@ -1,0 +1,30 @@
+
+// evieve version of [svf~] as a TPT filter, almost the same response but
+// with better modulation properties.
+// @see also: [evi.multimode~] (more filters), [evi.svfsmooth~] (nonlinear), etc
+
+require("evi_svf.genexpr");
+
+Param   oversample(0, min=0, max=1);    // useful for lowpass & bandpass
+os      = int(oversample);
+
+// + (cheap) remap res so that 0..1 input maintains
+// compatibility with MSP Chamberlain version
+res = ((in3 * in3) * 19) + 1;
+                    //   Hz,  res
+g, r, a     = tptSvfUnit(in2, res, os=os);
+yL, yB, yH  = 0;
+if (os) {
+    yL, yB, yH  = tptSvf2_2x(in1, g, r, a);
+}
+else {
+    yL, yB, yH  = tptSvf(in1, g, r, a);
+}
+yN  = yH + yL;
+
+// MSP ordering
+out1    = yL;       // lowpass
+out2    = yH;       // highpass
+out3    = yB;       // bandpass
+out4    = yN;       // notch
+

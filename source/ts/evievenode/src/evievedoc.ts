@@ -5,8 +5,10 @@ import { homedir } from 'os';
 import { resolve, posix, sep } from 'path';
 import path from 'path';
 import { cwd } from 'process';
+import readline from 'readline';
 import Handlebars from 'handlebars';
 import { XMLParser, XMLBuilder } from 'fast-xml-parser';
+import PEGgy from "peggy";
 
 import config from '../config/evievedoc.config.json';// with { type: 'json' };
 import gendsp from '../config/evievedoc.config.gendsp.json';// with { type: 'json' };
@@ -14,8 +16,16 @@ import maxpat from '../config/evievedoc.config.maxpat.json';
 import mxo from '../config/evievedoc.config.mxo.json';
 
 const attributeXmlPrefix = 'maxattr_';
-
 // import testJsonXml from '../test/pete_testing_2.json';
+
+const genexpr_pegjs = fs.readFileSync('../peg/genexpr.pegjs', 'utf8');
+const peg_parse_options = {
+	// output: "ast",			// output the parser as...
+	cache: true,			// avoids pathological slowdowns
+	allowedStartRules: [ "start", "translation_unit", "gen" ]
+};
+const PEGparser = PEGgy.generate(genexpr_pegjs, peg_parse_options);
+// void max.post(`look at the peg: ${JSON.stringify(PEGparser)}`);
 
 // --------------------------------------------- //
 
@@ -61,8 +71,8 @@ max.addHandler('make_abs_ref_jsons', () => {
 	createMaxpatRefJson();
 })
 
-max.addHandler('make_defs_ref_jsons', () => {
-	createDefineRefJson();
+max.addHandler('make_defs_ref_jsons', (extract = false) => {
+	createDefineRefJson(extract);
 })
 
 max.addHandler('make_gens_ref_jsons', () => {
@@ -75,6 +85,10 @@ max.addHandler('make_abs_ref_xml_configs', () => {
 
 max.addHandler('make_defs_ref_xml_configs', () => {
 	parseDefinesData();
+})
+
+max.addHandler('make_defs_genexpr_xml_configs', () => {
+	parseDefinesCodeboxes();
 })
 
 // --------------------------------------------- //
@@ -165,7 +179,7 @@ async function testEditAutoXml()
 
 async function parseDefinesData()
 {
-	const gendspsFolder = `${cwd()}/${config.referenceFiles.genDsp.input}`
+	const gendspsFolder = `${cwd()}/${config.referenceFiles.genDsp.input}`;
 	const fullGendspsPaths = getFilePathsFromPathRecursive(gendspsFolder, 'gendsp');
 	const definesRefsPath = `${cwd()}/${config.referenceFiles.defines.config}`;
 	const fullRefsNames = getFileNamesFromPath(definesRefsPath, 'json');
@@ -179,6 +193,115 @@ async function parseDefinesData()
 			await parseDefinesGendspsLoop(gendspDirName, gendspName, thisConfigFullPath);
 		// } else {
 		// 	void max.post(`Skipping ${gendspName}.gendsp because it has been configured with no ref page generation!`);
+		}
+	}
+}
+
+// 'codeboxesRefsPath' contains code extracted from gen~ patcher embedded codeboxes
+// during 'parseDefinesGendspsLoop()', (because i cannot get pegjs system working)
+async function parseDefinesCodeboxes()
+{
+	const definesRefsPath = `${cwd()}/${config.referenceFiles.defines.config}`;
+	let fullRefsNames = getFileNamesFromPath(definesRefsPath, 'json');
+	const IGNORE = /_xml_define_template.json/;
+	fullRefsNames = fullRefsNames.filter((str) => !IGNORE.test(str));
+	const codeboxesRefsPath = `${definesRefsPath}/codeboxes`;
+	const fullCodeboxesNames = getFileNamesFromPath(codeboxesRefsPath, 'genexpr');
+
+	const collectRequires: string[] = [];
+	const collectHistories: string[][] = [];
+	const collectParams: string[][] = [];
+
+	for await (const refJson of fullRefsNames) {
+		const chichiForPrinting = refJson.replace('_ref.json', '.gendsp');
+		const derivedCodeboxName = refJson.replace('_ref.json', '_codebox.genexpr');
+		if (fullCodeboxesNames.includes(derivedCodeboxName)) {
+			const thisConfigJson = fs.readFileSync(`${definesRefsPath}/${refJson}`, 'utf8');
+			const thisConfigObject = JSON.parse(thisConfigJson);
+			// const thisConfigGenExpr = fs.readFileSync(`${codeboxesRefsPath}/${derivedCodeboxName}`, 'utf8');
+			// const pre_ast = PEGparser.parse(thisConfigGenExpr);
+			// void max.post(`parser test for ${refJson}: ${JSON.stringify(pre_ast)}`);
+
+			const rlInterface = readline.createInterface({
+				input: fs.createReadStream(`${codeboxesRefsPath}/${derivedCodeboxName}`),
+				crlfDelay: Infinity
+			});
+			// this will only work for Pete's pedantic style of GenExpr coding
+			rlInterface.on('line', (line) => {
+				// if (!line.startsWith(' ')) {
+				if (!(/^\s/.test(line))) {
+					if (!(line.startsWith('//')) && !(line.startsWith('/*'))) {
+						// void max.post(`i am reading this line: ${line}`);
+						const line_trim = line.trim();
+						let line_candidate = line_trim;
+						if (line_trim.includes('//')) {
+							line_candidate = line_trim.split('//')[0];
+						}
+						if (line_trim.includes('/*')) {
+							line_candidate = line_trim.split('/*')[0];
+						}
+						// void max.post(`line candidate is now: ${line_candidate}`);
+						if (line_candidate.startsWith('require')) {
+							const line_tokens = line_candidate.split('\"');
+							let requireDecl = line_tokens[1];
+							if (!requireDecl.endsWith('.genexpr')) {
+								requireDecl = `${requireDecl}.genexpr`; // because pete has forgotten sometimes
+							}
+							collectRequires.push(requireDecl);
+							void max.post(`found a require in ${chichiForPrinting}: ${requireDecl}`);
+						} else if (line_candidate.startsWith('History')) {
+							const line_sliced = line_candidate.replace('History', '').trimStart();
+							const line_tokens = line_sliced.split(',');
+							// void max.post(`History line tokens are: ${line_tokens}`);
+							for (let i = 0; i < line_tokens.length; i++) {
+								const historyDecl = line_tokens[i];
+								// void max.post(`History token to work on is: ${historyDecl}`);
+								const history_split = historyDecl.split('(');
+								const histName = history_split[0].trim();
+								const hist_token_val = history_split[1].trim();
+								// void max.post(`hist_token_val cleaned is: ${hist_token_val}`);
+								let histVal = "";
+								if (hist_token_val.includes(')')) {
+									histVal = hist_token_val.split(')')[0].replace(',', '').replace(';', '').trim();
+								} else {
+									histVal = hist_token_val.replace(')', '').replaceAll(',', '').replaceAll(';', '').trim();
+								}
+								// void max.post(`parsed history value is: ${histVal}`);
+								const histArray = [histName, histVal];
+								collectHistories.push(histArray);
+								void max.post(`found a history in ${chichiForPrinting}: ${histArray}`);
+							}
+						} else if (line_candidate.startsWith('Param')) {
+							const line_tokens = line_candidate.split('(');
+							// void max.post(`Param line tokens are: ${line_tokens}`);
+							// void max.post(`Param name token pre-split is: ${line_tokens[0]}`);
+							const paramName = line_tokens[0].replace('Param', '').trimStart();
+							// void max.post(`Param name token post-split is: ${paramName}`);
+							const paramData = line_tokens[1].split(',');
+							// void max.post(`Param data array is: ${paramData}`);
+							const paramDefault = paramData[0].replace(')', '').replaceAll(',', '').replaceAll(';', '');
+							let paramMin = "0";
+							let paramMax = "0";
+							for (let i = 0; i < paramData.length; i++) {
+								const testParamData = paramData[i].trim();
+								if (testParamData.startsWith("min")) {
+									// void max.post(`if min test is true: ${testParamData}`);
+									paramMin = paramData[i].split('=')[1].split(')')[0].replaceAll(',', '').replaceAll(';', '');
+								} else if (testParamData.startsWith("max")) {
+									// void max.post(`if max test is true: ${testParamData}`);
+									paramMax = paramData[i].split('=')[1].split(')')[0].replaceAll(',', '').replaceAll(';', '');
+								}
+							}
+							const paramArray = [paramName, paramDefault, paramMin, paramMax];
+							collectParams.push(paramArray);
+							void max.post(`found a param in ${chichiForPrinting}: ${paramArray}`);
+						}
+					}
+				}
+			});
+			// void max.post(`parsed requires for ${chichiForPrinting}: ${collectRequires.join(' ')}`);
+			// void max.post(`parsed histories for ${chichiForPrinting}: ${collectHistories.join(' ')}`);
+			// void max.post(`parsed params for ${chichiForPrinting}: ${collectParams.join(' ')}`);
 		}
 	}
 }
@@ -321,7 +444,7 @@ async function parseDefinesGendspsLoop(gendspPath: string, gendspName: string, t
 					if (currentMessagesNames.includes('history')) {
 						void max.post(`found a history operator in ${gendspName}.gendsp but too stupid to parse it`);
 /*						let thisMessage: any = JSON.parse(JSON.stringify());
-
+						// ?!?!?!
 						let thisArg: any = JSON.parse(JSON.stringify(msgArgsConfig));
 						thisArg.name = MSG_tokens[1];
 						if (MSG_tokens.length > 2) {
@@ -329,6 +452,7 @@ async function parseDefinesGendspsLoop(gendspPath: string, gendspName: string, t
 						}
 						thisConfigObject.messages.arg.push(thisArg);
 */					} else {
+						// is new 'history' message type entry
 						let thisMessage: any = JSON.parse(JSON.stringify(messagesConfig));
 						thisMessage.name = "history";
 						thisMessage.arg = thisMessage.arg.filter((entry: { name: string; }) => entry.name !== "");
@@ -356,15 +480,19 @@ async function parseDefinesGendspsLoop(gendspPath: string, gendspName: string, t
 		return a.id >= b.id ? 1 : -1;
 	});
 
-	const Require: RegExp = /(?:^|\W)require(?:$|\W)/;
-	const History: RegExp = /(?:^|\W)history(?:$|\W)/;
-	const Param: RegExp = /(?:^|\W)param(?:$|\W)/;
+	// const Require: RegExp = /(?:^|\W)require(?:$|\W)/;
+	// const History: RegExp = /(?:^|\W)history(?:$|\W)/;
+	// const Param: RegExp = /(?:^|\W)param(?:$|\W)/;
 	// TODO (& use pegjs ?)
 	for await (const object of gendspJson.patcher.boxes) {
 		if (object.box.maxclass === GEN_CODE) {
-			const GenExprCode = object.box.code;
-			// void max.post(JSON.stringify(GenExprCode));
+			let GenExprCode = object.box.code;
 			// void max.post(GenExprCode);
+			const pathForGE = path.dirname(thisConfigFullPath);
+			const nameForGE = `${gendspName}_codebox.genexpr`;
+			fs.writeFileSync(`${pathForGE}/codeboxes/${nameForGE}`, GenExprCode);
+			// const pre_ast = PEGparser.parse(GenExprCode);
+			// void max.post(`parser test for ${gendspName}: ${JSON.stringify(pre_ast)}`);
 		}
 	}
 
@@ -670,7 +798,7 @@ async function createMaxpatRefJson()
 	}
 }
 
-async function createDefineRefJson()
+async function createDefineRefJson(extractCodebox = false)
 {
 	const defineRefsPath = `${cwd()}/${config.referenceFiles.defines.config}`;
 	const templateJson = fs.readFileSync(`${defineRefsPath}/_xml_define_template.json`, 'utf8');
@@ -698,12 +826,17 @@ async function createDefineRefJson()
 					newTemplate.metadata.author = "Pete Dowling"; // fatPete
 
 					fs.writeFileSync(`${defineRefsPath}/${jsonFileName}`, JSON.stringify(newTemplate, null, 4));
-					void max.post(`Creation of ${jsonFileName} success!`)
+					// void max.post(`Creation of ${jsonFileName} success!`)
 				}
 			}
 		}
 		else {
 			void max.post(`Skipping ${jsonFileName} because it already exists!`);
+		}
+
+		if (extractCodebox) {
+			// pete is too stupid
+			; // @see: 'parseDefinesGendspsLoop()'
 		}
 	}
 }

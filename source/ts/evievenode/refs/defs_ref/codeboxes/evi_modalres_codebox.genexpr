@@ -1,0 +1,40 @@
+
+require("evi_approx.genexpr");
+
+// Max Matthews complex resonator, thanks to Oli Larkin & Julian Parker
+// @see: M. Mathews and J. O. Smith, https://ccrma.stanford.edu/~jos/smac03maxjos/smac03maxjos.pdf
+maxRes(x, cps, decay, inviter, histAx, histBx)
+{
+    decayc = tauA(decay * inviter);
+    v  = cps * TWOPI / samplerate;
+    cv = cos73(v) * decayc;
+    sv = sin73(v) * decayc;
+    y  = (sv * histAx) + (histBx * cv);
+    histAy = x + (histAx * cv) + (histBx * -sv);
+    histBy = y;
+
+    return y, histAy, histBy;
+}
+
+Data    hist(2, 1);
+
+ITERATIONS  = 10;           // pitch changes with iterations
+invITER     = 1 / ITERATIONS;
+
+X       = in1;
+freq    = in2;
+decay   = maximum(in3, 0);  // this is not seconds ?!
+
+sum = 0;
+for (i = 1; i <= ITERATIONS; i += 1)
+{
+    histAx = peek(hist, 0);
+    histBx = peek(hist, 1);
+	sum, histAy, histBy = maxRes(X, freq * i, decay * (1 - i / ITERATIONS), invITER, histAx, histBx);
+    poke(hist, histAy, 0);
+    poke(hist, histBy, 1);
+    sum += sum;
+}
+
+out1 = sum * (1 / (ITERATIONS + ITERATIONS));
+

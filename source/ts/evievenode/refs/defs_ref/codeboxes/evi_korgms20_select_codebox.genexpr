@@ -1,0 +1,267 @@
+
+// Korg OTA dual-amplifier buffered modified Sallen-Key topology filter.
+// The 'KLM' OTA chip was found in the later MS-20s & other Korg synthesisers - it is
+// different to the earlier 'Korg 35' single-amplifier unbuffered Korg chip found in the
+// earlier MS-20s & MS-10 and also in the 'monotron' series.
+// For 'Korg 35' chip 'emulation' @see: "evi_korgms10.gendsp". For a more aggressive MS20
+// style filter @see: "evi_korgms20.gendsp". Thanks to Will Pirkle.
+
+// This is a fabricated evieve version able to smoothly switch (with a nice 'plop')
+// between 12dB LP & 6dB HP filter types, realised in transposed TPT form. With 2x option.
+
+require("evi_tanh.genexpr");
+require("evi_smooth.genexpr");
+require("evi_interp.genexpr");
+
+// filter 1x
+SandKone(X, hz, k1, M1, M2, load)
+{
+    History	state0(0), state1(0), state2(0), state3(0);         // (T) S&K state initialise
+
+    // prewarp to alpha/beta
+    g0      = tanA2(hz * PI / SAMPLERATE);
+    oneg	=  1 + g0;											// divisor
+    alphas	=  g0 / oneg;										// G (feedforward)
+    k1as	= mix(k1, -1, M1) * alphas;
+    betam	= mix((k1 - k1as), k1as, M1) / oneg;				// feedback...
+    betas	= mix(-1, 1, M1) / oneg;							// ...
+    alpha0	=  1 / (1 - (k1 * alphas) + (k1 * alphas * alphas));// u scalar
+    k2		= (1 / k1);											// compensate
+
+    // 1st low/high-pass integrator
+    lp1vn	= (X - state0) * alphas;
+    lp1		= lp1vn + state0;
+    state0	= lp1vn + lp1;
+    hp1		=  X - lp1;
+
+    // s35 from feedbacks
+    hp2fb	= state1 * betam * M1;
+    lp2fb	= state2 * betam * M2;
+    bp2fb	= state3 * betas;
+    s35		= bp2fb + (lp2fb + hp2fb);
+
+    // create nonlinear
+    u		= alpha0 * (mix(lp1, hp1, M1) + s35) * mix(1, k1, M1);
+    u		= tanhLxA((u * 1.122018), load);	                // 6 dB HP
+
+    // 2nd highpass integrator
+    hp2vn	= (u - state1) * alphas;
+    bp1		= hp2vn + state1;
+    state1	= hp2vn + bp1;
+    hp2		=  u - bp1;
+
+    // 2nd lowpass integrator
+    lp2vn	= (u - state2) * alphas;
+    lp2		= lp2vn + state2;
+    state2	= lp2vn + lp2;
+    lp2		= k1 * lp2;						                    // 12 dB LP
+
+    Y		= interp(M1, lp2, u, mode="cosine") * k2;	        // 12 dB LP || 6 dB HP
+
+    // feedback loop / 3rd integrator
+    bp0		= mix(lp2, hp2, M1);
+    bp2vn	= (bp0 - state3) * alphas;
+    bp2		= bp2vn + state3;
+    state3	= bp2vn + bp2;
+
+    return  dcblock(Y);
+}
+
+// filter 2x
+SandKtwo(X0, X1, hz, k1, M1, M2, load)
+{
+    History	state0(0), state1(0), state2(0), state3(0);
+
+    // prewarp to alpha/beta
+    g0      = tanA2(hz * PI / SAMPLERATE) * 0.5;
+    oneg	=  1 + g0;
+    alphas	=  g0 / oneg;
+    k1as	= mix(k1, -1, M1) * alphas;
+    betam	= mix((k1 - k1as), k1as, M1) / oneg;
+    betas	= mix(-1, 1, M1) / oneg;
+    alpha0	=  1 / (1 - (k1 * alphas) + (k1 * alphas * alphas));
+    k2		= (1 / k1);
+
+    // pass 1
+
+    // 1st low/high-pass integrator
+    lp1vn0	= (X0 - state0) * alphas;
+    lp10	= lp1vn0 + state0;
+    state0	= lp1vn0 + lp10;
+    hp10	=  X0 - lp10;
+
+    // s35 from feedbacks
+    hp2fb0	= state1 * betam * M1;
+    lp2fb0	= state2 * betam * M2;
+    bp2fb0	= state3 * betas;
+    s350	= bp2fb0 + (lp2fb0 + hp2fb0);
+
+    // create nonlinear
+    u0		= alpha0 * (mix(lp10, hp10, M1) + s350) * mix(1, k1, M1);
+    u0		= tanhLxA((u0 * 1.122018), load);
+
+    // 2nd highpass integrator
+    hp2vn0	= (u0 - state1) * alphas;
+    bp10	= hp2vn0 + state1;
+    state1	= hp2vn0 + bp10;
+    hp20	=  u0 - bp10;
+
+    // 2nd lowpass integrator
+    lp2vn0	= (u0 - state2) * alphas;
+    lp20	= lp2vn0 + state2;
+    state2	= lp2vn0 + lp20;
+    lp20	= k1 * lp20;
+
+    Y0		= interp(M1, lp20, u0, mode="cosine") * k2;
+
+    // feedback loop / 3rd integrator
+    bp00	= mix(lp20, hp20, M1);
+    bp2vn0	= (bp00 - state3) * alphas;
+    bp20	= bp2vn0 + state3;
+    state3	= bp2vn0 + bp20;
+
+    // pass 2
+
+    // 1st low/high-pass integrator
+    lp1vn1	= (X1 - state0) * alphas;
+    lp11	= lp1vn1 + state0;
+    state0	= lp1vn1 + lp11;
+    hp11	=  X1 - lp11;
+
+    // s35 from feedbacks
+    hp2fb1	= state1 * betam * M1;
+    lp2fb1	= state2 * betam * M2;
+    bp2fb1	= state3 * betas;
+    s351	= bp2fb1 + (lp2fb1 + hp2fb1);
+
+    // create nonlinear
+    u1		= alpha0 * (mix(lp11, hp11, M1) + s351) * mix(1, k1, M1);
+    u1		= tanhLxA((u1 * 1.122018), load);
+
+    // 2nd highpass integrator
+    hp2vn1	= (u1 - state1) * alphas;
+    bp11	= hp2vn1 + state1;
+    state1	= hp2vn1 + bp11;
+    hp21	=  u1 - bp11;
+
+    // 2nd lowpass integrator
+    lp2vn1	= (u1 - state2) * alphas;
+    lp21	= lp2vn1 + state2;
+    state2	= lp2vn1 + lp21;
+    lp21	= k1 * lp21;
+
+    Y1		= interp(M1, lp21, u1, mode="cosine") * k2;
+
+    // feedback loop / 3rd integrator
+    bp01	= mix(lp21, hp21, M1);
+    bp2vn1	= (bp01 - state3) * alphas;
+    bp21	= bp2vn1 + state3;
+    state3	= bp2vn1 + bp21;
+
+    return  dcblock(Y0), dcblock(Y1);
+}
+
+// fixed 2x quasi oversampling (hermite6)
+SandKtwo_2x6( XIN, hz, k1, M1, M2, load )
+{	// up 2
+	History	umTm2_0(0), umTm1_0(0), umT0_0(0), umT1_0(0), umT2_0(0);
+	// down 2
+	History	dmT3_1(0), dmT2_1(0), dmT1_1(0), dmT0_1(0), dmTm1_1(0);
+	// align
+	History	doX0(0);
+
+	// up 2x
+	x0_0_a	= XIN + 0;
+	x1_0	= hermite_sixpoint_interp(0.5,	umTm2_0, umTm1_0, umT0_0, umT1_0, umT2_0, x0_0_a);
+	x2_0	= umT2_0 + 0;
+
+	// process 2x
+    y1_0, y2_0 = SandKtwo(x1_0, x2_0, hz, k1, M1, M2, load);
+
+	// down 2x
+	y2_0_a	= y2_0 + 0;
+	y2_1	= hermite_sixpoint_interp(0.5,	y2_0_a,	dmTm1_1, dmT0_1, dmT1_1, dmT2_1, dmT3_1);
+
+	y0_0	= (doX0 + y2_1) * 0.5;
+
+	// update
+	umTm2_0	= umTm1_0;
+	umTm1_0	= umT0_0;
+	umT0_0	= umT1_0;
+	umT1_0 	= umT2_0;
+	umT2_0	= x0_0_a;
+
+	doX0	= y1_0;
+
+	dmT3_1	= dmT2_1;
+	dmT2_1	= dmT1_1;
+	dmT1_1	= dmT0_1;
+	dmT0_1	= dmTm1_1;
+	dmTm1_1	= y2_0;
+
+	return dcblock(y0_0);
+}
+
+// fixed 2x quasi oversampling (cubic4)
+SandKtwo_2x4( XIN, hz, k1, M1, M2, load )
+{	// up 2
+	History	umTm1_0(0), umT0_0(0), umT1_0(0);
+	// down 2
+	History	dmT2_1(0), dmT1_1(0), dmT0_1(0);
+	// align
+	History	doX0(0);
+
+	// up 2x
+	x0_0_a	= XIN + 0;
+	x1_0	= cubic_hermite_interp(0.5,	umTm1_0, umT0_0, umT1_0, x0_0_a);
+	x2_0	= umT1_0 + 0;
+
+	// process 2x//
+	y1_0, y2_0	= SandKtwo(x1_0, x2_0, hz, k1, M1, M2, load);
+
+	// down 2x
+	y2_0_a	= y2_0 + 0;
+	y2_1	= cubic_hermite_interp(0.5,	y2_0_a,	dmT0_1, dmT1_1, dmT2_1);
+
+	y0_0	= (doX0 + y2_1) * 0.5;
+
+	// update
+	umTm1_0	= umT0_0;
+	umT0_0	= umT1_0;
+	umT1_0	= x0_0_a;
+
+	doX0	= y1_0;
+
+	dmT2_1	= dmT1_1;
+	dmT1_1	= dmT0_1;
+	dmT0_1	= y2_0;
+
+	return y0_0;
+}
+
+Param	filter(0, min=0, max=1);						// switch LP/HP 0/1 flag
+Param	filtersmooth(92, min=0, max=296);				// in ms
+// do not change load
+Param   load(1.333333333333, min=0.25, max=4);
+Param   oversample(1, min=0, max=1);                    // default 2x
+os      = int(oversample);
+
+X	    = in1;
+hz	    = in2;          // Hz
+k1      = in3 + in3;    // 0..1 .. 0..2
+
+M1		= int(filter);                                  // switch not morph
+if (filtersmooth > 0) 
+	M1	= eviSline(M1, mstosamps(filtersmooth));
+M2		= 1 - M1;
+
+// TPT Korg OTA filter
+if (os) {
+    // 2x slightly limits resonance for high frequencies, not as useful for highpass
+    out1    = SandKtwo_2x4(X, hz, k1, M1, M2, load);
+}
+else {
+    // default
+    out1    = SandKone(X, hz, k1, M1, M2, load);
+}
+

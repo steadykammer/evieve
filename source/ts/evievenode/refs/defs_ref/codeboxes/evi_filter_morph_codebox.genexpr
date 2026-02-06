@@ -1,0 +1,23 @@
+
+// a linear TPT SVF which can morph between LP..BP..HP..NOTCH..LP via the 5th ('Morph') inlet.
+// all inlets can be audio-rate modulated and the filters remain stable and clean.
+// @see also: "evi_svfsmooth.gendsp" / [evi.svfsmooth~] for nonlinear LP..BP..HP morphing.
+// @see also: "evi_arpnotch.gendsp" / [evi.arpnotch~] for nonlinear LP..NOTCH..HP morphing.
+
+require("evi_svf.genexpr"); // & other morphing filters in here
+
+
+Param   smooth(22.666, min=0, max=1000); // in ms
+
+X       = in1;
+cutoff  = in2;  // Hz
+dB      = in3;  // dB
+bw      = in4 * 0.5 + 0.5;  // 0..1 -> 0.5..1
+morph   = in5;  // 0..1 % LP..BP..HP..NOTCH..LP
+
+// 'morph' 0..1 interpolates LP..BP..HP..NOTCH..LP
+// gain in dB, bandwidth 0..1, smooth in ms
+filterMorph = eviFilterMorph(X, cutoff, dB, bw, morph, smooth=smooth);
+
+out1 = filterMorph;
+

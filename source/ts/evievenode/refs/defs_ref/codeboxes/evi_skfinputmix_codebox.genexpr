@@ -1,0 +1,71 @@
+
+// a version of Simper's sKf input mixer
+// @see: http://cytomic.com/files/dsp/SkfInputMixing.pdf
+// mixing for low, band, high, decoupling mixing from coeffs, possibly different inputs
+// for a similar filter with different properties @see: "evi_svfinputmix.gendsp"
+//                                                           ^V^
+
+require("evi_tanh.genexpr");
+require("evi_trig.genexpr");
+require("evi_smooth.genexpr");
+
+inputMixingSkfCoefficients(cutoff, res)
+{
+    r   = (res * 0.8) + 0.2;
+    k	= 1.88062 * r;
+    k1m	= 1 - k;
+    k2m	= 2 - k;
+    w	= PI * cutoff / SAMPLERATE;    s1	= sin52param(w);    s2	= sin52param(w + w);
+    nrm	= 1 / (2 + k2m * s2);    s1n	= (s1 + s1) * s1 * nrm;    s2n	= s2 * nrm;
+    g1m0	= -k1m * s1n + s2n;    g1m1	= -s1n - s2n;    g1m2	=  s1n + k1m * s2n;    g2		= -k * s2n;    g3m0	=  s1n;    g3m1	=  s2n;    g3m2	= -s1n - k2m * s2n;    g4		= -s1n - k1m * s2n;
+    return g1m0, g1m1, g1m2, g2, g3m0, g3m1, g3m2, g4;
+}
+
+History	ic1eq(0), ic2eq(0);
+
+// param rate
+
+Param   cutoff(1000, min=10, max=10000);            // Hz
+Param   res(sqrt1_2, min=0, max=1);                 // 0..1
+
+Param   coeffsmooth(15.111, min=0, max=333);        // ms
+Param   mixsmooth(22.666, min=0, max=333);          // ms
+Param   mix(0, min=0, max=1);                       // internal 3-way sine mixer
+Param   mixenable(1, min=0, max=1);                 // enable the internal mixer 0/1 ?
+me      = int(mixenable);
+
+// the input mixer is optional, default on
+m0      = mixSin(mix, 0.5);
+m1      = mixSin(mix, 0);
+m2      = mixSin(mix, -0.5);
+
+g1m0, g1m1, g1m2, g2, g3m0, g3m1, g3m2, g4  = inputMixingSkfCoefficients(cutoff, res);
+
+// audio rate from here
+
+if (coeffsmooth > 0) {
+    g1m0, g1m1, g1m2, g2, g3m0, g3m1, g3m2, g4  = logsmoothBank8(g1m0, g1m1, g1m2, g2, g3m0, g3m1, g3m2, g4, coeffsmooth*0.001);
+}
+
+vlow, vband, vhigh  = 0;
+if (me) {
+    if (mixsmooth > 0) {
+        m0, m1, m2  = expsmoothBank3(m0, m1, m2, mixsmooth*0.001);
+    }
+
+    vlow    = in1 * m0;
+    vband   = in2 * m1;
+    vhigh   = in3 * m2;
+}
+else {
+    // for sequencing or fun experiments
+    vlow    = in1;
+    vband   = in2;
+    vhigh   = in3;
+}
+
+// SKF loop
+t1	= vlow * g1m0 + vband * g1m1 + (vhigh * g1m2) + g1m1 * ic1eq + g2 * ic2eq;
+t2	= altTanhAdaa1(vlow * g3m0) + (vband * g3m1) + vhigh * g3m2 + g3m1 * ic1eq + g4 * ic2eq;vc2	= t2 + ic2eq;
+ic1eq  += 1.9796 * t1;ic2eq  += 1.9796 * t2;
+out1	= vhigh + vc2;

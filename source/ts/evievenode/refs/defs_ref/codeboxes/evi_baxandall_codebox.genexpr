@@ -1,0 +1,92 @@
+
+// cheap Df2-based classic "Baxandall" (treble/bass 'tone') EQ with no smoothing.
+// mono or stereo.
+
+// a bit like the airwindows Baxandall, MIT licensed.
+
+coeffs(freq, recres, divres)
+{
+	K		= tan(PI * freq) * recres;	// * 1 / resampling factor
+	K2		= K * K;
+	Kw1		= K / divres;				// div resample
+	norm	= 1 / (1 + Kw1 + K2);
+	K2norm	= (K2 - 1) * norm;
+
+	a1		= K2 * norm;
+	a2		= a1 + a1;
+	b1		= K2norm + K2norm;
+	b2		= (1 - Kw1 + K2) * norm;
+
+	return	a1, a2, b1, b2;
+}
+
+// Df2
+
+filter(x0, a1, a2, b1, b2)
+{
+	History	y0(0), y1(0);
+
+	x1				=  x0 * a1;
+	outputSample	=  x1 + y0;
+	y0				= (x0 * a2) - (outputSample * b1) + y1;
+	y1				=  x1 - (outputSample * b2);
+
+	return			outputSample;
+}
+
+// setup
+
+Param	stereo(0, min=0, max=1);    // 0/1
+Param	treble(0, min=-24, max=24); // dB
+Param	bass(0, min=-24, max=24);   // dB
+
+DBLIN	= 0.11512925464970228;
+
+stereoOp		= int(stereo);
+inputSample		= in1;
+inputSampleR	= in2;
+
+// controls
+
+trebleGain	= exp(DBLIN * treble);		// smooth here
+trebleFreq	= minimum((4800 * trebleGain) / samplerate, 0.45);
+
+gainBass	= bass;						// smooth here
+bassGain	= exp(DBLIN * gainBass);
+bassFreq	= exp(DBLIN * -gainBass);
+bassFreq	= minimum((9600 * bassFreq) / samplerate, 0.45);
+
+// coefficients
+
+ta1, ta2, tb1, tb2	= coeffs(trebleFreq, 0.5, 0.4);
+ba1, ba2, bb1, bb2	= coeffs(bassFreq, 0.5, 0.2);
+
+// filters
+
+trebleSample	= inputSample - filter(inputSample, ta1, ta2, tb1, tb2);
+bassSample		= filter(inputSample, ba1, ba2, bb1, bb2);
+
+// output
+
+trebleSample   *= trebleGain;
+bassSample	   *= bassGain;
+outputSample	= bassSample + trebleSample;
+
+out1			= outputSample;
+out2			= 0;
+
+if (stereoOp)
+{
+	// filters
+	
+	trebleSampleR	= inputSampleR - filter(inputSampleR, ta1, ta2, tb1, tb2);
+	bassSampleR		= filter(inputSampleR, ba1, ba2, bb1, bb2);
+	
+	// output
+	
+	trebleSampleR  *= trebleGain;
+	bassSampleR	   *= bassGain;
+	outputSampleR	= bassSampleR + trebleSampleR;
+	
+	out2			= outputSampleR;
+}

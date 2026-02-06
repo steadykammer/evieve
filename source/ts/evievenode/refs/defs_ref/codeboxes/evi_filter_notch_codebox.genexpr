@@ -1,0 +1,8 @@
+
+require("evi_svf.genexpr");
+
+Param   smooth(0, min=0, max=333);
+
+                      // In   Hz   dB   Q    ms
+out1    = eviFilterNotch(in1, in2, in3, in4, smooth=smooth);
+

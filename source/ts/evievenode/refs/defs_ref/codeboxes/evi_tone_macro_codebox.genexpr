@@ -1,0 +1,37 @@
+
+// a 'one knob' ("tone" parameter) macroisation for nonlinear cut tone control
+// useful for quick colourisation in your audio chain.
+// @see: "evi_damp_macro.gendsp" / [evi.damp.macro~] for the opposite
+// @see: "evi_onepole_shelving.gendsp" / [evi.onepole.shelving~] for cut/boost
+
+require("evi_rcfilters.genexpr");
+require("evi_smooth.genexpr");
+
+// param rate
+
+Param   tone(1, min=0, max=1);
+Param   smooth(0, min=0, max=999);
+
+// cheapo macroisation, surprisingly it works, is even accross 0..1 range
+
+damp = 1 - tone;
+sqdamp = sqrt(damp);
+dampHzLpHs = ((1 - sqdamp) * 17500) + 500;
+dampHzHpLs = ((damp * damp) * 490) + 10;
+g1, _d1 = rcDampCoeffs0(dampHzLpHs, sqdamp);
+g2, d2 = rcDampCoeffs0(dampHzHpLs, sqrt(sqdamp));
+
+glp = g1; ghp = g2; hk = d2; gain = damp;
+
+// audio rate
+
+if (smooth > 0) {
+    glp, ghp, hk, gain = expsmoothBank4(glp, ghp, hk, gain, smooth*0.001);
+}
+
+Vin = in1 * dbtoaApproxFast(gain * 9);
+LP  = rcOnePole(Vin, glp);                  // nonlinear lowpass
+_lp, HP = rcFilterDampLpHp(LP, ghp, hk);    // linear highpass/lowshelf
+
+out1 = HP * (1 + gain * gain);
+

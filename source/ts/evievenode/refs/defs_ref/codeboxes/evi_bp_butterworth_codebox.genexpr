@@ -1,0 +1,12 @@
+
+require("evi_biquad.genexpr");
+
+/*
+    butterworth lowpass 6-pole, by Miller Puckette, from "SMECK"
+    unique construction created from three "bp~" (df1) objects
+*/
+
+out1    = eviBiquadBpButterworth6(in1, in2);
+
+// @see: "evi_butterworth8.gendsp" / [evi.butterworthlp8~] for
+// variable pole butterworth lowpass TPT filtering.

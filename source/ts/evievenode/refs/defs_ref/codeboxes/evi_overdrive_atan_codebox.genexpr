@@ -1,0 +1,54 @@
+
+// this is an anti-aliased atan(x) (with gain compensation wrapper)
+// for saturating your audio, not for Maths.
+
+require("evi_saturators.genexpr");
+
+// This gain compensation wrapper around the atan() function makes a great non-linear
+// shaper. Many thanks to Volker Böhm. With no anti-aliasing it sounds like crap, but here
+// the atan(x)s in the functions above are anti-aliased and much nicer.
+atanDrive(drive)
+{
+	pre = maximum(drive, 1);
+	post = maximum((1 / atanA(drive)), 0.1);// naive approx for control rate
+	return pre, post;
+}
+
+History	reset(1);
+
+//Param	shape(1, min=1, max=100);			// linear gain, 0..40 dB
+//Param	smoothshape(22.666, min=0, max=333);// ms
+Param	hfcompensate(1, min=0, max=1);		// default on
+Param	aa(3, min=0, max=5);				// default Adaa2
+adaaxx	= int(aa);
+hfcomp	= int(hfcompensate);
+//smooth	= smoothshape * 0.001;			// secs
+
+resetaa	= delta(change(adaaxx)) < 0;
+resethf	= delta(change(hfcomp)) < 0;
+reset	= resetaa + resethf;
+
+ingain, outgain = atanDrive(in2);
+ataninput = in1 * ingain;
+atanoutput	= 0;
+if (adaaxx == 1) {
+	atanoutput = atanAdaa1_2x_6POINT(ataninput, reset);
+} else if (adaaxx == 2) {
+	atanoutput = atanAdaa1_4x_6POINT(ataninput, reset);
+} else if (adaaxx == 3) {	// default
+	atanoutput = atanAdaa2(ataninput, reset);
+} else if (adaaxx == 4) {
+	atanoutput = atanAdaa2_2x_6POINT(ataninput, reset);
+} else if (adaaxx == 5) {
+	atanoutput = atanAdaa2_4x_6POINT(ataninput, reset);
+} else {					// (adaaxx == 0)
+	atanoutput = atanAdaa1(ataninput, reset);
+}
+
+if (hfcomp) {
+	atanoutput = decorelate(atanoutput);
+}
+
+out1	= atanoutput * outgain * HALFPI;
+out2	= reset;
+

@@ -16,12 +16,23 @@
         "boxes": [
             {
                 "box": {
+                    "id": "obj-27",
+                    "maxclass": "message",
+                    "numinlets": 2,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 738.0, 419.0, 187.0, 22.0 ],
+                    "text": "make_defs_genexpr_xml_configs"
+                }
+            },
+            {
+                "box": {
                     "id": "obj-24",
                     "maxclass": "message",
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 629.0, 419.0, 158.0, 22.0 ],
+                    "patching_rect": [ 578.0, 419.0, 158.0, 22.0 ],
                     "text": "make_defs_ref_xml_configs"
                 }
             },
@@ -32,7 +43,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 600.0, 449.0, 155.0, 22.0 ],
+                    "patching_rect": [ 549.0, 449.0, 155.0, 22.0 ],
                     "text": "make_abs_ref_xml_configs"
                 }
             },
@@ -43,7 +54,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 643.0, 583.0, 126.0, 22.0 ],
+                    "patching_rect": [ 592.0, 583.0, 126.0, 22.0 ],
                     "text": "make_gens_ref_jsons"
                 }
             },
@@ -54,7 +65,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 616.0, 543.0, 123.0, 22.0 ],
+                    "patching_rect": [ 565.0, 543.0, 123.0, 22.0 ],
                     "text": "make_defs_ref_jsons"
                 }
             },
@@ -65,7 +76,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 574.0, 510.0, 119.0, 22.0 ],
+                    "patching_rect": [ 523.0, 510.0, 119.0, 22.0 ],
                     "text": "make_abs_ref_jsons"
                 }
             },
@@ -897,8 +908,6 @@
                     "saved_object_attributes": {
                         "autostart": 0,
                         "defer": 0,
-                        "node_bin_path": "",
-                        "npm_bin_path": "",
                         "watch": 0
                     },
                     "text": "node.script /Users/stkr/Dev/evieve/source/ts/evievenode/dist/evievedoc.js",
@@ -908,6 +917,16 @@
                         "embed": 0,
                         "autowatch": 1
                     }
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-32",
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 765.0, 400.0, 44.0, 20.0 ],
+                    "text": ":-("
                 }
             }
         ],
@@ -1018,6 +1037,12 @@
                 "patchline": {
                     "destination": [ "obj-1", 0 ],
                     "source": [ "obj-25", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-1", 0 ],
+                    "source": [ "obj-27", 0 ]
                 }
             },
             {

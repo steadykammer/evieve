@@ -1,0 +1,26 @@
+
+// allpass filters used by the evieve crossovers code, so you can allpass-compensate
+// your split or mixed-in audio signals using the same filters as the evieve crossovers.
+
+
+require("evi_crossovers.genexpr");
+
+Param   order(0, min=0, max=1); // 0 = 1-pole allpass (default), 1 = 2-pole allpass
+poles   = int(order);
+
+allpass = 0;
+if (poles > 0) {
+    allpass = eviXoverAllpass2(in1, in2);   // 2-pole compensates 4-pole crossover
+} else {
+    allpass = eviXoverAllpass1(in1, in2);   // 1-pole compensates 2-pole crossover (default)
+}
+
+out1    = allpass;
+
+
+// Note: for crossovers, including 2- & 3- band-split crossovers,
+// @see: "evi_crossover.gendsp" / [evi.crossover~]
+// @see: "evi_crossover_3band.gendsp" / [evi.crossover.3band~]
+// @see: "evi_crossover_sum.gendsp" / [evi.crossover.sum~]
+// @see: "evi_cross.gendsp" / [evi.cross~]
+
