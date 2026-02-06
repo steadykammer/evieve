@@ -49,11 +49,11 @@
     ],
     "messages": [
         {
-            "name": "",
+            "name": "history",
             "arg": [
                 {
-                    "name": "",
-                    "type": "",
+                    "name": "jump",
+                    "type": "float",
                     "units": "",
                     "optional": 1
                 }
@@ -62,7 +62,68 @@
             "description": ""
         }
     ],
-    "attributes": [],
+    "attributes": [
+        {
+            "name": "minimumhz",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": 0,
+                "max": 1,
+                "value": "0.125"
+            }
+        },
+        {
+            "name": "mode",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": 0,
+                "max": 1,
+                "value": "1"
+            }
+        },
+        {
+            "name": "pause",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": 0,
+                "max": 1,
+                "value": "0"
+            }
+        },
+        {
+            "name": "phase",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": 0,
+                "max": 1,
+                "value": "0."
+            }
+        },
+        {
+            "name": "reverse",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": 0,
+                "max": 1,
+                "value": "1"
+            }
+        }
+    ],
     "example": {
         "caption": "",
         "image": ""

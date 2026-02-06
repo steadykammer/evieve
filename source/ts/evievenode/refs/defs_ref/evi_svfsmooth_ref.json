@@ -71,21 +71,7 @@
             "description": ""
         }
     ],
-    "messages": [
-        {
-            "name": "",
-            "arg": [
-                {
-                    "name": "",
-                    "type": "",
-                    "units": "",
-                    "optional": 1
-                }
-            ],
-            "digest": "",
-            "description": ""
-        }
-    ],
+    "messages": [],
     "attributes": [],
     "example": {
         "caption": "",

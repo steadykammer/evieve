@@ -216,6 +216,25 @@ async function parseDefinesGendspsLoop(gendspPath: string, gendspName: string, t
 			"value": 0
 		}
 	};
+	const messagesConfig: any = {
+		"name": "",
+		"arg": [
+			{
+				"name": "",
+				"type": "",
+				"units": "",
+				"optional": 1
+			}
+		],
+		"digest": "",
+		"description": ""
+	};
+	const msgArgsConfig: any = {
+		"name": "",
+		"type": "",
+		"units": "",
+		"optional": 1
+	}
 /*	const GEN_PARAM_GE = "Param";
 	const GEN_HIST_GE = "History";
 	const REQUIRE_GE = "require";
@@ -225,6 +244,12 @@ async function parseDefinesGendspsLoop(gendspPath: string, gendspName: string, t
 	thisConfigObject.inlets = thisConfigObject.inlets.filter((entry: { id: number; }) => entry.id !== 0);
 	thisConfigObject.outlets = thisConfigObject.outlets.filter((entry: { id: number; }) => entry.id !== 0);
 	thisConfigObject.attributes = thisConfigObject.attributes.filter((entry: { name: string; }) => entry.name !== "");
+	thisConfigObject.messages = thisConfigObject.messages.filter((entry: { name: string; }) => entry.name !== "");
+
+	const currentMessagesNames: string[] = [];
+	for (const entry of thisConfigObject.messages) {
+		currentMessagesNames.push(entry.name);
+	}
 
 	for await (const object of gendspJson.patcher.boxes) {
 		if (object.box.maxclass === NEW_OBJ) {
@@ -287,11 +312,42 @@ async function parseDefinesGendspsLoop(gendspPath: string, gendspName: string, t
 						}
 					}
 				}
+				thisConfigObject.attributes.push(thisAttr);
 			} else if (isHistory) {
-				; // to messages
+				// we morph named history operators into "messages" entries (so long as they are top level)
+				const MSG_tokens = BOX_TEXT.split(' ');
+				// only if it is a human named history operator, parse it
+				if (MSG_tokens.length > 1) {
+					if (currentMessagesNames.includes('history')) {
+						void max.post(`found a history operator in ${gendspName}.gendsp but too stupid to parse it`);
+/*						let thisMessage: any = JSON.parse(JSON.stringify());
+
+						let thisArg: any = JSON.parse(JSON.stringify(msgArgsConfig));
+						thisArg.name = MSG_tokens[1];
+						if (MSG_tokens.length > 2) {
+							thisArg.type = inferTypeFromString(MSG_tokens[2]);
+						}
+						thisConfigObject.messages.arg.push(thisArg);
+*/					} else {
+						let thisMessage: any = JSON.parse(JSON.stringify(messagesConfig));
+						thisMessage.name = "history";
+						thisMessage.arg = thisMessage.arg.filter((entry: { name: string; }) => entry.name !== "");
+						let thisArg: any = JSON.parse(JSON.stringify(msgArgsConfig));
+						thisArg.name = MSG_tokens[1];
+						if (MSG_tokens.length > 2) {
+							thisArg.type = inferTypeFromString(MSG_tokens[2]);
+						}
+						thisMessage.arg.push(thisArg);
+						thisConfigObject.messages.push(thisMessage);
+					}
+				}
 			}
 		}
 	}
+
+	// keeps most recent
+	thisConfigObject.inlets = thinUniqueArrayByKey(thisConfigObject.inlets, "id");
+	thisConfigObject.outlets = thinUniqueArrayByKey(thisConfigObject.outlets, "id");
 
 	thisConfigObject.inlets.sort((a: { id: number; }, b: { id: number; }) => {
 		return a.id >= b.id ? 1 : -1;
@@ -308,16 +364,26 @@ async function parseDefinesGendspsLoop(gendspPath: string, gendspName: string, t
 		if (object.box.maxclass === GEN_CODE) {
 			const GenExprCode = object.box.code;
 			// void max.post(JSON.stringify(GenExprCode));
-			void max.post(GenExprCode);
+			// void max.post(GenExprCode);
 		}
 	}
+
+	// keeps most recent
+	thisConfigObject.attributes = thinUniqueArrayByKey(thisConfigObject.attributes, "name");
+	thisConfigObject.messages = thinUniqueArrayByKey(thisConfigObject.messages, "name");
 
 	thisConfigObject.attributes.sort((a: { name: string; }, b: { name: string; }) => {
 		return a.name >= b.name ? 1 : -1;
 	});
-	// & sort messages here
+	// thisConfigObject.messages.sort((a: { name: string; }, b: { name: string; }) => {
+	// 	return a.name >= b.name ? 1 : -1;
+	// });
 
 	fs.writeFileSync(thisConfigFullPath, JSON.stringify(thisConfigObject, null, 4));
+}
+
+function thinUniqueArrayByKey(array: any, key: string) {
+    return [...new Map(array.map((item: { [x: string]: any; }) => [item[key], item])).values()];
 }
 
 // --------------------------------------------- //
