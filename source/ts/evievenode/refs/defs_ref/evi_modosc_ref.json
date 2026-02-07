@@ -13,6 +13,9 @@
             "evieve"
         ]
     },
+    "includes": [
+        "evi_smooth.genexpr"
+    ],
     "inlets": [
         {
             "id": 1,
@@ -35,8 +38,83 @@
             "description": ""
         }
     ],
-    "messages": [],
-    "attributes": [],
+    "messages": [
+        {
+            "name": "history",
+            "arg": [
+                {
+                    "name": "autoreset",
+                    "type": "int",
+                    "units": "default: 1",
+                    "optional": 1
+                }
+            ],
+            "digest": "Top level gen~ [history] / History() declarations can be reset by messages to the object",
+            "description": ""
+        }
+    ],
+    "attributes": [
+        {
+            "name": "freqsmooth",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "666",
+                "value": "20"
+            }
+        },
+        {
+            "name": "offset",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "0",
+                "value": "0\t\t\t\t\t\t\t\t"
+            }
+        },
+        {
+            "name": "resetauto",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "1",
+                "value": "1"
+            }
+        },
+        {
+            "name": "scale",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "0",
+                "value": "1"
+            }
+        },
+        {
+            "name": "smooth",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "333",
+                "value": "22.666"
+            }
+        }
+    ],
     "example": {
         "caption": "",
         "image": ""

@@ -1,0 +1,70 @@
+
+// Phase Modulation Oscillator by Pete for evieve
+// a simplified version of "Squinewave Oscillator" by Rasmus Ekman
+// also based on gen~ port of Squinewave by Volker Böhm
+
+normaliseToLimit(freq, limit)
+{
+	w0		= TWOPI / samplerate;
+	w1		= limit * w0;
+	return	clip((sqrt((freq * w0) / w1) - (1 - w1)) * (1 + w1), 0, 1); // should not return to 0 ?
+}
+
+Param	cfmode(1, min=0, max=1);								// in1 cutoff in: 1 = pitch, 0 = Hz
+Param	cfsmooth(20, min=0, max=1000);							// smooth in1 in ms, 0 == off
+Param	cfmul(0.1, min=0, max=0.5);								// multiplier of samplerate
+
+dutyIn		= clamp(in5, 0, 1);
+duty0		= (dutyIn + dutyIn - 1);
+dutycycle	= duty0 * 0.9998;									// -0.9998..0.9998
+//harm0		= (clamp(sqrt(in4), 0, 1) * 0.985558) + 0.014142;	// 0.014142..0.9997, always some harmonics
+harm0		= interp(clamp(in4, 0, 1), 0, 0.9997, mode="cosine");// 0. .. 0.9997
+harmonics	= (harm0 * (1 - abs(duty0)) * 0.292893) + (sqrt1_2 * harm0);
+
+freq, cf, limit	= evi_hzpitchmodmods(abs(in1), in2, in3, mode=cfmode, smooth=cfsmooth, high=cfmul, cliplimit=0, outnomod=1);
+
+phaseraw	= phasor(freq);
+phasemod	= phaseraw;
+//trigger		= 0;
+
+// based on volker böhm, 2016
+// volker's port is really clever and gen~centric, and much better than my initial attempt
+if (freq < limit) {
+	// limits
+	reduce	= normaliseToLimit(cf, limit);
+	harm1	= interp(reduce, harmonics, 0, mode="linear");
+	duty1	= interp(reduce, dutycycle, 0, mode="cosine");
+	highest	= limit / freq;
+	lowest	= highest / (highest + highest - 1);
+	// create kinks
+	kink1	= 1 / (1 - duty1);
+	kink2	= 1 / (1 + duty1);
+	sq0		= maximum(1 / (1 - harm1), 1);
+	// clamp & kink factors
+	kink1	= clamp(kink1, lowest, highest);
+	kink2	= clamp(kink2, lowest, highest);
+	// clamp & square factors
+	sq1		= minimum(sq0, highest / kink1);
+	sq2		= minimum(sq0, highest / kink2);
+	// create ramps
+	ramp1	= phaseraw * kink1;
+	ramp2	= phaseraw * kink2 - kink2 + 0.5;
+	trigger	= ramp1 > 0.5;
+	// clamp & square ramps
+	ramp1  *= (1 - trigger) * sq1;
+	ramp2  *= trigger * sq2;
+	// create phase modulation signal
+	phasemod  = clip(ramp1 + ramp2, 0, 0.5);
+	phasemod += trigger * 0.5;
+//} else {
+//	trigger	= delta(phaseraw) < 0;
+}
+
+//phaseModOscillator = cycle(phasemod, index="phase");
+phaseModOscillator = cos(phasemod * TWOPI);
+
+out1 = dcblock(phaseModOscillator * 0.5);
+out2 = phasemod;
+out3 = phaseraw;
+//out4 = trigger;
+

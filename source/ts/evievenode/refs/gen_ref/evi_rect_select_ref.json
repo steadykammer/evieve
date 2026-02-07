@@ -10,24 +10,51 @@
     },
     "inlets": [
         {
-            "name": "input",
+            "id": 1,
+            "name": "frequency",
             "type": "float",
             "optional": 1,
-            "digest": "TEXT_HERE"
-        }
-    ],
-    "attributes": [
+            "digest": "in Hz"
+        },
         {
-            "name": "",
-            "type": "",
-            "digest": "TEXT_HERE",
-            "description": "TEXT_HERE",
-            "default": {
-                "type": "",
-                "value": 0
-            }
+            "id": 2,
+            "name": "pulse",
+            "type": "float",
+            "optional": 1,
+            "digest": "Width 0..1 for oscillator attr = 3\\, 4 or 5 @default 0.5 @min 0 @max 1"
+        },
+        {
+            "id": 3,
+            "name": "sync",
+            "type": "float",
+            "optional": 1,
+            "digest": "Phasor @default 0 @min 0 @max 1"
         }
     ],
+    "outlets": [
+        {
+            "id": 1,
+            "name": "oscillator",
+            "type": "float",
+            "optional": 1,
+            "digest": ""
+        },
+        {
+            "id": 2,
+            "name": "phase",
+            "type": "float",
+            "optional": 1,
+            "digest": ""
+        },
+        {
+            "id": 3,
+            "name": "sync",
+            "type": "float",
+            "optional": 1,
+            "digest": ""
+        }
+    ],
+    "attributes": [],
     "seealso": [
         {
             "name": "",

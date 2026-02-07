@@ -1,0 +1,21 @@
+
+require("evi_biquad.genexpr");
+
+/*
+    0   eviBiquadCoeffAllpass               cutoff, Q     (default)
+    1   eviBiquadCoeffAllpassGain           cutoff, gain, Q
+*/
+Param   filter(0, min=0, max=1);
+filt    = int(filter);
+reset   = delta(change(filt)) < 0;
+
+a0, a1, a2, b1, b2  = 0;
+if (filt == 1) {
+    a0, a1, a2, b1, b2  = eviBiquadCoeffAllpassGain(in2, dbtoa(in3), in4);
+}
+else {
+    a0, a1, a2, b1, b2  = eviBiquadCoeffAllpass(in2, in4);
+}
+
+out1    = biquadDf2reset(in1, a0, a1, a2, b1, b2, reset);
+

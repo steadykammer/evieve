@@ -10,24 +10,44 @@
     },
     "inlets": [
         {
+            "id": 1,
             "name": "input",
             "type": "float",
             "optional": 1,
-            "digest": "TEXT_HERE"
-        }
-    ],
-    "attributes": [
+            "digest": ""
+        },
         {
-            "name": "",
-            "type": "",
-            "digest": "TEXT_HERE",
-            "description": "TEXT_HERE",
-            "default": {
-                "type": "",
-                "value": 0
-            }
+            "id": 2,
+            "name": "cutoff",
+            "type": "float",
+            "optional": 1,
+            "digest": "in Hz @min 1 @max samplerate*0.5"
+        },
+        {
+            "id": 3,
+            "name": "gain",
+            "type": "float",
+            "optional": 1,
+            "digest": "in dB @min -30 @max 30 @default 0"
+        },
+        {
+            "id": 4,
+            "name": "q",
+            "type": "float",
+            "optional": 1,
+            "digest": "@min 0.05 @default 0.707107"
         }
     ],
+    "outlets": [
+        {
+            "id": 1,
+            "name": "resonant",
+            "type": "float",
+            "optional": 1,
+            "digest": "Output"
+        }
+    ],
+    "attributes": [],
     "seealso": [
         {
             "name": "",

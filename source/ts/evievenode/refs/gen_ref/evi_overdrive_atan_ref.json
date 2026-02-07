@@ -10,24 +10,37 @@
     },
     "inlets": [
         {
+            "id": 1,
             "name": "input",
             "type": "float",
             "optional": 1,
-            "digest": "TEXT_HERE"
-        }
-    ],
-    "attributes": [
+            "digest": "Signal"
+        },
         {
-            "name": "",
-            "type": "",
-            "digest": "TEXT_HERE",
-            "description": "TEXT_HERE",
-            "default": {
-                "type": "",
-                "value": 0
-            }
+            "id": 2,
+            "name": "shape",
+            "type": "float",
+            "optional": 1,
+            "digest": "(linear gain 1..100) @default 1 @min 1 @max 100"
         }
     ],
+    "outlets": [
+        {
+            "id": 1,
+            "name": "atan(x)",
+            "type": "float",
+            "optional": 1,
+            "digest": "Output - anti-aliased for your audio not for Maths"
+        },
+        {
+            "id": 2,
+            "name": "reset",
+            "type": "float",
+            "optional": 1,
+            "digest": "(Param has changed)"
+        }
+    ],
+    "attributes": [],
     "seealso": [
         {
             "name": "",

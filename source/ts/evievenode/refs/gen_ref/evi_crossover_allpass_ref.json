@@ -10,24 +10,30 @@
     },
     "inlets": [
         {
+            "id": 1,
             "name": "input",
             "type": "float",
             "optional": 1,
-            "digest": "TEXT_HERE"
-        }
-    ],
-    "attributes": [
+            "digest": "to be Compensated"
+        },
         {
-            "name": "",
-            "type": "",
-            "digest": "TEXT_HERE",
-            "description": "TEXT_HERE",
-            "default": {
-                "type": "",
-                "value": 0
-            }
+            "id": 2,
+            "name": "allpass",
+            "type": "float",
+            "optional": 1,
+            "digest": "Frequency in Hz @min 10 @max 20000"
         }
     ],
+    "outlets": [
+        {
+            "id": 1,
+            "name": "allpass-aligned",
+            "type": "float",
+            "optional": 1,
+            "digest": "Output"
+        }
+    ],
+    "attributes": [],
     "seealso": [
         {
             "name": "",

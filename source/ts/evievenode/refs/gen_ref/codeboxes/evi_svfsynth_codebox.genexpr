@@ -1,0 +1,367 @@
+
+//  TPT nonlinear SVF with selectable or crossfading outputs
+//	by Pete for Maurizio Giri / evieve, 2016
+//  @see also: "evi_svfsmooth.gendsp" & "evi_arpnotch.gendsp"
+
+//  nonlinear behaviour based on "Computational optimization of nonlinear
+//	zero-delay feedback by second-order piecewise approximation"
+//	by Vadim Zavalishin, 2008
+
+require("evi_smooth.genexpr");
+require("evi_interp.genexpr");
+
+mix3sqrt(i1, i2, i3, ii)
+{
+	m1		=	xfadeSqrt(i1, i2,	 clip(ii, 0, 1));
+	return		xfadeSqrt(m1, i3,   (clip(ii, 1, 2) - 1));
+}
+
+preWarp(c, t, o=1)
+{
+	f		= minimum(c, (samplerate * 0.408164));
+	if (t) {						    // only compute if required
+		f	= mtofApprox(minimum(c, 133.2522));
+	}
+	return	tanA2(f * PI / samplerate) * (o ? 0.5 : 1); // w/2
+}
+
+// svf 1x, post warped version
+
+sexySVF1(X, w2, res, mod)
+{
+	// integrators state
+	History	bli1(0), bli2(0);
+
+	// two pole filter part 2 (pass state)
+	s1		= bli1 + bli1;
+	s2		= bli2 + bli2;
+
+	// filter output 1 (nonlin & solve fb, piecewise zavalishin)
+	xms	=    X - s2;
+	g2p	=    1 / ((w2 * w2) + 1);
+	mu  =  -(w2 + w2) * g2p;
+	nu	=  ((xms * w2) + s1) * g2p;
+	SN	=    sign(nu);
+	md1	=    1 / mod;
+	P	=  ((md1 + md1) * (2 - md1)) - (res + res);
+	S	=   (1 - res) * SN;
+	Q	=   (P * mu) - 1;
+	C	= (((P * nu) - S) - S) * nu;
+	B	=  ((S * mu) - SN) - (Q * nu);
+	A	=   (Q - 1) * mu;
+	fnc	=    sqrt((B * B) - (A * C)) * SN;
+	t	=  ((B * SN) > 0) ? ((fnc + B) / A) : (C / (B - fnc));
+	yH	=  ((xms - (w2 * s1)) - (t + t)) * g2p;
+
+	// two pole filter part 1 (integrators)
+	xmw1	= (yH  * w2) + bli1;
+	lp1		=  xmw1 + bli1;
+	xmw2	= (lp1 * w2) + bli2;
+	lp2		=  xmw2 + bli2;
+
+	// filter output 2
+	yB		= (lp1 * res) + t;
+	yL		=  lp2;
+
+	// two pole filter part 3 (update state)
+	bli1	=  xmw1;
+	bli2	=  xmw2;
+
+	// simultaneous outputs
+	return	yL, yB, yH;
+}
+
+sexySVF2(X0, X1, w2, res, mod)
+{
+	// integrators state
+	History	bli1(0), bli2(0);
+
+	g2p	    =   1 / ((w2 * w2) + 1);
+	mu	    =  -(w2 + w2) * g2p;
+	md1	    =   1 / mod;
+	P	    =  ((md1 + md1) * (2 - md1)) - (res + res);
+	Q	    =   (P * mu) - 1;
+	A	    =   (Q - 1) * mu;
+
+    // pass 1
+
+	// two pole filter part 2 (pass state)
+	s10	    = bli1 + bli1;
+	s20	    = bli2 + bli2;
+
+	// filter output 1 (nonlin & solve fb, piecewise zavalishin)
+	xms0	=    X0 - s20;
+	nu0	    =  ((xms0 * w2) + s10) * g2p;
+	SN0	    =   sign(nu0);
+	S0	    =   (1 - res) * SN0;
+	C0	    = (((P * nu0) - S0) - S0) * nu0;
+	B0	    =  ((S0 * mu) - SN0) - (Q * nu0);
+	fnc0	=   sqrt((B0 * B0) - (A * C0)) * SN0;
+	t0	    =  ((B0 * SN0) > 0) ? ((fnc0 + B0) / A) : (C0 / (B0 - fnc0));
+	yH0	    =  ((xms0 - (w2 * s10)) - (t0 + t0)) * g2p;
+
+	// two pole filter part 1 (integrators)
+	xmw10	= (yH0  * w2) + bli1;
+	lp10	=  xmw10 + bli1;
+	xmw20	= (lp10 * w2) + bli2;
+	lp20	=  xmw20 + bli2;
+
+	// filter output 2
+	yB0		= (lp10 * res) + t0;
+	yL0		=  lp20;
+
+	// two pole filter part 3 (update state)
+	bli1	=  xmw10;
+	bli2	=  xmw20;
+
+    // pass 2
+
+	// two pole filter part 2 (pass state)
+	s11		= bli1 + bli1;
+	s21		= bli2 + bli2;
+
+	// filter output 1 (nonlin & solve fb, piecewise zavalishin)
+	xms1	=    X1 - s21;
+	nu1	    =  ((xms1 * w2) + s11) * g2p;
+	SN1	    =   sign(nu1);
+	S1	    =   (1 - res) * SN1;
+	C1	    = (((P * nu1) - S1) - S1) * nu1;
+	B1	    =  ((S1 * mu) - SN1) - (Q * nu1);
+	fnc1	=   sqrt((B1 * B1) - (A * C1)) * SN1;
+	t1	    =  ((B1 * SN1) > 0) ? ((fnc1 + B1) / A) : (C1 / (B1 - fnc1));
+	yH1	    =  ((xms1 - (w2 * s11)) - (t1 + t1)) * g2p;
+
+	// two pole filter part 1 (integrators)
+	xmw11	= (yH1  * w2) + bli1;
+	lp11	=  xmw11 + bli1;
+	xmw21	= (lp11 * w2) + bli2;
+	lp21	=  xmw21 + bli2;
+
+	// filter output 2
+	yB1		= (lp11 * res) + t1;
+	yL1		=  lp21;
+
+	// two pole filter part 3 (update state)
+	bli1	=  xmw11;
+	bli2	=  xmw21;
+
+	// simultaneous outputs
+	return	yL0, yL1, yB0, yB1, yH0, yH1;
+}
+
+// fixed 2x quasi oversampling (hermite6)
+sexySVF2_2x6( XIN, w2, res, mod )
+{	// up 2
+	History	umTm2_0(0), umTm1_0(0), umT0_0(0), umT1_0(0), umT2_0(0);
+	// down 2
+	History	dmT3_1(0), dmT2_1(0), dmT1_1(0), dmT0_1(0), dmTm1_1(0);
+	History	dmT3_2(0), dmT2_2(0), dmT1_2(0), dmT0_2(0), dmTm1_2(0);
+	History	dmT3_3(0), dmT2_3(0), dmT1_3(0), dmT0_3(0), dmTm1_3(0);
+	// align
+	History	doX0(0), doX1(0), doX2(0);
+
+	// up 2x
+	x0_0_a	= XIN + 0;
+	x1_0	= hermite_sixpoint_interp(0.5,	umTm2_0, umTm1_0, umT0_0, umT1_0, umT2_0, x0_0_a);
+	x2_0	= umT2_0 + 0;
+
+	// process 2x
+    y1_0, y2_0, y3_0, y4_0, y5_0, y6_0 = sexySVF2(x1_0, x2_0, w2, res, mod);
+
+	// down 2x
+	y2_0_a	= y2_0 + 0;
+	y2_1	= hermite_sixpoint_interp(0.5,	y2_0_a,	dmTm1_1, dmT0_1, dmT1_1, dmT2_1, dmT3_1);
+
+	y4_0_a	= y4_0 + 0;
+	y4_1	= hermite_sixpoint_interp(0.5,	y4_0_a,	dmTm1_2, dmT0_2, dmT1_2, dmT2_2, dmT3_2);
+
+	y6_0_a	= y6_0 + 0;
+	y6_1	= hermite_sixpoint_interp(0.5,	y6_0_a,	dmTm1_3, dmT0_3, dmT1_3, dmT2_3, dmT3_3);
+
+	y0_0	= (doX0 + y2_1) * 0.5;
+	y0_1	= (doX1 + y4_1) * 0.5;
+	y0_2	= (doX2 + y6_1) * 0.5;
+
+	// update input
+	umTm2_0	= umTm1_0;
+	umTm1_0	= umT0_0;
+	umT0_0	= umT1_0;
+	umT1_0 	= umT2_0;
+	umT2_0	= x0_0_a;
+
+	doX0	= y1_0;
+	doX1	= y3_0;
+	doX2	= y5_0;
+
+    // update outputs
+	dmT3_1	= dmT2_1;
+	dmT2_1	= dmT1_1;
+	dmT1_1	= dmT0_1;
+	dmT0_1	= dmTm1_1;
+	dmTm1_1	= y2_0;
+
+	dmT3_2	= dmT2_2;
+	dmT2_2	= dmT1_2;
+	dmT1_2	= dmT0_2;
+	dmT0_2	= dmTm1_2;
+	dmTm1_2	= y4_0;
+
+	dmT3_3	= dmT2_3;
+	dmT2_3	= dmT1_3;
+	dmT1_3	= dmT0_3;
+	dmT0_3	= dmTm1_3;
+	dmTm1_3	= y6_0;
+
+	return dcblock(y0_0), dcblock(y0_1), dcblock(y0_2);
+}
+
+// fixed 2x quasi oversampling (cubic4)
+sexySVF2_2x4( XIN, w2, res, mod )
+{	// up 2
+	History	umTm1_0(0), umT0_0(0), umT1_0(0);
+	// down 2
+	History	dmT2_1(0), dmT1_1(0), dmT0_1(0);
+	History	dmT2_2(0), dmT1_2(0), dmT0_2(0);
+	History	dmT2_3(0), dmT1_3(0), dmT0_3(0);
+	// align
+	History	doX0(0), doX1(0), doX2(0);
+
+	// up 2x
+	x0_0_a	= XIN + 0;
+	x1_0	= cubic_hermite_interp(0.5,	umTm1_0, umT0_0, umT1_0, x0_0_a);
+	x2_0	= umT1_0 + 0;
+
+	// process 2x
+	y1_0, y2_0, y3_0, y4_0, y5_0, y6_0 = sexySVF2(x1_0, x2_0, w2, res, mod);
+
+	// down 2x
+	y2_0_a	= y2_0 + 0;
+	y2_1	= cubic_hermite_interp(0.5,	y2_0_a,	dmT0_1, dmT1_1, dmT2_1);
+
+	y4_0_a	= y4_0 + 0;
+	y4_1	= cubic_hermite_interp(0.5,	y4_0_a,	dmT0_2, dmT1_2, dmT2_2);
+
+	y6_0_a	= y6_0 + 0;
+	y6_1	= cubic_hermite_interp(0.5,	y6_0_a,	dmT0_3, dmT1_3, dmT2_3);
+
+	y0_0	= (doX0 + y2_1) * 0.5;
+	y0_1	= (doX1 + y4_1) * 0.5;
+	y0_2	= (doX2 + y6_1) * 0.5;
+
+	// update input
+	umTm1_0	= umT0_0;
+	umT0_0	= umT1_0;
+	umT1_0	= x0_0_a;
+
+	doX0	= y1_0;
+	doX1	= y3_0;
+	doX2	= y5_0;
+
+    // update outputs
+	dmT2_1	= dmT1_1;
+	dmT1_1	= dmT0_1;
+	dmT0_1	= y2_0;
+
+	dmT2_2	= dmT1_2;
+	dmT1_2	= dmT0_2;
+	dmT0_2	= y4_0;
+
+	dmT2_3	= dmT1_3;
+	dmT1_3	= dmT0_3;
+	dmT0_3	= y6_0;
+
+	return dcblock(y0_0), dcblock(y0_1), dcblock(y0_2);
+}
+
+sexySVFselect(X, w2, res, mod, os)
+{
+    History seldummy(0);
+    yL, yB, yH      = 0;
+    if (os == 2) {
+        yL, yB, yH  = sexySVF2_2x6(X, w2, res, mod);
+    }
+    else if (os == 1) {
+        yL, yB, yH  = sexySVF2_2x4(X, w2, res, mod);
+    }
+    else {
+        yL, yB, yH  = sexySVF1(X, w2, res, mod);
+    }
+    return  yL, yB, yH;
+}
+
+// declare
+
+Param   slope(0, min=0, max=1);         // 0 = 12dB filters only, 1 = and 24dB filters
+Param	cutoffmode(1, min=0, max=1);    // cutoff (in2), 0 = in Hz, 1 = in pitch
+Param	shape(sqrt1_2, min=0, max=1);   // y(1) (0.603553), do not touch
+Param	shapesmooth(0, min=0, max=100); // in ms (22.666)
+Param	filtinterp(0, min=0, max=1);    // 0=LP, 0.5=BP, 1=HP
+Param	filtinterpsmooth(30.222, min=0, max=100);// in ms
+Param	tunesmooth(15.111, min=0, max=100);// in ms
+Param   oversample(1, min=0, max=2);    // 1x, 2x 4point, 2x 6point (6 not useful here)
+os      = int(oversample);
+tfdb    = int(slope);
+oso     = os > 0;
+
+// inputs (smooth || mod res & cutoff externally)
+
+res		= clip(		in3, 0, 2);		    // if shape <= 0.603553, max res 
+cutoff	= maximum(	in2, 0);		    // cutoff freq (default in pitch)
+
+x		= 			in1 * sqrt1_2;	    // audio input
+X		=			dcblock(x);		    // clean, why?
+
+// freq warp
+
+type	= int(cutoffmode);		        // 0 = in Hz, 1 = (default) in pitch
+w1		= preWarp(cutoff, type, o=oso); // warp for both
+
+// tune (TODO: make nice polynomials for this crap)
+
+rtune   = 1;
+wres    = res;
+wshape  = shape;
+if (res > 1) {
+    wmodH	= 1 - (sqrt(maximum(((w1 - 0.217027) / 1.661039), 0)) * 0.5);
+    wmodL	= sqrt((minimum(w1, 0.007836) * 63) + 0.506332);
+    wshape	= shape * wmodH * wmodL;
+    wres	= res * wmodH * wmodL;
+    resqrt	= sqrt(clip(wres, 1, 2) - 1);
+    rtune	= ((((wshape * wshape) * resqrt) * resqrt) * 0.828428) + 1;
+}
+
+// parse
+
+wtune		= rtune;
+if (tunesmooth > 0) {				    // only compute if required
+	wtune	= expsmooth(wtune, tunesmooth*0.001);   // better smoother here ?
+}
+w2			= w1 * wtune;
+
+wmod		= (wshape * 0.792893) + 0.207107;
+if (shapesmooth > 0) {				    // only compute if required
+	wmod	= expsmooth(wmod, shapesmooth*0.001);
+}
+
+filtint		= filtinterp * 2;
+if (filtinterpsmooth > 0) {			    // only compute if required
+	filtint	= logsmooth(filtint, filtinterpsmooth*0.001);
+}
+
+// (sexy) filter(s)
+
+yL,       yB,   yH		= sexySVFselect(X, w2, wres, wmod, os);     // singles
+yX						= mix3sqrt(  yL, yB, yH, filtint);          // 2 poles
+y12						= dcblock(   yX);
+y24 = 0;
+if (tfdb) {
+    wres4		        = wres * 0.25;  // attenuate for four poles (0.5)
+    wmod4		        = wmod * 0.5;   // attenuate for four poles (sqrt1_2)
+    yL24, yB24, yH24	= sexySVFselect(y12, w2, wres4, wmod4, os); // mixed
+    yY					= mix3sqrt(  yL24, yB24, yH24, filtint);    // 4 poles
+    y24					= dcblock(     yY * sqrt2);
+}
+
+out1	= y12;          // 12 dB filter outputs (mixed)
+out2	= y24;          // 24 dB filter outputs (mixed)
+

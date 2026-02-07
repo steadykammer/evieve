@@ -10,24 +10,44 @@
     },
     "inlets": [
         {
-            "name": "input",
+            "id": 1,
+            "name": "audio",
             "type": "float",
             "optional": 1,
-            "digest": "TEXT_HERE"
-        }
-    ],
-    "attributes": [
+            "digest": "Input Left"
+        },
         {
-            "name": "",
-            "type": "",
-            "digest": "TEXT_HERE",
-            "description": "TEXT_HERE",
-            "default": {
-                "type": "",
-                "value": 0
-            }
+            "id": 2,
+            "name": "audio",
+            "type": "float",
+            "optional": 1,
+            "digest": "Input Right"
         }
     ],
+    "outlets": [
+        {
+            "id": 1,
+            "name": "limited",
+            "type": "float",
+            "optional": 1,
+            "digest": "Output Left"
+        },
+        {
+            "id": 2,
+            "name": "limited",
+            "type": "float",
+            "optional": 1,
+            "digest": "Output Right"
+        },
+        {
+            "id": 3,
+            "name": "agc",
+            "type": "float",
+            "optional": 1,
+            "digest": "Envelope (Linear)"
+        }
+    ],
+    "attributes": [],
     "seealso": [
         {
             "name": "",

@@ -10,24 +10,44 @@
     },
     "inlets": [
         {
-            "name": "input",
+            "id": 1,
+            "name": "audio",
             "type": "float",
             "optional": 1,
-            "digest": "TEXT_HERE"
-        }
-    ],
-    "attributes": [
+            "digest": "Input"
+        },
         {
-            "name": "",
-            "type": "",
-            "digest": "TEXT_HERE",
-            "description": "TEXT_HERE",
-            "default": {
-                "type": "",
-                "value": 0
-            }
+            "id": 2,
+            "name": "cuttof",
+            "type": "float",
+            "optional": 1,
+            "digest": "in Hz"
         }
     ],
+    "outlets": [
+        {
+            "id": 1,
+            "name": "bp",
+            "type": "float",
+            "optional": 1,
+            "digest": ""
+        },
+        {
+            "id": 2,
+            "name": "lp",
+            "type": "float",
+            "optional": 1,
+            "digest": ""
+        },
+        {
+            "id": 3,
+            "name": "hp",
+            "type": "float",
+            "optional": 1,
+            "digest": ""
+        }
+    ],
+    "attributes": [],
     "seealso": [
         {
             "name": "",

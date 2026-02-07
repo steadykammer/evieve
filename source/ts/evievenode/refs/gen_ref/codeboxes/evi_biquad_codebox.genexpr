@@ -1,0 +1,7 @@
+
+require("evi_biquad.genexpr");
+
+eviBiquad   = biquadDf2reset(in1, in2, in3, in4, in5, in6, in7);
+
+out1        = eviBiquad;
+

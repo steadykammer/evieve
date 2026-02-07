@@ -16,6 +16,17 @@
         "boxes": [
             {
                 "box": {
+                    "id": "obj-26",
+                    "maxclass": "message",
+                    "numinlets": 2,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 723.0, 583.0, 161.0, 22.0 ],
+                    "text": "make_gens_ref_xml_configs"
+                }
+            },
+            {
+                "box": {
                     "id": "obj-27",
                     "maxclass": "message",
                     "numinlets": 2,
@@ -908,6 +919,8 @@
                     "saved_object_attributes": {
                         "autostart": 0,
                         "defer": 0,
+                        "node_bin_path": "",
+                        "npm_bin_path": "",
                         "watch": 0
                     },
                     "text": "node.script /Users/stkr/Dev/evieve/source/ts/evievenode/dist/evievedoc.js",
@@ -917,16 +930,6 @@
                         "embed": 0,
                         "autowatch": 1
                     }
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-32",
-                    "maxclass": "comment",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 765.0, 400.0, 44.0, 20.0 ],
-                    "text": ":-("
                 }
             }
         ],
@@ -1037,6 +1040,12 @@
                 "patchline": {
                     "destination": [ "obj-1", 0 ],
                     "source": [ "obj-25", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-1", 0 ],
+                    "source": [ "obj-26", 0 ]
                 }
             },
             {

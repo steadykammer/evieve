@@ -10,24 +10,79 @@
     },
     "inlets": [
         {
-            "name": "input",
+            "id": 1,
+            "name": "audio",
             "type": "float",
             "optional": 1,
-            "digest": "TEXT_HERE"
-        }
-    ],
-    "attributes": [
+            "digest": "Input"
+        },
         {
-            "name": "",
-            "type": "",
-            "digest": "TEXT_HERE",
-            "description": "TEXT_HERE",
-            "default": {
-                "type": "",
-                "value": 0
-            }
+            "id": 2,
+            "name": "frequency",
+            "type": "float/int",
+            "optional": 1,
+            "digest": "Shift in Hz +/-"
+        },
+        {
+            "id": 3,
+            "name": "frequency",
+            "type": "float",
+            "optional": 1,
+            "digest": "Shift FM in Hz ±"
+        },
+        {
+            "id": 4,
+            "name": "signal",
+            "type": "float",
+            "optional": 1,
+            "digest": "Rate Phase Reset (Naive)"
         }
     ],
+    "outlets": [
+        {
+            "id": 1,
+            "name": "sidebands",
+            "type": "float",
+            "optional": 1,
+            "digest": "Mixed"
+        },
+        {
+            "id": 2,
+            "name": "usb",
+            "type": "float",
+            "optional": 1,
+            "digest": ""
+        },
+        {
+            "id": 3,
+            "name": "lsb",
+            "type": "float",
+            "optional": 1,
+            "digest": ""
+        },
+        {
+            "id": 4,
+            "name": "quad",
+            "type": "float",
+            "optional": 1,
+            "digest": "Osc Cos"
+        },
+        {
+            "id": 5,
+            "name": "quad",
+            "type": "float",
+            "optional": 1,
+            "digest": "Osc Sin"
+        },
+        {
+            "id": 6,
+            "name": "sync",
+            "type": "float",
+            "optional": 1,
+            "digest": ""
+        }
+    ],
+    "attributes": [],
     "seealso": [
         {
             "name": "",

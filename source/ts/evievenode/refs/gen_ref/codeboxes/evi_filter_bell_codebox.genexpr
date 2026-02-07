@@ -1,0 +1,19 @@
+
+require("evi_svf.genexpr");
+
+Param   smooth(0, min=0, max=333);
+Param   adaptive(0, min=0, max=1);
+adaptQ  = int(adaptive);
+
+BELL = 0;
+if (adaptQ) {// adaptive Q
+                              // In   Hz   dB   Q    ms
+    BELL = eviFilterBellAdaptive(in1, in2, in3, in4, smooth=smooth);
+}
+else {       // normal
+                      // In   Hz   dB   Q    ms
+    BELL = eviFilterBell(in1, in2, in3, in4, smooth=smooth);
+}
+
+out1 = BELL;
+

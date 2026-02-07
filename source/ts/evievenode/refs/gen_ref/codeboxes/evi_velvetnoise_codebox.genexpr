@@ -1,0 +1,26 @@
+
+// Pete: my porting of this algorithm is a bit stupid with the phasor(), I do not
+// like it, @see: "evi_audiodust.gendsp" for different algorithm (compared to
+// "sparseNoise"), but if you need velvet noise in evieve, this is it
+sparseVelvetNoise(freq, mix, amp=1)
+{
+	History		prevClock(0), prevXos(0);
+
+	Xoshiro256	=  noise();
+	clock		=  phasor(freq);
+	latchRandom	= (latch(Xoshiro256, (clock - prevClock)) * 0.5) + 0.5;
+
+	sparseNoise	= prevXos * ((clock >= latchRandom) * (prevClock < latchRandom));
+	prevClock	= clock;
+	prevXos		= Xoshiro256;
+
+	velvetNoise	= (sign(sparseNoise) * amp);
+	mixNoise	= interp(mix, sparseNoise, velvetNoise, mode="cosine");
+
+	return		mixNoise, sparseNoise, velvetNoise;
+}
+
+Param	amplitude(1, min=0, max=1);
+
+out1, out2, out3	= sparseVelvetNoise(in1, in2, amp=amplitude);
+

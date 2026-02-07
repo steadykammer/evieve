@@ -10,24 +10,51 @@
     },
     "inlets": [
         {
-            "name": "input",
+            "id": 1,
+            "name": "audio",
             "type": "float",
             "optional": 1,
-            "digest": "TEXT_HERE"
-        }
-    ],
-    "attributes": [
+            "digest": "Input"
+        },
         {
-            "name": "",
-            "type": "",
-            "digest": "TEXT_HERE",
-            "description": "TEXT_HERE",
-            "default": {
-                "type": "",
-                "value": 0
-            }
+            "id": 2,
+            "name": "voice",
+            "type": "float",
+            "optional": 1,
+            "digest": "Interpolator 0..1"
+        },
+        {
+            "id": 3,
+            "name": "vowel",
+            "type": "float",
+            "optional": 1,
+            "digest": "Interpolator 0..1"
+        },
+        {
+            "id": 4,
+            "name": "morph",
+            "type": "float",
+            "optional": 1,
+            "digest": "Filters 0..1 @default 0.25"
         }
     ],
+    "outlets": [
+        {
+            "id": 1,
+            "name": "morphing",
+            "type": "float",
+            "optional": 1,
+            "digest": "Formant Filter"
+        },
+        {
+            "id": 2,
+            "name": "current",
+            "type": "float",
+            "optional": 1,
+            "digest": "Formant Frequency in Hz (depending on 'formantfrequency' param)"
+        }
+    ],
+    "attributes": [],
     "seealso": [
         {
             "name": "",

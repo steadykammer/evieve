@@ -13,6 +13,11 @@
             "evieve"
         ]
     },
+    "includes": [
+        "evi_tanh.genexpr",
+        "evi_trig.genexpr",
+        "evi_smooth.genexpr"
+    ],
     "inlets": [
         {
             "id": 1,
@@ -41,8 +46,101 @@
             "description": ""
         }
     ],
-    "messages": [],
-    "attributes": [],
+    "messages": [
+        {
+            "name": "history",
+            "arg": [
+                {
+                    "name": "ic1eq",
+                    "type": "int",
+                    "units": "default: 0",
+                    "optional": 1
+                },
+                {
+                    "name": "ic2eq",
+                    "type": "int",
+                    "units": "default: 0",
+                    "optional": 1
+                }
+            ],
+            "digest": "Top level gen~ [history] / History() declarations can be reset by messages to the object",
+            "description": ""
+        }
+    ],
+    "attributes": [
+        {
+            "name": "coeffsmooth",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "333",
+                "value": "15.111"
+            }
+        },
+        {
+            "name": "cutoff",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "10",
+                "max": "10000",
+                "value": "1000"
+            }
+        },
+        {
+            "name": "mix",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "1",
+                "value": "0"
+            }
+        },
+        {
+            "name": "mixenable",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "1",
+                "value": "1"
+            }
+        },
+        {
+            "name": "mixsmooth",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "333",
+                "value": "22.666"
+            }
+        },
+        {
+            "name": "res",
+            "get": 1,
+            "type": "symbol",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "1",
+                "value": "sqrt1_2"
+            }
+        }
+    ],
     "example": {
         "caption": "",
         "image": ""

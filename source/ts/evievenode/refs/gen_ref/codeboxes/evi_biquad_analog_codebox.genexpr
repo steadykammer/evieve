@@ -1,0 +1,28 @@
+
+require("evi_biquad.genexpr");
+
+/*
+    filter  calculator                              	    parameters
+    0       bypass                                  	none
+	1		eviBiquadCoeffLowpassAnalog1				cutoff, Q
+	2 		eviBiquadCoeffLowpassAnalog2	(default)	cutoff, Q
+	3 		eviBiquadCoeffHighpassAnalog				cutoff, Q
+	4		eviBiquadCoeffBandpassAnalog 				cutoff, Q
+	5		eviBiquadCoeffBandpassGainAnalog 			cutoff, gain, Q
+	6 		eviBiquadCoeffNotchAnalog 					cutoff, Q
+	7		eviBiquadCoeffPeakNotchAnalog1 				cutoff, gain, Q
+	8		eviBiquadCoeffPeakNotchAnalog2 				cutoff, gain, Q
+	9 		eviBiquadCoeffLowshelfAnalog1				cutoff, gain, Q
+	10		eviBiquadCoeffLowshelfAnalog2 				cutoff, gain
+	11 		eviBiquadCoeffHighshelfAnalog1				cutoff, gain, Q
+	12		eviBiquadCoeffHighshelfAnalog2 				cutoff, gain
+	13 		eviBiquadCoeffResonantAnalog				cutoff, Q
+*/
+Param   filter(2, min=0, max=13);
+filt    = int(filter);
+reset   = delta(change(filt)) < 0;
+
+a0, a1, a2, b1, b2  = eviBiquadCoeffAnalog(filt, in2, dbtoa(in3), in4);
+
+out1    = biquadDf2reset(in1, a0, a1, a2, b1, b2, reset);
+

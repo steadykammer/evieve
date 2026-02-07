@@ -13,6 +13,7 @@
             "evieve"
         ]
     },
+    "includes": [],
     "inlets": [
         {
             "id": 1,
@@ -42,7 +43,20 @@
         }
     ],
     "messages": [],
-    "attributes": [],
+    "attributes": [
+        {
+            "name": "amplitude",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "1",
+                "value": "0.6403882032022076"
+            }
+        }
+    ],
     "example": {
         "caption": "",
         "image": ""

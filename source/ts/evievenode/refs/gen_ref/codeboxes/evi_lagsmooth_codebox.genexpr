@@ -1,0 +1,32 @@
+
+expA(x0)
+{
+	x = 0.999996 + (0.031261316 + (0.00048274797 + 0.000006 * x0) * x0) * x0;
+	x *= x; x *= x; x *= x; x *= x; x *= x;
+	return x;
+}
+
+lagpole(x, c, l)							// value / coefficient / previous
+{
+//  return ((1 - abs(c)) * x) + (c * l);
+	return ((1 - c) * x) + (c * l);			// no need for abs here ?
+}
+
+// a bit like Supercollider [lag3]
+// original by James MacCartney, mod by me
+lagsmooth(v, lp0)							// destination value / time (in seconds)
+{
+	History coef(  0.9928302477768374);		// default: @20ms @48kHz
+	History lp1(0), lp2(0), lp3(0);
+	LOGTH	= -6.907755278982137;			// ln(0.001), fixed threshold of 0.001 (-60 dB)
+	lp0		= maximum(lp0, 0.008);			// <<-- careful! (this is an empirical number)
+	if (change(lp0))
+		coef	= maximum(expA(LOGTH / (lp0 * samplerate)), 0);
+	lp1		= lagpole(v,	coef,	lp1);
+	lp2		= lagpole(lp1,	coef,	lp2);
+	lp3		= lagpole(lp2,	coef,	lp3);
+	return	lp3;
+}
+
+out1    = lagsmooth(in1, in2*0.001);
+

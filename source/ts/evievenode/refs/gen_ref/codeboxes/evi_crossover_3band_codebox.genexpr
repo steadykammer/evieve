@@ -1,0 +1,38 @@
+
+// 3-band (low/mid/high) crossovers, 2 or 4 pole slopes
+// Linkwitz-Rileys sum perfectly flat
+
+require("evi_crossovers.genexpr");
+
+Param   align(1, min=0, max=1); // 0 = no allpass alignment, 1 = allpass align in this split? (default)
+Param   order(1, min=0, max=1); // 0 = 2-pole xover, 1 = 4-pole xover (default)
+poles   = int(order);
+ap      = int(align);
+
+// if using "evi_crossover_sum.gendsp" / [evi.crossover.sum~] downstream you must turn 'align' off,
+// but by default 'align' is on. apparently allpass alignment should come when summing, but
+// i am not sure this makes much difference?
+
+yLow, yMid, yHigh = 0;
+if (poles > 0) {
+    yLow, yMid, yHigh = eviXover4pole3band(in1, in2, in3);  // 4-pole (default)
+    if (ap > 0) {
+        yLow    = eviXoverAllpass2(yLow, in3);              // allpass 2 (default)
+    }
+} else {
+    yLow, yMid, yHigh = eviXover2pole3band(in1, in2, in3);  // 2-pole
+    if (ap > 0) {
+        yLow    = eviXoverAllpass1(yLow, in3);              // allpass 1
+    }
+}
+
+out1    = yLow;     // pre or post alignment depending on 'align' attribute
+out2    = yMid;
+out3    = yHigh;
+
+// Note: for additional crossovers including 2-band crossovers,
+// @see: "evi_cross.gendsp" / [evi.cross~] - 4-pole only
+// @see: "evi_crossover.gendsp" / [evi.crossover~]
+// @see: "evi_crossover_sum.gendsp" / [evi.crossover.sum~]
+// @see: "evi_crossover_allpass.gendsp" / [evi.crossover.allpass~]
+

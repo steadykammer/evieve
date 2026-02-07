@@ -1,0 +1,19 @@
+
+logsad(s)									// s = time to drop 6dB (in seconds)
+{
+	return	LN2 / (s * samplerate);
+}
+
+// log smooth (decay) envelope follower
+logdecay(x,	d)								// d = decay time (to drop 6dB) in seconds
+{
+	History	z(0);
+	ad		= logsad(d);
+	ff		= x - z;
+	y		= (ff > 0) ? x : ((ff * ad) + z);
+	z		= y;
+	return	y;
+}
+
+out1    = logdecay(in1, in2*0.001);
+

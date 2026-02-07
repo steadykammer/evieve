@@ -10,24 +10,30 @@
     },
     "inlets": [
         {
+            "id": 1,
             "name": "input",
             "type": "float",
             "optional": 1,
-            "digest": "TEXT_HERE"
-        }
-    ],
-    "attributes": [
+            "digest": ""
+        },
         {
-            "name": "",
-            "type": "",
-            "digest": "TEXT_HERE",
-            "description": "TEXT_HERE",
-            "default": {
-                "type": "",
-                "value": 0
-            }
+            "id": 2,
+            "name": "hz",
+            "type": "float",
+            "optional": 1,
+            "digest": "(default) or g depending on 'prewarp' attribute"
         }
     ],
+    "outlets": [
+        {
+            "id": 1,
+            "name": "6db",
+            "type": "float",
+            "optional": 1,
+            "digest": "Nonlinear Lowpass"
+        }
+    ],
+    "attributes": [],
     "seealso": [
         {
             "name": "",

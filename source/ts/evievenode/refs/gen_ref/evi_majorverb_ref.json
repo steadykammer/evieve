@@ -10,24 +10,37 @@
     },
     "inlets": [
         {
-            "name": "input",
+            "id": 1,
+            "name": "left",
             "type": "float",
             "optional": 1,
-            "digest": "TEXT_HERE"
-        }
-    ],
-    "attributes": [
+            "digest": ""
+        },
         {
-            "name": "",
-            "type": "",
-            "digest": "TEXT_HERE",
-            "description": "TEXT_HERE",
-            "default": {
-                "type": "",
-                "value": 0
-            }
+            "id": 2,
+            "name": "right",
+            "type": "float",
+            "optional": 1,
+            "digest": ""
         }
     ],
+    "outlets": [
+        {
+            "id": 1,
+            "name": "left",
+            "type": "float",
+            "optional": 1,
+            "digest": ""
+        },
+        {
+            "id": 2,
+            "name": "right",
+            "type": "float",
+            "optional": 1,
+            "digest": ""
+        }
+    ],
+    "attributes": [],
     "seealso": [
         {
             "name": "",

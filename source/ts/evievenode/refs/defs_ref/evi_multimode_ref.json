@@ -13,6 +13,7 @@
             "evieve"
         ]
     },
+    "includes": [],
     "inlets": [
         {
             "id": 1,
@@ -77,8 +78,65 @@
             "description": ""
         }
     ],
-    "messages": [],
-    "attributes": [],
+    "messages": [
+        {
+            "name": "history",
+            "arg": [
+                {
+                    "name": "state1",
+                    "type": "int",
+                    "units": "default: 0",
+                    "optional": 1
+                },
+                {
+                    "name": "state2",
+                    "type": "int",
+                    "units": "default: 0",
+                    "optional": 1
+                }
+            ],
+            "digest": "Top level gen~ [history] / History() declarations can be reset by messages to the object",
+            "description": ""
+        }
+    ],
+    "attributes": [
+        {
+            "name": "cutoffsmooth",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "100",
+                "value": "20"
+            }
+        },
+        {
+            "name": "cutoffsmoothbase",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "10",
+                "value": "2"
+            }
+        },
+        {
+            "name": "resonancesmooth",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "100",
+                "value": "10"
+            }
+        }
+    ],
     "example": {
         "caption": "",
         "image": ""

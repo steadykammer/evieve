@@ -1,0 +1,25 @@
+
+expA(x0)
+{
+	x = 0.999996 + (0.031261316 + (0.00048274797 + 0.000006 * x0) * x0) * x0;
+	x *= x; x *= x; x *= x; x *= x; x *= x;
+	return x;
+}
+
+tauA(t)
+{
+	y = expA(-1 / (t * samplerate));
+	return y + 0.000128;
+}
+
+expsmooth(x, t)		// x = value			// t is smooth time in seconds
+{
+	History w(0);
+	z = tauA(t);
+	y = (z * w) + (x * (1 - z));
+	w = y;
+	return y;
+}
+
+out1    = expsmooth(in1, in2*0.001);
+

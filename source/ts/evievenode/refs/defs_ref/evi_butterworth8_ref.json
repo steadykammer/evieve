@@ -13,6 +13,9 @@
             "evieve"
         ]
     },
+    "includes": [
+        "evi_approx.genexpr"
+    ],
     "inlets": [
         {
             "id": 1,
@@ -36,7 +39,224 @@
         }
     ],
     "messages": [],
-    "attributes": [],
+    "attributes": [
+        {
+            "name": "butt_coeff_1",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "-16",
+                "max": "16",
+                "value": "1.4142135623730951"
+            }
+        },
+        {
+            "name": "butt_coeff_10",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "-16",
+                "max": "16",
+                "value": "0.4450418679126289"
+            }
+        },
+        {
+            "name": "butt_coeff_11",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "-16",
+                "max": "16",
+                "value": "1.2469796037174672"
+            }
+        },
+        {
+            "name": "butt_coeff_12",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "-16",
+                "max": "16",
+                "value": "1.8019377358048383"
+            }
+        },
+        {
+            "name": "butt_coeff_13",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "-16",
+                "max": "16",
+                "value": "0.39018064403225666"
+            }
+        },
+        {
+            "name": "butt_coeff_14",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "-16",
+                "max": "16",
+                "value": "1.1111404660392046"
+            }
+        },
+        {
+            "name": "butt_coeff_15",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "-16",
+                "max": "16",
+                "value": "1.6629392246050905"
+            }
+        },
+        {
+            "name": "butt_coeff_16",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "-16",
+                "max": "16",
+                "value": "1.9615705608064609"
+            }
+        },
+        {
+            "name": "butt_coeff_2",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "-16",
+                "max": "16",
+                "value": "1.0000000000000002"
+            }
+        },
+        {
+            "name": "butt_coeff_3",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "-16",
+                "max": "16",
+                "value": "0.7653668647301797"
+            }
+        },
+        {
+            "name": "butt_coeff_4",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "-16",
+                "max": "16",
+                "value": "1.8477590650225735"
+            }
+        },
+        {
+            "name": "butt_coeff_5",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "-16",
+                "max": "16",
+                "value": "0.6180339887498949"
+            }
+        },
+        {
+            "name": "butt_coeff_6",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "-16",
+                "max": "16",
+                "value": "1.618033988749895"
+            }
+        },
+        {
+            "name": "butt_coeff_7",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "-16",
+                "max": "16",
+                "value": "0.5176380902050419"
+            }
+        },
+        {
+            "name": "butt_coeff_8",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "-16",
+                "max": "16",
+                "value": "1.4142135623730951"
+            }
+        },
+        {
+            "name": "butt_coeff_9",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "-16",
+                "max": "16",
+                "value": "1.9318516525781366"
+            }
+        },
+        {
+            "name": "order",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "8",
+                "value": "3"
+            }
+        },
+        {
+            "name": "smooth",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "301.11",
+                "value": "30.111"
+            }
+        }
+    ],
     "example": {
         "caption": "",
         "image": ""

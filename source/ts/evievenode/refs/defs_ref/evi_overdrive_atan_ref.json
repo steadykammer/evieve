@@ -13,6 +13,9 @@
             "evieve"
         ]
     },
+    "includes": [
+        "evi_saturators.genexpr"
+    ],
     "inlets": [
         {
             "id": 1,
@@ -41,8 +44,47 @@
             "description": ""
         }
     ],
-    "messages": [],
-    "attributes": [],
+    "messages": [
+        {
+            "name": "history",
+            "arg": [
+                {
+                    "name": "reset",
+                    "type": "int",
+                    "units": "default: 1",
+                    "optional": 1
+                }
+            ],
+            "digest": "Top level gen~ [history] / History() declarations can be reset by messages to the object",
+            "description": ""
+        }
+    ],
+    "attributes": [
+        {
+            "name": "aa",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "5",
+                "value": "3"
+            }
+        },
+        {
+            "name": "hfcompensate",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "1",
+                "value": "1"
+            }
+        }
+    ],
     "example": {
         "caption": "",
         "image": ""

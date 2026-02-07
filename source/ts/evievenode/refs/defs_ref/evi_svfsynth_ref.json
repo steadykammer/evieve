@@ -13,6 +13,10 @@
             "evieve"
         ]
     },
+    "includes": [
+        "evi_smooth.genexpr",
+        "evi_interp.genexpr"
+    ],
     "inlets": [
         {
             "id": 1,
@@ -48,7 +52,104 @@
         }
     ],
     "messages": [],
-    "attributes": [],
+    "attributes": [
+        {
+            "name": "cutoffmode",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "1",
+                "value": "1"
+            }
+        },
+        {
+            "name": "filtinterp",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "1",
+                "value": "0"
+            }
+        },
+        {
+            "name": "filtinterpsmooth",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "100",
+                "value": "30.222"
+            }
+        },
+        {
+            "name": "oversample",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "2",
+                "value": "1"
+            }
+        },
+        {
+            "name": "shape",
+            "get": 1,
+            "type": "symbol",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "1",
+                "value": "sqrt1_2"
+            }
+        },
+        {
+            "name": "shapesmooth",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "100",
+                "value": "0"
+            }
+        },
+        {
+            "name": "slope",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "1",
+                "value": "0"
+            }
+        },
+        {
+            "name": "tunesmooth",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "100",
+                "value": "15.111"
+            }
+        }
+    ],
     "example": {
         "caption": "",
         "image": ""

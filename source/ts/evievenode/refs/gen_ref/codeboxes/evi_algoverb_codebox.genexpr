@@ -1,0 +1,497 @@
+
+//	//	//	evi_algoverb.gendsp
+//	//	//	true stereo algorithmic reverb for gen~ by Pete Dowling for evieve
+//	//	//	based on allpass 'diffuse delay' design by Martijn Zwartjes
+//  //  //  @see: [evi.algoverb~] & [mcs.evi.algoverb~] for examples of wrappers
+
+
+//	//	//	library
+
+require("evi_reverb_library.genexpr");
+
+
+//	//	//	declare
+
+// global
+
+Param	smoothtime(50, min=0, max=500);		// in ms
+Param	absorbtion(0.186, min=0, max=1);	// % 0..1
+Param	earlylate(0.46, min=0, max=1);		// early..late % 0..1
+Param	earlylock(1, min=0, max=1);			// hysterisis	// always int, no user interaction
+Param	latelock(1, min=0, max=1);			// hysterisis	// always int, no user interaction
+Param	drywet(0.4, min=0, max=1);			// dry..wet % 0..1
+
+// pre delay
+
+// compensate dry L/R for minimum delay
+History	compensateDryL(0), compensateDryR(0);
+
+// support @ up to 400 ms
+
+Delay	preDelayL(samplerate*0.4, 1, feedback=0);
+Delay	preDelayR(samplerate*0.4, 1, feedback=0);
+
+Param	preTime(16, min=0, max=400);		// delay time in ms
+Param	preSymmetry(0.33, min=-1, max=1);	// L/R offset
+
+// damping high/low shelfs eqs
+
+// coefficients, defaults:
+// samplerate: 48000
+// lowshelf: 69.3 Hz, -0.7 dB, 0.5 res
+// highshelf: 1108.7 Hz, -1.2 dB, 0.5 res
+// (pointless min/max are only for avoiding code export forcing 0..1)
+Param	damp1_a1( 0.990808,	min=-1, max=1);
+Param	damp1_a2( 0.004585,	min=-1, max=1);
+Param	damp1_a3( 0.000021,	min=-1, max=1);
+Param	damp1_m0( 1,		min=-2, max=2);	// damp1_m0 static @ '1' for lowshelf
+Param	damp1_m1(-0.078988,	min=-2, max=2);
+Param	damp1_m2(-0.077429,	min=-2, max=2);
+Param	damp2_a1( 0.873073,	min=-1, max=1);
+Param	damp2_a2( 0.061311,	min=-1, max=1);
+Param	damp2_a3( 0.004305,	min=-1, max=1);
+Param	damp2_m0( 0.870964,	min=-2, max=2);
+Param	damp2_m1( 0.124581,	min=-2, max=2);
+Param	damp2_m2( 0.129036,	min=-2, max=2);
+
+// early reflections
+
+Param	earlySize(31.992, min=-12, max=60);
+Param	earlySymmetry(1.7, min=-4, max=4);
+Param	earlyDiffusion(0.7, min=0, max=1);
+
+// late reflections
+
+Param	lateSize(0.984, min=-24, max=48);
+Param	lateSymmetry(-1.3, min=-3, max=3);
+Param	lateDiffusion(0.7, min=0, max=1);
+
+// support 6.428243 .. 581.818179 ms (incl. ± modulation)
+Delay	rtDelayL(samplerate*0.582, 1, feedback=1);
+Delay	rtDelayR(samplerate*0.582, 1, feedback=1);
+
+Param	decay(0.475, min=0, max=1);	// % 0..1	(rt60 = decay * 120)
+
+// modulation
+
+Param	modFrequency(0.23, min=0, max=1);
+Param	modAmplitude(0.15, min=0, max=1);	// amplitude = ms
+
+// master eq, end of wet chain, fixed high/low shelfs but could be other filter types
+
+// coefficients, defaults:
+// samplerate: 48000
+// lowshelf: 92.5 Hz, -3.5 dB, 1.0 res
+// highshelf: 2217.5 Hz, -7. dB, 1.0 res
+// (pointless min/max are only for avoiding code export forcing 0..1)
+Param	eq1_a1( 0.993304,	min=-1,		max=1	);
+Param	eq1_a2( 0.006651,	min=-1,		max=1	);
+Param	eq1_a3( 0.000045,	min=-1,		max=1	);
+Param	eq1_m0( 1,			min=-16,	max=16	);	// eq1_m0 static @ '1' for lowshelf
+Param	eq1_m1(-0.182477,	min=-16,	max=16	);
+Param	eq1_m2(-0.331656,	min=-16,	max=16	);
+Param	eq2_a1( 0.882013,	min=-1,		max=1	);
+Param	eq2_a2( 0.105393,	min=-1,		max=1	);
+Param	eq2_a3( 0.012594,	min=-1,		max=1	);
+Param	eq2_m0( 0.446684,	min=-16,	max=16	);
+Param	eq2_m1( 0.22166,	min=-16,	max=16	);
+Param	eq2_m2( 0.553316,	min=-16,	max=16	);
+
+// global cpu mute (& passes inputs to outputs)
+
+Param	mute(0, min=0, max=1);
+
+
+//	//	//	parse param rate from here ...
+
+// globals
+
+preSymActive	= preSymmetry != 0;
+earlySymActive	= earlySymmetry != 0;	// not using unless we change if/else blocking below, compiler ignores it
+lateSymActive	= lateSymmetry != 0;
+
+smoothsecs	= smoothtime * 0.001;
+smoothsamps	= smoothsecs * samplerate;
+modSmooth	= 0.066 * samplerate;
+elSmooth	= mstosamps(smoothtime + 33);
+dwSmooth	= mstosamps(smoothtime + 333);
+mmSmooth	= 0.166 * samplerate;
+
+f1m0		=  1;
+f3m0		=  1;	// must pass (and smooth) eq1_m0 instead if other filter types required
+apunity		=  1;
+powF		=  1.1220184543019633;
+//expT		= -6.9077552789821;
+
+// below 'apgaincoefficient1' 'clamp()' presumes:
+// 	damp	lowshelf:	Hz 10 .. 1000 only, dB input -6..0 only, slope fixed @ 0.5
+// 	damp	highshelf: 	any Hz, dB input -6..0 only, slope fixed @ 0.5
+absorb					= absorbtion * absorbtion;
+apgaincoefficient0		= 2;							// lowshelf affect on depth
+apgaincoefficient1		= clamp( ( (((1 - damp2_m0) + damp2_m1) * 0.413517) + 0.586483 ) + 
+							( ((damp1_a1 + damp1_a2) * damp1_a3) * (1 - ((damp1_m1 + damp1_m2) * apgaincoefficient0)) ), 
+								0.586484, 0.981584 );
+apgaincoefficient2		= interp(absorb, 0.981584, apgaincoefficient1, mode="cosine");
+
+// for pre delay
+
+pdTimeS				=  mstosamps(preTime);				// samples
+pdTimeL, pdTimeR	=  0;
+
+// for late reflections
+
+rt60value				= decay * 120;					// using dB scale
+rt60coeff				= pow(powF, rt60value) * 0.001;	// 0.001..1000
+
+// for diffusion	// stupid
+
+earlyDiff	= (earlyDiffusion * 0.98) + 0.01;
+lateDiff	= (lateDiffusion * 0.98) + 0.01;
+fbCross		=  1 - (absorbtion * sqrt1_2);
+
+// computing the following ~100 lines all of the time and keeping them out of if/else blocking actually saves a
+// considerable amount of cpu, as it forces the calculations to be at param rate at the beginning of the perform routine
+// and out of the while loop (the main sample loop) in the exported code.
+
+// for pre delay
+
+//if (preSymActive) {
+
+	pdTimeL		= pdTimeS * (1 - preSymmetry);
+	pdTimeR		= pdTimeS * (preSymmetry + 1);
+
+//}
+
+// for early reflections
+
+//erTime1L, erTime2L, erTime3L	= 0;
+//erTime1R, erTime2R, erTime3R	= 0;
+
+//if (earlySymActive) {
+
+	eSizeL		= earlySize - earlySymmetry;
+	eSizeR		= earlySize + earlySymmetry;
+
+	erTime1L	= pitch2timeSamps(eSizeL + 8);		// + MZ offsets
+	erTime2L	= pitch2timeSamps(eSizeL + 4);
+	erTime3L	= pitch2timeSamps(eSizeL + 0);
+
+	erTime1R	= pitch2timeSamps(eSizeR + 8);
+	erTime2R	= pitch2timeSamps(eSizeR + 4);
+	erTime3R	= pitch2timeSamps(eSizeR + 0);
+
+//} else {
+/*
+	erTime1L	= pitch2timeSamps(earlySize + 8);
+	erTime2L	= pitch2timeSamps(earlySize + 4);
+	erTime3L	= pitch2timeSamps(earlySize + 0);
+
+	erTime1R	= erTime1L;
+	erTime2R	= erTime2L;
+	erTime3R	= erTime3L;
+*/
+//}
+
+// for late reflections
+
+//rt60mulL, rt60mulR			= 0;				// t60([decay time] / rt60coeff)
+
+//decayTimeL, decayTimeR		= 0;
+//lrTime1L, lrTime2L, lrTime3L	= 0;
+//lrTime1R, lrTime2R, lrTime3R	= 0;
+
+//if (lateSymActive) {
+
+	lrSizeL		= lateSize - lateSymmetry;
+	lrSizeR		= lateSize + lateSymmetry;
+
+	lrTime1L	= pitch2timeSecs(lrSizeL + 9);		// + MZ offsets
+	lrTime2L	= pitch2timeSecs(lrSizeL + 6);
+	lrTime3L	= pitch2timeSecs(lrSizeL + 3);
+	decayTimeL	= pitch2timeSecs(lrSizeL + 0);
+
+	lrTime1R	= pitch2timeSecs(lrSizeR + 9);
+	lrTime2R	= pitch2timeSecs(lrSizeR + 6);
+	lrTime3R	= pitch2timeSecs(lrSizeR + 3);
+	decayTimeR	= pitch2timeSecs(lrSizeR + 0);
+
+	// calculations take into account three stages of allpass diffuse delays before them, and 'decay' concept,
+	// as real t60 multiplier would be 'expA(expT / (mstosamps(decayTimeX * 1000) / rt60coeff));'
+	rt60mulL	= pow(powF, (maximum((decayTimeL / rt60coeff) * -60, -144)));
+	rt60mulR	= pow(powF, (maximum((decayTimeR / rt60coeff) * -60, -144)));
+
+//} else {
+/*
+	lrTime1L	= pitch2timeSecs(lateSize + 9);
+	lrTime2L	= pitch2timeSecs(lateSize + 6);
+	lrTime3L	= pitch2timeSecs(lateSize + 3);
+	decayTimeL	= pitch2timeSecs(lateSize + 0);
+
+	// calculation takes into account three stages of allpass diffuse delays before it, and 'decay' concept,
+	// as real t60 multiplier would be 'expA(expT / ((mstosamps(decayTimeL * 1000) / rt60coeff));'
+	rt60mulL	= pow(powF, (maximum((decayTimeL / rt60coeff) * -60, -144)));	// !! could approx this ??
+*/
+//}
+
+
+//	//	//	parse audio inputs
+
+// for pre delay
+
+preDelayL.write(	in1 + 0	);
+preDelayR.write(	in2 + 0	);
+
+dryL		= compensateDryL + 0;
+dryR		= compensateDryR + 0;
+wetXl		= dryL + 0;
+wetXr		= dryR + 0;
+
+// for mixing & MUTE
+
+lateLeft	= wetXl + 0;
+lateRight	= wetXr + 0;
+wetYl		= 0;
+wetYr		= 0;
+
+
+//	//	//	parse audio rate from here ...
+
+// exact ramps for cpu management
+earlyLateMix	= eviLine(earlylate, elSmooth);
+dryWetMix		= eviSline(drywet, dwSmooth);			// no need for full eviSline for dryWetMix ?
+muteMix			= eviLine(int(mute), mmSmooth);
+
+
+//	//	//	GLOBAL MUTE (muteMix) off / on	//	//	//	START
+
+if (muteMix < 1) {
+
+
+// reassignments (to "f_...") forces previous calculations to stay at param rate in the exported C++
+
+// for pre delay
+
+f_pdTimeL, f_pdTimeR	= 0;
+processPreDelay			= 0;
+
+if (preSymActive) {
+
+	f_pdTimeL			= eviLine(pdTimeL, smoothsamps);
+	f_pdTimeR			= eviLine(pdTimeR, smoothsamps);
+	processPreDelay		= (f_pdTimeL != 0) || (f_pdTimeR != 0);
+
+} else {
+
+	f_pdTimeL			=  eviLine(pdTimeS, smoothsamps);
+	f_pdTimeR			=  f_pdTimeL;
+	processPreDelay		= (f_pdTimeL > 0);
+
+}
+
+// for damp (eq) coefficients ('a' coefficients ok because zdf, but we smooth 'm' gains)
+
+f1a1	= damp1_a1;	f1a2	= damp1_a2;	f1a3	= damp1_a3;
+f1m1	= eviLine(damp1_m1, smoothsamps);
+f1m2	= eviLine(damp1_m2, smoothsamps);
+
+f2a1	= damp2_a1;	f2a2	= damp2_a2;	f2a3	= damp2_a3;
+ss08	= smoothsamps * 0.8;
+f2m0	= eviLine(damp2_m0, ss08);
+f2m1	= eviLine(damp2_m1, ss08);
+f2m2	= eviLine(damp2_m2, ss08);
+
+//dampactive				= ((f1m1 + f1m2) != 0) || ((f2m1 + f2m2) != 0);
+apgain						= expsmooth(apgaincoefficient2, (smoothsecs * sqrt2));
+
+// for early reflections
+
+f_earlyDiff			= logsmooth(earlyDiff, smoothsecs);
+
+eTm1L, eTm2L, eTm3L	= logsmoothBank3(erTime1L, erTime2L, erTime3L, smoothsecs);
+eTm1R, eTm2R, eTm3R	= logsmoothBank3(erTime1R, erTime2R, erTime3R, smoothsecs);
+
+// for modulation
+
+modRate			= expsmooth(modFrequency, (smoothsecs * 0.333333));
+modDepth, mdn	= eviLine(modAmplitude * 0.001, modSmooth);	// modDepth in secs
+
+// for late reflections
+
+f_lrTime1L, f_lrTime2L, f_lrTime3L		= logsmoothBank3(lrTime1L, lrTime2L, lrTime3L, smoothsecs);
+f_lrTime1R, f_lrTime2R, f_lrTime3R		= 0;
+f_decayTimeL, f_decayTimeR				= 0;
+f_rt60mulL, f_rt60mulR					= 0;
+
+if (lateSymActive) {
+
+	f_decayTimeL, f_decayTimeR	= logsmoothBank2(decayTimeL, decayTimeR, smoothsecs);
+	f_rt60mulL, f_rt60mulR		= logsmoothBank2(rt60mulL, rt60mulR, (smoothsecs * 0.666666));
+
+	f_lrTime1R, f_lrTime2R, f_lrTime3R	= logsmoothBank3(lrTime1R, lrTime2R, lrTime3R, smoothsecs);
+
+} else {
+
+	f_rt60mulL		= logsmooth(rt60mulL, (smoothsecs * 0.666666));
+	f_decayTimeL	= logsmooth(decayTimeL, smoothsecs);
+
+	f_lrTime1R		= f_lrTime1L;
+	f_lrTime2R		= f_lrTime2L;
+	f_lrTime3R		= f_lrTime3L;
+	f_decayTimeR	= f_decayTimeL;
+	f_rt60mulR		= f_rt60mulL;
+
+}
+
+f_lateDiff, f_fbCross	=  logsmoothBank2(lateDiff, fbCross, smoothsecs);
+
+// for main eq coefficients ('a' coefficients ok because zdf, but we smooth 'm' gains)
+
+f3a1	= eq1_a1;	f3a2	= eq1_a2;	f3a3	= eq1_a3;
+f3m1	= eviLine(eq1_m1, smoothsamps);
+f3m2	= eviLine(eq1_m2, smoothsamps);
+
+f4a1	= eq2_a1;	f4a2	= eq2_a2;	f4a3	= eq2_a3;
+f4m0	= eviLine(eq2_m0, ss08);
+f4m1	= eviLine(eq2_m1, ss08);
+f4m2	= eviLine(eq2_m2, ss08);
+
+//eqactive					= ((f3m1 + f3m2) != 0) || ((f4m1 + f4m2) != 0);
+
+
+//	//	//	processing
+
+//	//	//	process pre delay
+
+if (processPreDelay) {
+
+	wetXl	= preDelayL.read(maximum(f_pdTimeL, 1), interp="cubic");
+	wetXr	= preDelayR.read(maximum(f_pdTimeR, 1), interp="cubic");
+
+}
+
+
+//	//	//	only process early reflections if NOT 100 % late	//	//	//	START
+	//	(only really useful if Gen allowed us to zero all delay lines on release)
+	//	(but we have a hysterisis here calculated externally at max message rate so sort of works for cpu)
+
+earlyLeft	= wetXl;
+earlyRight	= wetXr;
+if ( (earlyLateMix < 1) || (earlylock) ) {
+
+
+//	//	//	process early reflections
+
+eDiffuse1L	= DiffuseDelayShort(wetXl,		eTm1L, f_earlyDiff, apunity, 
+					f1a1, f1a2, f1a3, f1m0, f1m1, f1m2, f2a1, f2a2, f2a3, f2m0, f2m1, f2m2);
+eDiffuse1R	= DiffuseDelayShort(wetXr,		eTm1R, f_earlyDiff, apunity, 
+					f1a1, f1a2, f1a3, f1m0, f1m1, f1m2, f2a1, f2a2, f2a3, f2m0, f2m1, f2m2);
+
+eDiffuse2L	= DiffuseDelayShort(eDiffuse1L,	eTm2L, f_earlyDiff, apunity, 
+					f1a1, f1a2, f1a3, f1m0, f1m1, f1m2, f2a1, f2a2, f2a3, f2m0, f2m1, f2m2);
+eDiffuse2R	= DiffuseDelayShort(eDiffuse1R,	eTm2R, f_earlyDiff, apunity, 
+					f1a1, f1a2, f1a3, f1m0, f1m1, f1m2, f2a1, f2a2, f2a3, f2m0, f2m1, f2m2);
+
+eDiffuse3L	= DiffuseDelayShort(eDiffuse2L,	eTm3L, f_earlyDiff, apgain, 
+					f1a1, f1a2, f1a3, f1m0, f1m1, f1m2, f2a1, f2a2, f2a3, f2m0, f2m1, f2m2);
+eDiffuse3R	= DiffuseDelayShort(eDiffuse2R,	eTm3R, f_earlyDiff, apgain, 
+					f1a1, f1a2, f1a3, f1m0, f1m1, f1m2, f2a1, f2a2, f2a3, f2m0, f2m1, f2m2);
+
+earlyLeft	= eviSvfTwoSections(eDiffuse3L, f1a1, f1a2, f1a3, f1m0, f1m1, f1m2, f2a1, f2a2, f2a3, f2m0, f2m1, f2m2);
+earlyRight	= eviSvfTwoSections(eDiffuse3R, f1a1, f1a2, f1a3, f1m0, f1m1, f1m2, f2a1, f2a2, f2a3, f2m0, f2m1, f2m2);
+
+
+}	//	//	//	only process early reflections if NOT 100 % late	//	//	//	END
+
+
+//	//	//	only process late reflections if NOT 100 % early	//	//	//	START
+	//	(only really useful if Gen allowed us to zero all delay lines on release)
+	//	(but we have a hysterisis here calculated externally at max message rate so sort of works for cpu)
+
+lateLeft	= earlyLeft;
+lateRight	= earlyRight;
+if ( (earlyLateMix > 0) || (latelock) ) {
+
+
+//	//	//	process modulation
+
+modulation1, modulation2, modulation3, modulation4, 
+	modulation5, modulation6, modulation7, modulation8	
+		= eightMod(modRate, modDepth);
+
+rTmodL	= (f_decayTimeL + modulation4) * samplerate;
+rTmodR	= (f_decayTimeR + modulation8) * samplerate;
+
+lrMod1L	= (f_lrTime1L + modulation1) * samplerate;
+lrMod2L	= (f_lrTime2L + modulation2) * samplerate;
+lrMod3L	= (f_lrTime3L + modulation3) * samplerate;
+
+lrMod1R	= (f_lrTime1R + modulation5) * samplerate;
+lrMod2R	= (f_lrTime2R + modulation6) * samplerate;
+lrMod3R	= (f_lrTime3R + modulation7) * samplerate;
+
+
+//	//	//	process late reflections
+
+fbL			= rtDelayL.read(rTmodL, interp="spline") * f_rt60mulL;
+fbR			= rtDelayR.read(rTmodR, interp="spline") * f_rt60mulR;
+lrFbL		= interp(f_fbCross, fbL, fbR, mode="linear");	// feedback swaps	// crossfade must be linear
+lrFbR		= interp(f_fbCross, fbR, fbL, mode="linear");	// ...				// ...
+lrXl		= earlyLeft		+ lrFbL;
+lrXr		= earlyRight	+ lrFbR;
+
+lDiffuse1L	= DiffuseDelayLong(lrXl,		lrMod1L, f_lateDiff, apunity, 
+					f1a1, f1a2, f1a3, f1m0, f1m1, f1m2, f2a1, f2a2, f2a3, f2m0, f2m1, f2m2);
+lDiffuse1R	= DiffuseDelayLong(lrXr,		lrMod1R, f_lateDiff, apunity, 
+					f1a1, f1a2, f1a3, f1m0, f1m1, f1m2, f2a1, f2a2, f2a3, f2m0, f2m1, f2m2);
+
+lDiffuse2L	= DiffuseDelayLong(lDiffuse1L,	lrMod2L, f_lateDiff, apgain, 
+					f1a1, f1a2, f1a3, f1m0, f1m1, f1m2, f2a1, f2a2, f2a3, f2m0, f2m1, f2m2);
+lDiffuse2R	= DiffuseDelayLong(lDiffuse1R,	lrMod2R, f_lateDiff, apgain, 
+					f1a1, f1a2, f1a3, f1m0, f1m1, f1m2, f2a1, f2a2, f2a3, f2m0, f2m1, f2m2);
+
+lDiffuse3L	= DiffuseDelayLong(lDiffuse2L,	lrMod3L, f_lateDiff, apgain, 
+					f1a1, f1a2, f1a3, f1m0, f1m1, f1m2, f2a1, f2a2, f2a3, f2m0, f2m1, f2m2);
+lDiffuse3R	= DiffuseDelayLong(lDiffuse2R,	lrMod3R, f_lateDiff, apgain, 
+					f1a1, f1a2, f1a3, f1m0, f1m1, f1m2, f2a1, f2a2, f2a3, f2m0, f2m1, f2m2);
+
+lateLeft	= eviSvfTwoSections(lDiffuse3L, f1a1, f1a2, f1a3, f1m0, f1m1, f1m2, f2a1, f2a2, f2a3, f2m0, f2m1, f2m2);
+lateRight	= eviSvfTwoSections(lDiffuse3R, f1a1, f1a2, f1a3, f1m0, f1m1, f1m2, f2a1, f2a2, f2a3, f2m0, f2m1, f2m2);
+
+
+}	//	//	//	only process late reflections if NOT 100 % early	//	//	//	END
+
+
+//	//	//	process early / late mix
+
+elmL, elmR	= xfadeQuartApproxStereo(earlyLeft, earlyRight, lateLeft, lateRight, earlyLateMix);
+
+
+//	//	//	process main eq (± 24 dB gains)
+
+wetYl		= eviSvfTwoSections(elmL, f3a1, f3a2, f3a3, f3m0, f3m1, f3m2, f4a1, f4a2, f4a3, f4m0, f4m1, f4m2);
+wetYr		= eviSvfTwoSections(elmR, f3a1, f3a2, f3a3, f3m0, f3m1, f3m2, f4a1, f4a2, f4a3, f4m0, f4m1, f4m2);
+
+
+}	//	//	//	GLOBAL MUTE (muteMix) off / on	//	//	//	END
+
+
+//	//	//	process updates
+
+compensateDryL	=	(	in1 + 0	);
+compensateDryR	=	(	in2 + 0	);
+
+lateWriteL, lateWriteR	= xfadeQuartApproxStereo(lateLeft, lateRight, wetXl, wetXr, muteMix);
+
+rtDelayL.write(lateWriteL);
+rtDelayR.write(lateWriteR);
+
+
+//	//	//	process dry / wet (& bypass)	(cpu stays on)
+
+rvrbL, rvrbR	= xfadeQuartApproxStereo(dryL, dryR, wetYl, wetYr, dryWetMix);
+
+
+//	//	//	process global mute		(cpu on / off)		(mute should really zero all memory)
+
+out1, out2		= xfadeQuartApproxStereo(rvrbL, rvrbR, in1 + 0, in2 + 0, muteMix);
+

@@ -13,6 +13,11 @@
             "evieve"
         ]
     },
+    "includes": [
+        "evi_tanh.genexpr",
+        "evi_smooth.genexpr",
+        "evi_interp.genexpr"
+    ],
     "inlets": [
         {
             "id": 1,
@@ -42,7 +47,56 @@
         }
     ],
     "messages": [],
-    "attributes": [],
+    "attributes": [
+        {
+            "name": "filter",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "1",
+                "value": "0"
+            }
+        },
+        {
+            "name": "filtersmooth",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "296",
+                "value": "92"
+            }
+        },
+        {
+            "name": "load",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0.25",
+                "max": "4",
+                "value": "1.333333333333"
+            }
+        },
+        {
+            "name": "oversample",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "1",
+                "value": "1"
+            }
+        }
+    ],
     "example": {
         "caption": "",
         "image": ""

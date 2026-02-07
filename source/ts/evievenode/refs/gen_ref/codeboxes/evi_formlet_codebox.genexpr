@@ -1,0 +1,104 @@
+
+// this is a direct form filter, so modulation is limited.
+// based on SuperCollider 'Formlet()' - GPLv2 - but with extras.
+// I made this in 2014 for some Huddersfield friends :-)
+
+require("evi_smooth.genexpr");
+
+// !! all inputs in pitch !!
+// can all be param rate
+pitch2HzCoeffs(pitch, offset, bandwidth, spread)
+{
+    twopisr = TWOPI / samplerate;
+    minHz = samplerate * 0.00022;
+    maxHz = samplerate * 0.458334;
+
+    decayBandspread = (spread < 0 ? spread : 0) + bandwidth;		// minus filter 2 pitch
+	attackBandspread = (spread > 0 ? spread : 0) + bandwidth;		// plus filter 1 pitch
+
+	decayW0 = (clip((mtofApprox((pitch + offset) + decayBandspread)), minHz, maxHz)) * twopisr;
+	attackW0 = (clip((mtofApprox((pitch + offset) - attackBandspread)), minHz, maxHz)) * twopisr;
+
+    return  attackW0, decayW0;
+}
+
+// calculate resonant direct form b-coefficients
+// frequency in post warped normalised value, ringTime is -60dB ring time in seconds
+ringCoefs(w0, ringTime)
+{
+    LOGTH   = -6.907755278982137;       // ln(0.001) = -60dB
+	R       = maximum(expA(LOGTH / (ringTime * samplerate)), 0);
+	R2      = R + R;
+	RR      = R * R;
+	cosT    = (R2 * cos73(w0)) / (1 + RR);
+	return  (R2 * cosT), -RR;			// return two feedback coefficients b1 & b2
+}
+
+// attackTime / decayTime are -60dB ring times in seconds
+// attackW0 / decayW0 in post warped normalised values
+// loosely based on SuperCollider 'Formlet()'
+formletD(xin, attackW0, decayW0, attackTime, decayTime)
+{
+	History y1(0), y2(0), y11(0), y22(0);
+
+	// get ringCoefs()
+	b1, b2 = ringCoefs(attackW0, attackTime);
+	b11, b22 = ringCoefs(decayW0, decayTime);
+
+	// filter2, filter1
+	y00 = xin + b11 * y11 + b22 * y22;
+	y0 = xin + b1 * y1 + b2 * y2;
+ 	fofilt = 0.25 * ((y00 - y22) - (y0 - y2));  // reduce
+
+	// update
+	y22 = y11;
+	y11 = y00;
+	y2 = y1;
+	y1 = y0;
+
+	return fofilt;
+}
+
+// optional attack / decay smooth time in milliseconds (not needed in general)
+Param smoothtime(0, min=0, max=111);
+// optional frequency smooth time in milliseconds
+Param smoothfreq(0, min=0, max=666);
+
+// modulations in semitones
+Param offset(0, min=-24, max=24);		// band offset up to ± 2 octaves
+Param width(0, min=0, max=24);			// band width up to ± 2 octaves
+Param spread(0, min=-12, max=12);		// band spread up to ± 1 octave
+
+// attack / decay are -60dB ring times in milliseconds
+Param attack(10, min=10, max=59999);    // must @clip low because direct form
+Param decay(100, min=11, max=60000);
+
+// param rate
+AT = attack * 0.001;
+DT = decay * 0.001;
+
+// potentially param rate
+attackW0, decayW0 = pitch2HzCoeffs(in2, offset, width, spread);
+
+// audio rate
+
+if (smoothfreq > 0) {
+    attackW0, decayW0 = logsmoothBank2(attackW0, decayW0, smoothfreq*0.001);
+}
+
+if (smoothtime > 0) {
+    AT, DT = expsmoothBank2(AT, DT, smoothtime*0.001);
+}
+
+X = dcblock(in1);
+formletFilter = formletD(X, attackW0, decayW0, AT, DT);
+out1 = dcblock(formletFilter);
+
+/*
+If attack time == decay time (and there are no pitch offsets) then
+the signal cancels out, and if attack time > decay time then the impulse
+response is inverted.
+
+If spread & width == 0 then filter acts like a normal formlet filter.
+If offset == 0 then frequency is as input.
+*/

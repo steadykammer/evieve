@@ -1,0 +1,96 @@
+
+// expensive all audio rate frequency calc for filters and oscillators etc
+
+require("evi_smooth.genexpr");
+
+smoothCutoff(cutoff, smooth, smoothtype)
+{
+	History scdummy(0);
+	cf = cutoff;
+	if (smooth > 0) {
+		sm = smooth * 0.001;
+
+		if (smoothtype == 1) {
+			cf = logsmooth(cf, sm);
+		} else if (smoothtype == 2) {
+			cf = eviLine(cf, sm*samplerate);
+		} else if (smoothtype == 3) {
+			cf = eviSline(cf, sm*samplerate);
+		} else if (smoothtype == 4) {
+			cf = lagsmooth(cf, sm);
+		} else {// smoothtype == 0, default
+			hz = 2;
+			cf = cfSmoothLinear(cf, hz, smooth);
+		}
+		
+	}
+	return cf;
+}
+
+//	//	//	declare
+
+History prev_f(0);
+
+// choose cutoff input in Hz (0) or pitch (1, default)
+Param	mode(1, min=0, max=1);
+Param	tuning(440, min=415, max=467);// tuning around 440 Hz
+// cutoff smooth time in ms; if == 0 then no cpu used for
+// smoothing and in1 can be signal rate modulator (e.g. lfo/env modified)
+Param	smooth(0, min=0, max=1000);	// ms, default off
+Param	smoothtype(0, min=0, max=4);// select smoother, 0=lp default, 1=log, 2=line, 3=sline, 4=lag
+Param	low(0, min=-samplerate*0.5, max=samplerate*0.5);	// in Hz
+Param	high(0.5, min=0, max=0.5);	// multiplier of samplerate
+Param	cliplimit(1, min=0, max=1);	// use limit to clip cf output?
+Param	outnomod(0, min=0, max=1);	// (compute and) output a non-modulated version of cf as well?
+
+onm		= int(outnomod);
+cfm		= int(mode);
+cst		= int(smoothtype);
+limit	= samplerate * high;
+
+clamplow	= minimum(low, limit);
+clamphigh	= int(cliplimit) ? limit : samplerate*0.5;
+
+fnomod		= 0;
+freq		= in1 + 0;
+pitchmod	= in2 + 0;						// pitchmod ignored if cutoffmode == 0
+freqmod		= in3 + 0;
+
+//	//	//	optional cutoff smoothing (turn cutoffsmooth off for direct modulated in1)
+
+freq		= smoothCutoff(freq, smooth, cst);
+if (onm) {
+	fnomod	= freq;
+}
+
+//	//	//	and scale pitch cutoff
+
+if (cfm > 0) {								// if pitch input chosen for cutoffmode
+	freq	= freq + pitchmod;
+	freq	= mtofApprox(freq, base=tuning);
+	if (onm) {
+		fnomod	= mtofApprox(fnomod, base=tuning);
+	}
+}
+
+//	//	//	and scale hz cutoff
+
+freq	= freq + freqmod;
+// corrected for audio rate FM etc
+lin_f   = freq - prev_f;
+corr_f  = freq + 0.5 * lin_f;
+prev_f  = freq;
+
+//	//	//	final clip is at hz level
+
+f		= clip(corr_f, clamplow, clamphigh);
+if (onm) {
+	fnomod	= clip(fnomod, clamplow, clamphigh);
+}
+
+//	//	//	output scaled and optionally smoothed Hz
+
+out1	= f;
+out2	= fnomod;
+out3	= limit;
+

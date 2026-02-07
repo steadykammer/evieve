@@ -10,24 +10,44 @@
     },
     "inlets": [
         {
-            "name": "input",
+            "id": 1,
+            "name": "audio",
             "type": "float",
             "optional": 1,
-            "digest": "TEXT_HERE"
-        }
-    ],
-    "attributes": [
+            "digest": "In Left"
+        },
         {
-            "name": "",
-            "type": "",
-            "digest": "TEXT_HERE",
-            "description": "TEXT_HERE",
-            "default": {
-                "type": "",
-                "value": 0
-            }
+            "id": 2,
+            "name": "audio",
+            "type": "float",
+            "optional": 1,
+            "digest": "In Right"
+        },
+        {
+            "id": 3,
+            "name": "feeback",
+            "type": "float",
+            "optional": 1,
+            "digest": "(if 'fbinlet' attribute == 1) @min 0 @max 1"
         }
     ],
+    "outlets": [
+        {
+            "id": 1,
+            "name": "fdn",
+            "type": "float",
+            "optional": 1,
+            "digest": "Left"
+        },
+        {
+            "id": 2,
+            "name": "fdn",
+            "type": "float",
+            "optional": 1,
+            "digest": "Right"
+        }
+    ],
+    "attributes": [],
     "seealso": [
         {
             "name": "",

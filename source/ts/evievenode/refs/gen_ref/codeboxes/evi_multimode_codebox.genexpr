@@ -1,0 +1,51 @@
+
+// simultaneous outputs for all filters available from a linear TPT SVF Topology
+// that use just Cutoff & Q, with optional cutoff & resonance smoothing baked in
+// by pete for evieve
+// this is probably useless in practice, but maybe someone will find it useful
+
+History	state1(0), state2(0);
+
+Param	cutoffsmoothbase(2, min=0, max=10); // Hz
+Param	cutoffsmooth(20, min=0, max=100);	// ms
+Param	resonancesmooth(10, min=0, max=100);// ms
+
+Q		= in3;					            // Q
+R		= 1 / (Q + Q);                      // resonance
+if (resonancesmooth > 0)
+	R	= evi_expsmooth(R, resonancesmooth);
+R2		= R + R;
+
+C		= in2;					            // cutoff in Hz
+g       = evi_tan( PI * C / SAMPLERATE );
+if (cutoffsmooth > 0)
+	g	= evi_cfsmooth(g, cutoffsmooth, hz=cutoffsmoothbase);
+
+X		= in1;
+
+// filter core
+Hp		= (X - ((R2 + g) * state1) - state2) / (1 + (R2 * g) + (g * g));    // highpass
+gHp		=  g * Hp;
+Bp		=  gHp + state1;        // bandpass
+gBp		=  g * Bp;
+Lp		=  gBp + state2;        // lowpass
+
+// update state
+state1	=  gHp + Bp;
+state2	=  gBp + Lp;
+
+// types
+Up		= R2 * Bp;				// reson (can take very high Q)
+Pp		= Lp - Hp;				// peak
+Np		= X -  Up;				// notch
+Ap		= X - (Up + Up);		// allpass (normalised)
+
+// crazy simultaneous outputs
+out1	= Lp;
+out2	= Bp;
+out3	= Hp;
+out4	= Pp;
+out5	= Np;
+out6	= Up;
+out7	= Ap;
+

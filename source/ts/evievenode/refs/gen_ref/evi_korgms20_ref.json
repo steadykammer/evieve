@@ -10,24 +10,44 @@
     },
     "inlets": [
         {
-            "name": "input",
+            "id": 1,
+            "name": "audio",
             "type": "float",
             "optional": 1,
-            "digest": "TEXT_HERE"
-        }
-    ],
-    "attributes": [
+            "digest": "Input"
+        },
         {
-            "name": "",
-            "type": "",
-            "digest": "TEXT_HERE",
-            "description": "TEXT_HERE",
-            "default": {
-                "type": "",
-                "value": 0
-            }
+            "id": 2,
+            "name": "cutoff",
+            "type": "float",
+            "optional": 1,
+            "digest": "Frequency in Hz @min 1"
+        },
+        {
+            "id": 3,
+            "name": "resonance",
+            "type": "float",
+            "optional": 1,
+            "digest": "0..1 @min 0.01 @max 1.476 @default 0.94"
         }
     ],
+    "outlets": [
+        {
+            "id": 1,
+            "name": "korg",
+            "type": "float",
+            "optional": 1,
+            "digest": "OTA S&K Lowpass"
+        },
+        {
+            "id": 2,
+            "name": "korg",
+            "type": "float",
+            "optional": 1,
+            "digest": "OTA S&K Highpass"
+        }
+    ],
+    "attributes": [],
     "seealso": [
         {
             "name": "",

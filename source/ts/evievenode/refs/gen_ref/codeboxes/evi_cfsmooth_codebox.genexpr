@@ -1,0 +1,53 @@
+
+tanA(x)
+{
+	x2 = (x * x);
+	x3 = (x2 * x);
+	x5 = (x2 * x3);
+	return ((x5 * 0.133333333333) + (x3 * 0.333333333333)) + x;
+}
+
+expA(x0)
+{
+	x = 0.999996 + (0.031261316 + (0.00048274797 + 0.000006 * x0) * x0) * x0;
+	x *= x; x *= x; x *= x; x *= x; x *= x;
+	return x;
+}
+
+tauA(t)
+{
+	y = expA(-1 / (t * samplerate));
+	return y + 0.000128;
+}
+
+cfSmoothLinearCoeff(hz, s)		// freq, seconds
+{
+	w0		= tanA(pi * hz / samplerate);
+	g0		= (w0 + w0) / (1 + w0);
+	s0		= (1 - tauA(s)) * 4;// this is a bit stupid
+	return	  g0, s0;
+}
+
+cfSmoothLinearFilter(x0, g0, s0)
+{
+	History	low1(0), low2(0);
+	low1z	= low1;
+	low2z	= low2;
+	bandz	= low1z - low2z;
+	g		= minimum(g0 + s0 * abs(bandz), 1);
+	low1	= low1z + g * (x0 - low1z);
+	low2	= low2z + g * (low1 - low2z);
+	return	  low2;
+}
+
+cfSmoothLinear(x1, hz, s)
+{
+	History	  cfsl1dummy(0);
+	g0, s0	= cfSmoothLinearCoeff(hz, s);
+	y1		= cfSmoothLinearFilter(x1, g0, s0);
+	return	  y1;
+}
+
+Param   hz(2, min=0, max=10);
+out1    = cfSmoothLinear(in1, hz, in2*0.001);
+

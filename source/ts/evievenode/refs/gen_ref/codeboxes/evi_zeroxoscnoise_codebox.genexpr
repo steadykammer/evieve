@@ -1,0 +1,158 @@
+
+// this is a very funky noise / oscillators source mixer for e.g. a vocoder, but works as an interesting source on it's own.
+// just so you know, i really really like this for some reason.
+
+require("evi_smooth.genexpr");
+require("evi_sources.genexpr");
+require("evi_rcfilters.genexpr");
+
+zeroxEnvs(AudioForAnalysis, response, window, thresh, slope, release)
+{
+    xingnum, xgate, xings = likeZerox(AudioForAnalysis, windowSize=window, threshold=thresh);
+
+    // in samples
+    xslope = xingnum * slope;
+    envattack = maximum(xslope, 1);
+    envdecay = maximum((xslope * vectorsize), vectorsize) * release;
+
+    env = 0;
+    resp = latch(int(response), xings);
+    if (resp == 1) {        // linear
+        env = eviRampsmooth(xgate, envattack, envdecay);
+    }
+    else if (resp == 2) {   // log, default
+        env = slide(xgate, envattack, envdecay);
+    }
+    else if (resp == 3) {   // vactrol fast
+        env = vactrolBuchla(xgate, envattack, envdecay);
+    }
+    else if (resp == 4) {   // vactrol slow
+        // don't ask...
+        rise = envattack / vectorsize;
+        fall = envdecay / (vectorsize + vectorsize);
+        up = rise*rise*rise*7800 + 200;
+        down = (fall*0.9999 + 0.0001) * 0.1;
+        env = likeAvactrol(xgate * 6, up, down) * 3;
+    }
+    else {
+        env = 0;            // allowed to be zero
+    }
+
+    return  env, xingnum;
+}
+
+noiseSources(ZeroxEnv, MixNoise, pitchLow, pitchHigh)
+{
+    // mix dust..velvet..gaussian
+    mixSq = MixNoise * MixNoise;
+    analAmp = (MixNoise * 0.93) + 0.07;
+    sqrtMixNoise	= sqrt(MixNoise);
+
+    dynamicDamp = (1 - ZeroxEnv) * analAmp;
+    freqDamp = mtofApprox(eviMap((1 - mixSq), 0, 1, pitchLow, pitchHigh));
+
+    tpqmHz	= 0;	// mapped sqrt(0..1) -->> 10..10000 Hz around 0.5/500
+    if (sqrtMixNoise >= 0.5) {
+	    tpqmHz = eviZmap(sqrtMixNoise, 0.5, 1, 500, 10000);
+    }
+    else {
+	    tpqmHz = eviZmap(sqrtMixNoise, 0, 0.5, 10, 500);
+    }
+
+    tpqmAmp	= 0;	// mapped -6dB..0dB -->> 0..1 around sqrt1_2/-6dB
+    if (MixNoise >= 0.501187 && MixNoise < sqrt1_2) {
+	    tpqmAmp = eviMap(MixNoise, 0.501187, sqrt1_2, 0, 0.501187);
+    }
+    else if (MixNoise >= sqrt1_2) {
+	    tpqmAmp = eviZmap(MixNoise, sqrt1_2, 1, 0.501187, 1);
+    }
+    else {
+	    tpqmAmp = 0;
+    }
+
+    dustVelvet = sparseVelvetNoise(tpqmHz, mixSq);
+    gaussian = gaussianNoise(0.6403882032022076);
+    interpNoise = interp(tpqmAmp, dustVelvet, gaussian, mode="linear");
+
+    g, k	= rcDampCoeffs0(freqDamp, dynamicDamp);
+    rcLP	= rcFilterDamp(interpNoise, g, k);
+
+    return  rcLP;
+}
+
+// a silly crossfading wrapper around "evi_blitwaves.gendsp", specifically for the vocoder thing for my friend Christoph Resiserer
+oscSources(freq, width, reset, oscinterp, smoothfreq)           // "reset" is naive, do not use it
+{
+    History	computesine(0), computetrain(1);					// annoying, gen~ will only let me set these dynamically if Histories
+    oscSelect	= oscinterp * 6;                                // oscinterp = 0..1
+
+    SAW, RECT, TRI, SINE, Train, Sync = evi_blitwaves(freq, width, reset, smooth=smoothfreq, addsine=computesine, addtrain=computetrain);
+
+    OSC		=	0;
+    if 			(oscSelect > 0 && oscSelect <= 1) {
+	    OSC	= interp(oscSelect, 0, Train);
+    }
+    else if 	(oscSelect > 1 && oscSelect <= 2) {
+	    OSC	= interp(oscSelect - 1, Train, RECT);
+    }
+    else if 	(oscSelect > 2 && oscSelect <= 3) {
+	    OSC	= interp(oscSelect - 2, RECT, SAW, mode="cosine");	// :-)
+    }
+    else if 	(oscSelect > 3 && oscSelect <= 4) {
+	    OSC	= interp(oscSelect - 3, SAW, TRI);
+    }
+    else if 	(oscSelect > 4 && oscSelect <= 5) {
+	    OSC	= interp(oscSelect - 4, TRI, SINE);
+    }
+    else if 	(oscSelect > 5 && oscSelect <= 6) {
+	    OSC	= interp(oscSelect - 5, SINE, 0);
+    }
+
+    computesine		= oscSelect >= 4;
+    computetrain	= oscSelect <= 2;
+
+    return  OSC, Sync;
+}
+
+Param   envresponse(2, min=0, max=4);               // 1=linear, 2=log (default), 3=vactrol fast, 4=vactrol slow, 0=off
+Param   envwindow(vectorsize, min=16, max=4096);    // in samples, do not change this
+Param   envthresh(0.1, min=0, max=1);               // linear threshold for noise (zero crossings) detection
+Param   envslope(1, min=0.1, max=10);               // slowness of attack/decay slope
+Param   envrelease(2, min=1, max=10);               // slowness of decays
+
+Param   damppitchlow(94, min=12, max=103);          // pitch...
+Param   damppitchhigh(124, min=24, max=125);
+Param   noisegain(0, min=-72, max=30);              // in dB
+
+Param   gainsmooth(0, min=0, max=333);              // in ms, default off, final gains unused by default
+
+// note: turn off oscsmoothfreq if modulating externally
+Param	oscsmoothfreq(22, min=0, max=333);          // in ms, smooth the frequency changes of the oscillators? (in2)
+Param	oscgain(0, min=-72, max=30);                // in dB
+// note: there might be a problem somewhere if oscsmoothinterp == 0
+Param	oscsmoothinterp(30.111, min=0, max=1000);   // in ms, smooth the oscillators interpolation? (in3)
+oscsmoothinterpsamps    = mstosamps(oscsmoothinterp);
+
+oscGain		= dbtoaApprox(oscgain);
+noiseGain	= dbtoaApprox(noisegain);
+if (gainsmooth > 0) {
+    oscGain, noiseGain	= logsmoothBank2(oscGain, noiseGain, gainsmooth*0.001);
+}
+
+// OscFreq & OscWidth are smoothed by oscsmoothfreq if on, no need to smooth NoiseMix ?
+OscFreq = in2;  OscWidth = in3; OscInterp = in4; NoiseMix = in5;
+if (oscsmoothinterp > 0) {
+    OscInterp	= eviLine(OscInterp, oscsmoothinterpsamps);	// must be exact ramp
+}
+AudioForAnalysis = in1;
+Env, Xingnum = zeroxEnvs(AudioForAnalysis, envresponse, envwindow, envthresh, envslope, envrelease);
+MixedNoise = noiseSources(Env, NoiseMix, damppitchlow, damppitchhigh);
+Osc, OscSync = oscSources(OscFreq, OscWidth, 0, OscInterp, oscsmoothfreq);
+Resynthesis = mix((Osc * oscGain), (MixedNoise * noiseGain), Env);
+
+out1 = Resynthesis;
+out2 = Osc;
+out3 = MixedNoise;
+out4 = OscSync;
+out5 = Xingnum;
+out6 = Env;

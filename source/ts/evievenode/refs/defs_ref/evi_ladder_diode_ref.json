@@ -13,6 +13,11 @@
             "evieve"
         ]
     },
+    "includes": [
+        "evi_smooth.genexpr",
+        "evi_waveshaping.genexpr",
+        "evi_interp.genexpr"
+    ],
     "inlets": [
         {
             "id": 1,
@@ -54,7 +59,92 @@
         }
     ],
     "messages": [],
-    "attributes": [],
+    "attributes": [
+        {
+            "name": "cfmode",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "1",
+                "value": "1"
+            }
+        },
+        {
+            "name": "cfsmooth",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "1000",
+                "value": "20"
+            }
+        },
+        {
+            "name": "nonlin",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "5",
+                "value": "2"
+            }
+        },
+        {
+            "name": "oversample",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "1",
+                "value": "1"
+            }
+        },
+        {
+            "name": "ressmooth",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "333",
+                "value": "20"
+            }
+        },
+        {
+            "name": "shaping",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "1",
+                "max": "40",
+                "value": "23.7"
+            }
+        },
+        {
+            "name": "tuning",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "1",
+                "value": "0.356788"
+            }
+        }
+    ],
     "example": {
         "caption": "",
         "image": ""

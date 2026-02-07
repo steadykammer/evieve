@@ -10,24 +10,44 @@
     },
     "inlets": [
         {
-            "name": "input",
+            "id": 1,
+            "name": "main",
             "type": "float",
             "optional": 1,
-            "digest": "TEXT_HERE"
-        }
-    ],
-    "attributes": [
+            "digest": "Frequency in Hz"
+        },
         {
-            "name": "",
-            "type": "",
-            "digest": "TEXT_HERE",
-            "description": "TEXT_HERE",
-            "default": {
-                "type": "",
-                "value": 0
-            }
+            "id": 2,
+            "name": "sub",
+            "type": "float",
+            "optional": 1,
+            "digest": "Frequency in Hz"
         }
     ],
+    "outlets": [
+        {
+            "id": 1,
+            "name": "sine",
+            "type": "float",
+            "optional": 1,
+            "digest": "Sync Osc"
+        },
+        {
+            "id": 2,
+            "name": "main",
+            "type": "float",
+            "optional": 1,
+            "digest": "Phase 0..1"
+        },
+        {
+            "id": 3,
+            "name": "sine",
+            "type": "float",
+            "optional": 1,
+            "digest": "Phase 0..1"
+        }
+    ],
+    "attributes": [],
     "seealso": [
         {
             "name": "",

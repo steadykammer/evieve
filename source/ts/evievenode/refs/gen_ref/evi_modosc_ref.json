@@ -10,24 +10,30 @@
     },
     "inlets": [
         {
-            "name": "input",
+            "id": 1,
+            "name": "frequency",
             "type": "float",
             "optional": 1,
-            "digest": "TEXT_HERE"
-        }
-    ],
-    "attributes": [
+            "digest": "in Hz +/-"
+        },
         {
-            "name": "",
-            "type": "",
-            "digest": "TEXT_HERE",
-            "description": "TEXT_HERE",
-            "default": {
-                "type": "",
-                "value": 0
-            }
+            "id": 2,
+            "name": "signal",
+            "type": "float",
+            "optional": 1,
+            "digest": "Rate Phase Reset (Naive)"
         }
     ],
+    "outlets": [
+        {
+            "id": 1,
+            "name": "modulation",
+            "type": "float",
+            "optional": 1,
+            "digest": "-1..1 Sine Oscillator * scale + offset"
+        }
+    ],
+    "attributes": [],
     "seealso": [
         {
             "name": "",

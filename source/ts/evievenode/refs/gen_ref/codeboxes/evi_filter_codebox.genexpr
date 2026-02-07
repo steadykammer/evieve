@@ -1,0 +1,29 @@
+
+require("evi_svf.genexpr");
+
+Param   smooth(0, min=0, max=333);
+Param   filter(7, min=0, max=12);
+filt    = int(filter);
+reset   = delta(change(filt)) < 0;
+
+/*
+	Index	Filter
+
+	0 		Bypass
+	1 		Lowpass
+	2 		Highpass
+	3 		Bandpass
+	4 		Peak
+	5 		Notch
+	6 		Resonant
+	7 		Bell            // (default)
+	8 		BellAdaptiveQ
+	9 		Lowshelf
+	10 		Highshelf
+	11 		Tilt
+	12 		Allpass
+*/
+
+                            //   hz,  db,  Q
+out1    = eviFilterTptReset(in1, in2, in3, in4, filt, reset, smooth=smooth);
+

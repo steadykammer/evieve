@@ -1,0 +1,274 @@
+
+// evi_majorverb.gendsp, a strange reverb-like effect by Pete for evieve,
+// based on Christopher Moore's 1978 Ursa Major Space Station algorithm
+// @see: https://patentimages.storage.googleapis.com/69/db/19/ea420d3f72ccd2/US4268717.pdf
+// I would not have fully understood it all without the Tom Erbe examples.
+
+// This is not an attempt to model the 1970's digital hardware, but more of a trope on it, 
+// although it does sound very close to the original with the right settings :-)
+// Nonlinearities and trap filters have been added, much as you might find in an analogue delay,
+// and different modulation, interpolation, smoothing, filtering modifications, etc.
+// The key features (for me) are the ability to screw up the recirculation settings into a crazy
+// and cool performable feedback matrix drone machine. It is also dirt cheap on the CPU.
+
+
+//	//	//	lib
+
+require("evi_reverb_library.genexpr");
+require("evi_saturators.genexpr");
+
+// make oversampling choice on tanhL nonlinearity
+tanhLNonlin(xin, oversampling)
+{
+	History tnhldummy(0);
+	y = 0;
+	if (oversampling == 1) {		// use Adaa2 2x oversampling
+		y = altTanhSqrtAdaa2_2x_6POINT(xin);
+	} else if (oversampling == 2) {	// use Adaa2 4x oversampling
+		y = altTanhSqrtAdaa2_4x_6POINT(xin);
+	} else {						// Adaa 2nd order
+		y = altTanhSqrtAdaa2(xin);
+	}
+	return y;
+}
+
+// make oversampling choice on parabolSat nonlinearity
+parabolNonlin(xin, a, c, oversampling)
+{
+	History pbsdummy(0);
+	y = 0;
+	if (oversampling == 1) {		// use 2x oversampling
+		y = parabolSat_2x_6POINT(xin, a, c);
+	} else if (oversampling == 2) {	// use 4x oversampling
+		y = parabolSat_4x_6POINT(xin, a, c);
+	} else {						// 1x
+		y = parabolSat(xin, a, c);
+	}
+	return y;
+}
+
+//	//	//	magic constants (fixed, although we could experiment with changing them here)
+//							(although if changing higher keep in mind maximum delay sizes set in Delay operators below)
+
+// modulation rates in Hz
+Param	mod1(		0.666,		min=0, max=1);
+Param	mod2(		0.625,		min=0, max=1);
+Param	mod3(		0.555,		min=0, max=1);
+Param	mod4(		0.476,		min=0, max=1);
+Param	mod5(		0.435,		min=0, max=1);
+Param	mod6(		0.303,		min=0, max=1);
+Param	mod7(		0.181,		min=0, max=1);
+Param	mod8(		0.122,		min=0, max=1);
+
+// computed externally in js
+
+// fdn taps in samples, defaults for 48kHz
+Param	delay1(		2299.2,		min=1, max=47559);
+Param	delay2(		5764.8,		min=1, max=47559);
+Param	delay3(		6532.8,		min=1, max=47559);
+Param	delay4(		7003.2,		min=1, max=47559);
+Param	delay5(		7627.2,		min=1, max=47559);
+Param	delay6(		8126.4,		min=1, max=47559);
+Param	delay7(		8644.8,		min=1, max=47559);
+Param	delay8(		9124.8,		min=1, max=47559);
+Param	delay9(		9614.4,		min=1, max=47559);
+Param	delay10(	10075.2,	min=1, max=47559);
+Param	delay11(	10459.2,	min=1, max=47559);
+Param	delay12(	10804.8,	min=1, max=47559);
+Param	delay13(	11227.2,	min=1, max=47559);
+Param	delay14(	11515.2,	min=1, max=47559);
+Param	delay15(	11716.8,	min=1, max=47559);
+Param	delay16(	11889.6,	min=1, max=47559);
+
+// out taps in samples, defaults for 48kHz
+Param	sum1(		2914,		min=1, max=40877);
+Param	sum2(		3710,		min=1, max=40877);
+Param	sum3(		6590,		min=1, max=40877);
+Param	sum4(		5390,		min=1, max=40877);
+Param	sum5(		8414,		min=1, max=40877);
+Param	sum6(		7685,		min=1, max=40877);
+Param	sum7(		9125,		min=1, max=40877);
+Param	sum8(		10219,		min=1, max=40877);
+
+
+//	//	//	declare
+
+// 24-tap delay line (fdn (space) & output taps (cross))
+// n.b. - [delay] operator in gen~ has maximum 15 taps (go figure), so we split them up here
+
+Delay	space_A(samplerate*0.277, 8, feedback=1);	// ± maximum modulation time ...
+Delay	space_B(samplerate*0.280, 8, feedback=1);	// ...
+Delay	cross_Y(samplerate*0.214, 8, feedback=0);	// fixed taps
+
+// EQs (bandwidth & damping)
+
+Param	inputhzlow(125, min=31.25, max=500);		// highpass in Hz
+Param	inputhzhigh(4000, min=500, max=14700);		// lowpass in Hz
+
+Param	feedbackhzlow(250, min=62.5, max=500);		// highpass in Hz
+Param	feedbackhzhigh(2000, min=250, max=8000);	// lowpass in Hz
+Param	feedbackdamplow(sqrt1_2, min=0, max=1);		// % 0..1, 0 = bypass .. 1 = maximum damping ...
+Param	feedbackdamphigh(0.8666, min=0, max=1);		// ...
+
+// controls
+
+Param	feedback(2.4, min=0.01, max=10);			// amplitude
+
+Param	feedbacknonlinear(1, min=0, max=2);			// 0 = Adaa2, 1 = 2x, 2 = 4x oversampled
+Param	outputnonlinear(1, min=0, max=2);			// 0 = 1x, 1 = 2x, 2 = 4x oversampled
+// secret gains (careful, not smoothed)
+Param	outputnonlineargains(0, min=0, max=1);		// switch input/output gains of output nonlinearity pre/post
+
+Param	modulationdepth(4, min=0, max=16);			// ± ms peak to peak
+Param	modulationrate(1, min=0.125, max=8);		// global multiplier (of Hz), slower..faster
+// secret modulation (careful, not smoothed)
+Param	modulationshape(1, min=0, max=1);			// tri..sine morph 0..1
+Param	modulationskew(1, min=0.5, max=2);			// skew shape power 0.5..2 through 1
+Param	modulationduty(0.5, min=0, max=1);			// tri duty cycle
+
+Param	drywet(sqrt1_2, min=0, max=1);				// % 0..1
+
+
+//	//	//	parse param rate
+
+// one day these might be dynamic ...
+outputTaps			= 8;
+outputAttenuation	= 1 / (outputTaps / 2);
+feedbackTaps		= 16;
+feedbackAttenuation	= 1 / feedbackTaps;
+
+bw_glp			= rcPreWarp1(inputhzhigh);
+bw_ghp			= rcPreWarp1(inputhzlow);
+
+fb_damp_high	= (1 - feedbackdamphigh) - 1;		// map from 0..1 ...
+fb_damp_low		= (1 - feedbackdamplow) - 1;		// ...
+
+fb_glp, fb_klp	= rcDampCoeffs2(feedbackhzhigh, fb_damp_high);
+fb_ghp, fb_khp	= rcDampCoeffs2(feedbackhzlow, fb_damp_low);
+
+fbNonlin	= int(feedbacknonlinear);
+opNonlin	= int(outputnonlinear);
+opNlGain0	= int(outputnonlineargains) > 0;
+opNlGain1	= opNlGain0 ? 1.059254 : sqrt1_2;
+opNlGain2	= opNlGain0 ? sqrt1_2 : sqrt2;
+
+
+//	//	//	parse audio rate
+
+xL		=  in1 + 0;					// dry L/R ...
+xR		=  in2 + 0;
+mixL	=   xL + 0;					// outputs ...
+mixR	=   xR + 0;
+
+dryWet, dwn	=  eviLine(drywet, (delay14 + delay14));
+
+
+if (dryWet > 0) {	//	//	//	start: only compute if mix > 0 %	\\	\\	\\
+
+x0		= (xL + xR) * 0.5;			// summed mono audio input to fdn
+
+fbamnt, moddepth	= logsmoothBank2(feedback, mstosamps(modulationdepth),  0.1361);
+modamnt				= logsmooth(modulationrate, 0.1201);
+
+inghi, inglo		= expsmoothBank2(bw_ghp, bw_glp, 0.0479);
+fbghi, fbglo		= expsmoothBank2(fb_ghp, fb_glp, 0.1201);
+fbkhi, fbklo		= logsmoothBank2(fb_khp, fb_klp, 0.2003);
+
+
+//	//	//	feedback tap times (space) in samples (constants ± modulation) + phase offsets
+
+mod0	= 1 / (feedbackTaps + feedbackTaps);
+
+// !! switch to using "onemod1()" only for even cheaper modulation, but not as much fun
+modA1	= oneMod1((mod1 * modamnt), moddepth, (mod0     ), modulationduty, modulationshape, modulationskew );
+modB1	= oneMod1((mod2 * modamnt), moddepth, (mod0 * 3 ), modulationduty, modulationshape, modulationskew );
+modC1	= oneMod1((mod3 * modamnt), moddepth, (mod0 * 5 ), modulationduty, modulationshape, modulationskew );
+modD1	= oneMod2((mod4 * modamnt), moddepth, (mod0 * 7 ), modulationduty, modulationshape, modulationskew );
+modE1	= oneMod2((mod5 * modamnt), moddepth, (mod0 * 9 ), modulationduty, modulationshape, modulationskew );
+modF1	= oneMod2((mod6 * modamnt), moddepth, (mod0 * 11), modulationduty, modulationshape, modulationskew );
+modG1	= oneMod2((mod7 * modamnt), moddepth, (mod0 * 13), modulationduty, modulationshape, modulationskew );
+modH1	= oneMod2((mod8 * modamnt), moddepth, (mod0 * 15), modulationduty, modulationshape, modulationskew );
+modA2	= oneMod1((mod1 * modamnt), moddepth, (mod0 * 2 ), modulationduty, modulationshape, modulationskew );
+modB2	= oneMod1((mod2 * modamnt), moddepth, (mod0 * 4 ), modulationduty, modulationshape, modulationskew );
+modC2	= oneMod1((mod3 * modamnt), moddepth, (mod0 * 6 ), modulationduty, modulationshape, modulationskew );
+modD2	= oneMod2((mod4 * modamnt), moddepth, (mod0 * 8 ), modulationduty, modulationshape, modulationskew );
+modE2	= oneMod2((mod5 * modamnt), moddepth, (mod0 * 10), modulationduty, modulationshape, modulationskew );
+modF2	= oneMod2((mod6 * modamnt), moddepth, (mod0 * 12), modulationduty, modulationshape, modulationskew );
+modG2	= oneMod2((mod7 * modamnt), moddepth, (mod0 * 14), modulationduty, modulationshape, modulationskew );
+modH2	= oneMod2((mod8 * modamnt), moddepth, (mod0 * 16), modulationduty, modulationshape, modulationskew );
+
+
+//	//	//	fdn taps	- modulated & summed
+
+tap1	= space_A.read(delay1 + modA1,  0, interp="cubic");
+tap2	= space_B.read(delay2 + modA2,  0, interp="cubic");
+tap3	= space_A.read(delay3 + modB1,  1, interp="cubic");
+tap4	= space_B.read(delay4 + modB2,  1, interp="cubic");
+branch1	= tap1 + tap2 + tap3 + tap4;
+
+tap5	= space_A.read(delay5 + modC1,  2, interp="cubic");
+tap6	= space_B.read(delay6 + modC2,  2, interp="cubic");
+tap7	= space_A.read(delay7 + modD1,  3, interp="cubic");
+tap8	= space_B.read(delay8 + modD2,  3, interp="cubic");
+branch2	= tap5 + tap6 + tap7 + tap8;
+
+tap9	= space_A.read(delay9 + modE1,  4, interp="cubic");
+tap10	= space_B.read(delay10 + modE2, 4, interp="cubic");
+tap11	= space_A.read(delay11 + modF1, 5,	interp="cubic");
+tap12	= space_B.read(delay12 + modF2, 5,	interp="cubic");
+branch3	= tap9 + tap10 + tap11 + tap12;
+
+tap13	= space_A.read(delay13 + modG1, 6,	interp="cubic");
+tap14	= space_B.read(delay14 + modG2, 6,	interp="cubic");
+tap15	= space_A.read(delay15 + modH1, 7,	interp="cubic");
+tap16	= space_B.read(delay16 + modH2, 7,	interp="cubic");
+branch4	= tap13 + tap14 + tap15 + tap16;
+
+feedbackSum	= (branch1 + branch2 + branch3 + branch4) * feedbackAttenuation;
+feedbackSum	= dcblock(tanhLNonlin((feedbackSum * 0.944061), fbNonlin) * 1.059254);	// nonlin choice (fbNonlin)
+
+
+//	//	//	input
+
+inputLineWrite		= rcFilterBandpass(x0, inglo, inghi);
+feedbacklLineWrite	= rcFilterDampBandpass(feedbackSum, fbglo, fbghi, fb_klp, fb_khp) * fbamnt;	// fbamnt before nonlin ?
+delayLineWrite		= fixdenorm(inputLineWrite + feedbacklLineWrite);
+
+space_A.write(delayLineWrite);
+space_B.write(delayLineWrite);
+cross_Y.write(delayLineWrite);
+
+
+//	//	//	output taps (cross)		- fixed & tapped
+
+tap01	= cross_Y.read(sum1,  0, interp="none");				// "none" because fixed integer samples
+tap02	= cross_Y.read(sum3,  2, interp="none");
+tap03	= cross_Y.read(sum5,  4, interp="none");
+tap04	= cross_Y.read(sum7,  6, interp="none");
+
+tap05	= cross_Y.read(sum2,  1, interp="none");
+tap06	= cross_Y.read(sum4,  3, interp="none");
+tap07	= cross_Y.read(sum6,  5, interp="none");
+tap08	= cross_Y.read(sum8,  7, interp="none");
+
+ssL		= dcblock(tap01 + tap02 + tap03 + tap04) * outputAttenuation;
+ssR		= dcblock(tap05 + tap06 + tap07 + tap08) * outputAttenuation;
+
+ssL		= parabolNonlin(ssL, opNlGain1, opNlGain2, opNonlin);	// nonlins choice (opNonlin)
+ssR		= parabolNonlin(ssR, opNlGain1, opNlGain2, opNonlin);	// ...
+
+//ssL		= dcblock(ssL);
+//ssR		= dcblock(ssR);
+
+
+//	//	//	dry/wet mix
+
+mixL, mixR	= xfadeSqrtStereo(xL, xR, ssL, ssR, dryWet);
+
+
+}					//	//	//	end: only compute if mix > 0 %	\\	\\	\\
+
+
+out1		= mixL;
+out2		= mixR;
+

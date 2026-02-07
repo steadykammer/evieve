@@ -10,24 +10,37 @@
     },
     "inlets": [
         {
+            "id": 1,
             "name": "input",
             "type": "float",
             "optional": 1,
-            "digest": "TEXT_HERE"
+            "digest": ""
         }
     ],
-    "attributes": [
+    "outlets": [
         {
-            "name": "",
-            "type": "",
-            "digest": "TEXT_HERE",
-            "description": "TEXT_HERE",
-            "default": {
-                "type": "",
-                "value": 0
-            }
+            "id": 1,
+            "name": "number",
+            "type": "samples",
+            "optional": 1,
+            "digest": "of Samples between Zerocrossings"
+        },
+        {
+            "id": 2,
+            "name": ">",
+            "type": "gate",
+            "optional": 1,
+            "digest": "threshold"
+        },
+        {
+            "id": 3,
+            "name": "the",
+            "type": "float",
+            "optional": 1,
+            "digest": "Zerocrossings"
         }
     ],
+    "attributes": [],
     "seealso": [
         {
             "name": "",

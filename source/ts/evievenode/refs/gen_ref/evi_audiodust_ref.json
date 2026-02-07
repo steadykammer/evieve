@@ -10,24 +10,37 @@
     },
     "inlets": [
         {
-            "name": "input",
+            "id": 1,
+            "name": "frequency",
             "type": "float",
             "optional": 1,
-            "digest": "TEXT_HERE"
+            "digest": "in Hz @default 10 @min -SAMPLERATE*0.5 @max SAMPLERATE*0.5"
         }
     ],
-    "attributes": [
+    "outlets": [
         {
-            "name": "",
-            "type": "",
-            "digest": "TEXT_HERE",
-            "description": "TEXT_HERE",
-            "default": {
-                "type": "",
-                "value": 0
-            }
+            "id": 1,
+            "name": "so",
+            "type": "float",
+            "optional": 1,
+            "digest": "Called \"Audio Dust\""
+        },
+        {
+            "id": 2,
+            "name": "\"white",
+            "type": "float",
+            "optional": 1,
+            "digest": "Noise\""
+        },
+        {
+            "id": 3,
+            "name": "click",
+            "type": "float",
+            "optional": 1,
+            "digest": "(Sample Accurate Unipolar Sync Source)"
         }
     ],
+    "attributes": [],
     "seealso": [
         {
             "name": "",

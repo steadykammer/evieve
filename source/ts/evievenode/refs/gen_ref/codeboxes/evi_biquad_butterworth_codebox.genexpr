@@ -1,0 +1,25 @@
+
+require("evi_biquad.genexpr");
+
+/*
+    filter  calculator                              	    parameters
+    0       bypass                                  	    none
+	1		eviBiquadCoeffButterworthLowpass    (default)   cutoff
+	2		eviBiquadCoeffButterworthHighpass 			    cutoff
+	3		eviBiquadCoeffButterworthBandpass 			    cutoff, Q
+	4		eviBiquadCoeffButterworthBandreject 		    cutoff, Q
+	5		eviBiquadCoeffButterworthLowpassGain 		    cutoff, gain
+	6		eviBiquadCoeffButterworthHighpassGain 		    cutoff, gain
+	7		eviBiquadCoeffButterworthBandpassGain 		    cutoff, gain, Q
+	8		eviBiquadCoeffButterworthBandrejectGain 	    cutoff, gain, Q
+	9		eviBiquadCoeffLowShelfAnalog2 				    cutoff, gain
+	10		eviBiquadCoeffHighShelfAnalog2 				    cutoff, gain
+*/
+Param   filter(1, min=0, max=10);
+filt    = int(filter);
+reset   = delta(change(filt)) < 0;
+
+a0, a1, a2, b1, b2  = eviBiquadCoeffButterworth(filt, in2, dbtoa(in3), in4);
+
+out1    = biquadDf2reset(in1, a0, a1, a2, b1, b2, reset);
+

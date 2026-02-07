@@ -13,6 +13,9 @@
             "evieve"
         ]
     },
+    "includes": [
+        "evi_crossovers.genexpr"
+    ],
     "inlets": [
         {
             "id": 1,
@@ -36,7 +39,20 @@
         }
     ],
     "messages": [],
-    "attributes": [],
+    "attributes": [
+        {
+            "name": "order",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "1",
+                "value": "0"
+            }
+        }
+    ],
     "example": {
         "caption": "",
         "image": ""

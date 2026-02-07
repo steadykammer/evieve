@@ -13,6 +13,11 @@
             "evieve"
         ]
     },
+    "includes": [
+        "evi_smooth.genexpr",
+        "evi_clip.genexpr",
+        "evi_biquad.genexpr"
+    ],
     "inlets": [
         {
             "id": 1,
@@ -48,7 +53,68 @@
         }
     ],
     "messages": [],
-    "attributes": [],
+    "attributes": [
+        {
+            "name": "clip",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "2",
+                "value": "0"
+            }
+        },
+        {
+            "name": "ingain",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "-20",
+                "max": "40",
+                "value": "1"
+            }
+        },
+        {
+            "name": "knee",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0.001",
+                "max": "1",
+                "value": "0.55"
+            }
+        },
+        {
+            "name": "release",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "1",
+                "max": "376",
+                "value": "52"
+            }
+        },
+        {
+            "name": "smooth",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "1",
+                "value": "0.05"
+            }
+        }
+    ],
     "example": {
         "caption": "",
         "image": ""

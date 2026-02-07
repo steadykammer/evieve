@@ -1,0 +1,240 @@
+
+//	//	//	evi_zitaverb.gendsp
+//	//	//	stereo FDN / Allpass reverb for gen~ by Pete for evieve
+//	//	//	a port (and modification) of the famous open source "zita-rev-1" by Fons Adriaensen
+//	//	//	Original Copyright (C) 2003-2011 Fons Adriaensen <fons@linuxaudio.org>, LGPL v2
+
+
+//	//	//	LIB
+
+require("evi_reverb_library.genexpr");
+
+
+//	//	//	DECLARE
+
+// constants in samples from external javascript, defaults are for 48kHz samplerate
+Param	apTime1(977,	min=1, max=6068);
+Param	apTime2(1172,	min=1, max=6068);
+Param	apTime3(1517,	min=1, max=6068);
+Param	apTime4(1312,	min=1, max=6068);
+Param	apTime5(1099,	min=1, max=6068);
+Param	apTime6(1406,	min=1, max=6068);
+Param	apTime7(646,	min=1, max=6068);
+Param	apTime8(918,	min=1, max=6068);
+
+Param	fbTime1(7350,	min=1, max=49323);
+Param	fbTime2(10099,	min=1, max=49323);
+Param	fbTime3(6136,	min=1, max=49323);
+Param	fbTime4(12331,	min=1, max=49323);
+Param	fbTime5(8386,	min=1, max=49323);
+Param	fbTime6(9231,	min=1, max=49323);
+Param	fbTime7(6000,	min=1, max=49323);
+Param	fbTime8(10560,	min=1, max=49323);
+
+Param	dfTime1(6373,	min=1, max=44075);
+Param	dfTime2(8927,	min=1, max=44075);
+Param	dfTime3(4619,	min=1, max=44075);
+Param	dfTime4(11019,	min=1, max=44075);
+Param	dfTime5(7287,	min=1, max=44075);
+Param	dfTime6(7825,	min=1, max=44075);
+Param	dfTime7(5354,	min=1, max=44075);
+Param	dfTime8(9642,	min=1, max=44075);
+
+// fdn
+Delay	fbDelay1	(	fbTime1+1,	feedback=1	);
+Delay	fbDelay2	(	fbTime2+1,	feedback=1	);
+Delay	fbDelay3	(	fbTime3+1,	feedback=1	);
+Delay	fbDelay4	(	fbTime4+1,	feedback=1	);
+Delay	fbDelay5	(	fbTime5+1,	feedback=1	);
+Delay	fbDelay6	(	fbTime6+1,	feedback=1	);
+Delay	fbDelay7	(	fbTime7+1,	feedback=1	);
+Delay	fbDelay8	(	fbTime8+1,	feedback=1	);
+
+// pre
+Delay	PreDelayL	(	samplerate*0.170+1,		feedback=0	);
+Delay	PreDelayR	(	samplerate*0.170+1,		feedback=0	);
+
+History	xL(0), xR(0);						// align dry signals
+History	tL(0), tR(0);						// align tapped signals
+
+// reverb controls
+Param	predelay	(	19,			min= 0,		max= 170	);	// ms
+Param	crossover	(	315,		min= 31.25,	max= 1260	);	// Hz
+Param	lowdecay	(	3.333333,	min= 0.06,	max= 60		);	// seconds, low RT60
+Param	middecay	(	2.222222,	min= 0.06,	max= 60		);	// seconds, mid RT60
+Param	damp		(	3780,		min= 500,	max= 15000	);	// Hz (1000 .. 8000 ?)	// maximum will actually be sr/4
+//Param	feedback	(	1,			min= 0.001,	max= 1		);	// amplitude, for testing only, keep at '1' !!
+
+// eq coefficients
+// calculated externally, defaults: samplerate: 48000 / lowshelf: 315 Hz, 0 dB, 1.0 res / highshelf: 1260 Hz, 0 dB, 0.5 res
+// (pointless min/max are only for avoiding code export forcing 0..1)
+Param	eq1_a1		(	0.979389,	min=-1,		max= 1		);
+Param	eq1_a2		(	0.020195,	min=-1,		max= 1		);
+Param	eq1_a3		(	0.000416,	min=-1,		max= 1		);
+Param	eq1_m0		(	1,			min=-16,	max= 16		);	// eq1_m0 static @ '1' for lowshelf or bell choices
+Param	eq1_m1		(	0,			min=-16,	max= 16		);
+Param	eq1_m2		(	0,			min=-16,	max= 16		);
+Param	eq2_a1		(	0.853140,	min=-1,		max= 1		);
+Param	eq2_a2		(	0.070516,	min=-1,		max= 1		);
+Param	eq2_a3		(	0.005828,	min=-1,		max= 1		);
+Param	eq2_m0		(	1,			min=-16,	max= 16		);	// (highshelf / bell requires eq2_m0 coefficient)
+Param	eq2_m1		(	0,			min=-16,	max= 16		);
+Param	eq2_m2		(	0,			min=-16,	max= 16		);
+
+// mix controls
+Param	gain		(  -1,			min=-80,	max= 20		);	// dB
+Param	drywet		(	0.8666,		min= 0,		max= 1		);	// % 0..1
+Param	bypass		(	0,			min= 0,		max= 1		);	// 'mix' to real '0'
+
+
+//	//	//	CONSTANTS
+
+Param	sqrt8const	 ( 2.8284271247461903,	min=  0,	max= 10);//  sqrt(N)	[ N = 8 fdn lines ]
+Param	sqrt8constMul( 0.35355339059327373,	min=  0,	max= 1 );//  1 / sqrt8const; (sqrt(0.125))
+Param	m3l10const	 (-6.907755278982138,	min=-10,	max= 0 );// -3 * log(10)
+Param	gainAPconst	 ( 0.6033,				min=  0,	max= 1 );// -0.6 or +0.6 allpass gains
+//Param	gainAPconst	 ( 0.690775527898214,	min=  0,	max= 1 );//  abs( m3l10const / 10 )
+Param	const3mul	 ( 0.333333333333333,	min=  0,	max= 1 );//  1 / 3
+//Param	tapMul		 ( 0.37,				min=  0,	max= 1 );//  fons
+
+
+//	//	//	PARSE PARAM RATE
+
+xover_N		= twopi * crossover / samplerate;
+damp_M		= minimum(damp, (samplerate * 0.25));
+damp_N		= 1 - cosQ73(twopi * damp_M / samplerate);
+
+//pd_Samp	= maximum(mstosamps(predelay), 1);// not convinced we need this clip
+pd_Samp		= mstosamps(predelay);
+l_t60samp	= lowdecay * samplerate;
+m_t60samp	= middecay * samplerate;
+
+//fb_0		= feedback;
+//out_amp	= dbtoaApprox(gain);								// not using
+dw_mix		= ((drywet * 0.9998) + 0.0002) * (1 - int(bypass));	// '0' only if 'bypass' == '1'
+//dw_mix	= drywet * (1 - int(bypass));
+
+//wlo, glo, whi, gmf	= delayFiltCoeff(dfTime[n], l_t60samp, m_t60samp, xover_N, damp_N, m3l10const);
+
+
+//	//	//	PARSE AUDIO RATE
+
+sr015			= 0.015111 * samplerate;
+xoverN			= eviLine(xover_N, sr015);
+dampN			= eviLine(damp_N, sr015);
+
+
+pdSamp			= eviLine(pd_Samp, (0.022666 * samplerate));
+lt60samp, mt60samp	
+				= logsmoothBank2(l_t60samp, m_t60samp, 0.022666);
+
+//outamp		= logsmooth(out_amp, 0.030222);				// not using
+mix				= eviLine(dw_mix, (0.30222 * samplerate));	// exact ramp for cpu management
+
+// inputs
+
+xL		= in1;		// align
+xR		= in2;
+
+PreDelayL.write(in1);
+PreDelayR.write(in2);
+
+
+//	//	//	CPU MANAGE with mix
+
+//invmix	= 1 - mix;
+//invxL	= xL * invmix * sqrt8constMul;
+//invxR	= xR * invmix * sqrt8constMul;
+
+yL		= xL;
+yR		= xR;
+
+delIn1	= 0;//invxL;
+delIn3	= 0;//invxL;
+delIn5	= 0;//invxL;
+delIn7	= 0;//invxL;
+delIn2	= 0;//invxR;
+delIn4	= 0;//invxR;
+delIn6	= 0;//invxR;
+delIn8	= 0;//invxR;
+
+if (mix > 0) {			// '0' only if 'bypass' == '1'
+
+
+// 	//	//	PRE DELAY
+
+inL		= PreDelayL.read(pdSamp, interp="fastcubic") * const3mul;//sqrt8constMul;
+inR		= PreDelayR.read(pdSamp, interp="fastcubic") * const3mul;//sqrt8constMul;
+
+
+//	//	//	8X8 FEEDBACK DELAY NETWORK
+
+// sum & fan to inputs, allpass network, through fdn matrix
+
+fb1, fb2, fb3, fb4, fb5, fb6, fb7, fb8	
+		= hadamard8(
+					apDelaySingle((fbDelay1.read(fbTime1, interp="none") + inL), apTime1,  gainAPconst),
+					apDelaySingle((fbDelay2.read(fbTime2, interp="none") + inR), apTime2, -gainAPconst),
+					apDelaySingle((fbDelay3.read(fbTime3, interp="none") - inL), apTime3,  gainAPconst),
+					apDelaySingle((fbDelay4.read(fbTime4, interp="none") - inR), apTime4, -gainAPconst),
+					apDelaySingle((fbDelay5.read(fbTime5, interp="none") + inL), apTime5,  gainAPconst),
+					apDelaySingle((fbDelay6.read(fbTime6, interp="none") + inR), apTime6, -gainAPconst),
+					apDelaySingle((fbDelay7.read(fbTime7, interp="none") - inL), apTime7,  gainAPconst),
+					apDelaySingle((fbDelay8.read(fbTime8, interp="none") - inR), apTime8, -gainAPconst)
+				   );
+
+// lowshelf / lowpass damping network
+
+// we should really do coefficients at param rate or externally, but cannot get delay times in before main loop of export
+delIn1	= delayFilter(fb1 * sqrt8constMul, dfTime1, lt60samp, mt60samp, xoverN, dampN, m3l10const);
+delIn2	= delayFilter(fb2 * sqrt8constMul, dfTime2, lt60samp, mt60samp, xoverN, dampN, m3l10const);
+delIn3	= delayFilter(fb3 * sqrt8constMul, dfTime3, lt60samp, mt60samp, xoverN, dampN, m3l10const);
+delIn4	= delayFilter(fb4 * sqrt8constMul, dfTime4, lt60samp, mt60samp, xoverN, dampN, m3l10const);
+delIn5	= delayFilter(fb5 * sqrt8constMul, dfTime5, lt60samp, mt60samp, xoverN, dampN, m3l10const);
+delIn6	= delayFilter(fb6 * sqrt8constMul, dfTime6, lt60samp, mt60samp, xoverN, dampN, m3l10const);
+delIn7	= delayFilter(fb7 * sqrt8constMul, dfTime7, lt60samp, mt60samp, xoverN, dampN, m3l10const);
+delIn8	= delayFilter(fb8 * sqrt8constMul, dfTime8, lt60samp, mt60samp, xoverN, dampN, m3l10const);
+
+
+//	//	//	POST PROCESSING CHAIN
+
+// taps
+
+tL, tR	= butterfly2(fb2, fb3);	// funny Fons
+yL		= tL * sqrt8constMul;//tapMul;
+yR		= tR * sqrt8constMul;//tapMul;
+
+// eq
+
+// coefficients external
+yL, yR	= eviSvfTwoSectionsStereo(yL, yR,		
+				eq1_a1, eq1_a2, eq1_a3, eq1_m0, eq1_m1, eq1_m2, eq2_a1, eq2_a2, eq2_a3, eq2_m0, eq2_m1, eq2_m2);
+
+
+}	//	//	end CPU MANAGE with mix
+
+// delay line inputs (outside of mix manage)
+
+fbDelay1.write(fixdenorm(delIn1));
+fbDelay2.write(fixdenorm(delIn2));
+fbDelay3.write(fixdenorm(delIn3));
+fbDelay4.write(fixdenorm(delIn4));
+fbDelay5.write(fixdenorm(delIn5));
+fbDelay6.write(fixdenorm(delIn6));
+fbDelay7.write(fixdenorm(delIn7));
+fbDelay8.write(fixdenorm(delIn8));
+
+// dry/wet mix
+
+rvrbL, rvrbR	= xfadeQuartApproxStereo(xL, xR, yL, yR, mix);
+
+// output gain	// no
+
+//rvrbL	= rvrbL * outamp;
+//rvrbR	= rvrbR * outamp;
+
+// outputs
+
+out1	= rvrbL;
+out2	= rvrbR;
+

@@ -1,0 +1,12 @@
+
+logsmooth(x, s)		// x = value	// s = time to drop 6dB (in seconds)
+{
+	History z(0);
+	ad = LN2 / (s * samplerate);	// (0.69314718056 / samples), no maximum check
+	y  = ((x - z) * ad) + z;
+	z  = y;
+	return y;
+}
+
+out1    = logsmooth(in1, in2*0.001);
+

@@ -1,0 +1,27 @@
+
+logsad(s)									// s = time to drop 6dB (in seconds)
+{
+	return	LN2 / (s * samplerate);
+}
+
+// log smooth (AHR) envelope follower (branching version, cheaper than 'simultaneous version')
+logattackholdrelease(x, a, h, r)			// a/h/r = attack/hold/release times (to 6dB) in seconds
+{
+	History	z(0), g(0);
+	ff		= x - z;
+	hh, env	= 0;
+	if (ff > 0)	{
+		hh	= maximum((h * samplerate), 1) - 1; // no max ??
+		env	= logsad(a);
+	} else {
+		hh	= g - 1;
+		env	= (hh > 0.000001) ? 0 : logsad(r);
+	}
+	y		= (ff * env) + z;
+	g		= hh;
+	z		= y;
+	return	y;
+}
+
+out1    = logattackholdrelease(in1, in2*0.001, in3*0.001, in4*0.001);
+

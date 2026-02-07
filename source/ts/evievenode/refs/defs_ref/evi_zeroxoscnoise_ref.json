@@ -13,6 +13,11 @@
             "evieve"
         ]
     },
+    "includes": [
+        "evi_smooth.genexpr",
+        "evi_sources.genexpr",
+        "evi_rcfilters.genexpr"
+    ],
     "inlets": [
         {
             "id": 1,
@@ -84,7 +89,152 @@
         }
     ],
     "messages": [],
-    "attributes": [],
+    "attributes": [
+        {
+            "name": "damppitchhigh",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "24",
+                "max": "125",
+                "value": "124"
+            }
+        },
+        {
+            "name": "damppitchlow",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "12",
+                "max": "103",
+                "value": "94"
+            }
+        },
+        {
+            "name": "envrelease",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "1",
+                "max": "10",
+                "value": "2"
+            }
+        },
+        {
+            "name": "envresponse",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "4",
+                "value": "2"
+            }
+        },
+        {
+            "name": "envslope",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0.1",
+                "max": "10",
+                "value": "1"
+            }
+        },
+        {
+            "name": "envthresh",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "1",
+                "value": "0.1"
+            }
+        },
+        {
+            "name": "envwindow",
+            "get": 1,
+            "type": "symbol",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "16",
+                "max": "4096",
+                "value": "vectorsize"
+            }
+        },
+        {
+            "name": "gainsmooth",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "333",
+                "value": "0"
+            }
+        },
+        {
+            "name": "noisegain",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "-72",
+                "max": "30",
+                "value": "0"
+            }
+        },
+        {
+            "name": "oscgain",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "-72",
+                "max": "30",
+                "value": "0"
+            }
+        },
+        {
+            "name": "oscsmoothfreq",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "333",
+                "value": "22"
+            }
+        },
+        {
+            "name": "oscsmoothinterp",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "1000",
+                "value": "30.111"
+            }
+        }
+    ],
     "example": {
         "caption": "",
         "image": ""

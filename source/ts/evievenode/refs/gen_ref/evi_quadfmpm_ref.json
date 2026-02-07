@@ -10,24 +10,72 @@
     },
     "inlets": [
         {
-            "name": "input",
+            "id": 1,
+            "name": "pitch",
             "type": "float",
             "optional": 1,
-            "digest": "TEXT_HERE"
-        }
-    ],
-    "attributes": [
+            "digest": ""
+        },
         {
-            "name": "",
-            "type": "",
-            "digest": "TEXT_HERE",
-            "description": "TEXT_HERE",
-            "default": {
-                "type": "",
-                "value": 0
-            }
+            "id": 2,
+            "name": "index",
+            "type": "float",
+            "optional": 1,
+            "digest": "@default 1"
+        },
+        {
+            "id": 3,
+            "name": "fm/pm",
+            "type": "float",
+            "optional": 1,
+            "digest": "xfade Depth"
+        },
+        {
+            "id": 4,
+            "name": "fm/pm",
+            "type": "float",
+            "optional": 1,
+            "digest": "xfade Blend"
+        },
+        {
+            "id": 5,
+            "name": "mod",
+            "type": "float",
+            "optional": 1,
+            "digest": "Feedback"
+        },
+        {
+            "id": 6,
+            "name": "car",
+            "type": "float",
+            "optional": 1,
+            "digest": "Feedback"
+        },
+        {
+            "id": 7,
+            "name": "mod",
+            "type": "float",
+            "optional": 1,
+            "digest": "Mult @default 1"
         }
     ],
+    "outlets": [
+        {
+            "id": 1,
+            "name": "fm",
+            "type": "float",
+            "optional": 1,
+            "digest": "output Cos"
+        },
+        {
+            "id": 2,
+            "name": "fm",
+            "type": "float",
+            "optional": 1,
+            "digest": "output Sin"
+        }
+    ],
+    "attributes": [],
     "seealso": [
         {
             "name": "",

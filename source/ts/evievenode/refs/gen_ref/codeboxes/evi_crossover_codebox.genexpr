@@ -1,0 +1,25 @@
+
+// 2-band (low/high) crossovers, 2 or 4 pole slopes
+// Linkwitz-Rileys sum perfectly flat
+
+require("evi_crossovers.genexpr");
+
+Param   order(0, min=0, max=1);     // 0 = 2-pole xover, 1 = 4-pole xover
+poles   = int(order);
+
+yLow, yHigh = 0;
+if (poles > 0) {
+    yLow, yHigh = eviXover4pole2band(in1, in2); // 4-pole
+} else {
+    yLow, yHigh = eviXover2pole2band(in1, in2); // 2-pole (default)
+}
+
+out1    = yLow;
+out2    = yHigh;
+
+// Note: for additional crossovers and 3-band-split crossovers,
+// @see: "evi_cross.gendsp" / [evi.cross~] - 4-pole only
+// @see: "evi_crossover_3band.gendsp" / [evi.crossover.3band~]
+// @see: "evi_crossover_sum.gendsp" / [evi.crossover.sum~]
+// @see: "evi_crossover_allpass.gendsp" / [evi.crossover.allpass~]
+

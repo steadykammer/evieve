@@ -13,6 +13,9 @@
             "evieve"
         ]
     },
+    "includes": [
+        "evi_biquad.genexpr"
+    ],
     "inlets": [
         {
             "id": 1,

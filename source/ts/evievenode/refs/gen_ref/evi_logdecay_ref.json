@@ -10,24 +10,30 @@
     },
     "inlets": [
         {
-            "name": "input",
+            "id": 1,
+            "name": "value",
             "type": "float",
             "optional": 1,
-            "digest": "TEXT_HERE"
-        }
-    ],
-    "attributes": [
+            "digest": "to Follow"
+        },
         {
-            "name": "",
-            "type": "",
-            "digest": "TEXT_HERE",
-            "description": "TEXT_HERE",
-            "default": {
-                "type": "",
-                "value": 0
-            }
+            "id": 2,
+            "name": "decay",
+            "type": "float",
+            "optional": 1,
+            "digest": "Time in milliseconds @min 0"
         }
     ],
+    "outlets": [
+        {
+            "id": 1,
+            "name": "output",
+            "type": "float",
+            "optional": 1,
+            "digest": "Env"
+        }
+    ],
+    "attributes": [],
     "seealso": [
         {
             "name": "",

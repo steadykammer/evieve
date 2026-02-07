@@ -10,20 +10,30 @@
     },
     "inlets": [
         {
-            "name": "input",
+            "id": 0,
+            "name": "",
             "type": "float",
             "optional": 1,
-            "digest": "TEXT_HERE"
+            "digest": ""
+        }
+    ],
+    "outlets": [
+        {
+            "id": 0,
+            "name": "",
+            "type": "signal",
+            "optional": 1,
+            "digest": ""
         }
     ],
     "attributes": [
         {
             "name": "",
             "type": "",
-            "digest": "TEXT_HERE",
-            "description": "TEXT_HERE",
+            "digest": "",
+            "description": "",
             "default": {
-                "type": "",
+                "type": "float",
                 "value": 0
             }
         }

@@ -1,0 +1,44 @@
+
+// a dubious simplified sine sync, not very good, but sometimes it sounds nice
+// i think this is based on a puckette thing
+
+
+History prev(0);                        // correct main freq
+Param   subsmooth(0, min=0, max=333);   // smooth sub freq? in ms
+
+main = in1;
+sub = in2;
+
+// corrected for audio rate FM
+lin  = main - prev;
+freq = main + 0.5 * lin;
+prev = main;
+
+phase = phasor(freq);
+
+duty = sub;
+if (subsmooth > 0) {
+    duty = evi_line(sub, mstosamps(subsmooth));
+}
+
+sync = maximum(duty / freq, 1); // maximum ?
+trivial = trunc(sync);
+ratio = trivial / sync;
+hard = sync - trivial;
+
+syncwrap = wrap(phase * sync, 0, 1);
+cut = phase >= ratio;
+pratio = phase < ratio;
+
+sinephase = ((pratio + (cut * (1 / hard))) * syncwrap);
+correct = pratio + (cut * hard);
+sinecorrect = correct * correct;
+
+//sinesync = cycle(sinephase - 0.25, index="phase") * sinecorrect;
+sinesync = sin(sinephase * TWOPI) * sinecorrect;
+
+out1 = sinesync * sqrt1_2;
+
+out2 = phase;
+out3 = sinephase;
+

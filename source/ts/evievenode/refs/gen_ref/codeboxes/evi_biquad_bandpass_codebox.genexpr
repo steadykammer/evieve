@@ -1,0 +1,41 @@
+
+require("evi_biquad.genexpr");
+
+/*
+    0   eviBiquadCoeffBandpass                  cutoff, Q
+    1   eviBiquadCoeffBandpassGain              cutoff, gain, Q     (default)
+    2   eviBiquadCoeffBandpassAnalog            cutoff, Q
+    3   eviBiquadCoeffBandpassGainAnalog        cutoff, gain, Q
+    4   eviBiquadCoeffButterworthBandpass       cutoff
+    5   eviBiquadCoeffButterworthBandpassGain   cutoff, gain
+
+    ...@see: evi_biquad_resonant / [evi.biquad.resonant~] for more
+*/
+
+
+Param   filter(1, min=0, max=5);
+filt    = int(filter);
+reset   = delta(change(filt)) < 0;
+
+a0, a1, a2, b1, b2  = 0;
+if (filt == 1) {
+    a0, a1, a2, b1, b2  = eviBiquadCoeffBandpassGain(in2, dbtoa(in3), in4);
+}
+else if (filt == 2) {
+    a0, a1, a2, b1, b2  = eviBiquadCoeffBandpassAnalog(in2, in4);
+}
+else if (filt == 3) {
+    a0, a1, a2, b1, b2  = eviBiquadCoeffBandpassGainAnalog(in2, dbtoa(in3), in4);
+}
+else if (filt == 4) {
+    a0, a1, a2, b1, b2  = eviBiquadCoeffButterworthBandpass(in2);
+}
+else if (filt == 5) {
+    a0, a1, a2, b1, b2  = eviBiquadCoeffButterworthBandpassGain(in2, dbtoa(in3));
+}
+else {
+    a0, a1, a2, b1, b2  = eviBiquadCoeffBandpass(in2, in4);
+}
+
+out1    = biquadDf2reset(in1, a0, a1, a2, b1, b2, reset);
+

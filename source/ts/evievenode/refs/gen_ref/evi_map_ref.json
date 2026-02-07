@@ -10,24 +10,51 @@
     },
     "inlets": [
         {
-            "name": "input",
+            "id": 1,
+            "name": "value",
             "type": "float",
             "optional": 1,
-            "digest": "TEXT_HERE"
-        }
-    ],
-    "attributes": [
+            "digest": "to be Scaled"
+        },
         {
-            "name": "",
-            "type": "",
-            "digest": "TEXT_HERE",
-            "description": "TEXT_HERE",
-            "default": {
-                "type": "",
-                "value": 0
-            }
+            "id": 2,
+            "name": "low",
+            "type": "float",
+            "optional": 1,
+            "digest": "Input Value"
+        },
+        {
+            "id": 3,
+            "name": "high",
+            "type": "float",
+            "optional": 1,
+            "digest": "Input Value @default 1"
+        },
+        {
+            "id": 4,
+            "name": "low",
+            "type": "float",
+            "optional": 1,
+            "digest": "Output Value"
+        },
+        {
+            "id": 5,
+            "name": "high",
+            "type": "float",
+            "optional": 1,
+            "digest": "Output Value @default 1"
         }
     ],
+    "outlets": [
+        {
+            "id": 1,
+            "name": "scaled",
+            "type": "float",
+            "optional": 1,
+            "digest": "Output Value"
+        }
+    ],
+    "attributes": [],
     "seealso": [
         {
             "name": "",

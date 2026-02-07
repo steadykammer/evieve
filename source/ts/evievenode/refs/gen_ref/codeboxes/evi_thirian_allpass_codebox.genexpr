@@ -1,0 +1,27 @@
+
+// thirian fractional delay allpass filter
+// http://dafx09.como.polimi.it/proceedings/papers/paper_72.pdf
+
+thirianAcoef(delay)    // delay in samples, should be clipped 1.5..2.5
+{
+    D  =  clip(delay, 1.5, 2.5);
+    a1 = -((D - 2) / (D + 1));
+    a2 =  ((D - 1) * (D - 2)) / ((D + 1) * (D + 2));
+    return a1, a2;
+}
+
+// "Delay D is chosen between 1.5 and 2.5 for maximal flatness at DC"
+thirianAllpass(xn, D)
+{
+    History x0(0), x1(0), y0(0), y1(0);
+    a1, a2 = thirianAcoef(D);
+    y  = (a1 * x0) + (a2 * xn) + x1 - (a1 * y0) - (a2 * y1);
+    x1 = x0;
+    y1 = y0;
+    x0 = xn;
+    y0 = y;
+    return y;
+}
+
+out1    = thirianAllpass(in1, in2);
+

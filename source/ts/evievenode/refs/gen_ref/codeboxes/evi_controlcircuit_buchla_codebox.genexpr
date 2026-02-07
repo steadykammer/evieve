@@ -1,0 +1,130 @@
+
+require("evi_rcfilters.genexpr");
+
+// Buchla nonlinear control circuit maps V_b to R_f (vactrol resistance),
+// based on "A Digital Model of the Buchla Lowpass-Gate" by Julian Parker and Stefano D’Angelo, 2013
+
+// control, offset, scaler, power, response
+buchlaControlCircuit(V_b, offset, scaler, Ifpow, Ifmax)
+{
+	// constants
+	A = 3.4645912;				// A & B just taken from datasheet: "Perkin Elmer Optoelectronics,
+	B = 1136.2129956;			// Photoconductive Cells and Analog Optoisolators (Vactrols), 2001"
+	Ifmin = 0.0000101;
+	R2max = 10000;
+	R6max = 20000;
+	R7 = 33000;
+	R3 = 150000;
+	rR3 = 0.000006666666667;
+	R5 = 100000;
+	rR5 = 0.00001;
+	rR8 = 0.000212765957447;
+	R9 = 470;
+	VB = 3.9;
+	VT = 0.026;
+	n = 3.9696;
+	kl = 6.3862;
+	G = 200000;
+	Vs = 15;
+	k0 = 146.8;
+	k1 = 0.49202;
+	k2 = 0.00041667;
+	k3 = 0.0000000073915;
+	gamma = 0.0001;
+	gammaG = 20;
+	xi = 600;					// "corresponds to a maximum variation in terms of Vb of circa ±0.01 V"
+
+	// inputs
+	Vb = clip(V_b, -10, 50);	// why ??
+	R6 = scaler*R6max;			// scaler 0..1
+	R1 = (1 - offset)*R2max;	// offset 0.0001..1 (and shaped)
+	R2 = offset*R2max;
+
+	// intermediates
+	r1r2 = R1/R2;
+	r6r7 = R6 + R7;
+	alpha = 1 + r6r7*(rR3 + rR5);
+	ralpha = 1/alpha;
+	beta = (ralpha - 1)/r6r7 - rR8;
+	nVT = n*VT;
+	alphanVT = alpha*nVT;
+	alphabeta = alpha*beta;
+	ralphabeta = 1/alphabeta;
+	alphaR9 = alpha*R9;
+
+	// compute V3, LambertW
+	bound1 = xi*alphanVT/(G*(r6r7 - ralphabeta)); 
+	Ia = Vb/R5 + Vs/(R3*(1 + r1r2));
+	V3 = 0;
+	if (Ia <= -bound1) {
+		V3 = -Ia*ralphabeta;
+	} else if (Ia < bound1) {
+		x = G*Ia*(r6r7 - ralphabeta)/alphanVT;
+		w = k0 + k1*x + k2*x*x + k3*x*x*x;					// "not-a-knot cubic spline otherwise"
+		V3 = -(alpha/G)*nVT*w - Ia*ralphabeta;
+	} else {
+		V3 = kl*alpha/G*nVT - Ia*r6r7;
+	}
+
+	// compute If, "very close in the region below the zener breakdown" but...
+	betaV3 = beta*V3;
+	Ifbound1 = alpha*(Ifmin - betaV3);
+	Ifbound2 = VB/r6r7;
+	Ifbound3 = (gammaG*VB + alphaR9*(VB*beta + Ifmax))/(gammaG*r6r7 + R9);
+	If = 0;
+	if (Ia <= Ifbound1) {
+		If = Ifmin;
+	} else if (Ia <= Ifbound2) {
+		If = betaV3 + Ia*ralpha;
+	} else if (Ia <= Ifbound3) {
+		If = gammaG*(Ia*r6r7 - VB)/alphaR9 - beta*VB + Ia*ralpha;
+	} else {
+		If = Ifmax;
+	}
+
+	// compute R_f: 'If' current-to-resistance mapping power is 'Rf'
+	// the input to fastpow (If) is in a range where boundaries are not affected too badly by the approximation,
+	// and the piecewise approx also produces more musical kinks in the output ramps, at least pete thinks so
+	return B + A/fastpow(If, Ifpow);						// Ifpow (sweep) 0.999938..1.997, default 1.398717
+}
+
+History	bcc(0);
+
+Param	mapcutoff(143, min=7, max=788);
+Param	mapdamp(0, min=0, max=1);							// default bypassed
+
+// all smoothers default to off
+Param	offsetsmooth(0, min=0, max=333);				    // in ms
+Param	scalersmooth(0, min=0, max=111);				    // in ms
+Param	sweepsmooth(0, min=0, max=222);				        // in ms
+Param	control(1, min=0, max=2);							// int, select control response, default 0.04
+
+gamma	= 0.0001;
+igamma	= 0.9999;
+// param rate
+damp_g, damp_k	= rcDampCoeffs0(mapcutoff, mapdamp);		// "...it makes little difference"
+response  = selector(int(control)+1, 0.01, 0.04, 0.12);		// this also makes little difference, but some :-)
+
+// default 0.1 seems like a good idea
+offset	= (igamma * in2*in2) + gamma;	// 0.0001..1		// must scale like this before input to function
+if (offsetsmooth > 0) {					// turn off if modulating
+	offset = evi_logsmooth(offset, offsetsmooth);
+}
+// 0.48 = tuned for original fixed input range
+scaler	= in3;							// 0..1				// should default to input "0.48"
+if (scalersmooth > 0) {					// turn off if static or modulating
+	scaler = evi_logsmooth(scaler, scalersmooth);
+}
+// 0.408141 tuned for original fixed power output but taking into account fastpow() approximation here
+sweep	= (in4 * 0.977062) + 0.999938;	// 0.999938..1.997	// must default to input "0.408141" output "1.398717"
+if (sweepsmooth > 0) {					// turn off if static or modulating
+	sweep  = evi_line(sweep, mstosamps(sweepsmooth));
+}
+
+V_c			= in1;
+// low shelving filter optionally maps between V_c and V_b (default bypassed)
+V_b         = rcFilterDamp(V_c, damp_g, damp_k);
+
+R_f			= buchlaControlCircuit(V_b, offset, scaler, sweep, response);
+out1		= R_f;						// to LPG
+

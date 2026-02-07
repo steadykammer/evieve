@@ -10,24 +10,44 @@
     },
     "inlets": [
         {
+            "id": 1,
             "name": "input",
             "type": "float",
             "optional": 1,
-            "digest": "TEXT_HERE"
-        }
-    ],
-    "attributes": [
+            "digest": ""
+        },
         {
-            "name": "",
-            "type": "",
-            "digest": "TEXT_HERE",
-            "description": "TEXT_HERE",
-            "default": {
-                "type": "",
-                "value": 0
-            }
+            "id": 2,
+            "name": "frequency",
+            "type": "float",
+            "optional": 1,
+            "digest": "in Hz @min 1 @max samplerate*0.5"
+        },
+        {
+            "id": 3,
+            "name": "shelf",
+            "type": "float",
+            "optional": 1,
+            "digest": "-1..1 @min -1 @max 1 @default 0"
         }
     ],
+    "outlets": [
+        {
+            "id": 1,
+            "name": "6db",
+            "type": "float",
+            "optional": 1,
+            "digest": "Lowpass/Highshelf attenuate/boost"
+        },
+        {
+            "id": 2,
+            "name": "6db",
+            "type": "float",
+            "optional": 1,
+            "digest": "Highpass/Lowshelf attenuate/boost"
+        }
+    ],
+    "attributes": [],
     "seealso": [
         {
             "name": "",

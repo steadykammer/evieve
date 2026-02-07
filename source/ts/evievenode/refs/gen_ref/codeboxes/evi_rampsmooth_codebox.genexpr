@@ -1,0 +1,37 @@
+
+// like MSP [rampsmooth~]
+// original port by Maurizio Giri, Graham Wakefield
+
+eviRampsmooth(input, rampup, rampdown)		// input, up in samples, down in samples
+{
+	History value(0), prev(0), stepcounter(0), increment(1);
+	notify = 1;
+
+	// reset ramp if input has changed, or if ramp parameters change
+	if (input != prev || delta(rampup) || delta(rampdown)) {
+		direction = (input - value);
+		if (direction > 0) {
+			stepcounter = rampup;
+			increment = direction / rampup;
+		} else {
+			stepcounter = rampdown;
+			increment = direction / rampdown;
+		}
+		prev = input;	
+	}
+
+	// keep incrementing until stepcounter counts down to zero
+	if (stepcounter) {
+		stepcounter -= 1;
+		value += increment;
+		notify = 0;
+	} else {
+		value = input;
+		notify = 1;
+	}
+
+	return value, notify;
+}
+
+out1, out2 = eviRampsmooth(in1, in2, in3);
+

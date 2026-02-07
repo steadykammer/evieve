@@ -10,24 +10,51 @@
     },
     "inlets": [
         {
+            "id": 1,
             "name": "input",
             "type": "float",
             "optional": 1,
-            "digest": "TEXT_HERE"
-        }
-    ],
-    "attributes": [
+            "digest": ""
+        },
         {
-            "name": "",
-            "type": "",
-            "digest": "TEXT_HERE",
-            "description": "TEXT_HERE",
-            "default": {
-                "type": "",
-                "value": 0
-            }
+            "id": 2,
+            "name": "cutoff",
+            "type": "float",
+            "optional": 1,
+            "digest": "in Hz or Pitch"
+        },
+        {
+            "id": 3,
+            "name": "cutoff",
+            "type": "float",
+            "optional": 1,
+            "digest": "Pitch Mod @default 0"
+        },
+        {
+            "id": 4,
+            "name": "cutoff",
+            "type": "float",
+            "optional": 1,
+            "digest": "Hz Mod @default 0"
+        },
+        {
+            "id": 5,
+            "name": "resonance",
+            "type": "float",
+            "optional": 1,
+            "digest": "(0..1..2)"
         }
     ],
+    "outlets": [
+        {
+            "id": 1,
+            "name": "transistor",
+            "type": "float",
+            "optional": 1,
+            "digest": "Ladder"
+        }
+    ],
+    "attributes": [],
     "seealso": [
         {
             "name": "",

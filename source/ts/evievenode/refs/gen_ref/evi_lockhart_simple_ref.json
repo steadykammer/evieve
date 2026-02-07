@@ -10,24 +10,44 @@
     },
     "inlets": [
         {
-            "name": "input",
+            "id": 1,
+            "name": "osc",
             "type": "float",
             "optional": 1,
-            "digest": "TEXT_HERE"
+            "digest": "Input"
         }
     ],
-    "attributes": [
+    "outlets": [
         {
-            "name": "",
-            "type": "",
-            "digest": "TEXT_HERE",
-            "description": "TEXT_HERE",
-            "default": {
-                "type": "",
-                "value": 0
-            }
+            "id": 1,
+            "name": "4-section",
+            "type": "float",
+            "optional": 1,
+            "digest": ""
+        },
+        {
+            "id": 2,
+            "name": "3-section",
+            "type": "float",
+            "optional": 1,
+            "digest": ""
+        },
+        {
+            "id": 3,
+            "name": "2-section",
+            "type": "float",
+            "optional": 1,
+            "digest": ""
+        },
+        {
+            "id": 4,
+            "name": "1-section",
+            "type": "float",
+            "optional": 1,
+            "digest": ""
         }
     ],
+    "attributes": [],
     "seealso": [
         {
             "name": "",

@@ -1,0 +1,33 @@
+
+require("evi_biquad.genexpr");
+
+/*
+    0   eviBiquadCoeffNotch                     cutoff, Q
+    1   eviBiquadCoeffNotchGain                 cutoff, gain, Q   (default)
+    2   eviBiquadCoeffNotchAnalog               cutoff, Q
+    3   eviBiquadCoeffButterworthBandreject     cutoff, Q
+    4   eviBiquadCoeffButterworthBandrejectGain cutoff, gain, Q
+*/
+Param   filter(1, min=0, max=4);
+filt    = int(filter);
+reset   = delta(change(filt)) < 0;
+
+a0, a1, a2, b1, b2  = 0;
+if (filt == 1) {
+    a0, a1, a2, b1, b2  = eviBiquadCoeffNotchGain(in2, dbtoa(in3), in4);
+}
+else if (filt == 2) {
+    a0, a1, a2, b1, b2  = eviBiquadCoeffNotchAnalog(in2, in4);
+}
+else if (filt == 3) {
+    a0, a1, a2, b1, b2  = eviBiquadCoeffButterworthBandreject(in2, in4);
+}
+else if (filt == 4) {
+    a0, a1, a2, b1, b2  = eviBiquadCoeffButterworthBandrejectGain(in2, dbtoa(in3), in4);
+}
+else {
+    a0, a1, a2, b1, b2  = eviBiquadCoeffNotch(in2, in4);
+}
+
+out1    = biquadDf2reset(in1, a0, a1, a2, b1, b2, reset);
+

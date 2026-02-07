@@ -1,0 +1,13 @@
+
+require("evi_polyblep");
+
+reset       = in2;      // naive, do not use
+
+freqInHz    = in1;
+t	        = phasor(freqInHz, reset);
+dt	        = freqInHz / SAMPLERATE;
+
+out1        = decorelateOsc(polytri4(t, dt));
+
+// TODO: PWM, HardSync
+

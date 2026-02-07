@@ -1,0 +1,35 @@
+
+require("evi_saturators.genexpr");
+
+// Alternative to tanh(), it is not the same but does almost sound the same,
+// and is much easier to create the 2nd order antiderivative of. Adaa2 and above
+// are much cheaper than using tanh(). i would describe it as a "buzzy" tanh().
+
+
+Param	hfcompensate(1, min=0, max=1);		// default on
+Param	aa(3, min=0, max=5);				// default Adaa2
+adaaxx	= int(aa);
+hfcomp	= int(hfcompensate);
+
+sqrtinput	= in1 + 0;
+sqrtoutput	= 0;
+if (adaaxx == 1) {
+	sqrtoutput = altTanhSqrtAdaa1_2x_6POINT(sqrtinput);
+} else if (adaaxx == 2) {
+	sqrtoutput = altTanhSqrtAdaa1_4x_6POINT(sqrtinput);
+} else if (adaaxx == 3) {	// default
+	sqrtoutput = altTanhSqrtAdaa2(sqrtinput);
+} else if (adaaxx == 4) {
+	sqrtoutput = altTanhSqrtAdaa2_2x_6POINT(sqrtinput);
+} else if (adaaxx == 5) {
+	sqrtoutput = altTanhSqrtAdaa2_4x_6POINT(sqrtinput);
+} else {					// (adaaxx == 0)
+	sqrtoutput = altTanhSqrtAdaa1(sqrtinput);
+}
+
+if (hfcomp) {
+	sqrtoutput = decorelate(sqrtoutput);
+}
+
+out1	= sqrtoutput;
+

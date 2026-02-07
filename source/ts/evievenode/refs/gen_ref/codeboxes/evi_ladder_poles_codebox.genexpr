@@ -1,0 +1,182 @@
+
+// TPT nonlinear transistor Ladder with switchable (interpolated) poles.
+// Based on "Computational optimization of nonlinear zero-delay feedback
+// by second-order piecewise approximation", by Vadim Zavalishin, 2008.
+// Modifications etc by Pete for evieve, 2014 & 2016.
+// @see: evi_ladder_moog.gendsp & evi_ladder_transistor.gendsp for alternative transistor ladder emulations
+// and @see: evi_ladder_diode.gendsp for a diode ladder emulation
+
+// Note, the different 'poles' are mathematically incorrect as there is no allpass compensation here,
+// but i find them interesting, so here we are.
+
+require("evi_smooth.genexpr");
+
+nonlin(x, g, s, k, m)
+{
+	alpha	=   g * k;
+	beta	=   x - (k * s);
+	gamma	=   1 / m;
+
+	sb		=  (beta > 0) ? 1 : -1;		        // no zero
+	bbs		=  (beta + beta) * sb;
+	apsb	= ((alpha + 1) * sb) + beta;
+
+	return	bbs / (apsb - (sqrt((apsb * apsb) - ((alpha + alpha + ((gamma + gamma) * (2 - gamma))) * bbs)) * -sb));
+}
+
+preWarp(c, t)
+{
+	f		= minimum(c, (SAMPLERATE * 0.408164));
+	if (t) {							        // only compute if required
+		f	= mtofApprox(minimum(c, 133.2522));
+	}
+	return	tanA(f * PI / SAMPLERATE);	        // w/2
+}
+
+// filter
+multiLadder(X, cutoff, res, shape, slope, type)
+{
+	// integrators state
+	History ip1(0), ip2(0), ip3(0), ip4(0);
+
+	// warp, resonance & retune					// (problem: low res and low samplerates lose self-oscillation)
+	kofst	=  1;
+	f		=  minimum(cutoff, (SAMPLERATE * 0.408164));
+	if (type) {																	// if pitch
+		ex0	=  0.05776226504666 * (minimum(cutoff, 133.2522) - 69);
+		ex	=  0.999996 + (0.031261316 + (0.00048274797 + 0.000006 * ex0) * ex0) * ex0;
+		ex *=  ex;  ex *=  ex;  ex *=  ex;  ex *=  ex;  ex *=  ex;				// exp()
+		f	= (440 * ex) + 0.120906;											// mtof()
+		kofst	=  1.000142;
+	}
+	tx		=    f * PI / SAMPLERATE;											// pre warp
+	tx2		=   (tx * tx);
+	tx3		=   (tx2 * tx);
+	tx5		=   (tx2 * tx3);
+	w2		=  ((tx5 * 0.133333333333) + (tx3 * 0.333333333333)) + tx;			// tan()
+	rt		= (((slope * slope) * 27.79575391584) / 2.925868758814) * sqrt1_2;
+	if (slope <  0.333333333333)												// here we should also take account of...
+		rt	=    sqrt(minimum(rt, 0.746389) / 0.746389) * 0.74639;				// ...res bump (for slope < 0.333333...) ?
+	w2		=    w2 / (rt + 1);
+	w2nrm	=	 1 - (w2 / 4.137802);			// 1 - (tx / HALFPI);
+	w2nrmS	=	 maximum(w2nrm, sqrt1_2);
+	slop3	=    slope + slope + slope;			// & used for linear mixing below
+	slop32	=	 slop3 * 0.975289;				// compensation
+/*	k		=	 res;
+	if ((samplerate < 88200) && (res > 1))
+		k	= (((res - 1) * w2nrm) + kofst) * w2nrmS;							// '* w2nrmS' not really needed ?
+*/
+	k		= (((res - 1) * w2nrm) + kofst) * w2nrmS;
+	k		=   (k + k + k + k) * (slop32 + 1);	// adjust for variable poles (& prewarp retuning above)
+	mod		=	 shape * w2nrmS;
+
+	// cascade part 2
+	np0		=   1 / (w2 + 1);
+	// lowpass 1
+	s1		=   ip1 + ip1;
+	gp1		=   w2 * np0;//(w2 * gp0) * np0;
+	sp1		=   s1 * np0;//((sp0 * w2) + s1) * np0;
+	// lowpass 2
+	s2		=   ip2 + ip2;
+	gp2		=  (w2 * gp1) * np0;
+	sp2		= ((sp1 * w2) + s2) * np0;
+	// lowpass 3
+	s3		=   ip3 + ip3;
+	gp3		=  (w2 * gp2) * np0;
+	sp3		= ((sp2 * w2) + s3) * np0;
+	// lowpass 4
+	s4		=   ip4 + ip4;
+	gp4		=  (w2 * gp3) * np0;
+	sp4		= ((sp3 * w2) + s4) * np0;
+
+	// select nonlin (these switchers / interpolators must be computed inline
+	// rather than as seperate functions for resonance & fb solve to work correctly)
+	cs01	=	clip(slop3, 0, 1);
+	cs12	=	clip(slop3, 1, 2) - 1;
+	cs23	=	clip(slop3, 2, 3) - 2;
+	mg1		=	interp(cs01,	gp4, gp3,	mode="linear");
+	mg2		=	interp(cs12,	mg1, gp2,	mode="linear");
+	gpass	=	interp(cs23,	mg2, gp1,	mode="linear");
+	ms1		=	interp(cs01,	sp4, sp3,	mode="linear");
+	ms2		=	interp(cs12,	ms1, sp2,	mode="linear");
+	spass	=	interp(cs23,	ms2, sp1,	mode="linear");
+
+	// nonlin & solve fb piecewise
+	alpha	=   gpass * k;
+	beta	=   X - (k * spass);
+	gamma	=   1 / shape;
+	sb		=  (beta > 0) ? 1 : -1;		        // no zero
+	bbs		=  (beta + beta) * sb;
+	apsb	= ((alpha + 1) * sb) + beta;
+	TnhS	=	bbs / (apsb - (sqrt((apsb * apsb) - ((alpha + alpha + ((gamma + gamma) * (2 - gamma))) * bbs)) * -sb));
+
+	// cascade part 1
+	// lowpass 1
+	y1		= ((TnhS * w2) + s1) * np0;
+	xy1		=   TnhS - y1;
+	xi1		=  (xy1 * w2) + ip1;
+	lp1		=   xi1 + ip1;
+	// lowpass 2
+	y2		= ((lp1 * w2) + s2) * np0;
+	xy2		=   lp1 - y2;
+	xi2		=  (xy2 * w2) + ip2;
+	lp2		=   xi2 + ip2;
+	// lowpass 3
+	y3		= ((lp2 * w2) + s3) * np0;
+	xy3		=   lp2 - y3;
+	xi3		=  (xy3 * w2) + ip3;
+	lp3		=   xi3 + ip3;
+	// lowpass 4
+	y4		= ((lp3 * w2) + s4) * np0;
+	xy4		=   lp3 - y4;
+	xi4		=  (xy4 * w2) + ip4;
+	lp4		=   xi4 + ip4;
+	// update
+	ip1		=   fixdenorm(xi1);
+	ip2		=   fixdenorm(xi2);
+	ip3		=   fixdenorm(xi3);
+	ip4		=   fixdenorm(xi4);
+
+	// select pole
+	ml1		=	interp(cs01,	lp4, lp3,	mode="cosine");
+	ml2		=	interp(cs12,	ml1, lp2,	mode="cosine");
+	lpass	=	interp(cs23,	ml2, lp1,	mode="linear") * ((slop32 * 0.844444) + w2nrmS);//+ (1 * w2nrmS));
+															// ^ maintain power (not res) with slope
+	return		lpass;
+}
+
+// declare
+
+Param	cutoffmode(1, min=0, max=1);		// cutoff (in2), 0 = in Hz, 1 = in pitch (default)
+Param	shape(0.650749, min=0, max=1);		// y(1), resonance shape, you can safely ignore this
+Param	shapesmooth(0, min=0, max=111);	    // in ms
+Param	slope(0, min=0, max=1);				// interpolate 0..1, or: 0 = lp4, 0.333333 = lp3, 0.666667 = lp2, 1 = lp1
+Param	slopesmooth(22.666, min=0, max=333);// in ms
+
+cutofftype		= int(cutoffmode);			// 0 = in Hz, 1 = (default) in pitch
+
+// inputs (smooth || modulate resonance & cutoff externally)
+
+resonance		=  clip(	in3, 0, 2);		// minimum 0.43, but 1=1.1 & 2=1.95
+resonance		= (resonance <= 1) ? ((resonance * 0.666666666667) + 0.433333333333) : (((resonance - 1) * 0.85) + 1.1);
+cutoff			=  maximum(	in2, 1);		// cutoff freq (default in pitch)
+
+XIN				= 			in1 * sqrt2;	// audio input
+
+// parse
+
+modifier		= (shape * 0.81) + 0.18;
+if (shapesmooth > 0) {						// only compute smoother if required
+	modifier	= expsmooth(modifier, shapesmooth*0.001);
+}
+
+// 0 = lp4 (default), 0.333333 = lp3, 0.666667 = lp2, 1 = lp1
+choosepoles		= slope;
+if (slopesmooth > 0) {						// only compute smoother if required
+	choosepoles	= expsmooth(choosepoles, slopesmooth*0.001); // should be exact smooth ?
+}
+
+// the filter
+
+out1	= multiLadder(XIN, cutoff, resonance, modifier, choosepoles, cutofftype) * sqrt2;
+

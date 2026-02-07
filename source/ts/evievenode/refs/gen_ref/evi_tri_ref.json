@@ -10,24 +10,30 @@
     },
     "inlets": [
         {
-            "name": "input",
+            "id": 1,
+            "name": "frequency",
             "type": "float",
             "optional": 1,
-            "digest": "TEXT_HERE"
-        }
-    ],
-    "attributes": [
+            "digest": "in Hz"
+        },
         {
-            "name": "",
-            "type": "",
-            "digest": "TEXT_HERE",
-            "description": "TEXT_HERE",
-            "default": {
-                "type": "",
-                "value": 0
-            }
+            "id": 2,
+            "name": "reset",
+            "type": "float",
+            "optional": 1,
+            "digest": "(Naive)"
         }
     ],
+    "outlets": [
+        {
+            "id": 1,
+            "name": "anti",
+            "type": "float",
+            "optional": 1,
+            "digest": "Aliased Tri Oscillator"
+        }
+    ],
+    "attributes": [],
     "seealso": [
         {
             "name": "",

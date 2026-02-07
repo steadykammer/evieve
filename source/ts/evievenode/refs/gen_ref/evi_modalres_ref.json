@@ -10,24 +10,37 @@
     },
     "inlets": [
         {
-            "name": "input",
+            "id": 1,
+            "name": "trigger",
             "type": "float",
             "optional": 1,
-            "digest": "TEXT_HERE"
-        }
-    ],
-    "attributes": [
+            "digest": ""
+        },
         {
-            "name": "",
-            "type": "",
-            "digest": "TEXT_HERE",
-            "description": "TEXT_HERE",
-            "default": {
-                "type": "",
-                "value": 0
-            }
+            "id": 2,
+            "name": "low",
+            "type": "float",
+            "optional": 1,
+            "digest": "Frequency in Hz"
+        },
+        {
+            "id": 3,
+            "name": "resonant",
+            "type": "float",
+            "optional": 1,
+            "digest": "Decay Time in Seconds"
         }
     ],
+    "outlets": [
+        {
+            "id": 1,
+            "name": "resonant",
+            "type": "float",
+            "optional": 1,
+            "digest": "Object"
+        }
+    ],
+    "attributes": [],
     "seealso": [
         {
             "name": "",

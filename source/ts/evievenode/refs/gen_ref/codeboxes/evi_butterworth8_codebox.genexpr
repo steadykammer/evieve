@@ -1,0 +1,104 @@
+
+require("evi_approx.genexpr");
+
+fWarp(cf)
+{
+    inv2pi = 0.159154943091895;
+	f = (cf * (PI / samplerate)) * inv2pi;
+	w = (f - trunc(f)) * TWOPI;
+	return tanA2(w);				// tan approximation (G for butterworth)
+}
+
+lp1p(x, g)							// 1-pole tpt section
+{
+	History p(0);
+	c = (x - p) * (g / (g + 1));
+	y = c + p;
+	p = c + y;
+	return y;
+}
+
+lp2p(x, g, r)						// 2-pole tpt section
+{
+	History p0(0), p1(0);
+	c0 = r + g;
+	c1 = (g / ((c0 * g) + 1)) * (x - (p1 + (p0 * c0)));
+	c2 = c1 + p0;
+	c3 = c2 * g;
+	y  = c3 + p1;
+	p0 = c1 + c2;
+	p1 = c3 + y;
+	return y;
+}
+
+// constants, @see: 'evi_butterworth8_coeffs.js' for stupid calculation
+Param	butt_coeff_1(1.4142135623730951, min=-16, max=16);
+Param	butt_coeff_2(1.0000000000000002, min=-16, max=16);
+Param	butt_coeff_3(0.7653668647301797, min=-16, max=16);
+Param	butt_coeff_4(1.8477590650225735, min=-16, max=16);
+Param	butt_coeff_5(0.6180339887498949, min=-16, max=16);
+Param	butt_coeff_6(1.618033988749895, min=-16, max=16);
+Param	butt_coeff_7(0.5176380902050419, min=-16, max=16);
+Param	butt_coeff_8(1.4142135623730951, min=-16, max=16);
+Param	butt_coeff_9(1.9318516525781366, min=-16, max=16);
+Param	butt_coeff_10(0.4450418679126289, min=-16, max=16);
+Param	butt_coeff_11(1.2469796037174672, min=-16, max=16);
+Param	butt_coeff_12(1.8019377358048383, min=-16, max=16);
+Param	butt_coeff_13(0.39018064403225666, min=-16, max=16);
+Param	butt_coeff_14(1.1111404660392046, min=-16, max=16);
+Param	butt_coeff_15(1.6629392246050905, min=-16, max=16);
+Param	butt_coeff_16(1.9615705608064609, min=-16, max=16);
+
+Param	smooth(30.111, min=0, max=301.11);	    // in ms
+Param	order(3, min=0, max=8);                 // 1..8 poles, 0 = bypassed
+ord		= int(order);
+
+//X  = dcblock(in1);
+X  = in1;
+CF = clip(in2, samplerate*0.00125, samplerate*0.5);
+if (smooth > 0) {
+	CF	= evi_logsmooth(CF, smooth);
+}
+
+G = 0;
+Y = 0;
+// linear Butterworth
+if (ord > 0) {
+	G	= fWarp(CF);							// get G if not bypassed
+	if			(ord == 1) {
+		Y	= lp1p(X,	G);
+	} else if	(ord == 2) {
+		Y	= lp2p(X,	G, butt_coeff_1);
+	} else if	(ord == 4) {
+		y0	= lp2p(X,	G, butt_coeff_3);
+		Y	= lp2p(y0,	G, butt_coeff_4);
+	} else if	(ord == 5) {
+		y0	= lp2p(X,	G, butt_coeff_5);
+		y1	= lp2p(y0,	G, butt_coeff_6);
+		Y	= lp1p(y1,	G);
+	} else if	(ord == 6) {
+		y0	= lp2p(X,	G, butt_coeff_7);
+		y1	= lp2p(y0,	G, butt_coeff_8);
+		Y	= lp2p(y1,	G, butt_coeff_9);
+	} else if	(ord == 7) {
+		y0	= lp2p(X,	G, butt_coeff_10);
+		y1	= lp2p(y0,	G, butt_coeff_11);
+		y2	= lp2p(y1,	G, butt_coeff_12);
+		Y	= lp1p(y2,	G);
+	} else if	(ord == 8) {
+		y0	= lp2p(X,	G, butt_coeff_13);
+		y1	= lp2p(y0,	G, butt_coeff_14);
+		y2	= lp2p(y1,	G, butt_coeff_15);
+		Y	= lp2p(y2,	G, butt_coeff_16);
+	} else {//	(ord == 3)						// default
+		y0	= lp2p(X,	G, butt_coeff_2);
+		Y	= lp1p(y0,	G);
+	}
+
+} else {	//	(ord == 0)						// bypassed
+	G	= 0.414226;
+	Y	= X;
+}
+
+out1 = Y;
+

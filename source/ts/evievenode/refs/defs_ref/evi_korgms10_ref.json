@@ -13,6 +13,10 @@
             "evieve"
         ]
     },
+    "includes": [
+        "evi_tanh.genexpr",
+        "evi_sources.genexpr"
+    ],
     "inlets": [
         {
             "id": 1,
@@ -59,8 +63,59 @@
             "description": ""
         }
     ],
-    "messages": [],
-    "attributes": [],
+    "messages": [
+        {
+            "name": "history",
+            "arg": [
+                {
+                    "name": "state0",
+                    "type": "int",
+                    "units": "default: 0",
+                    "optional": 1
+                },
+                {
+                    "name": "state1",
+                    "type": "int",
+                    "units": "default: 0",
+                    "optional": 1
+                },
+                {
+                    "name": "state2",
+                    "type": "int",
+                    "units": "default: 0",
+                    "optional": 1
+                }
+            ],
+            "digest": "Top level gen~ [history] / History() declarations can be reset by messages to the object",
+            "description": ""
+        }
+    ],
+    "attributes": [
+        {
+            "name": "load",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0.25",
+                "max": "4",
+                "value": "1.333333333333"
+            }
+        },
+        {
+            "name": "noiselevel",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "1",
+                "value": "0.05"
+            }
+        }
+    ],
     "example": {
         "caption": "",
         "image": ""

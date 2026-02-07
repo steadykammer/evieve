@@ -1,0 +1,37 @@
+
+require("evi_polyblep.genexpr");
+
+twoHarm(x)
+{
+    a = 0.006024096385542;
+    b = 0.03125;
+    c = 0.0625;
+    x2 = x * x;
+    y = x - a * x2 - b * x * x2 + c;
+    return dcblock(y);
+}
+
+// TODO: Hard Sync
+
+Param   zerosync(0, min=0, max=1);
+zero    = int(zerosync);        // match tri phase zero crossings
+
+reset       = in2;              // naive, do not use
+freqInHz    = maximum(in1, 0);  // no neg freq, sorry
+
+t	        = phasor(freqInHz, reset);
+dt	        = freqInHz / SAMPLERATE;
+
+tt  = t;
+if (zero) {
+    tt = wrap(t - 0.25, 0, 1);
+}
+
+// simultaneous phase synchronous saw, rect, tri, sine
+out1        = decorelateOsc(dcblock(polysaw4(t, dt)));
+out2        = decorelateOsc(dcblock(polyrect4(t, dt)));
+out3        = decorelateOsc(dcblock(polytri4(tt, dt)));
+out4        = twoHarm(poly_sin(t) * sqrt1_2);
+// phase
+out5        = t;
+

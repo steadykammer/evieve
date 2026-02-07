@@ -10,21 +10,135 @@
     },
     "inlets": [
         {
-            "name": "input",
+            "id": 1,
+            "name": "@comment",
             "type": "float",
             "optional": 1,
-            "digest": "TEXT_HERE"
+            "digest": "in Map"
+        },
+        {
+            "id": 2,
+            "name": "@default",
+            "type": "float",
+            "optional": 1,
+            "digest": "0 @comment inLow"
+        },
+        {
+            "id": 3,
+            "name": "@default",
+            "type": "float",
+            "optional": 1,
+            "digest": "0.5 @comment inMid"
+        },
+        {
+            "id": 4,
+            "name": "@default",
+            "type": "float",
+            "optional": 1,
+            "digest": "1 @comment inHigh"
+        },
+        {
+            "id": 5,
+            "name": "@default",
+            "type": "float",
+            "optional": 1,
+            "digest": "0 @comment outLow"
+        },
+        {
+            "id": 6,
+            "name": "@default",
+            "type": "float",
+            "optional": 1,
+            "digest": "0.5 @comment outMid"
+        },
+        {
+            "id": 7,
+            "name": "@default",
+            "type": "float",
+            "optional": 1,
+            "digest": "1 @comment outHigh"
+        }
+    ],
+    "outlets": [
+        {
+            "id": 1,
+            "name": "@comment",
+            "type": "float",
+            "optional": 1,
+            "digest": "out Map"
         }
     ],
     "attributes": [
         {
-            "name": "",
-            "type": "",
-            "digest": "TEXT_HERE",
-            "description": "TEXT_HERE",
+            "name": "inhigh",
+            "type": "int",
+            "digest": "",
+            "description": "",
             "default": {
-                "type": "",
-                "value": 0
+                "type": "float",
+                "value": "1"
+            }
+        },
+        {
+            "name": "inlow",
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0"
+            }
+        },
+        {
+            "name": "inmid",
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.5"
+            }
+        },
+        {
+            "name": "outhigh",
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "1"
+            }
+        },
+        {
+            "name": "outlow",
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0"
+            }
+        },
+        {
+            "name": "outmid",
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.5"
+            }
+        },
+        {
+            "name": "useparams",
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0",
+                "min": 0,
+                "max": 1
             }
         }
     ],

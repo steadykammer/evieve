@@ -10,24 +10,72 @@
     },
     "inlets": [
         {
-            "name": "input",
+            "id": 1,
+            "name": "frequency",
             "type": "float",
             "optional": 1,
-            "digest": "TEXT_HERE"
-        }
-    ],
-    "attributes": [
+            "digest": "in Hz"
+        },
         {
-            "name": "",
-            "type": "",
-            "digest": "TEXT_HERE",
-            "description": "TEXT_HERE",
-            "default": {
-                "type": "",
-                "value": 0
-            }
+            "id": 2,
+            "name": "rate",
+            "type": "float",
+            "optional": 1,
+            "digest": "Multiplier"
+        },
+        {
+            "id": 3,
+            "name": "reset",
+            "type": "float",
+            "optional": 1,
+            "digest": ""
         }
     ],
+    "outlets": [
+        {
+            "id": 1,
+            "name": "phasor",
+            "type": "float",
+            "optional": 1,
+            "digest": "Ramp 0..1"
+        },
+        {
+            "id": 2,
+            "name": "rate",
+            "type": "float",
+            "optional": 1,
+            "digest": "Ramp 0..1"
+        },
+        {
+            "id": 3,
+            "name": "current",
+            "type": "float",
+            "optional": 1,
+            "digest": "Frequency"
+        },
+        {
+            "id": 4,
+            "name": "current",
+            "type": "float",
+            "optional": 1,
+            "digest": "Rate"
+        },
+        {
+            "id": 5,
+            "name": "phasor",
+            "type": "float",
+            "optional": 1,
+            "digest": "Sync"
+        },
+        {
+            "id": 6,
+            "name": "rate",
+            "type": "float",
+            "optional": 1,
+            "digest": "Sync"
+        }
+    ],
+    "attributes": [],
     "seealso": [
         {
             "name": "",

@@ -1,0 +1,41 @@
+
+require("evi_biquad.genexpr");
+
+/*                                         (these filters can take very high Q)
+    0   eviBiquadCoeffResonant              cutoff, Q
+    1   eviBiquadCoeffResonantGain          cutoff, gain, Q     (default)
+    2   eviBiquadCoeffBp                    cutoff, Q           ([bp~] from Pd)
+    3   eviBiquadCoeffBpGain                cutoff, gain, Q
+    4   eviBiquadCoeffBandpassAnalog        cutoff, Q           (actually resonant)
+    5   eviBiquadCoeffBandpassGainAnalog    cutoff, gain, Q     (actually resonant)
+    6   eviBiquadCoeffResonantAnalog        cutoff, Q
+*/
+Param   filter(1, min=0, max=6);
+filt    = int(filter);
+reset   = delta(change(filt)) < 0;
+
+a0, a1, a2, b1, b2  = 0;
+if (filt == 1) {
+    a0, a1, a2, b1, b2  = eviBiquadCoeffResonantGain(in2, dbtoa(in3), in4);
+}
+else if (filt == 2) {
+    a0, a1, a2, b1, b2  = eviBiquadCoeffBp(in2, in4);
+}
+else if (filt == 3) {
+    a0, a1, a2, b1, b2  = eviBiquadCoeffBpGain(in2, dbtoa(in3), in4);
+}
+else if (filt == 4) {
+    a0, a1, a2, b1, b2  = eviBiquadCoeffBandpassAnalog(in2, in4);
+}
+else if (filt == 5) {
+    a0, a1, a2, b1, b2  = eviBiquadCoeffBandpassGainAnalog(in2, dbtoa(in3), in4);
+}
+else if (filt == 6) {
+    a0, a1, a2, b1, b2  = eviBiquadCoeffResonantAnalog(in2, in4);
+}
+else {
+    a0, a1, a2, b1, b2  = eviBiquadCoeffResonant(in2, in4);
+}
+
+out1    = biquadDf2reset(in1, a0, a1, a2, b1, b2, reset);
+

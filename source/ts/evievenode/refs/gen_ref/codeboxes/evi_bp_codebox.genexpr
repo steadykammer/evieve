@@ -1,0 +1,24 @@
+
+// this is just the [bp~] object from Pd
+
+require("evi_biquad.genexpr");
+
+/*                                    (these filters can take very high Q)
+    0   eviBiquadCoeffBp               cutoff, Q         ([bp~] from Pd)
+    1   eviBiquadCoeffBpGain           cutoff, gain, Q
+*/
+Param   filter(0, min=0, max=1);
+filt    = int(filter);
+reset   = delta(change(filt)) < 0;
+
+a0, a1, a2, b1, b2  = 0;
+
+if (filt == 1) {
+    a0, a1, a2, b1, b2  = eviBiquadCoeffBpGain(in2, dbtoa(in3), in4);
+}
+else {
+    a0, a1, a2, b1, b2  = eviBiquadCoeffBp(in2, in4);   // (default)
+}
+
+out1    = biquadDf2reset(in1, a0, a1, a2, b1, b2, reset);
+

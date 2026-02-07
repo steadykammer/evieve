@@ -1,0 +1,95 @@
+
+// TPT emulation of the Buchla Lowpass-Gate, unique version of a two-pole Sallen & Key filter,
+// based on "A Digital Model of the Buchla Lowpass-Gate" by Julian Parker and Stefano D’Angelo, 2013
+// @see: http://research.spa.aalto.fi/publications/papers/dafx13-lpg/DAFx2013-LPG.pdf
+
+/*
+	Ideally this should all be oversampled properly, and the only native way we have of doing
+	that in Max is [poly~]. The best way to achieve the pure whistling resonance sound is
+	oversampling by 8 times when using the specific resampling filters of [poly~]. However,
+    one can use this "evi_lpg_buchla.gendsp" without [poly~] oversampling in gen~ or GenExpr
+    alone and with reasonable quality anti-aliased sound using the "localResampling()" function
+    in this .gendsp code - it gets us very close to that VA Buchla resonance sound.
+*/
+
+require("evi_buchla.genexpr");  // filters etc in here
+
+// quasi resampling options are for when NOT using an external poly~ (not as good but pretty good)
+localResampling(xin, freq, res, resistors, vca, lpg, nl, resample)
+{
+	buchla = 0;
+    bbp, bhp = 0; // (1x only)
+	if (resample == 1) {		// 2x
+		buchla = buchlaLpg2_2x(xin, freq, res, resistors, vca, lpg, nl);
+	} else if (resample == 2) {	// 3x
+		buchla = buchlaLpg3_3x(xin, freq, res, resistors, vca, lpg, nl);
+	} else if (resample == 3) {	// 4x, or greater advised for use in gen~ only, default
+		buchla = buchlaLpg4_4x(xin, freq, res, resistors, vca, lpg, nl);
+	} else if (resample == 4) {	// 6x
+		buchla = buchlaLpg6_6x(xin, freq, res, resistors, vca, lpg, nl);
+	} else if (resample == 5) {	// 8x
+		buchla = buchlaLpg8_8x(xin, freq, res, resistors, vca, lpg, nl);
+	} else {// resample == 0, 1x, should use this if using the [poly~] wrapper
+		buchla, bbp, bhp = buchlaLpg1(xin, freq, res, resistors, vca, lpg, nl);
+	}
+	return buchla, bbp, bhp;
+}
+
+// if "control*" == 0 use audio inlets, if == 1 use parameter rate messages
+Param	controlrf(0, min=0, max=1);
+Param	controlres(0, min=0, max=1);
+// only if "controlrf" == 1 :
+Param	rf(0, min=0, max=1000000);
+// only if "controlres" == 1 :
+Param	resonance(1, min=0, max=2);
+
+// use if NOT resampling in poly~
+Param	localresample(3, min=0, max=5);	// 0 = 1x, 1 = 2x, 2 = 3x, 3 = 4x, 4 = 6x, 5 = 8x
+Param	nonlin(1, min=0, max=2);		// 0 = linear (1x & 2x only), 0/1 = tanh (default), 2 = cubic
+// you will almost never want "rfsmooth" to be on, especially if driving from "evi_controlcircuit_buchla.gendsp"
+Param	rfsmooth(0, min=0, max=666);	// ms, if 0, rf smoothing off (switch off for audio rate modulation etc)
+Param	rfhz(4, min=0.001, max=19.2);	// hz
+Param	smooth(15.111, min=0, max=333);	// ms, if 0, vca/res smoothing off (switch off for audio rate modulation etc)
+
+Param	vca(0, min=0, max=1);           // switch or variable, smoothed below
+Param	boom(0, min=0, max=1);			// xfade extra feedback resistors, smoothed below
+Param	lpg(1, min=0, max=1);			// flag, switch filter/lpg - can be switched clicklessly in real time
+										// (conceived as a switch, but works continuously variable like the "vca", too)
+over	= int(localresample);
+ctrlrf	= int(controlrf);
+ctrlres	= int(controlres);
+nl		= int(nonlin);
+
+smoothsecs	= smooth*0.001;
+smoothsamps	= 0.0333*samplerate;
+
+freq = ctrlrf ? rf : in2;				// use param messages if "controlrate" == 1 ...
+res = ctrlres ? resonance : in3;
+
+freq = maximum(freq, 0);				// voltage not "freq" (can be very high numbers)
+res = maximum(res, 0);					// resonance 0..2..
+//damp = evi_log2sqrt01(vca);
+damp = vca*vca;                         // vca 0..1 (affectionately referred to as a "Damp" control)
+
+if (smooth > 0) {
+	damp    = logsmooth(damp, smoothsecs);
+}
+
+if (smooth > 0 && ctrlres) {
+	res     = logsmooth(res, smoothsecs);
+}
+
+if (rfsmooth > 0) {
+	freq	= cfSmoothLinear(freq, rfhz, rfsmooth);
+}
+
+// make gate/lpg switching real time capable
+slpg, nlpg	= eviSline(lpg, smoothsamps);
+resistors	= eviLine(boom * lpg, smoothsamps);  // boom is off if not "lpg" mode
+
+ylp, ybp, yhp   = localResampling(in1, freq, res, resistors, damp, slpg, nl, over);
+
+out1	 = ylp;
+out2	 = ybp; // zero if "localresample" > 0 ...
+out3	 = yhp;
+

@@ -1,0 +1,127 @@
+
+// based on the paper:
+// "Virtual Analog Model of the Lockhart Wavefolder"
+// by Fabian Esqueda, Henri Pontynen, Julian D. Parker, Stefan Bilbao
+// SMC, 2017
+
+expApprox(x)
+{
+	x = 1 + (0.062500309 + (0.0019527233 + (0.0000408663 + (0.00000060184965 + 0.000000010856791*x)*x)*x)*x)*x;
+	x *= x; x *= x; x *= x;
+	return x*x;
+}
+/*
+// Lambert-W function
+lambertW(x, ln1, loop, thresh)
+{
+	// initial guess (use previous value)
+	w		= ln1;
+
+	// Haley's method (section 4.2 of the paper)
+	for (i = 0; i < loop; i += 1) {
+//		expw	= expApprox(w);
+		expw	= exp(w);       // :-(
+        w1      = w + 1;
+
+		p		= (w * expw) - x;
+		r		= w1 * expw;
+		s		= (w + 2) / (w1 + w1);
+		err		= (p / (r - (p * s)));
+
+		if (abs(err) < thresh) {
+    		break;
+		}
+
+		w	   -= err;
+	}
+
+	return	w;
+}
+*/
+// Lambert-W function
+lambertW(x, ln1, loop, thresh)
+{
+	// initial guess (use previous value)
+	w		= ln1;
+    err     = 1;
+    i       = 0;
+
+	// Haley's method (section 4.2 of the paper)
+	while ( (i < loop) && (abs(err) > thresh) ) {
+//		expw	= expApprox(w);
+		expw	= exp(w);       // :-(
+        w1      = w + 1;
+
+		p		= (w * expw) - x;
+		r		= w1 * expw;
+		s		= (w + 2) / (w1 + w1);
+		err		= (p / (r - (p * s)));
+
+		w	   -= err;
+        i      += 1;
+	}
+
+	return	w;
+}
+
+// Antialiased Lockhart wavefolder with Lambert-W function
+lockhartAA(Xo, loop=1000)
+{
+	// declare previous state
+	History	Ln1(0), Fn1(0), Xn1(0);
+
+	// constants, only VT used
+    // but play with these values and calcs to hack the sound :-)
+	RL	= 7.5e3;    R	= 15e3;     VT	= 26e-3;    Is	= 10e-16;
+	a	= 1; // not used        //  2 * RL / R;
+	b	= 76.923076923076923;   // (R + 2 * RL) / (VT * R);
+	d	= 0.000000000288462;    // (RL * Is) / VT;
+    VTb = 0.000169;				//  0.5 * VT / b
+
+	// antialiasing (adaa) error threshold
+	epsilon	= 10e-10;
+
+	// input
+	l	= sign(Xo); 
+
+	// compute antiderivative (adaa, 1st order)
+//	u	= d * expApprox(l * b * Xo);
+	u	= d * exp(l * b * Xo);  // :-(
+	Ln	= lambertW(u, Ln1, loop, epsilon);
+    Lp1 = 1 + Ln;
+//	Fn	= (0.5 * VT / b) * (1 + Ln) * (1 + Ln) - 0.5 * a * Xo * Xo;
+	Fn	= VTb * Lp1 * Lp1 - 0.5 * Xo * Xo;
+
+	Yn	= 0;
+	// check for ill-conditioning
+	if (abs(Xo - Xn1) < epsilon) { // pete not convinced by this, surely it doesn't need to contain the lambetW()
+		// compute averaged wavefolder output
+		Xn	= 0.5 * (Xo + Xn1);
+		//	!! original "d * pow(e, (l * b * Xo))" code from the paper is wrong <<-- Xn !!
+		u	= d * expApprox(l * b * Xn);
+//		u	= d * exp(l * b * Xn);
+		Ln	= lambertW(u, Ln1, loop, epsilon);
+//		Yn	= (l * VT * Ln) - (a * Xo); // ?? "(l * VT * Ln) - (a * Xn)" <<-- Xn ??
+		Yn	= (l * VT * Ln) - Xn;
+	} else {
+		// apply antialiased form
+		Yn	= (Fn - Fn1) / (Xo - Xn1);
+	}
+
+	// update state
+	Ln1	= Ln;
+    Fn1	= Fn;
+    Xn1	= Xo;
+
+	return	dcblock(Yn);
+}
+
+W		= lockhartAA(in1, loop=111);
+X		= lockhartAA(W, loop=333);
+Y		= lockhartAA(X, loop=666);
+Z		= lockhartAA(Y, loop=999);
+
+out1    = Z;
+
+out2    = Y;    out3    = X;    out4    = W;
+

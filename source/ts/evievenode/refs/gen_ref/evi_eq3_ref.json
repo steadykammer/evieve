@@ -10,24 +10,86 @@
     },
     "inlets": [
         {
+            "id": 1,
             "name": "input",
             "type": "float",
             "optional": 1,
-            "digest": "TEXT_HERE"
-        }
-    ],
-    "attributes": [
+            "digest": ""
+        },
         {
-            "name": "",
-            "type": "",
-            "digest": "TEXT_HERE",
-            "description": "TEXT_HERE",
-            "default": {
-                "type": "",
-                "value": 0
-            }
+            "id": 2,
+            "name": "freq",
+            "type": "float",
+            "optional": 1,
+            "digest": "1 @min 10 @max 18000 @default 250"
+        },
+        {
+            "id": 3,
+            "name": "db",
+            "type": "float",
+            "optional": 1,
+            "digest": "1 @min -24 @max 24 @default 0"
+        },
+        {
+            "id": 4,
+            "name": "q",
+            "type": "float",
+            "optional": 1,
+            "digest": "1 @min 0.1 @max 18 @default 1"
+        },
+        {
+            "id": 5,
+            "name": "freq",
+            "type": "float",
+            "optional": 1,
+            "digest": "2 @min 10 @max 18000 @default 1000"
+        },
+        {
+            "id": 6,
+            "name": "db",
+            "type": "float",
+            "optional": 1,
+            "digest": "2 @min -24 @max 24 @default 0"
+        },
+        {
+            "id": 7,
+            "name": "q",
+            "type": "float",
+            "optional": 1,
+            "digest": "2 @min 0.1 @max 18 @default 0.707107"
+        },
+        {
+            "id": 8,
+            "name": "freq",
+            "type": "float",
+            "optional": 1,
+            "digest": "3 @min 10 @max 18000 @default 4000"
+        },
+        {
+            "id": 9,
+            "name": "db",
+            "type": "float",
+            "optional": 1,
+            "digest": "3 @min -24 @max 24 @default 0"
+        },
+        {
+            "id": 10,
+            "name": "q",
+            "type": "float",
+            "optional": 1,
+            "digest": "3 @min 0.1 @max 18 @default 1"
         }
     ],
+    "outlets": [
+        {
+            "id": 1,
+            "name": "3",
+            "type": "float",
+            "optional": 1,
+            "digest": "bands EQ Output"
+        }
+    ],
+    "attributes": [],
     "seealso": [
         {
             "name": "",

@@ -10,24 +10,30 @@
     },
     "inlets": [
         {
+            "id": 1,
             "name": "input",
             "type": "float",
             "optional": 1,
-            "digest": "TEXT_HERE"
-        }
-    ],
-    "attributes": [
+            "digest": ""
+        },
         {
-            "name": "",
-            "type": "",
-            "digest": "TEXT_HERE",
-            "description": "TEXT_HERE",
-            "default": {
-                "type": "",
-                "value": 0
-            }
+            "id": 2,
+            "name": "delay",
+            "type": "float",
+            "optional": 1,
+            "digest": "Time in samples 1.5..2.5"
         }
     ],
+    "outlets": [
+        {
+            "id": 1,
+            "name": "fractional",
+            "type": "float",
+            "optional": 1,
+            "digest": "Delay Allpass"
+        }
+    ],
+    "attributes": [],
     "seealso": [
         {
             "name": "",

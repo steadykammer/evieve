@@ -13,6 +13,9 @@
             "evieve"
         ]
     },
+    "includes": [
+        "evi_ringmod_enhanced.genexpr"
+    ],
     "inlets": [
         {
             "id": 1,
@@ -36,7 +39,80 @@
         }
     ],
     "messages": [],
-    "attributes": [],
+    "attributes": [
+        {
+            "name": "cutoff",
+            "get": 1,
+            "type": "symbol",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "1000",
+                "max": "samplerate*0.5",
+                "value": "samplerate*0.25"
+            }
+        },
+        {
+            "name": "drive",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "4",
+                "value": "0.5"
+            }
+        },
+        {
+            "name": "highpass",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "10",
+                "max": "400",
+                "value": "40"
+            }
+        },
+        {
+            "name": "order",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "8",
+                "value": "0"
+            }
+        },
+        {
+            "name": "quality",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "4",
+                "value": "1"
+            }
+        },
+        {
+            "name": "topology",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "1",
+                "value": "0"
+            }
+        }
+    ],
     "example": {
         "caption": "",
         "image": ""

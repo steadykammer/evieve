@@ -10,24 +10,44 @@
     },
     "inlets": [
         {
-            "name": "input",
+            "id": 1,
+            "name": "",
+            "type": "dummy",
+            "optional": 1,
+            "digest": ""
+        }
+    ],
+    "outlets": [
+        {
+            "id": 1,
+            "name": "low",
             "type": "float",
             "optional": 1,
-            "digest": "TEXT_HERE"
-        }
-    ],
-    "attributes": [
+            "digest": "\"g / (1 + g)\""
+        },
         {
-            "name": "",
-            "type": "",
-            "digest": "TEXT_HERE",
-            "description": "TEXT_HERE",
-            "default": {
-                "type": "",
-                "value": 0
-            }
+            "id": 2,
+            "name": "low",
+            "type": "float",
+            "optional": 1,
+            "digest": "k"
+        },
+        {
+            "id": 3,
+            "name": "high",
+            "type": "float",
+            "optional": 1,
+            "digest": "\"g / (1 + g)\""
+        },
+        {
+            "id": 4,
+            "name": "high",
+            "type": "float",
+            "optional": 1,
+            "digest": "k"
         }
     ],
+    "attributes": [],
     "seealso": [
         {
             "name": "",

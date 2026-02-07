@@ -13,6 +13,9 @@
             "evieve"
         ]
     },
+    "includes": [
+        "evi_svf.genexpr"
+    ],
     "inlets": [
         {
             "id": 1,
@@ -30,7 +33,92 @@
         }
     ],
     "messages": [],
-    "attributes": [],
+    "attributes": [
+        {
+            "name": "highcutoff",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "500",
+                "max": "samplerate*0.5",
+                "value": "2000"
+            }
+        },
+        {
+            "name": "highdb",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "-30",
+                "max": "30",
+                "value": "0"
+            }
+        },
+        {
+            "name": "highq",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0.05",
+                "max": "20",
+                "value": "1"
+            }
+        },
+        {
+            "name": "lowcutoff",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "1",
+                "max": "10000",
+                "value": "250"
+            }
+        },
+        {
+            "name": "lowdb",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "-30",
+                "max": "30",
+                "value": "0"
+            }
+        },
+        {
+            "name": "lowq",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0.05",
+                "max": "20",
+                "value": "1"
+            }
+        },
+        {
+            "name": "smooth",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "333",
+                "value": "22.666"
+            }
+        }
+    ],
     "example": {
         "caption": "",
         "image": ""

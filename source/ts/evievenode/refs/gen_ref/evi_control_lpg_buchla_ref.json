@@ -10,21 +10,126 @@
     },
     "inlets": [
         {
-            "name": "input",
+            "id": 1,
+            "name": "ping",
             "type": "float",
             "optional": 1,
-            "digest": "TEXT_HERE"
+            "digest": ""
+        },
+        {
+            "id": 2,
+            "name": "vactrol",
+            "type": "float",
+            "optional": 1,
+            "digest": "Rise"
+        },
+        {
+            "id": 3,
+            "name": "vactrol",
+            "type": "float",
+            "optional": 1,
+            "digest": "Fall"
+        },
+        {
+            "id": 4,
+            "name": "offset",
+            "type": "float",
+            "optional": 1,
+            "digest": ""
+        },
+        {
+            "id": 5,
+            "name": "scaler",
+            "type": "float",
+            "optional": 1,
+            "digest": ""
+        },
+        {
+            "id": 6,
+            "name": "sweep",
+            "type": "float",
+            "optional": 1,
+            "digest": ""
+        }
+    ],
+    "outlets": [
+        {
+            "id": 1,
+            "name": "r_f",
+            "type": "float",
+            "optional": 1,
+            "digest": "(to LPG)"
         }
     ],
     "attributes": [
         {
-            "name": "",
-            "type": "",
-            "digest": "TEXT_HERE",
-            "description": "TEXT_HERE",
+            "name": "offsetsmooth",
+            "type": "int",
+            "digest": "",
+            "description": "",
             "default": {
-                "type": "",
-                "value": 0
+                "type": "float",
+                "value": "0"
+            }
+        },
+        {
+            "name": "response",
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "1"
+            }
+        },
+        {
+            "name": "scalersmooth",
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0"
+            }
+        },
+        {
+            "name": "sweepsmooth",
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0"
+            }
+        },
+        {
+            "name": "vactrolcontroldamp",
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0"
+            }
+        },
+        {
+            "name": "vactrolcontrolhz",
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "143"
+            }
+        },
+        {
+            "name": "vactrolscalar",
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "10"
             }
         }
     ],

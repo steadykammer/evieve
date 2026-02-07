@@ -1,0 +1,331 @@
+
+// -- -- -- -- -- -- -- -- -- --	evi_freezeverb.gendsp	-- -- -- -- -- -- -- -- -- -- -- \\
+
+// Basic Schroeder / Moorer reverb model
+// Based on the famous 'freeverb' tuning by Jezar at Dreampoint (http://www.dreampoint.co.uk)
+// Source reference is the Pd/MSP implementations by Olaf Mathes (& Volker Böhm updates)
+
+// This version by Pete for evieve, with various modifications, filter improvements
+// and parameter smoothing etc, as well as new predelay and eq sections (2018)...
+// ...and of course a buttery smooth freeze effect
+
+
+// -- -- -- -- -- -- -- -- -- --		library			-- -- -- -- -- -- -- -- -- -- -- -- -- \\
+
+require("evi_reverb_library.genexpr");
+
+
+// -- -- -- -- -- -- -- -- -- --		declare			-- -- -- -- -- -- -- -- -- -- -- -- -- \\
+
+// constants in samples from external javascript, defaults are for 48kHz samplerate
+
+// early tap times
+Param	etap1samps(	69,		min=1, max=1502);
+Param	etap2samps(	155,	min=1, max=1502);
+Param	etap3samps(	251,	min=1, max=1502);
+Param	etap4samps(	376,	min=1, max=1502);
+// comb tap times
+// jezar's original constants in integer samples @ current samplerate
+// jezar's original constants were set in samples @44.1kHz samplerate
+// ref: 1116, 1188, 1277, 1356, 1422, 1491, 1557, 1617
+Param	comb1samps(	1215,	min=1, max=7040);
+Param	comb2samps(	1293,	min=1, max=7040);
+Param	comb3samps(	1390,	min=1, max=7040);
+Param	comb4samps(	1476,	min=1, max=7040);
+Param	comb5samps(	1548,	min=1, max=7040);
+Param	comb6samps(	1623,	min=1, max=7040);
+Param	comb7samps(	1695,	min=1, max=7040);
+Param	comb8samps(	1760,	min=1, max=7040);
+// allpass tap times
+// ref: 556, 441, 341, 225
+Param	ap1samps(	605,	min=1, max=2421);
+Param	ap2samps(	480,	min=1, max=2421);
+Param	ap3samps(	371,	min=1, max=2421);
+Param	ap4samps(	245,	min=1, max=2421);
+// spread tap times		// make these dynamic with 'width' ?
+Param	cSprSamps(	50,		min=1, max=200);
+Param	aSprSamps(	24,		min=1, max=200);
+
+// early delay lines
+
+Delay	earlyTap1(	etap1samps+1,	1,	feedback=0);
+Delay	earlyTap2(	etap2samps+1,	1,	feedback=0);
+Delay	earlyTap3(	etap3samps+1,	1,	feedback=0);
+Delay	earlyTap4(	etap4samps+1,	1,	feedback=0);
+
+History	xL(0), xR(0);	// compensate
+
+
+// -- -- -- -- -- -- -- -- -- --		params			-- -- -- -- -- -- -- -- -- -- -- -- \\
+
+// reverb
+Param	pre(9, min=0, max=143);						// pre delay time in ms
+Param	size(0.78, min=0, max=1);					// % 0..1 "roomsize" (comb filters feedback)
+Param	damp(0.42, min=0, max=1);					// % 0..1, comb filters damping
+Param	width(0.7, min=0, max=1);					// % 0..1
+// gains
+Param	early(-20, min=-90, max=0);					// dB (or init off?)
+Param	wet(-9.542434, min=-90, max=0);				// dB (init 1/scalewet)
+Param	dry(-12, min=-90, max=0);					// dB
+// eq (compute coefficients externally in gen no tilde)
+Param	highshelfG(0.123758, min=0, max=1);			// pre-warped frequency (g / (1 + g)) (default 2000Hz @48kHz)
+Param	highshelfK(0, min=-3, max=1);				// -3=shelfboost..0=bypass..shelf..1=pass
+Param	lowshelfG(0.032214, min=0, max=1);			// pre-warped frequency (g / (1 + g)) (default 500Hz @48kHz)
+Param	lowshelfK(0, min=-3, max=1);				// -3=shelfboost..0=bypass..shelf..1=pass
+// special
+History	mode(0), check(0);					        // freeze 0/1/2, the reason we are here
+Param	bypass(0, min=0, max=1);					// also cpu-off, but no reset in gen~ !
+History	passH(0);									// latch bypass smoother
+//History	clear(0);								// TODO
+
+
+// -- -- -- -- -- -- -- -- -- --		setup		-- -- -- -- -- -- -- -- -- -- -- -- -- -- \\
+
+// constants, not user
+Param		SQRT8MUL	( 0.353553390593274, min=0, max=1);	// sqrt1_2 * 0.5;
+Param		FIXEDGAIN	( 0.015,	min=0, max=1		 );	// ?
+Param		SCALEEARLY	( 0.555555,	min=0, max=1		 );
+Param		SCALEWET	( 3,		min=0, max=10		 );
+Param		SCALEDRY	( 2,		min=0, max=10		 );
+Param		SCALEDAMP	( 0.4,		min=0, max=1		 );
+Param		SCALEROOM	( 0.28,		min=0, max=1		 );
+Param		OFFSETROOM	( 0.7,		min=0, max=1		 );
+Param		ALLPASSFB	( 0.5,		min=0, max=1		 );	// ?
+
+Param		smoothtime	( 49,		min=1, max=500		 );	// ms
+smoothsecs	= smoothtime * 0.001;					// secs
+smsecslong	= smoothsecs * 2.666667;				// secs * 3
+smoothsamps	= smoothsecs * samplerate;				// samps
+smsampslong	= smoothsamps * 3.333333;				// samps * 3
+iBypass		= int(bypass);
+
+SRATE		= samplerate + 0;
+
+// -- -- -- -- -- -- -- -- -- --	parse (param rate)	-- -- -- -- -- -- -- -- -- -- -- -- -- \\
+
+pdTime		=  mstosamps(pre);
+
+xgain		=  FIXEDGAIN;
+roomsize1	= (size * SCALEROOM) + OFFSETROOM;	// comb feedback	// (size * size) ?
+roomsize2	=  roomsize1;
+damping1	=  damp * SCALEDAMP;				// comb damp
+damping2	=  damping1;
+
+earlygain0	= (early > -90) ? dbtoaApprox(early) : 0;
+earlygain1	=  earlygain0 * SCALEEARLY;
+
+drygain0	= (dry > -90) ? dbtoaApprox(dry) : 0;
+drygain1	=  drygain0   * SCALEDRY;
+
+width1		= (width * 0.5) + 0.5;
+wetgain0	= (wet > -90) ? dbtoaApprox(wet) : 0;
+wetgain0	=  wetgain0 *   SCALEWET;
+wetgain1	=  wetgain0 *	width1;
+wetgain2	=  wetgain0 * ((1 - width) * 0.5);
+
+
+// -- -- -- -- -- -- -- -- --	BYPASS	(smooth & cpu manage)	-- -- -- -- -- -- -- -- -- -- -- \\
+
+pN		= 1;			// latch
+PASS	= 0;
+iPass	= 1;
+if ( (iBypass != passH) || (passH == 1) ) {
+	PASS, pN	=  eviLine(iBypass, (0.666 * samplerate));	// exact ramp (smooth bypass)
+	iPass		=  1 - PASS;
+}
+xL		=  in1;			// align
+xR		=  in2;
+xLdry	=  xL * PASS;
+xRdry	=  xR * PASS;
+rvrbL	=  xLdry + 0;
+rvrbR	=  xRdry + 0;
+
+if (PASS < 1) {			// start BYPASS
+
+
+// -- -- -- -- -- -- -- -- -- --	parse (audio rate)	-- -- -- -- -- -- -- -- -- -- -- -- -- \\
+
+// freeze behaviour, smoothed by parameter changes downstream
+// unlike original(s), 'freeze' is click-free and silky smooth in this implementation :-)
+
+// @ audio rate - much more expensive than "evi_freezeverb.gendsp"
+
+freeze      =  trunc(in3);                      // 0/1/2
+retrig      =  delta(in4) < 0;
+
+if (retrig) {
+    mode = 0;
+    check = 1;
+}
+
+if (mode > 0) {								    // freeze + dry (like originals)
+    check = 0;
+	roomsize2	=  1 ;
+	damping2	=  0 ;
+	xgain		=  0 ;
+    if (mode == 2) {							// freeze solo (for evieve)
+	    drygain1	=  0 ;
+	    earlygain1	=  0 ;
+    }
+}
+else {
+    roomsize2 = roomsize1;
+    damping2 = damping1;
+    xgain = FIXEDGAIN;
+    drygain1 = drygain0 * SCALEDRY;
+    earlygain1 = earlygain0 * SCALEEARLY;
+}
+
+// exact ramps
+roomsize3, rmn						= eviSline(roomsize2, smsampslong); // because longest ramp
+if (check) {
+    mode		                    =  (rmn) ? freeze : 0;
+}
+else {
+    mode                            = freeze;
+}
+damping3							= eviLine(damping2, smsampslong);
+damping4							= 1 - damping3;
+
+width2								= expsmooth((width1 - 0.1), smsecslong);
+
+wetgain3, wetgain4					= logsmoothBank2(wetgain1, wetgain2, smoothsecs);
+
+// exact ramps
+ingain								= eviSline(xgain, smoothsamps);
+earlygain2							= eviLine(earlygain1, smoothsamps);
+drygain2							= eviLine(drygain1, smoothsamps);
+
+eqHighG, eqLowG						= expsmoothBank2(highshelfG, lowshelfG, smoothsecs);
+
+// exact ramps
+eqHighK								= eviLine(highshelfK, smoothsamps);
+eqLowK								= eviLine(lowshelfK, smoothsamps);
+
+
+// -- -- -- -- -- -- -- -- -- --		process			-- -- -- -- -- -- -- -- -- -- -- -- -- \\
+
+x0		= ((in1 + in2) * ingain) * iPass;		// & smooth bypass
+
+// direct signal
+
+x1		= preDelayVar(x0, pdTime, smoothsamps);	// only compute if pdTime > 0
+
+// early reflect taps
+
+earlL	= 0;
+earlR	= 0;
+earlyTap1.write(xR * iPass);					// & smooth bypass
+//earlyTap1.write((xR * -1) * iPass);
+
+if (earlygain2 > 0) {							// only compute if earlygain > 0
+
+	et1		= earlyTap1.read(etap1samps, interp="none");
+	pt1		= xL + et1;
+	mt1		= xL - et1;
+
+	earlyTap2.write(mt1);
+	et2		= earlyTap2.read(etap2samps, interp="none");
+	pt2		= pt1 + et2;
+	mt2		= pt1 - et2;
+
+	earlyTap3.write(mt2);
+	et3		= earlyTap3.read(etap3samps, interp="none");
+	pt3		= pt2 + et3;
+	mt3		= pt2 - et3;
+
+	earlyTap4.write(mt3);
+	earlR	= earlyTap4.read(etap4samps, interp="none")	* SQRT8MUL;
+	earlL	= pt3										* SQRT8MUL;
+
+	earlL	= earlL * earlygain2;
+	earlR	= earlR * earlygain2;
+}
+
+earlyL, earlyR	= xfadeQuartApproxStereo(earlL, earlR, earlR, earlL, width2);
+
+// parallel combs
+// (we really do mean "earl*" and not "early*" here)
+cInL	= (x1 + (earlL * ingain)) * iPass;		// & smooth bypass
+cInR	= (x1 + (earlR * ingain)) * iPass;
+
+// combs left
+comb1L	= fbComb(cInL, damping3, damping4, roomsize3,		comb1samps						);
+comb2L	= fbComb(cInL, damping3, damping4, roomsize3,		comb2samps						);
+comb3L	= fbComb(cInL, damping3, damping4, roomsize3,		comb3samps						);
+comb4L	= fbComb(cInL, damping3, damping4, roomsize3,		comb4samps						);
+comb5L	= fbComb(cInL, damping3, damping4, roomsize3,		comb5samps						);
+comb6L	= fbComb(cInL, damping3, damping4, roomsize3,	int(comb6samps - (cSprSamps / 2))	);
+comb7L	= fbComb(cInL, damping3, damping4, roomsize3,		comb7samps						);
+comb8L	= fbComb(cInL, damping3, damping4, roomsize3,	   (comb8samps -  cSprSamps)		);
+
+combsL	= comb1L + comb2L + comb3L + comb4L + comb5L + comb6L + comb7L + comb8L;
+
+// combs right
+comb1R	= fbComb(cInR, damping3, damping4, roomsize3,	   (comb1samps + cSprSamps)			);
+comb2R	= fbComb(cInR, damping3, damping4, roomsize3,	   (comb2samps + cSprSamps)			);
+comb3R	= fbComb(cInR, damping3, damping4, roomsize3,	   (comb3samps + cSprSamps)			);
+comb4R	= fbComb(cInR, damping3, damping4, roomsize3,	   (comb4samps + cSprSamps)			);
+comb5R	= fbComb(cInR, damping3, damping4, roomsize3,	   (comb5samps + cSprSamps)			);
+comb6R	= fbComb(cInR, damping3, damping4, roomsize3,		comb6samps						);
+comb7R	= fbComb(cInR, damping3, damping4, roomsize3,	   (comb7samps + cSprSamps)			);
+comb8R	= fbComb(cInR, damping3, damping4, roomsize3,		comb8samps						);
+
+combsR	= comb1R + comb2R + comb3R + comb4R + comb5R + comb6R + comb7R + comb8R;
+
+// series allpasses
+
+apLin	= (combsL + earlyL) * iPass;			// & smooth bypass
+apRin	= (combsR + earlyR) * iPass;
+
+// allpasses left
+apL		= fbAllpass(apLin,		ALLPASSFB,		ap1samps					);
+apL		= fbAllpass(apL,		ALLPASSFB,	   (ap2samps - aSprSamps)		);
+apL		= fbAllpass(apL,		ALLPASSFB,		ap3samps					);
+apL		= fbAllpass(apL,		ALLPASSFB,	int(ap4samps - (aSprSamps / 2))	);
+
+// allpasses right
+apR		= fbAllpass(apRin,		ALLPASSFB,	   (ap1samps + aSprSamps)		);
+apR		= fbAllpass(apR,		ALLPASSFB,		ap2samps					);
+apR		= fbAllpass(apR,		ALLPASSFB,	int(ap3samps + (aSprSamps / 2))	);
+apR		= fbAllpass(apR,		ALLPASSFB,		ap4samps					);
+
+// wet & width mix
+
+rvrbL	= (apL * wetgain3) + (apR * wetgain4);
+rvrbR	= (apR * wetgain3) + (apL * wetgain4);
+
+
+// -- -- -- -- -- -- -- -- -- --		  eq (wet)		-- -- -- -- -- -- -- -- -- -- -- -- -- \\
+
+// 1-pole eq cut/boost shelf filters
+// if high/lowshelfK params == 1, filters become high/lowpasses
+// if high/lowshelfK params == 0, bypassed (& do not compute)
+
+if (eqHighK != 0) {
+	rvrbL	= rcFilterDamp(rvrbL, eqHighG, eqHighK);		// highshelf
+	rvrbR	= rcFilterDamp(rvrbR, eqHighG, eqHighK);
+}
+
+//if (eqLowK != 0) { 										// cpu manage not click-free for low :-(
+	rvrbL   = rcFilterDampHp(rvrbL, eqLowG, eqLowK);		// lowshelf
+	rvrbR   = rcFilterDampHp(rvrbR, eqLowG, eqLowK);
+//}
+
+
+// -- -- -- -- -- -- -- -- --	BYPASS	(smooth & cpu manage)	-- -- -- -- -- -- -- -- -- -- -- \\
+
+// dry gain
+
+xLdry	= xL * drygain2;
+xRdry	= xR * drygain2;
+
+}	// end BYPASS
+
+passH	= latch(iBypass, pN);
+
+// -- -- -- -- -- -- -- -- -- --		output			-- -- -- -- -- -- -- -- -- -- -- -- -- \\
+
+out1	= interp(PASS, (rvrbL + xLdry), xL, mode="cosine");	// & smooth bypass
+out2	= interp(PASS, (rvrbR + xRdry), xR, mode="cosine");
+

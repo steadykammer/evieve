@@ -10,24 +10,37 @@
     },
     "inlets": [
         {
-            "name": "input",
+            "id": 1,
+            "name": "trigger",
             "type": "float",
             "optional": 1,
-            "digest": "TEXT_HERE"
-        }
-    ],
-    "attributes": [
+            "digest": "@default 0"
+        },
         {
-            "name": "",
-            "type": "",
-            "digest": "TEXT_HERE",
-            "description": "TEXT_HERE",
-            "default": {
-                "type": "",
-                "value": 0
-            }
+            "id": 2,
+            "name": "rise",
+            "type": "float",
+            "optional": 1,
+            "digest": "@min 0 @default 20"
+        },
+        {
+            "id": 3,
+            "name": "fall",
+            "type": "float",
+            "optional": 1,
+            "digest": "@min 0 @default 3000"
         }
     ],
+    "outlets": [
+        {
+            "id": 1,
+            "name": "scaled",
+            "type": "float",
+            "optional": 1,
+            "digest": "Vactrol envelope"
+        }
+    ],
+    "attributes": [],
     "seealso": [
         {
             "name": "",

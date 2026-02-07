@@ -10,24 +10,37 @@
     },
     "inlets": [
         {
-            "name": "input",
+            "id": 1,
+            "name": "in",
             "type": "float",
             "optional": 1,
-            "digest": "TEXT_HERE"
-        }
-    ],
-    "attributes": [
+            "digest": "Mono / In Left / In 1"
+        },
         {
-            "name": "",
-            "type": "",
-            "digest": "TEXT_HERE",
-            "description": "TEXT_HERE",
-            "default": {
-                "type": "",
-                "value": 0
-            }
+            "id": 2,
+            "name": "nothing",
+            "type": "float",
+            "optional": 1,
+            "digest": "/ In Right / In 2"
         }
     ],
+    "outlets": [
+        {
+            "id": 1,
+            "name": "reverb",
+            "type": "float",
+            "optional": 1,
+            "digest": "Left"
+        },
+        {
+            "id": 2,
+            "name": "reverb",
+            "type": "float",
+            "optional": 1,
+            "digest": "Right"
+        }
+    ],
+    "attributes": [],
     "seealso": [
         {
             "name": "",

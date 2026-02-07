@@ -10,24 +10,44 @@
     },
     "inlets": [
         {
+            "id": 1,
             "name": "input",
             "type": "float",
             "optional": 1,
-            "digest": "TEXT_HERE"
-        }
-    ],
-    "attributes": [
+            "digest": ""
+        },
         {
-            "name": "",
-            "type": "",
-            "digest": "TEXT_HERE",
-            "description": "TEXT_HERE",
-            "default": {
-                "type": "",
-                "value": 0
-            }
+            "id": 2,
+            "name": "cutoff",
+            "type": "float",
+            "optional": 1,
+            "digest": "in Hz @min samplerate*0.00022 @max samplerate*0.458334"
+        },
+        {
+            "id": 3,
+            "name": "gain",
+            "type": "float",
+            "optional": 1,
+            "digest": "in dB @min -24 @max 24 @default 0"
+        },
+        {
+            "id": 4,
+            "name": "q",
+            "type": "float",
+            "optional": 1,
+            "digest": "@default 0.707107"
         }
     ],
+    "outlets": [
+        {
+            "id": 1,
+            "name": "eq",
+            "type": "float",
+            "optional": 1,
+            "digest": "Filter Output"
+        }
+    ],
+    "attributes": [],
     "seealso": [
         {
             "name": "",

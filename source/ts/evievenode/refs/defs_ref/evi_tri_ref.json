@@ -13,6 +13,9 @@
             "evieve"
         ]
     },
+    "includes": [
+        "evi_polyblep.genexpr"
+    ],
     "inlets": [
         {
             "id": 1,

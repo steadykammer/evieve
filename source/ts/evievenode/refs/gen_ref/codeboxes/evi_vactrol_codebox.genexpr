@@ -1,0 +1,47 @@
+
+// Vactrol time-domain behaviour filter.
+// @see also: evi_vactrol_shape.gendsp
+
+// A basic not-really-a-model of the Perkin Elmer VTL5C3, the resistive
+// part of a photoresistive opto-isolator.
+// As it turns out, the shape is similar to [slide~] in MSP/RNBO
+// or [slide] in gen~, but not the behaviour in terms of fall or retrigger
+
+// Based on "A Digital Model of the Buchla Lowpass-Gate"
+// by Julian Parker and Stefano D’Angelo, 2013
+// "...an ad-hoc nonlinear filter structure that will behave similarly
+// to the vactrol with correct setting of parameter values".
+
+vactrolSection(x, a)                    // trigger, time
+{
+	return x * a / (1 + a);
+}
+
+vactrolBuchla(i, r, f)					// impulse, rise (samps), fall (samps)
+{
+	History s1(0);
+
+	a_base	= 3141.592653589793238/SAMPLERATE;	// 1000*PI/samplerate
+	t_down	= 10 + f*(1 - 0.9*s1);		// fall time
+	a_down	= a_base/t_down;
+	t_up	= 1 + r*(1 - 0.999*s1);		// rise time
+	a_up	= a_base/t_up;
+
+	x		= i - s1;
+	x 		= (x < 0) ? vactrolSection(x, a_down) : vactrolSection(x, a_up);
+	y		= x + s1;
+	s1		= y + x;
+	return	  y;						// & scale externally
+}
+
+Param	scalar(10, min=1, max=10000);	// for "evi_controlcircuit_buchla.gendsp"
+// "...values are chosen from the datasheet for the VTL5C3/2 as being approx 12ms
+// in the positive (rise) direction and 250ms in the negative (fall) direction.
+// This chosen value is then modulated further by the current output value of
+// the vactrol model, so that it responds quicker when at high values,
+// as also indicated on the datasheet".
+rise	= in2;							// in samples...
+fall	= in3;							// ...
+mult	= scalar;//slide(scalar, rise, rise);
+
+out1 	= vactrolBuchla(in1, rise, fall) * mult;

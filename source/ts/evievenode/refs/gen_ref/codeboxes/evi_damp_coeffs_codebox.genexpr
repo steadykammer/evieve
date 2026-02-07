@@ -1,0 +1,35 @@
+
+// coefficients at Max schedular rate for two evieve onepole damping filters
+
+require("evi_rcfilters.genexpr");
+
+Param   HOST_SR(48000); // must be a Param to pass onto an embedded Param
+
+Param	cutoffhigh(2000, min=500, max=15000);			// Hz
+Param	damphigh(0, min=-1, max=1);						// % ± 1
+
+Param	cutofflow(500, min=62.5, max=4000);				// Hz
+Param	damplow(0, min=-1, max=1);						// % ± 1
+
+Param	mode(0, min=0, max=2);							// int 0/1/2, *)
+kout	= int(mode);
+
+gLow,	kLow	= rcDampCoeffsNoTilde(cutofflow, damplow, kout, AUDIO_SR=HOST_SR);
+gHigh,	kHigh	= rcDampCoeffsNoTilde(cutoffhigh, damphigh, kout, AUDIO_SR=HOST_SR);
+
+out1	= gLow;
+out2	= kLow;
+
+out3	= gHigh;
+out4	= kHigh;
+
+
+/*
+    *) 'damp' -1..1 maps to d1 (k) as...
+		if mode==0:	 0=bypass..shelfattenuate..+1=pass (abs or clip damp)
+		if mode==1:	+0.75=shelfattenuate..0=bypass..-3=shelfboost
+		if mode==2:	+1=pass..shelfattenuate..0=bypass..-3=shelfboost
+
+    @see: "evi_rcfilters.genexpr" for details
+*/
+

@@ -1,0 +1,44 @@
+// 3-band parametric EQ using TPT SVF filters, controllable at audio rate. Unlike Biquads, these filters
+// will remain stable and clean under modulation. Turn off @smooth if modulating at audio rate.
+// @see: "evi_eq5.gendsp" & "evi_eq8.gendsp" for parameter control of parametric EQ-ing
+
+require("evi_svf.genexpr");
+
+Param   smooth(15.333, min=0, max=333);
+
+/*
+    "bandXfilter"
+	Index	Filter
+	0 		Bypass
+	1 		Highpass
+	2 		Lowshelf
+	3 		Bell
+	4 		BellAdaptiveQ
+	5 		Notch
+	6 		Highshelf
+	7 		Lowpass
+*/
+Param       band1filter(2, min=0, max=7);
+Param       band2filter(3, min=0, max=7);
+Param       band3filter(6, min=0, max=7);
+band1filt   = int(band1filter);
+band2filt   = int(band2filter);
+band3filt   = int(band3filter);
+
+xL      = in1;      xR      = in2;
+
+cutoff1 = in3;
+db1     = in4;
+Q1      = in5;
+
+cutoff2 = in6;
+db2     = in7;
+Q2      = in8;
+
+cutoff3 = in9;
+db3     = in10;
+Q3      = in11;
+
+yL, yR  = eviParametricStereo3(xL, xR, band1filt, cutoff1, db1, Q1, band2filt, cutoff2, db2, Q2, band3filt, cutoff3, db3, Q3, smooth=smooth);
+
+out1    = yL;       out2    = yR;

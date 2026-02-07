@@ -1,0 +1,35 @@
+
+// Hilbert transform 90º phase shifting filter using high quality 8-pole Polyphase 
+// IIR Halfband Allpass Cascade coefficients (De Soras / Niemitalo). Theoretically 
+// 'better' than the MSP (6-pole fudged) [hilbert~] :-)
+
+// Defaults for 48kHz samplerate. If using other samplerates you will need to provide 
+// coefficients externally (e.g. from [evi.polyphaseiirhilbertcoeffs], or 
+// 'evi_hilbert_coefficients.js' directly).
+
+// @see also: 'evi_freqshift_hilbert.gendsp' and 'evi_freqshift_weaver.gendsp'
+
+
+require("evi_biquad");
+
+// 64-bit Polyphase IIR Halfband Allpass Cascade Coefficients updated
+// from Javascript, defaults are for 48kHz Samplerate & 40Hz bandwidth
+
+// Phase reference path c coefficients
+Param	coef1(0.486604368613682, min=-10, max=10);
+Param	coef2(0.880779435272467, min=-10, max=10);
+Param	coef3(0.977931255616324, min=-10, max=10);
+Param	coef4(0.997673861850732, min=-10, max=10);
+// +90 degrees path c coefficients
+Param	coef5(0.165149093559079, min=-10, max=10);
+Param	coef6(0.739829012544530, min=-10, max=10);
+Param	coef7(0.947940906329181, min=-10, max=10);
+Param	coef8(0.991209712705258, min=-10, max=10);
+
+x			= in1;
+
+real, imag	= eviHilbertCascade(x, coef1, coef2, coef3, coef4, coef5, coef6, coef7, coef8);
+
+out1		= real;
+out2		= imag;
+

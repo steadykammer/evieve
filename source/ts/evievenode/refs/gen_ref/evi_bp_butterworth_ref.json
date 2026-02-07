@@ -10,24 +10,30 @@
     },
     "inlets": [
         {
+            "id": 1,
             "name": "input",
             "type": "float",
             "optional": 1,
-            "digest": "TEXT_HERE"
-        }
-    ],
-    "attributes": [
+            "digest": ""
+        },
         {
-            "name": "",
-            "type": "",
-            "digest": "TEXT_HERE",
-            "description": "TEXT_HERE",
-            "default": {
-                "type": "",
-                "value": 0
-            }
+            "id": 2,
+            "name": "cutoff",
+            "type": "float",
+            "optional": 1,
+            "digest": "in Hz @min samplerate*0.000041 @max samplerate*0.470588"
         }
     ],
+    "outlets": [
+        {
+            "id": 1,
+            "name": "bp",
+            "type": "float",
+            "optional": 1,
+            "digest": "6-pole Butterworth Lowpass Output"
+        }
+    ],
+    "attributes": [],
     "seealso": [
         {
             "name": "",

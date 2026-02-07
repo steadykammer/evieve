@@ -10,24 +10,51 @@
     },
     "inlets": [
         {
-            "name": "input",
+            "id": 1,
+            "name": "cutoff",
             "type": "float",
             "optional": 1,
-            "digest": "TEXT_HERE"
-        }
-    ],
-    "attributes": [
+            "digest": "in Pitch or Hz"
+        },
         {
-            "name": "",
-            "type": "",
-            "digest": "TEXT_HERE",
-            "description": "TEXT_HERE",
-            "default": {
-                "type": "",
-                "value": 0
-            }
+            "id": 2,
+            "name": "pitch",
+            "type": "float",
+            "optional": 1,
+            "digest": "Modulation @default 0"
+        },
+        {
+            "id": 3,
+            "name": "frequency",
+            "type": "float",
+            "optional": 1,
+            "digest": "Hz Modulation @default 0"
         }
     ],
+    "outlets": [
+        {
+            "id": 1,
+            "name": "optionally",
+            "type": "float",
+            "optional": 1,
+            "digest": "smoothed\\, scaled & FM-ed f (Hz)"
+        },
+        {
+            "id": 2,
+            "name": "cf",
+            "type": "float",
+            "optional": 1,
+            "digest": "(Hz) with NO modulation"
+        },
+        {
+            "id": 3,
+            "name": "hz",
+            "type": "float",
+            "optional": 1,
+            "digest": "limit"
+        }
+    ],
+    "attributes": [],
     "seealso": [
         {
             "name": "",

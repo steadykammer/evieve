@@ -1,0 +1,14 @@
+
+// the theory is that this will be cheaper than using [scale]
+// everywhere when all you need is linear scaling, but in MSP
+// (instead of [scale~]) definitely not, but in gen~ yes
+
+// basic linear scaling like linear part of [scale]
+eviMap(valueIn, inLow, inHigh, outLow, outHigh)
+{
+    multiplier = (outLow - outHigh) / (inLow - inHigh);
+    return (valueIn - inLow) * multiplier + outLow;
+}
+
+out1 = eviMap(in1, in2, in3, in4, in5);
+

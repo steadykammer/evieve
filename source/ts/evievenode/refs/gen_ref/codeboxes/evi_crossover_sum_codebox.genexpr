@@ -1,0 +1,41 @@
+
+// 3-band (low/mid/high) summing of crossover signals post processing from an
+// upstream "evi_crossover_3band.gendsp" / [evi.crossover.3band~]
+
+// Linkwitz-Rileys sum perfectly flat
+
+require("evi_crossovers.genexpr");
+
+Param   align(1, min=0, max=1); // 0 = no allpass alignment, 1 = allpass align in this sum (default) ?
+Param   order(1, min=0, max=1); // 0 = from 2-pole xover ?, 1 = from 4-pole xover ? (default)
+poles   = int(order);
+ap      = int(align);
+
+// if using "evi_crossover_3band.gendsp" / [evi.crossover.3band~] upstream with it's 'align'
+// attribute turned off, you must turn 'align' on in this sum abstraction.
+// by default 'align' is on in this sum abstraction because that would be the only point of using it :-).
+// apparently allpass alignment should come when summing, but i am not sure this makes much difference ?
+
+SUM = 0;
+if (poles > 0) {
+    if (ap > 0) {
+        SUM = eviXover4pole3bandSum(in1, in2, in3, in4);  // 4-pole (default)
+    } else {
+        SUM = in1 + in2 + in3;
+    }
+} else {
+    if (ap > 0) {
+        SUM = eviXover2pole3bandSum(in1, in2, in3, in4);  // 2-pole
+    } else {
+        SUM = in1 + in2 + in3;
+    }
+}
+
+out1    = SUM;
+
+// Note: for additional crossovers including 2-band crossovers,
+// @see: "evi_cross.gendsp" / [evi.cross~] - 4-pole only
+// @see: "evi_crossover.gendsp" / [evi.crossover~]
+// @see: "evi_crossover_3band.gendsp" / [evi.crossover.3band~]
+// @see: "evi_crossover_allpass.gendsp" / [evi.crossover.allpass~]
+

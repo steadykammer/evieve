@@ -1,0 +1,23 @@
+
+// exact ramp smoothing, like MSP [line~]
+// @see also: evi_sline, evi_curve, evi_rampsmooth, etc
+
+// basic linear scaling like linear part of [scale]
+eviMap(valueIn, inLow, inHigh, outLow, outHigh)
+{
+	multiplier = (outLow - outHigh) / (inLow - inHigh);
+	return (valueIn - inLow) * multiplier + outLow;
+}
+
+eviLine(target, duration)				// target, duration in samples
+{
+	History	value(0);
+	trigger	= change(target);
+	ramp	= clip(accum((1 / latch(duration, trigger)), trigger), 0, 1);
+	line	= eviMap(ramp, 0, 1, latch(value, trigger), latch(target, trigger));
+	value	= line;
+	return	line, (ramp == 1);
+}
+
+out1, out2 = eviLine(in1, in2);
+

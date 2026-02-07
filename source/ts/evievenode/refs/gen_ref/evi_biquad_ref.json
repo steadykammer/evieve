@@ -10,24 +10,65 @@
     },
     "inlets": [
         {
+            "id": 1,
             "name": "input",
             "type": "float",
             "optional": 1,
-            "digest": "TEXT_HERE"
-        }
-    ],
-    "attributes": [
+            "digest": ""
+        },
         {
-            "name": "",
-            "type": "",
-            "digest": "TEXT_HERE",
-            "description": "TEXT_HERE",
-            "default": {
-                "type": "",
-                "value": 0
-            }
+            "id": 2,
+            "name": "ff0",
+            "type": "float",
+            "optional": 1,
+            "digest": ""
+        },
+        {
+            "id": 3,
+            "name": "ff1",
+            "type": "float",
+            "optional": 1,
+            "digest": ""
+        },
+        {
+            "id": 4,
+            "name": "ff2",
+            "type": "float",
+            "optional": 1,
+            "digest": ""
+        },
+        {
+            "id": 5,
+            "name": "fb1",
+            "type": "float",
+            "optional": 1,
+            "digest": ""
+        },
+        {
+            "id": 6,
+            "name": "fb2",
+            "type": "float",
+            "optional": 1,
+            "digest": ""
+        },
+        {
+            "id": 7,
+            "name": "reset",
+            "type": "float",
+            "optional": 1,
+            "digest": ""
         }
     ],
+    "outlets": [
+        {
+            "id": 1,
+            "name": "output",
+            "type": "float",
+            "optional": 1,
+            "digest": ""
+        }
+    ],
+    "attributes": [],
     "seealso": [
         {
             "name": "",

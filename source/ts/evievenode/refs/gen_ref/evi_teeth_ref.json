@@ -10,24 +10,65 @@
     },
     "inlets": [
         {
+            "id": 1,
             "name": "input",
             "type": "float",
             "optional": 1,
-            "digest": "TEXT_HERE"
-        }
-    ],
-    "attributes": [
+            "digest": ""
+        },
         {
-            "name": "",
-            "type": "",
-            "digest": "TEXT_HERE",
-            "description": "TEXT_HERE",
-            "default": {
-                "type": "",
-                "value": 0
-            }
+            "id": 2,
+            "name": "feedforward",
+            "type": "float",
+            "optional": 1,
+            "digest": "Delay in ms @min 0 @max 1000"
+        },
+        {
+            "id": 3,
+            "name": "feedback",
+            "type": "float",
+            "optional": 1,
+            "digest": "Delay in ms @min 0 @max 1000"
+        },
+        {
+            "id": 4,
+            "name": "direct",
+            "type": "float",
+            "optional": 1,
+            "digest": "Gain Coefficient @min -1 @max 1"
+        },
+        {
+            "id": 5,
+            "name": "feedforward",
+            "type": "float",
+            "optional": 1,
+            "digest": "Coefficient @min -1 @max 1"
+        },
+        {
+            "id": 6,
+            "name": "feedback",
+            "type": "float",
+            "optional": 1,
+            "digest": "Coefficient @min -1 @max 1"
         }
     ],
+    "outlets": [
+        {
+            "id": 1,
+            "name": "comb",
+            "type": "float",
+            "optional": 1,
+            "digest": "Filter Output"
+        },
+        {
+            "id": 2,
+            "name": "alternative",
+            "type": "float",
+            "optional": 1,
+            "digest": "Notches Output"
+        }
+    ],
+    "attributes": [],
     "seealso": [
         {
             "name": "",

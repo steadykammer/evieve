@@ -1,0 +1,63 @@
+
+// This Korg filter sits inbetween the more broken "evi_korgms10" and
+// the more stable "evi_korgms20_select". It is aggressive but predictable.
+
+// Korg OTA dual-amplifier modified Sallen-Key topology filter.
+// The 'KLM' OTA chip was found in the later MS-20s & other Korg synthesisers - it is
+// different to the earlier 'Korg 35' single-amplifier unbuffered Korg chip found in the
+// earlier MS-20s & MS-10 and also in the 'monotron' series.
+// For 'Korg 35' chip 'emulation' @see: "evi_korgms10.gendsp". For a smoother
+// 'Korg OTA' filter @see: "evi_korgms20_select". Thanks to Will Pirkle.
+
+require("evi_tanh.genexpr");
+
+History	state0(0), state1(0), state2(0);					// S&K state initialise
+
+// do not change
+Param   load(1.333333333333, min=0.5, max=2);
+
+X	    = in1;
+hz	    = in2;	        // hz
+k1	    = in3 + in3;	// 0..1 .. 0..2
+
+// prewarp to alpha/beta
+g		=  tanA2(hz * PI / SAMPLERATE);						// hz to norm
+oneg	=  1 + g;											// divisor
+alphas	=  g / oneg;										// G (feedforward)
+betalp	= (k1 - (k1 * alphas)) / oneg;						// feedback...
+betahp	= -1 / oneg;										// ...
+alpha0	=  1 / (1 - (k1 * alphas) + (k1 * alphas * alphas));// u scalar value
+k2		= (1 / k1);
+
+// 1st lowpass integrator
+lp1vn	= (X - state1) * alphas;
+lp1		= lp1vn + state1;
+state1	= lp1vn + lp1;
+
+// make s35 from feedbacks
+hp1fb	= state0 * betahp;
+lp2fb	= state2 * betalp;
+s35		= hp1fb + lp2fb;
+
+// create nonlinear s35
+u		= alpha0 * (lp1 + s35);
+u		= tanhLxA((u * load), load);
+
+// 2nd lowpass integrator
+lp2vn	= (u - state2) * alphas;
+lp2		= lp2vn + state2;
+state2	= lp2vn + lp2;
+
+Y		= k1 * lp2;
+
+// highpass feedback loop
+hp1vn	= (Y - state0) * alphas;
+bp1		= hp1vn + state0;
+state0	= hp1vn + bp1;
+hp1		= Y - bp1;		// 6 dB HP
+
+LP		= Y * k2;		// 12 dB LP
+
+out1	= dcblock(LP) * 0.944061;
+out2	= dcblock(hp1) * 0.901571;
+

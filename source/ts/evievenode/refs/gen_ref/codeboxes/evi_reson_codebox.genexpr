@@ -1,0 +1,17 @@
+
+// evieve version of [reson~] as a TPT filter, exactly the same response but
+// with better modulation properties (& cutoff can be safely FM-ed).
+// also includes optional gain compensation.
+
+require("evi_svf.genexpr");
+
+Param   smooth(0, min=0, max=333);
+Param   compensate(0, min=0, max=1); // addition to MSP version, gain compensate
+comp    = int(compensate);
+
+// MSP ordering of inputs, and like MSP gain is still linear here!
+// params: 'compensate' is flag 0/1, 'smooth' is time in ms
+
+                   // input, gain,  Hz,  Q
+out1    = eviFilterReson(in1, in2, in3, in4, comp, smooth=smooth);
+

@@ -10,24 +10,93 @@
     },
     "inlets": [
         {
-            "name": "input",
+            "id": 1,
+            "name": "gate",
             "type": "float",
             "optional": 1,
-            "digest": "TEXT_HERE"
-        }
-    ],
-    "attributes": [
+            "digest": "or Value"
+        },
         {
-            "name": "",
-            "type": "",
-            "digest": "TEXT_HERE",
-            "description": "TEXT_HERE",
-            "default": {
-                "type": "",
-                "value": 0
-            }
+            "id": 2,
+            "name": "delay",
+            "type": "float",
+            "optional": 1,
+            "digest": "in ms @default 0"
+        },
+        {
+            "id": 3,
+            "name": "attack",
+            "type": "float",
+            "optional": 1,
+            "digest": "in ms @default 10"
+        },
+        {
+            "id": 4,
+            "name": "hold1",
+            "type": "float",
+            "optional": 1,
+            "digest": "in ms @default 0"
+        },
+        {
+            "id": 5,
+            "name": "decay",
+            "type": "float",
+            "optional": 1,
+            "digest": "in ms @default 100"
+        },
+        {
+            "id": 6,
+            "name": "sustain",
+            "type": "float",
+            "optional": 1,
+            "digest": "0..1 @default 0.707946"
+        },
+        {
+            "id": 7,
+            "name": "hold2",
+            "type": "float",
+            "optional": 1,
+            "digest": "in ms @default 0"
+        },
+        {
+            "id": 8,
+            "name": "release",
+            "type": "float",
+            "optional": 1,
+            "digest": "in ms @default 200"
         }
     ],
+    "outlets": [
+        {
+            "id": 1,
+            "name": "dahdshr",
+            "type": "float",
+            "optional": 1,
+            "digest": "Envelope"
+        },
+        {
+            "id": 2,
+            "name": "new",
+            "type": "float",
+            "optional": 1,
+            "digest": "Envelope Trigger (1/0)"
+        },
+        {
+            "id": 3,
+            "name": "mute",
+            "type": "float",
+            "optional": 1,
+            "digest": "Outlet (0/1)"
+        },
+        {
+            "id": 4,
+            "name": "segment",
+            "type": "float",
+            "optional": 1,
+            "digest": "# (0\\, 1\\, 2\\, 3\\, 4\\, 5\\, 6\\, 7\\, 8\\, 0)"
+        }
+    ],
+    "attributes": [],
     "seealso": [
         {
             "name": "",

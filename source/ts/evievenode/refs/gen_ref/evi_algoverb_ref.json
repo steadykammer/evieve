@@ -10,24 +10,37 @@
     },
     "inlets": [
         {
-            "name": "input",
+            "id": 1,
+            "name": "audio",
             "type": "float",
             "optional": 1,
-            "digest": "TEXT_HERE"
-        }
-    ],
-    "attributes": [
+            "digest": "In L"
+        },
         {
-            "name": "",
-            "type": "",
-            "digest": "TEXT_HERE",
-            "description": "TEXT_HERE",
-            "default": {
-                "type": "",
-                "value": 0
-            }
+            "id": 2,
+            "name": "audio",
+            "type": "float",
+            "optional": 1,
+            "digest": "In R"
         }
     ],
+    "outlets": [
+        {
+            "id": 1,
+            "name": "reverb",
+            "type": "float",
+            "optional": 1,
+            "digest": "Out L"
+        },
+        {
+            "id": 2,
+            "name": "reverb",
+            "type": "float",
+            "optional": 1,
+            "digest": "Out R"
+        }
+    ],
+    "attributes": [],
     "seealso": [
         {
             "name": "",

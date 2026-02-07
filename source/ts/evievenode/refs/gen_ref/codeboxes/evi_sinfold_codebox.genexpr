@@ -1,0 +1,32 @@
+
+// sine shaping wavefolder by Pete for evieve. "I think it sounds pretty good,
+// but watch out for those bumps in the fundamental".
+
+require("evi_sinfold_lib.genexpr");
+
+// param rate ...
+
+Param   aa(2, min=0, max=2);            // default Adaa1_4x
+Param	drive(0.5, min=0, max=4);		// % 0..1.. up to 2 is pretty safe, up to 4 be careful
+Param	smooth(22.666, min=1, max=666);	// ms
+smoothsecs			= smooth*0.001;
+compensate			= 0.984292036732;	// because approxes, and general fudgyness
+pidrive, sindrive	= sinParam(drive);
+aaxx                = int(aa);
+
+// audio rate ...
+
+drivepi, drivesin	= expsmoothBank2(pidrive, sindrive, smoothsecs);
+
+x = in1*compensate;
+sinfold = 0;
+if (aaxx ==1) {
+    sinfold = sinFoldAdaa1_2x(x, drivepi, drivesin);
+} else if (aaxx == 2) {
+    sinfold = sinFoldAdaa1_4x(x, drivepi, drivesin);
+} else {    // aaxx == 0
+    sinfold = sinFoldAdaa2(x, drivepi, drivesin);
+}
+
+out1 = sinfold;
+

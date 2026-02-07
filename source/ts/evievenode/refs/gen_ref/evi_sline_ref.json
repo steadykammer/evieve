@@ -10,24 +10,37 @@
     },
     "inlets": [
         {
-            "name": "input",
+            "id": 1,
+            "name": "destination",
             "type": "float",
             "optional": 1,
-            "digest": "TEXT_HERE"
-        }
-    ],
-    "attributes": [
+            "digest": "Value"
+        },
         {
-            "name": "",
-            "type": "",
-            "digest": "TEXT_HERE",
-            "description": "TEXT_HERE",
-            "default": {
-                "type": "",
-                "value": 0
-            }
+            "id": 2,
+            "name": "ramp",
+            "type": "float",
+            "optional": 1,
+            "digest": "Time in SAMPLES"
         }
     ],
+    "outlets": [
+        {
+            "id": 1,
+            "name": "exact",
+            "type": "float",
+            "optional": 1,
+            "digest": "Output Ramp"
+        },
+        {
+            "id": 2,
+            "name": "1",
+            "type": "float",
+            "optional": 1,
+            "digest": "When Ramp Reaches Destination (0 During Ramp)"
+        }
+    ],
+    "attributes": [],
     "seealso": [
         {
             "name": "",

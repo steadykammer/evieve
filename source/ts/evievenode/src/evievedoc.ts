@@ -91,6 +91,10 @@ max.addHandler('make_defs_genexpr_xml_configs', () => {
 	parseDefinesCodeboxes();
 })
 
+max.addHandler('make_gens_ref_xml_configs', () => {
+	parseGendspsData();
+})
+
 // --------------------------------------------- //
 // testing
 
@@ -177,25 +181,175 @@ async function testEditAutoXml()
 
 // --------------------------------------------- //
 
-async function parseDefinesData()
+async function parseGendspsData()
 {
 	const gendspsFolder = `${cwd()}/${config.referenceFiles.genDsp.input}`;
 	const fullGendspsPaths = getFilePathsFromPathRecursive(gendspsFolder, 'gendsp');
-	const definesRefsPath = `${cwd()}/${config.referenceFiles.defines.config}`;
-	const fullRefsNames = getFileNamesFromPath(definesRefsPath, 'json');
+	const gendspsRefsPath = `${cwd()}/${config.referenceFiles.genDsp.config}`; // !! ('genDsp')
+	const fullRefsNames = getFileNamesFromPath(gendspsRefsPath, 'json');
 
 	for await (const gendspPath of fullGendspsPaths) {
 		const gendspName = path.basename(gendspPath, '.gendsp');
 		const potentialRefName = `${gendspName}_ref.json`;
 		if (fullRefsNames.includes(potentialRefName)) {
 			const gendspDirName = path.dirname(gendspPath);
-			const thisConfigFullPath = `${definesRefsPath}/${potentialRefName}`;
-			await parseDefinesGendspsLoop(gendspDirName, gendspName, thisConfigFullPath);
-		// } else {
-		// 	void max.post(`Skipping ${gendspName}.gendsp because it has been configured with no ref page generation!`);
+			const thisConfigFullPath = `${gendspsRefsPath}/${potentialRefName}`;
+			await parseGendspsLoop(gendspDirName, gendspName, thisConfigFullPath);
+		} else {
+			void max.post(`Skipping ${gendspName}.gendsp because it has been configured with no ref page generation!`);
 		}
 	}
 }
+
+async function parseGendspsLoop(gendspPath: string, gendspName: string, thisConfigFullPath: string)
+{
+	const fullGendspPath = `${gendspPath}/${gendspName}.gendsp`;
+    const gendspRaw = fs.readFileSync(fullGendspPath, 'utf8'); // .gendsp is read only in this logic
+    const gendspJson = JSON.parse(gendspRaw);
+
+	const thisConfigJson = fs.readFileSync(thisConfigFullPath, 'utf8');
+    const thisConfigObject = JSON.parse(thisConfigJson);
+
+	const NEW_OBJ = "newobj";
+	const GEN_INLET = "in "; // note extra space...
+	const GEN_OUTLET = "out ";
+	const inoutletsConfig: any = {
+		"id": 0,
+		"name": "",
+		"type": "float",
+		"optional": 1,
+		"digest": ""
+	}
+	const GEN_PARAM = "param";
+	const GEN_CODE = "codebox";
+	const attributesConfig: any = {
+		"name": "",
+		"type": "",
+		"digest": "",
+		"description": "",
+		"default": {
+			"type": "float",
+			"value": 0
+		}
+	};
+
+	// if we are editing a brand new template, clear the template json
+	// i know, this is very weak code, but .gendsp will never have an id/in/out = 0 or name ""
+	thisConfigObject.inlets = thisConfigObject.inlets.filter((entry: { id: number; }) => entry.id !== 0);
+	thisConfigObject.outlets = thisConfigObject.outlets.filter((entry: { id: number; }) => entry.id !== 0);
+	thisConfigObject.attributes = thisConfigObject.attributes.filter((entry: { name: string; }) => entry.name !== "");
+
+	for await (const object of gendspJson.patcher.boxes) {
+		if (object.box.maxclass === NEW_OBJ) {
+			let BOX_TEXT = object.box.text;
+			const isInlet: boolean = BOX_TEXT.startsWith(GEN_INLET);
+			const isOutlet: boolean = BOX_TEXT.startsWith(GEN_OUTLET);
+			const isParam: boolean = BOX_TEXT.startsWith(GEN_PARAM);
+			if (isInlet || isOutlet) {
+				// parse it
+				let thisIO: any = JSON.parse(JSON.stringify(inoutletsConfig));
+				const IO_tokens = BOX_TEXT.split(' ');
+				thisIO.id = parseInt(IO_tokens[1]);
+				if (IO_tokens.length > 2) {
+					if (IO_tokens[2].startsWith('(') && IO_tokens[2].endsWith(')')) {
+						const type = IO_tokens[2].replace('(', '').replace(')', '');
+						thisIO.type = type.includes("signal") ? "float" : type; // for gen~
+						if (IO_tokens.length > 3) {
+							thisIO.name = IO_tokens[3].toLowerCase().trim(); // weak
+							if (IO_tokens.length > 4) {
+								thisIO.digest = IO_tokens.slice(4).join(' ').trim();
+							}
+						}
+					} else {
+						thisIO.name = IO_tokens[2].toLowerCase().trim(); // weak
+						if (IO_tokens.length > 3) {
+							thisIO.digest = IO_tokens.slice(3).join(' ').trim();
+						}
+					}
+				}
+				// push it
+				if (isInlet) {
+					thisConfigObject.inlets.push(thisIO);
+				} else if (isOutlet) {
+					thisConfigObject.outlets.push(thisIO);
+				}
+			} else if (isParam) {
+				// this run is only for patched gen~ objects, we do parsing of GenExpr code later
+				let thisAttr: any = JSON.parse(JSON.stringify(attributesConfig));
+				const ATTR_tokens = BOX_TEXT.split(' ');
+				thisAttr.name = ATTR_tokens[1];
+				let remainder: string[] = [];
+				let NO_TYPE: boolean = false;
+				if (!ATTR_tokens[2].startsWith('@')) {
+					thisAttr.default.value = ATTR_tokens[2];
+					thisAttr.type = inferTypeFromString(ATTR_tokens[2]);
+					remainder = ATTR_tokens.slice(3);
+					NO_TYPE = false;
+				} else {
+					NO_TYPE = true;
+					remainder = ATTR_tokens.slice(2);
+				}
+				if (remainder.length) {
+					for (let i = 0; i < remainder.length; i++) {
+						if (remainder[i].startsWith('@')) {
+							const defKey = remainder[i].replace('@', '');
+							const defValS = remainder[i + 1];
+							const defType = inferTypeFromString(defValS);
+							if (NO_TYPE) {
+								thisAttr.type = defType;
+							}
+							const defVal = (defType === "int") ? parseInt(defValS) : parseFloat(defValS);
+							if (defKey === "default") {
+								thisAttr.default.value = defVal;
+							} else {
+								thisAttr.default[defKey] = defVal;
+							}
+						}
+					}
+				}
+				thisConfigObject.attributes.push(thisAttr);
+			}
+		}
+	}
+
+	// keeps most recent
+	thisConfigObject.inlets = thinUniqueArrayByKey(thisConfigObject.inlets, "id");
+	thisConfigObject.outlets = thinUniqueArrayByKey(thisConfigObject.outlets, "id");
+
+	thisConfigObject.inlets.sort((a: { id: number; }, b: { id: number; }) => {
+		return a.id >= b.id ? 1 : -1;
+	});
+	thisConfigObject.outlets.sort((a: { id: number; }, b: { id: number; }) => {
+		return a.id >= b.id ? 1 : -1;
+	});
+
+	// const Require: RegExp = /(?:^|\W)require(?:$|\W)/;
+	// const History: RegExp = /(?:^|\W)history(?:$|\W)/;
+	// const Param: RegExp = /(?:^|\W)param(?:$|\W)/;
+	// TODO (& use pegjs ?)
+	for await (const object of gendspJson.patcher.boxes) {
+		if (object.box.maxclass === GEN_CODE) {
+			let GenExprCode = object.box.code;
+			// void max.post(GenExprCode);
+			const pathForGE = path.dirname(thisConfigFullPath);
+			const nameForGE = `${gendspName}_codebox.genexpr`;
+			fs.writeFileSync(`${pathForGE}/codeboxes/${nameForGE}`, GenExprCode);
+			// const pre_ast = PEGparser.parse(GenExprCode);
+			// void max.post(`parser test for ${gendspName}: ${JSON.stringify(pre_ast)}`);
+		}
+	}
+
+	// keeps most recent
+	thisConfigObject.attributes = thinUniqueArrayByKey(thisConfigObject.attributes, "name");
+
+	thisConfigObject.attributes.sort((a: { name: string; }, b: { name: string; }) => {
+		return a.name >= b.name ? 1 : -1;
+	});
+
+	fs.writeFileSync(thisConfigFullPath, JSON.stringify(thisConfigObject, null, 4));
+}
+
+// --------------------------------------------- //
 
 // 'codeboxesRefsPath' contains code extracted from gen~ patcher embedded codeboxes
 // during 'parseDefinesGendspsLoop()', (because i cannot get pegjs system working)
@@ -207,6 +361,282 @@ async function parseDefinesCodeboxes()
 	fullRefsNames = fullRefsNames.filter((str) => !IGNORE.test(str));
 	const codeboxesRefsPath = `${definesRefsPath}/codeboxes`;
 	const fullCodeboxesNames = getFileNamesFromPath(codeboxesRefsPath, 'genexpr');
+
+	const attributesConfig: any = {
+		"name": "",
+		"get": 1,
+		"type": "",
+		"digest": "",
+		"description": "",
+		"default": {
+			"min": 0,
+			"max": 1,
+			"value": 0
+		}
+	};
+	const messageHistoryDigest = "Top level gen~ [history] / History() declarations can be reset by messages to the object";
+	const messagesConfig: any = {
+		"name": "",
+		"arg": [
+			{
+				"name": "",
+				"type": "",
+				"units": "",
+				"optional": 1
+			}
+		],
+		"digest": "",
+		"description": ""
+	};
+	const msgArgsConfig: any = {
+		"name": "",
+		"type": "",
+		"units": "",
+		"optional": 1
+	}
+
+	for await (const refJson of fullRefsNames) {
+		const refJsonFullRWpath = `${definesRefsPath}/${refJson}`;
+		const chichiForPrinting = refJson.replace('_ref.json', '.gendsp');
+		const derivedCodeboxName = refJson.replace('_ref.json', '_codebox.genexpr');
+		if (fullCodeboxesNames.includes(derivedCodeboxName)) {
+			const thisConfigJson = fs.readFileSync(refJsonFullRWpath, 'utf8');
+			const thisConfigObject = JSON.parse(thisConfigJson);
+			// const thisConfigGenExpr = fs.readFileSync(`${codeboxesRefsPath}/${derivedCodeboxName}`, 'utf8');
+			// const pre_ast = PEGparser.parse(thisConfigGenExpr);
+			// void max.post(`parser test for ${refJson}: ${JSON.stringify(pre_ast)}`);
+
+			let FOUND_HIST: boolean = false;
+			let FOUND_PARAM: boolean = false;
+
+			const rlInterface = readline.createInterface({
+				input: fs.createReadStream(`${codeboxesRefsPath}/${derivedCodeboxName}`),
+				crlfDelay: Infinity
+			});
+			// this will only work for Pete's pedantic style of GenExpr coding :-(
+			rlInterface.on('line', (line) => {
+				if (!(/^\s/.test(line))) {
+					if (!(line.startsWith('//')) && !(line.startsWith('/*'))) {
+						const line_trim = line.trim();
+						let line_candidate = line_trim;
+						if (line_trim.includes('//')) {
+							line_candidate = line_trim.split('//')[0];
+						}
+						if (line_trim.includes('/*')) {
+							line_candidate = line_trim.split('/*')[0];
+						}
+
+						if (line_candidate.startsWith('require')) {
+							const line_tokens = line_candidate.split('\"');
+							let requireDecl = line_tokens[1];
+							if (!requireDecl.endsWith('.genexpr')) {
+								requireDecl = `${requireDecl}.genexpr`; // because pete has forgotten sometimes
+							}
+
+							thisConfigObject.includes.push(requireDecl);
+
+							// void max.post(`found a require in ${chichiForPrinting}: ${requireDecl}`);
+
+						} else if (line_candidate.startsWith('History')) {
+							if (!FOUND_HIST) {
+								// if new template
+								thisConfigObject.messages = thisConfigObject.messages.filter((entry: { name: string; }) => entry.name !== "");
+							}
+							let objIndex: number = 0;
+							let thisMessage: any;
+							const isHistory = Object.values(thisConfigObject.messages).includes('history');
+
+							if (isHistory) {
+								// is edit of already present 'history' entry
+								thisMessage = thisConfigObject.messages.find((obj: { name: string; }) => obj.name === 'history');
+								objIndex = thisConfigObject.messages.indexOf(thisMessage);
+
+								const line_sliced = line_candidate.replace('History', '').trimStart();
+								const line_tokens = line_sliced.split(',');
+								for (let i = 0; i < line_tokens.length; i++) {
+									let thisArg: any = JSON.parse(JSON.stringify(msgArgsConfig));
+
+									const historyDecl = line_tokens[i];
+									const history_split = historyDecl.split('(');
+									const histName = history_split[0].trim();
+									const hist_token_val = history_split[1].trim();
+									let histVal = "";
+									if (hist_token_val.includes(')')) {
+										histVal = hist_token_val.split(')')[0].replace(',', '').replace(';', '').trim();
+									} else {
+										histVal = hist_token_val.replace(')', '').replaceAll(',', '').replaceAll(';', '').trim();
+									}
+									thisArg.name = histName;
+									const type = inferTypeFromString(histVal);
+									thisArg.type = type;
+									let units: string | number = "";
+									if (type === "int") {
+										units = parseInt(histVal);
+									} else if (type === "float") {
+										units = parseFloat(histVal);
+									} else {
+										units = histVal;
+									}
+									thisArg.units = `default: ${units}`;
+									thisMessage.arg.push(thisArg);
+
+									thisMessage.arg = thinUniqueArrayByKey(thisMessage.arg, "name");
+									thisMessage.arg.sort((a: { name: string; }, b: { name: string; }) => {
+										return a.name >= b.name ? 1 : -1;
+									});
+									// void max.post(`found a PRE history in ${chichiForPrinting}: ${JSON.stringify(thisArg)}`);
+								}
+								thisConfigObject.messages.fill(thisMessage, objIndex, objIndex);
+
+							} else {
+								// is new 'history' message type entry
+								thisMessage = JSON.parse(JSON.stringify(messagesConfig));
+								thisMessage.name = "history";
+								// if new args template
+								thisMessage.arg = thisMessage.arg.filter((entry: { name: string; }) => entry.name !== "");
+
+								const line_sliced = line_candidate.replace('History', '').trimStart();
+								const line_tokens = line_sliced.split(',');
+								for (let i = 0; i < line_tokens.length; i++) {
+									let thisArg: any = JSON.parse(JSON.stringify(msgArgsConfig));
+
+									const historyDecl = line_tokens[i];
+									const history_split = historyDecl.split('(');
+									const histName = history_split[0].trim();
+									const hist_token_val = history_split[1].trim();
+									let histVal = "";
+									if (hist_token_val.includes(')')) {
+										histVal = hist_token_val.split(')')[0].replace(',', '').replace(';', '').trim();
+									} else {
+										histVal = hist_token_val.replace(')', '').replaceAll(',', '').replaceAll(';', '').trim();
+									}
+									thisArg.name = histName;
+									const type = inferTypeFromString(histVal);
+									thisArg.type = type;
+									let units: string | number = "";
+									if (type === "int") {
+										units = parseInt(histVal);
+									} else if (type === "float") {
+										units = parseFloat(histVal);
+									} else {
+										units = histVal;
+									}
+									thisArg.units = `default: ${units}`;
+									thisMessage.arg.push(thisArg);
+
+									thisMessage.arg = thinUniqueArrayByKey(thisMessage.arg, "name");
+									thisMessage.arg.sort((a: { name: string; }, b: { name: string; }) => {
+										return a.name >= b.name ? 1 : -1;
+									});
+									// void max.post(`found a NEW history in ${chichiForPrinting}: ${JSON.stringify(thisArg)}`);
+								}
+
+								thisMessage.digest = messageHistoryDigest;
+								thisConfigObject.messages.push(thisMessage);
+
+							}
+							FOUND_HIST = true;
+							// void max.post(`filled a message in ${chichiForPrinting}: ${JSON.stringify(thisMessage)}`);
+
+						} else if (line_candidate.startsWith('Param')) {
+							if (!FOUND_PARAM) {
+								thisConfigObject.attributes = thisConfigObject.attributes.filter((entry: { name: string; }) => entry.name !== "");
+							}
+							const line_tokens = line_candidate.split('(');
+							const paramName = line_tokens[0].replace('Param', '').trimStart();
+							const paramData = line_tokens[1].split(',');
+							const paramDefault = paramData[0].replace(')', '').replaceAll(',', '').replaceAll(';', '');
+							let paramMin = "0";
+							let paramMax = "0";
+							for (let i = 0; i < paramData.length; i++) {
+								const testParamData = paramData[i].trim();
+								if (testParamData.startsWith("min")) {
+									paramMin = paramData[i].split('=')[1].split(')')[0].replaceAll(',', '').replaceAll(';', '');
+								} else if (testParamData.startsWith("max")) {
+									paramMax = paramData[i].split('=')[1].split(')')[0].replaceAll(',', '').replaceAll(';', '');
+								}
+							}
+
+							let thisAttr: any = JSON.parse(JSON.stringify(attributesConfig));
+							thisAttr.name = paramName;
+							thisAttr.type = inferTypeFromString(paramDefault);
+							thisAttr.default.value = paramDefault;
+							thisAttr.default.min = paramMin;
+							thisAttr.default.max = paramMax;
+							thisConfigObject.attributes.push(thisAttr);
+
+							FOUND_PARAM = true;
+							// void max.post(`found a param in ${chichiForPrinting}: ${JSON.stringify(thisAttr)}`);
+						}
+					}
+				}
+			});
+
+			rlInterface.on('close', () => {
+
+				// void max.post(`this END config object is: ${JSON.stringify(thisConfigObject)}`);
+
+				thisConfigObject.messages = thinUniqueArrayByKey(thisConfigObject.messages, "name");
+				thisConfigObject.messages.sort((a: { name: string; }, b: { name: string; }) => {
+					return a.name >= b.name ? 1 : -1;
+				});
+
+				thisConfigObject.attributes = thinUniqueArrayByKey(thisConfigObject.attributes, "name");
+				thisConfigObject.attributes.sort((a: { name: string; }, b: { name: string; }) => {
+					return a.name >= b.name ? 1 : -1;
+				});
+
+				thisConfigObject.includes = [...new Set(thisConfigObject.includes)];
+
+				fs.writeFileSync(refJsonFullRWpath, JSON.stringify(thisConfigObject, null, 4));
+
+			});
+		}
+	}
+}
+
+// not using at the moment, see above
+/*
+async function parseDefinesCodeboxes0()
+{
+	const definesRefsPath = `${cwd()}/${config.referenceFiles.defines.config}`;
+	let fullRefsNames = getFileNamesFromPath(definesRefsPath, 'json');
+	const IGNORE = /_xml_define_template.json/;
+	fullRefsNames = fullRefsNames.filter((str) => !IGNORE.test(str));
+	const codeboxesRefsPath = `${definesRefsPath}/codeboxes`;
+	const fullCodeboxesNames = getFileNamesFromPath(codeboxesRefsPath, 'genexpr');
+
+	const attributesConfig: any = {
+		"name": "",
+		"get": 1,
+		"type": "",
+		"digest": "",
+		"description": "",
+		"default": {
+			"min": 0,
+			"max": 1,
+			"value": 0
+		}
+	};
+	const messagesConfig: any = {
+		"name": "",
+		"arg": [
+			{
+				"name": "",
+				"type": "",
+				"units": "",
+				"optional": 1
+			}
+		],
+		"digest": "",
+		"description": ""
+	};
+	const msgArgsConfig: any = {
+		"name": "",
+		"type": "",
+		"units": "",
+		"optional": 1
+	}
 
 	const collectRequires: string[] = [];
 	const collectHistories: string[][] = [];
@@ -222,13 +652,16 @@ async function parseDefinesCodeboxes()
 			// const pre_ast = PEGparser.parse(thisConfigGenExpr);
 			// void max.post(`parser test for ${refJson}: ${JSON.stringify(pre_ast)}`);
 
+			collectRequires.length = 0;
+			collectHistories.length = 0;
+			collectParams.length = 0;
+
 			const rlInterface = readline.createInterface({
 				input: fs.createReadStream(`${codeboxesRefsPath}/${derivedCodeboxName}`),
 				crlfDelay: Infinity
 			});
-			// this will only work for Pete's pedantic style of GenExpr coding
+			// this will only work for Pete's pedantic style of GenExpr coding :-(
 			rlInterface.on('line', (line) => {
-				// if (!line.startsWith(' ')) {
 				if (!(/^\s/.test(line))) {
 					if (!(line.startsWith('//')) && !(line.startsWith('/*'))) {
 						// void max.post(`i am reading this line: ${line}`);
@@ -299,9 +732,132 @@ async function parseDefinesCodeboxes()
 					}
 				}
 			});
-			// void max.post(`parsed requires for ${chichiForPrinting}: ${collectRequires.join(' ')}`);
-			// void max.post(`parsed histories for ${chichiForPrinting}: ${collectHistories.join(' ')}`);
-			// void max.post(`parsed params for ${chichiForPrinting}: ${collectParams.join(' ')}`);
+
+			rlInterface.on('close', () => {
+
+				if (collectHistories.length) {
+					// if new template
+					thisConfigObject.messages = thisConfigObject.messages.filter((entry: { name: string; }) => entry.name !== "");
+					let objIndex: number = 0;
+					let thisMessage: any;
+					const isHistory = Object.values(thisConfigObject.messages).includes('history');
+
+					if (isHistory) {
+						// is edit of already present 'history' entry
+						thisMessage = thisConfigObject.messages.find((obj: { name: string; }) => obj.name === 'history');
+						objIndex = thisConfigObject.messages.indexOf(thisMessage);
+
+						for (let i = 0; i < collectHistories.length; i++) {
+							const histDecl: string[] = collectHistories[i];
+							let thisArg: any = JSON.parse(JSON.stringify(msgArgsConfig));
+							thisArg.name = histDecl[0];
+							const type = inferTypeFromString(histDecl[1]);
+							thisArg.type = type;
+							let units: string | number = "";
+							if (type === "int") {
+								units = parseInt(histDecl[1]);
+							} else if (type === "float") {
+								units = parseFloat(histDecl[1]);
+							} else {
+								units = histDecl[1];
+							}
+							thisArg.units = `default: ${units}`;
+							thisMessage.arg.push(thisArg);
+						}
+						thisMessage.arg = thinUniqueArrayByKey(thisMessage.arg, "name");
+						thisMessage.arg.sort((a: { name: string; }, b: { name: string; }) => {
+							return a.name >= b.name ? 1 : -1;
+						});
+
+						thisConfigObject.messages.fill(thisMessage, objIndex, objIndex);
+
+					} else {
+						// is new 'history' message type entry
+						thisMessage = JSON.parse(JSON.stringify(messagesConfig));
+						thisMessage.name = "history";
+						// if new args template
+						thisMessage.arg = thisMessage.arg.filter((entry: { name: string; }) => entry.name !== "");
+						for (let i = 0; i < collectHistories.length; i++) {
+							const histDecl: string[] = collectHistories[i];
+							let thisArg: any = JSON.parse(JSON.stringify(msgArgsConfig));
+							thisArg.name = histDecl[0];
+							const type = inferTypeFromString(histDecl[1]);
+							thisArg.type = type;
+							let units: string | number = "";
+							if (type === "int") {
+								units = parseInt(histDecl[1]);
+							} else if (type === "float") {
+								units = parseFloat(histDecl[1]);
+							} else {
+								units = histDecl[1];
+							}
+							thisArg.units = `default: ${units}`;
+							thisMessage.arg.push(thisArg);
+						}
+						thisMessage.arg = thinUniqueArrayByKey(thisMessage.arg, "name");
+						thisMessage.arg.sort((a: { name: string; }, b: { name: string; }) => {
+							return a.name >= b.name ? 1 : -1;
+						});
+
+						thisConfigObject.messages.push(thisMessage);
+
+					}
+
+					thisConfigObject.messages = thinUniqueArrayByKey(thisConfigObject.messages, "name");
+					thisConfigObject.messages.sort((a: { name: string; }, b: { name: string; }) => {
+						return a.name >= b.name ? 1 : -1;
+					});
+				}
+
+				if (collectParams.length) {
+					thisConfigObject.attributes = thisConfigObject.attributes.filter((entry: { name: string; }) => entry.name !== "");
+					for (let j = 0; j < collectParams.length; j++) {
+						let thisAttr: any = JSON.parse(JSON.stringify(attributesConfig));
+						const paramDecl: string[] = collectParams[j];
+						thisAttr.name = paramDecl[0];
+						thisAttr.type = inferTypeFromString(paramDecl[1]);
+						thisAttr.default.value = paramDecl[1];
+						thisAttr.default.min = paramDecl[2];
+						thisAttr.default.max = paramDecl[3];
+						thisConfigObject.attributes.push(thisAttr);
+					}
+					thisConfigObject.attributes = thinUniqueArrayByKey(thisConfigObject.attributes, "name");
+					thisConfigObject.attributes.sort((a: { name: string; }, b: { name: string; }) => {
+						return a.name >= b.name ? 1 : -1;
+					});
+				}
+
+				if (collectRequires.length) {
+					for (let k = 0; k < collectRequires.length; k++) {
+						thisConfigObject.includes.push(collectRequires[k]);
+					}
+					thisConfigObject.includes = [...new Set(thisConfigObject.includes)];
+				}
+
+				fs.writeFileSync(`${definesRefsPath}/${refJson}`, JSON.stringify(thisConfigObject, null, 4));
+
+			});
+		}
+	}
+}
+*/
+
+async function parseDefinesData()
+{
+	const gendspsFolder = `${cwd()}/${config.referenceFiles.genDsp.input}`;
+	const fullGendspsPaths = getFilePathsFromPathRecursive(gendspsFolder, 'gendsp');
+	const definesRefsPath = `${cwd()}/${config.referenceFiles.defines.config}`;
+	const fullRefsNames = getFileNamesFromPath(definesRefsPath, 'json');
+
+	for await (const gendspPath of fullGendspsPaths) {
+		const gendspName = path.basename(gendspPath, '.gendsp');
+		const potentialRefName = `${gendspName}_ref.json`;
+		if (fullRefsNames.includes(potentialRefName)) {
+			const gendspDirName = path.dirname(gendspPath);
+			const thisConfigFullPath = `${definesRefsPath}/${potentialRefName}`;
+			await parseDefinesGendspsLoop(gendspDirName, gendspName, thisConfigFullPath);
+		// } else {
+		// 	void max.post(`Skipping ${gendspName}.gendsp because it has been configured with no ref page generation!`);
 		}
 	}
 }
@@ -339,6 +895,7 @@ async function parseDefinesGendspsLoop(gendspPath: string, gendspName: string, t
 			"value": 0
 		}
 	};
+	const messageHistoryDigest = "Top level gen~ [history] / History() declarations can be reset by messages to the object";
 	const messagesConfig: any = {
 		"name": "",
 		"arg": [
@@ -437,31 +994,58 @@ async function parseDefinesGendspsLoop(gendspPath: string, gendspName: string, t
 				}
 				thisConfigObject.attributes.push(thisAttr);
 			} else if (isHistory) {
+				let objIndex: number = 0;
+				let thisMessage: any;
 				// we morph named history operators into "messages" entries (so long as they are top level)
 				const MSG_tokens = BOX_TEXT.split(' ');
 				// only if it is a human named history operator, parse it
 				if (MSG_tokens.length > 1) {
 					if (currentMessagesNames.includes('history')) {
-						void max.post(`found a history operator in ${gendspName}.gendsp but too stupid to parse it`);
-/*						let thisMessage: any = JSON.parse(JSON.stringify());
-						// ?!?!?!
+						// is edit of already present 'history' entry
+						thisMessage = thisConfigObject.messages.find((obj: { name: string; }) => obj.name === 'history');
+						objIndex = thisConfigObject.messages.indexOf(thisMessage);
+
 						let thisArg: any = JSON.parse(JSON.stringify(msgArgsConfig));
 						thisArg.name = MSG_tokens[1];
 						if (MSG_tokens.length > 2) {
-							thisArg.type = inferTypeFromString(MSG_tokens[2]);
-						}
-						thisConfigObject.messages.arg.push(thisArg);
-*/					} else {
-						// is new 'history' message type entry
-						let thisMessage: any = JSON.parse(JSON.stringify(messagesConfig));
-						thisMessage.name = "history";
-						thisMessage.arg = thisMessage.arg.filter((entry: { name: string; }) => entry.name !== "");
-						let thisArg: any = JSON.parse(JSON.stringify(msgArgsConfig));
-						thisArg.name = MSG_tokens[1];
-						if (MSG_tokens.length > 2) {
-							thisArg.type = inferTypeFromString(MSG_tokens[2]);
+							const type = inferTypeFromString(MSG_tokens[2]);
+							thisArg.type = type;
+							let units: string | number = "";
+							if (type === "int") {
+								units = parseInt(MSG_tokens[2]);
+							} else if (type === "float") {
+								units = parseFloat(MSG_tokens[2]);
+							} else {
+								units = MSG_tokens[2];
+							}
+							thisArg.units = `default: ${units}`;
 						}
 						thisMessage.arg.push(thisArg);
+						thisConfigObject.messages.fill(thisMessage, objIndex, objIndex);
+
+					} else {
+						// is new 'history' message type entry
+						thisMessage = JSON.parse(JSON.stringify(messagesConfig));
+						thisMessage.name = "history";
+						thisMessage.arg = thisMessage.arg.filter((entry: { name: string; }) => entry.name !== "");
+
+						let thisArg: any = JSON.parse(JSON.stringify(msgArgsConfig));
+						thisArg.name = MSG_tokens[1];
+						if (MSG_tokens.length > 2) {
+							const type = inferTypeFromString(MSG_tokens[2]);
+							thisArg.type = type;
+							let units: string | number = "";
+							if (type === "int") {
+								units = parseInt(MSG_tokens[2]);
+							} else if (type === "float") {
+								units = parseFloat(MSG_tokens[2]);
+							} else {
+								units = MSG_tokens[2];
+							}
+							thisArg.units = `default: ${units}`;
+						}
+						thisMessage.arg.push(thisArg);
+						thisMessage.digest = messageHistoryDigest;
 						thisConfigObject.messages.push(thisMessage);
 					}
 				}
@@ -864,7 +1448,7 @@ async function createGendspRefJson()
 				newTemplate.object.name = newGendspName;
 
 				fs.writeFileSync(`${gendspRefsPath}/${jsonFileName}`, JSON.stringify(newTemplate, null, 4));
-				void max.post(`Creation of ${jsonFileName} success!`)
+				// void max.post(`Creation of ${jsonFileName} success!`)
 			}
 		}
 		else {

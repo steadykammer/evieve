@@ -1,0 +1,229 @@
+
+//	//	//	evi_sustainverb.gendsp
+//	//	//	16 line feeback delay network after Miller Puckette (@see: rev3.pd), BSD
+//	//	//	by pete for evieve, with extras
+
+
+//	//	//	library
+
+require("evi_reverb_library.genexpr");
+
+
+//	//	//	declare
+
+// constants in samples from external javascript, defaults are for 48kHz samplerate
+Param	earlyTime1 	(	69,		min=1, max=1502		);
+Param	earlyTime2 	(	155,	min=1, max=1502		);
+Param	earlyTime3 	(	251,	min=1, max=1502		);
+Param	earlyTime4 	(	376,	min=1, max=1502		);
+// sort of Miller Puckette's tuning:
+Param	delayTime1 	(	480,	min=1, max=25056	);
+Param	delayTime2 	(	559,	min=1, max=25056	);
+Param	delayTime3 	(	646,	min=1, max=25056	);
+Param	delayTime4 	(	803,	min=1, max=25056	);
+Param	delayTime5 	(	969,	min=1, max=25056	);
+Param	delayTime6 	(	1236,	min=1, max=25056	);
+Param	delayTime7 	(	1511,	min=1, max=25056	);
+Param	delayTime8 	(	1838,	min=1, max=25056	);
+Param	delayTime9 	(	2241,	min=1, max=25056	);
+Param	delayTime10 (	2662,	min=1, max=25056	);
+Param	delayTime11 (	3128,	min=1, max=25056	);
+Param	delayTime12 (	3688,	min=1, max=25056	);
+Param	delayTime13 (	4251,	min=1, max=25056	);
+Param	delayTime14 (	4861,	min=1, max=25056	);
+Param	delayTime15 (	5539,	min=1, max=25056	);
+Param	delayTime16 (	6264,	min=1, max=25056	);
+
+Delay	early1		(	earlyTime1,		1,	feedback=0	);
+Delay	early2		(	earlyTime2,		1,	feedback=0	);
+Delay	early3		(	earlyTime3,		1,	feedback=0	);
+Delay	early4		(	earlyTime4,		1,	feedback=0	);
+
+Delay	fdnDelay1	(	delayTime1+1,	1,	feedback=1	);
+Delay	fdnDelay2	(	delayTime2+1,	1,	feedback=1	);
+Delay	fdnDelay3	(	delayTime3+1,	1,	feedback=1	);
+Delay	fdnDelay4	(	delayTime4+1,	1,	feedback=1	);
+Delay	fdnDelay5	(	delayTime5+1,	1,	feedback=1	);
+Delay	fdnDelay6	(	delayTime6+1,	1,	feedback=1	);
+Delay	fdnDelay7	(	delayTime7+1,	1,	feedback=1	);
+Delay	fdnDelay8	(	delayTime8+1,	1,	feedback=1	);
+Delay	fdnDelay9	(	delayTime9+1,	1,	feedback=1	);
+Delay	fdnDelay10	(	delayTime10+1,	1,	feedback=1	);
+Delay	fdnDelay11	(	delayTime11+1,	1,	feedback=1	);
+Delay	fdnDelay12	(	delayTime12+1,	1,	feedback=1	);
+Delay	fdnDelay13	(	delayTime13+1,	1,	feedback=1	);
+Delay	fdnDelay14	(	delayTime14+1,	1,	feedback=1	);
+Delay	fdnDelay15	(	delayTime15+1,	1,	feedback=1	);
+Delay	fdnDelay16	(	delayTime16+1,	1,	feedback=1	);
+
+// global controls
+Param	smoothtime(43, min=1, max=500);		// ms
+// reverb controls
+Param	early(0, min=0, max=1);				// % 0..1 ( OR 0/1 )
+Param	feedback(sqrt1_2, min=0, max=1);	// % 0..1
+// damping controls
+Param	crossover(3000, min=10, max=10000);	// Hz
+Param	damp(0.2, min=0, max=1);			// % 0..1
+Param	highpass(0, min=0, max=1);			// % 0..1 ( OR 0/1 )
+// mixing controls
+Param	outgain(-3, min=-80, max=20);		// dB
+Param	drywet(1, min=0, max=1);			// % 0..1
+
+
+//	//	//	parse param rate
+
+smoothsecs	= smoothtime * 0.001;
+smoothsamps	= smoothsecs * samplerate;
+
+inv_early	= 1 - early;
+fb_0		= sqrt(feedback) * 0.25;		// you think this is a stupid multiplier, but it is correct
+fb_hp		= (0.012733 * feedback) + 0.000712;
+out_amp		= dbtoaApprox(outgain);
+
+G, K		= rcDampCoeffs0(crossover, damp);
+
+
+//	//	//	parse audio rate
+
+earlymix					= eviLine(inv_early, smoothsamps);
+highpassactive				= eviSline(highpass, smoothsamps);
+fb0, outAmp					= logsmoothBank2(fb_0, out_amp, smoothsecs);
+xover						= eviLine(G, smoothsamps);
+damp0						= eviLine(K, smoothsamps);
+fbhp0						= logsmooth(fb_hp, smoothsecs);	// [ g / (1 + g) ] 10..190 Hz
+fbhp1						= fbhp0 * sqrt1_2;	// 7..134 Hz
+mix							= eviLine(drywet, samplerate*0.333333);
+
+
+//	//	//	processing		(static & integer delay times so no interpolation)
+
+xL		= in1+0;
+xR		= in2+0;
+
+// cpu management not that important as whole sustainverb is very cheap?
+//if (mix > 0) {	//	//	//	begin :: CPU mute if mix @ 0 %
+
+
+// input conditioning and damping to fdn...
+
+// high or low pass if damp0 == 1, bypass if damp0 == 0, else low or high shelf attenuation
+damp1	= rcFilterDamp(	fdnDelay1.read(delayTime1,	interp="none"),		xover, damp0);
+damp2	= rcFilterDamp(	fdnDelay2.read(delayTime2,	interp="none"),		xover, damp0);
+damp3	= rcFilterDamp(	fdnDelay3.read(delayTime3,	interp="none"),		xover, damp0);
+damp4	= rcFilterDamp(	fdnDelay4.read(delayTime4,	interp="none"),		xover, damp0);
+
+// optional (earlymix) additional early reflections...
+
+early1.write	(	xR			);
+e1r	= early1.read(earlyTime1, interp="none");
+ep1	= xL  + e1r;
+early2.write	(	xL  - e1r	);
+e2r	= early2.read(earlyTime2, interp="none");
+ep2	= ep1 + e2r;
+early3.write	(	ep1 - e2r	);
+e3r	= early3.read(earlyTime3, interp="none");
+ep3	= ep2 + e3r;
+early4.write	(	ep2 - e3r	);
+e4r	= early4.read(earlyTime4, interp="none");
+	
+tapIn1	= interp(	earlymix,	ep3 * 0.354813,	xL,		mode="cosine");
+tapIn2	= interp(	earlymix,	e4r * 0.354813, xR,		mode="cosine");
+
+// fdn read...
+
+fb1		= (damp1	+	tapIn1)							* fb0;
+fb2		= (damp2	+	tapIn2)							* fb0;
+fb3		=  damp3										* fb0;
+fb4		=  damp4										* fb0;
+
+fb5		=  fdnDelay5.read(delayTime5,	interp="none")	* fb0;
+fb6		=  fdnDelay6.read(delayTime6,	interp="none")	* fb0;
+fb7		=  fdnDelay7.read(delayTime7,	interp="none")	* fb0;
+fb8		=  fdnDelay8.read(delayTime8,	interp="none")	* fb0;
+fb9		=  fdnDelay9.read(delayTime9,	interp="none")	* fb0;
+fb10	=  fdnDelay10.read(delayTime10,	interp="none")	* fb0;
+fb11	=  fdnDelay11.read(delayTime11,	interp="none")	* fb0;
+fb12	=  fdnDelay12.read(delayTime12,	interp="none")	* fb0;
+fb13	=  fdnDelay13.read(delayTime13,	interp="none")	* fb0;
+fb14	=  fdnDelay14.read(delayTime14,	interp="none")	* fb0;
+fb15	=  fdnDelay15.read(delayTime15,	interp="none")	* fb0;
+fb16	=  fdnDelay16.read(delayTime16,	interp="none")	* fb0;
+
+// optional (highpassactive) additional high passes...
+
+if (highpassactive > 0) {	// this if is worth the saving, i measured it
+// this affects the ability to 'forever sustain' but is useful for low frequency recirculation issues
+	fb1HP	= rcFilterHp(fb1,	fbhp1);
+	fb2HP	= rcFilterHp(fb2,	fbhp1);
+	fb1		= interp(	highpassactive,		fb1, fb1HP,		mode="linear");
+	fb2		= interp(	highpassactive,		fb2, fb2HP,		mode="linear");
+}
+
+// fdn matrix...
+
+dx1, dx2, dx3, dx4, dx5, dx6, dx7, dx8, dx9, dx10, dx11, dx12, dx13, dx14, dx15, dx16	
+		= butterfly16(fb1, fb2, fb3, fb4, fb5, fb6, fb7, fb8, fb9, fb10, fb11, fb12, fb13, fb14, fb15, fb16);
+
+// aux taps...
+
+//tapOut1	= dcblock(dx13 * outAmp);
+//tapOut2	= dcblock(dx14 * outAmp);
+tapOut1	= dcblock((interp(highpassactive, dx13, dx9, mode="linear")) * outAmp);
+tapOut2	= dcblock((interp(highpassactive, dx14, dx12, mode="linear")) * outAmp);
+tapOut3	= dcblock(dx15 * outAmp);
+tapOut4	= dcblock(dx16 * outAmp);
+
+// main taps...
+
+// should be butterfly ??
+fdnL	= (tapOut1 + tapOut2) * sqrt1_2;
+fdnR	= (tapOut3 + tapOut4) * sqrt1_2;
+/*
+// comment out if bullshit
+if (highpassactive > 0) {
+	fdnLHP,	llbp	= rcFilterHpLp(fdnL, fbhp0);
+	fdnRHP,	rlbp	= rcFilterHpLp(fdnR, fbhp0);
+	fdnL			= interp(	highpassactive,		fdnL, fdnLHP,	mode="linear");
+	fdnR			= interp(	highpassactive,		fdnR, fdnRHP,	mode="linear");
+}
+*/
+// add dry/wet...
+
+rvrbL, rvrbR	= xfadeQuartApproxStereo(xL, xR, fdnL, fdnR, mix);
+
+
+//}	//	//	//	end :: CPU mute if mix @ 0 %
+
+
+// fdn write (update delay lines)...
+
+fdnDelay1.write		(	fixdenorm(dx1)		);
+fdnDelay2.write		(	fixdenorm(dx2)		);
+fdnDelay3.write		(	fixdenorm(dx3)		);
+fdnDelay4.write		(	fixdenorm(dx4)		);
+fdnDelay5.write		(	fixdenorm(dx5)		);
+fdnDelay6.write		(	fixdenorm(dx6)		);
+fdnDelay7.write		(	fixdenorm(dx7)		);
+fdnDelay8.write		(	fixdenorm(dx8)		);
+fdnDelay9.write		(	fixdenorm(dx9)		);
+fdnDelay10.write	(	fixdenorm(dx10)		);
+fdnDelay11.write	(	fixdenorm(dx11)		);
+fdnDelay12.write	(	fixdenorm(dx12)		);
+fdnDelay13.write	(	fixdenorm(dx13)		);
+fdnDelay14.write	(	fixdenorm(dx14)		);
+fdnDelay15.write	(	fixdenorm(dx15)		);
+fdnDelay16.write	(	fixdenorm(dx16)		);
+
+// outputs...
+
+out1	= rvrbL;
+out2	= rvrbR;
+
+out3	= fdnL;
+out4	= fdnR;
+
+out5	= tapOut1;
+out6	= tapOut2;
+out7	= tapOut3;
+out8	= tapOut4;
+

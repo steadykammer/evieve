@@ -13,6 +13,9 @@
             "evieve"
         ]
     },
+    "includes": [
+        "evi_crossovers.genexpr"
+    ],
     "inlets": [
         {
             "id": 1,

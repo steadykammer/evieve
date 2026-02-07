@@ -10,24 +10,37 @@
     },
     "inlets": [
         {
-            "name": "input",
+            "id": 1,
+            "name": "frequency",
             "type": "float",
             "optional": 1,
-            "digest": "TEXT_HERE"
-        }
-    ],
-    "attributes": [
+            "digest": "in Hz @min 0"
+        },
         {
-            "name": "",
-            "type": "",
-            "digest": "TEXT_HERE",
-            "description": "TEXT_HERE",
-            "default": {
-                "type": "",
-                "value": 0
-            }
+            "id": 2,
+            "name": "pwm",
+            "type": "float",
+            "optional": 1,
+            "digest": "0..1 @min 0 @max 1 @default 0.5"
+        },
+        {
+            "id": 3,
+            "name": "reset",
+            "type": "float",
+            "optional": 1,
+            "digest": "(Naive)"
         }
     ],
+    "outlets": [
+        {
+            "id": 1,
+            "name": "anti",
+            "type": "float",
+            "optional": 1,
+            "digest": "Aliased Rect Oscillator"
+        }
+    ],
+    "attributes": [],
     "seealso": [
         {
             "name": "",

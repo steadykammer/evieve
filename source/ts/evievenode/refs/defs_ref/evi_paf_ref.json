@@ -13,6 +13,9 @@
             "evieve"
         ]
     },
+    "includes": [
+        "evi_trig.genexpr"
+    ],
     "inlets": [
         {
             "id": 1,

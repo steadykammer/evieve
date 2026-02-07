@@ -10,24 +10,72 @@
     },
     "inlets": [
         {
-            "name": "input",
+            "id": 1,
+            "name": "fundamental",
             "type": "float",
             "optional": 1,
-            "digest": "TEXT_HERE"
-        }
-    ],
-    "attributes": [
+            "digest": "Frequency in Hz"
+        },
         {
-            "name": "",
-            "type": "",
-            "digest": "TEXT_HERE",
-            "description": "TEXT_HERE",
-            "default": {
-                "type": "",
-                "value": 0
-            }
+            "id": 2,
+            "name": "cf",
+            "type": "float",
+            "optional": 1,
+            "digest": "in Hz @min 0 @max 18000 @default 440"
+        },
+        {
+            "id": 3,
+            "name": "bw",
+            "type": "float",
+            "optional": 1,
+            "digest": "in Hz @min 0 @max 18000 @default 110"
+        },
+        {
+            "id": 4,
+            "name": "reset",
+            "type": "float",
+            "optional": 1,
+            "digest": "Phase (do not use)"
         }
     ],
+    "outlets": [
+        {
+            "id": 1,
+            "name": "paf",
+            "type": "float",
+            "optional": 1,
+            "digest": "Oscillator"
+        },
+        {
+            "id": 2,
+            "name": "packet",
+            "type": "float",
+            "optional": 1,
+            "digest": "1"
+        },
+        {
+            "id": 3,
+            "name": "packet",
+            "type": "float",
+            "optional": 1,
+            "digest": "2"
+        },
+        {
+            "id": 4,
+            "name": "phase",
+            "type": "float",
+            "optional": 1,
+            "digest": "0"
+        },
+        {
+            "id": 5,
+            "name": "phase",
+            "type": "float",
+            "optional": 1,
+            "digest": "180"
+        }
+    ],
+    "attributes": [],
     "seealso": [
         {
             "name": "",

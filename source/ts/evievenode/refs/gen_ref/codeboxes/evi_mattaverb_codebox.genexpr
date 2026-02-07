@@ -1,0 +1,124 @@
+
+// evi_mattaverb.gendsp by Pete for evieve
+// a simple allpass diffusion reverb with minimal controls interaction
+// true stereo input/output, no early reflections, designed wet and spacey but very dampable
+// based on ancient clever macroisations by my friend Matt Jackson, has elements of our Diffuse.amxd
+
+
+// lib
+
+require("evi_reverb_library.genexpr");
+
+
+// declare
+
+History xL(0), xR(0);	// align
+
+Delay fbStage(int(samplerate*0.082645042+1.5), 2, feedback=1);
+
+Param low(0.333333, min=0, max=1);	// damp 0..1, none..100% damping ...
+Param high(0.666666, min=0, max=1);	// ...
+Param damp(0, min=0, max=1);		// 0/1 = one/two-pole damping filters (!! clicks)
+Param space(1, min=0, max=1);		// 0/1 = yes/no to damping filters in feedback path (!! clicks)
+Param size(0.5, min=0, max=1);		// % 0..1, small..large (does all reverby stuff in one knob)
+Param drywet(sqrt1_2, min=0, max=1);// % 0..1
+
+
+// param rate...
+
+d2 = int(damp);
+s1 = int(space);
+s0 = 1 - s1;
+
+// small amount of damping always present if space == 1
+mLow = s1 ? low : low * 0.803821;
+mHigh = ( s1 ? sqrt(high) : high ) * 0.803821 + (0.196179 * s1);
+
+hiPass, hiAtten, loPass, loAtten = filterParams(mLow, mHigh, 439);
+dampEqHighG, dampEqHighK = rcDampCoeffs0(loPass, loAtten);
+dampEqLowG, dampEqLowK = rcDampCoeffs0(hiPass, hiAtten);
+
+mSize = s1 ? size : sqrt(size);
+sizeL, sizeR, diff, rt60dB, modAmount, modSpread = sizeParams(mSize);
+timeL = pitch2timeSamps(sizeL);
+timeR = pitch2timeSamps(sizeR);
+divRT60 = 1 / pitch2timeSamps(rt60dB);
+
+smoothsamps = 0.03 * samplerate;
+
+
+// audio rate...
+
+dryWet = eviSline(drywet, (samplerate * 0.301));
+//iDryWet = 1 - dryWet;
+
+xL = in1 + 0;
+xR = in2 + 0;
+rvrbL = 0;//in1 * iDryWet;
+rvrbR = 0;//in2 * iDryWet;
+
+if (dryWet > 0)		//	//	//	START: cpu bypass if dryWet == 0 (stupid because cannot clear delay lines)
+{
+
+EqHighG, EqLowG = expsmoothBank2(dampEqHighG, dampEqLowG, 0.03);
+EqHighK = eviLine(dampEqHighK, smoothsamps);
+EqLowK = eviSline(dampEqLowK, (smoothsamps + smoothsamps));
+HighKatten =  EqHighK * 0.803821;
+LowKatten = EqLowK * 0.506392;
+
+delayTimeL, delayTimeR = logsmoothBank2(timeL, timeR, 0.31);
+diffusion, modA = logsmoothBank2(diff, modAmount, 0.601);
+sRT60, modS = expsmoothBank2(divRT60, modSpread, 0.29);
+modF = ((1 - modS) * 0.111111) + 0.666666;
+
+mod1, mod2, mod3, mod4, mod5, mod6, mod7, mod8 = eightModMatt(modF, modA, modS);
+
+fbDelayL = (delayTimeL * 1.48934) + mod4;
+fbDelayR = (delayTimeR * 1.48934) + mod8;
+
+rt60L = dbtoaApprox(maximum(((fbDelayL * sRT60) * -60), -144));
+rt60R = dbtoaApprox(maximum(((fbDelayR * sRT60) * -60), -144));
+
+fbL = fbStage.read(fbDelayL, 0, interp="spline") * rt60L;
+fbR = fbStage.read(fbDelayR, 1, interp="spline") * rt60R;
+
+preFdnL = xL + fbR;
+preFdnR = xR + fbL;
+
+// highshelfs/lowpasses
+if (EqHighK != 0) {
+	preFdnL	= rcFilterDamp(preFdnL, EqHighG, EqHighK);
+	preFdnR	= rcFilterDamp(preFdnR, EqHighG, EqHighK);
+	if (d2) {
+		preFdnL	= rcFilterDamp(preFdnL, EqHighG, HighKatten);
+		preFdnR	= rcFilterDamp(preFdnR, EqHighG, HighKatten);
+	}
+}
+
+// lowshelfs/highpasses
+//if (EqLowK != 0) {	// cpu manage not click-free for low :-(
+	preFdnL	= rcFilterDampHp(preFdnL, EqLowG, EqLowK);
+	preFdnR	= rcFilterDampHp(preFdnR, EqLowG, EqLowK);
+	if (d2) {
+		preFdnL	= rcFilterDampHp(preFdnL, EqLowG, LowKatten);
+		preFdnR	= rcFilterDampHp(preFdnR, EqLowG, LowKatten);
+	}
+//}
+
+rvrbL = allpassDiffuseShort(preFdnL, ((delayTimeL * 0.506392) + mod1), diffusion);
+rvrbR = allpassDiffuseShort(preFdnR, ((delayTimeR * 0.506392) + mod5), diffusion);
+
+rvrbL = allpassDiffuseLong(rvrbL, ((delayTimeL * 0.803821) + mod2), diffusion);
+rvrbR = allpassDiffuseLong(rvrbR, ((delayTimeR * 0.803821) + mod6), diffusion);
+
+// + shelfs if (!space)
+rvrbL = allpassDiffuseDamp(rvrbL, (delayTimeL + mod3), diffusion, EqHighG, HighKatten, EqLowG, LowKatten, s0);
+rvrbR = allpassDiffuseDamp(rvrbR, (delayTimeR + mod7), diffusion, EqHighG, HighKatten, EqLowG, LowKatten, s0);
+
+}	//	//	//	END: cpu bypass if dryWet == 0
+
+fbStage.write(fixdenorm(rvrbL), 0);
+fbStage.write(fixdenorm(rvrbR), 1);
+
+out1, out2 = xfadeQuartApproxStereo(xL, xR, dcblock(rvrbL), dcblock(rvrbR), dryWet);
+

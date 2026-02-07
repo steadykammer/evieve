@@ -1,0 +1,141 @@
+
+// Time domain frequency shifter by Pete for evieve. Not like MSP [freqshift~].
+// An implementation of D. K. Weaver's famous 'third method' (unlike [freqshift~], [fbinshift~] and 
+// 'evi_freqshift_hilbert.gendsp' which implement the more usual hilbert filtering 'second method'). 
+// N.B. - no filtering shift here - all done with quadrature oscillators and lowpass filters.
+
+// @see also:
+// 'evi_freqshift_hilbert.gendsp'
+// 'evi_ringmod.gendsp'
+
+
+// lib
+
+require("evi_ssb.genexpr");
+
+// declare
+
+History	autoreset(1);
+Param	resetauto(1, min=0, max=1);		// default on
+
+Param	drive(0.5, min=0, max=2);		// % 0..1..
+Param	detune(0, min=-100, max=100);	// detune is in cents, applied ± 1 semitone
+Param	shiftmode(0, min=0, max=1);		// variable 0..1, 0 = post filter oscs (normal), 1 = pre filter oscs (weird)
+Param	highpass(40, min=10, max=400);	// Hz, fixed not dynamic
+Param	smooth(22.666, min=0, max=1000);// ms
+Param	freqsmooth(20, min=0, max=666);	// ms
+Param	select(1, min=0, max=2);		// 0 = USB + LSB, 1 = LSB & optional saturation, 2 = AM & optional saturation
+Param	saturation(0, min=0, max=1);	// off (save cpu) / on
+Param   oscout(0, min=0, max=1);        // create fake quadOsc output?
+oo      = int(oscout);
+sat		= int(saturation);
+sel		= int(select);
+
+// param rate ...
+
+fixedfreq	= samplerate * 0.25;
+fixedpitch	= ftomApproxAccurate(fixedfreq);
+fixedclamp	= fixedfreq*0.25;
+fWarp03		= fWarp(samplerate*0.333333333333);
+tune		= detune*0.01;								// cents to semitones (± 1)
+tune8		= detune*0.00125;							// cents to 8th tones (± 0.125)
+qt1r		= transratioApprox(tune);					// input in semitones, output ratio
+qt2r		= transratioApprox(-tune);
+qt1f		= mtofApproxBaseless(-tune8 + fixedpitch);	// input in semitones, output in Hz
+qt2f		= mtofApproxBaseless(tune8 + fixedpitch);
+smoothsecs	= smooth*0.001;
+smoothsamps	= smoothsecs*samplerate;
+
+rauto		= int(resetauto);
+resettime	= maximum(smoothsamps, vectorsize * 4);		// one could argue this should be longer
+
+g, k		= rcDampCoeffs0(highpass, 1);// 1 = fixed HP, no shelf, not smoothed but not needed ?
+pidrive, sindrive	= sinParam(drive);	// cheaper to keep out of "sat" branches and out of the while loop
+
+// audo rate ...
+
+filterShift	= logsmooth(minimum(qt1r*fixedfreq, qt2r*fixedfreq), smoothsecs);
+
+oscshift	= eviLine(shiftmode, smoothsamps);
+quadraturedetune1, quadraturedetune2	= expsmoothBank2(qt1f, qt2f, smoothsecs);
+
+freqshift	= in2;
+if (freqsmooth > 0) {
+	freqshift	= eviLine(freqshift, mstosamps(freqsmooth));
+}
+freqshift = clamp(freqshift + in3, -fixedclamp, fixedclamp);			// + audio rate modultion input
+
+// smooth and sample accurate auto reset
+rstatic		= freqshift != 0;			// is this weak?
+//resetramp, rrn	= eviSline(rstatic, resettime);
+resetramp, rrn	= eviLine(rstatic, resettime);
+autoreset	= rauto ? ((change(rrn == 1) > 0) * (rstatic == 0)) : 0;	// end of down ramp only, not up
+reset		= delta(in4) < 0;			// manual reset, will click, but useful if Hz @ zero
+thisreset	= reset + autoreset;
+
+rMod1, iMod1	= quadOsc(quadraturedetune1 + oscshift*freqshift, thisreset);
+rMod1	= rMod1 * resetramp;
+iMod1	= iMod1 * resetramp;
+
+rMod2	= rMod1 + 0;
+iMod2	= iMod1 + 0;
+if (resetramp > 0) {
+	rMod2, iMod2	= quadOsc(quadraturedetune2 + ((1 - oscshift)*freqshift), thisreset);
+	rMod2	= rMod2 * resetramp;
+	iMod2	= iMod2 * resetramp;
+}
+
+X0  = rcFilterDampHp(in1, g, k);
+XU, XL, xAMc, xAMs	= complexRing(X0, X0, rMod1, iMod1);
+XU	= xfadeQuartApproxMono(X0, XU, resetramp);
+XL	= xfadeQuartApproxMono(X0, XL, resetramp);
+
+YU	= 0;
+YL	= 0;
+G	= fWarp(filterShift);
+// linear Butterworths
+YU  = butterworthLowpass8(XU, G);
+YL  = butterworthLowpass8(XL, G);
+// ^^ @see: 'evi_butterworth8.gendsp' for alternatives
+
+USB, LSB, yAMc, yAMs	= complexRing(YU, YL, rMod2, iMod2);
+// for zero reset
+USB	= xfadeQuartApproxMono(YU, USB, resetramp);
+LSB	= xfadeQuartApproxMono(YL, LSB, resetramp);
+
+USB	    = rcFilterDampHp(USB, g, k);
+LSB	    = rcFilterDampHp(LSB, g, k);
+
+if (sel == 2) {					// strange but cool AM DSB like effect
+	comp1	= 1;
+	mixup	= yAMc * USB - LSB;
+	mixlo	= yAMs * LSB - USB;
+	if (sat) {
+		comp1	= sqrt1_2;
+		drivepi, drivesin	= expsmoothBank2(pidrive, sindrive, smoothsecs);
+//		mixlo	= butterworthLowpass4(sinFoldAdaa2_4x(mixlo*0.984292036732, drivepi, drivesin), fWarp03);
+		mixlo			    = rcFilterDampHp(sinFoldAdaa2_4x(mixlo*0.984292036732, drivepi, drivesin), g, k);
+	}
+//	AM	    = rcFilterDampHp(mixup + (mixlo * comp1), g, k);
+	AM		= butterworthLowpass4(mixup + (mixlo * comp1), fWarp03);
+	out1	= AM;
+} else {						// note, sel 0 & 1: if "shiftmode" == 0.5 effect cancelled out !
+	comp0	= 1;
+	if (sat) {
+		comp0	= sqrt1_2;
+		drivepi, drivesin	= expsmoothBank2(pidrive, sindrive, smoothsecs);
+		LSB		= sinFoldAdaa2_4x(LSB*0.984292036732, drivepi*sqrt1_2, drivesin);
+	}
+	if (sel == 1) {				// lower sideband, default
+		out1	= LSB;
+	} else {// (sel == 0)		// SSB upper & lower mixed
+		out1	= butterworthLowpass4((USB + (LSB * comp0)), fWarp03);
+	}
+}
+
+if (oo) {
+    out2, out3  = quadOsc(freqshift, thisreset);
+} else {
+    out2, out3  = 0;
+}
+

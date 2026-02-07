@@ -10,24 +10,65 @@
     },
     "inlets": [
         {
-            "name": "input",
+            "id": 1,
+            "name": "cutoff",
             "type": "float",
             "optional": 1,
-            "digest": "TEXT_HERE"
-        }
-    ],
-    "attributes": [
+            "digest": "or Center @default 1000"
+        },
         {
-            "name": "",
-            "type": "",
-            "digest": "TEXT_HERE",
-            "description": "TEXT_HERE",
-            "default": {
-                "type": "",
-                "value": 0
-            }
+            "id": 2,
+            "name": "gain",
+            "type": "float",
+            "optional": 1,
+            "digest": "@default 0"
+        },
+        {
+            "id": 3,
+            "name": "q",
+            "type": "float",
+            "optional": 1,
+            "digest": "or S @default 0.707107"
         }
     ],
+    "outlets": [
+        {
+            "id": 1,
+            "name": "a0",
+            "type": "float",
+            "optional": 1,
+            "digest": "(FF0)"
+        },
+        {
+            "id": 2,
+            "name": "a1",
+            "type": "float",
+            "optional": 1,
+            "digest": "(FF1)"
+        },
+        {
+            "id": 3,
+            "name": "a2",
+            "type": "float",
+            "optional": 1,
+            "digest": "(FF2)"
+        },
+        {
+            "id": 4,
+            "name": "b1",
+            "type": "float",
+            "optional": 1,
+            "digest": "(FB1)"
+        },
+        {
+            "id": 5,
+            "name": "b2",
+            "type": "float",
+            "optional": 1,
+            "digest": "(FB2)"
+        }
+    ],
+    "attributes": [],
     "seealso": [
         {
             "name": "",

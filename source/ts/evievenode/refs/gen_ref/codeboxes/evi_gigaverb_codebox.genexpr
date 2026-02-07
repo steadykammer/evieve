@@ -1,0 +1,428 @@
+
+// -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- \\
+
+// A mono-in, stereo-out reverb implementation by Juhana Sadeharju (kouhia@nic.funet.fi)
+// Originally Max/MSP-ified by Olaf Matthes (2004)
+// Version 1.0test5, (c) 1999-2006 Juhana Sadeharju / Olaf Matthes
+// Originally Gen-ified by Graham Wakefield (2011)
+// 64-bit MSP reference version by Volker Böhm (2016)
+
+// This GenExpr version by Pete for evieve, with various modifications 
+// and filter improvements and parameter smoothing etc (2016)
+
+// N.B. - there are slight differences in sound from the various Max versions,
+// but this version is closer to the original (Sadeharju) and with slightly
+// more diffuseness in the early taps and low-mid
+
+
+// -- -- -- -- -- -- -- -- -- --	functions (library)	-- -- -- -- -- -- -- -- -- -- -- -- -- \\
+
+require("evi_reverb_library.genexpr");
+
+
+// -- -- -- -- -- -- -- -- -- --	params (reverb)		-- -- -- -- -- -- -- -- -- -- -- -- -- \\
+
+// original Olaf Matthes comments in "quotes" underneath each Param declaration
+// defaults are roughly Olaf Matthes 'church' preset
+
+// pre-warped frequency - scaling & filter are different in this version to original
+// 'bandwidth' 1 - (g / (1 + g)) 0..1
+// & new system over originals, amount of bandwidth attenuation:
+// high or how pass if k == 1, bypass if k == 0, else low or high shelf attenuation
+// [ k ] % 0..1 (1 - attenuation)
+Param	bandwidth(0.69, min=0, max=1);
+// "This is like a damping control for the input, it has a similar effect to the damping
+// control, but is subtly different." <<-- bit of a strange comment
+//
+
+// pre-warped frequency - scaling & filters are different in this version to original
+// 'damping' 1 - (g / (1 + g)) 0..1
+// & new system over originals, amount of damping attenuation:
+// high or how pass if k == 1, bypass if k == 0, else low or high shelf attenuation
+// [ k ] % 0..1 (attenuation ++)
+Param	damping(0.41, min=0, max=1);
+// "This controls the high frequency damping (a lowpass filter), values near 0 will
+// make it sound very bright, values near 1 will make it sound very dark."
+//
+
+// 'roomsize' in meters
+Param	size(80, min=0.1, max=300);	// min=1 ?
+// "The size of the room, in meters. Excessivly large, and excessivly small values will
+// make it sound a bit unrealistic. Values of around 30 sound good."
+//
+
+// 'revtime' (feeds rt60) in seconds
+Param	decay(4.85, min=0.1, max=360);
+// "Reverb decay time, in seconds. 7 is a good place to start. 0.1 - 360 seconds!"
+//
+
+// in Juhana Sadeharju & Graham Wakefield verion, not available (fixed)
+// in Olaf Matthes version, object creation argument only:
+//
+// offsets L/R levels, could be in degrees but 0..1 here
+// L/R width % 0..1
+Param	spread(0.22, min=0, max=1);
+// "Second argument is stereo spreading (0 - 1) which defaults to 0.15"
+//
+
+// early refelections level in dB
+Param	early(-9, min=-90, max=0);
+// "The quantity of early reflections (scatter reflections directly from the source).
+// Think of Lexicon's ambiance patches."
+//
+
+// 'tail' level in dB
+Param	late(-11, min=-90, max=0);
+// "The level of the classic reverb tail reflections."
+//
+
+// dry level in dB
+Param	dry(-3, min=-90, max=0);
+// "The level of the unreverberated signal."
+//
+
+// toggle, 1=bypassed, quasi cpu saving
+Param	bypass(0, min=0, max=1);
+// "Bypass, signal uneffected when set to 1. Can be used to compare reverb signal with
+// original signal and to save CPU power when gigaverb~ is not used."
+//
+
+// !! TODO !! (need to rewite all Delays as Data/poke/sample systems with 'clear' as for-loop)
+//
+// this may or may not work, we will see...
+History	clear(0);
+// "Clear the delay lines after a DSP overblow, or to get rid of any remaining delay tails."
+//
+
+// this is essentially a mono-in stereo-out reverb, but you can toggle 'stereo' 'on' ('1')
+// to explicitly control L/R signals into late diffusion section (and dry L/R),
+// default '0' 'off' (mono-in, stereo-out)
+// !! no smoothing !!
+Param	stereo(0, min=0, max=2);
+
+
+// -- -- -- -- -- --	params (eq)	(compute coefficients externally)	-- -- -- -- -- -- \\
+
+// pre-warped frequency (g / (1 + g)) (defaults 2000Hz & 500Hz @48kHz)
+Param	highshelfG(0.123758, min=0, max=1);
+Param	lowshelfG(0.032214, min=0, max=1);
+// -3=shelfboost..0=bypass..shelf..1=pass
+Param	highshelfK(0, min=-3, max=1);
+Param	lowshelfK(0, min=-3, max=1);
+
+
+// -- -- -- -- -- -- -- -- -- --			declare			-- -- -- -- -- -- -- -- -- -- -- \\
+
+History	xL(0), xR(0);											// compensate
+
+// four early taps + minimum 5 samples offset
+Delay	earlyTaps	(	0.361776*samplerate+5,	4,	feedback=0	);
+
+// FDN
+Delay	fdnDelay1	(	0.882359*samplerate,	1,	feedback=1	);
+Delay	fdnDelay2	(	0.720443*samplerate,	1,	feedback=1	);
+Delay	fdnDelay3	(	0.623927*samplerate,	1,	feedback=1	);
+Delay	fdnDelay4	(	0.558052*samplerate,	1,	feedback=1	);
+
+// constants, not user
+Param	div340		(	0.0029411764705882,		min=  0, max=1);// / 340
+Param	div1341		(	0.00074571215510813,	min=  0, max=1);// / 1341
+Param	m3l10const	(  -6.907755278982138,		min=-10, max=0);// -3 * log(10)
+
+Param	smoothtime	( 	50,	min=1,	max=500		);				// parameter smoothing in ms
+smoothsecs	=		smoothtime * 0.001;
+smoothsamps	=		smoothsecs * samplerate;
+
+
+// -- -- -- -- -- -- -- -- -- --	parse (param rate)	-- -- -- -- -- -- -- -- -- -- -- -- \\
+
+// iStereo ('stereo' param): 0 = mono (L) input / 
+// 1 = stereo (L/R) source / 2 = uncorrelated 2-channels
+iStereo		=  int(stereo);
+stereoMul	= (iStereo == 2) ? sqrt1_2 : 0.5;					// !! not smoothed !!
+
+// gains
+elgain		= (early > -90) ? dbtoaApprox(early) : 0;
+ltgain		= (late > -90) ? dbtoaApprox(late) : 0;
+dygain		= (dry > -90) ? dbtoaApprox(dry) : 0;
+
+// input bandwidth filter
+bwK			= sqrt(1 - ((bandwidth * 0.999718) + 0.000282));	// pete says: i have no  idea why
+bwG			= 1 -  sqrt(bwK);									// i did this or what is going on
+
+// damping filters
+dampK		= sqrt(damping * 0.999718);							// pete says: i have no  idea why
+dampG		= 1 -  sqrt(dampK);									// i did this or what is going on
+
+sizecoeff	= size * samplerate * div340;						// size * samplerate / 340
+//rt_60		= pow(pow(10, -60 / 20), 1 / (decay * samplerate));
+rt_60		= exp( m3l10const * ( 1 / ( decay * samplerate ) ) );
+
+// early times
+//pTime		= round((sizecoeff * 0.110732,	mode="trunc");		// Wakefield
+eTTime1		= int(floor(sizecoeff * 0.410 + 0.5) + 5);
+eTTime2		= int(floor(sizecoeff * 0.300 + 0.5) + 5);
+eTTime3		= int(floor(sizecoeff * 0.155 + 0.5) + 5);
+eTTime4		= int(5);								// Sadeharju = * 0.000 = fixed 5 samples
+
+// early gains
+eTGain1		=  pow(rt_60,  eTTime1);				// !! horrid !!
+eTGain2		=  pow(rt_60,  eTTime2);
+eTGain3		=  pow(rt_60,  eTTime3);
+//eTGain4	=  pow(rt_60,  eTTime4);				// ( eTTime4 fixed @ 5 samples )
+eTGain4		= (rt_60 * rt_60 * rt_60 * rt_60 * rt_60);
+
+// fdn times	// pete not convinced by these
+fTime1		=  int(floor(	sizecoeff				+ 0.5)	);	// * 1.0
+fTime2		=  int(floor(	sizecoeff * 0.816490	+ 0.5)	);
+fTime3		=  int(floor(	sizecoeff * 0.707107	+ 0.5)	);	// NOT sqrt1_2 double ?
+fTime4Pre	=  				sizecoeff * 0.632450;
+fTime4		=  int(floor(	fTime4Pre				+ 0.5)	);
+
+// fdn gains
+fTGain1		= -(pow(rt_60, fTime1));				// !! horrid !!
+fTGain2		= -(pow(rt_60, fTime2));
+fTGain3		= -(pow(rt_60, fTime3));
+fTGain4		= -(pow(rt_60, fTime4));
+
+// pre diffuse time (truncate)
+diffscale	= int(fTime4Pre * div1341);	// different to fdnTime4 because 'spread' is only...
+pTime		= int(diffscale * 210);		// ...dealt with at instantiation time in original
+
+// late diffuse times	// 'spread' here is 0..1	// all late times returned are integers
+lTime1, lTime2, lTime3	= spreadLate(diffscale,  12.5541,  256.2138, spread);
+lTime4, lTime5, lTime6	= spreadLate(diffscale, -56.8366, -38.0445,	 spread);
+
+
+// -- -- -- -- -- -- -- -- -- --	smooth (audio rate)	-- -- -- -- -- -- -- -- -- -- -- -- -- \\
+
+// filtering
+sss12				= smoothsamps * sqrt1_2;
+gbw					= eviLine(bwG, sss12);
+kbw					= eviLine(bwK, sss12);
+gdamp				= eviLine(dampG, smoothsamps);
+kdamp				= eviLine(dampK, smoothsamps);
+
+
+eqHighG, eqLowG			= expsmoothBank2(highshelfG, lowshelfG, smoothsecs);
+sss2					= smoothsamps * sqrt2;
+eqHighK					= eviLine(highshelfK, sss2);
+eqLowK					= eviLine(lowshelfK, sss2);
+
+
+// early times
+ssecss12	= smoothsecs * sqrt1_2;
+pdTime, eTapTime1, eTapTime2, eTapTime3	= logsmoothBank4(pTime, eTTime1, 
+			eTTime2, eTTime3, ssecss12);
+/*
+// no smoothing:
+pdTime		= pTime;	eTapTime1	= eTTime1;
+eTapTime2	= eTTime2;	eTapTime3	= eTTime3;
+*/
+eTapTime4	= eTTime4;
+
+// early gains
+eTapGain1, eTapGain2, eTapGain3, eTapGain4	= expsmoothBank4(eTGain1, 
+			eTGain2, eTGain3, eTGain4, ssecss12);
+
+// fdn times
+fdnTime1, fdnTime2, fdnTime3, fdnTime4	= logsmoothBank4(fTime1, 
+			fTime2, fTime3, fTime4, smoothsecs);
+/*
+// no smoothing:
+fdnTime1	= fTime1;	fdnTime2	= fTime2;
+fdnTime3	= fTime3;	fdnTime4	= fTime4;
+*/
+// fdn gains
+fTapGain1, fTapGain2, fTapGain3, fTapGain4	= expsmoothBank4(fTGain1, 
+			fTGain2, fTGain3, fTGain4, smoothsecs);
+
+// late times
+lateTime1, lateTime2, lateTime3, lateTime4, lateTime5, lateTime6	= logsmoothBank6(lTime1, 
+			lTime2, lTime3, lTime4, lTime5, lTime6, (smoothsecs * sqrt2));
+/*
+// no smoothing:
+lateTime1	= lTime1;	lateTime2	= lTime2;	lateTime3	= lTime3;
+lateTime4	= lTime4;	lateTime5	= lTime5;	lateTime6	= lTime6;
+*/
+// global gains
+earlygain, en	= eviLine(elgain,		sss12);
+lategain, ln	= eviLine(ltgain,		sss2);
+drygain, mn		= eviLine(dygain,		smoothsamps);
+
+egain60			= maximum(earlygain,	0.001);				// earlygain but minimum -60 dB
+
+
+// -- -- -- -- -- -- -- -- -- --	audio inputs		-- -- -- -- -- -- -- -- -- -- -- -- -- \\
+
+x0			=  0;
+ap_xL		=  0;
+ap_xR		=  0;
+if (iStereo >  0) {						// if 2 (stereo or 2-channel) inputs
+	x0		= (in1 + in2) * stereoMul;	// reverb input		// !! stereoMul not smoothed !!
+	xL		=  in1;						// compensate
+	xR		=  in2;
+	// in Sadeharju, xL & xR are multiplied on late diffuser input by 'earlygain'
+	ap_xL	=  in1		  * egain60;	// 
+	ap_xR	=  in2		  * egain60;
+} else {								// else 1 (mono) input
+	x0		=  in1;						// reverb input
+	xL		=  in1;						// compensate
+	xR		=  xL + 0;
+	// in Sadeharju, xL & xR are multiplied on late diffuser input by 'earlygain'
+	ap_xL	=  in1		  * egain60;	// 
+	ap_xR	=  ap_xL + 0;
+}
+
+rvrbL	= xL;
+rvrbR	= xR;
+mix		= eviLine(int(1 - bypass), 0.333*samplerate);
+
+if (mix > 0) {	//	//	//	start: BYPASS
+// ^^ not very useful because cannot include smoothers
+
+
+// -- -- -- -- -- -- -- -- -- --	input processing	-- -- -- -- -- -- -- -- -- -- -- -- -- \\
+
+// input bandwidth (highshelf/lowpass)
+xIn	        = rcFilterDamp( x0,	gbw, kbw );
+
+// pre diffusion allpass delay
+xPd			= DiffAllpass( xIn, 0.77, pdTime );
+
+
+// -- -- -- -- -- -- -- -- -- --	early processing	-- -- -- -- -- -- -- -- -- -- -- -- -- \\
+/*
+xTap1, xTap2, xTap3, xTap4	= eTaps( xPd, eTapGain1, eTapGain2, eTapGain3, eTapGain4, 
+								eTapTime1, eTapTime2, eTapTime3, eTapTime4 );
+*/
+// early taps
+earlyTaps.write(xPd);
+
+eTap1	= earlyTaps.read(eTapTime1,	interp="fastcubic");
+eTap2	= earlyTaps.read(eTapTime2, interp="fastcubic");
+eTap3	= earlyTaps.read(eTapTime3, interp="fastcubic");
+eTap4	= earlyTaps.read(eTapTime4, interp="none");	// eTapTime4 is fixed integer
+													// so fixed "none"
+// tap to fdn
+xTap1	= eTap1  *  eTapGain1;
+xTap2	= eTap2  *  eTapGain2;
+xTap3	= eTap3  *  eTapGain3;
+xTap4	= eTap4  *  eTapGain4;
+
+// why is this a feedback in Sadeharju / Böhm ??
+//earlyTaps.write(xPd);
+
+
+// -- -- -- -- -- -- -- -- -- --		fdn read		-- -- -- -- -- -- -- -- -- -- -- -- -- \\
+/*
+fD1, fD2, fD3, fD4	= fdNetwork( xTap1, xTap2, xTap3, xTap4, fTapGain1, fTapGain2, fTapGain3, 
+							fTapGain4, fdnTime1, fdnTime2, fdnTime3, fdnTime4, gdamp, kdamp );
+*/
+// fdn taps
+fdnLine1	= fdnDelay1.read(fdnTime1,	interp="spline");
+fdnLine2	= fdnDelay2.read(fdnTime2,	interp="spline");
+fdnLine3	= fdnDelay3.read(fdnTime3,	interp="spline");
+fdnLine4	= fdnDelay4.read(fdnTime4,	interp="spline");
+
+fTap1		= fdnLine1  *  fTapGain1;
+fTap2		= fdnLine2  *  fTapGain2;
+fTap3		= fdnLine3  *  fTapGain3;
+fTap4		= fdnLine4  *  fTapGain4;
+
+// fdn damp
+fD1	        = rcFilterDamp(fTap1,	gdamp,	kdamp);
+fD2	        = rcFilterDamp(fTap2,	gdamp,	kdamp);
+fD3	        = rcFilterDamp(fTap3,	gdamp,	kdamp);
+fD4	        = rcFilterDamp(fTap4,	gdamp,	kdamp);
+
+
+// -- -- -- -- -- -- -- -- -- --	sum early / fdn		-- -- -- -- -- -- -- -- -- -- -- -- -- \\
+
+// sum to late diffusion
+
+apIn	= ((xTap1 * earlygain) + (fD1 * lategain)) - 
+			((xTap2 * earlygain) + (fD2 * lategain)) + 
+				((xTap3 * earlygain) + (fD3 * lategain)) -
+					((xTap4 * earlygain) + (fD4 * lategain));
+
+apIn	= dcblock(apIn);
+apInL	= apIn + ap_xL ;
+apInR	= apIn + ap_xR ;
+
+
+// -- -- -- -- -- -- -- -- -- --		fdn write		-- -- -- -- -- -- -- -- -- -- -- -- -- \\
+
+// fdn matrix
+fdnMat1		= ( fD1 + fD2 - fD3 - fD4 )  *  0.5;
+fdnMat2		= ( fD1 - fD2 - fD3 + fD4 )  *  0.5;
+fdnMat3		= (-fD1 + fD2 - fD3 + fD4 )  *  0.5;
+fdnMat4		= ( fD1 + fD2 + fD3 + fD4 )  *  0.5;
+/*
+// fdn damp 2
+fdG			= gdamp * 0.125;		// fix for science :-)
+fdK			= 1;					// highpass, zero @ dc
+fdnMat1	    = rcFilterDampHp(fdnMat1,	fdG,	fdK);
+fdnMat2	    = rcFilterDampHp(fdnMat2,	fdG,	fdK);
+fdnMat3	    = rcFilterDampHp(fdnMat3,	fdG,	fdK);
+fdnMat4	    = rcFilterDampHp(fdnMat4,	fdG,	fdK);
+*/
+// write feedback
+fdnDelay1.write(xTap1 + fdnMat1);
+fdnDelay2.write(xTap2 + fdnMat2);
+fdnDelay3.write(xTap3 + fdnMat3);
+fdnDelay4.write(xTap4 + fdnMat4);
+
+
+// -- -- -- -- -- -- -- -- -- --	late processing		-- -- -- -- -- -- -- -- -- -- -- -- -- \\
+/*
+rvrbL, rvrbR	= lateDiffusion(apInL, apInR, lateTime1, lateTime2, 
+							lateTime3, lateTime4, lateTime5, lateTime6);
+*/
+// L
+yApL	= DiffAllpass( apInL ,	0.707946,	lateTime1);		// 0.75
+yApL	= DiffAllpass( yApL,	0.630957,	lateTime2);		// 0.625
+yApL	= DiffAllpass( yApL,	0.623735,	lateTime3);		// 0.625
+//yApL	= DiffAllpass( yApL,	0.562341,	lateTime1);		// 0.5		// pete
+
+// R
+yApR	= DiffAllpass( apInR ,	0.707946,	lateTime4);		// 0.75
+yApR	= DiffAllpass( yApR,	0.630957,	lateTime5);		// 0.625
+yApR	= DiffAllpass( yApR,	0.638263,	lateTime6);		// 0.625
+//yApR	= DiffAllpass( yApR,	0.562341,	lateTime4);		// 0.5		// pete
+
+
+// -- -- -- -- -- -- -- -- -- --		eq wet			-- -- -- -- -- -- -- -- -- -- -- -- -- \\
+
+rvrbL	= yApL;
+rvrbR	= yApR;
+
+// 1-pole eq cut/boost shelf filters
+// if high/lowshelfK params == 1, filters become high/lowpasses
+// if high/lowshelfK params == 0, thru (do not compute)
+
+if (eqHighK != 0) {
+	rvrbL	= rcFilterDamp(rvrbL, eqHighG, eqHighK);		// highshelf
+	rvrbR	= rcFilterDamp(rvrbR, eqHighG, eqHighK);
+}
+
+//if (eqLowK != 0) {										// cpu manage not click-free for low :-(
+	rvrbL   = rcFilterDampHp(rvrbL, eqLowG, eqLowK);		// lowshelf
+	rvrbR   = rcFilterDampHp(rvrbR, eqLowG, eqLowK);
+//}
+
+
+}				//	//	//	end: BYPASS
+
+
+// -- -- -- -- -- -- -- -- -- --		sum & output		-- -- -- -- -- -- -- -- -- -- -- -- \\
+
+rvrbL		= interp(mix, xL, (xL * drygain) + rvrbL, mode="cosine");
+rvrbR		= interp(mix, xR, (xR * drygain) + rvrbR, mode="cosine");
+
+out1		= rvrbL;
+out2		= rvrbR;
+
+
+// -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- \\
+

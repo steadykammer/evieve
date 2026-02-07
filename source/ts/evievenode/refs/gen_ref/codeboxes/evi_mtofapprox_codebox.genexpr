@@ -1,0 +1,20 @@
+
+expA(x0)
+{
+	x = 0.999996 + (0.031261316 + (0.00048274797 + 0.000006 * x0) * x0) * x0;
+	x *= x; x *= x; x *= x; x *= x; x *= x;
+	return x;
+}
+
+mtofApprox(pitch, base=440)			// 'base' should be 440 (hz) for default operation
+{
+	mtofA = base * expA(0.05776226504666 * (pitch - 69));
+	return mtofA + 0.120906;		// + offset = accurate for input 48..69
+}
+
+Param	base(440, min=415, max=467);
+
+out1	= mtofApprox(in1, base=base);
+
+// for more mtof approximations @see: "evi_approx.genexpr"
+

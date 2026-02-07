@@ -10,24 +10,44 @@
     },
     "inlets": [
         {
+            "id": 1,
             "name": "input",
             "type": "float",
             "optional": 1,
-            "digest": "TEXT_HERE"
-        }
-    ],
-    "attributes": [
+            "digest": "Value"
+        },
         {
-            "name": "",
-            "type": "",
-            "digest": "TEXT_HERE",
-            "description": "TEXT_HERE",
-            "default": {
-                "type": "",
-                "value": 0
-            }
+            "id": 2,
+            "name": "ramp",
+            "type": "float",
+            "optional": 1,
+            "digest": "Up in SAMPLES @min 0"
+        },
+        {
+            "id": 3,
+            "name": "ramp",
+            "type": "float",
+            "optional": 1,
+            "digest": "Down in SAMPLES @min 0"
         }
     ],
+    "outlets": [
+        {
+            "id": 1,
+            "name": "exact",
+            "type": "float",
+            "optional": 1,
+            "digest": "Output Env"
+        },
+        {
+            "id": 2,
+            "name": "1",
+            "type": "float",
+            "optional": 1,
+            "digest": "When Env Reaches Destination (0 During Env)"
+        }
+    ],
+    "attributes": [],
     "seealso": [
         {
             "name": "",

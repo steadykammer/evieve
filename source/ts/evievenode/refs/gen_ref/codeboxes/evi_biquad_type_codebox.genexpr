@@ -1,0 +1,23 @@
+
+// this is stupid
+
+require("evi_biquad.genexpr");
+
+// 0 = direct form 1 (MSP), 1 = direct form 2 (default), 2 = transposed direct form 2
+Param   type(1, min=0, max=2);
+mode    = int(type);
+reset   = delta(change(mode)) < 0;
+
+eviBiquad = 0;
+if (mode == 1) {    // default
+    eviBiquad   = biquadDf2reset(in1, in2, in3, in4, in5, in6, reset);
+}
+else if (mode == 2) {
+    eviBiquad   = biquadTdf2reset(in1, in2, in3, in4, in5, in6, reset);
+}
+else {
+    eviBiquad   = biquadDf1reset(in1, in2, in3, in4, in5, in6, reset);
+}
+
+out1    = eviBiquad;
+

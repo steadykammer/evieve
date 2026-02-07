@@ -1,0 +1,58 @@
+
+// high quality sine oscillator for modulation purposes
+// with sample accurate & clickless automatic phase reset when Hz input is @zero
+
+// @see also:
+// evi_freqshift_hilbert.gendsp
+// evi_freqshift_weaver.gendsp
+// evi_ringmod.gendsp
+
+require("evi_smooth.genexpr");
+
+// table
+modSinOsc(thisphase)
+{	// this is a Sine
+	return	cycle(wrap(thisphase + 0.75, 0, 1), index="phase");
+}
+
+// approx
+modSinOscApprox(thisphase)
+{
+	return	sin73(thisphase * TWOPI);
+}
+
+History	autoreset(1);
+Param	resetauto(1, min=0, max=1);				// 0/1 off/on, default on
+
+Param	scale(1, min=0);						// linear multiply theOsc output to range
+Param	offset(0);								// offset add theOsc to range
+
+Param	smooth(22.666, min=0, max=333);			// ms, reset ramp
+Param	freqsmooth(20, min=0, max=666);			// ms, Hz input
+
+smoothsecs	= smooth*0.001;
+smoothsamps	= smoothsecs*samplerate;
+smoothfreq	= mstosamps(freqsmooth);
+rauto		= int(resetauto);
+resettime	= maximum(smoothsamps * 2, vectorsize * 8);
+
+hz		= in1;
+reset	= delta(in2) < 0;						// manual reset, will click, but useful if Hz @ zero
+
+theAmp, theAdd	= expsmoothBank2(scale, offset, smoothsecs);
+
+if (smoothfreq > 0)								// turn off smoothing if feeding in1 with audio rate modulation
+{
+	hz, hn	= eviLine(hz, smoothfreq);
+}
+
+// auto reset
+sync		= phasor(hz, (reset + autoreset));
+static		= delta(sync) != 0;					// phasor is / is not moving
+resetramp, rrn	= eviLine(static, resettime);	// must be exact ramp
+autoreset	= rauto ? ((change(rrn == 1) > 0) * (static == 0)) : 0;	// end of down ramp only, not up
+
+theOsc		= modSinOscApprox(sync);//modSinOsc(sync) * resetramp;
+
+out1		= ((theOsc * theAmp) + theAdd) * resetramp;
+

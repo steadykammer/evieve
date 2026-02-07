@@ -10,24 +10,79 @@
     },
     "inlets": [
         {
+            "id": 1,
             "name": "input",
             "type": "float",
             "optional": 1,
-            "digest": "TEXT_HERE"
-        }
-    ],
-    "attributes": [
+            "digest": ""
+        },
         {
-            "name": "",
-            "type": "",
-            "digest": "TEXT_HERE",
-            "description": "TEXT_HERE",
-            "default": {
-                "type": "",
-                "value": 0
-            }
+            "id": 2,
+            "name": "cutoff",
+            "type": "float",
+            "optional": 1,
+            "digest": "in Hz @min 1 @max samplerate*0.5 @default 500"
+        },
+        {
+            "id": 3,
+            "name": "q",
+            "type": "float",
+            "optional": 1,
+            "digest": "@min 0.05 @default 0.707107"
         }
     ],
+    "outlets": [
+        {
+            "id": 1,
+            "name": "low",
+            "type": "float",
+            "optional": 1,
+            "digest": ""
+        },
+        {
+            "id": 2,
+            "name": "band",
+            "type": "float",
+            "optional": 1,
+            "digest": ""
+        },
+        {
+            "id": 3,
+            "name": "high",
+            "type": "float",
+            "optional": 1,
+            "digest": ""
+        },
+        {
+            "id": 4,
+            "name": "peak",
+            "type": "float",
+            "optional": 1,
+            "digest": ""
+        },
+        {
+            "id": 5,
+            "name": "notch",
+            "type": "float",
+            "optional": 1,
+            "digest": ""
+        },
+        {
+            "id": 6,
+            "name": "reson",
+            "type": "float",
+            "optional": 1,
+            "digest": ""
+        },
+        {
+            "id": 7,
+            "name": "allpass",
+            "type": "float",
+            "optional": 1,
+            "digest": ""
+        }
+    ],
+    "attributes": [],
     "seealso": [
         {
             "name": "",

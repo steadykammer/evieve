@@ -10,24 +10,44 @@
     },
     "inlets": [
         {
-            "name": "input",
+            "id": 1,
+            "name": "low",
             "type": "float",
             "optional": 1,
-            "digest": "TEXT_HERE"
-        }
-    ],
-    "attributes": [
+            "digest": "Band Input"
+        },
         {
-            "name": "",
-            "type": "",
-            "digest": "TEXT_HERE",
-            "description": "TEXT_HERE",
-            "default": {
-                "type": "",
-                "value": 0
-            }
+            "id": 2,
+            "name": "mid",
+            "type": "float",
+            "optional": 1,
+            "digest": "Band Input"
+        },
+        {
+            "id": 3,
+            "name": "high",
+            "type": "float",
+            "optional": 1,
+            "digest": "Band Input"
+        },
+        {
+            "id": 4,
+            "name": "high",
+            "type": "float",
+            "optional": 1,
+            "digest": "Crossover Frequency in Hz @min 10 @max 20000"
         }
     ],
+    "outlets": [
+        {
+            "id": 1,
+            "name": "output",
+            "type": "float",
+            "optional": 1,
+            "digest": "of Summed Bands"
+        }
+    ],
+    "attributes": [],
     "seealso": [
         {
             "name": "",

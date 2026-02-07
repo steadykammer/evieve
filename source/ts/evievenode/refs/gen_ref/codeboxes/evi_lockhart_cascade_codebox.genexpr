@@ -1,0 +1,178 @@
+
+// based on the paper:
+// "Virtual Analog Model of the Lockhart Wavefolder"
+// by Fabian Esqueda, Henri Pontynen, Julian D. Parker, Stefan Bilbao
+// SMC, 2017
+
+expApprox(x)
+{
+	x = 1 + (0.062500309 + (0.0019527233 + (0.0000408663 + (0.00000060184965 + 0.000000010856791*x)*x)*x)*x)*x;
+	x *= x; x *= x; x *= x;
+	return x*x;
+}
+
+// Lambert-W function
+lambertW(x, ln1, loop, thresh)
+{
+	// initial guess (use previous value)
+	w		= ln1;
+    err     = 1;
+    i       = 0;
+
+	// Haley's method (section 4.2 of the paper)
+	while ( (i < loop) && (abs(err) > thresh) ) {
+//		expw	= expApprox(w);
+		expw	= exp(w);       // :-(
+        w1      = w + 1;
+
+		p		= (w * expw) - x;
+		r		= w1 * expw;
+		s		= (w + 2) / (w1 + w1);
+		err		= (p / (r - (p * s)));
+
+		w	   -= err;
+        i      += 1;
+	}
+
+	return	w;
+}
+
+// Antialiased Lockhart wavefolder with Lambert-W function
+lockhartAA(Xo, loop=1000)
+{
+	// declare previous state
+	History	Ln1(0), Fn1(0), Xn1(0);
+
+	// constants, only VT used
+    // but play with these values and calcs to hack the sound :-)
+	RL	= 7.5e3;    R	= 15e3;     VT	= 26e-3;    Is	= 10e-16;
+	a	= 1; // not used        //  2 * RL / R;
+	b	= 76.923076923076923;   // (R + 2 * RL) / (VT * R);
+	d	= 0.000000000288462;    // (RL * Is) / VT;
+    VTb = 0.000169;				//  0.5 * VT / b
+
+	// antialiasing (adaa) error threshold
+	epsilon	= 10e-10;
+
+	// input
+	l	= sign(Xo); 
+
+	// compute antiderivative (adaa, 1st order)
+//	u	= d * expApprox(l * b * Xo);
+	u	= d * exp(l * b * Xo);  // :-(
+	Ln	= lambertW(u, Ln1, loop, epsilon);
+    Lp1 = 1 + Ln;
+//	Fn	= (0.5 * VT / b) * (1 + Ln) * (1 + Ln) - 0.5 * a * Xo * Xo;
+	Fn	= VTb * Lp1 * Lp1 - 0.5 * Xo * Xo;
+
+	Yn	= 0;
+	// check for ill-conditioning
+	if (abs(Xo - Xn1) < epsilon) { // pete not convinced by this, surely it doesn't need to contain the lambetW()
+		// compute averaged wavefolder output
+		Xn	= 0.5 * (Xo + Xn1);
+		//	!! original "d * pow(e, (l * b * Xo))" code from the paper is wrong <<-- Xn !!
+		u	= d * expApprox(l * b * Xn);
+//		u	= d * exp(l * b * Xn);
+		Ln	= lambertW(u, Ln1, loop, epsilon);
+//		Yn	= (l * VT * Ln) - (a * Xo); // ?? "(l * VT * Ln) - (a * Xn)" <<-- Xn ??
+		Yn	= (l * VT * Ln) - Xn;
+	} else {
+		// apply antialiased form
+		Yn	= (Fn - Fn1) / (Xo - Xn1);
+	}
+
+	// update state
+	Ln1	= Ln;
+    Fn1	= Fn;
+    Xn1	= Xo;
+
+	return	dcblock(Yn);
+}
+
+// Antialiased Lockhart wavefolder with Lambert-W function, written for cascade with Data() and external constants
+lockhartAAcascade(Xo, Ln1, Fn1, Xn1, VT, b, d, VTb, epsilon, loop=1000)
+{	// input
+	l	= sign(Xo); 
+
+	// compute antiderivative (adaa, 1st order)
+	u	= d * exp(l * b * Xo);  // :-(
+	Ln	= lambertW(u, Ln1, loop, epsilon);
+	Lnp	= 1 + Ln;
+	Fn	= VTb * Lnp * Lnp - 0.5 * Xo * Xo;
+
+	Yn	= 0;
+	// check for ill-conditioning
+	if (abs(Xo - Xn1) < epsilon) {
+		// compute averaged wavefolder output
+		Xn	= 0.5 * (Xo + Xn1);
+		//	!! original "d * pow(e, (l * b * Xo))" is wrong !!
+		u	= d * exp(l * b * Xn);
+		Ln	= lambertW(u, Ln1, loop, epsilon);
+		//	!! original "(l * VT * Ln) - (a * Xo)"	is wrong !!
+		Yn	= (l * VT * Ln) - (Xn);
+	} else {
+		// apply antialiased form
+		Yn	= (Fn - Fn1) / (Xo - Xn1);
+	}
+
+	return	Yn, Ln, Fn, Xo;
+}
+
+Data	lockhartState(16, 3);		// cascade up to 16 sections, 3 channels state (Ln, Fn, Xn)
+History	stateInit(1);				// initialise lockhartState
+History	funcsH(4);
+Param	cascade(4, min=1, max=16);
+funcs	= int(cascade);
+lhdim	= dim(lockhartState);
+
+if (stateInit)                      // horrible
+{
+	for (h = 0; h < lhdim; h += 1) {
+		lockhartState.poke(0, h, 0, 0, index="samples");
+		lockhartState.poke(0, h, 1, 0, index="samples");
+		lockhartState.poke(0, h, 2, 0, index="samples");
+	}
+
+	stateInit	= 0;
+}
+
+//	precomputed constants
+//	RL = 7.5e3		R = 15e3		Is = 10e-16		a = 2 * RL / R [a = 1]
+VT			= 26e-3;
+b			= 76.92307692307692;		// (R + 2 * RL) / (VT * R)
+d			= 0.000000000288462;	    // (RL * Is) / VT
+VTb         = 0.000169;					//  0.5 * VT / b
+epsilon		= 10e-10;					//  antialiasing (adaa) error threshold
+
+funcsm1		= maximum((funcs - 1), 2);
+compensate  = 1 / funcsm1;              // 1 / sqrt(funcs);
+attenuation = sqrt1_2 * funcsm1;
+
+gain        = evi_logsmooth((compensate * attenuation), 111);
+
+Y           = in1 + 0;
+
+// lockhart cascade
+for (i = 0; i < funcs; i += 1) {
+	Ln1	= lockhartState.peek(i, 0, index="samples", interp="none");
+	Fn1	= lockhartState.peek(i, 1, index="samples", interp="none");
+	Xn1	= lockhartState.peek(i, 2, index="samples", interp="none");
+	Y, Ln0, Fn0, Xn0	= lockhartAAcascade(Y, Ln1, Fn1, Xn1, VT, b, d, VTb, epsilon, loop=666);
+	lockhartState.poke(Ln0, i, 0, 0, index="samples");
+	lockhartState.poke(Fn0, i, 1, 0, index="samples");
+	lockhartState.poke(Xn0, i, 2, 0, index="samples");
+}
+
+// if changed...
+if (funcs != funcsH)
+{	// ...zero remainder
+	for (j = funcs; j < lhdim; j += 1) {
+		lockhartState.poke(0, j, 0, 0, index="samples");
+		lockhartState.poke(0, j, 1, 0, index="samples");
+		lockhartState.poke(0, j, 2, 0, index="samples");
+	}
+}
+funcsH	= funcs;
+
+out1	= dcblock(Y * gain);
+

@@ -13,6 +13,9 @@
             "evieve"
         ]
     },
+    "includes": [
+        "evi_clip.genexpr"
+    ],
     "inlets": [
         {
             "id": 1,
@@ -30,7 +33,32 @@
         }
     ],
     "messages": [],
-    "attributes": [],
+    "attributes": [
+        {
+            "name": "clip",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "3",
+                "value": "0"
+            }
+        },
+        {
+            "name": "oversampling",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "2",
+                "value": "2"
+            }
+        }
+    ],
     "example": {
         "caption": "",
         "image": ""

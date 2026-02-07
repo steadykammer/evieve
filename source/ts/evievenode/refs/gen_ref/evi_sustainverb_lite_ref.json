@@ -10,24 +10,79 @@
     },
     "inlets": [
         {
-            "name": "input",
+            "id": 1,
+            "name": "audio",
             "type": "float",
             "optional": 1,
-            "digest": "TEXT_HERE"
-        }
-    ],
-    "attributes": [
+            "digest": "In Left"
+        },
         {
-            "name": "",
-            "type": "",
-            "digest": "TEXT_HERE",
-            "description": "TEXT_HERE",
-            "default": {
-                "type": "",
-                "value": 0
-            }
+            "id": 2,
+            "name": "audio",
+            "type": "float",
+            "optional": 1,
+            "digest": "In Right"
         }
     ],
+    "outlets": [
+        {
+            "id": 1,
+            "name": "reverb",
+            "type": "float",
+            "optional": 1,
+            "digest": "Left"
+        },
+        {
+            "id": 2,
+            "name": "reverb",
+            "type": "float",
+            "optional": 1,
+            "digest": "Right"
+        },
+        {
+            "id": 3,
+            "name": "fdn",
+            "type": "float",
+            "optional": 1,
+            "digest": "Left"
+        },
+        {
+            "id": 4,
+            "name": "fdn",
+            "type": "float",
+            "optional": 1,
+            "digest": "Right"
+        },
+        {
+            "id": 5,
+            "name": "aux",
+            "type": "float",
+            "optional": 1,
+            "digest": "Tap 1"
+        },
+        {
+            "id": 6,
+            "name": "aux",
+            "type": "float",
+            "optional": 1,
+            "digest": "Tap 2"
+        },
+        {
+            "id": 7,
+            "name": "aux",
+            "type": "float",
+            "optional": 1,
+            "digest": "Tap 3"
+        },
+        {
+            "id": 8,
+            "name": "aux",
+            "type": "float",
+            "optional": 1,
+            "digest": "Tap 4"
+        }
+    ],
+    "attributes": [],
     "seealso": [
         {
             "name": "",

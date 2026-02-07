@@ -1,0 +1,107 @@
+
+// this is a quadrature FM/PM xfading mod/carrier setup, based on LIONEL's patch from:
+// https://cycling74.com/forums/fm-vs-pm-in-gen-unwanted-artifacts-clicks
+// with additions by Graham Wakefield
+// Thanks so much!
+
+require("evi_smooth.genexpr");
+
+// this is not so good, should replace
+lpfir3(x0)
+{
+	History	x1(0), x2(0);
+	y0	= (x0*0.5 + x1*0.333333333333 + x2*0.166666666667) * sqrt1_2;
+	x2	= x1;
+	x1	= x0;
+	return	y0;
+}
+
+// this is one of those really clever Graham Wakefield things, thanks
+// output will reach target by a linear ramp whose slope can be no greater than the param maxslope
+ramplimit(target, maxslope)				// maxslope = maximum change per ms
+{
+	History y0(0);
+	maxsamps	= sampstoms(maxslope);	// this is strange?
+	y1	= clamp(target - y0, -maxsamps, maxsamps) + y0;
+	y0	= y1;
+	return	y1;
+}
+
+History modOscPrev(0), carrierCosFb(0), carrierSinFb(0);
+
+Param	pitch(48, min=0, max=120);
+Param	modulationmult(1, min=0, max=100);
+Param	pitch_params(1, min=0, max=1);	// default: use params not inlets
+
+Param	xfadedepth(1, min=0, max=100);
+Param	xfadeblend(1, min=0, max=1);	// % 0..1, default PM
+Param	xfade_params(1, min=0, max=1);	// default: use params not inlets
+
+Param	modulationfeedback(0, min=0, max=100);
+Param	carrierfeedback(0, min=0, max=100);
+Param	feedback_params(1, min=0, max=1);// default: use params not inlets
+
+Param	smooth(22.666, min=0, max=333);	// ms
+smoothsecs	= smooth*0.001;
+smooth_p	= (smooth > 0);
+
+pitch_p		= int(pitch_params);
+xfade_p		= int(xfade_params);
+feedback_p	= int(feedback_params);
+
+// select params & smoothing, or inputs. this is really stupid, but i needed it.
+// it means i can choose either param or audio (modulation) inputs.
+
+pitch_a	= pitch;
+mmult_a = modulationmult;
+if ( (pitch_p) && (smooth_p) ) {
+	pitch_a	= logsmooth(pitch, smoothsecs);
+	mmult_a	= expsmooth(modulationmult, smoothsecs);
+}
+
+modfb_a	= modulationfeedback;
+carfb_a	= carrierfeedback;
+if ( (feedback_p) && (smooth_p) ) {
+	modfb_a, carfb_a	= expsmoothBank2(modulationfeedback, carrierfeedback, smoothsecs);
+}
+
+index	= maximum(in2, 1);
+
+pitch_a	= pitch_p ? pitch_a : in1;
+mmult_a	= pitch_p ? mmult_a : in7;
+freq_a	= mtofApproxBaseless(pitch_a);
+fmm		= freq_a*mmult_a;
+
+modfb_a	= feedback_p ? modfb_a : in5;
+carfb_a	= feedback_p ? carfb_a : in6;
+
+fmamount, pmamount	= 0;
+if (xfade_p) {
+	fmamount, pmamount	= p2cApproxQuart(xfadedepth, xfadeblend);	// params
+} else {
+	fmamount, pmamount	= p2cApprox(in3, in4*halfpi);				// inlets
+}
+
+// Op
+
+modOsc		= sin73(phasor(fmm)*twopi + lpfir3(modfb_a*modOscPrev));
+modZerox	= (modOscPrev*modOsc) <= 0;
+modOscPrev	= modOsc;
+modBias		= latch(index, modZerox);
+modulator	= modOsc*modBias;
+fmamount	= ramplimit(fmamount, 0.01);
+fmamount	= latch(fmamount, modZerox);	// (gen nightmare: does not compile if above ramplimit inside latch)
+pmamount	= ramplimit(pmamount, 0.01);
+
+carrierPhase	= (phasor(freq_a + (fmm*modulator*fmamount))*twopi) + (modulator*pmamount);
+carrierCos		= cos(carrierPhase + carrierCosFb);
+carrierSin		= sin(carrierPhase + carrierSinFb);
+
+if (carfb_a > 0) {
+	carrierCosFb	= fixdenorm(lpfir3(carfb_a*carrierCos));
+	carrierSinFb	= fixdenorm(lpfir3(carfb_a*carrierSin));
+}
+
+out1	= dcblock(carrierCos);
+out2	= dcblock(carrierSin);
+

@@ -13,6 +13,9 @@
             "evieve"
         ]
     },
+    "includes": [
+        "evi_smooth.genexpr"
+    ],
     "inlets": [
         {
             "id": 1,
@@ -36,7 +39,92 @@
         }
     ],
     "messages": [],
-    "attributes": [],
+    "attributes": [
+        {
+            "name": "attack",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "10",
+                "max": "59999",
+                "value": "10"
+            }
+        },
+        {
+            "name": "decay",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "11",
+                "max": "60000",
+                "value": "100"
+            }
+        },
+        {
+            "name": "offset",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "-24",
+                "max": "24",
+                "value": "0"
+            }
+        },
+        {
+            "name": "smoothfreq",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "666",
+                "value": "0"
+            }
+        },
+        {
+            "name": "smoothtime",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "111",
+                "value": "0"
+            }
+        },
+        {
+            "name": "spread",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "-12",
+                "max": "12",
+                "value": "0"
+            }
+        },
+        {
+            "name": "width",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "24",
+                "value": "0"
+            }
+        }
+    ],
     "example": {
         "caption": "",
         "image": ""

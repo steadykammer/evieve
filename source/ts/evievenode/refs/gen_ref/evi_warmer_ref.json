@@ -10,24 +10,23 @@
     },
     "inlets": [
         {
-            "name": "input",
+            "id": 1,
+            "name": "boring",
             "type": "float",
             "optional": 1,
-            "digest": "TEXT_HERE"
+            "digest": "Input"
         }
     ],
-    "attributes": [
+    "outlets": [
         {
-            "name": "",
-            "type": "",
-            "digest": "TEXT_HERE",
-            "description": "TEXT_HERE",
-            "default": {
-                "type": "",
-                "value": 0
-            }
+            "id": 1,
+            "name": "warmer",
+            "type": "float",
+            "optional": 1,
+            "digest": "Output"
         }
     ],
+    "attributes": [],
     "seealso": [
         {
             "name": "",

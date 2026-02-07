@@ -1,0 +1,22 @@
+
+// "evi_cross.gendsp" / [evi.cross~] differs from MSP [cross~] in the following ways:
+
+// [evi.cross~] is a steeper 4-pole crossover slope ([cross~] is a 3-pole slope), 
+// because 3rd order is not possible with flat summing Linkwitz-Riley.
+// [evi.cross~] is a proper Linkwitz-Riley crossover which sums perfectly flat
+// (whereas [cross~] is pure Butterworths and sums with a +3dB bump).
+// [evi.cross~] remains stable under modulation.
+
+
+require("evi_crossovers.genexpr");
+
+
+out1, out2  = eviXover4pole2band(in1, in2);
+
+
+// Note: for additional 2-pole crossovers, and 3-band-split crossovers,
+// @see: "evi_crossover.gendsp" / [evi.crossover~]
+// @see: "evi_crossover_3band.gendsp" / [evi.crossover.3band~]
+// @see: "evi_crossover_sum.gendsp" / [evi.crossover.sum~]
+// @see: "evi_crossover_allpass.gendsp" / [evi.crossover.allpass~]
+

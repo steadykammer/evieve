@@ -10,24 +10,30 @@
     },
     "inlets": [
         {
-            "name": "input",
+            "id": 1,
+            "name": "audio",
             "type": "float",
             "optional": 1,
-            "digest": "TEXT_HERE"
-        }
-    ],
-    "attributes": [
+            "digest": "In"
+        },
         {
-            "name": "",
-            "type": "",
-            "digest": "TEXT_HERE",
-            "description": "TEXT_HERE",
-            "default": {
-                "type": "",
-                "value": 0
-            }
+            "id": 2,
+            "name": "asymmetry",
+            "type": "float",
+            "optional": 1,
+            "digest": "@min 0 @max 1 @default 0.5"
         }
     ],
+    "outlets": [
+        {
+            "id": 1,
+            "name": "saturated",
+            "type": "float",
+            "optional": 1,
+            "digest": "Audio Out"
+        }
+    ],
+    "attributes": [],
     "seealso": [
         {
             "name": "",

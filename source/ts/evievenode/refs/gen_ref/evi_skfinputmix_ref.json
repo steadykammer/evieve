@@ -10,24 +10,37 @@
     },
     "inlets": [
         {
-            "name": "input",
+            "id": 1,
+            "name": "lowpass",
             "type": "float",
             "optional": 1,
-            "digest": "TEXT_HERE"
-        }
-    ],
-    "attributes": [
+            "digest": "Input"
+        },
         {
-            "name": "",
-            "type": "",
-            "digest": "TEXT_HERE",
-            "description": "TEXT_HERE",
-            "default": {
-                "type": "",
-                "value": 0
-            }
+            "id": 2,
+            "name": "bandpass",
+            "type": "float",
+            "optional": 1,
+            "digest": "Input"
+        },
+        {
+            "id": 3,
+            "name": "highpass",
+            "type": "float",
+            "optional": 1,
+            "digest": "Input"
         }
     ],
+    "outlets": [
+        {
+            "id": 1,
+            "name": "sallen",
+            "type": "float",
+            "optional": 1,
+            "digest": "Key Filter Output"
+        }
+    ],
+    "attributes": [],
     "seealso": [
         {
             "name": "",
