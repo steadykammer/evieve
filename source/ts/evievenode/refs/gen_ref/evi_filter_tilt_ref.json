@@ -3,11 +3,14 @@
         "name": "evi_filter_tilt",
         "category": "",
         "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "description": "[evi_filter_tilt.gendsp] requires: [evi_svf.genexpr]"
     },
     "constructor": {
-        "inlets": []
+        "inlets": "input, cutoff, gain, q"
     },
+    "includes": [
+        "evi_svf.genexpr"
+    ],
     "inlets": [
         {
             "id": 1,
@@ -47,7 +50,18 @@
             "digest": "Output"
         }
     ],
-    "attributes": [],
+    "attributes": [
+        {
+            "name": "smooth",
+            "type": "int",
+            "digest": "@min 0, @max 333",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        }
+    ],
     "seealso": [
         {
             "name": "",

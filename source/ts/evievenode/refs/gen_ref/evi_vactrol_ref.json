@@ -6,8 +6,9 @@
         "description": "TEXT_HERE"
     },
     "constructor": {
-        "inlets": []
+        "inlets": "trigger, rise, fall"
     },
+    "includes": [],
     "inlets": [
         {
             "id": 1,
@@ -40,7 +41,18 @@
             "digest": "Vactrol envelope"
         }
     ],
-    "attributes": [],
+    "attributes": [
+        {
+            "name": "scalar",
+            "type": "int",
+            "digest": "@min 1, @max 10000",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "10"
+            }
+        }
+    ],
     "seealso": [
         {
             "name": "",

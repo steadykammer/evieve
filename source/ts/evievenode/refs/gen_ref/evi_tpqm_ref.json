@@ -6,8 +6,9 @@
         "description": "TEXT_HERE"
     },
     "constructor": {
-        "inlets": []
+        "inlets": "@comment, @default, @default, @default, @default, @default, @default"
     },
+    "includes": [],
     "inlets": [
         {
             "id": 1,

@@ -3,11 +3,14 @@
         "name": "evi_DAHDSHR",
         "category": "",
         "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "description": "[evi_DAHDSHR.gendsp] requires: [evi_approx.genexpr]"
     },
     "constructor": {
-        "inlets": []
+        "inlets": "gate, delay, attack, hold1, decay, sustain, hold2, release"
     },
+    "includes": [
+        "evi_approx.genexpr"
+    ],
     "inlets": [
         {
             "id": 1,
@@ -96,7 +99,168 @@
             "digest": "# (0\\, 1\\, 2\\, 3\\, 4\\, 5\\, 6\\, 7\\, 8\\, 0)"
         }
     ],
-    "attributes": [],
+    "attributes": [
+        {
+            "name": "constantrate",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "1"
+            }
+        },
+        {
+            "name": "envmax",
+            "type": "int",
+            "digest": "@min 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "127"
+            }
+        },
+        {
+            "name": "fallratio",
+            "type": "float",
+            "digest": "@min 0.000001, @max 10",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.05"
+            }
+        },
+        {
+            "name": "legato",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "loop",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "loopsustain",
+            "type": "int",
+            "digest": "@min 0, @max 60000",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "100"
+            }
+        },
+        {
+            "name": "looptrigger",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "maxsustain",
+            "type": "int",
+            "digest": "@min -1, @max 60000",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "-1"
+            }
+        },
+        {
+            "name": "retrigger",
+            "type": "int",
+            "digest": "@min 0, @max 1000",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "5"
+            }
+        },
+        {
+            "name": "riseratio",
+            "type": "float",
+            "digest": "@min 0.000001, @max 10",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.3"
+            }
+        },
+        {
+            "name": "sustainbase",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "timebase",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "1"
+            }
+        },
+        {
+            "name": "velocitycurve",
+            "type": "int",
+            "digest": "@min -2, @max 2",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "1"
+            }
+        },
+        {
+            "name": "velocitysense",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "wait",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "zerophase",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        }
+    ],
     "seealso": [
         {
             "name": "",

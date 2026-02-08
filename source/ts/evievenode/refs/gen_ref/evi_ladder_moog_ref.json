@@ -3,11 +3,16 @@
         "name": "evi_ladder_moog",
         "category": "",
         "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "description": "[evi_ladder_moog.gendsp] requires: [evi_smooth.genexpr, evi_tanh.genexpr, evi_interp.genexpr]"
     },
     "constructor": {
-        "inlets": []
+        "inlets": "audio, cutoff, resonance"
     },
+    "includes": [
+        "evi_smooth.genexpr",
+        "evi_tanh.genexpr",
+        "evi_interp.genexpr"
+    ],
     "inlets": [
         {
             "id": 1,
@@ -40,7 +45,58 @@
             "digest": "Ladder Output"
         }
     ],
-    "attributes": [],
+    "attributes": [
+        {
+            "name": "cutoffmode",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "1"
+            }
+        },
+        {
+            "name": "cutoffsmooth",
+            "type": "int",
+            "digest": "@min 0, @max 333",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "nonlin",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "oversample",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "1"
+            }
+        },
+        {
+            "name": "ressmooth",
+            "type": "int",
+            "digest": "@min 0, @max 333",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        }
+    ],
     "seealso": [
         {
             "name": "",

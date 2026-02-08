@@ -3,11 +3,14 @@
         "name": "evi_paf",
         "category": "",
         "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "description": "[evi_paf.gendsp] requires: [evi_trig.genexpr]"
     },
     "constructor": {
-        "inlets": []
+        "inlets": "fundamental, cf, bw, reset"
     },
+    "includes": [
+        "evi_trig.genexpr"
+    ],
     "inlets": [
         {
             "id": 1,

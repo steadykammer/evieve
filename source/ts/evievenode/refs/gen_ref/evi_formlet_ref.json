@@ -3,11 +3,14 @@
         "name": "evi_formlet",
         "category": "",
         "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "description": "[evi_formlet.gendsp] requires: [evi_smooth.genexpr]"
     },
     "constructor": {
-        "inlets": []
+        "inlets": "input, filter"
     },
+    "includes": [
+        "evi_smooth.genexpr"
+    ],
     "inlets": [
         {
             "id": 1,
@@ -33,7 +36,78 @@
             "digest": "Output"
         }
     ],
-    "attributes": [],
+    "attributes": [
+        {
+            "name": "attack",
+            "type": "int",
+            "digest": "@min 10, @max 59999",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "10"
+            }
+        },
+        {
+            "name": "decay",
+            "type": "int",
+            "digest": "@min 11, @max 60000",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "100"
+            }
+        },
+        {
+            "name": "offset",
+            "type": "int",
+            "digest": "@min -24, @max 24",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "smoothfreq",
+            "type": "int",
+            "digest": "@min 0, @max 666",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "smoothtime",
+            "type": "int",
+            "digest": "@min 0, @max 111",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "spread",
+            "type": "int",
+            "digest": "@min -12, @max 12",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "width",
+            "type": "int",
+            "digest": "@min 0, @max 24",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        }
+    ],
     "seealso": [
         {
             "name": "",

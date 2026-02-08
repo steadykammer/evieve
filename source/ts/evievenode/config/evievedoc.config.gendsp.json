@@ -289,7 +289,7 @@
         "evi_biquad_coeff.gendsp": {
             "define": {
                 "object": true,
-                "msp": "evi.biquad.coeff~",
+                "msp": "evi.biquadcoeff~",
                 "mcwrapper": true
             },
             "ref": {
@@ -557,7 +557,7 @@
                 "mcwrapper": false
             },
             "ref": {
-                "gen": false,
+                "gen": true,
                 "msp": false
             },
             "help": {

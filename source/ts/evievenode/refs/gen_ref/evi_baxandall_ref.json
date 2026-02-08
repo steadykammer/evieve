@@ -6,8 +6,9 @@
         "description": "TEXT_HERE"
     },
     "constructor": {
-        "inlets": []
+        "inlets": "mono, none"
     },
+    "includes": [],
     "inlets": [
         {
             "id": 1,
@@ -40,7 +41,38 @@
             "digest": "/ Right"
         }
     ],
-    "attributes": [],
+    "attributes": [
+        {
+            "name": "bass",
+            "type": "int",
+            "digest": "@min -24, @max 24",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "stereo",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "treble",
+            "type": "int",
+            "digest": "@min -24, @max 24",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        }
+    ],
     "seealso": [
         {
             "name": "",

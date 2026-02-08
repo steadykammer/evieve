@@ -3,11 +3,14 @@
         "name": "evi_eq3_stereo",
         "category": "",
         "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "description": "[evi_eq3_stereo.gendsp] requires: [evi_svf.genexpr]"
     },
     "constructor": {
-        "inlets": []
+        "inlets": "input, input, freq, db, q, freq, db, q, freq, db, q"
     },
+    "includes": [
+        "evi_svf.genexpr"
+    ],
     "inlets": [
         {
             "id": 1,
@@ -103,7 +106,48 @@
             "digest": "bands EQ Output Right"
         }
     ],
-    "attributes": [],
+    "attributes": [
+        {
+            "name": "band1filter",
+            "type": "int",
+            "digest": "@min 0, @max 7",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "2"
+            }
+        },
+        {
+            "name": "band2filter",
+            "type": "int",
+            "digest": "@min 0, @max 7",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "3"
+            }
+        },
+        {
+            "name": "band3filter",
+            "type": "int",
+            "digest": "@min 0, @max 7",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "6"
+            }
+        },
+        {
+            "name": "smooth",
+            "type": "float",
+            "digest": "@min 0, @max 333",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "15.333"
+            }
+        }
+    ],
     "seealso": [
         {
             "name": "",

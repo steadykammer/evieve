@@ -3,11 +3,14 @@
         "name": "evi_sustainfdn",
         "category": "",
         "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "description": "[evi_sustainfdn.gendsp] requires: [evi_reverb_library.genexpr]"
     },
     "constructor": {
-        "inlets": []
+        "inlets": "audio, audio, feeback"
     },
+    "includes": [
+        "evi_reverb_library.genexpr"
+    ],
     "inlets": [
         {
             "id": 1,
@@ -47,7 +50,208 @@
             "digest": "Right"
         }
     ],
-    "attributes": [],
+    "attributes": [
+        {
+            "name": "delayTime1 \t",
+            "type": "int",
+            "digest": "@min 1, @max 25056\t",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "\t480"
+            }
+        },
+        {
+            "name": "delayTime10 ",
+            "type": "int",
+            "digest": "@min 1, @max 25056\t",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "\t2662"
+            }
+        },
+        {
+            "name": "delayTime11 ",
+            "type": "int",
+            "digest": "@min 1, @max 25056\t",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "\t3128"
+            }
+        },
+        {
+            "name": "delayTime12 ",
+            "type": "int",
+            "digest": "@min 1, @max 25056\t",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "\t3688"
+            }
+        },
+        {
+            "name": "delayTime13 ",
+            "type": "int",
+            "digest": "@min 1, @max 25056\t",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "\t4251"
+            }
+        },
+        {
+            "name": "delayTime14 ",
+            "type": "int",
+            "digest": "@min 1, @max 25056\t",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "\t4861"
+            }
+        },
+        {
+            "name": "delayTime15 ",
+            "type": "int",
+            "digest": "@min 1, @max 25056\t",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "\t5539"
+            }
+        },
+        {
+            "name": "delayTime16 ",
+            "type": "int",
+            "digest": "@min 1, @max 25056\t",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "\t6264"
+            }
+        },
+        {
+            "name": "delayTime2 \t",
+            "type": "int",
+            "digest": "@min 1, @max 25056\t",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "\t559"
+            }
+        },
+        {
+            "name": "delayTime3 \t",
+            "type": "int",
+            "digest": "@min 1, @max 25056\t",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "\t646"
+            }
+        },
+        {
+            "name": "delayTime4 \t",
+            "type": "int",
+            "digest": "@min 1, @max 25056\t",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "\t803"
+            }
+        },
+        {
+            "name": "delayTime5 \t",
+            "type": "int",
+            "digest": "@min 1, @max 25056\t",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "\t969"
+            }
+        },
+        {
+            "name": "delayTime6 \t",
+            "type": "int",
+            "digest": "@min 1, @max 25056\t",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "\t1236"
+            }
+        },
+        {
+            "name": "delayTime7 \t",
+            "type": "int",
+            "digest": "@min 1, @max 25056\t",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "\t1511"
+            }
+        },
+        {
+            "name": "delayTime8 \t",
+            "type": "int",
+            "digest": "@min 1, @max 25056\t",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "\t1838"
+            }
+        },
+        {
+            "name": "delayTime9 \t",
+            "type": "int",
+            "digest": "@min 1, @max 25056\t",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "\t2241"
+            }
+        },
+        {
+            "name": "fbinlet",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "feedback",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "gain",
+            "type": "int",
+            "digest": "@min -80, @max 20",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "smoothtime",
+            "type": "int",
+            "digest": "@min 1, @max 500",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "10"
+            }
+        }
+    ],
     "seealso": [
         {
             "name": "",

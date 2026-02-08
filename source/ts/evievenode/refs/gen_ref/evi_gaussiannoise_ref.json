@@ -6,8 +6,9 @@
         "description": "TEXT_HERE"
     },
     "constructor": {
-        "inlets": []
+        "inlets": "dummy"
     },
+    "includes": [],
     "inlets": [
         {
             "id": 1,
@@ -40,7 +41,18 @@
             "digest": "Noise"
         }
     ],
-    "attributes": [],
+    "attributes": [
+        {
+            "name": "amplitude",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.6403882032022076"
+            }
+        }
+    ],
     "seealso": [
         {
             "name": "",

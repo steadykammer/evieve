@@ -6,8 +6,9 @@
         "description": "TEXT_HERE"
     },
     "constructor": {
-        "inlets": []
+        "inlets": "freq, pitch, freq, harmonics, duty"
     },
+    "includes": [],
     "inlets": [
         {
             "id": 1,
@@ -68,7 +69,38 @@
             "digest": ""
         }
     ],
-    "attributes": [],
+    "attributes": [
+        {
+            "name": "cfmode",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "1"
+            }
+        },
+        {
+            "name": "cfmul",
+            "type": "float",
+            "digest": "@min 0, @max 0.5",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.1"
+            }
+        },
+        {
+            "name": "cfsmooth",
+            "type": "int",
+            "digest": "@min 0, @max 1000",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "20"
+            }
+        }
+    ],
     "seealso": [
         {
             "name": "",

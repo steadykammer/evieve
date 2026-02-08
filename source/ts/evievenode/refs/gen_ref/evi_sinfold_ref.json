@@ -3,11 +3,14 @@
         "name": "evi_sinfold",
         "category": "",
         "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "description": "[evi_sinfold.gendsp] requires: [evi_sinfold_lib.genexpr]"
     },
     "constructor": {
-        "inlets": []
+        "inlets": "audio"
     },
+    "includes": [
+        "evi_sinfold_lib.genexpr"
+    ],
     "inlets": [
         {
             "id": 1,
@@ -26,7 +29,38 @@
             "digest": "Saturated Output"
         }
     ],
-    "attributes": [],
+    "attributes": [
+        {
+            "name": "aa",
+            "type": "int",
+            "digest": "@min 0, @max 2",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "2"
+            }
+        },
+        {
+            "name": "drive",
+            "type": "float",
+            "digest": "@min 0, @max 4",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.5"
+            }
+        },
+        {
+            "name": "smooth",
+            "type": "float",
+            "digest": "@min 1, @max 666",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "22.666"
+            }
+        }
+    ],
     "seealso": [
         {
             "name": "",

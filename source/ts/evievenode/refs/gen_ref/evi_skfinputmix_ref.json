@@ -3,11 +3,16 @@
         "name": "evi_skfinputmix",
         "category": "",
         "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "description": "[evi_skfinputmix.gendsp] requires: [evi_tanh.genexpr, evi_trig.genexpr, evi_smooth.genexpr]"
     },
     "constructor": {
-        "inlets": []
+        "inlets": "lowpass, bandpass, highpass"
     },
+    "includes": [
+        "evi_tanh.genexpr",
+        "evi_trig.genexpr",
+        "evi_smooth.genexpr"
+    ],
     "inlets": [
         {
             "id": 1,
@@ -40,7 +45,68 @@
             "digest": "Key Filter Output"
         }
     ],
-    "attributes": [],
+    "attributes": [
+        {
+            "name": "coeffsmooth",
+            "type": "float",
+            "digest": "@min 0, @max 333",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "15.111"
+            }
+        },
+        {
+            "name": "cutoff",
+            "type": "int",
+            "digest": "@min 10, @max 10000",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "1000"
+            }
+        },
+        {
+            "name": "mix",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "mixenable",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "1"
+            }
+        },
+        {
+            "name": "mixsmooth",
+            "type": "float",
+            "digest": "@min 0, @max 333",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "22.666"
+            }
+        },
+        {
+            "name": "res",
+            "type": "symbol",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "symbol",
+                "value": "sqrt1_2"
+            }
+        }
+    ],
     "seealso": [
         {
             "name": "",

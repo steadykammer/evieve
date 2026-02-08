@@ -3,11 +3,14 @@
         "name": "evi_ramp0",
         "category": "",
         "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "description": "[evi_ramp0.gendsp] requires: [evi_counting.genexpr]"
     },
     "constructor": {
-        "inlets": []
+        "inlets": "trigger"
     },
+    "includes": [
+        "evi_counting.genexpr"
+    ],
     "inlets": [
         {
             "id": 1,
@@ -47,7 +50,78 @@
             "digest": "at Ramp End"
         }
     ],
-    "attributes": [],
+    "attributes": [
+        {
+            "name": "curve",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "duration",
+            "type": "int",
+            "digest": "@min 0, @max 60000",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "1000"
+            }
+        },
+        {
+            "name": "loop",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "pause",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "restingstate",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "1"
+            }
+        },
+        {
+            "name": "retrigger",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "1"
+            }
+        },
+        {
+            "name": "zeroreset",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        }
+    ],
     "seealso": [
         {
             "name": "",

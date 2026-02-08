@@ -3,11 +3,14 @@
         "name": "evi_quadfmpm",
         "category": "",
         "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "description": "[evi_quadfmpm.gendsp] requires: [evi_smooth.genexpr]"
     },
     "constructor": {
-        "inlets": []
+        "inlets": "pitch, index, fm/pm, fm/pm, mod, car, mod"
     },
+    "includes": [
+        "evi_smooth.genexpr"
+    ],
     "inlets": [
         {
             "id": 1,
@@ -75,7 +78,108 @@
             "digest": "output Sin"
         }
     ],
-    "attributes": [],
+    "attributes": [
+        {
+            "name": "carrierfeedback",
+            "type": "int",
+            "digest": "@min 0, @max 100",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "feedback_params",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "1"
+            }
+        },
+        {
+            "name": "modulationfeedback",
+            "type": "int",
+            "digest": "@min 0, @max 100",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "modulationmult",
+            "type": "int",
+            "digest": "@min 0, @max 100",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "1"
+            }
+        },
+        {
+            "name": "pitch",
+            "type": "int",
+            "digest": "@min 0, @max 120",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "48"
+            }
+        },
+        {
+            "name": "pitch_params",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "1"
+            }
+        },
+        {
+            "name": "smooth",
+            "type": "float",
+            "digest": "@min 0, @max 333",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "22.666"
+            }
+        },
+        {
+            "name": "xfade_params",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "1"
+            }
+        },
+        {
+            "name": "xfadeblend",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "1"
+            }
+        },
+        {
+            "name": "xfadedepth",
+            "type": "int",
+            "digest": "@min 0, @max 100",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "1"
+            }
+        }
+    ],
     "seealso": [
         {
             "name": "",

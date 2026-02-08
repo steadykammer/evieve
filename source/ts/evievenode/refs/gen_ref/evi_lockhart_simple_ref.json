@@ -6,8 +6,9 @@
         "description": "TEXT_HERE"
     },
     "constructor": {
-        "inlets": []
+        "inlets": "osc"
     },
+    "includes": [],
     "inlets": [
         {
             "id": 1,

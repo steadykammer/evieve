@@ -9,11 +9,56 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 472.0, 206.0, 934.0, 665.0 ],
+        "rect": [ 472.0, 206.0, 1004.0, 665.0 ],
         "gridonopen": 2,
         "subpatcher_template": "sub",
         "integercoordinates": 1,
         "boxes": [
+            {
+                "box": {
+                    "id": "obj-36",
+                    "maxclass": "message",
+                    "numinlets": 2,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 851.0, 565.0, 136.0, 22.0 ],
+                    "presentation_linecount": 2,
+                    "text": "make_gendsps_ref_xml"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-35",
+                    "maxclass": "message",
+                    "numinlets": 2,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 815.0, 529.0, 129.0, 22.0 ],
+                    "text": "make_defines_ref_xml"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-33",
+                    "maxclass": "message",
+                    "numinlets": 2,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 577.0, 492.0, 155.0, 22.0 ],
+                    "text": "make_abstractions_ref_xml"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-31",
+                    "maxclass": "message",
+                    "numinlets": 2,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 658.0, 589.0, 191.0, 22.0 ],
+                    "text": "make_gens_genexpr_xml_configs"
+                }
+            },
             {
                 "box": {
                     "id": "obj-26",
@@ -21,7 +66,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 723.0, 583.0, 161.0, 22.0 ],
+                    "patching_rect": [ 496.0, 589.0, 161.0, 22.0 ],
                     "text": "make_gens_ref_xml_configs"
                 }
             },
@@ -32,7 +77,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 738.0, 419.0, 187.0, 22.0 ],
+                    "patching_rect": [ 626.0, 549.0, 187.0, 22.0 ],
                     "text": "make_defs_genexpr_xml_configs"
                 }
             },
@@ -43,7 +88,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 578.0, 419.0, 158.0, 22.0 ],
+                    "patching_rect": [ 466.0, 549.0, 158.0, 22.0 ],
                     "text": "make_defs_ref_xml_configs"
                 }
             },
@@ -54,7 +99,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 549.0, 449.0, 155.0, 22.0 ],
+                    "patching_rect": [ 420.0, 516.0, 155.0, 22.0 ],
                     "text": "make_abs_ref_xml_configs"
                 }
             },
@@ -65,7 +110,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 592.0, 583.0, 126.0, 22.0 ],
+                    "patching_rect": [ 368.0, 589.0, 126.0, 22.0 ],
                     "text": "make_gens_ref_jsons"
                 }
             },
@@ -76,7 +121,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 565.0, 543.0, 123.0, 22.0 ],
+                    "patching_rect": [ 341.0, 549.0, 123.0, 22.0 ],
                     "text": "make_defs_ref_jsons"
                 }
             },
@@ -87,7 +132,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 523.0, 510.0, 119.0, 22.0 ],
+                    "patching_rect": [ 299.0, 516.0, 119.0, 22.0 ],
                     "text": "make_abs_ref_jsons"
                 }
             },
@@ -120,7 +165,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 232.0, 618.0, 151.0, 22.0 ],
+                    "patching_rect": [ 186.0, 618.0, 151.0, 22.0 ],
                     "text": "pete_test_xml_object build"
                 }
             },
@@ -131,7 +176,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 213.0, 589.0, 142.0, 22.0 ],
+                    "patching_rect": [ 167.0, 589.0, 142.0, 22.0 ],
                     "text": "pete_test_xml_object get"
                 }
             },
@@ -1088,6 +1133,30 @@
                 "patchline": {
                     "destination": [ "obj-1", 0 ],
                     "source": [ "obj-30", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-1", 0 ],
+                    "source": [ "obj-31", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-1", 0 ],
+                    "source": [ "obj-33", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-1", 0 ],
+                    "source": [ "obj-35", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-1", 0 ],
+                    "source": [ "obj-36", 0 ]
                 }
             },
             {

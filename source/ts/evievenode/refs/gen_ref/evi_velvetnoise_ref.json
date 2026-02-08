@@ -6,8 +6,9 @@
         "description": "TEXT_HERE"
     },
     "constructor": {
-        "inlets": []
+        "inlets": "frequency, mix"
     },
+    "includes": [],
     "inlets": [
         {
             "id": 1,
@@ -47,7 +48,18 @@
             "digest": "Called \"Velvet Noise\""
         }
     ],
-    "attributes": [],
+    "attributes": [
+        {
+            "name": "amplitude",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "1"
+            }
+        }
+    ],
     "seealso": [
         {
             "name": "",

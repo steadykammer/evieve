@@ -3,11 +3,14 @@
         "name": "evi_lpg_buchla",
         "category": "",
         "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "description": "[evi_lpg_buchla.gendsp] requires: [evi_buchla.genexpr]"
     },
     "constructor": {
-        "inlets": []
+        "inlets": "audio, frequency, resonance"
     },
+    "includes": [
+        "evi_buchla.genexpr"
+    ],
     "inlets": [
         {
             "id": 1,
@@ -54,7 +57,128 @@
             "digest": "HP"
         }
     ],
-    "attributes": [],
+    "attributes": [
+        {
+            "name": "boom",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "controlres",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "controlrf",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "localresample",
+            "type": "int",
+            "digest": "@min 0, @max 5",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "3"
+            }
+        },
+        {
+            "name": "lpg",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "1"
+            }
+        },
+        {
+            "name": "nonlin",
+            "type": "int",
+            "digest": "@min 0, @max 2",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "1"
+            }
+        },
+        {
+            "name": "resonance",
+            "type": "int",
+            "digest": "@min 0, @max 2",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "1"
+            }
+        },
+        {
+            "name": "rf",
+            "type": "int",
+            "digest": "@min 0, @max 1000000",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "rfhz",
+            "type": "int",
+            "digest": "@min 0.001, @max 19.2",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "4"
+            }
+        },
+        {
+            "name": "rfsmooth",
+            "type": "int",
+            "digest": "@min 0, @max 666",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "smooth",
+            "type": "float",
+            "digest": "@min 0, @max 333",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "15.111"
+            }
+        },
+        {
+            "name": "vca",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        }
+    ],
     "seealso": [
         {
             "name": "",

@@ -3,11 +3,14 @@
         "name": "evi_biquad",
         "category": "",
         "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "description": "[evi_biquad.gendsp] requires: [evi_biquad.genexpr]"
     },
     "constructor": {
-        "inlets": []
+        "inlets": "input, ff0, ff1, ff2, fb1, fb2, reset"
     },
+    "includes": [
+        "evi_biquad.genexpr"
+    ],
     "inlets": [
         {
             "id": 1,

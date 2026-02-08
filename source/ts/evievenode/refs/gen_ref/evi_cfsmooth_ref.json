@@ -6,8 +6,9 @@
         "description": "TEXT_HERE"
     },
     "constructor": {
-        "inlets": []
+        "inlets": "destination, ramp"
     },
+    "includes": [],
     "inlets": [
         {
             "id": 1,
@@ -33,7 +34,18 @@
             "digest": "Ramp"
         }
     ],
-    "attributes": [],
+    "attributes": [
+        {
+            "name": "hz",
+            "type": "int",
+            "digest": "@min 0, @max 10",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "2"
+            }
+        }
+    ],
     "seealso": [
         {
             "name": "",

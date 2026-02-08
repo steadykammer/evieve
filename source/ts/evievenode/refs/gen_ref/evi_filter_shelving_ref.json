@@ -3,11 +3,14 @@
         "name": "evi_filter_shelving",
         "category": "",
         "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "description": "[evi_filter_shelving.gendsp] requires: [evi_svf.genexpr]"
     },
     "constructor": {
-        "inlets": []
+        "inlets": "input"
     },
+    "includes": [
+        "evi_svf.genexpr"
+    ],
     "inlets": [
         {
             "id": 1,
@@ -26,7 +29,78 @@
             "digest": "Output"
         }
     ],
-    "attributes": [],
+    "attributes": [
+        {
+            "name": "highcutoff",
+            "type": "int",
+            "digest": "@min 500, @max samplerate*0.5",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "2000"
+            }
+        },
+        {
+            "name": "highdb",
+            "type": "int",
+            "digest": "@min -30, @max 30",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "highq",
+            "type": "int",
+            "digest": "@min 0.05, @max 20",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "1"
+            }
+        },
+        {
+            "name": "lowcutoff",
+            "type": "int",
+            "digest": "@min 1, @max 10000",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "250"
+            }
+        },
+        {
+            "name": "lowdb",
+            "type": "int",
+            "digest": "@min -30, @max 30",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "lowq",
+            "type": "int",
+            "digest": "@min 0.05, @max 20",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "1"
+            }
+        },
+        {
+            "name": "smooth",
+            "type": "float",
+            "digest": "@min 0, @max 333",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "22.666"
+            }
+        }
+    ],
     "seealso": [
         {
             "name": "",

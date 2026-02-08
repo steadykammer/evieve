@@ -6,8 +6,9 @@
         "description": "TEXT_HERE"
     },
     "constructor": {
-        "inlets": []
+        "inlets": "audio, cuttof"
     },
+    "includes": [],
     "inlets": [
         {
             "id": 1,
@@ -47,7 +48,18 @@
             "digest": ""
         }
     ],
-    "attributes": [],
+    "attributes": [
+        {
+            "name": "q",
+            "type": "symbol",
+            "digest": "@min 0.1, @max 10000",
+            "description": "",
+            "default": {
+                "type": "symbol",
+                "value": "sqrt2"
+            }
+        }
+    ],
     "seealso": [
         {
             "name": "",

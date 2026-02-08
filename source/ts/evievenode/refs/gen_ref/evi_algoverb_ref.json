@@ -3,11 +3,14 @@
         "name": "evi_algoverb",
         "category": "",
         "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "description": "[evi_algoverb.gendsp] requires: [evi_reverb_library.genexpr]"
     },
     "constructor": {
-        "inlets": []
+        "inlets": "audio, audio"
     },
+    "includes": [
+        "evi_reverb_library.genexpr"
+    ],
     "inlets": [
         {
             "id": 1,
@@ -40,7 +43,428 @@
             "digest": "Out R"
         }
     ],
-    "attributes": [],
+    "attributes": [
+        {
+            "name": "absorbtion",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.186"
+            }
+        },
+        {
+            "name": "damp1_a1",
+            "type": "float",
+            "digest": "@min -1, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": " 0.990808"
+            }
+        },
+        {
+            "name": "damp1_a2",
+            "type": "float",
+            "digest": "@min -1, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": " 0.004585"
+            }
+        },
+        {
+            "name": "damp1_a3",
+            "type": "float",
+            "digest": "@min -1, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": " 0.000021"
+            }
+        },
+        {
+            "name": "damp1_m0",
+            "type": "int",
+            "digest": "@min -2, @max 2",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": " 1"
+            }
+        },
+        {
+            "name": "damp1_m1",
+            "type": "float",
+            "digest": "@min -2, @max 2",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "-0.078988"
+            }
+        },
+        {
+            "name": "damp1_m2",
+            "type": "float",
+            "digest": "@min -2, @max 2",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "-0.077429"
+            }
+        },
+        {
+            "name": "damp2_a1",
+            "type": "float",
+            "digest": "@min -1, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": " 0.873073"
+            }
+        },
+        {
+            "name": "damp2_a2",
+            "type": "float",
+            "digest": "@min -1, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": " 0.061311"
+            }
+        },
+        {
+            "name": "damp2_a3",
+            "type": "float",
+            "digest": "@min -1, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": " 0.004305"
+            }
+        },
+        {
+            "name": "damp2_m0",
+            "type": "float",
+            "digest": "@min -2, @max 2",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": " 0.870964"
+            }
+        },
+        {
+            "name": "damp2_m1",
+            "type": "float",
+            "digest": "@min -2, @max 2",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": " 0.124581"
+            }
+        },
+        {
+            "name": "damp2_m2",
+            "type": "float",
+            "digest": "@min -2, @max 2",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": " 0.129036"
+            }
+        },
+        {
+            "name": "decay",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.475"
+            }
+        },
+        {
+            "name": "drywet",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.4"
+            }
+        },
+        {
+            "name": "earlyDiffusion",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.7"
+            }
+        },
+        {
+            "name": "earlySize",
+            "type": "float",
+            "digest": "@min -12, @max 60",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "31.992"
+            }
+        },
+        {
+            "name": "earlySymmetry",
+            "type": "float",
+            "digest": "@min -4, @max 4",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "1.7"
+            }
+        },
+        {
+            "name": "earlylate",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.46"
+            }
+        },
+        {
+            "name": "earlylock",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "1"
+            }
+        },
+        {
+            "name": "eq1_a1",
+            "type": "float",
+            "digest": "@min -1, @max 1\t",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": " 0.993304"
+            }
+        },
+        {
+            "name": "eq1_a2",
+            "type": "float",
+            "digest": "@min -1, @max 1\t",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": " 0.006651"
+            }
+        },
+        {
+            "name": "eq1_a3",
+            "type": "float",
+            "digest": "@min -1, @max 1\t",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": " 0.000045"
+            }
+        },
+        {
+            "name": "eq1_m0",
+            "type": "int",
+            "digest": "@min -16, @max 16\t",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": " 1"
+            }
+        },
+        {
+            "name": "eq1_m1",
+            "type": "float",
+            "digest": "@min -16, @max 16\t",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "-0.182477"
+            }
+        },
+        {
+            "name": "eq1_m2",
+            "type": "float",
+            "digest": "@min -16, @max 16\t",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "-0.331656"
+            }
+        },
+        {
+            "name": "eq2_a1",
+            "type": "float",
+            "digest": "@min -1, @max 1\t",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": " 0.882013"
+            }
+        },
+        {
+            "name": "eq2_a2",
+            "type": "float",
+            "digest": "@min -1, @max 1\t",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": " 0.105393"
+            }
+        },
+        {
+            "name": "eq2_a3",
+            "type": "float",
+            "digest": "@min -1, @max 1\t",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": " 0.012594"
+            }
+        },
+        {
+            "name": "eq2_m0",
+            "type": "float",
+            "digest": "@min -16, @max 16\t",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": " 0.446684"
+            }
+        },
+        {
+            "name": "eq2_m1",
+            "type": "float",
+            "digest": "@min -16, @max 16\t",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": " 0.22166"
+            }
+        },
+        {
+            "name": "eq2_m2",
+            "type": "float",
+            "digest": "@min -16, @max 16\t",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": " 0.553316"
+            }
+        },
+        {
+            "name": "lateDiffusion",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.7"
+            }
+        },
+        {
+            "name": "lateSize",
+            "type": "float",
+            "digest": "@min -24, @max 48",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.984"
+            }
+        },
+        {
+            "name": "lateSymmetry",
+            "type": "float",
+            "digest": "@min -3, @max 3",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "-1.3"
+            }
+        },
+        {
+            "name": "latelock",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "1"
+            }
+        },
+        {
+            "name": "modAmplitude",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.15"
+            }
+        },
+        {
+            "name": "modFrequency",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.23"
+            }
+        },
+        {
+            "name": "mute",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "preSymmetry",
+            "type": "float",
+            "digest": "@min -1, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.33"
+            }
+        },
+        {
+            "name": "preTime",
+            "type": "int",
+            "digest": "@min 0, @max 400",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "16"
+            }
+        },
+        {
+            "name": "smoothtime",
+            "type": "int",
+            "digest": "@min 0, @max 500",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "50"
+            }
+        }
+    ],
     "seealso": [
         {
             "name": "",

@@ -3,11 +3,14 @@
         "name": "evi_plateverb_lite",
         "category": "",
         "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "description": "[evi_plateverb_lite.gendsp] requires: [evi_reverb_library.genexpr]"
     },
     "constructor": {
-        "inlets": []
+        "inlets": "in, nothing"
     },
+    "includes": [
+        "evi_reverb_library.genexpr"
+    ],
     "inlets": [
         {
             "id": 1,
@@ -40,7 +43,228 @@
             "digest": "Right"
         }
     ],
-    "attributes": [],
+    "attributes": [
+        {
+            "name": "apGain1\t\t",
+            "type": "float",
+            "digest": "@min  0, @max  1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "  0.75"
+            }
+        },
+        {
+            "name": "apGain2\t\t",
+            "type": "float",
+            "digest": "@min  0, @max  1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "  0.625"
+            }
+        },
+        {
+            "name": "apGain3\t\t",
+            "type": "symbol",
+            "digest": "@min -1, @max  1",
+            "description": "",
+            "default": {
+                "type": "symbol",
+                "value": " -sqrt1_2"
+            }
+        },
+        {
+            "name": "apGain4\t\t",
+            "type": "float",
+            "digest": "@min  0, @max  1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "  0.5"
+            }
+        },
+        {
+            "name": "bypass",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "damp",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.67682"
+            }
+        },
+        {
+            "name": "decay",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.6"
+            }
+        },
+        {
+            "name": "diffuse",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.3"
+            }
+        },
+        {
+            "name": "dry",
+            "type": "int",
+            "digest": "@min -90, @max 0",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "-15"
+            }
+        },
+        {
+            "name": "highshelfG",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.123758"
+            }
+        },
+        {
+            "name": "highshelfK",
+            "type": "int",
+            "digest": "@min -3, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "lowshelfG",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.032214"
+            }
+        },
+        {
+            "name": "lowshelfK",
+            "type": "int",
+            "digest": "@min -3, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "pan",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.5"
+            }
+        },
+        {
+            "name": "size",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.2"
+            }
+        },
+        {
+            "name": "smoothtime",
+            "type": "int",
+            "digest": "@min 0, @max 500",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "30"
+            }
+        },
+        {
+            "name": "stereo",
+            "type": "int",
+            "digest": "@min 0, @max 2",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "sumMul\t\t",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "  0.14285714285714285"
+            }
+        },
+        {
+            "name": "sumMul05\t",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "  0.07142857142857142"
+            }
+        },
+        {
+            "name": "sumMulSq\t",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "  0.3779644730092272"
+            }
+        },
+        {
+            "name": "sumMulinv\t",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "  0.8571428571428572"
+            }
+        },
+        {
+            "name": "wet",
+            "type": "int",
+            "digest": "@min -90, @max 0",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "-3"
+            }
+        }
+    ],
     "seealso": [
         {
             "name": "",

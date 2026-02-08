@@ -3,11 +3,14 @@
         "name": "evi_damp_coeffs",
         "category": "",
         "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "description": "[evi_damp_coeffs.gendsp] requires: [evi_rcfilters.genexpr]"
     },
     "constructor": {
-        "inlets": []
+        "inlets": ""
     },
+    "includes": [
+        "evi_rcfilters.genexpr"
+    ],
     "inlets": [
         {
             "id": 1,
@@ -47,7 +50,68 @@
             "digest": "k"
         }
     ],
-    "attributes": [],
+    "attributes": [
+        {
+            "name": "HOST_SR",
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "48000 "
+            }
+        },
+        {
+            "name": "cutoffhigh",
+            "type": "int",
+            "digest": "@min 500, @max 15000",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "2000"
+            }
+        },
+        {
+            "name": "cutofflow",
+            "type": "int",
+            "digest": "@min 62.5, @max 4000",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "500"
+            }
+        },
+        {
+            "name": "damphigh",
+            "type": "int",
+            "digest": "@min -1, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "damplow",
+            "type": "int",
+            "digest": "@min -1, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "mode",
+            "type": "int",
+            "digest": "@min 0, @max 2",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        }
+    ],
     "seealso": [
         {
             "name": "",

@@ -3,11 +3,15 @@
         "name": "evi_formant_filter_morph",
         "category": "",
         "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "description": "[evi_formant_filter_morph.gendsp] requires: [evi_svf.genexpr, evi_smooth.genexpr]"
     },
     "constructor": {
-        "inlets": []
+        "inlets": "audio, voice, vowel, morph"
     },
+    "includes": [
+        "evi_svf.genexpr",
+        "evi_smooth.genexpr"
+    ],
     "inlets": [
         {
             "id": 1,
@@ -54,7 +58,148 @@
             "digest": "Formant Frequency in Hz (depending on 'formantfrequency' param)"
         }
     ],
-    "attributes": [],
+    "attributes": [
+        {
+            "name": "bwwarp",
+            "type": "int",
+            "digest": "@min 0.00625, @max 32",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "1"
+            }
+        },
+        {
+            "name": "cfwarp",
+            "type": "int",
+            "digest": "@min 0.025, @max 4",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "1"
+            }
+        },
+        {
+            "name": "datainterp",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "1"
+            }
+        },
+        {
+            "name": "datatype",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "formantfrequency",
+            "type": "int",
+            "digest": "@min 0, @max 4",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "formants",
+            "type": "int",
+            "digest": "@min 1, @max 5",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "5"
+            }
+        },
+        {
+            "name": "formantsoffset",
+            "type": "int",
+            "digest": "@min 0",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "gain",
+            "type": "int",
+            "digest": "@min -80, @max 20",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "gainnorm",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "gainwarp",
+            "type": "int",
+            "digest": "@min 0.025, @max 4",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "1"
+            }
+        },
+        {
+            "name": "paramsmooth",
+            "type": "float",
+            "digest": "@min 0, @max 333",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "15.111"
+            }
+        },
+        {
+            "name": "voices",
+            "type": "int",
+            "digest": "@min 1, @max 5",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "5"
+            }
+        },
+        {
+            "name": "vowels",
+            "type": "int",
+            "digest": "@min 1, @max 5",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "5"
+            }
+        },
+        {
+            "name": "warpsmooth",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "1"
+            }
+        }
+    ],
     "seealso": [
         {
             "name": "",

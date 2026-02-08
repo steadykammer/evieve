@@ -6,8 +6,9 @@
         "description": "TEXT_HERE"
     },
     "constructor": {
-        "inlets": []
+        "inlets": "main, sub"
     },
+    "includes": [],
     "inlets": [
         {
             "id": 1,
@@ -47,7 +48,18 @@
             "digest": "Phase 0..1"
         }
     ],
-    "attributes": [],
+    "attributes": [
+        {
+            "name": "subsmooth",
+            "type": "int",
+            "digest": "@min 0, @max 333",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        }
+    ],
     "seealso": [
         {
             "name": "",

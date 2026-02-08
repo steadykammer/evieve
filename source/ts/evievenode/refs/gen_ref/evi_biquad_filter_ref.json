@@ -3,11 +3,14 @@
         "name": "evi_biquad_filter",
         "category": "",
         "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "description": "[evi_biquad_filter.gendsp] requires: [evi_biquad.genexpr]"
     },
     "constructor": {
-        "inlets": []
+        "inlets": "input, cutoff, gain, q"
     },
+    "includes": [
+        "evi_biquad.genexpr"
+    ],
     "inlets": [
         {
             "id": 1,
@@ -47,7 +50,38 @@
             "digest": ""
         }
     ],
-    "attributes": [],
+    "attributes": [
+        {
+            "name": "cutoffunits",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "filter",
+            "type": "int",
+            "digest": "@min 0, @max 40",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "gainunits",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "1"
+            }
+        }
+    ],
     "seealso": [
         {
             "name": "",

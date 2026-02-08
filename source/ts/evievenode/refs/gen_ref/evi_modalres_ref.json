@@ -3,11 +3,14 @@
         "name": "evi_modalres",
         "category": "",
         "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "description": "[evi_modalres.gendsp] requires: [evi_approx.genexpr]"
     },
     "constructor": {
-        "inlets": []
+        "inlets": "trigger, low, resonant"
     },
+    "includes": [
+        "evi_approx.genexpr"
+    ],
     "inlets": [
         {
             "id": 1,

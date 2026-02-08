@@ -3,11 +3,14 @@
         "name": "evi_crossover_sum",
         "category": "",
         "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "description": "[evi_crossover_sum.gendsp] requires: [evi_crossovers.genexpr]"
     },
     "constructor": {
-        "inlets": []
+        "inlets": "low, mid, high, high"
     },
+    "includes": [
+        "evi_crossovers.genexpr"
+    ],
     "inlets": [
         {
             "id": 1,
@@ -47,7 +50,28 @@
             "digest": "of Summed Bands"
         }
     ],
-    "attributes": [],
+    "attributes": [
+        {
+            "name": "align",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "1"
+            }
+        },
+        {
+            "name": "order",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "1"
+            }
+        }
+    ],
     "seealso": [
         {
             "name": "",

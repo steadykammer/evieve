@@ -6,8 +6,9 @@
         "description": "TEXT_HERE"
     },
     "constructor": {
-        "inlets": []
+        "inlets": "pitch"
     },
+    "includes": [],
     "inlets": [
         {
             "id": 1,
@@ -26,7 +27,18 @@
             "digest": ""
         }
     ],
-    "attributes": [],
+    "attributes": [
+        {
+            "name": "base",
+            "type": "int",
+            "digest": "@min 415, @max 467",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "440"
+            }
+        }
+    ],
     "seealso": [
         {
             "name": "",

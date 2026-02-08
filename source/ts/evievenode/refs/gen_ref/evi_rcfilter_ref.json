@@ -3,11 +3,14 @@
         "name": "evi_rcfilter",
         "category": "",
         "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "description": "[evi_rcfilter.gendsp] requires: [evi_rcfilters.genexpr]"
     },
     "constructor": {
-        "inlets": []
+        "inlets": "input, hz"
     },
+    "includes": [
+        "evi_rcfilters.genexpr"
+    ],
     "inlets": [
         {
             "id": 1,
@@ -33,7 +36,38 @@
             "digest": "Nonlinear Lowpass"
         }
     ],
-    "attributes": [],
+    "attributes": [
+        {
+            "name": "oversample",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "prewarp",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "1"
+            }
+        },
+        {
+            "name": "smooth",
+            "type": "int",
+            "digest": "@min 0, @max 333",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        }
+    ],
     "seealso": [
         {
             "name": "",

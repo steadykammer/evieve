@@ -3,11 +3,14 @@
         "name": "evi_freqshift_hilbert",
         "category": "",
         "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "description": "[evi_freqshift_hilbert.gendsp] requires: [evi_ssb.genexpr]"
     },
     "constructor": {
-        "inlets": []
+        "inlets": "audio, frequency, frequency, signal"
     },
+    "includes": [
+        "evi_ssb.genexpr"
+    ],
     "inlets": [
         {
             "id": 1,
@@ -82,7 +85,148 @@
             "digest": ""
         }
     ],
-    "attributes": [],
+    "attributes": [
+        {
+            "name": "bandsmix",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.5"
+            }
+        },
+        {
+            "name": "coef1",
+            "type": "float",
+            "digest": "@min -10, @max 10",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.486604368613682"
+            }
+        },
+        {
+            "name": "coef2",
+            "type": "float",
+            "digest": "@min -10, @max 10",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.880779435272467"
+            }
+        },
+        {
+            "name": "coef3",
+            "type": "float",
+            "digest": "@min -10, @max 10",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.977931255616324"
+            }
+        },
+        {
+            "name": "coef4",
+            "type": "float",
+            "digest": "@min -10, @max 10",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.997673861850732"
+            }
+        },
+        {
+            "name": "coef5",
+            "type": "float",
+            "digest": "@min -10, @max 10",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.165149093559079"
+            }
+        },
+        {
+            "name": "coef6",
+            "type": "float",
+            "digest": "@min -10, @max 10",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.739829012544530"
+            }
+        },
+        {
+            "name": "coef7",
+            "type": "float",
+            "digest": "@min -10, @max 10",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.947940906329181"
+            }
+        },
+        {
+            "name": "coef8",
+            "type": "float",
+            "digest": "@min -10, @max 10",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.991209712705258"
+            }
+        },
+        {
+            "name": "drive",
+            "type": "float",
+            "digest": "@min 0, @max 2",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.5"
+            }
+        },
+        {
+            "name": "freqsmooth",
+            "type": "int",
+            "digest": "@min 0, @max 666",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "20"
+            }
+        },
+        {
+            "name": "resetauto",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "1"
+            }
+        },
+        {
+            "name": "saturation",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "smooth",
+            "type": "float",
+            "digest": "@min 0, @max 333",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "22.666"
+            }
+        }
+    ],
     "seealso": [
         {
             "name": "",

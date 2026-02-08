@@ -3,11 +3,15 @@
         "name": "evi_clipasym",
         "category": "",
         "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "description": "[evi_clipasym.gendsp] requires: [evi_smooth.genexpr, evi_waveshaping.genexpr]"
     },
     "constructor": {
-        "inlets": []
+        "inlets": "audio, asymmetry"
     },
+    "includes": [
+        "evi_smooth.genexpr",
+        "evi_waveshaping.genexpr"
+    ],
     "inlets": [
         {
             "id": 1,
@@ -33,7 +37,28 @@
             "digest": "Audio Out"
         }
     ],
-    "attributes": [],
+    "attributes": [
+        {
+            "name": "nonlin",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "smooth",
+            "type": "float",
+            "digest": "@min 0, @max 226.66",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "22.666"
+            }
+        }
+    ],
     "seealso": [
         {
             "name": "",

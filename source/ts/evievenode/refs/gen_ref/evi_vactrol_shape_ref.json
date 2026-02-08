@@ -6,8 +6,9 @@
         "description": "TEXT_HERE"
     },
     "constructor": {
-        "inlets": []
+        "inlets": "trigger, rise, fall"
     },
+    "includes": [],
     "inlets": [
         {
             "id": 1,
@@ -40,7 +41,38 @@
             "digest": "Envelope"
         }
     ],
-    "attributes": [],
+    "attributes": [
+        {
+            "name": "mode",
+            "type": "int",
+            "digest": "@min 0, @max 3",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "scalein",
+            "type": "int",
+            "digest": "@min 1, @max 10000",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "3"
+            }
+        },
+        {
+            "name": "scaleout",
+            "type": "int",
+            "digest": "@min 1, @max 1000",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "1"
+            }
+        }
+    ],
     "seealso": [
         {
             "name": "",

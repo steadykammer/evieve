@@ -3,11 +3,14 @@
         "name": "evi_softclip",
         "category": "",
         "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "description": "[evi_softclip.gendsp] requires: [evi_adaa.genexpr]"
     },
     "constructor": {
-        "inlets": []
+        "inlets": "audio"
     },
+    "includes": [
+        "evi_adaa.genexpr"
+    ],
     "inlets": [
         {
             "id": 1,

@@ -3,11 +3,14 @@
         "name": "evi_cross",
         "category": "",
         "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "description": "[evi_cross.gendsp] requires: [evi_crossovers.genexpr]"
     },
     "constructor": {
-        "inlets": []
+        "inlets": "input, crossover"
     },
+    "includes": [
+        "evi_crossovers.genexpr"
+    ],
     "inlets": [
         {
             "id": 1,

@@ -3,11 +3,14 @@
         "name": "evi_4wave",
         "category": "",
         "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "description": "[evi_4wave.gendsp] requires: [evi_polyblep.genexpr]"
     },
     "constructor": {
-        "inlets": []
+        "inlets": "frequency, naive"
     },
+    "includes": [
+        "evi_polyblep.genexpr"
+    ],
     "inlets": [
         {
             "id": 1,
@@ -61,7 +64,18 @@
             "digest": ""
         }
     ],
-    "attributes": [],
+    "attributes": [
+        {
+            "name": "zerosync",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        }
+    ],
     "seealso": [
         {
             "name": "",

@@ -3,11 +3,14 @@
         "name": "evi_sine_select",
         "category": "",
         "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "description": "[evi_sine_select.gendsp] requires: [evi_polyblep.genexpr]"
     },
     "constructor": {
-        "inlets": []
+        "inlets": "frequency, sync"
     },
+    "includes": [
+        "evi_polyblep.genexpr"
+    ],
     "inlets": [
         {
             "id": 1,
@@ -47,7 +50,48 @@
             "digest": ""
         }
     ],
-    "attributes": [],
+    "attributes": [
+        {
+            "name": "compensate",
+            "type": "int",
+            "digest": "@min 0, @max 2",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "1"
+            }
+        },
+        {
+            "name": "dc",
+            "type": "int",
+            "digest": "@min 0, @max 3",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "1"
+            }
+        },
+        {
+            "name": "oscillator",
+            "type": "int",
+            "digest": "@min 0, @max 11",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "oversample",
+            "type": "int",
+            "digest": "@min 0, @max 3",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "1"
+            }
+        }
+    ],
     "seealso": [
         {
             "name": "",

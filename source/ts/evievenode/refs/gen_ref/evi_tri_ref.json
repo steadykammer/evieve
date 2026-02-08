@@ -3,11 +3,14 @@
         "name": "evi_tri",
         "category": "",
         "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "description": "[evi_tri.gendsp] requires: [evi_polyblep.genexpr]"
     },
     "constructor": {
-        "inlets": []
+        "inlets": "frequency, reset"
     },
+    "includes": [
+        "evi_polyblep.genexpr"
+    ],
     "inlets": [
         {
             "id": 1,

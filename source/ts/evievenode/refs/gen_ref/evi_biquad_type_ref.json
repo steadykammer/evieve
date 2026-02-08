@@ -3,11 +3,14 @@
         "name": "evi_biquad_type",
         "category": "",
         "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "description": "[evi_biquad_type.gendsp] requires: [evi_biquad.genexpr]"
     },
     "constructor": {
-        "inlets": []
+        "inlets": "input, ff0, ff1, ff2, fb1, fb2"
     },
+    "includes": [
+        "evi_biquad.genexpr"
+    ],
     "inlets": [
         {
             "id": 1,
@@ -61,7 +64,18 @@
             "digest": ""
         }
     ],
-    "attributes": [],
+    "attributes": [
+        {
+            "name": "type",
+            "type": "int",
+            "digest": "@min 0, @max 2",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "1"
+            }
+        }
+    ],
     "seealso": [
         {
             "name": "",

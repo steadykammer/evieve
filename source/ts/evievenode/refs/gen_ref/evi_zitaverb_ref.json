@@ -3,11 +3,14 @@
         "name": "evi_zitaverb",
         "category": "",
         "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "description": "[evi_zitaverb.gendsp] requires: [evi_reverb_library.genexpr]"
     },
     "constructor": {
-        "inlets": []
+        "inlets": "audio, audio"
     },
+    "includes": [
+        "evi_reverb_library.genexpr"
+    ],
     "inlets": [
         {
             "id": 1,
@@ -40,7 +43,498 @@
             "digest": "Out R"
         }
     ],
-    "attributes": [],
+    "attributes": [
+        {
+            "name": "apTime1",
+            "type": "int",
+            "digest": "@min 1, @max 6068",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "977"
+            }
+        },
+        {
+            "name": "apTime2",
+            "type": "int",
+            "digest": "@min 1, @max 6068",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "1172"
+            }
+        },
+        {
+            "name": "apTime3",
+            "type": "int",
+            "digest": "@min 1, @max 6068",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "1517"
+            }
+        },
+        {
+            "name": "apTime4",
+            "type": "int",
+            "digest": "@min 1, @max 6068",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "1312"
+            }
+        },
+        {
+            "name": "apTime5",
+            "type": "int",
+            "digest": "@min 1, @max 6068",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "1099"
+            }
+        },
+        {
+            "name": "apTime6",
+            "type": "int",
+            "digest": "@min 1, @max 6068",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "1406"
+            }
+        },
+        {
+            "name": "apTime7",
+            "type": "int",
+            "digest": "@min 1, @max 6068",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "646"
+            }
+        },
+        {
+            "name": "apTime8",
+            "type": "int",
+            "digest": "@min 1, @max 6068",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "918"
+            }
+        },
+        {
+            "name": "bypass\t\t",
+            "type": "int",
+            "digest": "@min  0, @max  1\t\t",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "\t0"
+            }
+        },
+        {
+            "name": "const3mul\t ",
+            "type": "float",
+            "digest": "@min   0, @max  1 ",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": " 0.333333333333333"
+            }
+        },
+        {
+            "name": "crossover\t",
+            "type": "int",
+            "digest": "@min  31.25, @max  1260\t",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "\t315"
+            }
+        },
+        {
+            "name": "damp\t\t",
+            "type": "int",
+            "digest": "@min  500, @max  15000\t",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "\t3780"
+            }
+        },
+        {
+            "name": "dfTime1",
+            "type": "int",
+            "digest": "@min 1, @max 44075",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "6373"
+            }
+        },
+        {
+            "name": "dfTime2",
+            "type": "int",
+            "digest": "@min 1, @max 44075",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "8927"
+            }
+        },
+        {
+            "name": "dfTime3",
+            "type": "int",
+            "digest": "@min 1, @max 44075",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "4619"
+            }
+        },
+        {
+            "name": "dfTime4",
+            "type": "int",
+            "digest": "@min 1, @max 44075",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "11019"
+            }
+        },
+        {
+            "name": "dfTime5",
+            "type": "int",
+            "digest": "@min 1, @max 44075",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "7287"
+            }
+        },
+        {
+            "name": "dfTime6",
+            "type": "int",
+            "digest": "@min 1, @max 44075",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "7825"
+            }
+        },
+        {
+            "name": "dfTime7",
+            "type": "int",
+            "digest": "@min 1, @max 44075",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "5354"
+            }
+        },
+        {
+            "name": "dfTime8",
+            "type": "int",
+            "digest": "@min 1, @max 44075",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "9642"
+            }
+        },
+        {
+            "name": "drywet\t\t",
+            "type": "float",
+            "digest": "@min  0, @max  1\t\t",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "\t0.8666"
+            }
+        },
+        {
+            "name": "eq1_a1\t\t",
+            "type": "float",
+            "digest": "@min -1, @max  1\t\t",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "\t0.979389"
+            }
+        },
+        {
+            "name": "eq1_a2\t\t",
+            "type": "float",
+            "digest": "@min -1, @max  1\t\t",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "\t0.020195"
+            }
+        },
+        {
+            "name": "eq1_a3\t\t",
+            "type": "float",
+            "digest": "@min -1, @max  1\t\t",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "\t0.000416"
+            }
+        },
+        {
+            "name": "eq1_m0\t\t",
+            "type": "int",
+            "digest": "@min -16, @max  16\t\t",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "\t1"
+            }
+        },
+        {
+            "name": "eq1_m1\t\t",
+            "type": "int",
+            "digest": "@min -16, @max  16\t\t",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "\t0"
+            }
+        },
+        {
+            "name": "eq1_m2\t\t",
+            "type": "int",
+            "digest": "@min -16, @max  16\t\t",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "\t0"
+            }
+        },
+        {
+            "name": "eq2_a1\t\t",
+            "type": "float",
+            "digest": "@min -1, @max  1\t\t",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "\t0.853140"
+            }
+        },
+        {
+            "name": "eq2_a2\t\t",
+            "type": "float",
+            "digest": "@min -1, @max  1\t\t",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "\t0.070516"
+            }
+        },
+        {
+            "name": "eq2_a3\t\t",
+            "type": "float",
+            "digest": "@min -1, @max  1\t\t",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "\t0.005828"
+            }
+        },
+        {
+            "name": "eq2_m0\t\t",
+            "type": "int",
+            "digest": "@min -16, @max  16\t\t",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "\t1"
+            }
+        },
+        {
+            "name": "eq2_m1\t\t",
+            "type": "int",
+            "digest": "@min -16, @max  16\t\t",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "\t0"
+            }
+        },
+        {
+            "name": "eq2_m2\t\t",
+            "type": "int",
+            "digest": "@min -16, @max  16\t\t",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "\t0"
+            }
+        },
+        {
+            "name": "fbTime1",
+            "type": "int",
+            "digest": "@min 1, @max 49323",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "7350"
+            }
+        },
+        {
+            "name": "fbTime2",
+            "type": "int",
+            "digest": "@min 1, @max 49323",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "10099"
+            }
+        },
+        {
+            "name": "fbTime3",
+            "type": "int",
+            "digest": "@min 1, @max 49323",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "6136"
+            }
+        },
+        {
+            "name": "fbTime4",
+            "type": "int",
+            "digest": "@min 1, @max 49323",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "12331"
+            }
+        },
+        {
+            "name": "fbTime5",
+            "type": "int",
+            "digest": "@min 1, @max 49323",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "8386"
+            }
+        },
+        {
+            "name": "fbTime6",
+            "type": "int",
+            "digest": "@min 1, @max 49323",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "9231"
+            }
+        },
+        {
+            "name": "fbTime7",
+            "type": "int",
+            "digest": "@min 1, @max 49323",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "6000"
+            }
+        },
+        {
+            "name": "fbTime8",
+            "type": "int",
+            "digest": "@min 1, @max 49323",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "10560"
+            }
+        },
+        {
+            "name": "gain\t\t",
+            "type": "int",
+            "digest": "@min -80, @max  20\t\t",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "  -1"
+            }
+        },
+        {
+            "name": "gainAPconst\t ",
+            "type": "float",
+            "digest": "@min   0, @max  1 ",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": " 0.6033"
+            }
+        },
+        {
+            "name": "lowdecay\t",
+            "type": "float",
+            "digest": "@min  0.06, @max  60\t\t",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "\t3.333333"
+            }
+        },
+        {
+            "name": "m3l10const\t ",
+            "type": "float",
+            "digest": "@min -10, @max  0 ",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "-6.907755278982138"
+            }
+        },
+        {
+            "name": "middecay\t",
+            "type": "float",
+            "digest": "@min  0.06, @max  60\t\t",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "\t2.222222"
+            }
+        },
+        {
+            "name": "predelay\t",
+            "type": "int",
+            "digest": "@min  0, @max  170\t",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "\t19"
+            }
+        },
+        {
+            "name": "sqrt8const\t ",
+            "type": "float",
+            "digest": "@min   0, @max  10",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": " 2.8284271247461903"
+            }
+        },
+        {
+            "name": "sqrt8constMul",
+            "type": "float",
+            "digest": "@min   0, @max  1 ",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": " 0.35355339059327373"
+            }
+        }
+    ],
     "seealso": [
         {
             "name": "",

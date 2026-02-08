@@ -3,11 +3,15 @@
         "name": "evi_majorverb",
         "category": "",
         "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "description": "[evi_majorverb.gendsp] requires: [evi_reverb_library.genexpr, evi_saturators.genexpr]"
     },
     "constructor": {
-        "inlets": []
+        "inlets": "left, right"
     },
+    "includes": [
+        "evi_reverb_library.genexpr",
+        "evi_saturators.genexpr"
+    ],
     "inlets": [
         {
             "id": 1,
@@ -40,7 +44,488 @@
             "digest": ""
         }
     ],
-    "attributes": [],
+    "attributes": [
+        {
+            "name": "delay1",
+            "type": "float",
+            "digest": "@min 1, @max 47559",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "\t\t2299.2"
+            }
+        },
+        {
+            "name": "delay10",
+            "type": "float",
+            "digest": "@min 1, @max 47559",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "\t10075.2"
+            }
+        },
+        {
+            "name": "delay11",
+            "type": "float",
+            "digest": "@min 1, @max 47559",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "\t10459.2"
+            }
+        },
+        {
+            "name": "delay12",
+            "type": "float",
+            "digest": "@min 1, @max 47559",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "\t10804.8"
+            }
+        },
+        {
+            "name": "delay13",
+            "type": "float",
+            "digest": "@min 1, @max 47559",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "\t11227.2"
+            }
+        },
+        {
+            "name": "delay14",
+            "type": "float",
+            "digest": "@min 1, @max 47559",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "\t11515.2"
+            }
+        },
+        {
+            "name": "delay15",
+            "type": "float",
+            "digest": "@min 1, @max 47559",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "\t11716.8"
+            }
+        },
+        {
+            "name": "delay16",
+            "type": "float",
+            "digest": "@min 1, @max 47559",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "\t11889.6"
+            }
+        },
+        {
+            "name": "delay2",
+            "type": "float",
+            "digest": "@min 1, @max 47559",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "\t\t5764.8"
+            }
+        },
+        {
+            "name": "delay3",
+            "type": "float",
+            "digest": "@min 1, @max 47559",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "\t\t6532.8"
+            }
+        },
+        {
+            "name": "delay4",
+            "type": "float",
+            "digest": "@min 1, @max 47559",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "\t\t7003.2"
+            }
+        },
+        {
+            "name": "delay5",
+            "type": "float",
+            "digest": "@min 1, @max 47559",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "\t\t7627.2"
+            }
+        },
+        {
+            "name": "delay6",
+            "type": "float",
+            "digest": "@min 1, @max 47559",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "\t\t8126.4"
+            }
+        },
+        {
+            "name": "delay7",
+            "type": "float",
+            "digest": "@min 1, @max 47559",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "\t\t8644.8"
+            }
+        },
+        {
+            "name": "delay8",
+            "type": "float",
+            "digest": "@min 1, @max 47559",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "\t\t9124.8"
+            }
+        },
+        {
+            "name": "delay9",
+            "type": "float",
+            "digest": "@min 1, @max 47559",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "\t\t9614.4"
+            }
+        },
+        {
+            "name": "drywet",
+            "type": "symbol",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "symbol",
+                "value": "sqrt1_2"
+            }
+        },
+        {
+            "name": "feedback",
+            "type": "float",
+            "digest": "@min 0.01, @max 10",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "2.4"
+            }
+        },
+        {
+            "name": "feedbackdamphigh",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.8666"
+            }
+        },
+        {
+            "name": "feedbackdamplow",
+            "type": "symbol",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "symbol",
+                "value": "sqrt1_2"
+            }
+        },
+        {
+            "name": "feedbackhzhigh",
+            "type": "int",
+            "digest": "@min 250, @max 8000",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "2000"
+            }
+        },
+        {
+            "name": "feedbackhzlow",
+            "type": "int",
+            "digest": "@min 62.5, @max 500",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "250"
+            }
+        },
+        {
+            "name": "feedbacknonlinear",
+            "type": "int",
+            "digest": "@min 0, @max 2",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "1"
+            }
+        },
+        {
+            "name": "inputhzhigh",
+            "type": "int",
+            "digest": "@min 500, @max 14700",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "4000"
+            }
+        },
+        {
+            "name": "inputhzlow",
+            "type": "int",
+            "digest": "@min 31.25, @max 500",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "125"
+            }
+        },
+        {
+            "name": "mod1",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "\t\t0.666"
+            }
+        },
+        {
+            "name": "mod2",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "\t\t0.625"
+            }
+        },
+        {
+            "name": "mod3",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "\t\t0.555"
+            }
+        },
+        {
+            "name": "mod4",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "\t\t0.476"
+            }
+        },
+        {
+            "name": "mod5",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "\t\t0.435"
+            }
+        },
+        {
+            "name": "mod6",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "\t\t0.303"
+            }
+        },
+        {
+            "name": "mod7",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "\t\t0.181"
+            }
+        },
+        {
+            "name": "mod8",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "\t\t0.122"
+            }
+        },
+        {
+            "name": "modulationdepth",
+            "type": "int",
+            "digest": "@min 0, @max 16",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "4"
+            }
+        },
+        {
+            "name": "modulationduty",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.5"
+            }
+        },
+        {
+            "name": "modulationrate",
+            "type": "int",
+            "digest": "@min 0.125, @max 8",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "1"
+            }
+        },
+        {
+            "name": "modulationshape",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "1"
+            }
+        },
+        {
+            "name": "modulationskew",
+            "type": "int",
+            "digest": "@min 0.5, @max 2",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "1"
+            }
+        },
+        {
+            "name": "outputnonlinear",
+            "type": "int",
+            "digest": "@min 0, @max 2",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "1"
+            }
+        },
+        {
+            "name": "outputnonlineargains",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "sum1",
+            "type": "int",
+            "digest": "@min 1, @max 40877",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "\t\t2914"
+            }
+        },
+        {
+            "name": "sum2",
+            "type": "int",
+            "digest": "@min 1, @max 40877",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "\t\t3710"
+            }
+        },
+        {
+            "name": "sum3",
+            "type": "int",
+            "digest": "@min 1, @max 40877",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "\t\t6590"
+            }
+        },
+        {
+            "name": "sum4",
+            "type": "int",
+            "digest": "@min 1, @max 40877",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "\t\t5390"
+            }
+        },
+        {
+            "name": "sum5",
+            "type": "int",
+            "digest": "@min 1, @max 40877",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "\t\t8414"
+            }
+        },
+        {
+            "name": "sum6",
+            "type": "int",
+            "digest": "@min 1, @max 40877",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "\t\t7685"
+            }
+        },
+        {
+            "name": "sum7",
+            "type": "int",
+            "digest": "@min 1, @max 40877",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "\t\t9125"
+            }
+        },
+        {
+            "name": "sum8",
+            "type": "int",
+            "digest": "@min 1, @max 40877",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "\t\t10219"
+            }
+        }
+    ],
     "seealso": [
         {
             "name": "",

@@ -3,11 +3,15 @@
         "name": "evi_damp_macro",
         "category": "",
         "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "description": "[evi_damp_macro.gendsp] requires: [evi_rcfilters.genexpr, evi_smooth.genexpr]"
     },
     "constructor": {
-        "inlets": []
+        "inlets": "audio"
     },
+    "includes": [
+        "evi_rcfilters.genexpr",
+        "evi_smooth.genexpr"
+    ],
     "inlets": [
         {
             "id": 1,
@@ -26,7 +30,28 @@
             "digest": "Audio Output"
         }
     ],
-    "attributes": [],
+    "attributes": [
+        {
+            "name": "damp",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "smooth",
+            "type": "int",
+            "digest": "@min 0, @max 999",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        }
+    ],
     "seealso": [
         {
             "name": "",

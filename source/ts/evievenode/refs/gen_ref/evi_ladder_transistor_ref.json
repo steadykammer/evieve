@@ -3,11 +3,15 @@
         "name": "evi_ladder_transistor",
         "category": "",
         "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "description": "[evi_ladder_transistor.gendsp] requires: [evi_tanh.genexpr, evi_interp.genexpr]"
     },
     "constructor": {
-        "inlets": []
+        "inlets": "input, cutoff, cutoff, cutoff, resonance"
     },
+    "includes": [
+        "evi_tanh.genexpr",
+        "evi_interp.genexpr"
+    ],
     "inlets": [
         {
             "id": 1,
@@ -54,7 +58,48 @@
             "digest": "Ladder"
         }
     ],
-    "attributes": [],
+    "attributes": [
+        {
+            "name": "cfmode",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "1"
+            }
+        },
+        {
+            "name": "cfsmooth",
+            "type": "int",
+            "digest": "@min 0, @max 666",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "10"
+            }
+        },
+        {
+            "name": "oversample",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "1"
+            }
+        },
+        {
+            "name": "ressmooth",
+            "type": "int",
+            "digest": "@min 0, @max 333",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "20"
+            }
+        }
+    ],
     "seealso": [
         {
             "name": "",

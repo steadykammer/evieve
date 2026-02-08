@@ -3,11 +3,14 @@
         "name": "evi_freezeverb",
         "category": "",
         "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "description": "[evi_freezeverb.gendsp] requires: [evi_reverb_library.genexpr]"
     },
     "constructor": {
-        "inlets": []
+        "inlets": "left, right"
     },
+    "includes": [
+        "evi_reverb_library.genexpr"
+    ],
     "inlets": [
         {
             "id": 1,
@@ -40,7 +43,418 @@
             "digest": "Reverb Output"
         }
     ],
-    "attributes": [],
+    "attributes": [
+        {
+            "name": "ALLPASSFB\t",
+            "type": "float",
+            "digest": "@min 0, @max 1\t\t ",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": " 0.5"
+            }
+        },
+        {
+            "name": "FIXEDGAIN\t",
+            "type": "float",
+            "digest": "@min 0, @max 1\t\t ",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": " 0.015"
+            }
+        },
+        {
+            "name": "OFFSETROOM\t",
+            "type": "float",
+            "digest": "@min 0, @max 1\t\t ",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": " 0.7"
+            }
+        },
+        {
+            "name": "SCALEDAMP\t",
+            "type": "float",
+            "digest": "@min 0, @max 1\t\t ",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": " 0.4"
+            }
+        },
+        {
+            "name": "SCALEDRY\t",
+            "type": "int",
+            "digest": "@min 0, @max 10\t\t ",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": " 2"
+            }
+        },
+        {
+            "name": "SCALEEARLY\t",
+            "type": "float",
+            "digest": "@min 0, @max 1\t\t ",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": " 0.555555"
+            }
+        },
+        {
+            "name": "SCALEROOM\t",
+            "type": "float",
+            "digest": "@min 0, @max 1\t\t ",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": " 0.28"
+            }
+        },
+        {
+            "name": "SCALEWET\t",
+            "type": "int",
+            "digest": "@min 0, @max 10\t\t ",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": " 3"
+            }
+        },
+        {
+            "name": "SQRT8MUL\t",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": " 0.353553390593274"
+            }
+        },
+        {
+            "name": "aSprSamps",
+            "type": "int",
+            "digest": "@min 1, @max 200",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "\t24"
+            }
+        },
+        {
+            "name": "ap1samps",
+            "type": "int",
+            "digest": "@min 1, @max 2421",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "\t605"
+            }
+        },
+        {
+            "name": "ap2samps",
+            "type": "int",
+            "digest": "@min 1, @max 2421",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "\t480"
+            }
+        },
+        {
+            "name": "ap3samps",
+            "type": "int",
+            "digest": "@min 1, @max 2421",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "\t371"
+            }
+        },
+        {
+            "name": "ap4samps",
+            "type": "int",
+            "digest": "@min 1, @max 2421",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "\t245"
+            }
+        },
+        {
+            "name": "bypass",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "cSprSamps",
+            "type": "int",
+            "digest": "@min 1, @max 200",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "\t50"
+            }
+        },
+        {
+            "name": "comb1samps",
+            "type": "int",
+            "digest": "@min 1, @max 7040",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "\t1215"
+            }
+        },
+        {
+            "name": "comb2samps",
+            "type": "int",
+            "digest": "@min 1, @max 7040",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "\t1293"
+            }
+        },
+        {
+            "name": "comb3samps",
+            "type": "int",
+            "digest": "@min 1, @max 7040",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "\t1390"
+            }
+        },
+        {
+            "name": "comb4samps",
+            "type": "int",
+            "digest": "@min 1, @max 7040",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "\t1476"
+            }
+        },
+        {
+            "name": "comb5samps",
+            "type": "int",
+            "digest": "@min 1, @max 7040",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "\t1548"
+            }
+        },
+        {
+            "name": "comb6samps",
+            "type": "int",
+            "digest": "@min 1, @max 7040",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "\t1623"
+            }
+        },
+        {
+            "name": "comb7samps",
+            "type": "int",
+            "digest": "@min 1, @max 7040",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "\t1695"
+            }
+        },
+        {
+            "name": "comb8samps",
+            "type": "int",
+            "digest": "@min 1, @max 7040",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "\t1760"
+            }
+        },
+        {
+            "name": "damp",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.42"
+            }
+        },
+        {
+            "name": "dry",
+            "type": "int",
+            "digest": "@min -90, @max 0",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "-12"
+            }
+        },
+        {
+            "name": "early",
+            "type": "int",
+            "digest": "@min -90, @max 0",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "-20"
+            }
+        },
+        {
+            "name": "etap1samps",
+            "type": "int",
+            "digest": "@min 1, @max 1502",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "\t69"
+            }
+        },
+        {
+            "name": "etap2samps",
+            "type": "int",
+            "digest": "@min 1, @max 1502",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "\t155"
+            }
+        },
+        {
+            "name": "etap3samps",
+            "type": "int",
+            "digest": "@min 1, @max 1502",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "\t251"
+            }
+        },
+        {
+            "name": "etap4samps",
+            "type": "int",
+            "digest": "@min 1, @max 1502",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "\t376"
+            }
+        },
+        {
+            "name": "freeze",
+            "type": "int",
+            "digest": "@min 0, @max 2",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "highshelfG",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.123758"
+            }
+        },
+        {
+            "name": "highshelfK",
+            "type": "int",
+            "digest": "@min -3, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "lowshelfG",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.032214"
+            }
+        },
+        {
+            "name": "lowshelfK",
+            "type": "int",
+            "digest": "@min -3, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "pre",
+            "type": "int",
+            "digest": "@min 0, @max 143",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "9"
+            }
+        },
+        {
+            "name": "size",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.78"
+            }
+        },
+        {
+            "name": "smoothtime\t",
+            "type": "int",
+            "digest": "@min 1, @max 500\t\t ",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": " 49"
+            }
+        },
+        {
+            "name": "wet",
+            "type": "float",
+            "digest": "@min -90, @max 0",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "-9.542434"
+            }
+        },
+        {
+            "name": "width",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.7"
+            }
+        }
+    ],
     "seealso": [
         {
             "name": "",

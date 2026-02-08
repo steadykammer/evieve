@@ -3,11 +3,14 @@
         "name": "evi_filter_morph",
         "category": "",
         "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "description": "[evi_filter_morph.gendsp] requires: [evi_svf.genexpr]"
     },
     "constructor": {
-        "inlets": []
+        "inlets": "input, frequency, gain, resonance, morph"
     },
+    "includes": [
+        "evi_svf.genexpr"
+    ],
     "inlets": [
         {
             "id": 1,
@@ -54,7 +57,18 @@
             "digest": "Filter Output"
         }
     ],
-    "attributes": [],
+    "attributes": [
+        {
+            "name": "smooth",
+            "type": "float",
+            "digest": "@min 0, @max 1000",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "22.666"
+            }
+        }
+    ],
     "seealso": [
         {
             "name": "",

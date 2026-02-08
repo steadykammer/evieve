@@ -3,11 +3,16 @@
         "name": "evi_limiterfast",
         "category": "",
         "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "description": "[evi_limiterfast.gendsp] requires: [evi_smooth.genexpr, evi_clip.genexpr, evi_biquad.genexpr]"
     },
     "constructor": {
-        "inlets": []
+        "inlets": "audio, audio"
     },
+    "includes": [
+        "evi_smooth.genexpr",
+        "evi_clip.genexpr",
+        "evi_biquad.genexpr"
+    ],
     "inlets": [
         {
             "id": 1,
@@ -47,7 +52,58 @@
             "digest": "Envelope (Linear)"
         }
     ],
-    "attributes": [],
+    "attributes": [
+        {
+            "name": "clip",
+            "type": "int",
+            "digest": "@min 0, @max 2",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "ingain",
+            "type": "int",
+            "digest": "@min -20, @max 40",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "1"
+            }
+        },
+        {
+            "name": "knee",
+            "type": "float",
+            "digest": "@min 0.001, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.55"
+            }
+        },
+        {
+            "name": "release",
+            "type": "int",
+            "digest": "@min 1, @max 376",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "52"
+            }
+        },
+        {
+            "name": "smooth",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.05"
+            }
+        }
+    ],
     "seealso": [
         {
             "name": "",

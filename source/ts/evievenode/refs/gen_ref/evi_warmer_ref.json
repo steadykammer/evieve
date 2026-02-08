@@ -3,11 +3,14 @@
         "name": "evi_warmer",
         "category": "",
         "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "description": "[evi_warmer.gendsp] requires: [evi_warmer_lib.genexpr]"
     },
     "constructor": {
-        "inlets": []
+        "inlets": "boring"
     },
+    "includes": [
+        "evi_warmer_lib.genexpr"
+    ],
     "inlets": [
         {
             "id": 1,
@@ -26,7 +29,128 @@
             "digest": "Output"
         }
     ],
-    "attributes": [],
+    "attributes": [
+        {
+            "name": "bassboost",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "bassgain",
+            "type": "int",
+            "digest": "@min -12, @max 12",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "-1"
+            }
+        },
+        {
+            "name": "bassmix",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.333333"
+            }
+        },
+        {
+            "name": "bassslope",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.23228"
+            }
+        },
+        {
+            "name": "blend",
+            "type": "int",
+            "digest": "@min -10, @max 10",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "-2"
+            }
+        },
+        {
+            "name": "cutoff",
+            "type": "symbol",
+            "digest": "@min samplerate*0.00125, @max samplerate*0.25",
+            "description": "",
+            "default": {
+                "type": "symbol",
+                "value": "samplerate*0.125"
+            }
+        },
+        {
+            "name": "drive",
+            "type": "int",
+            "digest": "@min 0, @max 10",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "2"
+            }
+        },
+        {
+            "name": "highpass",
+            "type": "int",
+            "digest": "@min 10, @max 400",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "100"
+            }
+        },
+        {
+            "name": "ingain",
+            "type": "int",
+            "digest": "@min -48, @max 48",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "1"
+            }
+        },
+        {
+            "name": "order",
+            "type": "int",
+            "digest": "@min 0, @max 8",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "3"
+            }
+        },
+        {
+            "name": "outgain",
+            "type": "int",
+            "digest": "@min -24, @max 24",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "-1"
+            }
+        },
+        {
+            "name": "smooth",
+            "type": "float",
+            "digest": "@min 0, @max 301.11",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "30.111"
+            }
+        }
+    ],
     "seealso": [
         {
             "name": "",

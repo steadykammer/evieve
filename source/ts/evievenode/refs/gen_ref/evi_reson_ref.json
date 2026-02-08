@@ -3,11 +3,14 @@
         "name": "evi_reson",
         "category": "",
         "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "description": "[evi_reson.gendsp] requires: [evi_svf.genexpr]"
     },
     "constructor": {
-        "inlets": []
+        "inlets": "input, input, center, resonance"
     },
+    "includes": [
+        "evi_svf.genexpr"
+    ],
     "inlets": [
         {
             "id": 1,
@@ -47,7 +50,28 @@
             "digest": "Output"
         }
     ],
-    "attributes": [],
+    "attributes": [
+        {
+            "name": "compensate",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "smooth",
+            "type": "int",
+            "digest": "@min 0, @max 333",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        }
+    ],
     "seealso": [
         {
             "name": "",

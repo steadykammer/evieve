@@ -26,8 +26,8 @@ max define mc.evi.biquad.bandpass~ mc.gen~ @gen evi_biquad_bandpass.gendsp @chan
 max define evi.biquad.butterworth~ gen~ @gen evi_biquad_butterworth.gendsp;
 max define mc.evi.biquad.butterworth~ mc.gen~ @gen evi_biquad_butterworth.gendsp @chans 2;
 
-max define evi.biquad.coeff~ gen~ @gen evi_biquad_coeff.gendsp;
-max define mc.evi.biquad.coeff~ mc.gen~ @gen evi_biquad_coeff.gendsp @chans 2;
+max define evi.biquadcoeff~ gen~ @gen evi_biquad_coeff.gendsp;
+max define mc.evi.biquadcoeff~ mc.gen~ @gen evi_biquad_coeff.gendsp @chans 2;
 
 max define evi.biquad.eqfilter~ gen~ @gen evi_biquad_eqfilter.gendsp;
 max define mc.evi.biquad.eqfilter~ mc.gen~ @gen evi_biquad_eqfilter.gendsp @chans 2;

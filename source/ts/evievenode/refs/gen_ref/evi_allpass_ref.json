@@ -3,11 +3,14 @@
         "name": "evi_allpass",
         "category": "",
         "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "description": "[evi_allpass.gendsp] requires: [evi_smooth.genexpr]"
     },
     "constructor": {
-        "inlets": []
+        "inlets": "input, delay, gain"
     },
+    "includes": [
+        "evi_smooth.genexpr"
+    ],
     "inlets": [
         {
             "id": 1,
@@ -40,7 +43,28 @@
             "digest": "Delay Filter Output"
         }
     ],
-    "attributes": [],
+    "attributes": [
+        {
+            "name": "feedbackmix",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "smooth",
+            "type": "int",
+            "digest": "@min 0, @max 333",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        }
+    ],
     "seealso": [
         {
             "name": "",

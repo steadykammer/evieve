@@ -12,9 +12,7 @@
     <constructorlist>
         <constructor name='1'>
             <digest>
-                {{#each constructor.inlets}}
-                { arguments={}, inlets={ {{this}} } }
-                {{/each}}
+                { arguments={}, inlets={ {{constructor.inlets}} } }
             </digest>
         </constructor>
     </constructorlist>

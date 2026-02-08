@@ -3,11 +3,14 @@
         "name": "evi_mattaverb",
         "category": "",
         "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "description": "[evi_mattaverb.gendsp] requires: [evi_reverb_library.genexpr]"
     },
     "constructor": {
-        "inlets": []
+        "inlets": "in, in"
     },
+    "includes": [
+        "evi_reverb_library.genexpr"
+    ],
     "inlets": [
         {
             "id": 1,
@@ -40,7 +43,68 @@
             "digest": "Right"
         }
     ],
-    "attributes": [],
+    "attributes": [
+        {
+            "name": "damp",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "drywet",
+            "type": "symbol",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "symbol",
+                "value": "sqrt1_2"
+            }
+        },
+        {
+            "name": "high",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.666666"
+            }
+        },
+        {
+            "name": "low",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.333333"
+            }
+        },
+        {
+            "name": "size",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.5"
+            }
+        },
+        {
+            "name": "space",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "1"
+            }
+        }
+    ],
     "seealso": [
         {
             "name": "",

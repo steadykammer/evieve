@@ -3,11 +3,14 @@
         "name": "evi_controlcircuit_buchla",
         "category": "",
         "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "description": "[evi_controlcircuit_buchla.gendsp] requires: [evi_rcfilters.genexpr]"
     },
     "constructor": {
-        "inlets": []
+        "inlets": "@c, @c, @c, @c"
     },
+    "includes": [
+        "evi_rcfilters.genexpr"
+    ],
     "inlets": [
         {
             "id": 1,
@@ -47,7 +50,68 @@
             "digest": "R_f (to LPG)"
         }
     ],
-    "attributes": [],
+    "attributes": [
+        {
+            "name": "control",
+            "type": "int",
+            "digest": "@min 0, @max 2",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "1"
+            }
+        },
+        {
+            "name": "mapcutoff",
+            "type": "int",
+            "digest": "@min 7, @max 788",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "143"
+            }
+        },
+        {
+            "name": "mapdamp",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "offsetsmooth",
+            "type": "int",
+            "digest": "@min 0, @max 333",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "scalersmooth",
+            "type": "int",
+            "digest": "@min 0, @max 111",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "sweepsmooth",
+            "type": "int",
+            "digest": "@min 0, @max 222",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        }
+    ],
     "seealso": [
         {
             "name": "",

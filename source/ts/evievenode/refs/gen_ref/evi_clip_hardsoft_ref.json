@@ -3,11 +3,14 @@
         "name": "evi_clip_hardsoft",
         "category": "",
         "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "description": "[evi_clip_hardsoft.gendsp] requires: [evi_clip.genexpr]"
     },
     "constructor": {
-        "inlets": []
+        "inlets": "audio"
     },
+    "includes": [
+        "evi_clip.genexpr"
+    ],
     "inlets": [
         {
             "id": 1,
@@ -26,7 +29,28 @@
             "digest": "Aliased Clipped Audio Out"
         }
     ],
-    "attributes": [],
+    "attributes": [
+        {
+            "name": "clip",
+            "type": "int",
+            "digest": "@min 0, @max 3",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "oversampling",
+            "type": "int",
+            "digest": "@min 0, @max 2",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "2"
+            }
+        }
+    ],
     "seealso": [
         {
             "name": "",

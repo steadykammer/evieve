@@ -3,11 +3,14 @@
         "name": "evi_hardclip",
         "category": "",
         "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "description": "[evi_hardclip.gendsp] requires: [evi_interp.genexpr]"
     },
     "constructor": {
-        "inlets": []
+        "inlets": "audio"
     },
+    "includes": [
+        "evi_interp.genexpr"
+    ],
     "inlets": [
         {
             "id": 1,
@@ -26,7 +29,28 @@
             "digest": "Aliased Clipped Output"
         }
     ],
-    "attributes": [],
+    "attributes": [
+        {
+            "name": "aa",
+            "type": "int",
+            "digest": "@min 0, @max 5",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "3"
+            }
+        },
+        {
+            "name": "limit",
+            "type": "int",
+            "digest": "@min 0.9, @max 1.1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "1"
+            }
+        }
+    ],
     "seealso": [
         {
             "name": "",

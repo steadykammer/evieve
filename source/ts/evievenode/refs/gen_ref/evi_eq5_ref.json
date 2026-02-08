@@ -3,11 +3,14 @@
         "name": "evi_eq5",
         "category": "",
         "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "description": "[evi_eq5.gendsp] requires: [evi_svf.genexpr]"
     },
     "constructor": {
-        "inlets": []
+        "inlets": "input"
     },
+    "includes": [
+        "evi_svf.genexpr"
+    ],
     "inlets": [
         {
             "id": 1,
@@ -26,7 +29,218 @@
             "digest": "bands EQ Output"
         }
     ],
-    "attributes": [],
+    "attributes": [
+        {
+            "name": "band1db",
+            "type": "int",
+            "digest": "@min -24, @max 24",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "band1filter",
+            "type": "int",
+            "digest": "@min 0, @max 9",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "3"
+            }
+        },
+        {
+            "name": "band1freq",
+            "type": "int",
+            "digest": "@min 10, @max 18000",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "125"
+            }
+        },
+        {
+            "name": "band1q",
+            "type": "int",
+            "digest": "@min 0.1, @max 18",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "1"
+            }
+        },
+        {
+            "name": "band2db",
+            "type": "int",
+            "digest": "@min -24, @max 24",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "band2filter",
+            "type": "int",
+            "digest": "@min 0, @max 9",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "4"
+            }
+        },
+        {
+            "name": "band2freq",
+            "type": "int",
+            "digest": "@min 10, @max 18000",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "500"
+            }
+        },
+        {
+            "name": "band2q",
+            "type": "symbol",
+            "digest": "@min 0.1, @max 18",
+            "description": "",
+            "default": {
+                "type": "symbol",
+                "value": "sqrt1_2"
+            }
+        },
+        {
+            "name": "band3db",
+            "type": "int",
+            "digest": "@min -24, @max 24",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "band3filter",
+            "type": "int",
+            "digest": "@min 0, @max 9",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "4"
+            }
+        },
+        {
+            "name": "band3freq",
+            "type": "int",
+            "digest": "@min 10, @max 18000",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "1000"
+            }
+        },
+        {
+            "name": "band3q",
+            "type": "symbol",
+            "digest": "@min 0.1, @max 18",
+            "description": "",
+            "default": {
+                "type": "symbol",
+                "value": "sqrt1_2"
+            }
+        },
+        {
+            "name": "band4db",
+            "type": "int",
+            "digest": "@min -24, @max 24",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "band4filter",
+            "type": "int",
+            "digest": "@min 0, @max 9",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "4"
+            }
+        },
+        {
+            "name": "band4freq",
+            "type": "int",
+            "digest": "@min 10, @max 18000",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "2000"
+            }
+        },
+        {
+            "name": "band4q",
+            "type": "symbol",
+            "digest": "@min 0.1, @max 18",
+            "description": "",
+            "default": {
+                "type": "symbol",
+                "value": "sqrt1_2"
+            }
+        },
+        {
+            "name": "band5db",
+            "type": "int",
+            "digest": "@min -24, @max 24",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "band5filter",
+            "type": "int",
+            "digest": "@min 0, @max 9",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "6"
+            }
+        },
+        {
+            "name": "band5freq",
+            "type": "int",
+            "digest": "@min 10, @max 18000",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "4000"
+            }
+        },
+        {
+            "name": "band5q",
+            "type": "int",
+            "digest": "@min 0.1, @max 18",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "1"
+            }
+        },
+        {
+            "name": "smooth",
+            "type": "float",
+            "digest": "@min 0, @max 333",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "15.333"
+            }
+        }
+    ],
     "seealso": [
         {
             "name": "",

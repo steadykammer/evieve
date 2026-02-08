@@ -3,11 +3,15 @@
         "name": "evi_damp",
         "category": "",
         "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "description": "[evi_damp.gendsp] requires: [evi_rcfilters.genexpr, evi_smooth.genexpr]"
     },
     "constructor": {
-        "inlets": []
+        "inlets": "input, frequency, damp"
     },
+    "includes": [
+        "evi_rcfilters.genexpr",
+        "evi_smooth.genexpr"
+    ],
     "inlets": [
         {
             "id": 1,
@@ -47,7 +51,28 @@
             "digest": "Highpass/Lowshelf"
         }
     ],
-    "attributes": [],
+    "attributes": [
+        {
+            "name": "smoothdamp",
+            "type": "int",
+            "digest": "@min 0, @max 333",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "smoothfreq",
+            "type": "int",
+            "digest": "@min 0, @max 333",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        }
+    ],
     "seealso": [
         {
             "name": "",

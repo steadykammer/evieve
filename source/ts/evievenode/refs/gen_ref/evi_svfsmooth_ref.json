@@ -3,11 +3,15 @@
         "name": "evi_svfsmooth",
         "category": "",
         "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "description": "[evi_svfsmooth.gendsp] requires: [evi_tanh.genexpr, evi_smooth.genexpr]"
     },
     "constructor": {
-        "inlets": []
+        "inlets": "input, freq, resonance, morph"
     },
+    "includes": [
+        "evi_tanh.genexpr",
+        "evi_smooth.genexpr"
+    ],
     "inlets": [
         {
             "id": 1,
@@ -75,7 +79,48 @@
             "digest": ""
         }
     ],
-    "attributes": [],
+    "attributes": [
+        {
+            "name": "cutoffmode",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "1"
+            }
+        },
+        {
+            "name": "morphsmooth",
+            "type": "int",
+            "digest": "@min 0, @max 333",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "30"
+            }
+        },
+        {
+            "name": "saturation",
+            "type": "int",
+            "digest": "@min -20, @max 40",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "20"
+            }
+        },
+        {
+            "name": "saturationsmooth",
+            "type": "int",
+            "digest": "@min 0, @max 111",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        }
+    ],
     "seealso": [
         {
             "name": "",

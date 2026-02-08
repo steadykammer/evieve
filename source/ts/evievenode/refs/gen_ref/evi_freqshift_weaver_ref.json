@@ -3,11 +3,14 @@
         "name": "evi_freqshift_weaver",
         "category": "",
         "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "description": "[evi_freqshift_weaver.gendsp] requires: [evi_ssb.genexpr]"
     },
     "constructor": {
-        "inlets": []
+        "inlets": "audio, (float/int, frequency, phase"
     },
+    "includes": [
+        "evi_ssb.genexpr"
+    ],
     "inlets": [
         {
             "id": 1,
@@ -61,7 +64,108 @@
             "digest": "quadOsc Sin (if oscout attr)"
         }
     ],
-    "attributes": [],
+    "attributes": [
+        {
+            "name": "detune",
+            "type": "int",
+            "digest": "@min -100, @max 100",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "drive",
+            "type": "float",
+            "digest": "@min 0, @max 2",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.5"
+            }
+        },
+        {
+            "name": "freqsmooth",
+            "type": "int",
+            "digest": "@min 0, @max 666",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "20"
+            }
+        },
+        {
+            "name": "highpass",
+            "type": "int",
+            "digest": "@min 10, @max 400",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "40"
+            }
+        },
+        {
+            "name": "oscout",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "resetauto",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "1"
+            }
+        },
+        {
+            "name": "saturation",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "select",
+            "type": "int",
+            "digest": "@min 0, @max 2",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "1"
+            }
+        },
+        {
+            "name": "shiftmode",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "smooth",
+            "type": "float",
+            "digest": "@min 0, @max 1000",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "22.666"
+            }
+        }
+    ],
     "seealso": [
         {
             "name": "",

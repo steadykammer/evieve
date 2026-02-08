@@ -3,11 +3,16 @@
         "name": "evi_overdrive_tanh",
         "category": "",
         "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "description": "[evi_overdrive_tanh.gendsp] requires: [evi_saturators.genexpr, evi_smooth.genexpr, evi_rcfilters.genexpr]"
     },
     "constructor": {
-        "inlets": []
+        "inlets": "input, drive"
     },
+    "includes": [
+        "evi_saturators.genexpr",
+        "evi_smooth.genexpr",
+        "evi_rcfilters.genexpr"
+    ],
     "inlets": [
         {
             "id": 1,
@@ -33,7 +38,88 @@
             "digest": "Saturation Out - anti-aliased for your audio not for Maths"
         }
     ],
-    "attributes": [],
+    "attributes": [
+        {
+            "name": "aa",
+            "type": "int",
+            "digest": "@min 0, @max 5",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "3"
+            }
+        },
+        {
+            "name": "hfcompensate",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "1"
+            }
+        },
+        {
+            "name": "highcutoff",
+            "type": "int",
+            "digest": "@min 1000, @max 16000",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "4000"
+            }
+        },
+        {
+            "name": "highdamp",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.5"
+            }
+        },
+        {
+            "name": "io",
+            "type": "int",
+            "digest": "@min -1, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "lowcutoff",
+            "type": "int",
+            "digest": "@min 10, @max 400",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "40"
+            }
+        },
+        {
+            "name": "lowdamp",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.5"
+            }
+        },
+        {
+            "name": "smooth",
+            "type": "float",
+            "digest": "@min 0, @max 333",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "22.666"
+            }
+        }
+    ],
     "seealso": [
         {
             "name": "",

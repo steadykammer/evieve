@@ -3,11 +3,14 @@
         "name": "evi_crossover",
         "category": "",
         "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "description": "[evi_crossover.gendsp] requires: [evi_crossovers.genexpr]"
     },
     "constructor": {
-        "inlets": []
+        "inlets": "input, crossover"
     },
+    "includes": [
+        "evi_crossovers.genexpr"
+    ],
     "inlets": [
         {
             "id": 1,
@@ -40,7 +43,18 @@
             "digest": "Band Output"
         }
     ],
-    "attributes": [],
+    "attributes": [
+        {
+            "name": "order",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        }
+    ],
     "seealso": [
         {
             "name": "",

@@ -3,11 +3,14 @@
         "name": "evi_korgms20",
         "category": "",
         "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "description": "[evi_korgms20.gendsp] requires: [evi_tanh.genexpr]"
     },
     "constructor": {
-        "inlets": []
+        "inlets": "audio, cutoff, resonance"
     },
+    "includes": [
+        "evi_tanh.genexpr"
+    ],
     "inlets": [
         {
             "id": 1,
@@ -47,7 +50,18 @@
             "digest": "OTA S&K Highpass"
         }
     ],
-    "attributes": [],
+    "attributes": [
+        {
+            "name": "load",
+            "type": "float",
+            "digest": "@min 0.5, @max 2",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "1.333333333333"
+            }
+        }
+    ],
     "seealso": [
         {
             "name": "",

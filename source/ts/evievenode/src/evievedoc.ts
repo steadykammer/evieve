@@ -95,6 +95,22 @@ max.addHandler('make_gens_ref_xml_configs', () => {
 	parseGendspsData();
 })
 
+max.addHandler('make_gens_genexpr_xml_configs', () => {
+	parseGendspsCodeboxes();
+})
+
+max.addHandler('make_abstractions_ref_xml', () => {
+	makeDocRefpagesAbstractions();
+})
+
+max.addHandler('make_defines_ref_xml', () => {
+	makeDocRefpagesDefines();
+})
+
+max.addHandler('make_gendsps_ref_xml', () => {
+	makeDocRefpagesGendsps();
+})
+
 // --------------------------------------------- //
 // testing
 
@@ -180,6 +196,137 @@ async function testEditAutoXml()
 }
 
 // --------------------------------------------- //
+
+// 'codeboxesRefsPath' contains code extracted from .gendsp abstraction embedded codeboxes
+// during 'parseGendspsLoop()', (because i cannot get pegjs system working)
+async function parseGendspsCodeboxes()
+{
+	const gendspsRefsPath = `${cwd()}/${config.referenceFiles.genDsp.config}`; // !!
+	let fullRefsNames = getFileNamesFromPath(gendspsRefsPath, 'json');
+	const IGNORE = /_xml_gendsp_template.json/;
+	fullRefsNames = fullRefsNames.filter((str) => !IGNORE.test(str));
+	const codeboxesRefsPath = `${gendspsRefsPath}/codeboxes`;
+	const fullCodeboxesNames = getFileNamesFromPath(codeboxesRefsPath, 'genexpr');
+
+	const attributesConfig: any = {
+		"name": "",
+		"type": "",
+		"digest": "",
+		"description": "",
+		"default": {
+			"type": "float",
+			"value": 0
+		}
+	};
+
+	for await (const refJson of fullRefsNames) {
+		const refJsonFullRWpath = `${gendspsRefsPath}/${refJson}`;
+		const chichiForPrinting = refJson.replace('_ref.json', '.gendsp');
+		const derivedCodeboxName = refJson.replace('_ref.json', '_codebox.genexpr');
+		if (fullCodeboxesNames.includes(derivedCodeboxName)) {
+			const thisConfigJson = fs.readFileSync(refJsonFullRWpath, 'utf8');
+			const thisConfigObject = JSON.parse(thisConfigJson);
+			// const thisConfigGenExpr = fs.readFileSync(`${codeboxesRefsPath}/${derivedCodeboxName}`, 'utf8');
+			// const pre_ast = PEGparser.parse(thisConfigGenExpr);
+			// void max.post(`parser test for ${refJson}: ${JSON.stringify(pre_ast)}`);
+
+			let FOUND_PARAM: boolean = false;
+
+			const rlInterface = readline.createInterface({
+				input: fs.createReadStream(`${codeboxesRefsPath}/${derivedCodeboxName}`),
+				crlfDelay: Infinity
+			});
+			// this will only work for Pete's pedantic style of GenExpr coding :-(
+			rlInterface.on('line', (line) => {
+				if (!(/^\s/.test(line))) {
+					if (!(line.startsWith('//')) && !(line.startsWith('/*'))) {
+						const line_trim = line.trim();
+						let line_candidate = line_trim;
+						if (line_trim.includes('//')) {
+							line_candidate = line_trim.split('//')[0];
+						}
+						if (line_trim.includes('/*')) {
+							line_candidate = line_trim.split('/*')[0];
+						}
+
+						if (line_candidate.startsWith('require')) {
+							const line_tokens = line_candidate.split('\"');
+							let requireDecl = line_tokens[1];
+							if (!requireDecl.endsWith('.genexpr')) {
+								requireDecl = `${requireDecl}.genexpr`; // because pete has forgotten sometimes
+							}
+
+							thisConfigObject.includes.push(requireDecl);
+
+							// void max.post(`found a require in ${chichiForPrinting}: ${requireDecl}`);
+
+						// } else if (line_candidate.startsWith('History')) {
+						} else if (line_candidate.startsWith('Param')) {
+							if (!FOUND_PARAM) {
+								thisConfigObject.attributes = thisConfigObject.attributes.filter((entry: { name: string; }) => entry.name !== "");
+							}
+							const line_tokens = line_candidate.split('(');
+							const paramName = line_tokens[0].replace('Param', '').trimStart();
+							const paramData = line_tokens[1].split(',');
+							const paramDefault = paramData[0].replace(')', '').replaceAll(',', '').replaceAll(';', '');
+							let paramMin = "0";
+							let HAS_MIN = false;
+							let paramMax = "0";
+							let HAS_MAX = false;
+							for (let i = 0; i < paramData.length; i++) {
+								const testParamData = paramData[i].trim();
+								if (testParamData.startsWith("min")) {
+									paramMin = paramData[i].split('=')[1].split(')')[0].replaceAll(',', '').replaceAll(';', '');
+									HAS_MIN = true;
+								} else if (testParamData.startsWith("max")) {
+									paramMax = paramData[i].split('=')[1].split(')')[0].replaceAll(',', '').replaceAll(';', '');
+									HAS_MAX = true;
+								}
+							}
+
+							let thisAttr: any = JSON.parse(JSON.stringify(attributesConfig));
+							thisAttr.name = paramName;
+							const type = inferTypeFromString(paramDefault);
+							thisAttr.type = type;
+							thisAttr.default.type = type;
+							thisAttr.default.value = paramDefault;
+							if (HAS_MIN && !HAS_MAX) {
+								thisAttr.digest = `@min ${paramMin}`;
+							} else if (!HAS_MIN && HAS_MAX) {
+								thisAttr.digest = `@max ${paramMax}`;
+							} else if (HAS_MIN && HAS_MAX) {
+								thisAttr.digest = `@min ${paramMin}, @max ${paramMax}`;
+							}
+							thisConfigObject.attributes.push(thisAttr);
+
+							FOUND_PARAM = true;
+							// void max.post(`found a param in ${chichiForPrinting}: ${JSON.stringify(thisAttr)}`);
+						}
+					}
+				}
+			});
+
+			rlInterface.on('close', () => {
+
+				// void max.post(`this END config object is: ${JSON.stringify(thisConfigObject)}`);
+
+				thisConfigObject.attributes = thinUniqueArrayByKey(thisConfigObject.attributes, "name");
+				thisConfigObject.attributes.sort((a: { name: string; }, b: { name: string; }) => {
+					return a.name >= b.name ? 1 : -1;
+				});
+
+				thisConfigObject.includes = [...new Set(thisConfigObject.includes)];
+				if (thisConfigObject.includes.length) {
+					const includesString = thisConfigObject.includes.join(', ');
+					thisConfigObject.object.description = `[${thisConfigObject.object.name}.gendsp] requires: [${includesString}]`;
+				}
+
+				fs.writeFileSync(refJsonFullRWpath, JSON.stringify(thisConfigObject, null, 4));
+
+			});
+		}
+	}
+}
 
 async function parseGendspsData()
 {
@@ -322,6 +469,12 @@ async function parseGendspsLoop(gendspPath: string, gendspName: string, thisConf
 	thisConfigObject.outlets.sort((a: { id: number; }, b: { id: number; }) => {
 		return a.id >= b.id ? 1 : -1;
 	});
+
+	const inletsArray: string[] = [];
+	for (const inlet of thisConfigObject.inlets) {
+		inletsArray.push(inlet.name);
+	}
+	thisConfigObject.constructor.inlets = inletsArray.join(', '); // cop out, but easier
 
 	// const Require: RegExp = /(?:^|\W)require(?:$|\W)/;
 	// const History: RegExp = /(?:^|\W)history(?:$|\W)/;
@@ -1323,6 +1476,9 @@ function inferTypeFromString(thisValue: string)
 	// const isNumericFromString = (string: string) => /^[+-]?\d+(\.\d+)?$/.test(string);
 	const isNumericFinite = (input: string | number) => Number.isFinite(+input);
 
+	const floatsArray: string[] = ["sqrt1_2", "sqrt2", "pi", "twopi"]; // etc
+	const intsArray: string[] = ["samplerate", "vectorsize"];
+
 	let thisValueMaxType: string;
 	if (isNumericFinite(thisValue)) {
 		if (thisValue.includes('.')) {
@@ -1331,10 +1487,17 @@ function inferTypeFromString(thisValue: string)
 			thisValueMaxType = "int";
 		}
 	} else {
-		thisValueMaxType = "symbol";
+		if (floatsArray.includes(thisValue.toLowerCase())) {
+			thisValueMaxType = "float";
+		} else if (intsArray.includes(thisValue.toLowerCase())) {
+			thisValueMaxType = "int";
+		} else {
+			thisValueMaxType = "symbol";
+		}
 	}
 	return thisValueMaxType;
 }
+
 /*
 function parsePatcherArgs(boxText: string, objectConfig: any)
 {
@@ -1690,6 +1853,56 @@ function makeDocRefpagesXmlContents() {
 	refFiles = refFiles.filter((str) => !IGNORE.test(str));
 
 	renderFromTemplate('../templates/xmlcontents.handlebars', { ref: refFiles }, `${refDir}/_c74_contents.xml`);
+}
+
+// --------------------------------------------- //
+
+async function makeDocRefpagesAbstractions() {
+	let refDir = `${cwd()}/${config.referenceFiles.abstractions.config}`;
+	const outDir = `${cwd()}/${config.referenceFiles.abstractions.output}`
+	let refFiles = getFileNamesFromPath(refDir, 'json');
+	const IGNORE = /_xml_abstraction_template.json/;
+	refFiles = refFiles.filter((str) => !IGNORE.test(str));
+
+	for await (const refFile of refFiles) {
+		const thisConfigJson = fs.readFileSync(`${refDir}/${refFile}`, 'utf8');
+		const thisConfigObject = JSON.parse(thisConfigJson);
+		const writeName = refFile.replace('_ref.json', '.maxref.xml');
+		const writePath = `${outDir}/${writeName}`
+		renderFromTemplate('../templates/refpage_abstraction.handlebars', thisConfigObject, writePath);
+	}
+}
+
+async function makeDocRefpagesDefines() {
+	let refDir = `${cwd()}/${config.referenceFiles.defines.config}`;
+	const outDir = `${cwd()}/${config.referenceFiles.defines.output}`
+	let refFiles = getFileNamesFromPath(refDir, 'json');
+	const IGNORE = /_xml_define_template.json/;
+	refFiles = refFiles.filter((str) => !IGNORE.test(str));
+
+	for await (const refFile of refFiles) {
+		const thisConfigJson = fs.readFileSync(`${refDir}/${refFile}`, 'utf8');
+		const thisConfigObject = JSON.parse(thisConfigJson);
+		const writeName = (`${thisConfigObject.object.name}.maxref.xml`);
+		const writePath = `${outDir}/${writeName}`
+		renderFromTemplate('../templates/refpage_define.handlebars', thisConfigObject, writePath);
+	}
+}
+
+async function makeDocRefpagesGendsps() {
+	let refDir = `${cwd()}/${config.referenceFiles.genDsp.config}`;
+	const outDir = `${cwd()}/${config.referenceFiles.genDsp.output}`
+	let refFiles = getFileNamesFromPath(refDir, 'json');
+	const IGNORE = /_xml_gendsp_template.json/;
+	refFiles = refFiles.filter((str) => !IGNORE.test(str));
+
+	for await (const refFile of refFiles) {
+		const thisConfigJson = fs.readFileSync(`${refDir}/${refFile}`, 'utf8');
+		const thisConfigObject = JSON.parse(thisConfigJson);
+		const writeName = refFile.replace('_ref.json', '.maxref.xml');
+		const writePath = `${outDir}/gen_dsp_${writeName}`;
+		renderFromTemplate('../templates/refpage_gendsp.handlebars', thisConfigObject, writePath);
+	}
 }
 
 // --------------------------------------------- //
