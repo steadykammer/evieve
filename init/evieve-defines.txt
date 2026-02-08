@@ -1,4 +1,3 @@
-
 max define evi.4wave~ gen~ @gen evi_4wave.gendsp;
 max define mc.evi.4wave~ mc.gen~ @gen evi_4wave.gendsp @chans 2;
 
@@ -333,3 +332,4 @@ max define mc.evi.zeroxcount~ mc.gen~ @gen evi_zeroxcount.gendsp @chans 2;
 
 max define evi.zeroxoscnoise~ gen~ @gen evi_zeroxoscnoise.gendsp;
 max define mc.evi.zeroxoscnoise~ mc.gen~ @gen evi_zeroxoscnoise.gendsp @chans 2;
+

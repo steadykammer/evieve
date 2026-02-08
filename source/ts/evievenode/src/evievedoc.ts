@@ -8,10 +8,10 @@ import { cwd } from 'process';
 import readline from 'readline';
 import Handlebars from 'handlebars';
 import { XMLParser, XMLBuilder } from 'fast-xml-parser';
-import PEGgy from "peggy";
+import PEGgy from 'peggy';
 
 import config from '../config/evievedoc.config.json';// with { type: 'json' };
-import gendsp from '../config/evievedoc.config.gendsp.json';// with { type: 'json' };
+import gendsp from '../config/evievedoc.config.gendsp.json';
 import maxpat from '../config/evievedoc.config.maxpat.json';
 import mxo from '../config/evievedoc.config.mxo.json';
 
@@ -20,12 +20,130 @@ const attributeXmlPrefix = 'maxattr_';
 
 const genexpr_pegjs = fs.readFileSync('../peg/genexpr.pegjs', 'utf8');
 const peg_parse_options = {
-	// output: "ast",			// output the parser as...
+	// output: "source",	// output the parser as...
 	cache: true,			// avoids pathological slowdowns
 	allowedStartRules: [ "start", "translation_unit", "gen" ]
 };
 const PEGparser = PEGgy.generate(genexpr_pegjs, peg_parse_options);
 // void max.post(`look at the peg: ${JSON.stringify(PEGparser)}`);
+
+// --------------------------------------------- //
+
+interface inoutletsConfig {
+	id: number,
+	name?: string,
+	type: string,
+	optional?: number,
+	digest: string,
+	description?: string
+}
+
+interface attributesConfig {
+	name: string,
+	get?: number,
+	type: string,
+	digest: string,
+	description: string,
+	default: {
+		type?: string,
+		get?: number,
+		min?: number,
+		max?: number,
+		value: number
+	}
+}
+
+interface messagesConfig {
+	name: string,
+	arg: [
+		{
+			name: string,
+			type: string,
+			units: string,
+			optional: number
+		}
+	],
+	digest: string,
+	description: string
+}
+
+interface msgArgsConfig {
+	name: string,
+	type: string,
+	units: string,
+	optional: number
+}
+
+interface argumentsConfig {
+	name: string,
+	type: string,
+	default: string,
+	optional: number,
+	digest: string,
+	description: string
+}
+
+interface gendspConfigTemplate {
+	define: {
+		object: boolean,
+		msp: string,
+		mcwrapper: boolean
+	},
+	ref: {
+		gen: boolean,
+		msp: boolean
+	},
+	help: {
+		msp: boolean,
+		gentab: boolean,
+		genexprtab: boolean,
+		areaonly: boolean,
+		areas: string[]
+	},
+	db: {
+		browser: boolean,
+		auto: boolean
+	}
+}
+
+interface abstractionsConfigTemplate {
+	object: boolean,
+	ref: boolean,
+	qlookup: boolean,
+	helpfile: {
+		generate: boolean,
+		mctab: boolean,
+		mcstab: boolean,
+		mcparent: string,
+		mcchild: string,
+		gentab: boolean,
+		genexprtab: boolean,
+		areas: string[]
+	},
+	db: {
+		browser: boolean,
+		auto: boolean
+	}
+}
+
+interface externalsConfigTemplate {
+	object: boolean,
+	mc: boolean,
+	ref: boolean,
+	helpfile: {
+		generate: boolean,
+		mctab: boolean,
+		mcstab: boolean,
+		mcseparate: boolean,
+		gentab: boolean,
+		genexprtab: boolean,
+		areas: string[]
+	},
+	db: {
+		browser: boolean,
+		auto: boolean
+	}
+}
 
 // --------------------------------------------- //
 
@@ -50,7 +168,7 @@ max.addHandler('make_externals_refpages', (force = false) => {
 
 // not needed anymore
 max.addHandler('make_refpages_rename', () => {
-    externalsRefpagesRename();
+    // externalsRefpagesRename();
 })
 
 max.addHandler('make_refpages_contents', () => {
@@ -58,13 +176,13 @@ max.addHandler('make_refpages_contents', () => {
 })
 
 max.addHandler('make_gendsp_defines', () => {
-    // createGendspDefines();
-	manuallyCreateGendspDefines();
+    createGendspDefines();
+	// manuallyCreateGendspDefines();
 })
 
 max.addHandler('make_externals_mappings', () => {
-	// createMxoObjectmappings();
-	manuallyCreateMxoObjectmappings();
+	createMxoObjectmappings();
+	// manuallyCreateMxoObjectmappings();
 })
 
 max.addHandler('make_abs_ref_jsons', () => {
@@ -750,7 +868,7 @@ async function parseDefinesCodeboxes()
 
 // not using at the moment, see above
 /*
-async function parseDefinesCodeboxes0()
+async function parseDefinesCodeboxes()
 {
 	const definesRefsPath = `${cwd()}/${config.referenceFiles.defines.config}`;
 	let fullRefsNames = getFileNamesFromPath(definesRefsPath, 'json');
@@ -1070,7 +1188,7 @@ async function parseDefinesGendspsLoop(gendspPath: string, gendspName: string, t
 	}
 /*	const GEN_PARAM_GE = "Param";
 	const GEN_HIST_GE = "History";
-	const REQUIRE_GE = "require";
+	const GEN_REQUIRE_GE = "require";
 */
 	// if we are editing a brand new template, clear the template json
 	// i know, this is very weak code, but .gendsp will never have an id/in/out = 0 or name ""
@@ -1475,8 +1593,8 @@ function inferTypeFromString(thisValue: string)
 {
 	// const isNumericFromString = (string: string) => /^[+-]?\d+(\.\d+)?$/.test(string);
 	const isNumericFinite = (input: string | number) => Number.isFinite(+input);
-
-	const floatsArray: string[] = ["sqrt1_2", "sqrt2", "pi", "twopi"]; // etc
+	
+	const floatsArray: string[] = ["degtorad", "radtodeg", "pi", "twopi", "halfpi", "invpi", "sqrt2", "sqrt1_2", "ln2", "ln10", "log10e", "log2e", "phi", "e"];
 	const intsArray: string[] = ["samplerate", "vectorsize"];
 
 	let thisValueMaxType: string;
@@ -1739,9 +1857,9 @@ function updateConfigFileExternals(force = false, writeJson = true) {
 
 function createGendspDefines() {
 	let refDir = `${cwd()}/${config.initFiles.defines.output}`;
-	let refEntries = gendsp;
+	// let refEntries = gendsp;
 
-	renderFromTemplate('../templates/defines.handlebars', { ref: refEntries }, `${refDir}/evieve-defines.txt`);
+	renderFromTemplate('../templates/defines.handlebars', gendsp, `${refDir}/evieve-defines.txt`);
 }
 
 // because pete is shit at handlebars
@@ -1768,9 +1886,9 @@ function manuallyCreateGendspDefines() {
 
 function createMxoObjectmappings() {
 	let refDir = `${cwd()}/${config.initFiles.defines.output}`;
-	let refEntries = mxo;
+	// let refEntries = mxo;
 
-	renderFromTemplate('../templates/objectmappings.handlebars', { ref: refEntries }, `${refDir}/evieve-objectmappings.txt`);
+	renderFromTemplate('../templates/objectmappings.handlebars', mxo, `${refDir}/evieve-objectmappings.txt`);
 }
 
 // because pete is shit at handlebars
