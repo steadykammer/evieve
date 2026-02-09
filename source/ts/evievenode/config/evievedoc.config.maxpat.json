@@ -19,7 +19,7 @@
 				"auto": false
             }
         },
-        "evi.adsr~.maxpat": {
+        "evi.adsr~": {
             "object": true,
             "ref": true,
             "qlookup": true,
@@ -38,7 +38,7 @@
 				"auto": true
             }
         },
-        "evi.algoverb.factorypresetsmenu.maxpat": {
+        "evi.algoverb.factorypresetsmenu": {
             "object": false,
             "ref": false,
             "qlookup": false,
@@ -57,7 +57,7 @@
 				"auto": false
             }
         },
-        "evi.algoverb~.maxpat": {
+        "evi.algoverb~": {
             "object": true,
             "ref": true,
             "qlookup": true,
@@ -78,7 +78,7 @@
 				"auto": true
             }
         },
-        "evi.atodb.maxpat": {
+        "evi.atodb": {
             "object": true,
             "ref": false,
             "qlookup": true,
@@ -97,7 +97,7 @@
 				"auto": false
             }
         },
-        "evi.backverb~.maxpat": {
+        "evi.backverb~": {
             "object": true,
             "ref": true,
             "qlookup": true,
@@ -118,7 +118,7 @@
 				"auto": true
             }
         },
-        "evi.biquadcoeff.maxpat": {
+        "evi.biquadcoeff": {
             "object": true,
             "ref": true,
             "qlookup": true,
@@ -139,7 +139,7 @@
 				"auto": true
             }
         },
-        "evi.clipasym~.maxpat": {
+        "evi.clipasym~": {
             "object": true,
             "ref": true,
             "qlookup": true,
@@ -158,7 +158,7 @@
 				"auto": true
             }
         },
-        "evi.dbtoa.maxpat": {
+        "evi.dbtoa": {
             "object": true,
             "ref": false,
             "qlookup": true,
@@ -177,7 +177,7 @@
 				"auto": false
             }
         },
-        "evi.dcblock~.maxpat": {
+        "evi.dcblock~": {
             "object": true,
             "ref": true,
             "qlookup": true,
@@ -196,7 +196,7 @@
 				"auto": true
             }
         },
-        "evi.dfm~.maxpat": {
+        "evi.dfm~": {
             "object": true,
             "ref": true,
             "qlookup": true,
@@ -217,7 +217,7 @@
 				"auto": true
             }
         },
-        "evi.enable.maxpat": {
+        "evi.enable": {
             "object": true,
             "ref": false,
             "qlookup": true,
@@ -236,7 +236,7 @@
 				"auto": false
             }
         },
-        "evi.findhost.maxpat": {
+        "evi.findhost": {
             "object": true,
             "ref": false,
             "qlookup": false,
@@ -255,7 +255,7 @@
 				"auto": false
             }
         },
-        "evi.freezeverb~.maxpat": {
+        "evi.freezeverb~": {
             "object": true,
             "ref": true,
             "qlookup": true,
@@ -276,7 +276,7 @@
 				"auto": true
             }
         },
-        "evi.freqshift.hilbert~.maxpat": {
+        "evi.freqshift.hilbert~": {
             "object": true,
             "ref": true,
             "qlookup": true,
@@ -295,7 +295,7 @@
 				"auto": true
             }
         },
-        "evi.gigaverb~.maxpat": {
+        "evi.gigaverb~": {
             "object": true,
             "ref": true,
             "qlookup": true,
@@ -316,7 +316,7 @@
 				"auto": true
             }
         },
-        "evi.hilbert~.maxpat": {
+        "evi.hilbert~": {
             "object": true,
             "ref": true,
             "qlookup": true,
@@ -337,7 +337,7 @@
 				"auto": true
             }
         },
-        "evi.list.interp.maxpat": {
+        "evi.list.interp": {
             "object": true,
             "ref": false,
             "qlookup": true,
@@ -356,7 +356,7 @@
 				"auto": false
             }
         },
-        "evi.list.xfade.maxpat": {
+        "evi.list.xfade": {
             "object": true,
             "ref": false,
             "qlookup": true,
@@ -375,7 +375,7 @@
 				"auto": false
             }
         },
-        "evi.listproduct.maxpat": {
+        "evi.listproduct": {
             "object": true,
             "ref": false,
             "qlookup": false,
@@ -394,7 +394,7 @@
 				"auto": false
             }
         },
-        "evi.lpg.core~.maxpat": {
+        "evi.lpg.core~": {
             "object": false,
             "ref": false,
             "qlookup": false,
@@ -413,7 +413,7 @@
 				"auto": false
             }
         },
-        "evi.lpg~.maxpat": {
+        "evi.lpg~": {
             "object": true,
             "ref": true,
             "qlookup": true,
@@ -432,7 +432,7 @@
 				"auto": true
             }
         },
-        "evi.magnitude.maxpat": {
+        "evi.magnitude": {
             "object": true,
             "ref": false,
             "qlookup": true,
@@ -451,7 +451,7 @@
 				"auto": false
             }
         },
-        "evi.mattaverb~.maxpat": {
+        "evi.mattaverb~": {
             "object": true,
             "ref": true,
             "qlookup": true,
@@ -472,7 +472,7 @@
 				"auto": true
             }
         },
-        "evi.notes2ints.maxpat": {
+        "evi.notes2ints": {
             "object": true,
             "ref": false,
             "qlookup": true,
@@ -491,7 +491,7 @@
 				"auto": false
             }
         },
-        "evi.pitchdetect~.maxpat": {
+        "evi.pitchdetect~": {
             "object": true,
             "ref": true,
             "qlookup": true,
@@ -510,7 +510,7 @@
 				"auto": true
             }
         },
-        "evi.plateverb_lite~.maxpat": {
+        "evi.plateverb_lite~": {
             "object": true,
             "ref": true,
             "qlookup": true,
@@ -531,7 +531,7 @@
 				"auto": true
             }
         },
-        "evi.plateverb~.maxpat": {
+        "evi.plateverb~": {
             "object": true,
             "ref": true,
             "qlookup": true,
@@ -552,7 +552,7 @@
 				"auto": true
             }
         },
-        "evi.polyphaseiirhilbertcoeffs.maxpat": {
+        "evi.polyphaseiirhilbertcoeffs": {
             "object": true,
             "ref": true,
             "qlookup": true,
@@ -571,7 +571,7 @@
 				"auto": true
             }
         },
-        "evi.pz.maxpat": {
+        "evi.pz": {
             "object": false,
             "ref": false,
             "qlookup": false,
@@ -590,7 +590,7 @@
 				"auto": false
             }
         },
-        "evi.recursivefolder.maxpat": {
+        "evi.recursivefolder": {
             "object": true,
             "ref": false,
             "qlookup": true,
@@ -609,7 +609,7 @@
 				"auto": false
             }
         },
-        "evi.ringmod.diode.core~.maxpat": {
+        "evi.ringmod.diode.core~": {
             "object": false,
             "ref": false,
             "qlookup": false,
@@ -628,7 +628,7 @@
 				"auto": false
             }
         },
-        "evi.ringmod.diode~.maxpat": {
+        "evi.ringmod.diode~": {
             "object": true,
             "ref": true,
             "qlookup": true,
@@ -647,7 +647,7 @@
 				"auto": true
             }
         },
-        "evi.sinfold~.maxpat": {
+        "evi.sinfold~": {
             "object": true,
             "ref": true,
             "qlookup": true,
@@ -666,7 +666,7 @@
 				"auto": true
             }
         },
-        "evi.sustainfdn.core~.maxpat": {
+        "evi.sustainfdn.core~": {
             "object": false,
             "ref": false,
             "qlookup": false,
@@ -687,7 +687,7 @@
 				"auto": false
             }
         },
-        "evi.sustainverb_lite~.maxpat": {
+        "evi.sustainverb_lite~": {
             "object": true,
             "ref": true,
             "qlookup": true,
@@ -708,7 +708,7 @@
 				"auto": true
             }
         },
-        "evi.sustainverb~.maxpat": {
+        "evi.sustainverb~": {
             "object": true,
             "ref": true,
             "qlookup": true,
@@ -729,7 +729,7 @@
 				"auto": true
             }
         },
-        "evi.tpqm.maxpat": {
+        "evi.tpqm": {
             "object": true,
             "ref": true,
             "qlookup": true,
@@ -748,7 +748,7 @@
 				"auto": true
             }
         },
-        "evi.transratio.maxpat": {
+        "evi.transratio": {
             "object": true,
             "ref": true,
             "qlookup": true,
@@ -767,7 +767,7 @@
 				"auto": true
             }
         },
-        "evi.typeroute.maxpat": {
+        "evi.typeroute": {
             "object": false,
             "ref": false,
             "qlookup": false,
@@ -786,7 +786,7 @@
 				"auto": false
             }
         },
-        "evi.voiceexclude.maxpat": {
+        "evi.voiceexclude": {
             "object": true,
             "ref": false,
             "qlookup": true,
@@ -805,7 +805,7 @@
 				"auto": false
             }
         },
-        "evi.warmer~.maxpat": {
+        "evi.warmer~": {
             "object": true,
             "ref": true,
             "qlookup": true,
@@ -824,7 +824,7 @@
 				"auto": true
             }
         },
-        "evi.weightingcoeffs.maxpat": {
+        "evi.weightingcoeffs": {
             "object": true,
             "ref": true,
             "qlookup": true,
@@ -843,7 +843,7 @@
 				"auto": true
             }
         },
-        "evi.zitaverb~.maxpat": {
+        "evi.zitaverb~": {
             "object": true,
             "ref": true,
             "qlookup": true,
@@ -864,7 +864,7 @@
 				"auto": true
             }
         },
-        "evi.zpk.maxpat": {
+        "evi.zpk": {
             "object": true,
             "ref": false,
             "qlookup": true,
@@ -883,7 +883,7 @@
 				"auto": false
             }
         },
-        "mc.evi.bands~.maxpat": {
+        "mc.evi.bands~": {
             "object": true,
             "ref": true,
             "qlookup": true,
@@ -902,7 +902,7 @@
 				"auto": true
             }
         },
-        "mc.evi.clipasym~.maxpat": {
+        "mc.evi.clipasym~": {
             "object": true,
             "ref": false,
             "qlookup": true,
@@ -921,7 +921,7 @@
 				"auto": true
             }
         },
-        "mc.evi.dcblock~.maxpat": {
+        "mc.evi.dcblock~": {
             "object": true,
             "ref": false,
             "qlookup": true,
@@ -940,7 +940,7 @@
 				"auto": true
             }
         },
-        "mc.evi.listgen.maxpat": {
+        "mc.evi.listgen": {
             "object": true,
             "ref": true,
             "qlookup": true,
@@ -959,7 +959,7 @@
 				"auto": true
             }
         },
-        "mc.evi.nth~.maxpat": {
+        "mc.evi.nth~": {
             "object": false,
             "ref": false,
             "qlookup": false,
@@ -978,7 +978,7 @@
 				"auto": false
             }
         },
-        "mc.evi.sinfold~.maxpat": {
+        "mc.evi.sinfold~": {
             "object": true,
             "ref": false,
             "qlookup": true,
@@ -997,7 +997,7 @@
 				"auto": true
             }
         },
-        "mc.evi.warmer~.maxpat": {
+        "mc.evi.warmer~": {
             "object": true,
             "ref": false,
             "qlookup": true,
@@ -1016,7 +1016,7 @@
 				"auto": true
             }
         },
-        "mcs.evi.algoverb~.maxpat": {
+        "mcs.evi.algoverb~": {
             "object": true,
             "ref": false,
             "qlookup": true,
@@ -1037,7 +1037,7 @@
 				"auto": true
             }
         },
-        "mcs.evi.backverb~.maxpat": {
+        "mcs.evi.backverb~": {
             "object": true,
             "ref": false,
             "qlookup": true,
@@ -1058,7 +1058,7 @@
 				"auto": true
             }
         },
-        "mcs.evi.freezeverb~.maxpat": {
+        "mcs.evi.freezeverb~": {
             "object": true,
             "ref": false,
             "qlookup": true,
@@ -1079,7 +1079,7 @@
 				"auto": true
             }
         },
-        "mcs.evi.gigaverb~.maxpat": {
+        "mcs.evi.gigaverb~": {
             "object": true,
             "ref": false,
             "qlookup": true,
@@ -1100,7 +1100,7 @@
 				"auto": true
             }
         },
-        "mcs.evi.mattaverb~.maxpat": {
+        "mcs.evi.mattaverb~": {
             "object": true,
             "ref": false,
             "qlookup": true,
@@ -1121,7 +1121,7 @@
 				"auto": true
             }
         },
-        "mcs.evi.plateverb_lite~.maxpat": {
+        "mcs.evi.plateverb_lite~": {
             "object": true,
             "ref": false,
             "qlookup": true,
@@ -1142,7 +1142,7 @@
 				"auto": true
             }
         },
-        "mcs.evi.plateverb~.maxpat": {
+        "mcs.evi.plateverb~": {
             "object": true,
             "ref": false,
             "qlookup": true,
@@ -1163,7 +1163,7 @@
 				"auto": true
             }
         },
-        "mcs.evi.sustainverb_lite~.maxpat": {
+        "mcs.evi.sustainverb_lite~": {
             "object": true,
             "ref": false,
             "qlookup": true,
@@ -1184,7 +1184,7 @@
 				"auto": true
             }
         },
-        "mcs.evi.sustainverb~.maxpat": {
+        "mcs.evi.sustainverb~": {
             "object": true,
             "ref": false,
             "qlookup": true,
@@ -1205,7 +1205,7 @@
 				"auto": true
             }
         },
-        "mcs.evi.zitaverb~.maxpat": {
+        "mcs.evi.zitaverb~": {
             "object": true,
             "ref": false,
             "qlookup": true,

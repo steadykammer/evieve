@@ -147,15 +147,15 @@ interface externalsConfigTemplate {
 
 // --------------------------------------------- //
 
-max.addHandler('test_gendsp_make', () => {
+max.addHandler('config_gendsp_make', () => {
     updateConfigFileGendsp();
 })
 
-max.addHandler('test_maxpat_make', () => {
+max.addHandler('config_maxpat_make', () => {
     updateConfigFileMaxpat();
 })
 
-max.addHandler('test_external_make', () => {
+max.addHandler('config_external_make', () => {
     updateConfigFileExternals();
 })
 
@@ -175,14 +175,26 @@ max.addHandler('make_refpages_contents', () => {
     makeDocRefpagesXmlContents();
 })
 
+max.addHandler('make_refpages_gen_contents', () => {
+    makeGenRefpagesXmlContents();
+})
+
 max.addHandler('make_gendsp_defines', () => {
     createGendspDefines();
 	// manuallyCreateGendspDefines();
 })
 
-max.addHandler('make_externals_mappings', () => {
+max.addHandler('make_object_mappings', () => {
 	createMxoObjectmappings();
 	// manuallyCreateMxoObjectmappings();
+})
+
+max.addHandler('make_object_list', () => {
+	createMaxObjectList();
+})
+
+max.addHandler('make_key_commands', () => {
+	createMaxKeyCommands();
 })
 
 max.addHandler('make_abs_ref_jsons', () => {
@@ -1644,17 +1656,19 @@ async function createMaxpatRefJson()
 	let parsedMaxpats = maxpat.evi_abstractions;
 	const maxpatsArray = Object.keys(parsedMaxpats);
 	for await (const maxpatName of maxpatsArray) {
-		const jsonFileName = maxpatName.replace('.maxpat', '_ref.json')
+		// const jsonFileName = maxpatName.replace('.maxpat', '_ref.json')
+		const jsonFileName = `${maxpatName}_ref.json`;
         if (!refConfigs.includes(jsonFileName)) {	// maybe create if does not yet exist
 			// @ts-expect-error
 			const thisMaxpatConfig = parsedMaxpats[maxpatName];
 			if (thisMaxpatConfig.ref) { // if ref page is requested in config
 				const newTemplate = JSON.parse(JSON.stringify(templateObject));
-				newTemplate.object.name = maxpatName.replace('.maxpat', '');
+				// newTemplate.object.name = maxpatName.replace('.maxpat', '');
+				newTemplate.object.name = maxpatName;
 				newTemplate.metadata.author = "Pete Dowling"; // fatPete
 
 				fs.writeFileSync(`${maxpatRefsPath}/${jsonFileName}`, JSON.stringify(newTemplate, null, 4));
-				void max.post(`Creation of ${jsonFileName} success!`)
+				// void max.post(`Creation of ${jsonFileName} success!`)
 			}
 		}
 		else {
@@ -1785,8 +1799,9 @@ function updateConfigFileMaxpat(force = false, writeJson = true) {
 	// search for new .maxpat files in the patchers folder
 	const abstractions = getFileNamesFromPathRecursive(`${cwd()}/${config.referenceFiles.abstractions.input}`, 'maxpat');
 	for (const abs of abstractions) {
-        if (!Object.hasOwn(currentMaxpats, abs)) {
-        	newMaxpats[abs] = JSON.parse(JSON.stringify(abstractionsConfigTemplate)); // add new entry
+		const absName = abs.replace('.maxpat', '');
+        if (!Object.hasOwn(currentMaxpats, absName)) {
+        	newMaxpats[absName] = JSON.parse(JSON.stringify(abstractionsConfigTemplate)); // add new entry
 		}
 	}
 
@@ -1861,7 +1876,7 @@ function createGendspDefines() {
 
 	renderFromTemplate('../templates/defines.handlebars', gendsp, `${refDir}/evieve-defines.txt`);
 }
-
+/*
 // because pete is shit at handlebars
 function manuallyCreateGendspDefines() {
 	let refDir = `${cwd()}/${config.initFiles.defines.output}`;
@@ -1883,14 +1898,14 @@ function manuallyCreateGendspDefines() {
 	}
 	writer.end();
 }
-
+*/
 function createMxoObjectmappings() {
 	let refDir = `${cwd()}/${config.initFiles.defines.output}`;
 	// let refEntries = mxo;
 
 	renderFromTemplate('../templates/objectmappings.handlebars', mxo, `${refDir}/evieve-objectmappings.txt`);
 }
-
+/*
 // because pete is shit at handlebars
 function manuallyCreateMxoObjectmappings() {
 	let refDir = `${cwd()}/${config.initFiles.defines.output}`;
@@ -1909,6 +1924,41 @@ function manuallyCreateMxoObjectmappings() {
 		}
 	}
 	writer.end();
+}
+*/
+function createMaxObjectList()
+{
+	const initDir = `${cwd()}/${config.initFiles.defines.output}`;
+	const oblistInputMerge = Object.assign(mxo, gendsp, maxpat);
+
+	renderFromTemplate('../templates/objectlist.handlebars', oblistInputMerge, `${initDir}/evieve-objectlist.txt`);
+}
+
+function createMaxKeyCommands()
+{
+	// i am lazy
+	const keyCommandsConfig: any = {
+		"commands": {
+			"genTilde": {
+				"letterKey": "g",
+				"insertText": "\"newobj @text \"gen~ ", // + space
+				"instructText": "\"gen~ object...\""
+			},
+			"genCodebox": {
+				"letterKey": "G",
+				"insertText": "gen.codebox~",
+				"instructText": "\"gen~ codebox object\""
+			},
+			"eviObject": {
+				"letterKey": "v",
+				"insertText": "evi.",
+				"instructText": "\"evieve object\/abstraction\""
+			}
+		}
+	};
+
+	const initDir = `${cwd()}/${config.initFiles.defines.output}`;
+	renderFromTemplate('../templates/keycommands.handlebars', keyCommandsConfig, `${initDir}/evieve-keycommands.txt`);
 }
 
 // --------------------------------------------- //
@@ -1966,6 +2016,15 @@ function externalsRefpagesRename() {
 
 function makeDocRefpagesXmlContents() {
 	let refDir = `${cwd()}/${config.referenceFiles.externals.output}`;
+	let refFiles = getFileNamesFromPath(refDir, 'xml');
+	const IGNORE = /_c74_contents.xml/;
+	refFiles = refFiles.filter((str) => !IGNORE.test(str));
+
+	renderFromTemplate('../templates/xmlcontents.handlebars', { ref: refFiles }, `${refDir}/_c74_contents.xml`);
+}
+
+function makeGenRefpagesXmlContents() {
+	let refDir = `${cwd()}/${config.referenceFiles.genDsp.output}`;
 	let refFiles = getFileNamesFromPath(refDir, 'xml');
 	const IGNORE = /_c74_contents.xml/;
 	refFiles = refFiles.filter((str) => !IGNORE.test(str));

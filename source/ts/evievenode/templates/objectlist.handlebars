@@ -1,9 +1,15 @@
 {{#each evi_externals}}
+{{#if object}}
 max oblist "evieve Objects" {{@key}};
+{{/if}}
 {{/each}}
-{{#each evi_defines}}
-max oblist "evieve Gen Abstractions" {{this}};
+{{#each evi_gendsp}}
+{{#if define.object}}
+max oblist "evieve Gen Abstractions" {{define.msp}};
+{{/if}}
 {{/each}}
 {{#each evi_abstractions}}
-max oblist "evieve Abstractions" {{this}};
+{{#if object}}
+max oblist "evieve Abstractions" {{@key}};
+{{/if}}
 {{/each}}
