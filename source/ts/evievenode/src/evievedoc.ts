@@ -241,6 +241,10 @@ max.addHandler('make_gendsps_ref_xml', () => {
 	makeDocRefpagesGendsps();
 })
 
+max.addHandler('make_qlookup_json', () => {
+	parseDataForQlookup();
+})
+
 // --------------------------------------------- //
 // testing
 
@@ -323,6 +327,70 @@ async function testEditAutoXml()
 		const editedData = builder.build(jsonData);
 		fs.writeFileSync(`${outDir}/${outName}`, editedData);
 	}
+}
+
+// --------------------------------------------- //
+
+function parseDataForQlookup() {
+	const parseOptions = {
+		preserveOrder: true, // true = good for getting values, shit for rebuilding xml
+		ignoreAttributes: false,
+		attributeNamePrefix: attributeXmlPrefix,
+		alwaysCreateTextNode: true,
+		processEntities: false
+	};
+	const parser = new XMLParser(parseOptions);
+	const attrName = `${attributeXmlPrefix}name`;
+
+	let readDir = `${cwd()}/${config.interfaceFiles.qlookup.input}`;
+	let refPages = getFileNamesFromPath(readDir, 'xml');
+	const IGNORE = /_c74_contents.xml/;
+	refPages = refPages.filter((contents) => !IGNORE.test(contents));
+	let qlookup: any = {};
+
+	for (const page of refPages) {
+		const xmlData = fs.readFileSync(`${readDir}/${page}`, 'utf8');
+		const xmlResult = parser.parse(xmlData);
+		const objectName = page.replace('.maxref.xml', '');
+
+		qlookup[objectName] = {};
+		// if (Object.hasOwn(xmlResult.c74object, 'digest')) {
+		// 	qlookup[objectName].digest = xmlResult.c74object.digest;
+		// } else {
+			qlookup[objectName].digest = 'TEXT_HERE';
+		// }
+		qlookup[objectName].module = 'evieve-ref'; // !! TODO
+		qlookup[objectName].category = 'evieve'; // !! TODO
+
+		if (Object.hasOwn(xmlResult.c74object, 'misc')) {
+			const discussionData = xmlResult.c74object.misc.filter((el: any) => el.maxattr_name === 'Discussion');
+			if (Array.isArray(discussionData)) {
+				const keywordData = discussionData[0].entry.filter((el: any) => el.maxattr_name === 'Keywords');
+				if (keywordData.length > 0) {
+					qlookup[objectName].keywords = keywordData[0].description.split(',');
+				}
+				qlookup[objectName].keywords = qlookup[objectName].keywords.map((item: string) => item.trim());
+			}
+		}
+
+		const seeAlsoArray = [];
+		if (Object.hasOwn(xmlResult.c74object, 'seealsolist')) {
+			if (Array.isArray(xmlResult.c74object.seealsolist.seealso)) {
+				for (const see of xmlResult.c74object.seealsolist.seealso) {
+					seeAlsoArray.push(see.maxattr_name);
+				}
+			} else {
+				seeAlsoArray.push(xmlResult.c74object.seealsolist.seealso.maxattr_name);
+			}
+
+			qlookup[objectName].seealso = seeAlsoArray;
+		}
+	}
+
+	const writeDir = `${cwd()}/${config.interfaceFiles.qlookup.output}`;
+	// fs.mkdirSync(writeDir, { recursive: true });
+	fs.writeFileSync(`${writeDir}/evieve-obj-qlookup.json`, JSON.stringify(qlookup, null, 4));
+	void max.post('Wrote qlookup for evieve', max.POST_LEVELS.INFO);
 }
 
 // --------------------------------------------- //

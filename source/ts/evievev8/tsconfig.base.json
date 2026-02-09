@@ -1,9 +1,9 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
   "compilerOptions": {
-    "target": "es5",
+    "target": "es6",
     "lib": [
-      "es5"
+      "ES6"
     ], // stop typescript from trying to use DOM declarations
     "module": "commonjs",
     "strict": true,

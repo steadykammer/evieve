@@ -21,9 +21,9 @@
   "license": "GPL v2",
   "devDependencies": {
     "@types/maxmsp": "^1.0.15",
-    "esbuild": "^0.25.8",
-    "pnpm": "^10.13.1",
-    "prettier": "^3.6.2",
-    "typescript": "^5.8.3"
+    "esbuild": "^0.25.12",
+    "pnpm": "^10.29.2",
+    "prettier": "^3.8.1",
+    "typescript": "^5.9.3"
   }
 }

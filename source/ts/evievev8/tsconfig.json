@@ -1,13 +1,15 @@
 {
     "$schema": "https://json.schemastore.org/tsconfig",
+    "extends": ["./tsconfig.base.json", "./tsconfig.types-for-max.json"],
     "compilerOptions": {
         "rootDir": "./src",
         "outDir": "./dist",
-        "typeRoots": ["../types", "../node_modules/@types"],
+        // "typeRoots": ["../types", "./node_modules/@types"],
+        "typeRoots": ["./node_modules/@types"],
         // "types": ["maxmsp"],
         "module": "CommonJS",
         "noImplicitAny": true,
-        "removeComments": true,
+        "removeComments": false,
         "preserveConstEnums": true,
         "sourceMap": true,
         "lib": ["ES2022"],

@@ -6,7 +6,7 @@
 	NOTE: for evieve shared code for [js] / [jsui] / [jspainter] @see: "evi.extensions.js"
 */
 
-//
+// this file is automatically transpiled from Typescript - DO NOT EDIT BY HAND
 
 export const eviUtil = {
 

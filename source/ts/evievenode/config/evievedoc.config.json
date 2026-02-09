@@ -36,6 +36,12 @@
 
     },
     "interfaceFiles": {
-
+        "qlookup": {
+            "input": "../../../../docs/refpages/max/evieve-ref",
+            "output": "../../../../interfaces"
+        },
+        "maxdb": {
+            
+        }
     }
 }

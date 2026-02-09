@@ -1,3 +1,4 @@
+"use strict";
 export const eviUtil = {
   clamp: (value, min, max) => {
     return Math.min(max, Math.max(min, value));
@@ -191,7 +192,7 @@ export const eviUtil = {
   },
   // file utils etc
   // add trailing slashes between elements if not there already, EXCEPT the final item
-  // TODO: this is stupid, but born of Max8 / ES3, adapted from ej
+  // TODO: this is stupid, but born of Max8 / ES3, adapted from ej, thanks to Tom W
   makePath: (...args) => {
     let output = "";
     if (args.length === 0) {
@@ -207,7 +208,7 @@ export const eviUtil = {
 };
 export const eviApprox = {
   // for first quarter only, optimized so that never lets sqrt(sinapprox(x)^2+cosapprox(x)^2)
-  // exceed 1, always gives exact results at modphase 0, 0.5, 1 (0/1, sqrt1_2, 1/0)
+  // exceed 1, always gives exact results at phase 0, 0.5, 1 (0/1, sqrt1_2, 1/0)
   cosSinQuart: (phase) => {
     const x0 = phase - 0.5;
     const quart = eviConst.QUARTPAR * x0 * x0 + Math.SQRT1_2;
@@ -397,6 +398,7 @@ export const eviConst = {
   EPSILON10: 1e-10,
   // EPSILON
   EPSILON09: 1e-9,
+  EPSILON06: 1e-6,
   // sqrt
   SQRTE: 1.648721270700128,
   SQRTPI: 1.772453850905516,

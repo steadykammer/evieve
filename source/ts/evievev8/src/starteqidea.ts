@@ -1,4 +1,4 @@
-
+/*
 export interface BiquadCoefficients {
     a0: number,
     a1: number,
@@ -33,3 +33,4 @@ export class BiquadFilter implements BiquadCalculator {
     };
 
 }
+*/
