@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+<c74object name="evi.logdecay~" module="evieve-ref" category="evieve">
+  <digest>TEXT_HERE</digest>
+  <description>TEXT_HERE</description>
+  <metadatalist>
+    <metadata name="author">Pete Dowling</metadata>
+    <metadata name="tag">evieve</metadata>
+    <metadata name="tag">evieve Objects</metadata>
+  </metadatalist>
+  <inletlist>
+    <inlet id="0" type="signal/float">
+      <digest>Value to Follow</digest>
+      <description>TEXT_HERE</description>
+    </inlet>
+    <inlet id="1" type="signal/float">
+      <digest>Decay Time in milliseconds</digest>
+      <description>TEXT_HERE</description>
+    </inlet>
+  </inletlist>
+  <outletlist>
+    <outlet id="0" type="signal">
+      <digest>Output Envelope</digest>
+      <description>TEXT_HERE</description>
+    </outlet>
+  </outletlist>
+  <objarglist>
+    <objarg id="0" name="OBJARG_NAME" type="OBJARG_TYPE" optional="0">
+      <digest>TEXT_HERE</digest>
+      <description>TEXT_HERE</description>
+    </objarg>
+  </objarglist>
+  <methodlist>
+    <method name="int">
+      <arglist>
+        <arg name="ARG_NAME_0" type="int" optional="0"></arg>
+      </arglist>
+      <digest>TEXT_HERE</digest>
+      <description>TEXT_HERE</description>
+    </method>
+    <method name="float">
+      <arglist>
+        <arg name="ARG_NAME_0" type="float" optional="0"></arg>
+      </arglist>
+      <digest>TEXT_HERE</digest>
+      <description>TEXT_HERE</description>
+    </method>
+    <method name="clear">
+      <arglist></arglist>
+      <digest>TEXT_HERE</digest>
+      <description>TEXT_HERE</description>
+    </method>
+    <method name="signal">
+      <arglist></arglist>
+      <digest>TEXT_HERE</digest>
+      <description>TEXT_HERE</description>
+    </method>
+  </methodlist>
+  <attributelist>
+    <attribute name="decay" get="1" set="1" type="float" size="1" alias="ms">
+      <digest>Decay Time in ms</digest>
+      <description>TEXT_HERE</description>
+      <attributelist>
+        <attribute name="basic" get="1" set="1" type="int" size="1" value="1"></attribute>
+        <attribute name="label" get="1" set="1" type="symbol" size="1" value="Decay Time in ms"></attribute>
+      </attributelist>
+    </attribute>
+  </attributelist>
+  <examplelist>
+    <example caption="" img=""></example>
+  </examplelist>
+  <seealsolist>
+    <seealso name="bogus">TEXT_HERE</seealso>
+  </seealsolist>
+  <misc name="Discussion">
+    <entry name="Keywords">
+      <description>TEXT_HERE</description>
+    </entry>
+  </misc>
+</c74object>

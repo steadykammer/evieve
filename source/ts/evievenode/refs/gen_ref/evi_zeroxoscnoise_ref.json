@@ -157,11 +157,11 @@
         },
         {
             "name": "envwindow",
-            "type": "symbol",
+            "type": "int",
             "digest": "@min 16, @max 4096",
             "description": "",
             "default": {
-                "type": "symbol",
+                "type": "int",
                 "value": "vectorsize"
             }
         },

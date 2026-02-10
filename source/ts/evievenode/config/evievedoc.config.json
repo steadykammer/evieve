@@ -3,7 +3,7 @@
         "externals": {
             "input": "../../../../externals",
             "config": "../refs/ext_ref",
-            "output": "../../../../docs/refpages/max/evieve-ref"
+            "output": "../../../../docs/refpages/evieve-max/evieve-ref"
         },
         "genExpr": {
             "input": "../../../../code/evi_genexpr",
@@ -12,21 +12,29 @@
         "genDsp": {
             "input": "../../../../code/evi_gendsp",
             "config": "../refs/gen_ref",
-            "output": "../../../../docs/refpages/gen/evi-dsp"
+            "output": "../../../../docs/refpages/evieve-gen/evi-dsp"
         },
         "defines": {
             "input": "",
             "config": "../refs/defs_ref",
-            "output": "../../../../docs/refpages/max/evieve-ref"
+            "output": "../../../../docs/refpages/evieve-max/evieve-ref"
         },
         "abstractions": {
             "input": "../../../../patchers",
             "config": "../refs/abs_ref",
-            "output": "../../../../docs/refpages/max/evieve-ref"
+            "output": "../../../../docs/refpages/evieve-max/evieve-ref"
         }
     },
     "helpFiles": {
-
+        "externals": {
+            "output": "../../../../help/objects"
+        },
+        "defines": {
+            "output": "../../../../help/defines"
+        },
+        "abstractions": {
+            "output": "../../../../help/abstractions"
+        }
     },
     "initFiles": {
         "defines": {
@@ -37,11 +45,11 @@
     },
     "interfaceFiles": {
         "qlookup": {
-            "input": "../../../../docs/refpages/max/evieve-ref",
+            "input": "../../../../docs/refpages/evieve-max/evieve-ref",
             "output": "../../../../interfaces"
         },
         "maxdb": {
-            
+
         }
     }
 }

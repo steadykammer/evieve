@@ -18,9 +18,21 @@
             "type": "signal",
             "digest": "audio in / (anything) messages to evi.warmer~",
             "description": ""
+        },
+        {
+            "id": 1,
+            "type": "signal",
+            "digest": "audio in / (anything) messages to evi.warmer~",
+            "description": ""
         }
     ],
     "outlets": [
+        {
+            "id": 1,
+            "type": "signal",
+            "digest": "warmer audio out",
+            "description": ""
+        },
         {
             "id": 1,
             "type": "signal",
@@ -57,6 +69,17 @@
             }
         },
         {
+            "name": "blend",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "-2."
+            }
+        },
+        {
             "name": "clip",
             "get": 0,
             "type": "symbol",
@@ -65,6 +88,28 @@
             "default": {
                 "get": 0,
                 "value": "soft"
+            }
+        },
+        {
+            "name": "clip",
+            "get": 0,
+            "type": "symbol",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "soft"
+            }
+        },
+        {
+            "name": "clipfold",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "-1."
             }
         },
         {
@@ -90,6 +135,17 @@
             }
         },
         {
+            "name": "clipmix",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "0.333333"
+            }
+        },
+        {
             "name": "clipslope",
             "get": 0,
             "type": "float",
@@ -98,6 +154,28 @@
             "default": {
                 "get": 0,
                 "value": "0.23228"
+            }
+        },
+        {
+            "name": "clipslope",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "0.23228"
+            }
+        },
+        {
+            "name": "decouplegain",
+            "get": 0,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "0"
             }
         },
         {
@@ -123,6 +201,17 @@
             }
         },
         {
+            "name": "drive",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "2."
+            }
+        },
+        {
             "name": "gain",
             "get": 0,
             "type": "float",
@@ -131,6 +220,28 @@
             "default": {
                 "get": 0,
                 "value": "1."
+            }
+        },
+        {
+            "name": "gain",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "1."
+            }
+        },
+        {
+            "name": "smooth",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "30.111"
             }
         },
         {
@@ -156,6 +267,17 @@
             }
         },
         {
+            "name": "tone",
+            "get": 0,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "1"
+            }
+        },
+        {
             "name": "tonecutoff",
             "get": 0,
             "type": "float",
@@ -164,6 +286,28 @@
             "default": {
                 "get": 0,
                 "value": "6000."
+            }
+        },
+        {
+            "name": "tonecutoff",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "6000."
+            }
+        },
+        {
+            "name": "toneslope",
+            "get": 0,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "3"
             }
         },
         {

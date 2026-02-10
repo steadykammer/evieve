@@ -20,6 +20,18 @@
             "description": ""
         },
         {
+            "id": 1,
+            "type": "signal",
+            "digest": "Audio In Left / messages to evi.mattaverb~",
+            "description": ""
+        },
+        {
+            "id": 2,
+            "type": "signal",
+            "digest": "Audio In Right / messages to evi.mattaverb~",
+            "description": ""
+        },
+        {
             "id": 2,
             "type": "signal",
             "digest": "Audio In Right / messages to evi.mattaverb~",
@@ -34,9 +46,27 @@
             "description": ""
         },
         {
+            "id": 1,
+            "type": "signal",
+            "digest": "Audio Out Left",
+            "description": ""
+        },
+        {
             "id": 2,
             "type": "signal",
             "digest": "Audio Out Right",
+            "description": ""
+        },
+        {
+            "id": 2,
+            "type": "signal",
+            "digest": "Audio Out Right",
+            "description": ""
+        },
+        {
+            "id": 3,
+            "type": "",
+            "digest": "dumpout (pattrstorage)",
             "description": ""
         },
         {
@@ -75,6 +105,28 @@
             }
         },
         {
+            "name": "drywet",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "0.707107"
+            }
+        },
+        {
+            "name": "high",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "0.666666"
+            }
+        },
+        {
             "name": "high",
             "get": 0,
             "type": "float",
@@ -94,6 +146,28 @@
             "default": {
                 "get": 0,
                 "value": "0.333333"
+            }
+        },
+        {
+            "name": "low",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "0.333333"
+            }
+        },
+        {
+            "name": "size",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "0.5"
             }
         },
         {

@@ -11,7 +11,6 @@ const thisPatcher = patcher;
 const thisBox = box;
 thisBox.message("border", 0);
 thisBox.message("ignoreclick", 1);
-thisBox.message("sendtoback");
 mgraphics.init();
 mgraphics.relative_coords = 0;
 mgraphics.autofill = 0;
@@ -24,19 +23,7 @@ function init() {
   const args = dict.get("objargs");
   const argsKeys = args.getkeys();
   if (args) {
-    if (Array.isArray(argsKeys)) {
-      for (let i = 0; i < argsKeys.length; i++) {
-        if (args.get(argsKeys[i]).get("optional") === 1) {
-          opt = " (optional)";
-        }
-        value[i] = `${args.get(argsKeys[i]).get("fullname")} (${args.get(argsKeys[i]).get("type")})${opt}`;
-      }
-    } else {
-      if (args.get(argsKeys).get("optional") === 1) {
-        opt = " (optional)";
-      }
-      value = `${args.get(argsKeys).get("fullname")} (${args.get(argsKeys).get("type")})${opt}`;
-    }
+    post(`${JSON.stringify(args)}`);
   }
   dict.freepeer();
   if (args) {

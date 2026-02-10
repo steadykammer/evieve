@@ -1,0 +1,1487 @@
+{
+    "evi.4wave~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.adsr~": {
+        "digest": "TEXT_HERE",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.algoverb~": {
+        "digest": "TEXT_HERE",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.allpass~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.arpnotch~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.audiodust~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.backverb~": {
+        "digest": "TEXT_HERE",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.baxandall~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.biquadcoeff": {
+        "digest": "TEXT_HERE",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.blitwaves~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.butterworthlp6~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.butterworthlp8~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.cfsmooth~": {
+        "digest": "TEXT_HERE",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Objects"
+        ],
+        "keywords": [],
+        "seealso": [
+            "bogus"
+        ]
+    },
+    "evi.classic.osc~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.clipasym~": {
+        "digest": "TEXT_HERE",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.clip~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.comb~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.crossover.3band~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.crossover.allpass~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.crossover.sum~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.crossover~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.cross~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.damp.macro~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.damp~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.dcblock~": {
+        "digest": "TEXT_HERE",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.dfm~": {
+        "digest": "TEXT_HERE",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.eq3stereo~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.eq3~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.eq5~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.eq8~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.expsmooth~": {
+        "digest": "TEXT_HERE",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Objects"
+        ],
+        "keywords": [],
+        "seealso": [
+            "bogus"
+        ]
+    },
+    "evi.filter.allpass~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.filter.bandpass~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.filter.bell~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.filter.eq~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.filter.highpass~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.filter.highshelf~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.filter.lowpass~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.filter.lowshelf~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.filter.morph~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.filter.notch~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.filter.peak~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.filter.resonant~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.filter.shelving~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.filter.tilt~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.filter~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.formantfilter.morph~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.formantfilter~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.formantosc~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.formletfilter~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.freezeverb~": {
+        "digest": "TEXT_HERE",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.freqshift.hilbert~": {
+        "digest": "TEXT_HERE",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.freqshift.weaver~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.gaussiannoise~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.gigaverb~": {
+        "digest": "TEXT_HERE",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.hardclip~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.hilbert~": {
+        "digest": "TEXT_HERE",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.korgms10~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.korgms20.select~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.korgms20~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.ladder.diode~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.ladder.moog~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.ladder.poles~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.ladder.transistor~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.lagsmooth~": {
+        "digest": "TEXT_HERE",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Objects"
+        ],
+        "keywords": [],
+        "seealso": [
+            "bogus"
+        ]
+    },
+    "evi.limiterfast~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.lockhart.cascade~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.lockhart.simple~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.logahr~": {
+        "digest": "TEXT_HERE",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Objects"
+        ],
+        "keywords": [],
+        "seealso": [
+            "bogus"
+        ]
+    },
+    "evi.logattackdecay~": {
+        "digest": "TEXT_HERE",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Objects"
+        ],
+        "keywords": [],
+        "seealso": [
+            "bogus"
+        ]
+    },
+    "evi.logdecay~": {
+        "digest": "TEXT_HERE",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Objects"
+        ],
+        "keywords": [],
+        "seealso": [
+            "bogus"
+        ]
+    },
+    "evi.logsmooth~": {
+        "digest": "TEXT_HERE",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Objects"
+        ],
+        "keywords": [],
+        "seealso": [
+            "bogus"
+        ]
+    },
+    "evi.lores~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.lorez~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.lpg~": {
+        "digest": "TEXT_HERE",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.mattaverb~": {
+        "digest": "TEXT_HERE",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.modalres~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.modosc~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.morph.trap~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.morph.tri~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.multimode~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.onepole.shelving~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.onepole~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.overdrive.atan~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.overdrive.sqrt~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.overdrive.tanh~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.paf~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.pan~": {
+        "digest": "TEXT_HERE",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Objects"
+        ],
+        "keywords": [],
+        "seealso": [
+            "bogus"
+        ]
+    },
+    "evi.phaseshift~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.phasor0~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.pitchdetect~": {
+        "digest": "TEXT_HERE",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.plateverb_lite~": {
+        "digest": "TEXT_HERE",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.plateverb~": {
+        "digest": "TEXT_HERE",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.polyphaseiirhilbertcoeffs": {
+        "digest": "TEXT_HERE",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.quadosc~": {
+        "digest": "TEXT_HERE",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Objects"
+        ],
+        "keywords": [],
+        "seealso": [
+            "bogus"
+        ]
+    },
+    "evi.ramp0~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.rcfilter~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.rect.select~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.rect~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.reson~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.ringmod.diode~": {
+        "digest": "TEXT_HERE",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.ringmod~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.saw.select~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.saw~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.shaper~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.sine.select~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.sinfold~": {
+        "digest": "TEXT_HERE",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.skfinputmix~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.softclip~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.squine.simple~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.sustainverb_lite~": {
+        "digest": "TEXT_HERE",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.sustainverb~": {
+        "digest": "TEXT_HERE",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.svfinputmix~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.svfsmooth~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.svfsynth~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.svf~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.teeth~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.tone.macro~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.tpqm": {
+        "digest": "TEXT_HERE",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.transratio": {
+        "digest": "TEXT_HERE",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.tri.select~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.tri~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.vactrol~": {
+        "digest": "TEXT_HERE",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Objects"
+        ],
+        "keywords": [],
+        "seealso": [
+            "bogus"
+        ]
+    },
+    "evi.vcf~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.velvetnoise~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.vosim.basic~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.warmer~": {
+        "digest": "TEXT_HERE",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.weightingcoeffs": {
+        "digest": "TEXT_HERE",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.xfade~": {
+        "digest": "TEXT_HERE",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Objects"
+        ],
+        "keywords": [],
+        "seealso": [
+            "bogus"
+        ]
+    },
+    "evi.zeroxcount~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.zeroxoscnoise~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.zitaverb~": {
+        "digest": "TEXT_HERE",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "mc.evi.bands~": {
+        "digest": "TEXT_HERE",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
+    "mc.evi.listgen": {
+        "digest": "TEXT_HERE",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Abstractions",
+            "evieve"
+        ],
+        "keywords": [],
+        "seealso": []
+    }
+}

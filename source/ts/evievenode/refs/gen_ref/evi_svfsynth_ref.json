@@ -94,11 +94,11 @@
         },
         {
             "name": "shape",
-            "type": "symbol",
+            "type": "float",
             "digest": "@min 0, @max 1",
             "description": "",
             "default": {
-                "type": "symbol",
+                "type": "float",
                 "value": "sqrt1_2"
             }
         },

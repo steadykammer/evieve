@@ -245,6 +245,26 @@ max.addHandler('make_qlookup_json', () => {
 	parseDataForQlookup();
 })
 
+max.addHandler('externals_xml_edit', () => {
+	autoCreateExternalsXml();
+})
+/*
+max.addHandler('create_helpfiles_basic', () => {
+	createHelpFilesBasic();
+})
+*/
+max.addHandler('create_helpfiles_externals', () => {
+	createHelpFilesExternals();
+})
+
+max.addHandler('create_helpfiles_abstractions', () => {
+	createHelpFilesAbstractions();
+})
+
+max.addHandler('create_helpfiles_defines', () => {
+	createHelpFilesDefines();
+})
+
 // --------------------------------------------- //
 // testing
 
@@ -257,23 +277,21 @@ max.addHandler('pete_test_xml_object', (type: string) => {
 	}
 })
 
-max.addHandler('pete_test_externals_xml_edit', () => {
-	testEditAutoXml();
-})
-
 function testGetXml(prefix?: string)
 {
 	const options = {
-		preserveOrder: false, // shit for getting values, good for rebuilding xml
+		preserveOrder: true, // true = shit for getting values, good for rebuilding xml
 		ignoreAttributes: false,
 		// attributeNamePrefix: `${prefix}`,
 		attributeNamePrefix: attributeXmlPrefix,
-		alwaysCreateTextNode: true,
+		// alwaysCreateTextNode: true,
 		processEntities: false
 	};
 	const parser = new XMLParser(options);
 
-	const xmlData = fs.readFileSync('../test/msp_delay~.maxref.xml', 'utf8');
+	// const xmlData = fs.readFileSync('../test/msp_delay~.maxref.xml', 'utf8');
+	const xmlData = fs.readFileSync('../test/evi.cfsmooth~.maxref.xml', 'utf8');
+	// const xmlData = fs.readFileSync('../test/irsweeps~.maxref.xml', 'utf8');
 	const result = parser.parse(xmlData);
 	fs.writeFileSync('../test/pete_testing_3.json', JSON.stringify(result, null, 4));
 }
@@ -282,7 +300,7 @@ function testBuildXml(/*jsonData: any, */prefix?: string)
 {
 	const options = {
 		format: true,
-		preserveOrder: false, // shit for the json, but only to have format correct when building
+		preserveOrder: true, // true = shit for the json, but good to have format correct when building
 		ignoreAttributes: false,
 		// attributeNamePrefix: `${prefix}`,
 		attributeNamePrefix: attributeXmlPrefix,
@@ -295,13 +313,15 @@ function testBuildXml(/*jsonData: any, */prefix?: string)
 	fs.writeFileSync('../test/testing_pete_3.xml', result);
 }
 
-async function testEditAutoXml()
+// --------------------------------------------- //
+
+async function autoCreateExternalsXml()
 {
 	let refDir = `${cwd()}/${config.referenceFiles.externals.config}`;
 	let outDir = `${cwd()}/${config.referenceFiles.externals.output}`;
 	let refFiles = getFileNamesFromPath(refDir, 'xml');
 	const parseOptions = {
-		preserveOrder: false, // shit for getting values, good for rebuilding xml
+		preserveOrder: false, // true = shit for getting values, good for rebuilding xml
 		ignoreAttributes: false,
 		attributeNamePrefix: attributeXmlPrefix,
 		alwaysCreateTextNode: true,
@@ -309,7 +329,7 @@ async function testEditAutoXml()
 	};
 	const buildOptions = {
 		format: true,
-		preserveOrder: false, // shit for the json, but only to have format correct when building
+		preserveOrder: false, // true = shit for the json, but good to have format correct when building
 		ignoreAttributes: false,
 		attributeNamePrefix: attributeXmlPrefix,
 		processEntities: false
@@ -322,25 +342,23 @@ async function testEditAutoXml()
 		const jsonData = parser.parse(xmlData);
 		const outName = file.replace('_ref.xml', '.maxref.xml');
 		jsonData.c74object.metadatalist.metadata = externalsXmlMetadata;
-		jsonData.c74object.maxattr_module = 'evieve';
+		jsonData.c74object.maxattr_module = 'evieve-ref';
 		jsonData.c74object.maxattr_category = 'evieve';
+		jsonData.c74object.misc = externalsXmlMisc;
 		const editedData = builder.build(jsonData);
 		fs.writeFileSync(`${outDir}/${outName}`, editedData);
 	}
 }
 
-// --------------------------------------------- //
-
 function parseDataForQlookup() {
 	const parseOptions = {
-		preserveOrder: true, // true = good for getting values, shit for rebuilding xml
+		preserveOrder: false, // true = good for getting values, shit for rebuilding xml
 		ignoreAttributes: false,
 		attributeNamePrefix: attributeXmlPrefix,
 		alwaysCreateTextNode: true,
 		processEntities: false
 	};
 	const parser = new XMLParser(parseOptions);
-	const attrName = `${attributeXmlPrefix}name`;
 
 	let readDir = `${cwd()}/${config.interfaceFiles.qlookup.input}`;
 	let refPages = getFileNamesFromPath(readDir, 'xml');
@@ -354,16 +372,33 @@ function parseDataForQlookup() {
 		const objectName = page.replace('.maxref.xml', '');
 
 		qlookup[objectName] = {};
-		// if (Object.hasOwn(xmlResult.c74object, 'digest')) {
-		// 	qlookup[objectName].digest = xmlResult.c74object.digest;
-		// } else {
+		if (Object.hasOwn(xmlResult.c74object, 'digest')) {
+			const maybeDigest: any = xmlResult.c74object.digest;
+			if (typeof maybeDigest === 'string') {
+				qlookup[objectName].digest = xmlResult.c74object.digest;
+			} else {
+				qlookup[objectName].digest = xmlResult.c74object.digest['#text'];
+			}
+		} else {
 			qlookup[objectName].digest = 'TEXT_HERE';
-		// }
-		qlookup[objectName].module = 'evieve-ref'; // !! TODO
-		qlookup[objectName].category = 'evieve'; // !! TODO
+		}
+		qlookup[objectName].module = xmlResult.c74object.maxattr_module;
 
+		let tagsArray = [];
+		if (Object.hasOwn(xmlResult.c74object, 'metadatalist')) {
+			for (const tag of xmlResult.c74object.metadatalist.metadata) {
+				if (tag.maxattr_name === 'tag') {
+					tagsArray.push(tag['#text']);
+				}
+			}
+			qlookup[objectName].category = tagsArray;
+		}
+
+		qlookup[objectName].keywords = [];
 		if (Object.hasOwn(xmlResult.c74object, 'misc')) {
-			const discussionData = xmlResult.c74object.misc.filter((el: any) => el.maxattr_name === 'Discussion');
+			void max.post('have found a misc');
+			// TODO:
+/*			const discussionData = xmlResult.c74object.misc.filter((el: any) => el.maxattr_name === 'Discussion');
 			if (Array.isArray(discussionData)) {
 				const keywordData = discussionData[0].entry.filter((el: any) => el.maxattr_name === 'Keywords');
 				if (keywordData.length > 0) {
@@ -371,7 +406,7 @@ function parseDataForQlookup() {
 				}
 				qlookup[objectName].keywords = qlookup[objectName].keywords.map((item: string) => item.trim());
 			}
-		}
+*/		}
 
 		const seeAlsoArray = [];
 		if (Object.hasOwn(xmlResult.c74object, 'seealsolist')) {
@@ -380,7 +415,9 @@ function parseDataForQlookup() {
 					seeAlsoArray.push(see.maxattr_name);
 				}
 			} else {
-				seeAlsoArray.push(xmlResult.c74object.seealsolist.seealso.maxattr_name);
+				if (xmlResult.c74object.seealsolist.seealso != null) {
+					seeAlsoArray.push(xmlResult.c74object.seealsolist.seealso.maxattr_name);
+				}
 			}
 
 			qlookup[objectName].seealso = seeAlsoArray;
@@ -391,6 +428,164 @@ function parseDataForQlookup() {
 	// fs.mkdirSync(writeDir, { recursive: true });
 	fs.writeFileSync(`${writeDir}/evieve-obj-qlookup.json`, JSON.stringify(qlookup, null, 4));
 	void max.post('Wrote qlookup for evieve', max.POST_LEVELS.INFO);
+}
+
+// --------------------------------------------- //
+
+function createHelpFilesBasic(force = false)
+{
+	const eviHelpStarter = 'evi.helpstarter.js';
+	const writeDir = config.helpFiles.externals.output;
+	const externalsConfig = mxo.evi_externals;
+	const abstractionsConfig = maxpat.evi_abstractions;
+	const configInputMerge = Object.assign(externalsConfig, abstractionsConfig);
+	const forHelpfilesArray = Object.keys(externalsConfig);
+	for (const object of forHelpfilesArray) {
+		// @ts-expect-error
+		const thisObject = configInputMerge[object];
+		if (thisObject.object) {
+			if (thisObject.helpfile.generate) {
+				const writePath = `${writeDir}/${object}.maxhelp`;
+
+				if (!fs.existsSync(writePath) || force) {
+					renderFromTemplate(
+					'../templates/evi.maxhelp.handlebars',
+					{
+						evihelpstarter: eviHelpStarter,
+						eviobject: object,
+						evioption: 0
+					},
+					writePath
+					);
+				} else {
+					void max.post(`not overwriting as ${object}.maxhelp already exists!`);
+				}
+
+			} else {
+				void max.post(`not creating helpfile for ${object} as no generation requested!`);
+			}
+		}
+
+	}
+}
+
+function createHelpFilesExternals(force = false)
+{
+	const eviHelpStarter = 'evi.helpstarter.js';
+	const writeDir = config.helpFiles.externals.output;
+	const externalsConfig = mxo.evi_externals;
+	const forHelpfilesArray = Object.keys(externalsConfig);
+	for (const object of forHelpfilesArray) {
+		// @ts-expect-error
+		const thisObject = externalsConfig[object];
+		if (thisObject.object) {
+			if (thisObject.helpfile.generate) {
+				const writePath = `${writeDir}/${object}.maxhelp`;
+
+				const eviOption1: number = (thisObject.helpfile.mctab) ? 1 : 0;
+				const eviOption2: number = (thisObject.helpfile.mcstab) ? 1 : 0;
+				const eviOption3: number = (thisObject.helpfile.gentab) ? 1 : 0;
+				const eviOption4: number = (thisObject.helpfile.genexprtab) ? 1 : 0;
+				let eviOption5: string = thisObject.helpfile.areas[0];
+				if (eviOption5 == undefined || eviOption5 == null) {
+					eviOption5 = 'none';
+				}
+
+				if (!fs.existsSync(writePath) || force) {
+					renderFromTemplate(
+					'../templates/evi.maxhelp.handlebars',
+					{
+						evihelpstarter: eviHelpStarter,
+						eviobject: object,
+						opt1: eviOption1,
+						opt2: eviOption2,
+						opt3: eviOption3,
+						opt4: eviOption4,
+						opt5: eviOption5
+					},
+					writePath
+					);
+				} else {
+					void max.post(`not overwriting as ${object}.maxhelp already exists!`);
+				}
+
+			} else {
+				void max.post(`not creating helpfile for ${object} as no generation requested!`);
+			}
+		}
+
+	}
+}
+
+function createHelpFilesAbstractions(force = false)
+{
+	const eviHelpStarter = 'evi.helpstarter.js';
+	const writeDir = config.helpFiles.abstractions.output;
+	const abstractionsConfig = maxpat.evi_abstractions;
+	const forHelpfilesArray = Object.keys(abstractionsConfig);
+	for (const object of forHelpfilesArray) {
+		// @ts-expect-error
+		const thisObject = abstractionsConfig[object];
+		if (thisObject.object) {
+			if (thisObject.helpfile.generate) {
+				const writePath = `${writeDir}/${object}.maxhelp`;
+
+				if (!fs.existsSync(writePath) || force) {
+					renderFromTemplate(
+					'../templates/evi.maxhelp.handlebars',
+					{
+						evihelpstarter: eviHelpStarter,
+						eviobject: object,
+						evioption: 0
+					},
+					writePath
+					);
+				} else {
+					void max.post(`not overwriting as ${object}.maxhelp already exists!`);
+				}
+
+			} else {
+				void max.post(`not creating helpfile for ${object} as no generation requested!`);
+			}
+		}
+
+	}
+}
+
+function createHelpFilesDefines(force = false)
+{
+	const eviHelpStarter = 'evi.helpstarter.js';
+	const writeDir = config.helpFiles.defines.output;
+	const definesConfig = gendsp.evi_gendsp;
+	const forHelpfilesArray = Object.keys(definesConfig);
+	for (const object of forHelpfilesArray) {
+		// @ts-expect-error
+		const thisObject = definesConfig[object];
+		if (thisObject.define.object) {
+			if (thisObject.help.msp) {
+				const thisObjectName = thisObject.define.msp;
+				const writePath = `${writeDir}/${thisObjectName}.maxhelp`;
+
+				if (!fs.existsSync(writePath) || force) {
+					renderFromTemplate(
+					'../templates/evi.maxhelp.handlebars',
+					{
+						evihelpstarter: eviHelpStarter,
+						eviobject: thisObjectName,
+						evioption: 0
+					},
+					writePath
+					);
+				} else {
+					void max.post(`not overwriting as ${thisObjectName}.maxhelp already exists!`);
+				}
+
+			} else {
+				void max.post(`not creating helpfile for ${object} as no generation requested!`);
+			}
+		}
+
+	}
 }
 
 // --------------------------------------------- //
@@ -2306,9 +2501,41 @@ const externalsXmlMetadata = [
 	{
 		"#text": "evieve",
 		"maxattr_name": "tag"
+	},
+	{
+		"#text": "evieve Objects",
+		"maxattr_name": "tag"
 	}
 ];
 
+const externalsXmlMisc = [
+	{
+		"entry": [
+			{
+				"description": "TEXT_HERE",
+				"maxattr_name": "Keywords"
+			}
+		],
+		"maxattr_name": "Discussion"
+	}
+];
+/*
+const externalsXmlMisc = [
+	{
+		"entry": [
+			{
+				"description": "TEXT_HERE",
+				"maxattr_name": "More Details"
+			},
+			{
+				"description": "TEXT_HERE",
+				"maxattr_name": "Keywords"
+			}
+		],
+		"maxattr_name": "Discussion"
+	}
+];
+*/
 // some helpfiles have automatic general tabs covering an 'area'
 const areas = [
 	"biquad",

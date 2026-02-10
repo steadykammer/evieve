@@ -3,6 +3,10 @@ let objectNameArgument;
 if (jsarguments.length > 1) {
   objectNameArgument = jsarguments[1];
 }
+let overideWidthInit = 0;
+if (jsarguments.length > 2) {
+  overideWidthInit = jsarguments[2];
+}
 const thisPatcher = patcher;
 const thisBox = box;
 thisBox.message("border", 0);
@@ -25,7 +29,11 @@ function paint() {
     mgraphics.fill();
     if (isFirstTime) {
       const widthHeight = mgraphics.text_measure(objectNameArgument);
-      thisBox.message("patching_rect", 10, 10, widthHeight[0] + 10, widthHeight[1]);
+      if (overideWidthInit > 0) {
+        thisBox.message("patching_rect", 10, 10, overideWidthInit, widthHeight[1]);
+      } else {
+        thisBox.message("patching_rect", 10, 10, widthHeight[0] + 10, widthHeight[1]);
+      }
       isFirstTime = false;
     }
   }

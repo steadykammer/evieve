@@ -75,6 +75,17 @@
             }
         },
         {
+            "name": "bandwidth",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "0.69"
+            }
+        },
+        {
             "name": "bypass",
             "get": 0,
             "type": "int",
@@ -83,6 +94,28 @@
             "default": {
                 "get": 0,
                 "value": "0"
+            }
+        },
+        {
+            "name": "bypass",
+            "get": 0,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "0"
+            }
+        },
+        {
+            "name": "damping",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "0.41"
             }
         },
         {
@@ -108,6 +141,17 @@
             }
         },
         {
+            "name": "dry",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "-3."
+            }
+        },
+        {
             "name": "early",
             "get": 0,
             "type": "float",
@@ -116,6 +160,28 @@
             "default": {
                 "get": 0,
                 "value": "-9."
+            }
+        },
+        {
+            "name": "early",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "-9."
+            }
+        },
+        {
+            "name": "highfrequency",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "2000."
             }
         },
         {
@@ -141,6 +207,17 @@
             }
         },
         {
+            "name": "highgain",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "0."
+            }
+        },
+        {
             "name": "late",
             "get": 0,
             "type": "float",
@@ -149,6 +226,28 @@
             "default": {
                 "get": 0,
                 "value": "-11."
+            }
+        },
+        {
+            "name": "late",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "-11."
+            }
+        },
+        {
+            "name": "lowfrequency",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "500."
             }
         },
         {
@@ -174,6 +273,17 @@
             }
         },
         {
+            "name": "lowgain",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "0."
+            }
+        },
+        {
             "name": "reverb",
             "get": 0,
             "type": "float",
@@ -182,6 +292,28 @@
             "default": {
                 "get": 0,
                 "value": "4.85"
+            }
+        },
+        {
+            "name": "reverb",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "4.85"
+            }
+        },
+        {
+            "name": "size",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "80."
             }
         },
         {
@@ -207,6 +339,17 @@
             }
         },
         {
+            "name": "smoothtime",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "50."
+            }
+        },
+        {
             "name": "spread",
             "get": 0,
             "type": "float",
@@ -215,6 +358,28 @@
             "default": {
                 "get": 0,
                 "value": "0.22"
+            }
+        },
+        {
+            "name": "spread",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "0.22"
+            }
+        },
+        {
+            "name": "stereo",
+            "get": 0,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "0"
             }
         },
         {

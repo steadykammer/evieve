@@ -20,6 +20,18 @@
             "description": ""
         },
         {
+            "id": 1,
+            "type": "signal",
+            "digest": "Audio In Left / messages to evi.backverb~",
+            "description": ""
+        },
+        {
+            "id": 2,
+            "type": "signal",
+            "digest": "Audio In Right / messages to evi.backverb~",
+            "description": ""
+        },
+        {
             "id": 2,
             "type": "signal",
             "digest": "Audio In Right / messages to evi.backverb~",
@@ -34,9 +46,27 @@
             "description": ""
         },
         {
+            "id": 1,
+            "type": "",
+            "digest": "RVRB Out Left",
+            "description": ""
+        },
+        {
             "id": 2,
             "type": "",
             "digest": "RVRB Out Right",
+            "description": ""
+        },
+        {
+            "id": 2,
+            "type": "",
+            "digest": "RVRB Out Right",
+            "description": ""
+        },
+        {
+            "id": 3,
+            "type": "",
+            "digest": "dumpout (pattrstorage)",
             "description": ""
         },
         {
@@ -75,6 +105,17 @@
             }
         },
         {
+            "name": "drywet",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "0.707107"
+            }
+        },
+        {
             "name": "feedback",
             "get": 0,
             "type": "float",
@@ -83,6 +124,28 @@
             "default": {
                 "get": 0,
                 "value": "2.4"
+            }
+        },
+        {
+            "name": "feedback",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "2.4"
+            }
+        },
+        {
+            "name": "feedbackdamphigh",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "0.8666"
             }
         },
         {
@@ -108,6 +171,17 @@
             }
         },
         {
+            "name": "feedbackdamplow",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "0.707107"
+            }
+        },
+        {
             "name": "feedbackhzhigh",
             "get": 0,
             "type": "float",
@@ -116,6 +190,28 @@
             "default": {
                 "get": 0,
                 "value": "2000."
+            }
+        },
+        {
+            "name": "feedbackhzhigh",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "2000."
+            }
+        },
+        {
+            "name": "feedbackhzlow",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "250."
             }
         },
         {
@@ -141,6 +237,17 @@
             }
         },
         {
+            "name": "feedbacknonlinear",
+            "get": 0,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "1"
+            }
+        },
+        {
             "name": "inputhzhigh",
             "get": 0,
             "type": "float",
@@ -149,6 +256,28 @@
             "default": {
                 "get": 0,
                 "value": "4000."
+            }
+        },
+        {
+            "name": "inputhzhigh",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "4000."
+            }
+        },
+        {
+            "name": "inputhzlow",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "125."
             }
         },
         {
@@ -174,6 +303,17 @@
             }
         },
         {
+            "name": "modulationdepth",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "4."
+            }
+        },
+        {
             "name": "modulationrate",
             "get": 0,
             "type": "float",
@@ -182,6 +322,28 @@
             "default": {
                 "get": 0,
                 "value": "1."
+            }
+        },
+        {
+            "name": "modulationrate",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "1."
+            }
+        },
+        {
+            "name": "outputnonlinear",
+            "get": 0,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "1"
             }
         },
         {

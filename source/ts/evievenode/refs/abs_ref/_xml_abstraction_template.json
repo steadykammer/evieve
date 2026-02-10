@@ -1,14 +1,14 @@
 {
     "object": {
         "name": "",
-        "category": "",
+        "category": "evieve",
         "digest": "TEXT_HERE",
         "description": "TEXT_HERE",
         "discussion": ""
     },
     "metadata": {
         "author": "",
-        "tags": ["evieve"]
+        "tags": []
     },
     "inlets": [
         {

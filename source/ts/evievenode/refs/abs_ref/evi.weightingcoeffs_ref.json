@@ -63,6 +63,28 @@
             }
         },
         {
+            "name": "hot",
+            "get": 0,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "0"
+            }
+        },
+        {
+            "name": "init",
+            "get": 0,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "1"
+            }
+        },
+        {
             "name": "init",
             "get": 0,
             "type": "int",
@@ -82,6 +104,28 @@
             "default": {
                 "get": 0,
                 "value": "auto"
+            }
+        },
+        {
+            "name": "samplerate",
+            "get": 0,
+            "type": "symbol",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "auto"
+            }
+        },
+        {
+            "name": "weighting",
+            "get": 0,
+            "type": "symbol",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "A"
             }
         },
         {

@@ -51,11 +51,11 @@
     "attributes": [
         {
             "name": "q",
-            "type": "symbol",
+            "type": "float",
             "digest": "@min 0.1, @max 10000",
             "description": "",
             "default": {
-                "type": "symbol",
+                "type": "float",
                 "value": "sqrt2"
             }
         }

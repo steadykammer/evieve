@@ -1,7 +1,7 @@
 {
     "object": {
         "name": "",
-        "category": "",
+        "category": "evieve",
         "parent": "",
         "tilde": "~",
         "description": "TEXT_HERE",
@@ -9,7 +9,7 @@
     },
     "metadata": {
         "author": "",
-        "tags": ["evieve"]
+        "tags": []
     },
     "includes": [],
     "inlets": [

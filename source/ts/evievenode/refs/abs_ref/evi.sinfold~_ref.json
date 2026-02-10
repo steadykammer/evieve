@@ -18,9 +18,21 @@
             "type": "signal",
             "digest": "audio in / (anything) messages to evi.sinfold~",
             "description": ""
+        },
+        {
+            "id": 1,
+            "type": "signal",
+            "digest": "audio in / (anything) messages to evi.sinfold~",
+            "description": ""
         }
     ],
     "outlets": [
+        {
+            "id": 1,
+            "type": "signal",
+            "digest": "sine shaped audio out",
+            "description": ""
+        },
         {
             "id": 1,
             "type": "signal",
@@ -54,6 +66,28 @@
             "default": {
                 "get": 0,
                 "value": "0.5"
+            }
+        },
+        {
+            "name": "drive",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "0.5"
+            }
+        },
+        {
+            "name": "smooth",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "22.666"
             }
         },
         {

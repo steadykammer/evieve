@@ -121,7 +121,7 @@
         {
             "name": "band2q",
             "get": 1,
-            "type": "symbol",
+            "type": "float",
             "digest": "",
             "description": "",
             "default": {
@@ -169,7 +169,7 @@
         {
             "name": "band3q",
             "get": 1,
-            "type": "symbol",
+            "type": "float",
             "digest": "",
             "description": "",
             "default": {
@@ -217,7 +217,7 @@
         {
             "name": "band4q",
             "get": 1,
-            "type": "symbol",
+            "type": "float",
             "digest": "",
             "description": "",
             "default": {
@@ -265,7 +265,7 @@
         {
             "name": "band5q",
             "get": 1,
-            "type": "symbol",
+            "type": "float",
             "digest": "",
             "description": "",
             "default": {
@@ -313,7 +313,7 @@
         {
             "name": "band6q",
             "get": 1,
-            "type": "symbol",
+            "type": "float",
             "digest": "",
             "description": "",
             "default": {
@@ -361,7 +361,7 @@
         {
             "name": "band7q",
             "get": 1,
-            "type": "symbol",
+            "type": "float",
             "digest": "",
             "description": "",
             "default": {

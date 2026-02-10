@@ -20,9 +20,27 @@
             "description": ""
         },
         {
+            "id": 1,
+            "type": "int/float",
+            "digest": "input to map / (list) input & in/out mappings",
+            "description": ""
+        },
+        {
             "id": 2,
             "type": "int/float",
             "digest": "in low",
+            "description": ""
+        },
+        {
+            "id": 2,
+            "type": "int/float",
+            "digest": "in low",
+            "description": ""
+        },
+        {
+            "id": 3,
+            "type": "int/float",
+            "digest": "in mid",
             "description": ""
         },
         {
@@ -38,6 +56,18 @@
             "description": ""
         },
         {
+            "id": 4,
+            "type": "int/float",
+            "digest": "in high",
+            "description": ""
+        },
+        {
+            "id": 5,
+            "type": "int/float",
+            "digest": "out low",
+            "description": ""
+        },
+        {
             "id": 5,
             "type": "int/float",
             "digest": "out low",
@@ -47,6 +77,18 @@
             "id": 6,
             "type": "int/float",
             "digest": "out mid",
+            "description": ""
+        },
+        {
+            "id": 6,
+            "type": "int/float",
+            "digest": "out mid",
+            "description": ""
+        },
+        {
+            "id": 7,
+            "type": "int/float",
+            "digest": "out high",
             "description": ""
         },
         {
@@ -61,6 +103,18 @@
             "id": 1,
             "type": "float",
             "digest": "mapped output",
+            "description": ""
+        },
+        {
+            "id": 1,
+            "type": "float",
+            "digest": "mapped output",
+            "description": ""
+        },
+        {
+            "id": 2,
+            "type": "list",
+            "digest": "mapping list (if @dumpout == 1)",
             "description": ""
         },
         {
@@ -82,9 +136,33 @@
         {
             "name": "",
             "type": "float",
+            "default": "0.",
+            "optional": 1,
+            "digest": "arg#1: ",
+            "description": ""
+        },
+        {
+            "name": "",
+            "type": "float",
             "default": "0.5",
             "optional": 1,
             "digest": "arg#2: ",
+            "description": ""
+        },
+        {
+            "name": "",
+            "type": "float",
+            "default": "0.5",
+            "optional": 1,
+            "digest": "arg#2: ",
+            "description": ""
+        },
+        {
+            "name": "",
+            "type": "float",
+            "default": "1.",
+            "optional": 1,
+            "digest": "arg#3: ",
             "description": ""
         },
         {
@@ -106,9 +184,33 @@
         {
             "name": "",
             "type": "float",
+            "default": "0.",
+            "optional": 1,
+            "digest": "arg#4: ",
+            "description": ""
+        },
+        {
+            "name": "",
+            "type": "float",
             "default": "0.5",
             "optional": 1,
             "digest": "arg#5: ",
+            "description": ""
+        },
+        {
+            "name": "",
+            "type": "float",
+            "default": "0.5",
+            "optional": 1,
+            "digest": "arg#5: ",
+            "description": ""
+        },
+        {
+            "name": "",
+            "type": "float",
+            "default": "1.",
+            "optional": 1,
+            "digest": "arg#6: ",
             "description": ""
         },
         {
@@ -148,6 +250,17 @@
             }
         },
         {
+            "name": "dumpout",
+            "get": 0,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "0"
+            }
+        },
+        {
             "name": "hot",
             "get": 0,
             "type": "int",
@@ -156,6 +269,28 @@
             "default": {
                 "get": 0,
                 "value": "0"
+            }
+        },
+        {
+            "name": "hot",
+            "get": 0,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "0"
+            }
+        },
+        {
+            "name": "initial",
+            "get": 0,
+            "type": "symbol",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "none"
             }
         },
         {

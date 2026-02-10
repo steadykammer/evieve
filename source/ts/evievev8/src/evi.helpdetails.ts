@@ -160,7 +160,7 @@ function paint() {
 	// peter icon top left
 	mgraphics.set_source_rgba(1.0, 1.0, 1.0, 1.0); // just so png alpha is full
 	mgraphics.identity_matrix();
-	mgraphics.transform(0.105, 0.105, 0.0, 0.0, 4.0, 4.0);
+	mgraphics.transform(0.185, 0.185, 0.0, 0.0, 4.0, 4.0);
 	mgraphics.image_surface_draw(peter);
 }
 

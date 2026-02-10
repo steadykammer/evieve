@@ -44,11 +44,11 @@
     "attributes": [
         {
             "name": "size",
-            "type": "symbol",
+            "type": "int",
             "digest": "@min 1, @max 4096",
             "description": "",
             "default": {
-                "type": "symbol",
+                "type": "int",
                 "value": "vectorsize"
             }
         },

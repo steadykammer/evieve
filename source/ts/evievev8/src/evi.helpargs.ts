@@ -3,8 +3,8 @@
  * this file is automatically transpiled from Typescript - DO NOT EDIT BY HAND
  */
 
-// the v8ui that auto places an arrow next to the object to show object args in a helpfile
-// this is just a slightly modified evieve version of the Cycling '74 code
+// the v8ui that auto places an arrow next to the object to show object args in a helpfile.
+// this is just a slightly modified evieve version of the Cycling '74 code.
 
 let objectNameArgument: string;
 if (jsarguments.length > 1) {
@@ -20,7 +20,7 @@ const thisBox: Maxobj = box;
 
 thisBox.message('border', 0);
 thisBox.message('ignoreclick', 1);
-thisBox.message('sendtoback');
+// thisBox.message('sendtoback');
 
 mgraphics.init();
 mgraphics.relative_coords = 0;
@@ -38,19 +38,20 @@ function init() {
 	const args = dict.get('objargs');
 	const argsKeys = args.getkeys();
 	if (args) {
-		if (Array.isArray(argsKeys)) {
-			for (let i = 0; i < argsKeys.length; i++) {
-				if (args.get(argsKeys[i]).get('optional') === 1) {
-					opt = ' (optional)'; // !! space
-				}
-				value[i] = `${args.get(argsKeys[i]).get('fullname')} (${args.get(argsKeys[i]).get('type')})${opt}`;
-			}
-		} else {
-			if (args.get(argsKeys).get('optional') === 1) {
-				opt = ' (optional)'; // !! space
-			}
-			value = `${args.get(argsKeys).get('fullname')} (${args.get(argsKeys).get('type')})${opt}`;
-		}
+		post(`${JSON.stringify(args)}`);
+		// if (Array.isArray(argsKeys)) {
+		// 	for (let i = 0; i < argsKeys.length; i++) {
+		// 		if (args.get(argsKeys[i]).get('optional') === 1) {
+		// 			opt = ' (optional)'; // !! space
+		// 		}
+		// 		value[i] = `${args.get(argsKeys[i]).get('fullname')} (${args.get(argsKeys[i]).get('type')})${opt}`;
+		// 	}
+		// } else {
+		// 	if (args.get(argsKeys).get('optional') === 1) {
+		// 		opt = ' (optional)'; // !! space
+		// 	}
+		// 	value = `${args.get(argsKeys).get('fullname')} (${args.get(argsKeys).get('type')})${opt}`;
+		// }
 	}
 	dict.freepeer();
 	if (args) {

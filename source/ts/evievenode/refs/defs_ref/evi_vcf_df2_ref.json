@@ -53,7 +53,7 @@
         {
             "name": "q",
             "get": 1,
-            "type": "symbol",
+            "type": "float",
             "digest": "",
             "description": "",
             "default": {

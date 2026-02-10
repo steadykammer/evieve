@@ -69,6 +69,22 @@
         },
         {
             "name": "",
+            "type": "int",
+            "default": "16",
+            "optional": 1,
+            "digest": "arg#1: ",
+            "description": ""
+        },
+        {
+            "name": "",
+            "type": "float",
+            "default": "20.",
+            "optional": 1,
+            "digest": "arg#2: ",
+            "description": ""
+        },
+        {
+            "name": "",
             "type": "float",
             "default": "20.",
             "optional": 1,
@@ -81,6 +97,22 @@
             "default": "20000.",
             "optional": 1,
             "digest": "arg#3: ",
+            "description": ""
+        },
+        {
+            "name": "",
+            "type": "float",
+            "default": "20000.",
+            "optional": 1,
+            "digest": "arg#3: ",
+            "description": ""
+        },
+        {
+            "name": "",
+            "type": "float",
+            "default": "100.",
+            "optional": 1,
+            "digest": "arg#4: ",
             "description": ""
         },
         {
@@ -120,6 +152,28 @@
             }
         },
         {
+            "name": "compensate",
+            "get": 0,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "1"
+            }
+        },
+        {
+            "name": "maxbands",
+            "get": 0,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "128"
+            }
+        },
+        {
             "name": "maxbands",
             "get": 0,
             "type": "int",
@@ -139,6 +193,28 @@
             "default": {
                 "get": 0,
                 "value": "10."
+            }
+        },
+        {
+            "name": "smooth",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "10."
+            }
+        },
+        {
+            "name": "tuning",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "440."
             }
         },
         {

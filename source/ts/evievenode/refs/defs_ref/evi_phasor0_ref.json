@@ -57,6 +57,12 @@
                     "type": "float",
                     "units": "default: 0",
                     "optional": 1
+                },
+                {
+                    "name": "jump",
+                    "type": "float",
+                    "units": "default: 0",
+                    "optional": 1
                 }
             ],
             "digest": "Top level gen~ [history] / History() declarations can be reset by messages to the object",

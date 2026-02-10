@@ -102,11 +102,11 @@
         },
         {
             "name": "band2q",
-            "type": "symbol",
+            "type": "float",
             "digest": "@min 0.1, @max 18",
             "description": "",
             "default": {
-                "type": "symbol",
+                "type": "float",
                 "value": "sqrt1_2"
             }
         },
@@ -142,11 +142,11 @@
         },
         {
             "name": "band3q",
-            "type": "symbol",
+            "type": "float",
             "digest": "@min 0.1, @max 18",
             "description": "",
             "default": {
-                "type": "symbol",
+                "type": "float",
                 "value": "sqrt1_2"
             }
         },
@@ -182,11 +182,11 @@
         },
         {
             "name": "band4q",
-            "type": "symbol",
+            "type": "float",
             "digest": "@min 0.1, @max 18",
             "description": "",
             "default": {
-                "type": "symbol",
+                "type": "float",
                 "value": "sqrt1_2"
             }
         },

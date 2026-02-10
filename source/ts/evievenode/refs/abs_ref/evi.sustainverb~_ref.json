@@ -111,6 +111,17 @@
             }
         },
         {
+            "name": "crossover",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "3000."
+            }
+        },
+        {
             "name": "damp",
             "get": 0,
             "type": "float",
@@ -119,6 +130,28 @@
             "default": {
                 "get": 0,
                 "value": "0.2"
+            }
+        },
+        {
+            "name": "damp",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "0.2"
+            }
+        },
+        {
+            "name": "drywet",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "1."
             }
         },
         {
@@ -144,6 +177,28 @@
             }
         },
         {
+            "name": "early",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "0."
+            }
+        },
+        {
+            "name": "feedback",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "0.707107"
+            }
+        },
+        {
             "name": "feedback",
             "get": 0,
             "type": "float",
@@ -166,6 +221,17 @@
             }
         },
         {
+            "name": "gain",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "-3."
+            }
+        },
+        {
             "name": "highpass",
             "get": 0,
             "type": "int",
@@ -174,6 +240,28 @@
             "default": {
                 "get": 0,
                 "value": "0"
+            }
+        },
+        {
+            "name": "highpass",
+            "get": 0,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "0"
+            }
+        },
+        {
+            "name": "smoothtime",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "43."
             }
         },
         {

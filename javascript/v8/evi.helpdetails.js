@@ -118,7 +118,7 @@ function paint() {
   }
   mgraphics.set_source_rgba(1, 1, 1, 1);
   mgraphics.identity_matrix();
-  mgraphics.transform(0.105, 0.105, 0, 0, 4, 4);
+  mgraphics.transform(0.185, 0.185, 0, 0, 4, 4);
   mgraphics.image_surface_draw(peter);
 }
 function doWordWrap(theText) {

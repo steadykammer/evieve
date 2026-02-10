@@ -165,7 +165,7 @@
         {
             "name": "envwindow",
             "get": 1,
-            "type": "symbol",
+            "type": "int",
             "digest": "",
             "description": "",
             "default": {

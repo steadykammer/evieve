@@ -16,12 +16,79 @@
         "boxes": [
             {
                 "box": {
+                    "id": "obj-44",
+                    "maxclass": "newobj",
+                    "numinlets": 2,
+                    "numoutlets": 3,
+                    "outlettype": [ "signal", "signal", "" ],
+                    "patching_rect": [ 416.0, 424.0, 91.0, 22.0 ],
+                    "text": "evi.freezeverb~",
+                    "varname": "evi.freezeverb~"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-43",
+                    "maxclass": "newobj",
+                    "numinlets": 2,
+                    "numoutlets": 5,
+                    "outlettype": [ "signal", "signal", "signal", "signal", "signal" ],
+                    "patching_rect": [ 517.0, 429.0, 69.0, 22.0 ],
+                    "text": "evi.4wave~"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-42",
+                    "maxclass": "message",
+                    "numinlets": 2,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 765.0, 456.0, 138.0, 22.0 ],
+                    "text": "create_helpfiles_defines"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-41",
+                    "maxclass": "message",
+                    "numinlets": 2,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 765.0, 425.0, 164.0, 22.0 ],
+                    "text": "create_helpfiles_abstractions"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-40",
+                    "maxclass": "message",
+                    "numinlets": 2,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 765.0, 395.0, 148.0, 22.0 ],
+                    "text": "create_helpfiles_externals"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-32",
+                    "maxclass": "newobj",
+                    "numinlets": 2,
+                    "numoutlets": 1,
+                    "outlettype": [ "signal" ],
+                    "patching_rect": [ 444.0, 456.0, 83.0, 22.0 ],
+                    "text": "evi.cfsmooth~"
+                }
+            },
+            {
+                "box": {
                     "id": "obj-39",
                     "maxclass": "message",
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 765.0, 376.0, 115.0, 22.0 ],
+                    "patching_rect": [ 765.0, 327.0, 115.0, 22.0 ],
                     "text": "make_qlookup_json"
                 }
             },
@@ -186,8 +253,8 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 36.0, 623.0, 165.0, 22.0 ],
-                    "text": "pete_test_externals_xml_edit"
+                    "patching_rect": [ 36.0, 623.0, 109.0, 22.0 ],
+                    "text": "externals_xml_edit"
                 }
             },
             {
@@ -1233,6 +1300,24 @@
             {
                 "patchline": {
                     "destination": [ "obj-1", 0 ],
+                    "source": [ "obj-40", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-1", 0 ],
+                    "source": [ "obj-41", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-1", 0 ],
+                    "source": [ "obj-42", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-1", 0 ],
                     "source": [ "obj-5", 0 ]
                 }
             },
@@ -1249,6 +1334,30 @@
                 }
             }
         ],
+        "parameters": {
+            "obj-44::obj-54::obj-10": [ "eqHighGain", "eqHighGain", 0 ],
+            "obj-44::obj-54::obj-12": [ "earlyGain", "earlyGain", 0 ],
+            "obj-44::obj-54::obj-15": [ "eqLowGain", "eqLowGain", 0 ],
+            "obj-44::obj-54::obj-16": [ "eqLowFreq", "eqLowFreq", 0 ],
+            "obj-44::obj-54::obj-2": [ "preDelay", "preDelay", 0 ],
+            "obj-44::obj-54::obj-3": [ "reverbSize", "reverbSize", 0 ],
+            "obj-44::obj-54::obj-33": [ "wetGain", "wetGain", 0 ],
+            "obj-44::obj-54::obj-35": [ "bypass", "bypass", 0 ],
+            "obj-44::obj-54::obj-4": [ "dryGain", "dryGain", 0 ],
+            "obj-44::obj-54::obj-5": [ "width", "width", 0 ],
+            "obj-44::obj-54::obj-7": [ "eqHighFreq", "eqHighFreq", 0 ],
+            "obj-44::obj-54::obj-8": [ "smoothTime", "smoothTime", 0 ],
+            "obj-44::obj-54::obj-9": [ "damping", "damping", 0 ],
+            "parameterbanks": {
+                "0": {
+                    "index": 0,
+                    "name": "",
+                    "parameters": [ "-", "-", "-", "-", "-", "-", "-", "-" ],
+                    "buttons": [ "-", "-", "-", "-", "-", "-", "-", "-" ]
+                }
+            },
+            "inherited_shortname": 1
+        },
         "autosave": 0,
         "toolbaradditions": [ "audiosolo", "audiomute" ]
     }
