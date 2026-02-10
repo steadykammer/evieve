@@ -45,7 +45,7 @@
                         "embed": 1,
                         "parameter_enable": 0
                     },
-                    "text": "v8 evi.helpstarter.js evi.ringmod.diode~     ",
+                    "text": "v8 evi.helpstarter.js evi.ringmod.diode~ 0 0 1 0 none",
                     "textfile": {
                         "text": "",
                         "filename": "evi.helpstarter.js.js",

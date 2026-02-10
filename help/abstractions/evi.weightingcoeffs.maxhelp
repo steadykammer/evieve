@@ -45,7 +45,7 @@
                         "embed": 1,
                         "parameter_enable": 0
                     },
-                    "text": "v8 evi.helpstarter.js evi.weightingcoeffs     ",
+                    "text": "v8 evi.helpstarter.js evi.weightingcoeffs 0 0 0 0 none",
                     "textfile": {
                         "text": "",
                         "filename": "evi.helpstarter.js.js",

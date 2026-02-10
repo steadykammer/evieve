@@ -45,7 +45,7 @@
                         "embed": 1,
                         "parameter_enable": 0
                     },
-                    "text": "v8 evi.helpstarter.js evi.hilbert~     ",
+                    "text": "v8 evi.helpstarter.js evi.hilbert~ 0 0 1 1 msp",
                     "textfile": {
                         "text": "",
                         "filename": "evi.helpstarter.js.js",

@@ -45,7 +45,7 @@
                         "embed": 1,
                         "parameter_enable": 0
                     },
-                    "text": "v8 evi.helpstarter.js evi.crossover.sum~     ",
+                    "text": "v8 evi.helpstarter.js evi.crossover.sum~ 1 0 1 1 crossover",
                     "textfile": {
                         "text": "",
                         "filename": "evi.helpstarter.js.js",

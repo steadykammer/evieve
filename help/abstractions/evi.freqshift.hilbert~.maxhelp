@@ -45,7 +45,7 @@
                         "embed": 1,
                         "parameter_enable": 0
                     },
-                    "text": "v8 evi.helpstarter.js evi.freqshift.hilbert~     ",
+                    "text": "v8 evi.helpstarter.js evi.freqshift.hilbert~ 0 0 1 1 none",
                     "textfile": {
                         "text": "",
                         "filename": "evi.helpstarter.js.js",

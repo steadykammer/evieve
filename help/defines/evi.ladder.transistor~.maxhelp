@@ -45,7 +45,7 @@
                         "embed": 1,
                         "parameter_enable": 0
                     },
-                    "text": "v8 evi.helpstarter.js evi.ladder.transistor~     ",
+                    "text": "v8 evi.helpstarter.js evi.ladder.transistor~ 1 0 1 1 ladder",
                     "textfile": {
                         "text": "",
                         "filename": "evi.helpstarter.js.js",

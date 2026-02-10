@@ -176,6 +176,7 @@ function init() {
 		mcComment.message('fontname', 'Lato');
 		mcComment.message('textcolor', textColor);
 		mcComment.message('patching_rect', 10.0, 70.0, 660.0, 22.0);
+		mcComment.message('background', 1);
 		// mctab.subpatcher().bringtofront('digest_comment');
 
 		mctab.subpatcher().message(
@@ -238,16 +239,17 @@ function init() {
 			'newobject',
 			'newobj',
 			'@text',
-			`v8ui @filename evi.helpname.js @jsarguments mc.${objectNameArgument} ${660} @patching_rect 10. 10. 660. 50. @background 1 @embed 0`);
+			`v8ui @filename evi.helpname.js @jsarguments mcs.${objectNameArgument} ${660} @patching_rect 10. 10. 660. 50. @background 1 @embed 0`);
 
 		const mcsDigestComment = mcstab.subpatcher().newdefault(10.0, 70.0, 'comment');
 		mcsDigestComment.varname = 'digest_comment';
-		const mcComment = mcstab.subpatcher().getnamed('digest_comment');
-		mcComment.message('set', `${objectNameArgument} is also available as an 'mcs' Object`);
-		mcComment.message('fontsize', 13);
-		mcComment.message('fontname', 'Lato');
-		mcComment.message('textcolor', textColor);
-		mcComment.message('patching_rect', 10.0, 70.0, 660.0, 22.0);
+		const mcsComment = mcstab.subpatcher().getnamed('digest_comment');
+		mcsComment.message('set', `${objectNameArgument} is also available as an 'mcs' Object`);
+		mcsComment.message('fontsize', 13);
+		mcsComment.message('fontname', 'Lato');
+		mcsComment.message('textcolor', textColor);
+		mcsComment.message('patching_rect', 10.0, 70.0, 660.0, 22.0);
+		mcsComment.message('background', 1);
 		// mcstab.subpatcher().bringtofront('digest_comment');
 
 		mcstab.subpatcher().message(
@@ -282,15 +284,230 @@ function init() {
 	}
 
 	if (eviOption3 > 0) {
-		;
+		const gen = thisPatcher.getnamed('gen_tab');
+		const testGenTab: boolean = gen?.valid; // != null && is valid
+		if (!testGenTab) {
+			thisPatcher.message(
+				'script',
+				'newobject',
+				'newobj',
+				'@text',
+				'p gen~',
+				'@varname',
+				'gen_tab',
+				'@patching_rect', 373, 336, 50, 23,);
+			}
+		const gentab = thisPatcher.getnamed('gen_tab');
+		gentab.subpatcher().setattr('bglocked', 1);
+		gentab.subpatcher().message('wclose');
+		gentab.message('showontab', 1);
+		gentab.message('gridonopen', 1);
+		gentab.message('gridsize', 15, 15);
+		gentab.message('fontsize', 13);
+		gentab.message('fontname', 'Arial');
+		gentab.message('locked', 1);
+
+		gentab.subpatcher().message(
+			'script',
+			'newobject',
+			'newobj',
+			'@text',
+			`v8ui @filename evi.helpname.js @jsarguments ${objectNameArgument} ${660} @patching_rect 10. 10. 660. 50. @background 1 @embed 0`);
+
+		const genDigestComment = gentab.subpatcher().newdefault(10.0, 70.0, 'comment');
+		genDigestComment.varname = 'digest_comment';
+		const genComment = gentab.subpatcher().getnamed('digest_comment');
+		genComment.message('set', `The ${objectNameArgument} algorithm is also available inside the gen~ environment`);
+		genComment.message('fontsize', 13);
+		genComment.message('fontname', 'Lato');
+		genComment.message('textcolor', textColor);
+		genComment.message('patching_rect', 10.0, 70.0, 660.0, 22.0);
+		genComment.message('background', 1);
+		// gentab.subpatcher().bringtofront('digest_comment');
+
+		gentab.subpatcher().message(
+			'script',
+			'newobject',
+			'newobj',
+			'@text',
+			`gen~ @title using_${objectNameArgument}_inside_gen~`,
+			'@varname',
+			`${thisHelpObjectName}Gen`,
+			'@patching_rect', 223.0, 336.0, 447.0, 23.0);
+
+			const genboxComment = gentab.subpatcher().newdefault(97.0, 328.0, 'comment');
+			genboxComment.varname = 'comment_gen';
+			const gbComment = gentab.subpatcher().getnamed('comment_gen');
+			gbComment.message('set', 'Double-Click to see the example');
+			gbComment.message('bubble', 1);
+			gbComment.message('bubbleside', 3);
+			gbComment.message('textjustification', 1);
+			gbComment.message('fontsize', 13);
+			gbComment.message('fontname', 'Arial');
+			gbComment.message('patching_rect', 97.0, 328.0, 124.0, 40.0);
+			gbComment.message('background', 1);
+
+		if (createDacForHelpfile) {
+			const ezdacObj = gentab.subpatcher().newdefault(64.0, 537.0, 'ezdac~');
+			ezdacObj.varname = 'mcs_dac';
+			const ezdac = gentab.subpatcher().getnamed('mcs_dac');
+			ezdac.message('local', 1);
+			ezdac.message('patching_rect', 223.0, 537.0, 45.0, 45.0);
+
+			const ezdacComment = gentab.subpatcher().newdefault(270.0, 547.0, 'comment');
+			ezdacComment.varname = 'comment_dac';
+			const comment = gentab.subpatcher().getnamed('comment_dac');
+			comment.message('set', 'Audio On');
+			comment.message('bubble', 1);
+			comment.message('bubbleside', 1);
+			comment.message('textjustification', 1);
+			comment.message('fontsize', 13);
+			comment.message('fontname', 'Arial');
+			comment.message('patching_rect', 270.0, 547.0, 86.0, 25.0);
+			comment.message('background', 1);
+		}
 	}
 
 	if (eviOption4 > 0) {
-		;
+		const genexpr = thisPatcher.getnamed('genexpr_tab');
+		const testGenExprTab: boolean = genexpr?.valid; // != null && is valid
+		if (!testGenExprTab) {
+			thisPatcher.message(
+				'script',
+				'newobject',
+				'newobj',
+				'@text',
+				'p GenExpr',
+				'@varname',
+				'genexpr_tab',
+				'@patching_rect', 455, 336, 71, 23,);
+			}
+		const genexprtab = thisPatcher.getnamed('genexpr_tab');
+		genexprtab.subpatcher().setattr('bglocked', 1);
+		genexprtab.subpatcher().message('wclose');
+		genexprtab.message('showontab', 1);
+		genexprtab.message('gridonopen', 1);
+		genexprtab.message('gridsize', 15, 15);
+		genexprtab.message('fontsize', 13);
+		genexprtab.message('fontname', 'Arial');
+		genexprtab.message('locked', 1);
+
+		genexprtab.subpatcher().message(
+			'script',
+			'newobject',
+			'newobj',
+			'@text',
+			`v8ui @filename evi.helpname.js @jsarguments ${objectNameArgument} ${660} @patching_rect 10. 10. 660. 50. @background 1 @embed 0`);
+
+		const genexprDigestComment = genexprtab.subpatcher().newdefault(10.0, 70.0, 'comment');
+		genexprDigestComment.varname = 'digest_comment';
+		const genComment = genexprtab.subpatcher().getnamed('digest_comment');
+		genComment.message('set', `The ${objectNameArgument} algorithm can also be used inside GenExpr code`);
+		genComment.message('fontsize', 13);
+		genComment.message('fontname', 'Lato');
+		genComment.message('textcolor', textColor);
+		genComment.message('patching_rect', 10.0, 70.0, 660.0, 22.0);
+		genComment.message('background', 1);
+		// genexprtab.subpatcher().bringtofront('digest_comment');
+
+		genexprtab.subpatcher().message(
+			'script',
+			'newobject',
+			'newobj',
+			'@text',
+			`gen~ @title using_${objectNameArgument}_with_GenExpr`,
+			'@varname',
+			`${thisHelpObjectName}GenExpr`,
+			'@patching_rect', 223.0, 336.0, 447.0, 23.0);
+
+			const genboxComment = genexprtab.subpatcher().newdefault(97.0, 328.0, 'comment');
+			genboxComment.varname = 'comment_gen';
+			const gbComment = genexprtab.subpatcher().getnamed('comment_gen');
+			gbComment.message('set', 'Double-Click to see the example');
+			gbComment.message('bubble', 1);
+			gbComment.message('bubbleside', 3);
+			gbComment.message('textjustification', 1);
+			gbComment.message('fontsize', 13);
+			gbComment.message('fontname', 'Arial');
+			gbComment.message('patching_rect', 97.0, 328.0, 124.0, 40.0);
+			gbComment.message('background', 1);
+
+		if (createDacForHelpfile) {
+			const ezdacObj = genexprtab.subpatcher().newdefault(64.0, 537.0, 'ezdac~');
+			ezdacObj.varname = 'mcs_dac';
+			const ezdac = genexprtab.subpatcher().getnamed('mcs_dac');
+			ezdac.message('local', 1);
+			ezdac.message('patching_rect', 223.0, 537.0, 45.0, 45.0);
+
+			const ezdacComment = genexprtab.subpatcher().newdefault(270.0, 547.0, 'comment');
+			ezdacComment.varname = 'comment_dac';
+			const comment = genexprtab.subpatcher().getnamed('comment_dac');
+			comment.message('set', 'Audio On');
+			comment.message('bubble', 1);
+			comment.message('bubbleside', 1);
+			comment.message('textjustification', 1);
+			comment.message('fontsize', 13);
+			comment.message('fontname', 'Arial');
+			comment.message('patching_rect', 270.0, 547.0, 86.0, 25.0);
+			comment.message('background', 1);
+		}
 	}
 
 	if (eviOption5 !== 'none') {
-		;
+		const areas = thisPatcher.getnamed('areas_tab');
+		const testAreasTab: boolean = areas?.valid; // != null && is valid
+		if (!testAreasTab) {
+			thisPatcher.message(
+				'script',
+				'newobject',
+				'newobj',
+				'@text',
+				`p \"evieve ${eviOption5}\"`,
+				'@varname',
+				'areas_tab',
+				'@patching_rect', 543, 336, 107, 23,);
+			}
+		const areastab = thisPatcher.getnamed('areas_tab');
+		areastab.subpatcher().setattr('bglocked', 1);
+		areastab.subpatcher().message('wclose');
+		areastab.message('showontab', 1);
+		areastab.message('gridonopen', 1);
+		areastab.message('gridsize', 15, 15);
+		areastab.message('fontsize', 13);
+		areastab.message('fontname', 'Arial');
+		areastab.message('locked', 1);
+
+		areastab.subpatcher().message(
+			'script',
+			'newobject',
+			'newobj',
+			'@text',
+			`v8ui @filename evi.helpname.js @jsarguments \"evieve: ${eviOption5}\" ${660} @patching_rect 10. 10. 660. 50. @background 1 @embed 0`);
+
+		const areasDigestComment = areastab.subpatcher().newdefault(10.0, 70.0, 'comment');
+		areasDigestComment.varname = 'digest_comment';
+		const areasComment = areastab.subpatcher().getnamed('digest_comment');
+		areasComment.message('set', `There are other ${eviOption5} objects in evieve. Here is an overview.`);
+		areasComment.message('fontsize', 13);
+		areasComment.message('fontname', 'Lato');
+		areasComment.message('textcolor', textColor);
+		areasComment.message('patching_rect', 10.0, 70.0, 660.0, 22.0);
+		areasComment.message('background', 1);
+		// areastab.subpatcher().bringtofront('digest_comment');
+
+		areastab.subpatcher().message(
+			'script',
+			'newobject',
+			'newobj',
+			'@text',
+			`bpatcher`,
+			'@varname',
+			`${thisHelpObjectName}Areas`,
+			'@patching_rect', 10.0, 94.0, 660.0, 568.0);
+
+		if (createDacForHelpfile) {
+			;
+		}
 	}
 
 	const b = thisPatcher.getnamed('q_tab');

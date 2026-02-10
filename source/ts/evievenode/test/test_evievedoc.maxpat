@@ -1074,6 +1074,8 @@
                     "saved_object_attributes": {
                         "autostart": 0,
                         "defer": 0,
+                        "node_bin_path": "",
+                        "npm_bin_path": "",
                         "watch": 0
                     },
                     "text": "node.script /Users/stkr/Dev/evieve/source/ts/evievenode/dist/evievedoc.js",
@@ -1348,14 +1350,6 @@
             "obj-44::obj-54::obj-7": [ "eqHighFreq", "eqHighFreq", 0 ],
             "obj-44::obj-54::obj-8": [ "smoothTime", "smoothTime", 0 ],
             "obj-44::obj-54::obj-9": [ "damping", "damping", 0 ],
-            "parameterbanks": {
-                "0": {
-                    "index": 0,
-                    "name": "",
-                    "parameters": [ "-", "-", "-", "-", "-", "-", "-", "-" ],
-                    "buttons": [ "-", "-", "-", "-", "-", "-", "-", "-" ]
-                }
-            },
             "inherited_shortname": 1
         },
         "autosave": 0,

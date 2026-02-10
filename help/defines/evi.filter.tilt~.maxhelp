@@ -45,7 +45,7 @@
                         "embed": 1,
                         "parameter_enable": 0
                     },
-                    "text": "v8 evi.helpstarter.js evi.filter.tilt~     ",
+                    "text": "v8 evi.helpstarter.js evi.filter.tilt~ 1 0 1 1 filter",
                     "textfile": {
                         "text": "",
                         "filename": "evi.helpstarter.js.js",

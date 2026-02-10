@@ -530,13 +530,26 @@ function createHelpFilesAbstractions(force = false)
 			if (thisObject.helpfile.generate) {
 				const writePath = `${writeDir}/${object}.maxhelp`;
 
+				const eviOption1: number = (thisObject.helpfile.mctab) ? 1 : 0;
+				const eviOption2: number = (thisObject.helpfile.mcstab) ? 1 : 0;
+				const eviOption3: number = (thisObject.helpfile.gentab) ? 1 : 0;
+				const eviOption4: number = (thisObject.helpfile.genexprtab) ? 1 : 0;
+				let eviOption5: string = thisObject.helpfile.areas[0];
+				if (eviOption5 == undefined || eviOption5 == null) {
+					eviOption5 = 'none';
+				}
+
 				if (!fs.existsSync(writePath) || force) {
 					renderFromTemplate(
 					'../templates/evi.maxhelp.handlebars',
 					{
 						evihelpstarter: eviHelpStarter,
 						eviobject: object,
-						evioption: 0
+						opt1: eviOption1,
+						opt2: eviOption2,
+						opt3: eviOption3,
+						opt4: eviOption4,
+						opt5: eviOption5
 					},
 					writePath
 					);
@@ -566,13 +579,26 @@ function createHelpFilesDefines(force = false)
 				const thisObjectName = thisObject.define.msp;
 				const writePath = `${writeDir}/${thisObjectName}.maxhelp`;
 
+				const eviOption1: number = (thisObject.define.mcwrapper) ? 1 : 0;
+				const eviOption2: number = 0;
+				const eviOption3: number = (thisObject.help.gentab) ? 1 : 0;
+				const eviOption4: number = (thisObject.help.genexprtab) ? 1 : 0;
+				let eviOption5: string = thisObject.help.areas[0];
+				if (eviOption5 == undefined || eviOption5 == null) {
+					eviOption5 = 'none';
+				}
+
 				if (!fs.existsSync(writePath) || force) {
 					renderFromTemplate(
 					'../templates/evi.maxhelp.handlebars',
 					{
 						evihelpstarter: eviHelpStarter,
 						eviobject: thisObjectName,
-						evioption: 0
+						opt1: eviOption1,
+						opt2: eviOption2,
+						opt3: eviOption3,
+						opt4: eviOption4,
+						opt5: eviOption5
 					},
 					writePath
 					);

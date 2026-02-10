@@ -45,7 +45,7 @@
                         "embed": 1,
                         "parameter_enable": 0
                     },
-                    "text": "v8 evi.helpstarter.js evi.vcf~     ",
+                    "text": "v8 evi.helpstarter.js evi.vcf~ 1 0 1 1 pd",
                     "textfile": {
                         "text": "",
                         "filename": "evi.helpstarter.js.js",

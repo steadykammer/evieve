@@ -45,7 +45,7 @@
                         "embed": 1,
                         "parameter_enable": 0
                     },
-                    "text": "v8 evi.helpstarter.js mc.evi.bands~     ",
+                    "text": "v8 evi.helpstarter.js mc.evi.bands~ 0 0 0 0 none",
                     "textfile": {
                         "text": "",
                         "filename": "evi.helpstarter.js.js",

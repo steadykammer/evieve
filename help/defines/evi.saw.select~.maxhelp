@@ -45,7 +45,7 @@
                         "embed": 1,
                         "parameter_enable": 0
                     },
-                    "text": "v8 evi.helpstarter.js evi.saw.select~     ",
+                    "text": "v8 evi.helpstarter.js evi.saw.select~ 1 0 1 1 oscillator",
                     "textfile": {
                         "text": "",
                         "filename": "evi.helpstarter.js.js",

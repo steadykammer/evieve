@@ -45,7 +45,7 @@
                         "embed": 1,
                         "parameter_enable": 0
                     },
-                    "text": "v8 evi.helpstarter.js evi.plateverb_lite~     ",
+                    "text": "v8 evi.helpstarter.js evi.plateverb_lite~ 0 1 1 0 reverb",
                     "textfile": {
                         "text": "",
                         "filename": "evi.helpstarter.js.js",
