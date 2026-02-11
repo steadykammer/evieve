@@ -471,6 +471,7 @@ function createHelpFilesBasic(force = false)
 
 function createHelpFilesExternals(force = false)
 {
+	const eviType: number = 0;	// 0 = external, 1 = gen, 2 = abstraction
 	const eviHelpStarter = 'evi.helpstarter.js';
 	const writeDir = config.helpFiles.externals.output;
 	const externalsConfig = mxo.evi_externals;
@@ -497,6 +498,7 @@ function createHelpFilesExternals(force = false)
 					{
 						evihelpstarter: eviHelpStarter,
 						eviobject: object,
+						opt0: eviType,
 						opt1: eviOption1,
 						opt2: eviOption2,
 						opt3: eviOption3,
@@ -519,6 +521,7 @@ function createHelpFilesExternals(force = false)
 
 function createHelpFilesAbstractions(force = false)
 {
+	const eviType: number = 2;	// 0 = external, 1 = gen, 2 = abstraction
 	const eviHelpStarter = 'evi.helpstarter.js';
 	const writeDir = config.helpFiles.abstractions.output;
 	const abstractionsConfig = maxpat.evi_abstractions;
@@ -545,6 +548,7 @@ function createHelpFilesAbstractions(force = false)
 					{
 						evihelpstarter: eviHelpStarter,
 						eviobject: object,
+						opt0: eviType,
 						opt1: eviOption1,
 						opt2: eviOption2,
 						opt3: eviOption3,
@@ -567,6 +571,7 @@ function createHelpFilesAbstractions(force = false)
 
 function createHelpFilesDefines(force = false)
 {
+	const eviType: number = 1;	// 0 = external, 1 = gen, 2 = abstraction
 	const eviHelpStarter = 'evi.helpstarter.js';
 	const writeDir = config.helpFiles.defines.output;
 	const definesConfig = gendsp.evi_gendsp;
@@ -594,6 +599,7 @@ function createHelpFilesDefines(force = false)
 					{
 						evihelpstarter: eviHelpStarter,
 						eviobject: thisObjectName,
+						opt0: eviType,
 						opt1: eviOption1,
 						opt2: eviOption2,
 						opt3: eviOption3,

@@ -11,7 +11,6 @@
         "classnamespace": "box",
         "openrect": [ 55.0, 122.0, 837.0, 796.0 ],
         "openrectmode": 0,
-        "bglocked": 1,
         "default_fontsize": 13.0,
         "gridonopen": 2,
         "digest": "evieve helpfile",
@@ -40,12 +39,12 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 229.0, 85.0, 518.0, 23.0 ],
+                    "patching_rect": [ 229.0, 85.0, 541.0, 23.0 ],
                     "saved_object_attributes": {
                         "embed": 1,
                         "parameter_enable": 0
                     },
-                    "text": "v8 evi.helpstarter.js evi.filter.lowpass~ 1 0 1 1 filter",
+                    "text": "v8 evi.helpstarter.js evi.filter.lowpass~ 1 1 0 1 1 filter",
                     "textfile": {
                         "text": "",
                         "filename": "evi.helpstarter.js.js",
@@ -72,7 +71,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 148.0, 837.0, 648.0 ],
+                        "rect": [ 55.0, 148.0, 812.0, 648.0 ],
                         "default_fontsize": 13.0,
                         "showontab": 1,
                         "integercoordinates": 1,

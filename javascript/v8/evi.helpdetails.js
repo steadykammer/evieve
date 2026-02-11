@@ -94,7 +94,7 @@ function paint() {
       mgraphics.set_source_rgba(descColor);
       mgraphics.show_text(aliasRender);
     } else {
-      mgraphics.move_to(104, 63);
+      mgraphics.move_to(110, 63);
       mgraphics.select_font_face("Lato");
       mgraphics.set_source_rgba(textColor);
       mgraphics.set_font_size(48);

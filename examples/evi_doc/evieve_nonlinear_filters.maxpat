@@ -9,11 +9,61 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 63.0, 131.0, 812.0, 790.0 ],
+        "rect": [ 546.0, 114.0, 812.0, 790.0 ],
         "gridonopen": 2,
         "subpatcher_template": "sub",
         "integercoordinates": 1,
+        "title": "Nonlinear Filters in evieve",
         "boxes": [
+            {
+                "box": {
+                    "hidden": 1,
+                    "id": "obj-7",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 567.0, 282.0, 51.0, 22.0 ],
+                    "text": "pcontrol"
+                }
+            },
+            {
+                "box": {
+                    "hidden": 1,
+                    "id": "obj-8",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 567.0, 243.0, 79.0, 22.0 ],
+                    "text": "prepend load"
+                }
+            },
+            {
+                "box": {
+                    "hidden": 1,
+                    "id": "obj-9",
+                    "maxclass": "newobj",
+                    "numinlets": 2,
+                    "numoutlets": 2,
+                    "outlettype": [ "", "" ],
+                    "patching_rect": [ 567.0, 204.0, 178.0, 22.0 ],
+                    "text": "list.reg areas_help_filter.maxpat"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-10",
+                    "maxclass": "textbutton",
+                    "numinlets": 1,
+                    "numoutlets": 3,
+                    "outlettype": [ "", "", "int" ],
+                    "parameter_enable": 0,
+                    "patching_rect": [ 567.0, 167.0, 169.0, 20.0 ],
+                    "text": "Linear TPT Filters in evieve",
+                    "texton": "Linear TPT Filters in evieve"
+                }
+            },
             {
                 "box": {
                     "id": "obj-3",
@@ -308,7 +358,29 @@
                 }
             }
         ],
-        "lines": [],
+        "lines": [
+            {
+                "patchline": {
+                    "destination": [ "obj-9", 0 ],
+                    "hidden": 1,
+                    "source": [ "obj-10", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-7", 0 ],
+                    "hidden": 1,
+                    "source": [ "obj-8", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-8", 0 ],
+                    "hidden": 1,
+                    "source": [ "obj-9", 0 ]
+                }
+            }
+        ],
         "autosave": 0,
         "toolbaradditions": [ "audiosolo", "audiomute" ]
     }

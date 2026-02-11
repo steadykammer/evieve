@@ -7,23 +7,25 @@ if (jsarguments.length > 1) {
     createDacForHelpfile = true;
   }
 }
+let eviType = -1;
 let eviOption1 = 0;
 let eviOption2 = 0;
 let eviOption3 = 0;
 let eviOption4 = 0;
 let eviOption5 = "none";
 if (jsarguments.length > 2) {
-  eviOption1 = jsarguments[2];
-  eviOption2 = jsarguments[3];
-  eviOption3 = jsarguments[4];
-  eviOption4 = jsarguments[5];
-  eviOption5 = jsarguments[6];
+  eviType = jsarguments[2];
+  eviOption1 = jsarguments[3];
+  eviOption2 = jsarguments[4];
+  eviOption3 = jsarguments[5];
+  eviOption4 = jsarguments[6];
+  eviOption5 = jsarguments[7];
 }
 const task = new Task(init, this);
 task.schedule(333);
 const thisPatcher = patcher;
 const thisPath = thisPatcher.filepath;
-const thisHelpObjectName = "thisEvieveObject";
+const thisHelpObjectName = "evieveObject";
 const textColor = thisPatcher.getattr("textcolor");
 const descColor = [textColor[0], textColor[1], textColor[2], textColor[3] * 0.555];
 function init() {
@@ -68,12 +70,24 @@ function init() {
       "@text",
       `v8ui @filename evi.helpdetails.js @jsarguments ${objectNameArgument} ${thisPath} @patching_rect 10. 10. 660. 220. @background 1 @embed 0`
     );
-    const ubuttonObj = basic.subpatcher().newdefault(11, 11, "ubutton");
-    ubuttonObj.varname = "basic_ubutton";
-    const ubutton = basic.subpatcher().getnamed("basic_ubutton");
-    ubutton.message("hltcolor", 1, 1, 1, 0.5);
-    ubutton.message("patching_rect", 11, 11, 98, 98);
-    basic.subpatcher().bringtofront("basic_ubutton");
+    const PETER_BPATCHER_FILE = "helpfile_pickup_overview.maxpat";
+    basic.subpatcher().message(
+      "script",
+      "newobject",
+      "newobj",
+      "@text",
+      `bpatcher`,
+      "@varname",
+      "PeterButton",
+      "@patching_position",
+      11,
+      11
+    );
+    const peterBpatcher = basic.subpatcher().getnamed("PeterButton");
+    peterBpatcher.setboxattr("patching_rect", 11, 11, 98, 98);
+    peterBpatcher.setboxattr("lockedsize", 1);
+    peterBpatcher.setboxattr("name", `${PETER_BPATCHER_FILE}`);
+    basic.subpatcher().bringtofront("PeterButton");
     basic.subpatcher().message(
       "script",
       "newobject",
@@ -83,15 +97,15 @@ function init() {
       "@varname",
       `${thisHelpObjectName}`,
       "@patching_position",
-      64,
+      140,
       336
     );
     if (createDacForHelpfile) {
-      const ezdacObj = basic.subpatcher().newdefault(64, 537, "ezdac~");
+      const ezdacObj = basic.subpatcher().newdefault(140, 537, "ezdac~");
       ezdacObj.varname = "basic_dac";
       const ezdac = basic.subpatcher().getnamed("basic_dac");
       ezdac.message("local", 1);
-      ezdac.message("patching_rect", 64, 537, 45, 45);
+      ezdac.message("patching_rect", 140, 537, 45, 45);
       const ezdacComment = basic.subpatcher().newdefault(111, 547, "comment");
       ezdacComment.varname = "comment_dac";
       const comment = basic.subpatcher().getnamed("comment_dac");
@@ -101,21 +115,23 @@ function init() {
       comment.message("textjustification", 1);
       comment.message("fontsize", 13);
       comment.message("fontname", "Arial");
-      comment.message("patching_rect", 111, 547, 86, 25);
+      comment.message("patching_rect", 187, 547, 86, 25);
       comment.message("background", 1);
     }
-    const helpObject = basic.subpatcher().getnamed(thisHelpObjectName);
-    const objectRect = helpObject.getattr("patching_rect");
-    const argsPos = [objectRect[0] + objectRect[2] + 2, objectRect[1] + 1];
-    basic.subpatcher().message(
-      "script",
-      "newobject",
-      "newobj",
-      "@text",
-      // cannot get [v8ui] working for now, use Cyling '74 code instead...
-      // `v8ui @filename evi.helpargs.js @jsarguments ${objectNameArgument} @patching_position ${argsPos[0]} ${argsPos[1]} @background 1 @embed 0`);
-      `jsui @filename helpargs.js @jsarguments ${objectNameArgument} @patching_position ${argsPos[0]} ${argsPos[1]} @background 1 @embed 0`
-    );
+    if (eviType !== 1) {
+      const helpObject = basic.subpatcher().getnamed(thisHelpObjectName);
+      const objectRect = helpObject.getattr("patching_rect");
+      const argsPos = [objectRect[0] + objectRect[2] + 2, objectRect[1] + 1];
+      basic.subpatcher().message(
+        "script",
+        "newobject",
+        "newobj",
+        "@text",
+        // cannot get my [v8ui] working for now, use Cyling '74 code instead...
+        // `v8ui @filename evi.helpargs.js @jsarguments ${objectNameArgument} @patching_position ${argsPos[0]} ${argsPos[1]} @background 1 @embed 0`);
+        `jsui @filename helpargs.js @jsarguments ${objectNameArgument} @patching_position ${argsPos[0]} ${argsPos[1]} @background 1 @embed 0`
+      );
+    }
     basic.subpatcher().bringtofront(thisHelpObjectName);
     outlet(0, "setactivetab", "basic");
     outlet(0, "bang");
@@ -173,15 +189,15 @@ function init() {
       "@varname",
       `${thisHelpObjectName}Mc`,
       "@patching_position",
-      64,
+      140,
       336
     );
     if (createDacForHelpfile) {
-      const ezdacObj = mctab.subpatcher().newdefault(64, 537, "ezdac~");
+      const ezdacObj = mctab.subpatcher().newdefault(140, 537, "ezdac~");
       ezdacObj.varname = "mc_dac";
       const ezdac = mctab.subpatcher().getnamed("mc_dac");
       ezdac.message("local", 1);
-      ezdac.message("patching_rect", 64, 537, 45, 45);
+      ezdac.message("patching_rect", 140, 537, 45, 45);
       const ezdacComment = mctab.subpatcher().newdefault(111, 547, "comment");
       ezdacComment.varname = "comment_dac";
       const comment = mctab.subpatcher().getnamed("comment_dac");
@@ -191,7 +207,7 @@ function init() {
       comment.message("textjustification", 1);
       comment.message("fontsize", 13);
       comment.message("fontname", "Arial");
-      comment.message("patching_rect", 111, 547, 86, 25);
+      comment.message("patching_rect", 187, 547, 86, 25);
       comment.message("background", 1);
     }
   }
@@ -248,15 +264,15 @@ function init() {
       "@varname",
       `${thisHelpObjectName}Mcs`,
       "@patching_position",
-      64,
+      140,
       336
     );
     if (createDacForHelpfile) {
-      const ezdacObj = mcstab.subpatcher().newdefault(64, 537, "ezdac~");
+      const ezdacObj = mcstab.subpatcher().newdefault(140, 537, "ezdac~");
       ezdacObj.varname = "mcs_dac";
       const ezdac = mcstab.subpatcher().getnamed("mcs_dac");
       ezdac.message("local", 1);
-      ezdac.message("patching_rect", 64, 537, 45, 45);
+      ezdac.message("patching_rect", 140, 537, 45, 45);
       const ezdacComment = mcstab.subpatcher().newdefault(111, 547, "comment");
       ezdacComment.varname = "comment_dac";
       const comment = mcstab.subpatcher().getnamed("comment_dac");
@@ -266,7 +282,7 @@ function init() {
       comment.message("textjustification", 1);
       comment.message("fontsize", 13);
       comment.message("fontname", "Arial");
-      comment.message("patching_rect", 111, 547, 86, 25);
+      comment.message("patching_rect", 187, 547, 86, 25);
       comment.message("background", 1);
     }
   }
@@ -340,7 +356,7 @@ function init() {
     gbComment.message("patching_rect", 97, 328, 124, 40);
     gbComment.message("background", 1);
     if (createDacForHelpfile) {
-      const ezdacObj = gentab.subpatcher().newdefault(64, 537, "ezdac~");
+      const ezdacObj = gentab.subpatcher().newdefault(140, 537, "ezdac~");
       ezdacObj.varname = "mcs_dac";
       const ezdac = gentab.subpatcher().getnamed("mcs_dac");
       ezdac.message("local", 1);
@@ -428,7 +444,7 @@ function init() {
     gbComment.message("patching_rect", 97, 328, 124, 40);
     gbComment.message("background", 1);
     if (createDacForHelpfile) {
-      const ezdacObj = genexprtab.subpatcher().newdefault(64, 537, "ezdac~");
+      const ezdacObj = genexprtab.subpatcher().newdefault(140, 537, "ezdac~");
       ezdacObj.varname = "mcs_dac";
       const ezdac = genexprtab.subpatcher().getnamed("mcs_dac");
       ezdac.message("local", 1);
@@ -484,12 +500,13 @@ function init() {
     const areasDigestComment = areastab.subpatcher().newdefault(10, 70, "comment");
     areasDigestComment.varname = "digest_comment";
     const areasComment = areastab.subpatcher().getnamed("digest_comment");
-    areasComment.message("set", `There are many ${eviOption5} objects in evieve. Here is an overview.`);
+    areasComment.message("set", `There are other ${eviOption5} objects in evieve. Here is an overview.`);
     areasComment.message("fontsize", 13);
     areasComment.message("fontname", "Lato");
     areasComment.message("textcolor", textColor);
     areasComment.message("patching_rect", 10, 70, 660, 22);
     areasComment.message("background", 1);
+    const AREAS_BPATCHER_NAME = `areas_help_${eviOption5}.maxpat`;
     areastab.subpatcher().message(
       "script",
       "newobject",
@@ -498,15 +515,17 @@ function init() {
       `bpatcher`,
       "@varname",
       `${thisHelpObjectName}Areas`,
-      "@patching_rect",
+      "@patching_position",
       10,
-      94,
-      660,
-      568
+      94
     );
-    if (createDacForHelpfile) {
-      ;
-    }
+    const areasBpatcher = areastab.subpatcher().getnamed(`${thisHelpObjectName}Areas`);
+    areasBpatcher.setboxattr("patching_rect", 10, 94, 660, 568);
+    areasBpatcher.setboxattr("lockedsize", 1);
+    areasBpatcher.setboxattr("lockeddragscroll", 2);
+    areasBpatcher.setboxattr("bgmode", 0);
+    areasBpatcher.setboxattr("clickthrough", 1);
+    areasBpatcher.setboxattr("name", AREAS_BPATCHER_NAME);
   }
   const b = thisPatcher.getnamed("q_tab");
   if (b == null) {
