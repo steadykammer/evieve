@@ -250,7 +250,7 @@ max.addHandler('make_qlookup_json', () => {
 	parseDataForQlookup();
 })
 
-max.addHandler('externals_xml_edit', () => {
+max.addHandler('make_externals_ref_xml', () => {
 	autoCreateExternalsXml();
 })
 /*
@@ -270,8 +270,24 @@ max.addHandler('create_helpfiles_defines', () => {
 	createHelpFilesDefines();
 })
 
+max.addHandler('extract_genexpr_asts', () => {
+	extractGenExprASTs();
+})
+
 // --------------------------------------------- //
 // testing
+
+max.addHandler('test_peggy_look', () => {
+	testPeggyCrap();
+})
+
+max.addHandler('test_peggy_dsp', () => {
+	testPeggyGendsp();
+})
+
+max.addHandler('test_peggy_sidebar', (fullPath: string) => {
+	testPeggySideBar(fullPath);
+})
 
 max.addHandler('pete_test_xml_object', (type: string) => {
 	if (type === "get") {
@@ -334,7 +350,7 @@ async function autoCreateExternalsXml()
 	};
 	const buildOptions = {
 		format: true,
-		preserveOrder: false, // true = shit for the json, but good to have format correct when building
+		preserveOrder: false, // true = shit for the json, but good to have format correct when (re)building
 		ignoreAttributes: false,
 		attributeNamePrefix: attributeXmlPrefix,
 		processEntities: false
@@ -357,7 +373,7 @@ async function autoCreateExternalsXml()
 
 function parseDataForQlookup() {
 	const parseOptions = {
-		preserveOrder: false, // true = good for getting values, shit for rebuilding xml
+		preserveOrder: false, // false = good for getting values, shit for rebuilding xml
 		ignoreAttributes: false,
 		attributeNamePrefix: attributeXmlPrefix,
 		alwaysCreateTextNode: true,
@@ -2631,3 +2647,82 @@ const areas = [
 	"overdrive",
 	"smooth"
 ];
+
+// --------------------------------------------- //
+
+async function extractGenExprASTs()
+{
+	const genexprsFolder = `${cwd()}/${config.referenceFiles.genExpr.input}`;
+	const fullGenexprsPaths = getFilePathsFromPathRecursive(genexprsFolder, 'genexpr');
+
+	const genexprsAstsPath = `${cwd()}/${config.referenceFiles.genExpr.config}`;
+	// const fullAstNames = getFileNamesFromPath(genexprsAstsPath, 'json');
+
+	for await (const genexprPath of fullGenexprsPaths) {
+		const genexprName = path.basename(genexprPath);
+		const genAstName = genexprName.replace('.genexpr', '.json');
+		const thisRawGenExpr = fs.readFileSync(`${genexprPath}`, 'utf8');
+		void max.post(`.genexpr file about to be parsed: ${genexprName}`);
+		const genExprAst = PEGparser.parse(thisRawGenExpr);
+		fs.writeFileSync(`${genexprsAstsPath}/${genAstName}`, JSON.stringify(genExprAst, null, 4));
+		void max.post(`.genexpr file just written: ${genAstName}`);
+	}
+}
+
+// --------------------------------------------- //
+
+// it does not work :-( :-( :-(
+async function testPeggyCrap()
+{
+	const gendspsRefsPath = `${cwd()}/${config.referenceFiles.genDsp.config}`;
+	let fullRefsNames = getFileNamesFromPath(gendspsRefsPath, 'json');
+	const IGNORE = /_xml_gendsp_template.json/;
+	fullRefsNames = fullRefsNames.filter((str) => !IGNORE.test(str));
+	const codeboxesRefsPath = `${gendspsRefsPath}/codeboxes`;
+	const fullCodeboxesNames = getFileNamesFromPath(codeboxesRefsPath, 'genexpr');
+
+	for await (const refJson of fullRefsNames) {
+		const refJsonFullRWpath = `${gendspsRefsPath}/${refJson}`;
+		const chichiForPrinting = refJson.replace('_ref.json', '.gendsp');
+		const derivedCodeboxName = refJson.replace('_ref.json', '_codebox.genexpr');
+		if (fullCodeboxesNames.includes(derivedCodeboxName)) {
+			// const thisConfigJson = fs.readFileSync(refJsonFullRWpath, 'utf8');
+			// const thisConfigObject = JSON.parse(thisConfigJson);
+			const thisConfigGenExpr = fs.readFileSync(`${codeboxesRefsPath}/${derivedCodeboxName}`, 'utf8');
+			// const pre_ast = PEGparser.parse(thisConfigGenExpr, {startRule: 'translation_unit'});
+			const pre_ast = PEGparser.parse(thisConfigGenExpr);
+			void max.post(`parser test for ${refJson}: ${JSON.stringify(pre_ast)}`);
+		}
+	}
+}
+
+async function testPeggyGendsp()
+{
+	const gendspsFolder = `${cwd()}/${config.referenceFiles.genDsp.input}`;
+	const fullGendspsPaths = getFilePathsFromPathRecursive(gendspsFolder, 'gendsp');
+
+	for await (const gendspPath of fullGendspsPaths) {
+		const gendspName = path.basename(gendspPath);
+		const thisConfigGenDsp = fs.readFileSync(`${gendspPath}`, 'utf8');
+		// const pre_ast = PEGparser.parse(thisConfigGenExpr, {startRule: 'translation_unit'});
+		const pre_ast = PEGparser.parse(thisConfigGenDsp);
+		void max.post(`parser test for ${gendspName}: ${JSON.stringify(pre_ast)}`);
+	}
+}
+
+async function testPeggySideBar(fullPathToTest: string)
+{
+	const gendspsRefsPath = `${cwd()}/${config.referenceFiles.genDsp.config}`;
+	const parsedPegsRefsPath = `${gendspsRefsPath}/parsedpegs`;
+
+	const genName = path.basename(fullPathToTest);
+	const thisDir = path.dirname(fullPathToTest);
+	const pegWriteName = genName.replace('.genexpr', '.json');
+
+	const thisConfigGen = fs.readFileSync(`${fullPathToTest}`, 'utf8');
+	// const pre_ast = PEGparser.parse(thisConfigGenExpr, {startRule: 'translation_unit'});
+	const pre_ast = PEGparser.parse(thisConfigGen);
+	// void max.post(`parser test for ${genName}: ${JSON.stringify(pre_ast)}`);
+	fs.writeFileSync(`${thisDir}/${pegWriteName}`, JSON.stringify(pre_ast, null, 4));
+}
+

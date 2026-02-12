@@ -16,6 +16,83 @@
         "boxes": [
             {
                 "box": {
+                    "id": "obj-54",
+                    "maxclass": "message",
+                    "numinlets": 2,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 256.0, 16.0, 123.0, 22.0 ],
+                    "text": "extract_genexpr_asts"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-52",
+                    "maxclass": "message",
+                    "numinlets": 2,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 121.0, 456.0, 384.0, 22.0 ],
+                    "text": "/Users/stkr/Dev/evieve/code/evi_genexpr/evi_core/evi_approx.genexpr"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-53",
+                    "maxclass": "button",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "bang" ],
+                    "parameter_enable": 0,
+                    "patching_rect": [ 158.0, 393.0, 24.0, 24.0 ]
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-51",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 2,
+                    "outlettype": [ "", "bang" ],
+                    "patching_rect": [ 152.0, 428.0, 67.0, 22.0 ],
+                    "text": "opendialog"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-50",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 130.0, 480.0, 161.0, 22.0 ],
+                    "text": "prepend test_peggy_sidebar"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-47",
+                    "maxclass": "message",
+                    "numinlets": 2,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 121.0, 529.0, 93.0, 22.0 ],
+                    "text": "test_peggy_dsp"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-45",
+                    "maxclass": "message",
+                    "numinlets": 2,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 134.0, 560.0, 96.0, 22.0 ],
+                    "text": "test_peggy_look"
+                }
+            },
+            {
+                "box": {
                     "id": "obj-46",
                     "maxclass": "message",
                     "numinlets": 2,
@@ -32,7 +109,7 @@
                     "numinlets": 2,
                     "numoutlets": 3,
                     "outlettype": [ "signal", "signal", "" ],
-                    "patching_rect": [ 416.0, 424.0, 91.0, 22.0 ],
+                    "patching_rect": [ 415.0, 416.0, 91.0, 22.0 ],
                     "text": "evi.freezeverb~",
                     "varname": "evi.freezeverb~"
                 }
@@ -44,7 +121,7 @@
                     "numinlets": 2,
                     "numoutlets": 5,
                     "outlettype": [ "signal", "signal", "signal", "signal", "signal" ],
-                    "patching_rect": [ 517.0, 429.0, 69.0, 22.0 ],
+                    "patching_rect": [ 521.0, 416.0, 69.0, 22.0 ],
                     "text": "evi.4wave~"
                 }
             },
@@ -88,7 +165,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 444.0, 456.0, 83.0, 22.0 ],
+                    "patching_rect": [ 323.0, 410.0, 83.0, 22.0 ],
                     "text": "evi.cfsmooth~"
                 }
             },
@@ -264,8 +341,8 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 36.0, 623.0, 109.0, 22.0 ],
-                    "text": "externals_xml_edit"
+                    "patching_rect": [ 30.0, 623.0, 139.0, 22.0 ],
+                    "text": "make_externals_ref_xml"
                 }
             },
             {
@@ -924,7 +1001,7 @@
                         "toolbaradditions": [ "audiosolo", "audiomute" ],
                         "toolbarexclusions": [ "browsevizzie", "browsebeap", "patchernavmenu", "showsnapshots", "transport" ]
                     },
-                    "patching_rect": [ 43.0, 506.0, 94.0, 22.0 ],
+                    "patching_rect": [ 10.0, 492.0, 94.0, 22.0 ],
                     "saved_object_attributes": {
                         "description": "mklange subpatch template",
                         "digest": "mklange subpatch",
@@ -940,7 +1017,7 @@
                     "numinlets": 3,
                     "numoutlets": 3,
                     "outlettype": [ "", "", "" ],
-                    "patching_rect": [ 43.0, 452.0, 112.0, 22.0 ],
+                    "patching_rect": [ 10.0, 438.0, 112.0, 22.0 ],
                     "text": "route array process"
                 }
             },
@@ -952,7 +1029,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 141.0, 402.0, 139.0, 22.0 ]
+                    "patching_rect": [ 96.0, 357.0, 139.0, 22.0 ]
                 }
             },
             {
@@ -974,7 +1051,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 96.0, 376.0, 139.0, 22.0 ]
+                    "patching_rect": [ 51.0, 331.0, 139.0, 22.0 ]
                 }
             },
             {
@@ -996,7 +1073,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 61.0, 350.0, 139.0, 22.0 ]
+                    "patching_rect": [ 16.0, 305.0, 139.0, 22.0 ]
                 }
             },
             {
@@ -1006,7 +1083,7 @@
                     "numinlets": 4,
                     "numoutlets": 4,
                     "outlettype": [ "", "", "", "" ],
-                    "patching_rect": [ 100.0, 265.0, 167.0, 22.0 ],
+                    "patching_rect": [ 55.0, 220.0, 167.0, 22.0 ],
                     "text": "route gendsp maxpat external"
                 }
             },
@@ -1017,7 +1094,7 @@
                     "numinlets": 2,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
-                    "patching_rect": [ 75.0, 222.0, 71.0, 22.0 ],
+                    "patching_rect": [ 30.0, 177.0, 71.0, 22.0 ],
                     "text": "route config"
                 }
             },
@@ -1085,8 +1162,6 @@
                     "saved_object_attributes": {
                         "autostart": 0,
                         "defer": 0,
-                        "node_bin_path": "",
-                        "npm_bin_path": "",
                         "watch": 0
                     },
                     "text": "node.script /Users/stkr/Dev/evieve/source/ts/evievenode/dist/evievedoc.js",
@@ -1331,13 +1406,55 @@
             {
                 "patchline": {
                     "destination": [ "obj-1", 0 ],
+                    "source": [ "obj-45", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-1", 0 ],
                     "source": [ "obj-46", 0 ]
                 }
             },
             {
                 "patchline": {
                     "destination": [ "obj-1", 0 ],
+                    "source": [ "obj-47", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-1", 0 ],
                     "source": [ "obj-5", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-1", 0 ],
+                    "source": [ "obj-50", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-52", 1 ],
+                    "source": [ "obj-51", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-50", 0 ],
+                    "source": [ "obj-52", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-51", 0 ],
+                    "source": [ "obj-53", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-1", 0 ],
+                    "source": [ "obj-54", 0 ]
                 }
             },
             {
@@ -1367,6 +1484,14 @@
             "obj-44::obj-54::obj-7": [ "eqHighFreq", "eqHighFreq", 0 ],
             "obj-44::obj-54::obj-8": [ "smoothTime", "smoothTime", 0 ],
             "obj-44::obj-54::obj-9": [ "damping", "damping", 0 ],
+            "parameterbanks": {
+                "0": {
+                    "index": 0,
+                    "name": "",
+                    "parameters": [ "-", "-", "-", "-", "-", "-", "-", "-" ],
+                    "buttons": [ "-", "-", "-", "-", "-", "-", "-", "-" ]
+                }
+            },
             "inherited_shortname": 1
         },
         "autosave": 0,

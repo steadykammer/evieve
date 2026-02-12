@@ -1,0 +1,2961 @@
+{
+    "type": "TranslationUnit",
+    "commands": [],
+    "functions": [
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "fastskew",
+                "raw": "fastskew"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "x",
+                    "raw": "x"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "skew",
+                    "raw": "skew"
+                }
+            ],
+            "defaults": [
+                null,
+                null
+            ],
+            "decls": [],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "y",
+                                "raw": "y"
+                            },
+                            "right": {
+                                "type": "Literal",
+                                "value": 0,
+                                "raw": "0",
+                                "gen_kind": "integer"
+                            }
+                        }
+                    },
+                    {
+                        "type": "IfStatement",
+                        "test": {
+                            "type": "BinaryExpression",
+                            "operator": "<",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "skew",
+                                "raw": "skew"
+                            },
+                            "right": {
+                                "type": "Literal",
+                                "value": 1,
+                                "raw": "1",
+                                "gen_kind": "integer"
+                            }
+                        },
+                        "consequent": {
+                            "type": "BlockStatement",
+                            "body": [
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "sk5",
+                                            "raw": "sk5"
+                                        },
+                                        "right": {
+                                            "type": "BinaryExpression",
+                                            "operator": "-",
+                                            "left": {
+                                                "type": "Identifier",
+                                                "name": "skew",
+                                                "raw": "skew"
+                                            },
+                                            "right": {
+                                                "type": "Literal",
+                                                "value": 0.5,
+                                                "raw": "0.5",
+                                                "gen_kind": "float"
+                                            }
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "y",
+                                            "raw": "y"
+                                        },
+                                        "right": {
+                                            "type": "CallExpression",
+                                            "arguments": [
+                                                {
+                                                    "type": "BinaryExpression",
+                                                    "operator": "+",
+                                                    "left": {
+                                                        "type": "Identifier",
+                                                        "name": "sk5",
+                                                        "raw": "sk5"
+                                                    },
+                                                    "right": {
+                                                        "type": "Identifier",
+                                                        "name": "sk5",
+                                                        "raw": "sk5"
+                                                    }
+                                                },
+                                                {
+                                                    "type": "CallExpression",
+                                                    "arguments": [
+                                                        {
+                                                            "type": "Identifier",
+                                                            "name": "x",
+                                                            "raw": "x"
+                                                        }
+                                                    ],
+                                                    "callee": {
+                                                        "type": "Identifier",
+                                                        "name": "sqrt",
+                                                        "raw": "sqrt"
+                                                    }
+                                                },
+                                                {
+                                                    "type": "Identifier",
+                                                    "name": "x",
+                                                    "raw": "x"
+                                                }
+                                            ],
+                                            "callee": {
+                                                "type": "Identifier",
+                                                "name": "interp",
+                                                "raw": "interp"
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "alternate": {
+                            "type": "BlockStatement",
+                            "body": [
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "y",
+                                            "raw": "y"
+                                        },
+                                        "right": {
+                                            "type": "CallExpression",
+                                            "arguments": [
+                                                {
+                                                    "type": "BinaryExpression",
+                                                    "operator": "-",
+                                                    "left": {
+                                                        "type": "Identifier",
+                                                        "name": "skew",
+                                                        "raw": "skew"
+                                                    },
+                                                    "right": {
+                                                        "type": "Literal",
+                                                        "value": 1,
+                                                        "raw": "1",
+                                                        "gen_kind": "integer"
+                                                    }
+                                                },
+                                                {
+                                                    "type": "Identifier",
+                                                    "name": "x",
+                                                    "raw": "x"
+                                                },
+                                                {
+                                                    "type": "BinaryExpression",
+                                                    "operator": "*",
+                                                    "left": {
+                                                        "type": "Identifier",
+                                                        "name": "x",
+                                                        "raw": "x"
+                                                    },
+                                                    "right": {
+                                                        "type": "Identifier",
+                                                        "name": "x",
+                                                        "raw": "x"
+                                                    }
+                                                }
+                                            ],
+                                            "callee": {
+                                                "type": "Identifier",
+                                                "name": "interp",
+                                                "raw": "interp"
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "Identifier",
+                            "name": "y",
+                            "raw": "y"
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "fastskew052neg",
+                "raw": "fastskew052neg"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "x",
+                    "raw": "x"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "skewneg",
+                    "raw": "skewneg"
+                }
+            ],
+            "defaults": [
+                null,
+                null
+            ],
+            "decls": [],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "sk5",
+                                "raw": "sk5"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "-",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "skewneg",
+                                    "raw": "skewneg"
+                                },
+                                "right": {
+                                    "type": "Literal",
+                                    "value": 0.5,
+                                    "raw": "0.5",
+                                    "gen_kind": "float"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "CallExpression",
+                            "arguments": [
+                                {
+                                    "type": "CallExpression",
+                                    "arguments": [
+                                        {
+                                            "type": "Identifier",
+                                            "name": "x",
+                                            "raw": "x"
+                                        }
+                                    ],
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "sqrt",
+                                        "raw": "sqrt"
+                                    }
+                                },
+                                {
+                                    "type": "Identifier",
+                                    "name": "x",
+                                    "raw": "x"
+                                },
+                                {
+                                    "type": "BinaryExpression",
+                                    "operator": "+",
+                                    "left": {
+                                        "type": "Identifier",
+                                        "name": "sk5",
+                                        "raw": "sk5"
+                                    },
+                                    "right": {
+                                        "type": "Identifier",
+                                        "name": "sk5",
+                                        "raw": "sk5"
+                                    }
+                                }
+                            ],
+                            "callee": {
+                                "type": "Identifier",
+                                "name": "mix",
+                                "raw": "mix"
+                            }
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "fastskew052pos",
+                "raw": "fastskew052pos"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "x",
+                    "raw": "x"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "skewpos",
+                    "raw": "skewpos"
+                }
+            ],
+            "defaults": [
+                null,
+                null
+            ],
+            "decls": [],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "CallExpression",
+                            "arguments": [
+                                {
+                                    "type": "Identifier",
+                                    "name": "x",
+                                    "raw": "x"
+                                },
+                                {
+                                    "type": "BinaryExpression",
+                                    "operator": "*",
+                                    "left": {
+                                        "type": "Identifier",
+                                        "name": "x",
+                                        "raw": "x"
+                                    },
+                                    "right": {
+                                        "type": "Identifier",
+                                        "name": "x",
+                                        "raw": "x"
+                                    }
+                                },
+                                {
+                                    "type": "BinaryExpression",
+                                    "operator": "-",
+                                    "left": {
+                                        "type": "Identifier",
+                                        "name": "skewpos",
+                                        "raw": "skewpos"
+                                    },
+                                    "right": {
+                                        "type": "Literal",
+                                        "value": 1,
+                                        "raw": "1",
+                                        "gen_kind": "integer"
+                                    }
+                                }
+                            ],
+                            "callee": {
+                                "type": "Identifier",
+                                "name": "mix",
+                                "raw": "mix"
+                            }
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "fastskew0254neg",
+                "raw": "fastskew0254neg"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "x",
+                    "raw": "x"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "skewneg",
+                    "raw": "skewneg"
+                }
+            ],
+            "defaults": [
+                null,
+                null
+            ],
+            "decls": [],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "sqx",
+                                "raw": "sqx"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "x",
+                                        "raw": "x"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "sqrt",
+                                    "raw": "sqrt"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "sk5",
+                                "raw": "sk5"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "-",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "skewneg",
+                                    "raw": "skewneg"
+                                },
+                                "right": {
+                                    "type": "Literal",
+                                    "value": 0.5,
+                                    "raw": "0.5",
+                                    "gen_kind": "float"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "sk2",
+                                "raw": "sk2"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "-",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "skewneg",
+                                    "raw": "skewneg"
+                                },
+                                "right": {
+                                    "type": "Literal",
+                                    "value": 0.25,
+                                    "raw": "0.25",
+                                    "gen_kind": "float"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "ConditionalExpression",
+                            "test": {
+                                "type": "BinaryExpression",
+                                "operator": "<",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "skewneg",
+                                    "raw": "skewneg"
+                                },
+                                "right": {
+                                    "type": "Literal",
+                                    "value": 0.5,
+                                    "raw": "0.5",
+                                    "gen_kind": "float"
+                                }
+                            },
+                            "consequent": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "CallExpression",
+                                        "arguments": [
+                                            {
+                                                "type": "Identifier",
+                                                "name": "sqx",
+                                                "raw": "sqx"
+                                            }
+                                        ],
+                                        "callee": {
+                                            "type": "Identifier",
+                                            "name": "sqrt",
+                                            "raw": "sqrt"
+                                        }
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "sqx",
+                                        "raw": "sqx"
+                                    },
+                                    {
+                                        "type": "BinaryExpression",
+                                        "operator": "+",
+                                        "left": {
+                                            "type": "BinaryExpression",
+                                            "operator": "+",
+                                            "left": {
+                                                "type": "BinaryExpression",
+                                                "operator": "+",
+                                                "left": {
+                                                    "type": "Identifier",
+                                                    "name": "sk2",
+                                                    "raw": "sk2"
+                                                },
+                                                "right": {
+                                                    "type": "Identifier",
+                                                    "name": "sk2",
+                                                    "raw": "sk2"
+                                                }
+                                            },
+                                            "right": {
+                                                "type": "Identifier",
+                                                "name": "sk2",
+                                                "raw": "sk2"
+                                            }
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "sk2",
+                                            "raw": "sk2"
+                                        }
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "mix",
+                                    "raw": "mix"
+                                }
+                            },
+                            "alternate": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "sqx",
+                                        "raw": "sqx"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "x",
+                                        "raw": "x"
+                                    },
+                                    {
+                                        "type": "BinaryExpression",
+                                        "operator": "+",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "sk5",
+                                            "raw": "sk5"
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "sk5",
+                                            "raw": "sk5"
+                                        }
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "mix",
+                                    "raw": "mix"
+                                }
+                            }
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "fastskew0254pos",
+                "raw": "fastskew0254pos"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "x",
+                    "raw": "x"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "skewpos",
+                    "raw": "skewpos"
+                }
+            ],
+            "defaults": [
+                null,
+                null
+            ],
+            "decls": [],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "x2",
+                                "raw": "x2"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "*",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "x",
+                                    "raw": "x"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "x",
+                                    "raw": "x"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "sk1",
+                                "raw": "sk1"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "-",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "skewpos",
+                                    "raw": "skewpos"
+                                },
+                                "right": {
+                                    "type": "Literal",
+                                    "value": 1,
+                                    "raw": "1",
+                                    "gen_kind": "integer"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "sk4",
+                                "raw": "sk4"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "*",
+                                "left": {
+                                    "type": "BinaryExpression",
+                                    "operator": "-",
+                                    "left": {
+                                        "type": "Identifier",
+                                        "name": "skewpos",
+                                        "raw": "skewpos"
+                                    },
+                                    "right": {
+                                        "type": "Literal",
+                                        "value": 2,
+                                        "raw": "2",
+                                        "gen_kind": "integer"
+                                    }
+                                },
+                                "right": {
+                                    "type": "Literal",
+                                    "value": 0.5,
+                                    "raw": "0.5",
+                                    "gen_kind": "float"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "ConditionalExpression",
+                            "test": {
+                                "type": "BinaryExpression",
+                                "operator": ">",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "skewpos",
+                                    "raw": "skewpos"
+                                },
+                                "right": {
+                                    "type": "Literal",
+                                    "value": 2,
+                                    "raw": "2",
+                                    "gen_kind": "integer"
+                                }
+                            },
+                            "consequent": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "x2",
+                                        "raw": "x2"
+                                    },
+                                    {
+                                        "type": "BinaryExpression",
+                                        "operator": "*",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "x2",
+                                            "raw": "x2"
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "x2",
+                                            "raw": "x2"
+                                        }
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "sk4",
+                                        "raw": "sk4"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "mix",
+                                    "raw": "mix"
+                                }
+                            },
+                            "alternate": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "x",
+                                        "raw": "x"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "x2",
+                                        "raw": "x2"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "sk1",
+                                        "raw": "sk1"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "mix",
+                                    "raw": "mix"
+                                }
+                            }
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "fastskew052cr",
+                "raw": "fastskew052cr"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "x",
+                    "raw": "x"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "skew",
+                    "raw": "skew"
+                }
+            ],
+            "defaults": [
+                null,
+                null
+            ],
+            "decls": [],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "ConditionalExpression",
+                            "test": {
+                                "type": "BinaryExpression",
+                                "operator": "<",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "skew",
+                                    "raw": "skew"
+                                },
+                                "right": {
+                                    "type": "Literal",
+                                    "value": 1,
+                                    "raw": "1",
+                                    "gen_kind": "integer"
+                                }
+                            },
+                            "consequent": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "x",
+                                        "raw": "x"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "skew",
+                                        "raw": "skew"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "fastskew052neg",
+                                    "raw": "fastskew052neg"
+                                }
+                            },
+                            "alternate": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "x",
+                                        "raw": "x"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "skew",
+                                        "raw": "skew"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "fastskew052pos",
+                                    "raw": "fastskew052pos"
+                                }
+                            }
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "fastskew0254cr",
+                "raw": "fastskew0254cr"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "x",
+                    "raw": "x"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "skew",
+                    "raw": "skew"
+                }
+            ],
+            "defaults": [
+                null,
+                null
+            ],
+            "decls": [],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "ConditionalExpression",
+                            "test": {
+                                "type": "BinaryExpression",
+                                "operator": "<",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "skew",
+                                    "raw": "skew"
+                                },
+                                "right": {
+                                    "type": "Literal",
+                                    "value": 1,
+                                    "raw": "1",
+                                    "gen_kind": "integer"
+                                }
+                            },
+                            "consequent": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "x",
+                                        "raw": "x"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "skew",
+                                        "raw": "skew"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "fastskew0254neg",
+                                    "raw": "fastskew0254neg"
+                                }
+                            },
+                            "alternate": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "x",
+                                        "raw": "x"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "skew",
+                                        "raw": "skew"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "fastskew0254pos",
+                                    "raw": "fastskew0254pos"
+                                }
+                            }
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "fastskew052ar",
+                "raw": "fastskew052ar"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "x",
+                    "raw": "x"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "skew",
+                    "raw": "skew"
+                }
+            ],
+            "defaults": [
+                null,
+                null
+            ],
+            "decls": [],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "y",
+                                "raw": "y"
+                            },
+                            "right": {
+                                "type": "Literal",
+                                "value": 0,
+                                "raw": "0",
+                                "gen_kind": "integer"
+                            }
+                        }
+                    },
+                    {
+                        "type": "IfStatement",
+                        "test": {
+                            "type": "BinaryExpression",
+                            "operator": "<",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "skew",
+                                "raw": "skew"
+                            },
+                            "right": {
+                                "type": "Literal",
+                                "value": 1,
+                                "raw": "1",
+                                "gen_kind": "integer"
+                            }
+                        },
+                        "consequent": {
+                            "type": "BlockStatement",
+                            "body": [
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "y",
+                                            "raw": "y"
+                                        },
+                                        "right": {
+                                            "type": "CallExpression",
+                                            "arguments": [
+                                                {
+                                                    "type": "Identifier",
+                                                    "name": "x",
+                                                    "raw": "x"
+                                                },
+                                                {
+                                                    "type": "Identifier",
+                                                    "name": "skew",
+                                                    "raw": "skew"
+                                                }
+                                            ],
+                                            "callee": {
+                                                "type": "Identifier",
+                                                "name": "fastskew052neg",
+                                                "raw": "fastskew052neg"
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "alternate": {
+                            "type": "BlockStatement",
+                            "body": [
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "y",
+                                            "raw": "y"
+                                        },
+                                        "right": {
+                                            "type": "CallExpression",
+                                            "arguments": [
+                                                {
+                                                    "type": "Identifier",
+                                                    "name": "x",
+                                                    "raw": "x"
+                                                },
+                                                {
+                                                    "type": "Identifier",
+                                                    "name": "skew",
+                                                    "raw": "skew"
+                                                }
+                                            ],
+                                            "callee": {
+                                                "type": "Identifier",
+                                                "name": "fastskew052pos",
+                                                "raw": "fastskew052pos"
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "Identifier",
+                            "name": "y",
+                            "raw": "y"
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "fastskew0254ar",
+                "raw": "fastskew0254ar"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "x",
+                    "raw": "x"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "skew",
+                    "raw": "skew"
+                }
+            ],
+            "defaults": [
+                null,
+                null
+            ],
+            "decls": [],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "y",
+                                "raw": "y"
+                            },
+                            "right": {
+                                "type": "Literal",
+                                "value": 0,
+                                "raw": "0",
+                                "gen_kind": "integer"
+                            }
+                        }
+                    },
+                    {
+                        "type": "IfStatement",
+                        "test": {
+                            "type": "BinaryExpression",
+                            "operator": "<",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "skew",
+                                "raw": "skew"
+                            },
+                            "right": {
+                                "type": "Literal",
+                                "value": 1,
+                                "raw": "1",
+                                "gen_kind": "integer"
+                            }
+                        },
+                        "consequent": {
+                            "type": "BlockStatement",
+                            "body": [
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "y",
+                                            "raw": "y"
+                                        },
+                                        "right": {
+                                            "type": "CallExpression",
+                                            "arguments": [
+                                                {
+                                                    "type": "Identifier",
+                                                    "name": "x",
+                                                    "raw": "x"
+                                                },
+                                                {
+                                                    "type": "Identifier",
+                                                    "name": "skew",
+                                                    "raw": "skew"
+                                                }
+                                            ],
+                                            "callee": {
+                                                "type": "Identifier",
+                                                "name": "fastskew0254neg",
+                                                "raw": "fastskew0254neg"
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "alternate": {
+                            "type": "BlockStatement",
+                            "body": [
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "y",
+                                            "raw": "y"
+                                        },
+                                        "right": {
+                                            "type": "CallExpression",
+                                            "arguments": [
+                                                {
+                                                    "type": "Identifier",
+                                                    "name": "x",
+                                                    "raw": "x"
+                                                },
+                                                {
+                                                    "type": "Identifier",
+                                                    "name": "skew",
+                                                    "raw": "skew"
+                                                }
+                                            ],
+                                            "callee": {
+                                                "type": "Identifier",
+                                                "name": "fastskew0254pos",
+                                                "raw": "fastskew0254pos"
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "Identifier",
+                            "name": "y",
+                            "raw": "y"
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "fastskew11052neg",
+                "raw": "fastskew11052neg"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "x",
+                    "raw": "x"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "skewneg",
+                    "raw": "skewneg"
+                }
+            ],
+            "defaults": [
+                null,
+                null
+            ],
+            "decls": [],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "CallExpression",
+                            "arguments": [
+                                {
+                                    "type": "CallExpression",
+                                    "arguments": [
+                                        {
+                                            "type": "Identifier",
+                                            "name": "x",
+                                            "raw": "x"
+                                        }
+                                    ],
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "sqrt",
+                                        "raw": "sqrt"
+                                    }
+                                },
+                                {
+                                    "type": "Identifier",
+                                    "name": "x",
+                                    "raw": "x"
+                                },
+                                {
+                                    "type": "BinaryExpression",
+                                    "operator": "+",
+                                    "left": {
+                                        "type": "Identifier",
+                                        "name": "skewneg",
+                                        "raw": "skewneg"
+                                    },
+                                    "right": {
+                                        "type": "Literal",
+                                        "value": 1,
+                                        "raw": "1",
+                                        "gen_kind": "integer"
+                                    }
+                                }
+                            ],
+                            "callee": {
+                                "type": "Identifier",
+                                "name": "mix",
+                                "raw": "mix"
+                            }
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "fastskew11052pos",
+                "raw": "fastskew11052pos"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "x",
+                    "raw": "x"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "skewpos",
+                    "raw": "skewpos"
+                }
+            ],
+            "defaults": [
+                null,
+                null
+            ],
+            "decls": [],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "CallExpression",
+                            "arguments": [
+                                {
+                                    "type": "Identifier",
+                                    "name": "x",
+                                    "raw": "x"
+                                },
+                                {
+                                    "type": "BinaryExpression",
+                                    "operator": "*",
+                                    "left": {
+                                        "type": "Identifier",
+                                        "name": "x",
+                                        "raw": "x"
+                                    },
+                                    "right": {
+                                        "type": "Identifier",
+                                        "name": "x",
+                                        "raw": "x"
+                                    }
+                                },
+                                {
+                                    "type": "Identifier",
+                                    "name": "skewpos",
+                                    "raw": "skewpos"
+                                }
+                            ],
+                            "callee": {
+                                "type": "Identifier",
+                                "name": "mix",
+                                "raw": "mix"
+                            }
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "fastskew110254neg",
+                "raw": "fastskew110254neg"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "x",
+                    "raw": "x"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "skewneg",
+                    "raw": "skewneg"
+                }
+            ],
+            "defaults": [
+                null,
+                null
+            ],
+            "decls": [],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "sqx",
+                                "raw": "sqx"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "x",
+                                        "raw": "x"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "sqrt",
+                                    "raw": "sqrt"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "sk1",
+                                "raw": "sk1"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "+",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "skewneg",
+                                    "raw": "skewneg"
+                                },
+                                "right": {
+                                    "type": "Literal",
+                                    "value": 1,
+                                    "raw": "1",
+                                    "gen_kind": "integer"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "sk6",
+                                "raw": "sk6"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "-",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "sk1",
+                                    "raw": "sk1"
+                                },
+                                "right": {
+                                    "type": "Literal",
+                                    "value": 0.333333333333,
+                                    "raw": "0.333333333333",
+                                    "gen_kind": "float"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "ConditionalExpression",
+                            "test": {
+                                "type": "BinaryExpression",
+                                "operator": "<",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "skewneg",
+                                    "raw": "skewneg"
+                                },
+                                "right": {
+                                    "type": "UnaryExpression",
+                                    "operator": "-",
+                                    "argument": {
+                                        "type": "Literal",
+                                        "value": 0.666666666666,
+                                        "raw": "0.666666666666",
+                                        "gen_kind": "float"
+                                    },
+                                    "prefix": true
+                                }
+                            },
+                            "consequent": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "CallExpression",
+                                        "arguments": [
+                                            {
+                                                "type": "Identifier",
+                                                "name": "sqx",
+                                                "raw": "sqx"
+                                            }
+                                        ],
+                                        "callee": {
+                                            "type": "Identifier",
+                                            "name": "sqrt",
+                                            "raw": "sqrt"
+                                        }
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "sqx",
+                                        "raw": "sqx"
+                                    },
+                                    {
+                                        "type": "BinaryExpression",
+                                        "operator": "+",
+                                        "left": {
+                                            "type": "BinaryExpression",
+                                            "operator": "+",
+                                            "left": {
+                                                "type": "Identifier",
+                                                "name": "sk1",
+                                                "raw": "sk1"
+                                            },
+                                            "right": {
+                                                "type": "Identifier",
+                                                "name": "sk1",
+                                                "raw": "sk1"
+                                            }
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "sk1",
+                                            "raw": "sk1"
+                                        }
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "mix",
+                                    "raw": "mix"
+                                }
+                            },
+                            "alternate": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "sqx",
+                                        "raw": "sqx"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "x",
+                                        "raw": "x"
+                                    },
+                                    {
+                                        "type": "BinaryExpression",
+                                        "operator": "*",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "sk6",
+                                            "raw": "sk6"
+                                        },
+                                        "right": {
+                                            "type": "Literal",
+                                            "value": 1.5,
+                                            "raw": "1.5",
+                                            "gen_kind": "float"
+                                        }
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "mix",
+                                    "raw": "mix"
+                                }
+                            }
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "fastskew110254pos",
+                "raw": "fastskew110254pos"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "x",
+                    "raw": "x"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "skewpos",
+                    "raw": "skewpos"
+                }
+            ],
+            "defaults": [
+                null,
+                null
+            ],
+            "decls": [],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "x2",
+                                "raw": "x2"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "*",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "x",
+                                    "raw": "x"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "x",
+                                    "raw": "x"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "sk3",
+                                "raw": "sk3"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "-",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "skewpos",
+                                    "raw": "skewpos"
+                                },
+                                "right": {
+                                    "type": "Literal",
+                                    "value": 0.333333333333,
+                                    "raw": "0.333333333333",
+                                    "gen_kind": "float"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "ConditionalExpression",
+                            "test": {
+                                "type": "BinaryExpression",
+                                "operator": ">",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "skewpos",
+                                    "raw": "skewpos"
+                                },
+                                "right": {
+                                    "type": "Literal",
+                                    "value": 0.333333333333,
+                                    "raw": "0.333333333333",
+                                    "gen_kind": "float"
+                                }
+                            },
+                            "consequent": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "x2",
+                                        "raw": "x2"
+                                    },
+                                    {
+                                        "type": "BinaryExpression",
+                                        "operator": "*",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "x2",
+                                            "raw": "x2"
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "x2",
+                                            "raw": "x2"
+                                        }
+                                    },
+                                    {
+                                        "type": "BinaryExpression",
+                                        "operator": "*",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "sk3",
+                                            "raw": "sk3"
+                                        },
+                                        "right": {
+                                            "type": "Literal",
+                                            "value": 1.5,
+                                            "raw": "1.5",
+                                            "gen_kind": "float"
+                                        }
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "mix",
+                                    "raw": "mix"
+                                }
+                            },
+                            "alternate": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "x",
+                                        "raw": "x"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "x2",
+                                        "raw": "x2"
+                                    },
+                                    {
+                                        "type": "BinaryExpression",
+                                        "operator": "+",
+                                        "left": {
+                                            "type": "BinaryExpression",
+                                            "operator": "+",
+                                            "left": {
+                                                "type": "Identifier",
+                                                "name": "skewpos",
+                                                "raw": "skewpos"
+                                            },
+                                            "right": {
+                                                "type": "Identifier",
+                                                "name": "skewpos",
+                                                "raw": "skewpos"
+                                            }
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "skewpos",
+                                            "raw": "skewpos"
+                                        }
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "mix",
+                                    "raw": "mix"
+                                }
+                            }
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "fastskew11052cr",
+                "raw": "fastskew11052cr"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "x",
+                    "raw": "x"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "skew",
+                    "raw": "skew"
+                }
+            ],
+            "defaults": [
+                null,
+                null
+            ],
+            "decls": [],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "ConditionalExpression",
+                            "test": {
+                                "type": "BinaryExpression",
+                                "operator": "<",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "skew",
+                                    "raw": "skew"
+                                },
+                                "right": {
+                                    "type": "Literal",
+                                    "value": 0,
+                                    "raw": "0",
+                                    "gen_kind": "integer"
+                                }
+                            },
+                            "consequent": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "x",
+                                        "raw": "x"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "skew",
+                                        "raw": "skew"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "fastskew11052neg",
+                                    "raw": "fastskew11052neg"
+                                }
+                            },
+                            "alternate": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "x",
+                                        "raw": "x"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "skew",
+                                        "raw": "skew"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "fastskew11052pos",
+                                    "raw": "fastskew11052pos"
+                                }
+                            }
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "fastskew110254cr",
+                "raw": "fastskew110254cr"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "x",
+                    "raw": "x"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "skew",
+                    "raw": "skew"
+                }
+            ],
+            "defaults": [
+                null,
+                null
+            ],
+            "decls": [],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "ConditionalExpression",
+                            "test": {
+                                "type": "BinaryExpression",
+                                "operator": "<",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "skew",
+                                    "raw": "skew"
+                                },
+                                "right": {
+                                    "type": "Literal",
+                                    "value": 0,
+                                    "raw": "0",
+                                    "gen_kind": "integer"
+                                }
+                            },
+                            "consequent": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "x",
+                                        "raw": "x"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "skew",
+                                        "raw": "skew"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "fastskew110254neg",
+                                    "raw": "fastskew110254neg"
+                                }
+                            },
+                            "alternate": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "x",
+                                        "raw": "x"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "skew",
+                                        "raw": "skew"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "fastskew110254pos",
+                                    "raw": "fastskew110254pos"
+                                }
+                            }
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "fastskew11052ar",
+                "raw": "fastskew11052ar"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "x",
+                    "raw": "x"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "skew",
+                    "raw": "skew"
+                }
+            ],
+            "defaults": [
+                null,
+                null
+            ],
+            "decls": [],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "y",
+                                "raw": "y"
+                            },
+                            "right": {
+                                "type": "Literal",
+                                "value": 0,
+                                "raw": "0",
+                                "gen_kind": "integer"
+                            }
+                        }
+                    },
+                    {
+                        "type": "IfStatement",
+                        "test": {
+                            "type": "BinaryExpression",
+                            "operator": "<",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "skew",
+                                "raw": "skew"
+                            },
+                            "right": {
+                                "type": "Literal",
+                                "value": 0,
+                                "raw": "0",
+                                "gen_kind": "integer"
+                            }
+                        },
+                        "consequent": {
+                            "type": "BlockStatement",
+                            "body": [
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "y",
+                                            "raw": "y"
+                                        },
+                                        "right": {
+                                            "type": "CallExpression",
+                                            "arguments": [
+                                                {
+                                                    "type": "Identifier",
+                                                    "name": "x",
+                                                    "raw": "x"
+                                                },
+                                                {
+                                                    "type": "Identifier",
+                                                    "name": "skew",
+                                                    "raw": "skew"
+                                                }
+                                            ],
+                                            "callee": {
+                                                "type": "Identifier",
+                                                "name": "fastskew11052neg",
+                                                "raw": "fastskew11052neg"
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "alternate": {
+                            "type": "BlockStatement",
+                            "body": [
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "y",
+                                            "raw": "y"
+                                        },
+                                        "right": {
+                                            "type": "CallExpression",
+                                            "arguments": [
+                                                {
+                                                    "type": "Identifier",
+                                                    "name": "x",
+                                                    "raw": "x"
+                                                },
+                                                {
+                                                    "type": "Identifier",
+                                                    "name": "skew",
+                                                    "raw": "skew"
+                                                }
+                                            ],
+                                            "callee": {
+                                                "type": "Identifier",
+                                                "name": "fastskew11052pos",
+                                                "raw": "fastskew11052pos"
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "Identifier",
+                            "name": "y",
+                            "raw": "y"
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "fastskew110254ar",
+                "raw": "fastskew110254ar"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "x",
+                    "raw": "x"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "skew",
+                    "raw": "skew"
+                }
+            ],
+            "defaults": [
+                null,
+                null
+            ],
+            "decls": [],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "y",
+                                "raw": "y"
+                            },
+                            "right": {
+                                "type": "Literal",
+                                "value": 0,
+                                "raw": "0",
+                                "gen_kind": "integer"
+                            }
+                        }
+                    },
+                    {
+                        "type": "IfStatement",
+                        "test": {
+                            "type": "BinaryExpression",
+                            "operator": "<",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "skew",
+                                "raw": "skew"
+                            },
+                            "right": {
+                                "type": "Literal",
+                                "value": 0,
+                                "raw": "0",
+                                "gen_kind": "integer"
+                            }
+                        },
+                        "consequent": {
+                            "type": "BlockStatement",
+                            "body": [
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "y",
+                                            "raw": "y"
+                                        },
+                                        "right": {
+                                            "type": "CallExpression",
+                                            "arguments": [
+                                                {
+                                                    "type": "Identifier",
+                                                    "name": "x",
+                                                    "raw": "x"
+                                                },
+                                                {
+                                                    "type": "Identifier",
+                                                    "name": "skew",
+                                                    "raw": "skew"
+                                                }
+                                            ],
+                                            "callee": {
+                                                "type": "Identifier",
+                                                "name": "fastskew110254neg",
+                                                "raw": "fastskew110254neg"
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "alternate": {
+                            "type": "BlockStatement",
+                            "body": [
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "y",
+                                            "raw": "y"
+                                        },
+                                        "right": {
+                                            "type": "CallExpression",
+                                            "arguments": [
+                                                {
+                                                    "type": "Identifier",
+                                                    "name": "x",
+                                                    "raw": "x"
+                                                },
+                                                {
+                                                    "type": "Identifier",
+                                                    "name": "skew",
+                                                    "raw": "skew"
+                                                }
+                                            ],
+                                            "callee": {
+                                                "type": "Identifier",
+                                                "name": "fastskew110254pos",
+                                                "raw": "fastskew110254pos"
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "Identifier",
+                            "name": "y",
+                            "raw": "y"
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "n2p052",
+                "raw": "n2p052"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "N",
+                    "raw": "N"
+                }
+            ],
+            "defaults": [
+                null
+            ],
+            "decls": [],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "ConditionalExpression",
+                            "test": {
+                                "type": "BinaryExpression",
+                                "operator": ">=",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "N",
+                                    "raw": "N"
+                                },
+                                "right": {
+                                    "type": "Literal",
+                                    "value": 0,
+                                    "raw": "0",
+                                    "gen_kind": "integer"
+                                }
+                            },
+                            "consequent": {
+                                "type": "BinaryExpression",
+                                "operator": "+",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "N",
+                                    "raw": "N"
+                                },
+                                "right": {
+                                    "type": "Literal",
+                                    "value": 1,
+                                    "raw": "1",
+                                    "gen_kind": "integer"
+                                }
+                            },
+                            "alternate": {
+                                "type": "BinaryExpression",
+                                "operator": "-",
+                                "left": {
+                                    "type": "Literal",
+                                    "value": 1,
+                                    "raw": "1",
+                                    "gen_kind": "integer"
+                                },
+                                "right": {
+                                    "type": "BinaryExpression",
+                                    "operator": "*",
+                                    "left": {
+                                        "type": "Identifier",
+                                        "name": "N",
+                                        "raw": "N"
+                                    },
+                                    "right": {
+                                        "type": "UnaryExpression",
+                                        "operator": "-",
+                                        "argument": {
+                                            "type": "Literal",
+                                            "value": 0.5,
+                                            "raw": "0.5",
+                                            "gen_kind": "float"
+                                        },
+                                        "prefix": true
+                                    }
+                                }
+                            }
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "n2p0254",
+                "raw": "n2p0254"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "N",
+                    "raw": "N"
+                }
+            ],
+            "defaults": [
+                null
+            ],
+            "decls": [],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "ConditionalExpression",
+                            "test": {
+                                "type": "BinaryExpression",
+                                "operator": ">=",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "N",
+                                    "raw": "N"
+                                },
+                                "right": {
+                                    "type": "Literal",
+                                    "value": 0,
+                                    "raw": "0",
+                                    "gen_kind": "integer"
+                                }
+                            },
+                            "consequent": {
+                                "type": "BinaryExpression",
+                                "operator": "+",
+                                "left": {
+                                    "type": "BinaryExpression",
+                                    "operator": "*",
+                                    "left": {
+                                        "type": "Identifier",
+                                        "name": "N",
+                                        "raw": "N"
+                                    },
+                                    "right": {
+                                        "type": "Literal",
+                                        "value": 3,
+                                        "raw": "3",
+                                        "gen_kind": "integer"
+                                    }
+                                },
+                                "right": {
+                                    "type": "Literal",
+                                    "value": 1,
+                                    "raw": "1",
+                                    "gen_kind": "integer"
+                                }
+                            },
+                            "alternate": {
+                                "type": "BinaryExpression",
+                                "operator": "-",
+                                "left": {
+                                    "type": "Literal",
+                                    "value": 1,
+                                    "raw": "1",
+                                    "gen_kind": "integer"
+                                },
+                                "right": {
+                                    "type": "BinaryExpression",
+                                    "operator": "*",
+                                    "left": {
+                                        "type": "Identifier",
+                                        "name": "N",
+                                        "raw": "N"
+                                    },
+                                    "right": {
+                                        "type": "UnaryExpression",
+                                        "operator": "-",
+                                        "argument": {
+                                            "type": "Literal",
+                                            "value": 0.75,
+                                            "raw": "0.75",
+                                            "gen_kind": "float"
+                                        },
+                                        "prefix": true
+                                    }
+                                }
+                            }
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "warpcurve",
+                "raw": "warpcurve"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "curvature",
+                    "raw": "curvature"
+                }
+            ],
+            "defaults": [
+                null
+            ],
+            "decls": [],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "exponent",
+                                "raw": "exponent"
+                            },
+                            "right": {
+                                "type": "Literal",
+                                "value": 1,
+                                "raw": "1",
+                                "gen_kind": "integer"
+                            }
+                        }
+                    },
+                    {
+                        "type": "IfStatement",
+                        "test": {
+                            "type": "BinaryExpression",
+                            "operator": ">=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "curvature",
+                                "raw": "curvature"
+                            },
+                            "right": {
+                                "type": "Literal",
+                                "value": 0,
+                                "raw": "0",
+                                "gen_kind": "integer"
+                            }
+                        },
+                        "consequent": {
+                            "type": "BlockStatement",
+                            "body": [
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "exponent",
+                                            "raw": "exponent"
+                                        },
+                                        "right": {
+                                            "type": "BinaryExpression",
+                                            "operator": "+",
+                                            "left": {
+                                                "type": "BinaryExpression",
+                                                "operator": "*",
+                                                "left": {
+                                                    "type": "CallExpression",
+                                                    "arguments": [
+                                                        {
+                                                            "type": "Identifier",
+                                                            "name": "curvature",
+                                                            "raw": "curvature"
+                                                        },
+                                                        {
+                                                            "type": "Literal",
+                                                            "value": 1.584963,
+                                                            "raw": "1.584963",
+                                                            "gen_kind": "float"
+                                                        }
+                                                    ],
+                                                    "callee": {
+                                                        "type": "Identifier",
+                                                        "name": "pow",
+                                                        "raw": "pow"
+                                                    }
+                                                },
+                                                "right": {
+                                                    "type": "Literal",
+                                                    "value": 3,
+                                                    "raw": "3",
+                                                    "gen_kind": "integer"
+                                                }
+                                            },
+                                            "right": {
+                                                "type": "Literal",
+                                                "value": 1,
+                                                "raw": "1",
+                                                "gen_kind": "integer"
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "alternate": {
+                            "type": "BlockStatement",
+                            "body": [
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "exponent",
+                                            "raw": "exponent"
+                                        },
+                                        "right": {
+                                            "type": "BinaryExpression",
+                                            "operator": "+",
+                                            "left": {
+                                                "type": "BinaryExpression",
+                                                "operator": "*",
+                                                "left": {
+                                                    "type": "CallExpression",
+                                                    "arguments": [
+                                                        {
+                                                            "type": "BinaryExpression",
+                                                            "operator": "/",
+                                                            "left": {
+                                                                "type": "Identifier",
+                                                                "name": "curvature",
+                                                                "raw": "curvature"
+                                                            },
+                                                            "right": {
+                                                                "type": "UnaryExpression",
+                                                                "operator": "-",
+                                                                "argument": {
+                                                                    "type": "Literal",
+                                                                    "value": 1,
+                                                                    "raw": "1",
+                                                                    "gen_kind": "integer"
+                                                                },
+                                                                "prefix": true
+                                                            }
+                                                        },
+                                                        {
+                                                            "type": "Literal",
+                                                            "value": 0.584963,
+                                                            "raw": "0.584963",
+                                                            "gen_kind": "float"
+                                                        }
+                                                    ],
+                                                    "callee": {
+                                                        "type": "Identifier",
+                                                        "name": "pow",
+                                                        "raw": "pow"
+                                                    }
+                                                },
+                                                "right": {
+                                                    "type": "UnaryExpression",
+                                                    "operator": "-",
+                                                    "argument": {
+                                                        "type": "Literal",
+                                                        "value": 0.75,
+                                                        "raw": "0.75",
+                                                        "gen_kind": "float"
+                                                    },
+                                                    "prefix": true
+                                                }
+                                            },
+                                            "right": {
+                                                "type": "Literal",
+                                                "value": 1,
+                                                "raw": "1",
+                                                "gen_kind": "integer"
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "Identifier",
+                            "name": "exponent",
+                            "raw": "exponent"
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "warpcurveParam",
+                "raw": "warpcurveParam"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "curvature",
+                    "raw": "curvature"
+                }
+            ],
+            "defaults": [
+                null
+            ],
+            "decls": [],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "ConditionalExpression",
+                            "test": {
+                                "type": "BinaryExpression",
+                                "operator": ">=",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "curvature",
+                                    "raw": "curvature"
+                                },
+                                "right": {
+                                    "type": "Literal",
+                                    "value": 0,
+                                    "raw": "0",
+                                    "gen_kind": "integer"
+                                }
+                            },
+                            "consequent": {
+                                "type": "BinaryExpression",
+                                "operator": "+",
+                                "left": {
+                                    "type": "BinaryExpression",
+                                    "operator": "*",
+                                    "left": {
+                                        "type": "CallExpression",
+                                        "arguments": [
+                                            {
+                                                "type": "Identifier",
+                                                "name": "curvature",
+                                                "raw": "curvature"
+                                            },
+                                            {
+                                                "type": "Literal",
+                                                "value": 1.584963,
+                                                "raw": "1.584963",
+                                                "gen_kind": "float"
+                                            }
+                                        ],
+                                        "callee": {
+                                            "type": "Identifier",
+                                            "name": "pow",
+                                            "raw": "pow"
+                                        }
+                                    },
+                                    "right": {
+                                        "type": "Literal",
+                                        "value": 3,
+                                        "raw": "3",
+                                        "gen_kind": "integer"
+                                    }
+                                },
+                                "right": {
+                                    "type": "Literal",
+                                    "value": 1,
+                                    "raw": "1",
+                                    "gen_kind": "integer"
+                                }
+                            },
+                            "alternate": {
+                                "type": "BinaryExpression",
+                                "operator": "+",
+                                "left": {
+                                    "type": "BinaryExpression",
+                                    "operator": "*",
+                                    "left": {
+                                        "type": "CallExpression",
+                                        "arguments": [
+                                            {
+                                                "type": "BinaryExpression",
+                                                "operator": "/",
+                                                "left": {
+                                                    "type": "Identifier",
+                                                    "name": "curvature",
+                                                    "raw": "curvature"
+                                                },
+                                                "right": {
+                                                    "type": "UnaryExpression",
+                                                    "operator": "-",
+                                                    "argument": {
+                                                        "type": "Literal",
+                                                        "value": 1,
+                                                        "raw": "1",
+                                                        "gen_kind": "integer"
+                                                    },
+                                                    "prefix": true
+                                                }
+                                            },
+                                            {
+                                                "type": "Literal",
+                                                "value": 0.584963,
+                                                "raw": "0.584963",
+                                                "gen_kind": "float"
+                                            }
+                                        ],
+                                        "callee": {
+                                            "type": "Identifier",
+                                            "name": "pow",
+                                            "raw": "pow"
+                                        }
+                                    },
+                                    "right": {
+                                        "type": "UnaryExpression",
+                                        "operator": "-",
+                                        "argument": {
+                                            "type": "Literal",
+                                            "value": 0.75,
+                                            "raw": "0.75",
+                                            "gen_kind": "float"
+                                        },
+                                        "prefix": true
+                                    }
+                                },
+                                "right": {
+                                    "type": "Literal",
+                                    "value": 1,
+                                    "raw": "1",
+                                    "gen_kind": "integer"
+                                }
+                            }
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        }
+    ],
+    "decls": [],
+    "body": []
+}
