@@ -20,18 +20,6 @@
             "description": ""
         },
         {
-            "id": 1,
-            "type": "signal",
-            "digest": "Audio Input / (messages) messages / attributes",
-            "description": ""
-        },
-        {
-            "id": 2,
-            "type": "float/int",
-            "digest": "Frequency Shift in Hz +/- 0., use @freqsmooth to smooth / (signal) + FM modulation of Freq Shift ± Hz",
-            "description": ""
-        },
-        {
             "id": 2,
             "type": "float/int",
             "digest": "Frequency Shift in Hz +/- 0., use @freqsmooth to smooth / (signal) + FM modulation of Freq Shift ± Hz",
@@ -46,18 +34,6 @@
             "description": ""
         },
         {
-            "id": 1,
-            "type": "signal",
-            "digest": "Sidebands Mixed (use @bandsmix)",
-            "description": ""
-        },
-        {
-            "id": 2,
-            "type": "signal",
-            "digest": "Upper Sideband",
-            "description": ""
-        },
-        {
             "id": 2,
             "type": "signal",
             "digest": "Upper Sideband",
@@ -67,18 +43,6 @@
             "id": 3,
             "type": "signal",
             "digest": "Lower Sideband",
-            "description": ""
-        },
-        {
-            "id": 3,
-            "type": "signal",
-            "digest": "Lower Sideband",
-            "description": ""
-        },
-        {
-            "id": 4,
-            "type": "multichannelsignal",
-            "digest": "3 Channels: Quad Osc Cos / Quad Osc Sin / Sync 0..1",
             "description": ""
         },
         {
@@ -117,17 +81,6 @@
             }
         },
         {
-            "name": "bandsmix",
-            "get": 0,
-            "type": "float",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "0.5"
-            }
-        },
-        {
             "name": "drive",
             "get": 0,
             "type": "float",
@@ -136,28 +89,6 @@
             "default": {
                 "get": 0,
                 "value": "0.5"
-            }
-        },
-        {
-            "name": "drive",
-            "get": 0,
-            "type": "float",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "0.5"
-            }
-        },
-        {
-            "name": "freqsmooth",
-            "get": 0,
-            "type": "float",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "10."
             }
         },
         {
@@ -183,17 +114,6 @@
             }
         },
         {
-            "name": "resetauto",
-            "get": 0,
-            "type": "int",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "1"
-            }
-        },
-        {
             "name": "saturation",
             "get": 0,
             "type": "int",
@@ -202,28 +122,6 @@
             "default": {
                 "get": 0,
                 "value": "1"
-            }
-        },
-        {
-            "name": "saturation",
-            "get": 0,
-            "type": "int",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "1"
-            }
-        },
-        {
-            "name": "smooth",
-            "get": 0,
-            "type": "float",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "22.666"
             }
         },
         {

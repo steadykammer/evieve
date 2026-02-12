@@ -294,13 +294,13 @@
             },
             "ref": {
                 "gen": true,
-                "msp": false
+                "msp": true
             },
             "help": {
-                "msp": false,
-                "gentab": false,
-                "genexprtab": false,
-                "areaonly": true,
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
                 "areas": ["biquad"]
             },
             "db": {
@@ -338,13 +338,13 @@
             },
             "ref": {
                 "gen": true,
-                "msp": false
+                "msp": true
             },
             "help": {
-                "msp": false,
-                "gentab": false,
-                "genexprtab": false,
-                "areaonly": true,
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
                 "areas": ["biquad"]
             },
             "db": {

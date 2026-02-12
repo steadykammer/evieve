@@ -30,14 +30,6 @@
 	<outletlist>
 		<outlet id="0" type="signal">
 			<digest>
-				Sine/Imag Output
-			</digest>
-			<description>
-				
-			</description>
-		</outlet>
-		<outlet id="0" type="signal">
-			<digest>
 				Cosine/Real Output
 			</digest>
 			<description>

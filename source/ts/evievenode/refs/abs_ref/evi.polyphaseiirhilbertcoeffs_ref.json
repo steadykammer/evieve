@@ -18,12 +18,6 @@
             "type": "",
             "digest": "",
             "description": ""
-        },
-        {
-            "id": 1,
-            "type": "",
-            "digest": "",
-            "description": ""
         }
     ],
     "outlets": [
@@ -34,18 +28,6 @@
             "description": ""
         },
         {
-            "id": 1,
-            "type": "",
-            "digest": "",
-            "description": ""
-        },
-        {
-            "id": 2,
-            "type": "",
-            "digest": "dumpout",
-            "description": ""
-        },
-        {
             "id": 2,
             "type": "",
             "digest": "dumpout",
@@ -53,46 +35,6 @@
         }
     ],
     "arguments": [
-        {
-            "name": "",
-            "type": "symbol",
-            "default": "NAME",
-            "optional": 1,
-            "digest": "arg#1: ",
-            "description": ""
-        },
-        {
-            "name": "",
-            "type": "symbol",
-            "default": "NAME",
-            "optional": 1,
-            "digest": "arg#1: ",
-            "description": ""
-        },
-        {
-            "name": "",
-            "type": "int",
-            "default": "0",
-            "optional": 1,
-            "digest": "arg#2: ",
-            "description": ""
-        },
-        {
-            "name": "",
-            "type": "int",
-            "default": "0",
-            "optional": 1,
-            "digest": "arg#2: ",
-            "description": ""
-        },
-        {
-            "name": "",
-            "type": "int",
-            "default": "0",
-            "optional": 1,
-            "digest": "arg#3: ",
-            "description": ""
-        },
         {
             "name": "",
             "type": "int",
@@ -118,17 +60,6 @@
         }
     ],
     "attributes": [
-        {
-            "name": "iterate",
-            "get": 0,
-            "type": "int",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "1"
-            }
-        },
         {
             "name": "iterate",
             "get": 0,

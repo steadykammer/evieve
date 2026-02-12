@@ -24,12 +24,6 @@
         {
             "id": 0,
             "type": "signal",
-            "digest": "Sine/Imag Output",
-            "description": ""
-        },
-        {
-            "id": 0,
-            "type": "signal",
             "digest": "Cosine/Real Output",
             "description": ""
         }

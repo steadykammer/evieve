@@ -25,22 +25,6 @@
 				
 			</description>
 		</inlet>
-		<inlet id="1" type="signal">
-			<digest>
-				Audio In Left / messages to evi.backverb~
-			</digest>
-			<description>
-				
-			</description>
-		</inlet>
-		<inlet id="2" type="signal">
-			<digest>
-				Audio In Right / messages to evi.backverb~
-			</digest>
-			<description>
-				
-			</description>
-		</inlet>
 		<inlet id="2" type="signal">
 			<digest>
 				Audio In Right / messages to evi.backverb~
@@ -60,33 +44,9 @@
 				
 			</description>
 		</outlet>
-		<outlet id="1" type="">
-			<digest>
-				RVRB Out Left
-			</digest>
-			<description>
-				
-			</description>
-		</outlet>
 		<outlet id="2" type="">
 			<digest>
 				RVRB Out Right
-			</digest>
-			<description>
-				
-			</description>
-		</outlet>
-		<outlet id="2" type="">
-			<digest>
-				RVRB Out Right
-			</digest>
-			<description>
-				
-			</description>
-		</outlet>
-		<outlet id="3" type="">
-			<digest>
-				dumpout (pattrstorage)
 			</digest>
 			<description>
 				
@@ -131,17 +91,6 @@
 				<attribute name="default" get="0" set="1" type="float" size="1" value="0.707107" />
 			</attributelist>
 		</attribute>
-		<attribute name="drywet" get="0" set="1" type="float" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="float" size="1" value="0.707107" />
-			</attributelist>
-		</attribute>
 		<attribute name="feedback" get="0" set="1" type="float" size="1">
 			<digest>
 				
@@ -151,28 +100,6 @@
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="2.4" />
-			</attributelist>
-		</attribute>
-		<attribute name="feedback" get="0" set="1" type="float" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="float" size="1" value="2.4" />
-			</attributelist>
-		</attribute>
-		<attribute name="feedbackdamphigh" get="0" set="1" type="float" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="float" size="1" value="0.8666" />
 			</attributelist>
 		</attribute>
 		<attribute name="feedbackdamphigh" get="0" set="1" type="float" size="1">
@@ -197,17 +124,6 @@
 				<attribute name="default" get="0" set="1" type="float" size="1" value="0.707107" />
 			</attributelist>
 		</attribute>
-		<attribute name="feedbackdamplow" get="0" set="1" type="float" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="float" size="1" value="0.707107" />
-			</attributelist>
-		</attribute>
 		<attribute name="feedbackhzhigh" get="0" set="1" type="float" size="1">
 			<digest>
 				
@@ -217,28 +133,6 @@
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="2000." />
-			</attributelist>
-		</attribute>
-		<attribute name="feedbackhzhigh" get="0" set="1" type="float" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="float" size="1" value="2000." />
-			</attributelist>
-		</attribute>
-		<attribute name="feedbackhzlow" get="0" set="1" type="float" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="float" size="1" value="250." />
 			</attributelist>
 		</attribute>
 		<attribute name="feedbackhzlow" get="0" set="1" type="float" size="1">
@@ -263,17 +157,6 @@
 				<attribute name="default" get="0" set="1" type="int" size="1" value="1" />
 			</attributelist>
 		</attribute>
-		<attribute name="feedbacknonlinear" get="0" set="1" type="int" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="int" size="1" value="1" />
-			</attributelist>
-		</attribute>
 		<attribute name="inputhzhigh" get="0" set="1" type="float" size="1">
 			<digest>
 				
@@ -283,28 +166,6 @@
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="4000." />
-			</attributelist>
-		</attribute>
-		<attribute name="inputhzhigh" get="0" set="1" type="float" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="float" size="1" value="4000." />
-			</attributelist>
-		</attribute>
-		<attribute name="inputhzlow" get="0" set="1" type="float" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="float" size="1" value="125." />
 			</attributelist>
 		</attribute>
 		<attribute name="inputhzlow" get="0" set="1" type="float" size="1">
@@ -329,17 +190,6 @@
 				<attribute name="default" get="0" set="1" type="float" size="1" value="4." />
 			</attributelist>
 		</attribute>
-		<attribute name="modulationdepth" get="0" set="1" type="float" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="float" size="1" value="4." />
-			</attributelist>
-		</attribute>
 		<attribute name="modulationrate" get="0" set="1" type="float" size="1">
 			<digest>
 				
@@ -349,28 +199,6 @@
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="1." />
-			</attributelist>
-		</attribute>
-		<attribute name="modulationrate" get="0" set="1" type="float" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="float" size="1" value="1." />
-			</attributelist>
-		</attribute>
-		<attribute name="outputnonlinear" get="0" set="1" type="int" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="int" size="1" value="1" />
 			</attributelist>
 		</attribute>
 		<attribute name="outputnonlinear" get="0" set="1" type="int" size="1">

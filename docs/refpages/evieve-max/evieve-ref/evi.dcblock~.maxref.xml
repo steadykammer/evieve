@@ -25,22 +25,6 @@
 				
 			</description>
 		</inlet>
-		<inlet id="1" type="signal">
-			<digest>
-				Audio Input
-			</digest>
-			<description>
-				
-			</description>
-		</inlet>
-		<inlet id="2" type="float">
-			<digest>
-				pole, 0.99..1, default 0.9997
-			</digest>
-			<description>
-				
-			</description>
-		</inlet>
 		<inlet id="2" type="float">
 			<digest>
 				pole, 0.99..1, default 0.9997
@@ -52,14 +36,6 @@
 	</inletlist>
 	<!--OUTLETS-->
 	<outletlist>
-		<outlet id="1" type="signal">
-			<digest>
-				DC-blocked Audio Output
-			</digest>
-			<description>
-				
-			</description>
-		</outlet>
 		<outlet id="1" type="signal">
 			<digest>
 				DC-blocked Audio Output

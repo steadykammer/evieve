@@ -20,18 +20,6 @@
             "description": ""
         },
         {
-            "id": 1,
-            "type": "signal",
-            "digest": "Audio In Left / (messages) [bypass mute pattrstorage factorypreset outputmode predelay pretime predelaytime presymmetry earlysize earlysymmetry earlydiffusion latesize latesymmetry latediffusion highdampfrequency highdampgain lowdampfrequency lowdampgain decay absorbtion modrate modfrequency moddepth modepth modamplitude earlylate higheqfrequency higheqgain loweqfrequency loweqgain drywet earlylatehysterisis smoothtime]",
-            "description": ""
-        },
-        {
-            "id": 2,
-            "type": "signal",
-            "digest": "Audio In Right",
-            "description": ""
-        },
-        {
             "id": 2,
             "type": "signal",
             "digest": "Audio In Right",
@@ -46,27 +34,9 @@
             "description": ""
         },
         {
-            "id": 1,
-            "type": "signal",
-            "digest": "Audio Out Left",
-            "description": ""
-        },
-        {
             "id": 2,
             "type": "signal",
             "digest": "Audio Out Right",
-            "description": ""
-        },
-        {
-            "id": 2,
-            "type": "signal",
-            "digest": "Audio Out Right",
-            "description": ""
-        },
-        {
-            "id": 3,
-            "type": "",
-            "digest": "dumpout (pattrstorage)",
             "description": ""
         },
         {
@@ -105,17 +75,6 @@
             }
         },
         {
-            "name": "absorbtion",
-            "get": 0,
-            "type": "float",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "0.186"
-            }
-        },
-        {
             "name": "decay",
             "get": 0,
             "type": "float",
@@ -124,28 +83,6 @@
             "default": {
                 "get": 0,
                 "value": "0.475"
-            }
-        },
-        {
-            "name": "decay",
-            "get": 0,
-            "type": "float",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "0.475"
-            }
-        },
-        {
-            "name": "drywet",
-            "get": 0,
-            "type": "float",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "0.4"
             }
         },
         {
@@ -171,17 +108,6 @@
             }
         },
         {
-            "name": "earlydiffusion",
-            "get": 0,
-            "type": "float",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "0.7"
-            }
-        },
-        {
             "name": "earlylate",
             "get": 0,
             "type": "float",
@@ -190,28 +116,6 @@
             "default": {
                 "get": 0,
                 "value": "0.46"
-            }
-        },
-        {
-            "name": "earlylate",
-            "get": 0,
-            "type": "float",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "0.46"
-            }
-        },
-        {
-            "name": "earlylatehysterisis",
-            "get": 0,
-            "type": "int",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "3333"
             }
         },
         {
@@ -237,17 +141,6 @@
             }
         },
         {
-            "name": "earlysize",
-            "get": 0,
-            "type": "float",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "0.389"
-            }
-        },
-        {
             "name": "earlysymmetry",
             "get": 0,
             "type": "float",
@@ -256,28 +149,6 @@
             "default": {
                 "get": 0,
                 "value": "1.7"
-            }
-        },
-        {
-            "name": "earlysymmetry",
-            "get": 0,
-            "type": "float",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "1.7"
-            }
-        },
-        {
-            "name": "factorypreset",
-            "get": 0,
-            "type": "int",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "8"
             }
         },
         {
@@ -303,17 +174,6 @@
             }
         },
         {
-            "name": "highdampfrequency",
-            "get": 0,
-            "type": "float",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "1108.7"
-            }
-        },
-        {
             "name": "highdampgain",
             "get": 0,
             "type": "float",
@@ -322,28 +182,6 @@
             "default": {
                 "get": 0,
                 "value": "-1.2"
-            }
-        },
-        {
-            "name": "highdampgain",
-            "get": 0,
-            "type": "float",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "-1.2"
-            }
-        },
-        {
-            "name": "higheqfrequency",
-            "get": 0,
-            "type": "float",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "2217.5"
             }
         },
         {
@@ -369,17 +207,6 @@
             }
         },
         {
-            "name": "higheqgain",
-            "get": 0,
-            "type": "float",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "-7."
-            }
-        },
-        {
             "name": "latediffusion",
             "get": 0,
             "type": "float",
@@ -388,28 +215,6 @@
             "default": {
                 "get": 0,
                 "value": "0.7"
-            }
-        },
-        {
-            "name": "latediffusion",
-            "get": 0,
-            "type": "float",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "0.7"
-            }
-        },
-        {
-            "name": "latesize",
-            "get": 0,
-            "type": "float",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "0.653"
             }
         },
         {
@@ -435,17 +240,6 @@
             }
         },
         {
-            "name": "latesymmetry",
-            "get": 0,
-            "type": "float",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "-1.3"
-            }
-        },
-        {
             "name": "lowdampfrequency",
             "get": 0,
             "type": "float",
@@ -454,28 +248,6 @@
             "default": {
                 "get": 0,
                 "value": "69.3"
-            }
-        },
-        {
-            "name": "lowdampfrequency",
-            "get": 0,
-            "type": "float",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "69.3"
-            }
-        },
-        {
-            "name": "lowdampgain",
-            "get": 0,
-            "type": "float",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "-0.7"
             }
         },
         {
@@ -501,17 +273,6 @@
             }
         },
         {
-            "name": "loweqfrequency",
-            "get": 0,
-            "type": "float",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "92.5"
-            }
-        },
-        {
             "name": "loweqgain",
             "get": 0,
             "type": "float",
@@ -520,28 +281,6 @@
             "default": {
                 "get": 0,
                 "value": "-3.5"
-            }
-        },
-        {
-            "name": "loweqgain",
-            "get": 0,
-            "type": "float",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "-3.5"
-            }
-        },
-        {
-            "name": "moddepth",
-            "get": 0,
-            "type": "float",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "0.15"
             }
         },
         {
@@ -567,28 +306,6 @@
             }
         },
         {
-            "name": "modrate",
-            "get": 0,
-            "type": "float",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "0.23"
-            }
-        },
-        {
-            "name": "outputmode",
-            "get": 0,
-            "type": "int",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "4"
-            }
-        },
-        {
             "name": "outputmode",
             "get": 0,
             "type": "int",
@@ -611,17 +328,6 @@
             }
         },
         {
-            "name": "predelay",
-            "get": 0,
-            "type": "float",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "16."
-            }
-        },
-        {
             "name": "presymmetry",
             "get": 0,
             "type": "float",
@@ -630,28 +336,6 @@
             "default": {
                 "get": 0,
                 "value": "0.33"
-            }
-        },
-        {
-            "name": "presymmetry",
-            "get": 0,
-            "type": "float",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "0.33"
-            }
-        },
-        {
-            "name": "smoothtime",
-            "get": 0,
-            "type": "float",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "50."
             }
         },
         {

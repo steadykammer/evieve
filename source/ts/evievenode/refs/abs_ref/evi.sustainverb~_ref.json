@@ -16,65 +16,11 @@
         {
             "id": 0,
             "type": "signal",
-            "digest": "Audio In Right / messages to evi.sustainverb~",
-            "description": ""
-        },
-        {
-            "id": 0,
-            "type": "signal",
             "digest": "Audio In Left / messages to evi.sustainverb~",
             "description": ""
         }
     ],
     "outlets": [
-        {
-            "id": 0,
-            "type": "",
-            "digest": "dumpout (pattrstorage)",
-            "description": ""
-        },
-        {
-            "id": 0,
-            "type": "",
-            "digest": "AUX Tap 4",
-            "description": ""
-        },
-        {
-            "id": 0,
-            "type": "",
-            "digest": "AUX Tap 3",
-            "description": ""
-        },
-        {
-            "id": 0,
-            "type": "",
-            "digest": "AUX Tap 2",
-            "description": ""
-        },
-        {
-            "id": 0,
-            "type": "",
-            "digest": "AUX Tap 1",
-            "description": ""
-        },
-        {
-            "id": 0,
-            "type": "",
-            "digest": "FDN Out Right",
-            "description": ""
-        },
-        {
-            "id": 0,
-            "type": "",
-            "digest": "FDN Out Left",
-            "description": ""
-        },
-        {
-            "id": 0,
-            "type": "",
-            "digest": "RVRB Out Right",
-            "description": ""
-        },
         {
             "id": 0,
             "type": "",
@@ -111,17 +57,6 @@
             }
         },
         {
-            "name": "crossover",
-            "get": 0,
-            "type": "float",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "3000."
-            }
-        },
-        {
             "name": "damp",
             "get": 0,
             "type": "float",
@@ -130,28 +65,6 @@
             "default": {
                 "get": 0,
                 "value": "0.2"
-            }
-        },
-        {
-            "name": "damp",
-            "get": 0,
-            "type": "float",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "0.2"
-            }
-        },
-        {
-            "name": "drywet",
-            "get": 0,
-            "type": "float",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "1."
             }
         },
         {
@@ -177,28 +90,6 @@
             }
         },
         {
-            "name": "early",
-            "get": 0,
-            "type": "float",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "0."
-            }
-        },
-        {
-            "name": "feedback",
-            "get": 0,
-            "type": "float",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "0.707107"
-            }
-        },
-        {
             "name": "feedback",
             "get": 0,
             "type": "float",
@@ -221,17 +112,6 @@
             }
         },
         {
-            "name": "gain",
-            "get": 0,
-            "type": "float",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "-3."
-            }
-        },
-        {
             "name": "highpass",
             "get": 0,
             "type": "int",
@@ -240,28 +120,6 @@
             "default": {
                 "get": 0,
                 "value": "0"
-            }
-        },
-        {
-            "name": "highpass",
-            "get": 0,
-            "type": "int",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "0"
-            }
-        },
-        {
-            "name": "smoothtime",
-            "get": 0,
-            "type": "float",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "43."
             }
         },
         {

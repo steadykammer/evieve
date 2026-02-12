@@ -25,22 +25,6 @@
 				
 			</description>
 		</inlet>
-		<inlet id="1" type="signal">
-			<digest>
-				Audio In Left / messages to evi.mattaverb~
-			</digest>
-			<description>
-				
-			</description>
-		</inlet>
-		<inlet id="2" type="signal">
-			<digest>
-				Audio In Right / messages to evi.mattaverb~
-			</digest>
-			<description>
-				
-			</description>
-		</inlet>
 		<inlet id="2" type="signal">
 			<digest>
 				Audio In Right / messages to evi.mattaverb~
@@ -60,33 +44,9 @@
 				
 			</description>
 		</outlet>
-		<outlet id="1" type="signal">
-			<digest>
-				Audio Out Left
-			</digest>
-			<description>
-				
-			</description>
-		</outlet>
 		<outlet id="2" type="signal">
 			<digest>
 				Audio Out Right
-			</digest>
-			<description>
-				
-			</description>
-		</outlet>
-		<outlet id="2" type="signal">
-			<digest>
-				Audio Out Right
-			</digest>
-			<description>
-				
-			</description>
-		</outlet>
-		<outlet id="3" type="">
-			<digest>
-				dumpout (pattrstorage)
 			</digest>
 			<description>
 				
@@ -131,28 +91,6 @@
 				<attribute name="default" get="0" set="1" type="float" size="1" value="0.707107" />
 			</attributelist>
 		</attribute>
-		<attribute name="drywet" get="0" set="1" type="float" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="float" size="1" value="0.707107" />
-			</attributelist>
-		</attribute>
-		<attribute name="high" get="0" set="1" type="float" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="float" size="1" value="0.666666" />
-			</attributelist>
-		</attribute>
 		<attribute name="high" get="0" set="1" type="float" size="1">
 			<digest>
 				
@@ -173,28 +111,6 @@
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="0.333333" />
-			</attributelist>
-		</attribute>
-		<attribute name="low" get="0" set="1" type="float" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="float" size="1" value="0.333333" />
-			</attributelist>
-		</attribute>
-		<attribute name="size" get="0" set="1" type="float" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="float" size="1" value="0.5" />
 			</attributelist>
 		</attribute>
 		<attribute name="size" get="0" set="1" type="float" size="1">

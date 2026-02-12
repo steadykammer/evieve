@@ -25,14 +25,6 @@
 				
 			</description>
 		</inlet>
-		<inlet id="0" type="">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-		</inlet>
 	</inletlist>
 	<!--OUTLETS-->
 	<outletlist>

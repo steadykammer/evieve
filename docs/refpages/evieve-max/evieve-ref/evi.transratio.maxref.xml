@@ -67,28 +67,6 @@
 				<attribute name="default" get="0" set="1" type="float" size="1" value="440." />
 			</attributelist>
 		</attribute>
-		<attribute name="base" get="0" set="1" type="float" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="float" size="1" value="440." />
-			</attributelist>
-		</attribute>
-		<attribute name="in" get="0" set="1" type="symbol" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="symbol" size="1" value="semitones" />
-			</attributelist>
-		</attribute>
 		<attribute name="in" get="0" set="1" type="symbol" size="1">
 			<digest>
 				
@@ -111,17 +89,6 @@
 				<attribute name="default" get="0" set="1" type="int" size="1" value="0" />
 			</attributelist>
 		</attribute>
-		<attribute name="init" get="0" set="1" type="int" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="int" size="1" value="0" />
-			</attributelist>
-		</attribute>
 		<attribute name="offset" get="0" set="1" type="float" size="1">
 			<digest>
 				
@@ -131,28 +98,6 @@
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="60." />
-			</attributelist>
-		</attribute>
-		<attribute name="offset" get="0" set="1" type="float" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="float" size="1" value="60." />
-			</attributelist>
-		</attribute>
-		<attribute name="out" get="0" set="1" type="symbol" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="symbol" size="1" value="ratio" />
 			</attributelist>
 		</attribute>
 		<attribute name="out" get="0" set="1" type="symbol" size="1">

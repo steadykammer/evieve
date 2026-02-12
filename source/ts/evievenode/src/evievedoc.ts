@@ -175,6 +175,7 @@ max.addHandler('make_refpages_contents', () => {
     makeDocRefpagesXmlContents();
 })
 
+// NO ?
 max.addHandler('make_refpages_gen_contents', () => {
     makeGenRefpagesXmlContents();
 })
@@ -1724,8 +1725,6 @@ async function parseAbstractionMaxpatLoop(patcherPath: string, patcherName: stri
 	let MATCH_EVI = false;
 	let argNum = 0;
 
-	// const isNumericFromString = (string: string) => /^[+-]?\d+(\.\d+)?$/.test(string);
-	// const isNumericFinite = (input: string | number) => Number.isFinite(+input);
 	const argumentsConfig: any = {
 		"name": "",
 		"type": "",
@@ -1856,6 +1855,9 @@ async function parseAbstractionMaxpatLoop(patcherPath: string, patcherName: stri
 		thisConfigObject.arguments.sort((a: { digest: string; }, b: { digest: string; }) => {
 			return a.digest >= b.digest ? 1 : -1;
 		});
+		// keeps most recent
+		thisConfigObject.attributes = thinUniqueArrayByKey(thisConfigObject.attributes, "name");
+		thisConfigObject.arguments = thinUniqueArrayByKey(thisConfigObject.arguments, "name");
 	}
 
 	const IN_LET = "inlet";
@@ -1901,6 +1903,10 @@ async function parseAbstractionMaxpatLoop(patcherPath: string, patcherName: stri
 	thisConfigObject.outlets.sort((a: { id: number; }, b: { id: number; }) => {
 		return a.id >= b.id ? 1 : -1;
 	});
+
+	// keeps most recent
+	thisConfigObject.inlets = thinUniqueArrayByKey(thisConfigObject.inlets, "id");
+	thisConfigObject.outlets = thinUniqueArrayByKey(thisConfigObject.outlets, "id");
 
 	fs.writeFileSync(thisConfigFullPath, JSON.stringify(thisConfigObject, null, 4));
 }

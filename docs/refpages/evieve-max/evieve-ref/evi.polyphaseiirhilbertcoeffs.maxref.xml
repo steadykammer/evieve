@@ -25,36 +25,12 @@
 				
 			</description>
 		</inlet>
-		<inlet id="1" type="">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-		</inlet>
 	</inletlist>
 	<!--OUTLETS-->
 	<outletlist>
 		<outlet id="1" type="">
 			<digest>
 				
-			</digest>
-			<description>
-				
-			</description>
-		</outlet>
-		<outlet id="1" type="">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-		</outlet>
-		<outlet id="2" type="">
-			<digest>
-				dumpout
 			</digest>
 			<description>
 				
@@ -71,46 +47,6 @@
 	</outletlist>
 	<!--ARGUMENTS-->
 	<objarglist>
-		<objarg name="" type="symbol" default="NAME" optional="1">
-			<digest>
-				arg#1: 
-			</digest>
-			<description>
-				
-			</description>
-		</objarg>
-		<objarg name="" type="symbol" default="NAME" optional="1">
-			<digest>
-				arg#1: 
-			</digest>
-			<description>
-				
-			</description>
-		</objarg>
-		<objarg name="" type="int" default="0" optional="1">
-			<digest>
-				arg#2: 
-			</digest>
-			<description>
-				
-			</description>
-		</objarg>
-		<objarg name="" type="int" default="0" optional="1">
-			<digest>
-				arg#2: 
-			</digest>
-			<description>
-				
-			</description>
-		</objarg>
-		<objarg name="" type="int" default="0" optional="1">
-			<digest>
-				arg#3: 
-			</digest>
-			<description>
-				
-			</description>
-		</objarg>
 		<objarg name="" type="int" default="0" optional="1">
 			<digest>
 				arg#3: 
@@ -136,17 +72,6 @@
 	</methodlist>
 	<!--ATTRIBUTES-->
 	<attributelist>
-		<attribute name="iterate" get="0" set="1" type="int" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="int" size="1" value="1" />
-			</attributelist>
-		</attribute>
 		<attribute name="iterate" get="0" set="1" type="int" size="1">
 			<digest>
 				

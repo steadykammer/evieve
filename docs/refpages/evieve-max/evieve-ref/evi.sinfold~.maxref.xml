@@ -25,25 +25,9 @@
 				
 			</description>
 		</inlet>
-		<inlet id="1" type="signal">
-			<digest>
-				audio in / (anything) messages to evi.sinfold~
-			</digest>
-			<description>
-				
-			</description>
-		</inlet>
 	</inletlist>
 	<!--OUTLETS-->
 	<outletlist>
-		<outlet id="1" type="signal">
-			<digest>
-				sine shaped audio out
-			</digest>
-			<description>
-				
-			</description>
-		</outlet>
 		<outlet id="1" type="signal">
 			<digest>
 				sine shaped audio out
@@ -81,28 +65,6 @@
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="0.5" />
-			</attributelist>
-		</attribute>
-		<attribute name="drive" get="0" set="1" type="float" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="float" size="1" value="0.5" />
-			</attributelist>
-		</attribute>
-		<attribute name="smooth" get="0" set="1" type="float" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="float" size="1" value="22.666" />
 			</attributelist>
 		</attribute>
 		<attribute name="smooth" get="0" set="1" type="float" size="1">

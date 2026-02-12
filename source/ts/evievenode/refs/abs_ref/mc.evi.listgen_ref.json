@@ -18,21 +18,9 @@
             "type": "int",
             "digest": "# chans (same as @chans) / (bang) output previous list / (anything) any mcwrapper method",
             "description": ""
-        },
-        {
-            "id": 1,
-            "type": "int",
-            "digest": "# chans (same as @chans) / (bang) output previous list / (anything) any mcwrapper method",
-            "description": ""
         }
     ],
     "outlets": [
-        {
-            "id": 1,
-            "type": "list",
-            "digest": "generated list output",
-            "description": ""
-        },
         {
             "id": 1,
             "type": "list",
@@ -57,17 +45,6 @@
         }
     ],
     "attributes": [
-        {
-            "name": "chans",
-            "get": 0,
-            "type": "int",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "2"
-            }
-        },
         {
             "name": "chans",
             "get": 0,

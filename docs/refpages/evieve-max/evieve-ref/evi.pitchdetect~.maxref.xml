@@ -25,14 +25,6 @@
 				
 			</description>
 		</inlet>
-		<inlet id="1" type="signal">
-			<digest>
-				Input to Detect / (messages) to evi.pitchdetect~
-			</digest>
-			<description>
-				
-			</description>
-		</inlet>
 	</inletlist>
 	<!--OUTLETS-->
 	<outletlist>
@@ -44,33 +36,9 @@
 				
 			</description>
 		</outlet>
-		<outlet id="1" type="signal">
-			<digest>
-				Dry Audio, optionally Time Aligned
-			</digest>
-			<description>
-				
-			</description>
-		</outlet>
 		<outlet id="2" type="signal">
 			<digest>
 				Detected Frequency in Hz
-			</digest>
-			<description>
-				
-			</description>
-		</outlet>
-		<outlet id="2" type="signal">
-			<digest>
-				Detected Frequency in Hz
-			</digest>
-			<description>
-				
-			</description>
-		</outlet>
-		<outlet id="3" type="int">
-			<digest>
-				Current Latency in Samples
 			</digest>
 			<description>
 				
@@ -115,28 +83,6 @@
 				<attribute name="default" get="0" set="1" type="float" size="1" value="0.1" />
 			</attributelist>
 		</attribute>
-		<attribute name="ambience" get="0" set="1" type="float" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="float" size="1" value="0.1" />
-			</attributelist>
-		</attribute>
-		<attribute name="compensate" get="0" set="1" type="int" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="int" size="1" value="1" />
-			</attributelist>
-		</attribute>
 		<attribute name="compensate" get="0" set="1" type="int" size="1">
 			<digest>
 				
@@ -157,28 +103,6 @@
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="0." />
-			</attributelist>
-		</attribute>
-		<attribute name="gain" get="0" set="1" type="float" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="float" size="1" value="0." />
-			</attributelist>
-		</attribute>
-		<attribute name="highpass" get="0" set="1" type="float" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="float" size="1" value="100." />
 			</attributelist>
 		</attribute>
 		<attribute name="highpass" get="0" set="1" type="float" size="1">

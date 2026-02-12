@@ -20,18 +20,6 @@
             "description": ""
         },
         {
-            "id": 1,
-            "type": "signal/float",
-            "digest": "trigger/gate",
-            "description": ""
-        },
-        {
-            "id": 2,
-            "type": "signal/float",
-            "digest": "attack",
-            "description": ""
-        },
-        {
             "id": 2,
             "type": "signal/float",
             "digest": "attack",
@@ -44,27 +32,9 @@
             "description": ""
         },
         {
-            "id": 3,
-            "type": "signal/float",
-            "digest": "decay",
-            "description": ""
-        },
-        {
             "id": 4,
             "type": "signal/float",
             "digest": "sustain",
-            "description": ""
-        },
-        {
-            "id": 4,
-            "type": "signal/float",
-            "digest": "sustain",
-            "description": ""
-        },
-        {
-            "id": 5,
-            "type": "signal/float",
-            "digest": "release",
             "description": ""
         },
         {
@@ -82,18 +52,6 @@
             "description": ""
         },
         {
-            "id": 1,
-            "type": "signal",
-            "digest": "adsr+ envelope",
-            "description": ""
-        },
-        {
-            "id": 2,
-            "type": "signal",
-            "digest": "new envelope trigger",
-            "description": ""
-        },
-        {
             "id": 2,
             "type": "signal",
             "digest": "new envelope trigger",
@@ -103,18 +61,6 @@
             "id": 3,
             "type": "message",
             "digest": "mute outlet to [thispoly~]",
-            "description": ""
-        },
-        {
-            "id": 3,
-            "type": "message",
-            "digest": "mute outlet to [thispoly~]",
-            "description": ""
-        },
-        {
-            "id": 4,
-            "type": "signal",
-            "digest": "set busy state to [thispoly~]",
             "description": ""
         },
         {
@@ -125,62 +71,6 @@
         }
     ],
     "arguments": [
-        {
-            "name": "",
-            "type": "float",
-            "default": "10.",
-            "optional": 1,
-            "digest": "arg#1: ",
-            "description": ""
-        },
-        {
-            "name": "",
-            "type": "float",
-            "default": "10.",
-            "optional": 1,
-            "digest": "arg#1: ",
-            "description": ""
-        },
-        {
-            "name": "",
-            "type": "float",
-            "default": "100.",
-            "optional": 1,
-            "digest": "arg#2: ",
-            "description": ""
-        },
-        {
-            "name": "",
-            "type": "float",
-            "default": "100.",
-            "optional": 1,
-            "digest": "arg#2: ",
-            "description": ""
-        },
-        {
-            "name": "",
-            "type": "float",
-            "default": "0.707946",
-            "optional": 1,
-            "digest": "arg#3: ",
-            "description": ""
-        },
-        {
-            "name": "",
-            "type": "float",
-            "default": "0.707946",
-            "optional": 1,
-            "digest": "arg#3: ",
-            "description": ""
-        },
-        {
-            "name": "",
-            "type": "float",
-            "default": "200.",
-            "optional": 1,
-            "digest": "arg#4: ",
-            "description": ""
-        },
         {
             "name": "",
             "type": "float",
@@ -218,17 +108,6 @@
             }
         },
         {
-            "name": "attack",
-            "get": 0,
-            "type": "float",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "10."
-            }
-        },
-        {
             "name": "constantrate",
             "get": 0,
             "type": "int",
@@ -237,28 +116,6 @@
             "default": {
                 "get": 0,
                 "value": "1"
-            }
-        },
-        {
-            "name": "constantrate",
-            "get": 0,
-            "type": "int",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "1"
-            }
-        },
-        {
-            "name": "decay",
-            "get": 0,
-            "type": "float",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "100."
             }
         },
         {
@@ -284,28 +141,6 @@
             }
         },
         {
-            "name": "delay",
-            "get": 0,
-            "type": "float",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "0."
-            }
-        },
-        {
-            "name": "envmax",
-            "get": 0,
-            "type": "float",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "127."
-            }
-        },
-        {
             "name": "envmax",
             "get": 0,
             "type": "float",
@@ -328,40 +163,7 @@
             }
         },
         {
-            "name": "fallratio",
-            "get": 0,
-            "type": "float",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "0.05"
-            }
-        },
-        {
             "name": "hold1",
-            "get": 0,
-            "type": "float",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "0."
-            }
-        },
-        {
-            "name": "hold1",
-            "get": 0,
-            "type": "float",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "0."
-            }
-        },
-        {
-            "name": "hold2",
             "get": 0,
             "type": "float",
             "digest": "",
@@ -394,17 +196,6 @@
             }
         },
         {
-            "name": "legato",
-            "get": 0,
-            "type": "int",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "0"
-            }
-        },
-        {
             "name": "loop",
             "get": 0,
             "type": "int",
@@ -413,28 +204,6 @@
             "default": {
                 "get": 0,
                 "value": "0"
-            }
-        },
-        {
-            "name": "loop",
-            "get": 0,
-            "type": "int",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "0"
-            }
-        },
-        {
-            "name": "loopsustain",
-            "get": 0,
-            "type": "float",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "100."
             }
         },
         {
@@ -460,17 +229,6 @@
             }
         },
         {
-            "name": "looptrigger",
-            "get": 0,
-            "type": "int",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "0"
-            }
-        },
-        {
             "name": "maxsustain",
             "get": 0,
             "type": "int",
@@ -479,28 +237,6 @@
             "default": {
                 "get": 0,
                 "value": "-1"
-            }
-        },
-        {
-            "name": "maxsustain",
-            "get": 0,
-            "type": "int",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "-1"
-            }
-        },
-        {
-            "name": "muteupdate",
-            "get": 0,
-            "type": "int",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "10"
             }
         },
         {
@@ -526,17 +262,6 @@
             }
         },
         {
-            "name": "release",
-            "get": 0,
-            "type": "float",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "200."
-            }
-        },
-        {
             "name": "retrigger",
             "get": 0,
             "type": "int",
@@ -545,28 +270,6 @@
             "default": {
                 "get": 0,
                 "value": "5"
-            }
-        },
-        {
-            "name": "retrigger",
-            "get": 0,
-            "type": "int",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "5"
-            }
-        },
-        {
-            "name": "riseratio",
-            "get": 0,
-            "type": "float",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "0.3"
             }
         },
         {
@@ -592,28 +295,6 @@
             }
         },
         {
-            "name": "sustain",
-            "get": 0,
-            "type": "float",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "0.707946"
-            }
-        },
-        {
-            "name": "velocitycurve",
-            "get": 0,
-            "type": "int",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "1"
-            }
-        },
-        {
             "name": "velocitycurve",
             "get": 0,
             "type": "int",
@@ -636,40 +317,7 @@
             }
         },
         {
-            "name": "velocitysense",
-            "get": 0,
-            "type": "int",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "0"
-            }
-        },
-        {
             "name": "wait",
-            "get": 0,
-            "type": "int",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "0"
-            }
-        },
-        {
-            "name": "wait",
-            "get": 0,
-            "type": "int",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "0"
-            }
-        },
-        {
-            "name": "zerophase",
             "get": 0,
             "type": "int",
             "digest": "",

@@ -25,25 +25,9 @@
 				
 			</description>
 		</inlet>
-		<inlet id="1" type="signal">
-			<digest>
-				audio in / (anything) messages to evi.warmer~
-			</digest>
-			<description>
-				
-			</description>
-		</inlet>
 	</inletlist>
 	<!--OUTLETS-->
 	<outletlist>
-		<outlet id="1" type="signal">
-			<digest>
-				warmer audio out
-			</digest>
-			<description>
-				
-			</description>
-		</outlet>
 		<outlet id="1" type="signal">
 			<digest>
 				warmer audio out
@@ -83,17 +67,6 @@
 				<attribute name="default" get="0" set="1" type="float" size="1" value="-2." />
 			</attributelist>
 		</attribute>
-		<attribute name="blend" get="0" set="1" type="float" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="float" size="1" value="-2." />
-			</attributelist>
-		</attribute>
 		<attribute name="clip" get="0" set="1" type="symbol" size="1">
 			<digest>
 				
@@ -103,28 +76,6 @@
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="symbol" size="1" value="soft" />
-			</attributelist>
-		</attribute>
-		<attribute name="clip" get="0" set="1" type="symbol" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="symbol" size="1" value="soft" />
-			</attributelist>
-		</attribute>
-		<attribute name="clipfold" get="0" set="1" type="float" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="float" size="1" value="-1." />
 			</attributelist>
 		</attribute>
 		<attribute name="clipfold" get="0" set="1" type="float" size="1">
@@ -149,17 +100,6 @@
 				<attribute name="default" get="0" set="1" type="float" size="1" value="0.333333" />
 			</attributelist>
 		</attribute>
-		<attribute name="clipmix" get="0" set="1" type="float" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="float" size="1" value="0.333333" />
-			</attributelist>
-		</attribute>
 		<attribute name="clipslope" get="0" set="1" type="float" size="1">
 			<digest>
 				
@@ -169,28 +109,6 @@
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="0.23228" />
-			</attributelist>
-		</attribute>
-		<attribute name="clipslope" get="0" set="1" type="float" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="float" size="1" value="0.23228" />
-			</attributelist>
-		</attribute>
-		<attribute name="decouplegain" get="0" set="1" type="int" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="int" size="1" value="0" />
 			</attributelist>
 		</attribute>
 		<attribute name="decouplegain" get="0" set="1" type="int" size="1">
@@ -215,17 +133,6 @@
 				<attribute name="default" get="0" set="1" type="float" size="1" value="2." />
 			</attributelist>
 		</attribute>
-		<attribute name="drive" get="0" set="1" type="float" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="float" size="1" value="2." />
-			</attributelist>
-		</attribute>
 		<attribute name="gain" get="0" set="1" type="float" size="1">
 			<digest>
 				
@@ -235,28 +142,6 @@
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="1." />
-			</attributelist>
-		</attribute>
-		<attribute name="gain" get="0" set="1" type="float" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="float" size="1" value="1." />
-			</attributelist>
-		</attribute>
-		<attribute name="smooth" get="0" set="1" type="float" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="float" size="1" value="30.111" />
 			</attributelist>
 		</attribute>
 		<attribute name="smooth" get="0" set="1" type="float" size="1">
@@ -281,17 +166,6 @@
 				<attribute name="default" get="0" set="1" type="int" size="1" value="1" />
 			</attributelist>
 		</attribute>
-		<attribute name="tone" get="0" set="1" type="int" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="int" size="1" value="1" />
-			</attributelist>
-		</attribute>
 		<attribute name="tonecutoff" get="0" set="1" type="float" size="1">
 			<digest>
 				
@@ -301,28 +175,6 @@
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="6000." />
-			</attributelist>
-		</attribute>
-		<attribute name="tonecutoff" get="0" set="1" type="float" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="float" size="1" value="6000." />
-			</attributelist>
-		</attribute>
-		<attribute name="toneslope" get="0" set="1" type="int" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="int" size="1" value="3" />
 			</attributelist>
 		</attribute>
 		<attribute name="toneslope" get="0" set="1" type="int" size="1">

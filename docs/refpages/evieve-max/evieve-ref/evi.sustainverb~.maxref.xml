@@ -19,14 +19,6 @@
 	<inletlist>
 		<inlet id="0" type="signal">
 			<digest>
-				Audio In Right / messages to evi.sustainverb~
-			</digest>
-			<description>
-				
-			</description>
-		</inlet>
-		<inlet id="0" type="signal">
-			<digest>
 				Audio In Left / messages to evi.sustainverb~
 			</digest>
 			<description>
@@ -36,70 +28,6 @@
 	</inletlist>
 	<!--OUTLETS-->
 	<outletlist>
-		<outlet id="0" type="">
-			<digest>
-				dumpout (pattrstorage)
-			</digest>
-			<description>
-				
-			</description>
-		</outlet>
-		<outlet id="0" type="">
-			<digest>
-				AUX Tap 4
-			</digest>
-			<description>
-				
-			</description>
-		</outlet>
-		<outlet id="0" type="">
-			<digest>
-				AUX Tap 3
-			</digest>
-			<description>
-				
-			</description>
-		</outlet>
-		<outlet id="0" type="">
-			<digest>
-				AUX Tap 2
-			</digest>
-			<description>
-				
-			</description>
-		</outlet>
-		<outlet id="0" type="">
-			<digest>
-				AUX Tap 1
-			</digest>
-			<description>
-				
-			</description>
-		</outlet>
-		<outlet id="0" type="">
-			<digest>
-				FDN Out Right
-			</digest>
-			<description>
-				
-			</description>
-		</outlet>
-		<outlet id="0" type="">
-			<digest>
-				FDN Out Left
-			</digest>
-			<description>
-				
-			</description>
-		</outlet>
-		<outlet id="0" type="">
-			<digest>
-				RVRB Out Right
-			</digest>
-			<description>
-				
-			</description>
-		</outlet>
 		<outlet id="0" type="">
 			<digest>
 				RVRB Out Left
@@ -139,17 +67,6 @@
 				<attribute name="default" get="0" set="1" type="float" size="1" value="3000." />
 			</attributelist>
 		</attribute>
-		<attribute name="crossover" get="0" set="1" type="float" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="float" size="1" value="3000." />
-			</attributelist>
-		</attribute>
 		<attribute name="damp" get="0" set="1" type="float" size="1">
 			<digest>
 				
@@ -159,28 +76,6 @@
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="0.2" />
-			</attributelist>
-		</attribute>
-		<attribute name="damp" get="0" set="1" type="float" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="float" size="1" value="0.2" />
-			</attributelist>
-		</attribute>
-		<attribute name="drywet" get="0" set="1" type="float" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="float" size="1" value="1." />
 			</attributelist>
 		</attribute>
 		<attribute name="drywet" get="0" set="1" type="float" size="1">
@@ -205,28 +100,6 @@
 				<attribute name="default" get="0" set="1" type="float" size="1" value="0." />
 			</attributelist>
 		</attribute>
-		<attribute name="early" get="0" set="1" type="float" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="float" size="1" value="0." />
-			</attributelist>
-		</attribute>
-		<attribute name="feedback" get="0" set="1" type="float" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="float" size="1" value="0.707107" />
-			</attributelist>
-		</attribute>
 		<attribute name="feedback" get="0" set="1" type="float" size="1">
 			<digest>
 				
@@ -249,17 +122,6 @@
 				<attribute name="default" get="0" set="1" type="float" size="1" value="-3." />
 			</attributelist>
 		</attribute>
-		<attribute name="gain" get="0" set="1" type="float" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="float" size="1" value="-3." />
-			</attributelist>
-		</attribute>
 		<attribute name="highpass" get="0" set="1" type="int" size="1">
 			<digest>
 				
@@ -269,28 +131,6 @@
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="int" size="1" value="0" />
-			</attributelist>
-		</attribute>
-		<attribute name="highpass" get="0" set="1" type="int" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="int" size="1" value="0" />
-			</attributelist>
-		</attribute>
-		<attribute name="smoothtime" get="0" set="1" type="float" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="float" size="1" value="43." />
 			</attributelist>
 		</attribute>
 		<attribute name="smoothtime" get="0" set="1" type="float" size="1">

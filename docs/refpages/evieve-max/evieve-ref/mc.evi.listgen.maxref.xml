@@ -25,25 +25,9 @@
 				
 			</description>
 		</inlet>
-		<inlet id="1" type="int">
-			<digest>
-				# chans (same as @chans) / (bang) output previous list / (anything) any mcwrapper method
-			</digest>
-			<description>
-				
-			</description>
-		</inlet>
 	</inletlist>
 	<!--OUTLETS-->
 	<outletlist>
-		<outlet id="1" type="list">
-			<digest>
-				generated list output
-			</digest>
-			<description>
-				
-			</description>
-		</outlet>
 		<outlet id="1" type="list">
 			<digest>
 				generated list output
@@ -72,17 +56,6 @@
 	</methodlist>
 	<!--ATTRIBUTES-->
 	<attributelist>
-		<attribute name="chans" get="0" set="1" type="int" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="int" size="1" value="2" />
-			</attributelist>
-		</attribute>
 		<attribute name="chans" get="0" set="1" type="int" size="1">
 			<digest>
 				

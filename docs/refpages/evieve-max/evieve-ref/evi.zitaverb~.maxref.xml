@@ -19,14 +19,6 @@
 	<inletlist>
 		<inlet id="0" type="signal">
 			<digest>
-				Audio In Right / messages to evi.zitaverb~
-			</digest>
-			<description>
-				
-			</description>
-		</inlet>
-		<inlet id="0" type="signal">
-			<digest>
 				Audio In Left / messages to evi.zitaverb~
 			</digest>
 			<description>
@@ -36,22 +28,6 @@
 	</inletlist>
 	<!--OUTLETS-->
 	<outletlist>
-		<outlet id="0" type="">
-			<digest>
-				dumpout (pattrstorage)
-			</digest>
-			<description>
-				
-			</description>
-		</outlet>
-		<outlet id="0" type="signal">
-			<digest>
-				Audio Out Right
-			</digest>
-			<description>
-				
-			</description>
-		</outlet>
 		<outlet id="0" type="signal">
 			<digest>
 				Audio Out Left
@@ -91,17 +67,6 @@
 				<attribute name="default" get="0" set="1" type="int" size="1" value="0" />
 			</attributelist>
 		</attribute>
-		<attribute name="bypass" get="0" set="1" type="int" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="int" size="1" value="0" />
-			</attributelist>
-		</attribute>
 		<attribute name="crossover" get="0" set="1" type="float" size="1">
 			<digest>
 				
@@ -111,28 +76,6 @@
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="315." />
-			</attributelist>
-		</attribute>
-		<attribute name="crossover" get="0" set="1" type="float" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="float" size="1" value="315." />
-			</attributelist>
-		</attribute>
-		<attribute name="damp" get="0" set="1" type="float" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="float" size="1" value="3780." />
 			</attributelist>
 		</attribute>
 		<attribute name="damp" get="0" set="1" type="float" size="1">
@@ -157,17 +100,6 @@
 				<attribute name="default" get="0" set="1" type="float" size="1" value="0.8666" />
 			</attributelist>
 		</attribute>
-		<attribute name="drywet" get="0" set="1" type="float" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="float" size="1" value="0.8666" />
-			</attributelist>
-		</attribute>
 		<attribute name="eq1cutoff" get="0" set="1" type="float" size="1">
 			<digest>
 				
@@ -177,28 +109,6 @@
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="315." />
-			</attributelist>
-		</attribute>
-		<attribute name="eq1cutoff" get="0" set="1" type="float" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="float" size="1" value="315." />
-			</attributelist>
-		</attribute>
-		<attribute name="eq1gain" get="0" set="1" type="float" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="float" size="1" value="0." />
 			</attributelist>
 		</attribute>
 		<attribute name="eq1gain" get="0" set="1" type="float" size="1">
@@ -223,17 +133,6 @@
 				<attribute name="default" get="0" set="1" type="int" size="1" value="0" />
 			</attributelist>
 		</attribute>
-		<attribute name="eq1type" get="0" set="1" type="int" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="int" size="1" value="0" />
-			</attributelist>
-		</attribute>
 		<attribute name="eq2cutoff" get="0" set="1" type="float" size="1">
 			<digest>
 				
@@ -243,28 +142,6 @@
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="1260." />
-			</attributelist>
-		</attribute>
-		<attribute name="eq2cutoff" get="0" set="1" type="float" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="float" size="1" value="1260." />
-			</attributelist>
-		</attribute>
-		<attribute name="eq2gain" get="0" set="1" type="float" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="float" size="1" value="0." />
 			</attributelist>
 		</attribute>
 		<attribute name="eq2gain" get="0" set="1" type="float" size="1">
@@ -289,28 +166,6 @@
 				<attribute name="default" get="0" set="1" type="int" size="1" value="0" />
 			</attributelist>
 		</attribute>
-		<attribute name="eq2type" get="0" set="1" type="int" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="int" size="1" value="0" />
-			</attributelist>
-		</attribute>
-		<attribute name="lowdecay" get="0" set="1" type="float" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="float" size="1" value="3.333333" />
-			</attributelist>
-		</attribute>
 		<attribute name="lowdecay" get="0" set="1" type="float" size="1">
 			<digest>
 				
@@ -331,28 +186,6 @@
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="2.222222" />
-			</attributelist>
-		</attribute>
-		<attribute name="middecay" get="0" set="1" type="float" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="float" size="1" value="2.222222" />
-			</attributelist>
-		</attribute>
-		<attribute name="predelay" get="0" set="1" type="float" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="float" size="1" value="19." />
 			</attributelist>
 		</attribute>
 		<attribute name="predelay" get="0" set="1" type="float" size="1">

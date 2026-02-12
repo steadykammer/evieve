@@ -57,28 +57,6 @@
             }
         },
         {
-            "name": "base",
-            "get": 0,
-            "type": "float",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "440."
-            }
-        },
-        {
-            "name": "in",
-            "get": 0,
-            "type": "symbol",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "semitones"
-            }
-        },
-        {
             "name": "in",
             "get": 0,
             "type": "symbol",
@@ -101,17 +79,6 @@
             }
         },
         {
-            "name": "init",
-            "get": 0,
-            "type": "int",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "0"
-            }
-        },
-        {
             "name": "offset",
             "get": 0,
             "type": "float",
@@ -120,28 +87,6 @@
             "default": {
                 "get": 0,
                 "value": "60."
-            }
-        },
-        {
-            "name": "offset",
-            "get": 0,
-            "type": "float",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "60."
-            }
-        },
-        {
-            "name": "out",
-            "get": 0,
-            "type": "symbol",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "ratio"
             }
         },
         {

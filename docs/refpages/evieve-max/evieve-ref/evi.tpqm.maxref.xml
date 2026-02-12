@@ -25,33 +25,9 @@
 				
 			</description>
 		</inlet>
-		<inlet id="1" type="int/float">
-			<digest>
-				input to map / (list) input &amp; in/out mappings
-			</digest>
-			<description>
-				
-			</description>
-		</inlet>
 		<inlet id="2" type="int/float">
 			<digest>
 				in low
-			</digest>
-			<description>
-				
-			</description>
-		</inlet>
-		<inlet id="2" type="int/float">
-			<digest>
-				in low
-			</digest>
-			<description>
-				
-			</description>
-		</inlet>
-		<inlet id="3" type="int/float">
-			<digest>
-				in mid
 			</digest>
 			<description>
 				
@@ -73,22 +49,6 @@
 				
 			</description>
 		</inlet>
-		<inlet id="4" type="int/float">
-			<digest>
-				in high
-			</digest>
-			<description>
-				
-			</description>
-		</inlet>
-		<inlet id="5" type="int/float">
-			<digest>
-				out low
-			</digest>
-			<description>
-				
-			</description>
-		</inlet>
 		<inlet id="5" type="int/float">
 			<digest>
 				out low
@@ -100,22 +60,6 @@
 		<inlet id="6" type="int/float">
 			<digest>
 				out mid
-			</digest>
-			<description>
-				
-			</description>
-		</inlet>
-		<inlet id="6" type="int/float">
-			<digest>
-				out mid
-			</digest>
-			<description>
-				
-			</description>
-		</inlet>
-		<inlet id="7" type="int/float">
-			<digest>
-				out high
 			</digest>
 			<description>
 				
@@ -140,22 +84,6 @@
 				
 			</description>
 		</outlet>
-		<outlet id="1" type="float">
-			<digest>
-				mapped output
-			</digest>
-			<description>
-				
-			</description>
-		</outlet>
-		<outlet id="2" type="list">
-			<digest>
-				mapping list (if @dumpout &#x3D;&#x3D; 1)
-			</digest>
-			<description>
-				
-			</description>
-		</outlet>
 		<outlet id="2" type="list">
 			<digest>
 				mapping list (if @dumpout &#x3D;&#x3D; 1)
@@ -167,94 +95,6 @@
 	</outletlist>
 	<!--ARGUMENTS-->
 	<objarglist>
-		<objarg name="" type="float" default="0." optional="1">
-			<digest>
-				arg#1: 
-			</digest>
-			<description>
-				
-			</description>
-		</objarg>
-		<objarg name="" type="float" default="0." optional="1">
-			<digest>
-				arg#1: 
-			</digest>
-			<description>
-				
-			</description>
-		</objarg>
-		<objarg name="" type="float" default="0.5" optional="1">
-			<digest>
-				arg#2: 
-			</digest>
-			<description>
-				
-			</description>
-		</objarg>
-		<objarg name="" type="float" default="0.5" optional="1">
-			<digest>
-				arg#2: 
-			</digest>
-			<description>
-				
-			</description>
-		</objarg>
-		<objarg name="" type="float" default="1." optional="1">
-			<digest>
-				arg#3: 
-			</digest>
-			<description>
-				
-			</description>
-		</objarg>
-		<objarg name="" type="float" default="1." optional="1">
-			<digest>
-				arg#3: 
-			</digest>
-			<description>
-				
-			</description>
-		</objarg>
-		<objarg name="" type="float" default="0." optional="1">
-			<digest>
-				arg#4: 
-			</digest>
-			<description>
-				
-			</description>
-		</objarg>
-		<objarg name="" type="float" default="0." optional="1">
-			<digest>
-				arg#4: 
-			</digest>
-			<description>
-				
-			</description>
-		</objarg>
-		<objarg name="" type="float" default="0.5" optional="1">
-			<digest>
-				arg#5: 
-			</digest>
-			<description>
-				
-			</description>
-		</objarg>
-		<objarg name="" type="float" default="0.5" optional="1">
-			<digest>
-				arg#5: 
-			</digest>
-			<description>
-				
-			</description>
-		</objarg>
-		<objarg name="" type="float" default="1." optional="1">
-			<digest>
-				arg#6: 
-			</digest>
-			<description>
-				
-			</description>
-		</objarg>
 		<objarg name="" type="float" default="1." optional="1">
 			<digest>
 				arg#6: 
@@ -291,17 +131,6 @@
 				<attribute name="default" get="0" set="1" type="int" size="1" value="0" />
 			</attributelist>
 		</attribute>
-		<attribute name="dumpout" get="0" set="1" type="int" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="int" size="1" value="0" />
-			</attributelist>
-		</attribute>
 		<attribute name="hot" get="0" set="1" type="int" size="1">
 			<digest>
 				
@@ -311,28 +140,6 @@
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="int" size="1" value="0" />
-			</attributelist>
-		</attribute>
-		<attribute name="hot" get="0" set="1" type="int" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="int" size="1" value="0" />
-			</attributelist>
-		</attribute>
-		<attribute name="initial" get="0" set="1" type="symbol" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="symbol" size="1" value="none" />
 			</attributelist>
 		</attribute>
 		<attribute name="initial" get="0" set="1" type="symbol" size="1">

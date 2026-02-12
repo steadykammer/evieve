@@ -20,18 +20,6 @@
             "description": ""
         },
         {
-            "id": 1,
-            "type": "signal",
-            "digest": "Audio Input Mono (messages) filter io base smooth gain noiselevel oversampling state (bang) reset abstraction to default values",
-            "description": ""
-        },
-        {
-            "id": 2,
-            "type": "",
-            "digest": "inactive [Audio Input Right if @io == 1, 3 or 4]",
-            "description": ""
-        },
-        {
             "id": 2,
             "type": "",
             "digest": "inactive [Audio Input Right if @io == 1, 3 or 4]",
@@ -41,18 +29,6 @@
             "id": 3,
             "type": "signal/float",
             "digest": "Cutoff (in Pitch)",
-            "description": ""
-        },
-        {
-            "id": 3,
-            "type": "signal/float",
-            "digest": "Cutoff (in Pitch)",
-            "description": ""
-        },
-        {
-            "id": 4,
-            "type": "signal/float",
-            "digest": "Resonance 0..1++",
             "description": ""
         },
         {
@@ -67,18 +43,6 @@
             "id": 1,
             "type": "signal",
             "digest": "Dirty MS20 Output Mono ( filter currently LOWPASS _ Mono_Mono _ three_times_oversampled )",
-            "description": ""
-        },
-        {
-            "id": 1,
-            "type": "signal",
-            "digest": "Dirty MS20 Output Mono ( filter currently LOWPASS _ Mono_Mono _ three_times_oversampled )",
-            "description": ""
-        },
-        {
-            "id": 2,
-            "type": "",
-            "digest": "inactive [Audio Output Right if @io == 1, 3 or 4]",
             "description": ""
         },
         {
@@ -117,17 +81,6 @@
             }
         },
         {
-            "name": "filter",
-            "get": 0,
-            "type": "int",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "1"
-            }
-        },
-        {
             "name": "gain",
             "get": 0,
             "type": "float",
@@ -136,28 +89,6 @@
             "default": {
                 "get": 0,
                 "value": "3."
-            }
-        },
-        {
-            "name": "gain",
-            "get": 0,
-            "type": "float",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "3."
-            }
-        },
-        {
-            "name": "io",
-            "get": 0,
-            "type": "int",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "0"
             }
         },
         {
@@ -183,28 +114,6 @@
             }
         },
         {
-            "name": "noiselevel",
-            "get": 0,
-            "type": "float",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "0.33"
-            }
-        },
-        {
-            "name": "oversampling",
-            "get": 0,
-            "type": "int",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "1"
-            }
-        },
-        {
             "name": "oversampling",
             "get": 0,
             "type": "int",
@@ -224,28 +133,6 @@
             "default": {
                 "get": 0,
                 "value": "22.666"
-            }
-        },
-        {
-            "name": "smooth",
-            "get": 0,
-            "type": "float",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "22.666"
-            }
-        },
-        {
-            "name": "tune",
-            "get": 0,
-            "type": "float",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "0."
             }
         },
         {

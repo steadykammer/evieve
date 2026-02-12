@@ -25,22 +25,6 @@
 				
 			</description>
 		</inlet>
-		<inlet id="1" type="signal/float">
-			<digest>
-				trigger/gate
-			</digest>
-			<description>
-				
-			</description>
-		</inlet>
-		<inlet id="2" type="signal/float">
-			<digest>
-				attack
-			</digest>
-			<description>
-				
-			</description>
-		</inlet>
 		<inlet id="2" type="signal/float">
 			<digest>
 				attack
@@ -57,33 +41,9 @@
 				
 			</description>
 		</inlet>
-		<inlet id="3" type="signal/float">
-			<digest>
-				decay
-			</digest>
-			<description>
-				
-			</description>
-		</inlet>
 		<inlet id="4" type="signal/float">
 			<digest>
 				sustain
-			</digest>
-			<description>
-				
-			</description>
-		</inlet>
-		<inlet id="4" type="signal/float">
-			<digest>
-				sustain
-			</digest>
-			<description>
-				
-			</description>
-		</inlet>
-		<inlet id="5" type="signal/float">
-			<digest>
-				release
 			</digest>
 			<description>
 				
@@ -108,22 +68,6 @@
 				
 			</description>
 		</outlet>
-		<outlet id="1" type="signal">
-			<digest>
-				adsr+ envelope
-			</digest>
-			<description>
-				
-			</description>
-		</outlet>
-		<outlet id="2" type="signal">
-			<digest>
-				new envelope trigger
-			</digest>
-			<description>
-				
-			</description>
-		</outlet>
 		<outlet id="2" type="signal">
 			<digest>
 				new envelope trigger
@@ -135,22 +79,6 @@
 		<outlet id="3" type="message">
 			<digest>
 				mute outlet to [thispoly~]
-			</digest>
-			<description>
-				
-			</description>
-		</outlet>
-		<outlet id="3" type="message">
-			<digest>
-				mute outlet to [thispoly~]
-			</digest>
-			<description>
-				
-			</description>
-		</outlet>
-		<outlet id="4" type="signal">
-			<digest>
-				set busy state to [thispoly~]
 			</digest>
 			<description>
 				
@@ -167,62 +95,6 @@
 	</outletlist>
 	<!--ARGUMENTS-->
 	<objarglist>
-		<objarg name="" type="float" default="10." optional="1">
-			<digest>
-				arg#1: 
-			</digest>
-			<description>
-				
-			</description>
-		</objarg>
-		<objarg name="" type="float" default="10." optional="1">
-			<digest>
-				arg#1: 
-			</digest>
-			<description>
-				
-			</description>
-		</objarg>
-		<objarg name="" type="float" default="100." optional="1">
-			<digest>
-				arg#2: 
-			</digest>
-			<description>
-				
-			</description>
-		</objarg>
-		<objarg name="" type="float" default="100." optional="1">
-			<digest>
-				arg#2: 
-			</digest>
-			<description>
-				
-			</description>
-		</objarg>
-		<objarg name="" type="float" default="0.707946" optional="1">
-			<digest>
-				arg#3: 
-			</digest>
-			<description>
-				
-			</description>
-		</objarg>
-		<objarg name="" type="float" default="0.707946" optional="1">
-			<digest>
-				arg#3: 
-			</digest>
-			<description>
-				
-			</description>
-		</objarg>
-		<objarg name="" type="float" default="200." optional="1">
-			<digest>
-				arg#4: 
-			</digest>
-			<description>
-				
-			</description>
-		</objarg>
 		<objarg name="" type="float" default="200." optional="1">
 			<digest>
 				arg#4: 
@@ -259,17 +131,6 @@
 				<attribute name="default" get="0" set="1" type="float" size="1" value="10." />
 			</attributelist>
 		</attribute>
-		<attribute name="attack" get="0" set="1" type="float" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="float" size="1" value="10." />
-			</attributelist>
-		</attribute>
 		<attribute name="constantrate" get="0" set="1" type="int" size="1">
 			<digest>
 				
@@ -279,28 +140,6 @@
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="int" size="1" value="1" />
-			</attributelist>
-		</attribute>
-		<attribute name="constantrate" get="0" set="1" type="int" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="int" size="1" value="1" />
-			</attributelist>
-		</attribute>
-		<attribute name="decay" get="0" set="1" type="float" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="float" size="1" value="100." />
 			</attributelist>
 		</attribute>
 		<attribute name="decay" get="0" set="1" type="float" size="1">
@@ -325,28 +164,6 @@
 				<attribute name="default" get="0" set="1" type="float" size="1" value="0." />
 			</attributelist>
 		</attribute>
-		<attribute name="delay" get="0" set="1" type="float" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="float" size="1" value="0." />
-			</attributelist>
-		</attribute>
-		<attribute name="envmax" get="0" set="1" type="float" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="float" size="1" value="127." />
-			</attributelist>
-		</attribute>
 		<attribute name="envmax" get="0" set="1" type="float" size="1">
 			<digest>
 				
@@ -369,40 +186,7 @@
 				<attribute name="default" get="0" set="1" type="float" size="1" value="0.05" />
 			</attributelist>
 		</attribute>
-		<attribute name="fallratio" get="0" set="1" type="float" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="float" size="1" value="0.05" />
-			</attributelist>
-		</attribute>
 		<attribute name="hold1" get="0" set="1" type="float" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="float" size="1" value="0." />
-			</attributelist>
-		</attribute>
-		<attribute name="hold1" get="0" set="1" type="float" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="float" size="1" value="0." />
-			</attributelist>
-		</attribute>
-		<attribute name="hold2" get="0" set="1" type="float" size="1">
 			<digest>
 				
 			</digest>
@@ -435,17 +219,6 @@
 				<attribute name="default" get="0" set="1" type="int" size="1" value="0" />
 			</attributelist>
 		</attribute>
-		<attribute name="legato" get="0" set="1" type="int" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="int" size="1" value="0" />
-			</attributelist>
-		</attribute>
 		<attribute name="loop" get="0" set="1" type="int" size="1">
 			<digest>
 				
@@ -455,28 +228,6 @@
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="int" size="1" value="0" />
-			</attributelist>
-		</attribute>
-		<attribute name="loop" get="0" set="1" type="int" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="int" size="1" value="0" />
-			</attributelist>
-		</attribute>
-		<attribute name="loopsustain" get="0" set="1" type="float" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="float" size="1" value="100." />
 			</attributelist>
 		</attribute>
 		<attribute name="loopsustain" get="0" set="1" type="float" size="1">
@@ -501,17 +252,6 @@
 				<attribute name="default" get="0" set="1" type="int" size="1" value="0" />
 			</attributelist>
 		</attribute>
-		<attribute name="looptrigger" get="0" set="1" type="int" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="int" size="1" value="0" />
-			</attributelist>
-		</attribute>
 		<attribute name="maxsustain" get="0" set="1" type="int" size="1">
 			<digest>
 				
@@ -521,28 +261,6 @@
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="int" size="1" value="-1" />
-			</attributelist>
-		</attribute>
-		<attribute name="maxsustain" get="0" set="1" type="int" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="int" size="1" value="-1" />
-			</attributelist>
-		</attribute>
-		<attribute name="muteupdate" get="0" set="1" type="int" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="int" size="1" value="10" />
 			</attributelist>
 		</attribute>
 		<attribute name="muteupdate" get="0" set="1" type="int" size="1">
@@ -567,17 +285,6 @@
 				<attribute name="default" get="0" set="1" type="float" size="1" value="200." />
 			</attributelist>
 		</attribute>
-		<attribute name="release" get="0" set="1" type="float" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="float" size="1" value="200." />
-			</attributelist>
-		</attribute>
 		<attribute name="retrigger" get="0" set="1" type="int" size="1">
 			<digest>
 				
@@ -587,28 +294,6 @@
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="int" size="1" value="5" />
-			</attributelist>
-		</attribute>
-		<attribute name="retrigger" get="0" set="1" type="int" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="int" size="1" value="5" />
-			</attributelist>
-		</attribute>
-		<attribute name="riseratio" get="0" set="1" type="float" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="float" size="1" value="0.3" />
 			</attributelist>
 		</attribute>
 		<attribute name="riseratio" get="0" set="1" type="float" size="1">
@@ -633,28 +318,6 @@
 				<attribute name="default" get="0" set="1" type="float" size="1" value="0.707946" />
 			</attributelist>
 		</attribute>
-		<attribute name="sustain" get="0" set="1" type="float" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="float" size="1" value="0.707946" />
-			</attributelist>
-		</attribute>
-		<attribute name="velocitycurve" get="0" set="1" type="int" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="int" size="1" value="1" />
-			</attributelist>
-		</attribute>
 		<attribute name="velocitycurve" get="0" set="1" type="int" size="1">
 			<digest>
 				
@@ -677,40 +340,7 @@
 				<attribute name="default" get="0" set="1" type="int" size="1" value="0" />
 			</attributelist>
 		</attribute>
-		<attribute name="velocitysense" get="0" set="1" type="int" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="int" size="1" value="0" />
-			</attributelist>
-		</attribute>
 		<attribute name="wait" get="0" set="1" type="int" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="int" size="1" value="0" />
-			</attributelist>
-		</attribute>
-		<attribute name="wait" get="0" set="1" type="int" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="int" size="1" value="0" />
-			</attributelist>
-		</attribute>
-		<attribute name="zerophase" get="0" set="1" type="int" size="1">
 			<digest>
 				
 			</digest>
