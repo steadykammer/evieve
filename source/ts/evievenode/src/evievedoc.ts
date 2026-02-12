@@ -285,7 +285,7 @@ max.addHandler('pete_test_xml_object', (type: string) => {
 function testGetXml(prefix?: string)
 {
 	const options = {
-		preserveOrder: true, // true = shit for getting values, good for rebuilding xml
+		preserveOrder: false, // true = shit for getting values, good for rebuilding xml
 		ignoreAttributes: false,
 		// attributeNamePrefix: `${prefix}`,
 		attributeNamePrefix: attributeXmlPrefix,
@@ -305,7 +305,7 @@ function testBuildXml(/*jsonData: any, */prefix?: string)
 {
 	const options = {
 		format: true,
-		preserveOrder: true, // true = shit for the json, but good to have format correct when building
+		preserveOrder: false, // true = shit for the json, but good to have format correct when building
 		ignoreAttributes: false,
 		// attributeNamePrefix: `${prefix}`,
 		attributeNamePrefix: attributeXmlPrefix,
@@ -401,17 +401,26 @@ function parseDataForQlookup() {
 
 		qlookup[objectName].keywords = [];
 		if (Object.hasOwn(xmlResult.c74object, 'misc')) {
-			void max.post('have found a misc');
 			// TODO:
-/*			const discussionData = xmlResult.c74object.misc.filter((el: any) => el.maxattr_name === 'Discussion');
-			if (Array.isArray(discussionData)) {
-				const keywordData = discussionData[0].entry.filter((el: any) => el.maxattr_name === 'Keywords');
+			// const discussionData = xmlResult.c74object.misc.filter((el: any) => el.maxattr_name === 'Discussion');
+			// if (Array.isArray(discussionData)) {
+			// 	const keywordData = discussionData[0].entry.filter((el: any) => el.maxattr_name === 'Keywords');
+			// 	if (keywordData.length > 0) {
+			// 		qlookup[objectName].keywords = keywordData[0].description.split(',');
+			// 	}
+			// 	qlookup[objectName].keywords = qlookup[objectName].keywords.map((item: string) => item.trim());
+			// }
+			let keywordData = '';
+			if (Object.hasOwn(xmlResult.c74object.misc, 'entry')) {
+				if (xmlResult.c74object.misc.entry.maxattr_name === 'Keywords') {
+					keywordData = xmlResult.c74object.misc.entry.description['#text'];
+				}
 				if (keywordData.length > 0) {
-					qlookup[objectName].keywords = keywordData[0].description.split(',');
+					qlookup[objectName].keywords = keywordData.split(',');
 				}
 				qlookup[objectName].keywords = qlookup[objectName].keywords.map((item: string) => item.trim());
 			}
-*/		}
+		}
 
 		const seeAlsoArray = [];
 		if (Object.hasOwn(xmlResult.c74object, 'seealsolist')) {
