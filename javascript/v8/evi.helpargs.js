@@ -1,4 +1,7 @@
 "use strict";
+/*!
+ * this file is automatically transpiled from Typescript - DO NOT EDIT BY HAND
+ */
 let objectNameArgument;
 if (jsarguments.length > 1) {
   objectNameArgument = jsarguments[1];

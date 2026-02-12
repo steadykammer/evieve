@@ -9,13 +9,24 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 63.0, 131.0, 812.0, 790.0 ],
+        "rect": [ 552.0, 117.0, 812.0, 790.0 ],
         "bglocked": 1,
         "gridonopen": 2,
         "subpatcher_template": "sub",
         "integercoordinates": 1,
         "title": "Signal Smoothing in evieve",
         "boxes": [
+            {
+                "box": {
+                    "id": "obj-33",
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 289.0, 369.0, 109.0, 20.0 ],
+                    "text": "(signal input only)",
+                    "textjustification": 1
+                }
+            },
             {
                 "box": {
                     "id": "obj-30",
@@ -187,7 +198,7 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 32.0, 181.0, 600.0, 20.0 ],
-                    "text": "Additional smoothing externals in evieve (evieve smoothers can take signals or floats, apart from the vactrol)"
+                    "text": "Additional smoothing externals in evieve (evieve smoothers can take signals or floats as input)"
                 }
             },
             {

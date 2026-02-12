@@ -1,5 +1,5 @@
 
-/**
+/*!
  * this file is automatically transpiled from Typescript - DO NOT EDIT BY HAND
  */
 

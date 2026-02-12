@@ -33,7 +33,7 @@
             {
                 "box": {
                     "background": 1,
-                    "filename": "evi.helpstarter.js",
+                    "filename": "{{{evihelpstarter}}}.js",
                     "id": "obj-1",
                     "ignoreclick": 1,
                     "maxclass": "newobj",
@@ -45,10 +45,10 @@
                         "embed": 1,
                         "parameter_enable": 0
                     },
-                    "text": "v8 evi.helpstarter.js evi.vactrol~ 0 1 0 1 1 smooth",
+                    "text": "v8 {{{evihelpstarter}}} {{{eviobject}}} {{{opt0}}} {{{opt1}}} {{{opt2}}} {{{opt3}}} {{{opt4}}} {{{opt5}}}",
                     "textfile": {
                         "text": "",
-                        "filename": "evi.helpstarter.js",
+                        "filename": "{{{evihelpstarter}}}.js",
                         "flags": 0,
                         "embed": 1,
                         "autowatch": 1

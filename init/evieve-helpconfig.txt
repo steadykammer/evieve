@@ -1,0 +1,19 @@
+max classnamehelpcategory evi.biquad.allpass~ evibiquad;
+max classnamehelpcategory evi.biquad.analog~ evibiquad;
+max classnamehelpcategory evi.biquad.bandpass~ evibiquad;
+max classnamehelpcategory evi.biquad.butterworth~ evibiquad;
+max classnamehelpcategory evi.biquadcoeff~ evibiquad;
+max classnamehelpcategory evi.biquad.eqfilter~ evibiquad;
+max classnamehelpcategory evi.biquad.filter~ evibiquad;
+max classnamehelpcategory evi.biquad.highpass~ evibiquad;
+max classnamehelpcategory evi.biquad.highshelf~ evibiquad;
+max classnamehelpcategory evi.biquad.lowpass~ evibiquad;
+max classnamehelpcategory evi.biquad.lowshelf~ evibiquad;
+max classnamehelpcategory evi.biquad.notch~ evibiquad;
+max classnamehelpcategory evi.biquad.peaknotch~ evibiquad;
+max classnamehelpcategory evi.biquad.resonant~ evibiquad;
+max classnamehelpcategory evi.biquad~ evibiquad;
+max classnamehelpcategory evi.butterworthlp6~ evibiquad;
+max classnamehelpcategory evi.bp~ evibiquad;
+
+max categoryhelp evibiquad evieve_biquad_filters "Biquad Filters in evieve";

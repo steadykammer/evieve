@@ -1,4 +1,7 @@
 "use strict";
+/*!
+ * this file is automatically transpiled from Typescript - DO NOT EDIT BY HAND
+ */
 inlets = 1;
 outlets = 2;
 let categories = [];

@@ -16,6 +16,17 @@
         "boxes": [
             {
                 "box": {
+                    "id": "obj-46",
+                    "maxclass": "message",
+                    "numinlets": 2,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 765.0, 283.0, 106.0, 22.0 ],
+                    "text": "make_help_config"
+                }
+            },
+            {
+                "box": {
                     "id": "obj-44",
                     "maxclass": "newobj",
                     "numinlets": 2,
@@ -110,7 +121,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 765.0, 222.0, 129.0, 22.0 ],
+                    "patching_rect": [ 765.0, 215.0, 129.0, 22.0 ],
                     "text": "make_key_commands"
                 }
             },
@@ -297,7 +308,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 765.0, 265.0, 135.0, 22.0 ],
+                    "patching_rect": [ 762.0, 249.0, 135.0, 22.0 ],
                     "text": "make_object_mappings"
                 }
             },
@@ -1074,8 +1085,6 @@
                     "saved_object_attributes": {
                         "autostart": 0,
                         "defer": 0,
-                        "node_bin_path": "",
-                        "npm_bin_path": "",
                         "watch": 0
                     },
                     "text": "node.script /Users/stkr/Dev/evieve/source/ts/evievenode/dist/evievedoc.js",
@@ -1320,6 +1329,12 @@
             {
                 "patchline": {
                     "destination": [ "obj-1", 0 ],
+                    "source": [ "obj-46", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-1", 0 ],
                     "source": [ "obj-5", 0 ]
                 }
             },
@@ -1350,6 +1365,14 @@
             "obj-44::obj-54::obj-7": [ "eqHighFreq", "eqHighFreq", 0 ],
             "obj-44::obj-54::obj-8": [ "smoothTime", "smoothTime", 0 ],
             "obj-44::obj-54::obj-9": [ "damping", "damping", 0 ],
+            "parameterbanks": {
+                "0": {
+                    "index": 0,
+                    "name": "",
+                    "parameters": [ "-", "-", "-", "-", "-", "-", "-", "-" ],
+                    "buttons": [ "-", "-", "-", "-", "-", "-", "-", "-" ]
+                }
+            },
             "inherited_shortname": 1
         },
         "autosave": 0,

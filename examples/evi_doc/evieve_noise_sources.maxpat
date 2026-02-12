@@ -245,7 +245,7 @@
                     "maxclass": "ezdac~",
                     "numinlets": 2,
                     "numoutlets": 0,
-                    "patching_rect": [ 388.0, 419.0, 45.0, 45.0 ]
+                    "patching_rect": [ 401.0, 420.0, 45.0, 45.0 ]
                 }
             },
             {
@@ -418,8 +418,8 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 222.0, 342.0, 211.0, 33.0 ],
-                    "text": "oscillator / noise mixer for vocoders, but really cool as a source on it's own"
+                    "patching_rect": [ 222.0, 342.0, 224.0, 33.0 ],
+                    "text": "oscillator / noise mixer for vocoders, but very useful as a source on it's own"
                 }
             },
             {
@@ -608,6 +608,14 @@
         ],
         "parameters": {
             "obj-23": [ "number", "number", 0 ],
+            "parameterbanks": {
+                "0": {
+                    "index": 0,
+                    "name": "",
+                    "parameters": [ "-", "-", "-", "-", "-", "-", "-", "-" ],
+                    "buttons": [ "-", "-", "-", "-", "-", "-", "-", "-" ]
+                }
+            },
             "inherited_shortname": 1
         },
         "autosave": 0,

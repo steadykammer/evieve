@@ -197,6 +197,10 @@ max.addHandler('make_key_commands', () => {
 	createMaxKeyCommands();
 })
 
+max.addHandler('make_help_config', () => {
+	createHelpconfigFile();
+})
+
 max.addHandler('make_abs_ref_jsons', () => {
 	createMaxpatRefJson();
 })
@@ -432,9 +436,10 @@ function parseDataForQlookup() {
 
 // --------------------------------------------- //
 
+// NOT USED
 function createHelpFilesBasic(force = false)
 {
-	const eviHelpStarter = 'evi.helpstarter.js';
+	const eviHelpStarter = 'evi.helpstarter';
 	const writeDir = config.helpFiles.externals.output;
 	const externalsConfig = mxo.evi_externals;
 	const abstractionsConfig = maxpat.evi_abstractions;
@@ -453,7 +458,12 @@ function createHelpFilesBasic(force = false)
 					{
 						evihelpstarter: eviHelpStarter,
 						eviobject: object,
-						evioption: 0
+						opt0: -1,
+						opt1: 0,
+						opt2: 0,
+						opt3: 0,
+						opt4: 0,
+						opt5: 'none'
 					},
 					writePath
 					);
@@ -472,7 +482,7 @@ function createHelpFilesBasic(force = false)
 function createHelpFilesExternals(force = false)
 {
 	const eviType: number = 0;	// 0 = external, 1 = gen, 2 = abstraction
-	const eviHelpStarter = 'evi.helpstarter.js';
+	const eviHelpStarter = 'evi.helpstarter';
 	const writeDir = config.helpFiles.externals.output;
 	const externalsConfig = mxo.evi_externals;
 	const forHelpfilesArray = Object.keys(externalsConfig);
@@ -522,7 +532,7 @@ function createHelpFilesExternals(force = false)
 function createHelpFilesAbstractions(force = false)
 {
 	const eviType: number = 2;	// 0 = external, 1 = gen, 2 = abstraction
-	const eviHelpStarter = 'evi.helpstarter.js';
+	const eviHelpStarter = 'evi.helpstarter';
 	const writeDir = config.helpFiles.abstractions.output;
 	const abstractionsConfig = maxpat.evi_abstractions;
 	const forHelpfilesArray = Object.keys(abstractionsConfig);
@@ -572,7 +582,7 @@ function createHelpFilesAbstractions(force = false)
 function createHelpFilesDefines(force = false)
 {
 	const eviType: number = 1;	// 0 = external, 1 = gen, 2 = abstraction
-	const eviHelpStarter = 'evi.helpstarter.js';
+	const eviHelpStarter = 'evi.helpstarter';
 	const writeDir = config.helpFiles.defines.output;
 	const definesConfig = gendsp.evi_gendsp;
 	const forHelpfilesArray = Object.keys(definesConfig);
@@ -2254,6 +2264,28 @@ function createMaxKeyCommands()
 
 	const initDir = `${cwd()}/${config.initFiles.defines.output}`;
 	renderFromTemplate('../templates/keycommands.handlebars', keyCommandsConfig, `${initDir}/evieve-keycommands.txt`);
+}
+
+function createHelpconfigFile()
+{
+	const helpConfig: any = {};
+	const biquadsArray: string[] = [];
+	const definesConfig = gendsp.evi_gendsp;
+	const definesListing = Object.keys(definesConfig);
+	for (const config of definesListing) {
+		// @ts-expect-error
+		const entry = definesConfig[config];
+		if (entry.define.object) {
+			if (entry.help.areas.includes('biquad')) {
+				biquadsArray.push(entry.define.msp);
+			}
+		}
+	}
+	helpConfig.objects = biquadsArray;
+	helpConfig.class = 'evibiquad';
+	helpConfig.classPatcher = 'evieve_biquad_filters';
+	helpConfig.classString = `\"Biquad Filters in evieve\"`;
+	renderFromTemplate('../templates/helpconfig.handlebars', helpConfig, `${config.initFiles.defines.output}/evieve-helpconfig.txt`);
 }
 
 // --------------------------------------------- //

@@ -9,8 +9,9 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "openrect": [ 55.0, 122.0, 837.0, 796.0 ],
+        "openrect": [ 55.0, 122.0, 802.0, 695.0 ],
         "openrectmode": 0,
+        "bglocked": 1,
         "default_fontsize": 13.0,
         "gridonopen": 2,
         "digest": "evieve helpfile",
@@ -32,7 +33,7 @@
             {
                 "box": {
                     "background": 1,
-                    "filename": "evi.helpstarter.js.js",
+                    "filename": "evi.helpstarter.js",
                     "id": "obj-1",
                     "ignoreclick": 1,
                     "maxclass": "newobj",
@@ -47,7 +48,7 @@
                     "text": "v8 evi.helpstarter.js evi.tpqm 2 0 0 0 0 none",
                     "textfile": {
                         "text": "",
-                        "filename": "evi.helpstarter.js.js",
+                        "filename": "evi.helpstarter.js",
                         "flags": 0,
                         "embed": 1,
                         "autowatch": 1
@@ -71,7 +72,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 148.0, 812.0, 648.0 ],
+                        "rect": [ 55.0, 148.0, 802.0, 669.0 ],
                         "default_fontsize": 13.0,
                         "showontab": 1,
                         "integercoordinates": 1,
@@ -95,7 +96,7 @@
                     "numinlets": 1,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
-                    "patching_rect": [ 675.0, 589.0, 72.0, 23.0 ],
+                    "patching_rect": [ 281.0, 165.0, 72.0, 23.0 ],
                     "save": [ "#N", "thispatcher", ";", "#Q", "end", ";" ],
                     "text": "thispatcher",
                     "varname": "this_patcher"
