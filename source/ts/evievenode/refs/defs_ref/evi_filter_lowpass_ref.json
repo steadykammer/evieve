@@ -1,7 +1,7 @@
 {
     "object": {
         "name": "evi.filter.lowpass~",
-        "category": "",
+        "category": "evieve",
         "parent": "evi_filter_lowpass.gendsp",
         "tilde": "~",
         "description": "TEXT_HERE",
@@ -9,9 +9,7 @@
     },
     "metadata": {
         "author": "Pete Dowling",
-        "tags": [
-            "evieve"
-        ]
+        "tags": []
     },
     "includes": [
         "evi_svf.genexpr"

@@ -8,7 +8,9 @@
 <refpage name='evi.audiodust~.maxref.xml'/>
 <refpage name='evi.backverb~.maxref.xml'/>
 <refpage name='evi.baxandall~.maxref.xml'/>
+<refpage name='evi.biquad.filter~.maxref.xml'/>
 <refpage name='evi.biquadcoeff.maxref.xml'/>
+<refpage name='evi.biquadcoeff~.maxref.xml'/>
 <refpage name='evi.blitwaves~.maxref.xml'/>
 <refpage name='evi.butterworthlp6~.maxref.xml'/>
 <refpage name='evi.butterworthlp8~.maxref.xml'/>

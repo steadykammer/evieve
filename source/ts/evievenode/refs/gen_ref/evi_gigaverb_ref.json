@@ -1,7 +1,7 @@
 {
     "object": {
         "name": "evi_gigaverb",
-        "category": "",
+        "category": "evieve",
         "digest": "TEXT_HERE",
         "description": "[evi_gigaverb.gendsp] requires: [evi_reverb_library.genexpr]"
     },

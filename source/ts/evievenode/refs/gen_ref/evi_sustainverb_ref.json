@@ -1,7 +1,7 @@
 {
     "object": {
         "name": "evi_sustainverb",
-        "category": "",
+        "category": "evieve",
         "digest": "TEXT_HERE",
         "description": "[evi_sustainverb.gendsp] requires: [evi_reverb_library.genexpr]"
     },

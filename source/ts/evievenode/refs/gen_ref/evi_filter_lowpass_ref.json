@@ -1,7 +1,7 @@
 {
     "object": {
         "name": "evi_filter_lowpass",
-        "category": "",
+        "category": "evieve",
         "digest": "TEXT_HERE",
         "description": "[evi_filter_lowpass.gendsp] requires: [evi_svf.genexpr]"
     },

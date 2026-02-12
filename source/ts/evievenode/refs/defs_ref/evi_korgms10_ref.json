@@ -1,7 +1,7 @@
 {
     "object": {
         "name": "evi.korgms10~",
-        "category": "",
+        "category": "evieve",
         "parent": "evi_korgms10.gendsp",
         "tilde": "~",
         "description": "TEXT_HERE",
@@ -9,9 +9,7 @@
     },
     "metadata": {
         "author": "Pete Dowling",
-        "tags": [
-            "evieve"
-        ]
+        "tags": []
     },
     "includes": [
         "evi_tanh.genexpr",

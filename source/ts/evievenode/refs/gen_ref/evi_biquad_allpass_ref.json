@@ -1,7 +1,7 @@
 {
     "object": {
         "name": "evi_biquad_allpass",
-        "category": "",
+        "category": "evieve",
         "digest": "TEXT_HERE",
         "description": "[evi_biquad_allpass.gendsp] requires: [evi_biquad.genexpr]"
     },

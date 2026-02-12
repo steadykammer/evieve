@@ -1,7 +1,7 @@
 {
     "object": {
         "name": "evi_eq5",
-        "category": "",
+        "category": "evieve",
         "digest": "TEXT_HERE",
         "description": "[evi_eq5.gendsp] requires: [evi_svf.genexpr]"
     },

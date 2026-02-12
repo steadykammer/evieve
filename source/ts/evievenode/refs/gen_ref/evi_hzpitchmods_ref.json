@@ -1,7 +1,7 @@
 {
     "object": {
         "name": "evi_hzpitchmods",
-        "category": "",
+        "category": "evieve",
         "digest": "TEXT_HERE",
         "description": "[evi_hzpitchmods.gendsp] requires: [evi_smooth.genexpr]"
     },

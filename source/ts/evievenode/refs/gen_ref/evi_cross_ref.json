@@ -1,7 +1,7 @@
 {
     "object": {
         "name": "evi_cross",
-        "category": "",
+        "category": "evieve",
         "digest": "TEXT_HERE",
         "description": "[evi_cross.gendsp] requires: [evi_crossovers.genexpr]"
     },

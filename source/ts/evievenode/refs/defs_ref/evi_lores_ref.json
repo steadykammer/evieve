@@ -1,7 +1,7 @@
 {
     "object": {
         "name": "evi.lores~",
-        "category": "",
+        "category": "evieve",
         "parent": "evi_lores.gendsp",
         "tilde": "~",
         "description": "TEXT_HERE",
@@ -9,9 +9,7 @@
     },
     "metadata": {
         "author": "Pete Dowling",
-        "tags": [
-            "evieve"
-        ]
+        "tags": []
     },
     "includes": [
         "evi_trig.genexpr",

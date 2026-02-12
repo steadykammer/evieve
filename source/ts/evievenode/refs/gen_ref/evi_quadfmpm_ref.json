@@ -1,7 +1,7 @@
 {
     "object": {
         "name": "evi_quadfmpm",
-        "category": "",
+        "category": "evieve",
         "digest": "TEXT_HERE",
         "description": "[evi_quadfmpm.gendsp] requires: [evi_smooth.genexpr]"
     },

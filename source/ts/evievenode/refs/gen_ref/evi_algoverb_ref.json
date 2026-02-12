@@ -1,7 +1,7 @@
 {
     "object": {
         "name": "evi_algoverb",
-        "category": "",
+        "category": "evieve",
         "digest": "TEXT_HERE",
         "description": "[evi_algoverb.gendsp] requires: [evi_reverb_library.genexpr]"
     },

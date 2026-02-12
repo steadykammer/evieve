@@ -1,7 +1,7 @@
 {
     "object": {
         "name": "evi_ringmod",
-        "category": "",
+        "category": "evieve",
         "digest": "TEXT_HERE",
         "description": "[evi_ringmod.gendsp] requires: [evi_ringmod_enhanced.genexpr]"
     },

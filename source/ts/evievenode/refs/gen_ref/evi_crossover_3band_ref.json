@@ -1,7 +1,7 @@
 {
     "object": {
         "name": "evi_crossover_3band",
-        "category": "",
+        "category": "evieve",
         "digest": "TEXT_HERE",
         "description": "[evi_crossover_3band.gendsp] requires: [evi_crossovers.genexpr]"
     },

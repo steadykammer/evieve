@@ -1,7 +1,7 @@
 {
     "object": {
         "name": "evi_skfinputmix",
-        "category": "",
+        "category": "evieve",
         "digest": "TEXT_HERE",
         "description": "[evi_skfinputmix.gendsp] requires: [evi_tanh.genexpr, evi_trig.genexpr, evi_smooth.genexpr]"
     },

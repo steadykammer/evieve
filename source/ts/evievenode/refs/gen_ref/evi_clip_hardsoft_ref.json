@@ -1,7 +1,7 @@
 {
     "object": {
         "name": "evi_clip_hardsoft",
-        "category": "",
+        "category": "evieve",
         "digest": "TEXT_HERE",
         "description": "[evi_clip_hardsoft.gendsp] requires: [evi_clip.genexpr]"
     },

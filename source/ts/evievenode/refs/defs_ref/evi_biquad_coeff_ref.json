@@ -1,0 +1,113 @@
+{
+    "object": {
+        "name": "evi.biquadcoeff~",
+        "category": "evieve",
+        "parent": "evi_biquad_coeff.gendsp",
+        "tilde": "~",
+        "description": "TEXT_HERE",
+        "discussion": ""
+    },
+    "metadata": {
+        "author": "Pete Dowling",
+        "tags": []
+    },
+    "includes": [
+        "evi_biquad.genexpr"
+    ],
+    "inlets": [
+        {
+            "id": 1,
+            "type": "signal/float",
+            "digest": "Cutoff or Center @default 1000",
+            "description": ""
+        },
+        {
+            "id": 2,
+            "type": "signal/float",
+            "digest": "Gain @default 0",
+            "description": ""
+        },
+        {
+            "id": 3,
+            "type": "signal/float",
+            "digest": "Q or S @default 0.707107",
+            "description": ""
+        }
+    ],
+    "outlets": [
+        {
+            "id": 1,
+            "type": "",
+            "digest": "a0 (FF0)",
+            "description": ""
+        },
+        {
+            "id": 2,
+            "type": "",
+            "digest": "a1 (FF1)",
+            "description": ""
+        },
+        {
+            "id": 3,
+            "type": "",
+            "digest": "a2 (FF2)",
+            "description": ""
+        },
+        {
+            "id": 4,
+            "type": "",
+            "digest": "b1 (FB1)",
+            "description": ""
+        },
+        {
+            "id": 5,
+            "type": "",
+            "digest": "b2 (FB2)",
+            "description": ""
+        }
+    ],
+    "messages": [],
+    "attributes": [
+        {
+            "name": "cutoffunits",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "1",
+                "value": "0"
+            }
+        },
+        {
+            "name": "filter",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "40",
+                "value": "0"
+            }
+        },
+        {
+            "name": "gainunits",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "1",
+                "value": "1"
+            }
+        }
+    ],
+    "example": {
+        "caption": "",
+        "image": ""
+    },
+    "seealso": []
+}

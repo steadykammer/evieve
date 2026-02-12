@@ -2356,6 +2356,7 @@ function makeDocRefpagesXmlContents() {
 	renderFromTemplate('../templates/xmlcontents.handlebars', { ref: refFiles }, `${refDir}/_c74_contents.xml`);
 }
 
+// should not use ?
 function makeGenRefpagesXmlContents() {
 	let refDir = `${cwd()}/${config.referenceFiles.genDsp.output}`;
 	let refFiles = getFileNamesFromPath(refDir, 'xml');

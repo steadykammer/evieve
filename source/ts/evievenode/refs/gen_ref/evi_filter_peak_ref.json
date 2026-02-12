@@ -1,7 +1,7 @@
 {
     "object": {
         "name": "evi_filter_peak",
-        "category": "",
+        "category": "evieve",
         "digest": "TEXT_HERE",
         "description": "[evi_filter_peak.gendsp] requires: [evi_svf.genexpr]"
     },

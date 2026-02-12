@@ -1,7 +1,7 @@
 {
     "object": {
         "name": "evi.butterworthlp8~",
-        "category": "",
+        "category": "evieve",
         "parent": "evi_butterworth8.gendsp",
         "tilde": "~",
         "description": "TEXT_HERE",
@@ -9,9 +9,7 @@
     },
     "metadata": {
         "author": "Pete Dowling",
-        "tags": [
-            "evieve"
-        ]
+        "tags": []
     },
     "includes": [
         "evi_approx.genexpr"

@@ -1,7 +1,7 @@
 {
     "object": {
         "name": "evi_damp_macro",
-        "category": "",
+        "category": "evieve",
         "digest": "TEXT_HERE",
         "description": "[evi_damp_macro.gendsp] requires: [evi_rcfilters.genexpr, evi_smooth.genexpr]"
     },

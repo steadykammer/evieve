@@ -1,7 +1,7 @@
 {
     "object": {
         "name": "evi_damp_coeffs",
-        "category": "",
+        "category": "evieve",
         "digest": "TEXT_HERE",
         "description": "[evi_damp_coeffs.gendsp] requires: [evi_rcfilters.genexpr]"
     },

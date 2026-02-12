@@ -1,7 +1,7 @@
 {
     "object": {
         "name": "evi_controlcircuit_buchla",
-        "category": "",
+        "category": "evieve",
         "digest": "TEXT_HERE",
         "description": "[evi_controlcircuit_buchla.gendsp] requires: [evi_rcfilters.genexpr]"
     },

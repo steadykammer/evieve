@@ -1,7 +1,7 @@
 {
     "object": {
         "name": "evi.lockhart.simple~",
-        "category": "",
+        "category": "evieve",
         "parent": "evi_lockhart_simple.gendsp",
         "tilde": "~",
         "description": "TEXT_HERE",
@@ -9,9 +9,7 @@
     },
     "metadata": {
         "author": "Pete Dowling",
-        "tags": [
-            "evieve"
-        ]
+        "tags": []
     },
     "includes": [],
     "inlets": [

@@ -21,7 +21,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 765.0, 283.0, 106.0, 22.0 ],
+                    "patching_rect": [ 765.0, 297.0, 106.0, 22.0 ],
                     "text": "make_help_config"
                 }
             },
@@ -99,7 +99,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 765.0, 327.0, 115.0, 22.0 ],
+                    "patching_rect": [ 765.0, 341.0, 115.0, 22.0 ],
                     "text": "make_qlookup_json"
                 }
             },
@@ -121,7 +121,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 765.0, 215.0, 129.0, 22.0 ],
+                    "patching_rect": [ 765.0, 229.0, 129.0, 22.0 ],
                     "text": "make_key_commands"
                 }
             },
@@ -132,7 +132,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 765.0, 178.0, 98.0, 22.0 ],
+                    "patching_rect": [ 765.0, 192.0, 98.0, 22.0 ],
                     "text": "make_object_list"
                 }
             },
@@ -308,7 +308,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 762.0, 249.0, 135.0, 22.0 ],
+                    "patching_rect": [ 762.0, 263.0, 135.0, 22.0 ],
                     "text": "make_object_mappings"
                 }
             },
@@ -319,7 +319,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 263.0, 21.0, 129.0, 22.0 ],
+                    "patching_rect": [ 765.0, 159.0, 129.0, 22.0 ],
                     "text": "make_gendsp_defines"
                 }
             },
@@ -1085,6 +1085,8 @@
                     "saved_object_attributes": {
                         "autostart": 0,
                         "defer": 0,
+                        "node_bin_path": "",
+                        "npm_bin_path": "",
                         "watch": 0
                     },
                     "text": "node.script /Users/stkr/Dev/evieve/source/ts/evievenode/dist/evievedoc.js",
@@ -1365,14 +1367,6 @@
             "obj-44::obj-54::obj-7": [ "eqHighFreq", "eqHighFreq", 0 ],
             "obj-44::obj-54::obj-8": [ "smoothTime", "smoothTime", 0 ],
             "obj-44::obj-54::obj-9": [ "damping", "damping", 0 ],
-            "parameterbanks": {
-                "0": {
-                    "index": 0,
-                    "name": "",
-                    "parameters": [ "-", "-", "-", "-", "-", "-", "-", "-" ],
-                    "buttons": [ "-", "-", "-", "-", "-", "-", "-", "-" ]
-                }
-            },
             "inherited_shortname": 1
         },
         "autosave": 0,

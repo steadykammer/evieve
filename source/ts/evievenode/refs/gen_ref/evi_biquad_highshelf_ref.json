@@ -1,7 +1,7 @@
 {
     "object": {
         "name": "evi_biquad_highshelf",
-        "category": "",
+        "category": "evieve",
         "digest": "TEXT_HERE",
         "description": "[evi_biquad_highshelf.gendsp] requires: [evi_biquad.genexpr]"
     },

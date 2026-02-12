@@ -1,7 +1,7 @@
 {
     "object": {
         "name": "evi_ladder_transistor",
-        "category": "",
+        "category": "evieve",
         "digest": "TEXT_HERE",
         "description": "[evi_ladder_transistor.gendsp] requires: [evi_tanh.genexpr, evi_interp.genexpr]"
     },

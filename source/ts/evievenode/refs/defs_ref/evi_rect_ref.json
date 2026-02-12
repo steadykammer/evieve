@@ -1,7 +1,7 @@
 {
     "object": {
         "name": "evi.rect~",
-        "category": "",
+        "category": "evieve",
         "parent": "evi_rect.gendsp",
         "tilde": "~",
         "description": "TEXT_HERE",
@@ -9,9 +9,7 @@
     },
     "metadata": {
         "author": "Pete Dowling",
-        "tags": [
-            "evieve"
-        ]
+        "tags": []
     },
     "includes": [
         "evi_polyblep.genexpr"

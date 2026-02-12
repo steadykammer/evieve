@@ -1,7 +1,7 @@
 {
     "object": {
         "name": "evi_overdrive_tanh",
-        "category": "",
+        "category": "evieve",
         "digest": "TEXT_HERE",
         "description": "[evi_overdrive_tanh.gendsp] requires: [evi_saturators.genexpr, evi_smooth.genexpr, evi_rcfilters.genexpr]"
     },

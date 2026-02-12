@@ -1,7 +1,7 @@
 {
     "object": {
         "name": "evi_bp_butterworth",
-        "category": "",
+        "category": "evieve",
         "digest": "TEXT_HERE",
         "description": "[evi_bp_butterworth.gendsp] requires: [evi_biquad.genexpr]"
     },

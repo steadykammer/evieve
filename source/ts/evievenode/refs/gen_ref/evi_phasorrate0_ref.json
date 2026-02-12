@@ -1,7 +1,7 @@
 {
     "object": {
         "name": "evi_phasorrate0",
-        "category": "",
+        "category": "evieve",
         "digest": "TEXT_HERE",
         "description": "[evi_phasorrate0.gendsp] requires: [evi_counting.genexpr]"
     },

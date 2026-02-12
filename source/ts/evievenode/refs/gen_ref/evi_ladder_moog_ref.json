@@ -1,7 +1,7 @@
 {
     "object": {
         "name": "evi_ladder_moog",
-        "category": "",
+        "category": "evieve",
         "digest": "TEXT_HERE",
         "description": "[evi_ladder_moog.gendsp] requires: [evi_smooth.genexpr, evi_tanh.genexpr, evi_interp.genexpr]"
     },

@@ -1,7 +1,7 @@
 {
     "object": {
         "name": "evi_freqshift_hilbert",
-        "category": "",
+        "category": "evieve",
         "digest": "TEXT_HERE",
         "description": "[evi_freqshift_hilbert.gendsp] requires: [evi_ssb.genexpr]"
     },

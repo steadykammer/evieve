@@ -1,7 +1,7 @@
 {
     "object": {
         "name": "evi_tri",
-        "category": "",
+        "category": "evieve",
         "digest": "TEXT_HERE",
         "description": "[evi_tri.gendsp] requires: [evi_polyblep.genexpr]"
     },

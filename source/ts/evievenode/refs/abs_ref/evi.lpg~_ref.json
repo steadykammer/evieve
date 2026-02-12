@@ -1,16 +1,14 @@
 {
     "object": {
         "name": "evi.lpg~",
-        "category": "",
+        "category": "evieve",
         "digest": "TEXT_HERE",
         "description": "TEXT_HERE",
         "discussion": ""
     },
     "metadata": {
         "author": "Pete Dowling",
-        "tags": [
-            "evieve"
-        ]
+        "tags": []
     },
     "inlets": [
         {

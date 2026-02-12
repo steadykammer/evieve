@@ -1,7 +1,7 @@
 {
     "object": {
         "name": "evi_onepole",
-        "category": "",
+        "category": "evieve",
         "digest": "TEXT_HERE",
         "description": "[evi_onepole.gendsp] requires: [evi_rcfilters.genexpr, evi_smooth.genexpr]"
     },

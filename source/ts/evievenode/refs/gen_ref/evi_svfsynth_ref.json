@@ -1,7 +1,7 @@
 {
     "object": {
         "name": "evi_svfsynth",
-        "category": "",
+        "category": "evieve",
         "digest": "TEXT_HERE",
         "description": "[evi_svfsynth.gendsp] requires: [evi_smooth.genexpr, evi_interp.genexpr]"
     },

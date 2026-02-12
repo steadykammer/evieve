@@ -1,7 +1,7 @@
 {
     "object": {
         "name": "evi.phasor0~",
-        "category": "",
+        "category": "evieve",
         "parent": "evi_phasor0.gendsp",
         "tilde": "~",
         "description": "TEXT_HERE",
@@ -9,9 +9,7 @@
     },
     "metadata": {
         "author": "Pete Dowling",
-        "tags": [
-            "evieve"
-        ]
+        "tags": []
     },
     "includes": [],
     "inlets": [
@@ -52,12 +50,6 @@
         {
             "name": "history",
             "arg": [
-                {
-                    "name": "jump",
-                    "type": "float",
-                    "units": "default: 0",
-                    "optional": 1
-                },
                 {
                     "name": "jump",
                     "type": "float",

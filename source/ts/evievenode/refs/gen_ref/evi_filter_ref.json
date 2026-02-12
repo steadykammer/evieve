@@ -1,7 +1,7 @@
 {
     "object": {
         "name": "evi_filter",
-        "category": "",
+        "category": "evieve",
         "digest": "TEXT_HERE",
         "description": "[evi_filter.gendsp] requires: [evi_svf.genexpr]"
     },

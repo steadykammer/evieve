@@ -1,7 +1,7 @@
 {
     "object": {
         "name": "evi_arpnotch",
-        "category": "",
+        "category": "evieve",
         "digest": "TEXT_HERE",
         "description": "[evi_arpnotch.gendsp] requires: [evi_tanh.genexpr, evi_smooth.genexpr]"
     },

@@ -1,0 +1,79 @@
+
+// evieve Biquad Coefficients Calculators
+
+require("evi_biquad_no_tilde.genexpr");
+
+// eviBiquadCoeff(index, cutoff, gain, Q, samplerate)
+/*
+    index   calculator                              	parameters
+    0       bypass                                  	none
+	1		eviBiquadCoeffLowpass 						cutoff, Q
+	2		eviBiquadCoeffHighpass 						cutoff, Q
+	3		eviBiquadCoeffBandpass 						cutoff, Q
+	4		eviBiquadCoeffNotch 						cutoff, Q
+	5		eviBiquadCoeffPeakNotch 					cutoff, gain, Q
+	6		eviBiquadCoeffLowshelfMSP 					cutoff, gain, Q
+	7		eviBiquadCoeffLowshelfCookbook 				cutoff, gain, Q
+	8		eviBiquadCoeffHighshelfMSP 					cutoff, gain, Q
+	9		eviBiquadCoeffHighshelfCookbook 			cutoff, gain, Q
+	10		eviBiquadCoeffResonant 						cutoff, Q
+	11		eviBiquadCoeffBp 							cutoff, Q
+	12		eviBiquadCoeffAllpass 						cutoff, Q
+	13		eviBiquadCoeffLowpassGain 					cutoff, gain, Q
+	14		eviBiquadCoeffHighpassGain 					cutoff, gain, Q
+	15		eviBiquadCoeffBandpassGain 					cutoff, gain, Q
+	16		eviBiquadCoeffNotchGain 					cutoff, gain, Q
+	17		eviBiquadCoeffResonantGain 					cutoff, gain, Q
+	18		eviBiquadCoeffBpGain 						cutoff, gain, Q
+	19		eviBiquadCoeffAllpassGain 					cutoff, gain, Q
+	20		eviBiquadCoeffLowpassAnalog1				cutoff, Q
+	21 		eviBiquadCoeffLowpassAnalog2				cutoff, Q
+	22 		eviBiquadCoeffHighpassAnalog				cutoff, Q
+	23		eviBiquadCoeffBandpassAnalog 				cutoff, Q
+	24		eviBiquadCoeffBandpassGainAnalog 			cutoff, gain, Q
+	25 		eviBiquadCoeffNotchAnalog 					cutoff, Q
+	26		eviBiquadCoeffPeakNotchAnalog1 				cutoff, gain, Q
+	27		eviBiquadCoeffPeakNotchAnalog2 				cutoff, gain, Q
+	28 		eviBiquadCoeffLowshelfAnalog1				cutoff, gain, Q
+	29		eviBiquadCoeffLowshelfAnalog2 				cutoff, gain
+	30 		eviBiquadCoeffHighshelfAnalog1				cutoff, gain, Q
+	31		eviBiquadCoeffHighshelfAnalog2 				cutoff, gain
+	32 		eviBiquadCoeffResonantAnalog				cutoff, Q
+	33		eviBiquadCoeffButterworthLowpass 			cutoff
+	34		eviBiquadCoeffButterworthHighpass 			cutoff
+	35		eviBiquadCoeffButterworthBandpass 			cutoff, Q
+	36		eviBiquadCoeffButterworthBandreject 		cutoff, Q
+	37		eviBiquadCoeffButterworthLowpassGain 		cutoff, gain
+	38		eviBiquadCoeffButterworthHighpassGain 		cutoff, gain
+	39		eviBiquadCoeffButterworthBandpassGain 		cutoff, gain, Q
+	40		eviBiquadCoeffButterworthBandrejectGain 	cutoff, gain, Q
+*/
+
+Param   audiosamplerate(48000);			// pass MSP samplerate because gen no tilde is a fucking nightmare
+Param   cutoffunits(0, min=0, max=1);   // 0 = in Hz (default), 1 = in Pitch
+Param   gainunits(1, min=0, max=1);     // 0 = linear gain, 1 = gain in dB (default)
+Param   filter(0, min=0, max=40);
+filt    = int(filter);
+gunits  = int(gainunits);
+cfunits = int(cutoffunits);
+
+Q       = maximum(in3, 0.1);            // standard biquad clipping
+
+gain    = 1;
+if (gunits) {
+    gain    = dbtoa(in2);
+} else {
+    gain    = in2;
+}
+//gain  = clip(gain, 0.0625, 16);       // like [filtergraph~] ±24dB
+
+cutoff  = 1000;
+if (cfunits) {
+    cutoff  = mtof(in1);
+} else {
+    cutoff  = in1;
+}
+cutoff  = maximum(cutoff, 1);
+
+out1, out2, out3, out4, out5    = eviBiquadCoeff(filt, cutoff, gain, Q, AUDIO_SAMPLERATE=audiosamplerate);
+

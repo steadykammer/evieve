@@ -1,7 +1,7 @@
 {
     "object": {
         "name": "evi.eq3stereo~",
-        "category": "",
+        "category": "evieve",
         "parent": "evi_eq3_stereo.gendsp",
         "tilde": "~",
         "description": "TEXT_HERE",
@@ -9,9 +9,7 @@
     },
     "metadata": {
         "author": "Pete Dowling",
-        "tags": [
-            "evieve"
-        ]
+        "tags": []
     },
     "includes": [
         "evi_svf.genexpr"

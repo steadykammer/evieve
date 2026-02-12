@@ -1,7 +1,7 @@
 {
     "object": {
         "name": "evi_biquad_coeff",
-        "category": "",
+        "category": "evieve",
         "digest": "TEXT_HERE",
         "description": "[evi_biquad_coeff.gendsp] requires: [evi_biquad.genexpr]"
     },

@@ -1,7 +1,7 @@
 {
     "object": {
         "name": "evi_eq3_stereo",
-        "category": "",
+        "category": "evieve",
         "digest": "TEXT_HERE",
         "description": "[evi_eq3_stereo.gendsp] requires: [evi_svf.genexpr]"
     },

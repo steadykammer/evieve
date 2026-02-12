@@ -1,7 +1,7 @@
 {
     "object": {
         "name": "evi.velvetnoise~",
-        "category": "",
+        "category": "evieve",
         "parent": "evi_velvetnoise.gendsp",
         "tilde": "~",
         "description": "TEXT_HERE",
@@ -9,9 +9,7 @@
     },
     "metadata": {
         "author": "Pete Dowling",
-        "tags": [
-            "evieve"
-        ]
+        "tags": []
     },
     "includes": [],
     "inlets": [

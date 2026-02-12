@@ -1,7 +1,7 @@
 {
     "object": {
         "name": "evi_dfm",
-        "category": "",
+        "category": "evieve",
         "digest": "TEXT_HERE",
         "description": "[evi_dfm.gendsp] requires: [evi_dfm_lib.genexpr]"
     },

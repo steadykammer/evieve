@@ -1,7 +1,7 @@
 {
     "object": {
         "name": "evi_lorez",
-        "category": "",
+        "category": "evieve",
         "digest": "TEXT_HERE",
         "description": "[evi_lorez.gendsp] requires: [evi_approx.genexpr, evi_interp.genexpr]"
     },

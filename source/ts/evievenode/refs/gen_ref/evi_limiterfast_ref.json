@@ -1,7 +1,7 @@
 {
     "object": {
         "name": "evi_limiterfast",
-        "category": "",
+        "category": "evieve",
         "digest": "TEXT_HERE",
         "description": "[evi_limiterfast.gendsp] requires: [evi_smooth.genexpr, evi_clip.genexpr, evi_biquad.genexpr]"
     },

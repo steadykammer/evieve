@@ -1,7 +1,7 @@
 {
     "object": {
         "name": "evi_plateverb_lite",
-        "category": "",
+        "category": "evieve",
         "digest": "TEXT_HERE",
         "description": "[evi_plateverb_lite.gendsp] requires: [evi_reverb_library.genexpr]"
     },

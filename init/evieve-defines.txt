@@ -221,7 +221,6 @@ max define evi.modosc~ gen~ @gen evi_modosc.gendsp;
 max define mc.evi.modosc~ mc.gen~ @gen evi_modosc.gendsp @chans 2;
 
 max define evi.ladder.antti~ gen~ @gen evi_moogsnake.gendsp;
-
 max define evi.morph.trap~ gen~ @gen evi_morph_trap.gendsp;
 max define mc.evi.morph.trap~ mc.gen~ @gen evi_morph_trap.gendsp @chans 2;
 

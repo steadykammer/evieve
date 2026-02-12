@@ -1,7 +1,7 @@
 {
     "object": {
         "name": "evi.freqshift.weaver~",
-        "category": "",
+        "category": "evieve",
         "parent": "evi_freqshift_weaver.gendsp",
         "tilde": "~",
         "description": "TEXT_HERE",
@@ -9,9 +9,7 @@
     },
     "metadata": {
         "author": "Pete Dowling",
-        "tags": [
-            "evieve"
-        ]
+        "tags": []
     },
     "includes": [
         "evi_ssb.genexpr"

@@ -1,7 +1,7 @@
 {
     "object": {
         "name": "evi.morph.tri~",
-        "category": "",
+        "category": "evieve",
         "parent": "evi_morph_tri.gendsp",
         "tilde": "~",
         "description": "TEXT_HERE",
@@ -9,9 +9,7 @@
     },
     "metadata": {
         "author": "Pete Dowling",
-        "tags": [
-            "evieve"
-        ]
+        "tags": []
     },
     "includes": [
         "evi_polyblep.genexpr"

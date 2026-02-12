@@ -1,7 +1,7 @@
 {
     "object": {
         "name": "evi_clipasym",
-        "category": "",
+        "category": "evieve",
         "digest": "TEXT_HERE",
         "description": "[evi_clipasym.gendsp] requires: [evi_smooth.genexpr, evi_waveshaping.genexpr]"
     },

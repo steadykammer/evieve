@@ -1,7 +1,7 @@
 {
     "object": {
         "name": "evi_tone_macro",
-        "category": "",
+        "category": "evieve",
         "digest": "TEXT_HERE",
         "description": "[evi_tone_macro.gendsp] requires: [evi_rcfilters.genexpr, evi_smooth.genexpr]"
     },

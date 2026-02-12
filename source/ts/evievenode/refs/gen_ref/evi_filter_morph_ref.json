@@ -1,7 +1,7 @@
 {
     "object": {
         "name": "evi_filter_morph",
-        "category": "",
+        "category": "evieve",
         "digest": "TEXT_HERE",
         "description": "[evi_filter_morph.gendsp] requires: [evi_svf.genexpr]"
     },

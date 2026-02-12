@@ -1,7 +1,7 @@
 {
     "object": {
         "name": "evi_zitaverb",
-        "category": "",
+        "category": "evieve",
         "digest": "TEXT_HERE",
         "description": "[evi_zitaverb.gendsp] requires: [evi_reverb_library.genexpr]"
     },

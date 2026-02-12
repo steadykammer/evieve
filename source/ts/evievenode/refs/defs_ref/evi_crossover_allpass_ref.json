@@ -1,7 +1,7 @@
 {
     "object": {
         "name": "evi.crossover.allpass~",
-        "category": "",
+        "category": "evieve",
         "parent": "evi_crossover_allpass.gendsp",
         "tilde": "~",
         "description": "TEXT_HERE",
@@ -9,9 +9,7 @@
     },
     "metadata": {
         "author": "Pete Dowling",
-        "tags": [
-            "evieve"
-        ]
+        "tags": []
     },
     "includes": [
         "evi_crossovers.genexpr"

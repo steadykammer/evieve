@@ -1,7 +1,7 @@
 {
     "object": {
         "name": "evi_classic_osc",
-        "category": "",
+        "category": "evieve",
         "digest": "TEXT_HERE",
         "description": "[evi_classic_osc.gendsp] requires: [evi_polyblep.genexpr]"
     },

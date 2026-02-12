@@ -1,7 +1,7 @@
 {
     "object": {
         "name": "evi_morph_trap",
-        "category": "",
+        "category": "evieve",
         "digest": "TEXT_HERE",
         "description": "[evi_morph_trap.gendsp] requires: [evi_polyblep.genexpr]"
     },

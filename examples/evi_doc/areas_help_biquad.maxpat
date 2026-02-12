@@ -9,7 +9,10 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 63.0, 131.0, 1020.0, 526.0 ],
+        "rect": [ 63.0, 131.0, 1191.0, 727.0 ],
+        "openrect": [ 0.0, 0.0, 660.0, 568.0 ],
+        "openrectmode": 0,
+        "bglocked": 1,
         "gridonopen": 2,
         "subpatcher_template": "sub",
         "integercoordinates": 1,
@@ -17,11 +20,23 @@
         "boxes": [
             {
                 "box": {
+                    "id": "obj-7",
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 431.0, 299.0, 155.0, 20.0 ],
+                    "presentation_linecount": 2,
+                    "text": "<<-- all in one sections",
+                    "textjustification": 1
+                }
+            },
+            {
+                "box": {
                     "id": "obj-1",
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 296.0, 71.0, 120.0, 20.0 ],
+                    "patching_rect": [ 429.0, 15.0, 120.0, 20.0 ],
                     "text": "all available filters",
                     "textjustification": 1
                 }
@@ -29,11 +44,11 @@
             {
                 "box": {
                     "id": "obj-3",
-                    "linecount": 3,
+                    "linecount": 7,
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 49.0, 308.0, 353.0, 47.0 ],
+                    "patching_rect": [ 16.0, 426.0, 167.0, 100.0 ],
                     "text": "There are more filter types when you use Biquads (40 different types in evieve) but Biquads are inferior filters to TPT filters, so you might wish to use TPT filters in most situations:"
                 }
             },
@@ -45,7 +60,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 129.0, 482.0, 51.0, 22.0 ],
+                    "patching_rect": [ 15.0, 648.0, 51.0, 22.0 ],
                     "text": "pcontrol"
                 }
             },
@@ -57,7 +72,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 129.0, 443.0, 79.0, 22.0 ],
+                    "patching_rect": [ 15.0, 609.0, 79.0, 22.0 ],
                     "text": "prepend load"
                 }
             },
@@ -69,7 +84,7 @@
                     "numinlets": 2,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
-                    "patching_rect": [ 129.0, 404.0, 178.0, 22.0 ],
+                    "patching_rect": [ 15.0, 570.0, 178.0, 22.0 ],
                     "text": "list.reg areas_help_filter.maxpat"
                 }
             },
@@ -81,7 +96,7 @@
                     "numoutlets": 3,
                     "outlettype": [ "", "", "int" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 129.0, 357.0, 169.0, 20.0 ],
+                    "patching_rect": [ 15.0, 528.0, 169.0, 20.0 ],
                     "text": "TPT Filters in evieve",
                     "texton": "TPT Filters in evieve"
                 }
@@ -92,7 +107,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 60.0, 163.0, 218.0, 20.0 ],
+                    "patching_rect": [ 193.0, 98.0, 218.0, 20.0 ],
                     "text": "<<-- all available filters -->>",
                     "textjustification": 1
                 }
@@ -110,7 +125,7 @@
                     "numoutlets": 3,
                     "outlettype": [ "int", "", "" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 807.0, 93.0, 100.0, 23.0 ]
+                    "patching_rect": [ 294.0, 219.0, 100.0, 23.0 ]
                 }
             },
             {
@@ -120,7 +135,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 807.0, 142.0, 79.0, 22.0 ],
+                    "patching_rect": [ 294.0, 259.0, 79.0, 22.0 ],
                     "text": "prepend filter"
                 }
             },
@@ -130,7 +145,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 807.0, 71.0, 134.0, 20.0 ],
+                    "patching_rect": [ 294.0, 197.0, 134.0, 20.0 ],
                     "text": "just Analog filters:"
                 }
             },
@@ -141,7 +156,7 @@
                     "numinlets": 4,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 807.0, 186.0, 110.0, 22.0 ],
+                    "patching_rect": [ 294.0, 298.0, 110.0, 22.0 ],
                     "text": "evi.biquad.analog~"
                 }
             },
@@ -152,7 +167,7 @@
                     "numinlets": 4,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 845.0, 416.0, 111.0, 22.0 ],
+                    "patching_rect": [ 521.0, 488.0, 111.0, 22.0 ],
                     "text": "evi.biquad.allpass~"
                 }
             },
@@ -163,7 +178,7 @@
                     "numinlets": 4,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 845.0, 362.0, 120.0, 22.0 ],
+                    "patching_rect": [ 521.0, 434.0, 120.0, 22.0 ],
                     "text": "evi.biquad.resonant~"
                 }
             },
@@ -174,7 +189,7 @@
                     "numinlets": 4,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 845.0, 308.0, 122.0, 22.0 ],
+                    "patching_rect": [ 521.0, 380.0, 122.0, 22.0 ],
                     "text": "evi.biquad.highshelf~"
                 }
             },
@@ -185,7 +200,7 @@
                     "numinlets": 4,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 684.0, 416.0, 117.0, 22.0 ],
+                    "patching_rect": [ 360.0, 488.0, 117.0, 22.0 ],
                     "text": "evi.biquad.lowshelf~"
                 }
             },
@@ -196,7 +211,7 @@
                     "numinlets": 4,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 684.0, 362.0, 129.0, 22.0 ],
+                    "patching_rect": [ 360.0, 434.0, 129.0, 22.0 ],
                     "text": "evi.biquad.peaknotch~"
                 }
             },
@@ -207,7 +222,7 @@
                     "numinlets": 4,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 684.0, 308.0, 103.0, 22.0 ],
+                    "patching_rect": [ 360.0, 380.0, 103.0, 22.0 ],
                     "text": "evi.biquad.notch~"
                 }
             },
@@ -221,7 +236,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 532.0, 455.0, 69.0, 22.0 ],
+                    "patching_rect": [ 208.0, 527.0, 69.0, 22.0 ],
                     "text_width": 37.0
                 }
             },
@@ -232,7 +247,7 @@
                     "numinlets": 4,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 532.0, 416.0, 126.0, 22.0 ],
+                    "patching_rect": [ 208.0, 488.0, 126.0, 22.0 ],
                     "text": "evi.biquad.bandpass~"
                 }
             },
@@ -243,7 +258,7 @@
                     "numinlets": 4,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 532.0, 362.0, 122.0, 22.0 ],
+                    "patching_rect": [ 208.0, 434.0, 122.0, 22.0 ],
                     "text": "evi.biquad.highpass~"
                 }
             },
@@ -254,7 +269,7 @@
                     "numinlets": 4,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 532.0, 308.0, 117.0, 22.0 ],
+                    "patching_rect": [ 208.0, 380.0, 117.0, 22.0 ],
                     "text": "evi.biquad.lowpass~"
                 }
             },
@@ -271,7 +286,7 @@
                     "numoutlets": 3,
                     "outlettype": [ "int", "", "" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 659.0, 93.0, 100.0, 23.0 ]
+                    "patching_rect": [ 143.0, 219.0, 100.0, 23.0 ]
                 }
             },
             {
@@ -281,7 +296,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 659.0, 142.0, 79.0, 22.0 ],
+                    "patching_rect": [ 143.0, 259.0, 79.0, 22.0 ],
                     "text": "prepend filter"
                 }
             },
@@ -292,7 +307,7 @@
                     "numinlets": 4,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 659.0, 186.0, 134.0, 22.0 ],
+                    "patching_rect": [ 143.0, 298.0, 134.0, 22.0 ],
                     "text": "evi.biquad.butterworth~"
                 }
             },
@@ -309,7 +324,7 @@
                     "numoutlets": 3,
                     "outlettype": [ "int", "", "" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 532.0, 93.0, 100.0, 23.0 ]
+                    "patching_rect": [ 15.0, 219.0, 100.0, 23.0 ]
                 }
             },
             {
@@ -319,7 +334,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 532.0, 142.0, 79.0, 22.0 ],
+                    "patching_rect": [ 15.0, 259.0, 79.0, 22.0 ],
                     "text": "prepend filter"
                 }
             },
@@ -330,7 +345,7 @@
                     "numinlets": 4,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 532.0, 186.0, 110.0, 22.0 ],
+                    "patching_rect": [ 15.0, 298.0, 110.0, 22.0 ],
                     "text": "evi.biquad.eqfilter~"
                 }
             },
@@ -341,7 +356,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 306.0, 142.0, 79.0, 22.0 ],
+                    "patching_rect": [ 439.0, 77.0, 79.0, 22.0 ],
                     "text": "prepend filter"
                 }
             },
@@ -358,7 +373,7 @@
                     "numoutlets": 3,
                     "outlettype": [ "int", "", "" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 306.0, 93.0, 100.0, 23.0 ]
+                    "patching_rect": [ 439.0, 37.0, 100.0, 23.0 ]
                 }
             },
             {
@@ -368,7 +383,7 @@
                     "numinlets": 6,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 49.0, 224.0, 72.0, 22.0 ],
+                    "patching_rect": [ 182.0, 159.0, 72.0, 22.0 ],
                     "text": "biquad~"
                 }
             },
@@ -379,7 +394,7 @@
                     "numinlets": 7,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 161.0, 224.0, 137.0, 22.0 ],
+                    "patching_rect": [ 294.0, 159.0, 137.0, 22.0 ],
                     "text": "evi.biquad~"
                 }
             },
@@ -390,7 +405,7 @@
                     "numinlets": 3,
                     "numoutlets": 5,
                     "outlettype": [ "signal", "signal", "signal", "signal", "signal" ],
-                    "patching_rect": [ 181.0, 185.0, 97.0, 22.0 ],
+                    "patching_rect": [ 314.0, 120.0, 97.0, 22.0 ],
                     "text": "evi.biquadcoeff~"
                 }
             },
@@ -401,7 +416,7 @@
                     "numinlets": 3,
                     "numoutlets": 6,
                     "outlettype": [ "", "float", "float", "float", "float", "float" ],
-                    "patching_rect": [ 60.0, 185.0, 89.0, 22.0 ],
+                    "patching_rect": [ 193.0, 120.0, 89.0, 22.0 ],
                     "text": "evi.biquadcoeff"
                 }
             },
@@ -412,7 +427,7 @@
                     "numinlets": 4,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 306.0, 185.0, 96.0, 22.0 ],
+                    "patching_rect": [ 439.0, 120.0, 96.0, 22.0 ],
                     "text": "evi.biquad.filter~"
                 }
             },
@@ -422,7 +437,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 532.0, 270.0, 360.0, 20.0 ],
+                    "patching_rect": [ 208.0, 342.0, 360.0, 20.0 ],
                     "text": "all types available as individual all-in-one blocks as well:"
                 }
             },
@@ -432,7 +447,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 659.0, 71.0, 134.0, 20.0 ],
+                    "patching_rect": [ 143.0, 197.0, 134.0, 20.0 ],
                     "text": "just Butterworth filters:"
                 }
             },
@@ -442,19 +457,18 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 532.0, 71.0, 100.0, 20.0 ],
+                    "patching_rect": [ 15.0, 197.0, 100.0, 20.0 ],
                     "text": "just EQ filters:"
                 }
             },
             {
                 "box": {
                     "id": "obj-80",
-                    "linecount": 2,
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 410.0, 180.0, 100.0, 33.0 ],
-                    "text": "<<-- all in one sections -->>",
+                    "patching_rect": [ 543.0, 121.0, 100.0, 20.0 ],
+                    "text": "all in one section",
                     "textjustification": 1
                 }
             },
@@ -465,8 +479,8 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 410.0, 88.0, 100.0, 33.0 ],
-                    "text": "<<-- more types than MSP"
+                    "patching_rect": [ 543.0, 32.0, 89.0, 33.0 ],
+                    "text": "more types than MSP"
                 }
             },
             {
@@ -476,8 +490,8 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 603.0, 450.0, 243.0, 33.0 ],
-                    "text": "all individuals blocks have choices for that type as well, double-click to see more"
+                    "patching_rect": [ 279.0, 522.0, 243.0, 33.0 ],
+                    "text": "all individual blocks have choices for that type as well, double-click to see more"
                 }
             },
             {
@@ -486,8 +500,19 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 49.0, 34.0, 357.0, 20.0 ],
+                    "patching_rect": [ 15.0, 15.0, 357.0, 20.0 ],
                     "text": "Legacy filters (biquads), might still be useful:"
+                }
+            },
+            {
+                "box": {
+                    "background": 1,
+                    "hidden": 1,
+                    "id": "obj-31",
+                    "maxclass": "panel",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 0.0, 0.0, 660.0, 568.0 ]
                 }
             }
         ],
@@ -534,12 +559,14 @@
             {
                 "patchline": {
                     "destination": [ "obj-59", 0 ],
+                    "midpoints": [ 489.0, 69.83984375, 202.5, 69.83984375 ],
                     "source": [ "obj-55", 1 ]
                 }
             },
             {
                 "patchline": {
                     "destination": [ "obj-58", 0 ],
+                    "midpoints": [ 448.5, 109.5, 323.5, 109.5 ],
                     "order": 1,
                     "source": [ "obj-56", 0 ]
                 }
@@ -614,7 +641,7 @@
             {
                 "patchline": {
                     "destination": [ "obj-72", 0 ],
-                    "midpoints": [ 541.5, 487.0, 523.3671875, 487.0, 523.3671875, 406.0, 541.5, 406.0 ],
+                    "midpoints": [ 217.5, 559.0, 195.79296875, 559.0, 195.79296875, 478.0, 217.5, 478.0 ],
                     "source": [ "obj-73", 0 ]
                 }
             }

@@ -1,7 +1,7 @@
 {
     "object": {
         "name": "evi.onepole.shelving~",
-        "category": "",
+        "category": "evieve",
         "parent": "evi_onepole_shelving.gendsp",
         "tilde": "~",
         "description": "TEXT_HERE",
@@ -9,9 +9,7 @@
     },
     "metadata": {
         "author": "Pete Dowling",
-        "tags": [
-            "evieve"
-        ]
+        "tags": []
     },
     "includes": [
         "evi_rcfilters.genexpr",
