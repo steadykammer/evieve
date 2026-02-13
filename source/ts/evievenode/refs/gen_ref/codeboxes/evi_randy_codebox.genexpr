@@ -1,0 +1,30 @@
+
+// like [rand~] / evi_rand.gendsp but ready for cubic interpolation
+eviRands(d0, x2)									// delta input, not frequency; x2 is source
+{
+	History	xm1(0), x0(0), x1(0);
+	vm1	= latch(xm1, d0);
+	v0	= latch(x0,  d0);
+	v1	= latch(x1,  d0);
+	v2	= latch(x2,  d0);
+	xm1	= v0;
+	x0	= v1;
+	x1	= v2;
+	return	vm1, v0, v1, v2;						// 4 values for 4-point interpolator
+}
+
+// like [rand~] but cubic interpolated
+// rolls off much faster than eviRand()
+eviRandy(p)                                         // phasor input, not frequency
+{
+	History randy(0);
+	d = (delta(p)) < 0;                            	// assumes positive freq only
+	n = noise();
+    ym1, y0, y1, y2 = eviRands(d, n * sqrt1_2);
+    // 'tri-cubic-like' 'mode=cubic' does not work for eviRandy()
+    r = interp(p, ym1, y0, y1, y2, mode="fastcubic");
+    return r, n;
+}
+
+out1 = eviRandy(phasor(in1));
+

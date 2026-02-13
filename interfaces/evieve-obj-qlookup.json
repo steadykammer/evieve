@@ -1015,6 +1015,16 @@
         "keywords": [],
         "seealso": []
     },
+    "evi.randy~": {
+        "digest": "",
+        "module": "evieve-ref",
+        "category": [
+            "evieve",
+            "evieve Gen Abstractions"
+        ],
+        "keywords": [],
+        "seealso": []
+    },
     "evi.rcfilter~": {
         "digest": "",
         "module": "evieve-ref",

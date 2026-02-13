@@ -113,6 +113,19 @@
                     "patching_rect": [ 229.0, 125.0, 71.0, 23.0 ],
                     "text": "route bang"
                 }
+            },
+            {
+                "box": {
+                    "background": 1,
+                    "hidden": 1,
+                    "id": "obj-5",
+                    "linecount": 10,
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 502.0, 110.0, 268.0, 152.0 ],
+                    "text": "[v8] auto generated via the template, but if you need to edit by hand, args are:\n.js file\nobject name\ntype (0 = external, 1 = gen, 2 = abstraction)\nmc tab? 0/1\nmcs tab? 0/1\ngen tab? 0/1\ngenexpr tab? 0/1\nobject 'area' (symbol)"
+                }
             }
         ],
         "lines": [

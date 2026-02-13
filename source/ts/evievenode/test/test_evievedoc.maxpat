@@ -16,12 +16,53 @@
         "boxes": [
             {
                 "box": {
+                    "id": "obj-43",
+                    "maxclass": "message",
+                    "numinlets": 2,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 4.0, 16.0, 163.0, 22.0 ],
+                    "text": "build_genexpr_data_sources"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-49",
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 341.0, 566.0, 123.0, 20.0 ],
+                    "text": "safe"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-56",
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 370.0, 613.0, 123.0, 20.0 ],
+                    "text": "safe"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-55",
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 227.0, 55.0, 123.0, 20.0 ],
+                    "text": "safe"
+                }
+            },
+            {
+                "box": {
                     "id": "obj-54",
                     "maxclass": "message",
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 256.0, 16.0, 123.0, 22.0 ],
+                    "patching_rect": [ 170.0, 16.0, 123.0, 22.0 ],
                     "text": "extract_genexpr_asts"
                 }
             },
@@ -32,8 +73,8 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 121.0, 456.0, 384.0, 22.0 ],
-                    "text": "/Users/stkr/Dev/evieve/code/evi_genexpr/evi_core/evi_approx.genexpr"
+                    "patching_rect": [ 121.0, 456.0, 310.0, 22.0 ],
+                    "text": "/Users/stkr/Desktop/testingAstExtraction/evi_svf.genexpr"
                 }
             },
             {
@@ -104,29 +145,6 @@
             },
             {
                 "box": {
-                    "id": "obj-44",
-                    "maxclass": "newobj",
-                    "numinlets": 2,
-                    "numoutlets": 3,
-                    "outlettype": [ "signal", "signal", "" ],
-                    "patching_rect": [ 415.0, 416.0, 91.0, 22.0 ],
-                    "text": "evi.freezeverb~",
-                    "varname": "evi.freezeverb~"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-43",
-                    "maxclass": "newobj",
-                    "numinlets": 2,
-                    "numoutlets": 5,
-                    "outlettype": [ "signal", "signal", "signal", "signal", "signal" ],
-                    "patching_rect": [ 521.0, 416.0, 69.0, 22.0 ],
-                    "text": "evi.4wave~"
-                }
-            },
-            {
-                "box": {
                     "id": "obj-42",
                     "maxclass": "message",
                     "numinlets": 2,
@@ -156,17 +174,6 @@
                     "outlettype": [ "" ],
                     "patching_rect": [ 765.0, 395.0, 148.0, 22.0 ],
                     "text": "create_helpfiles_externals"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-32",
-                    "maxclass": "newobj",
-                    "numinlets": 2,
-                    "numoutlets": 1,
-                    "outlettype": [ "signal" ],
-                    "patching_rect": [ 323.0, 410.0, 83.0, 22.0 ],
-                    "text": "evi.cfsmooth~"
                 }
             },
             {
@@ -418,8 +425,8 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 744.0, 48.0, 139.0, 22.0 ],
-                    "text": "make_refpages_rename"
+                    "patching_rect": [ 744.0, 48.0, 194.0, 22.0 ],
+                    "text": "make_externals_refpages_rename"
                 }
             },
             {
@@ -440,7 +447,7 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 36.0, 21.0, 149.0, 22.0 ],
+                    "patching_rect": [ 826.0, 623.0, 149.0, 22.0 ],
                     "text": "r to_nodescript_evievedoc"
                 }
             },
@@ -1406,6 +1413,12 @@
             {
                 "patchline": {
                     "destination": [ "obj-1", 0 ],
+                    "source": [ "obj-43", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-1", 0 ],
                     "source": [ "obj-45", 0 ]
                 }
             },
@@ -1470,30 +1483,6 @@
                 }
             }
         ],
-        "parameters": {
-            "obj-44::obj-54::obj-10": [ "eqHighGain", "eqHighGain", 0 ],
-            "obj-44::obj-54::obj-12": [ "earlyGain", "earlyGain", 0 ],
-            "obj-44::obj-54::obj-15": [ "eqLowGain", "eqLowGain", 0 ],
-            "obj-44::obj-54::obj-16": [ "eqLowFreq", "eqLowFreq", 0 ],
-            "obj-44::obj-54::obj-2": [ "preDelay", "preDelay", 0 ],
-            "obj-44::obj-54::obj-3": [ "reverbSize", "reverbSize", 0 ],
-            "obj-44::obj-54::obj-33": [ "wetGain", "wetGain", 0 ],
-            "obj-44::obj-54::obj-35": [ "bypass", "bypass", 0 ],
-            "obj-44::obj-54::obj-4": [ "dryGain", "dryGain", 0 ],
-            "obj-44::obj-54::obj-5": [ "width", "width", 0 ],
-            "obj-44::obj-54::obj-7": [ "eqHighFreq", "eqHighFreq", 0 ],
-            "obj-44::obj-54::obj-8": [ "smoothTime", "smoothTime", 0 ],
-            "obj-44::obj-54::obj-9": [ "damping", "damping", 0 ],
-            "parameterbanks": {
-                "0": {
-                    "index": 0,
-                    "name": "",
-                    "parameters": [ "-", "-", "-", "-", "-", "-", "-", "-" ],
-                    "buttons": [ "-", "-", "-", "-", "-", "-", "-", "-" ]
-                }
-            },
-            "inherited_shortname": 1
-        },
         "autosave": 0,
         "toolbaradditions": [ "audiosolo", "audiomute" ]
     }

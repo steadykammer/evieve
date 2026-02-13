@@ -1,0 +1,259 @@
+{
+    "description": "",
+    "requires": [
+        "evi_smooth.genexpr",
+        "evi_trig.genexpr",
+        "evi_saturators.genexpr"
+    ],
+    "functions": [
+        {
+            "document": true,
+            "digest": "",
+            "name": "sinParam",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "drive",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "sinFoldNaive",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                },
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "pidrive",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "sindrive",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "sinFoldAdaa1",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                },
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "pidrive",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "sindrive",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "sinFoldAdaa1_2x",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                },
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "pidrive",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "sindrive",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "sinFoldAdaa1_4x",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                },
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "pidrive",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "sindrive",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "sinFoldAdaa2",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                },
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "pidrive",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "sindrive",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "sinFoldAdaa2_2x",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                },
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "pidrive",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "sindrive",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "sinFoldAdaa2_4x",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                },
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "pidrive",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "sindrive",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        }
+    ]
+}

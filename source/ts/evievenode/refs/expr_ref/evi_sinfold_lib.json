@@ -1,0 +1,770 @@
+{
+    "type": "TranslationUnit",
+    "commands": [
+        {
+            "type": "ExpressionStatement",
+            "expression": {
+                "type": "CallExpression",
+                "callee": {
+                    "type": "Identifier",
+                    "name": "require"
+                },
+                "arguments": [
+                    {
+                        "type": "Literal",
+                        "value": "evi_smooth.genexpr",
+                        "raw": "\"evi_smooth.genexpr\"",
+                        "gen_kind": "string"
+                    }
+                ]
+            },
+            "gen_kind": "compiler_command"
+        },
+        {
+            "type": "ExpressionStatement",
+            "expression": {
+                "type": "CallExpression",
+                "callee": {
+                    "type": "Identifier",
+                    "name": "require"
+                },
+                "arguments": [
+                    {
+                        "type": "Literal",
+                        "value": "evi_trig.genexpr",
+                        "raw": "\"evi_trig.genexpr\"",
+                        "gen_kind": "string"
+                    }
+                ]
+            },
+            "gen_kind": "compiler_command"
+        },
+        {
+            "type": "ExpressionStatement",
+            "expression": {
+                "type": "CallExpression",
+                "callee": {
+                    "type": "Identifier",
+                    "name": "require"
+                },
+                "arguments": [
+                    {
+                        "type": "Literal",
+                        "value": "evi_saturators.genexpr",
+                        "raw": "\"evi_saturators.genexpr\"",
+                        "gen_kind": "string"
+                    }
+                ]
+            },
+            "gen_kind": "compiler_command"
+        }
+    ],
+    "functions": [
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "sinParam",
+                "raw": "sinParam"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "drive",
+                    "raw": "drive"
+                }
+            ],
+            "defaults": [
+                null
+            ],
+            "decls": [],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "pidrive",
+                                "raw": "pidrive"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "+",
+                                "left": {
+                                    "type": "BinaryExpression",
+                                    "operator": "*",
+                                    "left": {
+                                        "type": "Identifier",
+                                        "name": "drive",
+                                        "raw": "drive"
+                                    },
+                                    "right": {
+                                        "type": "Literal",
+                                        "value": 3.110176727054,
+                                        "raw": "3.110176727054",
+                                        "gen_kind": "float"
+                                    }
+                                },
+                                "right": {
+                                    "type": "Literal",
+                                    "value": 0.031415926536,
+                                    "raw": "0.031415926536",
+                                    "gen_kind": "float"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "sindrive",
+                                "raw": "sindrive"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "/",
+                                "left": {
+                                    "type": "Literal",
+                                    "value": 1,
+                                    "raw": "1",
+                                    "gen_kind": "integer"
+                                },
+                                "right": {
+                                    "type": "CallExpression",
+                                    "arguments": [
+                                        {
+                                            "type": "BinaryExpression",
+                                            "operator": "-",
+                                            "left": {
+                                                "type": "Identifier",
+                                                "name": "HALFPI",
+                                                "raw": "HALFPI"
+                                            },
+                                            "right": {
+                                                "type": "CallExpression",
+                                                "arguments": [
+                                                    {
+                                                        "type": "Identifier",
+                                                        "name": "pidrive",
+                                                        "raw": "pidrive"
+                                                    },
+                                                    {
+                                                        "type": "Identifier",
+                                                        "name": "HALFPI",
+                                                        "raw": "HALFPI"
+                                                    }
+                                                ],
+                                                "callee": {
+                                                    "type": "Identifier",
+                                                    "name": "minimum",
+                                                    "raw": "minimum"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "cos32quad12",
+                                        "raw": "cos32quad12"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "ArrayExpression",
+                            "elements": [
+                                {
+                                    "type": "Identifier",
+                                    "name": "pidrive",
+                                    "raw": "pidrive"
+                                },
+                                {
+                                    "type": "Identifier",
+                                    "name": "sindrive",
+                                    "raw": "sindrive"
+                                }
+                            ]
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "sinFoldNaive",
+                "raw": "sinFoldNaive"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "x",
+                    "raw": "x"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "pidrive",
+                    "raw": "pidrive"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "sindrive",
+                    "raw": "sindrive"
+                }
+            ],
+            "defaults": [
+                null,
+                null,
+                null
+            ],
+            "decls": [],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "BinaryExpression",
+                            "operator": "*",
+                            "left": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "BinaryExpression",
+                                        "operator": "*",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "x",
+                                            "raw": "x"
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "pidrive",
+                                            "raw": "pidrive"
+                                        }
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "sin",
+                                    "raw": "sin"
+                                }
+                            },
+                            "right": {
+                                "type": "Identifier",
+                                "name": "sindrive",
+                                "raw": "sindrive"
+                            }
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "sinFoldAdaa1",
+                "raw": "sinFoldAdaa1"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "x",
+                    "raw": "x"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "pidrive",
+                    "raw": "pidrive"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "sindrive",
+                    "raw": "sindrive"
+                }
+            ],
+            "defaults": [
+                null,
+                null,
+                null
+            ],
+            "decls": [],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "BinaryExpression",
+                            "operator": "*",
+                            "left": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "BinaryExpression",
+                                        "operator": "*",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "x",
+                                            "raw": "x"
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "pidrive",
+                                            "raw": "pidrive"
+                                        }
+                                    },
+                                    {
+                                        "type": "Literal",
+                                        "value": 0,
+                                        "raw": "0",
+                                        "gen_kind": "integer"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "sinAdaa1",
+                                    "raw": "sinAdaa1"
+                                }
+                            },
+                            "right": {
+                                "type": "Identifier",
+                                "name": "sindrive",
+                                "raw": "sindrive"
+                            }
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "sinFoldAdaa1_2x",
+                "raw": "sinFoldAdaa1_2x"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "x",
+                    "raw": "x"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "pidrive",
+                    "raw": "pidrive"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "sindrive",
+                    "raw": "sindrive"
+                }
+            ],
+            "defaults": [
+                null,
+                null,
+                null
+            ],
+            "decls": [],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "BinaryExpression",
+                            "operator": "*",
+                            "left": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "BinaryExpression",
+                                        "operator": "*",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "x",
+                                            "raw": "x"
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "pidrive",
+                                            "raw": "pidrive"
+                                        }
+                                    },
+                                    {
+                                        "type": "Literal",
+                                        "value": 2,
+                                        "raw": "2",
+                                        "gen_kind": "integer"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "sinAdaa1_2x_6POINT",
+                                    "raw": "sinAdaa1_2x_6POINT"
+                                }
+                            },
+                            "right": {
+                                "type": "Identifier",
+                                "name": "sindrive",
+                                "raw": "sindrive"
+                            }
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "sinFoldAdaa1_4x",
+                "raw": "sinFoldAdaa1_4x"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "x",
+                    "raw": "x"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "pidrive",
+                    "raw": "pidrive"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "sindrive",
+                    "raw": "sindrive"
+                }
+            ],
+            "defaults": [
+                null,
+                null,
+                null
+            ],
+            "decls": [],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "BinaryExpression",
+                            "operator": "*",
+                            "left": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "BinaryExpression",
+                                        "operator": "*",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "x",
+                                            "raw": "x"
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "pidrive",
+                                            "raw": "pidrive"
+                                        }
+                                    },
+                                    {
+                                        "type": "Literal",
+                                        "value": 4,
+                                        "raw": "4",
+                                        "gen_kind": "integer"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "sinAdaa1_4x_6POINT",
+                                    "raw": "sinAdaa1_4x_6POINT"
+                                }
+                            },
+                            "right": {
+                                "type": "Identifier",
+                                "name": "sindrive",
+                                "raw": "sindrive"
+                            }
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "sinFoldAdaa2",
+                "raw": "sinFoldAdaa2"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "x",
+                    "raw": "x"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "pidrive",
+                    "raw": "pidrive"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "sindrive",
+                    "raw": "sindrive"
+                }
+            ],
+            "defaults": [
+                null,
+                null,
+                null
+            ],
+            "decls": [],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "BinaryExpression",
+                            "operator": "*",
+                            "left": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "BinaryExpression",
+                                        "operator": "*",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "x",
+                                            "raw": "x"
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "pidrive",
+                                            "raw": "pidrive"
+                                        }
+                                    },
+                                    {
+                                        "type": "Literal",
+                                        "value": 0,
+                                        "raw": "0",
+                                        "gen_kind": "integer"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "sinAdaa2",
+                                    "raw": "sinAdaa2"
+                                }
+                            },
+                            "right": {
+                                "type": "Identifier",
+                                "name": "sindrive",
+                                "raw": "sindrive"
+                            }
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "sinFoldAdaa2_2x",
+                "raw": "sinFoldAdaa2_2x"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "x",
+                    "raw": "x"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "pidrive",
+                    "raw": "pidrive"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "sindrive",
+                    "raw": "sindrive"
+                }
+            ],
+            "defaults": [
+                null,
+                null,
+                null
+            ],
+            "decls": [],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "BinaryExpression",
+                            "operator": "*",
+                            "left": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "BinaryExpression",
+                                        "operator": "*",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "x",
+                                            "raw": "x"
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "pidrive",
+                                            "raw": "pidrive"
+                                        }
+                                    },
+                                    {
+                                        "type": "Literal",
+                                        "value": 2,
+                                        "raw": "2",
+                                        "gen_kind": "integer"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "sinAdaa2_2x_6POINT",
+                                    "raw": "sinAdaa2_2x_6POINT"
+                                }
+                            },
+                            "right": {
+                                "type": "Identifier",
+                                "name": "sindrive",
+                                "raw": "sindrive"
+                            }
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "sinFoldAdaa2_4x",
+                "raw": "sinFoldAdaa2_4x"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "x",
+                    "raw": "x"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "pidrive",
+                    "raw": "pidrive"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "sindrive",
+                    "raw": "sindrive"
+                }
+            ],
+            "defaults": [
+                null,
+                null,
+                null
+            ],
+            "decls": [],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "BinaryExpression",
+                            "operator": "*",
+                            "left": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "BinaryExpression",
+                                        "operator": "*",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "x",
+                                            "raw": "x"
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "pidrive",
+                                            "raw": "pidrive"
+                                        }
+                                    },
+                                    {
+                                        "type": "Literal",
+                                        "value": 4,
+                                        "raw": "4",
+                                        "gen_kind": "integer"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "sinAdaa2_4x_6POINT",
+                                    "raw": "sinAdaa2_4x_6POINT"
+                                }
+                            },
+                            "right": {
+                                "type": "Identifier",
+                                "name": "sindrive",
+                                "raw": "sindrive"
+                            }
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        }
+    ],
+    "decls": [],
+    "body": []
+}

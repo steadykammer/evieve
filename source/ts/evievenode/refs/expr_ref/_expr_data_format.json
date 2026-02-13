@@ -1,0 +1,46 @@
+{
+    "description": "",
+    "requires": [
+        ""
+    ],
+    "functions": [
+        {
+            "document": true,
+            "digest": "",
+            "name": "",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 0,
+                    "kind": "param",
+                    "name": "",
+                    "default": 0,
+					"type": "",
+                    "digest": ""
+                },
+                {
+                    "id": 0,
+                    "kind": "param",
+                    "name": "",
+                    "default": 0,
+					"type": "",
+                    "min": 0,
+                    "max": 1,
+                    "digest": ""
+                }
+            ],
+			"returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        }
+    ]
+}

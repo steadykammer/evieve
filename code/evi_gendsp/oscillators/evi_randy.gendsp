@@ -1,0 +1,68 @@
+{
+    "patcher": {
+        "fileversion": 1,
+        "appversion": {
+            "major": 9,
+            "minor": 2,
+            "revision": 0,
+            "architecture": "x64",
+            "modernui": 1
+        },
+        "classnamespace": "dsp.gen",
+        "rect": [ 34.0, 100.0, 855.0, 601.0 ],
+        "gridonopen": 2,
+        "subpatcher_template": "sub",
+        "integercoordinates": 1,
+        "boxes": [
+            {
+                "box": {
+                    "id": "obj-1",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 49.0, 19.0, 235.0, 22.0 ],
+                    "text": "in 1 (signal/float) Frequency in Hz @min 0."
+                }
+            },
+            {
+                "box": {
+                    "code": "\r\n// like [rand~] / evi_rand.gendsp but ready for cubic interpolation\neviRands(d0, x2)\t\t\t\t\t\t\t\t\t// delta input, not frequency; x2 is source\n{\n\tHistory\txm1(0), x0(0), x1(0);\n\tvm1\t= latch(xm1, d0);\n\tv0\t= latch(x0,  d0);\n\tv1\t= latch(x1,  d0);\n\tv2\t= latch(x2,  d0);\n\txm1\t= v0;\n\tx0\t= v1;\n\tx1\t= v2;\n\treturn\tvm1, v0, v1, v2;\t\t\t\t\t\t// 4 values for 4-point interpolator\n}\n\n// like [rand~] but cubic interpolated\n// rolls off much faster than eviRand()\neviRandy(p)                                         // phasor input, not frequency\r\n{\n\tHistory randy(0);\n\td = (delta(p)) < 0;                            \t// assumes positive freq only\n\tn = noise();\n    ym1, y0, y1, y2 = eviRands(d, n * sqrt1_2);\r\n    // 'tri-cubic-like' 'mode=cubic' does not work for eviRandy()\n    r = interp(p, ym1, y0, y1, y2, mode=\"fastcubic\");\n    return r, n;\n}\r\n\r\nout1 = eviRandy(phasor(in1));\r\n\r\n",
+                    "fontface": 0,
+                    "fontname": "<Monospaced>",
+                    "fontsize": 12.0,
+                    "id": "obj-3",
+                    "maxclass": "codebox",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 49.0, 58.0, 760.0, 487.0 ]
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-4",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 49.0, 562.0, 309.0, 22.0 ],
+                    "text": "out 1 (signal) Cubic Interpolated Rand~like Noise Output"
+                }
+            }
+        ],
+        "lines": [
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 0 ],
+                    "source": [ "obj-1", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-4", 0 ],
+                    "source": [ "obj-3", 0 ]
+                }
+            }
+        ]
+    }
+}

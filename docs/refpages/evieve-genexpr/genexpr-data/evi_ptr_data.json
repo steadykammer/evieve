@@ -1,0 +1,76 @@
+{
+    "description": "",
+    "requires": [],
+    "functions": [
+        {
+            "document": true,
+            "digest": "",
+            "name": "ptr3_saw",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "p",
+                    "digest": ""
+                },
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "T0",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "P0",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "ptr3_rect",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "p",
+                    "digest": ""
+                },
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "T0",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "P0",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "w",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        }
+    ]
+}

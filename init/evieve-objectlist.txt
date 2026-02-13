@@ -96,6 +96,7 @@ max oblist "evieve Gen Abstractions" evi.paf~;
 max oblist "evieve Gen Abstractions" evi.phaseshift~;
 max oblist "evieve Gen Abstractions" evi.phasor0~;
 max oblist "evieve Gen Abstractions" evi.ramp0~;
+max oblist "evieve Gen Abstractions" evi.randy~;
 max oblist "evieve Gen Abstractions" evi.rcfilter~;
 max oblist "evieve Gen Abstractions" evi.rect.select~;
 max oblist "evieve Gen Abstractions" evi.rect~;

@@ -1,0 +1,969 @@
+{
+    "description": "",
+    "requires": [],
+    "functions": [
+        {
+            "document": true,
+            "digest": "",
+            "name": "cosQ73",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "cos73",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "sin73",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "cos73param",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "sin73param",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "quartParOneApprox",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "modphase",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "tanA",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "tanA2",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "tanA3",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "atanA",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "atanIT",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "atanT",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "atan2Approx",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "y",
+                    "digest": ""
+                },
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "acosT",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "expP",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "expA",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "x0",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "expApprox",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "pow2Approx",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "y",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "coshApprox",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "log2Approx",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "logApprox",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "log10Approx",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "log1pApprox",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "transratioApprox",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "pitch",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "mtofApprox",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "pitch",
+                    "digest": ""
+                },
+                {
+                    "id": 1,
+                    "kind": "param",
+                    "name": "base",
+                    "default": 440,
+                    "type": "integer",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "mtofApproxBaseless",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "pitch",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "mtofApproxAccurate",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "pitch",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "mtofApproxAccurate0",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "pitch",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "ftomApproxBaseless",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "frequency",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "ftomApproxAccurate",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "frequency",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "dbtoaApprox",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "db",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "dbtoaApproxFast",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "db",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "dbtosqrt2Approx",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "db",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "atodbApprox",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "amplitude",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "tauA",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "t",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "hz2barkApprox",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "f",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "bark2hzApprox",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "b",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "hz2melApprox",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "f",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "mel2hzApprox",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "m",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "c2pApprox",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "real",
+                    "digest": ""
+                },
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "imag",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "p2cApprox",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "alpha",
+                    "digest": ""
+                },
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "theta",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "p2cApproxParam",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "alpha",
+                    "digest": ""
+                },
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "theta",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "p2cApproxQuart",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "al",
+                    "digest": ""
+                },
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "th",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "eviLog1p",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "value",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "Li2Approx",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        }
+    ]
+}

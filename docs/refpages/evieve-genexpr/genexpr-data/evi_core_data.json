@@ -1,0 +1,15 @@
+{
+    "description": "",
+    "requires": [
+        "evi_approx.genexpr",
+        "evi_utilities.genexpr",
+        "evi_tanh.genexpr",
+        "evi_smooth.genexpr",
+        "evi_cossin.genexpr",
+        "evi_trig.genexpr",
+        "evi_pade.genexpr",
+        "evi_fastskew.genexpr",
+        "evi_interp.genexpr"
+    ],
+    "functions": []
+}

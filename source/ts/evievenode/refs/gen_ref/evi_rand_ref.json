@@ -1,0 +1,37 @@
+{
+    "object": {
+        "name": "evi_rand",
+        "category": "evieve",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "constructor": {
+        "inlets": "frequency"
+    },
+    "includes": [],
+    "inlets": [
+        {
+            "id": 1,
+            "name": "frequency",
+            "type": "float",
+            "optional": 1,
+            "digest": "in Hz @min 0."
+        }
+    ],
+    "outlets": [
+        {
+            "id": 1,
+            "name": "rand~like",
+            "type": "float",
+            "optional": 1,
+            "digest": "(Brown-ish) Noise Output"
+        }
+    ],
+    "attributes": [],
+    "seealso": [
+        {
+            "name": "",
+            "display": ""
+        }
+    ]
+}

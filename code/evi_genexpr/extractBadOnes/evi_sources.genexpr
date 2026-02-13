@@ -127,7 +127,8 @@ eviRands(d0, x2)									// delta input, not frequency; x2 is source
 
 // like [rand~] but cubic interpolated
 // rolls off much faster than eviRand()
-eviRandy(p) {										// phasor input, not frequency
+eviRandy(p)											// phasor input, not frequency
+{
 	History randy(0);
 	d = (delta(p)) < 0;                            	// assumes positive freq only
 	n = noise();

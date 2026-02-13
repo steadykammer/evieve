@@ -1,0 +1,38 @@
+{
+    "object": {
+        "name": "evi.randy~",
+        "category": "evieve",
+        "parent": "evi_randy.gendsp",
+        "tilde": "~",
+        "description": "TEXT_HERE",
+        "discussion": ""
+    },
+    "metadata": {
+        "author": "Pete Dowling",
+        "tags": []
+    },
+    "includes": [],
+    "inlets": [
+        {
+            "id": 1,
+            "type": "signal/float",
+            "digest": "Frequency in Hz @min 0.",
+            "description": ""
+        }
+    ],
+    "outlets": [
+        {
+            "id": 1,
+            "type": "signal",
+            "digest": "Cubic Interpolated Rand~like Noise Output",
+            "description": ""
+        }
+    ],
+    "messages": [],
+    "attributes": [],
+    "example": {
+        "caption": "",
+        "image": ""
+    },
+    "seealso": []
+}

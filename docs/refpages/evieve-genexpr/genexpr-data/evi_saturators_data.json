@@ -1,0 +1,1069 @@
+{
+    "description": "",
+    "requires": [
+        "evi_adaa.genexpr",
+        "evi_interp.genexpr"
+    ],
+    "functions": [
+        {
+            "document": true,
+            "digest": "",
+            "name": "hardclipAdaa1_2x_6POINT",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "hardclipAdaa1_4x_6POINT",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "hardclipAdaa2_2x_6POINT",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "hardclipAdaa2_4x_6POINT",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "halfrectAdaa1_2x_6POINT",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "halfrectAdaa1_4x_6POINT",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "halfrectAdaa2_2x_6POINT",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "halfrectAdaa2_4x_6POINT",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "powerAdaa1_2x_6POINT",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "powerAdaa1_4x_6POINT",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "powerAdaa2_2x_6POINT",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "powerAdaa2_4x_6POINT",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "softclip2Adaa1_2x_6POINT",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "softclip2Adaa1_4x_6POINT",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "softclip2Adaa2_2x_6POINT",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "softclip2Adaa2_4x_6POINT",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "softclipNAdaa1_2x_6POINT",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "softclipNAdaa1_4x_6POINT",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "softclipNAdaa2_2x_6POINT",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "softclipNAdaa2_4x_6POINT",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "atanAdaa1_2x_6POINT",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "atanAdaa1_4x_6POINT",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "atanAdaa2_2x_6POINT",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "atanAdaa2_4x_6POINT",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "algebraicAdaa1_2x_6POINT",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "algebraicAdaa1_4x_6POINT",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "algebraicAdaa2_2x_6POINT",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "algebraicAdaa2_4x_6POINT",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "log1pAdaa1_2x_6POINT",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "log1pAdaa1_4x_6POINT",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "log1pAdaa2_2x_6POINT",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "log1pAdaa2_4x_6POINT",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "altTanhAdaa1_2x_6POINT",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "altTanhAdaa1_4x_6POINT",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "altTanhAdaa2_2x_6POINT",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "altTanhAdaa2_4x_6POINT",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "altTanhSqrtAdaa1_2x_6POINT",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "altTanhSqrtAdaa1_4x_6POINT",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "altTanhSqrtAdaa2_2x_6POINT",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "altTanhSqrtAdaa2_4x_6POINT",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "sinAdaa1_2x_6POINT",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": ""
+                },
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "osf",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "sinAdaa1_4x_6POINT",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": ""
+                },
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "osf",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "sinAdaa2_2x_6POINT",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": ""
+                },
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "osf",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "sinAdaa2_4x_6POINT",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": ""
+                },
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "osf",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "parabolSat",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                },
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "a",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "c",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "parabolSat_2x_6POINT",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": ""
+                },
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "a",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "c",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "parabolSat_4x_6POINT",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": ""
+                },
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "a",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "c",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "thbNL",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "thbNL_2x_6POINT",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "thbNL_4x_6POINT",
+            "inputs": [
+                {
+                    "id": 0,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        }
+    ]
+}

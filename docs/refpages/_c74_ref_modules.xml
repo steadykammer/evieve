@@ -1,5 +1,6 @@
 <?xml version='1.0' encoding='UTF-8' standalone='yes'?>
 <root>
   <module>evieve-gen</module>
+  <module>evieve-genexpr</module>
   <module>evieve-max</module>
 </root>

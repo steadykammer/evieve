@@ -257,6 +257,9 @@ max define mc.evi.phasor0~ mc.gen~ @gen evi_phasor0.gendsp @chans 2;
 max define evi.ramp0~ gen~ @gen evi_ramp0.gendsp;
 max define mc.evi.ramp0~ mc.gen~ @gen evi_ramp0.gendsp @chans 2;
 
+max define evi.randy~ gen~ @gen evi_randy.gendsp;
+max define mc.evi.randy~ mc.gen~ @gen evi_randy.gendsp @chans 2;
+
 max define evi.rcfilter~ gen~ @gen evi_rcfilter.gendsp;
 max define mc.evi.rcfilter~ mc.gen~ @gen evi_rcfilter.gendsp @chans 2;
 

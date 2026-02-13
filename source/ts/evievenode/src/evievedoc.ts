@@ -15,17 +15,15 @@ import gendsp from '../config/evievedoc.config.gendsp.json';
 import maxpat from '../config/evievedoc.config.maxpat.json';
 import mxo from '../config/evievedoc.config.mxo.json';
 
-const attributeXmlPrefix = 'maxattr_';
-// import testJsonXml from '../test/pete_testing_2.json';
-
 const genexpr_pegjs = fs.readFileSync('../peg/genexpr.pegjs', 'utf8');
 const peg_parse_options = {
-	// output: "source",	// output the parser as...
+	// output: "source",	// output the parser as... i cannot get this working with peggy
 	cache: true,			// avoids pathological slowdowns
 	allowedStartRules: [ "start", "translation_unit", "gen" ]
 };
 const PEGparser = PEGgy.generate(genexpr_pegjs, peg_parse_options);
-// void max.post(`look at the peg: ${JSON.stringify(PEGparser)}`);
+
+const attributeXmlPrefix = 'maxattr_';
 
 // --------------------------------------------- //
 
@@ -167,7 +165,7 @@ max.addHandler('make_externals_refpages', (force = false) => {
 })
 
 // not needed anymore
-max.addHandler('make_refpages_rename', () => {
+max.addHandler('make_externals_refpages_rename', () => {
     // externalsRefpagesRename();
 })
 
@@ -272,6 +270,10 @@ max.addHandler('create_helpfiles_defines', () => {
 
 max.addHandler('extract_genexpr_asts', () => {
 	extractGenExprASTs();
+})
+
+max.addHandler('build_genexpr_data_sources', () => {
+	parseGenExprAstsForDoc();
 })
 
 // --------------------------------------------- //
@@ -1943,7 +1945,7 @@ function inferTypeFromString(thisValue: string)
 	const isNumericFinite = (input: string | number) => Number.isFinite(+input);
 	
 	const floatsArray: string[] = ["degtorad", "radtodeg", "pi", "twopi", "halfpi", "invpi", "sqrt2", "sqrt1_2", "ln2", "ln10", "log10e", "log2e", "phi", "e"];
-	const intsArray: string[] = ["samplerate", "vectorsize"];
+	const intsArray: string[] = ["samplerate", "vectorsize", "fftfullspect", "ffthop", "fftoffset", "fftsize", "voice", "elapsed"];
 
 	let thisValueMaxType: string;
 	if (isNumericFinite(thisValue)) {
@@ -2643,12 +2645,140 @@ const areas = [
 	"svf",
 	"filter",
 	"oscillator",
+	"noise",
 	"reverb",
 	"overdrive",
 	"smooth"
 ];
 
 // --------------------------------------------- //
+
+// top level keys: 'type': string, 'commands[]', 'functions[]' 'decls[]', 'body[]'
+// 'commands' = array of require() declarations, functions = array of function() declarations
+
+// temp, builds files, does not edit / merge yet
+function parseGenExprAstsForDoc()
+{
+	const genexprsAstsPath = `${cwd()}/${config.referenceFiles.genExpr.config}`;
+	let fullAstNames = getFileNamesFromPath(genexprsAstsPath, 'json');
+	const IGNORE = /_expr_data_format.json/;
+	fullAstNames = fullAstNames.filter((str) => !IGNORE.test(str));
+
+	const genExprFileTemplate: any = {
+		"description": "",
+		"requires": [],
+		"functions": []
+	};
+
+	const functionsTemplate: any = {
+		"document": true,
+		"digest": "",
+		"name": "",
+		"inputs": [],
+		"returns": []
+	};
+
+	const inputsInputTemplate: any = {
+		"id": 0,
+		"kind": "",
+		"name": "",
+		"digest": ""
+	};
+
+	const inputsParamTemplate: any = {
+		"id": 0,
+		"kind": "",
+		"name": "",
+		"default": 0,
+		"type": "",
+		"digest": ""
+	};
+
+	const returnsTemplate: any = {
+		"id": 0,
+		"name": "",
+		"digest": ""
+	};
+
+	for (const genexprAst of fullAstNames) {
+		// void max.post(`reading this ast: ${genexprAst}`);
+
+		const thisAstFile = fs.readFileSync(`${genexprsAstsPath}/${genexprAst}`, 'utf8');
+		const thisAstObject = JSON.parse(thisAstFile);
+		let requiresArray: string[] = []; // extract array of strings
+		let functionsArray: {}[] = []; // extract array of objects
+
+		if (thisAstObject.commands.length) {
+			for (const command of thisAstObject.commands) {
+				if (command.expression.callee.name === 'require') {
+					let thisRequire: string = '';
+					for (const arg of command.expression.arguments) {
+						thisRequire = arg.value;
+						if (!thisRequire.endsWith('.genexpr')) {
+							thisRequire = `${thisRequire}.genexpr`;	// pete sometimes forgets
+						}
+						requiresArray.push(thisRequire);
+					}
+				}
+			}
+		}
+
+		if (thisAstObject.functions.length) {
+			for (const func of thisAstObject.functions) {
+				if (func.type === 'FunctionDeclaration') {
+					let thisFunc = JSON.parse(JSON.stringify(functionsTemplate));
+					// thisFunc.document = true;
+					// thisFunc.digest = '';
+					thisFunc.name = func.id.name;
+					for (let i = 0; i < func.params.length; i++) {
+						if (func.defaults[i] != null) {
+							let thisParam = JSON.parse(JSON.stringify(inputsParamTemplate));
+							thisParam.id = i;
+							thisParam.kind = 'param';
+							thisParam.name = func.params[i].name;
+							thisParam.default = func.defaults[i].value;
+							thisParam.type = func.defaults[i].gen_kind;
+							thisFunc.inputs.push(thisParam);
+						} else {
+							let thisInput = JSON.parse(JSON.stringify(inputsInputTemplate));
+							thisInput.id = i;
+							thisInput.kind = 'input';
+							thisInput.name = func.params[i].name;
+							thisFunc.inputs.push(thisInput);
+						}
+					}
+					// this is all total bullshit
+					// todo: look into reappropriating 'visitReturnStatement()' from 'genbo.js'
+					for (const ret of func.body.body) {
+						if (ret.type === 'ReturnStatement') {
+							let rets = 0;
+							if (ret.argument.type === 'ArrayExpression') {
+								rets = ret.argument.elements.length;
+							} else { // for now, will be wrong sometimes
+								rets = 1;
+							}
+							for (let j = 0; j < rets; j++) {
+								let thisReturn = JSON.parse(JSON.stringify(returnsTemplate));
+								thisReturn.id = j;
+								thisFunc.returns.push(thisReturn);
+							}
+						}
+					}
+					functionsArray.push(thisFunc);
+				}
+			}
+		}
+
+		const thisGenExprFile = JSON.parse(JSON.stringify(genExprFileTemplate));
+		thisGenExprFile.description = '';
+		thisGenExprFile.requires = requiresArray;
+		thisGenExprFile.functions = functionsArray;
+		const parsedName = genexprAst.replace('.json', '_data.json');
+		const genexprsJsonsPath = `${cwd()}/${config.referenceFiles.genExpr.json}`;
+		// void max.post(`about to write this ast: ${parsedName}`);
+		fs.writeFileSync(`${genexprsJsonsPath}/${parsedName}`, JSON.stringify(thisGenExprFile, null, 4));
+	}
+}
 
 async function extractGenExprASTs()
 {

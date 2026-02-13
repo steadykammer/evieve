@@ -1,0 +1,2047 @@
+{
+    "type": "TranslationUnit",
+    "commands": [],
+    "functions": [
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "ptr3_saw",
+                "raw": "ptr3_saw"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "p",
+                    "raw": "p"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "T0",
+                    "raw": "T0"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "P0",
+                    "raw": "P0"
+                }
+            ],
+            "defaults": [
+                null,
+                null,
+                null
+            ],
+            "decls": [],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "T2",
+                                "raw": "T2"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "+",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "T0",
+                                    "raw": "T0"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "T0",
+                                    "raw": "T0"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "T3",
+                                "raw": "T3"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "+",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "T2",
+                                    "raw": "T2"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "T0",
+                                    "raw": "T0"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "cdc",
+                                "raw": "cdc"
+                            },
+                            "right": {
+                                "type": "Identifier",
+                                "name": "T3",
+                                "raw": "T3"
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "DC",
+                                "raw": "DC"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "+",
+                                "left": {
+                                    "type": "Literal",
+                                    "value": 1,
+                                    "raw": "1",
+                                    "gen_kind": "integer"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "cdc",
+                                    "raw": "cdc"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "a31",
+                                "raw": "a31"
+                            },
+                            "right": {
+                                "type": "UnaryExpression",
+                                "operator": "-",
+                                "argument": {
+                                    "type": "Literal",
+                                    "value": 0.333333333333,
+                                    "raw": "0.333333333333",
+                                    "gen_kind": "float"
+                                },
+                                "prefix": true
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "a11",
+                                "raw": "a11"
+                            },
+                            "right": {
+                                "type": "Identifier",
+                                "name": "T2",
+                                "raw": "T2"
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "a01",
+                                "raw": "a01"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "-",
+                                "left": {
+                                    "type": "Literal",
+                                    "value": 2,
+                                    "raw": "2",
+                                    "gen_kind": "integer"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "DC",
+                                    "raw": "DC"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "a32",
+                                "raw": "a32"
+                            },
+                            "right": {
+                                "type": "Literal",
+                                "value": 0.666666666666,
+                                "raw": "0.666666666666",
+                                "gen_kind": "float"
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "a22",
+                                "raw": "a22"
+                            },
+                            "right": {
+                                "type": "UnaryExpression",
+                                "operator": "-",
+                                "argument": {
+                                    "type": "Literal",
+                                    "value": 3,
+                                    "raw": "3",
+                                    "gen_kind": "integer"
+                                },
+                                "prefix": true
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "a12",
+                                "raw": "a12"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "-",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "T2",
+                                    "raw": "T2"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "a22",
+                                    "raw": "a22"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "a02",
+                                "raw": "a02"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "-",
+                                "left": {
+                                    "type": "Literal",
+                                    "value": 1,
+                                    "raw": "1",
+                                    "gen_kind": "integer"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "DC",
+                                    "raw": "DC"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "a33",
+                                "raw": "a33"
+                            },
+                            "right": {
+                                "type": "Identifier",
+                                "name": "a31",
+                                "raw": "a31"
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "a23",
+                                "raw": "a23"
+                            },
+                            "right": {
+                                "type": "UnaryExpression",
+                                "operator": "-",
+                                "argument": {
+                                    "type": "Identifier",
+                                    "name": "a22",
+                                    "raw": "a22"
+                                },
+                                "prefix": true
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "a13",
+                                "raw": "a13"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "-",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "T2",
+                                    "raw": "T2"
+                                },
+                                "right": {
+                                    "type": "Literal",
+                                    "value": 9,
+                                    "raw": "9",
+                                    "gen_kind": "integer"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "a03",
+                                "raw": "a03"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "-",
+                                "left": {
+                                    "type": "Literal",
+                                    "value": 9,
+                                    "raw": "9",
+                                    "gen_kind": "integer"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "DC",
+                                    "raw": "DC"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "y",
+                                "raw": "y"
+                            },
+                            "right": {
+                                "type": "Literal",
+                                "value": 0,
+                                "raw": "0",
+                                "gen_kind": "integer"
+                            }
+                        }
+                    },
+                    {
+                        "type": "IfStatement",
+                        "test": {
+                            "type": "BinaryExpression",
+                            "operator": ">=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "p",
+                                "raw": "p"
+                            },
+                            "right": {
+                                "type": "Identifier",
+                                "name": "T3",
+                                "raw": "T3"
+                            }
+                        },
+                        "consequent": {
+                            "type": "BlockStatement",
+                            "body": [
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "y",
+                                            "raw": "y"
+                                        },
+                                        "right": {
+                                            "type": "BinaryExpression",
+                                            "operator": "-",
+                                            "left": {
+                                                "type": "BinaryExpression",
+                                                "operator": "+",
+                                                "left": {
+                                                    "type": "Identifier",
+                                                    "name": "p",
+                                                    "raw": "p"
+                                                },
+                                                "right": {
+                                                    "type": "Identifier",
+                                                    "name": "p",
+                                                    "raw": "p"
+                                                }
+                                            },
+                                            "right": {
+                                                "type": "Identifier",
+                                                "name": "DC",
+                                                "raw": "DC"
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "alternate": {
+                            "type": "IfStatement",
+                            "test": {
+                                "type": "BinaryExpression",
+                                "operator": ">=",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "p",
+                                    "raw": "p"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "T2",
+                                    "raw": "T2"
+                                }
+                            },
+                            "consequent": {
+                                "type": "BlockStatement",
+                                "body": [
+                                    {
+                                        "type": "ExpressionStatement",
+                                        "expression": {
+                                            "type": "AssignmentExpression",
+                                            "operator": "=",
+                                            "left": {
+                                                "type": "Identifier",
+                                                "name": "D",
+                                                "raw": "D"
+                                            },
+                                            "right": {
+                                                "type": "BinaryExpression",
+                                                "operator": "*",
+                                                "left": {
+                                                    "type": "Identifier",
+                                                    "name": "p",
+                                                    "raw": "p"
+                                                },
+                                                "right": {
+                                                    "type": "Identifier",
+                                                    "name": "P0",
+                                                    "raw": "P0"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "type": "ExpressionStatement",
+                                        "expression": {
+                                            "type": "AssignmentExpression",
+                                            "operator": "=",
+                                            "left": {
+                                                "type": "Identifier",
+                                                "name": "y",
+                                                "raw": "y"
+                                            },
+                                            "right": {
+                                                "type": "BinaryExpression",
+                                                "operator": "+",
+                                                "left": {
+                                                    "type": "BinaryExpression",
+                                                    "operator": "*",
+                                                    "left": {
+                                                        "type": "BinaryExpression",
+                                                        "operator": "+",
+                                                        "left": {
+                                                            "type": "BinaryExpression",
+                                                            "operator": "*",
+                                                            "left": {
+                                                                "type": "BinaryExpression",
+                                                                "operator": "+",
+                                                                "left": {
+                                                                    "type": "BinaryExpression",
+                                                                    "operator": "*",
+                                                                    "left": {
+                                                                        "type": "Identifier",
+                                                                        "name": "a33",
+                                                                        "raw": "a33"
+                                                                    },
+                                                                    "right": {
+                                                                        "type": "Identifier",
+                                                                        "name": "D",
+                                                                        "raw": "D"
+                                                                    }
+                                                                },
+                                                                "right": {
+                                                                    "type": "Identifier",
+                                                                    "name": "a23",
+                                                                    "raw": "a23"
+                                                                }
+                                                            },
+                                                            "right": {
+                                                                "type": "Identifier",
+                                                                "name": "D",
+                                                                "raw": "D"
+                                                            }
+                                                        },
+                                                        "right": {
+                                                            "type": "Identifier",
+                                                            "name": "a13",
+                                                            "raw": "a13"
+                                                        }
+                                                    },
+                                                    "right": {
+                                                        "type": "Identifier",
+                                                        "name": "D",
+                                                        "raw": "D"
+                                                    }
+                                                },
+                                                "right": {
+                                                    "type": "Identifier",
+                                                    "name": "a03",
+                                                    "raw": "a03"
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "alternate": {
+                                "type": "IfStatement",
+                                "test": {
+                                    "type": "BinaryExpression",
+                                    "operator": ">=",
+                                    "left": {
+                                        "type": "Identifier",
+                                        "name": "p",
+                                        "raw": "p"
+                                    },
+                                    "right": {
+                                        "type": "Identifier",
+                                        "name": "T0",
+                                        "raw": "T0"
+                                    }
+                                },
+                                "consequent": {
+                                    "type": "BlockStatement",
+                                    "body": [
+                                        {
+                                            "type": "ExpressionStatement",
+                                            "expression": {
+                                                "type": "AssignmentExpression",
+                                                "operator": "=",
+                                                "left": {
+                                                    "type": "Identifier",
+                                                    "name": "D",
+                                                    "raw": "D"
+                                                },
+                                                "right": {
+                                                    "type": "BinaryExpression",
+                                                    "operator": "*",
+                                                    "left": {
+                                                        "type": "Identifier",
+                                                        "name": "p",
+                                                        "raw": "p"
+                                                    },
+                                                    "right": {
+                                                        "type": "Identifier",
+                                                        "name": "P0",
+                                                        "raw": "P0"
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "type": "ExpressionStatement",
+                                            "expression": {
+                                                "type": "AssignmentExpression",
+                                                "operator": "=",
+                                                "left": {
+                                                    "type": "Identifier",
+                                                    "name": "y",
+                                                    "raw": "y"
+                                                },
+                                                "right": {
+                                                    "type": "BinaryExpression",
+                                                    "operator": "+",
+                                                    "left": {
+                                                        "type": "BinaryExpression",
+                                                        "operator": "*",
+                                                        "left": {
+                                                            "type": "BinaryExpression",
+                                                            "operator": "+",
+                                                            "left": {
+                                                                "type": "BinaryExpression",
+                                                                "operator": "*",
+                                                                "left": {
+                                                                    "type": "BinaryExpression",
+                                                                    "operator": "+",
+                                                                    "left": {
+                                                                        "type": "BinaryExpression",
+                                                                        "operator": "*",
+                                                                        "left": {
+                                                                            "type": "Identifier",
+                                                                            "name": "a32",
+                                                                            "raw": "a32"
+                                                                        },
+                                                                        "right": {
+                                                                            "type": "Identifier",
+                                                                            "name": "D",
+                                                                            "raw": "D"
+                                                                        }
+                                                                    },
+                                                                    "right": {
+                                                                        "type": "Identifier",
+                                                                        "name": "a22",
+                                                                        "raw": "a22"
+                                                                    }
+                                                                },
+                                                                "right": {
+                                                                    "type": "Identifier",
+                                                                    "name": "D",
+                                                                    "raw": "D"
+                                                                }
+                                                            },
+                                                            "right": {
+                                                                "type": "Identifier",
+                                                                "name": "a12",
+                                                                "raw": "a12"
+                                                            }
+                                                        },
+                                                        "right": {
+                                                            "type": "Identifier",
+                                                            "name": "D",
+                                                            "raw": "D"
+                                                        }
+                                                    },
+                                                    "right": {
+                                                        "type": "Identifier",
+                                                        "name": "a02",
+                                                        "raw": "a02"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    ]
+                                },
+                                "alternate": {
+                                    "type": "BlockStatement",
+                                    "body": [
+                                        {
+                                            "type": "ExpressionStatement",
+                                            "expression": {
+                                                "type": "AssignmentExpression",
+                                                "operator": "=",
+                                                "left": {
+                                                    "type": "Identifier",
+                                                    "name": "D",
+                                                    "raw": "D"
+                                                },
+                                                "right": {
+                                                    "type": "BinaryExpression",
+                                                    "operator": "*",
+                                                    "left": {
+                                                        "type": "Identifier",
+                                                        "name": "p",
+                                                        "raw": "p"
+                                                    },
+                                                    "right": {
+                                                        "type": "Identifier",
+                                                        "name": "P0",
+                                                        "raw": "P0"
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "type": "ExpressionStatement",
+                                            "expression": {
+                                                "type": "AssignmentExpression",
+                                                "operator": "=",
+                                                "left": {
+                                                    "type": "Identifier",
+                                                    "name": "y",
+                                                    "raw": "y"
+                                                },
+                                                "right": {
+                                                    "type": "BinaryExpression",
+                                                    "operator": "+",
+                                                    "left": {
+                                                        "type": "BinaryExpression",
+                                                        "operator": "*",
+                                                        "left": {
+                                                            "type": "BinaryExpression",
+                                                            "operator": "+",
+                                                            "left": {
+                                                                "type": "BinaryExpression",
+                                                                "operator": "*",
+                                                                "left": {
+                                                                    "type": "BinaryExpression",
+                                                                    "operator": "*",
+                                                                    "left": {
+                                                                        "type": "Identifier",
+                                                                        "name": "a31",
+                                                                        "raw": "a31"
+                                                                    },
+                                                                    "right": {
+                                                                        "type": "Identifier",
+                                                                        "name": "D",
+                                                                        "raw": "D"
+                                                                    }
+                                                                },
+                                                                "right": {
+                                                                    "type": "Identifier",
+                                                                    "name": "D",
+                                                                    "raw": "D"
+                                                                }
+                                                            },
+                                                            "right": {
+                                                                "type": "Identifier",
+                                                                "name": "a11",
+                                                                "raw": "a11"
+                                                            }
+                                                        },
+                                                        "right": {
+                                                            "type": "Identifier",
+                                                            "name": "D",
+                                                            "raw": "D"
+                                                        }
+                                                    },
+                                                    "right": {
+                                                        "type": "Identifier",
+                                                        "name": "a01",
+                                                        "raw": "a01"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "Identifier",
+                            "name": "y",
+                            "raw": "y"
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "ptr3_rect",
+                "raw": "ptr3_rect"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "p",
+                    "raw": "p"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "T0",
+                    "raw": "T0"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "P0",
+                    "raw": "P0"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "w",
+                    "raw": "w"
+                }
+            ],
+            "defaults": [
+                null,
+                null,
+                null,
+                null
+            ],
+            "decls": [],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "T2",
+                                "raw": "T2"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "+",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "T0",
+                                    "raw": "T0"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "T0",
+                                    "raw": "T0"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "T3",
+                                "raw": "T3"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "+",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "T2",
+                                    "raw": "T2"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "T0",
+                                    "raw": "T0"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "P2",
+                                "raw": "P2"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "*",
+                                "left": {
+                                    "type": "BinaryExpression",
+                                    "operator": "*",
+                                    "left": {
+                                        "type": "Identifier",
+                                        "name": "P0",
+                                        "raw": "P0"
+                                    },
+                                    "right": {
+                                        "type": "Identifier",
+                                        "name": "P0",
+                                        "raw": "P0"
+                                    }
+                                },
+                                "right": {
+                                    "type": "Literal",
+                                    "value": 0.5,
+                                    "raw": "0.5",
+                                    "gen_kind": "float"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "P3",
+                                "raw": "P3"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "*",
+                                "left": {
+                                    "type": "BinaryExpression",
+                                    "operator": "*",
+                                    "left": {
+                                        "type": "BinaryExpression",
+                                        "operator": "*",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "P0",
+                                            "raw": "P0"
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "P0",
+                                            "raw": "P0"
+                                        }
+                                    },
+                                    "right": {
+                                        "type": "Identifier",
+                                        "name": "P0",
+                                        "raw": "P0"
+                                    }
+                                },
+                                "right": {
+                                    "type": "Literal",
+                                    "value": 0.166666666666,
+                                    "raw": "0.166666666666",
+                                    "gen_kind": "float"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "s",
+                                "raw": "s"
+                            },
+                            "right": {
+                                "type": "Literal",
+                                "value": 0,
+                                "raw": "0",
+                                "gen_kind": "integer"
+                            }
+                        }
+                    },
+                    {
+                        "type": "IfStatement",
+                        "test": {
+                            "type": "BinaryExpression",
+                            "operator": "<",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "p",
+                                "raw": "p"
+                            },
+                            "right": {
+                                "type": "Identifier",
+                                "name": "w",
+                                "raw": "w"
+                            }
+                        },
+                        "consequent": {
+                            "type": "BlockStatement",
+                            "body": [
+                                {
+                                    "type": "IfStatement",
+                                    "test": {
+                                        "type": "BinaryExpression",
+                                        "operator": "<",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "p",
+                                            "raw": "p"
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "T0",
+                                            "raw": "T0"
+                                        }
+                                    },
+                                    "consequent": {
+                                        "type": "BlockStatement",
+                                        "body": [
+                                            {
+                                                "type": "ExpressionStatement",
+                                                "expression": {
+                                                    "type": "AssignmentExpression",
+                                                    "operator": "=",
+                                                    "left": {
+                                                        "type": "Identifier",
+                                                        "name": "s",
+                                                        "raw": "s"
+                                                    },
+                                                    "right": {
+                                                        "type": "BinaryExpression",
+                                                        "operator": "+",
+                                                        "left": {
+                                                            "type": "BinaryExpression",
+                                                            "operator": "*",
+                                                            "left": {
+                                                                "type": "UnaryExpression",
+                                                                "operator": "-",
+                                                                "argument": {
+                                                                    "type": "BinaryExpression",
+                                                                    "operator": "*",
+                                                                    "left": {
+                                                                        "type": "BinaryExpression",
+                                                                        "operator": "*",
+                                                                        "left": {
+                                                                            "type": "Identifier",
+                                                                            "name": "p",
+                                                                            "raw": "p"
+                                                                        },
+                                                                        "right": {
+                                                                            "type": "Identifier",
+                                                                            "name": "p",
+                                                                            "raw": "p"
+                                                                        }
+                                                                    },
+                                                                    "right": {
+                                                                        "type": "Identifier",
+                                                                        "name": "p",
+                                                                        "raw": "p"
+                                                                    }
+                                                                },
+                                                                "prefix": true
+                                                            },
+                                                            "right": {
+                                                                "type": "Identifier",
+                                                                "name": "P3",
+                                                                "raw": "P3"
+                                                            }
+                                                        },
+                                                        "right": {
+                                                            "type": "Identifier",
+                                                            "name": "w",
+                                                            "raw": "w"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "alternate": {
+                                        "type": "IfStatement",
+                                        "test": {
+                                            "type": "BinaryExpression",
+                                            "operator": "<",
+                                            "left": {
+                                                "type": "Identifier",
+                                                "name": "p",
+                                                "raw": "p"
+                                            },
+                                            "right": {
+                                                "type": "Identifier",
+                                                "name": "T2",
+                                                "raw": "T2"
+                                            }
+                                        },
+                                        "consequent": {
+                                            "type": "BlockStatement",
+                                            "body": [
+                                                {
+                                                    "type": "ExpressionStatement",
+                                                    "expression": {
+                                                        "type": "AssignmentExpression",
+                                                        "operator": "=",
+                                                        "left": {
+                                                            "type": "Identifier",
+                                                            "name": "pp",
+                                                            "raw": "pp"
+                                                        },
+                                                        "right": {
+                                                            "type": "BinaryExpression",
+                                                            "operator": "*",
+                                                            "left": {
+                                                                "type": "Identifier",
+                                                                "name": "p",
+                                                                "raw": "p"
+                                                            },
+                                                            "right": {
+                                                                "type": "Identifier",
+                                                                "name": "p",
+                                                                "raw": "p"
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                {
+                                                    "type": "ExpressionStatement",
+                                                    "expression": {
+                                                        "type": "AssignmentExpression",
+                                                        "operator": "=",
+                                                        "left": {
+                                                            "type": "Identifier",
+                                                            "name": "ppp",
+                                                            "raw": "ppp"
+                                                        },
+                                                        "right": {
+                                                            "type": "BinaryExpression",
+                                                            "operator": "*",
+                                                            "left": {
+                                                                "type": "Identifier",
+                                                                "name": "pp",
+                                                                "raw": "pp"
+                                                            },
+                                                            "right": {
+                                                                "type": "Identifier",
+                                                                "name": "p",
+                                                                "raw": "p"
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                {
+                                                    "type": "ExpressionStatement",
+                                                    "expression": {
+                                                        "type": "AssignmentExpression",
+                                                        "operator": "=",
+                                                        "left": {
+                                                            "type": "Identifier",
+                                                            "name": "s",
+                                                            "raw": "s"
+                                                        },
+                                                        "right": {
+                                                            "type": "BinaryExpression",
+                                                            "operator": "-",
+                                                            "left": {
+                                                                "type": "BinaryExpression",
+                                                                "operator": "+",
+                                                                "left": {
+                                                                    "type": "BinaryExpression",
+                                                                    "operator": "*",
+                                                                    "left": {
+                                                                        "type": "BinaryExpression",
+                                                                        "operator": "+",
+                                                                        "left": {
+                                                                            "type": "BinaryExpression",
+                                                                            "operator": "-",
+                                                                            "left": {
+                                                                                "type": "BinaryExpression",
+                                                                                "operator": "*",
+                                                                                "left": {
+                                                                                    "type": "BinaryExpression",
+                                                                                    "operator": "+",
+                                                                                    "left": {
+                                                                                        "type": "Identifier",
+                                                                                        "name": "ppp",
+                                                                                        "raw": "ppp"
+                                                                                    },
+                                                                                    "right": {
+                                                                                        "type": "Identifier",
+                                                                                        "name": "ppp",
+                                                                                        "raw": "ppp"
+                                                                                    }
+                                                                                },
+                                                                                "right": {
+                                                                                    "type": "Identifier",
+                                                                                    "name": "P3",
+                                                                                    "raw": "P3"
+                                                                                }
+                                                                            },
+                                                                            "right": {
+                                                                                "type": "BinaryExpression",
+                                                                                "operator": "*",
+                                                                                "left": {
+                                                                                    "type": "BinaryExpression",
+                                                                                    "operator": "+",
+                                                                                    "left": {
+                                                                                        "type": "BinaryExpression",
+                                                                                        "operator": "+",
+                                                                                        "left": {
+                                                                                            "type": "Identifier",
+                                                                                            "name": "pp",
+                                                                                            "raw": "pp"
+                                                                                        },
+                                                                                        "right": {
+                                                                                            "type": "Identifier",
+                                                                                            "name": "pp",
+                                                                                            "raw": "pp"
+                                                                                        }
+                                                                                    },
+                                                                                    "right": {
+                                                                                        "type": "Identifier",
+                                                                                        "name": "pp",
+                                                                                        "raw": "pp"
+                                                                                    }
+                                                                                },
+                                                                                "right": {
+                                                                                    "type": "Identifier",
+                                                                                    "name": "P2",
+                                                                                    "raw": "P2"
+                                                                                }
+                                                                            }
+                                                                        },
+                                                                        "right": {
+                                                                            "type": "BinaryExpression",
+                                                                            "operator": "*",
+                                                                            "left": {
+                                                                                "type": "Literal",
+                                                                                "value": 1.5,
+                                                                                "raw": "1.5",
+                                                                                "gen_kind": "float"
+                                                                            },
+                                                                            "right": {
+                                                                                "type": "Identifier",
+                                                                                "name": "p",
+                                                                                "raw": "p"
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    "right": {
+                                                                        "type": "Identifier",
+                                                                        "name": "P0",
+                                                                        "raw": "P0"
+                                                                    }
+                                                                },
+                                                                "right": {
+                                                                    "type": "Identifier",
+                                                                    "name": "w",
+                                                                    "raw": "w"
+                                                                }
+                                                            },
+                                                            "right": {
+                                                                "type": "Literal",
+                                                                "value": 0.5,
+                                                                "raw": "0.5",
+                                                                "gen_kind": "float"
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        "alternate": {
+                                            "type": "IfStatement",
+                                            "test": {
+                                                "type": "BinaryExpression",
+                                                "operator": "<",
+                                                "left": {
+                                                    "type": "Identifier",
+                                                    "name": "p",
+                                                    "raw": "p"
+                                                },
+                                                "right": {
+                                                    "type": "Identifier",
+                                                    "name": "T3",
+                                                    "raw": "T3"
+                                                }
+                                            },
+                                            "consequent": {
+                                                "type": "BlockStatement",
+                                                "body": [
+                                                    {
+                                                        "type": "ExpressionStatement",
+                                                        "expression": {
+                                                            "type": "AssignmentExpression",
+                                                            "operator": "=",
+                                                            "left": {
+                                                                "type": "Identifier",
+                                                                "name": "pp",
+                                                                "raw": "pp"
+                                                            },
+                                                            "right": {
+                                                                "type": "BinaryExpression",
+                                                                "operator": "*",
+                                                                "left": {
+                                                                    "type": "Identifier",
+                                                                    "name": "p",
+                                                                    "raw": "p"
+                                                                },
+                                                                "right": {
+                                                                    "type": "Identifier",
+                                                                    "name": "p",
+                                                                    "raw": "p"
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "type": "ExpressionStatement",
+                                                        "expression": {
+                                                            "type": "AssignmentExpression",
+                                                            "operator": "=",
+                                                            "left": {
+                                                                "type": "Identifier",
+                                                                "name": "ppp",
+                                                                "raw": "ppp"
+                                                            },
+                                                            "right": {
+                                                                "type": "BinaryExpression",
+                                                                "operator": "*",
+                                                                "left": {
+                                                                    "type": "Identifier",
+                                                                    "name": "pp",
+                                                                    "raw": "pp"
+                                                                },
+                                                                "right": {
+                                                                    "type": "Identifier",
+                                                                    "name": "p",
+                                                                    "raw": "p"
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "type": "ExpressionStatement",
+                                                        "expression": {
+                                                            "type": "AssignmentExpression",
+                                                            "operator": "=",
+                                                            "left": {
+                                                                "type": "Identifier",
+                                                                "name": "s",
+                                                                "raw": "s"
+                                                            },
+                                                            "right": {
+                                                                "type": "BinaryExpression",
+                                                                "operator": "+",
+                                                                "left": {
+                                                                    "type": "BinaryExpression",
+                                                                    "operator": "+",
+                                                                    "left": {
+                                                                        "type": "BinaryExpression",
+                                                                        "operator": "*",
+                                                                        "left": {
+                                                                            "type": "BinaryExpression",
+                                                                            "operator": "-",
+                                                                            "left": {
+                                                                                "type": "BinaryExpression",
+                                                                                "operator": "+",
+                                                                                "left": {
+                                                                                    "type": "BinaryExpression",
+                                                                                    "operator": "*",
+                                                                                    "left": {
+                                                                                        "type": "UnaryExpression",
+                                                                                        "operator": "-",
+                                                                                        "argument": {
+                                                                                            "type": "Identifier",
+                                                                                            "name": "ppp",
+                                                                                            "raw": "ppp"
+                                                                                        },
+                                                                                        "prefix": true
+                                                                                    },
+                                                                                    "right": {
+                                                                                        "type": "Identifier",
+                                                                                        "name": "P3",
+                                                                                        "raw": "P3"
+                                                                                    }
+                                                                                },
+                                                                                "right": {
+                                                                                    "type": "BinaryExpression",
+                                                                                    "operator": "*",
+                                                                                    "left": {
+                                                                                        "type": "BinaryExpression",
+                                                                                        "operator": "+",
+                                                                                        "left": {
+                                                                                            "type": "BinaryExpression",
+                                                                                            "operator": "+",
+                                                                                            "left": {
+                                                                                                "type": "Identifier",
+                                                                                                "name": "pp",
+                                                                                                "raw": "pp"
+                                                                                            },
+                                                                                            "right": {
+                                                                                                "type": "Identifier",
+                                                                                                "name": "pp",
+                                                                                                "raw": "pp"
+                                                                                            }
+                                                                                        },
+                                                                                        "right": {
+                                                                                            "type": "Identifier",
+                                                                                            "name": "pp",
+                                                                                            "raw": "pp"
+                                                                                        }
+                                                                                    },
+                                                                                    "right": {
+                                                                                        "type": "Identifier",
+                                                                                        "name": "P2",
+                                                                                        "raw": "P2"
+                                                                                    }
+                                                                                }
+                                                                            },
+                                                                            "right": {
+                                                                                "type": "BinaryExpression",
+                                                                                "operator": "*",
+                                                                                "left": {
+                                                                                    "type": "Literal",
+                                                                                    "value": 4.5,
+                                                                                    "raw": "4.5",
+                                                                                    "gen_kind": "float"
+                                                                                },
+                                                                                "right": {
+                                                                                    "type": "Identifier",
+                                                                                    "name": "p",
+                                                                                    "raw": "p"
+                                                                                }
+                                                                            }
+                                                                        },
+                                                                        "right": {
+                                                                            "type": "Identifier",
+                                                                            "name": "P0",
+                                                                            "raw": "P0"
+                                                                        }
+                                                                    },
+                                                                    "right": {
+                                                                        "type": "Identifier",
+                                                                        "name": "w",
+                                                                        "raw": "w"
+                                                                    }
+                                                                },
+                                                                "right": {
+                                                                    "type": "Literal",
+                                                                    "value": 3.5,
+                                                                    "raw": "3.5",
+                                                                    "gen_kind": "float"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "alternate": {
+                                                "type": "BlockStatement",
+                                                "body": [
+                                                    {
+                                                        "type": "ExpressionStatement",
+                                                        "expression": {
+                                                            "type": "AssignmentExpression",
+                                                            "operator": "=",
+                                                            "left": {
+                                                                "type": "Identifier",
+                                                                "name": "s",
+                                                                "raw": "s"
+                                                            },
+                                                            "right": {
+                                                                "type": "BinaryExpression",
+                                                                "operator": "-",
+                                                                "left": {
+                                                                    "type": "Identifier",
+                                                                    "name": "w",
+                                                                    "raw": "w"
+                                                                },
+                                                                "right": {
+                                                                    "type": "Literal",
+                                                                    "value": 1,
+                                                                    "raw": "1",
+                                                                    "gen_kind": "integer"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "alternate": {
+                            "type": "BlockStatement",
+                            "body": [
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "pw",
+                                            "raw": "pw"
+                                        },
+                                        "right": {
+                                            "type": "BinaryExpression",
+                                            "operator": "-",
+                                            "left": {
+                                                "type": "Identifier",
+                                                "name": "p",
+                                                "raw": "p"
+                                            },
+                                            "right": {
+                                                "type": "Identifier",
+                                                "name": "w",
+                                                "raw": "w"
+                                            }
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "IfStatement",
+                                    "test": {
+                                        "type": "BinaryExpression",
+                                        "operator": "<",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "pw",
+                                            "raw": "pw"
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "T0",
+                                            "raw": "T0"
+                                        }
+                                    },
+                                    "consequent": {
+                                        "type": "BlockStatement",
+                                        "body": [
+                                            {
+                                                "type": "ExpressionStatement",
+                                                "expression": {
+                                                    "type": "AssignmentExpression",
+                                                    "operator": "=",
+                                                    "left": {
+                                                        "type": "Identifier",
+                                                        "name": "s",
+                                                        "raw": "s"
+                                                    },
+                                                    "right": {
+                                                        "type": "BinaryExpression",
+                                                        "operator": "-",
+                                                        "left": {
+                                                            "type": "BinaryExpression",
+                                                            "operator": "+",
+                                                            "left": {
+                                                                "type": "BinaryExpression",
+                                                                "operator": "*",
+                                                                "left": {
+                                                                    "type": "BinaryExpression",
+                                                                    "operator": "*",
+                                                                    "left": {
+                                                                        "type": "BinaryExpression",
+                                                                        "operator": "*",
+                                                                        "left": {
+                                                                            "type": "Identifier",
+                                                                            "name": "pw",
+                                                                            "raw": "pw"
+                                                                        },
+                                                                        "right": {
+                                                                            "type": "Identifier",
+                                                                            "name": "pw",
+                                                                            "raw": "pw"
+                                                                        }
+                                                                    },
+                                                                    "right": {
+                                                                        "type": "Identifier",
+                                                                        "name": "pw",
+                                                                        "raw": "pw"
+                                                                    }
+                                                                },
+                                                                "right": {
+                                                                    "type": "Identifier",
+                                                                    "name": "P3",
+                                                                    "raw": "P3"
+                                                                }
+                                                            },
+                                                            "right": {
+                                                                "type": "Identifier",
+                                                                "name": "w",
+                                                                "raw": "w"
+                                                            }
+                                                        },
+                                                        "right": {
+                                                            "type": "Literal",
+                                                            "value": 1,
+                                                            "raw": "1",
+                                                            "gen_kind": "integer"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "alternate": {
+                                        "type": "IfStatement",
+                                        "test": {
+                                            "type": "BinaryExpression",
+                                            "operator": "<",
+                                            "left": {
+                                                "type": "Identifier",
+                                                "name": "pw",
+                                                "raw": "pw"
+                                            },
+                                            "right": {
+                                                "type": "Identifier",
+                                                "name": "T2",
+                                                "raw": "T2"
+                                            }
+                                        },
+                                        "consequent": {
+                                            "type": "BlockStatement",
+                                            "body": [
+                                                {
+                                                    "type": "ExpressionStatement",
+                                                    "expression": {
+                                                        "type": "AssignmentExpression",
+                                                        "operator": "=",
+                                                        "left": {
+                                                            "type": "Identifier",
+                                                            "name": "ppw",
+                                                            "raw": "ppw"
+                                                        },
+                                                        "right": {
+                                                            "type": "BinaryExpression",
+                                                            "operator": "*",
+                                                            "left": {
+                                                                "type": "Identifier",
+                                                                "name": "pw",
+                                                                "raw": "pw"
+                                                            },
+                                                            "right": {
+                                                                "type": "Identifier",
+                                                                "name": "pw",
+                                                                "raw": "pw"
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                {
+                                                    "type": "ExpressionStatement",
+                                                    "expression": {
+                                                        "type": "AssignmentExpression",
+                                                        "operator": "=",
+                                                        "left": {
+                                                            "type": "Identifier",
+                                                            "name": "pppw",
+                                                            "raw": "pppw"
+                                                        },
+                                                        "right": {
+                                                            "type": "BinaryExpression",
+                                                            "operator": "*",
+                                                            "left": {
+                                                                "type": "Identifier",
+                                                                "name": "ppw",
+                                                                "raw": "ppw"
+                                                            },
+                                                            "right": {
+                                                                "type": "Identifier",
+                                                                "name": "pw",
+                                                                "raw": "pw"
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                {
+                                                    "type": "ExpressionStatement",
+                                                    "expression": {
+                                                        "type": "AssignmentExpression",
+                                                        "operator": "=",
+                                                        "left": {
+                                                            "type": "Identifier",
+                                                            "name": "s",
+                                                            "raw": "s"
+                                                        },
+                                                        "right": {
+                                                            "type": "BinaryExpression",
+                                                            "operator": "-",
+                                                            "left": {
+                                                                "type": "BinaryExpression",
+                                                                "operator": "+",
+                                                                "left": {
+                                                                    "type": "BinaryExpression",
+                                                                    "operator": "*",
+                                                                    "left": {
+                                                                        "type": "BinaryExpression",
+                                                                        "operator": "-",
+                                                                        "left": {
+                                                                            "type": "BinaryExpression",
+                                                                            "operator": "+",
+                                                                            "left": {
+                                                                                "type": "BinaryExpression",
+                                                                                "operator": "*",
+                                                                                "left": {
+                                                                                    "type": "UnaryExpression",
+                                                                                    "operator": "-",
+                                                                                    "argument": {
+                                                                                        "type": "BinaryExpression",
+                                                                                        "operator": "+",
+                                                                                        "left": {
+                                                                                            "type": "Identifier",
+                                                                                            "name": "pppw",
+                                                                                            "raw": "pppw"
+                                                                                        },
+                                                                                        "right": {
+                                                                                            "type": "Identifier",
+                                                                                            "name": "pppw",
+                                                                                            "raw": "pppw"
+                                                                                        }
+                                                                                    },
+                                                                                    "prefix": true
+                                                                                },
+                                                                                "right": {
+                                                                                    "type": "Identifier",
+                                                                                    "name": "P3",
+                                                                                    "raw": "P3"
+                                                                                }
+                                                                            },
+                                                                            "right": {
+                                                                                "type": "BinaryExpression",
+                                                                                "operator": "*",
+                                                                                "left": {
+                                                                                    "type": "BinaryExpression",
+                                                                                    "operator": "+",
+                                                                                    "left": {
+                                                                                        "type": "BinaryExpression",
+                                                                                        "operator": "+",
+                                                                                        "left": {
+                                                                                            "type": "Identifier",
+                                                                                            "name": "ppw",
+                                                                                            "raw": "ppw"
+                                                                                        },
+                                                                                        "right": {
+                                                                                            "type": "Identifier",
+                                                                                            "name": "ppw",
+                                                                                            "raw": "ppw"
+                                                                                        }
+                                                                                    },
+                                                                                    "right": {
+                                                                                        "type": "Identifier",
+                                                                                        "name": "ppw",
+                                                                                        "raw": "ppw"
+                                                                                    }
+                                                                                },
+                                                                                "right": {
+                                                                                    "type": "Identifier",
+                                                                                    "name": "P2",
+                                                                                    "raw": "P2"
+                                                                                }
+                                                                            }
+                                                                        },
+                                                                        "right": {
+                                                                            "type": "BinaryExpression",
+                                                                            "operator": "*",
+                                                                            "left": {
+                                                                                "type": "Literal",
+                                                                                "value": 1.5,
+                                                                                "raw": "1.5",
+                                                                                "gen_kind": "float"
+                                                                            },
+                                                                            "right": {
+                                                                                "type": "Identifier",
+                                                                                "name": "pw",
+                                                                                "raw": "pw"
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    "right": {
+                                                                        "type": "Identifier",
+                                                                        "name": "P0",
+                                                                        "raw": "P0"
+                                                                    }
+                                                                },
+                                                                "right": {
+                                                                    "type": "Identifier",
+                                                                    "name": "w",
+                                                                    "raw": "w"
+                                                                }
+                                                            },
+                                                            "right": {
+                                                                "type": "Literal",
+                                                                "value": 0.5,
+                                                                "raw": "0.5",
+                                                                "gen_kind": "float"
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        "alternate": {
+                                            "type": "IfStatement",
+                                            "test": {
+                                                "type": "BinaryExpression",
+                                                "operator": "<",
+                                                "left": {
+                                                    "type": "Identifier",
+                                                    "name": "pw",
+                                                    "raw": "pw"
+                                                },
+                                                "right": {
+                                                    "type": "Identifier",
+                                                    "name": "T3",
+                                                    "raw": "T3"
+                                                }
+                                            },
+                                            "consequent": {
+                                                "type": "BlockStatement",
+                                                "body": [
+                                                    {
+                                                        "type": "ExpressionStatement",
+                                                        "expression": {
+                                                            "type": "AssignmentExpression",
+                                                            "operator": "=",
+                                                            "left": {
+                                                                "type": "Identifier",
+                                                                "name": "ppw",
+                                                                "raw": "ppw"
+                                                            },
+                                                            "right": {
+                                                                "type": "BinaryExpression",
+                                                                "operator": "*",
+                                                                "left": {
+                                                                    "type": "Identifier",
+                                                                    "name": "pw",
+                                                                    "raw": "pw"
+                                                                },
+                                                                "right": {
+                                                                    "type": "Identifier",
+                                                                    "name": "pw",
+                                                                    "raw": "pw"
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "type": "ExpressionStatement",
+                                                        "expression": {
+                                                            "type": "AssignmentExpression",
+                                                            "operator": "=",
+                                                            "left": {
+                                                                "type": "Identifier",
+                                                                "name": "pppw",
+                                                                "raw": "pppw"
+                                                            },
+                                                            "right": {
+                                                                "type": "BinaryExpression",
+                                                                "operator": "*",
+                                                                "left": {
+                                                                    "type": "Identifier",
+                                                                    "name": "ppw",
+                                                                    "raw": "ppw"
+                                                                },
+                                                                "right": {
+                                                                    "type": "Identifier",
+                                                                    "name": "pw",
+                                                                    "raw": "pw"
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "type": "ExpressionStatement",
+                                                        "expression": {
+                                                            "type": "AssignmentExpression",
+                                                            "operator": "=",
+                                                            "left": {
+                                                                "type": "Identifier",
+                                                                "name": "s",
+                                                                "raw": "s"
+                                                            },
+                                                            "right": {
+                                                                "type": "BinaryExpression",
+                                                                "operator": "-",
+                                                                "left": {
+                                                                    "type": "BinaryExpression",
+                                                                    "operator": "+",
+                                                                    "left": {
+                                                                        "type": "BinaryExpression",
+                                                                        "operator": "*",
+                                                                        "left": {
+                                                                            "type": "BinaryExpression",
+                                                                            "operator": "+",
+                                                                            "left": {
+                                                                                "type": "BinaryExpression",
+                                                                                "operator": "-",
+                                                                                "left": {
+                                                                                    "type": "BinaryExpression",
+                                                                                    "operator": "*",
+                                                                                    "left": {
+                                                                                        "type": "Identifier",
+                                                                                        "name": "pppw",
+                                                                                        "raw": "pppw"
+                                                                                    },
+                                                                                    "right": {
+                                                                                        "type": "Identifier",
+                                                                                        "name": "P3",
+                                                                                        "raw": "P3"
+                                                                                    }
+                                                                                },
+                                                                                "right": {
+                                                                                    "type": "BinaryExpression",
+                                                                                    "operator": "*",
+                                                                                    "left": {
+                                                                                        "type": "BinaryExpression",
+                                                                                        "operator": "+",
+                                                                                        "left": {
+                                                                                            "type": "BinaryExpression",
+                                                                                            "operator": "+",
+                                                                                            "left": {
+                                                                                                "type": "Identifier",
+                                                                                                "name": "ppw",
+                                                                                                "raw": "ppw"
+                                                                                            },
+                                                                                            "right": {
+                                                                                                "type": "Identifier",
+                                                                                                "name": "ppw",
+                                                                                                "raw": "ppw"
+                                                                                            }
+                                                                                        },
+                                                                                        "right": {
+                                                                                            "type": "Identifier",
+                                                                                            "name": "ppw",
+                                                                                            "raw": "ppw"
+                                                                                        }
+                                                                                    },
+                                                                                    "right": {
+                                                                                        "type": "Identifier",
+                                                                                        "name": "P2",
+                                                                                        "raw": "P2"
+                                                                                    }
+                                                                                }
+                                                                            },
+                                                                            "right": {
+                                                                                "type": "BinaryExpression",
+                                                                                "operator": "*",
+                                                                                "left": {
+                                                                                    "type": "Literal",
+                                                                                    "value": 4.5,
+                                                                                    "raw": "4.5",
+                                                                                    "gen_kind": "float"
+                                                                                },
+                                                                                "right": {
+                                                                                    "type": "Identifier",
+                                                                                    "name": "pw",
+                                                                                    "raw": "pw"
+                                                                                }
+                                                                            }
+                                                                        },
+                                                                        "right": {
+                                                                            "type": "Identifier",
+                                                                            "name": "P0",
+                                                                            "raw": "P0"
+                                                                        }
+                                                                    },
+                                                                    "right": {
+                                                                        "type": "Identifier",
+                                                                        "name": "w",
+                                                                        "raw": "w"
+                                                                    }
+                                                                },
+                                                                "right": {
+                                                                    "type": "Literal",
+                                                                    "value": 4.5,
+                                                                    "raw": "4.5",
+                                                                    "gen_kind": "float"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "alternate": {
+                                                "type": "BlockStatement",
+                                                "body": [
+                                                    {
+                                                        "type": "ExpressionStatement",
+                                                        "expression": {
+                                                            "type": "AssignmentExpression",
+                                                            "operator": "=",
+                                                            "left": {
+                                                                "type": "Identifier",
+                                                                "name": "s",
+                                                                "raw": "s"
+                                                            },
+                                                            "right": {
+                                                                "type": "Identifier",
+                                                                "name": "w",
+                                                                "raw": "w"
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "Identifier",
+                            "name": "s",
+                            "raw": "s"
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        }
+    ],
+    "decls": [],
+    "body": []
+}

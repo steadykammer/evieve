@@ -1,0 +1,16 @@
+
+// like [rand~] (linear)
+// very predictable and gives exact notches
+eviRand(p) {								// phasor input, not frequency
+	History prev(0);
+	rr = (delta(p)) < 0;                    // assumes positive freq only
+	a  = latch(prev, rr);
+	n  = noise();
+	b  = latch(n, rr);
+	nv = mix(a, b, p);						// interp(p, a, b, mode="cosine") for more fun
+	prev = b;
+	return nv, n;
+}
+
+out1 = eviRand(phasor(in1));
+

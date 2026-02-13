@@ -8,7 +8,8 @@
         "genExpr": {
             "input": "../../../../code/evi_genexpr",
             "config": "../refs/expr_ref",
-            "output": ""
+            "json": "../../../../docs/refpages/evieve-genexpr/genexpr-data",
+            "output": "../../../../docs/refpages/evieve-genexpr/evi-genexpr"
         },
         "genDsp": {
             "input": "../../../../code/evi_gendsp",

@@ -1,0 +1,4272 @@
+{
+    "type": "TranslationUnit",
+    "commands": [
+        {
+            "type": "ExpressionStatement",
+            "expression": {
+                "type": "CallExpression",
+                "callee": {
+                    "type": "Identifier",
+                    "name": "require"
+                },
+                "arguments": [
+                    {
+                        "type": "Literal",
+                        "value": "evi_approx.genexpr",
+                        "raw": "\"evi_approx.genexpr\"",
+                        "gen_kind": "string"
+                    }
+                ]
+            },
+            "gen_kind": "compiler_command"
+        }
+    ],
+    "functions": [
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "eviXover2pole2band",
+                "raw": "eviXover2pole2band"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "X",
+                    "raw": "X"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "xover",
+                    "raw": "xover"
+                }
+            ],
+            "defaults": [
+                null,
+                null
+            ],
+            "decls": [
+                [
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "state1",
+                                    "raw": "state1"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "state2",
+                                    "raw": "state2"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            ],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "w2",
+                                "raw": "w2"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "BinaryExpression",
+                                        "operator": "/",
+                                        "left": {
+                                            "type": "BinaryExpression",
+                                            "operator": "*",
+                                            "left": {
+                                                "type": "Identifier",
+                                                "name": "xover",
+                                                "raw": "xover"
+                                            },
+                                            "right": {
+                                                "type": "Identifier",
+                                                "name": "PI",
+                                                "raw": "PI"
+                                            }
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "samplerate",
+                                            "raw": "samplerate"
+                                        }
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "tanA2",
+                                    "raw": "tanA2"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "s1",
+                                "raw": "s1"
+                            },
+                            "right": {
+                                "type": "Identifier",
+                                "name": "state1",
+                                "raw": "state1"
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "g2",
+                                "raw": "g2"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "*",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "w2",
+                                    "raw": "w2"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "w2",
+                                    "raw": "w2"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "s2",
+                                "raw": "s2"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "+",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "state2",
+                                    "raw": "state2"
+                                },
+                                "right": {
+                                    "type": "BinaryExpression",
+                                    "operator": "*",
+                                    "left": {
+                                        "type": "Identifier",
+                                        "name": "s1",
+                                        "raw": "s1"
+                                    },
+                                    "right": {
+                                        "type": "Identifier",
+                                        "name": "w2",
+                                        "raw": "w2"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "gS",
+                                "raw": "gS"
+                            },
+                            "right": {
+                                "type": "UnaryExpression",
+                                "operator": "-",
+                                "argument": {
+                                    "type": "BinaryExpression",
+                                    "operator": "+",
+                                    "left": {
+                                        "type": "BinaryExpression",
+                                        "operator": "+",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "g2",
+                                            "raw": "g2"
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "w2",
+                                            "raw": "w2"
+                                        }
+                                    },
+                                    "right": {
+                                        "type": "Identifier",
+                                        "name": "w2",
+                                        "raw": "w2"
+                                    }
+                                },
+                                "prefix": true
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "sS",
+                                "raw": "sS"
+                            },
+                            "right": {
+                                "type": "UnaryExpression",
+                                "operator": "-",
+                                "argument": {
+                                    "type": "BinaryExpression",
+                                    "operator": "+",
+                                    "left": {
+                                        "type": "BinaryExpression",
+                                        "operator": "+",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "s2",
+                                            "raw": "s2"
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "s1",
+                                            "raw": "s1"
+                                        }
+                                    },
+                                    "right": {
+                                        "type": "Identifier",
+                                        "name": "s1",
+                                        "raw": "s1"
+                                    }
+                                },
+                                "prefix": true
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "alpha",
+                                "raw": "alpha"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "/",
+                                "left": {
+                                    "type": "Literal",
+                                    "value": 1,
+                                    "raw": "1",
+                                    "gen_kind": "integer"
+                                },
+                                "right": {
+                                    "type": "BinaryExpression",
+                                    "operator": "-",
+                                    "left": {
+                                        "type": "Literal",
+                                        "value": 1,
+                                        "raw": "1",
+                                        "gen_kind": "integer"
+                                    },
+                                    "right": {
+                                        "type": "Identifier",
+                                        "name": "gS",
+                                        "raw": "gS"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "x0",
+                                "raw": "x0"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "*",
+                                "left": {
+                                    "type": "BinaryExpression",
+                                    "operator": "+",
+                                    "left": {
+                                        "type": "BinaryExpression",
+                                        "operator": "*",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "X",
+                                            "raw": "X"
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "gS",
+                                            "raw": "gS"
+                                        }
+                                    },
+                                    "right": {
+                                        "type": "Identifier",
+                                        "name": "sS",
+                                        "raw": "sS"
+                                    }
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "alpha",
+                                    "raw": "alpha"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "y0",
+                                "raw": "y0"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "+",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "X",
+                                    "raw": "X"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "x0",
+                                    "raw": "x0"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "x1",
+                                "raw": "x1"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "*",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "y0",
+                                    "raw": "y0"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "w2",
+                                    "raw": "w2"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "y1",
+                                "raw": "y1"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "+",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "x1",
+                                    "raw": "x1"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "state1",
+                                    "raw": "state1"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "x2",
+                                "raw": "x2"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "*",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "y1",
+                                    "raw": "y1"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "w2",
+                                    "raw": "w2"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "y2",
+                                "raw": "y2"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "+",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "x2",
+                                    "raw": "x2"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "state2",
+                                    "raw": "state2"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "state1",
+                                "raw": "state1"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "+",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "x1",
+                                    "raw": "x1"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "y1",
+                                    "raw": "y1"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "state2",
+                                "raw": "state2"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "+",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "x2",
+                                    "raw": "x2"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "y2",
+                                    "raw": "y2"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "ArrayExpression",
+                            "elements": [
+                                {
+                                    "type": "Identifier",
+                                    "name": "y2",
+                                    "raw": "y2"
+                                },
+                                {
+                                    "type": "UnaryExpression",
+                                    "operator": "-",
+                                    "argument": {
+                                        "type": "Identifier",
+                                        "name": "y0",
+                                        "raw": "y0"
+                                    },
+                                    "prefix": true
+                                }
+                            ]
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "eviXover4pole2band",
+                "raw": "eviXover4pole2band"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "X",
+                    "raw": "X"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "xover",
+                    "raw": "xover"
+                }
+            ],
+            "defaults": [
+                null,
+                null
+            ],
+            "decls": [
+                [
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "state1",
+                                    "raw": "state1"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "state2",
+                                    "raw": "state2"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "state3",
+                                    "raw": "state3"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "state4",
+                                    "raw": "state4"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            ],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "w2",
+                                "raw": "w2"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "BinaryExpression",
+                                        "operator": "/",
+                                        "left": {
+                                            "type": "BinaryExpression",
+                                            "operator": "*",
+                                            "left": {
+                                                "type": "Identifier",
+                                                "name": "xover",
+                                                "raw": "xover"
+                                            },
+                                            "right": {
+                                                "type": "Identifier",
+                                                "name": "PI",
+                                                "raw": "PI"
+                                            }
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "samplerate",
+                                            "raw": "samplerate"
+                                        }
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "tanA2",
+                                    "raw": "tanA2"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "SQRT8",
+                                "raw": "SQRT8"
+                            },
+                            "right": {
+                                "type": "Literal",
+                                "value": 2.8284271247461903,
+                                "raw": "2.8284271247461903",
+                                "gen_kind": "float"
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "s1",
+                                "raw": "s1"
+                            },
+                            "right": {
+                                "type": "Identifier",
+                                "name": "state1",
+                                "raw": "state1"
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "s2",
+                                "raw": "s2"
+                            },
+                            "right": {
+                                "type": "Identifier",
+                                "name": "state2",
+                                "raw": "state2"
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "s3",
+                                "raw": "s3"
+                            },
+                            "right": {
+                                "type": "Identifier",
+                                "name": "state3",
+                                "raw": "state3"
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "g2",
+                                "raw": "g2"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "*",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "w2",
+                                    "raw": "w2"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "w2",
+                                    "raw": "w2"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "g3",
+                                "raw": "g3"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "*",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "g2",
+                                    "raw": "g2"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "w2",
+                                    "raw": "w2"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "g4",
+                                "raw": "g4"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "*",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "g3",
+                                    "raw": "g3"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "w2",
+                                    "raw": "w2"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "s2",
+                                "raw": "s2"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "+",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "state2",
+                                    "raw": "state2"
+                                },
+                                "right": {
+                                    "type": "BinaryExpression",
+                                    "operator": "*",
+                                    "left": {
+                                        "type": "Identifier",
+                                        "name": "s1",
+                                        "raw": "s1"
+                                    },
+                                    "right": {
+                                        "type": "Identifier",
+                                        "name": "w2",
+                                        "raw": "w2"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "s3",
+                                "raw": "s3"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "+",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "state3",
+                                    "raw": "state3"
+                                },
+                                "right": {
+                                    "type": "BinaryExpression",
+                                    "operator": "*",
+                                    "left": {
+                                        "type": "Identifier",
+                                        "name": "s2",
+                                        "raw": "s2"
+                                    },
+                                    "right": {
+                                        "type": "Identifier",
+                                        "name": "w2",
+                                        "raw": "w2"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "s4",
+                                "raw": "s4"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "+",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "state4",
+                                    "raw": "state4"
+                                },
+                                "right": {
+                                    "type": "BinaryExpression",
+                                    "operator": "*",
+                                    "left": {
+                                        "type": "Identifier",
+                                        "name": "s3",
+                                        "raw": "s3"
+                                    },
+                                    "right": {
+                                        "type": "Identifier",
+                                        "name": "w2",
+                                        "raw": "w2"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "gS",
+                                "raw": "gS"
+                            },
+                            "right": {
+                                "type": "UnaryExpression",
+                                "operator": "-",
+                                "argument": {
+                                    "type": "BinaryExpression",
+                                    "operator": "+",
+                                    "left": {
+                                        "type": "BinaryExpression",
+                                        "operator": "*",
+                                        "left": {
+                                            "type": "BinaryExpression",
+                                            "operator": "+",
+                                            "left": {
+                                                "type": "Identifier",
+                                                "name": "w2",
+                                                "raw": "w2"
+                                            },
+                                            "right": {
+                                                "type": "Identifier",
+                                                "name": "g3",
+                                                "raw": "g3"
+                                            }
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "SQRT8",
+                                            "raw": "SQRT8"
+                                        }
+                                    },
+                                    "right": {
+                                        "type": "BinaryExpression",
+                                        "operator": "+",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "g4",
+                                            "raw": "g4"
+                                        },
+                                        "right": {
+                                            "type": "BinaryExpression",
+                                            "operator": "*",
+                                            "left": {
+                                                "type": "Identifier",
+                                                "name": "g2",
+                                                "raw": "g2"
+                                            },
+                                            "right": {
+                                                "type": "Literal",
+                                                "value": 4,
+                                                "raw": "4",
+                                                "gen_kind": "integer"
+                                            }
+                                        }
+                                    }
+                                },
+                                "prefix": true
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "sS",
+                                "raw": "sS"
+                            },
+                            "right": {
+                                "type": "UnaryExpression",
+                                "operator": "-",
+                                "argument": {
+                                    "type": "BinaryExpression",
+                                    "operator": "+",
+                                    "left": {
+                                        "type": "BinaryExpression",
+                                        "operator": "*",
+                                        "left": {
+                                            "type": "BinaryExpression",
+                                            "operator": "+",
+                                            "left": {
+                                                "type": "Identifier",
+                                                "name": "s1",
+                                                "raw": "s1"
+                                            },
+                                            "right": {
+                                                "type": "Identifier",
+                                                "name": "s3",
+                                                "raw": "s3"
+                                            }
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "SQRT8",
+                                            "raw": "SQRT8"
+                                        }
+                                    },
+                                    "right": {
+                                        "type": "BinaryExpression",
+                                        "operator": "+",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "s4",
+                                            "raw": "s4"
+                                        },
+                                        "right": {
+                                            "type": "BinaryExpression",
+                                            "operator": "*",
+                                            "left": {
+                                                "type": "Identifier",
+                                                "name": "s2",
+                                                "raw": "s2"
+                                            },
+                                            "right": {
+                                                "type": "Literal",
+                                                "value": 4,
+                                                "raw": "4",
+                                                "gen_kind": "integer"
+                                            }
+                                        }
+                                    }
+                                },
+                                "prefix": true
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "alpha",
+                                "raw": "alpha"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "/",
+                                "left": {
+                                    "type": "Literal",
+                                    "value": 1,
+                                    "raw": "1",
+                                    "gen_kind": "integer"
+                                },
+                                "right": {
+                                    "type": "BinaryExpression",
+                                    "operator": "-",
+                                    "left": {
+                                        "type": "Literal",
+                                        "value": 1,
+                                        "raw": "1",
+                                        "gen_kind": "integer"
+                                    },
+                                    "right": {
+                                        "type": "Identifier",
+                                        "name": "gS",
+                                        "raw": "gS"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "x0",
+                                "raw": "x0"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "*",
+                                "left": {
+                                    "type": "BinaryExpression",
+                                    "operator": "+",
+                                    "left": {
+                                        "type": "BinaryExpression",
+                                        "operator": "*",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "X",
+                                            "raw": "X"
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "gS",
+                                            "raw": "gS"
+                                        }
+                                    },
+                                    "right": {
+                                        "type": "Identifier",
+                                        "name": "sS",
+                                        "raw": "sS"
+                                    }
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "alpha",
+                                    "raw": "alpha"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "y0",
+                                "raw": "y0"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "+",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "X",
+                                    "raw": "X"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "x0",
+                                    "raw": "x0"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "x1",
+                                "raw": "x1"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "*",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "y0",
+                                    "raw": "y0"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "w2",
+                                    "raw": "w2"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "y1",
+                                "raw": "y1"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "+",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "x1",
+                                    "raw": "x1"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "state1",
+                                    "raw": "state1"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "x2",
+                                "raw": "x2"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "*",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "y1",
+                                    "raw": "y1"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "w2",
+                                    "raw": "w2"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "y2",
+                                "raw": "y2"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "+",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "x2",
+                                    "raw": "x2"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "state2",
+                                    "raw": "state2"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "x3",
+                                "raw": "x3"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "*",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "y2",
+                                    "raw": "y2"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "w2",
+                                    "raw": "w2"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "y3",
+                                "raw": "y3"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "+",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "x3",
+                                    "raw": "x3"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "state3",
+                                    "raw": "state3"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "x4",
+                                "raw": "x4"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "*",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "y3",
+                                    "raw": "y3"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "w2",
+                                    "raw": "w2"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "y4",
+                                "raw": "y4"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "+",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "x4",
+                                    "raw": "x4"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "state4",
+                                    "raw": "state4"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "state1",
+                                "raw": "state1"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "+",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "x1",
+                                    "raw": "x1"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "y1",
+                                    "raw": "y1"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "state2",
+                                "raw": "state2"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "+",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "x2",
+                                    "raw": "x2"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "y2",
+                                    "raw": "y2"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "state3",
+                                "raw": "state3"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "+",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "x3",
+                                    "raw": "x3"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "y3",
+                                    "raw": "y3"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "state4",
+                                "raw": "state4"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "+",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "x4",
+                                    "raw": "x4"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "y4",
+                                    "raw": "y4"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "ArrayExpression",
+                            "elements": [
+                                {
+                                    "type": "Identifier",
+                                    "name": "y4",
+                                    "raw": "y4"
+                                },
+                                {
+                                    "type": "Identifier",
+                                    "name": "y0",
+                                    "raw": "y0"
+                                }
+                            ]
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "eviXover2pole3band",
+                "raw": "eviXover2pole3band"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "X",
+                    "raw": "X"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "xoverLow",
+                    "raw": "xoverLow"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "xoverHigh",
+                    "raw": "xoverHigh"
+                }
+            ],
+            "defaults": [
+                null,
+                null,
+                null
+            ],
+            "decls": [
+                [
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "ex23dummy",
+                                    "raw": "ex23dummy"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            ],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "ArrayPattern",
+                                "elements": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "LOW",
+                                        "raw": "LOW"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "SPLIT",
+                                        "raw": "SPLIT"
+                                    }
+                                ]
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "X",
+                                        "raw": "X"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "xoverLow",
+                                        "raw": "xoverLow"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "eviXover2pole2band",
+                                    "raw": "eviXover2pole2band"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "ArrayPattern",
+                                "elements": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "MID",
+                                        "raw": "MID"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "HIGH",
+                                        "raw": "HIGH"
+                                    }
+                                ]
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "SPLIT",
+                                        "raw": "SPLIT"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "xoverHigh",
+                                        "raw": "xoverHigh"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "eviXover2pole2band",
+                                    "raw": "eviXover2pole2band"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "ArrayExpression",
+                            "elements": [
+                                {
+                                    "type": "Identifier",
+                                    "name": "LOW",
+                                    "raw": "LOW"
+                                },
+                                {
+                                    "type": "Identifier",
+                                    "name": "MID",
+                                    "raw": "MID"
+                                },
+                                {
+                                    "type": "Identifier",
+                                    "name": "HIGH",
+                                    "raw": "HIGH"
+                                }
+                            ]
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "eviXover4pole3band",
+                "raw": "eviXover4pole3band"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "X",
+                    "raw": "X"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "xoverLow",
+                    "raw": "xoverLow"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "xoverHigh",
+                    "raw": "xoverHigh"
+                }
+            ],
+            "defaults": [
+                null,
+                null,
+                null
+            ],
+            "decls": [
+                [
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "ex43dummy",
+                                    "raw": "ex43dummy"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            ],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "ArrayPattern",
+                                "elements": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "LOW",
+                                        "raw": "LOW"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "SPLIT",
+                                        "raw": "SPLIT"
+                                    }
+                                ]
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "X",
+                                        "raw": "X"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "xoverLow",
+                                        "raw": "xoverLow"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "eviXover4pole2band",
+                                    "raw": "eviXover4pole2band"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "ArrayPattern",
+                                "elements": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "MID",
+                                        "raw": "MID"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "HIGH",
+                                        "raw": "HIGH"
+                                    }
+                                ]
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "SPLIT",
+                                        "raw": "SPLIT"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "xoverHigh",
+                                        "raw": "xoverHigh"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "eviXover4pole2band",
+                                    "raw": "eviXover4pole2band"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "ArrayExpression",
+                            "elements": [
+                                {
+                                    "type": "Identifier",
+                                    "name": "LOW",
+                                    "raw": "LOW"
+                                },
+                                {
+                                    "type": "Identifier",
+                                    "name": "MID",
+                                    "raw": "MID"
+                                },
+                                {
+                                    "type": "Identifier",
+                                    "name": "HIGH",
+                                    "raw": "HIGH"
+                                }
+                            ]
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "eviXoverAllpass1",
+                "raw": "eviXoverAllpass1"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "X",
+                    "raw": "X"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "hz",
+                    "raw": "hz"
+                }
+            ],
+            "defaults": [
+                null,
+                null
+            ],
+            "decls": [
+                [
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "s",
+                                    "raw": "s"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            ],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "w2",
+                                "raw": "w2"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "BinaryExpression",
+                                        "operator": "/",
+                                        "left": {
+                                            "type": "BinaryExpression",
+                                            "operator": "*",
+                                            "left": {
+                                                "type": "Identifier",
+                                                "name": "hz",
+                                                "raw": "hz"
+                                            },
+                                            "right": {
+                                                "type": "Identifier",
+                                                "name": "PI",
+                                                "raw": "PI"
+                                            }
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "samplerate",
+                                            "raw": "samplerate"
+                                        }
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "tanA2",
+                                    "raw": "tanA2"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "x0",
+                                "raw": "x0"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "*",
+                                "left": {
+                                    "type": "BinaryExpression",
+                                    "operator": "-",
+                                    "left": {
+                                        "type": "BinaryExpression",
+                                        "operator": "*",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "X",
+                                            "raw": "X"
+                                        },
+                                        "right": {
+                                            "type": "UnaryExpression",
+                                            "operator": "-",
+                                            "argument": {
+                                                "type": "Identifier",
+                                                "name": "w2",
+                                                "raw": "w2"
+                                            },
+                                            "prefix": true
+                                        }
+                                    },
+                                    "right": {
+                                        "type": "Identifier",
+                                        "name": "s",
+                                        "raw": "s"
+                                    }
+                                },
+                                "right": {
+                                    "type": "BinaryExpression",
+                                    "operator": "/",
+                                    "left": {
+                                        "type": "Literal",
+                                        "value": 1,
+                                        "raw": "1",
+                                        "gen_kind": "integer"
+                                    },
+                                    "right": {
+                                        "type": "BinaryExpression",
+                                        "operator": "+",
+                                        "left": {
+                                            "type": "Literal",
+                                            "value": 1,
+                                            "raw": "1",
+                                            "gen_kind": "integer"
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "w2",
+                                            "raw": "w2"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "y0",
+                                "raw": "y0"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "+",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "X",
+                                    "raw": "X"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "x0",
+                                    "raw": "x0"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "x1",
+                                "raw": "x1"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "*",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "y0",
+                                    "raw": "y0"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "w2",
+                                    "raw": "w2"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "y1",
+                                "raw": "y1"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "+",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "x1",
+                                    "raw": "x1"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "s",
+                                    "raw": "s"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "s",
+                                "raw": "s"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "+",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "x1",
+                                    "raw": "x1"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "y1",
+                                    "raw": "y1"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "BinaryExpression",
+                            "operator": "-",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "y1",
+                                "raw": "y1"
+                            },
+                            "right": {
+                                "type": "Identifier",
+                                "name": "y0",
+                                "raw": "y0"
+                            }
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "eviXoverAllpass2",
+                "raw": "eviXoverAllpass2"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "X",
+                    "raw": "X"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "hz",
+                    "raw": "hz"
+                }
+            ],
+            "defaults": [
+                null,
+                null
+            ],
+            "decls": [
+                [
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "exa2dummy",
+                                    "raw": "exa2dummy"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            ],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "Y",
+                                "raw": "Y"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "X",
+                                        "raw": "X"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "hz",
+                                        "raw": "hz"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "eviXoverAllpass1",
+                                    "raw": "eviXoverAllpass1"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "Y",
+                                "raw": "Y"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "Y",
+                                        "raw": "Y"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "hz",
+                                        "raw": "hz"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "eviXoverAllpass1",
+                                    "raw": "eviXoverAllpass1"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "Identifier",
+                            "name": "Y",
+                            "raw": "Y"
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "eviXover2pole3bandSum",
+                "raw": "eviXover2pole3bandSum"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "LOW",
+                    "raw": "LOW"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "MID",
+                    "raw": "MID"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "HIGH",
+                    "raw": "HIGH"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "xoverHigh",
+                    "raw": "xoverHigh"
+                }
+            ],
+            "defaults": [
+                null,
+                null,
+                null,
+                null
+            ],
+            "decls": [
+                [
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "ex23sdummy",
+                                    "raw": "ex23sdummy"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            ],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "lowSum",
+                                "raw": "lowSum"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "LOW",
+                                        "raw": "LOW"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "xoverHigh",
+                                        "raw": "xoverHigh"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "eviXoverAllpass1",
+                                    "raw": "eviXoverAllpass1"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "BinaryExpression",
+                            "operator": "+",
+                            "left": {
+                                "type": "BinaryExpression",
+                                "operator": "+",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "lowSum",
+                                    "raw": "lowSum"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "MID",
+                                    "raw": "MID"
+                                }
+                            },
+                            "right": {
+                                "type": "Identifier",
+                                "name": "HIGH",
+                                "raw": "HIGH"
+                            }
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "eviXover4pole3bandSum",
+                "raw": "eviXover4pole3bandSum"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "LOW",
+                    "raw": "LOW"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "MID",
+                    "raw": "MID"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "HIGH",
+                    "raw": "HIGH"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "xoverHigh",
+                    "raw": "xoverHigh"
+                }
+            ],
+            "defaults": [
+                null,
+                null,
+                null,
+                null
+            ],
+            "decls": [
+                [
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "ex43sdummy",
+                                    "raw": "ex43sdummy"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            ],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "lowSum",
+                                "raw": "lowSum"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "LOW",
+                                        "raw": "LOW"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "xoverHigh",
+                                        "raw": "xoverHigh"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "eviXoverAllpass2",
+                                    "raw": "eviXoverAllpass2"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "BinaryExpression",
+                            "operator": "+",
+                            "left": {
+                                "type": "BinaryExpression",
+                                "operator": "+",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "lowSum",
+                                    "raw": "lowSum"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "MID",
+                                    "raw": "MID"
+                                }
+                            },
+                            "right": {
+                                "type": "Identifier",
+                                "name": "HIGH",
+                                "raw": "HIGH"
+                            }
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "eviXover2pole2bandStereo",
+                "raw": "eviXover2pole2bandStereo"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "xL",
+                    "raw": "xL"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "xR",
+                    "raw": "xR"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "xover",
+                    "raw": "xover"
+                }
+            ],
+            "defaults": [
+                null,
+                null,
+                null
+            ],
+            "decls": [
+                [
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "ex22sdummy",
+                                    "raw": "ex22sdummy"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            ],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "ArrayPattern",
+                                "elements": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "yLL",
+                                        "raw": "yLL"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "yHL",
+                                        "raw": "yHL"
+                                    }
+                                ]
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "xL",
+                                        "raw": "xL"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "xover",
+                                        "raw": "xover"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "eviXover2pole2band",
+                                    "raw": "eviXover2pole2band"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "ArrayPattern",
+                                "elements": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "yLR",
+                                        "raw": "yLR"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "yHR",
+                                        "raw": "yHR"
+                                    }
+                                ]
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "xR",
+                                        "raw": "xR"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "xover",
+                                        "raw": "xover"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "eviXover2pole2band",
+                                    "raw": "eviXover2pole2band"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "ArrayExpression",
+                            "elements": [
+                                {
+                                    "type": "Identifier",
+                                    "name": "yLL",
+                                    "raw": "yLL"
+                                },
+                                {
+                                    "type": "Identifier",
+                                    "name": "yLR",
+                                    "raw": "yLR"
+                                },
+                                {
+                                    "type": "Identifier",
+                                    "name": "yHL",
+                                    "raw": "yHL"
+                                },
+                                {
+                                    "type": "Identifier",
+                                    "name": "yHR",
+                                    "raw": "yHR"
+                                }
+                            ]
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "eviXover4pole2bandStereo",
+                "raw": "eviXover4pole2bandStereo"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "xL",
+                    "raw": "xL"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "xR",
+                    "raw": "xR"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "xover",
+                    "raw": "xover"
+                }
+            ],
+            "defaults": [
+                null,
+                null,
+                null
+            ],
+            "decls": [
+                [
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "ex42sdummy",
+                                    "raw": "ex42sdummy"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            ],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "ArrayPattern",
+                                "elements": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "yLL",
+                                        "raw": "yLL"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "yHL",
+                                        "raw": "yHL"
+                                    }
+                                ]
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "xL",
+                                        "raw": "xL"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "xover",
+                                        "raw": "xover"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "eviXover4pole2band",
+                                    "raw": "eviXover4pole2band"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "ArrayPattern",
+                                "elements": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "yLR",
+                                        "raw": "yLR"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "yHR",
+                                        "raw": "yHR"
+                                    }
+                                ]
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "xR",
+                                        "raw": "xR"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "xover",
+                                        "raw": "xover"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "eviXover4pole2band",
+                                    "raw": "eviXover4pole2band"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "ArrayExpression",
+                            "elements": [
+                                {
+                                    "type": "Identifier",
+                                    "name": "yLL",
+                                    "raw": "yLL"
+                                },
+                                {
+                                    "type": "Identifier",
+                                    "name": "yLR",
+                                    "raw": "yLR"
+                                },
+                                {
+                                    "type": "Identifier",
+                                    "name": "yHL",
+                                    "raw": "yHL"
+                                },
+                                {
+                                    "type": "Identifier",
+                                    "name": "yHR",
+                                    "raw": "yHR"
+                                }
+                            ]
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "eviXover2pole3bandStereo",
+                "raw": "eviXover2pole3bandStereo"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "xL",
+                    "raw": "xL"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "xR",
+                    "raw": "xR"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "hzLow",
+                    "raw": "hzLow"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "hzHigh",
+                    "raw": "hzHigh"
+                }
+            ],
+            "defaults": [
+                null,
+                null,
+                null,
+                null
+            ],
+            "decls": [
+                [
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "ex23sdummy",
+                                    "raw": "ex23sdummy"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            ],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "ArrayPattern",
+                                "elements": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "yLL",
+                                        "raw": "yLL"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "yML",
+                                        "raw": "yML"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "yHL",
+                                        "raw": "yHL"
+                                    }
+                                ]
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "xL",
+                                        "raw": "xL"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "hzLow",
+                                        "raw": "hzLow"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "hzHigh",
+                                        "raw": "hzHigh"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "eviXover2pole3band",
+                                    "raw": "eviXover2pole3band"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "ArrayPattern",
+                                "elements": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "yLR",
+                                        "raw": "yLR"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "yMR",
+                                        "raw": "yMR"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "yHR",
+                                        "raw": "yHR"
+                                    }
+                                ]
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "xR",
+                                        "raw": "xR"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "hzLow",
+                                        "raw": "hzLow"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "hzHigh",
+                                        "raw": "hzHigh"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "eviXover2pole3band",
+                                    "raw": "eviXover2pole3band"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "ArrayExpression",
+                            "elements": [
+                                {
+                                    "type": "Identifier",
+                                    "name": "yLL",
+                                    "raw": "yLL"
+                                },
+                                {
+                                    "type": "Identifier",
+                                    "name": "yLR",
+                                    "raw": "yLR"
+                                },
+                                {
+                                    "type": "Identifier",
+                                    "name": "yML",
+                                    "raw": "yML"
+                                },
+                                {
+                                    "type": "Identifier",
+                                    "name": "yMR",
+                                    "raw": "yMR"
+                                },
+                                {
+                                    "type": "Identifier",
+                                    "name": "yHL",
+                                    "raw": "yHL"
+                                },
+                                {
+                                    "type": "Identifier",
+                                    "name": "yHR",
+                                    "raw": "yHR"
+                                }
+                            ]
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "eviXover4pole3bandStereo",
+                "raw": "eviXover4pole3bandStereo"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "xL",
+                    "raw": "xL"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "xR",
+                    "raw": "xR"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "hzLow",
+                    "raw": "hzLow"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "hzHigh",
+                    "raw": "hzHigh"
+                }
+            ],
+            "defaults": [
+                null,
+                null,
+                null,
+                null
+            ],
+            "decls": [
+                [
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "ex43sdummy",
+                                    "raw": "ex43sdummy"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            ],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "ArrayPattern",
+                                "elements": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "yLL",
+                                        "raw": "yLL"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "yML",
+                                        "raw": "yML"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "yHL",
+                                        "raw": "yHL"
+                                    }
+                                ]
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "xL",
+                                        "raw": "xL"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "hzLow",
+                                        "raw": "hzLow"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "hzHigh",
+                                        "raw": "hzHigh"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "eviXover4pole3band",
+                                    "raw": "eviXover4pole3band"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "ArrayPattern",
+                                "elements": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "yLR",
+                                        "raw": "yLR"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "yMR",
+                                        "raw": "yMR"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "yHR",
+                                        "raw": "yHR"
+                                    }
+                                ]
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "xR",
+                                        "raw": "xR"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "hzLow",
+                                        "raw": "hzLow"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "hzHigh",
+                                        "raw": "hzHigh"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "eviXover4pole3band",
+                                    "raw": "eviXover4pole3band"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "ArrayExpression",
+                            "elements": [
+                                {
+                                    "type": "Identifier",
+                                    "name": "yLL",
+                                    "raw": "yLL"
+                                },
+                                {
+                                    "type": "Identifier",
+                                    "name": "yLR",
+                                    "raw": "yLR"
+                                },
+                                {
+                                    "type": "Identifier",
+                                    "name": "yML",
+                                    "raw": "yML"
+                                },
+                                {
+                                    "type": "Identifier",
+                                    "name": "yMR",
+                                    "raw": "yMR"
+                                },
+                                {
+                                    "type": "Identifier",
+                                    "name": "yHL",
+                                    "raw": "yHL"
+                                },
+                                {
+                                    "type": "Identifier",
+                                    "name": "yHR",
+                                    "raw": "yHR"
+                                }
+                            ]
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "eviXoverAllpass1Stereo",
+                "raw": "eviXoverAllpass1Stereo"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "xL",
+                    "raw": "xL"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "xR",
+                    "raw": "xR"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "hz",
+                    "raw": "hz"
+                }
+            ],
+            "defaults": [
+                null,
+                null,
+                null
+            ],
+            "decls": [
+                [
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "exa1sdummy",
+                                    "raw": "exa1sdummy"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": []
+                                }
+                            }
+                        ]
+                    }
+                ]
+            ],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "yL",
+                                "raw": "yL"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "xL",
+                                        "raw": "xL"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "hz",
+                                        "raw": "hz"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "eviXoverAllpass1",
+                                    "raw": "eviXoverAllpass1"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "yR",
+                                "raw": "yR"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "xR",
+                                        "raw": "xR"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "hz",
+                                        "raw": "hz"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "eviXoverAllpass1",
+                                    "raw": "eviXoverAllpass1"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "ArrayExpression",
+                            "elements": [
+                                {
+                                    "type": "Identifier",
+                                    "name": "yL",
+                                    "raw": "yL"
+                                },
+                                {
+                                    "type": "Identifier",
+                                    "name": "yR",
+                                    "raw": "yR"
+                                }
+                            ]
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "eviXoverAllpass2Stereo",
+                "raw": "eviXoverAllpass2Stereo"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "xL",
+                    "raw": "xL"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "xR",
+                    "raw": "xR"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "hz",
+                    "raw": "hz"
+                }
+            ],
+            "defaults": [
+                null,
+                null,
+                null
+            ],
+            "decls": [
+                [
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "exa2sdummy",
+                                    "raw": "exa2sdummy"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": []
+                                }
+                            }
+                        ]
+                    }
+                ]
+            ],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "yL",
+                                "raw": "yL"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "xL",
+                                        "raw": "xL"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "hz",
+                                        "raw": "hz"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "eviXoverAllpass2",
+                                    "raw": "eviXoverAllpass2"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "yR",
+                                "raw": "yR"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "xR",
+                                        "raw": "xR"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "hz",
+                                        "raw": "hz"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "eviXoverAllpass2",
+                                    "raw": "eviXoverAllpass2"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "ArrayExpression",
+                            "elements": [
+                                {
+                                    "type": "Identifier",
+                                    "name": "yL",
+                                    "raw": "yL"
+                                },
+                                {
+                                    "type": "Identifier",
+                                    "name": "yR",
+                                    "raw": "yR"
+                                }
+                            ]
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "eviXover2pole3bandSumStereo",
+                "raw": "eviXover2pole3bandSumStereo"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "lowL",
+                    "raw": "lowL"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "lowR",
+                    "raw": "lowR"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "midL",
+                    "raw": "midL"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "midR",
+                    "raw": "midR"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "highL",
+                    "raw": "highL"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "highR",
+                    "raw": "highR"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "xoverHigh",
+                    "raw": "xoverHigh"
+                }
+            ],
+            "defaults": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+            ],
+            "decls": [
+                [
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "ex23ssdummy",
+                                    "raw": "ex23ssdummy"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            ],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "ArrayPattern",
+                                "elements": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "lowSumL",
+                                        "raw": "lowSumL"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "lowSumR",
+                                        "raw": "lowSumR"
+                                    }
+                                ]
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "lowL",
+                                        "raw": "lowL"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "lowR",
+                                        "raw": "lowR"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "xoverHigh",
+                                        "raw": "xoverHigh"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "eviXoverAllpass1Stereo",
+                                    "raw": "eviXoverAllpass1Stereo"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "sumLeft",
+                                "raw": "sumLeft"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "+",
+                                "left": {
+                                    "type": "BinaryExpression",
+                                    "operator": "+",
+                                    "left": {
+                                        "type": "Identifier",
+                                        "name": "lowSumL",
+                                        "raw": "lowSumL"
+                                    },
+                                    "right": {
+                                        "type": "Identifier",
+                                        "name": "midL",
+                                        "raw": "midL"
+                                    }
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "highL",
+                                    "raw": "highL"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "sumRight",
+                                "raw": "sumRight"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "+",
+                                "left": {
+                                    "type": "BinaryExpression",
+                                    "operator": "+",
+                                    "left": {
+                                        "type": "Identifier",
+                                        "name": "lowSumR",
+                                        "raw": "lowSumR"
+                                    },
+                                    "right": {
+                                        "type": "Identifier",
+                                        "name": "midR",
+                                        "raw": "midR"
+                                    }
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "highR",
+                                    "raw": "highR"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "ArrayExpression",
+                            "elements": [
+                                {
+                                    "type": "Identifier",
+                                    "name": "sumLeft",
+                                    "raw": "sumLeft"
+                                },
+                                {
+                                    "type": "Identifier",
+                                    "name": "sumRight",
+                                    "raw": "sumRight"
+                                }
+                            ]
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "eviXover4pole3bandSumStereo",
+                "raw": "eviXover4pole3bandSumStereo"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "lowL",
+                    "raw": "lowL"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "lowR",
+                    "raw": "lowR"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "midL",
+                    "raw": "midL"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "midR",
+                    "raw": "midR"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "highL",
+                    "raw": "highL"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "highR",
+                    "raw": "highR"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "xoverHigh",
+                    "raw": "xoverHigh"
+                }
+            ],
+            "defaults": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+            ],
+            "decls": [
+                [
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "ex43ssdummy",
+                                    "raw": "ex43ssdummy"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            ],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "ArrayPattern",
+                                "elements": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "lowSumL",
+                                        "raw": "lowSumL"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "lowSumR",
+                                        "raw": "lowSumR"
+                                    }
+                                ]
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "lowL",
+                                        "raw": "lowL"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "lowR",
+                                        "raw": "lowR"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "xoverHigh",
+                                        "raw": "xoverHigh"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "eviXoverAllpass2Stereo",
+                                    "raw": "eviXoverAllpass2Stereo"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "sumLeft",
+                                "raw": "sumLeft"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "+",
+                                "left": {
+                                    "type": "BinaryExpression",
+                                    "operator": "+",
+                                    "left": {
+                                        "type": "Identifier",
+                                        "name": "lowSumL",
+                                        "raw": "lowSumL"
+                                    },
+                                    "right": {
+                                        "type": "Identifier",
+                                        "name": "midL",
+                                        "raw": "midL"
+                                    }
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "highL",
+                                    "raw": "highL"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "sumRight",
+                                "raw": "sumRight"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "+",
+                                "left": {
+                                    "type": "BinaryExpression",
+                                    "operator": "+",
+                                    "left": {
+                                        "type": "Identifier",
+                                        "name": "lowSumR",
+                                        "raw": "lowSumR"
+                                    },
+                                    "right": {
+                                        "type": "Identifier",
+                                        "name": "midR",
+                                        "raw": "midR"
+                                    }
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "highR",
+                                    "raw": "highR"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "ArrayExpression",
+                            "elements": [
+                                {
+                                    "type": "Identifier",
+                                    "name": "sumLeft",
+                                    "raw": "sumLeft"
+                                },
+                                {
+                                    "type": "Identifier",
+                                    "name": "sumRight",
+                                    "raw": "sumRight"
+                                }
+                            ]
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        }
+    ],
+    "decls": [],
+    "body": []
+}

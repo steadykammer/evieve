@@ -1,0 +1,17 @@
+{
+    "description": "",
+    "requires": [
+        "evi_adaa.genexpr",
+        "evi_biquad.genexpr",
+        "evi_clip.genexpr",
+        "evi_crossovers.genexpr",
+        "evi_dynamics.genexpr",
+        "evi_overdrive.genexpr",
+        "evi_polyblep.genexpr",
+        "evi_rcfilters.genexpr",
+        "evi_reverb_library.genexpr",
+        "evi_saturators.genexpr",
+        "evi_svf.genexpr"
+    ],
+    "functions": []
+}
