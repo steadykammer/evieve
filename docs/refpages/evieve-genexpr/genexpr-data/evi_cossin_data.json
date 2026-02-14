@@ -8,13 +8,13 @@
             "name": "quartParApproxFull",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "modphase",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "precision",
                     "digest": ""
@@ -22,17 +22,17 @@
             ],
             "returns": [
                 {
-                    "id": 0,
-                    "name": "",
-                    "digest": ""
-                },
-                {
                     "id": 1,
                     "name": "",
                     "digest": ""
                 },
                 {
                     "id": 2,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
                     "name": "",
                     "digest": ""
                 }
@@ -44,7 +44,7 @@
             "name": "quartParOneApprox",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "modphase",
                     "digest": ""
@@ -52,12 +52,12 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "name": "",
                     "digest": ""
                 }
@@ -69,13 +69,13 @@
             "name": "quadratureOsc",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "thisphase",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "thisspread",
                     "digest": ""
@@ -83,12 +83,12 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "name": "",
                     "digest": ""
                 }
@@ -100,7 +100,7 @@
             "name": "tanApprox",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x",
                     "digest": ""
@@ -108,7 +108,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -120,13 +120,13 @@
             "name": "quadOsc",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "frequency",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "reset",
                     "digest": ""
@@ -134,12 +134,12 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "name": "",
                     "digest": ""
                 }
@@ -151,24 +151,19 @@
             "name": "quadOscSync",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "frequency",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "reset",
                     "digest": ""
                 }
             ],
             "returns": [
-                {
-                    "id": 0,
-                    "name": "",
-                    "digest": ""
-                },
                 {
                     "id": 1,
                     "name": "",
@@ -181,6 +176,11 @@
                 },
                 {
                     "id": 3,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
                     "name": "",
                     "digest": ""
                 }
@@ -192,25 +192,25 @@
             "name": "tptSvfQuadOsc",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "cutoff",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "sync",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "input",
                     "name": "reset",
                     "digest": ""
                 },
                 {
-                    "id": 3,
+                    "id": 4,
                     "kind": "param",
                     "name": "soft",
                     "default": 0.1,
@@ -220,12 +220,12 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "name": "",
                     "digest": ""
                 }
@@ -237,7 +237,7 @@
             "name": "parabolApprox",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "phase",
                     "digest": ""
@@ -245,7 +245,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -257,7 +257,7 @@
             "name": "cosApprox01",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "a",
                     "digest": ""
@@ -265,7 +265,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -277,7 +277,7 @@
             "name": "sinApprox01",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "a",
                     "digest": ""
@@ -285,7 +285,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -297,7 +297,7 @@
             "name": "cosApproxPi",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x",
                     "digest": ""
@@ -305,7 +305,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -317,7 +317,7 @@
             "name": "sinApproxPi",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x",
                     "digest": ""
@@ -325,7 +325,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }

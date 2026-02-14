@@ -23,11 +23,11 @@
     "@types/maxmsp": "^1.0.15",
     "@types/node": "^25.2.3",
     "esbuild": "^0.27.3",
-    "fast-xml-parser": "^5.3.4",
+    "fast-xml-parser": "^5.3.6",
     "handlebars": "^4.7.8",
     "max-api-or-nah": "^1.1.3",
     "peggy": "^5.0.6",
-    "pnpm": "^10.28.2",
+    "pnpm": "^10.29.3",
     "typescript": "^5.9.3"
   },
   "dependencies": {

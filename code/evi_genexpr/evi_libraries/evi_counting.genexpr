@@ -177,7 +177,7 @@ rateCycle(mainphase, multiplier, reset)
 // pointless, use rate() instead
 // sync: 0 = lock, 1 = off, 2 = cycle <<-- MSP / Gen native ordering, not me !
 eviRate(mainphase, multiplier, reset, sync=0)
-{								// ^^ so that we can rest phase when sync source changes
+{							// ^^ so that we can reset phase when sync source changes
     thisrate = 0;
     if (sync == 1) {
         thisrate = rateOff(mainphase, multiplier, reset);

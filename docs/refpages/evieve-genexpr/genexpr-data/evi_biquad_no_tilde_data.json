@@ -8,19 +8,19 @@
             "name": "eviBiquadCoeffLowpass",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "cutoff",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "Q",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "param",
                     "name": "AUDIO_SR",
                     "default": 48000,
@@ -29,11 +29,6 @@
                 }
             ],
             "returns": [
-                {
-                    "id": 0,
-                    "name": "",
-                    "digest": ""
-                },
                 {
                     "id": 1,
                     "name": "",
@@ -51,6 +46,11 @@
                 },
                 {
                     "id": 4,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
                     "name": "",
                     "digest": ""
                 }
@@ -62,19 +62,19 @@
             "name": "eviBiquadCoeffHighpass",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "cutoff",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "Q",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "param",
                     "name": "AUDIO_SR",
                     "default": 48000,
@@ -83,11 +83,6 @@
                 }
             ],
             "returns": [
-                {
-                    "id": 0,
-                    "name": "",
-                    "digest": ""
-                },
                 {
                     "id": 1,
                     "name": "",
@@ -105,6 +100,11 @@
                 },
                 {
                     "id": 4,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
                     "name": "",
                     "digest": ""
                 }
@@ -116,19 +116,19 @@
             "name": "eviBiquadCoeffBandpass",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "cutoff",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "Q",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "param",
                     "name": "AUDIO_SR",
                     "default": 48000,
@@ -137,11 +137,6 @@
                 }
             ],
             "returns": [
-                {
-                    "id": 0,
-                    "name": "",
-                    "digest": ""
-                },
                 {
                     "id": 1,
                     "name": "",
@@ -159,6 +154,11 @@
                 },
                 {
                     "id": 4,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
                     "name": "",
                     "digest": ""
                 }
@@ -170,19 +170,19 @@
             "name": "eviBiquadCoeffNotch",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "cutoff",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "Q",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "param",
                     "name": "AUDIO_SR",
                     "default": 48000,
@@ -191,11 +191,6 @@
                 }
             ],
             "returns": [
-                {
-                    "id": 0,
-                    "name": "",
-                    "digest": ""
-                },
                 {
                     "id": 1,
                     "name": "",
@@ -213,6 +208,11 @@
                 },
                 {
                     "id": 4,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
                     "name": "",
                     "digest": ""
                 }
@@ -224,25 +224,25 @@
             "name": "eviBiquadCoeffPeakNotch",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "cutoff",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "gain",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "input",
                     "name": "Q",
                     "digest": ""
                 },
                 {
-                    "id": 3,
+                    "id": 4,
                     "kind": "param",
                     "name": "AUDIO_SR",
                     "default": 48000,
@@ -251,11 +251,6 @@
                 }
             ],
             "returns": [
-                {
-                    "id": 0,
-                    "name": "",
-                    "digest": ""
-                },
                 {
                     "id": 1,
                     "name": "",
@@ -273,6 +268,11 @@
                 },
                 {
                     "id": 4,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
                     "name": "",
                     "digest": ""
                 }
@@ -284,25 +284,25 @@
             "name": "eviBiquadCoeffLowshelfMSP",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "cutoff",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "gain",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "input",
                     "name": "Q",
                     "digest": ""
                 },
                 {
-                    "id": 3,
+                    "id": 4,
                     "kind": "param",
                     "name": "AUDIO_SR",
                     "default": 48000,
@@ -311,11 +311,6 @@
                 }
             ],
             "returns": [
-                {
-                    "id": 0,
-                    "name": "",
-                    "digest": ""
-                },
                 {
                     "id": 1,
                     "name": "",
@@ -333,6 +328,11 @@
                 },
                 {
                     "id": 4,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
                     "name": "",
                     "digest": ""
                 }
@@ -344,25 +344,25 @@
             "name": "eviBiquadCoeffLowshelfCookbook",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "cutoff",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "gain",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "input",
                     "name": "Q",
                     "digest": ""
                 },
                 {
-                    "id": 3,
+                    "id": 4,
                     "kind": "param",
                     "name": "AUDIO_SR",
                     "default": 48000,
@@ -371,11 +371,6 @@
                 }
             ],
             "returns": [
-                {
-                    "id": 0,
-                    "name": "",
-                    "digest": ""
-                },
                 {
                     "id": 1,
                     "name": "",
@@ -393,6 +388,11 @@
                 },
                 {
                     "id": 4,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
                     "name": "",
                     "digest": ""
                 }
@@ -404,25 +404,25 @@
             "name": "eviBiquadCoeffHighshelfMSP",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "cutoff",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "gain",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "input",
                     "name": "Q",
                     "digest": ""
                 },
                 {
-                    "id": 3,
+                    "id": 4,
                     "kind": "param",
                     "name": "AUDIO_SR",
                     "default": 48000,
@@ -431,11 +431,6 @@
                 }
             ],
             "returns": [
-                {
-                    "id": 0,
-                    "name": "",
-                    "digest": ""
-                },
                 {
                     "id": 1,
                     "name": "",
@@ -453,6 +448,11 @@
                 },
                 {
                     "id": 4,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
                     "name": "",
                     "digest": ""
                 }
@@ -464,25 +464,25 @@
             "name": "eviBiquadCoeffHighshelfCookbook",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "cutoff",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "gain",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "input",
                     "name": "Q",
                     "digest": ""
                 },
                 {
-                    "id": 3,
+                    "id": 4,
                     "kind": "param",
                     "name": "AUDIO_SR",
                     "default": 48000,
@@ -491,11 +491,6 @@
                 }
             ],
             "returns": [
-                {
-                    "id": 0,
-                    "name": "",
-                    "digest": ""
-                },
                 {
                     "id": 1,
                     "name": "",
@@ -513,6 +508,11 @@
                 },
                 {
                     "id": 4,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
                     "name": "",
                     "digest": ""
                 }
@@ -524,19 +524,19 @@
             "name": "eviBiquadCoeffResonant",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "cutoff",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "Q",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "param",
                     "name": "AUDIO_SR",
                     "default": 48000,
@@ -545,11 +545,6 @@
                 }
             ],
             "returns": [
-                {
-                    "id": 0,
-                    "name": "",
-                    "digest": ""
-                },
                 {
                     "id": 1,
                     "name": "",
@@ -567,6 +562,11 @@
                 },
                 {
                     "id": 4,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
                     "name": "",
                     "digest": ""
                 }
@@ -578,19 +578,19 @@
             "name": "eviBiquadCoeffBp",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "cutoff",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "Q",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "param",
                     "name": "AUDIO_SR",
                     "default": 48000,
@@ -599,11 +599,6 @@
                 }
             ],
             "returns": [
-                {
-                    "id": 0,
-                    "name": "",
-                    "digest": ""
-                },
                 {
                     "id": 1,
                     "name": "",
@@ -621,6 +616,11 @@
                 },
                 {
                     "id": 4,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
                     "name": "",
                     "digest": ""
                 }
@@ -632,19 +632,19 @@
             "name": "eviBiquadCoeffAllpass",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "cutoff",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "Q",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "param",
                     "name": "AUDIO_SR",
                     "default": 48000,
@@ -653,11 +653,6 @@
                 }
             ],
             "returns": [
-                {
-                    "id": 0,
-                    "name": "",
-                    "digest": ""
-                },
                 {
                     "id": 1,
                     "name": "",
@@ -675,6 +670,11 @@
                 },
                 {
                     "id": 4,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
                     "name": "",
                     "digest": ""
                 }
@@ -686,25 +686,25 @@
             "name": "eviBiquadCoeffLowpassGain",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "cutoff",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "gain",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "input",
                     "name": "Q",
                     "digest": ""
                 },
                 {
-                    "id": 3,
+                    "id": 4,
                     "kind": "param",
                     "name": "AUDIO_SR",
                     "default": 48000,
@@ -713,11 +713,6 @@
                 }
             ],
             "returns": [
-                {
-                    "id": 0,
-                    "name": "",
-                    "digest": ""
-                },
                 {
                     "id": 1,
                     "name": "",
@@ -735,6 +730,11 @@
                 },
                 {
                     "id": 4,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
                     "name": "",
                     "digest": ""
                 }
@@ -746,25 +746,25 @@
             "name": "eviBiquadCoeffHighpassGain",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "cutoff",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "gain",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "input",
                     "name": "Q",
                     "digest": ""
                 },
                 {
-                    "id": 3,
+                    "id": 4,
                     "kind": "param",
                     "name": "AUDIO_SR",
                     "default": 48000,
@@ -773,11 +773,6 @@
                 }
             ],
             "returns": [
-                {
-                    "id": 0,
-                    "name": "",
-                    "digest": ""
-                },
                 {
                     "id": 1,
                     "name": "",
@@ -795,6 +790,11 @@
                 },
                 {
                     "id": 4,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
                     "name": "",
                     "digest": ""
                 }
@@ -806,25 +806,25 @@
             "name": "eviBiquadCoeffBandpassGain",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "cutoff",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "gain",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "input",
                     "name": "Q",
                     "digest": ""
                 },
                 {
-                    "id": 3,
+                    "id": 4,
                     "kind": "param",
                     "name": "AUDIO_SR",
                     "default": 48000,
@@ -833,11 +833,6 @@
                 }
             ],
             "returns": [
-                {
-                    "id": 0,
-                    "name": "",
-                    "digest": ""
-                },
                 {
                     "id": 1,
                     "name": "",
@@ -855,6 +850,11 @@
                 },
                 {
                     "id": 4,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
                     "name": "",
                     "digest": ""
                 }
@@ -866,25 +866,25 @@
             "name": "eviBiquadCoeffNotchGain",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "cutoff",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "gain",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "input",
                     "name": "Q",
                     "digest": ""
                 },
                 {
-                    "id": 3,
+                    "id": 4,
                     "kind": "param",
                     "name": "AUDIO_SR",
                     "default": 48000,
@@ -893,11 +893,6 @@
                 }
             ],
             "returns": [
-                {
-                    "id": 0,
-                    "name": "",
-                    "digest": ""
-                },
                 {
                     "id": 1,
                     "name": "",
@@ -915,6 +910,11 @@
                 },
                 {
                     "id": 4,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
                     "name": "",
                     "digest": ""
                 }
@@ -926,25 +926,25 @@
             "name": "eviBiquadCoeffResonantGain",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "cutoff",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "gain",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "input",
                     "name": "Q",
                     "digest": ""
                 },
                 {
-                    "id": 3,
+                    "id": 4,
                     "kind": "param",
                     "name": "AUDIO_SR",
                     "default": 48000,
@@ -953,11 +953,6 @@
                 }
             ],
             "returns": [
-                {
-                    "id": 0,
-                    "name": "",
-                    "digest": ""
-                },
                 {
                     "id": 1,
                     "name": "",
@@ -975,6 +970,11 @@
                 },
                 {
                     "id": 4,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
                     "name": "",
                     "digest": ""
                 }
@@ -986,25 +986,25 @@
             "name": "eviBiquadCoeffBpGain",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "cutoff",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "gain",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "input",
                     "name": "Q",
                     "digest": ""
                 },
                 {
-                    "id": 3,
+                    "id": 4,
                     "kind": "param",
                     "name": "AUDIO_SR",
                     "default": 48000,
@@ -1013,11 +1013,6 @@
                 }
             ],
             "returns": [
-                {
-                    "id": 0,
-                    "name": "",
-                    "digest": ""
-                },
                 {
                     "id": 1,
                     "name": "",
@@ -1035,6 +1030,11 @@
                 },
                 {
                     "id": 4,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
                     "name": "",
                     "digest": ""
                 }
@@ -1046,25 +1046,25 @@
             "name": "eviBiquadCoeffAllpassGain",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "cutoff",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "gain",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "input",
                     "name": "Q",
                     "digest": ""
                 },
                 {
-                    "id": 3,
+                    "id": 4,
                     "kind": "param",
                     "name": "AUDIO_SR",
                     "default": 48000,
@@ -1073,11 +1073,6 @@
                 }
             ],
             "returns": [
-                {
-                    "id": 0,
-                    "name": "",
-                    "digest": ""
-                },
                 {
                     "id": 1,
                     "name": "",
@@ -1095,6 +1090,11 @@
                 },
                 {
                     "id": 4,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
                     "name": "",
                     "digest": ""
                 }
@@ -1106,19 +1106,19 @@
             "name": "eviBiquadCoeffLowpassAnalog1",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "cutoff",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "Q",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "param",
                     "name": "AUDIO_SR",
                     "default": 48000,
@@ -1127,11 +1127,6 @@
                 }
             ],
             "returns": [
-                {
-                    "id": 0,
-                    "name": "",
-                    "digest": ""
-                },
                 {
                     "id": 1,
                     "name": "",
@@ -1149,6 +1144,11 @@
                 },
                 {
                     "id": 4,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
                     "name": "",
                     "digest": ""
                 }
@@ -1160,19 +1160,19 @@
             "name": "eviBiquadCoeffLowpassAnalog2",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "cutoff",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "fullQ",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "param",
                     "name": "AUDIO_SR",
                     "default": 48000,
@@ -1181,11 +1181,6 @@
                 }
             ],
             "returns": [
-                {
-                    "id": 0,
-                    "name": "",
-                    "digest": ""
-                },
                 {
                     "id": 1,
                     "name": "",
@@ -1203,6 +1198,11 @@
                 },
                 {
                     "id": 4,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
                     "name": "",
                     "digest": ""
                 }
@@ -1214,19 +1214,19 @@
             "name": "eviBiquadCoeffHighpassAnalog",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "cutoff",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "fullQ",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "param",
                     "name": "AUDIO_SR",
                     "default": 48000,
@@ -1235,11 +1235,6 @@
                 }
             ],
             "returns": [
-                {
-                    "id": 0,
-                    "name": "",
-                    "digest": ""
-                },
                 {
                     "id": 1,
                     "name": "",
@@ -1257,6 +1252,11 @@
                 },
                 {
                     "id": 4,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
                     "name": "",
                     "digest": ""
                 }
@@ -1268,19 +1268,19 @@
             "name": "eviBiquadCoeffBandpassAnalog",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "cutoff",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "Q",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "param",
                     "name": "AUDIO_SR",
                     "default": 48000,
@@ -1289,11 +1289,6 @@
                 }
             ],
             "returns": [
-                {
-                    "id": 0,
-                    "name": "",
-                    "digest": ""
-                },
                 {
                     "id": 1,
                     "name": "",
@@ -1311,6 +1306,11 @@
                 },
                 {
                     "id": 4,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
                     "name": "",
                     "digest": ""
                 }
@@ -1322,25 +1322,25 @@
             "name": "eviBiquadCoeffBandpassGainAnalog",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "cutoff",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "gain",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "input",
                     "name": "Q",
                     "digest": ""
                 },
                 {
-                    "id": 3,
+                    "id": 4,
                     "kind": "param",
                     "name": "AUDIO_SR",
                     "default": 48000,
@@ -1349,11 +1349,6 @@
                 }
             ],
             "returns": [
-                {
-                    "id": 0,
-                    "name": "",
-                    "digest": ""
-                },
                 {
                     "id": 1,
                     "name": "",
@@ -1371,6 +1366,11 @@
                 },
                 {
                     "id": 4,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
                     "name": "",
                     "digest": ""
                 }
@@ -1382,19 +1382,19 @@
             "name": "eviBiquadCoeffNotchAnalog",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "cutoff",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "fullQ",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "param",
                     "name": "AUDIO_SR",
                     "default": 48000,
@@ -1403,11 +1403,6 @@
                 }
             ],
             "returns": [
-                {
-                    "id": 0,
-                    "name": "",
-                    "digest": ""
-                },
                 {
                     "id": 1,
                     "name": "",
@@ -1425,6 +1420,11 @@
                 },
                 {
                     "id": 4,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
                     "name": "",
                     "digest": ""
                 }
@@ -1436,25 +1436,25 @@
             "name": "eviBiquadCoeffPeakNotchAnalog1",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "cutoff",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "gain",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "input",
                     "name": "Q",
                     "digest": ""
                 },
                 {
-                    "id": 3,
+                    "id": 4,
                     "kind": "param",
                     "name": "AUDIO_SR",
                     "default": 48000,
@@ -1463,11 +1463,6 @@
                 }
             ],
             "returns": [
-                {
-                    "id": 0,
-                    "name": "",
-                    "digest": ""
-                },
                 {
                     "id": 1,
                     "name": "",
@@ -1485,6 +1480,11 @@
                 },
                 {
                     "id": 4,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
                     "name": "",
                     "digest": ""
                 }
@@ -1496,25 +1496,25 @@
             "name": "eviBiquadCoeffPeakNotchAnalog2",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "cutoff",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "gain",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "input",
                     "name": "fullQ",
                     "digest": ""
                 },
                 {
-                    "id": 3,
+                    "id": 4,
                     "kind": "param",
                     "name": "AUDIO_SR",
                     "default": 48000,
@@ -1523,11 +1523,6 @@
                 }
             ],
             "returns": [
-                {
-                    "id": 0,
-                    "name": "",
-                    "digest": ""
-                },
                 {
                     "id": 1,
                     "name": "",
@@ -1545,6 +1540,11 @@
                 },
                 {
                     "id": 4,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
                     "name": "",
                     "digest": ""
                 }
@@ -1556,25 +1556,25 @@
             "name": "eviBiquadCoeffLowshelfAnalog1",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "cutoff",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "gain",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "input",
                     "name": "fullQ",
                     "digest": ""
                 },
                 {
-                    "id": 3,
+                    "id": 4,
                     "kind": "param",
                     "name": "AUDIO_SR",
                     "default": 48000,
@@ -1583,11 +1583,6 @@
                 }
             ],
             "returns": [
-                {
-                    "id": 0,
-                    "name": "",
-                    "digest": ""
-                },
                 {
                     "id": 1,
                     "name": "",
@@ -1605,6 +1600,11 @@
                 },
                 {
                     "id": 4,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
                     "name": "",
                     "digest": ""
                 }
@@ -1616,19 +1616,19 @@
             "name": "eviBiquadCoeffLowshelfAnalog2",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "cutoff",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "gain",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "param",
                     "name": "AUDIO_SR",
                     "default": 48000,
@@ -1637,11 +1637,6 @@
                 }
             ],
             "returns": [
-                {
-                    "id": 0,
-                    "name": "",
-                    "digest": ""
-                },
                 {
                     "id": 1,
                     "name": "",
@@ -1659,6 +1654,11 @@
                 },
                 {
                     "id": 4,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
                     "name": "",
                     "digest": ""
                 }
@@ -1670,25 +1670,25 @@
             "name": "eviBiquadCoeffHighshelfAnalog1",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "cutoff",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "gain",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "input",
                     "name": "fullQ",
                     "digest": ""
                 },
                 {
-                    "id": 3,
+                    "id": 4,
                     "kind": "param",
                     "name": "AUDIO_SR",
                     "default": 48000,
@@ -1697,11 +1697,6 @@
                 }
             ],
             "returns": [
-                {
-                    "id": 0,
-                    "name": "",
-                    "digest": ""
-                },
                 {
                     "id": 1,
                     "name": "",
@@ -1719,6 +1714,11 @@
                 },
                 {
                     "id": 4,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
                     "name": "",
                     "digest": ""
                 }
@@ -1730,19 +1730,19 @@
             "name": "eviBiquadCoeffHighshelfAnalog2",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "cutoff",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "gain",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "param",
                     "name": "AUDIO_SR",
                     "default": 48000,
@@ -1751,11 +1751,6 @@
                 }
             ],
             "returns": [
-                {
-                    "id": 0,
-                    "name": "",
-                    "digest": ""
-                },
                 {
                     "id": 1,
                     "name": "",
@@ -1773,6 +1768,11 @@
                 },
                 {
                     "id": 4,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
                     "name": "",
                     "digest": ""
                 }
@@ -1784,19 +1784,19 @@
             "name": "eviBiquadCoeffResonantAnalog",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "cutoff",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "fullQ",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "param",
                     "name": "AUDIO_SR",
                     "default": 48000,
@@ -1805,11 +1805,6 @@
                 }
             ],
             "returns": [
-                {
-                    "id": 0,
-                    "name": "",
-                    "digest": ""
-                },
                 {
                     "id": 1,
                     "name": "",
@@ -1827,6 +1822,11 @@
                 },
                 {
                     "id": 4,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
                     "name": "",
                     "digest": ""
                 }
@@ -1838,13 +1838,13 @@
             "name": "eviBiquadCoeffButterworthLowpass",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "cutoff",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "param",
                     "name": "AUDIO_SR",
                     "default": 48000,
@@ -1853,11 +1853,6 @@
                 }
             ],
             "returns": [
-                {
-                    "id": 0,
-                    "name": "",
-                    "digest": ""
-                },
                 {
                     "id": 1,
                     "name": "",
@@ -1875,6 +1870,11 @@
                 },
                 {
                     "id": 4,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
                     "name": "",
                     "digest": ""
                 }
@@ -1886,13 +1886,13 @@
             "name": "eviBiquadCoeffButterworthHighpass",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "cutoff",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "param",
                     "name": "AUDIO_SR",
                     "default": 48000,
@@ -1901,11 +1901,6 @@
                 }
             ],
             "returns": [
-                {
-                    "id": 0,
-                    "name": "",
-                    "digest": ""
-                },
                 {
                     "id": 1,
                     "name": "",
@@ -1923,6 +1918,11 @@
                 },
                 {
                     "id": 4,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
                     "name": "",
                     "digest": ""
                 }
@@ -1934,19 +1934,19 @@
             "name": "eviBiquadCoeffButterworthBandpass",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "cutoff",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "Q",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "param",
                     "name": "AUDIO_SR",
                     "default": 48000,
@@ -1955,11 +1955,6 @@
                 }
             ],
             "returns": [
-                {
-                    "id": 0,
-                    "name": "",
-                    "digest": ""
-                },
                 {
                     "id": 1,
                     "name": "",
@@ -1977,6 +1972,11 @@
                 },
                 {
                     "id": 4,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
                     "name": "",
                     "digest": ""
                 }
@@ -1988,19 +1988,19 @@
             "name": "eviBiquadCoeffButterworthBandreject",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "cutoff",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "Q",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "param",
                     "name": "AUDIO_SR",
                     "default": 48000,
@@ -2009,11 +2009,6 @@
                 }
             ],
             "returns": [
-                {
-                    "id": 0,
-                    "name": "",
-                    "digest": ""
-                },
                 {
                     "id": 1,
                     "name": "",
@@ -2031,6 +2026,11 @@
                 },
                 {
                     "id": 4,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
                     "name": "",
                     "digest": ""
                 }
@@ -2042,19 +2042,19 @@
             "name": "eviBiquadCoeffButterworthLowpassGain",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "cutoff",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "gain",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "param",
                     "name": "AUDIO_SR",
                     "default": 48000,
@@ -2063,11 +2063,6 @@
                 }
             ],
             "returns": [
-                {
-                    "id": 0,
-                    "name": "",
-                    "digest": ""
-                },
                 {
                     "id": 1,
                     "name": "",
@@ -2085,6 +2080,11 @@
                 },
                 {
                     "id": 4,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
                     "name": "",
                     "digest": ""
                 }
@@ -2096,19 +2096,19 @@
             "name": "eviBiquadCoeffButterworthHighpassGain",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "cutoff",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "gain",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "param",
                     "name": "AUDIO_SR",
                     "default": 48000,
@@ -2117,11 +2117,6 @@
                 }
             ],
             "returns": [
-                {
-                    "id": 0,
-                    "name": "",
-                    "digest": ""
-                },
                 {
                     "id": 1,
                     "name": "",
@@ -2139,6 +2134,11 @@
                 },
                 {
                     "id": 4,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
                     "name": "",
                     "digest": ""
                 }
@@ -2150,25 +2150,25 @@
             "name": "eviBiquadCoeffButterworthBandpassGain",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "cutoff",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "gain",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "input",
                     "name": "Q",
                     "digest": ""
                 },
                 {
-                    "id": 3,
+                    "id": 4,
                     "kind": "param",
                     "name": "AUDIO_SR",
                     "default": 48000,
@@ -2177,11 +2177,6 @@
                 }
             ],
             "returns": [
-                {
-                    "id": 0,
-                    "name": "",
-                    "digest": ""
-                },
                 {
                     "id": 1,
                     "name": "",
@@ -2199,6 +2194,11 @@
                 },
                 {
                     "id": 4,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
                     "name": "",
                     "digest": ""
                 }
@@ -2210,25 +2210,25 @@
             "name": "eviBiquadCoeffButterworthBandrejectGain",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "cutoff",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "gain",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "input",
                     "name": "Q",
                     "digest": ""
                 },
                 {
-                    "id": 3,
+                    "id": 4,
                     "kind": "param",
                     "name": "AUDIO_SR",
                     "default": 48000,
@@ -2237,11 +2237,6 @@
                 }
             ],
             "returns": [
-                {
-                    "id": 0,
-                    "name": "",
-                    "digest": ""
-                },
                 {
                     "id": 1,
                     "name": "",
@@ -2259,6 +2254,11 @@
                 },
                 {
                     "id": 4,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
                     "name": "",
                     "digest": ""
                 }
@@ -2270,31 +2270,31 @@
             "name": "eviBiquadCoeff",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "filter",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "cutoff",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "input",
                     "name": "gain",
                     "digest": ""
                 },
                 {
-                    "id": 3,
+                    "id": 4,
                     "kind": "input",
                     "name": "fullQ",
                     "digest": ""
                 },
                 {
-                    "id": 4,
+                    "id": 5,
                     "kind": "param",
                     "name": "AUDIO_SAMPLERATE",
                     "default": 48000,
@@ -2304,11 +2304,6 @@
             ],
             "returns": [
                 {
-                    "id": 0,
-                    "name": "",
-                    "digest": ""
-                },
-                {
                     "id": 1,
                     "name": "",
                     "digest": ""
@@ -2325,6 +2320,11 @@
                 },
                 {
                     "id": 4,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
                     "name": "",
                     "digest": ""
                 }
@@ -2336,31 +2336,31 @@
             "name": "eviBiquadCoeffEQ",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "filter",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "cutoff",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "input",
                     "name": "gain",
                     "digest": ""
                 },
                 {
-                    "id": 3,
+                    "id": 4,
                     "kind": "input",
                     "name": "fullQ",
                     "digest": ""
                 },
                 {
-                    "id": 4,
+                    "id": 5,
                     "kind": "param",
                     "name": "AUDIO_SAMPLERATE",
                     "default": 48000,
@@ -2370,11 +2370,6 @@
             ],
             "returns": [
                 {
-                    "id": 0,
-                    "name": "",
-                    "digest": ""
-                },
-                {
                     "id": 1,
                     "name": "",
                     "digest": ""
@@ -2391,6 +2386,11 @@
                 },
                 {
                     "id": 4,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
                     "name": "",
                     "digest": ""
                 }
@@ -2402,31 +2402,31 @@
             "name": "eviBiquadCoeffButterworth",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "filter",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "cutoff",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "input",
                     "name": "gain",
                     "digest": ""
                 },
                 {
-                    "id": 3,
+                    "id": 4,
                     "kind": "input",
                     "name": "fullQ",
                     "digest": ""
                 },
                 {
-                    "id": 4,
+                    "id": 5,
                     "kind": "param",
                     "name": "AUDIO_SAMPLERATE",
                     "default": 48000,
@@ -2436,11 +2436,6 @@
             ],
             "returns": [
                 {
-                    "id": 0,
-                    "name": "",
-                    "digest": ""
-                },
-                {
                     "id": 1,
                     "name": "",
                     "digest": ""
@@ -2457,6 +2452,11 @@
                 },
                 {
                     "id": 4,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
                     "name": "",
                     "digest": ""
                 }
@@ -2468,31 +2468,31 @@
             "name": "eviBiquadCoeffAnalog",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "filter",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "cutoff",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "input",
                     "name": "gain",
                     "digest": ""
                 },
                 {
-                    "id": 3,
+                    "id": 4,
                     "kind": "input",
                     "name": "fullQ",
                     "digest": ""
                 },
                 {
-                    "id": 4,
+                    "id": 5,
                     "kind": "param",
                     "name": "AUDIO_SAMPLERATE",
                     "default": 48000,
@@ -2502,11 +2502,6 @@
             ],
             "returns": [
                 {
-                    "id": 0,
-                    "name": "",
-                    "digest": ""
-                },
-                {
                     "id": 1,
                     "name": "",
                     "digest": ""
@@ -2523,6 +2518,11 @@
                 },
                 {
                     "id": 4,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
                     "name": "",
                     "digest": ""
                 }
@@ -2534,13 +2534,13 @@
             "name": "eviBiquadCoeffBpButterworth6",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "cutoff",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "param",
                     "name": "AUDIO_SAMPLERATE",
                     "default": 48000,
@@ -2549,11 +2549,6 @@
                 }
             ],
             "returns": [
-                {
-                    "id": 0,
-                    "name": "",
-                    "digest": ""
-                },
                 {
                     "id": 1,
                     "name": "",
@@ -2621,6 +2616,11 @@
                 },
                 {
                     "id": 14,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 15,
                     "name": "",
                     "digest": ""
                 }

@@ -1,4 +1,9 @@
 /*
+	This source code is Copyright 2022 Cycling '74 -- All rights reserved.
+	Cycling '74 does not grant you permission to copy, modify, or distribute
+	this source without its express written permission.
+*/
+/*
 	This document implements the GenExpr grammar
 
 	It is based on the original Lua/LPEG grammar used in Gen 2, but the AST it produces is closer to estree in style.

@@ -13,25 +13,25 @@
             "name": "complexRing",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "real",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "imag",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "input",
                     "name": "rmod",
                     "digest": ""
                 },
                 {
-                    "id": 3,
+                    "id": 4,
                     "kind": "input",
                     "name": "imod",
                     "digest": ""
@@ -39,11 +39,6 @@
             ],
             "returns": [
                 {
-                    "id": 0,
-                    "name": "",
-                    "digest": ""
-                },
-                {
                     "id": 1,
                     "name": "",
                     "digest": ""
@@ -55,6 +50,11 @@
                 },
                 {
                     "id": 3,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
                     "name": "",
                     "digest": ""
                 }
@@ -66,19 +66,19 @@
             "name": "sinFoldNaive",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "pidrive",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "input",
                     "name": "sindrive",
                     "digest": ""
@@ -86,7 +86,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -98,7 +98,7 @@
             "name": "fWarp",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "cf",
                     "digest": ""
@@ -106,7 +106,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -118,13 +118,13 @@
             "name": "lp1p",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "g",
                     "digest": ""
@@ -132,7 +132,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -144,19 +144,19 @@
             "name": "lp2p",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "g",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "input",
                     "name": "r",
                     "digest": ""
@@ -164,7 +164,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -176,13 +176,13 @@
             "name": "butterworthLowpass4",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "X",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "G",
                     "digest": ""
@@ -190,7 +190,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -202,13 +202,13 @@
             "name": "butterworthLowpass8",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "X",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "G",
                     "digest": ""
@@ -216,7 +216,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }

@@ -18,12 +18,15 @@ importers:
       '@types/maxmsp':
         specifier: ^1.0.15
         version: 1.0.15
+      '@types/node':
+        specifier: ^25.2.3
+        version: 25.2.3
       esbuild:
         specifier: ^0.27.3
         version: 0.27.3
       fast-xml-parser:
-        specifier: ^5.3.4
-        version: 5.3.4
+        specifier: ^5.3.6
+        version: 5.3.6
       handlebars:
         specifier: ^4.7.8
         version: 4.7.8
@@ -34,8 +37,8 @@ importers:
         specifier: ^5.0.6
         version: 5.0.6
       pnpm:
-        specifier: ^10.28.2
-        version: 10.28.2
+        specifier: ^10.29.3
+        version: 10.29.3
       typescript:
         specifier: ^5.9.3
         version: 5.9.3
@@ -211,8 +214,8 @@ packages:
   '@types/maxmsp@1.0.15':
     resolution: {integrity: sha512-p2yhTP13jZIt2Bz5yGb/ovD/b+jkjRKuRmLb18LzTpwR1W6XeIBxjoiry15FvVE3Pi2nyo3IU6Ks+rQjUYCRfg==}
 
-  '@types/node@25.2.1':
-    resolution: {integrity: sha512-CPrnr8voK8vC6eEtyRzvMpgp3VyVRhgclonE7qYi6P9sXwYb59ucfrnmFBTaP0yUi8Gk4yZg/LlTJULGxvTNsg==}
+  '@types/node@25.2.3':
+    resolution: {integrity: sha512-m0jEgYlYz+mDJZ2+F4v8D1AyQb+QzsNqRuI7xg1VQX/KlKS0qT9r1Mo16yo5F/MtifXFgaofIFsdFMox2SxIbQ==}
 
   commander@14.0.3:
     resolution: {integrity: sha512-H+y0Jo/T1RZ9qPP4Eh1pkcQcLRglraJaSLoyOtHxu6AapkjWVCy2Sit1QQ4x3Dng8qDlSsZEet7g5Pq06MvTgw==}
@@ -223,8 +226,8 @@ packages:
     engines: {node: '>=18'}
     hasBin: true
 
-  fast-xml-parser@5.3.4:
-    resolution: {integrity: sha512-EFd6afGmXlCx8H8WTZHhAoDaWaGyuIBoZJ2mknrNxug+aZKjkp0a0dlars9Izl+jF+7Gu1/5f/2h68cQpe0IiA==}
+  fast-xml-parser@5.3.6:
+    resolution: {integrity: sha512-QNI3sAvSvaOiaMl8FYU4trnEzCwiRr8XMWgAHzlrWpTSj+QaCSvOf1h82OEP1s4hiAXhnbXSyFWCf4ldZzZRVA==}
     hasBin: true
 
   fs-extra@11.3.3:
@@ -256,8 +259,8 @@ packages:
     engines: {node: '>=20'}
     hasBin: true
 
-  pnpm@10.28.2:
-    resolution: {integrity: sha512-QYcvA3rSL3NI47Heu69+hnz9RI8nJtnPdMCPGVB8MdLI56EVJbmD/rwt9kC1Q43uYCPrsfhO1DzC1lTSvDJiZA==}
+  pnpm@10.29.3:
+    resolution: {integrity: sha512-SY4ftMylqgbB3PJhHm+vxQly/+cYmZjECekN50VmREKY/+Q+bNKs3Hdboap8xeCSqLcFTIEbqMV3D4RpPTPS3A==}
     engines: {node: '>=18.12'}
     hasBin: true
 
@@ -384,15 +387,15 @@ snapshots:
   '@types/fs-extra@11.0.4':
     dependencies:
       '@types/jsonfile': 6.1.4
-      '@types/node': 25.2.1
+      '@types/node': 25.2.3
 
   '@types/jsonfile@6.1.4':
     dependencies:
-      '@types/node': 25.2.1
+      '@types/node': 25.2.3
 
   '@types/maxmsp@1.0.15': {}
 
-  '@types/node@25.2.1':
+  '@types/node@25.2.3':
     dependencies:
       undici-types: 7.16.0
 
@@ -427,7 +430,7 @@ snapshots:
       '@esbuild/win32-ia32': 0.27.3
       '@esbuild/win32-x64': 0.27.3
 
-  fast-xml-parser@5.3.4:
+  fast-xml-parser@5.3.6:
     dependencies:
       strnum: 2.1.2
 
@@ -466,7 +469,7 @@ snapshots:
       commander: 14.0.3
       source-map-generator: 2.0.2
 
-  pnpm@10.28.2: {}
+  pnpm@10.29.3: {}
 
   semver@7.7.2: {}
 

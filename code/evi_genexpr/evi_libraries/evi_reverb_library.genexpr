@@ -11,11 +11,11 @@ require("evi_rcfilters.genexpr");	// incl. "_interp"
 // 'spreadLate()' used only at param rate
 spreadLate(diffscale, mul1, mul2, spread)		// diffscale is int(), others doubles
 {												// 'spread' here is 0..1
-	c		= int(spread	*  mul1	+ 369	);
-	d		= int(spread	*  mul2	+ 931	);	// '* 3' baked into 'mul2' here
-	t1		= diffscale		* (c	- 210	);
-	t2		= diffscale		* (d	- c		);
-	t3		= diffscale		* (1341 - d		);
+	c		= int(spread	*  mul1	+ 369);
+	d		= int(spread	*  mul2	+ 931);		// '* 3' baked into 'mul2' here
+	t1		= diffscale		* (c	- 210);
+	t2		= diffscale		* (d	- c	);
+	t3		= diffscale		* (1341 - d	);
 	return	t1, t2, t3;							// Sadeharju has truncated ints
 }
 
@@ -133,7 +133,7 @@ noiseMod(depth)
 	c1		= -1.998750611177923;
 	c2		=  0.9987510014210301;
 	H		=	noise();
-	h0		= ( H  *  c0 ) - ( (h1 * c1) + (h2 * c2) );
+	h0		= (H  *  c0) - ((h1 * c1) + (h2 * c2));
 	h2		=	fixdenorm(h1);
 	h1		=	fixdenorm(h0);
 	return	h0  *  depth;
@@ -235,7 +235,7 @@ preDelayVar(x0, pdTime, pdRamp)
 	preflag		= pdTime > 0;									// manage cpu (1 is 1, 0 is delayed by ramptime)
 	precompute, pcn	= eviLine(preflag, pdRamp);
 
-	preDel.write( x0 );											// always write to delay lines
+	preDel.write(x0);											// always write to delay lines
 	x1 			= x0;
 	if (precompute > 0) {	// manage cpu (only compute if is delayed)
 		delayramp, delA, delB	= calcDelays(pdTime, pdRamp);	// delayramp = exact (only compute required)
@@ -551,11 +551,11 @@ fffbAllpassLong(aIn, aGain, aTime)		// MSPish
 DiffAllpass(xIn, xCoeff, xTime)			// xCoeff = 0.75 or 0.625 for gigaverb original
 {
 	History		xdiffdummy(0);
-	Delay		xDiffuse( 52254, 1, feedback=1 );	// support @ up to 300 meters ('size' param)
-	xRead		=  xDiffuse.read(  xTime, interp="cubic" );
-	xFb			=  xIn - (xRead  * xCoeff );
+	Delay		xDiffuse(52254, 1, feedback=1);	// support @ up to 300 meters ('size' param)
+	xRead		=  xDiffuse.read(xTime, interp="cubic");
+	xFb			=  xIn - (xRead  * xCoeff);
 	xFb			=  fixdenorm(xFb);
-	xOut		=  xRead + ( xFb * xCoeff );
+	xOut		=  xRead + (xFb * xCoeff);
 	xDiffuse.write(xFb);
 	return		xOut;
 }
@@ -618,7 +618,7 @@ allpassDiffuseDamp(x, time, diffusion, g0, k0, g1, k1, damp)
 	Delay	AllpassDiffuseD(int(samplerate*0.055983894+1.5), 1, feedback=1);
 
 	fb		= AllpassDiffuseD.read(time, interp="spline");
-	if ( (damp) && ( (k0 != 0) || (k1 != 0) ) ) {
+	if ((damp) && ((k0 != 0) || (k1 != 0))) {
 		fb	= rcFilterDamp(fb, g0, k0);
 		fb	= rcFilterDamp(fb, g1, k1);
 	}
@@ -639,7 +639,7 @@ DiffuseDelayShort(x, time, diffusion, apgain, hs_a1, hs_a2, hs_a3, hs_m0, hs_m1,
 
 	fb		= DiffuseDelay.read(maximum(time, 1), interp="cubic");
 	eq		= eviSvfTwoSections(fb,	hs_a1, hs_a2, hs_a3, hs_m0, hs_m1, hs_m2, ls_a1, ls_a2, ls_a3, ls_m0, ls_m1, ls_m2);
-	y		= (x * (diffusion * -1)) + eq;
+	y		= (x * -(diffusion)) + eq;
 	DiffuseDelay.write((x + (fixdenorm(y) * diffusion)) * apgain);
 
 	return	y;
@@ -654,7 +654,7 @@ DiffuseDelayLong(x, time, diffusion, apgain, hs_a1, hs_a2, hs_a3, hs_m0, hs_m1, 
 
 	fb		= DiffuseDelay.read(maximum(time, 1), interp="spline");
 	eq		= eviSvfTwoSections(fb,	hs_a1, hs_a2, hs_a3, hs_m0, hs_m1, hs_m2, ls_a1, ls_a2, ls_a3, ls_m0, ls_m1, ls_m2);
-	y		= (x * (diffusion * -1)) + eq;
+	y		= (x * -(diffusion)) + eq;
 	DiffuseDelay.write((x + (fixdenorm(y) * diffusion)) * apgain);
 
 	return	y;
@@ -761,28 +761,28 @@ earlyTapsAdd(xL, xR, etap1samps, etap2samps, etap3samps, etap4samps, earlygain)
 earlyReflections(xL, xR, bypass)		// not working as function
 {
 	History etrdummy(0);
-	Delay	early1		(	int(floor(0.00142763 * samplerate + 0.5)),	feedback=0	);
-	Delay	early2		(	int(floor(0.00323873 * samplerate + 0.5)),	feedback=0	);
-	Delay	early3		(	int(floor(0.00523450 * samplerate + 0.5)),	feedback=0	);
-	Delay	early4		(	int(floor(0.00782312 * samplerate + 0.5)),	feedback=0	);
+	Delay	early1		(	int(floor(0.00142763 * samplerate + 0.5)),	feedback=0);
+	Delay	early2		(	int(floor(0.00323873 * samplerate + 0.5)),	feedback=0);
+	Delay	early3		(	int(floor(0.00523450 * samplerate + 0.5)),	feedback=0);
+	Delay	early4		(	int(floor(0.00782312 * samplerate + 0.5)),	feedback=0);
 
-	early1.write	(	xR			);
+	early1.write	(	xR		);
 	e1r	= early1.read(earlyTime1, interp="none");
 	ep1	= xL  + e1r;
 
-	early2.write	(	xL  - e1r	);
+	early2.write	(	xL  - e1r);
 	e2r	= early2.read(earlyTime2, interp="none");
 	ep2	= ep1 + e2r;
 
-	early3.write	(	ep1 - e2r	);
+	early3.write	(	ep1 - e2r);
 	e3r	= early3.read(earlyTime3, interp="none");
 	ep3	= ep2 + e3r;
 
-	early4.write	(	ep2 - e3r	);
+	early4.write	(	ep2 - e3r);
 	e4r	= early4.read(earlyTime4, interp="none");
 
-	yL	= interp(	bypass,		ep3 * 0.354813,	xL	);
-	yR	= interp(	bypass,		e4r * 0.354813, xR	);
+	yL	= interp(	bypass,		ep3 * 0.354813,	xL);
+	yR	= interp(	bypass,		e4r * 0.354813, xR);
 
 	return	yL, yR;
 }
@@ -794,7 +794,7 @@ eTaps(tapIn, TapGain1, TapGain2, TapGain3, TapGain4, TapTime1, TapTime2, TapTime
 	History	tapsdummy(0);
 
 	// + 5 samples offset
-	Delay	earlyTaps		(	69461,	4,	feedback=0	);	// four early taps
+	Delay	earlyTaps		(	69461,	4,	feedback=0);	// four early taps
 
 	// early taps
 	earlyTaps.write(tapIn);
@@ -821,10 +821,10 @@ fdNetwork(xTap1, xTap2, xTap3, xTap4, TapGain1, TapGain2, TapGain3, TapGain4, Ti
 {
 	History	fdndummy(0);
 
-	Delay	fdnDelay1	(	169413,	1,	feedback=1	);
-	Delay	fdnDelay2	(	138325,	1,	feedback=1	);
-	Delay	fdnDelay3	(	119794,	1,	feedback=1	);
-	Delay	fdnDelay4	(	107146,	1,	feedback=1	);
+	Delay	fdnDelay1	(	169413,	1,	feedback=1);
+	Delay	fdnDelay2	(	138325,	1,	feedback=1);
+	Delay	fdnDelay3	(	119794,	1,	feedback=1);
+	Delay	fdnDelay4	(	107146,	1,	feedback=1);
 
 	// fdn taps
 	fdnLine1	= fdnDelay1.read(Time1,	interp="spline");
@@ -849,10 +849,10 @@ fdNetwork(xTap1, xTap2, xTap3, xTap4, TapGain1, TapGain2, TapGain3, TapGain4, Ti
 //	fD4			= poleZeroDamp(fTap4,	dampXover);
 
 	// fdn matrix
-	fdnMat1		= ( fD1 + fD2 - fD3 - fD4 )  *  0.5;
-	fdnMat2		= ( fD1 - fD2 - fD3 + fD4 )  *  0.5;
-	fdnMat3		= (-fD1 + fD2 - fD3 + fD4 )  *  0.5;
-	fdnMat4		= ( fD1 + fD2 + fD3 + fD4 )  *  0.5;
+	fdnMat1		= (fD1 + fD2 - fD3 - fD4)  *  0.5;
+	fdnMat2		= (fD1 - fD2 - fD3 + fD4)  *  0.5;
+	fdnMat3		= (-fD1 + fD2 - fD3 + fD4)  *  0.5;
+	fdnMat4		= (fD1 + fD2 + fD3 + fD4)  *  0.5;
 
 	// fdn damp 2
 //	fdG				= dampXover * 0.125;	// fix for science :-)
@@ -878,16 +878,16 @@ lateDiffusion(apInxL, apInxR, lateTime1, lateTime2, lateTime3, lateTime4, lateTi
 	History	ldiffdummy(0);
 
 	// L
-	yApL	= DiffAllpass( apInxL,	0.750,	lateTime1);
-	yApL	= DiffAllpass( yApL,	0.625,	lateTime2);
-	yApL	= DiffAllpass( yApL,	0.625,	lateTime3);
-//	yApL	= DiffAllpass( yApL,	0.500,	lateTime1);
+	yApL	= DiffAllpass(apInxL,	0.750,	lateTime1);
+	yApL	= DiffAllpass(yApL,	0.625,	lateTime2);
+	yApL	= DiffAllpass(yApL,	0.625,	lateTime3);
+//	yApL	= DiffAllpass(yApL,	0.500,	lateTime1);
 
 	// R
-	yApR	= DiffAllpass( apInxR,	0.750,	lateTime4);
-	yApR	= DiffAllpass( yApR,	0.625,	lateTime5);
-	yApR	= DiffAllpass( yApR,	0.625,	lateTime6);
-//	yApR	= DiffAllpass( yApR,	0.500,	lateTime4);
+	yApR	= DiffAllpass(apInxR,	0.750,	lateTime4);
+	yApR	= DiffAllpass(yApR,	0.625,	lateTime5);
+	yApR	= DiffAllpass(yApR,	0.625,	lateTime6);
+//	yApR	= DiffAllpass(yApR,	0.500,	lateTime4);
 
 	return	yApL, yApR;
 }

@@ -10,13 +10,13 @@
             "name": "xMega",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "X",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "xCONST",
                     "digest": ""
@@ -24,7 +24,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -36,7 +36,7 @@
             "name": "xSgn",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x",
                     "digest": ""
@@ -44,7 +44,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -56,13 +56,13 @@
             "name": "xRange",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "param",
                     "name": "range",
                     "default": 1,
@@ -72,7 +72,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -84,13 +84,13 @@
             "name": "funcHc0",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "param",
                     "name": "clip",
                     "default": 1,
@@ -100,7 +100,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -112,13 +112,13 @@
             "name": "funcHc1",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "param",
                     "name": "range",
                     "default": 1,
@@ -128,7 +128,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -140,13 +140,13 @@
             "name": "funcHc2",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "param",
                     "name": "range",
                     "default": 1,
@@ -156,7 +156,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -168,13 +168,13 @@
             "name": "adHc1",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "param",
                     "name": "limit",
                     "default": 1,
@@ -184,7 +184,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -196,13 +196,13 @@
             "name": "adHc2",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "param",
                     "name": "limit",
                     "default": 1,
@@ -212,7 +212,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -224,13 +224,13 @@
             "name": "adHc2_2x_6POINT",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "XIN",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "param",
                     "name": "thresh",
                     "default": 1,
@@ -240,7 +240,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -252,13 +252,13 @@
             "name": "adHc2_4x_6POINT",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "XIN",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "param",
                     "name": "thresh",
                     "default": 1,
@@ -268,7 +268,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -280,37 +280,37 @@
             "name": "biquadDf2",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "a0",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "input",
                     "name": "a1",
                     "digest": ""
                 },
                 {
-                    "id": 3,
+                    "id": 4,
                     "kind": "input",
                     "name": "a2",
                     "digest": ""
                 },
                 {
-                    "id": 4,
+                    "id": 5,
                     "kind": "input",
                     "name": "b1",
                     "digest": ""
                 },
                 {
-                    "id": 5,
+                    "id": 6,
                     "kind": "input",
                     "name": "b2",
                     "digest": ""
@@ -318,7 +318,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -330,7 +330,7 @@
             "name": "logSad",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "s",
                     "digest": ""
@@ -338,7 +338,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -350,13 +350,13 @@
             "name": "getMax",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "xL",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "xR",
                     "digest": ""
@@ -364,7 +364,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -376,19 +376,19 @@
             "name": "logAttackDecay",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "a",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "input",
                     "name": "d",
                     "digest": ""
@@ -396,7 +396,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -408,61 +408,61 @@
             "name": "limiterFast",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "xL",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "xR",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "input",
                     "name": "release",
                     "digest": ""
                 },
                 {
-                    "id": 3,
+                    "id": 4,
                     "kind": "input",
                     "name": "knee",
                     "digest": ""
                 },
                 {
-                    "id": 4,
+                    "id": 5,
                     "kind": "input",
                     "name": "choochoo",
                     "digest": ""
                 },
                 {
-                    "id": 5,
+                    "id": 6,
                     "kind": "input",
                     "name": "a0",
                     "digest": ""
                 },
                 {
-                    "id": 6,
+                    "id": 7,
                     "kind": "input",
                     "name": "a1",
                     "digest": ""
                 },
                 {
-                    "id": 7,
+                    "id": 8,
                     "kind": "input",
                     "name": "a2",
                     "digest": ""
                 },
                 {
-                    "id": 8,
+                    "id": 9,
                     "kind": "input",
                     "name": "b1",
                     "digest": ""
                 },
                 {
-                    "id": 9,
+                    "id": 10,
                     "kind": "input",
                     "name": "b2",
                     "digest": ""
@@ -470,17 +470,17 @@
             ],
             "returns": [
                 {
-                    "id": 0,
-                    "name": "",
-                    "digest": ""
-                },
-                {
                     "id": 1,
                     "name": "",
                     "digest": ""
                 },
                 {
                     "id": 2,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
                     "name": "",
                     "digest": ""
                 }

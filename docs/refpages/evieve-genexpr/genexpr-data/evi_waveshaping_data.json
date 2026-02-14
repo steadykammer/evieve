@@ -8,7 +8,7 @@
             "name": "localExpA",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x",
                     "digest": ""
@@ -16,7 +16,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -28,7 +28,7 @@
             "name": "tanhLApprox",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x",
                     "digest": ""
@@ -36,7 +36,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -48,13 +48,13 @@
             "name": "tanhAxA",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "gain",
                     "digest": ""
@@ -62,7 +62,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -74,7 +74,7 @@
             "name": "tanhSqrt",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x",
                     "digest": ""
@@ -82,7 +82,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -94,7 +94,7 @@
             "name": "tanhPoly",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x",
                     "digest": ""
@@ -102,7 +102,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -114,7 +114,7 @@
             "name": "atanApprox",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x",
                     "digest": ""
@@ -122,7 +122,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -134,7 +134,7 @@
             "name": "atanDrive",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "drive",
                     "digest": ""
@@ -142,12 +142,12 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "name": "",
                     "digest": ""
                 }
@@ -159,13 +159,13 @@
             "name": "atanSat",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "drive",
                     "digest": ""
@@ -173,7 +173,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -185,13 +185,13 @@
             "name": "tarrabiaShaper",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "a",
                     "digest": ""
@@ -199,7 +199,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -211,13 +211,13 @@
             "name": "jongShaper",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "a",
                     "digest": ""
@@ -225,7 +225,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -237,7 +237,7 @@
             "name": "cubicNL",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x",
                     "digest": ""
@@ -245,7 +245,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -257,7 +257,7 @@
             "name": "thbNL",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x",
                     "digest": ""
@@ -265,7 +265,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -277,7 +277,7 @@
             "name": "polyNom",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x",
                     "digest": ""
@@ -285,7 +285,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -297,7 +297,7 @@
             "name": "polySat",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x",
                     "digest": ""
@@ -305,7 +305,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -317,19 +317,19 @@
             "name": "parabolSat",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "a",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "input",
                     "name": "c",
                     "digest": ""
@@ -337,7 +337,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -349,13 +349,13 @@
             "name": "scDistort",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x0",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "drive",
                     "digest": ""
@@ -363,7 +363,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -375,13 +375,13 @@
             "name": "scSoftClip",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x0",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "drive",
                     "digest": ""
@@ -389,7 +389,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -401,7 +401,7 @@
             "name": "RaffelBBD",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x",
                     "digest": ""
@@ -409,7 +409,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -421,7 +421,7 @@
             "name": "cosQ32p",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x",
                     "digest": ""
@@ -429,7 +429,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -441,7 +441,7 @@
             "name": "cos32quad12p",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x",
                     "digest": ""
@@ -449,7 +449,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -461,7 +461,7 @@
             "name": "sinParam",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "drive",
                     "digest": ""
@@ -469,12 +469,12 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "name": "",
                     "digest": ""
                 }
@@ -486,13 +486,13 @@
             "name": "sinSat",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "drive",
                     "digest": ""
@@ -500,7 +500,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -512,19 +512,19 @@
             "name": "modHT",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x0",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "d",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "input",
                     "name": "a",
                     "digest": ""
@@ -532,7 +532,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -544,13 +544,13 @@
             "name": "foldBD",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "xin",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "thresh",
                     "digest": ""
@@ -558,7 +558,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -570,13 +570,13 @@
             "name": "tapeH",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "xin",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "sigmoid",
                     "digest": ""
@@ -584,7 +584,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -596,13 +596,13 @@
             "name": "gloubiBoulga",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x2",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "drive",
                     "digest": ""
@@ -610,7 +610,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -622,7 +622,7 @@
             "name": "boulgaStatic",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "xin",
                     "digest": ""
@@ -630,7 +630,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }

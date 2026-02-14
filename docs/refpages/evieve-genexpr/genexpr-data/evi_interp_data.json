@@ -8,31 +8,31 @@
             "name": "cubic_hermite_interp",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "f",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "y0",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "input",
                     "name": "y1",
                     "digest": ""
                 },
                 {
-                    "id": 3,
+                    "id": 4,
                     "kind": "input",
                     "name": "y2",
                     "digest": ""
                 },
                 {
-                    "id": 4,
+                    "id": 5,
                     "kind": "input",
                     "name": "y3",
                     "digest": ""
@@ -40,7 +40,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -52,43 +52,43 @@
             "name": "hermite_sixpoint_interp",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "f0",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "ym2",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "input",
                     "name": "ym1",
                     "digest": ""
                 },
                 {
-                    "id": 3,
+                    "id": 4,
                     "kind": "input",
                     "name": "y0",
                     "digest": ""
                 },
                 {
-                    "id": 4,
+                    "id": 5,
                     "kind": "input",
                     "name": "y1",
                     "digest": ""
                 },
                 {
-                    "id": 5,
+                    "id": 6,
                     "kind": "input",
                     "name": "y2",
                     "digest": ""
                 },
                 {
-                    "id": 6,
+                    "id": 7,
                     "kind": "input",
                     "name": "y3",
                     "digest": ""
@@ -96,7 +96,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -108,31 +108,31 @@
             "name": "cubic_lagrange_interp",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "f",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "y0",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "input",
                     "name": "y1",
                     "digest": ""
                 },
                 {
-                    "id": 3,
+                    "id": 4,
                     "kind": "input",
                     "name": "y2",
                     "digest": ""
                 },
                 {
-                    "id": 4,
+                    "id": 5,
                     "kind": "input",
                     "name": "y3",
                     "digest": ""
@@ -140,7 +140,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -152,31 +152,31 @@
             "name": "cubic_bspline_interp",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "f",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "y0",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "input",
                     "name": "y1",
                     "digest": ""
                 },
                 {
-                    "id": 3,
+                    "id": 4,
                     "kind": "input",
                     "name": "y2",
                     "digest": ""
                 },
                 {
-                    "id": 4,
+                    "id": 5,
                     "kind": "input",
                     "name": "y3",
                     "digest": ""
@@ -184,7 +184,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }

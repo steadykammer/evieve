@@ -8,7 +8,7 @@
             "name": "expA",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x0",
                     "digest": ""
@@ -16,7 +16,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -28,7 +28,7 @@
             "name": "tauA",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "t",
                     "digest": ""
@@ -36,7 +36,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -48,7 +48,7 @@
             "name": "tanA2",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x",
                     "digest": ""
@@ -56,7 +56,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -68,7 +68,7 @@
             "name": "cosQ32",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x",
                     "digest": ""
@@ -76,7 +76,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -88,7 +88,7 @@
             "name": "cos32",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x",
                     "digest": ""
@@ -96,7 +96,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -108,7 +108,7 @@
             "name": "acosT",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x",
                     "digest": ""
@@ -116,7 +116,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -128,7 +128,7 @@
             "name": "expApprox",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x",
                     "digest": ""
@@ -136,7 +136,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -148,7 +148,7 @@
             "name": "pow2Approx",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "y",
                     "digest": ""
@@ -156,7 +156,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -168,7 +168,7 @@
             "name": "coshApprox",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x",
                     "digest": ""
@@ -176,7 +176,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -188,7 +188,7 @@
             "name": "log2Approx",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x",
                     "digest": ""
@@ -196,7 +196,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -208,7 +208,7 @@
             "name": "logApprox",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x",
                     "digest": ""
@@ -216,7 +216,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -228,7 +228,7 @@
             "name": "log10Approx",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x",
                     "digest": ""
@@ -236,7 +236,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -248,7 +248,7 @@
             "name": "logsad",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "s",
                     "digest": ""
@@ -256,7 +256,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -268,13 +268,13 @@
             "name": "logso",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "ad",
                     "digest": ""
@@ -282,7 +282,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -294,13 +294,13 @@
             "name": "logsmooth",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "s",
                     "digest": ""
@@ -308,7 +308,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -320,19 +320,19 @@
             "name": "logsmoothBank2",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x1",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "x2",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "input",
                     "name": "s",
                     "digest": ""
@@ -340,12 +340,12 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "name": "",
                     "digest": ""
                 }
@@ -357,13 +357,13 @@
             "name": "expso",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "z",
                     "digest": ""
@@ -371,7 +371,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -383,19 +383,19 @@
             "name": "expsmoothBank2",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x1",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "x2",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "input",
                     "name": "t",
                     "digest": ""
@@ -403,12 +403,12 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "name": "",
                     "digest": ""
                 }
@@ -420,31 +420,31 @@
             "name": "expsmoothBank4",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x1",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "x2",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "input",
                     "name": "x3",
                     "digest": ""
                 },
                 {
-                    "id": 3,
+                    "id": 4,
                     "kind": "input",
                     "name": "x4",
                     "digest": ""
                 },
                 {
-                    "id": 4,
+                    "id": 5,
                     "kind": "input",
                     "name": "t",
                     "digest": ""
@@ -452,11 +452,6 @@
             ],
             "returns": [
                 {
-                    "id": 0,
-                    "name": "",
-                    "digest": ""
-                },
-                {
                     "id": 1,
                     "name": "",
                     "digest": ""
@@ -468,6 +463,11 @@
                 },
                 {
                     "id": 3,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
                     "name": "",
                     "digest": ""
                 }
@@ -479,31 +479,31 @@
             "name": "eviMap",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "valueIn",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "inLow",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "input",
                     "name": "inHigh",
                     "digest": ""
                 },
                 {
-                    "id": 3,
+                    "id": 4,
                     "kind": "input",
                     "name": "outLow",
                     "digest": ""
                 },
                 {
-                    "id": 4,
+                    "id": 5,
                     "kind": "input",
                     "name": "outHigh",
                     "digest": ""
@@ -511,7 +511,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -523,13 +523,13 @@
             "name": "eviLine",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "target",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "duration",
                     "digest": ""
@@ -537,12 +537,12 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "name": "",
                     "digest": ""
                 }
@@ -554,43 +554,43 @@
             "name": "hermite_sixpoint_interp",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "f0",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "ym2",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "input",
                     "name": "ym1",
                     "digest": ""
                 },
                 {
-                    "id": 3,
+                    "id": 4,
                     "kind": "input",
                     "name": "y0",
                     "digest": ""
                 },
                 {
-                    "id": 4,
+                    "id": 5,
                     "kind": "input",
                     "name": "y1",
                     "digest": ""
                 },
                 {
-                    "id": 5,
+                    "id": 6,
                     "kind": "input",
                     "name": "y2",
                     "digest": ""
                 },
                 {
-                    "id": 6,
+                    "id": 7,
                     "kind": "input",
                     "name": "y3",
                     "digest": ""
@@ -598,7 +598,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -610,7 +610,7 @@
             "name": "funcSc0",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x",
                     "digest": ""
@@ -618,7 +618,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -630,7 +630,7 @@
             "name": "funcSc1",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x",
                     "digest": ""
@@ -638,7 +638,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -650,7 +650,7 @@
             "name": "adSc1",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x",
                     "digest": ""
@@ -658,7 +658,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -670,7 +670,7 @@
             "name": "adSc1_2x_6POINT",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "XIN",
                     "digest": ""
@@ -678,7 +678,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -690,7 +690,7 @@
             "name": "rcPreWarp0",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "cutoff",
                     "digest": ""
@@ -698,7 +698,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -710,18 +710,13 @@
             "name": "svfButterCoeffs",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "R",
                     "digest": ""
                 }
             ],
             "returns": [
-                {
-                    "id": 0,
-                    "name": "",
-                    "digest": ""
-                },
                 {
                     "id": 1,
                     "name": "",
@@ -736,6 +731,11 @@
                     "id": 3,
                     "name": "",
                     "digest": ""
+                },
+                {
+                    "id": 4,
+                    "name": "",
+                    "digest": ""
                 }
             ]
         },
@@ -745,24 +745,19 @@
             "name": "svfButterPreWarp",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "cutoff",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "resonance",
                     "digest": ""
                 }
             ],
             "returns": [
-                {
-                    "id": 0,
-                    "name": "",
-                    "digest": ""
-                },
                 {
                     "id": 1,
                     "name": "",
@@ -787,6 +782,11 @@
                     "id": 5,
                     "name": "",
                     "digest": ""
+                },
+                {
+                    "id": 6,
+                    "name": "",
+                    "digest": ""
                 }
             ]
         },
@@ -796,24 +796,19 @@
             "name": "svfCoeffReson",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "hz",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "q",
                     "digest": ""
                 }
             ],
             "returns": [
-                {
-                    "id": 0,
-                    "name": "",
-                    "digest": ""
-                },
                 {
                     "id": 1,
                     "name": "",
@@ -826,6 +821,11 @@
                 },
                 {
                     "id": 3,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
                     "name": "",
                     "digest": ""
                 }
@@ -837,19 +837,19 @@
             "name": "svfButterBp",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "w",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "input",
                     "name": "k",
                     "digest": ""
@@ -857,7 +857,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -869,25 +869,25 @@
             "name": "svfSectionReson",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "v0",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "a0",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "input",
                     "name": "a1",
                     "digest": ""
                 },
                 {
-                    "id": 3,
+                    "id": 4,
                     "kind": "input",
                     "name": "a2",
                     "digest": ""
@@ -895,7 +895,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -907,25 +907,25 @@
             "name": "onepole_init",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "g",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "input",
                     "name": "s",
                     "digest": ""
                 },
                 {
-                    "id": 3,
+                    "id": 4,
                     "kind": "input",
                     "name": "k",
                     "digest": ""
@@ -933,7 +933,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -945,31 +945,31 @@
             "name": "onepole_II",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "g",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "s",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "input",
                     "name": "w",
                     "digest": ""
                 },
                 {
-                    "id": 3,
+                    "id": 4,
                     "kind": "input",
                     "name": "n",
                     "digest": ""
                 },
                 {
-                    "id": 4,
+                    "id": 5,
                     "kind": "input",
                     "name": "z",
                     "digest": ""
@@ -977,17 +977,17 @@
             ],
             "returns": [
                 {
-                    "id": 0,
-                    "name": "",
-                    "digest": ""
-                },
-                {
                     "id": 1,
                     "name": "",
                     "digest": ""
                 },
                 {
                     "id": 2,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
                     "name": "",
                     "digest": ""
                 }
@@ -999,31 +999,31 @@
             "name": "onepole_I",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "y",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "w",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "input",
                     "name": "n",
                     "digest": ""
                 },
                 {
-                    "id": 3,
+                    "id": 4,
                     "kind": "input",
                     "name": "z",
                     "digest": ""
                 },
                 {
-                    "id": 4,
+                    "id": 5,
                     "kind": "input",
                     "name": "zz",
                     "digest": ""
@@ -1031,12 +1031,12 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "name": "",
                     "digest": ""
                 }
@@ -1048,31 +1048,31 @@
             "name": "onepole_next",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "y",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "x",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "input",
                     "name": "g",
                     "digest": ""
                 },
                 {
-                    "id": 3,
+                    "id": 4,
                     "kind": "input",
                     "name": "s",
                     "digest": ""
                 },
                 {
-                    "id": 4,
+                    "id": 5,
                     "kind": "input",
                     "name": "k",
                     "digest": ""
@@ -1080,7 +1080,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -1092,30 +1092,25 @@
             "name": "onepole4",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "w",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "input",
                     "name": "k",
                     "digest": ""
                 }
             ],
             "returns": [
-                {
-                    "id": 0,
-                    "name": "",
-                    "digest": ""
-                },
                 {
                     "id": 1,
                     "name": "",
@@ -1128,6 +1123,11 @@
                 },
                 {
                     "id": 3,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
                     "name": "",
                     "digest": ""
                 }

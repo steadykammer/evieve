@@ -10,19 +10,19 @@
             "name": "stepsmooth",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "y",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "input",
                     "name": "a",
                     "digest": ""
@@ -30,7 +30,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -42,13 +42,13 @@
             "name": "polesmooth",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "s",
                     "digest": ""
@@ -56,7 +56,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -68,13 +68,13 @@
             "name": "expsmooth",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "t",
                     "digest": ""
@@ -82,7 +82,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -94,13 +94,13 @@
             "name": "logsmooth",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "s",
                     "digest": ""
@@ -108,7 +108,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -120,13 +120,13 @@
             "name": "logsmoothClip",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "s",
                     "digest": ""
@@ -134,7 +134,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -146,13 +146,13 @@
             "name": "expso",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "z",
                     "digest": ""
@@ -160,7 +160,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -172,19 +172,19 @@
             "name": "expsmoothBank2",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x1",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "x2",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "input",
                     "name": "t",
                     "digest": ""
@@ -192,12 +192,12 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "name": "",
                     "digest": ""
                 }
@@ -209,25 +209,25 @@
             "name": "expsmoothBank3",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x1",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "x2",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "input",
                     "name": "x3",
                     "digest": ""
                 },
                 {
-                    "id": 3,
+                    "id": 4,
                     "kind": "input",
                     "name": "t",
                     "digest": ""
@@ -235,17 +235,17 @@
             ],
             "returns": [
                 {
-                    "id": 0,
-                    "name": "",
-                    "digest": ""
-                },
-                {
                     "id": 1,
                     "name": "",
                     "digest": ""
                 },
                 {
                     "id": 2,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
                     "name": "",
                     "digest": ""
                 }
@@ -257,31 +257,31 @@
             "name": "expsmoothBank4",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x1",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "x2",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "input",
                     "name": "x3",
                     "digest": ""
                 },
                 {
-                    "id": 3,
+                    "id": 4,
                     "kind": "input",
                     "name": "x4",
                     "digest": ""
                 },
                 {
-                    "id": 4,
+                    "id": 5,
                     "kind": "input",
                     "name": "t",
                     "digest": ""
@@ -289,11 +289,6 @@
             ],
             "returns": [
                 {
-                    "id": 0,
-                    "name": "",
-                    "digest": ""
-                },
-                {
                     "id": 1,
                     "name": "",
                     "digest": ""
@@ -305,6 +300,11 @@
                 },
                 {
                     "id": 3,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
                     "name": "",
                     "digest": ""
                 }
@@ -316,37 +316,37 @@
             "name": "expsmoothBank5",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x1",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "x2",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "input",
                     "name": "x3",
                     "digest": ""
                 },
                 {
-                    "id": 3,
+                    "id": 4,
                     "kind": "input",
                     "name": "x4",
                     "digest": ""
                 },
                 {
-                    "id": 4,
+                    "id": 5,
                     "kind": "input",
                     "name": "x5",
                     "digest": ""
                 },
                 {
-                    "id": 5,
+                    "id": 6,
                     "kind": "input",
                     "name": "t",
                     "digest": ""
@@ -354,11 +354,6 @@
             ],
             "returns": [
                 {
-                    "id": 0,
-                    "name": "",
-                    "digest": ""
-                },
-                {
                     "id": 1,
                     "name": "",
                     "digest": ""
@@ -375,6 +370,11 @@
                 },
                 {
                     "id": 4,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
                     "name": "",
                     "digest": ""
                 }
@@ -386,43 +386,43 @@
             "name": "expsmoothBank6",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x1",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "x2",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "input",
                     "name": "x3",
                     "digest": ""
                 },
                 {
-                    "id": 3,
+                    "id": 4,
                     "kind": "input",
                     "name": "x4",
                     "digest": ""
                 },
                 {
-                    "id": 4,
+                    "id": 5,
                     "kind": "input",
                     "name": "x5",
                     "digest": ""
                 },
                 {
-                    "id": 5,
+                    "id": 6,
                     "kind": "input",
                     "name": "x6",
                     "digest": ""
                 },
                 {
-                    "id": 6,
+                    "id": 7,
                     "kind": "input",
                     "name": "t",
                     "digest": ""
@@ -430,11 +430,6 @@
             ],
             "returns": [
                 {
-                    "id": 0,
-                    "name": "",
-                    "digest": ""
-                },
-                {
                     "id": 1,
                     "name": "",
                     "digest": ""
@@ -456,6 +451,11 @@
                 },
                 {
                     "id": 5,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 6,
                     "name": "",
                     "digest": ""
                 }
@@ -467,49 +467,49 @@
             "name": "expsmoothBank7",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x1",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "x2",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "input",
                     "name": "x3",
                     "digest": ""
                 },
                 {
-                    "id": 3,
+                    "id": 4,
                     "kind": "input",
                     "name": "x4",
                     "digest": ""
                 },
                 {
-                    "id": 4,
+                    "id": 5,
                     "kind": "input",
                     "name": "x5",
                     "digest": ""
                 },
                 {
-                    "id": 5,
+                    "id": 6,
                     "kind": "input",
                     "name": "x6",
                     "digest": ""
                 },
                 {
-                    "id": 6,
+                    "id": 7,
                     "kind": "input",
                     "name": "x7",
                     "digest": ""
                 },
                 {
-                    "id": 7,
+                    "id": 8,
                     "kind": "input",
                     "name": "t",
                     "digest": ""
@@ -517,11 +517,6 @@
             ],
             "returns": [
                 {
-                    "id": 0,
-                    "name": "",
-                    "digest": ""
-                },
-                {
                     "id": 1,
                     "name": "",
                     "digest": ""
@@ -548,6 +543,11 @@
                 },
                 {
                     "id": 6,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 7,
                     "name": "",
                     "digest": ""
                 }
@@ -559,55 +559,55 @@
             "name": "expsmoothBank8",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x1",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "x2",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "input",
                     "name": "x3",
                     "digest": ""
                 },
                 {
-                    "id": 3,
+                    "id": 4,
                     "kind": "input",
                     "name": "x4",
                     "digest": ""
                 },
                 {
-                    "id": 4,
+                    "id": 5,
                     "kind": "input",
                     "name": "x5",
                     "digest": ""
                 },
                 {
-                    "id": 5,
+                    "id": 6,
                     "kind": "input",
                     "name": "x6",
                     "digest": ""
                 },
                 {
-                    "id": 6,
+                    "id": 7,
                     "kind": "input",
                     "name": "x7",
                     "digest": ""
                 },
                 {
-                    "id": 7,
+                    "id": 8,
                     "kind": "input",
                     "name": "x8",
                     "digest": ""
                 },
                 {
-                    "id": 8,
+                    "id": 9,
                     "kind": "input",
                     "name": "t",
                     "digest": ""
@@ -615,11 +615,6 @@
             ],
             "returns": [
                 {
-                    "id": 0,
-                    "name": "",
-                    "digest": ""
-                },
-                {
                     "id": 1,
                     "name": "",
                     "digest": ""
@@ -651,6 +646,11 @@
                 },
                 {
                     "id": 7,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 8,
                     "name": "",
                     "digest": ""
                 }
@@ -662,13 +662,13 @@
             "name": "cfSmoothLinearCoeff",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "hz",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "s",
                     "digest": ""
@@ -676,12 +676,12 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "name": "",
                     "digest": ""
                 }
@@ -693,19 +693,19 @@
             "name": "cfSmoothLinearFilter",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x0",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "g0",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "input",
                     "name": "s0",
                     "digest": ""
@@ -713,7 +713,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -725,19 +725,19 @@
             "name": "cfSmoothLinear",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x1",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "hz",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "input",
                     "name": "s",
                     "digest": ""
@@ -745,7 +745,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -757,25 +757,25 @@
             "name": "cfSmoothLinear2",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x1",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "x2",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "input",
                     "name": "hz",
                     "digest": ""
                 },
                 {
-                    "id": 3,
+                    "id": 4,
                     "kind": "input",
                     "name": "s",
                     "digest": ""
@@ -783,12 +783,12 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "name": "",
                     "digest": ""
                 }
@@ -800,13 +800,13 @@
             "name": "cfSmoothCubicCoeff",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "hz",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "s",
                     "digest": ""
@@ -814,12 +814,12 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "name": "",
                     "digest": ""
                 }
@@ -831,19 +831,19 @@
             "name": "cfSmoothCubicFilter",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x0",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "wc",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "input",
                     "name": "s0",
                     "digest": ""
@@ -851,7 +851,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -863,19 +863,19 @@
             "name": "cfSmoothCubic",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x1",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "hz",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "input",
                     "name": "s",
                     "digest": ""
@@ -883,7 +883,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -895,25 +895,25 @@
             "name": "cfSmoothCubic2",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x1",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "x2",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "input",
                     "name": "hz",
                     "digest": ""
                 },
                 {
-                    "id": 3,
+                    "id": 4,
                     "kind": "input",
                     "name": "s",
                     "digest": ""
@@ -921,12 +921,12 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "name": "",
                     "digest": ""
                 }
@@ -938,13 +938,13 @@
             "name": "smoothCoeff",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "smooth",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "param",
                     "name": "q",
                     "default": 0.54945,
@@ -953,11 +953,6 @@
                 }
             ],
             "returns": [
-                {
-                    "id": 0,
-                    "name": "",
-                    "digest": ""
-                },
                 {
                     "id": 1,
                     "name": "",
@@ -975,6 +970,11 @@
                 },
                 {
                     "id": 4,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
                     "name": "",
                     "digest": ""
                 }
@@ -986,7 +986,7 @@
             "name": "logsad",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "s",
                     "digest": ""
@@ -994,7 +994,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -1006,13 +1006,13 @@
             "name": "logso",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "ad",
                     "digest": ""
@@ -1020,7 +1020,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -1032,19 +1032,19 @@
             "name": "logsmoothBank2",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x1",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "x2",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "input",
                     "name": "s",
                     "digest": ""
@@ -1052,12 +1052,12 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "name": "",
                     "digest": ""
                 }
@@ -1069,25 +1069,25 @@
             "name": "logsmoothBank3",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x1",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "x2",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "input",
                     "name": "x3",
                     "digest": ""
                 },
                 {
-                    "id": 3,
+                    "id": 4,
                     "kind": "input",
                     "name": "s",
                     "digest": ""
@@ -1095,17 +1095,17 @@
             ],
             "returns": [
                 {
-                    "id": 0,
-                    "name": "",
-                    "digest": ""
-                },
-                {
                     "id": 1,
                     "name": "",
                     "digest": ""
                 },
                 {
                     "id": 2,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
                     "name": "",
                     "digest": ""
                 }
@@ -1117,31 +1117,31 @@
             "name": "logsmoothBank4",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x1",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "x2",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "input",
                     "name": "x3",
                     "digest": ""
                 },
                 {
-                    "id": 3,
+                    "id": 4,
                     "kind": "input",
                     "name": "x4",
                     "digest": ""
                 },
                 {
-                    "id": 4,
+                    "id": 5,
                     "kind": "input",
                     "name": "s",
                     "digest": ""
@@ -1149,11 +1149,6 @@
             ],
             "returns": [
                 {
-                    "id": 0,
-                    "name": "",
-                    "digest": ""
-                },
-                {
                     "id": 1,
                     "name": "",
                     "digest": ""
@@ -1165,6 +1160,11 @@
                 },
                 {
                     "id": 3,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
                     "name": "",
                     "digest": ""
                 }
@@ -1176,37 +1176,37 @@
             "name": "logsmoothBank5",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x1",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "x2",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "input",
                     "name": "x3",
                     "digest": ""
                 },
                 {
-                    "id": 3,
+                    "id": 4,
                     "kind": "input",
                     "name": "x4",
                     "digest": ""
                 },
                 {
-                    "id": 4,
+                    "id": 5,
                     "kind": "input",
                     "name": "x5",
                     "digest": ""
                 },
                 {
-                    "id": 5,
+                    "id": 6,
                     "kind": "input",
                     "name": "s",
                     "digest": ""
@@ -1214,11 +1214,6 @@
             ],
             "returns": [
                 {
-                    "id": 0,
-                    "name": "",
-                    "digest": ""
-                },
-                {
                     "id": 1,
                     "name": "",
                     "digest": ""
@@ -1235,6 +1230,11 @@
                 },
                 {
                     "id": 4,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
                     "name": "",
                     "digest": ""
                 }
@@ -1246,43 +1246,43 @@
             "name": "logsmoothBank6",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x1",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "x2",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "input",
                     "name": "x3",
                     "digest": ""
                 },
                 {
-                    "id": 3,
+                    "id": 4,
                     "kind": "input",
                     "name": "x4",
                     "digest": ""
                 },
                 {
-                    "id": 4,
+                    "id": 5,
                     "kind": "input",
                     "name": "x5",
                     "digest": ""
                 },
                 {
-                    "id": 5,
+                    "id": 6,
                     "kind": "input",
                     "name": "x6",
                     "digest": ""
                 },
                 {
-                    "id": 6,
+                    "id": 7,
                     "kind": "input",
                     "name": "s",
                     "digest": ""
@@ -1290,11 +1290,6 @@
             ],
             "returns": [
                 {
-                    "id": 0,
-                    "name": "",
-                    "digest": ""
-                },
-                {
                     "id": 1,
                     "name": "",
                     "digest": ""
@@ -1316,6 +1311,11 @@
                 },
                 {
                     "id": 5,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 6,
                     "name": "",
                     "digest": ""
                 }
@@ -1327,143 +1327,45 @@
             "name": "logsmoothBank7",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x1",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "x2",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "input",
                     "name": "x3",
                     "digest": ""
                 },
                 {
-                    "id": 3,
+                    "id": 4,
                     "kind": "input",
                     "name": "x4",
                     "digest": ""
                 },
                 {
-                    "id": 4,
+                    "id": 5,
                     "kind": "input",
                     "name": "x5",
                     "digest": ""
                 },
                 {
-                    "id": 5,
+                    "id": 6,
                     "kind": "input",
                     "name": "x6",
                     "digest": ""
                 },
                 {
-                    "id": 6,
-                    "kind": "input",
-                    "name": "x7",
-                    "digest": ""
-                },
-                {
                     "id": 7,
                     "kind": "input",
-                    "name": "s",
-                    "digest": ""
-                }
-            ],
-            "returns": [
-                {
-                    "id": 0,
-                    "name": "",
-                    "digest": ""
-                },
-                {
-                    "id": 1,
-                    "name": "",
-                    "digest": ""
-                },
-                {
-                    "id": 2,
-                    "name": "",
-                    "digest": ""
-                },
-                {
-                    "id": 3,
-                    "name": "",
-                    "digest": ""
-                },
-                {
-                    "id": 4,
-                    "name": "",
-                    "digest": ""
-                },
-                {
-                    "id": 5,
-                    "name": "",
-                    "digest": ""
-                },
-                {
-                    "id": 6,
-                    "name": "",
-                    "digest": ""
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "",
-            "name": "logsmoothBank8",
-            "inputs": [
-                {
-                    "id": 0,
-                    "kind": "input",
-                    "name": "x1",
-                    "digest": ""
-                },
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "x2",
-                    "digest": ""
-                },
-                {
-                    "id": 2,
-                    "kind": "input",
-                    "name": "x3",
-                    "digest": ""
-                },
-                {
-                    "id": 3,
-                    "kind": "input",
-                    "name": "x4",
-                    "digest": ""
-                },
-                {
-                    "id": 4,
-                    "kind": "input",
-                    "name": "x5",
-                    "digest": ""
-                },
-                {
-                    "id": 5,
-                    "kind": "input",
-                    "name": "x6",
-                    "digest": ""
-                },
-                {
-                    "id": 6,
-                    "kind": "input",
                     "name": "x7",
-                    "digest": ""
-                },
-                {
-                    "id": 7,
-                    "kind": "input",
-                    "name": "x8",
                     "digest": ""
                 },
                 {
@@ -1475,11 +1377,6 @@
             ],
             "returns": [
                 {
-                    "id": 0,
-                    "name": "",
-                    "digest": ""
-                },
-                {
                     "id": 1,
                     "name": "",
                     "digest": ""
@@ -1519,16 +1416,119 @@
         {
             "document": true,
             "digest": "",
+            "name": "logsmoothBank8",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x1",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "x2",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "x3",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "x4",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "input",
+                    "name": "x5",
+                    "digest": ""
+                },
+                {
+                    "id": 6,
+                    "kind": "input",
+                    "name": "x6",
+                    "digest": ""
+                },
+                {
+                    "id": 7,
+                    "kind": "input",
+                    "name": "x7",
+                    "digest": ""
+                },
+                {
+                    "id": 8,
+                    "kind": "input",
+                    "name": "x8",
+                    "digest": ""
+                },
+                {
+                    "id": 9,
+                    "kind": "input",
+                    "name": "s",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 6,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 7,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 8,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
             "name": "logdecay",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "d",
                     "digest": ""
@@ -1536,7 +1536,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -1548,19 +1548,19 @@
             "name": "logattackdecay",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "a",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "input",
                     "name": "d",
                     "digest": ""
@@ -1568,7 +1568,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -1580,25 +1580,25 @@
             "name": "logattackholdrelease",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "a",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "input",
                     "name": "h",
                     "digest": ""
                 },
                 {
-                    "id": 3,
+                    "id": 4,
                     "kind": "input",
                     "name": "r",
                     "digest": ""
@@ -1606,7 +1606,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -1618,19 +1618,19 @@
             "name": "lagpole",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "c",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "input",
                     "name": "l",
                     "digest": ""
@@ -1638,7 +1638,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -1650,19 +1650,19 @@
             "name": "lagpoleAbs",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "c",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "input",
                     "name": "l",
                     "digest": ""
@@ -1670,7 +1670,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -1682,13 +1682,13 @@
             "name": "lagsmooth",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "v",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "lp0",
                     "digest": ""
@@ -1696,7 +1696,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -1708,19 +1708,19 @@
             "name": "lagsmoothThresh",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "v",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "lp0",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "input",
                     "name": "th",
                     "digest": ""
@@ -1728,7 +1728,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -1740,53 +1740,15 @@
             "name": "rampone",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "r",
-                    "digest": ""
-                },
-                {
-                    "id": 2,
-                    "kind": "input",
-                    "name": "p",
-                    "digest": ""
-                }
-            ],
-            "returns": [
-                {
-                    "id": 0,
-                    "name": "",
-                    "digest": ""
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "",
-            "name": "ramptwo",
-            "inputs": [
-                {
-                    "id": 0,
-                    "kind": "input",
-                    "name": "x",
-                    "digest": ""
-                },
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "u",
-                    "digest": ""
-                },
-                {
-                    "id": 2,
-                    "kind": "input",
-                    "name": "d",
                     "digest": ""
                 },
                 {
@@ -1798,7 +1760,45 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "ramptwo",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "u",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "d",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "p",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -1810,13 +1810,13 @@
             "name": "eviLine",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "target",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "duration",
                     "digest": ""
@@ -1824,12 +1824,12 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "name": "",
                     "digest": ""
                 }
@@ -1841,13 +1841,13 @@
             "name": "eviSline",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "target",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "duration",
                     "digest": ""
@@ -1855,12 +1855,12 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "name": "",
                     "digest": ""
                 }
@@ -1872,19 +1872,19 @@
             "name": "eviRampsmooth",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "input",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "rampup",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "input",
                     "name": "rampdown",
                     "digest": ""
@@ -1892,12 +1892,12 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "name": "",
                     "digest": ""
                 }
@@ -1909,19 +1909,19 @@
             "name": "eviCurve",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "target",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "duration",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "input",
                     "name": "curvature",
                     "digest": ""
@@ -1929,12 +1929,12 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "name": "",
                     "digest": ""
                 }
@@ -1946,19 +1946,19 @@
             "name": "eviSlide",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "u",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "input",
                     "name": "d",
                     "digest": ""
@@ -1966,7 +1966,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -1978,19 +1978,19 @@
             "name": "likeAvactrol",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "V",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "up",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "input",
                     "name": "down",
                     "digest": ""
@@ -1998,7 +1998,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -2010,13 +2010,13 @@
             "name": "vactrolSection",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "x",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "a",
                     "digest": ""
@@ -2024,7 +2024,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }
@@ -2036,19 +2036,19 @@
             "name": "vactrolBuchla",
             "inputs": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "kind": "input",
                     "name": "i",
                     "digest": ""
                 },
                 {
-                    "id": 1,
+                    "id": 2,
                     "kind": "input",
                     "name": "r",
                     "digest": ""
                 },
                 {
-                    "id": 2,
+                    "id": 3,
                     "kind": "input",
                     "name": "f",
                     "digest": ""
@@ -2056,7 +2056,7 @@
             ],
             "returns": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }

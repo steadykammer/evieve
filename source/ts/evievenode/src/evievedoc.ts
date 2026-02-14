@@ -244,6 +244,10 @@ max.addHandler('make_gendsps_ref_xml', () => {
 	makeDocRefpagesGendsps();
 })
 
+max.addHandler('make_genexprs_ref_xml', () => {
+	makeGenExprRefpages();
+})
+
 max.addHandler('make_qlookup_json', () => {
 	parseDataForQlookup();
 })
@@ -2653,7 +2657,7 @@ const areas = [
 
 // --------------------------------------------- //
 
-// top level keys: 'type': string, 'commands[]', 'functions[]' 'decls[]', 'body[]'
+// top level ast keys: 'type': string, 'commands[]', 'functions[]' 'decls[]', 'body[]'
 // 'commands' = array of require() declarations, functions = array of function() declarations
 
 // temp, builds files, does not edit / merge yet
@@ -2733,7 +2737,7 @@ function parseGenExprAstsForDoc()
 					for (let i = 0; i < func.params.length; i++) {
 						if (func.defaults[i] != null) {
 							let thisParam = JSON.parse(JSON.stringify(inputsParamTemplate));
-							thisParam.id = i;
+							thisParam.id = i+1; // controversial, ins/outs indexing from '1', bad decision?
 							thisParam.kind = 'param';
 							thisParam.name = func.params[i].name;
 							thisParam.default = func.defaults[i].value;
@@ -2741,7 +2745,7 @@ function parseGenExprAstsForDoc()
 							thisFunc.inputs.push(thisParam);
 						} else {
 							let thisInput = JSON.parse(JSON.stringify(inputsInputTemplate));
-							thisInput.id = i;
+							thisInput.id = i+1; // controversial...
 							thisInput.kind = 'input';
 							thisInput.name = func.params[i].name;
 							thisFunc.inputs.push(thisInput);
@@ -2759,7 +2763,7 @@ function parseGenExprAstsForDoc()
 							}
 							for (let j = 0; j < rets; j++) {
 								let thisReturn = JSON.parse(JSON.stringify(returnsTemplate));
-								thisReturn.id = j;
+								thisReturn.id = j+1; // controversial...
 								thisFunc.returns.push(thisReturn);
 							}
 						}
@@ -2782,26 +2786,59 @@ function parseGenExprAstsForDoc()
 
 async function extractGenExprASTs()
 {
+	// cannot work out PEG parsing syntax errors on only these four files (they compile in gen~ fine)
+	const tempIgnore: string[] = ['evi_counting.genexpr', 'evi_rcfilters.genexpr', 'evi_reverb_library.genexpr', 'evi_sources.genexpr'];
+
 	const genexprsFolder = `${cwd()}/${config.referenceFiles.genExpr.input}`;
 	const fullGenexprsPaths = getFilePathsFromPathRecursive(genexprsFolder, 'genexpr');
-
 	const genexprsAstsPath = `${cwd()}/${config.referenceFiles.genExpr.config}`;
-	// const fullAstNames = getFileNamesFromPath(genexprsAstsPath, 'json');
 
 	for await (const genexprPath of fullGenexprsPaths) {
 		const genexprName = path.basename(genexprPath);
-		const genAstName = genexprName.replace('.genexpr', '.json');
-		const thisRawGenExpr = fs.readFileSync(`${genexprPath}`, 'utf8');
-		void max.post(`.genexpr file about to be parsed: ${genexprName}`);
-		const genExprAst = PEGparser.parse(thisRawGenExpr);
-		fs.writeFileSync(`${genexprsAstsPath}/${genAstName}`, JSON.stringify(genExprAst, null, 4));
-		void max.post(`.genexpr file just written: ${genAstName}`);
+		if (!tempIgnore.includes(genexprName)) {
+			const genAstName = genexprName.replace('.genexpr', '.json');
+			const thisRawGenExpr = fs.readFileSync(`${genexprPath}`, 'utf8');
+			// void max.post(`.genexpr file about to be parsed: ${genexprName}`);
+			const genExprAst = PEGparser.parse(thisRawGenExpr);
+			fs.writeFileSync(`${genexprsAstsPath}/${genAstName}`, JSON.stringify(genExprAst, null, 4));
+			// void max.post(`.genexpr file just written: ${genAstName}`);
+		}
+	}
+}
+
+async function makeGenExprRefpages()
+{
+	let dataDir = `${cwd()}/${config.referenceFiles.genExpr.json}`;
+	const outDir = `${cwd()}/${config.referenceFiles.genExpr.output}`
+	const dataFiles = getFileNamesFromPath(dataDir, 'json');
+	// const IGNORE = //;
+	// refFiles = refFiles.filter((str) => !IGNORE.test(str));
+
+	for await (const dataFile of dataFiles) {
+		const thisConfigJson = fs.readFileSync(`${dataDir}/${dataFile}`, 'utf8');
+		const thisConfigObject = JSON.parse(thisConfigJson);
+		const fileName = dataFile.replace('_data.json', '.genexpr');
+		const shouldRequire: boolean = (thisConfigObject.requires.length > 0);
+		const writeName = dataFile.replace('_data.json', '.maxref.xml');
+		const writePath = `${outDir}/${writeName}`;
+		// totally stupid
+		renderFromTemplate('../templates/refpage_genexpr.handlebars',
+			{
+				name: fileName,
+				category: '', // argh !
+				description: thisConfigObject.description,
+				require: shouldRequire,
+				requires: thisConfigObject.requires,
+				functions: thisConfigObject.functions,
+				seealso: thisConfigObject.seealso
+			},
+			writePath);
 	}
 }
 
 // --------------------------------------------- //
+// testing
 
-// it does not work :-( :-( :-(
 async function testPeggyCrap()
 {
 	const gendspsRefsPath = `${cwd()}/${config.referenceFiles.genDsp.config}`;
