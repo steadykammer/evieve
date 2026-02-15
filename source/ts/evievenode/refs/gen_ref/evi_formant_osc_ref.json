@@ -3,7 +3,7 @@
         "name": "evi_formant_osc",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_formant_osc.gendsp] requires: [evi_smooth.genexpr, evi_trig.genexpr, evi_rcfilters.genexpr]"
+        "description": "[evi_formant_osc.gendsp] requires: \"evi_smooth.genexpr, evi_trig.genexpr, evi_rcfilters.genexpr\""
     },
     "constructor": {
         "inlets": "fundamental, voice, vowel, naive"

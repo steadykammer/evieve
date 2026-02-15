@@ -6,7 +6,7 @@
 	    TEXT_HERE <br />
     </digest>
     <description>
-	    [evi_freqshift_hilbert.gendsp] requires: [evi_ssb.genexpr] <br />
+	    [evi_freqshift_hilbert.gendsp] requires: &quot;evi_ssb.genexpr&quot; <br />
     </description>
     <methodlist />
     <constructorlist>

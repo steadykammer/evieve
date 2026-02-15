@@ -3,7 +3,7 @@
         "name": "evi_clip_hardsoft",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_clip_hardsoft.gendsp] requires: [evi_clip.genexpr]"
+        "description": "[evi_clip_hardsoft.gendsp] requires: \"evi_clip.genexpr\""
     },
     "constructor": {
         "inlets": "audio"

@@ -3,7 +3,7 @@
         "name": "evi_hilbert",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_hilbert.gendsp] requires: [evi_biquad.genexpr]"
+        "description": "[evi_hilbert.gendsp] requires: \"evi_biquad.genexpr\""
     },
     "constructor": {
         "inlets": "input"

@@ -3,7 +3,7 @@
         "name": "evi_comb",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_comb.gendsp] requires: [evi_approx.genexpr]"
+        "description": "[evi_comb.gendsp] requires: \"evi_approx.genexpr\""
     },
     "constructor": {
         "inlets": "input, delay, direct, feedforward, feedback"

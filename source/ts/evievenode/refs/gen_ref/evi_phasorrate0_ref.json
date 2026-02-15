@@ -3,7 +3,7 @@
         "name": "evi_phasorrate0",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_phasorrate0.gendsp] requires: [evi_counting.genexpr]"
+        "description": "[evi_phasorrate0.gendsp] requires: \"evi_counting.genexpr\""
     },
     "constructor": {
         "inlets": "frequency, rate, reset"

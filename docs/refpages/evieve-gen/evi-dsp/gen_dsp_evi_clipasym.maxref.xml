@@ -6,7 +6,7 @@
 	    TEXT_HERE <br />
     </digest>
     <description>
-	    [evi_clipasym.gendsp] requires: [evi_smooth.genexpr, evi_waveshaping.genexpr] <br />
+	    [evi_clipasym.gendsp] requires: &quot;evi_smooth.genexpr, evi_waveshaping.genexpr&quot; <br />
     </description>
     <methodlist />
     <constructorlist>

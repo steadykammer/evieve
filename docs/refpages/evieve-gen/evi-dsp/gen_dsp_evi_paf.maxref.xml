@@ -6,7 +6,7 @@
 	    TEXT_HERE <br />
     </digest>
     <description>
-	    [evi_paf.gendsp] requires: [evi_trig.genexpr] <br />
+	    [evi_paf.gendsp] requires: &quot;evi_trig.genexpr&quot; <br />
     </description>
     <methodlist />
     <constructorlist>

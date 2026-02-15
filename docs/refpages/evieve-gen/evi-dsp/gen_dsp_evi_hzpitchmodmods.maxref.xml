@@ -6,7 +6,7 @@
 	    TEXT_HERE <br />
     </digest>
     <description>
-	    [evi_hzpitchmodmods.gendsp] requires: [evi_smooth.genexpr] <br />
+	    [evi_hzpitchmodmods.gendsp] requires: &quot;evi_smooth.genexpr&quot; <br />
     </description>
     <methodlist />
     <constructorlist>

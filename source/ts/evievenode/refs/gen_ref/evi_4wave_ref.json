@@ -3,7 +3,7 @@
         "name": "evi_4wave",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_4wave.gendsp] requires: [evi_polyblep.genexpr]"
+        "description": "[evi_4wave.gendsp] requires: \"evi_polyblep.genexpr\""
     },
     "constructor": {
         "inlets": "frequency, naive"

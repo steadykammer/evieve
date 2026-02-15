@@ -6,7 +6,7 @@
 	    TEXT_HERE <br />
     </digest>
     <description>
-	    [evi_biquad_type.gendsp] requires: [evi_biquad.genexpr] <br />
+	    [evi_biquad_type.gendsp] requires: &quot;evi_biquad.genexpr&quot; <br />
     </description>
     <methodlist />
     <constructorlist>

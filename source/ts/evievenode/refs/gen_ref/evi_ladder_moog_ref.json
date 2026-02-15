@@ -3,7 +3,7 @@
         "name": "evi_ladder_moog",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_ladder_moog.gendsp] requires: [evi_smooth.genexpr, evi_tanh.genexpr, evi_interp.genexpr]"
+        "description": "[evi_ladder_moog.gendsp] requires: \"evi_smooth.genexpr, evi_tanh.genexpr, evi_interp.genexpr\""
     },
     "constructor": {
         "inlets": "audio, cutoff, resonance"

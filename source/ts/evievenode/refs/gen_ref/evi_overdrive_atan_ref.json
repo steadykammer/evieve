@@ -3,7 +3,7 @@
         "name": "evi_overdrive_atan",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_overdrive_atan.gendsp] requires: [evi_saturators.genexpr]"
+        "description": "[evi_overdrive_atan.gendsp] requires: \"evi_saturators.genexpr\""
     },
     "constructor": {
         "inlets": "input, shape"

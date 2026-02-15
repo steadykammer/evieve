@@ -3,7 +3,7 @@
         "name": "evi_softclip",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_softclip.gendsp] requires: [evi_adaa.genexpr]"
+        "description": "[evi_softclip.gendsp] requires: \"evi_adaa.genexpr\""
     },
     "constructor": {
         "inlets": "audio"

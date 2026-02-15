@@ -6,7 +6,7 @@
 	    TEXT_HERE <br />
     </digest>
     <description>
-	    [evi_onepole.gendsp] requires: [evi_rcfilters.genexpr, evi_smooth.genexpr] <br />
+	    [evi_onepole.gendsp] requires: &quot;evi_rcfilters.genexpr, evi_smooth.genexpr&quot; <br />
     </description>
     <methodlist />
     <constructorlist>

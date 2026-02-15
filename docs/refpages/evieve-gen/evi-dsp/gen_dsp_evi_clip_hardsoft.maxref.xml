@@ -6,7 +6,7 @@
 	    TEXT_HERE <br />
     </digest>
     <description>
-	    [evi_clip_hardsoft.gendsp] requires: [evi_clip.genexpr] <br />
+	    [evi_clip_hardsoft.gendsp] requires: &quot;evi_clip.genexpr&quot; <br />
     </description>
     <methodlist />
     <constructorlist>

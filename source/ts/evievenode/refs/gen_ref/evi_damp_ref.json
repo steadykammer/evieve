@@ -3,7 +3,7 @@
         "name": "evi_damp",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_damp.gendsp] requires: [evi_rcfilters.genexpr, evi_smooth.genexpr]"
+        "description": "[evi_damp.gendsp] requires: \"evi_rcfilters.genexpr, evi_smooth.genexpr\""
     },
     "constructor": {
         "inlets": "input, frequency, damp"

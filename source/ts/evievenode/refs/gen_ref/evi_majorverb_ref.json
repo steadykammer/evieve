@@ -3,7 +3,7 @@
         "name": "evi_majorverb",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_majorverb.gendsp] requires: [evi_reverb_library.genexpr, evi_saturators.genexpr]"
+        "description": "[evi_majorverb.gendsp] requires: \"evi_reverb_library.genexpr, evi_saturators.genexpr\""
     },
     "constructor": {
         "inlets": "left, right"

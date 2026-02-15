@@ -3,7 +3,7 @@
         "name": "evi_biquadcoeff_notilde",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_biquadcoeff_notilde.gendsp] requires: [evi_biquad_no_tilde.genexpr]"
+        "description": "[evi_biquadcoeff_notilde.gendsp] requires: \"evi_biquad_no_tilde.genexpr\""
     },
     "constructor": {
         "inlets": "cutoff, gain, q"

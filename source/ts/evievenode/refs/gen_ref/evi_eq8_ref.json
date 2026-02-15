@@ -3,7 +3,7 @@
         "name": "evi_eq8",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_eq8.gendsp] requires: [evi_svf.genexpr]"
+        "description": "[evi_eq8.gendsp] requires: \"evi_svf.genexpr\""
     },
     "constructor": {
         "inlets": "input"

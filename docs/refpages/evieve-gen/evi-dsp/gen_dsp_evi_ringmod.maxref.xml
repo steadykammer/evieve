@@ -6,7 +6,7 @@
 	    TEXT_HERE <br />
     </digest>
     <description>
-	    [evi_ringmod.gendsp] requires: [evi_ringmod_enhanced.genexpr] <br />
+	    [evi_ringmod.gendsp] requires: &quot;evi_ringmod_enhanced.genexpr&quot; <br />
     </description>
     <methodlist />
     <constructorlist>

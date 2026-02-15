@@ -3,7 +3,7 @@
         "name": "evi_onepole_shelving",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_onepole_shelving.gendsp] requires: [evi_rcfilters.genexpr, evi_smooth.genexpr]"
+        "description": "[evi_onepole_shelving.gendsp] requires: \"evi_rcfilters.genexpr, evi_smooth.genexpr\""
     },
     "constructor": {
         "inlets": "input, frequency, shelf"

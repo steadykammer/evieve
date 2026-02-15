@@ -3,7 +3,7 @@
         "name": "evi_formlet",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_formlet.gendsp] requires: [evi_smooth.genexpr]"
+        "description": "[evi_formlet.gendsp] requires: \"evi_smooth.genexpr\""
     },
     "constructor": {
         "inlets": "input, filter"

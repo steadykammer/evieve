@@ -3,7 +3,7 @@
         "name": "evi_svfsmooth",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_svfsmooth.gendsp] requires: [evi_tanh.genexpr, evi_smooth.genexpr]"
+        "description": "[evi_svfsmooth.gendsp] requires: \"evi_tanh.genexpr, evi_smooth.genexpr\""
     },
     "constructor": {
         "inlets": "input, freq, resonance, morph"

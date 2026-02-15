@@ -69,6 +69,7 @@
 				<arg name="jump" type="float" units="default: 0" optional="1" />
 				<arg name="jump" type="float" units="default: 0" optional="1" />
 				<arg name="jump" type="float" units="default: 0" optional="1" />
+				<arg name="jump" type="float" units="default: 0" optional="1" />
 			</arglist>
 			<digest>
 				Top level gen~ [history] / History() declarations can be reset by messages to the object

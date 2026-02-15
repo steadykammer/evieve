@@ -785,7 +785,7 @@ async function parseGendspsCodeboxes()
 				thisConfigObject.includes = [...new Set(thisConfigObject.includes)];
 				if (thisConfigObject.includes.length) {
 					const includesString = thisConfigObject.includes.join(', ');
-					thisConfigObject.object.description = `[${thisConfigObject.object.name}.gendsp] requires: [${includesString}]`;
+					thisConfigObject.object.description = `[${thisConfigObject.object.name}.gendsp] requires: "${includesString}"`;
 				}
 
 				fs.writeFileSync(refJsonFullRWpath, JSON.stringify(thisConfigObject, null, 4));

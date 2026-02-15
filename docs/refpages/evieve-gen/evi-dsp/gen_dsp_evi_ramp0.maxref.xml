@@ -6,7 +6,7 @@
 	    TEXT_HERE <br />
     </digest>
     <description>
-	    [evi_ramp0.gendsp] requires: [evi_counting.genexpr] <br />
+	    [evi_ramp0.gendsp] requires: &quot;evi_counting.genexpr&quot; <br />
     </description>
     <methodlist />
     <constructorlist>

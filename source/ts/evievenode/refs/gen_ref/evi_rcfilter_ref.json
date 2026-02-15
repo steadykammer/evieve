@@ -3,7 +3,7 @@
         "name": "evi_rcfilter",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_rcfilter.gendsp] requires: [evi_rcfilters.genexpr]"
+        "description": "[evi_rcfilter.gendsp] requires: \"evi_rcfilters.genexpr\""
     },
     "constructor": {
         "inlets": "input, hz"

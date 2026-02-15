@@ -3,7 +3,7 @@
         "name": "evi_blitwaves",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_blitwaves.gendsp] requires: [evi_smooth.genexpr, evi_trig.genexpr, evi_adaa.genexpr]"
+        "description": "[evi_blitwaves.gendsp] requires: \"evi_smooth.genexpr, evi_trig.genexpr, evi_adaa.genexpr\""
     },
     "constructor": {
         "inlets": "frequency, pulse, naive"

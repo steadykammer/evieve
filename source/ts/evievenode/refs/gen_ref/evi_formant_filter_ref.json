@@ -3,7 +3,7 @@
         "name": "evi_formant_filter",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_formant_filter.gendsp] requires: [evi_svf.genexpr, evi_smooth.genexpr]"
+        "description": "[evi_formant_filter.gendsp] requires: \"evi_svf.genexpr, evi_smooth.genexpr\""
     },
     "constructor": {
         "inlets": "audio, voice, vowel"

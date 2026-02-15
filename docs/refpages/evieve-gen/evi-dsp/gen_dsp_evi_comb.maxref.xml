@@ -6,7 +6,7 @@
 	    TEXT_HERE <br />
     </digest>
     <description>
-	    [evi_comb.gendsp] requires: [evi_approx.genexpr] <br />
+	    [evi_comb.gendsp] requires: &quot;evi_approx.genexpr&quot; <br />
     </description>
     <methodlist />
     <constructorlist>

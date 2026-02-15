@@ -3,7 +3,7 @@
         "name": "evi_bp",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_bp.gendsp] requires: [evi_biquad.genexpr]"
+        "description": "[evi_bp.gendsp] requires: \"evi_biquad.genexpr\""
     },
     "constructor": {
         "inlets": "input, cutoff, gain, q"

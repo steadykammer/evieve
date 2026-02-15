@@ -3,7 +3,7 @@
         "name": "evi_zeroxoscnoise",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_zeroxoscnoise.gendsp] requires: [evi_smooth.genexpr, evi_sources.genexpr, evi_rcfilters.genexpr]"
+        "description": "[evi_zeroxoscnoise.gendsp] requires: \"evi_smooth.genexpr, evi_sources.genexpr, evi_rcfilters.genexpr\""
     },
     "constructor": {
         "inlets": "audio, oscillators, oscillators, oscillators, noise"

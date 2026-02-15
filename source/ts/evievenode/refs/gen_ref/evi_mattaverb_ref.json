@@ -3,7 +3,7 @@
         "name": "evi_mattaverb",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_mattaverb.gendsp] requires: [evi_reverb_library.genexpr]"
+        "description": "[evi_mattaverb.gendsp] requires: \"evi_reverb_library.genexpr\""
     },
     "constructor": {
         "inlets": "in, in"

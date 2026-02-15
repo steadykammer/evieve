@@ -3,7 +3,7 @@
         "name": "evi_sine_select",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_sine_select.gendsp] requires: [evi_polyblep.genexpr]"
+        "description": "[evi_sine_select.gendsp] requires: \"evi_polyblep.genexpr\""
     },
     "constructor": {
         "inlets": "frequency, sync"

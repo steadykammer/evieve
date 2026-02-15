@@ -3,7 +3,7 @@
         "name": "evi_warmer",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_warmer.gendsp] requires: [evi_warmer_lib.genexpr]"
+        "description": "[evi_warmer.gendsp] requires: \"evi_warmer_lib.genexpr\""
     },
     "constructor": {
         "inlets": "boring"

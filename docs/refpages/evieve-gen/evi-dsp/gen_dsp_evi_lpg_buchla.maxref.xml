@@ -6,7 +6,7 @@
 	    TEXT_HERE <br />
     </digest>
     <description>
-	    [evi_lpg_buchla.gendsp] requires: [evi_buchla.genexpr] <br />
+	    [evi_lpg_buchla.gendsp] requires: &quot;evi_buchla.genexpr&quot; <br />
     </description>
     <methodlist />
     <constructorlist>

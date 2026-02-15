@@ -3,7 +3,7 @@
         "name": "evi_ladder_diode",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_ladder_diode.gendsp] requires: [evi_smooth.genexpr, evi_waveshaping.genexpr, evi_interp.genexpr]"
+        "description": "[evi_ladder_diode.gendsp] requires: \"evi_smooth.genexpr, evi_waveshaping.genexpr, evi_interp.genexpr\""
     },
     "constructor": {
         "inlets": "input, cutoff, cutoff, cutoff, resonance"

@@ -6,7 +6,7 @@
 	    TEXT_HERE <br />
     </digest>
     <description>
-	    [evi_classic_osc.gendsp] requires: [evi_polyblep.genexpr] <br />
+	    [evi_classic_osc.gendsp] requires: &quot;evi_polyblep.genexpr&quot; <br />
     </description>
     <methodlist />
     <constructorlist>

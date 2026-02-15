@@ -3,7 +3,7 @@
         "name": "evi_overdrive_sqrt",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_overdrive_sqrt.gendsp] requires: [evi_saturators.genexpr]"
+        "description": "[evi_overdrive_sqrt.gendsp] requires: \"evi_saturators.genexpr\""
     },
     "constructor": {
         "inlets": "input"

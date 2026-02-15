@@ -3,7 +3,7 @@
         "name": "evi_classic_osc",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_classic_osc.gendsp] requires: [evi_polyblep.genexpr]"
+        "description": "[evi_classic_osc.gendsp] requires: \"evi_polyblep.genexpr\""
     },
     "constructor": {
         "inlets": "frequency, pulse, sync"

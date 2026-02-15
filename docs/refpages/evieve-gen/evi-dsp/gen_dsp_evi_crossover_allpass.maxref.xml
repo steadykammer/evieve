@@ -6,7 +6,7 @@
 	    TEXT_HERE <br />
     </digest>
     <description>
-	    [evi_crossover_allpass.gendsp] requires: [evi_crossovers.genexpr] <br />
+	    [evi_crossover_allpass.gendsp] requires: &quot;evi_crossovers.genexpr&quot; <br />
     </description>
     <methodlist />
     <constructorlist>

@@ -6,7 +6,7 @@
 	    TEXT_HERE <br />
     </digest>
     <description>
-	    [evi_formant_osc.gendsp] requires: [evi_smooth.genexpr, evi_trig.genexpr, evi_rcfilters.genexpr] <br />
+	    [evi_formant_osc.gendsp] requires: &quot;evi_smooth.genexpr, evi_trig.genexpr, evi_rcfilters.genexpr&quot; <br />
     </description>
     <methodlist />
     <constructorlist>

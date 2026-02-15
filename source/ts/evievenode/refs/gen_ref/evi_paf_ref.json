@@ -3,7 +3,7 @@
         "name": "evi_paf",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_paf.gendsp] requires: [evi_trig.genexpr]"
+        "description": "[evi_paf.gendsp] requires: \"evi_trig.genexpr\""
     },
     "constructor": {
         "inlets": "fundamental, cf, bw, reset"

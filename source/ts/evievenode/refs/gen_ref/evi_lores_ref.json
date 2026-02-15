@@ -3,7 +3,7 @@
         "name": "evi_lores",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_lores.gendsp] requires: [evi_trig.genexpr, evi_interp.genexpr]"
+        "description": "[evi_lores.gendsp] requires: \"evi_trig.genexpr, evi_interp.genexpr\""
     },
     "constructor": {
         "inlets": "input, cutoff, resonance"

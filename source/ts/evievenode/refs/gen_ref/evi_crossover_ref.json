@@ -3,7 +3,7 @@
         "name": "evi_crossover",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_crossover.gendsp] requires: [evi_crossovers.genexpr]"
+        "description": "[evi_crossover.gendsp] requires: \"evi_crossovers.genexpr\""
     },
     "constructor": {
         "inlets": "input, crossover"

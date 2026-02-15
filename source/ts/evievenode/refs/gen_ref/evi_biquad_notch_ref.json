@@ -3,7 +3,7 @@
         "name": "evi_biquad_notch",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_biquad_notch.gendsp] requires: [evi_biquad.genexpr]"
+        "description": "[evi_biquad_notch.gendsp] requires: \"evi_biquad.genexpr\""
     },
     "constructor": {
         "inlets": "input, cutoff, gain, q"

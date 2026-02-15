@@ -6,7 +6,7 @@
 	    TEXT_HERE <br />
     </digest>
     <description>
-	    [evi_controlcircuit_buchla.gendsp] requires: [evi_rcfilters.genexpr] <br />
+	    [evi_controlcircuit_buchla.gendsp] requires: &quot;evi_rcfilters.genexpr&quot; <br />
     </description>
     <methodlist />
     <constructorlist>

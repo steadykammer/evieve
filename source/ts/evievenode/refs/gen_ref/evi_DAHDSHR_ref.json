@@ -3,7 +3,7 @@
         "name": "evi_DAHDSHR",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_DAHDSHR.gendsp] requires: [evi_approx.genexpr]"
+        "description": "[evi_DAHDSHR.gendsp] requires: \"evi_approx.genexpr\""
     },
     "constructor": {
         "inlets": "gate, delay, attack, hold1, decay, sustain, hold2, release"

@@ -3,7 +3,7 @@
         "name": "evi_skfinputmix",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_skfinputmix.gendsp] requires: [evi_tanh.genexpr, evi_trig.genexpr, evi_smooth.genexpr]"
+        "description": "[evi_skfinputmix.gendsp] requires: \"evi_tanh.genexpr, evi_trig.genexpr, evi_smooth.genexpr\""
     },
     "constructor": {
         "inlets": "lowpass, bandpass, highpass"

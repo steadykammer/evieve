@@ -3,7 +3,7 @@
         "name": "evi_quadfmpm",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_quadfmpm.gendsp] requires: [evi_smooth.genexpr]"
+        "description": "[evi_quadfmpm.gendsp] requires: \"evi_smooth.genexpr\""
     },
     "constructor": {
         "inlets": "pitch, index, fm/pm, fm/pm, mod, car, mod"

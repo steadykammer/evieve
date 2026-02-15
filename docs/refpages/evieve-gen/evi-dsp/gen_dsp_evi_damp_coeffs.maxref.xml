@@ -6,7 +6,7 @@
 	    TEXT_HERE <br />
     </digest>
     <description>
-	    [evi_damp_coeffs.gendsp] requires: [evi_rcfilters.genexpr] <br />
+	    [evi_damp_coeffs.gendsp] requires: &quot;evi_rcfilters.genexpr&quot; <br />
     </description>
     <methodlist />
     <constructorlist>

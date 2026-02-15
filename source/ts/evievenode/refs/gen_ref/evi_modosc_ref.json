@@ -3,7 +3,7 @@
         "name": "evi_modosc",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_modosc.gendsp] requires: [evi_smooth.genexpr]"
+        "description": "[evi_modosc.gendsp] requires: \"evi_smooth.genexpr\""
     },
     "constructor": {
         "inlets": "frequency, signal"

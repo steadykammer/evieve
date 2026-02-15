@@ -3,7 +3,7 @@
         "name": "evi_tone_macro",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_tone_macro.gendsp] requires: [evi_rcfilters.genexpr, evi_smooth.genexpr]"
+        "description": "[evi_tone_macro.gendsp] requires: \"evi_rcfilters.genexpr, evi_smooth.genexpr\""
     },
     "constructor": {
         "inlets": "audio"

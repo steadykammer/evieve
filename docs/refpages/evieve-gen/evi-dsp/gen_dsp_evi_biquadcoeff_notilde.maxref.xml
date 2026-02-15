@@ -6,7 +6,7 @@
 	    TEXT_HERE <br />
     </digest>
     <description>
-	    [evi_biquadcoeff_notilde.gendsp] requires: [evi_biquad_no_tilde.genexpr] <br />
+	    [evi_biquadcoeff_notilde.gendsp] requires: &quot;evi_biquad_no_tilde.genexpr&quot; <br />
     </description>
     <methodlist />
     <constructorlist>

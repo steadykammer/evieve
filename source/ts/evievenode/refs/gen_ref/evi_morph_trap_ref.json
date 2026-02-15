@@ -3,7 +3,7 @@
         "name": "evi_morph_trap",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_morph_trap.gendsp] requires: [evi_polyblep.genexpr]"
+        "description": "[evi_morph_trap.gendsp] requires: \"evi_polyblep.genexpr\""
     },
     "constructor": {
         "inlets": "frequency, morph, sync"

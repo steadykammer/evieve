@@ -6,7 +6,7 @@
 	    TEXT_HERE <br />
     </digest>
     <description>
-	    [evi_svfinputmix.gendsp] requires: [evi_tanh.genexpr, evi_trig.genexpr, evi_smooth.genexpr] <br />
+	    [evi_svfinputmix.gendsp] requires: &quot;evi_tanh.genexpr, evi_trig.genexpr, evi_smooth.genexpr&quot; <br />
     </description>
     <methodlist />
     <constructorlist>

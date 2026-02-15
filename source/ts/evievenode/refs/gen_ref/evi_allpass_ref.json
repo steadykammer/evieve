@@ -3,7 +3,7 @@
         "name": "evi_allpass",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_allpass.gendsp] requires: [evi_smooth.genexpr]"
+        "description": "[evi_allpass.gendsp] requires: \"evi_smooth.genexpr\""
     },
     "constructor": {
         "inlets": "input, delay, gain"

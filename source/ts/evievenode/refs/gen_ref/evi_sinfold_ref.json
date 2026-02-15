@@ -3,7 +3,7 @@
         "name": "evi_sinfold",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_sinfold.gendsp] requires: [evi_sinfold_lib.genexpr]"
+        "description": "[evi_sinfold.gendsp] requires: \"evi_sinfold_lib.genexpr\""
     },
     "constructor": {
         "inlets": "audio"

@@ -3,7 +3,7 @@
         "name": "evi_filter_notch",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_filter_notch.gendsp] requires: [evi_svf.genexpr]"
+        "description": "[evi_filter_notch.gendsp] requires: \"evi_svf.genexpr\""
     },
     "constructor": {
         "inlets": "input, cutoff, gain, q"

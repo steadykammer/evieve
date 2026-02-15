@@ -6,7 +6,7 @@
 	    TEXT_HERE <br />
     </digest>
     <description>
-	    [evi_plateverb_lite.gendsp] requires: [evi_reverb_library.genexpr] <br />
+	    [evi_plateverb_lite.gendsp] requires: &quot;evi_reverb_library.genexpr&quot; <br />
     </description>
     <methodlist />
     <constructorlist>

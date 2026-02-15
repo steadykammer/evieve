@@ -3,7 +3,7 @@
         "name": "evi_korgms20",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_korgms20.gendsp] requires: [evi_tanh.genexpr]"
+        "description": "[evi_korgms20.gendsp] requires: \"evi_tanh.genexpr\""
     },
     "constructor": {
         "inlets": "audio, cutoff, resonance"

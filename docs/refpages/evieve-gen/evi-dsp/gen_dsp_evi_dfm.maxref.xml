@@ -6,7 +6,7 @@
 	    TEXT_HERE <br />
     </digest>
     <description>
-	    [evi_dfm.gendsp] requires: [evi_dfm_lib.genexpr] <br />
+	    [evi_dfm.gendsp] requires: &quot;evi_dfm_lib.genexpr&quot; <br />
     </description>
     <methodlist />
     <constructorlist>

@@ -3,7 +3,7 @@
         "name": "evi_biquad_coeff",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_biquad_coeff.gendsp] requires: [evi_biquad.genexpr]"
+        "description": "[evi_biquad_coeff.gendsp] requires: \"evi_biquad.genexpr\""
     },
     "constructor": {
         "inlets": "cutoff, gain, q"

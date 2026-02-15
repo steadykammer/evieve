@@ -6,7 +6,7 @@
 	    TEXT_HERE <br />
     </digest>
     <description>
-	    [evi_softclip.gendsp] requires: [evi_adaa.genexpr] <br />
+	    [evi_softclip.gendsp] requires: &quot;evi_adaa.genexpr&quot; <br />
     </description>
     <methodlist />
     <constructorlist>

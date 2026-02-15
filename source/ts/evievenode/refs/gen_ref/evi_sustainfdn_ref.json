@@ -3,7 +3,7 @@
         "name": "evi_sustainfdn",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_sustainfdn.gendsp] requires: [evi_reverb_library.genexpr]"
+        "description": "[evi_sustainfdn.gendsp] requires: \"evi_reverb_library.genexpr\""
     },
     "constructor": {
         "inlets": "audio, audio, feeback"

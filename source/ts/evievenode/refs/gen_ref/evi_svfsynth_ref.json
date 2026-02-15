@@ -3,7 +3,7 @@
         "name": "evi_svfsynth",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_svfsynth.gendsp] requires: [evi_smooth.genexpr, evi_interp.genexpr]"
+        "description": "[evi_svfsynth.gendsp] requires: \"evi_smooth.genexpr, evi_interp.genexpr\""
     },
     "constructor": {
         "inlets": "audio, cutoff, resonance"

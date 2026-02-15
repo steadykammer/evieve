@@ -3,7 +3,7 @@
         "name": "evi_butterworth8",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_butterworth8.gendsp] requires: [evi_approx.genexpr]"
+        "description": "[evi_butterworth8.gendsp] requires: \"evi_approx.genexpr\""
     },
     "constructor": {
         "inlets": "audio, cutoff"

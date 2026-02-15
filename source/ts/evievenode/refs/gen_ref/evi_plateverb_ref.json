@@ -3,7 +3,7 @@
         "name": "evi_plateverb",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_plateverb.gendsp] requires: [evi_reverb_library.genexpr]"
+        "description": "[evi_plateverb.gendsp] requires: \"evi_reverb_library.genexpr\""
     },
     "constructor": {
         "inlets": "in, nothing"

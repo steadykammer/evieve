@@ -6,7 +6,7 @@
 	    TEXT_HERE <br />
     </digest>
     <description>
-	    [evi_phasorrate0.gendsp] requires: [evi_counting.genexpr] <br />
+	    [evi_phasorrate0.gendsp] requires: &quot;evi_counting.genexpr&quot; <br />
     </description>
     <methodlist />
     <constructorlist>

@@ -3,7 +3,7 @@
         "name": "evi_dfm",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_dfm.gendsp] requires: [evi_dfm_lib.genexpr]"
+        "description": "[evi_dfm.gendsp] requires: \"evi_dfm_lib.genexpr\""
     },
     "constructor": {
         "inlets": "mono, nothing, cutoff, resonance"

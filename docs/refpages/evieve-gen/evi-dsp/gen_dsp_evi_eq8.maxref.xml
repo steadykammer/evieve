@@ -6,7 +6,7 @@
 	    TEXT_HERE <br />
     </digest>
     <description>
-	    [evi_eq8.gendsp] requires: [evi_svf.genexpr] <br />
+	    [evi_eq8.gendsp] requires: &quot;evi_svf.genexpr&quot; <br />
     </description>
     <methodlist />
     <constructorlist>

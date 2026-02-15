@@ -3,7 +3,7 @@
         "name": "evi_algoverb",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_algoverb.gendsp] requires: [evi_reverb_library.genexpr]"
+        "description": "[evi_algoverb.gendsp] requires: \"evi_reverb_library.genexpr\""
     },
     "constructor": {
         "inlets": "audio, audio"

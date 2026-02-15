@@ -3,7 +3,7 @@
         "name": "evi_tri",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_tri.gendsp] requires: [evi_polyblep.genexpr]"
+        "description": "[evi_tri.gendsp] requires: \"evi_polyblep.genexpr\""
     },
     "constructor": {
         "inlets": "frequency, reset"

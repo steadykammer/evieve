@@ -6,7 +6,7 @@
 	    TEXT_HERE <br />
     </digest>
     <description>
-	    [evi_svfsynth.gendsp] requires: [evi_smooth.genexpr, evi_interp.genexpr] <br />
+	    [evi_svfsynth.gendsp] requires: &quot;evi_smooth.genexpr, evi_interp.genexpr&quot; <br />
     </description>
     <methodlist />
     <constructorlist>

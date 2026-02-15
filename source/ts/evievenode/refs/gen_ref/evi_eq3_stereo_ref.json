@@ -3,7 +3,7 @@
         "name": "evi_eq3_stereo",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_eq3_stereo.gendsp] requires: [evi_svf.genexpr]"
+        "description": "[evi_eq3_stereo.gendsp] requires: \"evi_svf.genexpr\""
     },
     "constructor": {
         "inlets": "input, input, freq, db, q, freq, db, q, freq, db, q"

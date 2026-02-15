@@ -6,7 +6,7 @@
 	    TEXT_HERE <br />
     </digest>
     <description>
-	    [evi_quadfmpm.gendsp] requires: [evi_smooth.genexpr] <br />
+	    [evi_quadfmpm.gendsp] requires: &quot;evi_smooth.genexpr&quot; <br />
     </description>
     <methodlist />
     <constructorlist>

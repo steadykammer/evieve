@@ -3,7 +3,7 @@
         "name": "evi_arpnotch",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_arpnotch.gendsp] requires: [evi_tanh.genexpr, evi_smooth.genexpr]"
+        "description": "[evi_arpnotch.gendsp] requires: \"evi_tanh.genexpr, evi_smooth.genexpr\""
     },
     "constructor": {
         "inlets": "input, freq, resonance, morph"
