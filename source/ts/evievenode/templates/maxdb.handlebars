@@ -3,16 +3,16 @@
 
 		"filters" :
 		[
-    {{#each evi_maxdb.autocompletion}}
+    {{#each auto}}
 			{
 				"filter" : "ignore",
-				"path" : "package@{{../evieve}}:{{this}}",
+				"path" : "package@evieve:{{this}}",
 				"kind" : "*"
 			}{{#unless @last}},{{/unless}}
     {{/each}}
 		],
 
-		"exclusions" : [ {{#each evi_maxdb.browser}}"{{this}}"{{#unless @last}}, {{/unless}}{{/each}} ]
+		"exclusions" : [ {{#each browser}}"{{this}}"{{#unless @last}}, {{/unless}}{{/each}} ]
 	}
 
 }

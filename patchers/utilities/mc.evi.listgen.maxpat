@@ -3,7 +3,7 @@
         "fileversion": 1,
         "appversion": {
             "major": 9,
-            "minor": 1,
+            "minor": 2,
             "revision": 0,
             "architecture": "x64",
             "modernui": 1
@@ -17,12 +17,12 @@
             {
                 "box": {
                     "id": "obj-29",
-                    "linecount": 2,
+                    "linecount": 3,
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 305.0, 525.0, 150.0, 33.0 ],
-                    "text": "create message lists with mcwrapper features"
+                    "patching_rect": [ 326.0, 518.0, 228.0, 47.0 ],
+                    "text": "create message lists with mcwrapper features - a patch idea by Todd Ingalls - THANKS!"
                 }
             },
             {
@@ -50,7 +50,7 @@
                 "box": {
                     "comment": "(list) generated list output",
                     "id": "obj-21",
-                    "index": 1,
+                    "index": 0,
                     "maxclass": "outlet",
                     "numinlets": 1,
                     "numoutlets": 0,
@@ -148,7 +148,7 @@
                 "box": {
                     "comment": "(int) # chans (same as @chans) / (bang) output previous list / (anything) any mcwrapper method",
                     "id": "obj-7",
-                    "index": 1,
+                    "index": 0,
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
@@ -207,7 +207,7 @@
                             "fileversion": 1,
                             "appversion": {
                                 "major": 9,
-                                "minor": 1,
+                                "minor": 2,
                                 "revision": 0,
                                 "architecture": "x64",
                                 "modernui": 1
@@ -221,10 +221,10 @@
                                         "maxclass": "newobj",
                                         "text": "in 1",
                                         "patching_rect": [ 176.0, 96.0, 28.0, 22.0 ],
-                                        "numinlets": 0,
                                         "numoutlets": 1,
+                                        "outlettype": [ "" ],
                                         "id": "obj-1",
-                                        "outlettype": [ "" ]
+                                        "numinlets": 0
                                     }
                                 },
                                 {
@@ -232,9 +232,9 @@
                                         "maxclass": "newobj",
                                         "text": "out 1",
                                         "patching_rect": [ 176.0, 293.0, 35.0, 22.0 ],
-                                        "numinlets": 1,
                                         "numoutlets": 0,
-                                        "id": "obj-4"
+                                        "id": "obj-4",
+                                        "numinlets": 1
                                     }
                                 }
                             ],
@@ -255,7 +255,7 @@
                     "outlettype": [ "", "" ],
                     "patching_rect": [ 166.0, 379.0, 105.0, 22.0 ],
                     "text": "mc.gen @chans 2",
-                    "wrapper_uniquekey": "u080002764"
+                    "wrapper_uniquekey": "u163001618"
                 }
             }
         ],
@@ -415,6 +415,7 @@
                 }
             }
         ],
+        "autosave": 0,
         "toolbaradditions": [ "audiosolo", "audiomute" ]
     }
 }

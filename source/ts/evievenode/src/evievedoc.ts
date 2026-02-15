@@ -252,6 +252,10 @@ max.addHandler('make_qlookup_json', () => {
 	parseDataForQlookup();
 })
 
+max.addHandler('make_maxdb_json', () => {
+	createMaxDbFle();
+})
+
 max.addHandler('make_externals_ref_xml', () => {
 	autoCreateExternalsXml();
 })
@@ -464,6 +468,64 @@ function parseDataForQlookup() {
 	// fs.mkdirSync(writeDir, { recursive: true });
 	fs.writeFileSync(`${writeDir}/evieve-obj-qlookup.json`, JSON.stringify(qlookup, null, 4));
 	void max.post('Wrote qlookup for evieve', max.POST_LEVELS.INFO);
+}
+
+function createMaxDbFle()
+{
+	const autoFixed: string[] = ['/docs/refpages/evieve-genexpr/genexpr-data', '/examples/evi_doc', '/javascript/node', '/misc/peter'];
+	let evi_maxdb: any = {};
+
+	const absRef = maxpat.evi_abstractions;
+	const defsRef = gendsp.evi_gendsp;
+	const extsRef = mxo.evi_externals;
+	const maxdbDir = `${cwd()}/${config.interfaceFiles.maxdb.output}`;
+
+	const absNames = Object.keys(absRef);
+	const defsNames = Object.keys(defsRef);
+	const extsNames = Object.keys(extsRef);
+	let browserArray: string[] = [];
+	let autoArray: string[] = [];
+
+	for (const abs of absNames) {
+		// @ts-expect-error
+		const absDict = absRef[abs];
+		if (!absDict.db.browser && abs !== "_dummy") {
+			browserArray.push(abs);
+		}
+		if (!absDict.db.auto && abs !== "_dummy") {
+			autoArray.push(abs);
+		}
+	}
+
+	for (const def of defsNames) {
+		// @ts-expect-error
+		const defDict = defsRef[def];
+		if (!defDict.db.browser && def !== "_dummy") {
+			browserArray.push(def);
+		}
+		if (!defDict.db.auto && def !== "_dummy") {
+			autoArray.push(def);
+		}
+	}
+
+	for (const ext of extsNames) {
+		// @ts-expect-error
+		const extDict = extsRef[ext];
+		if (!extDict.db.browser && ext !== "_dummy") {
+			browserArray.push(ext);
+		}
+		if (!extDict.db.auto && ext !== "_dummy") {
+			autoArray.push(ext);
+		}
+	}
+
+	evi_maxdb.auto = autoFixed;
+	evi_maxdb.browser = browserArray;
+	renderFromTemplate('../templates/maxdb.handlebars', evi_maxdb, `${maxdbDir}/max.db.json`);
+	let evi_maxdb_autos: any = {};
+	evi_maxdb_autos.browser = browserArray;
+	evi_maxdb_autos.auto = autoArray;
+	fs.writeFileSync(`${maxdbDir}/pete.check.json`, JSON.stringify(evi_maxdb_autos, null, 4));
 }
 
 // --------------------------------------------- //
@@ -2657,6 +2719,45 @@ const areas = [
 
 // --------------------------------------------- //
 
+async function extractGenExprASTs()
+{
+	// cannot work out PEG parsing syntax errors on only these four files (they compile in gen~ fine)
+	const tempIgnore: string[] = ['evi_counting.genexpr', 'evi_rcfilters.genexpr', 'evi_reverb_library.genexpr', 'evi_sources.genexpr'];
+
+	const genexprsFolder = `${cwd()}/${config.referenceFiles.genExpr.input}`;
+	const fullGenexprsPaths = getFilePathsFromPathRecursive(genexprsFolder, 'genexpr');
+	const genexprsAstsPath = `${cwd()}/${config.referenceFiles.genExpr.config}`;
+	let genExprCategories: any = {};
+
+	for await (const genexprPath of fullGenexprsPaths) {
+		const genexprName = path.basename(genexprPath);
+		getGenExprCategory(genExprCategories, genexprPath, genexprName);
+		if (!tempIgnore.includes(genexprName)) {
+			const genAstName = genexprName.replace('.genexpr', '.json');
+			const thisRawGenExpr = fs.readFileSync(`${genexprPath}`, 'utf8');
+			void max.post(`.genexpr file about to be parsed: ${genexprName}`);
+			const genExprAst = PEGparser.parse(thisRawGenExpr);
+			fs.writeFileSync(`${genexprsAstsPath}/${genAstName}`, JSON.stringify(genExprAst, null, 4));
+			// void max.post(`.genexpr file just written: ${genAstName}`);
+		}
+	}
+	fs.writeFileSync(`${genexprsAstsPath}/_expr_data_categories.json`, JSON.stringify(genExprCategories, null, 4));
+}
+
+// horrid, sorry
+function getGenExprCategory(categories: any, fullPath: string, fullName: string)
+{
+	if (fullPath.includes('evi_cores')) {
+		categories[fullName] = 'Core';
+	} else if (fullPath.includes('evi_libraries')) {
+		categories[fullName] = 'Library';
+	} else if (fullPath.includes('evi_objects')) {
+		categories[fullName] = 'Object';
+	} else {
+		categories[fullName] = 'Include';
+	}
+}
+
 // top level ast keys: 'type': string, 'commands[]', 'functions[]' 'decls[]', 'body[]'
 // 'commands' = array of require() declarations, functions = array of function() declarations
 
@@ -2665,13 +2766,15 @@ function parseGenExprAstsForDoc()
 {
 	const genexprsAstsPath = `${cwd()}/${config.referenceFiles.genExpr.config}`;
 	let fullAstNames = getFileNamesFromPath(genexprsAstsPath, 'json');
-	const IGNORE = /_expr_data_format.json/;
-	fullAstNames = fullAstNames.filter((str) => !IGNORE.test(str));
+	const IGNORE1 = /_expr_data_format.json/;
+	const IGNORE2 = /_expr_data_categories.json/;
+	fullAstNames = fullAstNames.filter((str) => !IGNORE1.test(str) && !IGNORE2.test(str));
 
 	const genExprFileTemplate: any = {
 		"description": "",
 		"requires": [],
-		"functions": []
+		"functions": [],
+		"seealso": []
 	};
 
 	const functionsTemplate: any = {
@@ -2784,40 +2887,22 @@ function parseGenExprAstsForDoc()
 	}
 }
 
-async function extractGenExprASTs()
-{
-	// cannot work out PEG parsing syntax errors on only these four files (they compile in gen~ fine)
-	const tempIgnore: string[] = ['evi_counting.genexpr', 'evi_rcfilters.genexpr', 'evi_reverb_library.genexpr', 'evi_sources.genexpr'];
-
-	const genexprsFolder = `${cwd()}/${config.referenceFiles.genExpr.input}`;
-	const fullGenexprsPaths = getFilePathsFromPathRecursive(genexprsFolder, 'genexpr');
-	const genexprsAstsPath = `${cwd()}/${config.referenceFiles.genExpr.config}`;
-
-	for await (const genexprPath of fullGenexprsPaths) {
-		const genexprName = path.basename(genexprPath);
-		if (!tempIgnore.includes(genexprName)) {
-			const genAstName = genexprName.replace('.genexpr', '.json');
-			const thisRawGenExpr = fs.readFileSync(`${genexprPath}`, 'utf8');
-			// void max.post(`.genexpr file about to be parsed: ${genexprName}`);
-			const genExprAst = PEGparser.parse(thisRawGenExpr);
-			fs.writeFileSync(`${genexprsAstsPath}/${genAstName}`, JSON.stringify(genExprAst, null, 4));
-			// void max.post(`.genexpr file just written: ${genAstName}`);
-		}
-	}
-}
-
 async function makeGenExprRefpages()
 {
 	let dataDir = `${cwd()}/${config.referenceFiles.genExpr.json}`;
 	const outDir = `${cwd()}/${config.referenceFiles.genExpr.output}`
+	const catDir = `${cwd()}/${config.referenceFiles.genExpr.config}`
 	const dataFiles = getFileNamesFromPath(dataDir, 'json');
 	// const IGNORE = //;
 	// refFiles = refFiles.filter((str) => !IGNORE.test(str));
+	const categories = fs.readFileSync(`${catDir}/_expr_data_categories.json`, 'utf8');
+	const catObj = JSON.parse(categories);
 
 	for await (const dataFile of dataFiles) {
 		const thisConfigJson = fs.readFileSync(`${dataDir}/${dataFile}`, 'utf8');
 		const thisConfigObject = JSON.parse(thisConfigJson);
 		const fileName = dataFile.replace('_data.json', '.genexpr');
+		const cat = catObj[fileName];
 		const shouldRequire: boolean = (thisConfigObject.requires.length > 0);
 		const writeName = dataFile.replace('_data.json', '.maxref.xml');
 		const writePath = `${outDir}/${writeName}`;
@@ -2825,7 +2910,7 @@ async function makeGenExprRefpages()
 		renderFromTemplate('../templates/refpage_genexpr.handlebars',
 			{
 				name: fileName,
-				category: '', // argh !
+				category: cat,
 				description: thisConfigObject.description,
 				require: shouldRequire,
 				requires: thisConfigObject.requires,

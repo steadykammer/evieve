@@ -1,0 +1,31 @@
+{
+	"maxdb" : 	{
+
+		"filters" :
+		[
+			{
+				"filter" : "ignore",
+				"path" : "package@evieve:/docs/refpages/evieve-genexpr/genexpr-data",
+				"kind" : "*"
+			},
+			{
+				"filter" : "ignore",
+				"path" : "package@evieve:/examples/evi_doc",
+				"kind" : "*"
+			},
+			{
+				"filter" : "ignore",
+				"path" : "package@evieve:/javascript/node",
+				"kind" : "*"
+			},
+			{
+				"filter" : "ignore",
+				"path" : "package@evieve:/misc/peter",
+				"kind" : "*"
+			}
+		],
+
+		"exclusions" : [ "evi.algoverb.factorypresetsmenu", "evi.enable", "evi.findhost", "evi.listproduct", "evi.notes2ints", "evi.pz", "evi.typeroute", "evi.voiceexclude", "mc.evi.nth~", "evi_algoverb.gendsp", "evi_band_reson.gendsp", "evi_bands_calculate_bandwidth.gendsp", "evi_biquad_type.gendsp", "evi_biquadcoeff_notilde.gendsp", "evi_cfsmooth.gendsp", "evi_clipasym.gendsp", "evi_control_lpg_buchla.gendsp", "evi_controlcircuit_buchla.gendsp", "evi_curve.gendsp", "evi_DAHDSHR.gendsp", "evi_damp_coeffs.gendsp", "evi_dfm.gendsp", "evi_expsmooth.gendsp", "evi_freezeverb.gendsp", "evi_freezeverbtrigger.gendsp", "evi_freqshift_hilbert.gendsp", "evi_gigaverb.gendsp", "evi_hilbert.gendsp", "evi_hzpitchmodmods.gendsp", "evi_line.gendsp", "evi_log201.gendsp", "evi_log2sqrt01.gendsp", "evi_logahr.gendsp", "evi_logattackdecay.gendsp", "evi_logdecay.gendsp", "evi_logsmooth.gendsp", "evi_lpg_buchla_zero.gendsp", "evi_lpg_buchla.gendsp", "evi_majorverb.gendsp", "evi_map.gendsp", "evi_mattaverb.gendsp", "evi_moogsnake_lfo.gendsp", "evi_mtofapprox.gendsp", "evi_n2p_0254.gendsp", "evi_n2p_052.gendsp", "evi_plateverb_lite.gendsp", "evi_plateverb.gendsp", "evi_pmladder.gendsp", "evi_quadfmpm.gendsp", "evi_rampsmooth.gendsp", "evi_rate.gendsp", "evi_ringmod_parkernaive.gendsp", "evi_sinesync.gendsp", "evi_sinfold.gendsp", "evi_sline.gendsp", "evi_smoothstep.gendsp", "evi_sustainfdn.gendsp", "evi_sustainfdnclear.gendsp", "evi_sustainverb_lite.gendsp", "evi_sustainverb.gendsp", "evi_svf_eq_coeffs.gendsp", "evi_svfsmoothcore.gendsp", "evi_tan.gendsp", "evi_thirian_allpass.gendsp", "evi_tpqm.gendsp", "evi_vactrol_shape.gendsp", "evi_vactrol.gendsp", "evi_warmer.gendsp", "evi_windows_fft.gendsp", "evi_zitaverb.gendsp", "evi_zmap.gendsp" ]
+	}
+
+}

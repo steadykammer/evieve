@@ -11,5 +11,6 @@
         "evi_fastskew.genexpr",
         "evi_interp.genexpr"
     ],
-    "functions": []
+    "functions": [],
+    "seealso": []
 }
