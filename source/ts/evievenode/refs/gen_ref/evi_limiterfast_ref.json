@@ -3,7 +3,7 @@
         "name": "evi_limiterfast",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_limiterfast.gendsp] requires: \"evi_smooth.genexpr, evi_clip.genexpr, evi_biquad.genexpr\""
+        "description": "[evi_limiterfast.gendsp] requires: \"evi_smooth.genexpr, evi_clip.genexpr, evi_biquads.genexpr\""
     },
     "constructor": {
         "inlets": "audio, audio"
@@ -11,7 +11,7 @@
     "includes": [
         "evi_smooth.genexpr",
         "evi_clip.genexpr",
-        "evi_biquad.genexpr"
+        "evi_biquads.genexpr"
     ],
     "inlets": [
         {

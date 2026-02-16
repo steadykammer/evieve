@@ -1,5 +1,5 @@
 
-require("evi_biquad.genexpr");
+require("evi_biquads.genexpr");
 
 /*
     0   eviBiquadCoeffAllpass               cutoff, Q     (default)

@@ -95,7 +95,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 121.0, 456.0, 310.0, 22.0 ],
+                    "patching_rect": [ 121.0, 456.0, 316.0, 22.0 ],
                     "text": "/Users/stkr/Desktop/testingAstExtraction/evi_svfs.genexpr"
                 }
             },
@@ -1191,6 +1191,8 @@
                     "saved_object_attributes": {
                         "autostart": 0,
                         "defer": 0,
+                        "node_bin_path": "",
+                        "npm_bin_path": "",
                         "watch": 0
                     },
                     "text": "node.script /Users/stkr/Dev/evieve/source/ts/evievenode/dist/evievedoc.js",

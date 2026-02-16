@@ -4,7 +4,7 @@
 // @see: "evi_evieve.genexpr" for a global require
 
 require("evi_adaa.genexpr");
-require("evi_biquad.genexpr");
+require("evi_biquads.genexpr");
 require("evi_clip.genexpr");
 require("evi_crossovers.genexpr");
 require("evi_dynamics.genexpr");

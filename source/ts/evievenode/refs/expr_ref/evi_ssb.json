@@ -50,8 +50,8 @@
                 "arguments": [
                     {
                         "type": "Literal",
-                        "value": "evi_biquad.genexpr",
-                        "raw": "\"evi_biquad.genexpr\"",
+                        "value": "evi_biquads.genexpr",
+                        "raw": "\"evi_biquads.genexpr\"",
                         "gen_kind": "string"
                     }
                 ]

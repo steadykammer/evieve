@@ -93,7 +93,7 @@
             },
             {
                 "box": {
-                    "code": "\r\nrequire(\"evi_biquad.genexpr\");\r\n\r\neviBiquad   = biquadDf2reset(in1, in2, in3, in4, in5, in6, in7);\r\n\r\nout1        = eviBiquad;\r\n\r\n",
+                    "code": "\r\nrequire(\"evi_biquads.genexpr\");\r\n\r\neviBiquad   = biquadDf2reset(in1, in2, in3, in4, in5, in6, in7);\r\n\r\nout1        = eviBiquad;\r\n\r\n",
                     "fontface": 0,
                     "fontname": "<Monospaced>",
                     "fontsize": 12.0,

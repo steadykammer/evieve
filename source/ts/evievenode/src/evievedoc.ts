@@ -2969,7 +2969,7 @@ async function makeGenExprRefpages()
 		const cat = catObj[fileName];
 		const shouldRequire: boolean = (thisConfigObject.requires.length > 0);
 		const writeName = dataFile.replace('_data.json', '.maxref.xml');
-		const writePath = `${outDir}/${writeName}`;
+		const writePath = `${outDir}/gen_dsp_${writeName}`;
 		// totally stupid
 		renderFromTemplate('../templates/refpage_genexpr.handlebars',
 			{

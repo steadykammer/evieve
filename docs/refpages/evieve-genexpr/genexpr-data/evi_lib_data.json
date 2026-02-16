@@ -2,7 +2,7 @@
     "description": "",
     "requires": [
         "evi_adaa.genexpr",
-        "evi_biquad.genexpr",
+        "evi_biquads.genexpr",
         "evi_clip.genexpr",
         "evi_crossovers.genexpr",
         "evi_dynamics.genexpr",

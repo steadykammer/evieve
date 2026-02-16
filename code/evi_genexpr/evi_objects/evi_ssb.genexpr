@@ -4,7 +4,7 @@
 
 require("evi_sinfold_lib.genexpr");
 require("evi_cossin.genexpr");
-require("evi_biquad.genexpr");
+require("evi_biquads.genexpr");
 require("evi_rcfilters.genexpr");
 
 //  //  //

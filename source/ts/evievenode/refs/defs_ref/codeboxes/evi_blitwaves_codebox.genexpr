@@ -3,7 +3,7 @@
 // good for subtractive because we stay very bright right up to nyquist, but no hard sync :-(
 // by pete for evieve, 2019
 
-//require("evi_biquad.genexpr");    // these two only needed if editing for options...
+//require("evi_biquads.genexpr");    // these two only needed if editing for options...
 //require("evi_rcfilters.genexpr");
 require("evi_smooth.genexpr");
 require("evi_trig.genexpr");

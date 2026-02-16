@@ -39,7 +39,7 @@
             },
             {
                 "box": {
-                    "code": "\r\nrequire(\"evi_biquad.genexpr\");\r\n\r\n/*\r\n    butterworth lowpass 6-pole, by Miller Puckette, from \"SMECK\"\n    unique construction created from three \"bp~\" (df1) objects\n*/\r\n\r\nout1    = eviBiquadBpButterworth6(in1, in2);\r\n\r\n// @see: \"evi_butterworth8.gendsp\" / [evi.butterworthlp8~] for\r\n// variable pole butterworth lowpass TPT filtering.",
+                    "code": "\r\nrequire(\"evi_biquads.genexpr\");\r\n\r\n/*\r\n    butterworth lowpass 6-pole, by Miller Puckette, from \"SMECK\"\n    unique construction created from three \"bp~\" (df1) objects\n*/\r\n\r\nout1    = eviBiquadBpButterworth6(in1, in2);\r\n\r\n// @see: \"evi_butterworth8.gendsp\" / [evi.butterworthlp8~] for\r\n// variable pole butterworth lowpass TPT filtering.",
                     "fontface": 0,
                     "fontname": "<Monospaced>",
                     "fontsize": 12.0,

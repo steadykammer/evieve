@@ -1,7 +1,7 @@
 
 // evieve Biquad Coefficients Calculators
 
-require("evi_biquad_no_tilde.genexpr");
+require("evi_biquads_no_tilde.genexpr");
 
 // eviBiquadCoeff(index, cutoff, gain, Q, samplerate)
 /*

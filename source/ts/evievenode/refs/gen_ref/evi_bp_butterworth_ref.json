@@ -3,13 +3,13 @@
         "name": "evi_bp_butterworth",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_bp_butterworth.gendsp] requires: \"evi_biquad.genexpr\""
+        "description": "[evi_bp_butterworth.gendsp] requires: \"evi_biquads.genexpr\""
     },
     "constructor": {
         "inlets": "input, cutoff"
     },
     "includes": [
-        "evi_biquad.genexpr"
+        "evi_biquads.genexpr"
     ],
     "inlets": [
         {

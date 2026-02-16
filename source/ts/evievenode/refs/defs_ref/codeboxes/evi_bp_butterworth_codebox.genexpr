@@ -1,5 +1,5 @@
 
-require("evi_biquad.genexpr");
+require("evi_biquads.genexpr");
 
 /*
     butterworth lowpass 6-pole, by Miller Puckette, from "SMECK"
