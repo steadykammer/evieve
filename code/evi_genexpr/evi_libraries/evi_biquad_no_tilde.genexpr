@@ -1,6 +1,6 @@
 
 // "evi_biquad_no_tilde.genexpr": some evieve Biquad code for posterity
-// Biquads are shit, use TPT instead, @see: "evi_svf.genexpr"
+// Biquads are shit, use TPT instead, @see: "evi_svfs.genexpr"
 // Note in this gen (no tilde) version you must pass in the audio samplerate, because Max
 
 // @see: "evi_biquad.genexpr" for versions to use everywhere else (including at audio rate)

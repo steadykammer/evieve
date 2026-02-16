@@ -3,13 +3,13 @@
         "name": "evi_filter_morph",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_filter_morph.gendsp] requires: \"evi_svf.genexpr\""
+        "description": "[evi_filter_morph.gendsp] requires: \"evi_svfs.genexpr\""
     },
     "constructor": {
         "inlets": "input, frequency, gain, resonance, morph"
     },
     "includes": [
-        "evi_svf.genexpr"
+        "evi_svfs.genexpr"
     ],
     "inlets": [
         {

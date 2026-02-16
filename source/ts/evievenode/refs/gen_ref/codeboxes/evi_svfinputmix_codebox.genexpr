@@ -1,6 +1,6 @@
 
 // a version of Simper's sVf input mixer
-// for an all-audio-rate version @see: "evi_svf.genexpr"
+// for an all-audio-rate version @see: "evi_svfs.genexpr"
 // for a similar filter with better HF resonance @see: "evi_skfinputmix.gendsp"
 //                                                          ^K^
 

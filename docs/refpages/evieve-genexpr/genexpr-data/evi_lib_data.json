@@ -11,7 +11,7 @@
         "evi_rcfilters.genexpr",
         "evi_reverb_library.genexpr",
         "evi_saturators.genexpr",
-        "evi_svf.genexpr"
+        "evi_svfs.genexpr"
     ],
     "functions": [],
     "seealso": []

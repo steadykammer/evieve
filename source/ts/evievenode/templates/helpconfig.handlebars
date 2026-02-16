@@ -1,5 +1,9 @@
+{{#each areaConfigs}}
 {{#each objects}}
 max classnamehelpcategory {{this}} {{../class}};
 {{/each}}
+{{/each}}
 
+{{#each areaConfigs}}
 max categoryhelp {{class}} {{classPatcher}} {{{classString}}};
+{{/each}}

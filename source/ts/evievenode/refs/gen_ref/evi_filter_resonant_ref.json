@@ -3,13 +3,13 @@
         "name": "evi_filter_resonant",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_filter_resonant.gendsp] requires: \"evi_svf.genexpr\""
+        "description": "[evi_filter_resonant.gendsp] requires: \"evi_svfs.genexpr\""
     },
     "constructor": {
         "inlets": "input, cutoff, gain, q"
     },
     "includes": [
-        "evi_svf.genexpr"
+        "evi_svfs.genexpr"
     ],
     "inlets": [
         {

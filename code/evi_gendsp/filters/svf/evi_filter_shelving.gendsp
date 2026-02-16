@@ -27,7 +27,7 @@
             },
             {
                 "box": {
-                    "code": "\r\n// twopoles lowshelf / highshelf chain\r\n// @see: \"evi_damp.gendsp\" / [evi.damp~] for onepole damping.\r\n// @see: \"evi_onepole_shelving\" / [evi.onepole.shelving~] for variable onepole shelfs.\r\n\r\nrequire(\"evi_svf.genexpr\");\r\n\r\nParam   smooth(22.666, min=0, max=333);\r\n\r\nParam   lowcutoff(250, min=1, max=10000);\r\nParam   lowdb(0, min=-30, max=30);\r\nParam   lowq(1, min=0.05, max=20);\r\n\r\nParam   highcutoff(2000, min=500, max=samplerate*0.5);\r\nParam   highdb(0, min=-30, max=30);\r\nParam   highq(1, min=0.05, max=20);\r\n\r\nlowshelf = 2;\r\nhighshelf = 6;\r\n\r\nout1 = eviParametric2(in1, lowshelf, lowcutoff, lowdb, lowq, highshelf, highcutoff, highdb, highq, smooth=smooth);\r\n\r\n",
+                    "code": "\r\n// twopoles lowshelf / highshelf chain\r\n// @see: \"evi_damp.gendsp\" / [evi.damp~] for onepole damping.\r\n// @see: \"evi_onepole_shelving\" / [evi.onepole.shelving~] for variable onepole shelfs.\r\n\r\nrequire(\"evi_svfs.genexpr\");\r\n\r\nParam   smooth(22.666, min=0, max=333);\r\n\r\nParam   lowcutoff(250, min=1, max=10000);\r\nParam   lowdb(0, min=-30, max=30);\r\nParam   lowq(1, min=0.05, max=20);\r\n\r\nParam   highcutoff(2000, min=500, max=samplerate*0.5);\r\nParam   highdb(0, min=-30, max=30);\r\nParam   highq(1, min=0.05, max=20);\r\n\r\nlowshelf = 2;\r\nhighshelf = 6;\r\n\r\nout1 = eviParametric2(in1, lowshelf, lowcutoff, lowdb, lowq, highshelf, highcutoff, highdb, highq, smooth=smooth);\r\n\r\n",
                     "fontface": 0,
                     "fontname": "<Monospaced>",
                     "fontsize": 12.0,

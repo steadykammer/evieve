@@ -1,6 +1,6 @@
 
 // "evi_biquad.genexpr": evieve Biquad code for posterity
-// Biquads are shit, use TPT instead, @see: "evi_svf.genexpr"
+// Biquads are shit, use TPT instead, @see: "evi_svfs.genexpr"
 
 // @see: "evi_biquad_no_tilde.genexpr" for versions that work with gen no tilde
 // Note: never require both evieve biquad files in the same code !!

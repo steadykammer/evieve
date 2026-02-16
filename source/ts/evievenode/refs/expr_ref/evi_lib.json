@@ -202,8 +202,8 @@
                 "arguments": [
                     {
                         "type": "Literal",
-                        "value": "evi_svf.genexpr",
-                        "raw": "\"evi_svf.genexpr\"",
+                        "value": "evi_svfs.genexpr",
+                        "raw": "\"evi_svfs.genexpr\"",
                         "gen_kind": "string"
                     }
                 ]

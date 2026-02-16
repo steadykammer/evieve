@@ -3,13 +3,13 @@
         "name": "evi_formant_filter_morph",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_formant_filter_morph.gendsp] requires: \"evi_svf.genexpr, evi_smooth.genexpr\""
+        "description": "[evi_formant_filter_morph.gendsp] requires: \"evi_svfs.genexpr, evi_smooth.genexpr\""
     },
     "constructor": {
         "inlets": "audio, voice, vowel, morph"
     },
     "includes": [
-        "evi_svf.genexpr",
+        "evi_svfs.genexpr",
         "evi_smooth.genexpr"
     ],
     "inlets": [

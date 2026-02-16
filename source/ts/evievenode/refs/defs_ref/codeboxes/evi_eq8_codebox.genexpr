@@ -3,7 +3,7 @@
 // @see: "evi_eq5.gendsp" for a slightly more manageable parametric EQ.
 // For audio rate control of all EQ parameters @see: "evi_eq3.gendsp".
 
-require("evi_svf.genexpr");
+require("evi_svfs.genexpr");
 
 eqBand(x, cutoff, db, Q, filter, reset, smooth=0)
 {

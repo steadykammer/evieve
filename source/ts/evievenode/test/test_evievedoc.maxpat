@@ -96,7 +96,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 121.0, 456.0, 310.0, 22.0 ],
-                    "text": "/Users/stkr/Desktop/testingAstExtraction/evi_svf.genexpr"
+                    "text": "/Users/stkr/Desktop/testingAstExtraction/evi_svfs.genexpr"
                 }
             },
             {

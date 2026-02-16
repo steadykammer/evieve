@@ -2,7 +2,7 @@
 // will remain stable and clean under modulation. Turn off @smooth if modulating at audio rate.
 // @see: "evi_eq5.gendsp" & "evi_eq8.gendsp" for parameter control of parametric EQ-ing
 
-require("evi_svf.genexpr");
+require("evi_svfs.genexpr");
 
 Param   smooth(15.333, min=0, max=333);
 

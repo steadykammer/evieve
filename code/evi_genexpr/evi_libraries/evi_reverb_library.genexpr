@@ -3,7 +3,7 @@
 //	//	//	by Pete for evieve
 
 
-require("evi_svf.genexpr");	// incl. "_smooth", incl. "_utilities" & "_approx"
+require("evi_svfs.genexpr");	// incl. "_smooth", incl. "_utilities" & "_approx"
 require("evi_rcfilters.genexpr");	// incl. "_interp"
 
 

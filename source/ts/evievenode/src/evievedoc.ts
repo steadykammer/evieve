@@ -91,7 +91,7 @@ interface gendspConfigTemplate {
 		gen: boolean,
 		msp: boolean
 	},
-	help: {
+	helpfile: {
 		msp: boolean,
 		gentab: boolean,
 		genexprtab: boolean,
@@ -485,6 +485,7 @@ function createMaxDbFle()
 	const extsNames = Object.keys(extsRef);
 	let browserArray: string[] = [];
 	let autoArray: string[] = [];
+	let genObjArray: string[] = [];
 
 	for (const abs of absNames) {
 		// @ts-expect-error
@@ -506,6 +507,10 @@ function createMaxDbFle()
 		if (!defDict.db.auto && def !== "_dummy") {
 			autoArray.push(def);
 		}
+		if (defDict.ref.gen) {
+			const defName = def.replace('.gendsp', '');
+			genObjArray.push(defName);
+		}
 	}
 
 	for (const ext of extsNames) {
@@ -521,11 +526,13 @@ function createMaxDbFle()
 
 	evi_maxdb.auto = autoFixed;
 	evi_maxdb.browser = browserArray;
+	evi_maxdb.gen = genObjArray;
 	renderFromTemplate('../templates/maxdb.handlebars', evi_maxdb, `${maxdbDir}/max.db.json`);
-	let evi_maxdb_autos: any = {};
-	evi_maxdb_autos.browser = browserArray;
-	evi_maxdb_autos.auto = autoArray;
-	fs.writeFileSync(`${maxdbDir}/pete.check.json`, JSON.stringify(evi_maxdb_autos, null, 4));
+	// let evi_maxdb_autos: any = {};
+	// evi_maxdb_autos.browser = browserArray;
+	// evi_maxdb_autos.auto = autoArray;
+	// evi_maxdb_autos.gen = genObjArray;
+	// fs.writeFileSync(`${maxdbDir}/pete.check.json`, JSON.stringify(evi_maxdb_autos, null, 4));
 }
 
 // --------------------------------------------- //
@@ -684,15 +691,15 @@ function createHelpFilesDefines(force = false)
 		// @ts-expect-error
 		const thisObject = definesConfig[object];
 		if (thisObject.define.object) {
-			if (thisObject.help.msp) {
+			if (thisObject.helpfile.msp) {
 				const thisObjectName = thisObject.define.msp;
 				const writePath = `${writeDir}/${thisObjectName}.maxhelp`;
 
 				const eviOption1: number = (thisObject.define.mcwrapper) ? 1 : 0;
 				const eviOption2: number = 0;
-				const eviOption3: number = (thisObject.help.gentab) ? 1 : 0;
-				const eviOption4: number = (thisObject.help.genexprtab) ? 1 : 0;
-				let eviOption5: string = thisObject.help.areas[0];
+				const eviOption3: number = (thisObject.helpfile.gentab) ? 1 : 0;
+				const eviOption4: number = (thisObject.helpfile.genexprtab) ? 1 : 0;
+				let eviOption5: string = thisObject.helpfile.areas[0];
 				if (eviOption5 == undefined || eviOption5 == null) {
 					eviOption5 = 'none';
 				}
@@ -2364,7 +2371,7 @@ function createMaxKeyCommands()
 	const initDir = `${cwd()}/${config.initFiles.defines.output}`;
 	renderFromTemplate('../templates/keycommands.handlebars', keyCommandsConfig, `${initDir}/evieve-keycommands.txt`);
 }
-
+/*
 function createHelpconfigFile()
 {
 	const helpConfig: any = {};
@@ -2375,16 +2382,73 @@ function createHelpconfigFile()
 		// @ts-expect-error
 		const entry = definesConfig[config];
 		if (entry.define.object) {
-			if (entry.help.areas.includes('biquad')) {
+			if (entry.helpfile.areas.includes('biquad')) {
 				biquadsArray.push(entry.define.msp);
 			}
 		}
 	}
 	helpConfig.objects = biquadsArray;
 	helpConfig.class = 'evibiquad';
-	helpConfig.classPatcher = 'evieve_biquad_filters';
+	helpConfig.classPatcher = 'areas_help_biquad';
 	helpConfig.classString = `\"Biquad Filters in evieve\"`;
 	renderFromTemplate('../templates/helpconfig.handlebars', helpConfig, `${config.initFiles.defines.output}/evieve-helpconfig.txt`);
+}
+*/
+function createHelpconfigFile()
+{
+	let helpConfig: any = {};
+	const helpConfigArray: string[] = [];
+	const definesConfig = gendsp.evi_gendsp;
+	const maxpatConfig = maxpat.evi_abstractions;
+	const mxoConfig = mxo.evi_externals;
+	const definesListing = Object.keys(definesConfig);
+	const maxpatListing = Object.keys(maxpatConfig);
+	const mxoListing = Object.keys(mxoConfig);
+
+	for (const area of areas) {
+		const areaConfig: any = {};
+		const areaArray: string[] = [];
+		for (const config of definesListing) {
+			// @ts-expect-error
+			const entry = definesConfig[config];
+			if (entry.define.object) {
+				if (entry.helpfile.areas.includes(area[0])) {
+					areaArray.push(entry.define.msp);
+				}
+			}
+		}
+		for (const config of maxpatListing) {
+			if (!config.startsWith('mc')) {
+				// @ts-expect-error
+				const entry = maxpatConfig[config];
+				if (entry.object) {
+					if (entry.helpfile.areas.includes(area[0])) {
+						areaArray.push(config);
+					}
+				}
+			}
+		}
+		for (const config of mxoListing) {
+			if (!config.startsWith('mc')) {
+				// @ts-expect-error
+				const entry = mxoConfig[config];
+				if (entry.object) {
+					if (entry.helpfile.areas.includes(area[0])) {
+						areaArray.push(config);
+					}
+				}
+			}
+		}
+		areaConfig.objects = areaArray;
+		areaConfig.class = `evi${area[0]}`;
+		areaConfig.classPatcher = `areas_help_${area[0]}`;
+		areaConfig.classString = area[1];
+
+		helpConfigArray.push(areaConfig);
+	}
+	helpConfig.areaConfigs = helpConfigArray;
+	renderFromTemplate('../templates/helpconfig.handlebars', helpConfig, `${config.initFiles.defines.output}/evieve-helpconfig.txt`);
+	// fs.writeFileSync(`${config.initFiles.defines.output}/_helpconfig_petetest.json`, JSON.stringify(helpConfig, null, 4));
 }
 
 // --------------------------------------------- //
@@ -2604,7 +2668,7 @@ const gendspConfigTemplate = {
 		"gen": true,
 		"msp": true
 	},
-	"help": {
+	"helpfile": {
 		"msp": true,
 		"gentab": true,
 		"genexprtab": true,
@@ -2702,19 +2766,19 @@ const externalsXmlMisc = [
 */
 // some helpfiles have automatic general tabs covering an 'area'
 const areas = [
-	"biquad",
-	"pd",
-	"crossover",
-	"msp",
-	"korg",
-	"ladder",
-	"svf",
-	"filter",
-	"oscillator",
-	"noise",
-	"reverb",
-	"overdrive",
-	"smooth"
+	["biquad", `\"Biquad Filters in evieve\"`],
+	["pd", `\"Pd objects in evieve\"`],
+	["crossover", `\"Crossover Filters in evieve\"`],
+	["msp", `\"MSP Filter Substitutions in evieve\"`],
+	["korg", `\"Nonlinear Korg MS Filters in evieve\"`],
+	["ladder", `\"Nonlinear Ladder Filters in evieve\"`],
+	["svf", `\"Nonlinear SVF Filters in evieve\"`],
+	["filter", `\"Linear TPT Filters in evieve\"`],
+	["oscillator", `\"Oscillators in evieve\"`],
+	["noise", `\"Noise Sources in evieve\"`],
+	["reverb", `\"Reverbs in evieve\"`],
+	["overdrive", `\"Nonlinear Overdrive in evieve\"`],
+	["smooth", `\"Signal Smoothers in evieve\"`]
 ];
 
 // --------------------------------------------- //

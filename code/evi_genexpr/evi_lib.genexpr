@@ -13,4 +13,4 @@ require("evi_polyblep.genexpr");
 require("evi_rcfilters.genexpr");
 require("evi_reverb_library.genexpr");
 require("evi_saturators.genexpr");
-require("evi_svf.genexpr");
+require("evi_svfs.genexpr");

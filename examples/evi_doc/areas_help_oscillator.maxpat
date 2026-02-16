@@ -9,7 +9,7 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 63.0, 131.0, 812.0, 790.0 ],
+        "rect": [ 63.0, 131.0, 660.0, 568.0 ],
         "openrect": [ 0.0, 0.0, 660.0, 568.0 ],
         "openrectmode": 0,
         "bglocked": 1,
@@ -75,7 +75,7 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 32.0, 396.0, 211.0, 33.0 ],
-                    "text": "oscillator / noise mixer for vocoders, but really cool as a source on it's own"
+                    "text": "oscillator / noise mixer for vocoders, but useful as a source on it's own"
                 }
             },
             {
@@ -107,7 +107,7 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 32.0, 228.0, 206.0, 33.0 ],
-                    "text": "2-point polyBlep but with awesome morphing capabilities"
+                    "text": "2-point polyBlep but with useful morphing capabilities"
                 }
             },
             {
@@ -127,7 +127,7 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 356.0, 101.0, 121.0, 20.0 ],
-                    "text": "<<-- contains",
+                    "text": "<<-- contains:",
                     "textjustification": 2
                 }
             },

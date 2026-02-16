@@ -16,7 +16,7 @@
 // For (more normal) nonlinear 12dB lowpass filters consider "evi_lorez.gendsp" & "evi_svfsmooth.gendsp".
 //                                                                   ^Z^
 
-require("evi_trig.genexpr");        // @see also: "evi_svf.genexpr"
+require("evi_trig.genexpr");        // @see also: "evi_svfs.genexpr"
 require("evi_interp.genexpr"); 
 
 // param rate version in case you need it

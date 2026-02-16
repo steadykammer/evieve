@@ -3,7 +3,7 @@
 // @see: "evi_damp.gendsp" / [evi.damp~] for onepole damping.
 // @see: "evi_onepole_shelving" / [evi.onepole.shelving~] for variable onepole shelfs.
 
-require("evi_svf.genexpr");
+require("evi_svfs.genexpr");
 
 Param   smooth(22.666, min=0, max=333);
 

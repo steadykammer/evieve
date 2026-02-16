@@ -27,7 +27,7 @@
     "evi_reverb_library.genexpr": "Library",
     "evi_saturators.genexpr": "Library",
     "evi_sources.genexpr": "Library",
-    "evi_svf.genexpr": "Library",
+    "evi_svfs.genexpr": "Library",
     "evi_waveshaping.genexpr": "Library",
     "evi_dfm_lib.genexpr": "Object",
     "evi_resbank.genexpr": "Object",

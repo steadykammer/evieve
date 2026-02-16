@@ -63,7 +63,7 @@
             },
             {
                 "box": {
-                    "code": "\r\nrequire(\"evi_svf.genexpr\");\r\n\r\nParam   smooth(0, min=0, max=333);\r\nParam   adaptive(0, min=0, max=1);\r\nadaptQ  = int(adaptive);\r\n\r\nBELL = 0;\r\nif (adaptQ) {// adaptive Q\r\n                              // In   Hz   dB   Q    ms\r\n    BELL = eviFilterBellAdaptive(in1, in2, in3, in4, smooth=smooth);\r\n}\r\nelse {       // normal\r\n                      // In   Hz   dB   Q    ms\r\n    BELL = eviFilterBell(in1, in2, in3, in4, smooth=smooth);\r\n}\r\n\r\nout1 = BELL;\r\n\r\n",
+                    "code": "\r\nrequire(\"evi_svfs.genexpr\");\r\n\r\nParam   smooth(0, min=0, max=333);\r\nParam   adaptive(0, min=0, max=1);\r\nadaptQ  = int(adaptive);\r\n\r\nBELL = 0;\r\nif (adaptQ) {// adaptive Q\r\n                              // In   Hz   dB   Q    ms\r\n    BELL = eviFilterBellAdaptive(in1, in2, in3, in4, smooth=smooth);\r\n}\r\nelse {       // normal\r\n                      // In   Hz   dB   Q    ms\r\n    BELL = eviFilterBell(in1, in2, in3, in4, smooth=smooth);\r\n}\r\n\r\nout1 = BELL;\r\n\r\n",
                     "fontface": 0,
                     "fontname": "<Monospaced>",
                     "fontsize": 12.0,

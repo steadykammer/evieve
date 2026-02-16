@@ -3,7 +3,7 @@
 // with better modulation properties.
 // @see also: [evi.multimode~] (more filters), [evi.svfsmooth~] (nonlinear), etc
 
-require("evi_svf.genexpr");
+require("evi_svfs.genexpr");
 
 Param   oversample(0, min=0, max=1);    // useful for lowpass & bandpass
 os      = int(oversample);

@@ -3,13 +3,13 @@
         "name": "evi_phaseshift",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_phaseshift.gendsp] requires: \"evi_svf.genexpr\""
+        "description": "[evi_phaseshift.gendsp] requires: \"evi_svfs.genexpr\""
     },
     "constructor": {
         "inlets": "input, frequency, q"
     },
     "includes": [
-        "evi_svf.genexpr"
+        "evi_svfs.genexpr"
     ],
     "inlets": [
         {

@@ -12,7 +12,12 @@
     {{/each}}
 		],
 
-		"exclusions" : [ {{#each browser}}"{{this}}"{{#unless @last}}, {{/unless}}{{/each}} ]
+		"exclusions" : [ {{#each browser}}"{{this}}"{{#unless @last}}, {{/unless}}{{/each}} ],
+
+		"genobjects" : {
+			"genobject_dsp": [ {{#each gen}}"{{this}}"{{#unless @last}}, {{/unless}}{{/each}} ]
+		}
+
 	}
 
 }

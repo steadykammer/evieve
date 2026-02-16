@@ -10,6 +10,8 @@
         },
         "classnamespace": "box",
         "rect": [ 552.0, 117.0, 812.0, 790.0 ],
+        "openrect": [ 0.0, 0.0, 660.0, 568.0 ],
+        "openrectmode": 0,
         "bglocked": 1,
         "gridonopen": 2,
         "subpatcher_template": "sub",

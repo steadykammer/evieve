@@ -1,5 +1,5 @@
 
-require("evi_svf.genexpr");
+require("evi_svfs.genexpr");
 
 Param   smooth(0, min=0, max=333);
 Param   adaptive(0, min=0, max=1);

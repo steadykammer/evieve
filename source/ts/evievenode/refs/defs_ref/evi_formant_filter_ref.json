@@ -12,7 +12,7 @@
         "tags": []
     },
     "includes": [
-        "evi_svf.genexpr",
+        "evi_svfs.genexpr",
         "evi_smooth.genexpr"
     ],
     "inlets": [
