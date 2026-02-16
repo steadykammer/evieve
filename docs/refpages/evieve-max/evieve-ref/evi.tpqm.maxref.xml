@@ -94,6 +94,46 @@
 	</outletlist>
 	<!--ARGUMENTS-->
 	<objarglist>
+		<objarg name="" type="float" default="0." optional="1">
+			<digest>
+				arg#1: 
+			</digest>
+			<description>
+				
+			</description>
+		</objarg>
+		<objarg name="" type="float" default="0.5" optional="1">
+			<digest>
+				arg#2: 
+			</digest>
+			<description>
+				
+			</description>
+		</objarg>
+		<objarg name="" type="float" default="1." optional="1">
+			<digest>
+				arg#3: 
+			</digest>
+			<description>
+				
+			</description>
+		</objarg>
+		<objarg name="" type="float" default="0." optional="1">
+			<digest>
+				arg#4: 
+			</digest>
+			<description>
+				
+			</description>
+		</objarg>
+		<objarg name="" type="float" default="0.5" optional="1">
+			<digest>
+				arg#5: 
+			</digest>
+			<description>
+				
+			</description>
+		</objarg>
 		<objarg name="" type="float" default="1." optional="1">
 			<digest>
 				arg#6: 

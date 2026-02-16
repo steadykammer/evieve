@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi_biquad_eqfilter",
+        "child": "evi.biquad.eqfilter~",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_biquad_eqfilter.gendsp] requires: \"evi_biquads.genexpr\""
+        "description": "TEXT_HERE"
     },
     "constructor": {
         "inlets": "input, cutoff, gain, q"

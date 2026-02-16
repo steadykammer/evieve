@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi_limiterfast",
+        "child": "evi.limiterfast~",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_limiterfast.gendsp] requires: \"evi_smooth.genexpr, evi_clip.genexpr, evi_biquads.genexpr\""
+        "description": "TEXT_HERE"
     },
     "constructor": {
         "inlets": "audio, audio"

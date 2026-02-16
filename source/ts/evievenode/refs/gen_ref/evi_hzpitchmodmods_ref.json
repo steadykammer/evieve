@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi_hzpitchmodmods",
+        "child": "",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_hzpitchmodmods.gendsp] requires: \"evi_smooth.genexpr\""
+        "description": "TEXT_HERE"
     },
     "constructor": {
         "inlets": "cutoff, pitch, frequency"

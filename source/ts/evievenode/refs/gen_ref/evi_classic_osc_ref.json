@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi_classic_osc",
+        "child": "evi.classic.osc~",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_classic_osc.gendsp] requires: \"evi_polyblep.genexpr\""
+        "description": "TEXT_HERE"
     },
     "constructor": {
         "inlets": "frequency, pulse, sync"

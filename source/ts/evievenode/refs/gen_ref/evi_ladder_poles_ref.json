@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi_ladder_poles",
+        "child": "evi.ladder.poles~",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_ladder_poles.gendsp] requires: \"evi_smooth.genexpr\""
+        "description": "TEXT_HERE"
     },
     "constructor": {
         "inlets": "audio, cutoff, resonance"

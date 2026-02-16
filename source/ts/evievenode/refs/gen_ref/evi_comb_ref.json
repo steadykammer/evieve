@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi_comb",
+        "child": "evi.comb~",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_comb.gendsp] requires: \"evi_approx.genexpr\""
+        "description": "TEXT_HERE"
     },
     "constructor": {
         "inlets": "input, delay, direct, feedforward, feedback"

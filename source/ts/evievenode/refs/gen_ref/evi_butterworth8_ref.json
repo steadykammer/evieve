@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi_butterworth8",
+        "child": "evi.butterworthlp8~",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_butterworth8.gendsp] requires: \"evi_approx.genexpr\""
+        "description": "TEXT_HERE"
     },
     "constructor": {
         "inlets": "audio, cutoff"

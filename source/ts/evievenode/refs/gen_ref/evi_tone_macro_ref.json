@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi_tone_macro",
+        "child": "evi.tone.macro~",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_tone_macro.gendsp] requires: \"evi_rcfilters.genexpr, evi_smooth.genexpr\""
+        "description": "TEXT_HERE"
     },
     "constructor": {
         "inlets": "audio"

@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi_morph_trap",
+        "child": "evi.morph.trap~",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_morph_trap.gendsp] requires: \"evi_polyblep.genexpr\""
+        "description": "TEXT_HERE"
     },
     "constructor": {
         "inlets": "frequency, morph, sync"

@@ -6,8 +6,8 @@
 		
 	</digest>
 	<description>
-		evi.overdrive.tanh~ is a 'max define' for the evi_overdrive_tanh.gendsp gen~ abstraction.
-		Because evi.overdrive.tanh~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. <br />
+		evi.overdrive.tanh~ is a 'max define' for the evi_overdrive_tanh.gendsp <o>gen~</o> abstraction.
+		Because evi.overdrive.tanh~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		TEXT_HERE <br />
 	</description>
 	<!--METADATA-->

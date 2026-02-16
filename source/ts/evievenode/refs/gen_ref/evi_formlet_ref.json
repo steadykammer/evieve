@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi_formlet",
+        "child": "evi.formletfilter~",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_formlet.gendsp] requires: \"evi_smooth.genexpr\""
+        "description": "TEXT_HERE"
     },
     "constructor": {
         "inlets": "input, filter"

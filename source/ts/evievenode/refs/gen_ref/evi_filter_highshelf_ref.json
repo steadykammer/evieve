@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi_filter_highshelf",
+        "child": "evi.filter.highshelf~",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_filter_highshelf.gendsp] requires: \"evi_svfs.genexpr\""
+        "description": "TEXT_HERE"
     },
     "constructor": {
         "inlets": "input, cutoff, gain, q"

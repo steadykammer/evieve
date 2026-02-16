@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi_phaseshift",
+        "child": "evi.phaseshift~",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_phaseshift.gendsp] requires: \"evi_svfs.genexpr\""
+        "description": "TEXT_HERE"
     },
     "constructor": {
         "inlets": "input, frequency, q"

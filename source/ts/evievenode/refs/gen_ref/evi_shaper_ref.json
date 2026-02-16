@@ -1,6 +1,7 @@
 {
     "object": {
         "name": "evi_shaper",
+        "child": "evi.shaper~",
         "category": "evieve",
         "digest": "TEXT_HERE",
         "description": "TEXT_HERE"

@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi_rcfilter",
+        "child": "evi.rcfilter~",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_rcfilter.gendsp] requires: \"evi_rcfilters.genexpr\""
+        "description": "TEXT_HERE"
     },
     "constructor": {
         "inlets": "input, hz"

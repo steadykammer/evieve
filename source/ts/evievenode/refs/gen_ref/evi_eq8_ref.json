@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi_eq8",
+        "child": "evi.eq8~",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_eq8.gendsp] requires: \"evi_svfs.genexpr\""
+        "description": "TEXT_HERE"
     },
     "constructor": {
         "inlets": "input"

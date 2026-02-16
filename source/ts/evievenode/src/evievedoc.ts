@@ -178,6 +178,11 @@ max.addHandler('make_refpages_gen_contents', () => {
     makeGenRefpagesXmlContents();
 })
 
+// NO ?
+max.addHandler('make_refpages_expr_contents', () => {
+    makeGenExprRefpagesXmlContents();
+})
+
 max.addHandler('make_gendsp_defines', () => {
     createGendspDefines();
 	// manuallyCreateGendspDefines();
@@ -852,10 +857,10 @@ async function parseGendspsCodeboxes()
 				});
 
 				thisConfigObject.includes = [...new Set(thisConfigObject.includes)];
-				if (thisConfigObject.includes.length) {
-					const includesString = thisConfigObject.includes.join(', ');
-					thisConfigObject.object.description = `[${thisConfigObject.object.name}.gendsp] requires: "${includesString}"`;
-				}
+				// if (thisConfigObject.includes.length) {
+				// 	const includesString = thisConfigObject.includes.join(', ');
+				// 	thisConfigObject.object.description = `[${thisConfigObject.object.name}.gendsp] requires: "${includesString}"`;
+				// }
 
 				fs.writeFileSync(refJsonFullRWpath, JSON.stringify(thisConfigObject, null, 4));
 
@@ -1917,6 +1922,7 @@ async function parseAbstractionMaxpatLoop(patcherPath: string, patcherName: stri
 					} else {
 						if ((ED_PARSED) || (i === BOX_tokens.length - 1)) {
 							continue;
+						// actually we shouldn't support this as part of 'evievedoc'?
 						} else {
 							argNum += 1;
 							let thisArgs: any = JSON.parse(JSON.stringify(argumentsConfig));
@@ -1957,7 +1963,7 @@ async function parseAbstractionMaxpatLoop(patcherPath: string, patcherName: stri
 		});
 		// keeps most recent
 		thisConfigObject.attributes = thinUniqueArrayByKey(thisConfigObject.attributes, "name");
-		thisConfigObject.arguments = thinUniqueArrayByKey(thisConfigObject.arguments, "name");
+		thisConfigObject.arguments = thinUniqueArrayByKey(thisConfigObject.arguments, "digest"); // !! "name" will not work !!
 	}
 
 	const IN_LET = "inlet";
@@ -2146,13 +2152,15 @@ async function createGendspRefJson()
 	for await (const gendspName of gendspsArray) {
 		// @ts-expect-error
 		const thisGendspConfig = parsedGendsps[gendspName];
-		const newGendspName = gendspName.replace('.gendsp', '');;
+		const newGendspName = gendspName.replace('.gendsp', '');
 		const jsonFileName = `${newGendspName}_ref.json`;
         if (!refConfigs.includes(jsonFileName)) {	// maybe create if does not yet exist
 			if (thisGendspConfig.ref.gen) { // if gen ref page is requested in config
 				const newTemplate = JSON.parse(JSON.stringify(templateObject));
 				newTemplate.object.name = newGendspName;
-
+				if (thisGendspConfig.define.object) {
+					newTemplate.object.child = thisGendspConfig.define.msp;
+				}
 				fs.writeFileSync(`${gendspRefsPath}/${jsonFileName}`, JSON.stringify(newTemplate, null, 4));
 				// void max.post(`Creation of ${jsonFileName} success!`)
 			}
@@ -2523,6 +2531,17 @@ function makeGenRefpagesXmlContents() {
 	renderFromTemplate('../templates/xmlcontents.handlebars', { ref: refFiles }, `${refDir}/_c74_contents.xml`);
 }
 
+// should not use ?
+function makeGenExprRefpagesXmlContents()
+{
+	let refDir = `${cwd()}/${config.referenceFiles.genExpr.output}`;
+	let refFiles = getFileNamesFromPath(refDir, 'xml');
+	const IGNORE = /_c74_contents.xml/;
+	refFiles = refFiles.filter((str) => !IGNORE.test(str));
+
+	renderFromTemplate('../templates/xmlcontents.handlebars', { ref: refFiles }, `${refDir}/_c74_contents.xml`);
+}
+
 // --------------------------------------------- //
 
 async function makeDocRefpagesAbstractions() {
@@ -2568,7 +2587,7 @@ async function makeDocRefpagesGendsps() {
 		const thisConfigJson = fs.readFileSync(`${refDir}/${refFile}`, 'utf8');
 		const thisConfigObject = JSON.parse(thisConfigJson);
 		const writeName = refFile.replace('_ref.json', '.maxref.xml');
-		const writePath = `${outDir}/gen_dsp_${writeName}`;
+		const writePath = `${outDir}/gen_dsp_${writeName}`; // is this correct? (taken from native gen refs)
 		renderFromTemplate('../templates/refpage_gendsp.handlebars', thisConfigObject, writePath);
 	}
 }
@@ -2966,14 +2985,15 @@ async function makeGenExprRefpages()
 		const thisConfigJson = fs.readFileSync(`${dataDir}/${dataFile}`, 'utf8');
 		const thisConfigObject = JSON.parse(thisConfigJson);
 		const fileName = dataFile.replace('_data.json', '.genexpr');
+		const file = dataFile.replace('_data.json', ''); // needed for xml crap
 		const cat = catObj[fileName];
 		const shouldRequire: boolean = (thisConfigObject.requires.length > 0);
 		const writeName = dataFile.replace('_data.json', '.maxref.xml');
-		const writePath = `${outDir}/gen_dsp_${writeName}`;
+		const writePath = `${outDir}/${writeName}`;
 		// totally stupid
 		renderFromTemplate('../templates/refpage_genexpr.handlebars',
 			{
-				name: fileName,
+				name: file,
 				category: cat,
 				description: thisConfigObject.description,
 				require: shouldRequire,

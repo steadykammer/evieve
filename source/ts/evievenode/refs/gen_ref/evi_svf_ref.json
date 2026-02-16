@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi_svf",
+        "child": "evi.svf~",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_svf.gendsp] requires: \"evi_svfs.genexpr\""
+        "description": "TEXT_HERE"
     },
     "constructor": {
         "inlets": "input, cutoff, resonance"

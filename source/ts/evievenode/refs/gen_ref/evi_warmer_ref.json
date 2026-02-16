@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi_warmer",
+        "child": "",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_warmer.gendsp] requires: \"evi_warmer_lib.genexpr\""
+        "description": "TEXT_HERE"
     },
     "constructor": {
         "inlets": "boring"

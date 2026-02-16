@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi_ladder_moog",
+        "child": "evi.ladder.moog~",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_ladder_moog.gendsp] requires: \"evi_smooth.genexpr, evi_tanh.genexpr, evi_interp.genexpr\""
+        "description": "TEXT_HERE"
     },
     "constructor": {
         "inlets": "audio, cutoff, resonance"

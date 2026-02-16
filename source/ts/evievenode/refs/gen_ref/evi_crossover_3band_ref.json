@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi_crossover_3band",
+        "child": "evi.crossover.3band~",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_crossover_3band.gendsp] requires: \"evi_crossovers.genexpr\""
+        "description": "TEXT_HERE"
     },
     "constructor": {
         "inlets": "input, low, high"

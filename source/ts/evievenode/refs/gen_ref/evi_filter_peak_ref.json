@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi_filter_peak",
+        "child": "evi.filter.peak~",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_filter_peak.gendsp] requires: \"evi_svfs.genexpr\""
+        "description": "TEXT_HERE"
     },
     "constructor": {
         "inlets": "input, cutoff, gain, q"

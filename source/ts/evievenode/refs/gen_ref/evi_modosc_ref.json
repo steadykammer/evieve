@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi_modosc",
+        "child": "evi.modosc~",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_modosc.gendsp] requires: \"evi_smooth.genexpr\""
+        "description": "TEXT_HERE"
     },
     "constructor": {
         "inlets": "frequency, signal"

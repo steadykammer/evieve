@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi_svfsmooth",
+        "child": "evi.svfsmooth~",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_svfsmooth.gendsp] requires: \"evi_tanh.genexpr, evi_smooth.genexpr\""
+        "description": "TEXT_HERE"
     },
     "constructor": {
         "inlets": "input, freq, resonance, morph"

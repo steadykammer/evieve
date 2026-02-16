@@ -1,6 +1,7 @@
 {
     "object": {
         "name": "evi_gaussiannoise",
+        "child": "evi.gaussiannoise~",
         "category": "evieve",
         "digest": "TEXT_HERE",
         "description": "TEXT_HERE"

@@ -6,8 +6,8 @@
 		
 	</digest>
 	<description>
-		evi.softclip~ is a 'max define' for the evi_softclip.gendsp gen~ abstraction.
-		Because evi.softclip~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. <br />
+		evi.softclip~ is a 'max define' for the evi_softclip.gendsp <o>gen~</o> abstraction.
+		Because evi.softclip~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		TEXT_HERE <br />
 	</description>
 	<!--METADATA-->

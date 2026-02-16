@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi_crossover_sum",
+        "child": "evi.crossover.sum~",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_crossover_sum.gendsp] requires: \"evi_crossovers.genexpr\""
+        "description": "TEXT_HERE"
     },
     "constructor": {
         "inlets": "low, mid, high, high"

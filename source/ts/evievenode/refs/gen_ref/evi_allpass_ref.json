@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi_allpass",
+        "child": "evi.allpass~",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_allpass.gendsp] requires: \"evi_smooth.genexpr\""
+        "description": "TEXT_HERE"
     },
     "constructor": {
         "inlets": "input, delay, gain"

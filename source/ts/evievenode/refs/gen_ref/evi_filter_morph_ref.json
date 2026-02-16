@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi_filter_morph",
+        "child": "evi.filter.morph~",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_filter_morph.gendsp] requires: \"evi_svfs.genexpr\""
+        "description": "TEXT_HERE"
     },
     "constructor": {
         "inlets": "input, frequency, gain, resonance, morph"

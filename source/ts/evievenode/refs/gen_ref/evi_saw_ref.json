@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi_saw",
+        "child": "evi.saw~",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_saw.gendsp] requires: \"evi_polyblep.genexpr\""
+        "description": "TEXT_HERE"
     },
     "constructor": {
         "inlets": "frequency, reset"

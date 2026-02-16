@@ -4,8 +4,8 @@
 // for a more crazy morphing filter version @see: "evi_filter_formant_morph.gendsp"
 // @see also: "evi_formant_osc.gendsp"
 
-require("evi_svf");
-require("evi_smooth");
+require("evi_svfs.genexpr");
+require("evi_smooth.genexpr");
 
 // parse data as formatted in external LUT
 formantIndex(voicephase, vowelphase, numvoices, numvowels, datatype)    // 'datatype' is already int

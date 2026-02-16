@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi_ramp0",
+        "child": "evi.ramp0~",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_ramp0.gendsp] requires: \"evi_counting.genexpr\""
+        "description": "TEXT_HERE"
     },
     "constructor": {
         "inlets": "trigger"

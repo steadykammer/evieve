@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi_bp_butterworth",
+        "child": "evi.butterworthlp6~",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_bp_butterworth.gendsp] requires: \"evi_biquads.genexpr\""
+        "description": "TEXT_HERE"
     },
     "constructor": {
         "inlets": "input, cutoff"

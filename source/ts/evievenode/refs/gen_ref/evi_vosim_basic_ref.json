@@ -1,6 +1,7 @@
 {
     "object": {
         "name": "evi_vosim_basic",
+        "child": "evi.vosim.basic~",
         "category": "evieve",
         "digest": "TEXT_HERE",
         "description": "TEXT_HERE"

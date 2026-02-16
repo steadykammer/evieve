@@ -6,8 +6,8 @@
 		
 	</digest>
 	<description>
-		evi.svfsmooth~ is a 'max define' for the evi_svfsmooth.gendsp gen~ abstraction.
-		Because evi.svfsmooth~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. <br />
+		evi.svfsmooth~ is a 'max define' for the evi_svfsmooth.gendsp <o>gen~</o> abstraction.
+		Because evi.svfsmooth~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		TEXT_HERE <br />
 	</description>
 	<!--METADATA-->

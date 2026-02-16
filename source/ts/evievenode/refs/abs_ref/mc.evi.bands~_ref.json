@@ -29,6 +29,30 @@
     "arguments": [
         {
             "name": "",
+            "type": "int",
+            "default": "16",
+            "optional": 1,
+            "digest": "arg#1: ",
+            "description": ""
+        },
+        {
+            "name": "",
+            "type": "float",
+            "default": "20.",
+            "optional": 1,
+            "digest": "arg#2: ",
+            "description": ""
+        },
+        {
+            "name": "",
+            "type": "float",
+            "default": "20000.",
+            "optional": 1,
+            "digest": "arg#3: ",
+            "description": ""
+        },
+        {
+            "name": "",
             "type": "float",
             "default": "100.",
             "optional": 1,

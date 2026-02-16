@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi_filter_eq",
+        "child": "evi.filter.eq~",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_filter_eq.gendsp] requires: \"evi_svfs.genexpr\""
+        "description": "TEXT_HERE"
     },
     "constructor": {
         "inlets": "input, cutoff, gain, q"

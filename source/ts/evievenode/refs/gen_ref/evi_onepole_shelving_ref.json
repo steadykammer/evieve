@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi_onepole_shelving",
+        "child": "evi.onepole.shelving~",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_onepole_shelving.gendsp] requires: \"evi_rcfilters.genexpr, evi_smooth.genexpr\""
+        "description": "TEXT_HERE"
     },
     "constructor": {
         "inlets": "input, frequency, shelf"

@@ -72,6 +72,30 @@
         {
             "name": "",
             "type": "float",
+            "default": "10.",
+            "optional": 1,
+            "digest": "arg#1: ",
+            "description": ""
+        },
+        {
+            "name": "",
+            "type": "float",
+            "default": "100.",
+            "optional": 1,
+            "digest": "arg#2: ",
+            "description": ""
+        },
+        {
+            "name": "",
+            "type": "float",
+            "default": "0.707946",
+            "optional": 1,
+            "digest": "arg#3: ",
+            "description": ""
+        },
+        {
+            "name": "",
+            "type": "float",
             "default": "200.",
             "optional": 1,
             "digest": "arg#4: ",

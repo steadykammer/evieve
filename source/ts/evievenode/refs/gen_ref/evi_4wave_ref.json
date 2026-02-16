@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi_4wave",
+        "child": "evi.4wave~",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_4wave.gendsp] requires: \"evi_polyblep.genexpr\""
+        "description": "TEXT_HERE"
     },
     "constructor": {
         "inlets": "frequency, naive"

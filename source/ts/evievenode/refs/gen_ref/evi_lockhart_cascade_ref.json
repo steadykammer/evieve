@@ -1,6 +1,7 @@
 {
     "object": {
         "name": "evi_lockhart_cascade",
+        "child": "evi.lockhart.cascade~",
         "category": "evieve",
         "digest": "TEXT_HERE",
         "description": "TEXT_HERE"

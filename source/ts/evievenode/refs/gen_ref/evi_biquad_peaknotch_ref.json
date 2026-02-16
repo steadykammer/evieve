@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi_biquad_peaknotch",
+        "child": "evi.biquad.peaknotch~",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_biquad_peaknotch.gendsp] requires: \"evi_biquads.genexpr\""
+        "description": "TEXT_HERE"
     },
     "constructor": {
         "inlets": "input, cutoff, gain, q"

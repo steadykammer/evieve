@@ -1,6 +1,7 @@
 {
     "object": {
         "name": "evi_audiodust",
+        "child": "evi.audiodust~",
         "category": "evieve",
         "digest": "TEXT_HERE",
         "description": "TEXT_HERE"

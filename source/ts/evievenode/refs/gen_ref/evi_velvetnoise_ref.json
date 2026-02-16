@@ -1,6 +1,7 @@
 {
     "object": {
         "name": "evi_velvetnoise",
+        "child": "evi.velvetnoise~",
         "category": "evieve",
         "digest": "TEXT_HERE",
         "description": "TEXT_HERE"

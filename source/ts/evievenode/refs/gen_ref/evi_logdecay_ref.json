@@ -1,6 +1,7 @@
 {
     "object": {
         "name": "evi_logdecay",
+        "child": "",
         "category": "evieve",
         "digest": "TEXT_HERE",
         "description": "TEXT_HERE"

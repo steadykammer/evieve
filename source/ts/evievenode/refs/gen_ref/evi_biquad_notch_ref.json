@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi_biquad_notch",
+        "child": "evi.biquad.notch~",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_biquad_notch.gendsp] requires: \"evi_biquads.genexpr\""
+        "description": "TEXT_HERE"
     },
     "constructor": {
         "inlets": "input, cutoff, gain, q"

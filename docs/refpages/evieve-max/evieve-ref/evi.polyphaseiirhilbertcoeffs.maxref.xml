@@ -46,6 +46,22 @@
 	</outletlist>
 	<!--ARGUMENTS-->
 	<objarglist>
+		<objarg name="" type="symbol" default="NAME" optional="1">
+			<digest>
+				arg#1: 
+			</digest>
+			<description>
+				
+			</description>
+		</objarg>
+		<objarg name="" type="int" default="0" optional="1">
+			<digest>
+				arg#2: 
+			</digest>
+			<description>
+				
+			</description>
+		</objarg>
 		<objarg name="" type="int" default="0" optional="1">
 			<digest>
 				arg#3: 

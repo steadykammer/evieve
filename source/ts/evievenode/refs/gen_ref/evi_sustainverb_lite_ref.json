@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi_sustainverb_lite",
+        "child": "",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_sustainverb_lite.gendsp] requires: \"evi_reverb_library.genexpr\""
+        "description": "TEXT_HERE"
     },
     "constructor": {
         "inlets": "audio, audio"

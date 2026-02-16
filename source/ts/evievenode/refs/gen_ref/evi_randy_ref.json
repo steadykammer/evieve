@@ -1,6 +1,7 @@
 {
     "object": {
         "name": "evi_randy",
+        "child": "evi.randy~",
         "category": "evieve",
         "digest": "TEXT_HERE",
         "description": "TEXT_HERE"

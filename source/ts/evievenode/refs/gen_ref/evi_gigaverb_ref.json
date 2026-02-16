@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi_gigaverb",
+        "child": "",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_gigaverb.gendsp] requires: \"evi_reverb_library.genexpr\""
+        "description": "TEXT_HERE"
     },
     "constructor": {
         "inlets": "mono, nothing"

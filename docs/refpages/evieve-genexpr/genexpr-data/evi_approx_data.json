@@ -966,5 +966,5 @@
             ]
         }
     ],
-    "seealso": ["evi_trig.genexpr", "evi_cossin.genexpr", "evi_pade.genexpr", "evi_tanh.genexpr", "evi_fastskew.genexpr"]
+    "seealso": ["evi_trig", "evi_cossin", "evi_pade", "evi_tanh", "evi_fastskew"]
 }

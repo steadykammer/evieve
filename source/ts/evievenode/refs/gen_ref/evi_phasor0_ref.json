@@ -1,6 +1,7 @@
 {
     "object": {
         "name": "evi_phasor0",
+        "child": "evi.phasor0~",
         "category": "evieve",
         "digest": "TEXT_HERE",
         "description": "TEXT_HERE"

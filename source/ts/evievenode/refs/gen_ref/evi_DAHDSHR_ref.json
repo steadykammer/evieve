@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi_DAHDSHR",
+        "child": "",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_DAHDSHR.gendsp] requires: \"evi_approx.genexpr\""
+        "description": "TEXT_HERE"
     },
     "constructor": {
         "inlets": "gate, delay, attack, hold1, decay, sustain, hold2, release"

@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi_filter_notch",
+        "child": "evi.filter.notch~",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_filter_notch.gendsp] requires: \"evi_svfs.genexpr\""
+        "description": "TEXT_HERE"
     },
     "constructor": {
         "inlets": "input, cutoff, gain, q"

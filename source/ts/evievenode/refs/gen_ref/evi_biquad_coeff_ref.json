@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi_biquad_coeff",
+        "child": "evi.biquadcoeff~",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_biquad_coeff.gendsp] requires: \"evi_biquads.genexpr\""
+        "description": "TEXT_HERE"
     },
     "constructor": {
         "inlets": "cutoff, gain, q"

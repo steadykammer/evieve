@@ -1,6 +1,7 @@
 {
     "object": {
         "name": "evi_lockhart_simple",
+        "child": "evi.lockhart.simple~",
         "category": "evieve",
         "digest": "TEXT_HERE",
         "description": "TEXT_HERE"

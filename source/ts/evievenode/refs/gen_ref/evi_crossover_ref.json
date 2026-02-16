@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi_crossover",
+        "child": "evi.crossover~",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_crossover.gendsp] requires: \"evi_crossovers.genexpr\""
+        "description": "TEXT_HERE"
     },
     "constructor": {
         "inlets": "input, crossover"

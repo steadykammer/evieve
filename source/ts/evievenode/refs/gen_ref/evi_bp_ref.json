@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi_bp",
+        "child": "evi.bp~",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_bp.gendsp] requires: \"evi_biquads.genexpr\""
+        "description": "TEXT_HERE"
     },
     "constructor": {
         "inlets": "input, cutoff, gain, q"

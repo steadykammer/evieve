@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi_teeth",
+        "child": "evi.teeth~",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_teeth.gendsp] requires: \"evi_approx.genexpr\""
+        "description": "TEXT_HERE"
     },
     "constructor": {
         "inlets": "input, feedforward, feedback, direct, feedforward, feedback"

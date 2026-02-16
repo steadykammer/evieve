@@ -22,6 +22,7 @@
         "subpatcher_template": "sub",
         "cluebar": 2,
         "integercoordinates": 1,
+        "title": "evieve GenExpr Index",
         "boxes": [
             {
                 "box": {

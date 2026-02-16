@@ -6,8 +6,8 @@
 		
 	</digest>
 	<description>
-		evi.eq8~ is a 'max define' for the evi_eq8.gendsp gen~ abstraction.
-		Because evi.eq8~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. <br />
+		evi.eq8~ is a 'max define' for the evi_eq8.gendsp <o>gen~</o> abstraction.
+		Because evi.eq8~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		TEXT_HERE <br />
 	</description>
 	<!--METADATA-->

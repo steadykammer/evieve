@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi_sinfold",
+        "child": "",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_sinfold.gendsp] requires: \"evi_sinfold_lib.genexpr\""
+        "description": "TEXT_HERE"
     },
     "constructor": {
         "inlets": "audio"

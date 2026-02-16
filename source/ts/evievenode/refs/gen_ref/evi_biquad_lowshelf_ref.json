@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi_biquad_lowshelf",
+        "child": "evi.biquad.lowshelf~",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_biquad_lowshelf.gendsp] requires: \"evi_biquads.genexpr\""
+        "description": "TEXT_HERE"
     },
     "constructor": {
         "inlets": "input, cutoff, gain, q"

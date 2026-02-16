@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi_overdrive_sqrt",
+        "child": "evi.overdrive.sqrt~",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_overdrive_sqrt.gendsp] requires: \"evi_saturators.genexpr\""
+        "description": "TEXT_HERE"
     },
     "constructor": {
         "inlets": "input"

@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi_biquadcoeff_notilde",
+        "child": "",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_biquadcoeff_notilde.gendsp] requires: \"evi_biquads_no_tilde.genexpr\""
+        "description": "TEXT_HERE"
     },
     "constructor": {
         "inlets": "cutoff, gain, q"

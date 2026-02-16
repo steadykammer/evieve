@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi_overdrive_tanh",
+        "child": "evi.overdrive.tanh~",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_overdrive_tanh.gendsp] requires: \"evi_saturators.genexpr, evi_smooth.genexpr, evi_rcfilters.genexpr\""
+        "description": "TEXT_HERE"
     },
     "constructor": {
         "inlets": "input, drive"

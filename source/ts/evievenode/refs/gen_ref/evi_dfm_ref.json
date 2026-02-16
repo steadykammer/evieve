@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi_dfm",
+        "child": "",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_dfm.gendsp] requires: \"evi_dfm_lib.genexpr\""
+        "description": "TEXT_HERE"
     },
     "constructor": {
         "inlets": "mono, nothing, cutoff, resonance"

@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi_lpg_buchla",
+        "child": "",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_lpg_buchla.gendsp] requires: \"evi_buchla.genexpr\""
+        "description": "TEXT_HERE"
     },
     "constructor": {
         "inlets": "audio, frequency, resonance"

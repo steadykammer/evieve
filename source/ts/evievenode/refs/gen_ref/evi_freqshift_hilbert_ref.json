@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi_freqshift_hilbert",
+        "child": "",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_freqshift_hilbert.gendsp] requires: \"evi_ssb.genexpr\""
+        "description": "TEXT_HERE"
     },
     "constructor": {
         "inlets": "audio, frequency, frequency, signal"

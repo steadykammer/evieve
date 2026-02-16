@@ -1,6 +1,7 @@
 {
     "object": {
         "name": "evi_squine_simple",
+        "child": "evi.squine.simple~",
         "category": "evieve",
         "digest": "TEXT_HERE",
         "description": "TEXT_HERE"

@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi_korgms10",
+        "child": "evi.korgms10~",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_korgms10.gendsp] requires: \"evi_tanh.genexpr, evi_sources.genexpr\""
+        "description": "TEXT_HERE"
     },
     "constructor": {
         "inlets": "audio, cutoff, resonance"

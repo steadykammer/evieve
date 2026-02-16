@@ -1,15 +1,16 @@
 {
     "object": {
         "name": "evi_hilbert",
+        "child": "",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_hilbert.gendsp] requires: \"evi_biquads.genexpr\""
+        "description": "TEXT_HERE"
     },
     "constructor": {
         "inlets": "input"
     },
     "includes": [
-        "evi_biquads.genexpr"
+        "evi_biquad.genexpr"
     ],
     "inlets": [
         {

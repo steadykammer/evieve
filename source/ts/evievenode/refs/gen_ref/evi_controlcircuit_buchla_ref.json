@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi_controlcircuit_buchla",
+        "child": "",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_controlcircuit_buchla.gendsp] requires: \"evi_rcfilters.genexpr\""
+        "description": "TEXT_HERE"
     },
     "constructor": {
         "inlets": "@c, @c, @c, @c"

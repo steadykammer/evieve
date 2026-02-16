@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi_rect",
+        "child": "evi.rect~",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_rect.gendsp] requires: \"evi_polyblep.genexpr\""
+        "description": "TEXT_HERE"
     },
     "constructor": {
         "inlets": "frequency, pwm, reset"

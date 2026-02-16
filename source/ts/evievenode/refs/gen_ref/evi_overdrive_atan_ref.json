@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi_overdrive_atan",
+        "child": "evi.overdrive.atan~",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_overdrive_atan.gendsp] requires: \"evi_saturators.genexpr\""
+        "description": "TEXT_HERE"
     },
     "constructor": {
         "inlets": "input, shape"

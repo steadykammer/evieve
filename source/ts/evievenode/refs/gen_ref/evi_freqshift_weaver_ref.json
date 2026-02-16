@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi_freqshift_weaver",
+        "child": "evi.freqshift.weaver~",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_freqshift_weaver.gendsp] requires: \"evi_ssb.genexpr\""
+        "description": "TEXT_HERE"
     },
     "constructor": {
         "inlets": "audio, (float/int, frequency, phase"

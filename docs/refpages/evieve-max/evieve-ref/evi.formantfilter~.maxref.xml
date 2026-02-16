@@ -6,8 +6,8 @@
 		
 	</digest>
 	<description>
-		evi.formantfilter~ is a 'max define' for the evi_formant_filter.gendsp gen~ abstraction.
-		Because evi.formantfilter~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. <br />
+		evi.formantfilter~ is a 'max define' for the evi_formant_filter.gendsp <o>gen~</o> abstraction.
+		Because evi.formantfilter~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		TEXT_HERE <br />
 	</description>
 	<!--METADATA-->

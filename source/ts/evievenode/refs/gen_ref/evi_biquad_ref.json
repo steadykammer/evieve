@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi_biquad",
+        "child": "evi.biquad~",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_biquad.gendsp] requires: \"evi_biquads.genexpr\""
+        "description": "TEXT_HERE"
     },
     "constructor": {
         "inlets": "input, ff0, ff1, ff2, fb1, fb2, reset"

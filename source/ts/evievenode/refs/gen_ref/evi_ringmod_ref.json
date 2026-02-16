@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi_ringmod",
+        "child": "evi.ringmod~",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_ringmod.gendsp] requires: \"evi_ringmod_enhanced.genexpr\""
+        "description": "TEXT_HERE"
     },
     "constructor": {
         "inlets": "audio, audio"

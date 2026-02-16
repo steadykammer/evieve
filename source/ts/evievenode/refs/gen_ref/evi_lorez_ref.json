@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi_lorez",
+        "child": "evi.lorez~",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_lorez.gendsp] requires: \"evi_approx.genexpr, evi_interp.genexpr\""
+        "description": "TEXT_HERE"
     },
     "constructor": {
         "inlets": "input, cutoff, resonance"

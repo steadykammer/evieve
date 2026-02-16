@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi_mattaverb",
+        "child": "",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_mattaverb.gendsp] requires: \"evi_reverb_library.genexpr\""
+        "description": "TEXT_HERE"
     },
     "constructor": {
         "inlets": "in, in"

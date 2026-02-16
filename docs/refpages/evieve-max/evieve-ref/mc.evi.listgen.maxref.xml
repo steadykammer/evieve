@@ -16,7 +16,7 @@
 	</metadatalist>
 	<!--INLETS-->
 	<inletlist>
-		<inlet id="1" type="int">
+		<inlet id="0" type="int">
 			<digest>
 				# chans (same as @chans) / (bang) output previous list / (anything) any mcwrapper method
 			</digest>
@@ -27,7 +27,7 @@
 	</inletlist>
 	<!--OUTLETS-->
 	<outletlist>
-		<outlet id="1" type="list">
+		<outlet id="0" type="list">
 			<digest>
 				generated list output
 			</digest>

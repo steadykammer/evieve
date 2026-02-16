@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi_clipasym",
+        "child": "",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_clipasym.gendsp] requires: \"evi_smooth.genexpr, evi_waveshaping.genexpr\""
+        "description": "TEXT_HERE"
     },
     "constructor": {
         "inlets": "audio, asymmetry"

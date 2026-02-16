@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi_eq3_stereo",
+        "child": "evi.eq3stereo~",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_eq3_stereo.gendsp] requires: \"evi_svfs.genexpr\""
+        "description": "TEXT_HERE"
     },
     "constructor": {
         "inlets": "input, input, freq, db, q, freq, db, q, freq, db, q"

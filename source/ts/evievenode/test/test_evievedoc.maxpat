@@ -16,6 +16,27 @@
         "boxes": [
             {
                 "box": {
+                    "id": "obj-59",
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 608.0, 10.0, 33.0, 20.0 ],
+                    "text": "no?"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-32",
+                    "maxclass": "message",
+                    "numinlets": 2,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 456.0, 33.0, 173.0, 22.0 ],
+                    "text": "make_refpages_expr_contents"
+                }
+            },
+            {
+                "box": {
                     "id": "obj-57",
                     "maxclass": "message",
                     "numinlets": 2,
@@ -216,7 +237,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 466.0, 16.0, 170.0, 22.0 ],
+                    "patching_rect": [ 436.0, 9.0, 170.0, 22.0 ],
                     "text": "make_refpages_gen_contents"
                 }
             },
@@ -1191,8 +1212,6 @@
                     "saved_object_attributes": {
                         "autostart": 0,
                         "defer": 0,
-                        "node_bin_path": "",
-                        "npm_bin_path": "",
                         "watch": 0
                     },
                     "text": "node.script /Users/stkr/Dev/evieve/source/ts/evievenode/dist/evievedoc.js",
@@ -1366,6 +1385,12 @@
                 "patchline": {
                     "destination": [ "obj-1", 0 ],
                     "source": [ "obj-31", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-1", 0 ],
+                    "source": [ "obj-32", 0 ]
                 }
             },
             {

@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi_algoverb",
+        "child": "",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_algoverb.gendsp] requires: \"evi_reverb_library.genexpr\""
+        "description": "TEXT_HERE"
     },
     "constructor": {
         "inlets": "audio, audio"

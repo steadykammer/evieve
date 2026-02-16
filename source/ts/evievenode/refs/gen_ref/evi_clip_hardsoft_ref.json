@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi_clip_hardsoft",
+        "child": "evi.clip~",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_clip_hardsoft.gendsp] requires: \"evi_clip.genexpr\""
+        "description": "TEXT_HERE"
     },
     "constructor": {
         "inlets": "audio"

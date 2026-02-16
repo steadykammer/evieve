@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi_skfinputmix",
+        "child": "evi.skfinputmix~",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_skfinputmix.gendsp] requires: \"evi_tanh.genexpr, evi_trig.genexpr, evi_smooth.genexpr\""
+        "description": "TEXT_HERE"
     },
     "constructor": {
         "inlets": "lowpass, bandpass, highpass"

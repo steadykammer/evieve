@@ -9,12 +9,12 @@
             "input": "../../../../code/evi_genexpr",
             "config": "../refs/expr_ref",
             "json": "../../../../docs/refpages/evieve-genexpr/genexpr-data",
-            "output": "../../../../docs/refpages/evieve-genexpr/evi-genexpr"
+            "output": "../../../../docs/refpages/evieve-genexpr/gen-eviexpr"
         },
         "genDsp": {
             "input": "../../../../code/evi_gendsp",
             "config": "../refs/gen_ref",
-            "output": "../../../../docs/refpages/evieve-gen/evi-dsp"
+            "output": "../../../../docs/refpages/evieve-gen/gen-evi"
         },
         "defines": {
             "input": "",

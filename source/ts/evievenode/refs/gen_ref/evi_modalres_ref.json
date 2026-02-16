@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi_modalres",
+        "child": "evi.modalres~",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_modalres.gendsp] requires: \"evi_approx.genexpr\""
+        "description": "TEXT_HERE"
     },
     "constructor": {
         "inlets": "trigger, low, resonant"

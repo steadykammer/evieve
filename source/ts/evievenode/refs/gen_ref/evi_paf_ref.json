@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi_paf",
+        "child": "evi.paf~",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_paf.gendsp] requires: \"evi_trig.genexpr\""
+        "description": "TEXT_HERE"
     },
     "constructor": {
         "inlets": "fundamental, cf, bw, reset"

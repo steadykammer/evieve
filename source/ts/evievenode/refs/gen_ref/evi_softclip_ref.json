@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi_softclip",
+        "child": "evi.softclip~",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_softclip.gendsp] requires: \"evi_adaa.genexpr\""
+        "description": "TEXT_HERE"
     },
     "constructor": {
         "inlets": "audio"

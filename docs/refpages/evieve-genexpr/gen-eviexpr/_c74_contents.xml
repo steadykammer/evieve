@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+<root>
+<refpage name='evi_adaa.maxref.xml'/>
+<refpage name='evi_approx.maxref.xml'/>
+<refpage name='evi_biquads.maxref.xml'/>
+<refpage name='evi_biquads_no_tilde.maxref.xml'/>
+<refpage name='evi_buchla.maxref.xml'/>
+<refpage name='evi_clip.maxref.xml'/>
+<refpage name='evi_core.maxref.xml'/>
+<refpage name='evi_cossin.maxref.xml'/>
+<refpage name='evi_crossovers.maxref.xml'/>
+<refpage name='evi_dfm_lib.maxref.xml'/>
+<refpage name='evi_dynamics.maxref.xml'/>
+<refpage name='evi_env.maxref.xml'/>
+<refpage name='evi_evieve.maxref.xml'/>
+<refpage name='evi_fastskew.maxref.xml'/>
+<refpage name='evi_interp.maxref.xml'/>
+<refpage name='evi_lib.maxref.xml'/>
+<refpage name='evi_pade.maxref.xml'/>
+<refpage name='evi_polyblep.maxref.xml'/>
+<refpage name='evi_ptr.maxref.xml'/>
+<refpage name='evi_resampling_templates.maxref.xml'/>
+<refpage name='evi_resbank.maxref.xml'/>
+<refpage name='evi_ringmod_enhanced.maxref.xml'/>
+<refpage name='evi_saturators.maxref.xml'/>
+<refpage name='evi_sinfold_lib.maxref.xml'/>
+<refpage name='evi_smooth.maxref.xml'/>
+<refpage name='evi_ssb.maxref.xml'/>
+<refpage name='evi_svfs.maxref.xml'/>
+<refpage name='evi_tanh.maxref.xml'/>
+<refpage name='evi_trig.maxref.xml'/>
+<refpage name='evi_utilities.maxref.xml'/>
+<refpage name='evi_warmer_lib.maxref.xml'/>
+<refpage name='evi_waveshaping.maxref.xml'/>
+</root>

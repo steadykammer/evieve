@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi_biquad_analog",
+        "child": "evi.biquad.analog~",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_biquad_analog.gendsp] requires: \"evi_biquads.genexpr\""
+        "description": "TEXT_HERE"
     },
     "constructor": {
         "inlets": "input, cutoff, gain, q"

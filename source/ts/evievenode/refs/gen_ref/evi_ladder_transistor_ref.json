@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi_ladder_transistor",
+        "child": "evi.ladder.transistor~",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_ladder_transistor.gendsp] requires: \"evi_tanh.genexpr, evi_interp.genexpr\""
+        "description": "TEXT_HERE"
     },
     "constructor": {
         "inlets": "input, cutoff, cutoff, cutoff, resonance"

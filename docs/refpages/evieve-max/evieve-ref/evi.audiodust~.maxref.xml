@@ -6,8 +6,8 @@
 		
 	</digest>
 	<description>
-		evi.audiodust~ is a 'max define' for the evi_audiodust.gendsp gen~ abstraction.
-		Because evi.audiodust~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. <br />
+		evi.audiodust~ is a 'max define' for the evi_audiodust.gendsp <o>gen~</o> abstraction.
+		Because evi.audiodust~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		TEXT_HERE <br />
 	</description>
 	<!--METADATA-->

@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi_quadfmpm",
+        "child": "",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_quadfmpm.gendsp] requires: \"evi_smooth.genexpr\""
+        "description": "TEXT_HERE"
     },
     "constructor": {
         "inlets": "pitch, index, fm/pm, fm/pm, mod, car, mod"

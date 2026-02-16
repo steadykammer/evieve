@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi_zeroxoscnoise",
+        "child": "evi.zeroxoscnoise~",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_zeroxoscnoise.gendsp] requires: \"evi_smooth.genexpr, evi_sources.genexpr, evi_rcfilters.genexpr\""
+        "description": "TEXT_HERE"
     },
     "constructor": {
         "inlets": "audio, oscillators, oscillators, oscillators, noise"

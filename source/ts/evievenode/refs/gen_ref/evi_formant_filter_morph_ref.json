@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi_formant_filter_morph",
+        "child": "evi.formantfilter.morph~",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_formant_filter_morph.gendsp] requires: \"evi_svfs.genexpr, evi_smooth.genexpr\""
+        "description": "TEXT_HERE"
     },
     "constructor": {
         "inlets": "audio, voice, vowel, morph"

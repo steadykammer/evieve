@@ -38,6 +38,30 @@
 	</outletlist>
 	<!--ARGUMENTS-->
 	<objarglist>
+		<objarg name="" type="int" default="16" optional="1">
+			<digest>
+				arg#1: 
+			</digest>
+			<description>
+				
+			</description>
+		</objarg>
+		<objarg name="" type="float" default="20." optional="1">
+			<digest>
+				arg#2: 
+			</digest>
+			<description>
+				
+			</description>
+		</objarg>
+		<objarg name="" type="float" default="20000." optional="1">
+			<digest>
+				arg#3: 
+			</digest>
+			<description>
+				
+			</description>
+		</objarg>
 		<objarg name="" type="float" default="100." optional="1">
 			<digest>
 				arg#4: 

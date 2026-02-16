@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi_biquad_bandpass",
+        "child": "evi.biquad.bandpass~",
         "category": "evieve",
         "digest": "TEXT_HERE",
-        "description": "[evi_biquad_bandpass.gendsp] requires: \"evi_biquads.genexpr\""
+        "description": "TEXT_HERE"
     },
     "constructor": {
         "inlets": "input, cutoff, gain, q"
