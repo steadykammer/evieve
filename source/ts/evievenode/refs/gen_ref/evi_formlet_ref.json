@@ -10,7 +10,7 @@
         "inlets": "input, filter"
     },
     "includes": [
-        "evi_smooth.genexpr"
+        "evi_smooth"
     ],
     "inlets": [
         {

@@ -2,7 +2,7 @@
     "object": {
         "name": "evi.rect.select~",
         "category": "evieve",
-        "parent": "evi_rect_select.gendsp",
+        "parent": "evi_rect_select",
         "tilde": "~",
         "description": "TEXT_HERE",
         "discussion": ""

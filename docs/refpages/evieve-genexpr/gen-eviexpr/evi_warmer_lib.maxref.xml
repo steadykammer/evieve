@@ -6,7 +6,7 @@
     A GenExpr file, part of 'evieve', for using via 'require()'
   </digest>
   <description>
-    <b>evi_warmer_lib.genexpr</b> is a <m>.genexpr</m> file and is part of the <b>"evieve" Package</b>. <br />
+    <b>evi_warmer_lib.genexpr</b> is a <m>.genexpr</m> file and is part of the <b>'evieve' Package</b>. <br />
     It is for using in a <o>gen.codebox~</o> or in another <m>.genexpr</m> file via the <m>require()</m> command. <br />
     By declaring <m>require("evi_warmer_lib.genexpr");</m> at the top of a codebox you can then access all of the functions included in this file. <br />
      <br />
@@ -17,12 +17,9 @@
     <b>About this File</b>: <br />
      <br />
   </description>
-  <!-- cannot get rid of bloody box attributes here no matter what i try -->
   <misc name="GenExpr Functions">
     <entry name="D()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -31,8 +28,6 @@
     </entry>
     <entry name="szilagyi()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: drive,  <br />
         <b>In 2</b>: type=<i>input</i>: blend,  <br />
         <b>In 3</b>: type=<i>input</i>: sr,  <br />
@@ -50,8 +45,6 @@
     </entry>
     <entry name="sD()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -60,8 +53,6 @@
     </entry>
     <entry name="szilagyiF0()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -70,8 +61,6 @@
     </entry>
     <entry name="szilagyiF1()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -80,8 +69,6 @@
     </entry>
     <entry name="szilagyiF2()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -90,8 +77,6 @@
     </entry>
     <entry name="szilagyiAdaa1()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x0,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -100,8 +85,6 @@
     </entry>
     <entry name="szilagyiAdaa2()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x0,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -110,8 +93,6 @@
     </entry>
     <entry name="saturate()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: l,  <br />
         <b>In 3</b>: type=<i>input</i>: h,  <br />
@@ -122,8 +103,6 @@
     </entry>
     <entry name="saturateAdaa2_2x_6POINT()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
         <b>In 2</b>: type=<i>input</i>: l,  <br />
         <b>In 3</b>: type=<i>input</i>: h,  <br />
@@ -134,8 +113,6 @@
     </entry>
     <entry name="saturateAdaa2_4x_6POINT()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
         <b>In 2</b>: type=<i>input</i>: l,  <br />
         <b>In 3</b>: type=<i>input</i>: h,  <br />
@@ -146,8 +123,6 @@
     </entry>
     <entry name="boost()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: s,  <br />
         <b>In 3</b>: type=<i>input</i>: m,  <br />
@@ -159,8 +134,6 @@
     </entry>
     <entry name="fWarp()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: cf,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -169,8 +142,6 @@
     </entry>
     <entry name="lp1p()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: g,  <br />
 
@@ -180,8 +151,6 @@
     </entry>
     <entry name="lp2p()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: g,  <br />
         <b>In 3</b>: type=<i>input</i>: r,  <br />
@@ -193,11 +162,11 @@
   </misc>
   <metadatalist>
     <metadata name="author">Pete Dowling</metadata>
-    <metadata name="tag">evieve</metadata>
-    <metadata name="tag">evieve GenExpr</metadata>
+    <!-- only put one tag here for C74 harvesting algorithm issues -->
+    <metadata name="tag">GenExpr</metadata>
   </metadatalist>
   <seealsolist>
-    <!-- we use 'refpage' here not 'genrefpage' to trick Max ? -->
+    <!-- we use 'refpage' here not 'genrefpage' to trick Max -->
   </seealsolist>
   <misc name="Discussion">
     <entry name="Keywords">

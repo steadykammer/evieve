@@ -10,7 +10,7 @@
         "inlets": "cutoff, pitch, frequency"
     },
     "includes": [
-        "evi_smooth.genexpr"
+        "evi_smooth"
     ],
     "inlets": [
         {

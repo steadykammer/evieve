@@ -2,7 +2,7 @@
     "object": {
         "name": "evi.eq3~",
         "category": "evieve",
-        "parent": "evi_eq3.gendsp",
+        "parent": "evi_eq3",
         "tilde": "~",
         "description": "TEXT_HERE",
         "discussion": ""

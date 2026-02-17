@@ -2,7 +2,7 @@
     "object": {
         "name": "evi.4wave~",
         "category": "evieve",
-        "parent": "evi_4wave.gendsp",
+        "parent": "evi_4wave",
         "tilde": "~",
         "description": "TEXT_HERE",
         "discussion": ""

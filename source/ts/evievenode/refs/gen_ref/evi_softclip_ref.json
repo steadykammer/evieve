@@ -10,7 +10,7 @@
         "inlets": "audio"
     },
     "includes": [
-        "evi_adaa.genexpr"
+        "evi_adaa"
     ],
     "inlets": [
         {

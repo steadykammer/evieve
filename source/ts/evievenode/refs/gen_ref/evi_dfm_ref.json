@@ -10,7 +10,7 @@
         "inlets": "mono, nothing, cutoff, resonance"
     },
     "includes": [
-        "evi_dfm_lib.genexpr"
+        "evi_dfm_lib"
     ],
     "inlets": [
         {

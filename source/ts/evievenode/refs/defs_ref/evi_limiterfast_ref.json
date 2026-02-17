@@ -2,7 +2,7 @@
     "object": {
         "name": "evi.limiterfast~",
         "category": "evieve",
-        "parent": "evi_limiterfast.gendsp",
+        "parent": "evi_limiterfast",
         "tilde": "~",
         "description": "TEXT_HERE",
         "discussion": ""

@@ -2,7 +2,7 @@
     "object": {
         "name": "evi.crossover.3band~",
         "category": "evieve",
-        "parent": "evi_crossover_3band.gendsp",
+        "parent": "evi_crossover_3band",
         "tilde": "~",
         "description": "TEXT_HERE",
         "discussion": ""

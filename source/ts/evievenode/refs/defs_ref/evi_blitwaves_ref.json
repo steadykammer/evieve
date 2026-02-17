@@ -2,7 +2,7 @@
     "object": {
         "name": "evi.blitwaves~",
         "category": "evieve",
-        "parent": "evi_blitwaves.gendsp",
+        "parent": "evi_blitwaves",
         "tilde": "~",
         "description": "TEXT_HERE",
         "discussion": ""

@@ -2,7 +2,7 @@
     "object": {
         "name": "evi.modalres~",
         "category": "evieve",
-        "parent": "evi_modalres.gendsp",
+        "parent": "evi_modalres",
         "tilde": "~",
         "description": "TEXT_HERE",
         "discussion": ""

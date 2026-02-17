@@ -2,7 +2,7 @@
     "object": {
         "name": "evi.biquadcoeff~",
         "category": "evieve",
-        "parent": "evi_biquad_coeff.gendsp",
+        "parent": "evi_biquad_coeff",
         "tilde": "~",
         "description": "TEXT_HERE",
         "discussion": ""

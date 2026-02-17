@@ -10,7 +10,7 @@
         "inlets": "input, feedforward, feedback, direct, feedforward, feedback"
     },
     "includes": [
-        "evi_approx.genexpr"
+        "evi_approx"
     ],
     "inlets": [
         {

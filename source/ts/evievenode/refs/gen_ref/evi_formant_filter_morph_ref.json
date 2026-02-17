@@ -10,8 +10,8 @@
         "inlets": "audio, voice, vowel, morph"
     },
     "includes": [
-        "evi_svfs.genexpr",
-        "evi_smooth.genexpr"
+        "evi_svfs",
+        "evi_smooth"
     ],
     "inlets": [
         {

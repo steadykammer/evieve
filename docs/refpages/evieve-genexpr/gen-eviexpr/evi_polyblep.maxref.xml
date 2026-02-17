@@ -6,7 +6,7 @@
     A GenExpr file, part of 'evieve', for using via 'require()'
   </digest>
   <description>
-    <b>evi_polyblep.genexpr</b> is a <m>.genexpr</m> file and is part of the <b>"evieve" Package</b>. <br />
+    <b>evi_polyblep.genexpr</b> is a <m>.genexpr</m> file and is part of the <b>'evieve' Package</b>. <br />
     It is for using in a <o>gen.codebox~</o> or in another <m>.genexpr</m> file via the <m>require()</m> command. <br />
     By declaring <m>require("evi_polyblep.genexpr");</m> at the top of a codebox you can then access all of the functions included in this file. <br />
      <br />
@@ -16,12 +16,9 @@
     <b>About this File</b>: <br />
      <br />
   </description>
-  <!-- cannot get rid of bloody box attributes here no matter what i try -->
   <misc name="GenExpr Functions">
     <entry name="polyblep4()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: t,  <br />
         <b>In 2</b>: type=<i>input</i>: dt,  <br />
 
@@ -31,8 +28,6 @@
     </entry>
     <entry name="polyblamp4()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: t,  <br />
         <b>In 2</b>: type=<i>input</i>: dt,  <br />
 
@@ -42,8 +37,6 @@
     </entry>
     <entry name="polysaw4()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: t,  <br />
         <b>In 2</b>: type=<i>input</i>: dt,  <br />
 
@@ -53,8 +46,6 @@
     </entry>
     <entry name="polyrect4()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: t,  <br />
         <b>In 2</b>: type=<i>input</i>: dt,  <br />
 
@@ -64,8 +55,6 @@
     </entry>
     <entry name="polyrect4pwm()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: t,  <br />
         <b>In 2</b>: type=<i>input</i>: dt,  <br />
         <b>In 3</b>: type=<i>input</i>: pw,  <br />
@@ -76,8 +65,6 @@
     </entry>
     <entry name="polytri4()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: t,  <br />
         <b>In 2</b>: type=<i>input</i>: dt,  <br />
 
@@ -87,8 +74,6 @@
     </entry>
     <entry name="poly_blep()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: t,  <br />
         <b>In 2</b>: type=<i>input</i>: dt,  <br />
 
@@ -98,8 +83,6 @@
     </entry>
     <entry name="poly_blamp()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: t,  <br />
         <b>In 2</b>: type=<i>input</i>: dt,  <br />
 
@@ -109,8 +92,6 @@
     </entry>
     <entry name="poly_bluh()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: t,  <br />
         <b>In 2</b>: type=<i>input</i>: dt,  <br />
 
@@ -120,8 +101,6 @@
     </entry>
     <entry name="poly_sin()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: t,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -130,8 +109,6 @@
     </entry>
     <entry name="poly_cos()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: t,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -140,8 +117,6 @@
     </entry>
     <entry name="poly_half()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: t,  <br />
         <b>In 2</b>: type=<i>input</i>: dt,  <br />
 
@@ -151,8 +126,6 @@
     </entry>
     <entry name="poly_half2()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: t,  <br />
         <b>In 2</b>: type=<i>input</i>: dt,  <br />
         <b>In 3</b>: type=<i>input</i>: pw,  <br />
@@ -163,8 +136,6 @@
     </entry>
     <entry name="poly_half22()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: t,  <br />
         <b>In 2</b>: type=<i>input</i>: dt,  <br />
         <b>In 3</b>: type=<i>input</i>: pw,  <br />
@@ -175,8 +146,6 @@
     </entry>
     <entry name="poly_full()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: t,  <br />
         <b>In 2</b>: type=<i>input</i>: dt,  <br />
 
@@ -186,8 +155,6 @@
     </entry>
     <entry name="poly_sinp()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: t,  <br />
         <b>In 2</b>: type=<i>input</i>: dt,  <br />
 
@@ -197,8 +164,6 @@
     </entry>
     <entry name="poly_sawp()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: t2,  <br />
         <b>In 2</b>: type=<i>input</i>: dt,  <br />
 
@@ -208,8 +173,6 @@
     </entry>
     <entry name="poly_alt()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: t,  <br />
         <b>In 2</b>: type=<i>input</i>: dt,  <br />
 
@@ -219,8 +182,6 @@
     </entry>
     <entry name="poly_camel()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: t,  <br />
         <b>In 2</b>: type=<i>input</i>: dt,  <br />
 
@@ -230,8 +191,6 @@
     </entry>
     <entry name="poly_sin2()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: t,  <br />
         <b>In 2</b>: type=<i>input</i>: dt,  <br />
 
@@ -241,8 +200,6 @@
     </entry>
     <entry name="poly_para()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: t,  <br />
         <b>In 2</b>: type=<i>input</i>: dt,  <br />
 
@@ -252,8 +209,6 @@
     </entry>
     <entry name="poly_circ()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: t,  <br />
         <b>In 2</b>: type=<i>input</i>: dt,  <br />
 
@@ -263,8 +218,6 @@
     </entry>
     <entry name="poly_tri()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: t,  <br />
         <b>In 2</b>: type=<i>input</i>: dt,  <br />
 
@@ -274,8 +227,6 @@
     </entry>
     <entry name="poly_tri2()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: t,  <br />
         <b>In 2</b>: type=<i>input</i>: dt,  <br />
         <b>In 3</b>: type=<i>input</i>: pw,  <br />
@@ -286,8 +237,6 @@
     </entry>
     <entry name="poly_trip()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: t,  <br />
         <b>In 2</b>: type=<i>input</i>: dt,  <br />
         <b>In 3</b>: type=<i>input</i>: pw,  <br />
@@ -298,8 +247,6 @@
     </entry>
     <entry name="poly_trap()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: t,  <br />
         <b>In 2</b>: type=<i>input</i>: dt,  <br />
 
@@ -309,8 +256,6 @@
     </entry>
     <entry name="poly_trap2()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: t,  <br />
         <b>In 2</b>: type=<i>input</i>: dt,  <br />
         <b>In 3</b>: type=<i>input</i>: pw,  <br />
@@ -321,8 +266,6 @@
     </entry>
     <entry name="poly_sqr()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: t,  <br />
         <b>In 2</b>: type=<i>input</i>: dt,  <br />
 
@@ -332,8 +275,6 @@
     </entry>
     <entry name="poly_lpsqr2()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: t,  <br />
         <b>In 2</b>: type=<i>input</i>: dt,  <br />
 
@@ -343,8 +284,6 @@
     </entry>
     <entry name="poly_lpsqr3()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: t,  <br />
         <b>In 2</b>: type=<i>input</i>: dt,  <br />
 
@@ -354,8 +293,6 @@
     </entry>
     <entry name="poly_sqr2()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: t,  <br />
         <b>In 2</b>: type=<i>input</i>: dt,  <br />
         <b>In 3</b>: type=<i>input</i>: pw,  <br />
@@ -366,8 +303,6 @@
     </entry>
     <entry name="poly_rect()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: t,  <br />
         <b>In 2</b>: type=<i>input</i>: dt,  <br />
         <b>In 3</b>: type=<i>input</i>: pw,  <br />
@@ -378,8 +313,6 @@
     </entry>
     <entry name="poly_saw()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: t,  <br />
         <b>In 2</b>: type=<i>input</i>: dt,  <br />
 
@@ -389,8 +322,6 @@
     </entry>
     <entry name="poly_ramp()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: t,  <br />
         <b>In 2</b>: type=<i>input</i>: dt,  <br />
 
@@ -400,8 +331,6 @@
     </entry>
     <entry name="poly_intsaw()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: t,  <br />
         <b>In 2</b>: type=<i>input</i>: dt,  <br />
 
@@ -411,8 +340,6 @@
     </entry>
     <entry name="poly_cubsaw()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: t,  <br />
         <b>In 2</b>: type=<i>input</i>: dt,  <br />
 
@@ -422,8 +349,6 @@
     </entry>
     <entry name="poly_sawsin()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: t,  <br />
         <b>In 2</b>: type=<i>input</i>: dt,  <br />
 
@@ -433,8 +358,6 @@
     </entry>
     <entry name="poly_sinsaw()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: t,  <br />
         <b>In 2</b>: type=<i>input</i>: dt,  <br />
 
@@ -444,8 +367,6 @@
     </entry>
     <entry name="poly_hpsaw6()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: t,  <br />
         <b>In 2</b>: type=<i>input</i>: dt,  <br />
 
@@ -455,8 +376,6 @@
     </entry>
     <entry name="poly_hwsaw()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: t,  <br />
         <b>In 2</b>: type=<i>input</i>: dt,  <br />
         <b>In 3</b>: type=<i>input</i>: pw,  <br />
@@ -467,8 +386,6 @@
     </entry>
     <entry name="poly_logit3()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: t,  <br />
         <b>In 2</b>: type=<i>input</i>: dt,  <br />
 
@@ -478,8 +395,6 @@
     </entry>
     <entry name="morph_saw_tri_saw()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: t,  <br />
         <b>In 2</b>: type=<i>input</i>: dt,  <br />
         <b>In 3</b>: type=<i>input</i>: morph,  <br />
@@ -490,8 +405,6 @@
     </entry>
     <entry name="morph_saw_tri_square()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: t,  <br />
         <b>In 2</b>: type=<i>input</i>: dt,  <br />
         <b>In 3</b>: type=<i>input</i>: morph,  <br />
@@ -502,8 +415,6 @@
     </entry>
     <entry name="morph_pulse_tri_pulse()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: t,  <br />
         <b>In 2</b>: type=<i>input</i>: dt,  <br />
         <b>In 3</b>: type=<i>input</i>: morph,  <br />
@@ -514,8 +425,6 @@
     </entry>
     <entry name="morph_sawpulse_trirect()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: t,  <br />
         <b>In 2</b>: type=<i>input</i>: dt,  <br />
         <b>In 3</b>: type=<i>input</i>: morph,  <br />
@@ -526,8 +435,6 @@
     </entry>
     <entry name="morph_pulsepulse_trirect()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: t,  <br />
         <b>In 2</b>: type=<i>input</i>: dt,  <br />
         <b>In 3</b>: type=<i>input</i>: morph,  <br />
@@ -538,8 +445,6 @@
     </entry>
     <entry name="morph_pulsebipulse_trirect()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: t,  <br />
         <b>In 2</b>: type=<i>input</i>: dt,  <br />
         <b>In 3</b>: type=<i>input</i>: morph,  <br />
@@ -550,8 +455,6 @@
     </entry>
     <entry name="poly_osc()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: freqInHz,  <br />
         <b>In 2</b>: type=<i>input</i>: pwm,  <br />
         <b>In 3</b>: type=<i>input</i>: a,  <br />
@@ -566,8 +469,6 @@
     </entry>
     <entry name="poly_down3x()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: freqInHz,  <br />
         <b>In 2</b>: type=<i>input</i>: pw,  <br />
         <b>In 3</b>: type=<i>input</i>: a,  <br />
@@ -582,8 +483,6 @@
     </entry>
     <entry name="poly_down6x()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: freqInHz,  <br />
         <b>In 2</b>: type=<i>input</i>: pw,  <br />
         <b>In 3</b>: type=<i>input</i>: a,  <br />
@@ -598,8 +497,6 @@
     </entry>
     <entry name="poly_down4x()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: freqInHz,  <br />
         <b>In 2</b>: type=<i>input</i>: pw,  <br />
         <b>In 3</b>: type=<i>input</i>: a,  <br />
@@ -614,8 +511,6 @@
     </entry>
     <entry name="poly_down16x()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: freqInHz,  <br />
         <b>In 2</b>: type=<i>input</i>: pw,  <br />
         <b>In 3</b>: type=<i>input</i>: a,  <br />
@@ -630,8 +525,6 @@
     </entry>
     <entry name="varDcblock()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x0,  <br />
         <b>In 2</b>: type=<i>input</i>: a0,  <br />
 
@@ -641,8 +534,6 @@
     </entry>
     <entry name="varDcblockReset()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x0,  <br />
         <b>In 2</b>: type=<i>input</i>: a0,  <br />
         <b>In 3</b>: type=<i>input</i>: r0,  <br />
@@ -653,8 +544,6 @@
     </entry>
     <entry name="dynamicDc()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: osc,  <br />
         <b>In 2</b>: type=<i>input</i>: dtn,  <br />
         <b>In 3</b>: type=<i>input</i>: dcn,  <br />
@@ -665,8 +554,6 @@
     </entry>
     <entry name="xab()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: a,  <br />
         <b>In 3</b>: type=<i>input</i>: b,  <br />
@@ -677,8 +564,6 @@
     </entry>
     <entry name="blep8()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x0,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -687,8 +572,6 @@
     </entry>
     <entry name="blamp8()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x0,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -697,8 +580,6 @@
     </entry>
     <entry name="decorelateOsc()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -708,11 +589,11 @@
   </misc>
   <metadatalist>
     <metadata name="author">Pete Dowling</metadata>
-    <metadata name="tag">evieve</metadata>
-    <metadata name="tag">evieve GenExpr</metadata>
+    <!-- only put one tag here for C74 harvesting algorithm issues -->
+    <metadata name="tag">GenExpr</metadata>
   </metadatalist>
   <seealsolist>
-    <!-- we use 'refpage' here not 'genrefpage' to trick Max ? -->
+    <!-- we use 'refpage' here not 'genrefpage' to trick Max -->
   </seealsolist>
   <misc name="Discussion">
     <entry name="Keywords">

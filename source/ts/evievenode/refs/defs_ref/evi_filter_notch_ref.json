@@ -2,7 +2,7 @@
     "object": {
         "name": "evi.filter.notch~",
         "category": "evieve",
-        "parent": "evi_filter_notch.gendsp",
+        "parent": "evi_filter_notch",
         "tilde": "~",
         "description": "TEXT_HERE",
         "discussion": ""

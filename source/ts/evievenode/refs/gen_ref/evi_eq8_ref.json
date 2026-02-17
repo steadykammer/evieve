@@ -10,7 +10,7 @@
         "inlets": "input"
     },
     "includes": [
-        "evi_svfs.genexpr"
+        "evi_svfs"
     ],
     "inlets": [
         {

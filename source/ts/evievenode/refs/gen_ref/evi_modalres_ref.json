@@ -10,7 +10,7 @@
         "inlets": "trigger, low, resonant"
     },
     "includes": [
-        "evi_approx.genexpr"
+        "evi_approx"
     ],
     "inlets": [
         {

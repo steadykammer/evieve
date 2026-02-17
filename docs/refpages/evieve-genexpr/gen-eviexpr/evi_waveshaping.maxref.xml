@@ -6,19 +6,16 @@
     A GenExpr file, part of 'evieve', for using via 'require()'
   </digest>
   <description>
-    <b>evi_waveshaping.genexpr</b> is a <m>.genexpr</m> file and is part of the <b>"evieve" Package</b>. <br />
+    <b>evi_waveshaping.genexpr</b> is a <m>.genexpr</m> file and is part of the <b>'evieve' Package</b>. <br />
     It is for using in a <o>gen.codebox~</o> or in another <m>.genexpr</m> file via the <m>require()</m> command. <br />
     By declaring <m>require("evi_waveshaping.genexpr");</m> at the top of a codebox you can then access all of the functions included in this file. <br />
         <br />
     <b>About this File</b>: <br />
      <br />
   </description>
-  <!-- cannot get rid of bloody box attributes here no matter what i try -->
   <misc name="GenExpr Functions">
     <entry name="localExpA()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -27,8 +24,6 @@
     </entry>
     <entry name="tanhLApprox()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -37,8 +32,6 @@
     </entry>
     <entry name="tanhAxA()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: gain,  <br />
 
@@ -48,8 +41,6 @@
     </entry>
     <entry name="tanhSqrt()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -58,8 +49,6 @@
     </entry>
     <entry name="tanhPoly()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -68,8 +57,6 @@
     </entry>
     <entry name="atanApprox()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -78,8 +65,6 @@
     </entry>
     <entry name="atanDrive()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: drive,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -89,8 +74,6 @@
     </entry>
     <entry name="atanSat()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: drive,  <br />
 
@@ -100,8 +83,6 @@
     </entry>
     <entry name="tarrabiaShaper()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: a,  <br />
 
@@ -111,8 +92,6 @@
     </entry>
     <entry name="jongShaper()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: a,  <br />
 
@@ -122,8 +101,6 @@
     </entry>
     <entry name="cubicNL()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -132,8 +109,6 @@
     </entry>
     <entry name="thbNL()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -142,8 +117,6 @@
     </entry>
     <entry name="polyNom()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -152,8 +125,6 @@
     </entry>
     <entry name="polySat()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -162,8 +133,6 @@
     </entry>
     <entry name="parabolSat()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: a,  <br />
         <b>In 3</b>: type=<i>input</i>: c,  <br />
@@ -174,8 +143,6 @@
     </entry>
     <entry name="scDistort()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x0,  <br />
         <b>In 2</b>: type=<i>input</i>: drive,  <br />
 
@@ -185,8 +152,6 @@
     </entry>
     <entry name="scSoftClip()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x0,  <br />
         <b>In 2</b>: type=<i>input</i>: drive,  <br />
 
@@ -196,8 +161,6 @@
     </entry>
     <entry name="RaffelBBD()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -206,8 +169,6 @@
     </entry>
     <entry name="cosQ32p()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -216,8 +177,6 @@
     </entry>
     <entry name="cos32quad12p()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -226,8 +185,6 @@
     </entry>
     <entry name="sinParam()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: drive,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -237,8 +194,6 @@
     </entry>
     <entry name="sinSat()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: drive,  <br />
 
@@ -248,8 +203,6 @@
     </entry>
     <entry name="modHT()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x0,  <br />
         <b>In 2</b>: type=<i>input</i>: d,  <br />
         <b>In 3</b>: type=<i>input</i>: a,  <br />
@@ -260,8 +213,6 @@
     </entry>
     <entry name="foldBD()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: xin,  <br />
         <b>In 2</b>: type=<i>input</i>: thresh,  <br />
 
@@ -271,8 +222,6 @@
     </entry>
     <entry name="tapeH()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: xin,  <br />
         <b>In 2</b>: type=<i>input</i>: sigmoid,  <br />
 
@@ -282,8 +231,6 @@
     </entry>
     <entry name="gloubiBoulga()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x2,  <br />
         <b>In 2</b>: type=<i>input</i>: drive,  <br />
 
@@ -293,8 +240,6 @@
     </entry>
     <entry name="boulgaStatic()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: xin,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -304,11 +249,11 @@
   </misc>
   <metadatalist>
     <metadata name="author">Pete Dowling</metadata>
-    <metadata name="tag">evieve</metadata>
-    <metadata name="tag">evieve GenExpr</metadata>
+    <!-- only put one tag here for C74 harvesting algorithm issues -->
+    <metadata name="tag">GenExpr</metadata>
   </metadatalist>
   <seealsolist>
-    <!-- we use 'refpage' here not 'genrefpage' to trick Max ? -->
+    <!-- we use 'refpage' here not 'genrefpage' to trick Max -->
   </seealsolist>
   <misc name="Discussion">
     <entry name="Keywords">

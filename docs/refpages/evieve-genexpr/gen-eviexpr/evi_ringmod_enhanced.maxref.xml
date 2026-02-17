@@ -6,7 +6,7 @@
     A GenExpr file, part of 'evieve', for using via 'require()'
   </digest>
   <description>
-    <b>evi_ringmod_enhanced.genexpr</b> is a <m>.genexpr</m> file and is part of the <b>"evieve" Package</b>. <br />
+    <b>evi_ringmod_enhanced.genexpr</b> is a <m>.genexpr</m> file and is part of the <b>'evieve' Package</b>. <br />
     It is for using in a <o>gen.codebox~</o> or in another <m>.genexpr</m> file via the <m>require()</m> command. <br />
     By declaring <m>require("evi_ringmod_enhanced.genexpr");</m> at the top of a codebox you can then access all of the functions included in this file. <br />
      <br />
@@ -16,12 +16,9 @@
     <b>About this File</b>: <br />
      <br />
   </description>
-  <!-- cannot get rid of bloody box attributes here no matter what i try -->
   <misc name="GenExpr Functions">
     <entry name="simpleRingmod()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: xin1,  <br />
         <b>In 2</b>: type=<i>input</i>: xin2,  <br />
 
@@ -31,8 +28,6 @@
     </entry>
     <entry name="pDiode()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: vin,  <br />
         <b>In 2</b>: type=<i>input</i>: Vb,  <br />
         <b>In 3</b>: type=<i>input</i>: VL,  <br />
@@ -44,8 +39,6 @@
     </entry>
     <entry name="pRingmod()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: car,  <br />
         <b>In 2</b>: type=<i>input</i>: mod,  <br />
         <b>In 3</b>: type=<i>input</i>: voltage,  <br />
@@ -58,8 +51,6 @@
     </entry>
     <entry name="evieveRingmodAdaa1()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: xin1,  <br />
         <b>In 2</b>: type=<i>input</i>: xin2,  <br />
         <b>In 3</b>: type=<i>input</i>: g,  <br />
@@ -73,8 +64,6 @@
     </entry>
     <entry name="evieveRingmodAdaa2()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: xin1,  <br />
         <b>In 2</b>: type=<i>input</i>: xin2,  <br />
         <b>In 3</b>: type=<i>input</i>: g,  <br />
@@ -88,8 +77,6 @@
     </entry>
     <entry name="evieveRingmodAdaa1_2x()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: xin1,  <br />
         <b>In 2</b>: type=<i>input</i>: xin2,  <br />
         <b>In 3</b>: type=<i>input</i>: g,  <br />
@@ -103,8 +90,6 @@
     </entry>
     <entry name="evieveRingmodAdaa1_4x()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: xin1,  <br />
         <b>In 2</b>: type=<i>input</i>: xin2,  <br />
         <b>In 3</b>: type=<i>input</i>: g,  <br />
@@ -118,8 +103,6 @@
     </entry>
     <entry name="evieveRingmodAdaa2_2x()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: xin1,  <br />
         <b>In 2</b>: type=<i>input</i>: xin2,  <br />
         <b>In 3</b>: type=<i>input</i>: g,  <br />
@@ -133,8 +116,6 @@
     </entry>
     <entry name="evieveRingmodAdaa2_4x()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: xin1,  <br />
         <b>In 2</b>: type=<i>input</i>: xin2,  <br />
         <b>In 3</b>: type=<i>input</i>: g,  <br />
@@ -148,8 +129,6 @@
     </entry>
     <entry name="evieveRingmodAdaa1__2x_6POINT()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: XIN1,  <br />
         <b>In 2</b>: type=<i>input</i>: XIN2,  <br />
         <b>In 3</b>: type=<i>input</i>: g,  <br />
@@ -163,8 +142,6 @@
     </entry>
     <entry name="evieveRingmodAdaa2__2x_6POINT()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: XIN1,  <br />
         <b>In 2</b>: type=<i>input</i>: XIN2,  <br />
         <b>In 3</b>: type=<i>input</i>: g,  <br />
@@ -178,8 +155,6 @@
     </entry>
     <entry name="evieveRingmodAdaa2__4x_6POINT()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: XIN1,  <br />
         <b>In 2</b>: type=<i>input</i>: XIN2,  <br />
         <b>In 3</b>: type=<i>input</i>: g,  <br />
@@ -193,8 +168,6 @@
     </entry>
     <entry name="evieveRingmodAdaa2__8x_6POINT()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: XIN1,  <br />
         <b>In 2</b>: type=<i>input</i>: XIN2,  <br />
         <b>In 3</b>: type=<i>input</i>: g,  <br />
@@ -208,8 +181,6 @@
     </entry>
     <entry name="evieveRingmodAdaa2_4x__2x_6POINT()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: XIN1,  <br />
         <b>In 2</b>: type=<i>input</i>: XIN2,  <br />
         <b>In 3</b>: type=<i>input</i>: g,  <br />
@@ -223,8 +194,6 @@
     </entry>
     <entry name="evieveRingmodAdaa2_4x__4x_6POINT()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: XIN1,  <br />
         <b>In 2</b>: type=<i>input</i>: XIN2,  <br />
         <b>In 3</b>: type=<i>input</i>: g,  <br />
@@ -238,8 +207,6 @@
     </entry>
     <entry name="evieveRingmodAdaa2_4x__8x_6POINT()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: XIN1,  <br />
         <b>In 2</b>: type=<i>input</i>: XIN2,  <br />
         <b>In 3</b>: type=<i>input</i>: g,  <br />
@@ -253,8 +220,6 @@
     </entry>
     <entry name="lp1p()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: g,  <br />
 
@@ -264,8 +229,6 @@
     </entry>
     <entry name="lp2p()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: g,  <br />
         <b>In 3</b>: type=<i>input</i>: r,  <br />
@@ -276,8 +239,6 @@
     </entry>
     <entry name="linearButterworthLP8()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: X,  <br />
         <b>In 2</b>: type=<i>input</i>: cutoff,  <br />
         <b>In 3</b>: type=<i>param</i> (optional): order, default: 3,  <br />
@@ -289,11 +250,11 @@
   </misc>
   <metadatalist>
     <metadata name="author">Pete Dowling</metadata>
-    <metadata name="tag">evieve</metadata>
-    <metadata name="tag">evieve GenExpr</metadata>
+    <!-- only put one tag here for C74 harvesting algorithm issues -->
+    <metadata name="tag">GenExpr</metadata>
   </metadatalist>
   <seealsolist>
-    <!-- we use 'refpage' here not 'genrefpage' to trick Max ? -->
+    <!-- we use 'refpage' here not 'genrefpage' to trick Max -->
   </seealsolist>
   <misc name="Discussion">
     <entry name="Keywords">

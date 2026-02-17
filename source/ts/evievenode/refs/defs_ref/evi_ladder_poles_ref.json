@@ -2,7 +2,7 @@
     "object": {
         "name": "evi.ladder.poles~",
         "category": "evieve",
-        "parent": "evi_ladder_poles.gendsp",
+        "parent": "evi_ladder_poles",
         "tilde": "~",
         "description": "TEXT_HERE",
         "discussion": ""

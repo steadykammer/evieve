@@ -2,7 +2,7 @@
     "object": {
         "name": "evi.filter~",
         "category": "evieve",
-        "parent": "evi_filter.gendsp",
+        "parent": "evi_filter",
         "tilde": "~",
         "description": "TEXT_HERE",
         "discussion": ""

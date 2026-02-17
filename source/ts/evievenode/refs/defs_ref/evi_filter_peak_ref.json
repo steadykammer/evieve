@@ -2,7 +2,7 @@
     "object": {
         "name": "evi.filter.peak~",
         "category": "evieve",
-        "parent": "evi_filter_peak.gendsp",
+        "parent": "evi_filter_peak",
         "tilde": "~",
         "description": "TEXT_HERE",
         "discussion": ""

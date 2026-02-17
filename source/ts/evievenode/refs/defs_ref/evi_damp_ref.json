@@ -2,7 +2,7 @@
     "object": {
         "name": "evi.damp~",
         "category": "evieve",
-        "parent": "evi_damp.gendsp",
+        "parent": "evi_damp",
         "tilde": "~",
         "description": "TEXT_HERE",
         "discussion": ""

@@ -2,7 +2,7 @@
     "object": {
         "name": "evi.ladder.transistor~",
         "category": "evieve",
-        "parent": "evi_ladder_transistor.gendsp",
+        "parent": "evi_ladder_transistor",
         "tilde": "~",
         "description": "TEXT_HERE",
         "discussion": ""

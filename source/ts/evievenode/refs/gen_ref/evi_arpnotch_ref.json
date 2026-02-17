@@ -10,8 +10,8 @@
         "inlets": "input, freq, resonance, morph"
     },
     "includes": [
-        "evi_tanh.genexpr",
-        "evi_smooth.genexpr"
+        "evi_tanh",
+        "evi_smooth"
     ],
     "inlets": [
         {

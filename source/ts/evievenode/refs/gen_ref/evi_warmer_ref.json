@@ -10,7 +10,7 @@
         "inlets": "boring"
     },
     "includes": [
-        "evi_warmer_lib.genexpr"
+        "evi_warmer_lib"
     ],
     "inlets": [
         {

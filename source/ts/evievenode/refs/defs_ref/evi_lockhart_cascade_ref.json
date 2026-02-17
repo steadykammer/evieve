@@ -2,7 +2,7 @@
     "object": {
         "name": "evi.lockhart.cascade~",
         "category": "evieve",
-        "parent": "evi_lockhart_cascade.gendsp",
+        "parent": "evi_lockhart_cascade",
         "tilde": "~",
         "description": "TEXT_HERE",
         "discussion": ""

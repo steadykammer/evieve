@@ -6,19 +6,16 @@
     A GenExpr file, part of 'evieve', for using via 'require()'
   </digest>
   <description>
-    <b>evi_cossin.genexpr</b> is a <m>.genexpr</m> file and is part of the <b>"evieve" Package</b>. <br />
+    <b>evi_cossin.genexpr</b> is a <m>.genexpr</m> file and is part of the <b>'evieve' Package</b>. <br />
     It is for using in a <o>gen.codebox~</o> or in another <m>.genexpr</m> file via the <m>require()</m> command. <br />
     By declaring <m>require("evi_cossin.genexpr");</m> at the top of a codebox you can then access all of the functions included in this file. <br />
         <br />
     <b>About this File</b>: <br />
      <br />
   </description>
-  <!-- cannot get rid of bloody box attributes here no matter what i try -->
   <misc name="GenExpr Functions">
     <entry name="quartParApproxFull()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: modphase,  <br />
         <b>In 2</b>: type=<i>input</i>: precision,  <br />
 
@@ -30,8 +27,6 @@
     </entry>
     <entry name="quartParOneApprox()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: modphase,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -41,8 +36,6 @@
     </entry>
     <entry name="quadratureOsc()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: thisphase,  <br />
         <b>In 2</b>: type=<i>input</i>: thisspread,  <br />
 
@@ -53,8 +46,6 @@
     </entry>
     <entry name="tanApprox()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -63,8 +54,6 @@
     </entry>
     <entry name="quadOsc()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: frequency,  <br />
         <b>In 2</b>: type=<i>input</i>: reset,  <br />
 
@@ -75,8 +64,6 @@
     </entry>
     <entry name="quadOscSync()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: frequency,  <br />
         <b>In 2</b>: type=<i>input</i>: reset,  <br />
 
@@ -89,8 +76,6 @@
     </entry>
     <entry name="tptSvfQuadOsc()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
         <b>In 2</b>: type=<i>input</i>: sync,  <br />
         <b>In 3</b>: type=<i>input</i>: reset,  <br />
@@ -103,8 +88,6 @@
     </entry>
     <entry name="parabolApprox()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: phase,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -113,8 +96,6 @@
     </entry>
     <entry name="cosApprox01()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: a,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -123,8 +104,6 @@
     </entry>
     <entry name="sinApprox01()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: a,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -133,8 +112,6 @@
     </entry>
     <entry name="cosApproxPi()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -143,8 +120,6 @@
     </entry>
     <entry name="sinApproxPi()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -154,11 +129,11 @@
   </misc>
   <metadatalist>
     <metadata name="author">Pete Dowling</metadata>
-    <metadata name="tag">evieve</metadata>
-    <metadata name="tag">evieve GenExpr</metadata>
+    <!-- only put one tag here for C74 harvesting algorithm issues -->
+    <metadata name="tag">GenExpr</metadata>
   </metadatalist>
   <seealsolist>
-    <!-- we use 'refpage' here not 'genrefpage' to trick Max ? -->
+    <!-- we use 'refpage' here not 'genrefpage' to trick Max -->
   </seealsolist>
   <misc name="Discussion">
     <entry name="Keywords">

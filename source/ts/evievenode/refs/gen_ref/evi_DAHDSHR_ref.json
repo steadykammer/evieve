@@ -10,7 +10,7 @@
         "inlets": "gate, delay, attack, hold1, decay, sustain, hold2, release"
     },
     "includes": [
-        "evi_approx.genexpr"
+        "evi_approx"
     ],
     "inlets": [
         {

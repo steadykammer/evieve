@@ -2,7 +2,7 @@
     "object": {
         "name": "evi.phasor0~",
         "category": "evieve",
-        "parent": "evi_phasor0.gendsp",
+        "parent": "evi_phasor0",
         "tilde": "~",
         "description": "TEXT_HERE",
         "discussion": ""

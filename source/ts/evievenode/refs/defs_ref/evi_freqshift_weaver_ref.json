@@ -2,7 +2,7 @@
     "object": {
         "name": "evi.freqshift.weaver~",
         "category": "evieve",
-        "parent": "evi_freqshift_weaver.gendsp",
+        "parent": "evi_freqshift_weaver",
         "tilde": "~",
         "description": "TEXT_HERE",
         "discussion": ""

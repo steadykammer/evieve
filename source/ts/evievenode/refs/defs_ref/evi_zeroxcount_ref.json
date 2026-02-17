@@ -2,7 +2,7 @@
     "object": {
         "name": "evi.zeroxcount~",
         "category": "evieve",
-        "parent": "evi_zeroxcount.gendsp",
+        "parent": "evi_zeroxcount",
         "tilde": "~",
         "description": "TEXT_HERE",
         "discussion": ""

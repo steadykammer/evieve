@@ -10,7 +10,7 @@
         "inlets": "input"
     },
     "includes": [
-        "evi_biquad.genexpr"
+        "evi_biquad"
     ],
     "inlets": [
         {

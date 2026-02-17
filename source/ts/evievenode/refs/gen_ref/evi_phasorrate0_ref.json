@@ -10,7 +10,7 @@
         "inlets": "frequency, rate, reset"
     },
     "includes": [
-        "evi_counting.genexpr"
+        "evi_counting"
     ],
     "inlets": [
         {

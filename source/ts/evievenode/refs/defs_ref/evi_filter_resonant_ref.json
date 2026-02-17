@@ -2,7 +2,7 @@
     "object": {
         "name": "evi.filter.resonant~",
         "category": "evieve",
-        "parent": "evi_filter_resonant.gendsp",
+        "parent": "evi_filter_resonant",
         "tilde": "~",
         "description": "TEXT_HERE",
         "discussion": ""

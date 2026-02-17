@@ -2,7 +2,7 @@
     "object": {
         "name": "evi.audiodust~",
         "category": "evieve",
-        "parent": "evi_audiodust.gendsp",
+        "parent": "evi_audiodust",
         "tilde": "~",
         "description": "TEXT_HERE",
         "discussion": ""

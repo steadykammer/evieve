@@ -2,7 +2,7 @@
     "object": {
         "name": "evi.onepole.shelving~",
         "category": "evieve",
-        "parent": "evi_onepole_shelving.gendsp",
+        "parent": "evi_onepole_shelving",
         "tilde": "~",
         "description": "TEXT_HERE",
         "discussion": ""

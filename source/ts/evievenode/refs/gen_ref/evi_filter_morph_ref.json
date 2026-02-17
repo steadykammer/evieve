@@ -10,7 +10,7 @@
         "inlets": "input, frequency, gain, resonance, morph"
     },
     "includes": [
-        "evi_svfs.genexpr"
+        "evi_svfs"
     ],
     "inlets": [
         {

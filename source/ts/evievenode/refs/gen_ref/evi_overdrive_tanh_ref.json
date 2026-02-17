@@ -10,9 +10,9 @@
         "inlets": "input, drive"
     },
     "includes": [
-        "evi_saturators.genexpr",
-        "evi_smooth.genexpr",
-        "evi_rcfilters.genexpr"
+        "evi_saturators",
+        "evi_smooth",
+        "evi_rcfilters"
     ],
     "inlets": [
         {

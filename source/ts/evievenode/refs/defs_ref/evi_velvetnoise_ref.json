@@ -2,7 +2,7 @@
     "object": {
         "name": "evi.velvetnoise~",
         "category": "evieve",
-        "parent": "evi_velvetnoise.gendsp",
+        "parent": "evi_velvetnoise",
         "tilde": "~",
         "description": "TEXT_HERE",
         "discussion": ""

@@ -2,7 +2,7 @@
     "object": {
         "name": "evi.svfinputmix~",
         "category": "evieve",
-        "parent": "evi_svfinputmix.gendsp",
+        "parent": "evi_svfinputmix",
         "tilde": "~",
         "description": "TEXT_HERE",
         "discussion": ""

@@ -10,7 +10,7 @@
         "inlets": "frequency, pwm, reset"
     },
     "includes": [
-        "evi_polyblep.genexpr"
+        "evi_polyblep"
     ],
     "inlets": [
         {

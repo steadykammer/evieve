@@ -6,7 +6,7 @@
     A GenExpr file, part of 'evieve', for using via 'require()'
   </digest>
   <description>
-    <b>evi_dynamics.genexpr</b> is a <m>.genexpr</m> file and is part of the <b>"evieve" Package</b>. <br />
+    <b>evi_dynamics.genexpr</b> is a <m>.genexpr</m> file and is part of the <b>'evieve' Package</b>. <br />
     It is for using in a <o>gen.codebox~</o> or in another <m>.genexpr</m> file via the <m>require()</m> command. <br />
     By declaring <m>require("evi_dynamics.genexpr");</m> at the top of a codebox you can then access all of the functions included in this file. <br />
      <br />
@@ -16,12 +16,9 @@
     <b>About this File</b>: <br />
      <br />
   </description>
-  <!-- cannot get rid of bloody box attributes here no matter what i try -->
   <misc name="GenExpr Functions">
     <entry name="xMega()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: X,  <br />
         <b>In 2</b>: type=<i>input</i>: xCONST,  <br />
 
@@ -31,8 +28,6 @@
     </entry>
     <entry name="xSgn()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -41,8 +36,6 @@
     </entry>
     <entry name="xRange()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>param</i> (optional): range, default: 1,  <br />
 
@@ -52,8 +45,6 @@
     </entry>
     <entry name="funcHc0()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>param</i> (optional): clip, default: 1,  <br />
 
@@ -63,8 +54,6 @@
     </entry>
     <entry name="funcHc1()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>param</i> (optional): range, default: 1,  <br />
 
@@ -74,8 +63,6 @@
     </entry>
     <entry name="funcHc2()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>param</i> (optional): range, default: 1,  <br />
 
@@ -85,8 +72,6 @@
     </entry>
     <entry name="adHc1()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>param</i> (optional): limit, default: 1,  <br />
 
@@ -96,8 +81,6 @@
     </entry>
     <entry name="adHc2()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>param</i> (optional): limit, default: 1,  <br />
 
@@ -107,8 +90,6 @@
     </entry>
     <entry name="adHc2_2x_6POINT()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
         <b>In 2</b>: type=<i>param</i> (optional): thresh, default: 1,  <br />
 
@@ -118,8 +99,6 @@
     </entry>
     <entry name="adHc2_4x_6POINT()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
         <b>In 2</b>: type=<i>param</i> (optional): thresh, default: 1,  <br />
 
@@ -129,8 +108,6 @@
     </entry>
     <entry name="biquadDf2()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: a0,  <br />
         <b>In 3</b>: type=<i>input</i>: a1,  <br />
@@ -144,8 +121,6 @@
     </entry>
     <entry name="logSad()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: s,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -154,8 +129,6 @@
     </entry>
     <entry name="getMax()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: xL,  <br />
         <b>In 2</b>: type=<i>input</i>: xR,  <br />
 
@@ -165,8 +138,6 @@
     </entry>
     <entry name="logAttackDecay()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: a,  <br />
         <b>In 3</b>: type=<i>input</i>: d,  <br />
@@ -177,8 +148,6 @@
     </entry>
     <entry name="limiterFast()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: xL,  <br />
         <b>In 2</b>: type=<i>input</i>: xR,  <br />
         <b>In 3</b>: type=<i>input</i>: release,  <br />
@@ -199,11 +168,11 @@
   </misc>
   <metadatalist>
     <metadata name="author">Pete Dowling</metadata>
-    <metadata name="tag">evieve</metadata>
-    <metadata name="tag">evieve GenExpr</metadata>
+    <!-- only put one tag here for C74 harvesting algorithm issues -->
+    <metadata name="tag">GenExpr</metadata>
   </metadatalist>
   <seealsolist>
-    <!-- we use 'refpage' here not 'genrefpage' to trick Max ? -->
+    <!-- we use 'refpage' here not 'genrefpage' to trick Max -->
   </seealsolist>
   <misc name="Discussion">
     <entry name="Keywords">

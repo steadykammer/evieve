@@ -2,7 +2,7 @@
     "object": {
         "name": "evi.filter.lowshelf~",
         "category": "evieve",
-        "parent": "evi_filter_lowshelf.gendsp",
+        "parent": "evi_filter_lowshelf",
         "tilde": "~",
         "description": "TEXT_HERE",
         "discussion": ""

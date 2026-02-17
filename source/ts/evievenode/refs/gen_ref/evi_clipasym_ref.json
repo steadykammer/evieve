@@ -10,8 +10,8 @@
         "inlets": "audio, asymmetry"
     },
     "includes": [
-        "evi_smooth.genexpr",
-        "evi_waveshaping.genexpr"
+        "evi_smooth",
+        "evi_waveshaping"
     ],
     "inlets": [
         {

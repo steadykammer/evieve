@@ -2,7 +2,7 @@
     "object": {
         "name": "evi.svfsmooth~",
         "category": "evieve",
-        "parent": "evi_svfsmooth.gendsp",
+        "parent": "evi_svfsmooth",
         "tilde": "~",
         "description": "TEXT_HERE",
         "discussion": ""

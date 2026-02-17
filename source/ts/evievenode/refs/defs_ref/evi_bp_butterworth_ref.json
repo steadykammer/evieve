@@ -2,7 +2,7 @@
     "object": {
         "name": "evi.butterworthlp6~",
         "category": "evieve",
-        "parent": "evi_bp_butterworth.gendsp",
+        "parent": "evi_bp_butterworth",
         "tilde": "~",
         "description": "TEXT_HERE",
         "discussion": ""

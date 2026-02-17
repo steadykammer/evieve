@@ -432,7 +432,6 @@ function parseDataForQlookup() {
 
 		qlookup[objectName].keywords = [];
 		if (Object.hasOwn(xmlResult.c74object, 'misc')) {
-			// TODO:
 			// const discussionData = xmlResult.c74object.misc.filter((el: any) => el.maxattr_name === 'Discussion');
 			// if (Array.isArray(discussionData)) {
 			// 	const keywordData = discussionData[0].entry.filter((el: any) => el.maxattr_name === 'Keywords');
@@ -739,7 +738,8 @@ function createHelpFilesDefines(force = false)
 // --------------------------------------------- //
 
 // 'codeboxesRefsPath' contains code extracted from .gendsp abstraction embedded codeboxes
-// during 'parseGendspsLoop()', (because i cannot get pegjs system working)
+// during 'parseGendspsLoop()'
+// called from Max {make_gens_genexpr_xml_configs}
 async function parseGendspsCodeboxes()
 {
 	const gendspsRefsPath = `${cwd()}/${config.referenceFiles.genDsp.config}`; // !!
@@ -793,11 +793,13 @@ async function parseGendspsCodeboxes()
 						if (line_candidate.startsWith('require')) {
 							const line_tokens = line_candidate.split('\"');
 							let requireDecl = line_tokens[1];
-							if (!requireDecl.endsWith('.genexpr')) {
-								requireDecl = `${requireDecl}.genexpr`; // because pete has forgotten sometimes
-							}
+							// if (!requireDecl.endsWith('.genexpr')) {
+							// 	requireDecl = `${requireDecl}.genexpr`; // because pete has forgotten sometimes
+							// }
+							// no, bloody xml rendering requires no extension :-(
+							const requNoExt = requireDecl.replace('.genexpr', '');
 
-							thisConfigObject.includes.push(requireDecl);
+							thisConfigObject.includes.push(requNoExt);
 
 							// void max.post(`found a require in ${chichiForPrinting}: ${requireDecl}`);
 
@@ -1046,7 +1048,8 @@ async function parseGendspsLoop(gendspPath: string, gendspName: string, thisConf
 // --------------------------------------------- //
 
 // 'codeboxesRefsPath' contains code extracted from gen~ patcher embedded codeboxes
-// during 'parseDefinesGendspsLoop()', (because i cannot get pegjs system working)
+// during 'parseDefinesGendspsLoop()'
+// called from Max by: {make_defs_genexpr_xml_configs}
 async function parseDefinesCodeboxes()
 {
 	const definesRefsPath = `${cwd()}/${config.referenceFiles.defines.config}`;
@@ -1068,6 +1071,7 @@ async function parseDefinesCodeboxes()
 			"value": 0
 		}
 	};
+	// this is bad to have this data here
 	const messageHistoryDigest = "Top level gen~ [history] / History() declarations can be reset by messages to the object";
 	const messagesConfig: any = {
 		"name": "",
@@ -1091,7 +1095,7 @@ async function parseDefinesCodeboxes()
 
 	for await (const refJson of fullRefsNames) {
 		const refJsonFullRWpath = `${definesRefsPath}/${refJson}`;
-		const chichiForPrinting = refJson.replace('_ref.json', '.gendsp');
+		// const chichiForPrinting = refJson.replace('_ref.json', '.gendsp');
 		const derivedCodeboxName = refJson.replace('_ref.json', '_codebox.genexpr');
 		if (fullCodeboxesNames.includes(derivedCodeboxName)) {
 			const thisConfigJson = fs.readFileSync(refJsonFullRWpath, 'utf8');
@@ -1288,253 +1292,6 @@ async function parseDefinesCodeboxes()
 		}
 	}
 }
-
-// not using at the moment, see above
-/*
-async function parseDefinesCodeboxes()
-{
-	const definesRefsPath = `${cwd()}/${config.referenceFiles.defines.config}`;
-	let fullRefsNames = getFileNamesFromPath(definesRefsPath, 'json');
-	const IGNORE = /_xml_define_template.json/;
-	fullRefsNames = fullRefsNames.filter((str) => !IGNORE.test(str));
-	const codeboxesRefsPath = `${definesRefsPath}/codeboxes`;
-	const fullCodeboxesNames = getFileNamesFromPath(codeboxesRefsPath, 'genexpr');
-
-	const attributesConfig: any = {
-		"name": "",
-		"get": 1,
-		"type": "",
-		"digest": "",
-		"description": "",
-		"default": {
-			"min": 0,
-			"max": 1,
-			"value": 0
-		}
-	};
-	const messagesConfig: any = {
-		"name": "",
-		"arg": [
-			{
-				"name": "",
-				"type": "",
-				"units": "",
-				"optional": 1
-			}
-		],
-		"digest": "",
-		"description": ""
-	};
-	const msgArgsConfig: any = {
-		"name": "",
-		"type": "",
-		"units": "",
-		"optional": 1
-	}
-
-	const collectRequires: string[] = [];
-	const collectHistories: string[][] = [];
-	const collectParams: string[][] = [];
-
-	for await (const refJson of fullRefsNames) {
-		const chichiForPrinting = refJson.replace('_ref.json', '.gendsp');
-		const derivedCodeboxName = refJson.replace('_ref.json', '_codebox.genexpr');
-		if (fullCodeboxesNames.includes(derivedCodeboxName)) {
-			const thisConfigJson = fs.readFileSync(`${definesRefsPath}/${refJson}`, 'utf8');
-			const thisConfigObject = JSON.parse(thisConfigJson);
-			// const thisConfigGenExpr = fs.readFileSync(`${codeboxesRefsPath}/${derivedCodeboxName}`, 'utf8');
-			// const pre_ast = PEGparser.parse(thisConfigGenExpr);
-			// void max.post(`parser test for ${refJson}: ${JSON.stringify(pre_ast)}`);
-
-			collectRequires.length = 0;
-			collectHistories.length = 0;
-			collectParams.length = 0;
-
-			const rlInterface = readline.createInterface({
-				input: fs.createReadStream(`${codeboxesRefsPath}/${derivedCodeboxName}`),
-				crlfDelay: Infinity
-			});
-			// this will only work for Pete's pedantic style of GenExpr coding :-(
-			rlInterface.on('line', (line) => {
-				if (!(/^\s/.test(line))) {
-					if (!(line.startsWith('//')) && !(line.startsWith('/*'))) {
-						// void max.post(`i am reading this line: ${line}`);
-						const line_trim = line.trim();
-						let line_candidate = line_trim;
-						if (line_trim.includes('//')) {
-							line_candidate = line_trim.split('//')[0];
-						}
-						if (line_trim.includes('/*')) {
-							line_candidate = line_trim.split('/*')[0];
-						}
-						// void max.post(`line candidate is now: ${line_candidate}`);
-						if (line_candidate.startsWith('require')) {
-							const line_tokens = line_candidate.split('\"');
-							let requireDecl = line_tokens[1];
-							if (!requireDecl.endsWith('.genexpr')) {
-								requireDecl = `${requireDecl}.genexpr`; // because pete has forgotten sometimes
-							}
-							collectRequires.push(requireDecl);
-							void max.post(`found a require in ${chichiForPrinting}: ${requireDecl}`);
-						} else if (line_candidate.startsWith('History')) {
-							const line_sliced = line_candidate.replace('History', '').trimStart();
-							const line_tokens = line_sliced.split(',');
-							// void max.post(`History line tokens are: ${line_tokens}`);
-							for (let i = 0; i < line_tokens.length; i++) {
-								const historyDecl = line_tokens[i];
-								// void max.post(`History token to work on is: ${historyDecl}`);
-								const history_split = historyDecl.split('(');
-								const histName = history_split[0].trim();
-								const hist_token_val = history_split[1].trim();
-								// void max.post(`hist_token_val cleaned is: ${hist_token_val}`);
-								let histVal = "";
-								if (hist_token_val.includes(')')) {
-									histVal = hist_token_val.split(')')[0].replace(',', '').replace(';', '').trim();
-								} else {
-									histVal = hist_token_val.replace(')', '').replaceAll(',', '').replaceAll(';', '').trim();
-								}
-								// void max.post(`parsed history value is: ${histVal}`);
-								const histArray = [histName, histVal];
-								collectHistories.push(histArray);
-								void max.post(`found a history in ${chichiForPrinting}: ${histArray}`);
-							}
-						} else if (line_candidate.startsWith('Param')) {
-							const line_tokens = line_candidate.split('(');
-							// void max.post(`Param line tokens are: ${line_tokens}`);
-							// void max.post(`Param name token pre-split is: ${line_tokens[0]}`);
-							const paramName = line_tokens[0].replace('Param', '').trimStart();
-							// void max.post(`Param name token post-split is: ${paramName}`);
-							const paramData = line_tokens[1].split(',');
-							// void max.post(`Param data array is: ${paramData}`);
-							const paramDefault = paramData[0].replace(')', '').replaceAll(',', '').replaceAll(';', '');
-							let paramMin = "0";
-							let paramMax = "0";
-							for (let i = 0; i < paramData.length; i++) {
-								const testParamData = paramData[i].trim();
-								if (testParamData.startsWith("min")) {
-									// void max.post(`if min test is true: ${testParamData}`);
-									paramMin = paramData[i].split('=')[1].split(')')[0].replaceAll(',', '').replaceAll(';', '');
-								} else if (testParamData.startsWith("max")) {
-									// void max.post(`if max test is true: ${testParamData}`);
-									paramMax = paramData[i].split('=')[1].split(')')[0].replaceAll(',', '').replaceAll(';', '');
-								}
-							}
-							const paramArray = [paramName, paramDefault, paramMin, paramMax];
-							collectParams.push(paramArray);
-							void max.post(`found a param in ${chichiForPrinting}: ${paramArray}`);
-						}
-					}
-				}
-			});
-
-			rlInterface.on('close', () => {
-
-				if (collectHistories.length) {
-					// if new template
-					thisConfigObject.messages = thisConfigObject.messages.filter((entry: { name: string; }) => entry.name !== "");
-					let objIndex: number = 0;
-					let thisMessage: any;
-					const isHistory = Object.values(thisConfigObject.messages).includes('history');
-
-					if (isHistory) {
-						// is edit of already present 'history' entry
-						thisMessage = thisConfigObject.messages.find((obj: { name: string; }) => obj.name === 'history');
-						objIndex = thisConfigObject.messages.indexOf(thisMessage);
-
-						for (let i = 0; i < collectHistories.length; i++) {
-							const histDecl: string[] = collectHistories[i];
-							let thisArg: any = JSON.parse(JSON.stringify(msgArgsConfig));
-							thisArg.name = histDecl[0];
-							const type = inferTypeFromString(histDecl[1]);
-							thisArg.type = type;
-							let units: string | number = "";
-							if (type === "int") {
-								units = parseInt(histDecl[1]);
-							} else if (type === "float") {
-								units = parseFloat(histDecl[1]);
-							} else {
-								units = histDecl[1];
-							}
-							thisArg.units = `default: ${units}`;
-							thisMessage.arg.push(thisArg);
-						}
-						thisMessage.arg = thinUniqueArrayByKey(thisMessage.arg, "name");
-						thisMessage.arg.sort((a: { name: string; }, b: { name: string; }) => {
-							return a.name >= b.name ? 1 : -1;
-						});
-
-						thisConfigObject.messages.fill(thisMessage, objIndex, objIndex);
-
-					} else {
-						// is new 'history' message type entry
-						thisMessage = JSON.parse(JSON.stringify(messagesConfig));
-						thisMessage.name = "history";
-						// if new args template
-						thisMessage.arg = thisMessage.arg.filter((entry: { name: string; }) => entry.name !== "");
-						for (let i = 0; i < collectHistories.length; i++) {
-							const histDecl: string[] = collectHistories[i];
-							let thisArg: any = JSON.parse(JSON.stringify(msgArgsConfig));
-							thisArg.name = histDecl[0];
-							const type = inferTypeFromString(histDecl[1]);
-							thisArg.type = type;
-							let units: string | number = "";
-							if (type === "int") {
-								units = parseInt(histDecl[1]);
-							} else if (type === "float") {
-								units = parseFloat(histDecl[1]);
-							} else {
-								units = histDecl[1];
-							}
-							thisArg.units = `default: ${units}`;
-							thisMessage.arg.push(thisArg);
-						}
-						thisMessage.arg = thinUniqueArrayByKey(thisMessage.arg, "name");
-						thisMessage.arg.sort((a: { name: string; }, b: { name: string; }) => {
-							return a.name >= b.name ? 1 : -1;
-						});
-
-						thisConfigObject.messages.push(thisMessage);
-
-					}
-
-					thisConfigObject.messages = thinUniqueArrayByKey(thisConfigObject.messages, "name");
-					thisConfigObject.messages.sort((a: { name: string; }, b: { name: string; }) => {
-						return a.name >= b.name ? 1 : -1;
-					});
-				}
-
-				if (collectParams.length) {
-					thisConfigObject.attributes = thisConfigObject.attributes.filter((entry: { name: string; }) => entry.name !== "");
-					for (let j = 0; j < collectParams.length; j++) {
-						let thisAttr: any = JSON.parse(JSON.stringify(attributesConfig));
-						const paramDecl: string[] = collectParams[j];
-						thisAttr.name = paramDecl[0];
-						thisAttr.type = inferTypeFromString(paramDecl[1]);
-						thisAttr.default.value = paramDecl[1];
-						thisAttr.default.min = paramDecl[2];
-						thisAttr.default.max = paramDecl[3];
-						thisConfigObject.attributes.push(thisAttr);
-					}
-					thisConfigObject.attributes = thinUniqueArrayByKey(thisConfigObject.attributes, "name");
-					thisConfigObject.attributes.sort((a: { name: string; }, b: { name: string; }) => {
-						return a.name >= b.name ? 1 : -1;
-					});
-				}
-
-				if (collectRequires.length) {
-					for (let k = 0; k < collectRequires.length; k++) {
-						thisConfigObject.includes.push(collectRequires[k]);
-					}
-					thisConfigObject.includes = [...new Set(thisConfigObject.includes)];
-				}
-
-				fs.writeFileSync(`${definesRefsPath}/${refJson}`, JSON.stringify(thisConfigObject, null, 4));
-
-			});
-		}
-	}
-}
-*/
 
 async function parseDefinesData()
 {
@@ -2094,7 +1851,7 @@ async function createMaxpatRefJson()
 	}
 }
 
-async function createDefineRefJson(extractCodebox = false)
+async function createDefineRefJson(force = false, extractCodebox = false)
 {
 	const defineRefsPath = `${cwd()}/${config.referenceFiles.defines.config}`;
 	const templateJson = fs.readFileSync(`${defineRefsPath}/_xml_define_template.json`, 'utf8');
@@ -2113,12 +1870,13 @@ async function createDefineRefJson(extractCodebox = false)
 		// const jsonFileName = `${newDefineName}_ref.json`;
 		// easier parsing _ref files later if named as gendsp, not as define :-(
 		const jsonFileName = defineName.replace('.gendsp', '_ref.json');
-        if (!refConfigs.includes(jsonFileName)) {	// maybe create if does not yet exist
+        if (!refConfigs.includes(jsonFileName) || force) {	// maybe create if does not yet exist
 			if (thisDefineConfig.define.object) {	// outer double check, might as well
 				if (thisDefineConfig.ref.msp) { // if msp ref page is requested in config
 					const newTemplate = JSON.parse(JSON.stringify(templateObject));
 					newTemplate.object.name = newDefineName;
-					newTemplate.object.parent = defineName;
+					// bloody xml shenanigans requires no ext :-(
+					newTemplate.object.parent = defineName.replace('.gendsp', '');
 					newTemplate.metadata.author = "Pete Dowling"; // fatPete
 
 					fs.writeFileSync(`${defineRefsPath}/${jsonFileName}`, JSON.stringify(newTemplate, null, 4));
@@ -2587,7 +2345,8 @@ async function makeDocRefpagesGendsps() {
 		const thisConfigJson = fs.readFileSync(`${refDir}/${refFile}`, 'utf8');
 		const thisConfigObject = JSON.parse(thisConfigJson);
 		const writeName = refFile.replace('_ref.json', '.maxref.xml');
-		const writePath = `${outDir}/gen_dsp_${writeName}`; // is this correct? (taken from native gen refs)
+		// const writePath = `${outDir}/gen_dsp_${writeName}`; // is this correct? (taken from native gen refs)
+		const writePath = `${outDir}/${writeName}`; // experiment without for links
 		renderFromTemplate('../templates/refpage_gendsp.handlebars', thisConfigObject, writePath);
 	}
 }
@@ -2802,6 +2561,7 @@ const areas = [
 
 // --------------------------------------------- //
 
+// called from Max {extract_genexpr_asts}
 async function extractGenExprASTs()
 {
 	// cannot work out PEG parsing syntax errors on only these four files (they compile in gen~ fine)
@@ -2816,9 +2576,9 @@ async function extractGenExprASTs()
 		const genexprName = path.basename(genexprPath);
 		getGenExprCategory(genExprCategories, genexprPath, genexprName);
 		if (!tempIgnore.includes(genexprName)) {
-			const genAstName = genexprName.replace('.genexpr', '.json');
+			const genAstName = genexprName.replace('.genexpr', '_ast.json');
 			const thisRawGenExpr = fs.readFileSync(`${genexprPath}`, 'utf8');
-			void max.post(`.genexpr file about to be parsed: ${genexprName}`);
+			// void max.post(`.genexpr file about to be parsed: ${genexprName}`);
 			const genExprAst = PEGparser.parse(thisRawGenExpr);
 			fs.writeFileSync(`${genexprsAstsPath}/${genAstName}`, JSON.stringify(genExprAst, null, 4));
 			// void max.post(`.genexpr file just written: ${genAstName}`);
@@ -2844,9 +2604,10 @@ function getGenExprCategory(categories: any, fullPath: string, fullName: string)
 // top level ast keys: 'type': string, 'commands[]', 'functions[]' 'decls[]', 'body[]'
 // 'commands' = array of require() declarations, functions = array of function() declarations
 
-// temp, builds files, does not edit / merge yet
+// called from Max {build_genexpr_data_sources}
 function parseGenExprAstsForDoc()
 {
+	const genexprsJsonsPath = `${cwd()}/${config.referenceFiles.genExpr.json}`;
 	const genexprsAstsPath = `${cwd()}/${config.referenceFiles.genExpr.config}`;
 	let fullAstNames = getFileNamesFromPath(genexprsAstsPath, 'json');
 	const IGNORE1 = /_expr_data_format.json/;
@@ -2892,12 +2653,28 @@ function parseGenExprAstsForDoc()
 
 	for (const genexprAst of fullAstNames) {
 		// void max.post(`reading this ast: ${genexprAst}`);
-
+		// cache previous data if it is there
+		let thisGenExprData: any = {};
+		let currentFunctionNames: string[] = [];
+		const parsedName = genexprAst.replace('_ast.json', '_data.json');
+		const isEdit: boolean = fs.existsSync(`${genexprsJsonsPath}/${parsedName}`) ? true : false;
+		if (isEdit) {
+			const thisGenExprFile = fs.readFileSync(`${genexprsJsonsPath}/${parsedName}`, 'utf8');
+			thisGenExprData = JSON.parse(thisGenExprFile);
+			for (const entry of thisGenExprData.functions) {
+				currentFunctionNames.push(entry.name);
+			}
+		} else {
+			thisGenExprData = JSON.parse(JSON.stringify(genExprFileTemplate));
+		}
+		// get this AST data from file
 		const thisAstFile = fs.readFileSync(`${genexprsAstsPath}/${genexprAst}`, 'utf8');
 		const thisAstObject = JSON.parse(thisAstFile);
+		// we just throw new data into local arrays
 		let requiresArray: string[] = []; // extract array of strings
 		let functionsArray: {}[] = []; // extract array of objects
-
+		// always grab all data and fill local arrays, even if previous data present
+		// requires[]
 		if (thisAstObject.commands.length) {
 			for (const command of thisAstObject.commands) {
 				if (command.expression.callee.name === 'require') {
@@ -2912,14 +2689,14 @@ function parseGenExprAstsForDoc()
 				}
 			}
 		}
-
+		// functions[]
 		if (thisAstObject.functions.length) {
 			for (const func of thisAstObject.functions) {
 				if (func.type === 'FunctionDeclaration') {
+					let isNewFunc: boolean = currentFunctionNames.includes(func.id.name) ? false : true;
 					let thisFunc = JSON.parse(JSON.stringify(functionsTemplate));
-					// thisFunc.document = true;
-					// thisFunc.digest = '';
 					thisFunc.name = func.id.name;
+					// inputs - can be 'input' or 'param'
 					for (let i = 0; i < func.params.length; i++) {
 						if (func.defaults[i] != null) {
 							let thisParam = JSON.parse(JSON.stringify(inputsParamTemplate));
@@ -2937,7 +2714,7 @@ function parseGenExprAstsForDoc()
 							thisFunc.inputs.push(thisInput);
 						}
 					}
-					// this is all total bullshit
+					// returns - this is all total bullshit
 					// todo: look into reappropriating 'visitReturnStatement()' from 'genbo.js'
 					for (const ret of func.body.body) {
 						if (ret.type === 'ReturnStatement') {
@@ -2959,16 +2736,241 @@ function parseGenExprAstsForDoc()
 			}
 		}
 
-		const thisGenExprFile = JSON.parse(JSON.stringify(genExprFileTemplate));
-		thisGenExprFile.description = '';
-		thisGenExprFile.requires = requiresArray;
-		thisGenExprFile.functions = functionsArray;
-		const parsedName = genexprAst.replace('.json', '_data.json');
-		const genexprsJsonsPath = `${cwd()}/${config.referenceFiles.genExpr.json}`;
+		if (isEdit) {
+			thisGenExprData.requires = requiresArray;
+			//	//	//	functions here
+			mergeFunctionsArrayFromAst(functionsArray, thisGenExprData.functions);
+			// thisGenExprData.functions = thinUniqueArrayByKey(thisGenExprData.functions, "name");
+		} else {
+			thisGenExprData.requires = requiresArray;
+			thisGenExprData.functions = functionsArray;
+		}
 		// void max.post(`about to write this ast: ${parsedName}`);
-		fs.writeFileSync(`${genexprsJsonsPath}/${parsedName}`, JSON.stringify(thisGenExprFile, null, 4));
+		fs.writeFileSync(`${genexprsJsonsPath}/${parsedName}`, JSON.stringify(thisGenExprData, null, 4));
 	}
 }
+
+// place hand edited data back into newly aquired data
+function mergeFunctionsArrayFromAst(newData: any, currentData: any)
+{
+	// for (const func of newData) {
+	// 	// @ts-expect-error
+	// 	if (func[name]) {
+
+	// 	}
+	// }
+
+	newData.forEach((func: { name: any; }) => {
+		const name = func.name;
+	})
+}
+
+/*
+// top level ast keys: 'type': string, 'commands[]', 'functions[]' 'decls[]', 'body[]'
+// 'commands' = array of require() declarations, functions = array of function() declarations
+
+// called from Max {build_genexpr_data_sources}
+function parseGenExprAstsForDoc()
+{
+	const genexprsJsonsPath = `${cwd()}/${config.referenceFiles.genExpr.json}`;
+	const genexprsAstsPath = `${cwd()}/${config.referenceFiles.genExpr.config}`;
+	let fullAstNames = getFileNamesFromPath(genexprsAstsPath, 'json');
+	const IGNORE1 = /_expr_data_format.json/;
+	const IGNORE2 = /_expr_data_categories.json/;
+	fullAstNames = fullAstNames.filter((str) => !IGNORE1.test(str) && !IGNORE2.test(str));
+
+	const genExprFileTemplate: any = {
+		"description": "",
+		"requires": [],
+		"functions": [],
+		"seealso": []
+	};
+
+	const functionsTemplate: any = {
+		"document": true,
+		"digest": "",
+		"name": "",
+		"inputs": [],
+		"returns": []
+	};
+
+	const inputsInputTemplate: any = {
+		"id": 0,
+		"kind": "",
+		"name": "",
+		"digest": ""
+	};
+
+	const inputsParamTemplate: any = {
+		"id": 0,
+		"kind": "",
+		"name": "",
+		"default": 0,
+		"type": "",
+		"digest": ""
+	};
+
+	const returnsTemplate: any = {
+		"id": 0,
+		"name": "",
+		"digest": ""
+	};
+
+	for (const genexprAst of fullAstNames) {
+		// void max.post(`reading this ast: ${genexprAst}`);
+		let thisGenExprData: any = {};
+		let currentFunctionNames: string[] = [];
+		let functionsArray: {}[] = []; // extract array of objects
+		const parsedName = genexprAst.replace('_ast.json', '_data.json');
+		const isEdit: boolean = fs.existsSync(`${genexprsJsonsPath}/${parsedName}`) ? true : false;
+		if (isEdit) {
+			const thisGenExprFile = fs.readFileSync(`${genexprsJsonsPath}/${parsedName}`, 'utf8');
+			thisGenExprData = JSON.parse(thisGenExprFile);
+			functionsArray = thisGenExprData.functions;
+			for (const entry of thisGenExprData.functions) {
+				currentFunctionNames.push(entry.name);
+			}
+		} else {
+			thisGenExprData = JSON.parse(JSON.stringify(genExprFileTemplate));
+			functionsArray = [];
+			currentFunctionNames = [];
+		}
+
+		const thisAstFile = fs.readFileSync(`${genexprsAstsPath}/${genexprAst}`, 'utf8');
+		const thisAstObject = JSON.parse(thisAstFile);
+		let requiresArray: string[] = []; // extract array of strings
+
+		// 'requires' can always overwrite
+		if (thisAstObject.commands.length) {
+			for (const command of thisAstObject.commands) {
+				if (command.expression.callee.name === 'require') {
+					let thisRequire: string = '';
+					for (const arg of command.expression.arguments) {
+						thisRequire = arg.value;
+						if (!thisRequire.endsWith('.genexpr')) {
+							thisRequire = `${thisRequire}.genexpr`;	// pete sometimes forgets
+						}
+						requiresArray.push(thisRequire);
+					}
+				}
+			}
+		}
+
+		// this is complex
+		if (thisAstObject.functions.length) {
+			for (const func of thisAstObject.functions) {
+				if (func.type === 'FunctionDeclaration') {
+					let thisFunc: any = {};
+					let objIndex = -1;
+					const isNew: boolean = currentFunctionNames.includes(func.id.name) ? false : true;
+					if (!isNew && isEdit) {
+						// is edit of already present function entry
+						thisFunc = thisGenExprData.functions.find((obj: { name: string; }) => obj.name === func.id.name);
+						objIndex = thisGenExprData.functions.indexOf(thisFunc);
+					} else {
+						thisFunc = JSON.parse(JSON.stringify(functionsTemplate));
+						thisFunc.name = func.id.name;
+					}
+
+
+
+
+
+
+					for (let i = 0; i < func.params.length; i++) {
+						if (func.defaults[i] != null) {
+							let thisParam: any = {};
+							if (isNew) {
+								thisParam = JSON.parse(JSON.stringify(inputsParamTemplate));
+								thisParam.id = i+1; // controversial, ins/outs indexing from '1', bad decision?
+								thisParam.kind = 'param';
+								thisParam.name = func.params[i].name;
+								thisParam.default = func.defaults[i].value;
+								thisParam.type = func.defaults[i].gen_kind;
+								thisFunc.inputs.push(thisParam);
+							} else {
+								thisFunc.inputs[i].kind = 'param';
+								thisFunc.inputs[i].name = func.params[i].name;
+								thisFunc.inputs[i].default = func.defaults[i].value;
+								thisFunc.inputs[i].type = func.defaults[i].gen_kind;
+							}
+						} else {
+							let thisInput: any = {};
+							if (isNew) {
+								thisInput = JSON.parse(JSON.stringify(inputsInputTemplate));
+								thisInput.id = i+1; // controversial...
+								thisInput.kind = 'input';
+								thisInput.name = func.params[i].name;
+								thisFunc.inputs.push(thisInput);
+							} else {
+								thisFunc.inputs[i].kind = 'input';
+								thisFunc.inputs[i].name = func.params[i].name;
+
+							}
+						}
+					}
+					thisFunc.inputs = thinUniqueArrayByKey(thisFunc.inputs, "id");
+					// this is all total bullshit
+					// todo: look into reappropriating 'visitReturnStatement()' from 'genbo.js'
+					for (const ret of func.body.body) {
+						if (ret.type === 'ReturnStatement') {
+							let rets = 0;
+							if (ret.argument.type === 'ArrayExpression') {
+								rets = ret.argument.elements.length;
+							} else { // for now, will be wrong sometimes
+								rets = 1;
+							}
+							for (let j = 0; j < rets; j++) {
+								let thisReturn = JSON.parse(JSON.stringify(returnsTemplate));
+								thisReturn.id = j+1; // controversial...
+								thisFunc.returns.push(thisReturn);
+							}
+						}
+					}
+					if (isEdit) {
+						thisGenExprData.functions.fill(thisFunc, objIndex, objIndex);
+					} else {
+						functionsArray.push(thisFunc);
+					}
+				}
+			}
+		}
+
+//		const parsedName = genexprAst.replace('_ast.json', '_data.json');
+		if (isEdit) {
+			thisGenExprData.requires = requiresArray;
+			// mergeFunctionsArrayFromAst(functionsArray, thisGenExprData.functions);
+			for (const newfunc of functionsArray) {
+				// @ts-expect-error
+				if (!currentFunctionNames.includes(newfunc.name)) {
+					thisGenExprData.functions.push(newfunc);
+				}
+			}
+			thisGenExprData.functions = thinUniqueArrayByKey(thisGenExprData.functions, "name");
+		} else {
+			thisGenExprData.requires = requiresArray;
+			thisGenExprData.functions = functionsArray;
+		}
+		// void max.post(`about to write this ast: ${parsedName}`);
+		fs.writeFileSync(`${genexprsJsonsPath}/${parsedName}`, JSON.stringify(thisGenExprData, null, 4));
+	}
+}
+*/
+/*
+function mergeFunctionsArrayFromAst(funcsArray: any, currentData: any)
+{
+	// for (const func of funcsArray) {
+	// 	// @ts-expect-error
+	// 	if (func[name]) {
+
+	// 	}
+	// }
+
+	funcsArray.forEach((func: { name: any; }) => {
+		const name = func.name;
+	})
+}
+*/
 
 async function makeGenExprRefpages()
 {
@@ -2984,19 +2986,20 @@ async function makeGenExprRefpages()
 	for await (const dataFile of dataFiles) {
 		const thisConfigJson = fs.readFileSync(`${dataDir}/${dataFile}`, 'utf8');
 		const thisConfigObject = JSON.parse(thisConfigJson);
-		const fileName = dataFile.replace('_data.json', '.genexpr');
-		const file = dataFile.replace('_data.json', ''); // needed for xml crap
-		const cat = catObj[fileName];
-		const shouldRequire: boolean = (thisConfigObject.requires.length > 0);
+		const fileName = dataFile.replace('_data.json', '');//'.genexpr');
+		// const file = dataFile.replace('_data.json', ''); // needed for xml crap
+		const cat = catObj[`${fileName}.genexpr`];
+		// const shouldRequire: boolean = (thisConfigObject.requires.length > 0);
 		const writeName = dataFile.replace('_data.json', '.maxref.xml');
 		const writePath = `${outDir}/${writeName}`;
 		// totally stupid
 		renderFromTemplate('../templates/refpage_genexpr.handlebars',
 			{
-				name: file,
+				// name: file,
+				name: fileName,
 				category: cat,
 				description: thisConfigObject.description,
-				require: shouldRequire,
+				// require: shouldRequire,
 				requires: thisConfigObject.requires,
 				functions: thisConfigObject.functions,
 				seealso: thisConfigObject.seealso

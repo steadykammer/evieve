@@ -2,7 +2,7 @@
     "object": {
         "name": "evi.overdrive.sqrt~",
         "category": "evieve",
-        "parent": "evi_overdrive_sqrt.gendsp",
+        "parent": "evi_overdrive_sqrt",
         "tilde": "~",
         "description": "TEXT_HERE",
         "discussion": ""

@@ -10,7 +10,7 @@
         "inlets": "audio"
     },
     "includes": [
-        "evi_clip.genexpr"
+        "evi_clip"
     ],
     "inlets": [
         {

@@ -2,7 +2,7 @@
     "object": {
         "name": "evi.filter.tilt~",
         "category": "evieve",
-        "parent": "evi_filter_tilt.gendsp",
+        "parent": "evi_filter_tilt",
         "tilde": "~",
         "description": "TEXT_HERE",
         "discussion": ""

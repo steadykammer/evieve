@@ -10,7 +10,7 @@
         "inlets": "@c, @c, @c, @c"
     },
     "includes": [
-        "evi_rcfilters.genexpr"
+        "evi_rcfilters"
     ],
     "inlets": [
         {

@@ -2,7 +2,7 @@
     "object": {
         "name": "evi.tri.select~",
         "category": "evieve",
-        "parent": "evi_tri_select.gendsp",
+        "parent": "evi_tri_select",
         "tilde": "~",
         "description": "TEXT_HERE",
         "discussion": ""

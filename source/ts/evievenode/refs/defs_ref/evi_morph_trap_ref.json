@@ -2,7 +2,7 @@
     "object": {
         "name": "evi.morph.trap~",
         "category": "evieve",
-        "parent": "evi_morph_trap.gendsp",
+        "parent": "evi_morph_trap",
         "tilde": "~",
         "description": "TEXT_HERE",
         "discussion": ""

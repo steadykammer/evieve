@@ -2,7 +2,7 @@
     "object": {
         "name": "evi.filter.morph~",
         "category": "evieve",
-        "parent": "evi_filter_morph.gendsp",
+        "parent": "evi_filter_morph",
         "tilde": "~",
         "description": "TEXT_HERE",
         "discussion": ""

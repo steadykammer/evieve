@@ -2,7 +2,7 @@
     "object": {
         "name": "evi.ladder.moog~",
         "category": "evieve",
-        "parent": "evi_ladder_moog.gendsp",
+        "parent": "evi_ladder_moog",
         "tilde": "~",
         "description": "TEXT_HERE",
         "discussion": ""

@@ -10,8 +10,8 @@
         "inlets": "input, cutoff, resonance"
     },
     "includes": [
-        "evi_approx.genexpr",
-        "evi_interp.genexpr"
+        "evi_approx",
+        "evi_interp"
     ],
     "inlets": [
         {

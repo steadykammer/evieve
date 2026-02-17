@@ -2,7 +2,7 @@
     "object": {
         "name": "evi.multimode~",
         "category": "evieve",
-        "parent": "evi_multimode.gendsp",
+        "parent": "evi_multimode",
         "tilde": "~",
         "description": "TEXT_HERE",
         "discussion": ""

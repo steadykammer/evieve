@@ -10,8 +10,8 @@
         "inlets": "input, hz"
     },
     "includes": [
-        "evi_rcfilters.genexpr",
-        "evi_smooth.genexpr"
+        "evi_rcfilters",
+        "evi_smooth"
     ],
     "inlets": [
         {

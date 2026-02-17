@@ -10,7 +10,7 @@
         "inlets": "trigger"
     },
     "includes": [
-        "evi_counting.genexpr"
+        "evi_counting"
     ],
     "inlets": [
         {

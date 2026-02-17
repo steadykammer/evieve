@@ -6,7 +6,7 @@
     A GenExpr file, part of 'evieve', for using via 'require()'
   </digest>
   <description>
-    <b>evi_clip.genexpr</b> is a <m>.genexpr</m> file and is part of the <b>"evieve" Package</b>. <br />
+    <b>evi_clip.genexpr</b> is a <m>.genexpr</m> file and is part of the <b>'evieve' Package</b>. <br />
     It is for using in a <o>gen.codebox~</o> or in another <m>.genexpr</m> file via the <m>require()</m> command. <br />
     By declaring <m>require("evi_clip.genexpr");</m> at the top of a codebox you can then access all of the functions included in this file. <br />
      <br />
@@ -17,12 +17,9 @@
     <b>About this File</b>: <br />
      <br />
   </description>
-  <!-- cannot get rid of bloody box attributes here no matter what i try -->
   <misc name="GenExpr Functions">
     <entry name="funcHc0()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -31,8 +28,6 @@
     </entry>
     <entry name="funcHc1()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -41,8 +36,6 @@
     </entry>
     <entry name="funcHc2()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -51,8 +44,6 @@
     </entry>
     <entry name="adHc1()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -61,8 +52,6 @@
     </entry>
     <entry name="adHc2()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -71,8 +60,6 @@
     </entry>
     <entry name="adHc2_2x_6POINT()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -81,8 +68,6 @@
     </entry>
     <entry name="adHc2_4x_6POINT()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -91,8 +76,6 @@
     </entry>
     <entry name="adHc2_2x_4POINT()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -101,8 +84,6 @@
     </entry>
     <entry name="adHc2_4x_4POINT()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -111,8 +92,6 @@
     </entry>
     <entry name="w3()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -121,8 +100,6 @@
     </entry>
     <entry name="w4()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -131,8 +108,6 @@
     </entry>
     <entry name="diodeCoeffs()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: SR,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -148,8 +123,6 @@
     </entry>
     <entry name="diode()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: Vin,  <br />
         <b>In 2</b>: type=<i>input</i>: k1,  <br />
         <b>In 3</b>: type=<i>input</i>: k2,  <br />
@@ -166,8 +139,6 @@
     </entry>
     <entry name="diodeWrap()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: Vin,  <br />
         <b>In 2</b>: type=<i>input</i>: k1,  <br />
         <b>In 3</b>: type=<i>input</i>: k2,  <br />
@@ -186,8 +157,6 @@
     </entry>
     <entry name="diode_2x_4POINT()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
         <b>In 2</b>: type=<i>input</i>: k1,  <br />
         <b>In 3</b>: type=<i>input</i>: k2,  <br />
@@ -204,8 +173,6 @@
     </entry>
     <entry name="diode_4x_4POINT()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
         <b>In 2</b>: type=<i>input</i>: k1,  <br />
         <b>In 3</b>: type=<i>input</i>: k2,  <br />
@@ -222,8 +189,6 @@
     </entry>
     <entry name="diode_8x_4POINT()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
         <b>In 2</b>: type=<i>input</i>: k1,  <br />
         <b>In 3</b>: type=<i>input</i>: k2,  <br />
@@ -240,8 +205,6 @@
     </entry>
     <entry name="asym()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: xin,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -250,8 +213,6 @@
     </entry>
     <entry name="asymWrap()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x2,  <br />
         <b>In 2</b>: type=<i>input</i>: drive,  <br />
 
@@ -261,8 +222,6 @@
     </entry>
     <entry name="asym_2x_6POINT()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -271,8 +230,6 @@
     </entry>
     <entry name="asym_4x_6POINT()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -281,8 +238,6 @@
     </entry>
     <entry name="funcSc0()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -291,8 +246,6 @@
     </entry>
     <entry name="funcSc1()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -301,8 +254,6 @@
     </entry>
     <entry name="funcSc11()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -311,8 +262,6 @@
     </entry>
     <entry name="funcSc2()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -321,8 +270,6 @@
     </entry>
     <entry name="adSc1()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -331,8 +278,6 @@
     </entry>
     <entry name="adSc2()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: OS,  <br />
 
@@ -342,8 +287,6 @@
     </entry>
     <entry name="adSc1_2x_6POINT()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -352,8 +295,6 @@
     </entry>
     <entry name="adSc2_2x_6POINT_fix2()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -362,8 +303,6 @@
     </entry>
     <entry name="adSc2_2x_6POINT()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -372,8 +311,6 @@
     </entry>
     <entry name="adSc2_4x_6POINT()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -382,8 +319,6 @@
     </entry>
     <entry name="adSc2_2x_4POINT()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -392,8 +327,6 @@
     </entry>
     <entry name="adSc2_4x_4POINT()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -403,11 +336,11 @@
   </misc>
   <metadatalist>
     <metadata name="author">Pete Dowling</metadata>
-    <metadata name="tag">evieve</metadata>
-    <metadata name="tag">evieve GenExpr</metadata>
+    <!-- only put one tag here for C74 harvesting algorithm issues -->
+    <metadata name="tag">GenExpr</metadata>
   </metadatalist>
   <seealsolist>
-    <!-- we use 'refpage' here not 'genrefpage' to trick Max ? -->
+    <!-- we use 'refpage' here not 'genrefpage' to trick Max -->
   </seealsolist>
   <misc name="Discussion">
     <entry name="Keywords">

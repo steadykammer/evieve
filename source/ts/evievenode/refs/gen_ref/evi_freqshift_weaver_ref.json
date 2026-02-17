@@ -10,7 +10,7 @@
         "inlets": "audio, (float/int, frequency, phase"
     },
     "includes": [
-        "evi_ssb.genexpr"
+        "evi_ssb"
     ],
     "inlets": [
         {

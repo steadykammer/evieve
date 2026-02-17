@@ -2,7 +2,7 @@
     "object": {
         "name": "evi.shaper~",
         "category": "evieve",
-        "parent": "evi_shaper.gendsp",
+        "parent": "evi_shaper",
         "tilde": "~",
         "description": "TEXT_HERE",
         "discussion": ""

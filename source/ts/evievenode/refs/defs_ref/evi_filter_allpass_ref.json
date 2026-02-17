@@ -2,7 +2,7 @@
     "object": {
         "name": "evi.filter.allpass~",
         "category": "evieve",
-        "parent": "evi_filter_allpass.gendsp",
+        "parent": "evi_filter_allpass",
         "tilde": "~",
         "description": "TEXT_HERE",
         "discussion": ""

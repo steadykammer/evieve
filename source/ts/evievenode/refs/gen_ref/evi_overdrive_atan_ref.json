@@ -10,7 +10,7 @@
         "inlets": "input, shape"
     },
     "includes": [
-        "evi_saturators.genexpr"
+        "evi_saturators"
     ],
     "inlets": [
         {

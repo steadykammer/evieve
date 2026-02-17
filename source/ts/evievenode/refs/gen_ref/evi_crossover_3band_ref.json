@@ -10,7 +10,7 @@
         "inlets": "input, low, high"
     },
     "includes": [
-        "evi_crossovers.genexpr"
+        "evi_crossovers"
     ],
     "inlets": [
         {

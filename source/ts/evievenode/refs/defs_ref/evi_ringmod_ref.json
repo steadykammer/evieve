@@ -2,7 +2,7 @@
     "object": {
         "name": "evi.ringmod~",
         "category": "evieve",
-        "parent": "evi_ringmod.gendsp",
+        "parent": "evi_ringmod",
         "tilde": "~",
         "description": "TEXT_HERE",
         "discussion": ""

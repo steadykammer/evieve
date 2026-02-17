@@ -2,7 +2,7 @@
     "object": {
         "name": "evi.arpnotch~",
         "category": "evieve",
-        "parent": "evi_arpnotch.gendsp",
+        "parent": "evi_arpnotch",
         "tilde": "~",
         "description": "TEXT_HERE",
         "discussion": ""

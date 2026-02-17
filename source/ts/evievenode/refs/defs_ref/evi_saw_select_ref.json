@@ -2,7 +2,7 @@
     "object": {
         "name": "evi.saw.select~",
         "category": "evieve",
-        "parent": "evi_saw_select.gendsp",
+        "parent": "evi_saw_select",
         "tilde": "~",
         "description": "TEXT_HERE",
         "discussion": ""

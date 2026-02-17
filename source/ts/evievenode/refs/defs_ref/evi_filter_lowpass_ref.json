@@ -2,7 +2,7 @@
     "object": {
         "name": "evi.filter.lowpass~",
         "category": "evieve",
-        "parent": "evi_filter_lowpass.gendsp",
+        "parent": "evi_filter_lowpass",
         "tilde": "~",
         "description": "TEXT_HERE",
         "discussion": ""

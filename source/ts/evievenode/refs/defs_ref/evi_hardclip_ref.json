@@ -2,7 +2,7 @@
     "object": {
         "name": "evi.hardclip~",
         "category": "evieve",
-        "parent": "evi_hardclip.gendsp",
+        "parent": "evi_hardclip",
         "tilde": "~",
         "description": "TEXT_HERE",
         "discussion": ""

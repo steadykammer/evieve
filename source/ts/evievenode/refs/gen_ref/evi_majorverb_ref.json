@@ -10,8 +10,8 @@
         "inlets": "left, right"
     },
     "includes": [
-        "evi_reverb_library.genexpr",
-        "evi_saturators.genexpr"
+        "evi_reverb_library",
+        "evi_saturators"
     ],
     "inlets": [
         {

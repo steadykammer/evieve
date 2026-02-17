@@ -2,7 +2,7 @@
     "object": {
         "name": "evi.overdrive.tanh~",
         "category": "evieve",
-        "parent": "evi_overdrive_tanh.gendsp",
+        "parent": "evi_overdrive_tanh",
         "tilde": "~",
         "description": "TEXT_HERE",
         "discussion": ""

@@ -10,7 +10,7 @@
         "inlets": "cutoff, gain, q"
     },
     "includes": [
-        "evi_biquads.genexpr"
+        "evi_biquads"
     ],
     "inlets": [
         {

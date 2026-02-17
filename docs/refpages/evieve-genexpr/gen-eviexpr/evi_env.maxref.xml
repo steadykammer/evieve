@@ -6,19 +6,16 @@
     A GenExpr file, part of 'evieve', for using via 'require()'
   </digest>
   <description>
-    <b>evi_env.genexpr</b> is a <m>.genexpr</m> file and is part of the <b>"evieve" Package</b>. <br />
+    <b>evi_env.genexpr</b> is a <m>.genexpr</m> file and is part of the <b>'evieve' Package</b>. <br />
     It is for using in a <o>gen.codebox~</o> or in another <m>.genexpr</m> file via the <m>require()</m> command. <br />
     By declaring <m>require("evi_env.genexpr");</m> at the top of a codebox you can then access all of the functions included in this file. <br />
         <br />
     <b>About this File</b>: <br />
      <br />
   </description>
-  <!-- cannot get rid of bloody box attributes here no matter what i try -->
   <misc name="GenExpr Functions">
     <entry name="averageAbsolute()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: inputSample,  <br />
         <b>In 2</b>: type=<i>input</i>: windowSizeInSamples,  <br />
 
@@ -28,8 +25,6 @@
     </entry>
     <entry name="averageCore()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: X,  <br />
         <b>In 2</b>: type=<i>input</i>: reset,  <br />
         <b>In 3</b>: type=<i>param</i>: windowSize,  <br />
@@ -41,8 +36,6 @@
     </entry>
     <entry name="averageWrap()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: X,  <br />
         <b>In 2</b>: type=<i>input</i>: reset,  <br />
         <b>In 3</b>: type=<i>param</i> (optional): interval, default: 500,  <br />
@@ -55,8 +48,6 @@
     </entry>
     <entry name="envRawDetect()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: attack,  <br />
         <b>In 3</b>: type=<i>input</i>: release,  <br />
@@ -67,8 +58,6 @@
     </entry>
     <entry name="envSad()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: s,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -77,8 +66,6 @@
     </entry>
     <entry name="envDecay()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: d,  <br />
 
@@ -88,8 +75,6 @@
     </entry>
     <entry name="envAttackDecay()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: a,  <br />
         <b>In 3</b>: type=<i>input</i>: d,  <br />
@@ -100,8 +85,6 @@
     </entry>
     <entry name="envAttackHoldRelease()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: a,  <br />
         <b>In 3</b>: type=<i>input</i>: h,  <br />
@@ -113,8 +96,6 @@
     </entry>
     <entry name="vactrolSad()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: a,  <br />
 
@@ -124,8 +105,6 @@
     </entry>
     <entry name="vactrol()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: impulse,  <br />
         <b>In 2</b>: type=<i>input</i>: rise,  <br />
         <b>In 3</b>: type=<i>input</i>: fall,  <br />
@@ -136,8 +115,6 @@
     </entry>
     <entry name="envFollSimple()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: X,  <br />
         <b>In 2</b>: type=<i>input</i>: attack,  <br />
         <b>In 3</b>: type=<i>input</i>: release,  <br />
@@ -149,11 +126,11 @@
   </misc>
   <metadatalist>
     <metadata name="author">Pete Dowling</metadata>
-    <metadata name="tag">evieve</metadata>
-    <metadata name="tag">evieve GenExpr</metadata>
+    <!-- only put one tag here for C74 harvesting algorithm issues -->
+    <metadata name="tag">GenExpr</metadata>
   </metadatalist>
   <seealsolist>
-    <!-- we use 'refpage' here not 'genrefpage' to trick Max ? -->
+    <!-- we use 'refpage' here not 'genrefpage' to trick Max -->
   </seealsolist>
   <misc name="Discussion">
     <entry name="Keywords">

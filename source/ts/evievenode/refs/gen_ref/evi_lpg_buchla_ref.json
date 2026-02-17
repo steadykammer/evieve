@@ -10,7 +10,7 @@
         "inlets": "audio, frequency, resonance"
     },
     "includes": [
-        "evi_buchla.genexpr"
+        "evi_buchla"
     ],
     "inlets": [
         {

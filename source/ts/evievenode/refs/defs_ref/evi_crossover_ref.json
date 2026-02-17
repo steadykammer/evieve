@@ -2,7 +2,7 @@
     "object": {
         "name": "evi.crossover~",
         "category": "evieve",
-        "parent": "evi_crossover.gendsp",
+        "parent": "evi_crossover",
         "tilde": "~",
         "description": "TEXT_HERE",
         "discussion": ""

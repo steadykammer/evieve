@@ -10,9 +10,9 @@
         "inlets": "audio, oscillators, oscillators, oscillators, noise"
     },
     "includes": [
-        "evi_smooth.genexpr",
-        "evi_sources.genexpr",
-        "evi_rcfilters.genexpr"
+        "evi_smooth",
+        "evi_sources",
+        "evi_rcfilters"
     ],
     "inlets": [
         {

@@ -2,7 +2,7 @@
     "object": {
         "name": "evi.randy~",
         "category": "evieve",
-        "parent": "evi_randy.gendsp",
+        "parent": "evi_randy",
         "tilde": "~",
         "description": "TEXT_HERE",
         "discussion": ""

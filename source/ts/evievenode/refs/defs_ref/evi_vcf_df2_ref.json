@@ -2,7 +2,7 @@
     "object": {
         "name": "evi.vcf~",
         "category": "evieve",
-        "parent": "evi_vcf_df2.gendsp",
+        "parent": "evi_vcf_df2",
         "tilde": "~",
         "description": "TEXT_HERE",
         "discussion": ""

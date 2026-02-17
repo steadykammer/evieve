@@ -2,7 +2,7 @@
     "object": {
         "name": "evi.vosim.basic~",
         "category": "evieve",
-        "parent": "evi_vosim_basic.gendsp",
+        "parent": "evi_vosim_basic",
         "tilde": "~",
         "description": "TEXT_HERE",
         "discussion": ""

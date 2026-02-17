@@ -2,7 +2,7 @@
     "object": {
         "name": "evi.phaseshift~",
         "category": "evieve",
-        "parent": "evi_phaseshift.gendsp",
+        "parent": "evi_phaseshift",
         "tilde": "~",
         "description": "TEXT_HERE",
         "discussion": ""

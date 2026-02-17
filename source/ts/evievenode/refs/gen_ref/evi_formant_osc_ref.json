@@ -10,9 +10,9 @@
         "inlets": "fundamental, voice, vowel, naive"
     },
     "includes": [
-        "evi_smooth.genexpr",
-        "evi_trig.genexpr",
-        "evi_rcfilters.genexpr"
+        "evi_smooth",
+        "evi_trig",
+        "evi_rcfilters"
     ],
     "inlets": [
         {

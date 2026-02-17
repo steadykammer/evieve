@@ -10,7 +10,7 @@
         "inlets": "fundamental, cf, bw, reset"
     },
     "includes": [
-        "evi_trig.genexpr"
+        "evi_trig"
     ],
     "inlets": [
         {

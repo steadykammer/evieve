@@ -6,19 +6,16 @@
     A GenExpr file, part of 'evieve', for using via 'require()'
   </digest>
   <description>
-    <b>evi_fastskew.genexpr</b> is a <m>.genexpr</m> file and is part of the <b>"evieve" Package</b>. <br />
+    <b>evi_fastskew.genexpr</b> is a <m>.genexpr</m> file and is part of the <b>'evieve' Package</b>. <br />
     It is for using in a <o>gen.codebox~</o> or in another <m>.genexpr</m> file via the <m>require()</m> command. <br />
     By declaring <m>require("evi_fastskew.genexpr");</m> at the top of a codebox you can then access all of the functions included in this file. <br />
         <br />
     <b>About this File</b>: <br />
      <br />
   </description>
-  <!-- cannot get rid of bloody box attributes here no matter what i try -->
   <misc name="GenExpr Functions">
     <entry name="fastskew()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: skew,  <br />
 
@@ -28,8 +25,6 @@
     </entry>
     <entry name="fastskew052neg()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: skewneg,  <br />
 
@@ -39,8 +34,6 @@
     </entry>
     <entry name="fastskew052pos()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: skewpos,  <br />
 
@@ -50,8 +43,6 @@
     </entry>
     <entry name="fastskew0254neg()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: skewneg,  <br />
 
@@ -61,8 +52,6 @@
     </entry>
     <entry name="fastskew0254pos()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: skewpos,  <br />
 
@@ -72,8 +61,6 @@
     </entry>
     <entry name="fastskew052cr()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: skew,  <br />
 
@@ -83,8 +70,6 @@
     </entry>
     <entry name="fastskew0254cr()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: skew,  <br />
 
@@ -94,8 +79,6 @@
     </entry>
     <entry name="fastskew052ar()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: skew,  <br />
 
@@ -105,8 +88,6 @@
     </entry>
     <entry name="fastskew0254ar()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: skew,  <br />
 
@@ -116,8 +97,6 @@
     </entry>
     <entry name="fastskew11052neg()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: skewneg,  <br />
 
@@ -127,8 +106,6 @@
     </entry>
     <entry name="fastskew11052pos()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: skewpos,  <br />
 
@@ -138,8 +115,6 @@
     </entry>
     <entry name="fastskew110254neg()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: skewneg,  <br />
 
@@ -149,8 +124,6 @@
     </entry>
     <entry name="fastskew110254pos()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: skewpos,  <br />
 
@@ -160,8 +133,6 @@
     </entry>
     <entry name="fastskew11052cr()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: skew,  <br />
 
@@ -171,8 +142,6 @@
     </entry>
     <entry name="fastskew110254cr()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: skew,  <br />
 
@@ -182,8 +151,6 @@
     </entry>
     <entry name="fastskew11052ar()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: skew,  <br />
 
@@ -193,8 +160,6 @@
     </entry>
     <entry name="fastskew110254ar()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: skew,  <br />
 
@@ -204,8 +169,6 @@
     </entry>
     <entry name="n2p052()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: N,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -214,8 +177,6 @@
     </entry>
     <entry name="n2p0254()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: N,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -224,8 +185,6 @@
     </entry>
     <entry name="warpcurve()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: curvature,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -234,8 +193,6 @@
     </entry>
     <entry name="warpcurveParam()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: curvature,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -245,11 +202,11 @@
   </misc>
   <metadatalist>
     <metadata name="author">Pete Dowling</metadata>
-    <metadata name="tag">evieve</metadata>
-    <metadata name="tag">evieve GenExpr</metadata>
+    <!-- only put one tag here for C74 harvesting algorithm issues -->
+    <metadata name="tag">GenExpr</metadata>
   </metadatalist>
   <seealsolist>
-    <!-- we use 'refpage' here not 'genrefpage' to trick Max ? -->
+    <!-- we use 'refpage' here not 'genrefpage' to trick Max -->
   </seealsolist>
   <misc name="Discussion">
     <entry name="Keywords">

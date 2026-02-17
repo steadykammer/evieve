@@ -10,7 +10,7 @@
         "inlets": "input, allpass"
     },
     "includes": [
-        "evi_crossovers.genexpr"
+        "evi_crossovers"
     ],
     "inlets": [
         {

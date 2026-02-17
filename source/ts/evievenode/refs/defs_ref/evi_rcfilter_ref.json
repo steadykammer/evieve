@@ -2,7 +2,7 @@
     "object": {
         "name": "evi.rcfilter~",
         "category": "evieve",
-        "parent": "evi_rcfilter.gendsp",
+        "parent": "evi_rcfilter",
         "tilde": "~",
         "description": "TEXT_HERE",
         "discussion": ""

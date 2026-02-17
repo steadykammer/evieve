@@ -10,7 +10,7 @@
         "inlets": "input, hz"
     },
     "includes": [
-        "evi_rcfilters.genexpr"
+        "evi_rcfilters"
     ],
     "inlets": [
         {

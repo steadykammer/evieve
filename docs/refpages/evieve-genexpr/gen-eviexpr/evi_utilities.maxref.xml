@@ -6,7 +6,7 @@
     A GenExpr file, part of 'evieve', for using via 'require()'
   </digest>
   <description>
-    <b>evi_utilities.genexpr</b> is a <m>.genexpr</m> file and is part of the <b>"evieve" Package</b>. <br />
+    <b>evi_utilities.genexpr</b> is a <m>.genexpr</m> file and is part of the <b>'evieve' Package</b>. <br />
     It is for using in a <o>gen.codebox~</o> or in another <m>.genexpr</m> file via the <m>require()</m> command. <br />
     By declaring <m>require("evi_utilities.genexpr");</m> at the top of a codebox you can then access all of the functions included in this file. <br />
      <br />
@@ -16,12 +16,9 @@
     <b>About this File</b>: <br />
      <br />
   </description>
-  <!-- cannot get rid of bloody box attributes here no matter what i try -->
   <misc name="GenExpr Functions">
     <entry name="logicalClicks()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -32,8 +29,6 @@
     </entry>
     <entry name="triggerHoldGate()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: X,  <br />
         <b>In 2</b>: type=<i>param</i> (optional): hold, default: 10,  <br />
         <b>In 3</b>: type=<i>param</i> (optional): trigger, default: 1,  <br />
@@ -44,8 +39,6 @@
     </entry>
     <entry name="varDcblock()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x0,  <br />
         <b>In 2</b>: type=<i>input</i>: a0,  <br />
 
@@ -55,8 +48,6 @@
     </entry>
     <entry name="preWarpG()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -65,8 +56,6 @@
     </entry>
     <entry name="eviCopysign()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: y,  <br />
         <b>In 2</b>: type=<i>input</i>: x,  <br />
 
@@ -76,8 +65,6 @@
     </entry>
     <entry name="getMax()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: xL,  <br />
         <b>In 2</b>: type=<i>input</i>: xR,  <br />
 
@@ -87,8 +74,6 @@
     </entry>
     <entry name="xMega()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: X,  <br />
         <b>In 2</b>: type=<i>param</i>: xCONST,  <br />
 
@@ -98,8 +83,6 @@
     </entry>
     <entry name="xSgn()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -108,8 +91,6 @@
     </entry>
     <entry name="xRange()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -118,8 +99,6 @@
     </entry>
     <entry name="bandwidth2Q()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: bandwidth,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -128,8 +107,6 @@
     </entry>
     <entry name="Q2bandwidth()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: Q,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -138,8 +115,6 @@
     </entry>
     <entry name="pitch2timeSamps()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: size,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -148,8 +123,6 @@
     </entry>
     <entry name="pitch2timeSecs()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: size,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -158,8 +131,6 @@
     </entry>
     <entry name="decorelate()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -168,8 +139,6 @@
     </entry>
     <entry name="eviScurve()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: segment,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -178,8 +147,6 @@
     </entry>
     <entry name="eviMap()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: valueIn,  <br />
         <b>In 2</b>: type=<i>input</i>: inLow,  <br />
         <b>In 3</b>: type=<i>input</i>: inHigh,  <br />
@@ -192,8 +159,6 @@
     </entry>
     <entry name="eviZmap()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: valueIn,  <br />
         <b>In 2</b>: type=<i>input</i>: inLow,  <br />
         <b>In 3</b>: type=<i>input</i>: inHigh,  <br />
@@ -206,8 +171,6 @@
     </entry>
     <entry name="kinky()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: p,  <br />
         <b>In 2</b>: type=<i>input</i>: k,  <br />
 
@@ -217,8 +180,6 @@
     </entry>
     <entry name="sin7()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x1,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -227,8 +188,6 @@
     </entry>
     <entry name="parabolWrap()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: phase,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -237,8 +196,6 @@
     </entry>
     <entry name="stereoXfadePar()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: L1,  <br />
         <b>In 2</b>: type=<i>input</i>: R1,  <br />
         <b>In 3</b>: type=<i>input</i>: L2,  <br />
@@ -252,8 +209,6 @@
     </entry>
     <entry name="ctrlSqrt()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
         <b>Return 1</b>: ,  <br />
@@ -263,8 +218,6 @@
     </entry>
     <entry name="xfadeSqrt()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: a,  <br />
         <b>In 2</b>: type=<i>input</i>: c,  <br />
         <b>In 3</b>: type=<i>input</i>: x,  <br />
@@ -275,8 +228,6 @@
     </entry>
     <entry name="xfadeSqrtStereo()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: a,  <br />
         <b>In 2</b>: type=<i>input</i>: b,  <br />
         <b>In 3</b>: type=<i>input</i>: c,  <br />
@@ -290,8 +241,6 @@
     </entry>
     <entry name="xfadeQuartApproxMono()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: a,  <br />
         <b>In 2</b>: type=<i>input</i>: c,  <br />
         <b>In 3</b>: type=<i>input</i>: q,  <br />
@@ -302,8 +251,6 @@
     </entry>
     <entry name="xfadeQuartApproxStereo()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: a,  <br />
         <b>In 2</b>: type=<i>input</i>: b,  <br />
         <b>In 3</b>: type=<i>input</i>: c,  <br />
@@ -317,8 +264,6 @@
     </entry>
     <entry name="xfadeQuartApproxSwap()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: a,  <br />
         <b>In 2</b>: type=<i>input</i>: b,  <br />
         <b>In 3</b>: type=<i>input</i>: q,  <br />
@@ -330,8 +275,6 @@
     </entry>
     <entry name="panQuartApproxMono()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: p,  <br />
 
@@ -342,8 +285,6 @@
     </entry>
     <entry name="panQuartApproxDual()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: xL,  <br />
         <b>In 2</b>: type=<i>input</i>: xR,  <br />
         <b>In 3</b>: type=<i>input</i>: pL,  <br />
@@ -356,8 +297,6 @@
     </entry>
     <entry name="butterfly8()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: i1,  <br />
         <b>In 2</b>: type=<i>input</i>: i2,  <br />
         <b>In 3</b>: type=<i>input</i>: i3,  <br />
@@ -380,8 +319,6 @@
     </entry>
     <entry name="butterfly4()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: i1,  <br />
         <b>In 2</b>: type=<i>input</i>: i2,  <br />
         <b>In 3</b>: type=<i>input</i>: i3,  <br />
@@ -396,8 +333,6 @@
     </entry>
     <entry name="butterfly2()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: i1,  <br />
         <b>In 2</b>: type=<i>input</i>: i2,  <br />
 
@@ -408,8 +343,6 @@
     </entry>
     <entry name="hadamard8()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: i1,  <br />
         <b>In 2</b>: type=<i>input</i>: i2,  <br />
         <b>In 3</b>: type=<i>input</i>: i3,  <br />
@@ -432,8 +365,6 @@
     </entry>
     <entry name="butterfly16()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: bf0_1,  <br />
         <b>In 2</b>: type=<i>input</i>: bf0_2,  <br />
         <b>In 3</b>: type=<i>input</i>: bf0_3,  <br />
@@ -472,8 +403,6 @@
     </entry>
     <entry name="butterflyMatrix()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: i1,  <br />
         <b>In 2</b>: type=<i>input</i>: i2,  <br />
         <b>In 3</b>: type=<i>input</i>: i3,  <br />
@@ -489,11 +418,11 @@
   </misc>
   <metadatalist>
     <metadata name="author">Pete Dowling</metadata>
-    <metadata name="tag">evieve</metadata>
-    <metadata name="tag">evieve GenExpr</metadata>
+    <!-- only put one tag here for C74 harvesting algorithm issues -->
+    <metadata name="tag">GenExpr</metadata>
   </metadatalist>
   <seealsolist>
-    <!-- we use 'refpage' here not 'genrefpage' to trick Max ? -->
+    <!-- we use 'refpage' here not 'genrefpage' to trick Max -->
   </seealsolist>
   <misc name="Discussion">
     <entry name="Keywords">

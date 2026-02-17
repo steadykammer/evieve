@@ -6,19 +6,16 @@
     A GenExpr file, part of 'evieve', for using via 'require()'
   </digest>
   <description>
-    <b>evi_interp.genexpr</b> is a <m>.genexpr</m> file and is part of the <b>"evieve" Package</b>. <br />
+    <b>evi_interp.genexpr</b> is a <m>.genexpr</m> file and is part of the <b>'evieve' Package</b>. <br />
     It is for using in a <o>gen.codebox~</o> or in another <m>.genexpr</m> file via the <m>require()</m> command. <br />
     By declaring <m>require("evi_interp.genexpr");</m> at the top of a codebox you can then access all of the functions included in this file. <br />
         <br />
     <b>About this File</b>: <br />
      <br />
   </description>
-  <!-- cannot get rid of bloody box attributes here no matter what i try -->
   <misc name="GenExpr Functions">
     <entry name="cubic_hermite_interp()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: f,  <br />
         <b>In 2</b>: type=<i>input</i>: y0,  <br />
         <b>In 3</b>: type=<i>input</i>: y1,  <br />
@@ -31,8 +28,6 @@
     </entry>
     <entry name="hermite_sixpoint_interp()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: f0,  <br />
         <b>In 2</b>: type=<i>input</i>: ym2,  <br />
         <b>In 3</b>: type=<i>input</i>: ym1,  <br />
@@ -47,8 +42,6 @@
     </entry>
     <entry name="cubic_lagrange_interp()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: f,  <br />
         <b>In 2</b>: type=<i>input</i>: y0,  <br />
         <b>In 3</b>: type=<i>input</i>: y1,  <br />
@@ -61,8 +54,6 @@
     </entry>
     <entry name="cubic_bspline_interp()">
       <description>
-         <br />
-        <br />
         <b>In 1</b>: type=<i>input</i>: f,  <br />
         <b>In 2</b>: type=<i>input</i>: y0,  <br />
         <b>In 3</b>: type=<i>input</i>: y1,  <br />
@@ -76,11 +67,11 @@
   </misc>
   <metadatalist>
     <metadata name="author">Pete Dowling</metadata>
-    <metadata name="tag">evieve</metadata>
-    <metadata name="tag">evieve GenExpr</metadata>
+    <!-- only put one tag here for C74 harvesting algorithm issues -->
+    <metadata name="tag">GenExpr</metadata>
   </metadatalist>
   <seealsolist>
-    <!-- we use 'refpage' here not 'genrefpage' to trick Max ? -->
+    <!-- we use 'refpage' here not 'genrefpage' to trick Max -->
   </seealsolist>
   <misc name="Discussion">
     <entry name="Keywords">

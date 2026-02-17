@@ -10,7 +10,7 @@
         "inlets": "frequency, signal"
     },
     "includes": [
-        "evi_smooth.genexpr"
+        "evi_smooth"
     ],
     "inlets": [
         {

@@ -10,7 +10,7 @@
         "inlets": "audio"
     },
     "includes": [
-        "evi_sinfold_lib.genexpr"
+        "evi_sinfold_lib"
     ],
     "inlets": [
         {

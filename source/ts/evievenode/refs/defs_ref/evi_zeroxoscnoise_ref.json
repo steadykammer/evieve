@@ -2,7 +2,7 @@
     "object": {
         "name": "evi.zeroxoscnoise~",
         "category": "evieve",
-        "parent": "evi_zeroxoscnoise.gendsp",
+        "parent": "evi_zeroxoscnoise",
         "tilde": "~",
         "description": "TEXT_HERE",
         "discussion": ""

@@ -10,8 +10,8 @@
         "inlets": "audio, cutoff, resonance"
     },
     "includes": [
-        "evi_tanh.genexpr",
-        "evi_sources.genexpr"
+        "evi_tanh",
+        "evi_sources"
     ],
     "inlets": [
         {

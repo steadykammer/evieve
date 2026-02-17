@@ -2,7 +2,7 @@
     "object": {
         "name": "evi.tone.macro~",
         "category": "evieve",
-        "parent": "evi_tone_macro.gendsp",
+        "parent": "evi_tone_macro",
         "tilde": "~",
         "description": "TEXT_HERE",
         "discussion": ""

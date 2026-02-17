@@ -2,7 +2,7 @@
     "object": {
         "name": "evi.classic.osc~",
         "category": "evieve",
-        "parent": "evi_classic_osc.gendsp",
+        "parent": "evi_classic_osc",
         "tilde": "~",
         "description": "TEXT_HERE",
         "discussion": ""

@@ -10,9 +10,9 @@
         "inlets": "lowpass, bandpass, highpass"
     },
     "includes": [
-        "evi_tanh.genexpr",
-        "evi_trig.genexpr",
-        "evi_smooth.genexpr"
+        "evi_tanh",
+        "evi_trig",
+        "evi_smooth"
     ],
     "inlets": [
         {

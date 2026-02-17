@@ -2,7 +2,7 @@
     "object": {
         "name": "evi.filter.highshelf~",
         "category": "evieve",
-        "parent": "evi_filter_highshelf.gendsp",
+        "parent": "evi_filter_highshelf",
         "tilde": "~",
         "description": "TEXT_HERE",
         "discussion": ""

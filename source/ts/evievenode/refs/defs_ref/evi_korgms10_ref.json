@@ -2,7 +2,7 @@
     "object": {
         "name": "evi.korgms10~",
         "category": "evieve",
-        "parent": "evi_korgms10.gendsp",
+        "parent": "evi_korgms10",
         "tilde": "~",
         "description": "TEXT_HERE",
         "discussion": ""

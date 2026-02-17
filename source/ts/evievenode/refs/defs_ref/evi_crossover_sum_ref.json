@@ -2,7 +2,7 @@
     "object": {
         "name": "evi.crossover.sum~",
         "category": "evieve",
-        "parent": "evi_crossover_sum.gendsp",
+        "parent": "evi_crossover_sum",
         "tilde": "~",
         "description": "TEXT_HERE",
         "discussion": ""

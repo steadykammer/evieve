@@ -10,7 +10,7 @@
         "inlets": "audio, audio"
     },
     "includes": [
-        "evi_ringmod_enhanced.genexpr"
+        "evi_ringmod_enhanced"
     ],
     "inlets": [
         {

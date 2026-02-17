@@ -10,7 +10,7 @@
         "inlets": "audio, frequency, frequency, signal"
     },
     "includes": [
-        "evi_ssb.genexpr"
+        "evi_ssb"
     ],
     "inlets": [
         {
