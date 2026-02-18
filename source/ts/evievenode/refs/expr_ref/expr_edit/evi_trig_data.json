@@ -1,216 +1,382 @@
 {
-    "description": "Numeric approximations used all over evieve. Approximations are faster than library functions but less accurate. You should be careful using approximations - they can break your code. In evieve all approximations are tested to work on the code in which they are used.",
+    "description": "",
     "requires": [],
     "functions": [
         {
             "document": true,
-            "digest": "Represents a quarter section of a cosine function, used by subsequent approximations",
+            "digest": "",
+            "name": "makeCosPhase",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "cosQ32",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "cos32",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "sin32",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "cos32param",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "sin32param",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "cos32quad12",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "cosQ52",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "cos52",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "sin52",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "cos52param",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "sin52param",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "mixSin",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "a",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
             "name": "cosQ73",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": "0..twopi"
+                    "digest": ""
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "cos",
-                    "digest": "approximated section of a cosine"
+                    "name": "",
+                    "digest": ""
                 }
             ]
         },
         {
             "document": true,
-            "digest": "Approximated cosine function to 7.3 digits of precision, just about accurate enough for audio",
+            "digest": "",
             "name": "cos73",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": "0..twopi"
+                    "digest": ""
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "cosine",
-                    "digest": "cosine function"
+                    "name": "",
+                    "digest": ""
                 }
             ]
         },
         {
             "document": true,
-            "digest": "Approximated sine function to 7.3 digits of precision, just about accurate enough for audio",
+            "digest": "",
             "name": "sin73",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": "0..twopi"
+                    "digest": ""
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "sine",
-                    "digest": "sine function"
+                    "name": "",
+                    "digest": ""
                 }
             ]
         },
         {
             "document": true,
-            "digest": "Same as 'cos73()' but appropriate for Param rate usage (stays out of while loop)",
+            "digest": "",
             "name": "cos73param",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": "0..twopi"
+                    "digest": ""
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "cosine",
-                    "digest": "cosine function"
+                    "name": "",
+                    "digest": ""
                 }
             ]
         },
         {
             "document": true,
-            "digest": "Same as 'sin73()' but appropriate for Param rate usage (stays out of while loop)",
+            "digest": "",
             "name": "sin73param",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": "0..twopi"
+                    "digest": ""
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "sine",
-                    "digest": "sine function"
+                    "name": "",
+                    "digest": ""
                 }
             ]
         },
         {
             "document": true,
-            "digest": "One quarter of a cosine function, accurate at extremes and half, excellent for crossfading and panning etc",
-            "name": "quartParOneApprox",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "modphase",
-                    "digest": "0..1"
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "cos",
-                    "digest": "cos() portion of ramp (e.g. left multiplier)"
-                },
-                {
-                    "id": 2,
-                    "name": "sin",
-                    "digest": "sin() portion of ramp (e.g. right multiplier)"
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "Cheapest approximation of 'tan()', useful for BLT",
-            "name": "tanA",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "x",
-                    "digest": "0..1"
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "tan",
-                    "digest": "approximated tan() of input"
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "More accurate appromimation of 'tan()', useful for BLT with stricter tuning requirements",
-            "name": "tanA2",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "x",
-                    "digest": "0..halfpi"
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "tan",
-                    "digest": "approximated tan() of input"
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "Most accurate appromimation of 'tan()', useful for BLT with very strict tuning requirements",
-            "name": "tanA3",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "x",
-                    "digest": "-halfpi..halfpi"
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "tan",
-                    "digest": "accurate approximated tan() of input"
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "Approximation of 'arctan()', 2x faster than library, also accurate enough for audio usage",
-            "name": "atanA",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "x",
-                    "digest": "float"
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "arctan",
-                    "digest": "approximated arctan of input"
-                }
-            ]
-        },
-        {
-            "document": false,
             "digest": "",
-            "name": "atanIT",
+            "name": "cosQ121",
             "inputs": [
                 {
                     "id": 1,
@@ -229,347 +395,13 @@
         },
         {
             "document": true,
-            "digest": "3rd order approximation of arctan, maximum approximation error 0.00811º",
-            "name": "atanT",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "x",
-                    "digest": "0..infinity"
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "arctan",
-                    "digest": "approximated arctan of input"
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "Famous 'atan2()' approximation, over 2x faster than library",
-            "name": "atan2Approx",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "y",
-                    "digest": "float"
-                },
-                {
-                    "id": 2,
-                    "kind": "input",
-                    "name": "x",
-                    "digest": "float"
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "atan2",
-                    "digest": "approximation of atan2"
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "Approximation of 'acos()', only useful for very specific scenarios",
-            "name": "acosT",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "x",
-                    "digest": "0.2..1 for accuracy"
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "acos",
-                    "digest": "approximated acos of input"
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "Padé approximation of 'exp()', only useful for very specific scenarios, almost 2x faster than library",
-            "name": "expP",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "x",
-                    "digest": "-2..2"
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "exp",
-                    "digest": "approximated exp of input"
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "Cheapest full range exp() approximation that evieve offers, we use this everywhere, more accurate than 'fastexp()', at least 1.5 x faster than library exp()",
-            "name": "expA",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "x0",
-                    "digest": "float"
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "exp",
-                    "digest": "approximated exp of input"
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "Slightly more accurate than 'expA()', about 1.5 x faster than library exp()",
-            "name": "expApprox",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "x",
-                    "digest": "float"
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "exp",
-                    "digest": "approximated exp of input"
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "Approximation of pow(2, input), uses 'expApprox()'",
-            "name": "pow2Approx",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "y",
-                    "digest": "float"
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "pow2",
-                    "digest": "approximated pow2 of input"
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "Approximated 'cosh()' of input, uses 'expApprox()'",
-            "name": "coshApprox",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "x",
-                    "digest": "float"
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "cosh",
-                    "digest": "approximated cosh of input"
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "Approximated 'log2()' of input, 1.7 to 2 x faster than library 'log2()'",
-            "name": "log2Approx",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "x",
-                    "digest": "float"
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "log2",
-                    "digest": "approximated log2 of input"
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "Approximated log() of input, uses 'log2Approx()'",
-            "name": "logApprox",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "x",
-                    "digest": "float"
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "log",
-                    "digest": "approximated log of input"
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "Approximated log10() of input, uses 'log2Approx()'",
-            "name": "log10Approx",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "x",
-                    "digest": "float"
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "log10",
-                    "digest": "approximated log10 of input"
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "Approximated 'log1p()' of input, uses 'log2Approx()'",
-            "name": "log1pApprox",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "x",
-                    "digest": "float"
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "log1p",
-                    "digest": "approximated log1p"
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "Transpose semitones input (0=none), like [transratio] and [evi.transratio]",
-            "name": "transratioApprox",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "pitch",
-                    "digest": "pitch"
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "ratio",
-                    "digest": "ratio"
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "Approximation of 'mtof()'",
-            "name": "mtofApprox",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "pitch",
-                    "digest": "MIDI Pitch"
-                },
-                {
-                    "id": 2,
-                    "kind": "param",
-                    "name": "base",
-                    "default": 440,
-                    "type": "integer",
-                    "digest": "Hz 415..467"
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "frequency",
-                    "digest": "Hz"
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "Approximation of 'mtof()'",
-            "name": "mtofApproxBaseless",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "pitch",
-                    "digest": "MIDI Pitch"
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "frequency",
-                    "digest": "Hz"
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "Approximation of 'mtof()', most expensive but very accurate accross full range",
-            "name": "mtofApproxAccurate",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "pitch",
-                    "digest": "MIDI Pitch"
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "frequency",
-                    "digest": "Hz"
-                }
-            ]
-        },
-        {
-            "document": false,
             "digest": "",
-            "name": "mtofApproxAccurate0",
+            "name": "cos121",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
-                    "name": "pitch",
+                    "name": "x",
                     "digest": ""
                 }
             ],
@@ -583,394 +415,599 @@
         },
         {
             "document": true,
-            "digest": "Approximation of 'ftom()'",
-            "name": "ftomApproxBaseless",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "frequency",
-                    "digest": "Hz"
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "pitch",
-                    "digest": "MIDI Pitch"
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "Approximation of 'ftom()', most expensive but accurate accross full range",
-            "name": "ftomApproxAccurate",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "frequency",
-                    "digest": "Hz"
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "pitch",
-                    "digest": "MIDI Pitch"
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "Approximation of 'dbtoa()'",
-            "name": "dbtoaApprox",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "db",
-                    "digest": "dB"
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "a",
-                    "digest": "linear amplitude"
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "Approximation of 'dbtoa()', very fast but not very accurate",
-            "name": "dbtoaApproxFast",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "db",
-                    "digest": "dB"
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "a",
-                    "digest": "linear amplitude"
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "Approximation of 'dbtoa(sqrt(input))', useful for filter coefficients",
-            "name": "dbtosqrt2Approx",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "db",
-                    "digest": "dB"
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "sqrt",
-                    "digest": "approximated sqrt of amplitude"
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "Approximated 'atodb()'",
-            "name": "atodbApprox",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "amplitude",
-                    "digest": "linear amplitude"
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "db",
-                    "digest": "dB"
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "Approximation of 'exp(-1 / (seconds * samplerate))' for time..pole calculations",
-            "name": "tauA",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "t",
-                    "digest": "seconds, > 0.01 for best accuracy"
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "exp",
-                    "digest": "exp(-1/samples)"
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "Approximation of Hz to Bark coefficients",
-            "name": "hz2barkApprox",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "f",
-                    "digest": "Hz"
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "bark",
-                    "digest": "bark coefficient"
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "Approximation of Bark coefficients to Hz",
-            "name": "bark2hzApprox",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "b",
-                    "digest": "bark coefficient"
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "frequency",
-                    "digest": "Hz"
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "Approximation of Hz to Mel coefficients",
-            "name": "hz2melApprox",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "f",
-                    "digest": "Hz"
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "mel",
-                    "digest": "mel coefficient"
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "Approximation of Mel coefficients to Hz",
-            "name": "mel2hzApprox",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "m",
-                    "digest": "mel coefficient"
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "frequency",
-                    "digest": "Hz"
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "Approximation of 'cartopol()'",
-            "name": "c2pApprox",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "real",
-                    "digest": "cartesian"
-                },
-                {
-                    "id": 2,
-                    "kind": "input",
-                    "name": "imag",
-                    "digest": "cartesian"
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "alpha",
-                    "digest": "polar"
-                },
-                {
-                    "id": 2,
-                    "name": "theta",
-                    "digest": "polar"
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "Approximation of 'poltocar()'",
-            "name": "p2cApprox",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "alpha",
-                    "digest": "polar"
-                },
-                {
-                    "id": 2,
-                    "kind": "input",
-                    "name": "theta",
-                    "digest": "polar"
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "real",
-                    "digest": "cartesian"
-                },
-                {
-                    "id": 2,
-                    "name": "imag",
-                    "digest": "cartesian"
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "Approximation of 'poltocar()' suitable for Param rate (keep out of while loop)",
-            "name": "p2cApproxParam",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "alpha",
-                    "digest": "polar"
-                },
-                {
-                    "id": 2,
-                    "kind": "input",
-                    "name": "theta",
-                    "digest": "polar"
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "real",
-                    "digest": "cartesian"
-                },
-                {
-                    "id": 2,
-                    "name": "imag",
-                    "digest": "cartesian"
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "Approximation of one cosine quarter of 'poltocar()'",
-            "name": "p2cApproxQuart",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "al",
-                    "digest": ""
-                },
-                {
-                    "id": 2,
-                    "kind": "input",
-                    "name": "th",
-                    "digest": ""
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "real",
-                    "digest": "multiplier 1"
-                },
-                {
-                    "id": 2,
-                    "name": "imag",
-                    "digest": "multiplier 2"
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "Not an approximation, full range implementation of 'log1p()'",
-            "name": "eviLog1p",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "value",
-                    "digest": "float"
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "log1p",
-                    "digest": "library log(1 + x)"
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "Approximation of real dilogarithm mathrm{Li}_2(x), Alexander Voigt, @license GPL v3",
-            "name": "Li2Approx",
+            "digest": "",
+            "name": "sin121",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": "real argument"
+                    "digest": ""
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "Li2",
-                    "digest": "mathrm{Li}_2(x)"
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "cos121param",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "sin121param",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "cosQ147",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "cos147",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "sin147",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "cosQ202",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "cos202",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "sin202",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "cosQ231",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "cos231",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "sin231",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "makeTanPhase",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "tanO32",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "tan32",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "tanO56",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "tan56",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "tanO82",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "tan82",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "tanO14",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "tan14",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "tanO203",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "tan203",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "tanO236",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "tan236",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "atanT66",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "atan66",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "atanT137",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "atan137",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
                 }
             ]
         }
     ],
-    "seealso": [
-        "evi_trig",
-        "evi_cossin",
-        "evi_pade",
-        "evi_tanh",
-        "evi_fastskew"
-    ]
+    "seealso": []
 }

@@ -427,8 +427,8 @@
       <description>
         Approximation of one cosine quarter of 'poltocar()' <br />
         <br />
-        <b>In 1</b>: type=<i>input</i>: alpha, polar <br />
-        <b>In 2</b>: type=<i>input</i>: theta, polar <br />
+        <b>In 1</b>: type=<i>input</i>: al,  <br />
+        <b>In 2</b>: type=<i>input</i>: th,  <br />
 
         <b>Return 1</b>: real, multiplier 1 <br />
         <b>Return 2</b>: imag, multiplier 2 <br />

@@ -1,0 +1,776 @@
+{
+    "description": "",
+    "requires": [
+        "evi_interp.genexpr"
+    ],
+    "functions": [
+        {
+            "document": true,
+            "digest": "",
+            "name": "YOUR_FUNCTION_GOES_HERE",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "EVI_RESAMPLE_TEMPLATE_2x",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "EVI_RESAMPLE_TEMPLATE_3x",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "EVI_RESAMPLE_TEMPLATE_4x",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "EVI_RESAMPLE_TEMPLATE_6x",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "EVI_RESAMPLE_TEMPLATE_8x",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "EVI_RESAMPLE_TEMPLATE_9x",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "EVI_RESAMPLE_TEMPLATE_12x",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "EVI_RESAMPLE_TEMPLATE_16x",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "TEST_RESAMPLER",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "order",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "poly_blep",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "t",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "dt",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "YOUR_GENERATOR_FUNCTION_GOES_HERE",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "t",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "dt",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "EVI_DOWNSAMPLE_TEMPLATE_2x",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "t",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "dt",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "EVI_DOWNSAMPLE_TEMPLATE_3x",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "t",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "dt",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "EVI_DOWNSAMPLE_TEMPLATE_4x",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "t",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "dt",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "EVI_DOWNSAMPLE_TEMPLATE_6x",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "t",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "dt",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "EVI_DOWNSAMPLE_TEMPLATE_8x",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "t",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "dt",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "EVI_DOWNSAMPLE_TEMPLATE_9x",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "t",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "dt",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "EVI_DOWNSAMPLE_TEMPLATE_12x",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "t",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "dt",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "EVI_DOWNSAMPLE_TEMPLATE_16x",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "t",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "dt",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "TEST_DOWNSAMPLER",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "t",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "dt",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "order",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "EXAMPLE_TWO_INLETS_ONE_OUTLET",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "xin1",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "xin2",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "EVI_RESAMPLE_TEMPLATE_3x_TWO_INPUTS",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "XIN1",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "XIN2",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "EVI_RESAMPLE_TEMPLATE_4x_TWO_INPUTS",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "XIN1",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "XIN2",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "EVI_RESAMPLE_TEMPLATE_2x_6POINT",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "EVI_RESAMPLE_TEMPLATE_3x_6POINT",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "EVI_RESAMPLE_TEMPLATE_4x_6POINT",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "EVI_RESAMPLE_TEMPLATE_6x_6POINT",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "EVI_RESAMPLE_TEMPLATE_8x_6POINT",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "EVI_RESAMPLE_TEMPLATE_9x_6POINT",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "EVI_RESAMPLE_TEMPLATE_12x_6POINT",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "EVI_RESAMPLE_TEMPLATE_16x_6POINT",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "TEST_RESAMPLER_6POINT",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "order",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        }
+    ],
+    "seealso": []
+}

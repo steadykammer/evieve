@@ -6,6 +6,7 @@
   "main": "",
   "scripts": {
     "build": "tsc",
+    "postbuild": "esbuild src/genexprindex.ts --outdir=../../../javascript/node",
     "ci": "pnpm run linter && pnpm run build",
     "dev": "onchange --initial \"src/**/*.ts\" \"**/*.json\" -- pnpm run build",
     "linter": "tsc --noEmit",

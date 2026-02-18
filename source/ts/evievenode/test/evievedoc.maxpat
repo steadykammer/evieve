@@ -9,11 +9,33 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 34.0, 175.0, 1296.0, 773.0 ],
+        "rect": [ 182.0, 175.0, 1296.0, 773.0 ],
         "gridonopen": 2,
         "subpatcher_template": "sub",
         "integercoordinates": 1,
         "boxes": [
+            {
+                "box": {
+                    "id": "obj-49",
+                    "linecount": 3,
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 1114.0, 689.0, 143.0, 47.0 ],
+                    "text": "also copies ast data json to package - finally overwrites"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-29",
+                    "linecount": 2,
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 874.0, 696.0, 163.0, 33.0 ],
+                    "text": "attempts to merge data from edited to newly aquired"
+                }
+            },
             {
                 "box": {
                     "arrows": 2,
@@ -137,18 +159,6 @@
             },
             {
                 "box": {
-                    "bgcolor": [ 0.0, 0.0, 0.0, 1.0 ],
-                    "id": "obj-90",
-                    "maxclass": "comment",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 875.0, 682.0, 138.0, 20.0 ],
-                    "text": "to Package (_data.json)",
-                    "textcolor": [ 0.0, 0.5, 0.0, 1.0 ]
-                }
-            },
-            {
-                "box": {
                     "id": "obj-89",
                     "maxclass": "comment",
                     "numinlets": 1,
@@ -164,7 +174,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 666.0, 682.0, 161.0, 60.0 ],
+                    "patching_rect": [ 666.0, 682.0, 164.0, 60.0 ],
                     "text": "extracts ASTs from all .genexpr files using PEGjs & creates json ref to disk (also writes categories json)"
                 }
             },
@@ -338,7 +348,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 874.0, 378.0, 149.0, 47.0 ],
-                    "presentation_linecount": 3,
                     "text": "analyses .genexpr code, extracts data and fills ref json (2nd pass)"
                 }
             },
@@ -349,8 +358,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 666.0, 378.0, 147.0, 47.0 ],
-                    "presentation_linecount": 3,
+                    "patching_rect": [ 666.0, 378.0, 149.0, 47.0 ],
                     "text": "analyses .maxpat/.gendsp, extracts data and fills ref json"
                 }
             },
@@ -362,7 +370,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 493.0, 385.0, 147.0, 33.0 ],
-                    "presentation_linecount": 2,
                     "text": "creates individual ref jsons for editing"
                 }
             },
@@ -413,7 +420,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 239.0, 416.0, 170.0, 20.0 ],
-                    "presentation_linecount": 2,
                     "text": "safe as contents is not edited"
                 }
             },
@@ -434,7 +440,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 86.0, 394.0, 184.0, 20.0 ],
-                    "presentation_linecount": 2,
                     "text": "Max metadata, init & interface"
                 }
             },
@@ -455,7 +460,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 239.0, 305.0, 139.0, 20.0 ],
-                    "presentation_linecount": 2,
                     "text": "safe as xml is not edited"
                 }
             },
@@ -467,7 +471,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 239.0, 246.0, 151.0, 33.0 ],
-                    "presentation_linecount": 2,
                     "text": "edit & create .maxref.xml from _ref.xml "
                 }
             },
@@ -508,7 +511,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 86.0, 305.0, 147.0, 20.0 ],
-                    "presentation_linecount": 2,
                     "text": "safe as check if exists"
                 }
             },
@@ -1557,6 +1559,8 @@
                     "saved_object_attributes": {
                         "autostart": 0,
                         "defer": 0,
+                        "node_bin_path": "",
+                        "npm_bin_path": "",
                         "watch": 0
                     },
                     "text": "node.script /Users/stkr/Dev/evieve/source/ts/evievenode/dist/evievedoc.js",

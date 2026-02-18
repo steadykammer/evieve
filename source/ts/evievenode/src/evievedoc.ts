@@ -10,6 +10,7 @@ import Handlebars from 'handlebars';
 import { XMLParser, XMLBuilder } from 'fast-xml-parser';
 import PEGgy from 'peggy';
 
+// these are the root config files which everything comes from
 import config from '../config/evievedoc.config.json';// with { type: 'json' };
 import gendsp from '../config/evievedoc.config.gendsp.json';
 import maxpat from '../config/evievedoc.config.maxpat.json';
@@ -25,6 +26,8 @@ const PEGparser = PEGgy.generate(genexpr_pegjs, peg_parse_options);
 
 const attributeXmlPrefix = 'maxattr_';
 
+// --------------------------------------------- //
+// interfaces
 // --------------------------------------------- //
 
 interface inoutletsConfig {
@@ -144,6 +147,10 @@ interface externalsConfigTemplate {
 }
 
 // --------------------------------------------- //
+// handlers
+// --------------------------------------------- //
+
+// stage 0, create or add to root config files, leaves already edited data in place
 
 max.addHandler('config_gendsp_make', () => {
     updateConfigFileGendsp();
@@ -157,6 +164,10 @@ max.addHandler('config_external_make', () => {
     updateConfigFileExternals();
 })
 
+// ---
+
+// creates pre-xml files for externals
+// loops back through Max, using C74 _ref generation
 max.addHandler('make_externals_refpages', (force = false) => {
   void max.outlet('array', 'clear');
   createExternalsRefpages(force);
@@ -164,10 +175,9 @@ max.addHandler('make_externals_refpages', (force = false) => {
   void max.outlet('process', 'bang');
 })
 
-// not needed anymore
-max.addHandler('make_externals_refpages_rename', () => {
-    // externalsRefpagesRename();
-})
+// ---
+
+// the 'contents.xml' pages for package refpage folders, final metadata
 
 max.addHandler('make_refpages_contents', () => {
     makeDocRefpagesXmlContents();
@@ -182,6 +192,10 @@ max.addHandler('make_refpages_gen_contents', () => {
 max.addHandler('make_refpages_expr_contents', () => {
     makeGenExprRefpagesXmlContents();
 })
+
+// ---
+
+// init folder .txt files creation, final metadata
 
 max.addHandler('make_gendsp_defines', () => {
     createGendspDefines();
@@ -205,6 +219,22 @@ max.addHandler('make_help_config', () => {
 	createHelpconfigFile();
 })
 
+// ---
+
+// interface folder creation, final metadata
+
+max.addHandler('make_qlookup_json', () => {
+	parseDataForQlookup();
+})
+
+max.addHandler('make_maxdb_json', () => {
+	createMaxDbFle();
+})
+
+// ---
+
+// stage 1 creates one page per object for editing data
+
 max.addHandler('make_abs_ref_jsons', () => {
 	createMaxpatRefJson();
 })
@@ -217,6 +247,12 @@ max.addHandler('make_gens_ref_jsons', () => {
 	createGendspRefJson();
 })
 
+// ---
+
+// stage 2 after ref jsons, analyses and extracts data from
+// .maxpat / .gendsp / .genexpr, edits files,
+// leaves hand edited data in place
+
 max.addHandler('make_abs_ref_xml_configs', () => {
 	parseAbstractionsData();
 })
@@ -225,17 +261,39 @@ max.addHandler('make_defs_ref_xml_configs', () => {
 	parseDefinesData();
 })
 
-max.addHandler('make_defs_genexpr_xml_configs', () => {
-	parseDefinesCodeboxes();
-})
-
 max.addHandler('make_gens_ref_xml_configs', () => {
 	parseGendspsData();
+})
+
+// ---
+
+// stage 3 analyses .genexpr code and extracts data, write to same files as stage 2
+
+max.addHandler('make_defs_genexpr_xml_configs', () => {
+	parseDefinesCodeboxes();
 })
 
 max.addHandler('make_gens_genexpr_xml_configs', () => {
 	parseGendspsCodeboxes();
 })
+
+// ---
+
+// also stage 3, special pegjs related genexpr analysis and data extraction
+
+// creates all ASTs
+max.addHandler('extract_genexpr_asts', () => {
+	extractGenExprASTs();
+})
+
+// analyses .genexpr data (pegjs) and outputs files for editing
+max.addHandler('build_genexpr_data_sources', () => {
+	parseGenExprAstsForDoc();
+})
+
+// ---
+
+// stage 4, write all ref xmls to package from previous stages data
 
 max.addHandler('make_abstractions_ref_xml', () => {
 	makeDocRefpagesAbstractions();
@@ -253,22 +311,15 @@ max.addHandler('make_genexprs_ref_xml', () => {
 	makeGenExprRefpages();
 })
 
-max.addHandler('make_qlookup_json', () => {
-	parseDataForQlookup();
-})
-
-max.addHandler('make_maxdb_json', () => {
-	createMaxDbFle();
-})
-
+// externals
 max.addHandler('make_externals_ref_xml', () => {
 	autoCreateExternalsXml();
 })
-/*
-max.addHandler('create_helpfiles_basic', () => {
-	createHelpFilesBasic();
-})
-*/
+
+// ---
+
+// final, helpfiles creation
+
 max.addHandler('create_helpfiles_externals', () => {
 	createHelpFilesExternals();
 })
@@ -281,16 +332,11 @@ max.addHandler('create_helpfiles_defines', () => {
 	createHelpFilesDefines();
 })
 
-max.addHandler('extract_genexpr_asts', () => {
-	extractGenExprASTs();
-})
-
-max.addHandler('build_genexpr_data_sources', () => {
-	parseGenExprAstsForDoc();
-})
-
 // --------------------------------------------- //
-// testing
+// functions
+// --------------------------------------------- //
+
+// testing crap
 
 max.addHandler('test_peggy_look', () => {
 	testPeggyCrap();
@@ -541,49 +587,6 @@ function createMaxDbFle()
 
 // --------------------------------------------- //
 
-// NOT USED
-function createHelpFilesBasic(force = false)
-{
-	const eviHelpStarter = 'evi.helpstarter';
-	const writeDir = config.helpFiles.externals.output;
-	const externalsConfig = mxo.evi_externals;
-	const abstractionsConfig = maxpat.evi_abstractions;
-	const configInputMerge = Object.assign(externalsConfig, abstractionsConfig);
-	const forHelpfilesArray = Object.keys(externalsConfig);
-	for (const object of forHelpfilesArray) {
-		// @ts-expect-error
-		const thisObject = configInputMerge[object];
-		if (thisObject.object) {
-			if (thisObject.helpfile.generate) {
-				const writePath = `${writeDir}/${object}.maxhelp`;
-
-				if (!fs.existsSync(writePath) || force) {
-					renderFromTemplate(
-					'../templates/evi.maxhelp.handlebars',
-					{
-						evihelpstarter: eviHelpStarter,
-						eviobject: object,
-						opt0: -1,
-						opt1: 0,
-						opt2: 0,
-						opt3: 0,
-						opt4: 0,
-						opt5: 'none'
-					},
-					writePath
-					);
-				} else {
-					void max.post(`not overwriting as ${object}.maxhelp already exists!`);
-				}
-
-			} else {
-				void max.post(`not creating helpfile for ${object} as no generation requested!`);
-			}
-		}
-
-	}
-}
-
 function createHelpFilesExternals(force = false)
 {
 	const eviType: number = 0;	// 0 = external, 1 = gen, 2 = abstraction
@@ -769,7 +772,6 @@ async function parseGendspsCodeboxes()
 			const thisConfigObject = JSON.parse(thisConfigJson);
 			// const thisConfigGenExpr = fs.readFileSync(`${codeboxesRefsPath}/${derivedCodeboxName}`, 'utf8');
 			// const pre_ast = PEGparser.parse(thisConfigGenExpr);
-			// void max.post(`parser test for ${refJson}: ${JSON.stringify(pre_ast)}`);
 
 			let FOUND_PARAM: boolean = false;
 
@@ -1019,19 +1021,14 @@ async function parseGendspsLoop(gendspPath: string, gendspName: string, thisConf
 	}
 	thisConfigObject.constructor.inlets = inletsArray.join(', '); // cop out, but easier
 
-	// const Require: RegExp = /(?:^|\W)require(?:$|\W)/;
-	// const History: RegExp = /(?:^|\W)history(?:$|\W)/;
-	// const Param: RegExp = /(?:^|\W)param(?:$|\W)/;
 	// TODO (& use pegjs ?)
 	for await (const object of gendspJson.patcher.boxes) {
 		if (object.box.maxclass === GEN_CODE) {
 			let GenExprCode = object.box.code;
-			// void max.post(GenExprCode);
 			const pathForGE = path.dirname(thisConfigFullPath);
 			const nameForGE = `${gendspName}_codebox.genexpr`;
 			fs.writeFileSync(`${pathForGE}/codeboxes/${nameForGE}`, GenExprCode);
 			// const pre_ast = PEGparser.parse(GenExprCode);
-			// void max.post(`parser test for ${gendspName}: ${JSON.stringify(pre_ast)}`);
 		}
 	}
 
@@ -1102,7 +1099,6 @@ async function parseDefinesCodeboxes()
 			const thisConfigObject = JSON.parse(thisConfigJson);
 			// const thisConfigGenExpr = fs.readFileSync(`${codeboxesRefsPath}/${derivedCodeboxName}`, 'utf8');
 			// const pre_ast = PEGparser.parse(thisConfigGenExpr);
-			// void max.post(`parser test for ${refJson}: ${JSON.stringify(pre_ast)}`);
 
 			let FOUND_HIST: boolean = false;
 			let FOUND_PARAM: boolean = false;
@@ -1307,8 +1303,8 @@ async function parseDefinesData()
 			const gendspDirName = path.dirname(gendspPath);
 			const thisConfigFullPath = `${definesRefsPath}/${potentialRefName}`;
 			await parseDefinesGendspsLoop(gendspDirName, gendspName, thisConfigFullPath);
-		// } else {
-		// 	void max.post(`Skipping ${gendspName}.gendsp because it has been configured with no ref page generation!`);
+		} else {
+			void max.post(`Skipping ${gendspName}.gendsp because it has been configured with no ref page generation!`);
 		}
 	}
 }
@@ -1366,10 +1362,7 @@ async function parseDefinesGendspsLoop(gendspPath: string, gendspName: string, t
 		"units": "",
 		"optional": 1
 	}
-/*	const GEN_PARAM_GE = "Param";
-	const GEN_HIST_GE = "History";
-	const GEN_REQUIRE_GE = "require";
-*/
+
 	// if we are editing a brand new template, clear the template json
 	// i know, this is very weak code, but .gendsp will never have an id/in/out = 0 or name ""
 	thisConfigObject.inlets = thisConfigObject.inlets.filter((entry: { id: number; }) => entry.id !== 0);
@@ -1515,19 +1508,14 @@ async function parseDefinesGendspsLoop(gendspPath: string, gendspName: string, t
 		return a.id >= b.id ? 1 : -1;
 	});
 
-	// const Require: RegExp = /(?:^|\W)require(?:$|\W)/;
-	// const History: RegExp = /(?:^|\W)history(?:$|\W)/;
-	// const Param: RegExp = /(?:^|\W)param(?:$|\W)/;
 	// TODO (& use pegjs ?)
 	for await (const object of gendspJson.patcher.boxes) {
 		if (object.box.maxclass === GEN_CODE) {
 			let GenExprCode = object.box.code;
-			// void max.post(GenExprCode);
 			const pathForGE = path.dirname(thisConfigFullPath);
 			const nameForGE = `${gendspName}_codebox.genexpr`;
 			fs.writeFileSync(`${pathForGE}/codeboxes/${nameForGE}`, GenExprCode);
 			// const pre_ast = PEGparser.parse(GenExprCode);
-			// void max.post(`parser test for ${gendspName}: ${JSON.stringify(pre_ast)}`);
 		}
 	}
 
@@ -1565,8 +1553,8 @@ async function parseAbstractionsData()
 			const patcherDirName = path.dirname(patchPath);
 			const thisConfigFullPath = `${maxpatRefsPath}/${potentialRefName}`;
 			await parseAbstractionMaxpatLoop(patcherDirName, patcherName, thisConfigFullPath);
-		// } else {
-		// 	void max.post(`Skipping ${patcherName} because it has been configured with no ref page generation!`);
+		} else {
+			void max.post(`Skipping ${patcherName} because it has been configured with no ref page generation!`);
 		}
 	}
 }
@@ -1802,18 +1790,6 @@ function inferTypeFromString(thisValue: string)
 	return thisValueMaxType;
 }
 
-/*
-function parsePatcherArgs(boxText: string, objectConfig: any)
-{
-
-}
-*/
-/*
-function pushIOdata(ioAssist: string, type: string, objectConfig: any, boxNum: number)
-{
-
-}
-*/
 // --------------------------------------------- //
 
 async function createMaxpatRefJson()
@@ -2049,7 +2025,6 @@ function updateConfigFileExternals(force = false, writeJson = true) {
 
 function createGendspDefines() {
 	let refDir = `${cwd()}/${config.initFiles.defines.output}`;
-	// let refEntries = gendsp;
 
 	renderFromTemplate('../templates/defines.handlebars', gendsp, `${refDir}/evieve-defines.txt`);
 }
@@ -2078,7 +2053,6 @@ function manuallyCreateGendspDefines() {
 */
 function createMxoObjectmappings() {
 	let refDir = `${cwd()}/${config.initFiles.defines.output}`;
-	// let refEntries = mxo;
 
 	renderFromTemplate('../templates/objectmappings.handlebars', mxo, `${refDir}/evieve-objectmappings.txt`);
 }
@@ -2137,29 +2111,7 @@ function createMaxKeyCommands()
 	const initDir = `${cwd()}/${config.initFiles.defines.output}`;
 	renderFromTemplate('../templates/keycommands.handlebars', keyCommandsConfig, `${initDir}/evieve-keycommands.txt`);
 }
-/*
-function createHelpconfigFile()
-{
-	const helpConfig: any = {};
-	const biquadsArray: string[] = [];
-	const definesConfig = gendsp.evi_gendsp;
-	const definesListing = Object.keys(definesConfig);
-	for (const config of definesListing) {
-		// @ts-expect-error
-		const entry = definesConfig[config];
-		if (entry.define.object) {
-			if (entry.helpfile.areas.includes('biquad')) {
-				biquadsArray.push(entry.define.msp);
-			}
-		}
-	}
-	helpConfig.objects = biquadsArray;
-	helpConfig.class = 'evibiquad';
-	helpConfig.classPatcher = 'areas_help_biquad';
-	helpConfig.classString = `\"Biquad Filters in evieve\"`;
-	renderFromTemplate('../templates/helpconfig.handlebars', helpConfig, `${config.initFiles.defines.output}/evieve-helpconfig.txt`);
-}
-*/
+
 function createHelpconfigFile()
 {
 	let helpConfig: any = {};
@@ -2580,7 +2532,7 @@ async function extractGenExprASTs()
 			const thisRawGenExpr = fs.readFileSync(`${genexprPath}`, 'utf8');
 			// void max.post(`.genexpr file about to be parsed: ${genexprName}`);
 			const genExprAst = PEGparser.parse(thisRawGenExpr);
-			fs.writeFileSync(`${genexprsAstsPath}/${genAstName}`, JSON.stringify(genExprAst, null, 4));
+			fs.writeFileSync(`${genexprsAstsPath}/expr_ast/${genAstName}`, JSON.stringify(genExprAst, null, 4));
 			// void max.post(`.genexpr file just written: ${genAstName}`);
 		}
 	}
@@ -2607,12 +2559,12 @@ function getGenExprCategory(categories: any, fullPath: string, fullName: string)
 // called from Max {build_genexpr_data_sources}
 function parseGenExprAstsForDoc()
 {
-	const genexprsJsonsPath = `${cwd()}/${config.referenceFiles.genExpr.json}`;
-	const genexprsAstsPath = `${cwd()}/${config.referenceFiles.genExpr.config}`;
+	const genexprsJsonsPath = `${cwd()}/${config.referenceFiles.genExpr.configedit}`; // possibly already hand edited
+	const genexprsAstsPath = `${cwd()}/${config.referenceFiles.genExpr.configast}`; // always newly parsed
 	let fullAstNames = getFileNamesFromPath(genexprsAstsPath, 'json');
-	const IGNORE1 = /_expr_data_format.json/;
-	const IGNORE2 = /_expr_data_categories.json/;
-	fullAstNames = fullAstNames.filter((str) => !IGNORE1.test(str) && !IGNORE2.test(str));
+	// const IGNORE1 = /_expr_data_format.json/;
+	// const IGNORE2 = /_expr_data_categories.json/;
+	// fullAstNames = fullAstNames.filter((str) => !IGNORE1.test(str) && !IGNORE2.test(str));
 
 	const genExprFileTemplate: any = {
 		"description": "",
@@ -2655,15 +2607,11 @@ function parseGenExprAstsForDoc()
 		// void max.post(`reading this ast: ${genexprAst}`);
 		// cache previous data if it is there
 		let thisGenExprData: any = {};
-		let currentFunctionNames: string[] = [];
 		const parsedName = genexprAst.replace('_ast.json', '_data.json');
 		const isEdit: boolean = fs.existsSync(`${genexprsJsonsPath}/${parsedName}`) ? true : false;
 		if (isEdit) {
 			const thisGenExprFile = fs.readFileSync(`${genexprsJsonsPath}/${parsedName}`, 'utf8');
 			thisGenExprData = JSON.parse(thisGenExprFile);
-			for (const entry of thisGenExprData.functions) {
-				currentFunctionNames.push(entry.name);
-			}
 		} else {
 			thisGenExprData = JSON.parse(JSON.stringify(genExprFileTemplate));
 		}
@@ -2693,12 +2641,11 @@ function parseGenExprAstsForDoc()
 		if (thisAstObject.functions.length) {
 			for (const func of thisAstObject.functions) {
 				if (func.type === 'FunctionDeclaration') {
-					let isNewFunc: boolean = currentFunctionNames.includes(func.id.name) ? false : true;
 					let thisFunc = JSON.parse(JSON.stringify(functionsTemplate));
 					thisFunc.name = func.id.name;
 					// inputs - can be 'input' or 'param'
 					for (let i = 0; i < func.params.length; i++) {
-						if (func.defaults[i] != null) {
+						if (func.defaults[i] != null) { // 'defaults' always same length as 'params'
 							let thisParam = JSON.parse(JSON.stringify(inputsParamTemplate));
 							thisParam.id = i+1; // controversial, ins/outs indexing from '1', bad decision?
 							thisParam.kind = 'param';
@@ -2737,246 +2684,66 @@ function parseGenExprAstsForDoc()
 		}
 
 		if (isEdit) {
-			thisGenExprData.requires = requiresArray;
-			//	//	//	functions here
-			mergeFunctionsArrayFromAst(functionsArray, thisGenExprData.functions);
-			// thisGenExprData.functions = thinUniqueArrayByKey(thisGenExprData.functions, "name");
-		} else {
-			thisGenExprData.requires = requiresArray;
-			thisGenExprData.functions = functionsArray;
+			functionsArray = mergeFunctionsArrayFromAst(functionsArray, thisGenExprData.functions, functionsTemplate);
+			// thisGenExprData.functions = thinUniqueArrayByKey(functionsArray, "name");
 		}
+		thisGenExprData.requires = requiresArray;	// always overwrites
+		thisGenExprData.functions = functionsArray;
 		// void max.post(`about to write this ast: ${parsedName}`);
 		fs.writeFileSync(`${genexprsJsonsPath}/${parsedName}`, JSON.stringify(thisGenExprData, null, 4));
 	}
 }
 
 // place hand edited data back into newly aquired data
-function mergeFunctionsArrayFromAst(newData: any, currentData: any)
+function mergeFunctionsArrayFromAst(newData: any, currentData: any, mergeTemplate: any)
 {
-	// for (const func of newData) {
-	// 	// @ts-expect-error
-	// 	if (func[name]) {
-
-	// 	}
-	// }
-
-	newData.forEach((func: { name: any; }) => {
-		const name = func.name;
-	})
-}
-
-/*
-// top level ast keys: 'type': string, 'commands[]', 'functions[]' 'decls[]', 'body[]'
-// 'commands' = array of require() declarations, functions = array of function() declarations
-
-// called from Max {build_genexpr_data_sources}
-function parseGenExprAstsForDoc()
-{
-	const genexprsJsonsPath = `${cwd()}/${config.referenceFiles.genExpr.json}`;
-	const genexprsAstsPath = `${cwd()}/${config.referenceFiles.genExpr.config}`;
-	let fullAstNames = getFileNamesFromPath(genexprsAstsPath, 'json');
-	const IGNORE1 = /_expr_data_format.json/;
-	const IGNORE2 = /_expr_data_categories.json/;
-	fullAstNames = fullAstNames.filter((str) => !IGNORE1.test(str) && !IGNORE2.test(str));
-
-	const genExprFileTemplate: any = {
-		"description": "",
-		"requires": [],
-		"functions": [],
-		"seealso": []
-	};
-
-	const functionsTemplate: any = {
-		"document": true,
-		"digest": "",
-		"name": "",
-		"inputs": [],
-		"returns": []
-	};
-
-	const inputsInputTemplate: any = {
-		"id": 0,
-		"kind": "",
-		"name": "",
-		"digest": ""
-	};
-
-	const inputsParamTemplate: any = {
-		"id": 0,
-		"kind": "",
-		"name": "",
-		"default": 0,
-		"type": "",
-		"digest": ""
-	};
-
-	const returnsTemplate: any = {
-		"id": 0,
-		"name": "",
-		"digest": ""
-	};
-
-	for (const genexprAst of fullAstNames) {
-		// void max.post(`reading this ast: ${genexprAst}`);
-		let thisGenExprData: any = {};
-		let currentFunctionNames: string[] = [];
-		let functionsArray: {}[] = []; // extract array of objects
-		const parsedName = genexprAst.replace('_ast.json', '_data.json');
-		const isEdit: boolean = fs.existsSync(`${genexprsJsonsPath}/${parsedName}`) ? true : false;
-		if (isEdit) {
-			const thisGenExprFile = fs.readFileSync(`${genexprsJsonsPath}/${parsedName}`, 'utf8');
-			thisGenExprData = JSON.parse(thisGenExprFile);
-			functionsArray = thisGenExprData.functions;
-			for (const entry of thisGenExprData.functions) {
-				currentFunctionNames.push(entry.name);
+	const mergeArray: {}[] = [];
+	for (const newFunc of newData) {
+		const mergeFunc = JSON.parse(JSON.stringify(mergeTemplate));
+		// const funcIndex = newData.indexOf(newFunc);
+		const currentFunc = currentData.find((obj: { name: string; }) => obj.name === newFunc.name);
+		if (currentFunc != undefined) {
+			// const objIndex = currentData.indexOf(currentFunc);
+			// top level
+			mergeFunc.document = currentFunc.document;
+			mergeFunc.digest = currentFunc.digest;
+			mergeFunc.name = newFunc.name;
+			mergeFunc.inputs = newFunc.inputs;
+			mergeFunc.returns = newFunc.returns;
+			for (const mergeInput of mergeFunc.inputs) {
+				// only risk it if both name and id match, otherwise let it go
+				const currentInput = currentFunc.inputs.find((obj: { id: number, name: string; }) => obj.name === mergeInput.name && obj.id === mergeInput.id);
+				if (currentInput != undefined) {
+					// const inpIndex = currentData.inputs.indexOf(currentInput);
+					// inputs
+					mergeInput.digest = currentInput.digest;
+				}
 			}
+			for (const mergeReturn of mergeFunc.returns) {
+				// in returns we only have ids to match on, might get it wrong
+				const currentReturn = currentFunc.returns.find((obj: { id: number }) => obj.id === mergeReturn.id);
+				if (currentReturn != undefined) {
+					// const retIndex = currentData.returns.indexOf(currentReturn);
+					// returns
+					mergeReturn.name = currentReturn.name;
+					mergeReturn.digest = currentReturn.digest;
+				}
+			}
+			mergeArray.push(mergeFunc);
 		} else {
-			thisGenExprData = JSON.parse(JSON.stringify(genExprFileTemplate));
-			functionsArray = [];
-			currentFunctionNames = [];
+			mergeArray.push(newFunc);
 		}
-
-		const thisAstFile = fs.readFileSync(`${genexprsAstsPath}/${genexprAst}`, 'utf8');
-		const thisAstObject = JSON.parse(thisAstFile);
-		let requiresArray: string[] = []; // extract array of strings
-
-		// 'requires' can always overwrite
-		if (thisAstObject.commands.length) {
-			for (const command of thisAstObject.commands) {
-				if (command.expression.callee.name === 'require') {
-					let thisRequire: string = '';
-					for (const arg of command.expression.arguments) {
-						thisRequire = arg.value;
-						if (!thisRequire.endsWith('.genexpr')) {
-							thisRequire = `${thisRequire}.genexpr`;	// pete sometimes forgets
-						}
-						requiresArray.push(thisRequire);
-					}
-				}
-			}
-		}
-
-		// this is complex
-		if (thisAstObject.functions.length) {
-			for (const func of thisAstObject.functions) {
-				if (func.type === 'FunctionDeclaration') {
-					let thisFunc: any = {};
-					let objIndex = -1;
-					const isNew: boolean = currentFunctionNames.includes(func.id.name) ? false : true;
-					if (!isNew && isEdit) {
-						// is edit of already present function entry
-						thisFunc = thisGenExprData.functions.find((obj: { name: string; }) => obj.name === func.id.name);
-						objIndex = thisGenExprData.functions.indexOf(thisFunc);
-					} else {
-						thisFunc = JSON.parse(JSON.stringify(functionsTemplate));
-						thisFunc.name = func.id.name;
-					}
-
-
-
-
-
-
-					for (let i = 0; i < func.params.length; i++) {
-						if (func.defaults[i] != null) {
-							let thisParam: any = {};
-							if (isNew) {
-								thisParam = JSON.parse(JSON.stringify(inputsParamTemplate));
-								thisParam.id = i+1; // controversial, ins/outs indexing from '1', bad decision?
-								thisParam.kind = 'param';
-								thisParam.name = func.params[i].name;
-								thisParam.default = func.defaults[i].value;
-								thisParam.type = func.defaults[i].gen_kind;
-								thisFunc.inputs.push(thisParam);
-							} else {
-								thisFunc.inputs[i].kind = 'param';
-								thisFunc.inputs[i].name = func.params[i].name;
-								thisFunc.inputs[i].default = func.defaults[i].value;
-								thisFunc.inputs[i].type = func.defaults[i].gen_kind;
-							}
-						} else {
-							let thisInput: any = {};
-							if (isNew) {
-								thisInput = JSON.parse(JSON.stringify(inputsInputTemplate));
-								thisInput.id = i+1; // controversial...
-								thisInput.kind = 'input';
-								thisInput.name = func.params[i].name;
-								thisFunc.inputs.push(thisInput);
-							} else {
-								thisFunc.inputs[i].kind = 'input';
-								thisFunc.inputs[i].name = func.params[i].name;
-
-							}
-						}
-					}
-					thisFunc.inputs = thinUniqueArrayByKey(thisFunc.inputs, "id");
-					// this is all total bullshit
-					// todo: look into reappropriating 'visitReturnStatement()' from 'genbo.js'
-					for (const ret of func.body.body) {
-						if (ret.type === 'ReturnStatement') {
-							let rets = 0;
-							if (ret.argument.type === 'ArrayExpression') {
-								rets = ret.argument.elements.length;
-							} else { // for now, will be wrong sometimes
-								rets = 1;
-							}
-							for (let j = 0; j < rets; j++) {
-								let thisReturn = JSON.parse(JSON.stringify(returnsTemplate));
-								thisReturn.id = j+1; // controversial...
-								thisFunc.returns.push(thisReturn);
-							}
-						}
-					}
-					if (isEdit) {
-						thisGenExprData.functions.fill(thisFunc, objIndex, objIndex);
-					} else {
-						functionsArray.push(thisFunc);
-					}
-				}
-			}
-		}
-
-//		const parsedName = genexprAst.replace('_ast.json', '_data.json');
-		if (isEdit) {
-			thisGenExprData.requires = requiresArray;
-			// mergeFunctionsArrayFromAst(functionsArray, thisGenExprData.functions);
-			for (const newfunc of functionsArray) {
-				// @ts-expect-error
-				if (!currentFunctionNames.includes(newfunc.name)) {
-					thisGenExprData.functions.push(newfunc);
-				}
-			}
-			thisGenExprData.functions = thinUniqueArrayByKey(thisGenExprData.functions, "name");
-		} else {
-			thisGenExprData.requires = requiresArray;
-			thisGenExprData.functions = functionsArray;
-		}
-		// void max.post(`about to write this ast: ${parsedName}`);
-		fs.writeFileSync(`${genexprsJsonsPath}/${parsedName}`, JSON.stringify(thisGenExprData, null, 4));
 	}
+	return mergeArray;
 }
-*/
-/*
-function mergeFunctionsArrayFromAst(funcsArray: any, currentData: any)
-{
-	// for (const func of funcsArray) {
-	// 	// @ts-expect-error
-	// 	if (func[name]) {
 
-	// 	}
-	// }
-
-	funcsArray.forEach((func: { name: any; }) => {
-		const name = func.name;
-	})
-}
-*/
-
+// genexpr xml ref, also copies _data files to package for use in 'GenExpr Index'
 async function makeGenExprRefpages()
 {
-	let dataDir = `${cwd()}/${config.referenceFiles.genExpr.json}`;
-	const outDir = `${cwd()}/${config.referenceFiles.genExpr.output}`
-	const catDir = `${cwd()}/${config.referenceFiles.genExpr.config}`
+	let dataDir = `${cwd()}/${config.referenceFiles.genExpr.configedit}`;
+	const outDir = `${cwd()}/${config.referenceFiles.genExpr.output}`;
+	const copyDir = `${cwd()}/${config.referenceFiles.genExpr.copyto}`;
+	const catDir = `${cwd()}/${config.referenceFiles.genExpr.config}`;
 	const dataFiles = getFileNamesFromPath(dataDir, 'json');
 	// const IGNORE = //;
 	// refFiles = refFiles.filter((str) => !IGNORE.test(str));
@@ -2984,7 +2751,9 @@ async function makeGenExprRefpages()
 	const catObj = JSON.parse(categories);
 
 	for await (const dataFile of dataFiles) {
-		const thisConfigJson = fs.readFileSync(`${dataDir}/${dataFile}`, 'utf8');
+		const readPath = `${dataDir}/${dataFile}`;
+		const copyPath = `${copyDir}/${dataFile}`;
+		const thisConfigJson = fs.readFileSync(readPath, 'utf8');
 		const thisConfigObject = JSON.parse(thisConfigJson);
 		const fileName = dataFile.replace('_data.json', '');//'.genexpr');
 		// const file = dataFile.replace('_data.json', ''); // needed for xml crap
@@ -3005,11 +2774,14 @@ async function makeGenExprRefpages()
 				seealso: thisConfigObject.seealso
 			},
 			writePath);
+		
+		fs.copyFileSync(readPath, copyPath);
 	}
 }
 
 // --------------------------------------------- //
-// testing
+
+// testing crap
 
 async function testPeggyCrap()
 {
