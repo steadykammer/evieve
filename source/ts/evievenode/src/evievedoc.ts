@@ -2676,6 +2676,7 @@ function parseGenExprAstsForDoc()
 								thisReturn.id = j+1; // controversial...
 								thisFunc.returns.push(thisReturn);
 							}
+							// for (const [index, value] of _.entries()) {}
 						}
 					}
 					functionsArray.push(thisFunc);

@@ -11,6 +11,7 @@
         "classnamespace": "box",
         "rect": [ 93.0, 118.0, 1319.0, 788.0 ],
         "bglocked": 1,
+        "openinpresentation": 1,
         "gridonopen": 2,
         "toolbarvisible": 0,
         "lefttoolbarpinned": 2,
@@ -21,6 +22,7 @@
         "tallnewobj": 1,
         "subpatcher_template": "sub",
         "integercoordinates": 1,
+        "title": "evieve Overview",
         "boxes": [
             {
                 "box": {
@@ -30,6 +32,9 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 937.0, 249.0, 327.0, 33.0 ],
+                    "presentation": 1,
+                    "presentation_linecount": 2,
+                    "presentation_rect": [ 937.0, 249.0, 327.0, 33.0 ],
                     "text": "By Pete Dowling a.k.a. 'stkr'. © Peter Dowling 2011 - 2026,  GPL v2."
                 }
             },
@@ -41,6 +46,8 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 937.0, 75.0, 327.0, 20.0 ],
+                    "presentation": 1,
+                    "presentation_rect": [ 937.0, 75.0, 327.0, 20.0 ],
                     "text": "A library of GenExpr audio code."
                 }
             },
@@ -52,6 +59,9 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 937.0, 115.0, 331.0, 114.0 ],
+                    "presentation": 1,
+                    "presentation_linecount": 8,
+                    "presentation_rect": [ 937.0, 115.0, 331.0, 114.0 ],
                     "text": "The evieve package aims to be as boring as possible - generic and easily reusable audio code but for using directly inside of '.genexpr' & 'codebox' etc, organised into source files for usage via 'require()'.\n\nSome of the code has been (largely automatically) extrapolated to 'gen~' and 'MSP' abstractions and therefore may be useful in those environments as well."
                 }
             },
@@ -82,6 +92,8 @@
                     "parameter_enable": 0,
                     "parameter_mappable": 0,
                     "patching_rect": [ 156.0, 96.0, 610.0, 152.0 ],
+                    "presentation": 1,
+                    "presentation_rect": [ 156.0, 96.0, 610.0, 152.0 ],
                     "tabs": [ "Linear Filters in evieve", "Nonlinear Filters in evieve", "Oscillators and Sources in evieve", "Reverbs in evieve", "FX Processing in evieve", "evieve Signal Smoothing" ]
                 }
             },
@@ -97,6 +109,8 @@
                     "parameter_enable": 0,
                     "parameter_mappable": 0,
                     "patching_rect": [ 846.0, 677.0, 157.0, 26.0 ],
+                    "presentation": 1,
+                    "presentation_rect": [ 846.0, 677.0, 157.0, 26.0 ],
                     "rounded": 4.0,
                     "text": "evieveGenExprIndex",
                     "texton": "evieveGenExprIndex",
@@ -111,6 +125,8 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 978.0, 427.0, 162.0, 20.0 ],
+                    "presentation": 1,
+                    "presentation_rect": [ 978.0, 427.0, 162.0, 20.0 ],
                     "text": "---->> is the same as ---->>",
                     "textjustification": 1
                 }
@@ -122,6 +138,8 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 707.0, 427.0, 162.0, 20.0 ],
+                    "presentation": 1,
+                    "presentation_rect": [ 707.0, 427.0, 162.0, 20.0 ],
                     "text": "---->> is the same as ---->>",
                     "textjustification": 1
                 }
@@ -133,6 +151,8 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 456.0, 427.0, 162.0, 20.0 ],
+                    "presentation": 1,
+                    "presentation_rect": [ 456.0, 427.0, 162.0, 20.0 ],
                     "text": "---->> is the same as ---->>",
                     "textjustification": 1
                 }
@@ -146,6 +166,8 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 1124.0, 455.0, 140.0, 39.0 ],
+                    "presentation": 1,
+                    "presentation_rect": [ 1124.0, 455.0, 140.0, 39.0 ],
                     "text": "patched inside a rnbo~",
                     "textjustification": 1
                 }
@@ -236,8 +258,8 @@
                                                         "text": "out 2 Reset (Param has changed)",
                                                         "patching_rect": [ 756.0, 807.0, 189.0, 22.0 ],
                                                         "numinlets": 1,
-                                                        "numoutlets": 0,
-                                                        "id": "obj-7"
+                                                        "id": "obj-7",
+                                                        "numoutlets": 0
                                                     }
                                                 },
                                                 {
@@ -246,8 +268,8 @@
                                                         "text": "in 2 (signal/float) Shape (linear gain 1..100) @default 1 @min 1 @max 100",
                                                         "patching_rect": [ 539.0, 19.0, 406.0, 22.0 ],
                                                         "numinlets": 0,
-                                                        "numoutlets": 1,
                                                         "id": "obj-5",
+                                                        "numoutlets": 1,
                                                         "outlettype": [ "" ]
                                                     }
                                                 },
@@ -257,8 +279,8 @@
                                                         "text": "in 1 (signal) Input Signal",
                                                         "patching_rect": [ 49.0, 19.0, 137.0, 22.0 ],
                                                         "numinlets": 0,
-                                                        "numoutlets": 1,
                                                         "id": "obj-1",
+                                                        "numoutlets": 1,
                                                         "outlettype": [ "" ]
                                                     }
                                                 },
@@ -266,13 +288,13 @@
                                                     "box": {
                                                         "maxclass": "codebox",
                                                         "patching_rect": [ 49.0, 58.0, 896.0, 732.0 ],
-                                                        "numinlets": 2,
-                                                        "fontface": 0,
-                                                        "numoutlets": 2,
-                                                        "id": "obj-3",
-                                                        "outlettype": [ "", "" ],
-                                                        "fontsize": 12.0,
                                                         "fontname": "<Monospaced>",
+                                                        "fontface": 0,
+                                                        "numinlets": 2,
+                                                        "id": "obj-3",
+                                                        "numoutlets": 2,
+                                                        "fontsize": 12.0,
+                                                        "outlettype": [ "", "" ],
                                                         "code": "\r\n// this is an anti-aliased atan(x) (with gain compensation wrapper)\r\n// for saturating your audio, not for Maths.\r\n\r\nrequire(\"evi_saturators.genexpr\");\n\r\n// This gain compensation wrapper around the atan() function makes a great non-linear\r\n// shaper. Many thanks to Volker Böhm. With no anti-aliasing it sounds like crap, but here\r\n// the atan(x)s in the functions above are anti-aliased and much nicer.\r\natanDrive(drive)\r\n{\n\tpre = maximum(drive, 1);\n\tpost = maximum((1 / atanA(drive)), 0.1);// naive approx for control rate\n\treturn pre, post;\r\n}\n\r\nHistory\treset(1);\r\n\r\n//Param\tshape(1, min=1, max=100);\t\t\t// linear gain, 0..40 dB\r\n//Param\tsmoothshape(22.666, min=0, max=333);// ms\r\nParam\thfcompensate(1, min=0, max=1);\t\t// default on\r\nParam\taa(3, min=0, max=5);\t\t\t\t// default Adaa2\r\nadaaxx\t= int(aa);\r\nhfcomp\t= int(hfcompensate);\r\n//smooth\t= smoothshape * 0.001;\t\t\t// secs\r\n\r\nresetaa\t= delta(change(adaaxx)) < 0;\r\nresethf\t= delta(change(hfcomp)) < 0;\r\nreset\t= resetaa + resethf;\r\n\r\ningain, outgain = atanDrive(in2);\r\nataninput = in1 * ingain;\r\natanoutput\t= 0;\r\nif (adaaxx == 1) {\r\n\tatanoutput = atanAdaa1_2x_6POINT(ataninput, reset);\r\n} else if (adaaxx == 2) {\r\n\tatanoutput = atanAdaa1_4x_6POINT(ataninput, reset);\r\n} else if (adaaxx == 3) {\t// default\r\n\tatanoutput = atanAdaa2(ataninput, reset);\r\n} else if (adaaxx == 4) {\r\n\tatanoutput = atanAdaa2_2x_6POINT(ataninput, reset);\r\n} else if (adaaxx == 5) {\r\n\tatanoutput = atanAdaa2_4x_6POINT(ataninput, reset);\r\n} else {\t\t\t\t\t// (adaaxx == 0)\r\n\tatanoutput = atanAdaa1(ataninput, reset);\r\n}\r\n\r\nif (hfcomp) {\r\n\tatanoutput = decorelate(atanoutput);\r\n}\r\n\r\nout1\t= atanoutput * outgain * HALFPI;\r\nout2\t= reset;\r\n\r\n"
                                                     }
                                                 },
@@ -282,8 +304,8 @@
                                                         "text": "out 1 (signal) Atan(x) Output - anti-aliased for your audio not for Maths",
                                                         "patching_rect": [ 49.0, 807.0, 381.0, 22.0 ],
                                                         "numinlets": 1,
-                                                        "numoutlets": 0,
-                                                        "id": "obj-4"
+                                                        "id": "obj-4",
+                                                        "numoutlets": 0
                                                     }
                                                 }
                                             ],
@@ -916,8 +938,8 @@
                                                         "linecount": 2,
                                                         "patching_rect": [ 637.0, 13.0, 114.0, 35.0 ],
                                                         "numinlets": 0,
-                                                        "numoutlets": 1,
                                                         "id": "obj-6",
+                                                        "numoutlets": 1,
                                                         "outlettype": [ "" ]
                                                     }
                                                 },
@@ -928,8 +950,8 @@
                                                         "linecount": 2,
                                                         "patching_rect": [ 436.0, 13.0, 179.0, 35.0 ],
                                                         "numinlets": 0,
-                                                        "numoutlets": 1,
                                                         "id": "obj-5",
+                                                        "numoutlets": 1,
                                                         "outlettype": [ "" ]
                                                     }
                                                 },
@@ -939,8 +961,8 @@
                                                         "text": "in 1 (signal) Input",
                                                         "patching_rect": [ 34.0, 19.0, 101.0, 22.0 ],
                                                         "numinlets": 0,
-                                                        "numoutlets": 1,
                                                         "id": "obj-1",
+                                                        "numoutlets": 1,
                                                         "outlettype": [ "" ]
                                                     }
                                                 },
@@ -951,8 +973,8 @@
                                                         "linecount": 2,
                                                         "patching_rect": [ 235.0, 13.0, 175.0, 35.0 ],
                                                         "numinlets": 0,
-                                                        "numoutlets": 1,
                                                         "id": "obj-2",
+                                                        "numoutlets": 1,
                                                         "outlettype": [ "" ]
                                                     }
                                                 },
@@ -962,21 +984,21 @@
                                                         "text": "out 1 (signal) Filter Output",
                                                         "patching_rect": [ 34.0, 553.0, 147.0, 22.0 ],
                                                         "numinlets": 1,
-                                                        "numoutlets": 0,
-                                                        "id": "obj-4"
+                                                        "id": "obj-4",
+                                                        "numoutlets": 0
                                                     }
                                                 },
                                                 {
                                                     "box": {
                                                         "maxclass": "codebox",
                                                         "patching_rect": [ 34.0, 58.0, 622.0, 478.0 ],
-                                                        "numinlets": 4,
-                                                        "fontface": 0,
-                                                        "numoutlets": 1,
-                                                        "id": "obj-3",
-                                                        "outlettype": [ "" ],
-                                                        "fontsize": 12.0,
                                                         "fontname": "<Monospaced>",
+                                                        "fontface": 0,
+                                                        "numinlets": 4,
+                                                        "id": "obj-3",
+                                                        "numoutlets": 1,
+                                                        "fontsize": 12.0,
+                                                        "outlettype": [ "" ],
                                                         "code": "\r\nrequire(\"evi_svfs.genexpr\");\r\n\r\nParam   smooth(0, min=0, max=333);\r\nParam   filter(7, min=0, max=12);\r\nfilt    = int(filter);\r\nreset   = delta(change(filt)) < 0;\r\n\r\n/*\n\tIndex\tFilter\n\n\t0 \t\tBypass\n\t1 \t\tLowpass\n\t2 \t\tHighpass\n\t3 \t\tBandpass\n\t4 \t\tPeak\n\t5 \t\tNotch\n\t6 \t\tResonant\n\t7 \t\tBell            // (default)\n\t8 \t\tBellAdaptiveQ\n\t9 \t\tLowshelf\n\t10 \t\tHighshelf\n\t11 \t\tTilt\n\t12 \t\tAllpass\n*/\n\r\n                            //   hz,  db,  Q\r\nout1    = eviFilterTptReset(in1, in2, in3, in4, filt, reset, smooth=smooth);\r\n\r\n"
                                                     }
                                                 }
@@ -1223,6 +1245,8 @@
                         ]
                     },
                     "patching_rect": [ 1142.0, 424.0, 104.0, 26.0 ],
+                    "presentation": 1,
+                    "presentation_rect": [ 1142.0, 424.0, 104.0, 26.0 ],
                     "rnboattrcache": {
                         "gen~_obj-1/smooth": {
                             "label": "smooth",
@@ -1313,6 +1337,8 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 68.0, 724.0, 606.0, 20.0 ],
+                    "presentation": 1,
+                    "presentation_rect": [ 68.0, 724.0, 606.0, 20.0 ],
                     "text": "^^ sometimes the [evi.* something] is a patched Max abstraction, but usually still has a similar gen~ version..."
                 }
             },
@@ -1323,6 +1349,8 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 68.0, 646.0, 606.0, 20.0 ],
+                    "presentation": 1,
+                    "presentation_rect": [ 68.0, 646.0, 606.0, 20.0 ],
                     "text": "^^ sometimes the [evi.* something] is an external, but still has a gen~ version..."
                 }
             },
@@ -1334,6 +1362,8 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 68.0, 559.0, 290.0, 24.0 ],
+                    "presentation": 1,
+                    "presentation_rect": [ 68.0, 559.0, 290.0, 24.0 ],
                     "text": "Exceptions..."
                 }
             },
@@ -1579,6 +1609,8 @@
                         ]
                     },
                     "patching_rect": [ 322.0, 696.0, 108.0, 26.0 ],
+                    "presentation": 1,
+                    "presentation_rect": [ 322.0, 696.0, 108.0, 26.0 ],
                     "text": "gen~ @t gen~adsr"
                 }
             },
@@ -1590,6 +1622,8 @@
                     "numoutlets": 4,
                     "outlettype": [ "signal", "signal", "", "signal" ],
                     "patching_rect": [ 68.0, 696.0, 61.0, 26.0 ],
+                    "presentation": 1,
+                    "presentation_rect": [ 68.0, 696.0, 61.0, 26.0 ],
                     "text": "evi.adsr~"
                 }
             },
@@ -1772,6 +1806,8 @@
                         ]
                     },
                     "patching_rect": [ 304.0, 618.0, 143.0, 26.0 ],
+                    "presentation": 1,
+                    "presentation_rect": [ 304.0, 618.0, 143.0, 26.0 ],
                     "text": "gen~ @t gen~expsmooth"
                 }
             },
@@ -1783,6 +1819,8 @@
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
                     "patching_rect": [ 68.0, 618.0, 93.0, 26.0 ],
+                    "presentation": 1,
+                    "presentation_rect": [ 68.0, 618.0, 93.0, 26.0 ],
                     "text": "evi.expsmooth~"
                 }
             },
@@ -1818,6 +1856,9 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 839.0, 601.0, 170.0, 60.0 ],
+                    "presentation": 1,
+                    "presentation_linecount": 4,
+                    "presentation_rect": [ 839.0, 601.0, 170.0, 60.0 ],
                     "text": "Launch the evieve GenExpr Index to learn about every function in the evieve .genexpr files system",
                     "textjustification": 1
                 }
@@ -1831,7 +1872,9 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "orientation": 0,
-                    "patching_rect": [ 917.0, 504.0, 14.0, 93.0 ]
+                    "patching_rect": [ 917.0, 504.0, 14.0, 93.0 ],
+                    "presentation": 1,
+                    "presentation_rect": [ 917.0, 504.0, 14.0, 93.0 ]
                 }
             },
             {
@@ -1842,6 +1885,9 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 571.0, 311.0, 188.0, 47.0 ],
+                    "presentation": 1,
+                    "presentation_linecount": 3,
+                    "presentation_rect": [ 571.0, 311.0, 188.0, 47.0 ],
                     "text": "You can patch inside a gen~ with the same names as in MSP - just substitute the '.' for a '_'",
                     "textjustification": 1
                 }
@@ -1854,6 +1900,9 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 833.0, 305.0, 184.0, 60.0 ],
+                    "presentation": 1,
+                    "presentation_linecount": 4,
+                    "presentation_rect": [ 833.0, 305.0, 184.0, 60.0 ],
                     "text": "Creating your own processing chains inside GenExpr is always the most efficient as there is no other wrapping going on",
                     "textjustification": 1
                 }
@@ -1866,6 +1915,9 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 293.0, 376.0, 161.0, 33.0 ],
+                    "presentation": 1,
+                    "presentation_linecount": 2,
+                    "presentation_rect": [ 293.0, 376.0, 161.0, 33.0 ],
                     "text": "In gen~, the naming is always [evi_*something]",
                     "textjustification": 1
                 }
@@ -1878,6 +1930,9 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 18.0, 376.0, 161.0, 33.0 ],
+                    "presentation": 1,
+                    "presentation_linecount": 2,
+                    "presentation_rect": [ 18.0, 376.0, 161.0, 33.0 ],
                     "text": "In MSP, the naming is always [evi.*something]",
                     "textjustification": 1
                 }
@@ -1889,6 +1944,8 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 132.0, 472.0, 159.0, 20.0 ],
+                    "presentation": 1,
+                    "presentation_rect": [ 132.0, 472.0, 159.0, 20.0 ],
                     "text": "....... is a 'define' for .......",
                     "textjustification": 1
                 }
@@ -1904,6 +1961,9 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 917.0, 371.0, 210.0, 52.0 ],
+                    "presentation": 1,
+                    "presentation_linecount": 2,
+                    "presentation_rect": [ 917.0, 371.0, 210.0, 52.0 ],
                     "text": "this is what the evieve package is all about - anything else is a bonus :-)",
                     "textjustification": 1
                 }
@@ -1917,6 +1977,8 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 845.0, 455.0, 158.0, 39.0 ],
+                    "presentation": 1,
+                    "presentation_rect": [ 845.0, 455.0, 158.0, 39.0 ],
                     "text": "called from GenExpr code",
                     "textjustification": 1
                 }
@@ -1930,6 +1992,8 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 593.0, 455.0, 140.0, 39.0 ],
+                    "presentation": 1,
+                    "presentation_rect": [ 593.0, 455.0, 140.0, 39.0 ],
                     "text": "patched inside a gen~",
                     "textjustification": 1
                 }
@@ -1943,6 +2007,8 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 307.0, 455.0, 134.0, 39.0 ],
+                    "presentation": 1,
+                    "presentation_rect": [ 307.0, 455.0, 134.0, 39.0 ],
                     "text": "as a gen~ file in MSP",
                     "textjustification": 1
                 }
@@ -1956,6 +2022,8 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 68.0, 455.0, 62.0, 39.0 ],
+                    "presentation": 1,
+                    "presentation_rect": [ 68.0, 455.0, 62.0, 39.0 ],
                     "text": "in MSP",
                     "textjustification": 1
                 }
@@ -1968,6 +2036,8 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 70.0, 318.0, 329.0, 24.0 ],
+                    "presentation": 1,
+                    "presentation_rect": [ 70.0, 318.0, 329.0, 24.0 ],
                     "text": "The basic principle of evieve patching:"
                 }
             },
@@ -2097,6 +2167,8 @@
                         ]
                     },
                     "patching_rect": [ 871.0, 424.0, 105.0, 26.0 ],
+                    "presentation": 1,
+                    "presentation_rect": [ 871.0, 424.0, 105.0, 26.0 ],
                     "text": "gen~ @t GenExpr"
                 }
             },
@@ -2107,6 +2179,8 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 129.0, 427.0, 162.0, 20.0 ],
+                    "presentation": 1,
+                    "presentation_rect": [ 129.0, 427.0, 162.0, 20.0 ],
                     "text": "---->> is the same as ---->>",
                     "textjustification": 1
                 }
@@ -2423,6 +2497,8 @@
                         ]
                     },
                     "patching_rect": [ 620.0, 424.0, 85.0, 26.0 ],
+                    "presentation": 1,
+                    "presentation_rect": [ 620.0, 424.0, 85.0, 26.0 ],
                     "text": "gen~ @t gen~"
                 }
             },
@@ -2435,6 +2511,8 @@
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
                     "patching_rect": [ 293.0, 424.0, 161.0, 26.0 ],
+                    "presentation": 1,
+                    "presentation_rect": [ 293.0, 424.0, 161.0, 26.0 ],
                     "text": "gen~ @gen evi_filter.gendsp"
                 }
             },
@@ -2447,6 +2525,8 @@
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
                     "patching_rect": [ 70.0, 424.0, 57.0, 26.0 ],
+                    "presentation": 1,
+                    "presentation_rect": [ 70.0, 424.0, 57.0, 26.0 ],
                     "text": "evi.filter~"
                 }
             },
@@ -2459,6 +2539,9 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 92.0, 488.0, 612.0, 33.0 ],
+                    "presentation": 1,
+                    "presentation_linecount": 2,
+                    "presentation_rect": [ 92.0, 488.0, 612.0, 33.0 ],
                     "text": "|\nthe benefit of MSP is we have auto-completion so this is the best place to start discovering the Package content"
                 }
             },
@@ -2470,6 +2553,8 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 937.0, 34.0, 327.0, 24.0 ],
+                    "presentation": 1,
+                    "presentation_rect": [ 937.0, 34.0, 327.0, 24.0 ],
                     "text": "About"
                 }
             },
@@ -2481,6 +2566,8 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 70.0, 34.0, 290.0, 24.0 ],
+                    "presentation": 1,
+                    "presentation_rect": [ 70.0, 34.0, 290.0, 24.0 ],
                     "text": "Browse Topics:"
                 }
             },
@@ -2498,6 +2585,8 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 922.0, 60.0, 374.0, 223.0 ],
+                    "presentation": 1,
+                    "presentation_rect": [ 922.0, 60.0, 374.0, 223.0 ],
                     "proportion": 0.5,
                     "rounded": 4,
                     "saved_attribute_attributes": {
@@ -2521,6 +2610,8 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 18.0, 60.0, 885.0, 223.0 ],
+                    "presentation": 1,
+                    "presentation_rect": [ 18.0, 60.0, 885.0, 223.0 ],
                     "proportion": 0.5,
                     "rounded": 4,
                     "saved_attribute_attributes": {
@@ -2544,6 +2635,8 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 18.0, 304.0, 1277.0, 223.0 ],
+                    "presentation": 1,
+                    "presentation_rect": [ 18.0, 304.0, 1277.0, 223.0 ],
                     "proportion": 0.5,
                     "rounded": 4,
                     "saved_attribute_attributes": {
@@ -2567,6 +2660,8 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 18.0, 544.0, 715.0, 223.0 ],
+                    "presentation": 1,
+                    "presentation_rect": [ 18.0, 544.0, 715.0, 223.0 ],
                     "proportion": 0.5,
                     "rounded": 4,
                     "saved_attribute_attributes": {
@@ -2590,6 +2685,8 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 748.0, 544.0, 548.0, 223.0 ],
+                    "presentation": 1,
+                    "presentation_rect": [ 748.0, 544.0, 548.0, 223.0 ],
                     "proportion": 0.5,
                     "rounded": 4,
                     "saved_attribute_attributes": {
@@ -2637,14 +2734,6 @@
         ],
         "parameters": {
             "obj-34": [ "rnbo~", "rnbo~", 0 ],
-            "parameterbanks": {
-                "0": {
-                    "index": 0,
-                    "name": "",
-                    "parameters": [ "-", "-", "-", "-", "-", "-", "-", "-" ],
-                    "buttons": [ "-", "-", "-", "-", "-", "-", "-", "-" ]
-                }
-            },
             "inherited_shortname": 1
         },
         "autosave": 0,
