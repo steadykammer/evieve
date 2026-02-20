@@ -52,6 +52,9 @@
             "input": "../../../../docs/refpages/evieve-max/evieve-ref",
             "output": "../../../../interfaces"
         },
+        "dlookup": {
+            "output": "../../../../interfaces"
+        },
         "maxdb": {
             "output": "../../../../interfaces"
         }

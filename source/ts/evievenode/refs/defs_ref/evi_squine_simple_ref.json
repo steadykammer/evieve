@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi.squine.simple~",
-        "category": "evieve",
         "parent": "evi_squine_simple",
+        "category": "evieve",
         "tilde": "~",
+        "digest": "TEXT_HERE",
         "description": "TEXT_HERE",
         "discussion": ""
     },

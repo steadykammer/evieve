@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi.overdrive.sqrt~",
-        "category": "evieve",
         "parent": "evi_overdrive_sqrt",
+        "category": "evieve",
         "tilde": "~",
+        "digest": "TEXT_HERE",
         "description": "TEXT_HERE",
         "discussion": ""
     },

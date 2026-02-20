@@ -25,6 +25,18 @@
         "boxes": [
             {
                 "box": {
+                    "comment": "",
+                    "id": "obj-6",
+                    "index": 0,
+                    "maxclass": "inlet",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 68.0, 16.0, 30.0, 30.0 ]
+                }
+            },
+            {
+                "box": {
                     "id": "obj-26",
                     "maxclass": "message",
                     "numinlets": 2,
@@ -2028,7 +2040,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 60.0, 20.0, 429.0, 23.0 ],
+                    "patching_rect": [ 116.0, 20.0, 455.0, 23.0 ],
                     "presentation": 1,
                     "presentation_rect": [ 95.0, 1.0, 482.0, 23.0 ],
                     "text": "Select a .genexpr file from the evieve Package:"
@@ -2487,6 +2499,13 @@
                     "destination": [ "obj-73", 0 ],
                     "order": 0,
                     "source": [ "obj-54", 3 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-20", 0 ],
+                    "midpoints": [ 77.5, 53.0, 43.5, 53.0 ],
+                    "source": [ "obj-6", 0 ]
                 }
             },
             {

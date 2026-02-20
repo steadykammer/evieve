@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi.multimode~",
-        "category": "evieve",
         "parent": "evi_multimode",
+        "category": "evieve",
         "tilde": "~",
+        "digest": "TEXT_HERE",
         "description": "TEXT_HERE",
         "discussion": ""
     },

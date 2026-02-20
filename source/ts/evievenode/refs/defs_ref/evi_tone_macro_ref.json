@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi.tone.macro~",
-        "category": "evieve",
         "parent": "evi_tone_macro",
+        "category": "evieve",
         "tilde": "~",
+        "digest": "TEXT_HERE",
         "description": "TEXT_HERE",
         "discussion": ""
     },

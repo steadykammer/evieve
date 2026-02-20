@@ -14,7 +14,7 @@
      <br />
   </description>
   <misc name="GenExpr Functions">
-    <entry name="averageAbsolute()">
+    <entry name="averageAbsolute ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: inputSample,  <br />
         <b>In 2</b>: type=<i>input</i>: windowSizeInSamples,  <br />
@@ -23,7 +23,7 @@
 
       </description>
     </entry>
-    <entry name="averageCore()">
+    <entry name="averageCore ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: X,  <br />
         <b>In 2</b>: type=<i>input</i>: reset,  <br />
@@ -34,7 +34,7 @@
 
       </description>
     </entry>
-    <entry name="averageWrap()">
+    <entry name="averageWrap ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: X,  <br />
         <b>In 2</b>: type=<i>input</i>: reset,  <br />
@@ -46,7 +46,7 @@
 
       </description>
     </entry>
-    <entry name="envRawDetect()">
+    <entry name="envRawDetect ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: attack,  <br />
@@ -56,7 +56,7 @@
 
       </description>
     </entry>
-    <entry name="envSad()">
+    <entry name="envSad ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: s,  <br />
 
@@ -64,7 +64,7 @@
 
       </description>
     </entry>
-    <entry name="envDecay()">
+    <entry name="envDecay ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: d,  <br />
@@ -73,7 +73,7 @@
 
       </description>
     </entry>
-    <entry name="envAttackDecay()">
+    <entry name="envAttackDecay ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: a,  <br />
@@ -83,7 +83,7 @@
 
       </description>
     </entry>
-    <entry name="envAttackHoldRelease()">
+    <entry name="envAttackHoldRelease ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: a,  <br />
@@ -94,7 +94,7 @@
 
       </description>
     </entry>
-    <entry name="vactrolSad()">
+    <entry name="vactrolSad ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: a,  <br />
@@ -103,7 +103,7 @@
 
       </description>
     </entry>
-    <entry name="vactrol()">
+    <entry name="vactrol ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: impulse,  <br />
         <b>In 2</b>: type=<i>input</i>: rise,  <br />
@@ -113,7 +113,7 @@
 
       </description>
     </entry>
-    <entry name="envFollSimple()">
+    <entry name="envFollSimple ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: X,  <br />
         <b>In 2</b>: type=<i>input</i>: attack,  <br />

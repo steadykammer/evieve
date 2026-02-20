@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi.gaussiannoise~",
-        "category": "evieve",
         "parent": "evi_gaussiannoise",
+        "category": "evieve",
         "tilde": "~",
+        "digest": "TEXT_HERE",
         "description": "TEXT_HERE",
         "discussion": ""
     },

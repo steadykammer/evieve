@@ -14,7 +14,7 @@
      <br />
   </description>
   <misc name="GenExpr Functions">
-    <entry name="quartParApproxFull()">
+    <entry name="quartParApproxFull ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: modphase,  <br />
         <b>In 2</b>: type=<i>input</i>: precision,  <br />
@@ -25,7 +25,7 @@
 
       </description>
     </entry>
-    <entry name="quartParOneApprox()">
+    <entry name="quartParOneApprox ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: modphase,  <br />
 
@@ -34,7 +34,7 @@
 
       </description>
     </entry>
-    <entry name="quadratureOsc()">
+    <entry name="quadratureOsc ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: thisphase,  <br />
         <b>In 2</b>: type=<i>input</i>: thisspread,  <br />
@@ -44,7 +44,7 @@
 
       </description>
     </entry>
-    <entry name="tanApprox()">
+    <entry name="tanApprox ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -52,7 +52,7 @@
 
       </description>
     </entry>
-    <entry name="quadOsc()">
+    <entry name="quadOsc ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: frequency,  <br />
         <b>In 2</b>: type=<i>input</i>: reset,  <br />
@@ -62,7 +62,7 @@
 
       </description>
     </entry>
-    <entry name="quadOscSync()">
+    <entry name="quadOscSync ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: frequency,  <br />
         <b>In 2</b>: type=<i>input</i>: reset,  <br />
@@ -74,7 +74,7 @@
 
       </description>
     </entry>
-    <entry name="tptSvfQuadOsc()">
+    <entry name="tptSvfQuadOsc ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
         <b>In 2</b>: type=<i>input</i>: sync,  <br />
@@ -86,7 +86,7 @@
 
       </description>
     </entry>
-    <entry name="parabolApprox()">
+    <entry name="parabolApprox ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: phase,  <br />
 
@@ -94,7 +94,7 @@
 
       </description>
     </entry>
-    <entry name="cosApprox01()">
+    <entry name="cosApprox01 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: a,  <br />
 
@@ -102,7 +102,7 @@
 
       </description>
     </entry>
-    <entry name="sinApprox01()">
+    <entry name="sinApprox01 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: a,  <br />
 
@@ -110,7 +110,7 @@
 
       </description>
     </entry>
-    <entry name="cosApproxPi()">
+    <entry name="cosApproxPi ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -118,7 +118,7 @@
 
       </description>
     </entry>
-    <entry name="sinApproxPi()">
+    <entry name="sinApproxPi ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 

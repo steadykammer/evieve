@@ -17,7 +17,7 @@
      <br />
   </description>
   <misc name="GenExpr Functions">
-    <entry name="stepsmooth()">
+    <entry name="stepsmooth ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: y,  <br />
@@ -27,7 +27,7 @@
 
       </description>
     </entry>
-    <entry name="polesmooth()">
+    <entry name="polesmooth ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: s,  <br />
@@ -36,7 +36,7 @@
 
       </description>
     </entry>
-    <entry name="expsmooth()">
+    <entry name="expsmooth ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: t,  <br />
@@ -45,7 +45,7 @@
 
       </description>
     </entry>
-    <entry name="logsmooth()">
+    <entry name="logsmooth ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: s,  <br />
@@ -54,7 +54,7 @@
 
       </description>
     </entry>
-    <entry name="logsmoothClip()">
+    <entry name="logsmoothClip ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: s,  <br />
@@ -63,7 +63,7 @@
 
       </description>
     </entry>
-    <entry name="expso()">
+    <entry name="expso ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: z,  <br />
@@ -72,7 +72,7 @@
 
       </description>
     </entry>
-    <entry name="expsmoothBank2()">
+    <entry name="expsmoothBank2 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x1,  <br />
         <b>In 2</b>: type=<i>input</i>: x2,  <br />
@@ -83,7 +83,7 @@
 
       </description>
     </entry>
-    <entry name="expsmoothBank3()">
+    <entry name="expsmoothBank3 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x1,  <br />
         <b>In 2</b>: type=<i>input</i>: x2,  <br />
@@ -96,7 +96,7 @@
 
       </description>
     </entry>
-    <entry name="expsmoothBank4()">
+    <entry name="expsmoothBank4 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x1,  <br />
         <b>In 2</b>: type=<i>input</i>: x2,  <br />
@@ -111,7 +111,7 @@
 
       </description>
     </entry>
-    <entry name="expsmoothBank5()">
+    <entry name="expsmoothBank5 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x1,  <br />
         <b>In 2</b>: type=<i>input</i>: x2,  <br />
@@ -128,7 +128,7 @@
 
       </description>
     </entry>
-    <entry name="expsmoothBank6()">
+    <entry name="expsmoothBank6 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x1,  <br />
         <b>In 2</b>: type=<i>input</i>: x2,  <br />
@@ -147,7 +147,7 @@
 
       </description>
     </entry>
-    <entry name="expsmoothBank7()">
+    <entry name="expsmoothBank7 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x1,  <br />
         <b>In 2</b>: type=<i>input</i>: x2,  <br />
@@ -168,7 +168,7 @@
 
       </description>
     </entry>
-    <entry name="expsmoothBank8()">
+    <entry name="expsmoothBank8 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x1,  <br />
         <b>In 2</b>: type=<i>input</i>: x2,  <br />
@@ -191,7 +191,7 @@
 
       </description>
     </entry>
-    <entry name="cfSmoothLinearCoeff()">
+    <entry name="cfSmoothLinearCoeff ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: hz,  <br />
         <b>In 2</b>: type=<i>input</i>: s,  <br />
@@ -201,7 +201,7 @@
 
       </description>
     </entry>
-    <entry name="cfSmoothLinearFilter()">
+    <entry name="cfSmoothLinearFilter ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x0,  <br />
         <b>In 2</b>: type=<i>input</i>: g0,  <br />
@@ -211,7 +211,7 @@
 
       </description>
     </entry>
-    <entry name="cfSmoothLinear()">
+    <entry name="cfSmoothLinear ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x1,  <br />
         <b>In 2</b>: type=<i>input</i>: hz,  <br />
@@ -221,7 +221,7 @@
 
       </description>
     </entry>
-    <entry name="cfSmoothLinear2()">
+    <entry name="cfSmoothLinear2 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x1,  <br />
         <b>In 2</b>: type=<i>input</i>: x2,  <br />
@@ -233,7 +233,7 @@
 
       </description>
     </entry>
-    <entry name="cfSmoothCubicCoeff()">
+    <entry name="cfSmoothCubicCoeff ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: hz,  <br />
         <b>In 2</b>: type=<i>input</i>: s,  <br />
@@ -243,7 +243,7 @@
 
       </description>
     </entry>
-    <entry name="cfSmoothCubicFilter()">
+    <entry name="cfSmoothCubicFilter ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x0,  <br />
         <b>In 2</b>: type=<i>input</i>: wc,  <br />
@@ -253,7 +253,7 @@
 
       </description>
     </entry>
-    <entry name="cfSmoothCubic()">
+    <entry name="cfSmoothCubic ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x1,  <br />
         <b>In 2</b>: type=<i>input</i>: hz,  <br />
@@ -263,7 +263,7 @@
 
       </description>
     </entry>
-    <entry name="cfSmoothCubic2()">
+    <entry name="cfSmoothCubic2 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x1,  <br />
         <b>In 2</b>: type=<i>input</i>: x2,  <br />
@@ -275,7 +275,7 @@
 
       </description>
     </entry>
-    <entry name="smoothCoeff()">
+    <entry name="smoothCoeff ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: smooth,  <br />
         <b>In 2</b>: type=<i>param</i> (optional): q, default: 0.54945,  <br />
@@ -288,7 +288,7 @@
 
       </description>
     </entry>
-    <entry name="logsad()">
+    <entry name="logsad ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: s,  <br />
 
@@ -296,7 +296,7 @@
 
       </description>
     </entry>
-    <entry name="logso()">
+    <entry name="logso ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: ad,  <br />
@@ -305,7 +305,7 @@
 
       </description>
     </entry>
-    <entry name="logsmoothBank2()">
+    <entry name="logsmoothBank2 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x1,  <br />
         <b>In 2</b>: type=<i>input</i>: x2,  <br />
@@ -316,7 +316,7 @@
 
       </description>
     </entry>
-    <entry name="logsmoothBank3()">
+    <entry name="logsmoothBank3 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x1,  <br />
         <b>In 2</b>: type=<i>input</i>: x2,  <br />
@@ -329,7 +329,7 @@
 
       </description>
     </entry>
-    <entry name="logsmoothBank4()">
+    <entry name="logsmoothBank4 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x1,  <br />
         <b>In 2</b>: type=<i>input</i>: x2,  <br />
@@ -344,7 +344,7 @@
 
       </description>
     </entry>
-    <entry name="logsmoothBank5()">
+    <entry name="logsmoothBank5 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x1,  <br />
         <b>In 2</b>: type=<i>input</i>: x2,  <br />
@@ -361,7 +361,7 @@
 
       </description>
     </entry>
-    <entry name="logsmoothBank6()">
+    <entry name="logsmoothBank6 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x1,  <br />
         <b>In 2</b>: type=<i>input</i>: x2,  <br />
@@ -380,7 +380,7 @@
 
       </description>
     </entry>
-    <entry name="logsmoothBank7()">
+    <entry name="logsmoothBank7 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x1,  <br />
         <b>In 2</b>: type=<i>input</i>: x2,  <br />
@@ -401,7 +401,7 @@
 
       </description>
     </entry>
-    <entry name="logsmoothBank8()">
+    <entry name="logsmoothBank8 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x1,  <br />
         <b>In 2</b>: type=<i>input</i>: x2,  <br />
@@ -424,7 +424,7 @@
 
       </description>
     </entry>
-    <entry name="logdecay()">
+    <entry name="logdecay ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: d,  <br />
@@ -433,7 +433,7 @@
 
       </description>
     </entry>
-    <entry name="logattackdecay()">
+    <entry name="logattackdecay ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: a,  <br />
@@ -443,7 +443,7 @@
 
       </description>
     </entry>
-    <entry name="logattackholdrelease()">
+    <entry name="logattackholdrelease ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: a,  <br />
@@ -454,7 +454,7 @@
 
       </description>
     </entry>
-    <entry name="lagpole()">
+    <entry name="lagpole ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: c,  <br />
@@ -464,7 +464,7 @@
 
       </description>
     </entry>
-    <entry name="lagpoleAbs()">
+    <entry name="lagpoleAbs ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: c,  <br />
@@ -474,7 +474,7 @@
 
       </description>
     </entry>
-    <entry name="lagsmooth()">
+    <entry name="lagsmooth ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: v,  <br />
         <b>In 2</b>: type=<i>input</i>: lp0,  <br />
@@ -483,7 +483,7 @@
 
       </description>
     </entry>
-    <entry name="lagsmoothThresh()">
+    <entry name="lagsmoothThresh ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: v,  <br />
         <b>In 2</b>: type=<i>input</i>: lp0,  <br />
@@ -493,7 +493,7 @@
 
       </description>
     </entry>
-    <entry name="rampone()">
+    <entry name="rampone ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: r,  <br />
@@ -503,7 +503,7 @@
 
       </description>
     </entry>
-    <entry name="ramptwo()">
+    <entry name="ramptwo ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: u,  <br />
@@ -514,7 +514,7 @@
 
       </description>
     </entry>
-    <entry name="eviLine()">
+    <entry name="eviLine ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: target,  <br />
         <b>In 2</b>: type=<i>input</i>: duration,  <br />
@@ -524,7 +524,7 @@
 
       </description>
     </entry>
-    <entry name="eviSline()">
+    <entry name="eviSline ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: target,  <br />
         <b>In 2</b>: type=<i>input</i>: duration,  <br />
@@ -534,7 +534,7 @@
 
       </description>
     </entry>
-    <entry name="eviRampsmooth()">
+    <entry name="eviRampsmooth ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: input,  <br />
         <b>In 2</b>: type=<i>input</i>: rampup,  <br />
@@ -545,7 +545,7 @@
 
       </description>
     </entry>
-    <entry name="eviCurve()">
+    <entry name="eviCurve ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: target,  <br />
         <b>In 2</b>: type=<i>input</i>: duration,  <br />
@@ -556,7 +556,7 @@
 
       </description>
     </entry>
-    <entry name="eviSlide()">
+    <entry name="eviSlide ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: u,  <br />
@@ -566,7 +566,7 @@
 
       </description>
     </entry>
-    <entry name="likeAvactrol()">
+    <entry name="likeAvactrol ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: V,  <br />
         <b>In 2</b>: type=<i>input</i>: up,  <br />
@@ -576,7 +576,7 @@
 
       </description>
     </entry>
-    <entry name="vactrolSection()">
+    <entry name="vactrolSection ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: a,  <br />
@@ -585,7 +585,7 @@
 
       </description>
     </entry>
-    <entry name="vactrolBuchla()">
+    <entry name="vactrolBuchla ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: i,  <br />
         <b>In 2</b>: type=<i>input</i>: r,  <br />

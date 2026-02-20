@@ -18,7 +18,7 @@
      <br />
   </description>
   <misc name="GenExpr Functions">
-    <entry name="funcHc0()">
+    <entry name="funcHc0 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -26,7 +26,7 @@
 
       </description>
     </entry>
-    <entry name="funcHc1()">
+    <entry name="funcHc1 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -34,7 +34,7 @@
 
       </description>
     </entry>
-    <entry name="funcHc2()">
+    <entry name="funcHc2 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -42,7 +42,7 @@
 
       </description>
     </entry>
-    <entry name="adHc1()">
+    <entry name="adHc1 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -50,7 +50,7 @@
 
       </description>
     </entry>
-    <entry name="adHc2()">
+    <entry name="adHc2 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -58,7 +58,7 @@
 
       </description>
     </entry>
-    <entry name="adHc2_2x_6POINT()">
+    <entry name="adHc2_2x_6POINT ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
@@ -66,7 +66,7 @@
 
       </description>
     </entry>
-    <entry name="adHc2_4x_6POINT()">
+    <entry name="adHc2_4x_6POINT ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
@@ -74,7 +74,7 @@
 
       </description>
     </entry>
-    <entry name="adHc2_2x_4POINT()">
+    <entry name="adHc2_2x_4POINT ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
@@ -82,7 +82,7 @@
 
       </description>
     </entry>
-    <entry name="adHc2_4x_4POINT()">
+    <entry name="adHc2_4x_4POINT ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
@@ -90,7 +90,7 @@
 
       </description>
     </entry>
-    <entry name="w3()">
+    <entry name="w3 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -98,7 +98,7 @@
 
       </description>
     </entry>
-    <entry name="w4()">
+    <entry name="w4 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -106,7 +106,7 @@
 
       </description>
     </entry>
-    <entry name="diodeCoeffs()">
+    <entry name="diodeCoeffs ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: SR,  <br />
 
@@ -121,7 +121,7 @@
 
       </description>
     </entry>
-    <entry name="diode()">
+    <entry name="diode ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: Vin,  <br />
         <b>In 2</b>: type=<i>input</i>: k1,  <br />
@@ -137,7 +137,7 @@
 
       </description>
     </entry>
-    <entry name="diodeWrap()">
+    <entry name="diodeWrap ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: Vin,  <br />
         <b>In 2</b>: type=<i>input</i>: k1,  <br />
@@ -155,7 +155,7 @@
 
       </description>
     </entry>
-    <entry name="diode_2x_4POINT()">
+    <entry name="diode_2x_4POINT ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
         <b>In 2</b>: type=<i>input</i>: k1,  <br />
@@ -171,7 +171,7 @@
 
       </description>
     </entry>
-    <entry name="diode_4x_4POINT()">
+    <entry name="diode_4x_4POINT ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
         <b>In 2</b>: type=<i>input</i>: k1,  <br />
@@ -187,7 +187,7 @@
 
       </description>
     </entry>
-    <entry name="diode_8x_4POINT()">
+    <entry name="diode_8x_4POINT ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
         <b>In 2</b>: type=<i>input</i>: k1,  <br />
@@ -203,7 +203,7 @@
 
       </description>
     </entry>
-    <entry name="asym()">
+    <entry name="asym ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: xin,  <br />
 
@@ -211,7 +211,7 @@
 
       </description>
     </entry>
-    <entry name="asymWrap()">
+    <entry name="asymWrap ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x2,  <br />
         <b>In 2</b>: type=<i>input</i>: drive,  <br />
@@ -220,7 +220,7 @@
 
       </description>
     </entry>
-    <entry name="asym_2x_6POINT()">
+    <entry name="asym_2x_6POINT ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
@@ -228,7 +228,7 @@
 
       </description>
     </entry>
-    <entry name="asym_4x_6POINT()">
+    <entry name="asym_4x_6POINT ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
@@ -236,7 +236,7 @@
 
       </description>
     </entry>
-    <entry name="funcSc0()">
+    <entry name="funcSc0 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -244,7 +244,7 @@
 
       </description>
     </entry>
-    <entry name="funcSc1()">
+    <entry name="funcSc1 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -252,7 +252,7 @@
 
       </description>
     </entry>
-    <entry name="funcSc11()">
+    <entry name="funcSc11 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -260,7 +260,7 @@
 
       </description>
     </entry>
-    <entry name="funcSc2()">
+    <entry name="funcSc2 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -268,7 +268,7 @@
 
       </description>
     </entry>
-    <entry name="adSc1()">
+    <entry name="adSc1 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -276,7 +276,7 @@
 
       </description>
     </entry>
-    <entry name="adSc2()">
+    <entry name="adSc2 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: OS,  <br />
@@ -285,7 +285,7 @@
 
       </description>
     </entry>
-    <entry name="adSc1_2x_6POINT()">
+    <entry name="adSc1_2x_6POINT ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
@@ -293,7 +293,7 @@
 
       </description>
     </entry>
-    <entry name="adSc2_2x_6POINT_fix2()">
+    <entry name="adSc2_2x_6POINT_fix2 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
@@ -301,7 +301,7 @@
 
       </description>
     </entry>
-    <entry name="adSc2_2x_6POINT()">
+    <entry name="adSc2_2x_6POINT ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
@@ -309,7 +309,7 @@
 
       </description>
     </entry>
-    <entry name="adSc2_4x_6POINT()">
+    <entry name="adSc2_4x_6POINT ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
@@ -317,7 +317,7 @@
 
       </description>
     </entry>
-    <entry name="adSc2_2x_4POINT()">
+    <entry name="adSc2_2x_4POINT ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
@@ -325,7 +325,7 @@
 
       </description>
     </entry>
-    <entry name="adSc2_4x_4POINT()">
+    <entry name="adSc2_4x_4POINT ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 

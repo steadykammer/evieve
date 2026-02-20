@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi.filter.allpass~",
-        "category": "evieve",
         "parent": "evi_filter_allpass",
+        "category": "evieve",
         "tilde": "~",
+        "digest": "TEXT_HERE",
         "description": "TEXT_HERE",
         "discussion": ""
     },

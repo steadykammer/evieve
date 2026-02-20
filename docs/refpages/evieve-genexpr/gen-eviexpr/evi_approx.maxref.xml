@@ -14,7 +14,7 @@
     Numeric approximations used all over evieve. Approximations are faster than library functions but less accurate. You should be careful using approximations - they can break your code. In evieve all approximations are tested to work on the code in which they are used. <br />
   </description>
   <misc name="GenExpr Functions">
-    <entry name="cosQ73()">
+    <entry name="cosQ73 ( )">
       <description>
         Represents a quarter section of a cosine function, used by subsequent approximations <br />
         <br />
@@ -24,7 +24,7 @@
 
       </description>
     </entry>
-    <entry name="cos73()">
+    <entry name="cos73 ( )">
       <description>
         Approximated cosine function to 7.3 digits of precision, just about accurate enough for audio <br />
         <br />
@@ -34,7 +34,7 @@
 
       </description>
     </entry>
-    <entry name="sin73()">
+    <entry name="sin73 ( )">
       <description>
         Approximated sine function to 7.3 digits of precision, just about accurate enough for audio <br />
         <br />
@@ -44,7 +44,7 @@
 
       </description>
     </entry>
-    <entry name="cos73param()">
+    <entry name="cos73param ( )">
       <description>
         Same as 'cos73()' but appropriate for Param rate usage (stays out of while loop) <br />
         <br />
@@ -54,7 +54,7 @@
 
       </description>
     </entry>
-    <entry name="sin73param()">
+    <entry name="sin73param ( )">
       <description>
         Same as 'sin73()' but appropriate for Param rate usage (stays out of while loop) <br />
         <br />
@@ -64,7 +64,7 @@
 
       </description>
     </entry>
-    <entry name="quartParOneApprox()">
+    <entry name="quartParOneApprox ( )">
       <description>
         One quarter of a cosine function, accurate at extremes and half, excellent for crossfading and panning etc <br />
         <br />
@@ -75,7 +75,7 @@
 
       </description>
     </entry>
-    <entry name="tanA()">
+    <entry name="tanA ( )">
       <description>
         Cheapest approximation of 'tan()', useful for BLT <br />
         <br />
@@ -85,7 +85,7 @@
 
       </description>
     </entry>
-    <entry name="tanA2()">
+    <entry name="tanA2 ( )">
       <description>
         More accurate appromimation of 'tan()', useful for BLT with stricter tuning requirements <br />
         <br />
@@ -95,7 +95,7 @@
 
       </description>
     </entry>
-    <entry name="tanA3()">
+    <entry name="tanA3 ( )">
       <description>
         Most accurate appromimation of 'tan()', useful for BLT with very strict tuning requirements <br />
         <br />
@@ -105,7 +105,7 @@
 
       </description>
     </entry>
-    <entry name="atanA()">
+    <entry name="atanA ( )">
       <description>
         Approximation of 'arctan()', 2x faster than library, also accurate enough for audio usage <br />
         <br />
@@ -115,7 +115,7 @@
 
       </description>
     </entry>
-    <entry name="atanT()">
+    <entry name="atanT ( )">
       <description>
         3rd order approximation of arctan, maximum approximation error 0.00811º <br />
         <br />
@@ -125,7 +125,7 @@
 
       </description>
     </entry>
-    <entry name="atan2Approx()">
+    <entry name="atan2Approx ( )">
       <description>
         Famous 'atan2()' approximation, over 2x faster than library <br />
         <br />
@@ -136,7 +136,7 @@
 
       </description>
     </entry>
-    <entry name="acosT()">
+    <entry name="acosT ( )">
       <description>
         Approximation of 'acos()', only useful for very specific scenarios <br />
         <br />
@@ -146,7 +146,7 @@
 
       </description>
     </entry>
-    <entry name="expP()">
+    <entry name="expP ( )">
       <description>
         Padé approximation of 'exp()', only useful for very specific scenarios, almost 2x faster than library <br />
         <br />
@@ -156,7 +156,7 @@
 
       </description>
     </entry>
-    <entry name="expA()">
+    <entry name="expA ( )">
       <description>
         Cheapest full range exp() approximation that evieve offers, we use this everywhere, more accurate than 'fastexp()', at least 1.5 x faster than library exp() <br />
         <br />
@@ -166,7 +166,7 @@
 
       </description>
     </entry>
-    <entry name="expApprox()">
+    <entry name="expApprox ( )">
       <description>
         Slightly more accurate than 'expA()', about 1.5 x faster than library exp() <br />
         <br />
@@ -176,7 +176,7 @@
 
       </description>
     </entry>
-    <entry name="pow2Approx()">
+    <entry name="pow2Approx ( )">
       <description>
         Approximation of pow(2, input), uses 'expApprox()' <br />
         <br />
@@ -186,7 +186,7 @@
 
       </description>
     </entry>
-    <entry name="coshApprox()">
+    <entry name="coshApprox ( )">
       <description>
         Approximated 'cosh()' of input, uses 'expApprox()' <br />
         <br />
@@ -196,7 +196,7 @@
 
       </description>
     </entry>
-    <entry name="log2Approx()">
+    <entry name="log2Approx ( )">
       <description>
         Approximated 'log2()' of input, 1.7 to 2 x faster than library 'log2()' <br />
         <br />
@@ -206,7 +206,7 @@
 
       </description>
     </entry>
-    <entry name="logApprox()">
+    <entry name="logApprox ( )">
       <description>
         Approximated log() of input, uses 'log2Approx()' <br />
         <br />
@@ -216,7 +216,7 @@
 
       </description>
     </entry>
-    <entry name="log10Approx()">
+    <entry name="log10Approx ( )">
       <description>
         Approximated log10() of input, uses 'log2Approx()' <br />
         <br />
@@ -226,7 +226,7 @@
 
       </description>
     </entry>
-    <entry name="log1pApprox()">
+    <entry name="log1pApprox ( )">
       <description>
         Approximated 'log1p()' of input, uses 'log2Approx()' <br />
         <br />
@@ -236,7 +236,7 @@
 
       </description>
     </entry>
-    <entry name="transratioApprox()">
+    <entry name="transratioApprox ( )">
       <description>
         Transpose semitones input (0=none), like [transratio] and [evi.transratio] <br />
         <br />
@@ -246,7 +246,7 @@
 
       </description>
     </entry>
-    <entry name="mtofApprox()">
+    <entry name="mtofApprox ( )">
       <description>
         Approximation of 'mtof()' <br />
         <br />
@@ -257,7 +257,7 @@
 
       </description>
     </entry>
-    <entry name="mtofApproxBaseless()">
+    <entry name="mtofApproxBaseless ( )">
       <description>
         Approximation of 'mtof()' <br />
         <br />
@@ -267,7 +267,7 @@
 
       </description>
     </entry>
-    <entry name="mtofApproxAccurate()">
+    <entry name="mtofApproxAccurate ( )">
       <description>
         Approximation of 'mtof()', most expensive but very accurate accross full range <br />
         <br />
@@ -277,7 +277,7 @@
 
       </description>
     </entry>
-    <entry name="ftomApproxBaseless()">
+    <entry name="ftomApproxBaseless ( )">
       <description>
         Approximation of 'ftom()' <br />
         <br />
@@ -287,7 +287,7 @@
 
       </description>
     </entry>
-    <entry name="ftomApproxAccurate()">
+    <entry name="ftomApproxAccurate ( )">
       <description>
         Approximation of 'ftom()', most expensive but accurate accross full range <br />
         <br />
@@ -297,7 +297,7 @@
 
       </description>
     </entry>
-    <entry name="dbtoaApprox()">
+    <entry name="dbtoaApprox ( )">
       <description>
         Approximation of 'dbtoa()' <br />
         <br />
@@ -307,7 +307,7 @@
 
       </description>
     </entry>
-    <entry name="dbtoaApproxFast()">
+    <entry name="dbtoaApproxFast ( )">
       <description>
         Approximation of 'dbtoa()', very fast but not very accurate <br />
         <br />
@@ -317,7 +317,7 @@
 
       </description>
     </entry>
-    <entry name="dbtosqrt2Approx()">
+    <entry name="dbtosqrt2Approx ( )">
       <description>
         Approximation of 'dbtoa(sqrt(input))', useful for filter coefficients <br />
         <br />
@@ -327,7 +327,7 @@
 
       </description>
     </entry>
-    <entry name="atodbApprox()">
+    <entry name="atodbApprox ( )">
       <description>
         Approximated 'atodb()' <br />
         <br />
@@ -337,7 +337,7 @@
 
       </description>
     </entry>
-    <entry name="tauA()">
+    <entry name="tauA ( )">
       <description>
         Approximation of 'exp(-1 / (seconds * samplerate))' for time..pole calculations <br />
         <br />
@@ -347,7 +347,7 @@
 
       </description>
     </entry>
-    <entry name="hz2barkApprox()">
+    <entry name="hz2barkApprox ( )">
       <description>
         Approximation of Hz to Bark coefficients <br />
         <br />
@@ -357,7 +357,7 @@
 
       </description>
     </entry>
-    <entry name="bark2hzApprox()">
+    <entry name="bark2hzApprox ( )">
       <description>
         Approximation of Bark coefficients to Hz <br />
         <br />
@@ -367,7 +367,7 @@
 
       </description>
     </entry>
-    <entry name="hz2melApprox()">
+    <entry name="hz2melApprox ( )">
       <description>
         Approximation of Hz to Mel coefficients <br />
         <br />
@@ -377,7 +377,7 @@
 
       </description>
     </entry>
-    <entry name="mel2hzApprox()">
+    <entry name="mel2hzApprox ( )">
       <description>
         Approximation of Mel coefficients to Hz <br />
         <br />
@@ -387,7 +387,7 @@
 
       </description>
     </entry>
-    <entry name="c2pApprox()">
+    <entry name="c2pApprox ( )">
       <description>
         Approximation of 'cartopol()' <br />
         <br />
@@ -399,7 +399,7 @@
 
       </description>
     </entry>
-    <entry name="p2cApprox()">
+    <entry name="p2cApprox ( )">
       <description>
         Approximation of 'poltocar()' <br />
         <br />
@@ -411,7 +411,7 @@
 
       </description>
     </entry>
-    <entry name="p2cApproxParam()">
+    <entry name="p2cApproxParam ( )">
       <description>
         Approximation of 'poltocar()' suitable for Param rate (keep out of while loop) <br />
         <br />
@@ -423,7 +423,7 @@
 
       </description>
     </entry>
-    <entry name="p2cApproxQuart()">
+    <entry name="p2cApproxQuart ( )">
       <description>
         Approximation of one cosine quarter of 'poltocar()' <br />
         <br />
@@ -435,7 +435,7 @@
 
       </description>
     </entry>
-    <entry name="eviLog1p()">
+    <entry name="eviLog1p ( )">
       <description>
         Not an approximation, full range implementation of 'log1p()' <br />
         <br />
@@ -445,7 +445,7 @@
 
       </description>
     </entry>
-    <entry name="Li2Approx()">
+    <entry name="Li2Approx ( )">
       <description>
         Approximation of real dilogarithm mathrm{Li}_2(x), Alexander Voigt, @license GPL v3 <br />
         <br />

@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi.ladder.moog~",
-        "category": "evieve",
         "parent": "evi_ladder_moog",
+        "category": "evieve",
         "tilde": "~",
+        "digest": "TEXT_HERE",
         "description": "TEXT_HERE",
         "discussion": ""
     },

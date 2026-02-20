@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi.onepole.shelving~",
-        "category": "evieve",
         "parent": "evi_onepole_shelving",
+        "category": "evieve",
         "tilde": "~",
+        "digest": "TEXT_HERE",
         "description": "TEXT_HERE",
         "discussion": ""
     },

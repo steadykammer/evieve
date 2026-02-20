@@ -18,7 +18,7 @@
      <br />
   </description>
   <misc name="GenExpr Functions">
-    <entry name="D()">
+    <entry name="D ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -26,7 +26,7 @@
 
       </description>
     </entry>
-    <entry name="szilagyi()">
+    <entry name="szilagyi ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: drive,  <br />
         <b>In 2</b>: type=<i>input</i>: blend,  <br />
@@ -43,7 +43,7 @@
 
       </description>
     </entry>
-    <entry name="sD()">
+    <entry name="sD ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -51,7 +51,7 @@
 
       </description>
     </entry>
-    <entry name="szilagyiF0()">
+    <entry name="szilagyiF0 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -59,7 +59,7 @@
 
       </description>
     </entry>
-    <entry name="szilagyiF1()">
+    <entry name="szilagyiF1 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -67,7 +67,7 @@
 
       </description>
     </entry>
-    <entry name="szilagyiF2()">
+    <entry name="szilagyiF2 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -75,7 +75,7 @@
 
       </description>
     </entry>
-    <entry name="szilagyiAdaa1()">
+    <entry name="szilagyiAdaa1 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x0,  <br />
 
@@ -83,7 +83,7 @@
 
       </description>
     </entry>
-    <entry name="szilagyiAdaa2()">
+    <entry name="szilagyiAdaa2 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x0,  <br />
 
@@ -91,7 +91,7 @@
 
       </description>
     </entry>
-    <entry name="saturate()">
+    <entry name="saturate ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: l,  <br />
@@ -101,7 +101,7 @@
 
       </description>
     </entry>
-    <entry name="saturateAdaa2_2x_6POINT()">
+    <entry name="saturateAdaa2_2x_6POINT ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
         <b>In 2</b>: type=<i>input</i>: l,  <br />
@@ -111,7 +111,7 @@
 
       </description>
     </entry>
-    <entry name="saturateAdaa2_4x_6POINT()">
+    <entry name="saturateAdaa2_4x_6POINT ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
         <b>In 2</b>: type=<i>input</i>: l,  <br />
@@ -121,7 +121,7 @@
 
       </description>
     </entry>
-    <entry name="boost()">
+    <entry name="boost ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: s,  <br />
@@ -132,7 +132,7 @@
 
       </description>
     </entry>
-    <entry name="fWarp()">
+    <entry name="fWarp ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: cf,  <br />
 
@@ -140,7 +140,7 @@
 
       </description>
     </entry>
-    <entry name="lp1p()">
+    <entry name="lp1p ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: g,  <br />
@@ -149,7 +149,7 @@
 
       </description>
     </entry>
-    <entry name="lp2p()">
+    <entry name="lp2p ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: g,  <br />

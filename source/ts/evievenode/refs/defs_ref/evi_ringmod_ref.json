@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi.ringmod~",
-        "category": "evieve",
         "parent": "evi_ringmod",
+        "category": "evieve",
         "tilde": "~",
+        "digest": "TEXT_HERE",
         "description": "TEXT_HERE",
         "discussion": ""
     },

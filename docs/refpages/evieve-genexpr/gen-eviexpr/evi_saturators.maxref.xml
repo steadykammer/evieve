@@ -18,7 +18,7 @@
      <br />
   </description>
   <misc name="GenExpr Functions">
-    <entry name="hardclipAdaa1_2x_6POINT()">
+    <entry name="hardclipAdaa1_2x_6POINT ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
@@ -26,7 +26,7 @@
 
       </description>
     </entry>
-    <entry name="hardclipAdaa1_4x_6POINT()">
+    <entry name="hardclipAdaa1_4x_6POINT ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
@@ -34,7 +34,7 @@
 
       </description>
     </entry>
-    <entry name="hardclipAdaa2_2x_6POINT()">
+    <entry name="hardclipAdaa2_2x_6POINT ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
@@ -42,7 +42,7 @@
 
       </description>
     </entry>
-    <entry name="hardclipAdaa2_4x_6POINT()">
+    <entry name="hardclipAdaa2_4x_6POINT ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
@@ -50,7 +50,7 @@
 
       </description>
     </entry>
-    <entry name="halfrectAdaa1_2x_6POINT()">
+    <entry name="halfrectAdaa1_2x_6POINT ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
@@ -58,7 +58,7 @@
 
       </description>
     </entry>
-    <entry name="halfrectAdaa1_4x_6POINT()">
+    <entry name="halfrectAdaa1_4x_6POINT ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
@@ -66,7 +66,7 @@
 
       </description>
     </entry>
-    <entry name="halfrectAdaa2_2x_6POINT()">
+    <entry name="halfrectAdaa2_2x_6POINT ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
@@ -74,7 +74,7 @@
 
       </description>
     </entry>
-    <entry name="halfrectAdaa2_4x_6POINT()">
+    <entry name="halfrectAdaa2_4x_6POINT ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
@@ -82,7 +82,7 @@
 
       </description>
     </entry>
-    <entry name="powerAdaa1_2x_6POINT()">
+    <entry name="powerAdaa1_2x_6POINT ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
@@ -90,7 +90,7 @@
 
       </description>
     </entry>
-    <entry name="powerAdaa1_4x_6POINT()">
+    <entry name="powerAdaa1_4x_6POINT ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
@@ -98,7 +98,7 @@
 
       </description>
     </entry>
-    <entry name="powerAdaa2_2x_6POINT()">
+    <entry name="powerAdaa2_2x_6POINT ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
@@ -106,7 +106,7 @@
 
       </description>
     </entry>
-    <entry name="powerAdaa2_4x_6POINT()">
+    <entry name="powerAdaa2_4x_6POINT ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
@@ -114,7 +114,7 @@
 
       </description>
     </entry>
-    <entry name="softclip2Adaa1_2x_6POINT()">
+    <entry name="softclip2Adaa1_2x_6POINT ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
@@ -122,7 +122,7 @@
 
       </description>
     </entry>
-    <entry name="softclip2Adaa1_4x_6POINT()">
+    <entry name="softclip2Adaa1_4x_6POINT ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
@@ -130,7 +130,7 @@
 
       </description>
     </entry>
-    <entry name="softclip2Adaa2_2x_6POINT()">
+    <entry name="softclip2Adaa2_2x_6POINT ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
@@ -138,7 +138,7 @@
 
       </description>
     </entry>
-    <entry name="softclip2Adaa2_4x_6POINT()">
+    <entry name="softclip2Adaa2_4x_6POINT ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
@@ -146,7 +146,7 @@
 
       </description>
     </entry>
-    <entry name="softclipNAdaa1_2x_6POINT()">
+    <entry name="softclipNAdaa1_2x_6POINT ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
@@ -154,7 +154,7 @@
 
       </description>
     </entry>
-    <entry name="softclipNAdaa1_4x_6POINT()">
+    <entry name="softclipNAdaa1_4x_6POINT ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
@@ -162,7 +162,7 @@
 
       </description>
     </entry>
-    <entry name="softclipNAdaa2_2x_6POINT()">
+    <entry name="softclipNAdaa2_2x_6POINT ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
@@ -170,7 +170,7 @@
 
       </description>
     </entry>
-    <entry name="softclipNAdaa2_4x_6POINT()">
+    <entry name="softclipNAdaa2_4x_6POINT ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
@@ -178,7 +178,7 @@
 
       </description>
     </entry>
-    <entry name="atanAdaa1_2x_6POINT()">
+    <entry name="atanAdaa1_2x_6POINT ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
@@ -186,7 +186,7 @@
 
       </description>
     </entry>
-    <entry name="atanAdaa1_4x_6POINT()">
+    <entry name="atanAdaa1_4x_6POINT ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
@@ -194,7 +194,7 @@
 
       </description>
     </entry>
-    <entry name="atanAdaa2_2x_6POINT()">
+    <entry name="atanAdaa2_2x_6POINT ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
@@ -202,7 +202,7 @@
 
       </description>
     </entry>
-    <entry name="atanAdaa2_4x_6POINT()">
+    <entry name="atanAdaa2_4x_6POINT ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
@@ -210,7 +210,7 @@
 
       </description>
     </entry>
-    <entry name="algebraicAdaa1_2x_6POINT()">
+    <entry name="algebraicAdaa1_2x_6POINT ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
@@ -218,7 +218,7 @@
 
       </description>
     </entry>
-    <entry name="algebraicAdaa1_4x_6POINT()">
+    <entry name="algebraicAdaa1_4x_6POINT ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
@@ -226,7 +226,7 @@
 
       </description>
     </entry>
-    <entry name="algebraicAdaa2_2x_6POINT()">
+    <entry name="algebraicAdaa2_2x_6POINT ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
@@ -234,7 +234,7 @@
 
       </description>
     </entry>
-    <entry name="algebraicAdaa2_4x_6POINT()">
+    <entry name="algebraicAdaa2_4x_6POINT ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
@@ -242,7 +242,7 @@
 
       </description>
     </entry>
-    <entry name="log1pAdaa1_2x_6POINT()">
+    <entry name="log1pAdaa1_2x_6POINT ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
@@ -250,7 +250,7 @@
 
       </description>
     </entry>
-    <entry name="log1pAdaa1_4x_6POINT()">
+    <entry name="log1pAdaa1_4x_6POINT ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
@@ -258,7 +258,7 @@
 
       </description>
     </entry>
-    <entry name="log1pAdaa2_2x_6POINT()">
+    <entry name="log1pAdaa2_2x_6POINT ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
@@ -266,7 +266,7 @@
 
       </description>
     </entry>
-    <entry name="log1pAdaa2_4x_6POINT()">
+    <entry name="log1pAdaa2_4x_6POINT ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
@@ -274,7 +274,7 @@
 
       </description>
     </entry>
-    <entry name="altTanhAdaa1_2x_6POINT()">
+    <entry name="altTanhAdaa1_2x_6POINT ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
@@ -282,7 +282,7 @@
 
       </description>
     </entry>
-    <entry name="altTanhAdaa1_4x_6POINT()">
+    <entry name="altTanhAdaa1_4x_6POINT ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
@@ -290,7 +290,7 @@
 
       </description>
     </entry>
-    <entry name="altTanhAdaa2_2x_6POINT()">
+    <entry name="altTanhAdaa2_2x_6POINT ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
@@ -298,7 +298,7 @@
 
       </description>
     </entry>
-    <entry name="altTanhAdaa2_4x_6POINT()">
+    <entry name="altTanhAdaa2_4x_6POINT ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
@@ -306,7 +306,7 @@
 
       </description>
     </entry>
-    <entry name="altTanhSqrtAdaa1_2x_6POINT()">
+    <entry name="altTanhSqrtAdaa1_2x_6POINT ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
@@ -314,7 +314,7 @@
 
       </description>
     </entry>
-    <entry name="altTanhSqrtAdaa1_4x_6POINT()">
+    <entry name="altTanhSqrtAdaa1_4x_6POINT ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
@@ -322,7 +322,7 @@
 
       </description>
     </entry>
-    <entry name="altTanhSqrtAdaa2_2x_6POINT()">
+    <entry name="altTanhSqrtAdaa2_2x_6POINT ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
@@ -330,7 +330,7 @@
 
       </description>
     </entry>
-    <entry name="altTanhSqrtAdaa2_4x_6POINT()">
+    <entry name="altTanhSqrtAdaa2_4x_6POINT ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
@@ -338,16 +338,7 @@
 
       </description>
     </entry>
-    <entry name="sinAdaa1_2x_6POINT()">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: XIN,  <br />
-        <b>In 2</b>: type=<i>input</i>: osf,  <br />
-
-        <b>Return 1</b>: ,  <br />
-
-      </description>
-    </entry>
-    <entry name="sinAdaa1_4x_6POINT()">
+    <entry name="sinAdaa1_2x_6POINT ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
         <b>In 2</b>: type=<i>input</i>: osf,  <br />
@@ -356,7 +347,7 @@
 
       </description>
     </entry>
-    <entry name="sinAdaa2_2x_6POINT()">
+    <entry name="sinAdaa1_4x_6POINT ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
         <b>In 2</b>: type=<i>input</i>: osf,  <br />
@@ -365,7 +356,7 @@
 
       </description>
     </entry>
-    <entry name="sinAdaa2_4x_6POINT()">
+    <entry name="sinAdaa2_2x_6POINT ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
         <b>In 2</b>: type=<i>input</i>: osf,  <br />
@@ -374,7 +365,16 @@
 
       </description>
     </entry>
-    <entry name="parabolSat()">
+    <entry name="sinAdaa2_4x_6POINT ( )">
+      <description>
+        <b>In 1</b>: type=<i>input</i>: XIN,  <br />
+        <b>In 2</b>: type=<i>input</i>: osf,  <br />
+
+        <b>Return 1</b>: ,  <br />
+
+      </description>
+    </entry>
+    <entry name="parabolSat ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: a,  <br />
@@ -384,7 +384,7 @@
 
       </description>
     </entry>
-    <entry name="parabolSat_2x_6POINT()">
+    <entry name="parabolSat_2x_6POINT ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
         <b>In 2</b>: type=<i>input</i>: a,  <br />
@@ -394,7 +394,7 @@
 
       </description>
     </entry>
-    <entry name="parabolSat_4x_6POINT()">
+    <entry name="parabolSat_4x_6POINT ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
         <b>In 2</b>: type=<i>input</i>: a,  <br />
@@ -404,7 +404,7 @@
 
       </description>
     </entry>
-    <entry name="thbNL()">
+    <entry name="thbNL ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -412,7 +412,7 @@
 
       </description>
     </entry>
-    <entry name="thbNL_2x_6POINT()">
+    <entry name="thbNL_2x_6POINT ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
@@ -420,7 +420,7 @@
 
       </description>
     </entry>
-    <entry name="thbNL_4x_6POINT()">
+    <entry name="thbNL_4x_6POINT ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 

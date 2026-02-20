@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi.filter.notch~",
-        "category": "evieve",
         "parent": "evi_filter_notch",
+        "category": "evieve",
         "tilde": "~",
+        "digest": "TEXT_HERE",
         "description": "TEXT_HERE",
         "discussion": ""
     },

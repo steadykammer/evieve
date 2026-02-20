@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi.skfinputmix~",
-        "category": "evieve",
         "parent": "evi_skfinputmix",
+        "category": "evieve",
         "tilde": "~",
+        "digest": "TEXT_HERE",
         "description": "TEXT_HERE",
         "discussion": ""
     },

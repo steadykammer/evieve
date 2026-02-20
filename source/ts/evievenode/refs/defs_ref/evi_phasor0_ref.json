@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi.phasor0~",
-        "category": "evieve",
         "parent": "evi_phasor0",
+        "category": "evieve",
         "tilde": "~",
+        "digest": "TEXT_HERE",
         "description": "TEXT_HERE",
         "discussion": ""
     },
@@ -50,12 +51,6 @@
         {
             "name": "history",
             "arg": [
-                {
-                    "name": "jump",
-                    "type": "float",
-                    "units": "default: 0",
-                    "optional": 1
-                },
                 {
                     "name": "jump",
                     "type": "float",

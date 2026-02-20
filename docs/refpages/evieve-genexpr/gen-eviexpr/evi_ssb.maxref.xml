@@ -20,7 +20,7 @@
      <br />
   </description>
   <misc name="GenExpr Functions">
-    <entry name="complexRing()">
+    <entry name="complexRing ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: real,  <br />
         <b>In 2</b>: type=<i>input</i>: imag,  <br />
@@ -34,7 +34,7 @@
 
       </description>
     </entry>
-    <entry name="sinFoldNaive()">
+    <entry name="sinFoldNaive ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: pidrive,  <br />
@@ -44,7 +44,7 @@
 
       </description>
     </entry>
-    <entry name="fWarp()">
+    <entry name="fWarp ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: cf,  <br />
 
@@ -52,7 +52,7 @@
 
       </description>
     </entry>
-    <entry name="lp1p()">
+    <entry name="lp1p ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: g,  <br />
@@ -61,7 +61,7 @@
 
       </description>
     </entry>
-    <entry name="lp2p()">
+    <entry name="lp2p ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: g,  <br />
@@ -71,7 +71,7 @@
 
       </description>
     </entry>
-    <entry name="butterworthLowpass4()">
+    <entry name="butterworthLowpass4 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: X,  <br />
         <b>In 2</b>: type=<i>input</i>: G,  <br />
@@ -80,7 +80,7 @@
 
       </description>
     </entry>
-    <entry name="butterworthLowpass8()">
+    <entry name="butterworthLowpass8 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: X,  <br />
         <b>In 2</b>: type=<i>input</i>: G,  <br />

@@ -14,7 +14,7 @@
      <br />
   </description>
   <misc name="GenExpr Functions">
-    <entry name="fastskew()">
+    <entry name="fastskew ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: skew,  <br />
@@ -23,7 +23,7 @@
 
       </description>
     </entry>
-    <entry name="fastskew052neg()">
+    <entry name="fastskew052neg ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: skewneg,  <br />
@@ -32,7 +32,7 @@
 
       </description>
     </entry>
-    <entry name="fastskew052pos()">
+    <entry name="fastskew052pos ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: skewpos,  <br />
@@ -41,7 +41,7 @@
 
       </description>
     </entry>
-    <entry name="fastskew0254neg()">
+    <entry name="fastskew0254neg ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: skewneg,  <br />
@@ -50,7 +50,7 @@
 
       </description>
     </entry>
-    <entry name="fastskew0254pos()">
+    <entry name="fastskew0254pos ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: skewpos,  <br />
@@ -59,7 +59,7 @@
 
       </description>
     </entry>
-    <entry name="fastskew052cr()">
+    <entry name="fastskew052cr ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: skew,  <br />
@@ -68,7 +68,7 @@
 
       </description>
     </entry>
-    <entry name="fastskew0254cr()">
+    <entry name="fastskew0254cr ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: skew,  <br />
@@ -77,7 +77,7 @@
 
       </description>
     </entry>
-    <entry name="fastskew052ar()">
+    <entry name="fastskew052ar ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: skew,  <br />
@@ -86,7 +86,7 @@
 
       </description>
     </entry>
-    <entry name="fastskew0254ar()">
+    <entry name="fastskew0254ar ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: skew,  <br />
@@ -95,7 +95,7 @@
 
       </description>
     </entry>
-    <entry name="fastskew11052neg()">
+    <entry name="fastskew11052neg ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: skewneg,  <br />
@@ -104,7 +104,7 @@
 
       </description>
     </entry>
-    <entry name="fastskew11052pos()">
+    <entry name="fastskew11052pos ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: skewpos,  <br />
@@ -113,7 +113,7 @@
 
       </description>
     </entry>
-    <entry name="fastskew110254neg()">
+    <entry name="fastskew110254neg ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: skewneg,  <br />
@@ -122,7 +122,7 @@
 
       </description>
     </entry>
-    <entry name="fastskew110254pos()">
+    <entry name="fastskew110254pos ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: skewpos,  <br />
@@ -131,7 +131,7 @@
 
       </description>
     </entry>
-    <entry name="fastskew11052cr()">
+    <entry name="fastskew11052cr ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: skew,  <br />
@@ -140,7 +140,7 @@
 
       </description>
     </entry>
-    <entry name="fastskew110254cr()">
+    <entry name="fastskew110254cr ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: skew,  <br />
@@ -149,7 +149,7 @@
 
       </description>
     </entry>
-    <entry name="fastskew11052ar()">
+    <entry name="fastskew11052ar ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: skew,  <br />
@@ -158,7 +158,7 @@
 
       </description>
     </entry>
-    <entry name="fastskew110254ar()">
+    <entry name="fastskew110254ar ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: skew,  <br />
@@ -167,7 +167,7 @@
 
       </description>
     </entry>
-    <entry name="n2p052()">
+    <entry name="n2p052 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: N,  <br />
 
@@ -175,7 +175,7 @@
 
       </description>
     </entry>
-    <entry name="n2p0254()">
+    <entry name="n2p0254 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: N,  <br />
 
@@ -183,7 +183,7 @@
 
       </description>
     </entry>
-    <entry name="warpcurve()">
+    <entry name="warpcurve ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: curvature,  <br />
 
@@ -191,7 +191,7 @@
 
       </description>
     </entry>
-    <entry name="warpcurveParam()">
+    <entry name="warpcurveParam ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: curvature,  <br />
 

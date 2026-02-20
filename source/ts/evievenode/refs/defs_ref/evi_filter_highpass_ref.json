@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi.filter.highpass~",
-        "category": "evieve",
         "parent": "evi_filter_highpass",
+        "category": "evieve",
         "tilde": "~",
+        "digest": "TEXT_HERE",
         "description": "TEXT_HERE",
         "discussion": ""
     },

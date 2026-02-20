@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi.comb~",
-        "category": "evieve",
         "parent": "evi_comb",
+        "category": "evieve",
         "tilde": "~",
+        "digest": "TEXT_HERE",
         "description": "TEXT_HERE",
         "discussion": ""
     },

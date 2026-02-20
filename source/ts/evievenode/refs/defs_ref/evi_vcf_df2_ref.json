@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi.vcf~",
-        "category": "evieve",
         "parent": "evi_vcf_df2",
+        "category": "evieve",
         "tilde": "~",
+        "digest": "TEXT_HERE",
         "description": "TEXT_HERE",
         "discussion": ""
     },

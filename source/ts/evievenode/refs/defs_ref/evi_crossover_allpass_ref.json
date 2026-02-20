@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi.crossover.allpass~",
-        "category": "evieve",
         "parent": "evi_crossover_allpass",
+        "category": "evieve",
         "tilde": "~",
+        "digest": "TEXT_HERE",
         "description": "TEXT_HERE",
         "discussion": ""
     },

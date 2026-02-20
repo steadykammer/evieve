@@ -14,7 +14,7 @@
      <br />
   </description>
   <misc name="GenExpr Functions">
-    <entry name="expA()">
+    <entry name="expA ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x0,  <br />
 
@@ -22,7 +22,7 @@
 
       </description>
     </entry>
-    <entry name="tauA()">
+    <entry name="tauA ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: t,  <br />
 
@@ -30,7 +30,7 @@
 
       </description>
     </entry>
-    <entry name="tanA2()">
+    <entry name="tanA2 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -38,7 +38,7 @@
 
       </description>
     </entry>
-    <entry name="cosQ32()">
+    <entry name="cosQ32 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -46,7 +46,7 @@
 
       </description>
     </entry>
-    <entry name="cos32()">
+    <entry name="cos32 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -54,7 +54,7 @@
 
       </description>
     </entry>
-    <entry name="acosT()">
+    <entry name="acosT ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -62,7 +62,7 @@
 
       </description>
     </entry>
-    <entry name="expApprox()">
+    <entry name="expApprox ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -70,7 +70,7 @@
 
       </description>
     </entry>
-    <entry name="pow2Approx()">
+    <entry name="pow2Approx ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: y,  <br />
 
@@ -78,7 +78,7 @@
 
       </description>
     </entry>
-    <entry name="coshApprox()">
+    <entry name="coshApprox ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -86,7 +86,7 @@
 
       </description>
     </entry>
-    <entry name="log2Approx()">
+    <entry name="log2Approx ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -94,7 +94,7 @@
 
       </description>
     </entry>
-    <entry name="logApprox()">
+    <entry name="logApprox ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -102,7 +102,7 @@
 
       </description>
     </entry>
-    <entry name="log10Approx()">
+    <entry name="log10Approx ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -110,7 +110,7 @@
 
       </description>
     </entry>
-    <entry name="logsad()">
+    <entry name="logsad ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: s,  <br />
 
@@ -118,7 +118,7 @@
 
       </description>
     </entry>
-    <entry name="logso()">
+    <entry name="logso ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: ad,  <br />
@@ -127,7 +127,7 @@
 
       </description>
     </entry>
-    <entry name="logsmooth()">
+    <entry name="logsmooth ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: s,  <br />
@@ -136,7 +136,7 @@
 
       </description>
     </entry>
-    <entry name="logsmoothBank2()">
+    <entry name="logsmoothBank2 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x1,  <br />
         <b>In 2</b>: type=<i>input</i>: x2,  <br />
@@ -147,7 +147,7 @@
 
       </description>
     </entry>
-    <entry name="expso()">
+    <entry name="expso ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: z,  <br />
@@ -156,7 +156,7 @@
 
       </description>
     </entry>
-    <entry name="expsmoothBank2()">
+    <entry name="expsmoothBank2 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x1,  <br />
         <b>In 2</b>: type=<i>input</i>: x2,  <br />
@@ -167,7 +167,7 @@
 
       </description>
     </entry>
-    <entry name="expsmoothBank4()">
+    <entry name="expsmoothBank4 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x1,  <br />
         <b>In 2</b>: type=<i>input</i>: x2,  <br />
@@ -182,7 +182,7 @@
 
       </description>
     </entry>
-    <entry name="eviMap()">
+    <entry name="eviMap ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: valueIn,  <br />
         <b>In 2</b>: type=<i>input</i>: inLow,  <br />
@@ -194,7 +194,7 @@
 
       </description>
     </entry>
-    <entry name="eviLine()">
+    <entry name="eviLine ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: target,  <br />
         <b>In 2</b>: type=<i>input</i>: duration,  <br />
@@ -204,7 +204,7 @@
 
       </description>
     </entry>
-    <entry name="hermite_sixpoint_interp()">
+    <entry name="hermite_sixpoint_interp ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: f0,  <br />
         <b>In 2</b>: type=<i>input</i>: ym2,  <br />
@@ -218,7 +218,7 @@
 
       </description>
     </entry>
-    <entry name="funcSc0()">
+    <entry name="funcSc0 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -226,7 +226,7 @@
 
       </description>
     </entry>
-    <entry name="funcSc1()">
+    <entry name="funcSc1 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -234,7 +234,7 @@
 
       </description>
     </entry>
-    <entry name="adSc1()">
+    <entry name="adSc1 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -242,7 +242,7 @@
 
       </description>
     </entry>
-    <entry name="adSc1_2x_6POINT()">
+    <entry name="adSc1_2x_6POINT ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
@@ -250,7 +250,7 @@
 
       </description>
     </entry>
-    <entry name="rcPreWarp0()">
+    <entry name="rcPreWarp0 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
 
@@ -258,7 +258,7 @@
 
       </description>
     </entry>
-    <entry name="svfButterCoeffs()">
+    <entry name="svfButterCoeffs ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: R,  <br />
 
@@ -269,7 +269,7 @@
 
       </description>
     </entry>
-    <entry name="svfButterPreWarp()">
+    <entry name="svfButterPreWarp ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
         <b>In 2</b>: type=<i>input</i>: resonance,  <br />
@@ -283,7 +283,7 @@
 
       </description>
     </entry>
-    <entry name="svfCoeffReson()">
+    <entry name="svfCoeffReson ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: hz,  <br />
         <b>In 2</b>: type=<i>input</i>: q,  <br />
@@ -295,7 +295,7 @@
 
       </description>
     </entry>
-    <entry name="svfButterBp()">
+    <entry name="svfButterBp ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: w,  <br />
@@ -305,7 +305,7 @@
 
       </description>
     </entry>
-    <entry name="svfSectionReson()">
+    <entry name="svfSectionReson ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: v0,  <br />
         <b>In 2</b>: type=<i>input</i>: a0,  <br />
@@ -316,7 +316,7 @@
 
       </description>
     </entry>
-    <entry name="onepole_init()">
+    <entry name="onepole_init ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: g,  <br />
@@ -327,7 +327,7 @@
 
       </description>
     </entry>
-    <entry name="onepole_II()">
+    <entry name="onepole_II ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: g,  <br />
         <b>In 2</b>: type=<i>input</i>: s,  <br />
@@ -341,7 +341,7 @@
 
       </description>
     </entry>
-    <entry name="onepole_I()">
+    <entry name="onepole_I ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: y,  <br />
         <b>In 2</b>: type=<i>input</i>: w,  <br />
@@ -354,7 +354,7 @@
 
       </description>
     </entry>
-    <entry name="onepole_next()">
+    <entry name="onepole_next ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: y,  <br />
         <b>In 2</b>: type=<i>input</i>: x,  <br />
@@ -366,7 +366,7 @@
 
       </description>
     </entry>
-    <entry name="onepole4()">
+    <entry name="onepole4 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: w,  <br />

@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi.hardclip~",
-        "category": "evieve",
         "parent": "evi_hardclip",
+        "category": "evieve",
         "tilde": "~",
+        "digest": "TEXT_HERE",
         "description": "TEXT_HERE",
         "discussion": ""
     },

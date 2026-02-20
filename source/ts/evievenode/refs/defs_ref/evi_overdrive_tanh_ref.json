@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi.overdrive.tanh~",
-        "category": "evieve",
         "parent": "evi_overdrive_tanh",
+        "category": "evieve",
         "tilde": "~",
+        "digest": "TEXT_HERE",
         "description": "TEXT_HERE",
         "discussion": ""
     },

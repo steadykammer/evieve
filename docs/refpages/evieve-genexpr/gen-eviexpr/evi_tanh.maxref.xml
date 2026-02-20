@@ -17,7 +17,7 @@
      <br />
   </description>
   <misc name="GenExpr Functions">
-    <entry name="tanhL()">
+    <entry name="tanhL ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -25,7 +25,7 @@
 
       </description>
     </entry>
-    <entry name="tanhLxA()">
+    <entry name="tanhLxA ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: a,  <br />
@@ -34,7 +34,7 @@
 
       </description>
     </entry>
-    <entry name="tanhO()">
+    <entry name="tanhO ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -42,7 +42,7 @@
 
       </description>
     </entry>
-    <entry name="tanhA()">
+    <entry name="tanhA ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -50,7 +50,7 @@
 
       </description>
     </entry>
-    <entry name="tanhD()">
+    <entry name="tanhD ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -58,7 +58,7 @@
 
       </description>
     </entry>
-    <entry name="tanhQ()">
+    <entry name="tanhQ ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -66,7 +66,7 @@
 
       </description>
     </entry>
-    <entry name="tanhR()">
+    <entry name="tanhR ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x0,  <br />
 
@@ -74,7 +74,7 @@
 
       </description>
     </entry>
-    <entry name="tanhXdX()">
+    <entry name="tanhXdX ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -82,7 +82,7 @@
 
       </description>
     </entry>
-    <entry name="altTanhF0()">
+    <entry name="altTanhF0 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -90,7 +90,7 @@
 
       </description>
     </entry>
-    <entry name="altTanhF00()">
+    <entry name="altTanhF00 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -98,7 +98,7 @@
 
       </description>
     </entry>
-    <entry name="altTanhF1()">
+    <entry name="altTanhF1 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -106,7 +106,7 @@
 
       </description>
     </entry>
-    <entry name="altTanhF11()">
+    <entry name="altTanhF11 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -114,7 +114,7 @@
 
       </description>
     </entry>
-    <entry name="altTanhF2()">
+    <entry name="altTanhF2 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -122,7 +122,7 @@
 
       </description>
     </entry>
-    <entry name="altTanhF22()">
+    <entry name="altTanhF22 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -130,7 +130,7 @@
 
       </description>
     </entry>
-    <entry name="altTanhAdaa1()">
+    <entry name="altTanhAdaa1 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x0,  <br />
         <b>In 2</b>: type=<i>input</i>: reset,  <br />
@@ -139,7 +139,7 @@
 
       </description>
     </entry>
-    <entry name="altTanhAdaa2()">
+    <entry name="altTanhAdaa2 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x0,  <br />
         <b>In 2</b>: type=<i>input</i>: reset,  <br />

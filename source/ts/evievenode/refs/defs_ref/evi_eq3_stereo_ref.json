@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi.eq3stereo~",
-        "category": "evieve",
         "parent": "evi_eq3_stereo",
+        "category": "evieve",
         "tilde": "~",
+        "digest": "TEXT_HERE",
         "description": "TEXT_HERE",
         "discussion": ""
     },

@@ -14,7 +14,7 @@
      <br />
   </description>
   <misc name="GenExpr Functions">
-    <entry name="cubic_hermite_interp()">
+    <entry name="cubic_hermite_interp ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: f,  <br />
         <b>In 2</b>: type=<i>input</i>: y0,  <br />
@@ -26,7 +26,7 @@
 
       </description>
     </entry>
-    <entry name="hermite_sixpoint_interp()">
+    <entry name="hermite_sixpoint_interp ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: f0,  <br />
         <b>In 2</b>: type=<i>input</i>: ym2,  <br />
@@ -40,7 +40,7 @@
 
       </description>
     </entry>
-    <entry name="cubic_lagrange_interp()">
+    <entry name="cubic_lagrange_interp ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: f,  <br />
         <b>In 2</b>: type=<i>input</i>: y0,  <br />
@@ -52,7 +52,7 @@
 
       </description>
     </entry>
-    <entry name="cubic_bspline_interp()">
+    <entry name="cubic_bspline_interp ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: f,  <br />
         <b>In 2</b>: type=<i>input</i>: y0,  <br />

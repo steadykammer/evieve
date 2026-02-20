@@ -18,7 +18,7 @@
      <br />
   </description>
   <misc name="GenExpr Functions">
-    <entry name="tptSvf()">
+    <entry name="tptSvf ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: g,  <br />
@@ -31,7 +31,7 @@
 
       </description>
     </entry>
-    <entry name="tptSvfReset()">
+    <entry name="tptSvfReset ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: g,  <br />
@@ -45,7 +45,7 @@
 
       </description>
     </entry>
-    <entry name="tptSvfOnePole()">
+    <entry name="tptSvfOnePole ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: g,  <br />
@@ -55,7 +55,7 @@
 
       </description>
     </entry>
-    <entry name="tptSvf2()">
+    <entry name="tptSvf2 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x0,  <br />
         <b>In 2</b>: type=<i>input</i>: x1,  <br />
@@ -72,7 +72,7 @@
 
       </description>
     </entry>
-    <entry name="tptSvf2_2x()">
+    <entry name="tptSvf2_2x ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
         <b>In 2</b>: type=<i>input</i>: g,  <br />
@@ -85,7 +85,7 @@
 
       </description>
     </entry>
-    <entry name="tptSvfUnit()">
+    <entry name="tptSvfUnit ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
         <b>In 2</b>: type=<i>input</i>: Q,  <br />
@@ -97,7 +97,7 @@
 
       </description>
     </entry>
-    <entry name="tptSvfCoeff()">
+    <entry name="tptSvfCoeff ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: filter,  <br />
         <b>In 2</b>: type=<i>input</i>: cutoff,  <br />
@@ -113,7 +113,7 @@
 
       </description>
     </entry>
-    <entry name="tptSvfCoeffNoTilde()">
+    <entry name="tptSvfCoeffNoTilde ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: filter,  <br />
         <b>In 2</b>: type=<i>input</i>: cutoff,  <br />
@@ -130,7 +130,7 @@
 
       </description>
     </entry>
-    <entry name="eviFilterTpt()">
+    <entry name="eviFilterTpt ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: cutoff,  <br />
@@ -143,7 +143,7 @@
 
       </description>
     </entry>
-    <entry name="eviFilterTptReset()">
+    <entry name="eviFilterTptReset ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: cutoff,  <br />
@@ -157,7 +157,7 @@
 
       </description>
     </entry>
-    <entry name="tptSvfCoeffEq()">
+    <entry name="tptSvfCoeffEq ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: filter,  <br />
         <b>In 2</b>: type=<i>input</i>: cutoff,  <br />
@@ -173,7 +173,7 @@
 
       </description>
     </entry>
-    <entry name="tptSvfCoeffEqNoTilde()">
+    <entry name="tptSvfCoeffEqNoTilde ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: filter,  <br />
         <b>In 2</b>: type=<i>input</i>: cutoff,  <br />
@@ -190,7 +190,7 @@
 
       </description>
     </entry>
-    <entry name="tptSvfEq()">
+    <entry name="tptSvfEq ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: g,  <br />
@@ -204,7 +204,7 @@
 
       </description>
     </entry>
-    <entry name="tptSvfEqReset()">
+    <entry name="tptSvfEqReset ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: g,  <br />
@@ -219,7 +219,7 @@
 
       </description>
     </entry>
-    <entry name="eviFilterTptEq()">
+    <entry name="eviFilterTptEq ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: cutoff,  <br />
@@ -233,7 +233,7 @@
 
       </description>
     </entry>
-    <entry name="eviFilterTptEqStereo()">
+    <entry name="eviFilterTptEqStereo ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: xL,  <br />
         <b>In 2</b>: type=<i>input</i>: xR,  <br />
@@ -249,7 +249,7 @@
 
       </description>
     </entry>
-    <entry name="tptSvfCoeffMorphFull()">
+    <entry name="tptSvfCoeffMorphFull ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
         <b>In 2</b>: type=<i>input</i>: gain,  <br />
@@ -267,7 +267,7 @@
 
       </description>
     </entry>
-    <entry name="tptSvfCoeffMorphLpBpHp()">
+    <entry name="tptSvfCoeffMorphLpBpHp ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
         <b>In 2</b>: type=<i>input</i>: gain,  <br />
@@ -283,7 +283,7 @@
 
       </description>
     </entry>
-    <entry name="tptSvfCoeffMorphLpBrHp()">
+    <entry name="tptSvfCoeffMorphLpBrHp ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
         <b>In 2</b>: type=<i>input</i>: gain,  <br />
@@ -300,7 +300,7 @@
 
       </description>
     </entry>
-    <entry name="eviFilterMorph()">
+    <entry name="eviFilterMorph ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: hz,  <br />
@@ -313,7 +313,7 @@
 
       </description>
     </entry>
-    <entry name="eviFilterMorphStereo()">
+    <entry name="eviFilterMorphStereo ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: xL,  <br />
         <b>In 2</b>: type=<i>input</i>: xR,  <br />
@@ -328,7 +328,7 @@
 
       </description>
     </entry>
-    <entry name="eviFilterMorphLpBpHp()">
+    <entry name="eviFilterMorphLpBpHp ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: hz,  <br />
@@ -341,7 +341,7 @@
 
       </description>
     </entry>
-    <entry name="eviFilterMorphLpBpHpStereo()">
+    <entry name="eviFilterMorphLpBpHpStereo ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: xL,  <br />
         <b>In 2</b>: type=<i>input</i>: xR,  <br />
@@ -356,7 +356,7 @@
 
       </description>
     </entry>
-    <entry name="eviFilterMorphLpBrHp()">
+    <entry name="eviFilterMorphLpBrHp ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: hz,  <br />
@@ -369,7 +369,7 @@
 
       </description>
     </entry>
-    <entry name="eviFilterMorphLpBrHpStereo()">
+    <entry name="eviFilterMorphLpBrHpStereo ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: xL,  <br />
         <b>In 2</b>: type=<i>input</i>: xR,  <br />
@@ -384,7 +384,7 @@
 
       </description>
     </entry>
-    <entry name="tptSvfFormlet()">
+    <entry name="tptSvfFormlet ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: g,  <br />
@@ -397,7 +397,7 @@
 
       </description>
     </entry>
-    <entry name="tptSvfCoeffFormlet()">
+    <entry name="tptSvfCoeffFormlet ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
         <b>In 2</b>: type=<i>input</i>: AT,  <br />
@@ -411,7 +411,7 @@
 
       </description>
     </entry>
-    <entry name="eviFilterFormlet()">
+    <entry name="eviFilterFormlet ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: cutoff,  <br />
@@ -422,7 +422,7 @@
 
       </description>
     </entry>
-    <entry name="svfSection()">
+    <entry name="svfSection ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: v0,  <br />
         <b>In 2</b>: type=<i>input</i>: a1,  <br />
@@ -436,7 +436,7 @@
 
       </description>
     </entry>
-    <entry name="svfSectionReset()">
+    <entry name="svfSectionReset ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: v0,  <br />
         <b>In 2</b>: type=<i>input</i>: a1,  <br />
@@ -451,7 +451,7 @@
 
       </description>
     </entry>
-    <entry name="svfSectionOnePole()">
+    <entry name="svfSectionOnePole ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: g,  <br />
@@ -461,7 +461,7 @@
 
       </description>
     </entry>
-    <entry name="svfSectionStereo()">
+    <entry name="svfSectionStereo ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: xL,  <br />
         <b>In 2</b>: type=<i>input</i>: xR,  <br />
@@ -477,7 +477,7 @@
 
       </description>
     </entry>
-    <entry name="svfSectionCoeff()">
+    <entry name="svfSectionCoeff ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: filter,  <br />
         <b>In 2</b>: type=<i>input</i>: cutoff,  <br />
@@ -493,7 +493,7 @@
 
       </description>
     </entry>
-    <entry name="svfSectionCoeffNoTilde()">
+    <entry name="svfSectionCoeffNoTilde ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: filter,  <br />
         <b>In 2</b>: type=<i>input</i>: cutoff,  <br />
@@ -510,7 +510,7 @@
 
       </description>
     </entry>
-    <entry name="eviFilterLto()">
+    <entry name="eviFilterLto ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: cutoff,  <br />
@@ -523,7 +523,7 @@
 
       </description>
     </entry>
-    <entry name="eviFilterLtoReset()">
+    <entry name="eviFilterLtoReset ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: cutoff,  <br />
@@ -537,7 +537,7 @@
 
       </description>
     </entry>
-    <entry name="svfSectionCoeffEq()">
+    <entry name="svfSectionCoeffEq ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: filter,  <br />
         <b>In 2</b>: type=<i>input</i>: cutoff,  <br />
@@ -553,7 +553,7 @@
 
       </description>
     </entry>
-    <entry name="svfSectionCoeffEqNoTilde()">
+    <entry name="svfSectionCoeffEqNoTilde ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: filter,  <br />
         <b>In 2</b>: type=<i>input</i>: cutoff,  <br />
@@ -570,7 +570,7 @@
 
       </description>
     </entry>
-    <entry name="eviFilterEq()">
+    <entry name="eviFilterEq ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: cutoff,  <br />
@@ -583,7 +583,7 @@
 
       </description>
     </entry>
-    <entry name="eviFilterEqReset()">
+    <entry name="eviFilterEqReset ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: cutoff,  <br />
@@ -597,7 +597,7 @@
 
       </description>
     </entry>
-    <entry name="eviFilterEq4()">
+    <entry name="eviFilterEq4 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: cutoff,  <br />
@@ -610,7 +610,7 @@
 
       </description>
     </entry>
-    <entry name="eviFilterEq4Reset()">
+    <entry name="eviFilterEq4Reset ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: cutoff,  <br />
@@ -624,7 +624,7 @@
 
       </description>
     </entry>
-    <entry name="eviFilterEqStereo()">
+    <entry name="eviFilterEqStereo ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: xL,  <br />
         <b>In 2</b>: type=<i>input</i>: xR,  <br />
@@ -639,7 +639,7 @@
 
       </description>
     </entry>
-    <entry name="eviFilterEq4Stereo()">
+    <entry name="eviFilterEq4Stereo ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: xL,  <br />
         <b>In 2</b>: type=<i>input</i>: xR,  <br />
@@ -654,7 +654,7 @@
 
       </description>
     </entry>
-    <entry name="eviSvfTwoSections()">
+    <entry name="eviSvfTwoSections ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: band0,  <br />
         <b>In 2</b>: type=<i>input</i>: a11,  <br />
@@ -674,7 +674,7 @@
 
       </description>
     </entry>
-    <entry name="eviSvfTwoSectionsStereo()">
+    <entry name="eviSvfTwoSectionsStereo ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: band0L,  <br />
         <b>In 2</b>: type=<i>input</i>: band0R,  <br />
@@ -696,7 +696,7 @@
 
       </description>
     </entry>
-    <entry name="eviParametric2()">
+    <entry name="eviParametric2 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: filter1,  <br />
@@ -713,7 +713,7 @@
 
       </description>
     </entry>
-    <entry name="eviParametric3()">
+    <entry name="eviParametric3 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: filter1,  <br />
@@ -734,7 +734,7 @@
 
       </description>
     </entry>
-    <entry name="eviParametricStereo2()">
+    <entry name="eviParametricStereo2 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: xL,  <br />
         <b>In 2</b>: type=<i>input</i>: xR,  <br />
@@ -753,7 +753,7 @@
 
       </description>
     </entry>
-    <entry name="eviParametricStereo3()">
+    <entry name="eviParametricStereo3 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: xL,  <br />
         <b>In 2</b>: type=<i>input</i>: xR,  <br />
@@ -776,7 +776,7 @@
 
       </description>
     </entry>
-    <entry name="tptSvfCoeffLowpass()">
+    <entry name="tptSvfCoeffLowpass ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
         <b>In 2</b>: type=<i>input</i>: gain,  <br />
@@ -791,7 +791,7 @@
 
       </description>
     </entry>
-    <entry name="tptSvfCoeffHighpass()">
+    <entry name="tptSvfCoeffHighpass ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
         <b>In 2</b>: type=<i>input</i>: gain,  <br />
@@ -806,7 +806,7 @@
 
       </description>
     </entry>
-    <entry name="tptSvfCoeffBandpass()">
+    <entry name="tptSvfCoeffBandpass ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
         <b>In 2</b>: type=<i>input</i>: gain,  <br />
@@ -821,7 +821,7 @@
 
       </description>
     </entry>
-    <entry name="ltoSvfCoeffPeak()">
+    <entry name="ltoSvfCoeffPeak ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
         <b>In 2</b>: type=<i>input</i>: gain,  <br />
@@ -836,7 +836,7 @@
 
       </description>
     </entry>
-    <entry name="tptSvfCoeffBandreject()">
+    <entry name="tptSvfCoeffBandreject ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
         <b>In 2</b>: type=<i>input</i>: gain,  <br />
@@ -851,7 +851,7 @@
 
       </description>
     </entry>
-    <entry name="tptSvfCoeffResonant()">
+    <entry name="tptSvfCoeffResonant ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
         <b>In 2</b>: type=<i>input</i>: gain,  <br />
@@ -866,7 +866,7 @@
 
       </description>
     </entry>
-    <entry name="tptSvfCoeffReson()">
+    <entry name="tptSvfCoeffReson ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
         <b>In 2</b>: type=<i>input</i>: gain,  <br />
@@ -880,7 +880,7 @@
 
       </description>
     </entry>
-    <entry name="tptSvfCoeffPeakNotch()">
+    <entry name="tptSvfCoeffPeakNotch ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
         <b>In 2</b>: type=<i>input</i>: gain,  <br />
@@ -895,7 +895,7 @@
 
       </description>
     </entry>
-    <entry name="tptSvfCoeffBellAdaptive()">
+    <entry name="tptSvfCoeffBellAdaptive ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
         <b>In 2</b>: type=<i>input</i>: gain,  <br />
@@ -910,7 +910,7 @@
 
       </description>
     </entry>
-    <entry name="tptSvfCoeffLowshelf()">
+    <entry name="tptSvfCoeffLowshelf ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
         <b>In 2</b>: type=<i>input</i>: gain,  <br />
@@ -925,7 +925,7 @@
 
       </description>
     </entry>
-    <entry name="tptSvfCoeffHighshelf()">
+    <entry name="tptSvfCoeffHighshelf ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
         <b>In 2</b>: type=<i>input</i>: gain,  <br />
@@ -940,7 +940,7 @@
 
       </description>
     </entry>
-    <entry name="tptSvfCoeffTilt()">
+    <entry name="tptSvfCoeffTilt ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
         <b>In 2</b>: type=<i>input</i>: gain,  <br />
@@ -955,7 +955,7 @@
 
       </description>
     </entry>
-    <entry name="tptSvfCoeffAllpassNorm()">
+    <entry name="tptSvfCoeffAllpassNorm ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
         <b>In 2</b>: type=<i>input</i>: Q,  <br />
@@ -969,7 +969,7 @@
 
       </description>
     </entry>
-    <entry name="eviFilterLowpass()">
+    <entry name="eviFilterLowpass ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: cutoff,  <br />
@@ -981,7 +981,7 @@
 
       </description>
     </entry>
-    <entry name="eviFilterLowpassStereo()">
+    <entry name="eviFilterLowpassStereo ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: xL,  <br />
         <b>In 2</b>: type=<i>input</i>: xR,  <br />
@@ -995,7 +995,7 @@
 
       </description>
     </entry>
-    <entry name="eviFilterHighpass()">
+    <entry name="eviFilterHighpass ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: cutoff,  <br />
@@ -1007,7 +1007,7 @@
 
       </description>
     </entry>
-    <entry name="eviFilterHighpassStereo()">
+    <entry name="eviFilterHighpassStereo ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: xL,  <br />
         <b>In 2</b>: type=<i>input</i>: xR,  <br />
@@ -1021,7 +1021,7 @@
 
       </description>
     </entry>
-    <entry name="eviFilterBandpass()">
+    <entry name="eviFilterBandpass ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: cutoff,  <br />
@@ -1033,7 +1033,7 @@
 
       </description>
     </entry>
-    <entry name="eviFilterBandpassStereo()">
+    <entry name="eviFilterBandpassStereo ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: xL,  <br />
         <b>In 2</b>: type=<i>input</i>: xR,  <br />
@@ -1047,7 +1047,7 @@
 
       </description>
     </entry>
-    <entry name="eviFilterPeak()">
+    <entry name="eviFilterPeak ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: cutoff,  <br />
@@ -1059,7 +1059,7 @@
 
       </description>
     </entry>
-    <entry name="eviFilterPeakStereo()">
+    <entry name="eviFilterPeakStereo ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: xL,  <br />
         <b>In 2</b>: type=<i>input</i>: xR,  <br />
@@ -1073,7 +1073,7 @@
 
       </description>
     </entry>
-    <entry name="eviFilterNotch()">
+    <entry name="eviFilterNotch ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: cutoff,  <br />
@@ -1085,7 +1085,7 @@
 
       </description>
     </entry>
-    <entry name="eviFilterNotchStereo()">
+    <entry name="eviFilterNotchStereo ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: xL,  <br />
         <b>In 2</b>: type=<i>input</i>: xR,  <br />
@@ -1099,7 +1099,7 @@
 
       </description>
     </entry>
-    <entry name="eviFilterResonant()">
+    <entry name="eviFilterResonant ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: cutoff,  <br />
@@ -1111,7 +1111,7 @@
 
       </description>
     </entry>
-    <entry name="eviFilterResonantStereo()">
+    <entry name="eviFilterResonantStereo ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: xL,  <br />
         <b>In 2</b>: type=<i>input</i>: xR,  <br />
@@ -1125,7 +1125,7 @@
 
       </description>
     </entry>
-    <entry name="eviFilterReson()">
+    <entry name="eviFilterReson ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: gain,  <br />
@@ -1138,7 +1138,7 @@
 
       </description>
     </entry>
-    <entry name="eviFilterResonStereo()">
+    <entry name="eviFilterResonStereo ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: gain,  <br />
@@ -1152,7 +1152,7 @@
 
       </description>
     </entry>
-    <entry name="eviFilterBell()">
+    <entry name="eviFilterBell ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: cutoff,  <br />
@@ -1164,7 +1164,7 @@
 
       </description>
     </entry>
-    <entry name="eviFilterBellStereo()">
+    <entry name="eviFilterBellStereo ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: xL,  <br />
         <b>In 2</b>: type=<i>input</i>: xR,  <br />
@@ -1178,7 +1178,7 @@
 
       </description>
     </entry>
-    <entry name="eviFilterBellAdaptive()">
+    <entry name="eviFilterBellAdaptive ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: cutoff,  <br />
@@ -1190,7 +1190,7 @@
 
       </description>
     </entry>
-    <entry name="eviFilterBellAdaptiveStereo()">
+    <entry name="eviFilterBellAdaptiveStereo ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: xL,  <br />
         <b>In 2</b>: type=<i>input</i>: xR,  <br />
@@ -1204,7 +1204,7 @@
 
       </description>
     </entry>
-    <entry name="eviFilterLowshelf()">
+    <entry name="eviFilterLowshelf ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: cutoff,  <br />
@@ -1216,7 +1216,7 @@
 
       </description>
     </entry>
-    <entry name="eviFilterLowshelfStereo()">
+    <entry name="eviFilterLowshelfStereo ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: xL,  <br />
         <b>In 2</b>: type=<i>input</i>: xR,  <br />
@@ -1230,7 +1230,7 @@
 
       </description>
     </entry>
-    <entry name="eviFilterHighshelf()">
+    <entry name="eviFilterHighshelf ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: cutoff,  <br />
@@ -1242,7 +1242,7 @@
 
       </description>
     </entry>
-    <entry name="eviFilterHighshelfStereo()">
+    <entry name="eviFilterHighshelfStereo ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: xL,  <br />
         <b>In 2</b>: type=<i>input</i>: xR,  <br />
@@ -1256,7 +1256,7 @@
 
       </description>
     </entry>
-    <entry name="eviFilterTilt()">
+    <entry name="eviFilterTilt ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: cutoff,  <br />
@@ -1268,7 +1268,7 @@
 
       </description>
     </entry>
-    <entry name="eviFilterTiltStereo()">
+    <entry name="eviFilterTiltStereo ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: xL,  <br />
         <b>In 2</b>: type=<i>input</i>: xR,  <br />
@@ -1282,7 +1282,7 @@
 
       </description>
     </entry>
-    <entry name="eviFilterAllpassNorm()">
+    <entry name="eviFilterAllpassNorm ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: cutoff,  <br />
@@ -1293,7 +1293,7 @@
 
       </description>
     </entry>
-    <entry name="eviFilterAllpassNormStereo()">
+    <entry name="eviFilterAllpassNormStereo ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: xL,  <br />
         <b>In 2</b>: type=<i>input</i>: xR,  <br />
@@ -1306,7 +1306,7 @@
 
       </description>
     </entry>
-    <entry name="svfLtoMulti()">
+    <entry name="svfLtoMulti ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: v0,  <br />
         <b>In 2</b>: type=<i>input</i>: cutoff,  <br />
@@ -1319,7 +1319,7 @@
 
       </description>
     </entry>
-    <entry name="svfLtoSingle()">
+    <entry name="svfLtoSingle ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: v0,  <br />
         <b>In 2</b>: type=<i>input</i>: cutoff,  <br />
@@ -1330,7 +1330,7 @@
 
       </description>
     </entry>
-    <entry name="svfLtoBell()">
+    <entry name="svfLtoBell ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: v00,  <br />
         <b>In 2</b>: type=<i>input</i>: cutoff,  <br />
@@ -1341,7 +1341,7 @@
 
       </description>
     </entry>
-    <entry name="svfSinMulti()">
+    <entry name="svfSinMulti ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: X,  <br />
         <b>In 2</b>: type=<i>input</i>: cutoff,  <br />
@@ -1355,7 +1355,7 @@
 
       </description>
     </entry>
-    <entry name="svfSinSingle()">
+    <entry name="svfSinSingle ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: X,  <br />
         <b>In 2</b>: type=<i>input</i>: cutoff,  <br />
@@ -1366,7 +1366,7 @@
 
       </description>
     </entry>
-    <entry name="inputMixingSvfCoefficients()">
+    <entry name="inputMixingSvfCoefficients ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
         <b>In 2</b>: type=<i>input</i>: res,  <br />
@@ -1378,7 +1378,7 @@
 
       </description>
     </entry>
-    <entry name="inputMixingSvfLoop()">
+    <entry name="inputMixingSvfLoop ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: vlow,  <br />
         <b>In 2</b>: type=<i>input</i>: vband,  <br />
@@ -1392,7 +1392,7 @@
 
       </description>
     </entry>
-    <entry name="inputMixingSvf()">
+    <entry name="inputMixingSvf ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: vlow,  <br />
         <b>In 2</b>: type=<i>input</i>: vband,  <br />

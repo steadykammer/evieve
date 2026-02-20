@@ -14,7 +14,7 @@
      <br />
   </description>
   <misc name="GenExpr Functions">
-    <entry name="eviBiquadCoeffLowpass()">
+    <entry name="eviBiquadCoeffLowpass ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
         <b>In 2</b>: type=<i>input</i>: Q,  <br />
@@ -28,7 +28,7 @@
 
       </description>
     </entry>
-    <entry name="eviBiquadCoeffHighpass()">
+    <entry name="eviBiquadCoeffHighpass ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
         <b>In 2</b>: type=<i>input</i>: Q,  <br />
@@ -42,7 +42,7 @@
 
       </description>
     </entry>
-    <entry name="eviBiquadCoeffBandpass()">
+    <entry name="eviBiquadCoeffBandpass ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
         <b>In 2</b>: type=<i>input</i>: Q,  <br />
@@ -56,7 +56,7 @@
 
       </description>
     </entry>
-    <entry name="eviBiquadCoeffNotch()">
+    <entry name="eviBiquadCoeffNotch ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
         <b>In 2</b>: type=<i>input</i>: Q,  <br />
@@ -70,7 +70,7 @@
 
       </description>
     </entry>
-    <entry name="eviBiquadCoeffPeakNotch()">
+    <entry name="eviBiquadCoeffPeakNotch ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
         <b>In 2</b>: type=<i>input</i>: gain,  <br />
@@ -85,7 +85,7 @@
 
       </description>
     </entry>
-    <entry name="eviBiquadCoeffLowshelfMSP()">
+    <entry name="eviBiquadCoeffLowshelfMSP ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
         <b>In 2</b>: type=<i>input</i>: gain,  <br />
@@ -100,7 +100,7 @@
 
       </description>
     </entry>
-    <entry name="eviBiquadCoeffLowshelfCookbook()">
+    <entry name="eviBiquadCoeffLowshelfCookbook ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
         <b>In 2</b>: type=<i>input</i>: gain,  <br />
@@ -115,7 +115,7 @@
 
       </description>
     </entry>
-    <entry name="eviBiquadCoeffHighshelfMSP()">
+    <entry name="eviBiquadCoeffHighshelfMSP ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
         <b>In 2</b>: type=<i>input</i>: gain,  <br />
@@ -130,7 +130,7 @@
 
       </description>
     </entry>
-    <entry name="eviBiquadCoeffHighshelfCookbook()">
+    <entry name="eviBiquadCoeffHighshelfCookbook ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
         <b>In 2</b>: type=<i>input</i>: gain,  <br />
@@ -145,7 +145,7 @@
 
       </description>
     </entry>
-    <entry name="eviBiquadCoeffResonant()">
+    <entry name="eviBiquadCoeffResonant ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
         <b>In 2</b>: type=<i>input</i>: Q,  <br />
@@ -159,7 +159,7 @@
 
       </description>
     </entry>
-    <entry name="eviBiquadCoeffBp()">
+    <entry name="eviBiquadCoeffBp ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
         <b>In 2</b>: type=<i>input</i>: Q,  <br />
@@ -173,7 +173,7 @@
 
       </description>
     </entry>
-    <entry name="eviBiquadCoeffAllpass()">
+    <entry name="eviBiquadCoeffAllpass ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
         <b>In 2</b>: type=<i>input</i>: Q,  <br />
@@ -187,7 +187,7 @@
 
       </description>
     </entry>
-    <entry name="eviBiquadCoeffLowpassGain()">
+    <entry name="eviBiquadCoeffLowpassGain ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
         <b>In 2</b>: type=<i>input</i>: gain,  <br />
@@ -202,7 +202,7 @@
 
       </description>
     </entry>
-    <entry name="eviBiquadCoeffHighpassGain()">
+    <entry name="eviBiquadCoeffHighpassGain ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
         <b>In 2</b>: type=<i>input</i>: gain,  <br />
@@ -217,7 +217,7 @@
 
       </description>
     </entry>
-    <entry name="eviBiquadCoeffBandpassGain()">
+    <entry name="eviBiquadCoeffBandpassGain ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
         <b>In 2</b>: type=<i>input</i>: gain,  <br />
@@ -232,7 +232,7 @@
 
       </description>
     </entry>
-    <entry name="eviBiquadCoeffNotchGain()">
+    <entry name="eviBiquadCoeffNotchGain ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
         <b>In 2</b>: type=<i>input</i>: gain,  <br />
@@ -247,7 +247,7 @@
 
       </description>
     </entry>
-    <entry name="eviBiquadCoeffResonantGain()">
+    <entry name="eviBiquadCoeffResonantGain ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
         <b>In 2</b>: type=<i>input</i>: gain,  <br />
@@ -262,7 +262,7 @@
 
       </description>
     </entry>
-    <entry name="eviBiquadCoeffBpGain()">
+    <entry name="eviBiquadCoeffBpGain ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
         <b>In 2</b>: type=<i>input</i>: gain,  <br />
@@ -277,7 +277,7 @@
 
       </description>
     </entry>
-    <entry name="eviBiquadCoeffAllpassGain()">
+    <entry name="eviBiquadCoeffAllpassGain ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
         <b>In 2</b>: type=<i>input</i>: gain,  <br />
@@ -292,7 +292,7 @@
 
       </description>
     </entry>
-    <entry name="eviBiquadCoeffLowpassAnalog1()">
+    <entry name="eviBiquadCoeffLowpassAnalog1 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
         <b>In 2</b>: type=<i>input</i>: Q,  <br />
@@ -306,7 +306,7 @@
 
       </description>
     </entry>
-    <entry name="eviBiquadCoeffLowpassAnalog2()">
+    <entry name="eviBiquadCoeffLowpassAnalog2 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
         <b>In 2</b>: type=<i>input</i>: fullQ,  <br />
@@ -320,7 +320,7 @@
 
       </description>
     </entry>
-    <entry name="eviBiquadCoeffHighpassAnalog()">
+    <entry name="eviBiquadCoeffHighpassAnalog ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
         <b>In 2</b>: type=<i>input</i>: fullQ,  <br />
@@ -334,7 +334,7 @@
 
       </description>
     </entry>
-    <entry name="eviBiquadCoeffBandpassAnalog()">
+    <entry name="eviBiquadCoeffBandpassAnalog ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
         <b>In 2</b>: type=<i>input</i>: Q,  <br />
@@ -348,7 +348,7 @@
 
       </description>
     </entry>
-    <entry name="eviBiquadCoeffBandpassGainAnalog()">
+    <entry name="eviBiquadCoeffBandpassGainAnalog ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
         <b>In 2</b>: type=<i>input</i>: gain,  <br />
@@ -363,7 +363,7 @@
 
       </description>
     </entry>
-    <entry name="eviBiquadCoeffNotchAnalog()">
+    <entry name="eviBiquadCoeffNotchAnalog ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
         <b>In 2</b>: type=<i>input</i>: fullQ,  <br />
@@ -377,7 +377,7 @@
 
       </description>
     </entry>
-    <entry name="eviBiquadCoeffPeakNotchAnalog1()">
+    <entry name="eviBiquadCoeffPeakNotchAnalog1 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
         <b>In 2</b>: type=<i>input</i>: gain,  <br />
@@ -392,7 +392,7 @@
 
       </description>
     </entry>
-    <entry name="eviBiquadCoeffPeakNotchAnalog2()">
+    <entry name="eviBiquadCoeffPeakNotchAnalog2 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
         <b>In 2</b>: type=<i>input</i>: gain,  <br />
@@ -407,7 +407,7 @@
 
       </description>
     </entry>
-    <entry name="eviBiquadCoeffLowshelfAnalog1()">
+    <entry name="eviBiquadCoeffLowshelfAnalog1 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
         <b>In 2</b>: type=<i>input</i>: gain,  <br />
@@ -422,7 +422,7 @@
 
       </description>
     </entry>
-    <entry name="eviBiquadCoeffLowshelfAnalog2()">
+    <entry name="eviBiquadCoeffLowshelfAnalog2 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
         <b>In 2</b>: type=<i>input</i>: gain,  <br />
@@ -436,7 +436,7 @@
 
       </description>
     </entry>
-    <entry name="eviBiquadCoeffHighshelfAnalog1()">
+    <entry name="eviBiquadCoeffHighshelfAnalog1 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
         <b>In 2</b>: type=<i>input</i>: gain,  <br />
@@ -451,7 +451,7 @@
 
       </description>
     </entry>
-    <entry name="eviBiquadCoeffHighshelfAnalog2()">
+    <entry name="eviBiquadCoeffHighshelfAnalog2 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
         <b>In 2</b>: type=<i>input</i>: gain,  <br />
@@ -465,7 +465,7 @@
 
       </description>
     </entry>
-    <entry name="eviBiquadCoeffResonantAnalog()">
+    <entry name="eviBiquadCoeffResonantAnalog ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
         <b>In 2</b>: type=<i>input</i>: fullQ,  <br />
@@ -479,7 +479,7 @@
 
       </description>
     </entry>
-    <entry name="eviBiquadCoeffButterworthLowpass()">
+    <entry name="eviBiquadCoeffButterworthLowpass ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
         <b>In 2</b>: type=<i>param</i> (optional): AUDIO_SR, default: 48000,  <br />
@@ -492,7 +492,7 @@
 
       </description>
     </entry>
-    <entry name="eviBiquadCoeffButterworthHighpass()">
+    <entry name="eviBiquadCoeffButterworthHighpass ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
         <b>In 2</b>: type=<i>param</i> (optional): AUDIO_SR, default: 48000,  <br />
@@ -505,7 +505,7 @@
 
       </description>
     </entry>
-    <entry name="eviBiquadCoeffButterworthBandpass()">
+    <entry name="eviBiquadCoeffButterworthBandpass ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
         <b>In 2</b>: type=<i>input</i>: Q,  <br />
@@ -519,7 +519,7 @@
 
       </description>
     </entry>
-    <entry name="eviBiquadCoeffButterworthBandreject()">
+    <entry name="eviBiquadCoeffButterworthBandreject ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
         <b>In 2</b>: type=<i>input</i>: Q,  <br />
@@ -533,7 +533,7 @@
 
       </description>
     </entry>
-    <entry name="eviBiquadCoeffButterworthLowpassGain()">
+    <entry name="eviBiquadCoeffButterworthLowpassGain ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
         <b>In 2</b>: type=<i>input</i>: gain,  <br />
@@ -547,7 +547,7 @@
 
       </description>
     </entry>
-    <entry name="eviBiquadCoeffButterworthHighpassGain()">
+    <entry name="eviBiquadCoeffButterworthHighpassGain ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
         <b>In 2</b>: type=<i>input</i>: gain,  <br />
@@ -561,7 +561,7 @@
 
       </description>
     </entry>
-    <entry name="eviBiquadCoeffButterworthBandpassGain()">
+    <entry name="eviBiquadCoeffButterworthBandpassGain ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
         <b>In 2</b>: type=<i>input</i>: gain,  <br />
@@ -576,7 +576,7 @@
 
       </description>
     </entry>
-    <entry name="eviBiquadCoeffButterworthBandrejectGain()">
+    <entry name="eviBiquadCoeffButterworthBandrejectGain ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
         <b>In 2</b>: type=<i>input</i>: gain,  <br />
@@ -591,7 +591,7 @@
 
       </description>
     </entry>
-    <entry name="eviBiquadCoeff()">
+    <entry name="eviBiquadCoeff ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: filter,  <br />
         <b>In 2</b>: type=<i>input</i>: cutoff,  <br />
@@ -607,7 +607,7 @@
 
       </description>
     </entry>
-    <entry name="eviBiquadCoeffEQ()">
+    <entry name="eviBiquadCoeffEQ ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: filter,  <br />
         <b>In 2</b>: type=<i>input</i>: cutoff,  <br />
@@ -623,7 +623,7 @@
 
       </description>
     </entry>
-    <entry name="eviBiquadCoeffButterworth()">
+    <entry name="eviBiquadCoeffButterworth ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: filter,  <br />
         <b>In 2</b>: type=<i>input</i>: cutoff,  <br />
@@ -639,7 +639,7 @@
 
       </description>
     </entry>
-    <entry name="eviBiquadCoeffAnalog()">
+    <entry name="eviBiquadCoeffAnalog ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: filter,  <br />
         <b>In 2</b>: type=<i>input</i>: cutoff,  <br />
@@ -655,7 +655,7 @@
 
       </description>
     </entry>
-    <entry name="eviBiquadCoeffBpButterworth6()">
+    <entry name="eviBiquadCoeffBpButterworth6 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
         <b>In 2</b>: type=<i>param</i> (optional): AUDIO_SAMPLERATE, default: 48000,  <br />

@@ -19,7 +19,7 @@
      <br />
   </description>
   <misc name="GenExpr Functions">
-    <entry name="sinParam()">
+    <entry name="sinParam ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: drive,  <br />
 
@@ -28,7 +28,7 @@
 
       </description>
     </entry>
-    <entry name="sinFoldNaive()">
+    <entry name="sinFoldNaive ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: pidrive,  <br />
@@ -38,7 +38,7 @@
 
       </description>
     </entry>
-    <entry name="sinFoldAdaa1()">
+    <entry name="sinFoldAdaa1 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: pidrive,  <br />
@@ -48,7 +48,7 @@
 
       </description>
     </entry>
-    <entry name="sinFoldAdaa1_2x()">
+    <entry name="sinFoldAdaa1_2x ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: pidrive,  <br />
@@ -58,7 +58,7 @@
 
       </description>
     </entry>
-    <entry name="sinFoldAdaa1_4x()">
+    <entry name="sinFoldAdaa1_4x ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: pidrive,  <br />
@@ -68,7 +68,7 @@
 
       </description>
     </entry>
-    <entry name="sinFoldAdaa2()">
+    <entry name="sinFoldAdaa2 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: pidrive,  <br />
@@ -78,7 +78,7 @@
 
       </description>
     </entry>
-    <entry name="sinFoldAdaa2_2x()">
+    <entry name="sinFoldAdaa2_2x ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: pidrive,  <br />
@@ -88,7 +88,7 @@
 
       </description>
     </entry>
-    <entry name="sinFoldAdaa2_4x()">
+    <entry name="sinFoldAdaa2_4x ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: pidrive,  <br />

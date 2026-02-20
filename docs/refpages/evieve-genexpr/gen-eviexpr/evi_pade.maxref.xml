@@ -14,7 +14,7 @@
      <br />
   </description>
   <misc name="GenExpr Functions">
-    <entry name="pCosh()">
+    <entry name="pCosh ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -22,7 +22,7 @@
 
       </description>
     </entry>
-    <entry name="pSinh()">
+    <entry name="pSinh ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -30,7 +30,7 @@
 
       </description>
     </entry>
-    <entry name="pTanh()">
+    <entry name="pTanh ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -38,7 +38,7 @@
 
       </description>
     </entry>
-    <entry name="pCos()">
+    <entry name="pCos ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -46,7 +46,7 @@
 
       </description>
     </entry>
-    <entry name="pSin()">
+    <entry name="pSin ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -54,7 +54,7 @@
 
       </description>
     </entry>
-    <entry name="pTan()">
+    <entry name="pTan ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -62,7 +62,7 @@
 
       </description>
     </entry>
-    <entry name="pTan2()">
+    <entry name="pTan2 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -70,7 +70,7 @@
 
       </description>
     </entry>
-    <entry name="pTan3()">
+    <entry name="pTan3 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -78,7 +78,7 @@
 
       </description>
     </entry>
-    <entry name="pExp()">
+    <entry name="pExp ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -86,7 +86,7 @@
 
       </description>
     </entry>
-    <entry name="pLog1p()">
+    <entry name="pLog1p ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -94,7 +94,7 @@
 
       </description>
     </entry>
-    <entry name="pAtan()">
+    <entry name="pAtan ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -102,7 +102,7 @@
 
       </description>
     </entry>
-    <entry name="pTanhXdX()">
+    <entry name="pTanhXdX ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 

@@ -14,7 +14,7 @@
      <br />
   </description>
   <misc name="GenExpr Functions">
-    <entry name="makeCosPhase()">
+    <entry name="makeCosPhase ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -23,7 +23,7 @@
 
       </description>
     </entry>
-    <entry name="cosQ32()">
+    <entry name="cosQ32 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -31,7 +31,7 @@
 
       </description>
     </entry>
-    <entry name="cos32()">
+    <entry name="cos32 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -39,7 +39,7 @@
 
       </description>
     </entry>
-    <entry name="sin32()">
+    <entry name="sin32 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -47,7 +47,7 @@
 
       </description>
     </entry>
-    <entry name="cos32param()">
+    <entry name="cos32param ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -55,7 +55,7 @@
 
       </description>
     </entry>
-    <entry name="sin32param()">
+    <entry name="sin32param ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -63,7 +63,7 @@
 
       </description>
     </entry>
-    <entry name="cos32quad12()">
+    <entry name="cos32quad12 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -71,7 +71,7 @@
 
       </description>
     </entry>
-    <entry name="cosQ52()">
+    <entry name="cosQ52 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -79,7 +79,7 @@
 
       </description>
     </entry>
-    <entry name="cos52()">
+    <entry name="cos52 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -87,7 +87,7 @@
 
       </description>
     </entry>
-    <entry name="sin52()">
+    <entry name="sin52 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -95,7 +95,7 @@
 
       </description>
     </entry>
-    <entry name="cos52param()">
+    <entry name="cos52param ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -103,7 +103,7 @@
 
       </description>
     </entry>
-    <entry name="sin52param()">
+    <entry name="sin52param ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -111,7 +111,7 @@
 
       </description>
     </entry>
-    <entry name="mixSin()">
+    <entry name="mixSin ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: a,  <br />
@@ -120,7 +120,7 @@
 
       </description>
     </entry>
-    <entry name="cosQ73()">
+    <entry name="cosQ73 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -128,7 +128,7 @@
 
       </description>
     </entry>
-    <entry name="cos73()">
+    <entry name="cos73 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -136,7 +136,7 @@
 
       </description>
     </entry>
-    <entry name="sin73()">
+    <entry name="sin73 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -144,7 +144,7 @@
 
       </description>
     </entry>
-    <entry name="cos73param()">
+    <entry name="cos73param ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -152,7 +152,7 @@
 
       </description>
     </entry>
-    <entry name="sin73param()">
+    <entry name="sin73param ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -160,7 +160,7 @@
 
       </description>
     </entry>
-    <entry name="cosQ121()">
+    <entry name="cosQ121 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -168,7 +168,7 @@
 
       </description>
     </entry>
-    <entry name="cos121()">
+    <entry name="cos121 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -176,7 +176,7 @@
 
       </description>
     </entry>
-    <entry name="sin121()">
+    <entry name="sin121 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -184,7 +184,7 @@
 
       </description>
     </entry>
-    <entry name="cos121param()">
+    <entry name="cos121param ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -192,7 +192,7 @@
 
       </description>
     </entry>
-    <entry name="sin121param()">
+    <entry name="sin121param ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -200,7 +200,7 @@
 
       </description>
     </entry>
-    <entry name="cosQ147()">
+    <entry name="cosQ147 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -208,7 +208,7 @@
 
       </description>
     </entry>
-    <entry name="cos147()">
+    <entry name="cos147 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -216,7 +216,7 @@
 
       </description>
     </entry>
-    <entry name="sin147()">
+    <entry name="sin147 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -224,7 +224,7 @@
 
       </description>
     </entry>
-    <entry name="cosQ202()">
+    <entry name="cosQ202 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -232,7 +232,7 @@
 
       </description>
     </entry>
-    <entry name="cos202()">
+    <entry name="cos202 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -240,7 +240,7 @@
 
       </description>
     </entry>
-    <entry name="sin202()">
+    <entry name="sin202 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -248,7 +248,7 @@
 
       </description>
     </entry>
-    <entry name="cosQ231()">
+    <entry name="cosQ231 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -256,7 +256,7 @@
 
       </description>
     </entry>
-    <entry name="cos231()">
+    <entry name="cos231 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -264,7 +264,7 @@
 
       </description>
     </entry>
-    <entry name="sin231()">
+    <entry name="sin231 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -272,7 +272,7 @@
 
       </description>
     </entry>
-    <entry name="makeTanPhase()">
+    <entry name="makeTanPhase ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -283,7 +283,7 @@
 
       </description>
     </entry>
-    <entry name="tanO32()">
+    <entry name="tanO32 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -291,7 +291,7 @@
 
       </description>
     </entry>
-    <entry name="tan32()">
+    <entry name="tan32 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -299,7 +299,7 @@
 
       </description>
     </entry>
-    <entry name="tanO56()">
+    <entry name="tanO56 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -307,7 +307,7 @@
 
       </description>
     </entry>
-    <entry name="tan56()">
+    <entry name="tan56 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -315,7 +315,7 @@
 
       </description>
     </entry>
-    <entry name="tanO82()">
+    <entry name="tanO82 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -323,7 +323,7 @@
 
       </description>
     </entry>
-    <entry name="tan82()">
+    <entry name="tan82 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -331,7 +331,7 @@
 
       </description>
     </entry>
-    <entry name="tanO14()">
+    <entry name="tanO14 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -339,7 +339,7 @@
 
       </description>
     </entry>
-    <entry name="tan14()">
+    <entry name="tan14 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -347,7 +347,7 @@
 
       </description>
     </entry>
-    <entry name="tanO203()">
+    <entry name="tanO203 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -355,7 +355,7 @@
 
       </description>
     </entry>
-    <entry name="tan203()">
+    <entry name="tan203 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -363,7 +363,7 @@
 
       </description>
     </entry>
-    <entry name="tanO236()">
+    <entry name="tanO236 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -371,7 +371,7 @@
 
       </description>
     </entry>
-    <entry name="tan236()">
+    <entry name="tan236 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -379,7 +379,7 @@
 
       </description>
     </entry>
-    <entry name="atanT66()">
+    <entry name="atanT66 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -387,7 +387,7 @@
 
       </description>
     </entry>
-    <entry name="atan66()">
+    <entry name="atan66 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -395,7 +395,7 @@
 
       </description>
     </entry>
-    <entry name="atanT137()">
+    <entry name="atanT137 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -403,7 +403,7 @@
 
       </description>
     </entry>
-    <entry name="atan137()">
+    <entry name="atan137 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 

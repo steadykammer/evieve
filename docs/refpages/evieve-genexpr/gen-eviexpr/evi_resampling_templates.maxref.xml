@@ -17,7 +17,7 @@
      <br />
   </description>
   <misc name="GenExpr Functions">
-    <entry name="YOUR_FUNCTION_GOES_HERE()">
+    <entry name="YOUR_FUNCTION_GOES_HERE ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -25,7 +25,7 @@
 
       </description>
     </entry>
-    <entry name="EVI_RESAMPLE_TEMPLATE_2x()">
+    <entry name="EVI_RESAMPLE_TEMPLATE_2x ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
@@ -33,7 +33,7 @@
 
       </description>
     </entry>
-    <entry name="EVI_RESAMPLE_TEMPLATE_3x()">
+    <entry name="EVI_RESAMPLE_TEMPLATE_3x ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
@@ -41,7 +41,7 @@
 
       </description>
     </entry>
-    <entry name="EVI_RESAMPLE_TEMPLATE_4x()">
+    <entry name="EVI_RESAMPLE_TEMPLATE_4x ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
@@ -49,7 +49,7 @@
 
       </description>
     </entry>
-    <entry name="EVI_RESAMPLE_TEMPLATE_6x()">
+    <entry name="EVI_RESAMPLE_TEMPLATE_6x ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
@@ -57,7 +57,7 @@
 
       </description>
     </entry>
-    <entry name="EVI_RESAMPLE_TEMPLATE_8x()">
+    <entry name="EVI_RESAMPLE_TEMPLATE_8x ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
@@ -65,7 +65,7 @@
 
       </description>
     </entry>
-    <entry name="EVI_RESAMPLE_TEMPLATE_9x()">
+    <entry name="EVI_RESAMPLE_TEMPLATE_9x ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
@@ -73,7 +73,7 @@
 
       </description>
     </entry>
-    <entry name="EVI_RESAMPLE_TEMPLATE_12x()">
+    <entry name="EVI_RESAMPLE_TEMPLATE_12x ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
@@ -81,7 +81,7 @@
 
       </description>
     </entry>
-    <entry name="EVI_RESAMPLE_TEMPLATE_16x()">
+    <entry name="EVI_RESAMPLE_TEMPLATE_16x ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
@@ -89,7 +89,7 @@
 
       </description>
     </entry>
-    <entry name="TEST_RESAMPLER()">
+    <entry name="TEST_RESAMPLER ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: order,  <br />
@@ -98,7 +98,7 @@
 
       </description>
     </entry>
-    <entry name="poly_blep()">
+    <entry name="poly_blep ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: t,  <br />
         <b>In 2</b>: type=<i>input</i>: dt,  <br />
@@ -107,7 +107,7 @@
 
       </description>
     </entry>
-    <entry name="YOUR_GENERATOR_FUNCTION_GOES_HERE()">
+    <entry name="YOUR_GENERATOR_FUNCTION_GOES_HERE ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: t,  <br />
         <b>In 2</b>: type=<i>input</i>: dt,  <br />
@@ -116,7 +116,7 @@
 
       </description>
     </entry>
-    <entry name="EVI_DOWNSAMPLE_TEMPLATE_2x()">
+    <entry name="EVI_DOWNSAMPLE_TEMPLATE_2x ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: t,  <br />
         <b>In 2</b>: type=<i>input</i>: dt,  <br />
@@ -125,7 +125,7 @@
 
       </description>
     </entry>
-    <entry name="EVI_DOWNSAMPLE_TEMPLATE_3x()">
+    <entry name="EVI_DOWNSAMPLE_TEMPLATE_3x ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: t,  <br />
         <b>In 2</b>: type=<i>input</i>: dt,  <br />
@@ -134,7 +134,7 @@
 
       </description>
     </entry>
-    <entry name="EVI_DOWNSAMPLE_TEMPLATE_4x()">
+    <entry name="EVI_DOWNSAMPLE_TEMPLATE_4x ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: t,  <br />
         <b>In 2</b>: type=<i>input</i>: dt,  <br />
@@ -143,7 +143,7 @@
 
       </description>
     </entry>
-    <entry name="EVI_DOWNSAMPLE_TEMPLATE_6x()">
+    <entry name="EVI_DOWNSAMPLE_TEMPLATE_6x ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: t,  <br />
         <b>In 2</b>: type=<i>input</i>: dt,  <br />
@@ -152,7 +152,7 @@
 
       </description>
     </entry>
-    <entry name="EVI_DOWNSAMPLE_TEMPLATE_8x()">
+    <entry name="EVI_DOWNSAMPLE_TEMPLATE_8x ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: t,  <br />
         <b>In 2</b>: type=<i>input</i>: dt,  <br />
@@ -161,7 +161,7 @@
 
       </description>
     </entry>
-    <entry name="EVI_DOWNSAMPLE_TEMPLATE_9x()">
+    <entry name="EVI_DOWNSAMPLE_TEMPLATE_9x ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: t,  <br />
         <b>In 2</b>: type=<i>input</i>: dt,  <br />
@@ -170,7 +170,7 @@
 
       </description>
     </entry>
-    <entry name="EVI_DOWNSAMPLE_TEMPLATE_12x()">
+    <entry name="EVI_DOWNSAMPLE_TEMPLATE_12x ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: t,  <br />
         <b>In 2</b>: type=<i>input</i>: dt,  <br />
@@ -179,7 +179,7 @@
 
       </description>
     </entry>
-    <entry name="EVI_DOWNSAMPLE_TEMPLATE_16x()">
+    <entry name="EVI_DOWNSAMPLE_TEMPLATE_16x ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: t,  <br />
         <b>In 2</b>: type=<i>input</i>: dt,  <br />
@@ -188,7 +188,7 @@
 
       </description>
     </entry>
-    <entry name="TEST_DOWNSAMPLER()">
+    <entry name="TEST_DOWNSAMPLER ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: t,  <br />
         <b>In 2</b>: type=<i>input</i>: dt,  <br />
@@ -199,7 +199,7 @@
 
       </description>
     </entry>
-    <entry name="EXAMPLE_TWO_INLETS_ONE_OUTLET()">
+    <entry name="EXAMPLE_TWO_INLETS_ONE_OUTLET ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: xin1,  <br />
         <b>In 2</b>: type=<i>input</i>: xin2,  <br />
@@ -208,7 +208,7 @@
 
       </description>
     </entry>
-    <entry name="EVI_RESAMPLE_TEMPLATE_3x_TWO_INPUTS()">
+    <entry name="EVI_RESAMPLE_TEMPLATE_3x_TWO_INPUTS ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN1,  <br />
         <b>In 2</b>: type=<i>input</i>: XIN2,  <br />
@@ -217,7 +217,7 @@
 
       </description>
     </entry>
-    <entry name="EVI_RESAMPLE_TEMPLATE_4x_TWO_INPUTS()">
+    <entry name="EVI_RESAMPLE_TEMPLATE_4x_TWO_INPUTS ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN1,  <br />
         <b>In 2</b>: type=<i>input</i>: XIN2,  <br />
@@ -226,7 +226,7 @@
 
       </description>
     </entry>
-    <entry name="EVI_RESAMPLE_TEMPLATE_2x_6POINT()">
+    <entry name="EVI_RESAMPLE_TEMPLATE_2x_6POINT ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
@@ -234,7 +234,7 @@
 
       </description>
     </entry>
-    <entry name="EVI_RESAMPLE_TEMPLATE_3x_6POINT()">
+    <entry name="EVI_RESAMPLE_TEMPLATE_3x_6POINT ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
@@ -242,7 +242,7 @@
 
       </description>
     </entry>
-    <entry name="EVI_RESAMPLE_TEMPLATE_4x_6POINT()">
+    <entry name="EVI_RESAMPLE_TEMPLATE_4x_6POINT ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
@@ -250,7 +250,7 @@
 
       </description>
     </entry>
-    <entry name="EVI_RESAMPLE_TEMPLATE_6x_6POINT()">
+    <entry name="EVI_RESAMPLE_TEMPLATE_6x_6POINT ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
@@ -258,7 +258,7 @@
 
       </description>
     </entry>
-    <entry name="EVI_RESAMPLE_TEMPLATE_8x_6POINT()">
+    <entry name="EVI_RESAMPLE_TEMPLATE_8x_6POINT ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
@@ -266,7 +266,7 @@
 
       </description>
     </entry>
-    <entry name="EVI_RESAMPLE_TEMPLATE_9x_6POINT()">
+    <entry name="EVI_RESAMPLE_TEMPLATE_9x_6POINT ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
@@ -274,7 +274,7 @@
 
       </description>
     </entry>
-    <entry name="EVI_RESAMPLE_TEMPLATE_12x_6POINT()">
+    <entry name="EVI_RESAMPLE_TEMPLATE_12x_6POINT ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
@@ -282,7 +282,7 @@
 
       </description>
     </entry>
-    <entry name="EVI_RESAMPLE_TEMPLATE_16x_6POINT()">
+    <entry name="EVI_RESAMPLE_TEMPLATE_16x_6POINT ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
 
@@ -290,7 +290,7 @@
 
       </description>
     </entry>
-    <entry name="TEST_RESAMPLER_6POINT()">
+    <entry name="TEST_RESAMPLER_6POINT ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: order,  <br />

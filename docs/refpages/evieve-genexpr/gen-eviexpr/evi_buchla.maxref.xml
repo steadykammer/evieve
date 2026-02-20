@@ -18,7 +18,7 @@
      <br />
   </description>
   <misc name="GenExpr Functions">
-    <entry name="tanhLapprox()">
+    <entry name="tanhLapprox ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -26,7 +26,7 @@
 
       </description>
     </entry>
-    <entry name="cubicClip()">
+    <entry name="cubicClip ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -34,7 +34,7 @@
 
       </description>
     </entry>
-    <entry name="nonlin()">
+    <entry name="nonlin ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: nl,  <br />
@@ -43,7 +43,7 @@
 
       </description>
     </entry>
-    <entry name="buchlaLpg1()">
+    <entry name="buchlaLpg1 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: rf,  <br />
@@ -59,7 +59,7 @@
 
       </description>
     </entry>
-    <entry name="buchlaLpg2()">
+    <entry name="buchlaLpg2 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x0,  <br />
         <b>In 2</b>: type=<i>input</i>: x1,  <br />
@@ -75,7 +75,7 @@
 
       </description>
     </entry>
-    <entry name="buchlaLpg3()">
+    <entry name="buchlaLpg3 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x0,  <br />
         <b>In 2</b>: type=<i>input</i>: x1,  <br />
@@ -93,7 +93,7 @@
 
       </description>
     </entry>
-    <entry name="buchlaLpg4()">
+    <entry name="buchlaLpg4 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x0,  <br />
         <b>In 2</b>: type=<i>input</i>: x1,  <br />
@@ -113,7 +113,7 @@
 
       </description>
     </entry>
-    <entry name="buchlaLpg6()">
+    <entry name="buchlaLpg6 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x0,  <br />
         <b>In 2</b>: type=<i>input</i>: x1,  <br />
@@ -137,7 +137,7 @@
 
       </description>
     </entry>
-    <entry name="buchlaLpg8()">
+    <entry name="buchlaLpg8 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x0,  <br />
         <b>In 2</b>: type=<i>input</i>: x1,  <br />
@@ -165,7 +165,7 @@
 
       </description>
     </entry>
-    <entry name="buchlaLpg2_2x()">
+    <entry name="buchlaLpg2_2x ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
         <b>In 2</b>: type=<i>input</i>: rf,  <br />
@@ -179,7 +179,7 @@
 
       </description>
     </entry>
-    <entry name="buchlaLpg3_3x()">
+    <entry name="buchlaLpg3_3x ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
         <b>In 2</b>: type=<i>input</i>: rf,  <br />
@@ -193,7 +193,7 @@
 
       </description>
     </entry>
-    <entry name="buchlaLpg4_4x()">
+    <entry name="buchlaLpg4_4x ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
         <b>In 2</b>: type=<i>input</i>: rf,  <br />
@@ -207,7 +207,7 @@
 
       </description>
     </entry>
-    <entry name="buchlaLpg6_6x()">
+    <entry name="buchlaLpg6_6x ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
         <b>In 2</b>: type=<i>input</i>: rf,  <br />
@@ -221,7 +221,7 @@
 
       </description>
     </entry>
-    <entry name="buchlaLpg8_8x()">
+    <entry name="buchlaLpg8_8x ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN,  <br />
         <b>In 2</b>: type=<i>input</i>: rf,  <br />

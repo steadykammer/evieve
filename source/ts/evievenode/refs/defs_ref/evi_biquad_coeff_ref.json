@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi.biquadcoeff~",
-        "category": "evieve",
         "parent": "evi_biquad_coeff",
+        "category": "evieve",
         "tilde": "~",
+        "digest": "TEXT_HERE",
         "description": "TEXT_HERE",
         "discussion": ""
     },

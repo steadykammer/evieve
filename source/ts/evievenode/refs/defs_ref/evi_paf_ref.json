@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi.paf~",
-        "category": "evieve",
         "parent": "evi_paf",
+        "category": "evieve",
         "tilde": "~",
+        "digest": "TEXT_HERE",
         "description": "TEXT_HERE",
         "discussion": ""
     },

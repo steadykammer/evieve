@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi.4wave~",
-        "category": "evieve",
         "parent": "evi_4wave",
+        "category": "evieve",
         "tilde": "~",
+        "digest": "TEXT_HERE",
         "description": "TEXT_HERE",
         "discussion": ""
     },

@@ -1,0 +1,687 @@
+{
+    "evi.4wave~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.adsr~": {
+        "type": "abstraction",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.algoverb~": {
+        "type": "abstraction",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.allpass~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.arpnotch~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.audiodust~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.backverb~": {
+        "type": "abstraction",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.baxandall~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.biquad.filter~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.biquadcoeff": {
+        "type": "abstraction",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.biquadcoeff~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.blitwaves~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.butterworthlp6~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.butterworthlp8~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.cfsmooth~": {
+        "type": "external",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.classic.osc~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.clip~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.clipasym~": {
+        "type": "abstraction",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.comb~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.cross~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.crossover.3band~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.crossover.allpass~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.crossover.sum~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.crossover~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.damp.macro~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.damp~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.dcblock~": {
+        "type": "abstraction",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.dfm~": {
+        "type": "abstraction",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.eq3~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.eq3stereo~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.eq5~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.eq8~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.expsmooth~": {
+        "type": "external",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.filter.allpass~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.filter.bandpass~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.filter.bell~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.filter.eq~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.filter.highpass~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.filter.highshelf~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.filter.lowpass~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.filter.lowshelf~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.filter.morph~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.filter.notch~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.filter.peak~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.filter.resonant~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.filter.shelving~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.filter.tilt~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.filter~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.formantfilter.morph~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.formantfilter~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.formantosc~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.formletfilter~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.freezeverb~": {
+        "type": "abstraction",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.freqshift.hilbert~": {
+        "type": "abstraction",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.freqshift.weaver~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.gaussiannoise~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.gigaverb~": {
+        "type": "abstraction",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.hardclip~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.hilbert~": {
+        "type": "abstraction",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.korgms10~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.korgms20.select~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.korgms20~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.ladder.diode~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.ladder.moog~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.ladder.poles~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.ladder.transistor~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.lagsmooth~": {
+        "type": "external",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.limiterfast~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.lockhart.cascade~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.lockhart.simple~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.logahr~": {
+        "type": "external",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.logattackdecay~": {
+        "type": "external",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.logdecay~": {
+        "type": "external",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.logsmooth~": {
+        "type": "external",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.lores~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.lorez~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.lpg~": {
+        "type": "abstraction",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.mattaverb~": {
+        "type": "abstraction",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.modalres~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.modosc~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.morph.trap~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.morph.tri~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.multimode~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.onepole.shelving~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.onepole~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.overdrive.atan~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.overdrive.sqrt~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.overdrive.tanh~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.paf~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.pan~": {
+        "type": "external",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.phaseshift~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.phasor0~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.pitchdetect~": {
+        "type": "abstraction",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.plateverb_lite~": {
+        "type": "abstraction",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.plateverb~": {
+        "type": "abstraction",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.polyphaseiirhilbertcoeffs": {
+        "type": "abstraction",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.quadosc~": {
+        "type": "external",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.ramp0~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.randy~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.rcfilter~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.rect.select~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.rect~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.reson~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.ringmod.diode~": {
+        "type": "abstraction",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.ringmod~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.saw.select~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.saw~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.shaper~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.sine.select~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.sinfold~": {
+        "type": "abstraction",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.skfinputmix~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.softclip~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.squine.simple~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.sustainverb_lite~": {
+        "type": "abstraction",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.sustainverb~": {
+        "type": "abstraction",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.svf~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.svfinputmix~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.svfsmooth~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.svfsynth~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.teeth~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.tone.macro~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.tpqm": {
+        "type": "abstraction",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.transratio": {
+        "type": "abstraction",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.tri.select~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.tri~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.vactrol~": {
+        "type": "external",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.vcf~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.velvetnoise~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.vosim.basic~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.warmer~": {
+        "type": "abstraction",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.weightingcoeffs": {
+        "type": "abstraction",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.xfade~": {
+        "type": "external",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.zeroxcount~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.zeroxoscnoise~": {
+        "type": "define",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "evi.zitaverb~": {
+        "type": "abstraction",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "mc.evi.bands~": {
+        "type": "abstraction",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "mc.evi.listgen": {
+        "type": "abstraction",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    }
+}

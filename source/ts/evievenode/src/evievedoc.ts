@@ -1,4 +1,10 @@
 
+/*!
+ * this file is automatically transpiled from Typescript - DO NOT EDIT BY HAND
+ * evievedoc.js is for using via the ./doc/evievedoc.maxpat for auto creating all of the evieve Package documentation
+ * NOTE: this file is completely horrible and should probably only be used by Pete
+ */
+
 import * as max from 'max-api-or-nah';
 import fs from 'fs';
 import { homedir } from 'os';
@@ -227,6 +233,10 @@ max.addHandler('make_qlookup_json', () => {
 	parseDataForQlookup();
 })
 
+max.addHandler('make_dlookup_json', () => {
+	parseDataForDlookup();
+})
+
 max.addHandler('make_maxdb_json', () => {
 	createMaxDbFle();
 })
@@ -432,7 +442,8 @@ async function autoCreateExternalsXml()
 	}
 }
 
-function parseDataForQlookup() {
+function parseDataForQlookup()
+{
 	const parseOptions = {
 		preserveOrder: false, // false = good for getting values, shit for rebuilding xml
 		ignoreAttributes: false,
@@ -518,6 +529,91 @@ function parseDataForQlookup() {
 	// fs.mkdirSync(writeDir, { recursive: true });
 	fs.writeFileSync(`${writeDir}/evieve-obj-qlookup.json`, JSON.stringify(qlookup, null, 4));
 	void max.post('Wrote qlookup for evieve', max.POST_LEVELS.INFO);
+}
+
+function parseDataForDlookup()
+{
+	const dlookup: any = {};
+	const absRefDir = `${cwd()}/${config.referenceFiles.abstractions.config}`;
+	const defsRefDir = `${cwd()}/${config.referenceFiles.defines.config}`;
+	const extsRefDir = `${cwd()}/${config.referenceFiles.externals.config}`;
+
+	let absRefNames = getFileNamesFromPath(absRefDir, 'json');
+	const IGNORE_ABS = /_xml_abstraction_template.json/;
+	absRefNames = absRefNames.filter((str) => !IGNORE_ABS.test(str));
+
+	let defsRefNames = getFileNamesFromPath(defsRefDir, 'json');
+	const IGNORE_DEFS = /_xml_define_template.json/;
+	defsRefNames = defsRefNames.filter((str) => !IGNORE_DEFS.test(str));
+
+	let extsRefNames = getFileNamesFromPath(extsRefDir, 'xml');
+	const parseOptions = {
+		preserveOrder: false, // false = good for getting values, shit for rebuilding xml
+		ignoreAttributes: false,
+		attributeNamePrefix: attributeXmlPrefix,
+		alwaysCreateTextNode: true,
+		processEntities: false
+	};
+	const parser = new XMLParser(parseOptions);
+
+	for (const extRef of extsRefNames) {
+		const xmlData = fs.readFileSync(`${extsRefDir}/${extRef}`, 'utf8');
+		const xmlResult = parser.parse(xmlData);
+		const objectName = extRef.replace('_ref.xml', '');
+		dlookup[objectName] = {};
+		dlookup[objectName].type = 'external';
+		if (Object.hasOwn(xmlResult.c74object, 'digest')) {
+			const maybeDigest: any = xmlResult.c74object.digest;
+			if (typeof maybeDigest === 'string') {
+				dlookup[objectName].digest = xmlResult.c74object.digest;
+			} else {
+				dlookup[objectName].digest = xmlResult.c74object.digest['#text'];
+			}
+		} else {
+			dlookup[objectName].digest = 'TEXT_HERE';
+		}
+		if (Object.hasOwn(xmlResult.c74object, 'description')) {
+			const maybeDescription: any = xmlResult.c74object.description;
+			if (typeof maybeDescription === 'string') {
+				dlookup[objectName].description = xmlResult.c74object.description;
+			} else {
+				dlookup[objectName].description = xmlResult.c74object.description['#text'];
+			}
+		} else {
+			dlookup[objectName].description = 'TEXT_HERE';
+		}
+	}
+
+	for (const defsRef of defsRefNames) {
+		const defData = fs.readFileSync(`${defsRefDir}/${defsRef}`, 'utf8');
+		const defResult = JSON.parse(defData);
+		const objectName = defResult.object.name;
+		dlookup[objectName] = {};
+		dlookup[objectName].type = 'define';
+		dlookup[objectName].digest = defResult.object.digest;
+		dlookup[objectName].description = defResult.object.description;
+	}
+
+	for (const absRef of absRefNames) {
+		const absData = fs.readFileSync(`${absRefDir}/${absRef}`, 'utf8');
+		const absResult = JSON.parse(absData);
+		const objectName = absResult.object.name;
+		dlookup[objectName] = {};
+		dlookup[objectName].type = 'abstraction';
+		dlookup[objectName].digest = absResult.object.digest;
+		dlookup[objectName].description = absResult.object.description;
+	}
+
+	const sortedDlookups = Object.entries(dlookup).sort((a, b) =>
+		a[0].localeCompare(b[0], undefined, { sensitivity: 'base' })
+	);
+
+	const assignDlookup = Object.fromEntries(sortedDlookups);
+
+	const writeDir = `${cwd()}/${config.interfaceFiles.dlookup.output}`;
+	fs.writeFileSync(`${writeDir}/evieve-obj-dlookup.json`, JSON.stringify(assignDlookup, null, 4));
+	void max.post('Wrote dlookup for evieve', max.POST_LEVELS.INFO);
+
 }
 
 function createMaxDbFle()
@@ -2666,14 +2762,27 @@ function parseGenExprAstsForDoc()
 					for (const ret of func.body.body) {
 						if (ret.type === 'ReturnStatement') {
 							let rets = 0;
+							// const arrayExpression: string[] = [];
 							if (ret.argument.type === 'ArrayExpression') {
 								rets = ret.argument.elements.length;
+								// for (const elem of ret.argument.elements) {
+								// 	if (elem.type === 'Identifier') {
+								// 		arrayExpression.push(elem.name);
+								// 	} else {
+								// 		arrayExpression.push('');
+								// 	}
+								// }
 							} else { // for now, will be wrong sometimes
 								rets = 1;
 							}
 							for (let j = 0; j < rets; j++) {
 								let thisReturn = JSON.parse(JSON.stringify(returnsTemplate));
 								thisReturn.id = j+1; // controversial...
+								// if (ret.argument.type === 'ArrayExpression') {
+								// 	thisFunc.name = arrayExpression[j];
+								// } else if (ret.argument.type === 'Identifier') {
+								// 	thisFunc.name = ret.argument.name;
+								// }
 								thisFunc.returns.push(thisReturn);
 							}
 							// for (const [index, value] of _.entries()) {}

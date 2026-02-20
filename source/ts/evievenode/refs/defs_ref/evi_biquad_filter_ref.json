@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi.biquad.filter~",
-        "category": "evieve",
         "parent": "evi_biquad_filter",
+        "category": "evieve",
         "tilde": "~",
+        "digest": "TEXT_HERE",
         "description": "TEXT_HERE",
         "discussion": ""
     },

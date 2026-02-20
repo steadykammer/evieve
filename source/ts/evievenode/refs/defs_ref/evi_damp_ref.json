@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi.damp~",
-        "category": "evieve",
         "parent": "evi_damp",
+        "category": "evieve",
         "tilde": "~",
+        "digest": "TEXT_HERE",
         "description": "TEXT_HERE",
         "discussion": ""
     },

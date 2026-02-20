@@ -17,7 +17,7 @@
      <br />
   </description>
   <misc name="GenExpr Functions">
-    <entry name="logicalClicks()">
+    <entry name="logicalClicks ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -27,7 +27,7 @@
 
       </description>
     </entry>
-    <entry name="triggerHoldGate()">
+    <entry name="triggerHoldGate ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: X,  <br />
         <b>In 2</b>: type=<i>param</i> (optional): hold, default: 10,  <br />
@@ -37,7 +37,7 @@
 
       </description>
     </entry>
-    <entry name="varDcblock()">
+    <entry name="varDcblock ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x0,  <br />
         <b>In 2</b>: type=<i>input</i>: a0,  <br />
@@ -46,7 +46,7 @@
 
       </description>
     </entry>
-    <entry name="preWarpG()">
+    <entry name="preWarpG ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
 
@@ -54,7 +54,7 @@
 
       </description>
     </entry>
-    <entry name="eviCopysign()">
+    <entry name="eviCopysign ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: y,  <br />
         <b>In 2</b>: type=<i>input</i>: x,  <br />
@@ -63,7 +63,7 @@
 
       </description>
     </entry>
-    <entry name="getMax()">
+    <entry name="getMax ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: xL,  <br />
         <b>In 2</b>: type=<i>input</i>: xR,  <br />
@@ -72,7 +72,7 @@
 
       </description>
     </entry>
-    <entry name="xMega()">
+    <entry name="xMega ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: X,  <br />
         <b>In 2</b>: type=<i>param</i>: xCONST,  <br />
@@ -81,7 +81,7 @@
 
       </description>
     </entry>
-    <entry name="xSgn()">
+    <entry name="xSgn ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -89,7 +89,7 @@
 
       </description>
     </entry>
-    <entry name="xRange()">
+    <entry name="xRange ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -97,7 +97,7 @@
 
       </description>
     </entry>
-    <entry name="bandwidth2Q()">
+    <entry name="bandwidth2Q ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: bandwidth,  <br />
 
@@ -105,7 +105,7 @@
 
       </description>
     </entry>
-    <entry name="Q2bandwidth()">
+    <entry name="Q2bandwidth ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: Q,  <br />
 
@@ -113,7 +113,7 @@
 
       </description>
     </entry>
-    <entry name="pitch2timeSamps()">
+    <entry name="pitch2timeSamps ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: size,  <br />
 
@@ -121,7 +121,7 @@
 
       </description>
     </entry>
-    <entry name="pitch2timeSecs()">
+    <entry name="pitch2timeSecs ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: size,  <br />
 
@@ -129,7 +129,7 @@
 
       </description>
     </entry>
-    <entry name="decorelate()">
+    <entry name="decorelate ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -137,7 +137,7 @@
 
       </description>
     </entry>
-    <entry name="eviScurve()">
+    <entry name="eviScurve ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: segment,  <br />
 
@@ -145,7 +145,7 @@
 
       </description>
     </entry>
-    <entry name="eviMap()">
+    <entry name="eviMap ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: valueIn,  <br />
         <b>In 2</b>: type=<i>input</i>: inLow,  <br />
@@ -157,7 +157,7 @@
 
       </description>
     </entry>
-    <entry name="eviZmap()">
+    <entry name="eviZmap ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: valueIn,  <br />
         <b>In 2</b>: type=<i>input</i>: inLow,  <br />
@@ -169,7 +169,7 @@
 
       </description>
     </entry>
-    <entry name="kinky()">
+    <entry name="kinky ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: p,  <br />
         <b>In 2</b>: type=<i>input</i>: k,  <br />
@@ -178,7 +178,7 @@
 
       </description>
     </entry>
-    <entry name="sin7()">
+    <entry name="sin7 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x1,  <br />
 
@@ -186,7 +186,7 @@
 
       </description>
     </entry>
-    <entry name="parabolWrap()">
+    <entry name="parabolWrap ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: phase,  <br />
 
@@ -194,7 +194,7 @@
 
       </description>
     </entry>
-    <entry name="stereoXfadePar()">
+    <entry name="stereoXfadePar ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: L1,  <br />
         <b>In 2</b>: type=<i>input</i>: R1,  <br />
@@ -207,7 +207,7 @@
 
       </description>
     </entry>
-    <entry name="ctrlSqrt()">
+    <entry name="ctrlSqrt ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -216,7 +216,7 @@
 
       </description>
     </entry>
-    <entry name="xfadeSqrt()">
+    <entry name="xfadeSqrt ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: a,  <br />
         <b>In 2</b>: type=<i>input</i>: c,  <br />
@@ -226,7 +226,7 @@
 
       </description>
     </entry>
-    <entry name="xfadeSqrtStereo()">
+    <entry name="xfadeSqrtStereo ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: a,  <br />
         <b>In 2</b>: type=<i>input</i>: b,  <br />
@@ -239,7 +239,7 @@
 
       </description>
     </entry>
-    <entry name="xfadeQuartApproxMono()">
+    <entry name="xfadeQuartApproxMono ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: a,  <br />
         <b>In 2</b>: type=<i>input</i>: c,  <br />
@@ -249,7 +249,7 @@
 
       </description>
     </entry>
-    <entry name="xfadeQuartApproxStereo()">
+    <entry name="xfadeQuartApproxStereo ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: a,  <br />
         <b>In 2</b>: type=<i>input</i>: b,  <br />
@@ -262,7 +262,7 @@
 
       </description>
     </entry>
-    <entry name="xfadeQuartApproxSwap()">
+    <entry name="xfadeQuartApproxSwap ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: a,  <br />
         <b>In 2</b>: type=<i>input</i>: b,  <br />
@@ -273,7 +273,7 @@
 
       </description>
     </entry>
-    <entry name="panQuartApproxMono()">
+    <entry name="panQuartApproxMono ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: p,  <br />
@@ -283,7 +283,7 @@
 
       </description>
     </entry>
-    <entry name="panQuartApproxDual()">
+    <entry name="panQuartApproxDual ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: xL,  <br />
         <b>In 2</b>: type=<i>input</i>: xR,  <br />
@@ -295,7 +295,7 @@
 
       </description>
     </entry>
-    <entry name="butterfly8()">
+    <entry name="butterfly8 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: i1,  <br />
         <b>In 2</b>: type=<i>input</i>: i2,  <br />
@@ -317,7 +317,7 @@
 
       </description>
     </entry>
-    <entry name="butterfly4()">
+    <entry name="butterfly4 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: i1,  <br />
         <b>In 2</b>: type=<i>input</i>: i2,  <br />
@@ -331,7 +331,7 @@
 
       </description>
     </entry>
-    <entry name="butterfly2()">
+    <entry name="butterfly2 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: i1,  <br />
         <b>In 2</b>: type=<i>input</i>: i2,  <br />
@@ -341,7 +341,7 @@
 
       </description>
     </entry>
-    <entry name="hadamard8()">
+    <entry name="hadamard8 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: i1,  <br />
         <b>In 2</b>: type=<i>input</i>: i2,  <br />
@@ -363,7 +363,7 @@
 
       </description>
     </entry>
-    <entry name="butterfly16()">
+    <entry name="butterfly16 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: bf0_1,  <br />
         <b>In 2</b>: type=<i>input</i>: bf0_2,  <br />
@@ -401,7 +401,7 @@
 
       </description>
     </entry>
-    <entry name="butterflyMatrix()">
+    <entry name="butterflyMatrix ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: i1,  <br />
         <b>In 2</b>: type=<i>input</i>: i2,  <br />

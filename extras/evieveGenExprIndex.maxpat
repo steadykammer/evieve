@@ -29,12 +29,24 @@
             {
                 "box": {
                     "hidden": 1,
+                    "id": "obj-7",
+                    "maxclass": "button",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "bang" ],
+                    "parameter_enable": 0,
+                    "patching_rect": [ 75.0, 14.0, 24.0, 24.0 ]
+                }
+            },
+            {
+                "box": {
+                    "hidden": 1,
                     "id": "obj-5",
                     "maxclass": "message",
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 99.0, 90.0, 415.0, 22.0 ],
+                    "patching_rect": [ 101.0, 90.0, 415.0, 22.0 ],
                     "presentation": 1,
                     "presentation_rect": [ 86.0, 0.0, 415.0, 22.0 ],
                     "text": "window flags zoom, window flags minimize, window flags grow, window exec"
@@ -49,7 +61,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 101.0, 66.0, 641.0, 22.0 ],
-                    "text": "window flags nozoom, window flags nominimize, window flags nogrow, window constrain 63 131 796 690, window exec"
+                    "text": "window flags nozoom, window flags nominimize, window flags nogrow, window constrain 63 131 796 822, window exec"
                 }
             },
             {
@@ -75,12 +87,13 @@
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
                     "patching_rect": [ 15.0, 116.0, 67.0, 22.0 ],
-                    "save": [ "#N", "thispatcher", ";", "#Q", "window", "flags", "nogrow", "close", "nozoom", "nofloat", "menu", "nominimize", ";", "#Q", "window", "constrain", 63, 131, 796, 690, ";", "#Q", "window", "size", 63, 131, 859, 761, ";", "#Q", "window", "title", ";", "#Q", "window", "exec", ";", "#Q", "savewindow", 1, ";", "#Q", "end", ";" ],
+                    "save": [ "#N", "thispatcher", ";", "#Q", "window", "flags", "nogrow", "close", "nozoom", "nofloat", "menu", "nominimize", ";", "#Q", "window", "constrain", 63, 131, 796, 822, ";", "#Q", "window", "size", 63, 131, 859, 791, ";", "#Q", "window", "title", ";", "#Q", "window", "exec", ";", "#Q", "savewindow", 1, ";", "#Q", "end", ";" ],
                     "text": "thispatcher"
                 }
             },
             {
                 "box": {
+                    "annotation": "GenExpr Index Viewer",
                     "bgmode": 0,
                     "border": 0,
                     "clickthrough": 0,
@@ -91,10 +104,10 @@
                     "lockedsize": 0,
                     "maxclass": "bpatcher",
                     "name": "evieveGenExprIndexLogic.maxpat",
-                    "numinlets": 0,
+                    "numinlets": 1,
                     "numoutlets": 0,
                     "offset": [ 0.0, 0.0 ],
-                    "patching_rect": [ 71.0, 14.0, 470.0, 25.0 ],
+                    "patching_rect": [ 101.0, 14.0, 470.0, 25.0 ],
                     "presentation": 1,
                     "presentation_rect": [ 15.0, 34.0, 760.0, 610.0 ],
                     "viewvisibility": 1
@@ -132,6 +145,13 @@
                     "destination": [ "obj-4", 0 ],
                     "hidden": 1,
                     "source": [ "obj-6", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-1", 0 ],
+                    "hidden": 1,
+                    "source": [ "obj-7", 0 ]
                 }
             }
         ],

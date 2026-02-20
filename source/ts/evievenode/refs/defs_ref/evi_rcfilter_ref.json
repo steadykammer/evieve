@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi.rcfilter~",
-        "category": "evieve",
         "parent": "evi_rcfilter",
+        "category": "evieve",
         "tilde": "~",
+        "digest": "TEXT_HERE",
         "description": "TEXT_HERE",
         "discussion": ""
     },

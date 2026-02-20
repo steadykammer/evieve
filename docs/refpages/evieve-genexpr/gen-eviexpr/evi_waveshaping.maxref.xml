@@ -14,7 +14,7 @@
      <br />
   </description>
   <misc name="GenExpr Functions">
-    <entry name="localExpA()">
+    <entry name="localExpA ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -22,7 +22,7 @@
 
       </description>
     </entry>
-    <entry name="tanhLApprox()">
+    <entry name="tanhLApprox ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -30,7 +30,7 @@
 
       </description>
     </entry>
-    <entry name="tanhAxA()">
+    <entry name="tanhAxA ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: gain,  <br />
@@ -39,7 +39,7 @@
 
       </description>
     </entry>
-    <entry name="tanhSqrt()">
+    <entry name="tanhSqrt ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -47,7 +47,7 @@
 
       </description>
     </entry>
-    <entry name="tanhPoly()">
+    <entry name="tanhPoly ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -55,7 +55,7 @@
 
       </description>
     </entry>
-    <entry name="atanApprox()">
+    <entry name="atanApprox ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -63,7 +63,7 @@
 
       </description>
     </entry>
-    <entry name="atanDrive()">
+    <entry name="atanDrive ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: drive,  <br />
 
@@ -72,7 +72,7 @@
 
       </description>
     </entry>
-    <entry name="atanSat()">
+    <entry name="atanSat ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: drive,  <br />
@@ -81,7 +81,7 @@
 
       </description>
     </entry>
-    <entry name="tarrabiaShaper()">
+    <entry name="tarrabiaShaper ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: a,  <br />
@@ -90,7 +90,7 @@
 
       </description>
     </entry>
-    <entry name="jongShaper()">
+    <entry name="jongShaper ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: a,  <br />
@@ -99,7 +99,7 @@
 
       </description>
     </entry>
-    <entry name="cubicNL()">
+    <entry name="cubicNL ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -107,7 +107,7 @@
 
       </description>
     </entry>
-    <entry name="thbNL()">
+    <entry name="thbNL ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -115,7 +115,7 @@
 
       </description>
     </entry>
-    <entry name="polyNom()">
+    <entry name="polyNom ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -123,7 +123,7 @@
 
       </description>
     </entry>
-    <entry name="polySat()">
+    <entry name="polySat ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -131,7 +131,7 @@
 
       </description>
     </entry>
-    <entry name="parabolSat()">
+    <entry name="parabolSat ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: a,  <br />
@@ -141,7 +141,7 @@
 
       </description>
     </entry>
-    <entry name="scDistort()">
+    <entry name="scDistort ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x0,  <br />
         <b>In 2</b>: type=<i>input</i>: drive,  <br />
@@ -150,7 +150,7 @@
 
       </description>
     </entry>
-    <entry name="scSoftClip()">
+    <entry name="scSoftClip ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x0,  <br />
         <b>In 2</b>: type=<i>input</i>: drive,  <br />
@@ -159,7 +159,7 @@
 
       </description>
     </entry>
-    <entry name="RaffelBBD()">
+    <entry name="RaffelBBD ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -167,7 +167,7 @@
 
       </description>
     </entry>
-    <entry name="cosQ32p()">
+    <entry name="cosQ32p ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -175,7 +175,7 @@
 
       </description>
     </entry>
-    <entry name="cos32quad12p()">
+    <entry name="cos32quad12p ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
 
@@ -183,7 +183,7 @@
 
       </description>
     </entry>
-    <entry name="sinParam()">
+    <entry name="sinParam ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: drive,  <br />
 
@@ -192,7 +192,7 @@
 
       </description>
     </entry>
-    <entry name="sinSat()">
+    <entry name="sinSat ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x,  <br />
         <b>In 2</b>: type=<i>input</i>: drive,  <br />
@@ -201,7 +201,7 @@
 
       </description>
     </entry>
-    <entry name="modHT()">
+    <entry name="modHT ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x0,  <br />
         <b>In 2</b>: type=<i>input</i>: d,  <br />
@@ -211,7 +211,7 @@
 
       </description>
     </entry>
-    <entry name="foldBD()">
+    <entry name="foldBD ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: xin,  <br />
         <b>In 2</b>: type=<i>input</i>: thresh,  <br />
@@ -220,7 +220,7 @@
 
       </description>
     </entry>
-    <entry name="tapeH()">
+    <entry name="tapeH ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: xin,  <br />
         <b>In 2</b>: type=<i>input</i>: sigmoid,  <br />
@@ -229,7 +229,7 @@
 
       </description>
     </entry>
-    <entry name="gloubiBoulga()">
+    <entry name="gloubiBoulga ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x2,  <br />
         <b>In 2</b>: type=<i>input</i>: drive,  <br />
@@ -238,7 +238,7 @@
 
       </description>
     </entry>
-    <entry name="boulgaStatic()">
+    <entry name="boulgaStatic ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: xin,  <br />
 

@@ -1,9 +1,10 @@
 {
     "object": {
         "name": "evi.limiterfast~",
-        "category": "evieve",
         "parent": "evi_limiterfast",
+        "category": "evieve",
         "tilde": "~",
+        "digest": "TEXT_HERE",
         "description": "TEXT_HERE",
         "discussion": ""
     },
