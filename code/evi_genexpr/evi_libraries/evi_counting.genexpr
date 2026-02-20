@@ -295,7 +295,7 @@ eviRamp0(trig)
 	rtrt = rest * rest;
 	rtinv = 1 - rest;
 	rtirti = rtinv * rtinv;
-	outramp = latch(cv, syncstart) ? ( (rest < 0.5) ? (rtrt + rtrt) : 1 - (rtirti + rtirti) ) : rest;   // s-curve or linear
+	outramp = latch(cv, syncstart) ? ((rest < 0.5) ? (rtrt + rtrt) : 1 - (rtirti + rtirti)) : rest;   // s-curve or linear
 
     return  outramp, carrycount, syncstart, syncend;
 }

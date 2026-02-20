@@ -230,8 +230,8 @@ rcFilterDampBandpass(Vin, glp, ghp, lk, hk)
 tanhLApprox( x )
 {
 	x2	= x * x;
-	a	= ( ( ( x2 + 378 ) * x2 + 17325 ) * x2 + 135135 ) * x;
-	b	= ( ( 28 * x2 + 3150 ) * x2 + 62370 ) * x2 + 135135;
+	a	= (((x2 + 378) * x2 + 17325) * x2 + 135135) * x;
+	b	= ((28 * x2 + 3150) * x2 + 62370) * x2 + 135135;
 	return	clamp((a / b), -1, 1);
 }
 /*
@@ -283,7 +283,7 @@ rcOnePole ( Vin, g )
 
 	tanh_input	= tanhLApprox( Vin );
 	// "Linear State Prediction"
-	Vout		= ( g * ( tanh_input - b ) + s ) / ( a * g + 1 );
+	Vout		= (g * (tanh_input - b) + s) / (a * g + 1);
 	// "Tangential" (Newton-like linearisation)
 	base		= Vout;								// base variable for tangent/angle
 	tBase		= tanhLApprox( base );
@@ -291,24 +291,24 @@ rcOnePole ( Vin, g )
 	b			= tBase - base * a;
 
 	// "Linear State Estimate"
-	estimate	= ( g * ( tanh_input - b ) + s ) / ( a * g + 1 );
+	estimate	= (g * (tanh_input - b) + s) / (a * g + 1);
 	tanh_result = tanhLApprox( estimate );
-	residue 	= ( g * ( tanh_input - tanh_result ) + s ) - estimate;
+	residue 	= (g * (tanh_input - tanh_result) + s) - estimate;
 
 	// new_estimate	= old_estimate - residue/derivative
-	while( ( abs(residue) > MAX_NEWTON_ERROR ) || ( numIterations <= MAX_ITERATIONS ) ) {
+	while( (abs(residue) > MAX_NEWTON_ERROR) || (numIterations <= MAX_ITERATIONS) ) {
 		// tanh'(x)	=  1 - tanh^2(x)
 		derivative	= -g * sech2_with_tanh( tanh_result ) - 1;
 		estimate	=  estimate - residue / derivative;
 		// get next residue
-		residue 	= ( g * ( tanh_input - tanh_result ) + s ) - estimate;
+		residue 	= (g * (tanh_input - tanh_result) + s) - estimate;
 		// loop
 		numIterations += 1;
 	}
 
 	Vout			= estimate;
 	// updateState();
-	s				= ( Vout + Vout ) - s;			// trapezoidal rule
+	s				= (Vout + Vout) - s;			// trapezoidal rule
 	numIterations	= 1;
 
 	Lp			= Vout;
@@ -328,7 +328,7 @@ rcOnePoleLpHp ( Vin, g )
 
 	tanh_input	= tanhLApprox( Vin );
 	// "Linear State Prediction"
-	Vout		= ( g * ( tanh_input - b ) + s ) / ( a * g + 1 );
+	Vout		= (g * (tanh_input - b) + s) / (a * g + 1);
 	// "Tangential" (Newton-like linearisation)
 	base		= Vout;								// base variable for tangent/angle
 	tBase		= tanhLApprox( base );
@@ -336,24 +336,24 @@ rcOnePoleLpHp ( Vin, g )
 	b			= tBase - base * a;
 
 	// "Linear State Estimate"
-	estimate	= ( g * ( tanh_input - b ) + s ) / ( a * g + 1 );
+	estimate	= (g * (tanh_input - b) + s) / (a * g + 1);
 	tanh_result = tanhLApprox( estimate );
-	residue 	= ( g * ( tanh_input - tanh_result ) + s ) - estimate;
+	residue 	= (g * (tanh_input - tanh_result) + s) - estimate;
 
 	// new_estimate	= old_estimate - residue/derivative
-	while( ( abs(residue) > MAX_NEWTON_ERROR ) || ( numIterations <= MAX_ITERATIONS ) ) {
+	while( (abs(residue) > MAX_NEWTON_ERROR) || (numIterations <= MAX_ITERATIONS) ) {
 		// tanh'(x)	=  1 - tanh^2(x)
 		derivative	= -g * sech2_with_tanh( tanh_result ) - 1;
 		estimate	=  estimate - residue / derivative;
 		// get next residue
-		residue 	= ( g * ( tanh_input - tanh_result ) + s ) - estimate;
+		residue 	= (g * (tanh_input - tanh_result) + s) - estimate;
 		// loop
 		numIterations += 1;
 	}
 
 	Vout			= estimate;
 	// updateState();
-	s				= ( Vout + Vout ) - s;			// trapezoidal rule
+	s				= (Vout + Vout) - s;			// trapezoidal rule
 	numIterations	= 1;
 
 	Lp			= Vout;								// Lp

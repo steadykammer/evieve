@@ -9,11 +9,42 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 182.0, 175.0, 1296.0, 773.0 ],
+        "rect": [ 34.0, 175.0, 1296.0, 773.0 ],
         "gridonopen": 2,
         "subpatcher_template": "sub",
         "integercoordinates": 1,
         "boxes": [
+            {
+                "box": {
+                    "id": "obj-80",
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 269.0, 584.0, 151.0, 20.0 ],
+                    "text": "final final, to ~/Desktop"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-74",
+                    "maxclass": "message",
+                    "numinlets": 2,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 269.0, 606.0, 86.0, 22.0 ],
+                    "text": "build_package"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-56",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 269.0, 645.0, 151.0, 22.0 ],
+                    "text": "s to_nodescript_evievedoc"
+                }
+            },
             {
                 "box": {
                     "id": "obj-51",
@@ -1845,6 +1876,12 @@
                     "destination": [ "obj-1", 0 ],
                     "midpoints": [ 209.5, 64.5, 43.5, 64.5 ],
                     "source": [ "obj-7", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-56", 0 ],
+                    "source": [ "obj-74", 0 ]
                 }
             },
             {

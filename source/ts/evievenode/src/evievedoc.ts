@@ -1,11 +1,13 @@
 
 /*!
- * this file is automatically transpiled from Typescript - DO NOT EDIT BY HAND
- * evievedoc.js is for using via the ./doc/evievedoc.maxpat for auto creating all of the evieve Package documentation
- * NOTE: this file is completely horrible and should probably only be used by Pete
+ * this file is automatically transpiled from Typescript - DO NOT EDIT BY HAND.
+ * evievedoc.js is for using via the ./doc/evievedoc.maxpat for auto creating all
+ * of the evieve Package documentation, including building the Package for release.
+ * NOTE: this file is completely horrible and should probably only be used by Pete.
  */
 
 import * as max from 'max-api-or-nah';
+// import('max-api-or-nah');
 import fs from 'fs';
 import { homedir } from 'os';
 import { resolve, posix, sep } from 'path';
@@ -150,6 +152,43 @@ interface externalsConfigTemplate {
 		browser: boolean,
 		auto: boolean
 	}
+}
+
+interface genExprFileTemplate {
+	description: string,
+	requires: string[],
+	functions: {}[],
+	seealso: string[]
+}
+
+interface genExprFunctionsTemplate {
+	document: boolean,
+	digest: string,
+	name: string,
+	inputs: {}[],
+	returns: {}[]
+}
+
+interface genExprInputsInputTemplate {
+	id: number,
+	kind: string,
+	name: string,
+	digest: string
+}
+
+interface genExprInputsParamTemplate {
+	id: number,
+	kind: string,
+	name: string,
+	default: number,
+	type: string,
+	digest: string
+}
+
+interface genExprReturnsTemplate {
+	id: number,
+	name: string,
+	digest: string
 }
 
 // --------------------------------------------- //
@@ -340,6 +379,14 @@ max.addHandler('create_helpfiles_abstractions', () => {
 
 max.addHandler('create_helpfiles_defines', () => {
 	createHelpFilesDefines();
+})
+
+// ---
+
+// final final
+
+max.addHandler('build_package', () => {
+	buildPackage();
 })
 
 // --------------------------------------------- //
@@ -2613,7 +2660,8 @@ const areas = [
 async function extractGenExprASTs()
 {
 	// cannot work out PEG parsing syntax errors on only these four files (they compile in gen~ fine)
-	const tempIgnore: string[] = ['evi_counting.genexpr', 'evi_rcfilters.genexpr', 'evi_reverb_library.genexpr', 'evi_sources.genexpr'];
+	// const tempIgnore: string[] = ['evi_counting.genexpr', 'evi_rcfilters.genexpr', 'evi_reverb_library.genexpr', 'evi_sources.genexpr'];
+	// ^^ it turns out this was a Cycling bug with the genexpr.pegjs grammar being slightly different to the lua gen grammar ^^
 
 	const genexprsFolder = `${cwd()}/${config.referenceFiles.genExpr.input}`;
 	const fullGenexprsPaths = getFilePathsFromPathRecursive(genexprsFolder, 'genexpr');
@@ -2623,14 +2671,14 @@ async function extractGenExprASTs()
 	for await (const genexprPath of fullGenexprsPaths) {
 		const genexprName = path.basename(genexprPath);
 		getGenExprCategory(genExprCategories, genexprPath, genexprName);
-		if (!tempIgnore.includes(genexprName)) {
+		// if (!tempIgnore.includes(genexprName)) {
 			const genAstName = genexprName.replace('.genexpr', '_ast.json');
 			const thisRawGenExpr = fs.readFileSync(`${genexprPath}`, 'utf8');
 			// void max.post(`.genexpr file about to be parsed: ${genexprName}`);
 			const genExprAst = PEGparser.parse(thisRawGenExpr);
 			fs.writeFileSync(`${genexprsAstsPath}/expr_ast/${genAstName}`, JSON.stringify(genExprAst, null, 4));
 			// void max.post(`.genexpr file just written: ${genAstName}`);
-		}
+		// }
 	}
 	fs.writeFileSync(`${genexprsAstsPath}/_expr_data_categories.json`, JSON.stringify(genExprCategories, null, 4));
 }
@@ -2945,5 +2993,40 @@ async function testPeggySideBar(fullPathToTest: string)
 	const pre_ast = PEGparser.parse(thisConfigGen);
 	// void max.post(`parser test for ${genName}: ${JSON.stringify(pre_ast)}`);
 	fs.writeFileSync(`${thisDir}/${pegWriteName}`, JSON.stringify(pre_ast, null, 4));
+}
+
+// --------------------------------------------- //
+
+// very stupid and dangerous pete style package building
+
+function buildPackage(dest?: string, zip = false)
+{
+	const source = "../../../../../evieve";
+	const destination = resolveTilde('~/Desktop/evieve');
+	void max.post(`source path is: ${path.resolve(source)}`);
+	void max.post(`destination path is: ${destination}`);
+
+	fs.cpSync(source, destination, {
+		recursive: true,
+		verbatimSymlinks: true,
+		filter: src => {
+			return !(src.indexOf('source') > -1) && 
+			!(src.indexOf('build') > -1) && 
+			!(src.indexOf('package-info.json.in') > -1) && 
+			!(src.indexOf('CMakeLists.txt') > -1) &&
+			!(src.indexOf('.git') > -1) &&
+			!(src.indexOf('.gitignore') > -1) &&
+			!(src.indexOf('.gitmodules') > -1) &&
+			!(src.indexOf('.vscode') > -1) && 
+			!(src.indexOf('.DS_Store') > -1)
+		}
+	});
+	void max.post('copying is complete...');
+
+	fs.mkdirSync(`${destination}/source`, { recursive: true });
+	fs.copyFileSync(`${source}/source/evieve_source_code.txt`, `${destination}/source/evieve_source_code.txt`);
+	void max.post(`build is complete, written evieve Package to: ${destination}`);
+
+	// TODO: .zip
 }
 

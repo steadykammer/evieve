@@ -14,8 +14,8 @@ spreadLate(diffscale, mul1, mul2, spread)		// diffscale is int(), others doubles
 	c		= int(spread	*  mul1	+ 369);
 	d		= int(spread	*  mul2	+ 931);		// '* 3' baked into 'mul2' here
 	t1		= diffscale		* (c	- 210);
-	t2		= diffscale		* (d	- c	);
-	t3		= diffscale		* (1341 - d	);
+	t2		= diffscale		* (d	- c);
+	t3		= diffscale		* (1341 - d);
 	return	t1, t2, t3;							// Sadeharju has truncated ints
 }
 
