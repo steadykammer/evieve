@@ -4,7 +4,7 @@
         "parent": "evi_allpass",
         "category": "evieve",
         "tilde": "~",
-        "digest": "TEXT_HERE",
+        "digest": "Reimplementation of MSP <o>allpass~</o> filter delay",
         "description": "TEXT_HERE",
         "discussion": ""
     },

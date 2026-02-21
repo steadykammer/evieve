@@ -4,7 +4,7 @@
         "parent": "evi_comb",
         "category": "evieve",
         "tilde": "~",
-        "digest": "TEXT_HERE",
+        "digest": "Reimplementation of MSP <o>comb~</o> filter delay",
         "description": "TEXT_HERE",
         "discussion": ""
     },

@@ -4,7 +4,7 @@
         "parent": "evi_arpnotch",
         "category": "evieve",
         "tilde": "~",
-        "digest": "TEXT_HERE",
+        "digest": "A nonlinear SVF Notch filter which can morph between LP..Notch..HP",
         "description": "TEXT_HERE",
         "discussion": ""
     },

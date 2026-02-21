@@ -2,7 +2,7 @@
     "object": {
         "name": "evi.polyphaseiirhilbertcoeffs",
         "category": "evieve",
-        "digest": "TEXT_HERE",
+        "digest": "Coefficient calculator for polyphase IIR halfband allpass hilbert cascade",
         "description": "TEXT_HERE",
         "discussion": ""
     },

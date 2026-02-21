@@ -4,7 +4,7 @@
         "parent": "evi_vcf_df2",
         "category": "evieve",
         "tilde": "~",
-        "digest": "TEXT_HERE",
+        "digest": "Reimplementation of Pd 'vcf~' filter",
         "description": "TEXT_HERE",
         "discussion": ""
     },

@@ -2,7 +2,7 @@
     "object": {
         "name": "evi.biquadcoeff",
         "category": "evieve",
-        "digest": "TEXT_HERE",
+        "digest": "Message rate biquad coefficients calculator with selection of 40 different filter types",
         "description": "TEXT_HERE",
         "discussion": ""
     },

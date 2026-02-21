@@ -4,7 +4,7 @@
         "parent": "evi_cross",
         "category": "evieve",
         "tilde": "~",
-        "digest": "TEXT_HERE",
+        "digest": "Reimplementation of MSP <o>cross~</o> filter as Likwitz-Riley",
         "description": "TEXT_HERE",
         "discussion": ""
     },

@@ -1,687 +1,687 @@
 {
     "evi.4wave~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Phase synchronous shared frequency oscillators with simultaneous Saw, Rect, Tri and Sine outputs",
+        "description": ""
     },
     "evi.adsr~": {
         "type": "abstraction",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "ADSR envelope generator, same features as adsr~ but with logarithmic segments \n",
+        "description": "ADSR by default, but actually DAHDSHR capabale generator via attributes. Logarithmic segment shapes but still capable of controlling poly~ and thispoly~"
     },
     "evi.algoverb~": {
         "type": "abstraction",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "True stereo algorithmic reverb \n",
+        "description": ""
     },
     "evi.allpass~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Reimplementation of MSP allpass~ filter delay",
+        "description": ""
     },
     "evi.arpnotch~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "A nonlinear SVF Notch filter which can morph between LP..Notch..HP",
+        "description": ""
     },
     "evi.audiodust~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Spikey sparse noise implementation",
+        "description": ""
     },
     "evi.backverb~": {
         "type": "abstraction",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Ursa Major reverb unit with saturating feedback \n",
+        "description": ""
     },
     "evi.baxandall~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Emulation of a classic baxandall EQ",
+        "description": ""
     },
     "evi.biquad.filter~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "All-in-one biquad coefficient calculator and filter section",
+        "description": ""
     },
     "evi.biquadcoeff": {
         "type": "abstraction",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Message rate biquad coefficients calculator with selection of 40 different filter types \n",
+        "description": ""
     },
     "evi.biquadcoeff~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Signal rate biquad coefficient calculator with 40 available filter types",
+        "description": ""
     },
     "evi.blitwaves~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "No aliasing BLIT oscillators with a choice of simultaneous wave shapes outputs",
+        "description": ""
     },
     "evi.butterworthlp6~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Unique 6th order Butterworth Lowpass filter created from evi.bp~ sections after Miller Puckette",
+        "description": ""
     },
     "evi.butterworthlp8~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "TPT variable order Butterworth Lowpass filter",
+        "description": ""
     },
     "evi.cfsmooth~": {
         "type": "external",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": 0,
+        "description": ""
     },
     "evi.classic.osc~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "A selection of 'classic' oscillator shapes",
+        "description": ""
     },
     "evi.clip~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Anti-aliased clipping algorithms for your audio",
+        "description": ""
     },
     "evi.clipasym~": {
         "type": "abstraction",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Asymmetric nonlinear processor \n",
+        "description": ""
     },
     "evi.comb~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Reimplementation of MSP comb~ filter delay",
+        "description": ""
     },
     "evi.cross~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Reimplementation of MSP cross~ filter as Likwitz-Riley",
+        "description": ""
     },
     "evi.crossover.3band~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Linkwitz-Riley 3-way crossover filter",
+        "description": ""
     },
     "evi.crossover.allpass~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Allpass filter for aligning audio chains using evieve crossover filters",
+        "description": ""
     },
     "evi.crossover.sum~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Allpass alignment summing for use with evi.crossover.3band~",
+        "description": ""
     },
     "evi.crossover~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "A choice of 2 or 4 pole Linkwitz-Riley crossover filters",
+        "description": ""
     },
     "evi.damp.macro~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "A 'one knob' macroisation for simple low/high onepole damping filters",
+        "description": ""
     },
     "evi.damp~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Onepole pass/shelf damping filters with simultaneous outputs",
+        "description": ""
     },
     "evi.dcblock~": {
         "type": "abstraction",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "DC Blocking filter \n",
+        "description": ""
     },
     "evi.dfm~": {
         "type": "abstraction",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Classic MS20 filter emulation based on DFM1 by Tony Hardie Blick \n",
+        "description": ""
     },
     "evi.eq3~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Mono TPT 3-band EQ with signal rate modulation of all parameters",
+        "description": ""
     },
     "evi.eq3stereo~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Stereo TPT 3-band EQ with signal rate modulation of all parameters",
+        "description": ""
     },
     "evi.eq5~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "5-band TPT EQ with parameter rate control of all attributes",
+        "description": ""
     },
     "evi.eq8~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "8-band TPT EQ with parameter rate control of all attributes",
+        "description": ""
     },
     "evi.expsmooth~": {
         "type": "external",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": 0,
+        "description": ""
     },
     "evi.filter.allpass~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "TPT allpass filter",
+        "description": ""
     },
     "evi.filter.bandpass~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "TPT bandpass filter",
+        "description": ""
     },
     "evi.filter.bell~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "TPT peak/notch filter",
+        "description": ""
     },
     "evi.filter.eq~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "EQ type TPT filters with a choice of 7 filters",
+        "description": ""
     },
     "evi.filter.highpass~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "TPT highpass filter",
+        "description": ""
     },
     "evi.filter.highshelf~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "TPT highshelf filter",
+        "description": ""
     },
     "evi.filter.lowpass~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "TPT lowpass filter",
+        "description": ""
     },
     "evi.filter.lowshelf~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "TPT lowshelf filter",
+        "description": ""
     },
     "evi.filter.morph~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "TPT SVF which can morph between LP..BP..HP..NOTCH..LP",
+        "description": ""
     },
     "evi.filter.notch~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "TPT notch filter",
+        "description": ""
     },
     "evi.filter.peak~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "TPT peaking filter",
+        "description": ""
     },
     "evi.filter.resonant~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "TPT resonant filter",
+        "description": ""
     },
     "evi.filter.shelving~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "A chain of two two-pole TPT shelving filters",
+        "description": ""
     },
     "evi.filter.tilt~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "TPT tilt filter",
+        "description": ""
     },
     "evi.filter~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "All-in-one TPT filter section with a choice of 12 filters",
+        "description": ""
     },
     "evi.formantfilter.morph~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "A vowel morphing TPT bandpass formant filter with morphable filter types",
+        "description": ""
     },
     "evi.formantfilter~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "A vowel morphing TPT resonant formant filter",
+        "description": ""
     },
     "evi.formantosc~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "A vowel morphing formant oscillator",
+        "description": ""
     },
     "evi.formletfilter~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "A ringing formlet filter model",
+        "description": ""
     },
     "evi.freezeverb~": {
         "type": "abstraction",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Classic freeverb reverb algorithm with buttery smooth freezing effect \n",
+        "description": ""
     },
     "evi.freqshift.hilbert~": {
         "type": "abstraction",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Hilbert frequency shifter effect \n",
+        "description": ""
     },
     "evi.freqshift.weaver~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Time domain frequency shifter after D. K. Weaver's famous 'third method'",
+        "description": ""
     },
     "evi.gaussiannoise~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Gaussian distributed noise approximation",
+        "description": ""
     },
     "evi.gigaverb~": {
         "type": "abstraction",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Classic gigaverb reverb algorithm \n",
+        "description": ""
     },
     "evi.hardclip~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Anti-aliased hard clipping function",
+        "description": ""
     },
     "evi.hilbert~": {
         "type": "abstraction",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Hilbert phase shift filter using polyphase IIR halfband allpass cascade \n",
+        "description": ""
     },
     "evi.korgms10~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "'Korg 35' single-amplifier unbuffered modified Sallen-Key topology nonlinear filter emulation",
+        "description": "evi.korgms10~ is a 'max define' for the evi_korgms10.gendsp gen~ abstraction. Because evi.korgms10~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nThe 'Korg 35' chip was found in the MS-10 and early MS-20 synthesisers - different to the later dual-amplifier Korg OTA chip found in the later MS-20s and other Korg synthesisers."
     },
     "evi.korgms20.select~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Korg OTA dual-amplifier buffered modified Sallen-Key topology nonlinear filter emulation",
+        "description": "evi.korgms20.select~ is a 'max define' for the evi_korgms20_select.gendsp gen~ abstraction. Because evi.korgms20.select~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nThe 'KLM' OTA chip was found in the later MS-20s and other Korg synthesisers - it is different to the earlier 'Korg 35' single-amplifier unbuffered Korg chip found in the earlier MS-20s and MS-10 and also in the 'monotron' series. This is a fabricated evieve version able to smoothly switch (with a nice 'plop') between 12dB LP and 6dB HP filter types, realised in transposed TPT form. With 2x option."
     },
     "evi.korgms20~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Korg OTA dual-amplifier modified Sallen-Key topology nonlinear filter emulation",
+        "description": "evi.korgms20~ is a 'max define' for the evi_korgms20.gendsp gen~ abstraction. Because evi.korgms20~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nThe 'KLM' OTA chip was found in the later MS-20s and other Korg synthesisers - it is different to the earlier 'Korg 35' single-amplifier unbuffered Korg chip found in the earlier MS-20s and MS-10 and also in the 'monotron' series. This Korg filter sits inbetween the more broken evi.korgms10~ and the more stable evi.korgms20.select~. It is aggressive but predictable."
     },
     "evi.ladder.diode~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "TPT Diode nonlinear Ladder filter emulation, similar to the Roland-TB303 filter",
+        "description": "evi.ladder.diode~ is a 'max define' for the evi_ladder_diode.gendsp gen~ abstraction. Because evi.ladder.diode~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nUnlike the (Moog) Transistor Ladder, the Diode Ladder resonance peaks, rather than scales."
     },
     "evi.ladder.moog~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Nonlinear Moog Ladder filter emulation, this is the smoothest and most in tune of all the evieve Ladders and handles high resonance really well",
+        "description": ""
     },
     "evi.ladder.poles~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "TPT nonlinear transistor Ladder filter emulation with switchable (interpolated) poles",
+        "description": ""
     },
     "evi.ladder.transistor~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Nonlinear TPT Transistor Ladder filter emulation",
+        "description": "evi.ladder.transistor~ is a 'max define' for the evi_ladder_transistor.gendsp gen~ abstraction. Because evi.ladder.transistor~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nThis filter is tuned to be quite 'hot' and aggressive compared to the evi.ladder.moog~"
     },
     "evi.lagsmooth~": {
         "type": "external",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": 0,
+        "description": ""
     },
     "evi.limiterfast~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "A fast no-lookahead limiter with anti-aliased nonlinear clipping",
+        "description": ""
     },
     "evi.lockhart.cascade~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Anti-aliased wavefolder device for shaping oscillators, selectable up to a cascade of 16 folding sections",
+        "description": ""
     },
     "evi.lockhart.simple~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Anti-aliased wavefolder device for shaping oscillators, selectable up to four stages",
+        "description": ""
     },
     "evi.logahr~": {
         "type": "external",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": 0,
+        "description": ""
     },
     "evi.logattackdecay~": {
         "type": "external",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": 0,
+        "description": ""
     },
     "evi.logdecay~": {
         "type": "external",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": 0,
+        "description": ""
     },
     "evi.logsmooth~": {
         "type": "external",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": 0,
+        "description": ""
     },
     "evi.lores~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Reimplementation of MSP lores~ filter, closely matching the shape and behaviour but implemented as a TPT filter",
+        "description": ""
     },
     "evi.lorez~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "A novel two-pole nonlinear Ladder filter with allpass alignment",
+        "description": ""
     },
     "evi.lpg~": {
         "type": "abstraction",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Buchla Lowpass Gate emulation \n",
+        "description": ""
     },
     "evi.mattaverb~": {
         "type": "abstraction",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "True stereo one knob allpass diffuse reverb \n",
+        "description": ""
     },
     "evi.modalres~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Max Mathews modal resonator",
+        "description": ""
     },
     "evi.modosc~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "A deluxe cosine LFO with range and offset shaping",
+        "description": ""
     },
     "evi.morph.trap~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "A selection of morphing trapezoidal anti-aliased oscillators",
+        "description": ""
     },
     "evi.morph.tri~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "A selection of morphing triangular anti-aliased oscillators",
+        "description": ""
     },
     "evi.multimode~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "7 simultaneous outputs for all filters available from a linear TPT SVF Topology",
+        "description": ""
     },
     "evi.onepole.shelving~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Onepole shelving filters with simultaneous outputs",
+        "description": ""
     },
     "evi.onepole~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Linear trapezoidal integrated onepole filter with simultaneous outputs for lowpass, allpass and highpass",
+        "description": ""
     },
     "evi.overdrive.atan~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "High quality anti-aliased atan-based saturation with shape input to control overdrive",
+        "description": ""
     },
     "evi.overdrive.sqrt~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "High quality anti-aliased passive tanh-like input/output saturation",
+        "description": ""
     },
     "evi.overdrive.tanh~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "High quality anti-aliased tanh-based saturation with drive, input/output wrapping and filter shaping",
+        "description": ""
     },
     "evi.paf~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "A basic 'paf' formant oscillator, very similar to the legacy 'paf~' external",
+        "description": ""
     },
     "evi.pan~": {
         "type": "external",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": 0,
+        "description": ""
     },
     "evi.phaseshift~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Reimplementation of MSP phaseshift~ filter object",
+        "description": ""
     },
     "evi.phasor0~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Zero-rest phasor with settings for reverse and pause",
+        "description": ""
     },
     "evi.pitchdetect~": {
         "type": "abstraction",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Utility wrapper around retune~ pitch detector \n",
+        "description": ""
     },
     "evi.plateverb_lite~": {
         "type": "abstraction",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Efficient version of evi.plateverb~ plate reverb \n",
+        "description": ""
     },
     "evi.plateverb~": {
         "type": "abstraction",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Plate reverb based on yafr2~ with additional filtering and smoothing \n",
+        "description": ""
     },
     "evi.polyphaseiirhilbertcoeffs": {
         "type": "abstraction",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Coefficient calculator for polyphase IIR halfband allpass hilbert cascade \n",
+        "description": ""
     },
     "evi.quadosc~": {
         "type": "external",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": 0,
+        "description": ""
     },
     "evi.ramp0~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "A bit like MSP ramp~, with options for zero-reset, loop, restingstate, curve and pause",
+        "description": ""
     },
     "evi.randy~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Cubic interpolated version of MSP rand~",
+        "description": ""
     },
     "evi.rcfilter~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "TPT nonliner onepole rc filter emulation",
+        "description": ""
     },
     "evi.rect.select~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Selection of anti-aliased square-like oscillators",
+        "description": ""
     },
     "evi.rect~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "High quality anti-aliased square wave oscillator with PWM",
+        "description": ""
     },
     "evi.reson~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Reimplementation of MSP reson~ as a TPT filter with fm-able center frequency and auto gain compensation",
+        "description": ""
     },
     "evi.ringmod.diode~": {
         "type": "abstraction",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "analog-modelled diode-based ring modulator effect \n",
+        "description": ""
     },
     "evi.ringmod~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Anti-aliased nonlinear analog ring modulator",
+        "description": ""
     },
     "evi.saw.select~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Selection of anti-aliased saw-like oscillators",
+        "description": ""
     },
     "evi.saw~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "High quality anti-aliased saw wave oscillator",
+        "description": ""
     },
     "evi.shaper~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "An interpolated choice of even or odd harmonics waveshaping",
+        "description": ""
     },
     "evi.sine.select~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Selection of anti-aliased sine-like oscillators",
+        "description": ""
     },
     "evi.sinfold~": {
         "type": "abstraction",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Sinusoidal waveshaping processor \n",
+        "description": ""
     },
     "evi.skfinputmix~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Sallen-Key input mixing multimode filter",
+        "description": ""
     },
     "evi.softclip~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Anti-aliased soft clipping function",
+        "description": ""
     },
     "evi.squine.simple~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "A basic implementation of Rasmus Ekman's 'squine wave' oscillator with audio rate modulation",
+        "description": ""
     },
     "evi.sustainverb_lite~": {
         "type": "abstraction",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Efficient version of evi.sustainverb~ reverb effect \n",
+        "description": ""
     },
     "evi.sustainverb~": {
         "type": "abstraction",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "16x16 FDN reverb with smooth sustaining effect \n",
+        "description": ""
     },
     "evi.svf~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Reimplementation of MSP svf~ as a TPT filter",
+        "description": ""
     },
     "evi.svfinputmix~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "SVF input mixing multimode filter",
+        "description": ""
     },
     "evi.svfsmooth~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Nonlinear TPT SVF filter with audio rate modulation and morphing capabilities",
+        "description": ""
     },
     "evi.svfsynth~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Beefy nonlinear TPT SVF filter with choice of 12/24dB slope, audio rate modulation and morphing capabilities",
+        "description": ""
     },
     "evi.teeth~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Reimplementation of MSP teeth~ as a TPT filter",
+        "description": ""
     },
     "evi.tone.macro~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "A 'one knob' macroisation for nonlinear cut tone control useful for quick colourisation in your audio chain",
+        "description": ""
     },
     "evi.tpqm": {
         "type": "abstraction",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Three point quadratic map \n",
+        "description": ""
     },
     "evi.transratio": {
         "type": "abstraction",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Convert semitones to pitch and vica versa \n",
+        "description": ""
     },
     "evi.tri.select~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Selection of anti-aliased triangle-like oscillators",
+        "description": ""
     },
     "evi.tri~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "High quality anti-aliased triangle wave oscillator",
+        "description": ""
     },
     "evi.vactrol~": {
         "type": "external",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": 0,
+        "description": ""
     },
     "evi.vcf~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Reimplementation of Pd 'vcf~' filter",
+        "description": ""
     },
     "evi.velvetnoise~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Interpolating 'sparse noise' / 'velvet noise' audio source",
+        "description": ""
     },
     "evi.vosim.basic~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "A basic implementation of a 'vosim' formant oscillator",
+        "description": ""
     },
     "evi.warmer~": {
         "type": "abstraction",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Complex saturation processor with options \n",
+        "description": ""
     },
     "evi.weightingcoeffs": {
         "type": "abstraction",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Compute coefficients for A-weighting and other filters \n",
+        "description": ""
     },
     "evi.xfade~": {
         "type": "external",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": 0,
+        "description": ""
     },
     "evi.zeroxcount~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Like MSP zerox~ with controls for window size and threshold, with simultaneous outputs analysis",
+        "description": ""
     },
     "evi.zeroxoscnoise~": {
         "type": "define",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "An automatic crossfading via audio analysis oscillators / noise source used in vocoders",
+        "description": ""
     },
     "evi.zitaverb~": {
         "type": "abstraction",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "True stereo FDN/algorithmic reverb based on 'zitaverb' by Fons Andriesson \n",
+        "description": ""
     },
     "mc.evi.bands~": {
         "type": "abstraction",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Evenly distribute resonant filter bands across a spectrum \n",
+        "description": ""
     },
     "mc.evi.listgen": {
         "type": "abstraction",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Create message lists with mcwrapper features \n",
+        "description": ""
     }
 }

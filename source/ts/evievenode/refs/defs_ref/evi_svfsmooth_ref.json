@@ -4,7 +4,7 @@
         "parent": "evi_svfsmooth",
         "category": "evieve",
         "tilde": "~",
-        "digest": "TEXT_HERE",
+        "digest": "Nonlinear TPT SVF filter with audio rate modulation and morphing capabilities",
         "description": "TEXT_HERE",
         "discussion": ""
     },

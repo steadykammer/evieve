@@ -23,12 +23,12 @@ mgraphics.autofill = 0;
 let peter = new Image();
 let refDict;
 let absDict;
-let aliasName;
-let aliasRender = "";
 let renderAlias = false;
+let imageMargin = 100;
 let shortDesc = "";
 let longDesc = "";
-let sw;
+let swL;
+let swS;
 let swPrev = 0;
 let edgeR = 0;
 let bottom;
@@ -40,15 +40,6 @@ let isJa = false;
 function init() {
   const qDict = new Dict();
   qDict.import_json(qInit());
-  if (qDict.contains(`${objectNameArgument}::alias`)) {
-    renderAlias = true;
-    aliasName = qDict.get(`${objectNameArgument}::alias`);
-    if (aliasName.length > 1) {
-      aliasRender = aliasName.join("  |  ");
-    } else {
-      aliasRender = aliasName[0];
-    }
-  }
   refDict = max.getrefdict(objectNameArgument);
   if (typeof refDict === "object") {
     shortDesc = refDict.get("digest");
@@ -78,44 +69,50 @@ qInit.local = 1;
 function paint() {
   updateSw();
   let textLocation;
+  let tlS = 0;
+  let mtO = 0;
   bottom = Math.round(15 * wrapText.length + 80);
   if (objectNameArgument) {
-    const renderAliasOffset = 45;
+    const renderAliasOffset = renderAlias ? 45 : 25;
     const bgColor = thisPatcher.getattr("locked_bgcolor");
     const textColor = thisPatcher.getattr("textcolor");
-    const descColor = [textColor[0], textColor[1], textColor[2], textColor[3] * 0.555];
+    const descColor = [textColor[0], textColor[1], textColor[2], textColor[3] * 0.666];
     mgraphics.set_source_rgba(bgColor);
     mgraphics.paint();
-    if (renderAlias) {
-      mgraphics.move_to(104, 40);
-      mgraphics.select_font_face("Lato");
-      mgraphics.set_source_rgba(textColor);
-      mgraphics.set_font_size(48);
-      mgraphics.show_text(objectNameArgument);
-      mgraphics.move_to(105, 85);
-      mgraphics.set_font_size(30);
-      mgraphics.set_source_rgba(descColor);
-      mgraphics.show_text(aliasRender);
-    } else {
-      mgraphics.move_to(110, 63);
-      mgraphics.select_font_face("Lato");
-      mgraphics.set_source_rgba(textColor);
-      mgraphics.set_font_size(48);
-      mgraphics.show_text(objectNameArgument);
-    }
-    mgraphics.move_to(4, 78 + renderAliasOffset);
+    mgraphics.move_to(111, 70 + renderAliasOffset);
     mgraphics.set_font_size(13);
     mgraphics.set_source_rgba(textColor);
-    if (shortDesc) mgraphics.show_text(shortDesc);
-    mgraphics.move_to(4, 88 + renderAliasOffset);
-    if (longDesc != null) {
-      mgraphics.set_source_rgba(descColor);
-      doWordWrap(longDesc);
+    if (shortDesc) {
+      let tm = mgraphics.text_measure(shortDesc);
+      if (tm[0] > swS) {
+        tlS = 40;
+        mtO = 44;
+      } else {
+        tlS = 48;
+        mtO = 50;
+      }
+      doWordWrap(shortDesc, imageMargin);
+      for (let i = 0; i < wrapText.length; i++) {
+        textLocation = tlS + renderAliasOffset + textHeight * (i + 1);
+        mgraphics.move_to(111, textLocation + 0.5);
+        mgraphics.show_text(wrapText[i]);
+      }
     }
-    for (let i = 0; i < wrapText.length; i++) {
-      textLocation = 88 + renderAliasOffset + textHeight * (i + 1);
-      mgraphics.move_to(4, textLocation + 0.5);
-      mgraphics.text_path(wrapText[i]);
+    mgraphics.move_to(110, mtO);
+    mgraphics.select_font_face("Lato");
+    mgraphics.set_source_rgba(textColor);
+    mgraphics.set_font_size(48);
+    mgraphics.show_text(objectNameArgument);
+    mgraphics.move_to(11, 64 + renderAliasOffset);
+    mgraphics.set_font_size(13);
+    mgraphics.set_source_rgba(descColor);
+    if (longDesc != null) {
+      doWordWrap(longDesc);
+      for (let i = 0; i < wrapText.length; i++) {
+        textLocation = 84 + renderAliasOffset + textHeight * (i + 1);
+        mgraphics.move_to(10, textLocation + 0.5);
+        mgraphics.text_path(wrapText[i]);
+      }
     }
     mgraphics.fill();
   }
@@ -124,7 +121,7 @@ function paint() {
   mgraphics.transform(0.185, 0.185, 0, 0, 4, 4);
   mgraphics.image_surface_draw(peter);
 }
-function doWordWrap(theText) {
+function doWordWrap(theText, theMargin = 0) {
   let tmpText;
   let tmpString;
   wrapText = [];
@@ -133,7 +130,7 @@ function doWordWrap(theText) {
   linesOfText = theText.split("\n");
   for (let k = 0; k < linesOfText.length; k++) {
     tm = mgraphics.text_measure(linesOfText[k]);
-    if (tm[0] <= sw) {
+    if (tm[0] <= swL - theMargin) {
       wrapText.push(linesOfText[k]);
     } else {
       if (isJa) tmpText = linesOfText[k];
@@ -146,7 +143,7 @@ function doWordWrap(theText) {
         if (isJa) tmpString += tmpText[i];
         else tmpString += `${tmpText[i]} `;
         tm = mgraphics.text_measure(tmpString);
-        if (tm[0] > sw - 8) {
+        if (tm[0] > swL - 10 - theMargin) {
           if (en === -1) {
             wrapText.push(tmpString);
             st = ++i;
@@ -174,13 +171,14 @@ function doWordWrap(theText) {
 doWordWrap.local = 1;
 function fitHeight() {
   bottomPrev = bottom;
-  swPrev = sw;
+  swPrev = swL;
   thisBox.message("patching_rect", thisBox.rect[0], thisBox.rect[1], edgeR, bottom);
 }
 fitHeight.local = 1;
 function updateSw() {
   edgeR = thisBox.rect[2] - thisBox.rect[0];
-  sw = edgeR;
+  swL = edgeR;
+  swS = edgeR - imageMargin;
 }
 updateSw.local = 1;
 const module = {};

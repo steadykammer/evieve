@@ -4,7 +4,7 @@
         "parent": "evi_lores",
         "category": "evieve",
         "tilde": "~",
-        "digest": "TEXT_HERE",
+        "digest": "Reimplementation of MSP <o>lores~</o> filter, closely matching the shape and behaviour but implemented as a TPT filter",
         "description": "TEXT_HERE",
         "discussion": ""
     },

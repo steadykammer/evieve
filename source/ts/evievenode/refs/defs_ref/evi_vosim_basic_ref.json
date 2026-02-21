@@ -4,7 +4,7 @@
         "parent": "evi_vosim_basic",
         "category": "evieve",
         "tilde": "~",
-        "digest": "TEXT_HERE",
+        "digest": "A basic implementation of a 'vosim' formant oscillator",
         "description": "TEXT_HERE",
         "discussion": ""
     },

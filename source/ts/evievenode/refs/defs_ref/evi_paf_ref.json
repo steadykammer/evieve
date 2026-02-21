@@ -4,7 +4,7 @@
         "parent": "evi_paf",
         "category": "evieve",
         "tilde": "~",
-        "digest": "TEXT_HERE",
+        "digest": "A basic 'paf' formant oscillator, very similar to the legacy 'paf~' external",
         "description": "TEXT_HERE",
         "discussion": ""
     },

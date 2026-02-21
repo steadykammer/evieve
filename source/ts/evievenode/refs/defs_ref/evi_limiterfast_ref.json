@@ -4,7 +4,7 @@
         "parent": "evi_limiterfast",
         "category": "evieve",
         "tilde": "~",
-        "digest": "TEXT_HERE",
+        "digest": "A fast no-lookahead limiter with anti-aliased nonlinear clipping",
         "description": "TEXT_HERE",
         "discussion": ""
     },

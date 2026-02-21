@@ -4,7 +4,7 @@
         "parent": "evi_skfinputmix",
         "category": "evieve",
         "tilde": "~",
-        "digest": "TEXT_HERE",
+        "digest": "Sallen-Key input mixing multimode filter",
         "description": "TEXT_HERE",
         "discussion": ""
     },

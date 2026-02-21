@@ -4,7 +4,7 @@
         "parent": "evi_filter_highpass",
         "category": "evieve",
         "tilde": "~",
-        "digest": "TEXT_HERE",
+        "digest": "TPT highpass filter",
         "description": "TEXT_HERE",
         "discussion": ""
     },

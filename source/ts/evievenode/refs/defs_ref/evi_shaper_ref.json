@@ -4,7 +4,7 @@
         "parent": "evi_shaper",
         "category": "evieve",
         "tilde": "~",
-        "digest": "TEXT_HERE",
+        "digest": "An interpolated choice of even or odd harmonics waveshaping",
         "description": "TEXT_HERE",
         "discussion": ""
     },

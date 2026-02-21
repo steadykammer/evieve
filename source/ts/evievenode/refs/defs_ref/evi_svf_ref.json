@@ -4,7 +4,7 @@
         "parent": "evi_svf",
         "category": "evieve",
         "tilde": "~",
-        "digest": "TEXT_HERE",
+        "digest": "Reimplementation of MSP <o>svf~</o> as a TPT filter",
         "description": "TEXT_HERE",
         "discussion": ""
     },

@@ -268,6 +268,10 @@ max.addHandler('make_help_config', () => {
 
 // interface folder creation, final metadata
 
+max.addHandler('make_maxdb_json', () => {
+	createMaxDbFle();
+})
+
 max.addHandler('make_qlookup_json', () => {
 	parseDataForQlookup();
 })
@@ -276,8 +280,11 @@ max.addHandler('make_dlookup_json', () => {
 	parseDataForDlookup();
 })
 
-max.addHandler('make_maxdb_json', () => {
-	createMaxDbFle();
+// or:
+max.addHandler('make_lookup_jsons', () => {
+	parseDataForDlookup();
+	parseDataForQlookup();
+	void max.outlet('lookup', 'done'); // to [v8] hack
 })
 
 // ---
@@ -511,6 +518,8 @@ function parseDataForQlookup()
 		const xmlResult = parser.parse(xmlData);
 		const objectName = page.replace('.maxref.xml', '');
 
+		// this is not good - it deletes words between <> tags,
+		// would need to parse more intelligently (like native Cycling '74 'max.getrefdict()')
 		qlookup[objectName] = {};
 		if (Object.hasOwn(xmlResult.c74object, 'digest')) {
 			const maybeDigest: any = xmlResult.c74object.digest;

@@ -2,7 +2,7 @@
     "object": {
         "name": "mc.evi.listgen",
         "category": "evieve",
-        "digest": "TEXT_HERE",
+        "digest": "Create message lists with mcwrapper features",
         "description": "TEXT_HERE",
         "discussion": ""
     },

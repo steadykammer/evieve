@@ -4,7 +4,7 @@
         "parent": "evi_butterworth8",
         "category": "evieve",
         "tilde": "~",
-        "digest": "TEXT_HERE",
+        "digest": "TPT variable order Butterworth Lowpass filter",
         "description": "TEXT_HERE",
         "discussion": ""
     },

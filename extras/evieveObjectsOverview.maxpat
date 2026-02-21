@@ -65,7 +65,7 @@
                     "patching_rect": [ 25.0, 236.0, 399.0, 30.0 ],
                     "presentation": 1,
                     "presentation_rect": [ 547.0, 154.0, 400.0, 30.0 ],
-                    "text": "TEXT_HERE",
+                    "text": " ",
                     "textcolor": [ 0.85, 0.85, 0.85, 0.0 ]
                 }
             },
@@ -80,7 +80,7 @@
                     "patching_rect": [ 25.0, 374.0, 399.0, 26.0 ],
                     "presentation": 1,
                     "presentation_rect": [ 547.0, 394.0, 400.0, 26.0 ],
-                    "text": "TEXT_HERE",
+                    "text": " ",
                     "textcolor": [ 0.85, 0.85, 0.85, 0.0 ]
                 }
             },

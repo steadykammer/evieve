@@ -4,8 +4,8 @@
         "parent": "evi_korgms20_select",
         "category": "evieve",
         "tilde": "~",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE",
+        "digest": "Korg OTA dual-amplifier buffered modified Sallen-Key topology nonlinear filter emulation",
+        "description": "The 'KLM' OTA chip was found in the later MS-20s and other Korg synthesisers - it is different to the earlier 'Korg 35' single-amplifier unbuffered Korg chip found in the earlier MS-20s and MS-10 and also in the 'monotron' series. This is a fabricated evieve version able to smoothly switch (with a nice 'plop') between 12dB LP and 6dB HP filter types, realised in transposed TPT form. With 2x option.",
         "discussion": ""
     },
     "metadata": {

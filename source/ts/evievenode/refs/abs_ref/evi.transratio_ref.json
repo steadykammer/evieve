@@ -2,7 +2,7 @@
     "object": {
         "name": "evi.transratio",
         "category": "evieve",
-        "digest": "TEXT_HERE",
+        "digest": "Convert semitones to pitch and vica versa",
         "description": "TEXT_HERE",
         "discussion": ""
     },

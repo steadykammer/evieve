@@ -4,8 +4,8 @@
         "parent": "evi_korgms10",
         "category": "evieve",
         "tilde": "~",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE",
+        "digest": "'Korg 35' single-amplifier unbuffered modified Sallen-Key topology nonlinear filter emulation",
+        "description": "The 'Korg 35' chip was found in the MS-10 and early MS-20 synthesisers - different to the later dual-amplifier Korg OTA chip found in the later MS-20s and other Korg synthesisers.",
         "discussion": ""
     },
     "metadata": {

@@ -2,7 +2,7 @@
     "object": {
         "name": "evi.pitchdetect~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
+        "digest": "Utility wrapper around <o>retune~</o> pitch detector",
         "description": "TEXT_HERE",
         "discussion": ""
     },

@@ -35,12 +35,12 @@ let peter = new Image();
 // const alpha = 1.0;
 let refDict;
 let absDict;
-let aliasName: string[];
-let aliasRender = '';
 let renderAlias = false;
+let imageMargin = 100;
 let shortDesc = '';
 let longDesc: string | null = '';
-let sw: number;
+let swL: number;
+let swS: number;
 let swPrev = 0;
 // const sh = thisBox.rect[3] - thisBox.rect[1];
 // const shPrev = 0;
@@ -54,19 +54,11 @@ let wrapText = []; // string[]; // must be Max style declaration because of tran
 let isJa = false;
 
 function init() {
-	// let isNotObject = false;
+	// i can probably delete this as never used in evieve ?
 	const qDict = new Dict();
 	qDict.import_json(qInit()); // & image
-	if (qDict.contains(`${objectNameArgument}::alias`)) {
-		renderAlias = true;
-		aliasName = qDict.get(`${objectNameArgument}::alias`);
-		if (aliasName.length > 1) {
-			aliasRender = aliasName.join('  |  '); // ?
-		} else {
-			aliasRender = aliasName[0];
-		}
-	}
 
+	// we must use '.getrefdict()' as it normalises xml tags for us
 	// @ts-expect-error - ".getrefdict()" is secret C74 internal function
 	refDict = max.getrefdict(objectNameArgument);
 	if (typeof refDict === 'object') {
@@ -86,7 +78,7 @@ function init() {
 		refDict.freepeer();
 	}
 
-	// @ts-expect-error - secret C74 internal function for Japanese translation
+	// @ts-expect-error - secret C74 internal process for Japanese translation
 	isJa = max.getattr('translation').indexOf('(ja)') !== -1;
 
 	qDict.freepeer();
@@ -106,53 +98,59 @@ qInit.local = 1
 function paint() {
 	updateSw();
 	let textLocation: number;
+	let tlS: number = 0;
+	let mtO: number = 0;
 	bottom = Math.round(15 * wrapText.length + 80);
 	// disabling autofit
 	// if (bottomPrev < bottom && bottomPrev > 60) fitHeight();
 	if (objectNameArgument) {
-		const renderAliasOffset = 45; // renderAlias ? 45 : 0;
+		const renderAliasOffset = renderAlias ? 45 : 25;
 		const bgColor: Color = thisPatcher.getattr('locked_bgcolor') as Color;
 		const textColor: Color = thisPatcher.getattr('textcolor') as Color;
-		const descColor: Color = [textColor[0], textColor[1], textColor[2], textColor[3] * 0.555];
+		const descColor: Color = [textColor[0], textColor[1], textColor[2], textColor[3] * 0.666];
 		mgraphics.set_source_rgba(bgColor);
-		// @ts-expect-error - ".paint()" is a secret internal Cycling '74 call on mgraphics (not a recursive call)
+		// @ts-expect-error - ".paint()" seems like a secret internal Cycling '74 call on mgraphics (not a recursive call)
 		mgraphics.paint();
-		if (renderAlias) {
-			// main
-			mgraphics.move_to(104, 40);
-			mgraphics.select_font_face('Lato');
-			mgraphics.set_source_rgba(textColor);
-			mgraphics.set_font_size(48);
-			mgraphics.show_text(objectNameArgument);
-			// alias(es)
-			mgraphics.move_to(105, 85);
-			mgraphics.set_font_size(30);
-			mgraphics.set_source_rgba(descColor);
-			mgraphics.show_text(aliasRender);
-		} else {
-			// just main, moved down, match icon to the left
-			mgraphics.move_to(110, 63);
-			mgraphics.select_font_face('Lato');
-			mgraphics.set_source_rgba(textColor);
-			mgraphics.set_font_size(48);
-			mgraphics.show_text(objectNameArgument);
-		}
 		// digest
-		mgraphics.move_to(4, 78 + renderAliasOffset);
+		mgraphics.move_to(111, 70 + renderAliasOffset);
 		mgraphics.set_font_size(13);
 		mgraphics.set_source_rgba(textColor);
-		if (shortDesc) mgraphics.show_text(shortDesc);	// doWordWrap(shortDesc) ?
-			// description
-			mgraphics.move_to(4, 88 + renderAliasOffset);
-		if (longDesc != null) {
-			mgraphics.set_source_rgba(descColor);
-			doWordWrap(longDesc);
+		if (shortDesc) {
+			let tm: number[] = mgraphics.text_measure(shortDesc);
+			if (tm[0] > swS) {
+				tlS = 40;
+				mtO = 44;
+			} else {
+				tlS = 48;
+				mtO = 50;
+			}
+			doWordWrap(shortDesc, imageMargin);
+			for (let i = 0; i < wrapText.length; i++) {
+				textLocation = tlS + renderAliasOffset + textHeight * (i + 1);
+				mgraphics.move_to(111, textLocation + 0.5);
+				// @ts-ignore
+				mgraphics.show_text(wrapText[i]);
+			}
 		}
-		for (let i = 0; i < wrapText.length; i++) {
-			textLocation = 88 + renderAliasOffset + textHeight * (i + 1);
-			mgraphics.move_to(4, textLocation + 0.5);
-			// @ts-ignore
-			mgraphics.text_path(wrapText[i]);
+		// main, match icon to the left
+		mgraphics.move_to(110, mtO);//63);
+		mgraphics.select_font_face('Lato');
+		mgraphics.set_source_rgba(textColor);
+		mgraphics.set_font_size(48);
+		mgraphics.show_text(objectNameArgument);
+		// description
+		mgraphics.move_to(11, 64 + renderAliasOffset); // mgraphics.move_to(11, 74 + renderAliasOffset);
+		mgraphics.set_font_size(13);
+		mgraphics.set_source_rgba(descColor);
+		if (longDesc != null) {
+			// updateSw();
+			doWordWrap(longDesc);
+			for (let i = 0; i < wrapText.length; i++) {
+				textLocation = 84 + renderAliasOffset + textHeight * (i + 1);
+				mgraphics.move_to(10, textLocation + 0.5);
+				// @ts-ignore
+				mgraphics.text_path(wrapText[i]);
+			}
 		}
 		mgraphics.fill()
 	}
@@ -167,7 +165,7 @@ function paint() {
 // modified from Darwin Grosse's VerySpecialMessage.js and Arvid Tomayko's atp.popupmessage.js posted to the Max forums:
 // https://cycling74.com/forums/jsui-mgraphics-patch-a-day
 
-function doWordWrap(theText: string) {
+function doWordWrap(theText: string, theMargin = 0) {
 	let tmpText: string | string[];
 	let tmpString: string;
 
@@ -178,11 +176,10 @@ function doWordWrap(theText: string) {
 
 	linesOfText = theText.split('\n'); // split by newlines
 
-	// const k;
 	for (let k = 0; k < linesOfText.length; k++) {
 		// support newlines in text input
 		tm = mgraphics.text_measure(linesOfText[k]); // need to measure again
-		if (tm[0] <= sw) {
+		if (tm[0] <= (swL - theMargin)) {
 			// good enough to print
 			wrapText.push(linesOfText[k]);
 		} else {
@@ -200,10 +197,9 @@ function doWordWrap(theText: string) {
 				else tmpString += `${tmpText[i]} `; // !! space
 				tm = mgraphics.text_measure(tmpString);
 
-				if (tm[0] > sw - 8) {
+				if (tm[0] > swL - 10 - theMargin) {
 					// using a margin variable instead of hard coding it
 					if (en === -1) {
-						// the original max code has "=="
 						// a really big word - just print it
 						wrapText.push(tmpString);
 						st = ++i; // change: pre-increment i, was st = i+1;
@@ -235,14 +231,15 @@ doWordWrap.local = 1;
 
 function fitHeight() {
 	bottomPrev = bottom;
-	swPrev = sw;
+	swPrev = swL;
 	thisBox.message('patching_rect', thisBox.rect[0], thisBox.rect[1], edgeR, bottom);
 }
 fitHeight.local = 1;
 
 function updateSw() {
 	edgeR = thisBox.rect[2] - thisBox.rect[0];
-	sw = edgeR;
+	swL = edgeR;
+	swS = edgeR - imageMargin;
 }
 updateSw.local = 1;
 

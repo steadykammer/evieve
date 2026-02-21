@@ -4,8 +4,8 @@
         "parent": "evi_ladder_transistor",
         "category": "evieve",
         "tilde": "~",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE",
+        "digest": "Nonlinear TPT Transistor Ladder filter emulation",
+        "description": "This filter is tuned to be quite 'hot' and aggressive compared to the <o>evi.ladder.moog~</o>",
         "discussion": ""
     },
     "metadata": {

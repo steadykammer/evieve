@@ -4,7 +4,7 @@
         "parent": "evi_crossover_allpass",
         "category": "evieve",
         "tilde": "~",
-        "digest": "TEXT_HERE",
+        "digest": "Allpass filter for aligning audio chains using evieve crossover filters",
         "description": "TEXT_HERE",
         "discussion": ""
     },

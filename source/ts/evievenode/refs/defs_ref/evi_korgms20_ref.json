@@ -4,8 +4,8 @@
         "parent": "evi_korgms20",
         "category": "evieve",
         "tilde": "~",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE",
+        "digest": "Korg OTA dual-amplifier modified Sallen-Key topology nonlinear filter emulation",
+        "description": "The 'KLM' OTA chip was found in the later MS-20s and other Korg synthesisers - it is different to the earlier 'Korg 35' single-amplifier unbuffered Korg chip found in the earlier MS-20s and MS-10 and also in the 'monotron' series. This Korg filter sits inbetween the more broken <o>evi.korgms10~</o> and the more stable <o>evi.korgms20.select~</o>. It is aggressive but predictable.",
         "discussion": ""
     },
     "metadata": {

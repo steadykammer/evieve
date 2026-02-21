@@ -2,7 +2,7 @@
     "object": {
         "name": "evi.ringmod.diode~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
+        "digest": "analog-modelled diode-based ring modulator effect",
         "description": "TEXT_HERE",
         "discussion": ""
     },

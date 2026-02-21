@@ -4,8 +4,8 @@
         "parent": "evi_ladder_diode",
         "category": "evieve",
         "tilde": "~",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE",
+        "digest": "TPT Diode nonlinear Ladder filter emulation, similar to the Roland-TB303 filter",
+        "description": "Unlike the (Moog) Transistor Ladder, the Diode Ladder resonance peaks, rather than scales.",
         "discussion": ""
     },
     "metadata": {

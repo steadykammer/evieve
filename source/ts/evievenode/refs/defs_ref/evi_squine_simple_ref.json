@@ -4,7 +4,7 @@
         "parent": "evi_squine_simple",
         "category": "evieve",
         "tilde": "~",
-        "digest": "TEXT_HERE",
+        "digest": "A basic implementation of Rasmus Ekman's 'squine wave' oscillator with audio rate modulation",
         "description": "TEXT_HERE",
         "discussion": ""
     },

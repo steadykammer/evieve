@@ -4,7 +4,7 @@
         "parent": "evi_filter_lowpass",
         "category": "evieve",
         "tilde": "~",
-        "digest": "TEXT_HERE",
+        "digest": "TPT lowpass filter",
         "description": "TEXT_HERE",
         "discussion": ""
     },

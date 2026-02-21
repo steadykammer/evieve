@@ -4,7 +4,7 @@
         "parent": "evi_damp_macro",
         "category": "evieve",
         "tilde": "~",
-        "digest": "TEXT_HERE",
+        "digest": "A 'one knob' macroisation for simple low/high onepole damping filters",
         "description": "TEXT_HERE",
         "discussion": ""
     },

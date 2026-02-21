@@ -2,7 +2,7 @@
     "object": {
         "name": "evi.plateverb~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
+        "digest": "Plate reverb based on <o>yafr2~</o> with additional filtering and smoothing",
         "description": "TEXT_HERE",
         "discussion": ""
     },

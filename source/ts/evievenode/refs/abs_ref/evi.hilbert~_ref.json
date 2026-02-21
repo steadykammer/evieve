@@ -2,7 +2,7 @@
     "object": {
         "name": "evi.hilbert~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
+        "digest": "Hilbert phase shift filter using polyphase IIR halfband allpass cascade",
         "description": "TEXT_HERE",
         "discussion": ""
     },

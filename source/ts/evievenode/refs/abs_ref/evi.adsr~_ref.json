@@ -2,8 +2,8 @@
     "object": {
         "name": "evi.adsr~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE",
+        "digest": "ADSR envelope generator, same features as <o>adsr~</o> but with logarithmic segments",
+        "description": "ADSR by default, but actually DAHDSHR capabale generator via attributes. Logarithmic segment shapes but still capable of controlling <o>poly~</o> and <o>thispoly~</o>",
         "discussion": ""
     },
     "metadata": {

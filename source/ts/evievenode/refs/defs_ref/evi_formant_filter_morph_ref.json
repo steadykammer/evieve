@@ -4,7 +4,7 @@
         "parent": "evi_formant_filter_morph",
         "category": "evieve",
         "tilde": "~",
-        "digest": "TEXT_HERE",
+        "digest": "A vowel morphing TPT bandpass formant filter with morphable filter types",
         "description": "TEXT_HERE",
         "discussion": ""
     },

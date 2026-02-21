@@ -2,7 +2,7 @@
     "object": {
         "name": "evi.weightingcoeffs",
         "category": "evieve",
-        "digest": "TEXT_HERE",
+        "digest": "Compute coefficients for A-weighting and other filters",
         "description": "TEXT_HERE",
         "discussion": ""
     },

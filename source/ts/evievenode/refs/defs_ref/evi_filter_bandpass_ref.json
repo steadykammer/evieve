@@ -4,7 +4,7 @@
         "parent": "evi_filter_bandpass",
         "category": "evieve",
         "tilde": "~",
-        "digest": "TEXT_HERE",
+        "digest": "TPT bandpass filter",
         "description": "TEXT_HERE",
         "discussion": ""
     },

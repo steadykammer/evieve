@@ -4,7 +4,7 @@
         "parent": "evi_gaussiannoise",
         "category": "evieve",
         "tilde": "~",
-        "digest": "TEXT_HERE",
+        "digest": "Gaussian distributed noise approximation",
         "description": "TEXT_HERE",
         "discussion": ""
     },

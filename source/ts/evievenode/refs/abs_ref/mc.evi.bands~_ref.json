@@ -2,7 +2,7 @@
     "object": {
         "name": "mc.evi.bands~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
+        "digest": "Evenly distribute resonant filter bands across a spectrum",
         "description": "TEXT_HERE",
         "discussion": ""
     },
