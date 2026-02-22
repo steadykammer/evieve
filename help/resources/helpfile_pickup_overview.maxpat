@@ -23,8 +23,8 @@
                     "numinlets": 2,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
-                    "patching_rect": [ 11.0, 126.0, 181.0, 22.0 ],
-                    "text": "list.reg evieve_Overview.maxpat"
+                    "patching_rect": [ 11.0, 126.0, 234.0, 22.0 ],
+                    "text": "list.reg evieve_Package_Overview.maxpat"
                 }
             },
             {
@@ -51,6 +51,8 @@
             },
             {
                 "box": {
+                    "annotation": "Click for 'evieve Package Overview'",
+                    "annotation_name": "evieve Package Overview",
                     "handoff": "",
                     "hltcolor": [ 1.0, 1.0, 1.0, 0.5 ],
                     "id": "obj-4",

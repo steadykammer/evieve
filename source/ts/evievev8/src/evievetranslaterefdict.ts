@@ -69,8 +69,8 @@ getQlookupFile.local = 1;
 
 function lookupRefDictLoop(objectNameArgument: string)
 {
-    let thisDentry: any = {};
-    let thisQentry: any = {};
+    // let thisDentry: any = {};
+    // let thisQentry: any = {};
     let shortDesc: string | null = '';
     let longDesc: string | null = '';
 

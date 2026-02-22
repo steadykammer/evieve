@@ -98,11 +98,11 @@
         "seealso": []
     },
     "evi.cfsmooth~": {
-        "digest": 0,
+        "digest": "Signal smoother particularly well suited to smoothing cutoff frequencies",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Objects" ],
-        "keywords": [ "TEXT_HERE" ],
-        "seealso": [ "bogus" ]
+        "keywords": [ "smooth", "ramp" ],
+        "seealso": [ "evi.expsmooth~", "evi.lagsmooth~", "evi.logsmooth~" ]
     },
     "evi.classic.osc~": {
         "digest": "A selection of 'classic' oscillator shapes",
@@ -224,11 +224,11 @@
         "seealso": []
     },
     "evi.expsmooth~": {
-        "digest": 0,
+        "digest": "Exponential signal smoother",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Objects" ],
-        "keywords": [ "TEXT_HERE" ],
-        "seealso": [ "bogus" ]
+        "keywords": [ "smooth", "ramp" ],
+        "seealso": [ "evi.cfsmooth~", "evi.lagsmooth~", "evi.logsmooth~" ]
     },
     "evi.filter.allpass~": {
         "digest": "TPT allpass filter",
@@ -462,11 +462,11 @@
         "seealso": []
     },
     "evi.lagsmooth~": {
-        "digest": 0,
+        "digest": "Smooth signal ramp generator with logarithmic curve",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Objects" ],
-        "keywords": [ "TEXT_HERE" ],
-        "seealso": [ "bogus" ]
+        "keywords": [ "smooth", "ramp" ],
+        "seealso": [ "evi.cfsmooth~", "evi.expsmooth~", "evi.logsmooth~" ]
     },
     "evi.limiterfast~": {
         "digest": "A fast no-lookahead limiter with anti-aliased nonlinear clipping",
@@ -493,29 +493,29 @@
         "digest": 0,
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Objects" ],
-        "keywords": [ "TEXT_HERE" ],
+        "keywords": [],
         "seealso": [ "bogus" ]
     },
     "evi.logattackdecay~": {
         "digest": 0,
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Objects" ],
-        "keywords": [ "TEXT_HERE" ],
+        "keywords": [],
         "seealso": [ "bogus" ]
     },
     "evi.logdecay~": {
         "digest": 0,
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Objects" ],
-        "keywords": [ "TEXT_HERE" ],
+        "keywords": [],
         "seealso": [ "bogus" ]
     },
     "evi.logsmooth~": {
-        "digest": 0,
+        "digest": "Logarithmic signal smoother",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Objects" ],
-        "keywords": [ "TEXT_HERE" ],
-        "seealso": [ "bogus" ]
+        "keywords": [ "smooth", "ramp" ],
+        "seealso": [ "evi.cfsmooth~", "evi.expsmooth~", "evi.lagsmooth~", "evi.logdecay~", "evi.logattackdecay~", "evi.logahr~" ]
     },
     "evi.lores~": {
         "digest": "Reimplementation of MSP lores~ filter, closely matching the shape and behaviour but implemented as a TPT filter",
@@ -626,7 +626,7 @@
         "digest": 0,
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Objects" ],
-        "keywords": [ "TEXT_HERE" ],
+        "keywords": [],
         "seealso": [ "bogus" ]
     },
     "evi.phaseshift~": {
@@ -675,7 +675,7 @@
         "digest": 0,
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Objects" ],
-        "keywords": [ "TEXT_HERE" ],
+        "keywords": [],
         "seealso": [ "bogus" ]
     },
     "evi.ramp0~": {
@@ -878,7 +878,7 @@
         "digest": 0,
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Objects" ],
-        "keywords": [ "TEXT_HERE" ],
+        "keywords": [],
         "seealso": [ "bogus" ]
     },
     "evi.vcf~": {
@@ -920,7 +920,7 @@
         "digest": 0,
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Objects" ],
-        "keywords": [ "TEXT_HERE" ],
+        "keywords": [],
         "seealso": [ "bogus" ]
     },
     "evi.zeroxcount~": {

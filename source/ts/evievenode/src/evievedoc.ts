@@ -284,7 +284,7 @@ max.addHandler('make_dlookup_json', () => {
 max.addHandler('make_lookup_jsons', () => {
 	parseDataForDlookup();
 	parseDataForQlookup();
-	void max.outlet('lookup', 'done'); // to [v8] hack
+	void max.outlet('lookup', 'done'); // to [v8] hack for 'max.getrefdict()'
 })
 
 // ---
@@ -461,6 +461,7 @@ function testBuildXml(/*jsonData: any, */prefix?: string)
 
 // --------------------------------------------- //
 
+// this does not work properly (extracts tags and places them at top of section)
 async function autoCreateExternalsXml()
 {
 	let refDir = `${cwd()}/${config.referenceFiles.externals.config}`;
@@ -490,11 +491,48 @@ async function autoCreateExternalsXml()
 		jsonData.c74object.metadatalist.metadata = externalsXmlMetadata;
 		jsonData.c74object.maxattr_module = 'evieve-ref';
 		jsonData.c74object.maxattr_category = 'evieve';
+		// jsonData.c74object.misc = externalsXmlMisc;
+		const editedData = builder.build(jsonData);
+		fs.writeFileSync(`${outDir}/${outName}`, editedData);
+	}
+}
+
+/*
+async function autoCreateExternalsXml()
+{
+	let refDir = `${cwd()}/${config.referenceFiles.externals.config}`;
+	let outDir = `${cwd()}/${config.referenceFiles.externals.output}`;
+	let refFiles = getFileNamesFromPath(refDir, 'xml');
+	const parseOptions = {
+		preserveOrder: true, // true = shit for getting values, good for rebuilding xml
+		ignoreAttributes: false,
+		attributeNamePrefix: attributeXmlPrefix,
+		alwaysCreateTextNode: true,
+		processEntities: false
+	};
+	const buildOptions = {
+		format: true,
+		preserveOrder: true, // true = shit for the json, but good to have format correct when (re)building
+		ignoreAttributes: false,
+		attributeNamePrefix: attributeXmlPrefix,
+		processEntities: false
+	};
+	const parser = new XMLParser(parseOptions);
+	const builder = new XMLBuilder(buildOptions);
+
+	for await (const file of refFiles) {
+		const xmlData = fs.readFileSync(`${refDir}/${file}`, 'utf8');
+		const jsonData = parser.parse(xmlData);
+		const outName = file.replace('_ref.xml', '.maxref.xml');
+		jsonData.c74object.metadatalist.metadata = externalsXmlMetadata;
+		jsonData.c74object.maxattr_module = 'evieve-ref';
+		jsonData.c74object.maxattr_category = 'evieve';
 		jsonData.c74object.misc = externalsXmlMisc;
 		const editedData = builder.build(jsonData);
 		fs.writeFileSync(`${outDir}/${outName}`, editedData);
 	}
 }
+*/
 
 function parseDataForQlookup()
 {

@@ -22,16 +22,7 @@ function loadbang()
 
 function get(objectNameInput: string)
 {
-	// <<<--- @ts-expect-error - ".getrefdict()" is secret C74 internal function --->>>
-	// refsDict = max.getrefdict(objectNameInput);
-	// shortDesc = '';
-	// longDesc = '';
-	// if (typeof refsDict === 'object') {
-	// 	shortDesc = refsDict.get('digest');
-	// 	longDesc = refsDict.get('description');
-	// 	refsDict.freepeer();
-	// }
-
+	// (we do not need ".getrefdict()" as we already parsed through it during package build)
 	objectType = '';
 	shortDesc = '';
 	longDesc = '';

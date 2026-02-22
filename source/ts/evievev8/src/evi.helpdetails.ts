@@ -20,7 +20,6 @@ if (jsarguments.length > 2) {
 
 const thisPatcher: Patcher = patcher;
 const thisBox: Maxobj = box;
-// const thisPath = thisPatcher.filepath;
 
 thisBox.message('border', 0);
 thisBox.message('ignoreclick', 1);
@@ -34,7 +33,7 @@ let peter = new Image();
 
 // const alpha = 1.0;
 let refDict;
-let absDict;
+// let absDict;
 let renderAlias = false;
 let imageMargin = 100;
 let shortDesc = '';
@@ -54,25 +53,17 @@ let wrapText = []; // string[]; // must be Max style declaration because of tran
 let isJa = false;
 
 function init() {
-	// i can probably delete this as never used in evieve ?
-	const qDict = new Dict();
-	qDict.import_json(qInit()); // & image
+	const dDict = new Dict();
+	dDict.import_json(dInit()); // & image
 
-	// we must use '.getrefdict()' as it normalises xml tags for us
-	// @ts-expect-error - ".getrefdict()" is secret C74 internal function
-	refDict = max.getrefdict(objectNameArgument);
+	// (we do not need ".getrefdict()" as we already parsed through it during package build)
+	// refDict = max.getrefdict(objectNameArgument);
+	refDict = dDict.get(objectNameArgument);
 	if (typeof refDict === 'object') {
 		shortDesc = refDict.get('digest');
 		longDesc = refDict.get('description');
 		if (longDesc === shortDesc) {
 			longDesc = null;
-		}
-		if (longDesc) {
-			// Min may generate refpages where the digest and description differ only by a period at the end
-			longDesc = longDesc.trim();
-			if (longDesc.substring(0, longDesc.length - 1) === shortDesc && longDesc.substring(longDesc.length - 1) === '.') {
-				longDesc = null;
-			}
 		}
 
 		refDict.freepeer();
@@ -81,19 +72,19 @@ function init() {
 	// @ts-expect-error - secret C74 internal process for Japanese translation
 	isJa = max.getattr('translation').indexOf('(ja)') !== -1;
 
-	qDict.freepeer();
+	dDict.freepeer();
 }
 
 init();
 
-function qInit() {
-	let qLookup: string = 'evieve-obj-qlookup.json';
-	let qImage: string = 'peter_icon.png';
+function dInit() {
+	let dLookup: string = 'evieve-obj-dLookup.json';
+	let dImage: string = 'peter_icon.png';
 
-	peter = new Image(qImage); // global
-	return qLookup;
+	peter = new Image(dImage); // global
+	return dLookup;
 }
-qInit.local = 1
+dInit.local = 1
 
 function paint() {
 	updateSw();

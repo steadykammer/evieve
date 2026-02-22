@@ -16,6 +16,270 @@
         "boxes": [
             {
                 "box": {
+                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
+                    "fontname": "Arial Bold",
+                    "hint": "",
+                    "id": "obj-113",
+                    "ignoreclick": 1,
+                    "legacytextcolor": 1,
+                    "maxclass": "textbutton",
+                    "numinlets": 1,
+                    "numoutlets": 3,
+                    "outlettype": [ "", "", "int" ],
+                    "parameter_enable": 0,
+                    "patching_rect": [ 1131.0, 185.0, 21.0, 20.0 ],
+                    "rounded": 60.0,
+                    "saved_attribute_attributes": {
+                        "bgcolor": {
+                            "expression": "themecolor.lesson_step_circle"
+                        }
+                    },
+                    "text": "11",
+                    "textcolor": [ 0.2, 0.2, 0.2, 1.0 ]
+                }
+            },
+            {
+                "box": {
+                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
+                    "fontname": "Arial Bold",
+                    "hint": "",
+                    "id": "obj-111",
+                    "ignoreclick": 1,
+                    "legacytextcolor": 1,
+                    "maxclass": "textbutton",
+                    "numinlets": 1,
+                    "numoutlets": 3,
+                    "outlettype": [ "", "", "int" ],
+                    "parameter_enable": 0,
+                    "patching_rect": [ 1021.0, 60.0, 21.0, 20.0 ],
+                    "rounded": 60.0,
+                    "saved_attribute_attributes": {
+                        "bgcolor": {
+                            "expression": "themecolor.lesson_step_circle"
+                        }
+                    },
+                    "text": "10",
+                    "textcolor": [ 0.2, 0.2, 0.2, 1.0 ]
+                }
+            },
+            {
+                "box": {
+                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
+                    "fontname": "Arial Bold",
+                    "hint": "",
+                    "id": "obj-109",
+                    "ignoreclick": 1,
+                    "legacytextcolor": 1,
+                    "maxclass": "textbutton",
+                    "numinlets": 1,
+                    "numoutlets": 3,
+                    "outlettype": [ "", "", "int" ],
+                    "parameter_enable": 0,
+                    "patching_rect": [ 417.0, 658.0, 21.0, 20.0 ],
+                    "rounded": 60.0,
+                    "saved_attribute_attributes": {
+                        "bgcolor": {
+                            "expression": "themecolor.lesson_step_circle"
+                        }
+                    },
+                    "text": "9",
+                    "textcolor": [ 0.2, 0.2, 0.2, 1.0 ]
+                }
+            },
+            {
+                "box": {
+                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
+                    "fontname": "Arial Bold",
+                    "hint": "",
+                    "id": "obj-105",
+                    "ignoreclick": 1,
+                    "legacytextcolor": 1,
+                    "maxclass": "textbutton",
+                    "numinlets": 1,
+                    "numoutlets": 3,
+                    "outlettype": [ "", "", "int" ],
+                    "parameter_enable": 0,
+                    "patching_rect": [ 386.0, 372.0, 21.0, 20.0 ],
+                    "rounded": 60.0,
+                    "saved_attribute_attributes": {
+                        "bgcolor": {
+                            "expression": "themecolor.lesson_step_circle"
+                        }
+                    },
+                    "text": "7",
+                    "textcolor": [ 0.2, 0.2, 0.2, 1.0 ]
+                }
+            },
+            {
+                "box": {
+                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
+                    "fontname": "Arial Bold",
+                    "hint": "",
+                    "id": "obj-104",
+                    "ignoreclick": 1,
+                    "legacytextcolor": 1,
+                    "maxclass": "textbutton",
+                    "numinlets": 1,
+                    "numoutlets": 3,
+                    "outlettype": [ "", "", "int" ],
+                    "parameter_enable": 0,
+                    "patching_rect": [ 234.0, 372.0, 21.0, 20.0 ],
+                    "rounded": 60.0,
+                    "saved_attribute_attributes": {
+                        "bgcolor": {
+                            "expression": "themecolor.lesson_step_circle"
+                        }
+                    },
+                    "text": "8",
+                    "textcolor": [ 0.2, 0.2, 0.2, 1.0 ]
+                }
+            },
+            {
+                "box": {
+                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
+                    "fontname": "Arial Bold",
+                    "hint": "",
+                    "id": "obj-103",
+                    "ignoreclick": 1,
+                    "legacytextcolor": 1,
+                    "maxclass": "textbutton",
+                    "numinlets": 1,
+                    "numoutlets": 3,
+                    "outlettype": [ "", "", "int" ],
+                    "parameter_enable": 0,
+                    "patching_rect": [ 683.0, 658.0, 21.0, 20.0 ],
+                    "rounded": 60.0,
+                    "saved_attribute_attributes": {
+                        "bgcolor": {
+                            "expression": "themecolor.lesson_step_circle"
+                        }
+                    },
+                    "text": "6",
+                    "textcolor": [ 0.2, 0.2, 0.2, 1.0 ]
+                }
+            },
+            {
+                "box": {
+                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
+                    "fontname": "Arial Bold",
+                    "hint": "",
+                    "id": "obj-90",
+                    "ignoreclick": 1,
+                    "legacytextcolor": 1,
+                    "maxclass": "textbutton",
+                    "numinlets": 1,
+                    "numoutlets": 3,
+                    "outlettype": [ "", "", "int" ],
+                    "parameter_enable": 0,
+                    "patching_rect": [ 510.0, 577.0, 21.0, 20.0 ],
+                    "rounded": 60.0,
+                    "saved_attribute_attributes": {
+                        "bgcolor": {
+                            "expression": "themecolor.lesson_step_circle"
+                        }
+                    },
+                    "text": "5",
+                    "textcolor": [ 0.2, 0.2, 0.2, 1.0 ]
+                }
+            },
+            {
+                "box": {
+                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
+                    "fontname": "Arial Bold",
+                    "hint": "",
+                    "id": "obj-87",
+                    "ignoreclick": 1,
+                    "legacytextcolor": 1,
+                    "maxclass": "textbutton",
+                    "numinlets": 1,
+                    "numoutlets": 3,
+                    "outlettype": [ "", "", "int" ],
+                    "parameter_enable": 0,
+                    "patching_rect": [ 510.0, 538.0, 21.0, 20.0 ],
+                    "rounded": 60.0,
+                    "saved_attribute_attributes": {
+                        "bgcolor": {
+                            "expression": "themecolor.lesson_step_circle"
+                        }
+                    },
+                    "text": "4",
+                    "textcolor": [ 0.2, 0.2, 0.2, 1.0 ]
+                }
+            },
+            {
+                "box": {
+                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
+                    "fontname": "Arial Bold",
+                    "hint": "",
+                    "id": "obj-85",
+                    "ignoreclick": 1,
+                    "legacytextcolor": 1,
+                    "maxclass": "textbutton",
+                    "numinlets": 1,
+                    "numoutlets": 3,
+                    "outlettype": [ "", "", "int" ],
+                    "parameter_enable": 0,
+                    "patching_rect": [ 510.0, 499.0, 21.0, 20.0 ],
+                    "rounded": 60.0,
+                    "saved_attribute_attributes": {
+                        "bgcolor": {
+                            "expression": "themecolor.lesson_step_circle"
+                        }
+                    },
+                    "text": "3",
+                    "textcolor": [ 0.2, 0.2, 0.2, 1.0 ]
+                }
+            },
+            {
+                "box": {
+                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
+                    "fontname": "Arial Bold",
+                    "hint": "",
+                    "id": "obj-82",
+                    "ignoreclick": 1,
+                    "legacytextcolor": 1,
+                    "maxclass": "textbutton",
+                    "numinlets": 1,
+                    "numoutlets": 3,
+                    "outlettype": [ "", "", "int" ],
+                    "parameter_enable": 0,
+                    "patching_rect": [ 234.0, 224.0, 21.0, 20.0 ],
+                    "rounded": 60.0,
+                    "saved_attribute_attributes": {
+                        "bgcolor": {
+                            "expression": "themecolor.lesson_step_circle"
+                        }
+                    },
+                    "text": "2",
+                    "textcolor": [ 0.2, 0.2, 0.2, 1.0 ]
+                }
+            },
+            {
+                "box": {
+                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
+                    "fontname": "Arial Bold",
+                    "hint": "",
+                    "id": "obj-39",
+                    "ignoreclick": 1,
+                    "legacytextcolor": 1,
+                    "maxclass": "textbutton",
+                    "numinlets": 1,
+                    "numoutlets": 3,
+                    "outlettype": [ "", "", "int" ],
+                    "parameter_enable": 0,
+                    "patching_rect": [ 757.0, 74.0, 21.0, 20.0 ],
+                    "rounded": 60.0,
+                    "saved_attribute_attributes": {
+                        "bgcolor": {
+                            "expression": "themecolor.lesson_step_circle"
+                        }
+                    },
+                    "text": "1",
+                    "textcolor": [ 0.2, 0.2, 0.2, 1.0 ]
+                }
+            },
+            {
+                "box": {
                     "filename": "evievetranslaterefdict.js",
                     "id": "obj-68",
                     "maxclass": "newobj",
@@ -27,7 +291,7 @@
                         "embed": 0,
                         "parameter_enable": 0
                     },
-                    "text": "v8 /Users/stkr/Dev/evieve/source/ts/evievev8/dist/evievetranslaterefdict.js",
+                    "text": "v8 Patcher:../../evievev8/dist/evievetranslaterefdict.js",
                     "textfile": {
                         "filename": "evievetranslaterefdict.js",
                         "flags": 0,
@@ -1802,7 +2066,7 @@
                         "defer": 0,
                         "watch": 0
                     },
-                    "text": "node.script /Users/stkr/Dev/evieve/source/ts/evievenode/dist/evievedoc.js",
+                    "text": "node.script Patcher:../dist/evievedoc.js",
                     "textfile": {
                         "filename": "evievedoc.js",
                         "flags": 0,
@@ -1830,6 +2094,17 @@
                     "numoutlets": 0,
                     "patching_rect": [ 109.0, 186.0, 147.0, 154.0 ],
                     "text": "|\n|\n|\n|\n|\ncreate _ref.xml\n|\n|\n|\n|\n|"
+                }
+            },
+            {
+                "box": {
+                    "hidden": 1,
+                    "id": "obj-51",
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 44.0, 722.0, 150.0, 20.0 ],
+                    "text": "must be top level"
                 }
             }
         ],

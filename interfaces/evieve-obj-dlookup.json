@@ -71,8 +71,8 @@
     },
     "evi.cfsmooth~": {
         "type": "external",
-        "digest": 0,
-        "description": ""
+        "digest": "Signal smoother particularly well suited to smoothing cutoff frequencies",
+        "description": "Based on Andy Simper's smoother, evi.cfsmooth~ tracks the input value via the bandpass output of an SVF filter and logarithmically updates. Smoothing is specified in both ramp time (ms) and filter cutoff (Hz)."
     },
     "evi.classic.osc~": {
         "type": "define",
@@ -161,8 +161,8 @@
     },
     "evi.expsmooth~": {
         "type": "external",
-        "digest": 0,
-        "description": ""
+        "digest": "Exponential signal smoother",
+        "description": "A simple and efficient ramp generator with exponential curve and ramp time specified in milliseconds."
     },
     "evi.filter.allpass~": {
         "type": "define",
@@ -331,8 +331,8 @@
     },
     "evi.lagsmooth~": {
         "type": "external",
-        "digest": 0,
-        "description": ""
+        "digest": "Smooth signal ramp generator with logarithmic curve",
+        "description": "Complex ramp generator with smooth logarithmic curve that reaches it's destination within a threshold of -80dB."
     },
     "evi.limiterfast~": {
         "type": "define",
@@ -366,8 +366,8 @@
     },
     "evi.logsmooth~": {
         "type": "external",
-        "digest": 0,
-        "description": ""
+        "digest": "Logarithmic signal smoother",
+        "description": "A simple and extremely efficient ramp generator with logarithmic curve and ramp time specified in milliseconds."
     },
     "evi.lores~": {
         "type": "define",

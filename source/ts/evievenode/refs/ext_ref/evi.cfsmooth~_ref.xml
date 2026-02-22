@@ -5,10 +5,10 @@
 <!--Data marked TEXT_HERE, INLET_TYPE, OUTLET_TYPE, ARG_NAME and ARG_TYPE need to be filled in-->
 <c74object name="evi.cfsmooth~" module="" category="">
 	<digest>
-		TEXT_HERE
+		Signal smoother particularly well suited to smoothing cutoff frequencies
 	</digest>
 	<description>
-		TEXT_HERE
+		Based on Andy Simper's smoother, evi.cfsmooth~ tracks the input value via the bandpass output of an SVF filter and logarithmically updates. Smoothing is specified in both ramp time (ms) and filter cutoff (Hz).
 	</description>
 	<!--METADATA-->
 	<metadatalist>
@@ -26,7 +26,7 @@
 				Destination Value
 			</digest>
 			<description>
-				TEXT_HERE
+				Can take signal or float or int values to pass through the smoother.
 			</description>
 		</inlet>
 		<inlet id="1" type="signal/float/int">
@@ -34,7 +34,7 @@
 				Ramp Time in milliseconds
 			</digest>
 			<description>
-				TEXT_HERE
+				Amount of time the value takes to reach it's destination. evi.cfsmooth~ is logarithmic and does not reach it's destination exactly.
 			</description>
 		</inlet>
 	</inletlist>
@@ -45,18 +45,34 @@
 				Output Ramp
 			</digest>
 			<description>
-				TEXT_HERE
+				Smoothed output ramp, or target value if ramp is complete.
 			</description>
 		</outlet>
 	</outletlist>
 	<!--ARGUMENTS-->
 	<objarglist>
-		<objarg id="0" name="OBJARG_NAME" type="OBJARG_TYPE" optional="0">
+		<objarg id="0" name="initial" type="float/int" optional="1">
 			<digest>
-				TEXT_HERE
+				Initial value
 			</digest>
 			<description>
-				TEXT_HERE
+				Set the initial value of the output
+			</description>
+		</objarg>
+		<objarg id="1" name="ms" type="float/int" optional="1">
+			<digest>
+				Ramp time
+			</digest>
+			<description>
+				Initial ramp time in ms
+			</description>
+		</objarg>
+		<objarg id="2" name="hz" type="float/int" optional="1">
+			<digest>
+				Hz 
+			</digest>
+			<description>
+				Initial Hz value for filter smoothing, typical values would be between 1..10 Hz
 			</description>
 		</objarg>
 	</objarglist>
@@ -64,42 +80,45 @@
 	<methodlist>
 		<method name="int">
 			<arglist>
-				<arg name="ARG_NAME_0" type="int" optional="0" />
+				<arg name="int" type="int" optional="1" />
 			</arglist>
 			<digest>
-				TEXT_HERE
+				Behaviour depends on inlet
 			</digest>
 			<description>
-				TEXT_HERE
+				In the left inlet, the destination value.
+				In the right inlet, smoothing time in ms.
 			</description>
 		</method>
 		<method name="float">
 			<arglist>
-				<arg name="ARG_NAME_0" type="float" optional="0" />
+				<arg name="float" type="float" optional="1" />
 			</arglist>
 			<digest>
-				TEXT_HERE
+				Behaviour depends on inlet
 			</digest>
 			<description>
-				TEXT_HERE
+				In the left inlet, the destination value.
+				In the right inlet, smoothing time in ms.
 			</description>
 		</method>
 		<method name="clear">
 			<arglist />
 			<digest>
-				TEXT_HERE
+				Clears the internal filter state
 			</digest>
 			<description>
-				TEXT_HERE
+				This should never be needed :-)
 			</description>
 		</method>
 		<method name="signal">
 			<arglist />
 			<digest>
-				TEXT_HERE
+				Behaviour depends on inlet
 			</digest>
 			<description>
-				TEXT_HERE
+				In the left inlet, the destination value.
+				In the right inlet, smoothing time in ms.
 			</description>
 		</method>
 	</methodlist>
@@ -107,10 +126,10 @@
 	<attributelist>
 		<attribute name="hz" get="1" set="1" type="float" size="1">
 			<digest>
-				Smoothing Filter in Hz
+				Filter Cutoff in Hz
 			</digest>
 			<description>
-				TEXT_HERE
+				evi.cfsmooth~ is a two-pole filter. The Hz value sets the filter cutoff. This is typically between 1..10 Hz. The lower this value, the more agressively the curve shape is flattened out.
 			</description>
 			<attributelist>
 				<attribute name="basic" get="1" set="1" type="int" size="1" value="1" />
@@ -122,7 +141,7 @@
 				Smoothing Time in ms
 			</digest>
 			<description>
-				TEXT_HERE
+				The ramp time in ms. Because evi.cfsmooth~ is an inexact smoother, the destination cannot be guaranteed to reach it's value exactly in the alloted time.
 			</description>
 			<attributelist>
 				<attribute name="basic" get="1" set="1" type="int" size="1" value="1" />
@@ -136,8 +155,13 @@
 	</examplelist>
 	<!--SEEALSO-->
 	<seealsolist>
-		<seealso name="bogus">
-			TEXT_HERE
-		</seealso>
+		<seealso name="evi.expsmooth~"></seealso>
+		<seealso name="evi.lagsmooth~"></seealso>
+		<seealso name="evi.logsmooth~"></seealso>
 	</seealsolist>
+  <misc name="Discussion">
+    <entry name="Keywords">
+      <description>smooth, ramp</description>
+    </entry>
+  </misc>
 </c74object>

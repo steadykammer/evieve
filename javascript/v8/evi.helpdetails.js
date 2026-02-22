@@ -22,7 +22,6 @@ mgraphics.relative_coords = 0;
 mgraphics.autofill = 0;
 let peter = new Image();
 let refDict;
-let absDict;
 let renderAlias = false;
 let imageMargin = 100;
 let shortDesc = "";
@@ -38,34 +37,28 @@ let textHeight = 0;
 let wrapText = [];
 let isJa = false;
 function init() {
-  const qDict = new Dict();
-  qDict.import_json(qInit());
-  refDict = max.getrefdict(objectNameArgument);
+  const dDict = new Dict();
+  dDict.import_json(dInit());
+  refDict = dDict.get(objectNameArgument);
   if (typeof refDict === "object") {
     shortDesc = refDict.get("digest");
     longDesc = refDict.get("description");
     if (longDesc === shortDesc) {
       longDesc = null;
     }
-    if (longDesc) {
-      longDesc = longDesc.trim();
-      if (longDesc.substring(0, longDesc.length - 1) === shortDesc && longDesc.substring(longDesc.length - 1) === ".") {
-        longDesc = null;
-      }
-    }
     refDict.freepeer();
   }
   isJa = max.getattr("translation").indexOf("(ja)") !== -1;
-  qDict.freepeer();
+  dDict.freepeer();
 }
 init();
-function qInit() {
-  let qLookup = "evieve-obj-qlookup.json";
-  let qImage = "peter_icon.png";
-  peter = new Image(qImage);
-  return qLookup;
+function dInit() {
+  let dLookup = "evieve-obj-dLookup.json";
+  let dImage = "peter_icon.png";
+  peter = new Image(dImage);
+  return dLookup;
 }
-qInit.local = 1;
+dInit.local = 1;
 function paint() {
   updateSw();
   let textLocation;

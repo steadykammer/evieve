@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
 <c74object name="evi.expsmooth~" module="evieve-ref" category="evieve">
-  <digest>TEXT_HERE</digest>
-  <description>TEXT_HERE</description>
+  <digest>Exponential signal smoother</digest>
+  <description>A simple and efficient ramp generator with exponential curve and ramp time specified in milliseconds.</description>
   <metadatalist>
     <metadata name="author">Pete Dowling</metadata>
     <metadata name="tag">evieve</metadata>
@@ -11,55 +11,62 @@
   <inletlist>
     <inlet id="0" type="signal/float">
       <digest>Destination Value</digest>
-      <description>TEXT_HERE</description>
+      <description>Can take signal or float or int values to pass through the smoother.</description>
     </inlet>
     <inlet id="1" type="signal/float">
       <digest>Ramp Time in milliseconds</digest>
-      <description>TEXT_HERE</description>
+      <description>Amount of time the value takes to reach it's destination. evi.expsmooth~ is exponential and does not reach it's destination exactly.</description>
     </inlet>
   </inletlist>
   <outletlist>
     <outlet id="0" type="signal">
       <digest>Output Ramp</digest>
-      <description>TEXT_HERE</description>
+      <description>Smoothed output ramp, or target value if ramp is complete.</description>
     </outlet>
   </outletlist>
   <objarglist>
-    <objarg id="0" name="OBJARG_NAME" type="OBJARG_TYPE" optional="0">
-      <digest>TEXT_HERE</digest>
-      <description>TEXT_HERE</description>
+    <objarg id="0" name="initial" type="float/int" optional="1">
+      <digest>Initial value</digest>
+      <description>Set the initial value of the output</description>
+    </objarg>
+    <objarg id="1" name="ms" type="float/int" optional="1">
+      <digest>Ramp time</digest>
+      <description>Initial ramp time in ms</description>
     </objarg>
   </objarglist>
   <methodlist>
     <method name="int">
       <arglist>
-        <arg name="ARG_NAME_0" type="int" optional="0"></arg>
+        <arg name="int" type="int" optional="1"></arg>
       </arglist>
-      <digest>TEXT_HERE</digest>
-      <description>TEXT_HERE</description>
+      <digest>Behaviour depends on inlet</digest>
+      <description>In the left inlet, the destination value.
+				In the right inlet, smoothing time in ms.</description>
     </method>
     <method name="float">
       <arglist>
-        <arg name="ARG_NAME_0" type="float" optional="0"></arg>
+        <arg name="float" type="float" optional="1"></arg>
       </arglist>
-      <digest>TEXT_HERE</digest>
-      <description>TEXT_HERE</description>
+      <digest>Behaviour depends on inlet</digest>
+      <description>In the left inlet, the destination value.
+				In the right inlet, smoothing time in ms.</description>
     </method>
     <method name="clear">
       <arglist></arglist>
-      <digest>TEXT_HERE</digest>
-      <description>TEXT_HERE</description>
+      <digest>Clears the internal filter state</digest>
+      <description>This should never be needed :-)</description>
     </method>
     <method name="signal">
       <arglist></arglist>
-      <digest>TEXT_HERE</digest>
-      <description>TEXT_HERE</description>
+      <digest>Behaviour depends on inlet</digest>
+      <description>In the left inlet, the destination value.
+				In the right inlet, smoothing time in ms.</description>
     </method>
   </methodlist>
   <attributelist>
     <attribute name="time" get="1" set="1" type="float" size="1" alias="ms, smooth">
       <digest>Smoothing Time in ms</digest>
-      <description>TEXT_HERE</description>
+      <description>The ramp time in ms. Because evi.expsmooth~ is an inexact smoother, the destination cannot be guaranteed to reach it's value exactly in the alloted time.</description>
       <attributelist>
         <attribute name="basic" get="1" set="1" type="int" size="1" value="1"></attribute>
         <attribute name="label" get="1" set="1" type="symbol" size="1" value="Smoothing Time in ms"></attribute>
@@ -70,11 +77,13 @@
     <example caption="" img=""></example>
   </examplelist>
   <seealsolist>
-    <seealso name="bogus">TEXT_HERE</seealso>
+    <seealso name="evi.cfsmooth~"></seealso>
+    <seealso name="evi.lagsmooth~"></seealso>
+    <seealso name="evi.logsmooth~"></seealso>
   </seealsolist>
   <misc name="Discussion">
     <entry name="Keywords">
-      <description>TEXT_HERE</description>
+      <description>smooth, ramp</description>
     </entry>
   </misc>
 </c74object>

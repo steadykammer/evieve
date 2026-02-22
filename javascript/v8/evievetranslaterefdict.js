@@ -39,8 +39,6 @@ function getQlookupFile() {
 }
 getQlookupFile.local = 1;
 function lookupRefDictLoop(objectNameArgument) {
-  let thisDentry = {};
-  let thisQentry = {};
   let shortDesc = "";
   let longDesc = "";
   let refDict = max.getrefdict(objectNameArgument);
