@@ -15,7 +15,7 @@
     "includes": [
         "evi_smooth.genexpr",
         "evi_clip.genexpr",
-        "evi_biquads.genexpr"
+        "evi_biquads_filters.genexpr"
     ],
     "inlets": [
         {

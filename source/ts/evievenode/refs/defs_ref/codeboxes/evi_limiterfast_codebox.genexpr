@@ -4,7 +4,7 @@
 
 require("evi_smooth.genexpr");  // incl. _utilities & _approx
 require("evi_clip.genexpr");    // incl. _interp
-require("evi_biquads.genexpr");
+require("evi_biquads_filters.genexpr");
 
 // release is in ms, knee is % 0..1
 // choochoo is int, 0 = 2nd order Adaa, 1 = 2nd order + 2x oversample, 2 = ... + 4x oversample
