@@ -45,7 +45,7 @@
 		</inlet>
 		<inlet id="4" type="signal/float">
 			<digest>
-				Inlet #4: Q @min 0.05 @max 20 @default 0.707107
+				Inlet #4: Q @min 0.05 @max 20 @default sqrt1_2
 			</digest>
 			<description>
 				

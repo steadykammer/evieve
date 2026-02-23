@@ -14,7 +14,7 @@ require("evi_adaa.genexpr");        // for 'sine' only
 leaky(x, f)
 {
 	History	leak(0);
-	y		= ( (x - leak) * (f * 0.25) ) + leak;
+	y		= ((x - leak) * (f * 0.25)) + leak;
 	leak	= y;
 	return	y;
 }

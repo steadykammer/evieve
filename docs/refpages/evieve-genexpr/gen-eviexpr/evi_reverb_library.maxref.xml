@@ -11,7 +11,7 @@
     By declaring <m>require("evi_reverb_library.genexpr");</m> at the top of a codebox you can then access all of the functions included in this file. <br />
      <br />
     The <b>evi_reverb_library.genexpr</b> file also requires: <br />
-    evi_svfs.genexpr <br />
+    evi_svfs_lto.genexpr <br />
     evi_rcfilters.genexpr <br />
     <br />
     <b>About this File</b>: <br />

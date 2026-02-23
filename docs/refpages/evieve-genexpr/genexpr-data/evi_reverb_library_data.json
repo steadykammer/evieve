@@ -1,7 +1,7 @@
 {
     "description": "",
     "requires": [
-        "evi_svfs.genexpr",
+        "evi_svfs_lto.genexpr",
         "evi_rcfilters.genexpr"
     ],
     "functions": [

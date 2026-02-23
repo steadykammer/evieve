@@ -2191,7 +2191,7 @@
                     "fontname": "Lato",
                     "fontsize": 14.0,
                     "id": "obj-5",
-                    "items": [ "(Select GenExpr File)", ",", "<separator>", ",", "evi_adaa.genexpr", ",", "evi_approx.genexpr", ",", "evi_biquads.genexpr", ",", "evi_biquads_no_tilde.genexpr", ",", "evi_buchla.genexpr", ",", "evi_clip.genexpr", ",", "evi_core.genexpr", ",", "evi_cossin.genexpr", ",", "evi_counting.genexpr", ",", "evi_crossovers.genexpr", ",", "evi_dfm_lib.genexpr", ",", "evi_dynamics.genexpr", ",", "evi_env.genexpr", ",", "evi_evieve.genexpr", ",", "evi_fastskew.genexpr", ",", "evi_interp.genexpr", ",", "evi_lib.genexpr", ",", "evi_pade.genexpr", ",", "evi_polyblep.genexpr", ",", "evi_ptr.genexpr", ",", "evi_rcfilters.genexpr", ",", "evi_resampling_templates.genexpr", ",", "evi_resbank.genexpr", ",", "evi_reverb_library.genexpr", ",", "evi_ringmod_enhanced.genexpr", ",", "evi_saturators.genexpr", ",", "evi_sinfold_lib.genexpr", ",", "evi_smooth.genexpr", ",", "evi_sources.genexpr", ",", "evi_ssb.genexpr", ",", "evi_svfs.genexpr", ",", "evi_tanh.genexpr", ",", "evi_trig.genexpr", ",", "evi_utilities.genexpr", ",", "evi_warmer_lib.genexpr", ",", "evi_waveshaping.genexpr" ],
+                    "items": "<empty>",
                     "maxclass": "umenu",
                     "numinlets": 1,
                     "numoutlets": 3,

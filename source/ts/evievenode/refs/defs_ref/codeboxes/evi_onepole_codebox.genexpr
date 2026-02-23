@@ -12,7 +12,7 @@
 // @see: "evi_damp.gendsp" / [evi.damp~] for a filter closer to MSP [onepole~].
 
 require("evi_rcfilters.genexpr");
-require("evi_smooth.genexpr");
+
 
 Param   smooth(0, min=0, max=333);  // ms
 Param   prewarp(1, min=0, max=1);   // 1 = input in Hz, 0 = input in 0..1 quasi radians
@@ -21,7 +21,7 @@ pw      = int(prewarp);
 g       = pw ? rcPreWarp2(clamp(in2, 1, samplerate*0.5)) : clamp(in2, 0, 1);
 
 if (smooth > 0) {
-    g   = logsmooth(g, smooth*0.001);
+    g   = evi_logsmooth(g, smooth);
 }
 
 rclp, rcap, rchp    = rcFilterLpApHp(in1, g);

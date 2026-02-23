@@ -32,7 +32,7 @@ s0 = 1 - s1;
 
 // small amount of damping always present if space == 1
 mLow = s1 ? low : low * 0.803821;
-mHigh = ( s1 ? sqrt(high) : high ) * 0.803821 + (0.196179 * s1);
+mHigh = (s1 ? sqrt(high) : high) * 0.803821 + (0.196179 * s1);
 
 hiPass, hiAtten, loPass, loAtten = filterParams(mLow, mHigh, 439);
 dampEqHighG, dampEqHighK = rcDampCoeffs0(loPass, loAtten);

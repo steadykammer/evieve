@@ -13,7 +13,6 @@
         "tags": []
     },
     "includes": [
-        "evi_svfs.genexpr",
         "evi_svfs_tpt_filters.genexpr"
     ],
     "inlets": [
@@ -38,7 +37,7 @@
         {
             "id": 4,
             "type": "signal/float",
-            "digest": "Q @min 0.05 @max 20 @default 0.707107",
+            "digest": "Q @min 0.05 @max 20 @default sqrt1_2",
             "description": ""
         }
     ],

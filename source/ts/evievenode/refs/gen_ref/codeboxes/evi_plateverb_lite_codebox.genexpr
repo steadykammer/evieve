@@ -245,26 +245,24 @@ sum1_R	= modDelayR.read(CtimeMul1R, interp="fastcubic");
 sum2_R	= modDelayR.read(CtimeMul2R, interp="fastcubic");
 
 // sum left
-sumLeft			= (
-sum1_L			+ 
+sumLeft			= 
+(sum1_L			+ 
 sum2_L			- 
 tapsL.read(	CtimeMul3L, interp="fastcubic"	) +
 sum4L.read(	CtimeMul4L, interp="fastcubic"	) -
 sum2R.read(	CtimeMul5L, interp="fastcubic"	) -
 tapsR.read(	CtimeMul6L, interp="fastcubic"	) -
-sum4R.read(	CtimeMul7L, interp="fastcubic"	)
-);
+sum4R.read(	CtimeMul7L, interp="fastcubic"	));
 
 // sum right
-sumRight		= (
-sum1_R			+ 
+sumRight		= 
+(sum1_R			+ 
 sum2_R			- 
 tapsR.read(	CtimeMul3R, interp="fastcubic"	) +
 sum4R.read(	CtimeMul4R, interp="fastcubic"	) -
 sum2L.read(	CtimeMul5R, interp="fastcubic"	) -
 tapsL.read(	CtimeMul6R, interp="fastcubic"	) -
-sum4L.read(	CtimeMul7R, interp="fastcubic"	)
-);
+sum4L.read(	CtimeMul7R, interp="fastcubic"	));
 
 rvrbL			=  sumLeft * wetMix;
 rvrbR			= sumRight * wetMix;

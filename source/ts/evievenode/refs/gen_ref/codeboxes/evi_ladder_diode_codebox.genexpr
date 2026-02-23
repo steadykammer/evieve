@@ -116,7 +116,7 @@ diode1(x0, freq, res, tune=0.356788, shape=23.7, nonlin=2) {
 	y1 = ((y0 * (wc12 + wc212 + wc320 + wc48)) + (z0 * (1 + wc16 + wc210 + wc34)) + (z1 * (wc12 + wc24 + wc24 + wc36)) + (z2 * (wc22 + wc34)) + (z3 * wc32)) * b;
 	y2 = ((y0 * (wc22 + wc38 + wc46)) + (z0 * (wc1 + wc24 + (wc32 + wc3))) + (z1 * (1 + wc16 + wc211 + wc36)) + (z2 * (wc1 + wc24 + wc34)) + (z3 * (wc2 + wc32))) * b;
 	y3 = ((y0 * (wc32 + wc44)) + (z0 * (wc2 + wc32)) + (z1 * (wc1 + wc24 + wc34)) + (z2 * (1 + wc16 + wc210 + wc34)) + (z3 * (wc1 + wc24 + wc32))) * b;
-	y4 = ( y0 * g ) + s;
+	y4 =  (y0 * g) + s;
 
 	// update state
 	z0 += wc14 * (y0 -  y1 + y2);
@@ -194,7 +194,7 @@ diode2(x00, x01, freq, res, tune=0.356788, shape=23.7, nonlin=2) {
 	y10 = ((y00 * (wc12 + wc212 + wc320 + wc48)) + (z0 * (1 + wc16 + wc210 + wc34)) + (z1 * (wc12 + wc24 + wc24 + wc36)) + (z2 * (wc22 + wc34)) + (z3 * wc32)) * b;
 	y20 = ((y00 * (wc22 + wc38 + wc46)) + (z0 * (wc1 + wc24 + (wc32 + wc3))) + (z1 * (1 + wc16 + wc211 + wc36)) + (z2 * (wc1 + wc24 + wc34)) + (z3 * (wc2 + wc32))) * b;
 	y30 = ((y00 * (wc32 + wc44)) + (z0 * (wc2 + wc32)) + (z1 * (wc1 + wc24 + wc34)) + (z2 * (1 + wc16 + wc210 + wc34)) + (z3 * (wc1 + wc24 + wc32))) * b;
-	y40 = ( y00 * g ) + s;
+	y40 =  (y00 * g) + s;
 
 	// update state
 	z0 += wc14 * (y00 -  y10 + y20);
@@ -213,7 +213,7 @@ diode2(x00, x01, freq, res, tune=0.356788, shape=23.7, nonlin=2) {
 	y11 = ((y01 * (wc12 + wc212 + wc320 + wc48)) + (z0 * (1 + wc16 + wc210 + wc34)) + (z1 * (wc12 + wc24 + wc24 + wc36)) + (z2 * (wc22 + wc34)) + (z3 * wc32)) * b;
 	y21 = ((y01 * (wc22 + wc38 + wc46)) + (z0 * (wc1 + wc24 + (wc32 + wc3))) + (z1 * (1 + wc16 + wc211 + wc36)) + (z2 * (wc1 + wc24 + wc34)) + (z3 * (wc2 + wc32))) * b;
 	y31 = ((y01 * (wc32 + wc44)) + (z0 * (wc2 + wc32)) + (z1 * (wc1 + wc24 + wc34)) + (z2 * (1 + wc16 + wc210 + wc34)) + (z3 * (wc1 + wc24 + wc32))) * b;
-	y41 = ( y01 * g ) + s;
+	y41 =  (y01 * g) + s;
 
 	// update state
 	z0 += wc14 * (y01 -  y11 + y21);

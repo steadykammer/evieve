@@ -3,7 +3,7 @@
     "requires": [
         "evi_sinfold_lib.genexpr",
         "evi_cossin.genexpr",
-        "evi_biquads.genexpr",
+        "evi_biquads_extras.genexpr",
         "evi_rcfilters.genexpr"
     ],
     "functions": [

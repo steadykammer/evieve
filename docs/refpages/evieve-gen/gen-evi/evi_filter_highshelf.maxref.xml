@@ -41,7 +41,7 @@
         </geninlet>
         <geninlet name='q' type='float' optional='1'>
             <digest>
-                @min 0.05 @max 20 @default 0.707107
+                @min 0.05 @max 20 @default sqrt1_2
             </digest>
         </geninlet>
     </geninletlist>

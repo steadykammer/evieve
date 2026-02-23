@@ -3,10 +3,10 @@
 
 gaussianNoise(gain)
 {
-	Xoxhiro256	= noise();
-	cosXox		= cycle(noise(), index="phase");
-	gaussian 	= sqrt(log((abs(Xoxhiro256) * gain) + (1 - gain)) * -2) * (cosXox * LN2);
-	return		gaussian, Xoxhiro256, cosXox;
+	Xoshiro256	= noise();
+	cosXos		= cycle(noise(), index="phase");
+	gaussian 	= sqrt(log((abs(Xoshiro256) * gain) + (1 - gain)) * -2) * (cosXos * LN2);
+	return		gaussian, Xoshiro256, cosXos;
 }
 
 // default (alpha 0.6403882032022076) gives very close to unity amplitude (-1..1) output

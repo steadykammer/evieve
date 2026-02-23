@@ -13,7 +13,7 @@
     The <b>evi_ssb.genexpr</b> file also requires: <br />
     evi_sinfold_lib.genexpr <br />
     evi_cossin.genexpr <br />
-    evi_biquads.genexpr <br />
+    evi_biquads_extras.genexpr <br />
     evi_rcfilters.genexpr <br />
     <br />
     <b>About this File</b>: <br />

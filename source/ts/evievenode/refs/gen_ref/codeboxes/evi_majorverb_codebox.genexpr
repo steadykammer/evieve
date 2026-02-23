@@ -180,22 +180,22 @@ fbkhi, fbklo		= logsmoothBank2(fb_khp, fb_klp, 0.2003);
 mod0	= 1 / (feedbackTaps + feedbackTaps);
 
 // !! switch to using "onemod1()" only for even cheaper modulation, but not as much fun
-modA1	= oneMod1((mod1 * modamnt), moddepth, (mod0     ), modulationduty, modulationshape, modulationskew );
-modB1	= oneMod1((mod2 * modamnt), moddepth, (mod0 * 3 ), modulationduty, modulationshape, modulationskew );
-modC1	= oneMod1((mod3 * modamnt), moddepth, (mod0 * 5 ), modulationduty, modulationshape, modulationskew );
-modD1	= oneMod2((mod4 * modamnt), moddepth, (mod0 * 7 ), modulationduty, modulationshape, modulationskew );
-modE1	= oneMod2((mod5 * modamnt), moddepth, (mod0 * 9 ), modulationduty, modulationshape, modulationskew );
-modF1	= oneMod2((mod6 * modamnt), moddepth, (mod0 * 11), modulationduty, modulationshape, modulationskew );
-modG1	= oneMod2((mod7 * modamnt), moddepth, (mod0 * 13), modulationduty, modulationshape, modulationskew );
-modH1	= oneMod2((mod8 * modamnt), moddepth, (mod0 * 15), modulationduty, modulationshape, modulationskew );
-modA2	= oneMod1((mod1 * modamnt), moddepth, (mod0 * 2 ), modulationduty, modulationshape, modulationskew );
-modB2	= oneMod1((mod2 * modamnt), moddepth, (mod0 * 4 ), modulationduty, modulationshape, modulationskew );
-modC2	= oneMod1((mod3 * modamnt), moddepth, (mod0 * 6 ), modulationduty, modulationshape, modulationskew );
-modD2	= oneMod2((mod4 * modamnt), moddepth, (mod0 * 8 ), modulationduty, modulationshape, modulationskew );
-modE2	= oneMod2((mod5 * modamnt), moddepth, (mod0 * 10), modulationduty, modulationshape, modulationskew );
-modF2	= oneMod2((mod6 * modamnt), moddepth, (mod0 * 12), modulationduty, modulationshape, modulationskew );
-modG2	= oneMod2((mod7 * modamnt), moddepth, (mod0 * 14), modulationduty, modulationshape, modulationskew );
-modH2	= oneMod2((mod8 * modamnt), moddepth, (mod0 * 16), modulationduty, modulationshape, modulationskew );
+modA1	= oneMod1((mod1 * modamnt), moddepth, (mod0),       modulationduty, modulationshape, modulationskew );
+modB1	= oneMod1((mod2 * modamnt), moddepth, (mod0 * 3),   modulationduty, modulationshape, modulationskew );
+modC1	= oneMod1((mod3 * modamnt), moddepth, (mod0 * 5),   modulationduty, modulationshape, modulationskew );
+modD1	= oneMod2((mod4 * modamnt), moddepth, (mod0 * 7),   modulationduty, modulationshape, modulationskew );
+modE1	= oneMod2((mod5 * modamnt), moddepth, (mod0 * 9),   modulationduty, modulationshape, modulationskew );
+modF1	= oneMod2((mod6 * modamnt), moddepth, (mod0 * 11),  modulationduty, modulationshape, modulationskew );
+modG1	= oneMod2((mod7 * modamnt), moddepth, (mod0 * 13),  modulationduty, modulationshape, modulationskew );
+modH1	= oneMod2((mod8 * modamnt), moddepth, (mod0 * 15),  modulationduty, modulationshape, modulationskew );
+modA2	= oneMod1((mod1 * modamnt), moddepth, (mod0 * 2),   modulationduty, modulationshape, modulationskew );
+modB2	= oneMod1((mod2 * modamnt), moddepth, (mod0 * 4),   modulationduty, modulationshape, modulationskew );
+modC2	= oneMod1((mod3 * modamnt), moddepth, (mod0 * 6),   modulationduty, modulationshape, modulationskew );
+modD2	= oneMod2((mod4 * modamnt), moddepth, (mod0 * 8),   modulationduty, modulationshape, modulationskew );
+modE2	= oneMod2((mod5 * modamnt), moddepth, (mod0 * 10),  modulationduty, modulationshape, modulationskew );
+modF2	= oneMod2((mod6 * modamnt), moddepth, (mod0 * 12),  modulationduty, modulationshape, modulationskew );
+modG2	= oneMod2((mod7 * modamnt), moddepth, (mod0 * 14),  modulationduty, modulationshape, modulationskew );
+modH2	= oneMod2((mod8 * modamnt), moddepth, (mod0 * 16),  modulationduty, modulationshape, modulationskew );
 
 
 //	//	//	fdn taps	- modulated & summed

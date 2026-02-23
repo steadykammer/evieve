@@ -128,9 +128,9 @@ powF		=  1.1220184543019633;
 // 	damp	highshelf: 	any Hz, dB input -6..0 only, slope fixed @ 0.5
 absorb					= absorbtion * absorbtion;
 apgaincoefficient0		= 2;							// lowshelf affect on depth
-apgaincoefficient1		= clamp( ( (((1 - damp2_m0) + damp2_m1) * 0.413517) + 0.586483 ) + 
-							( ((damp1_a1 + damp1_a2) * damp1_a3) * (1 - ((damp1_m1 + damp1_m2) * apgaincoefficient0)) ), 
-								0.586484, 0.981584 );
+apgaincoefficient1		= clamp(((((1 - damp2_m0) + damp2_m1) * 0.413517) + 0.586483) + 
+							(((damp1_a1 + damp1_a2) * damp1_a3) * (1 - ((damp1_m1 + damp1_m2) * apgaincoefficient0))), 
+								0.586484, 0.981584);
 apgaincoefficient2		= interp(absorb, 0.981584, apgaincoefficient1, mode="cosine");
 
 // for pre delay
@@ -477,8 +477,8 @@ wetYr		= eviSvfTwoSections(elmR, f3a1, f3a2, f3a3, f3m0, f3m1, f3m2, f4a1, f4a2,
 
 //	//	//	process updates
 
-compensateDryL	=	(	in1 + 0	);
-compensateDryR	=	(	in2 + 0	);
+compensateDryL	=	(in1 + 0);
+compensateDryR	=	(in2 + 0);
 
 lateWriteL, lateWriteR	= xfadeQuartApproxStereo(lateLeft, lateRight, wetXl, wetXr, muteMix);
 

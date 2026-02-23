@@ -156,7 +156,7 @@ dampG		= 1 -  sqrt(dampK);									// i did this or what is going on
 
 sizecoeff	= size * samplerate * div340;						// size * samplerate / 340
 //rt_60		= pow(pow(10, -60 / 20), 1 / (decay * samplerate));
-rt_60		= exp( m3l10const * ( 1 / ( decay * samplerate ) ) );
+rt_60		= exp(m3l10const * (1 / (decay * samplerate)));
 
 // early times
 //pTime		= round((sizecoeff * 0.110732,	mode="trunc");		// Wakefield
@@ -354,10 +354,10 @@ apInR	= apIn + ap_xR ;
 // -- -- -- -- -- -- -- -- -- --		fdn write		-- -- -- -- -- -- -- -- -- -- -- -- -- \\
 
 // fdn matrix
-fdnMat1		= ( fD1 + fD2 - fD3 - fD4 )  *  0.5;
-fdnMat2		= ( fD1 - fD2 - fD3 + fD4 )  *  0.5;
-fdnMat3		= (-fD1 + fD2 - fD3 + fD4 )  *  0.5;
-fdnMat4		= ( fD1 + fD2 + fD3 + fD4 )  *  0.5;
+fdnMat1		=  (fD1 + fD2 - fD3 - fD4)  *  0.5;
+fdnMat2		=  (fD1 - fD2 - fD3 + fD4)  *  0.5;
+fdnMat3		= (-fD1 + fD2 - fD3 + fD4)  *  0.5;
+fdnMat4		=  (fD1 + fD2 + fD3 + fD4)  *  0.5;
 /*
 // fdn damp 2
 fdG			= gdamp * 0.125;		// fix for science :-)

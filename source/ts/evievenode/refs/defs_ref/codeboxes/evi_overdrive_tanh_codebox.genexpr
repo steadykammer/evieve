@@ -71,5 +71,5 @@ if (hfcomp) {
 	tanhoutput = decorelate(tanhoutput);
 }
 
-out1	= ( tanhoutput + (lopath * sqrt(k1) * 0.5) + (hipath * (k2*k2) * sqrt1_2) ) * io_out;
+out1	= (tanhoutput + (lopath * sqrt(k1) * 0.5) + (hipath * (k2*k2) * sqrt1_2)) * io_out;
 

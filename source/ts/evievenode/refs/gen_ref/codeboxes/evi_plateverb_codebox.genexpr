@@ -225,26 +225,24 @@ sum1L, sum2L	= delayReadZero2(tap1L, CtimeMul1L, CtimeMul2L,	smoothsamps);
 sum1R, sum2R	= delayReadZero2(tap1R, CtimeMul1R, CtimeMul2R,	smoothsamps);
 
 // sum left
-sumLeft			= (
-sum1L			+ 
+sumLeft			= 
+(sum1L			+ 
 sum2L			- 
 delayReadZero1(tap3L, CtimeMul3L, smoothsamps) + 
 delayReadZero1(tap4L, CtimeMul4L, smoothsamps) - 
 delayReadZero1(tap2R, CtimeMul5L, smoothsamps) - 
 delayReadZero1(tap3R, CtimeMul6L, smoothsamps) - 
-delayReadZero1(tap4R, CtimeMul7L, smoothsamps) 
-);
+delayReadZero1(tap4R, CtimeMul7L, smoothsamps));
 
 // sum right
-sumRight		= (
-sum1R			+ 
+sumRight		= 
+(sum1R			+ 
 sum2R			- 
 delayReadZero1(tap3R, CtimeMul3R, smoothsamps) + 
 delayReadZero1(tap4R, CtimeMul4R, smoothsamps) - 
 delayReadZero1(tap2L, CtimeMul5R, smoothsamps) - 
 delayReadZero1(tap3L, CtimeMul6R, smoothsamps) - 
-delayReadZero1(tap4L, CtimeMul7R, smoothsamps) 
-);
+delayReadZero1(tap4L, CtimeMul7R, smoothsamps));
 
 rvrbL			=  sumLeft * wetMix;
 rvrbR			= sumRight * wetMix;
