@@ -102,7 +102,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Objects" ],
         "keywords": [ "smooth", "ramp" ],
-        "seealso": [ "evi.expsmooth~", "evi.lagsmooth~", "evi.logsmooth~" ]
+        "seealso": [ "evi.expsmooth~", "evi.lagsmooth~", "evi.logsmooth~", "evi_smooth" ]
     },
     "evi.classic.osc~": {
         "digest": "A selection of 'classic' oscillator shapes",
@@ -228,7 +228,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Objects" ],
         "keywords": [ "smooth", "ramp" ],
-        "seealso": [ "evi.cfsmooth~", "evi.lagsmooth~", "evi.logsmooth~" ]
+        "seealso": [ "evi.cfsmooth~", "evi.lagsmooth~", "evi.logsmooth~", "evi_smooth" ]
     },
     "evi.filter.allpass~": {
         "digest": "TPT allpass filter",
@@ -466,7 +466,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Objects" ],
         "keywords": [ "smooth", "ramp" ],
-        "seealso": [ "evi.cfsmooth~", "evi.expsmooth~", "evi.logsmooth~" ]
+        "seealso": [ "evi.cfsmooth~", "evi.expsmooth~", "evi.logsmooth~", "evi_smooth" ]
     },
     "evi.limiterfast~": {
         "digest": "A fast no-lookahead limiter with anti-aliased nonlinear clipping",
@@ -490,21 +490,21 @@
         "seealso": []
     },
     "evi.logahr~": {
-        "digest": 0,
+        "digest": "Attack/hold/release envelope follower",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Objects" ],
         "keywords": [],
         "seealso": [ "bogus" ]
     },
     "evi.logattackdecay~": {
-        "digest": 0,
+        "digest": "Attack/decay envelope follower",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Objects" ],
         "keywords": [],
         "seealso": [ "bogus" ]
     },
     "evi.logdecay~": {
-        "digest": 0,
+        "digest": "Decay envelope follower",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Objects" ],
         "keywords": [],
@@ -515,7 +515,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Objects" ],
         "keywords": [ "smooth", "ramp" ],
-        "seealso": [ "evi.cfsmooth~", "evi.expsmooth~", "evi.lagsmooth~", "evi.logdecay~", "evi.logattackdecay~", "evi.logahr~" ]
+        "seealso": [ "evi.cfsmooth~", "evi.expsmooth~", "evi.lagsmooth~", "evi.logdecay~", "evi.logattackdecay~", "evi.logahr~", "evi_smooth" ]
     },
     "evi.lores~": {
         "digest": "Reimplementation of MSP lores~ filter, closely matching the shape and behaviour but implemented as a TPT filter",
@@ -623,11 +623,11 @@
         "seealso": []
     },
     "evi.pan~": {
-        "digest": 0,
+        "digest": "Pan audio signals",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Objects" ],
         "keywords": [],
-        "seealso": [ "bogus" ]
+        "seealso": [ "evi.xfade~", "evi_utilities" ]
     },
     "evi.phaseshift~": {
         "digest": "Reimplementation of MSP phaseshift~ filter object",
@@ -672,7 +672,7 @@
         "seealso": []
     },
     "evi.quadosc~": {
-        "digest": 0,
+        "digest": "Phase locked quadrature oscillator",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Objects" ],
         "keywords": [],
@@ -875,7 +875,7 @@
         "seealso": []
     },
     "evi.vactrol~": {
-        "digest": 0,
+        "digest": "Vactrol response time domain filter",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Objects" ],
         "keywords": [],
@@ -917,11 +917,11 @@
         "seealso": []
     },
     "evi.xfade~": {
-        "digest": 0,
+        "digest": "Crossfade audio signals",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Objects" ],
         "keywords": [],
-        "seealso": [ "bogus" ]
+        "seealso": [ "evi.pan~", "evi_utilities" ]
     },
     "evi.zeroxcount~": {
         "digest": "Like MSP zerox~ with controls for window size and threshold, with simultaneous outputs analysis",
@@ -938,7 +938,7 @@
         "seealso": []
     },
     "evi.zitaverb~": {
-        "digest": "True stereo FDN/algorithmic reverb based on 'zitaverb' by Fons Andriesson \n",
+        "digest": "True stereo FDN/algorithmic reverb based on 'zitaverb' by Fons Adriaensen \n",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Abstractions" ],
         "keywords": [],

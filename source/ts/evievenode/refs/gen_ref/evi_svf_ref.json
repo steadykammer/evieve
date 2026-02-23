@@ -10,7 +10,8 @@
         "inlets": "input, cutoff, resonance"
     },
     "includes": [
-        "evi_svfs"
+        "evi_svfs",
+        "evi_svfs_filters"
     ],
     "inlets": [
         {

@@ -21,7 +21,7 @@ hz	    = in2;	        // hz
 k1	    = in3 + in3;	// 0..1 .. 0..2
 
 // prewarp to alpha/beta
-g		=  tanA2(hz * PI / SAMPLERATE);						// hz to norm
+g		=  tanA2(hz * PI / SAMPLERATE);					    // hz to norm
 oneg	=  1 + g;											// divisor
 alphas	=  g / oneg;										// G (feedforward)
 betalp	= (k1 - (k1 * alphas)) / oneg;						// feedback...

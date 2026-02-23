@@ -1341,8 +1341,8 @@
             "type": "FunctionDeclaration",
             "id": {
                 "type": "Identifier",
-                "name": "tanApprox",
-                "raw": "tanApprox"
+                "name": "tanApprox3",
+                "raw": "tanApprox3"
             },
             "params": [
                 {
@@ -1641,8 +1641,8 @@
                                 ],
                                 "callee": {
                                     "type": "Identifier",
-                                    "name": "tanApprox",
-                                    "raw": "tanApprox"
+                                    "name": "tanApprox3",
+                                    "raw": "tanApprox3"
                                 }
                             }
                         }
@@ -2014,8 +2014,8 @@
                                 ],
                                 "callee": {
                                     "type": "Identifier",
-                                    "name": "tanApprox",
-                                    "raw": "tanApprox"
+                                    "name": "tanApprox3",
+                                    "raw": "tanApprox3"
                                 }
                             }
                         }
@@ -2840,8 +2840,8 @@
                                 ],
                                 "callee": {
                                     "type": "Identifier",
-                                    "name": "tanApprox",
-                                    "raw": "tanApprox"
+                                    "name": "tanApprox3",
+                                    "raw": "tanApprox3"
                                 }
                             }
                         }

@@ -3,8 +3,8 @@
         "fileversion": 1,
         "appversion": {
             "major": 9,
-            "minor": 1,
-            "revision": 2,
+            "minor": 2,
+            "revision": 0,
             "architecture": "x64",
             "modernui": 1
         },
@@ -22,7 +22,7 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 632.0, 13.0, 173.0, 35.0 ],
+                    "patching_rect": [ 632.0, 13.0, 174.0, 35.0 ],
                     "text": "in 4 (signal/float) Q @min 0.05 @max 20 @default 0.707107"
                 }
             },
@@ -63,7 +63,7 @@
             },
             {
                 "box": {
-                    "code": "\r\nrequire(\"evi_svfs.genexpr\");\r\n\r\nParam   smooth(0, min=0, max=333);\r\n\r\n                        // In   Hz   dB   Q    ms\r\nout1    = eviFilterLowpass(in1, in2, in3, in4, smooth=smooth);\r\n\r\n",
+                    "code": "\r\nrequire(\"evi_svfs_tpt_filters.genexpr\");\r\n\r\nParam   smooth(0, min=0, max=333);\r\n\r\n                        // In   Hz   dB   Q    ms\r\nout1    = eviFilterLowpass(in1, in2, in3, in4, smooth=smooth);\r\n\r\n",
                     "fontface": 0,
                     "fontname": "<Monospaced>",
                     "fontsize": 12.0,

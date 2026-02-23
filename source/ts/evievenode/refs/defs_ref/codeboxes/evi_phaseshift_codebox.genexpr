@@ -2,7 +2,7 @@
 // identical to [evi.filter.allpass~], almost identical to
 // [evi.biquad.allpass~] and MSP [phaseshift~] but using a TPT filter.
 
-require("evi_svfs.genexpr");
+require("evi_svfs_tpt_filters.genexpr");
 
 Param   smooth(0, min=0, max=333);
 

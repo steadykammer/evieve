@@ -1,0 +1,4419 @@
+{
+    "type": "TranslationUnit",
+    "commands": [],
+    "functions": [
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "biquadDf1",
+                "raw": "biquadDf1"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "x",
+                    "raw": "x"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "a0",
+                    "raw": "a0"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "a1",
+                    "raw": "a1"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "a2",
+                    "raw": "a2"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "b1",
+                    "raw": "b1"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "b2",
+                    "raw": "b2"
+                }
+            ],
+            "defaults": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+            ],
+            "decls": [
+                [
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "x1",
+                                    "raw": "x1"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "x2",
+                                    "raw": "x2"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "y1",
+                                    "raw": "y1"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "y2",
+                                    "raw": "y2"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            ],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "a0w",
+                                "raw": "a0w"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "*",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "x",
+                                    "raw": "x"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "a0",
+                                    "raw": "a0"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "a1w",
+                                "raw": "a1w"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "*",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "x1",
+                                    "raw": "x1"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "a1",
+                                    "raw": "a1"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "a2w",
+                                "raw": "a2w"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "*",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "x2",
+                                    "raw": "x2"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "a2",
+                                    "raw": "a2"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "w",
+                                "raw": "w"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "+",
+                                "left": {
+                                    "type": "BinaryExpression",
+                                    "operator": "+",
+                                    "left": {
+                                        "type": "Identifier",
+                                        "name": "a0w",
+                                        "raw": "a0w"
+                                    },
+                                    "right": {
+                                        "type": "Identifier",
+                                        "name": "a1w",
+                                        "raw": "a1w"
+                                    }
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "a2w",
+                                    "raw": "a2w"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "b1y",
+                                "raw": "b1y"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "*",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "y1",
+                                    "raw": "y1"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "b1",
+                                    "raw": "b1"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "b2y",
+                                "raw": "b2y"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "*",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "y2",
+                                    "raw": "y2"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "b2",
+                                    "raw": "b2"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "y",
+                                "raw": "y"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "-",
+                                "left": {
+                                    "type": "BinaryExpression",
+                                    "operator": "-",
+                                    "left": {
+                                        "type": "Identifier",
+                                        "name": "w",
+                                        "raw": "w"
+                                    },
+                                    "right": {
+                                        "type": "Identifier",
+                                        "name": "b1y",
+                                        "raw": "b1y"
+                                    }
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "b2y",
+                                    "raw": "b2y"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "x2",
+                                "raw": "x2"
+                            },
+                            "right": {
+                                "type": "Identifier",
+                                "name": "x1",
+                                "raw": "x1"
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "x1",
+                                "raw": "x1"
+                            },
+                            "right": {
+                                "type": "Identifier",
+                                "name": "x",
+                                "raw": "x"
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "y2",
+                                "raw": "y2"
+                            },
+                            "right": {
+                                "type": "Identifier",
+                                "name": "y1",
+                                "raw": "y1"
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "y1",
+                                "raw": "y1"
+                            },
+                            "right": {
+                                "type": "Identifier",
+                                "name": "y",
+                                "raw": "y"
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "Identifier",
+                            "name": "y",
+                            "raw": "y"
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "biquadDf1reset",
+                "raw": "biquadDf1reset"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "x",
+                    "raw": "x"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "a0",
+                    "raw": "a0"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "a1",
+                    "raw": "a1"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "a2",
+                    "raw": "a2"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "b1",
+                    "raw": "b1"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "b2",
+                    "raw": "b2"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "reset",
+                    "raw": "reset"
+                }
+            ],
+            "defaults": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+            ],
+            "decls": [
+                [
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "x1",
+                                    "raw": "x1"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "x2",
+                                    "raw": "x2"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "y1",
+                                    "raw": "y1"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "y2",
+                                    "raw": "y2"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            ],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "IfStatement",
+                        "test": {
+                            "type": "Identifier",
+                            "name": "reset",
+                            "raw": "reset"
+                        },
+                        "consequent": {
+                            "type": "BlockStatement",
+                            "body": [
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "x1",
+                                            "raw": "x1"
+                                        },
+                                        "right": {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "x2",
+                                            "raw": "x2"
+                                        },
+                                        "right": {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "y1",
+                                            "raw": "y1"
+                                        },
+                                        "right": {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "y2",
+                                            "raw": "y2"
+                                        },
+                                        "right": {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "alternate": null
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "a0w",
+                                "raw": "a0w"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "*",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "x",
+                                    "raw": "x"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "a0",
+                                    "raw": "a0"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "a1w",
+                                "raw": "a1w"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "*",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "x1",
+                                    "raw": "x1"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "a1",
+                                    "raw": "a1"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "a2w",
+                                "raw": "a2w"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "*",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "x2",
+                                    "raw": "x2"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "a2",
+                                    "raw": "a2"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "w",
+                                "raw": "w"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "+",
+                                "left": {
+                                    "type": "BinaryExpression",
+                                    "operator": "+",
+                                    "left": {
+                                        "type": "Identifier",
+                                        "name": "a0w",
+                                        "raw": "a0w"
+                                    },
+                                    "right": {
+                                        "type": "Identifier",
+                                        "name": "a1w",
+                                        "raw": "a1w"
+                                    }
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "a2w",
+                                    "raw": "a2w"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "b1y",
+                                "raw": "b1y"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "*",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "y1",
+                                    "raw": "y1"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "b1",
+                                    "raw": "b1"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "b2y",
+                                "raw": "b2y"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "*",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "y2",
+                                    "raw": "y2"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "b2",
+                                    "raw": "b2"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "y",
+                                "raw": "y"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "-",
+                                "left": {
+                                    "type": "BinaryExpression",
+                                    "operator": "-",
+                                    "left": {
+                                        "type": "Identifier",
+                                        "name": "w",
+                                        "raw": "w"
+                                    },
+                                    "right": {
+                                        "type": "Identifier",
+                                        "name": "b1y",
+                                        "raw": "b1y"
+                                    }
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "b2y",
+                                    "raw": "b2y"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "x2",
+                                "raw": "x2"
+                            },
+                            "right": {
+                                "type": "Identifier",
+                                "name": "x1",
+                                "raw": "x1"
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "x1",
+                                "raw": "x1"
+                            },
+                            "right": {
+                                "type": "Identifier",
+                                "name": "x",
+                                "raw": "x"
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "y2",
+                                "raw": "y2"
+                            },
+                            "right": {
+                                "type": "Identifier",
+                                "name": "y1",
+                                "raw": "y1"
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "y1",
+                                "raw": "y1"
+                            },
+                            "right": {
+                                "type": "Identifier",
+                                "name": "y",
+                                "raw": "y"
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "Identifier",
+                            "name": "y",
+                            "raw": "y"
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "biquadDf2",
+                "raw": "biquadDf2"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "x",
+                    "raw": "x"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "a0",
+                    "raw": "a0"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "a1",
+                    "raw": "a1"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "a2",
+                    "raw": "a2"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "b1",
+                    "raw": "b1"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "b2",
+                    "raw": "b2"
+                }
+            ],
+            "defaults": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+            ],
+            "decls": [
+                [
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "x1",
+                                    "raw": "x1"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "x2",
+                                    "raw": "x2"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            ],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "b1w",
+                                "raw": "b1w"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "*",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "x1",
+                                    "raw": "x1"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "b1",
+                                    "raw": "b1"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "b2w",
+                                "raw": "b2w"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "*",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "x2",
+                                    "raw": "x2"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "b2",
+                                    "raw": "b2"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "w",
+                                "raw": "w"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "-",
+                                "left": {
+                                    "type": "BinaryExpression",
+                                    "operator": "-",
+                                    "left": {
+                                        "type": "Identifier",
+                                        "name": "x",
+                                        "raw": "x"
+                                    },
+                                    "right": {
+                                        "type": "Identifier",
+                                        "name": "b1w",
+                                        "raw": "b1w"
+                                    }
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "b2w",
+                                    "raw": "b2w"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "a0w",
+                                "raw": "a0w"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "*",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "w",
+                                    "raw": "w"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "a0",
+                                    "raw": "a0"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "a1w",
+                                "raw": "a1w"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "*",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "x1",
+                                    "raw": "x1"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "a1",
+                                    "raw": "a1"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "a2w",
+                                "raw": "a2w"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "*",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "x2",
+                                    "raw": "x2"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "a2",
+                                    "raw": "a2"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "y",
+                                "raw": "y"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "+",
+                                "left": {
+                                    "type": "BinaryExpression",
+                                    "operator": "+",
+                                    "left": {
+                                        "type": "Identifier",
+                                        "name": "a0w",
+                                        "raw": "a0w"
+                                    },
+                                    "right": {
+                                        "type": "Identifier",
+                                        "name": "a1w",
+                                        "raw": "a1w"
+                                    }
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "a2w",
+                                    "raw": "a2w"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "x2",
+                                "raw": "x2"
+                            },
+                            "right": {
+                                "type": "Identifier",
+                                "name": "x1",
+                                "raw": "x1"
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "x1",
+                                "raw": "x1"
+                            },
+                            "right": {
+                                "type": "Identifier",
+                                "name": "w",
+                                "raw": "w"
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "Identifier",
+                            "name": "y",
+                            "raw": "y"
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "biquadDf2reset",
+                "raw": "biquadDf2reset"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "x",
+                    "raw": "x"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "a0",
+                    "raw": "a0"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "a1",
+                    "raw": "a1"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "a2",
+                    "raw": "a2"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "b1",
+                    "raw": "b1"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "b2",
+                    "raw": "b2"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "reset",
+                    "raw": "reset"
+                }
+            ],
+            "defaults": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+            ],
+            "decls": [
+                [
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "x1",
+                                    "raw": "x1"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "x2",
+                                    "raw": "x2"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            ],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "IfStatement",
+                        "test": {
+                            "type": "Identifier",
+                            "name": "reset",
+                            "raw": "reset"
+                        },
+                        "consequent": {
+                            "type": "BlockStatement",
+                            "body": [
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "x1",
+                                            "raw": "x1"
+                                        },
+                                        "right": {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "x2",
+                                            "raw": "x2"
+                                        },
+                                        "right": {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "alternate": null
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "b1w",
+                                "raw": "b1w"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "*",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "x1",
+                                    "raw": "x1"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "b1",
+                                    "raw": "b1"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "b2w",
+                                "raw": "b2w"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "*",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "x2",
+                                    "raw": "x2"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "b2",
+                                    "raw": "b2"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "w",
+                                "raw": "w"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "-",
+                                "left": {
+                                    "type": "BinaryExpression",
+                                    "operator": "-",
+                                    "left": {
+                                        "type": "Identifier",
+                                        "name": "x",
+                                        "raw": "x"
+                                    },
+                                    "right": {
+                                        "type": "Identifier",
+                                        "name": "b1w",
+                                        "raw": "b1w"
+                                    }
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "b2w",
+                                    "raw": "b2w"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "a0w",
+                                "raw": "a0w"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "*",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "w",
+                                    "raw": "w"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "a0",
+                                    "raw": "a0"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "a1w",
+                                "raw": "a1w"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "*",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "x1",
+                                    "raw": "x1"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "a1",
+                                    "raw": "a1"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "a2w",
+                                "raw": "a2w"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "*",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "x2",
+                                    "raw": "x2"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "a2",
+                                    "raw": "a2"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "y",
+                                "raw": "y"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "+",
+                                "left": {
+                                    "type": "BinaryExpression",
+                                    "operator": "+",
+                                    "left": {
+                                        "type": "Identifier",
+                                        "name": "a0w",
+                                        "raw": "a0w"
+                                    },
+                                    "right": {
+                                        "type": "Identifier",
+                                        "name": "a1w",
+                                        "raw": "a1w"
+                                    }
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "a2w",
+                                    "raw": "a2w"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "x2",
+                                "raw": "x2"
+                            },
+                            "right": {
+                                "type": "Identifier",
+                                "name": "x1",
+                                "raw": "x1"
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "x1",
+                                "raw": "x1"
+                            },
+                            "right": {
+                                "type": "Identifier",
+                                "name": "w",
+                                "raw": "w"
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "Identifier",
+                            "name": "y",
+                            "raw": "y"
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "biquadTdf2",
+                "raw": "biquadTdf2"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "x",
+                    "raw": "x"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "a0",
+                    "raw": "a0"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "a1",
+                    "raw": "a1"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "a2",
+                    "raw": "a2"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "b1",
+                    "raw": "b1"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "b2",
+                    "raw": "b2"
+                }
+            ],
+            "defaults": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+            ],
+            "decls": [
+                [
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "x1",
+                                    "raw": "x1"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "x2",
+                                    "raw": "x2"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            ],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "y",
+                                "raw": "y"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "+",
+                                "left": {
+                                    "type": "BinaryExpression",
+                                    "operator": "*",
+                                    "left": {
+                                        "type": "Identifier",
+                                        "name": "x",
+                                        "raw": "x"
+                                    },
+                                    "right": {
+                                        "type": "Identifier",
+                                        "name": "a0",
+                                        "raw": "a0"
+                                    }
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "x2",
+                                    "raw": "x2"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "x2",
+                                "raw": "x2"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "+",
+                                "left": {
+                                    "type": "BinaryExpression",
+                                    "operator": "-",
+                                    "left": {
+                                        "type": "BinaryExpression",
+                                        "operator": "*",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "x",
+                                            "raw": "x"
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "a1",
+                                            "raw": "a1"
+                                        }
+                                    },
+                                    "right": {
+                                        "type": "BinaryExpression",
+                                        "operator": "*",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "y",
+                                            "raw": "y"
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "b1",
+                                            "raw": "b1"
+                                        }
+                                    }
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "x1",
+                                    "raw": "x1"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "x1",
+                                "raw": "x1"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "-",
+                                "left": {
+                                    "type": "BinaryExpression",
+                                    "operator": "*",
+                                    "left": {
+                                        "type": "Identifier",
+                                        "name": "x",
+                                        "raw": "x"
+                                    },
+                                    "right": {
+                                        "type": "Identifier",
+                                        "name": "a2",
+                                        "raw": "a2"
+                                    }
+                                },
+                                "right": {
+                                    "type": "BinaryExpression",
+                                    "operator": "*",
+                                    "left": {
+                                        "type": "Identifier",
+                                        "name": "y",
+                                        "raw": "y"
+                                    },
+                                    "right": {
+                                        "type": "Identifier",
+                                        "name": "b2",
+                                        "raw": "b2"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "Identifier",
+                            "name": "y",
+                            "raw": "y"
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "biquadTdf2reset",
+                "raw": "biquadTdf2reset"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "x",
+                    "raw": "x"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "a0",
+                    "raw": "a0"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "a1",
+                    "raw": "a1"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "a2",
+                    "raw": "a2"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "b1",
+                    "raw": "b1"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "b2",
+                    "raw": "b2"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "reset",
+                    "raw": "reset"
+                }
+            ],
+            "defaults": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+            ],
+            "decls": [
+                [
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "x1",
+                                    "raw": "x1"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "x2",
+                                    "raw": "x2"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            ],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "IfStatement",
+                        "test": {
+                            "type": "Identifier",
+                            "name": "reset",
+                            "raw": "reset"
+                        },
+                        "consequent": {
+                            "type": "BlockStatement",
+                            "body": [
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "x1",
+                                            "raw": "x1"
+                                        },
+                                        "right": {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "x2",
+                                            "raw": "x2"
+                                        },
+                                        "right": {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "alternate": null
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "y",
+                                "raw": "y"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "+",
+                                "left": {
+                                    "type": "BinaryExpression",
+                                    "operator": "*",
+                                    "left": {
+                                        "type": "Identifier",
+                                        "name": "x",
+                                        "raw": "x"
+                                    },
+                                    "right": {
+                                        "type": "Identifier",
+                                        "name": "a0",
+                                        "raw": "a0"
+                                    }
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "x2",
+                                    "raw": "x2"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "x2",
+                                "raw": "x2"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "+",
+                                "left": {
+                                    "type": "BinaryExpression",
+                                    "operator": "-",
+                                    "left": {
+                                        "type": "BinaryExpression",
+                                        "operator": "*",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "x",
+                                            "raw": "x"
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "a1",
+                                            "raw": "a1"
+                                        }
+                                    },
+                                    "right": {
+                                        "type": "BinaryExpression",
+                                        "operator": "*",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "y",
+                                            "raw": "y"
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "b1",
+                                            "raw": "b1"
+                                        }
+                                    }
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "x1",
+                                    "raw": "x1"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "x1",
+                                "raw": "x1"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "-",
+                                "left": {
+                                    "type": "BinaryExpression",
+                                    "operator": "*",
+                                    "left": {
+                                        "type": "Identifier",
+                                        "name": "x",
+                                        "raw": "x"
+                                    },
+                                    "right": {
+                                        "type": "Identifier",
+                                        "name": "a2",
+                                        "raw": "a2"
+                                    }
+                                },
+                                "right": {
+                                    "type": "BinaryExpression",
+                                    "operator": "*",
+                                    "left": {
+                                        "type": "Identifier",
+                                        "name": "y",
+                                        "raw": "y"
+                                    },
+                                    "right": {
+                                        "type": "Identifier",
+                                        "name": "b2",
+                                        "raw": "b2"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "Identifier",
+                            "name": "y",
+                            "raw": "y"
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "polezeroDf1",
+                "raw": "polezeroDf1"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "x",
+                    "raw": "x"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "a0",
+                    "raw": "a0"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "_a1",
+                    "raw": "_a1"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "_a2",
+                    "raw": "_a2"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "b1",
+                    "raw": "b1"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "_b2",
+                    "raw": "_b2"
+                }
+            ],
+            "defaults": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+            ],
+            "decls": [
+                [
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "y1",
+                                    "raw": "y1"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            ],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "w",
+                                "raw": "w"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "*",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "x",
+                                    "raw": "x"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "a0",
+                                    "raw": "a0"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "z",
+                                "raw": "z"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "*",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "y1",
+                                    "raw": "y1"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "b1",
+                                    "raw": "b1"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "y",
+                                "raw": "y"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "-",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "w",
+                                    "raw": "w"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "z",
+                                    "raw": "z"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "y1",
+                                "raw": "y1"
+                            },
+                            "right": {
+                                "type": "Identifier",
+                                "name": "y",
+                                "raw": "y"
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "Identifier",
+                            "name": "y",
+                            "raw": "y"
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "polezeroDf1reset",
+                "raw": "polezeroDf1reset"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "x",
+                    "raw": "x"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "a0",
+                    "raw": "a0"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "_a1",
+                    "raw": "_a1"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "_a2",
+                    "raw": "_a2"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "b1",
+                    "raw": "b1"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "_b2",
+                    "raw": "_b2"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "reset",
+                    "raw": "reset"
+                }
+            ],
+            "defaults": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+            ],
+            "decls": [
+                [
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "y1",
+                                    "raw": "y1"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            ],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "IfStatement",
+                        "test": {
+                            "type": "Identifier",
+                            "name": "reset",
+                            "raw": "reset"
+                        },
+                        "consequent": {
+                            "type": "BlockStatement",
+                            "body": [
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "y1",
+                                            "raw": "y1"
+                                        },
+                                        "right": {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "alternate": null
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "w",
+                                "raw": "w"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "*",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "x",
+                                    "raw": "x"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "a0",
+                                    "raw": "a0"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "z",
+                                "raw": "z"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "*",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "y1",
+                                    "raw": "y1"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "b1",
+                                    "raw": "b1"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "y",
+                                "raw": "y"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "-",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "w",
+                                    "raw": "w"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "z",
+                                    "raw": "z"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "y1",
+                                "raw": "y1"
+                            },
+                            "right": {
+                                "type": "Identifier",
+                                "name": "y",
+                                "raw": "y"
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "Identifier",
+                            "name": "y",
+                            "raw": "y"
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "biquadDf2cascade",
+                "raw": "biquadDf2cascade"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "x0",
+                    "raw": "x0"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "a0",
+                    "raw": "a0"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "a1",
+                    "raw": "a1"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "a2",
+                    "raw": "a2"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "b1",
+                    "raw": "b1"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "b2",
+                    "raw": "b2"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "x1",
+                    "raw": "x1"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "x2",
+                    "raw": "x2"
+                }
+            ],
+            "defaults": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+            ],
+            "decls": [],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "b1w",
+                                "raw": "b1w"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "*",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "x1",
+                                    "raw": "x1"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "b1",
+                                    "raw": "b1"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "b2w",
+                                "raw": "b2w"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "*",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "x2",
+                                    "raw": "x2"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "b2",
+                                    "raw": "b2"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "w0",
+                                "raw": "w0"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "-",
+                                "left": {
+                                    "type": "BinaryExpression",
+                                    "operator": "-",
+                                    "left": {
+                                        "type": "Identifier",
+                                        "name": "x0",
+                                        "raw": "x0"
+                                    },
+                                    "right": {
+                                        "type": "Identifier",
+                                        "name": "b1w",
+                                        "raw": "b1w"
+                                    }
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "b2w",
+                                    "raw": "b2w"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "a0w",
+                                "raw": "a0w"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "*",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "w0",
+                                    "raw": "w0"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "a0",
+                                    "raw": "a0"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "a1w",
+                                "raw": "a1w"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "*",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "x1",
+                                    "raw": "x1"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "a1",
+                                    "raw": "a1"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "a2w",
+                                "raw": "a2w"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "*",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "x2",
+                                    "raw": "x2"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "a2",
+                                    "raw": "a2"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "y0",
+                                "raw": "y0"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "+",
+                                "left": {
+                                    "type": "BinaryExpression",
+                                    "operator": "+",
+                                    "left": {
+                                        "type": "Identifier",
+                                        "name": "a0w",
+                                        "raw": "a0w"
+                                    },
+                                    "right": {
+                                        "type": "Identifier",
+                                        "name": "a1w",
+                                        "raw": "a1w"
+                                    }
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "a2w",
+                                    "raw": "a2w"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "ArrayExpression",
+                            "elements": [
+                                {
+                                    "type": "Identifier",
+                                    "name": "y0",
+                                    "raw": "y0"
+                                },
+                                {
+                                    "type": "Identifier",
+                                    "name": "w0",
+                                    "raw": "w0"
+                                },
+                                {
+                                    "type": "Identifier",
+                                    "name": "x1",
+                                    "raw": "x1"
+                                }
+                            ]
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "biquadTdf2cascade",
+                "raw": "biquadTdf2cascade"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "x0",
+                    "raw": "x0"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "a0",
+                    "raw": "a0"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "a1",
+                    "raw": "a1"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "a2",
+                    "raw": "a2"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "b1",
+                    "raw": "b1"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "b2",
+                    "raw": "b2"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "x1",
+                    "raw": "x1"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "x2",
+                    "raw": "x2"
+                }
+            ],
+            "defaults": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+            ],
+            "decls": [],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "y0",
+                                "raw": "y0"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "+",
+                                "left": {
+                                    "type": "BinaryExpression",
+                                    "operator": "*",
+                                    "left": {
+                                        "type": "Identifier",
+                                        "name": "x0",
+                                        "raw": "x0"
+                                    },
+                                    "right": {
+                                        "type": "Identifier",
+                                        "name": "a0",
+                                        "raw": "a0"
+                                    }
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "x2",
+                                    "raw": "x2"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "w2",
+                                "raw": "w2"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "+",
+                                "left": {
+                                    "type": "BinaryExpression",
+                                    "operator": "-",
+                                    "left": {
+                                        "type": "BinaryExpression",
+                                        "operator": "*",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "x0",
+                                            "raw": "x0"
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "a1",
+                                            "raw": "a1"
+                                        }
+                                    },
+                                    "right": {
+                                        "type": "BinaryExpression",
+                                        "operator": "*",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "y0",
+                                            "raw": "y0"
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "b1",
+                                            "raw": "b1"
+                                        }
+                                    }
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "x1",
+                                    "raw": "x1"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "w1",
+                                "raw": "w1"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "-",
+                                "left": {
+                                    "type": "BinaryExpression",
+                                    "operator": "*",
+                                    "left": {
+                                        "type": "Identifier",
+                                        "name": "x0",
+                                        "raw": "x0"
+                                    },
+                                    "right": {
+                                        "type": "Identifier",
+                                        "name": "a2",
+                                        "raw": "a2"
+                                    }
+                                },
+                                "right": {
+                                    "type": "BinaryExpression",
+                                    "operator": "*",
+                                    "left": {
+                                        "type": "Identifier",
+                                        "name": "y0",
+                                        "raw": "y0"
+                                    },
+                                    "right": {
+                                        "type": "Identifier",
+                                        "name": "b2",
+                                        "raw": "b2"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "ArrayExpression",
+                            "elements": [
+                                {
+                                    "type": "Identifier",
+                                    "name": "y0",
+                                    "raw": "y0"
+                                },
+                                {
+                                    "type": "Identifier",
+                                    "name": "w1",
+                                    "raw": "w1"
+                                },
+                                {
+                                    "type": "Identifier",
+                                    "name": "w2",
+                                    "raw": "w2"
+                                }
+                            ]
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "biquadDf2parallel",
+                "raw": "biquadDf2parallel"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "x",
+                    "raw": "x"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "a0_1",
+                    "raw": "a0_1"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "a1_1",
+                    "raw": "a1_1"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "a2_1",
+                    "raw": "a2_1"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "b1_1",
+                    "raw": "b1_1"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "b2_1",
+                    "raw": "b2_1"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "a0_2",
+                    "raw": "a0_2"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "a1_2",
+                    "raw": "a1_2"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "a2_2",
+                    "raw": "a2_2"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "b1_2",
+                    "raw": "b1_2"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "b2_2",
+                    "raw": "b2_2"
+                }
+            ],
+            "defaults": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+            ],
+            "decls": [
+                [
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "df2pdummy",
+                                    "raw": "df2pdummy"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            ],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "y0",
+                                "raw": "y0"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "x",
+                                        "raw": "x"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "a0_1",
+                                        "raw": "a0_1"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "a1_1",
+                                        "raw": "a1_1"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "a2_1",
+                                        "raw": "a2_1"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "b1_1",
+                                        "raw": "b1_1"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "b2_1",
+                                        "raw": "b2_1"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "biquadDf2",
+                                    "raw": "biquadDf2"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "y1",
+                                "raw": "y1"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "x",
+                                        "raw": "x"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "a0_2",
+                                        "raw": "a0_2"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "a1_2",
+                                        "raw": "a1_2"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "a2_2",
+                                        "raw": "a2_2"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "b1_2",
+                                        "raw": "b1_2"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "b2_2",
+                                        "raw": "b2_2"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "biquadDf2",
+                                    "raw": "biquadDf2"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "BinaryExpression",
+                            "operator": "*",
+                            "left": {
+                                "type": "BinaryExpression",
+                                "operator": "+",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "y0",
+                                    "raw": "y0"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "y1",
+                                    "raw": "y1"
+                                }
+                            },
+                            "right": {
+                                "type": "Literal",
+                                "value": 0.5,
+                                "raw": "0.5",
+                                "gen_kind": "float"
+                            }
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "biquadDf2double",
+                "raw": "biquadDf2double"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "x",
+                    "raw": "x"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "a0_1",
+                    "raw": "a0_1"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "a1_1",
+                    "raw": "a1_1"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "a2_1",
+                    "raw": "a2_1"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "b1_1",
+                    "raw": "b1_1"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "b2_1",
+                    "raw": "b2_1"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "a0_2",
+                    "raw": "a0_2"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "a1_2",
+                    "raw": "a1_2"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "a2_2",
+                    "raw": "a2_2"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "b1_2",
+                    "raw": "b1_2"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "b2_2",
+                    "raw": "b2_2"
+                }
+            ],
+            "defaults": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+            ],
+            "decls": [
+                [
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "df2ddummy",
+                                    "raw": "df2ddummy"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            ],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "y0",
+                                "raw": "y0"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "x",
+                                        "raw": "x"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "a0_1",
+                                        "raw": "a0_1"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "a1_1",
+                                        "raw": "a1_1"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "a2_1",
+                                        "raw": "a2_1"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "b1_1",
+                                        "raw": "b1_1"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "b2_1",
+                                        "raw": "b2_1"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "biquadDf2",
+                                    "raw": "biquadDf2"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "y",
+                                "raw": "y"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "y0",
+                                        "raw": "y0"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "a0_2",
+                                        "raw": "a0_2"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "a1_2",
+                                        "raw": "a1_2"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "a2_2",
+                                        "raw": "a2_2"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "b1_2",
+                                        "raw": "b1_2"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "b2_2",
+                                        "raw": "b2_2"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "biquadDf2",
+                                    "raw": "biquadDf2"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "Identifier",
+                            "name": "y",
+                            "raw": "y"
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "biquadDf2triple",
+                "raw": "biquadDf2triple"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "x0",
+                    "raw": "x0"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "a0_1",
+                    "raw": "a0_1"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "a1_1",
+                    "raw": "a1_1"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "a2_1",
+                    "raw": "a2_1"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "b1_1",
+                    "raw": "b1_1"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "b2_1",
+                    "raw": "b2_1"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "a0_2",
+                    "raw": "a0_2"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "a1_2",
+                    "raw": "a1_2"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "a2_2",
+                    "raw": "a2_2"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "b1_2",
+                    "raw": "b1_2"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "b2_2",
+                    "raw": "b2_2"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "a0_3",
+                    "raw": "a0_3"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "a1_3",
+                    "raw": "a1_3"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "a2_3",
+                    "raw": "a2_3"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "b1_3",
+                    "raw": "b1_3"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "b2_3",
+                    "raw": "b2_3"
+                }
+            ],
+            "defaults": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+            ],
+            "decls": [
+                [
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "df2tdummy",
+                                    "raw": "df2tdummy"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            ],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "y0",
+                                "raw": "y0"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "x0",
+                                        "raw": "x0"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "a0_1",
+                                        "raw": "a0_1"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "a1_1",
+                                        "raw": "a1_1"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "a2_1",
+                                        "raw": "a2_1"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "b1_1",
+                                        "raw": "b1_1"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "b2_1",
+                                        "raw": "b2_1"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "biquadDf2",
+                                    "raw": "biquadDf2"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "y1",
+                                "raw": "y1"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "y0",
+                                        "raw": "y0"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "a0_2",
+                                        "raw": "a0_2"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "a1_2",
+                                        "raw": "a1_2"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "a2_2",
+                                        "raw": "a2_2"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "b1_2",
+                                        "raw": "b1_2"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "b2_2",
+                                        "raw": "b2_2"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "biquadDf2",
+                                    "raw": "biquadDf2"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "y2",
+                                "raw": "y2"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "y1",
+                                        "raw": "y1"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "a0_3",
+                                        "raw": "a0_3"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "a1_3",
+                                        "raw": "a1_3"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "a2_3",
+                                        "raw": "a2_3"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "b1_3",
+                                        "raw": "b1_3"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "b2_3",
+                                        "raw": "b2_3"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "biquadDf2",
+                                    "raw": "biquadDf2"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "Identifier",
+                            "name": "y2",
+                            "raw": "y2"
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "biquadDf2tmw",
+                "raw": "biquadDf2tmw"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "x0",
+                    "raw": "x0"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "a0_1",
+                    "raw": "a0_1"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "a1_1",
+                    "raw": "a1_1"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "a2_1",
+                    "raw": "a2_1"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "b1_1",
+                    "raw": "b1_1"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "b2_1",
+                    "raw": "b2_1"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "a0_2",
+                    "raw": "a0_2"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "a1_2",
+                    "raw": "a1_2"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "a2_2",
+                    "raw": "a2_2"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "b1_2",
+                    "raw": "b1_2"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "b2_2",
+                    "raw": "b2_2"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "a0_3",
+                    "raw": "a0_3"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "a1_3",
+                    "raw": "a1_3"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "a2_3",
+                    "raw": "a2_3"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "b1_3",
+                    "raw": "b1_3"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "b2_3",
+                    "raw": "b2_3"
+                }
+            ],
+            "defaults": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+            ],
+            "decls": [
+                [
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "tmwdummy",
+                                    "raw": "tmwdummy"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            ],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "y0",
+                                "raw": "y0"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "x0",
+                                        "raw": "x0"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "a0_1",
+                                        "raw": "a0_1"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "a1_1",
+                                        "raw": "a1_1"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "a2_1",
+                                        "raw": "a2_1"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "b1_1",
+                                        "raw": "b1_1"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "b2_1",
+                                        "raw": "b2_1"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "biquadDf1",
+                                    "raw": "biquadDf1"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "y1",
+                                "raw": "y1"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "y0",
+                                        "raw": "y0"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "a0_2",
+                                        "raw": "a0_2"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "a1_2",
+                                        "raw": "a1_2"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "a2_2",
+                                        "raw": "a2_2"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "b1_2",
+                                        "raw": "b1_2"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "b2_2",
+                                        "raw": "b2_2"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "biquadDf2",
+                                    "raw": "biquadDf2"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "y2",
+                                "raw": "y2"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "y1",
+                                        "raw": "y1"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "a0_3",
+                                        "raw": "a0_3"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "a1_3",
+                                        "raw": "a1_3"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "a2_3",
+                                        "raw": "a2_3"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "b1_3",
+                                        "raw": "b1_3"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "b2_3",
+                                        "raw": "b2_3"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "biquadTdf2",
+                                    "raw": "biquadTdf2"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "Identifier",
+                            "name": "y2",
+                            "raw": "y2"
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        }
+    ],
+    "decls": [],
+    "body": []
+}

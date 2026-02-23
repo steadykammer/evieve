@@ -1,0 +1,206 @@
+
+//  //  //  Because Gen does not cache require files, the evieve Biquads are
+//  //  //  separated out into smaller require files, such as this one
+//  //  //  @see: 'evi_biquads.genexpr' for all code required together
+
+
+//	//	//	Part 4: Other Stuff
+
+// 2 bad copy pastes to avoid require hell
+
+biquadDf2(x, a0, a1, a2, b1, b2)
+{
+	History x1(0), x2(0);
+
+	b1w = x1 * b1;
+	b2w = x2 * b2;
+	w = x - b1w - b2w;
+
+	a0w = w * a0;
+	a1w = x1 * a1;
+	a2w = x2 * a2;
+	y = a0w + a1w + a2w;
+
+	x2 = x1;
+	x1 = w;
+
+	return y;
+}
+
+eviBiquadCoeffBp(cutoff, Q)                 // [bp~] from Pd
+{
+	w0      = TWOPI * cutoff / SAMPLERATE;  // omega0
+	qw      = minimum((w0 / Q), 1);
+	r2      = 1 - qw;
+
+        b0  = (qw + qw) * (qw + r2 * w0);
+        b1  =  0;
+        b2  =  0;
+        a1  = -2 * cos(w0) * r2;            // omega
+        a2  =  r2 * r2;
+
+	return  b0, b1, b2, a1, a2;             // a0, a1, a2, b1, b2
+}
+
+/*
+	puckette: "frequencies are (cutoff) times sin(pi/12), sin(3pi/12), and sin(5pi/12),
+	and the Q values are tan(pi/12), etc. Multiplier at the end is a fudge factor."
+	pete says: none of ^^ this makes sense, i tried it. but this is a good filter.
+	by the way i changed puckette's fudge factor as i found it to match passband better.
+*/
+/*
+eviBiquadCoeffBpButterworth6(cutoff)
+{
+	a01, a11, a21, b11, b21 	= eviBiquadCoeffBp(cutoff * 0.258819,	0.267948);
+	a02, a12, a22, b12, b22 	= eviBiquadCoeffBp(cutoff * sqrt1_2,	1);
+	a03, a13, a23, b13, b23 	= eviBiquadCoeffBp(cutoff * 0.965926,	3.73203);
+	return 	a01, a11, a21, b11, b21, a02, a12, a22, b12, b22, a03, a13, a23, b13, b23;
+}
+
+// butterworth lowpass 6-pole, by Miller Puckette, from "SMECK"
+// created from three "bp~" objects
+eviBiquadBpButterworth6(x0, cutoff)
+{
+	History ebbb6dummy(0);
+	a01, a11, a21, b11, b21, a02, a12, a22, b12, b22, a03, a13, a23, b13, b23 = eviBiquadCoeffBpButterworth6(cutoff);
+	return biquadDf2triple(x0, a01, a11, a21, b11, b21, a02, a12, a22, b12, b22, a03, a13, a23, b13, b23) * 0.354813;
+}
+*/
+eviButterworthLp6(x0, cutoff)
+{
+	History eblp6dummy(0);
+	a01, a11, a21, b11, b21 	= eviBiquadCoeffBp(cutoff * 0.258819,	0.267948);
+	a02, a12, a22, b12, b22 	= eviBiquadCoeffBp(cutoff * sqrt1_2,	1);
+	a03, a13, a23, b13, b23 	= eviBiquadCoeffBp(cutoff * 0.965926,	3.73203);
+	y0	= biquadDf2(x0, a01, a11, a21, b11, b21);
+	y1	= biquadDf2(y0, a02, a12, a22, b12, b22);
+	y2	= biquadDf2(y1, a03, a13, a23, b13, b23);
+
+	return y2 * 0.354813;
+}
+
+// Hilbert transform 90º phase shifting filter using high quality 8-pole Polyphase 
+// IIR Halfband Allpass Cascade coefficients (De Soras / Niemitalo). Theoretically 
+// 'better' than the MSP (6-pole fudged) [hilbert~] :-)
+
+// @see: [evi.polyphaseiirhilbertcoeffs] and 'evi_hilbert_coefficients.js'.
+// @see: [evi.freqshift.hilbert~] abstraction for an example.
+// @see also: 'evi_freqshift_hilbert.gendsp' and 'evi_freqshift_weaver.gendsp'
+
+// Transposed Direct Form 2, with a1, a2, b1 & b2 factored out as per hilbert allpass
+hilbertTdf2(x0, a0)
+{
+	History	x1(0), x2(0);
+
+	y1	= (x0  *  a0) +  x2;
+	x2	=  x1;
+	x1	= -x0  - (y1  * -a0);
+
+	return	y1;
+}
+
+// Biquad Cascade
+eviHilbertCascade(y0, hc1, hc2, hc3, hc4, hc5, hc6, hc7, hc8)
+{
+	// align
+	History x0(0);
+	// first phase allpass cascade (phase reference path c coefficients)
+	x1	= hilbertTdf2(x0,	hc1);
+	x2	= hilbertTdf2(x1,	hc2);
+	x3	= hilbertTdf2(x2,	hc3);
+	x4	= hilbertTdf2(x3,	hc4);
+	// second phase allpass cascade (+90 degrees path c coefficients)
+	y1	= hilbertTdf2(y0,	hc5);
+	y2	= hilbertTdf2(y1,	hc6);
+	y3	= hilbertTdf2(y2,	hc7);
+	y4	= hilbertTdf2(y3,	hc8);
+	// update
+	x0	= y0;
+	// real, imaginary
+	return	x4, y4;
+}
+
+// special allpass coefficients only (for building evieve digital phaser cascade)
+// R == 1 = Reaktor-ish, R == 0 = MSP-ish
+// (see 'biquadDf2cascadeAllpass()' below)
+eviCascadeCoeffAllpass(cutoff, Q, R=0)	// 'cutoff' = Hz / 'Q' = special scale depending on 'R' / 'R' = resonance style flag 0/1 (param)
+{
+	omega 	= TWOPI * cutoff / SAMPLERATE;
+	alpha	= sin(omega);
+	alpha	= R ? alpha * (1 - Q) : alpha / (Q + Q);	// must scale 'Q' externally in correct manner for each 'res style'
+
+	// allpass
+	b0		=	 1 - alpha;
+	b1		=	-2 * cos(omega);
+	b2		=	 1 + alpha;
+
+	// convert to FF0, FF1, FF2
+	a0m		=	 1 / b2;
+	return (b0 * a0m), (b1 * a0m), (b2 * a0m);			// (a0, a1, a2)
+}
+
+// biquad direct form 2 but with coefficients reduced rather than repeated for ALLPASS
+// in gen~ cascade form with History()s written out to / read from Data()
+// for building cascades for phaser fx etc (see 'eviCascadeCoeffAllpass()' above)
+biquadDf2cascadeAllpass(x0, a0, a1, a2, x1, x2)
+{
+	b1w = x1 * a1;
+	b2w = x2 * a0;
+	w0 = x0 - b1w - b2w;
+
+	a0w = w0 * a0;
+	a1w = x1 * a1;
+	a2w = x2 * a2;
+	y0 = a0w + a1w + a2w;
+
+	return y0, w0, x1;
+}
+
+
+//	//	//	
+
+
+// fun based on SuperCollider 'resonz()' and 'ringz()' coefficients:
+// you can flip between 'bandpass_skirt' (bandpass) and 'bandpass_peak'
+// (reson) with the 'filt' parameter, maybe someone finds it useful.
+// (this is a pete thing, might not be stable, who knows - i used it and it worked).
+
+// filt=0 = "resonz" ('QorT60' = Q factor 0.001++),
+// filt=1 = "rinqz" ('QorT60' = T60 in samples 0.001++)
+resringzCoeffs(cutoff, QorT60, filt=0)
+{
+	F 		=  cutoff * TWOPI / samplerate;
+	R 		=  filt ? (maximum(t60(QorT60), 0.001)) : (1 - F / maximum(QorT60, 0.001) * 0.5);
+	twoR	=  R + R;
+	R2 		=  R * R;
+	cosF	=  twoR * cos(F) / (1 + R2);
+	b1		=  twoR * cosF;
+	b2		= -R2;
+	a0		=  filt ? 0.5 : ((1 - R2) * 0.5);
+
+	return  a0, b1, b2;		// <<-- a1 & a2 == 0
+}
+
+
+//	//	//
+
+
+// a random FIR, homeless
+
+firOrder12(x0, a0=1, a1=2, a2=1)	// defaults for lowpass @ nyquist
+{
+	History	x1(0), x2(0);
+	a10	= a1 * a0;
+	a20	= a2 * a0;
+
+	y0	= x0 * a0 + x1 * a10;
+	y1	= y0 + x2 * a20;
+	x2	= x1;
+	x1	= x0;
+	return	y0, y1;		// 1st order, 2nd order
+}
+
+
+//	//	//
+
+

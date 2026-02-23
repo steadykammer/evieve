@@ -3,8 +3,8 @@
 // Biquads are shit, use TPT instead, @see: "evi_svfs.genexpr"
 // Note in this gen (no tilde) version you must pass in the audio samplerate, because Max
 
-// @see: "evi_biquads.genexpr" for versions to use everywhere else (including at audio rate)
-// Note: never require both evieve biquad files in the same code !!
+// @see: "evi_biquads.genexpr" for versions to use everywhere else (at audio rate)
+// Note: never require both evieve '_biquads' files in the same code !!
 // @see in Max: [evi.biquadcoeff] & [evi.biquadcoeff~] & [evi.biquad.filter~] and more for examples of wrappers
 // Note: [filtercoeff~] & [filtergraph~] in MSP have the bandpass/resonant types
 // incorrectly switched, in evieve these are correct, thus the opposite to MSP.

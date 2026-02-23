@@ -462,6 +462,7 @@ function testBuildXml(/*jsonData: any, */prefix?: string)
 // --------------------------------------------- //
 
 // this does not work properly (extracts tags and places them at top of section)
+// issue is 'preserveOrder:' etc
 async function autoCreateExternalsXml()
 {
 	let refDir = `${cwd()}/${config.referenceFiles.externals.config}`;
@@ -491,6 +492,7 @@ async function autoCreateExternalsXml()
 		jsonData.c74object.metadatalist.metadata = externalsXmlMetadata;
 		jsonData.c74object.maxattr_module = 'evieve-ref';
 		jsonData.c74object.maxattr_category = 'evieve';
+		// not for now, do this manually
 		// jsonData.c74object.misc = externalsXmlMisc;
 		const editedData = builder.build(jsonData);
 		fs.writeFileSync(`${outDir}/${outName}`, editedData);
@@ -712,7 +714,6 @@ function parseDataForDlookup()
 
 function createMaxDbFle()
 {
-	const autoFixed: string[] = ['/docs/refpages/evieve-genexpr/genexpr-data', '/examples/evi_doc', '/javascript/node', '/misc/peter'];
 	let evi_maxdb: any = {};
 
 	const absRef = maxpat.evi_abstractions;
@@ -723,8 +724,10 @@ function createMaxDbFle()
 	const absNames = Object.keys(absRef);
 	const defsNames = Object.keys(defsRef);
 	const extsNames = Object.keys(extsRef);
-	let browserArray: string[] = [];
-	let autoArray: string[] = [];
+	const configIgnore = config.maxDb.additionalIgnore;
+	const configExclude = config.maxDb.additionalExclude;
+	let browserArray: string[] = [];	// this is badly named, it should be called 'exclusions'
+	let autoArray: string[] = [];	// this is not used (and badly named, should be called 'ignores')
 	let genObjArray: string[] = [];
 
 	for (const abs of absNames) {
@@ -742,7 +745,13 @@ function createMaxDbFle()
 		// @ts-expect-error
 		const defDict = defsRef[def];
 		if (!defDict.db.browser && def !== "_dummy") {
-			browserArray.push(def);
+			if (defDict.define.object) {
+				// quirky pete case (e.g. evi.ladder.antti~)
+				browserArray.push(defDict.define.msp);
+				browserArray.push(def);
+			} else {
+				browserArray.push(def);
+			}
 		}
 		if (!defDict.db.auto && def !== "_dummy") {
 			autoArray.push(def);
@@ -764,10 +773,11 @@ function createMaxDbFle()
 		}
 	}
 
-	evi_maxdb.auto = autoFixed;
-	evi_maxdb.browser = browserArray;
+	evi_maxdb.auto = configIgnore;
+	evi_maxdb.browser = [...browserArray, ...configExclude];
 	evi_maxdb.gen = genObjArray;
 	renderFromTemplate('../templates/maxdb.handlebars', evi_maxdb, `${maxdbDir}/max.db.json`);
+	// pete test
 	// let evi_maxdb_autos: any = {};
 	// evi_maxdb_autos.browser = browserArray;
 	// evi_maxdb_autos.auto = autoArray;

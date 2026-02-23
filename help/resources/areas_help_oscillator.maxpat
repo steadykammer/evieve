@@ -26,8 +26,8 @@
                     "numinlets": 2,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
-                    "patching_rect": [ 172.0, 570.0, 209.0, 22.0 ],
-                    "text": "list.reg evieve_noise_sources.maxpat"
+                    "patching_rect": [ 172.0, 570.0, 185.0, 22.0 ],
+                    "text": "list.reg areas_help_noise.maxpat"
                 }
             },
             {

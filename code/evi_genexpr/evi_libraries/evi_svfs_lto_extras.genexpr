@@ -1,0 +1,263 @@
+
+//  //  //  For all evieve TPT SVF filters require "evi_svfs.genexpr".
+//  //  //  Because Gen does not cache require files, the evieve SVFs are
+//  //  //  separated out into smaller require files such as this one
+
+
+require("evi_approx.genexpr");
+//require("evi_tanh.genexpr");	// only for input mixing SVF option
+
+
+//	//	//	different all-in-one sections (Simper)
+
+//	//	//	LTO
+
+svfLtoMulti(v0, cutoff, Q)
+{
+	History v0z(0), v1(0), v2(0);
+
+	g	= tanA2(PI * cutoff / SAMPLERATE);
+	k	= 1 / Q;
+	gk	= g + k;
+
+	ginv = g / (1 + g * gk);
+	g1	 = ginv;
+	g2	 = (gk + gk) * ginv;
+	g3	 = g * ginv;
+	g4	 = ginv + ginv;
+
+	vlz	= v1;
+	v2z	= v2;
+	v3	= v0 + v0z - (v2z + v2z);
+	v1 += g1 * v3 - g2 * vlz;
+	v2 += g3 * v3 + g4 * vlz;
+	v0z	= v0;
+
+	notch	= v0 - k * band;		// notch
+	low		= v2;					// low
+	band	= v1;					// band
+	high	= notch - low;			// high
+
+	return	low, band, high, notch;	// !! different order to MSP [svf~] !!
+}
+
+svfLtoSingle(v0, cutoff, Q, filt)
+{
+	History v0z(0), v1(0), v2(0);
+
+	g	= tanA2(PI * cutoff / SAMPLERATE);
+	k	= 1 / Q;
+	gk	= g + k;
+
+	ginv = g / (1 + g * gk);
+	g1	 = ginv;
+	g2	 = (gk + gk) * ginv;
+	g3	 = g * ginv;
+	g4	 = ginv + ginv;
+
+	vlz	= v1;
+	v2z	= v2;
+	v3	= v0 + v0z - (v2z + v2z);
+	v1 += g1 * v3 - g2 * vlz;
+	v2 += g3 * v3 + g4 * vlz;
+	v0z	= v0;
+
+	y	= 0;
+	if (filt == 1) {
+		y	= v1;					// band
+	} else if (filt == 2) {
+		y	= v0 - k * v1 - v2;		// high
+	} else if (filt == 3) {
+		y	= v0 - k * v1;			// notch
+	} else {// filt == 0
+		y	= v2;					// low
+    }
+
+	return	y;
+}
+
+svfLtoBell(v00, cutoff, gain, Q)	// gain in dB !
+{
+	History v0z(0), v1(0), v2(0);
+
+	gb	= fastpow(10, (gain * 0.025)) + 0.028652;
+	g	= tanA2(PI * cutoff / SAMPLERATE);
+	k	= (1 / Q) / gb;
+	gk	= g + k;
+
+	gi	 = k * (gb * gb - 1);
+	ginv = g / (1 + g * gk);
+	g1	 = ginv;
+	g2	 = (gk + gk) * ginv;
+	g3	 = g * ginv;
+	g4	 = ginv + ginv;
+
+	v0	= gi * v00;
+	vlz	= v1;
+	v2z	= v2;
+	v3	= v0 + v0z - (v2z + v2z);
+	v1 += g1 * v3 - g2 * vlz;
+	v2 += g3 * v3 + g4 * vlz;
+	v0z	= v0;
+
+	return	v00 + v1;				// bell
+}
+
+//	//	//	Sin
+
+// Solved for SIN (theoretically more stable low-end response when modulating
+// but in always-64-bit-doubles environment of Gen should not make much difference.
+// But these filters are different and interesting and support easy non-linear
+// behaviour in a simple way
+
+// i think this is the filter i manipulate for [evi.lores~]
+svfSinMulti(X, cutoff, damp)
+{
+	History ic1eq(0), ic2eq(0);
+
+	k	= 1 - (damp * 0.992);//1 - damp;	// shitty
+	w	= PI * cutoff / SAMPLERATE;
+	s1	= sin73(w);
+	s2	= sin73(w + w);
+	nrm	= 1 / (2 + (k * s1));				// k == damp
+	g0	= s2 * nrm;
+	g1	= ((-2 * s1 * s1) - (k * s2)) * nrm;
+	g2	= ((s1 + s1) * s1) * nrm;
+
+	t0	=   X - ic2eq;						// X == v0
+	gt1	=  g1 * ic1eq;
+	gt0	=  g0 * ic1eq;
+	t1	= (g0 * t0) + gt1;
+	t2	= (g2 * t0) + gt0;
+
+	band	=  t1   +  ic1eq;
+	low		=  t2   +  ic2eq;
+	high	= (X    - (damp * band)) - low;
+	peak	=  high -  low;
+	notch	=  high +  low;
+
+	ic1eq  += (t1 + t1);
+	ic2eq  += (t2 + t2);
+
+	return low, band, high, peak, notch;	// !! different order to MSP [svf~] !!
+}
+
+svfSinSingle(X, cutoff, damp, filt)
+{
+	History ic1eq(0), ic2eq(0);
+
+	k	= 1 - (damp * 0.992);//1 - damp;	// shitty
+	w	= PI * cutoff / SAMPLERATE;
+	s1	= sin73(w);
+	s2	= sin73(w + w);
+	nrm	= 1 / (2 + (k * s1));				// k == damp
+	g0	= s2 * nrm;
+	g1	= ((-2 * s1 * s1) - (k * s2)) * nrm;
+	g2	= ((s1 + s1) * s1) * nrm;
+
+	t0	=   X - ic2eq;						// X == v0
+	gt1	=  g1 * ic1eq;
+	gt0	=  g0 * ic1eq;
+	t1	= (g0 * t0) + gt1;
+	t2	= (g2 * t0) + gt0;
+
+	y	= 0;
+	if 				(filt == 0) {
+		y		= t2 + ic2eq;				// low
+	} else if 		(filt == 1) {
+		y		= t1 + ic1eq;				// band
+	} else {	//	(filt > 1) {
+		band	= t1 + ic1eq;
+		low		= t2 + ic2eq;
+		high	= (X - (k * band)) - low;
+		if			(filt == 2) {
+			y	= high;						// high
+		} else if	(filt == 3) {
+			y	= high - low;				// peak
+		} else { //  filt == 4) {
+			y	= high + low;				// notch
+		}
+	}
+
+	ic1eq  += (t1 + t1);
+	ic2eq  += (t2 + t2);
+
+	return	y;
+}
+
+
+// andy simper, state variable filter topology, input mixing version
+// http://cytomic.com/files/dsp/SvfInputMixing.pdf
+// mixing for low, band, high, decoupling mixing from coeffs, possibly different inputs
+// genexpr port by pete for evieve
+
+// param rate version
+
+inputMixingSvfCoefficients(cutoff, res)
+{
+    w	= PI * cutoff / SAMPLERATE;
+    s1	= sin73param(w);
+    s2	= sin73param(w + w);
+
+    rc  = clip(res, (s1 * 0.5), minimum((1 - w), 0.97));
+    rc2 = rc + rc;
+    k   = 2 - rc2;
+
+    nrm	= 1 / (2 + rc2 * s2);
+    s1n	= (s1 + s1) * s1 * nrm;
+    s2n	= s2 * nrm;
+
+    return  (k * s1n) + s2n, s1n, s2n, -s1n - (k * s2n);    // g0, g1, g2, g3
+}
+
+inputMixingSvfLoop(vlow, vband, vhigh, g0, g1, g2, g3)
+{
+    History	ic1eq(0), ic2eq(0);
+
+    t1  = vlow * g0 + vband * -g1 + vhigh * -g2 + ic1eq * -g1 + ic2eq * -g2;
+    // this works, it's just optional
+	//t2  = altTanhAdaa1(vlow * 1.995262) * g1 + vband * g2 + vhigh * g3 + ic1eq * g2 + ic2eq * g3;
+    t2  = vlow * g1 + vband * g2 + vhigh * g3 + ic1eq * g2 + ic2eq * g3;
+    vc2	= (t2 + ic2eq);
+
+    ic1eq  += (t1 + t1);
+    ic2eq  += (t2 + t2);
+
+    return vhigh + vc2;
+}
+
+// all audio rate version
+
+inputMixingSvf(vlow, vband, vhigh, cutoff, res)
+{
+    History	ic1eq(0), ic2eq(0);
+
+    w	= PI * cutoff / SAMPLERATE;
+    s1	= sin73(w);
+    s2	= sin73(w + w);
+
+    rc  = clip(res, (s1 * 0.5), minimum((1 - w), 0.97));
+    rc2 = rc + rc;
+    k   = 2 - rc2;
+
+    nrm	= 1 / (2 + rc2 * s2);
+    s1n	= (s1 + s1) * s1 * nrm;
+    s2n	= s2 * nrm;
+
+    g0 	= (k * s1n) + s2n;
+    g1 	= s1n;
+    g2 	= s2n;
+    g3 	= -s1n - (k * s2n);
+
+    t1  = vlow * g0 + vband * -g1 + vhigh * -g2 + ic1eq * -g1 + ic2eq * -g2;
+    // this works, it's just optional
+	//t2  = altTanhAdaa1(vlow * 1.995262) * g1 + vband * g2 + vhigh * g3 + ic1eq * g2 + ic2eq * g3;
+    t2  = vlow * g1 + vband * g2 + vhigh * g3 + ic1eq * g2 + ic2eq * g3;
+    vc2	= (t2 + ic2eq);
+
+    ic1eq  += (t1 + t1);
+    ic2eq  += (t2 + t2);
+
+    return vhigh + vc2;
+}
+

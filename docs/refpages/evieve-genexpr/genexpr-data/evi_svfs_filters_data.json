@@ -1,0 +1,539 @@
+{
+    "description": "",
+    "requires": [
+        "evi_interp.genexpr"
+    ],
+    "functions": [
+        {
+            "document": true,
+            "digest": "",
+            "name": "tptSvf",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "g",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "r",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "a",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "tptSvfReset",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "g",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "r",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "a",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "input",
+                    "name": "reset",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "tptSvfOnePole",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "g",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "tptSvf2",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x0",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "x1",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "g",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "r",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "input",
+                    "name": "a",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 6,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "tptSvf2_2x",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "g",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "r",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "a",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "tanApprox2",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "tptSvfUnit",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "cutoff",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "Q",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "param",
+                    "name": "os",
+                    "default": 0,
+                    "type": "integer",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "svfSection",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "v0",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "a1",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "a2",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "a3",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "input",
+                    "name": "m0",
+                    "digest": ""
+                },
+                {
+                    "id": 6,
+                    "kind": "input",
+                    "name": "m1",
+                    "digest": ""
+                },
+                {
+                    "id": 7,
+                    "kind": "input",
+                    "name": "m2",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "svfSectionReset",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "v0",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "a1",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "a2",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "a3",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "input",
+                    "name": "m0",
+                    "digest": ""
+                },
+                {
+                    "id": 6,
+                    "kind": "input",
+                    "name": "m1",
+                    "digest": ""
+                },
+                {
+                    "id": 7,
+                    "kind": "input",
+                    "name": "m2",
+                    "digest": ""
+                },
+                {
+                    "id": 8,
+                    "kind": "input",
+                    "name": "reset",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "svfSectionOnePole",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "g",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "svfSectionStereo",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "xL",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "xR",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "a1",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "a2",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "input",
+                    "name": "a3",
+                    "digest": ""
+                },
+                {
+                    "id": 6,
+                    "kind": "input",
+                    "name": "m0",
+                    "digest": ""
+                },
+                {
+                    "id": 7,
+                    "kind": "input",
+                    "name": "m1",
+                    "digest": ""
+                },
+                {
+                    "id": 8,
+                    "kind": "input",
+                    "name": "m2",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        }
+    ],
+    "seealso": []
+}

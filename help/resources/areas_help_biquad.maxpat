@@ -9,7 +9,7 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 63.0, 131.0, 1191.0, 727.0 ],
+        "rect": [ 63.0, 131.0, 660.0, 568.0 ],
         "openrect": [ 0.0, 0.0, 660.0, 568.0 ],
         "openrectmode": 0,
         "bglocked": 1,
@@ -25,7 +25,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 431.0, 299.0, 155.0, 20.0 ],
-                    "presentation_linecount": 2,
                     "text": "<<-- all in one sections",
                     "textjustification": 1
                 }
@@ -48,7 +47,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 16.0, 426.0, 167.0, 100.0 ],
+                    "patching_rect": [ 16.0, 426.0, 168.0, 100.0 ],
                     "text": "There are more filter types when you use Biquads (40 different types in evieve) but Biquads are inferior filters to TPT filters, so you might wish to use TPT filters in most situations:"
                 }
             },

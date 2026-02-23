@@ -296,6 +296,8 @@ max define mc.evi.softclip~ mc.gen~ @gen evi_softclip.gendsp @chans 2;
 max define evi.squine.simple~ gen~ @gen evi_squine_simple.gendsp;
 max define mc.evi.squine.simple~ mc.gen~ @gen evi_squine_simple.gendsp @chans 2;
 
+max define evi.sustainfdn~ gen~ @gen evi_sustainfdn.gendsp;
+max define evi.sustainfdnclear~ gen~ @gen evi_sustainfdnclear.gendsp;
 max define evi.svf~ gen~ @gen evi_svf.gendsp;
 max define mc.evi.svf~ mc.gen~ @gen evi_svf.gendsp @chans 2;
 
@@ -320,6 +322,7 @@ max define mc.evi.tri.select~ mc.gen~ @gen evi_tri_select.gendsp @chans 2;
 max define evi.tri~ gen~ @gen evi_tri.gendsp;
 max define mc.evi.tri~ mc.gen~ @gen evi_tri.gendsp @chans 2;
 
+max define evi.vactrol.shape~ gen~ @gen evi_vactrol_shape.gendsp;
 max define evi.vcf~ gen~ @gen evi_vcf_df2.gendsp;
 max define mc.evi.vcf~ mc.gen~ @gen evi_vcf_df2.gendsp @chans 2;
 

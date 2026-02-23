@@ -1,7 +1,8 @@
 
 // evieve Biquad Coefficients Calculator & Filter all in one
 
-require("evi_biquads.genexpr");
+require("evi_biquads_union");
+require("evi_biquads_filters.genexpr");
 
 // eviBiquadCoeff(index, cutoff, gain, Q)
 /*

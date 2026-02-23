@@ -9,7 +9,7 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "openrect": [ 45.0, 112.0, 967.0, 822.0 ],
+        "openrect": [ 40.0, 98.0, 967.0, 825.0 ],
         "openrectmode": 0,
         "bglocked": 1,
         "openinpresentation": 1,
@@ -64,8 +64,8 @@
                     "patching_rect": [ 25.0, 190.0, 399.0, 30.0 ],
                     "presentation": 1,
                     "presentation_rect": [ 547.0, 154.0, 400.0, 30.0 ],
-                    "text": "define",
-                    "textcolor": [ 0.85, 0.85, 0.85, 0.555 ]
+                    "text": "abstraction",
+                    "textcolor": [ 0.85, 0.85, 0.85, 0.0 ]
                 }
             },
             {
@@ -103,8 +103,8 @@
                     "patching_rect": [ 25.0, 144.0, 399.0, 30.0 ],
                     "presentation": 1,
                     "presentation_rect": [ 547.0, 112.0, 400.0, 30.0 ],
-                    "text": "evi.formantosc~",
-                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                    "text": "evi.adsr~",
+                    "textcolor": [ 0.85, 0.85, 0.85, 0.0 ]
                 }
             },
             {
@@ -112,14 +112,16 @@
                     "fontname": "Lato",
                     "fontsize": 20.0,
                     "id": "obj-21",
+                    "linecount": 2,
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 25.0, 236.0, 399.0, 30.0 ],
+                    "patching_rect": [ 25.0, 236.0, 399.0, 54.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 547.0, 199.0, 400.0, 30.0 ],
-                    "text": "A vowel morphing formant oscillator",
-                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                    "presentation_linecount": 2,
+                    "presentation_rect": [ 547.0, 199.0, 400.0, 54.0 ],
+                    "text": "ADSR envelope generator , same features as adsr~ but with logarithmic segments",
+                    "textcolor": [ 0.85, 0.85, 0.85, 0.0 ]
                 }
             },
             {
@@ -127,14 +129,16 @@
                     "fontname": "Lato",
                     "fontsize": 16.0,
                     "id": "obj-10",
+                    "linecount": 3,
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 25.0, 374.0, 399.0, 26.0 ],
+                    "patching_rect": [ 25.0, 374.0, 399.0, 64.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 547.0, 349.0, 400.0, 26.0 ],
-                    "text": " ",
-                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                    "presentation_linecount": 3,
+                    "presentation_rect": [ 547.0, 349.0, 400.0, 64.0 ],
+                    "text": "ADSR by default , but actually DAHDSHR capabale generator via attributes. Logarithmic segment shapes but still capable of controlling poly~ and thispoly~",
+                    "textcolor": [ 0.85, 0.85, 0.85, 0.0 ]
                 }
             },
             {
@@ -142,7 +146,6 @@
                     "fontface": 2,
                     "fontname": "Lato",
                     "fontsize": 16.0,
-                    "hidden": 1,
                     "id": "obj-11",
                     "maxclass": "comment",
                     "numinlets": 1,
@@ -160,7 +163,6 @@
                     "fontface": 2,
                     "fontname": "Lato",
                     "fontsize": 16.0,
-                    "hidden": 1,
                     "id": "obj-13",
                     "maxclass": "comment",
                     "numinlets": 1,
@@ -217,7 +219,7 @@
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
                     "patching_rect": [ 649.0, 582.0, 74.0, 22.0 ],
-                    "save": [ "#N", "thispatcher", ";", "#Q", "window", "flags", "nogrow", "close", "nozoom", "nofloat", "menu", "nominimize", ";", "#Q", "window", "constrain", 50, 50, 32768, 32768, ";", "#Q", "window", "size", 45, 112, 1012, 904, ";", "#Q", "window", "title", ";", "#Q", "window", "exec", ";", "#Q", "savewindow", 1, ";", "#Q", "end", ";" ],
+                    "save": [ "#N", "thispatcher", ";", "#Q", "window", "flags", "nogrow", "close", "nozoom", "nofloat", "menu", "nominimize", ";", "#Q", "window", "constrain", 50, 50, 32768, 32768, ";", "#Q", "window", "size", 40, 98, 1007, 923, ";", "#Q", "window", "title", ";", "#Q", "window", "exec", ";", "#Q", "savewindow", 1, ";", "#Q", "end", ";" ],
                     "text": "thispatcher"
                 }
             },

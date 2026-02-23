@@ -58,5 +58,17 @@
         "maxdb": {
             "output": "../../../../interfaces"
         }
+    },
+    "maxDb": {
+        "additionalIgnore": [
+            "/docs/refpages/evieve-genexpr/genexpr-data",
+            "/extras",
+            "/help/resources",
+            "/javascript/node",
+            "/misc/data",
+            "/misc/peter",
+            "/patchers/reverbs/evi_algoverb/resources"
+        ],
+        "additionalExclude": []
     }
 }

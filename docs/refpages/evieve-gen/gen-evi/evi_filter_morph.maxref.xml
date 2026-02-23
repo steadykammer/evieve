@@ -9,7 +9,7 @@
         <b>evi_filter_morph</b> is an abstraction for using inside <o>gen~</o> or <b>GenExpr</b>. <br />
          <br />
         evi_filter_morph.gendsp requires the GenExpr file(s): <br />
-        <o>evi_svfs</o>.genexpr <br />
+        <o>evi_svfs</o>.genexpr, <o>evi_svfs_tpt</o>.genexpr <br />
          <br />
         evi_filter_morph is also available in MSP as: <o>evi.filter.morph~</o>. <br />
          <br />

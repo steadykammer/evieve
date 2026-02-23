@@ -10,7 +10,8 @@
         "inlets": "input, cutoff"
     },
     "includes": [
-        "evi_biquads"
+        "evi_biquads",
+        "evi_biquads_extras"
     ],
     "inlets": [
         {

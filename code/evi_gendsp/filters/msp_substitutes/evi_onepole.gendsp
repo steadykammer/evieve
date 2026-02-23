@@ -58,7 +58,7 @@
             },
             {
                 "box": {
-                    "code": "\r\n// onepole filter using trapezoidal integration, simultaneous outputs,\r\n// very smooth and very cheap.\r\n\r\n// this is not like MSP [onepole~], which is a strange sort of highshelf. evi.onepole~\r\n// is strictly lowpass/highpass with zeros at Nyquist/DC.\r\n\r\n// here we have a choice of frequency input in Hz (default) or normalised 0..1,\r\n// optional smoothing is default off\r\n\r\n// @see: \"evi_rcfilter.gendsp\" / [evi.rcfilter~] for nonlinear analog version.\r\n// @see: \"evi_damp.gendsp\" / [evi.damp~] for a filter closer to MSP [onepole~].\r\n\r\nrequire(\"evi_rcfilters.genexpr\");\r\nrequire(\"evi_smooth.genexpr\");\r\n\r\nParam   smooth(0, min=0, max=333);  // ms\r\nParam   prewarp(1, min=0, max=1);   // 1 = input in Hz, 0 = input in 0..1 quasi radians\r\npw      = int(prewarp);\r\n\r\ng       = pw ? rcPreWarp2(clamp(in2, 1, samplerate*0.5)) : clamp(in2, 0, 1);\r\n\r\nif (smooth > 0) {\r\n    g   = logsmooth(g, smooth*0.001);\r\n}\r\n\r\nrclp, rcap, rchp    = rcFilterLpApHp(in1, g);\r\n\r\nout1    = rclp;     // lowpass\r\nout2    = rcap;     // allpass\r\nout3    = rchp;     // highpass\r\n\r\n",
+                    "code": "\r\n// onepole filter using trapezoidal integration, simultaneous outputs,\r\n// very smooth and very cheap.\r\n\r\n// this is not like MSP [onepole~], which is a strange sort of highshelf. evi.onepole~\r\n// is strictly lowpass/highpass with zeros at Nyquist/DC.\r\n\r\n// here we have a choice of frequency input in Hz (default) or normalised 0..1,\r\n// optional smoothing is default off\r\n\r\n// @see: \"evi_rcfilter.gendsp\" / [evi.rcfilter~] for nonlinear analog version.\r\n// @see: \"evi_damp.gendsp\" / [evi.damp~] for a filter closer to MSP [onepole~].\r\n\r\nrequire(\"evi_rcfilters.genexpr\");\r\n\r\n\r\nParam   smooth(0, min=0, max=333);  // ms\r\nParam   prewarp(1, min=0, max=1);   // 1 = input in Hz, 0 = input in 0..1 quasi radians\r\npw      = int(prewarp);\r\n\r\ng       = pw ? rcPreWarp2(clamp(in2, 1, samplerate*0.5)) : clamp(in2, 0, 1);\r\n\r\nif (smooth > 0) {\r\n    g   = evi_logsmooth(g, smooth);\r\n}\r\n\r\nrclp, rcap, rchp    = rcFilterLpApHp(in1, g);\r\n\r\nout1    = rclp;     // lowpass\r\nout2    = rcap;     // allpass\r\nout3    = rchp;     // highpass\r\n\r\n",
                     "fontface": 0,
                     "fontname": "<Monospaced>",
                     "fontsize": 12.0,
@@ -115,6 +115,7 @@
                     "source": [ "obj-3", 2 ]
                 }
             }
-        ]
+        ],
+        "autosave": 0
     }
 }

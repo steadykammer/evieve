@@ -19,12 +19,22 @@
         "boxes": [
             {
                 "box": {
+                    "id": "obj-10",
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 512.0, 11.0, 391.0, 20.0 ],
+                    "text": "Note: all evieve reverbs have [mcs.*] versions for easy stereo use"
+                }
+            },
+            {
+                "box": {
                     "fontface": 1,
                     "id": "obj-62",
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 338.0, 515.0, 135.0, 20.0 ],
+                    "patching_rect": [ 338.0, 470.0, 135.0, 20.0 ],
                     "text": "mattaverb~",
                     "textjustification": 1
                 }
@@ -41,7 +51,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 338.0, 537.0, 154.0, 78.0 ],
+                    "patching_rect": [ 338.0, 492.0, 154.0, 78.0 ],
                     "text": "a good compromise between the above and the algoverb, very few controls needed, cleverly tuned",
                     "textjustification": 1
                 }
@@ -53,7 +63,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 509.0, 475.0, 55.0, 33.0 ],
+                    "patching_rect": [ 509.0, 430.0, 55.0, 33.0 ],
                     "text": "real stereo-in",
                     "textjustification": 1
                 }
@@ -67,7 +77,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 501.0, 506.0, 71.0, 52.0 ],
+                    "patching_rect": [ 501.0, 461.0, 71.0, 52.0 ],
                     "text": "stereo-in / stereo-out",
                     "textjustification": 1
                 }
@@ -79,21 +89,9 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 495.0, 599.0, 83.0, 20.0 ],
+                    "patching_rect": [ 495.0, 554.0, 83.0, 20.0 ],
                     "text": "cheap-ish",
                     "textjustification": 1
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-67",
-                    "maxclass": "newobj",
-                    "numinlets": 2,
-                    "numoutlets": 2,
-                    "outlettype": [ "multichannelsignal", "" ],
-                    "patching_rect": [ 495.0, 636.0, 113.0, 22.0 ],
-                    "text": "mcs.evi.mattaverb~",
-                    "varname": "ial.zitaverb~[4]"
                 }
             },
             {
@@ -103,7 +101,7 @@
                     "numinlets": 2,
                     "numoutlets": 3,
                     "outlettype": [ "signal", "signal", "" ],
-                    "patching_rect": [ 495.0, 560.0, 88.0, 22.0 ],
+                    "patching_rect": [ 495.0, 515.0, 88.0, 22.0 ],
                     "text": "evi.mattaverb~",
                     "varname": "ial.zitaverb~[5]"
                 }
@@ -115,7 +113,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 66.0, 523.0, 110.0, 20.0 ],
+                    "patching_rect": [ 66.0, 478.0, 110.0, 20.0 ],
                     "text": "backverb~",
                     "textjustification": 1
                 }
@@ -132,7 +130,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 66.0, 544.0, 124.0, 64.0 ],
+                    "patching_rect": [ 66.0, 499.0, 124.0, 64.0 ],
                     "text": "probably the most fun one, ursa major space station",
                     "textjustification": 1
                 }
@@ -144,7 +142,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 203.0, 475.0, 69.0, 33.0 ],
+                    "patching_rect": [ 203.0, 430.0, 69.0, 33.0 ],
                     "text": "quasi fake stereo-in",
                     "textjustification": 1
                 }
@@ -158,7 +156,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 202.0, 506.0, 71.0, 52.0 ],
+                    "patching_rect": [ 202.0, 461.0, 71.0, 52.0 ],
                     "text": "stereo-in / stereo-out",
                     "textjustification": 1
                 }
@@ -170,21 +168,9 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 196.0, 599.0, 83.0, 20.0 ],
+                    "patching_rect": [ 196.0, 554.0, 83.0, 20.0 ],
                     "text": "cheap",
                     "textjustification": 1
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-56",
-                    "maxclass": "newobj",
-                    "numinlets": 2,
-                    "numoutlets": 2,
-                    "outlettype": [ "multichannelsignal", "" ],
-                    "patching_rect": [ 196.0, 636.0, 108.0, 22.0 ],
-                    "text": "mcs.evi.backverb~",
-                    "varname": "ial.zitaverb~[3]"
                 }
             },
             {
@@ -194,21 +180,9 @@
                     "numinlets": 2,
                     "numoutlets": 3,
                     "outlettype": [ "signal", "signal", "" ],
-                    "patching_rect": [ 196.0, 560.0, 83.0, 22.0 ],
+                    "patching_rect": [ 196.0, 515.0, 83.0, 22.0 ],
                     "text": "evi.backverb~",
                     "varname": "ial.zitaverb~[2]"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-54",
-                    "maxclass": "newobj",
-                    "numinlets": 2,
-                    "numoutlets": 2,
-                    "outlettype": [ "multichannelsignal", "" ],
-                    "patching_rect": [ 633.0, 636.0, 106.0, 22.0 ],
-                    "text": "mcs.evi.algoverb~",
-                    "varname": "evi.algoverb~[1]"
                 }
             },
             {
@@ -218,7 +192,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 715.0, 525.0, 152.0, 20.0 ],
+                    "patching_rect": [ 715.0, 480.0, 152.0, 20.0 ],
                     "text": "algoverb~",
                     "textjustification": 1
                 }
@@ -233,7 +207,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 715.0, 546.0, 158.0, 51.0 ],
+                    "patching_rect": [ 715.0, 501.0, 158.0, 51.0 ],
                     "text": "probably the best sounding one, but you pay for it",
                     "textjustification": 1
                 }
@@ -245,7 +219,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 646.0, 475.0, 55.0, 33.0 ],
+                    "patching_rect": [ 646.0, 430.0, 55.0, 33.0 ],
                     "text": "real stereo-in",
                     "textjustification": 1
                 }
@@ -259,7 +233,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 637.0, 506.0, 73.0, 52.0 ],
+                    "patching_rect": [ 637.0, 461.0, 73.0, 52.0 ],
                     "text": "stereo-in / stereo-out",
                     "textjustification": 1
                 }
@@ -271,7 +245,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 623.0, 599.0, 101.0, 20.0 ],
+                    "patching_rect": [ 623.0, 554.0, 101.0, 20.0 ],
                     "text": "expensive",
                     "textjustification": 1
                 }
@@ -283,93 +257,9 @@
                     "numinlets": 2,
                     "numoutlets": 3,
                     "outlettype": [ "signal", "signal", "" ],
-                    "patching_rect": [ 633.0, 560.0, 80.0, 22.0 ],
+                    "patching_rect": [ 633.0, 515.0, 80.0, 22.0 ],
                     "text": "evi.algoverb~",
                     "varname": "evi.algoverb~"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-8",
-                    "maxclass": "newobj",
-                    "numinlets": 3,
-                    "numoutlets": 3,
-                    "outlettype": [ "multichannelsignal", "multichannelsignal", "" ],
-                    "patching_rect": [ 769.0, 411.0, 143.0, 22.0 ],
-                    "text": "mcs.evi.sustainverb_lite~",
-                    "varname": "ial.sustainverb~[2]"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-22",
-                    "maxclass": "newobj",
-                    "numinlets": 2,
-                    "numoutlets": 2,
-                    "outlettype": [ "multichannelsignal", "" ],
-                    "patching_rect": [ 945.0, 411.0, 102.0, 22.0 ],
-                    "text": "mcs.evi.zitaverb~",
-                    "varname": "ial.zitaverb~[1]"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-28",
-                    "maxclass": "newobj",
-                    "numinlets": 2,
-                    "numoutlets": 3,
-                    "outlettype": [ "multichannelsignal", "multichannelsignal", "" ],
-                    "patching_rect": [ 634.0, 411.0, 121.0, 22.0 ],
-                    "text": "mcs.evi.sustainverb~",
-                    "varname": "ial.sustainverb~[3]"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-30",
-                    "maxclass": "newobj",
-                    "numinlets": 2,
-                    "numoutlets": 2,
-                    "outlettype": [ "multichannelsignal", "" ],
-                    "patching_rect": [ 495.0, 411.0, 106.0, 22.0 ],
-                    "text": "mcs.evi.gigaverb~",
-                    "varname": "ial.gigaverb~[1]"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-33",
-                    "maxclass": "newobj",
-                    "numinlets": 2,
-                    "numoutlets": 2,
-                    "outlettype": [ "multichannelsignal", "" ],
-                    "patching_rect": [ 113.0, 411.0, 116.0, 22.0 ],
-                    "text": "mcs.evi.freezeverb~",
-                    "varname": "ial.freezeverb~[1]"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-41",
-                    "maxclass": "newobj",
-                    "numinlets": 2,
-                    "numoutlets": 2,
-                    "outlettype": [ "multichannelsignal", "" ],
-                    "patching_rect": [ 360.0, 411.0, 131.0, 22.0 ],
-                    "text": "mcs.evi.plateverb_lite~",
-                    "varname": "ial.yafr3_lite~[1]"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-47",
-                    "maxclass": "newobj",
-                    "numinlets": 2,
-                    "numoutlets": 2,
-                    "outlettype": [ "multichannelsignal", "" ],
-                    "patching_rect": [ 248.0, 411.0, 109.0, 22.0 ],
-                    "text": "mcs.evi.plateverb~",
-                    "varname": "ial.yafr3~[1]"
                 }
             },
             {
@@ -891,28 +781,6 @@
             "obj-1::obj-54::obj-5": [ "damping", "damping", 0 ],
             "obj-1::obj-54::obj-7": [ "eqHighFreq", "eqHighFreq", 0 ],
             "obj-1::obj-54::obj-8": [ "smoothTime", "smoothTime", 0 ],
-            "obj-22::obj-54::obj-10": [ "damp[26]", "damp", 0 ],
-            "obj-22::obj-54::obj-12": [ "reverbGain[1]", "reverbGain", 0 ],
-            "obj-22::obj-54::obj-2": [ "preDelay[2]", "preDelay", 0 ],
-            "obj-22::obj-54::obj-24": [ "band1Type[1]", "band1Type", 0 ],
-            "obj-22::obj-54::obj-25": [ "band2Type[1]", "band2Type", 0 ],
-            "obj-22::obj-54::obj-28": [ "band1Cutoff[1]", "band1Cutoff", 0 ],
-            "obj-22::obj-54::obj-29": [ "band2Cutoff[1]", "band2Cutoff", 0 ],
-            "obj-22::obj-54::obj-3": [ "lowDecay[13]", "lowDecay", 0 ],
-            "obj-22::obj-54::obj-30": [ "band1Gain[1]", "band1Gain", 0 ],
-            "obj-22::obj-54::obj-32": [ "band2Gain[1]", "band2Gain", 0 ],
-            "obj-22::obj-54::obj-33": [ "dryWet[2]", "dryWet", 0 ],
-            "obj-22::obj-54::obj-35": [ "bypass[26]", "bypass", 0 ],
-            "obj-22::obj-54::obj-5": [ "midDecay[3]", "midDecay", 0 ],
-            "obj-22::obj-54::obj-9": [ "crossover[3]", "crossover", 0 ],
-            "obj-28::obj-54::obj-10": [ "damp[25]", "highPass", 0 ],
-            "obj-28::obj-54::obj-12": [ "fdnGain[3]", "fdnGain", 0 ],
-            "obj-28::obj-54::obj-2": [ "preDelay[17]", "early", 0 ],
-            "obj-28::obj-54::obj-3": [ "lowDecay[18]", "feedback", 0 ],
-            "obj-28::obj-54::obj-33": [ "dryWet[17]", "dryWet", 0 ],
-            "obj-28::obj-54::obj-35": [ "bypass[24]", "smoothTime", 0 ],
-            "obj-28::obj-54::obj-5": [ "midDecay[16]", "damp", 0 ],
-            "obj-28::obj-54::obj-9": [ "crossover[16]", "crossover", 0 ],
             "obj-2::obj-54::obj-10": [ "damp[1]", "eqHighGain", 0 ],
             "obj-2::obj-54::obj-12": [ "wetGain[1]", "wetGain", 0 ],
             "obj-2::obj-54::obj-15": [ "eqLowGain[1]", "eqLowGain", 0 ],
@@ -927,34 +795,6 @@
             "obj-2::obj-54::obj-5": [ "damping[1]", "damping", 0 ],
             "obj-2::obj-54::obj-7": [ "eqHighFreq[1]", "eqHighFreq", 0 ],
             "obj-2::obj-54::obj-8": [ "smoothTime[1]", "smoothTime", 0 ],
-            "obj-30::obj-54::obj-10": [ "damp[24]", "spread", 0 ],
-            "obj-30::obj-54::obj-12": [ "fdnGain[2]", "earlyGain", 0 ],
-            "obj-30::obj-54::obj-15": [ "eqLowGain[7]", "eqLowGain", 0 ],
-            "obj-30::obj-54::obj-16": [ "eqLowFreq[15]", "eqLowFreq", 0 ],
-            "obj-30::obj-54::obj-17": [ "damp[23]", "eqHighGain", 0 ],
-            "obj-30::obj-54::obj-18": [ "eqHighFreq[15]", "eqHighFreq", 0 ],
-            "obj-30::obj-54::obj-2": [ "preDelay[16]", "bandWidth", 0 ],
-            "obj-30::obj-54::obj-3": [ "lowDecay[12]", "damp", 0 ],
-            "obj-30::obj-54::obj-33": [ "dryWet[16]", "lateGain", 0 ],
-            "obj-30::obj-54::obj-35": [ "bypass[23]", "bypass", 0 ],
-            "obj-30::obj-54::obj-4": [ "dryGain[7]", "dryGain", 0 ],
-            "obj-30::obj-54::obj-5": [ "midDecay[2]", "decayTime", 0 ],
-            "obj-30::obj-54::obj-6": [ "stereo[4]", "stereo", 0 ],
-            "obj-30::obj-54::obj-8": [ "smoothTime[9]", "smoothTime", 0 ],
-            "obj-30::obj-54::obj-9": [ "crossover[2]", "sizeMeters", 0 ],
-            "obj-33::obj-54::obj-10": [ "damp[20]", "eqHighGain", 0 ],
-            "obj-33::obj-54::obj-12": [ "fdnGain[1]", "earlyGain", 0 ],
-            "obj-33::obj-54::obj-15": [ "eqLowGain[3]", "eqLowGain", 0 ],
-            "obj-33::obj-54::obj-16": [ "eqLowFreq[12]", "eqLowFreq", 0 ],
-            "obj-33::obj-54::obj-2": [ "preDelay[15]", "preDelay", 0 ],
-            "obj-33::obj-54::obj-3": [ "lowDecay[10]", "reverbSize", 0 ],
-            "obj-33::obj-54::obj-33": [ "dryWet[15]", "wetGain", 0 ],
-            "obj-33::obj-54::obj-35": [ "bypass[20]", "bypass", 0 ],
-            "obj-33::obj-54::obj-4": [ "dryGain[3]", "dryGain", 0 ],
-            "obj-33::obj-54::obj-5": [ "midDecay[15]", "width", 0 ],
-            "obj-33::obj-54::obj-7": [ "eqHighFreq[12]", "eqHighFreq", 0 ],
-            "obj-33::obj-54::obj-8": [ "smoothTime[6]", "smoothTime", 0 ],
-            "obj-33::obj-54::obj-9": [ "crossover[15]", "damping", 0 ],
             "obj-3::obj-54::obj-10": [ "damp[2]", "eqHighGain", 0 ],
             "obj-3::obj-54::obj-12": [ "fdnGain", "earlyGain", 0 ],
             "obj-3::obj-54::obj-15": [ "eqLowGain[2]", "eqLowGain", 0 ],
@@ -968,34 +808,6 @@
             "obj-3::obj-54::obj-7": [ "eqHighFreq[2]", "eqHighFreq", 0 ],
             "obj-3::obj-54::obj-8": [ "smoothTime[2]", "smoothTime", 0 ],
             "obj-3::obj-54::obj-9": [ "crossover", "damping", 0 ],
-            "obj-41::obj-54::obj-10": [ "eqHighGain[1]", "eqHighGain", 0 ],
-            "obj-41::obj-54::obj-12": [ "wetGain[3]", "wetGain", 0 ],
-            "obj-41::obj-54::obj-15": [ "eqLowGain[5]", "eqLowGain", 0 ],
-            "obj-41::obj-54::obj-16": [ "eqLowFreq[17]", "eqLowFreq", 0 ],
-            "obj-41::obj-54::obj-2": [ "reverbSize[1]", "reverbSize", 0 ],
-            "obj-41::obj-54::obj-33": [ "decay[3]", "decay", 0 ],
-            "obj-41::obj-54::obj-35": [ "bypass[4]", "bypass", 0 ],
-            "obj-41::obj-54::obj-36": [ "diffusion[3]", "diffusion", 0 ],
-            "obj-41::obj-54::obj-4": [ "dryGain[5]", "dryGain", 0 ],
-            "obj-41::obj-54::obj-42": [ "inputPan[3]", "inputPan", 0 ],
-            "obj-41::obj-54::obj-43": [ "stereo[6]", "stereo", 0 ],
-            "obj-41::obj-54::obj-5": [ "damping[3]", "damping", 0 ],
-            "obj-41::obj-54::obj-7": [ "eqHighFreq[17]", "eqHighFreq", 0 ],
-            "obj-41::obj-54::obj-8": [ "smoothTime[7]", "smoothTime", 0 ],
-            "obj-47::obj-54::obj-10": [ "eqHighGain", "eqHighGain", 0 ],
-            "obj-47::obj-54::obj-12": [ "wetGain[2]", "wetGain", 0 ],
-            "obj-47::obj-54::obj-15": [ "eqLowGain[4]", "eqLowGain", 0 ],
-            "obj-47::obj-54::obj-16": [ "eqLowFreq[16]", "eqLowFreq", 0 ],
-            "obj-47::obj-54::obj-2": [ "reverbSize", "reverbSize", 0 ],
-            "obj-47::obj-54::obj-33": [ "decay[2]", "decay", 0 ],
-            "obj-47::obj-54::obj-35": [ "bypass[3]", "bypass", 0 ],
-            "obj-47::obj-54::obj-36": [ "diffusion[2]", "diffusion", 0 ],
-            "obj-47::obj-54::obj-4": [ "dryGain[4]", "dryGain", 0 ],
-            "obj-47::obj-54::obj-42": [ "inputPan[2]", "inputPan", 0 ],
-            "obj-47::obj-54::obj-43": [ "stereo[5]", "stereo", 0 ],
-            "obj-47::obj-54::obj-5": [ "damping[2]", "damping", 0 ],
-            "obj-47::obj-54::obj-7": [ "eqHighFreq[16]", "eqHighFreq", 0 ],
-            "obj-47::obj-54::obj-8": [ "smoothTime[4]", "smoothTime", 0 ],
             "obj-48::obj-120::obj-20": [ "preTime", "preTime", 0 ],
             "obj-48::obj-120::obj-21": [ "preSymmetry", "preSymmetry", 0 ],
             "obj-48::obj-120::obj-22": [ "earlySize", "earlySize", 0 ],
@@ -1034,29 +846,6 @@
             "obj-4::obj-54::obj-6": [ "stereo[9]", "stereo", 0 ],
             "obj-4::obj-54::obj-8": [ "smoothTime[3]", "smoothTime", 0 ],
             "obj-4::obj-54::obj-9": [ "crossover[12]", "sizeMeters", 0 ],
-            "obj-54::obj-120::obj-20": [ "preTime[1]", "preTime", 0 ],
-            "obj-54::obj-120::obj-21": [ "preSymmetry[1]", "preSymmetry", 0 ],
-            "obj-54::obj-120::obj-22": [ "earlySize[1]", "earlySize", 0 ],
-            "obj-54::obj-120::obj-41": [ "earlySymmetry[1]", "earlySymmetry", 0 ],
-            "obj-54::obj-120::obj-42": [ "earlyDiffusion[1]", "earlyDiffusion", 0 ],
-            "obj-54::obj-120::obj-43": [ "lateSize[1]", "lateSize", 0 ],
-            "obj-54::obj-120::obj-44": [ "lateSymmetry[1]", "lateSymmetry", 0 ],
-            "obj-54::obj-120::obj-45": [ "lateDiffusion[1]", "lateDiffusion", 0 ],
-            "obj-54::obj-120::obj-46": [ "decay[6]", "decay", 0 ],
-            "obj-54::obj-120::obj-48": [ "absorbtion[1]", "absorbtion", 0 ],
-            "obj-54::obj-120::obj-53": [ "earlyLate[1]", "earlyLate", 0 ],
-            "obj-54::obj-120::obj-54": [ "modFrequency[1]", "modFrequency", 0 ],
-            "obj-54::obj-120::obj-55": [ "modAmplitude[1]", "modAmplitude", 0 ],
-            "obj-54::obj-120::obj-59": [ "smoothTime[11]", "smoothTime", 0 ],
-            "obj-54::obj-120::obj-60": [ "dryWet[19]", "dryWet", 0 ],
-            "obj-54::obj-120::obj-61": [ "highDampFrequency[1]", "highDampFrequency", 0 ],
-            "obj-54::obj-120::obj-62": [ "highDampGain[1]", "highDampGain", 0 ],
-            "obj-54::obj-120::obj-63": [ "lowDampFrequency[1]", "lowDampFrequency", 0 ],
-            "obj-54::obj-120::obj-64": [ "lowDampGain[1]", "lowDampGain", 0 ],
-            "obj-54::obj-120::obj-65": [ "highEqFrequency[1]", "highEqFrequency", 0 ],
-            "obj-54::obj-120::obj-66": [ "lowEqFrequency[1]", "lowEqFrequency", 0 ],
-            "obj-54::obj-120::obj-67": [ "highEqGain[1]", "highEqGain", 0 ],
-            "obj-54::obj-120::obj-68": [ "lowEqGain[1]", "lowEqGain", 0 ],
             "obj-55::obj-54::obj-12": [ "inputLow", "inputLow", 0 ],
             "obj-55::obj-54::obj-15": [ "inputHigh", "inputHigh", 0 ],
             "obj-55::obj-54::obj-17": [ "feedbackHigh", "feedbackHigh", 0 ],
@@ -1073,22 +862,6 @@
             "obj-55::obj-54::obj-7": [ "modShape", "modShape", 0 ],
             "obj-55::obj-54::obj-8": [ "modSkew", "modSkew", 0 ],
             "obj-55::obj-54::obj-9": [ "outputNonlinGains", "outputNonlinGains", 0 ],
-            "obj-56::obj-54::obj-12": [ "inputLow[1]", "inputLow", 0 ],
-            "obj-56::obj-54::obj-15": [ "inputHigh[1]", "inputHigh", 0 ],
-            "obj-56::obj-54::obj-17": [ "feedbackHigh[1]", "feedbackHigh", 0 ],
-            "obj-56::obj-54::obj-19": [ "feedbackLow[1]", "feedbackLow", 0 ],
-            "obj-56::obj-54::obj-2": [ "modDuty[1]", "modDuty", 0 ],
-            "obj-56::obj-54::obj-21": [ "dampLow[1]", "dampLow", 0 ],
-            "obj-56::obj-54::obj-23": [ "dampHigh[1]", "dampHigh", 0 ],
-            "obj-56::obj-54::obj-25": [ "feedbackNonlin[1]", "feedbackNonlin", 0 ],
-            "obj-56::obj-54::obj-3": [ "feedback[1]", "feedback", 0 ],
-            "obj-56::obj-54::obj-30": [ "outputNonlin[1]", "outputNonlin", 0 ],
-            "obj-56::obj-54::obj-32": [ "modDepth[1]", "modDepth", 0 ],
-            "obj-56::obj-54::obj-33": [ "dryWet[21]", "dryWet", 0 ],
-            "obj-56::obj-54::obj-38": [ "modRate[1]", "modRate", 0 ],
-            "obj-56::obj-54::obj-7": [ "modShape[1]", "modShape", 0 ],
-            "obj-56::obj-54::obj-8": [ "modSkew[1]", "modSkew", 0 ],
-            "obj-56::obj-54::obj-9": [ "outputNonlinGains[1]", "outputNonlinGains", 0 ],
             "obj-5::obj-54::obj-10": [ "damp[18]", "highPass", 0 ],
             "obj-5::obj-54::obj-12": [ "fdnGain[8]", "fdnGain", 0 ],
             "obj-5::obj-54::obj-2": [ "preDelay[13]", "early", 0 ],
@@ -1097,12 +870,6 @@
             "obj-5::obj-54::obj-35": [ "bypass[11]", "smoothTime", 0 ],
             "obj-5::obj-54::obj-5": [ "midDecay[13]", "damp", 0 ],
             "obj-5::obj-54::obj-9": [ "crossover[13]", "crossover", 0 ],
-            "obj-67::obj-54::obj-10": [ "dryWet[23]", "dryWet", 0 ],
-            "obj-67::obj-54::obj-2": [ "lowDamp[1]", "lowDamp", 0 ],
-            "obj-67::obj-54::obj-3": [ "highDamp[1]", "highDamp", 0 ],
-            "obj-67::obj-54::obj-4": [ "space[1]", "space", 0 ],
-            "obj-67::obj-54::obj-5": [ "rvrbSize[1]", "rvrbSize", 0 ],
-            "obj-67::obj-54::obj-9": [ "dampOrder[1]", "damp", 0 ],
             "obj-68::obj-54::obj-10": [ "dryWet[22]", "dryWet", 0 ],
             "obj-68::obj-54::obj-2": [ "lowDamp", "lowDamp", 0 ],
             "obj-68::obj-54::obj-3": [ "highDamp", "highDamp", 0 ],
@@ -1130,21 +897,6 @@
             "obj-7::obj-54::obj-4": [ "fdnSum", "fdnSum", 0 ],
             "obj-7::obj-54::obj-5": [ "midDecay[1]", "damp", 0 ],
             "obj-7::obj-54::obj-9": [ "crossover[1]", "crossover", 0 ],
-            "obj-8::obj-54::obj-2": [ "preDelay[18]", "early", 0 ],
-            "obj-8::obj-54::obj-3": [ "late[1]", "late", 0 ],
-            "obj-8::obj-54::obj-33": [ "dryWet[18]", "dryWet", 0 ],
-            "obj-8::obj-54::obj-35": [ "bypass[25]", "smoothTime", 0 ],
-            "obj-8::obj-54::obj-4": [ "fdnSum[1]", "fdnSum", 0 ],
-            "obj-8::obj-54::obj-5": [ "midDecay[17]", "damp", 0 ],
-            "obj-8::obj-54::obj-9": [ "crossover[17]", "crossover", 0 ],
-            "parameterbanks": {
-                "0": {
-                    "index": 0,
-                    "name": "",
-                    "parameters": [ "-", "-", "-", "-", "-", "-", "-", "-" ],
-                    "buttons": [ "-", "-", "-", "-", "-", "-", "-", "-" ]
-                }
-            },
             "inherited_shortname": 1
         },
         "autosave": 0,

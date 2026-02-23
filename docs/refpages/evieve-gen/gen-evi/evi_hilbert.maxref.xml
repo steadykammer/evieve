@@ -9,7 +9,7 @@
         <b>evi_hilbert</b> is an abstraction for using inside <o>gen~</o> or <b>GenExpr</b>. <br />
          <br />
         evi_hilbert.gendsp requires the GenExpr file(s): <br />
-        <o>evi_biquad</o>.genexpr <br />
+        <o>evi_biquad</o>.genexpr, <o>evi_biquads</o>.genexpr, <o>evi_biquads_extras</o>.genexpr <br />
          <br />
 	    TEXT_HERE <br />
     </description>

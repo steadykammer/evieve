@@ -5,7 +5,7 @@
 // for a more normal resonant filter version @see: "evi_filter_formant.gendsp"
 // @see also: "evi_formant_osc.gendsp"
 
-require("evi_svfs.genexpr");
+require("evi_svfs_tpt.genexpr");
 require("evi_smooth.genexpr");
 
 // parse data as formatted in external LUT

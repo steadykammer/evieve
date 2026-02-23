@@ -1,0 +1,363 @@
+{
+    "description": "",
+    "requires": [
+        "evi_approx.genexpr"
+    ],
+    "functions": [
+        {
+            "document": true,
+            "digest": "",
+            "name": "svfLtoMulti",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "v0",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "cutoff",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "Q",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "svfLtoSingle",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "v0",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "cutoff",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "Q",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "filt",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "svfLtoBell",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "v00",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "cutoff",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "gain",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "Q",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "svfSinMulti",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "X",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "cutoff",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "damp",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "svfSinSingle",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "X",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "cutoff",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "damp",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "filt",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "inputMixingSvfCoefficients",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "cutoff",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "res",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "inputMixingSvfLoop",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "vlow",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "vband",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "vhigh",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "g0",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "input",
+                    "name": "g1",
+                    "digest": ""
+                },
+                {
+                    "id": 6,
+                    "kind": "input",
+                    "name": "g2",
+                    "digest": ""
+                },
+                {
+                    "id": 7,
+                    "kind": "input",
+                    "name": "g3",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "inputMixingSvf",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "vlow",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "vband",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "vhigh",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "cutoff",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "input",
+                    "name": "res",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        }
+    ],
+    "seealso": []
+}

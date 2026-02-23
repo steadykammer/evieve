@@ -1,0 +1,391 @@
+
+//  //  //  Because Gen does not cache require files, the evieve Biquads are
+//  //  //  separated out into smaller require files, such as this one
+//  //  //  @see: 'evi_biquads.genexpr' for all code required together
+
+//	//	//	Part 2: Filter Selectors
+
+// 1) eviBiquadCoeff(index, cutoff, gain, Q)
+/*
+    index   calculator                              	parameters
+    0       bypass                                  	none
+	1		eviBiquadCoeffLowpass 						cutoff, Q
+	2		eviBiquadCoeffHighpass 						cutoff, Q
+	3		eviBiquadCoeffBandpass 						cutoff, Q
+	4		eviBiquadCoeffNotch 						cutoff, Q
+	5		eviBiquadCoeffPeakNotch 					cutoff, gain, Q
+	6		eviBiquadCoeffLowshelfMSP 					cutoff, gain, Q
+	7		eviBiquadCoeffLowshelfCookbook 				cutoff, gain, Q
+	8		eviBiquadCoeffHighshelfMSP 					cutoff, gain, Q
+	9		eviBiquadCoeffHighshelfCookbook 			cutoff, gain, Q
+	10		eviBiquadCoeffResonant 						cutoff, Q
+	11		eviBiquadCoeffBp 							cutoff, Q
+	12		eviBiquadCoeffAllpass 						cutoff, Q
+	13		eviBiquadCoeffLowpassGain 					cutoff, gain, Q
+	14		eviBiquadCoeffHighpassGain 					cutoff, gain, Q
+	15		eviBiquadCoeffBandpassGain 					cutoff, gain, Q
+	16		eviBiquadCoeffNotchGain 					cutoff, gain, Q
+	17		eviBiquadCoeffResonantGain 					cutoff, gain, Q
+	18		eviBiquadCoeffBpGain 						cutoff, gain, Q
+	19		eviBiquadCoeffAllpassGain 					cutoff, gain, Q
+	20		eviBiquadCoeffLowpassAnalog1				cutoff, Q
+	21 		eviBiquadCoeffLowpassAnalog2				cutoff, Q
+	22 		eviBiquadCoeffHighpassAnalog				cutoff, Q
+	23		eviBiquadCoeffBandpassAnalog 				cutoff, Q
+	24		eviBiquadCoeffBandpassGainAnalog 			cutoff, gain, Q
+	25 		eviBiquadCoeffNotchAnalog 					cutoff, Q
+	26		eviBiquadCoeffPeakNotchAnalog1 				cutoff, gain, Q
+	27		eviBiquadCoeffPeakNotchAnalog2 				cutoff, gain, Q
+	28 		eviBiquadCoeffLowshelfAnalog1				cutoff, gain, Q
+	29		eviBiquadCoeffLowshelfAnalog2 				cutoff, gain
+	30 		eviBiquadCoeffHighshelfAnalog1				cutoff, gain, Q
+	31		eviBiquadCoeffHighshelfAnalog2 				cutoff, gain
+	32 		eviBiquadCoeffResonantAnalog				cutoff, Q
+	33		eviBiquadCoeffButterworthLowpass 			cutoff
+	34		eviBiquadCoeffButterworthHighpass 			cutoff
+	35		eviBiquadCoeffButterworthBandpass 			cutoff, Q
+	36		eviBiquadCoeffButterworthBandreject 		cutoff, Q
+	37		eviBiquadCoeffButterworthLowpassGain 		cutoff, gain
+	38		eviBiquadCoeffButterworthHighpassGain 		cutoff, gain
+	39		eviBiquadCoeffButterworthBandpassGain 		cutoff, gain, Q
+	40		eviBiquadCoeffButterworthBandrejectGain 	cutoff, gain, Q
+*/
+eviBiquadCoeff(filter, cutoff, gain, fullQ)
+{
+    Q       = minimum(fullQ, 18);
+
+    a0, a1, a2, b1, b2  = 0;
+
+    if (filter == 1) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffLowpass(cutoff, Q);
+    }
+    else if (filter == 2) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffHighpass(cutoff, Q);
+    }
+    else if (filter == 3) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffBandpass(cutoff, Q);
+    }
+    else if (filter == 4) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffNotch(cutoff, Q);
+    }
+    else if (filter == 5) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffPeakNotch(cutoff, gain, Q);
+    }
+    else if (filter == 6) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffLowshelfMSP(cutoff, gain, Q);
+    }
+    else if (filter == 7) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffLowshelfCookbook(cutoff, gain, Q);
+    }
+    else if (filter == 8) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffHighshelfMSP(cutoff, gain, Q);
+    }
+    else if (filter == 9) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffHighshelfCookbook(cutoff, gain, Q);
+    }
+    else if (filter == 10) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffResonant(cutoff, fullQ);
+    }
+    else if (filter == 11) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffBp(cutoff, fullQ);
+    }
+    else if (filter == 12) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffAllpass(cutoff, Q);
+    }
+    else if (filter == 13) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffLowpassGain(cutoff, gain, Q);
+    }
+    else if (filter == 14) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffHighpassGain(cutoff, gain, Q);
+    }
+    else if (filter == 15) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffBandpassGain(cutoff, gain, Q);
+    }
+    else if (filter == 16) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffNotchGain(cutoff, gain, Q);
+    }
+    else if (filter == 17) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffResonantGain(cutoff, gain, fullQ);
+    }
+    else if (filter == 18) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffBpGain(cutoff, gain, fullQ);
+    }
+    else if (filter == 19) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffAllpassGain(cutoff, gain, Q);
+    }
+    else if (filter == 20) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffLowpassAnalog1(cutoff, Q);
+    }
+    else if (filter == 21) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffLowpassAnalog2(cutoff, Q);
+    }
+    else if (filter == 22) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffHighpassAnalog(cutoff, Q);
+    }
+    else if (filter == 23) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffBandpassAnalog(cutoff, fullQ);
+    }
+    else if (filter == 24) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffBandpassGainAnalog(cutoff, gain, fullQ);
+    }
+    else if (filter == 25) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffNotchAnalog(cutoff, Q);
+    }
+    else if (filter == 26) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffPeakNotchAnalog1(cutoff, gain, Q);
+    }
+    else if (filter == 27) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffPeakNotchAnalog2(cutoff, gain, Q);
+    }
+    else if (filter == 28) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffLowshelfAnalog1(cutoff, gain, Q);
+    }
+    else if (filter == 29) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffLowshelfAnalog2(cutoff, gain);
+    }
+    else if (filter == 30) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffHighshelfAnalog1(cutoff, gain, Q);
+    }
+    else if (filter == 31) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffHighshelfAnalog2(cutoff, gain);
+    }
+    else if (filter == 32) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffResonantAnalog(cutoff, fullQ);
+    }
+    else if (filter == 33) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffButterworthLowpass(cutoff);
+    }
+    else if (filter == 34) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffButterworthHighpass(cutoff);
+    }
+    else if (filter == 35) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffButterworthBandpass(cutoff, Q);
+    }
+    else if (filter == 36) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffButterworthBandreject(cutoff, Q);
+    }
+    else if (filter == 37) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffButterworthLowpassGain(cutoff, gain);
+    }
+    else if (filter == 38) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffButterworthHighpassGain(cutoff, gain);
+    }
+    else if (filter == 39) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffButterworthBandpassGain(cutoff, gain, Q);
+    }
+    else if (filter == 40) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffButterworthBandrejectGain(cutoff, gain, Q);
+    }
+    else {  // bypass
+        a0  = 1;
+        a1, a2, b1, b2  = 0;
+    }
+
+    return a0, a1, a2, b1, b2;
+}
+
+// 2) eviBiquadCoeffEQ(index, cutoff, gain, Q)
+/*
+    index   calculator                              	parameters
+    0       bypass                                  	none
+	1		eviBiquadCoeffHighpassGain 					cutoff, gain, Q
+	2		eviBiquadCoeffLowshelfMSP 					cutoff, gain, Q
+	3		eviBiquadCoeffLowshelfCookbook 				cutoff, gain, Q
+	4		eviBiquadCoeffLowshelfAnalog1 				cutoff, gain, Q
+	5		eviBiquadCoeffLowshelfAnalog2 				cutoff, gain
+	6		eviBiquadCoeffPeakNotch 					cutoff, gain, Q
+	7		eviBiquadCoeffPeakNotchAnalog1 				cutoff, gain, Q
+	8		eviBiquadCoeffPeakNotchAnalog2 				cutoff, gain, Q
+	9		eviBiquadCoeffNotchGain 					cutoff, gain, Q
+	10		eviBiquadCoeffHighshelfMSP 					cutoff, gain, Q
+	11		eviBiquadCoeffHighshelfCookbook 			cutoff, gain, Q
+	12		eviBiquadCoeffHighshelfAnalog1 				cutoff, gain, Q
+	13		eviBiquadCoeffHighshelfAnalog2 				cutoff, gain
+	14		eviBiquadCoeffLowpassGain 					cutoff, gain, Q
+*/
+eviBiquadCoeffEQ(filter, cutoff, gain, fullQ)
+{
+    Q       = clip(fullQ, 0.1, 18);
+
+    a0, a1, a2, b1, b2  = 0;
+
+    if (filter == 1) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffHighpassGain(cutoff, gain, Q);
+    }
+    else if (filter == 2) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffLowshelfMSP(cutoff, gain, Q);
+    }
+    else if (filter == 3) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffLowshelfCookbook(cutoff, gain, Q);
+    }
+    else if (filter == 4) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffLowshelfAnalog1(cutoff, gain, Q);
+    }
+    else if (filter == 5) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffLowshelfAnalog2(cutoff, gain);
+    }
+    else if (filter == 6) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffPeakNotch(cutoff, gain, Q);
+    }
+    else if (filter == 7) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffPeakNotchAnalog1(cutoff, gain, Q);
+    }
+    else if (filter == 8) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffPeakNotchAnalog2(cutoff, gain, Q);
+    }
+    else if (filter == 9) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffNotchGain(cutoff, gain, Q);
+    }
+    else if (filter == 10) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffHighshelfMSP(cutoff, gain, Q);
+    }
+    else if (filter == 11) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffHighshelfCookbook(cutoff, gain, Q);
+    }
+    else if (filter == 12) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffHighshelfAnalog1(cutoff, gain, Q);
+    }
+    else if (filter == 13) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffHighshelfAnalog2(cutoff, gain);
+    }
+    else if (filter == 14) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffLowpassGain(cutoff, gain, Q);
+    }
+    else {  // bypass
+        a0  = 1;
+        a1, a2, b1, b2  = 0;
+    }
+
+    return a0, a1, a2, b1, b2;
+}
+
+// 3) eviBiquadCoeffButterworth(index, cutoff, gain, Q)
+/*
+    index   calculator                              	parameters
+    0       bypass                                  	none
+	1		eviBiquadCoeffButterworthLowpass 			cutoff
+	2		eviBiquadCoeffButterworthHighpass 			cutoff
+	3		eviBiquadCoeffButterworthBandpass 			cutoff, Q
+	4		eviBiquadCoeffButterworthBandreject 		cutoff, Q
+	5		eviBiquadCoeffButterworthLowpassGain 		cutoff, gain
+	6		eviBiquadCoeffButterworthHighpassGain 		cutoff, gain
+	7		eviBiquadCoeffButterworthBandpassGain 		cutoff, gain, Q
+	8		eviBiquadCoeffButterworthBandrejectGain 	cutoff, gain, Q
+	9		eviBiquadCoeffLowshelfAnalog2 				cutoff, gain
+	10		eviBiquadCoeffHighshelfAnalog2 				cutoff, gain
+*/
+eviBiquadCoeffButterworth(filter, cutoff, gain, fullQ)
+{
+    Q       = clip(fullQ, 0.1, 18);
+
+    a0, a1, a2, b1, b2  = 0;
+
+    if (filter == 1) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffButterworthLowpass(cutoff);
+    }
+    else if (filter == 2) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffButterworthHighpass(cutoff);
+    }
+    else if (filter == 3) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffButterworthBandpass(cutoff, Q);
+    }
+    else if (filter == 4) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffButterworthBandreject(cutoff, Q);
+    }
+    else if (filter == 5) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffButterworthLowpassGain(cutoff, gain);
+    }
+    else if (filter == 6) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffButterworthHighpassGain(cutoff, gain);
+    }
+    else if (filter == 7) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffButterworthBandpassGain(cutoff, gain, Q);
+    }
+    else if (filter == 8) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffButterworthBandrejectGain(cutoff, gain, Q);
+    }
+    else if (filter == 9) {	 // is a butterworth :-)
+        a0, a1, a2, b1, b2  = eviBiquadCoeffLowshelfAnalog2(cutoff, gain);
+    }
+    else if (filter == 10) { // is a butterworth :-)
+        a0, a1, a2, b1, b2  = eviBiquadCoeffHighshelfAnalog2(cutoff, gain);
+    }
+    else {  // bypass
+        a0  = 1;
+        a1, a2, b1, b2  = 0;
+    }
+
+    return a0, a1, a2, b1, b2;
+}
+
+// 4) eviBiquadCoeffAnalog(index, cutoff, gain, Q)
+/*
+    index   calculator                              	parameters
+    0       bypass                                  	none
+	1		eviBiquadCoeffLowpassAnalog1				cutoff, Q
+	2 		eviBiquadCoeffLowpassAnalog2				cutoff, Q
+	3 		eviBiquadCoeffHighpassAnalog				cutoff, Q
+	4		eviBiquadCoeffBandpassAnalog 				cutoff, Q
+	5		eviBiquadCoeffBandpassGainAnalog 			cutoff, gain, Q
+	6 		eviBiquadCoeffNotchAnalog 					cutoff, Q
+	7		eviBiquadCoeffPeakNotchAnalog1 				cutoff, gain, Q
+	8		eviBiquadCoeffPeakNotchAnalog2 				cutoff, gain, Q
+	9 		eviBiquadCoeffLowshelfAnalog1				cutoff, gain, Q
+	10		eviBiquadCoeffLowshelfAnalog2 				cutoff, gain
+	11 		eviBiquadCoeffHighshelfAnalog1				cutoff, gain, Q
+	12		eviBiquadCoeffHighshelfAnalog2 				cutoff, gain
+	13 		eviBiquadCoeffResonantAnalog				cutoff, Q
+*/
+eviBiquadCoeffAnalog(filter, cutoff, gain, fullQ)
+{
+    Q       = minimum(fullQ, 18);
+
+    a0, a1, a2, b1, b2  = 0;
+
+    if (filter == 1) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffLowpassAnalog1(cutoff, Q);
+    }
+    else if (filter == 2) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffLowpassAnalog2(cutoff, Q);
+    }
+    else if (filter == 3) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffHighpassAnalog(cutoff, Q);
+    }
+    else if (filter == 4) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffBandpassAnalog(cutoff, Q);
+    }
+    else if (filter == 5) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffBandpassGainAnalog(cutoff, gain, Q);
+    }
+    else if (filter == 6) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffNotchAnalog(cutoff, Q);
+    }
+    else if (filter == 7) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffPeakNotchAnalog1(cutoff, gain, Q);
+    }
+    else if (filter == 8) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffPeakNotchAnalog2(cutoff, gain, Q);
+    }
+    else if (filter == 9) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffLowshelfAnalog1(cutoff, gain, Q);
+    }
+    else if (filter == 10) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffLowshelfAnalog2(cutoff, gain);
+    }
+    else if (filter == 11) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffHighshelfAnalog1(cutoff, gain, Q);
+    }
+    else if (filter == 12) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffHighshelfAnalog2(cutoff, gain);
+    }
+    else if (filter == 13) {
+        a0, a1, a2, b1, b2  = eviBiquadCoeffResonantAnalog(cutoff, fullQ);
+    }
+    else {  // bypass
+        a0  = 1;
+        a1, a2, b1, b2  = 0;
+    }
+
+    return a0, a1, a2, b1, b2;
+}
+

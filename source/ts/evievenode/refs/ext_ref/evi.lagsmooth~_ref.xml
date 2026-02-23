@@ -138,6 +138,7 @@
 		<seealso name="evi.cfsmooth~"></seealso>
 		<seealso name="evi.expsmooth~"></seealso>
 		<seealso name="evi.logsmooth~"></seealso>
+		<seealso name="evi_smooth" display="evi_smooth.genexpr" type="refpage"/>
 	</seealsolist>
   <misc name="Discussion">
     <entry name="Keywords">

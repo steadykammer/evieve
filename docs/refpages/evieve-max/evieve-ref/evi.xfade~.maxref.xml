@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
 <c74object name="evi.xfade~" module="evieve-ref" category="evieve">
-  <digest>TEXT_HERE</digest>
-  <description>TEXT_HERE</description>
+  <digest>Crossfade audio signals</digest>
+  <description>Crossfades between inputs using an efficient cosine algorithm very close to a 'sqrt'. A choice of mono or stereo setups.</description>
   <metadatalist>
     <metadata name="author">Pete Dowling</metadata>
     <metadata name="tag">evieve</metadata>
@@ -19,7 +19,7 @@
     </inlet>
     <inlet id="2" type="signal/float">
       <digest>Xfade Amount 0..1</digest>
-      <description>TEXT_HERE</description>
+      <description>Crossfades between inputs using an efficient cosine algorithm very close to a 'sqrt'</description>
     </inlet>
   </inletlist>
   <outletlist>
@@ -51,7 +51,7 @@
   <attributelist>
     <attribute name="xfade" get="1" set="1" type="float" size="1" alias="crossfade">
       <digest>Crossfade Amount 0..1</digest>
-      <description>TEXT_HERE</description>
+      <description>Crossfades between inputs using an efficient cosine algorithm very close to a 'sqrt'</description>
       <attributelist>
         <attribute name="basic" get="1" set="1" type="int" size="1" value="1"></attribute>
         <attribute name="label" get="1" set="1" type="symbol" size="1" value="Crossfade Amount 0..1"></attribute>
@@ -62,6 +62,7 @@
     <example caption="" img=""></example>
   </examplelist>
   <seealsolist>
-    <seealso name="bogus">TEXT_HERE</seealso>
+    <seealso name="evi.pan~"></seealso>
+    <seealso name="evi_utilities" display="evi_utilities.genexpr" type="refpage"></seealso>
   </seealsolist>
 </c74object>

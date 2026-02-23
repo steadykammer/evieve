@@ -351,18 +351,18 @@
     },
     "evi.logahr~": {
         "type": "external",
-        "digest": 0,
-        "description": ""
+        "digest": "Attack/hold/release envelope follower",
+        "description": "Logarithmic attack/hold/release envelope follower / smoother."
     },
     "evi.logattackdecay~": {
         "type": "external",
-        "digest": 0,
-        "description": ""
+        "digest": "Attack/decay envelope follower",
+        "description": "Logarithmic attack/decay envelope follower / smoother."
     },
     "evi.logdecay~": {
         "type": "external",
-        "digest": 0,
-        "description": ""
+        "digest": "Decay envelope follower",
+        "description": "Logarithmic decay envelope follower / smoother."
     },
     "evi.logsmooth~": {
         "type": "external",
@@ -446,8 +446,8 @@
     },
     "evi.pan~": {
         "type": "external",
-        "digest": 0,
-        "description": ""
+        "digest": "Pan audio signals",
+        "description": "Pan input(s) to output(s) using an efficient cosine algorithm very close to a 'sqrt'."
     },
     "evi.phaseshift~": {
         "type": "define",
@@ -481,7 +481,7 @@
     },
     "evi.quadosc~": {
         "type": "external",
-        "digest": 0,
+        "digest": "Phase locked quadrature oscillator",
         "description": ""
     },
     "evi.ramp0~": {
@@ -626,8 +626,8 @@
     },
     "evi.vactrol~": {
         "type": "external",
-        "digest": 0,
-        "description": ""
+        "digest": "Vactrol response time domain filter",
+        "description": "Analog modelled vactrol opto isolator emulation."
     },
     "evi.vcf~": {
         "type": "define",
@@ -656,8 +656,8 @@
     },
     "evi.xfade~": {
         "type": "external",
-        "digest": 0,
-        "description": ""
+        "digest": "Crossfade audio signals",
+        "description": "Crossfades between inputs using an efficient cosine algorithm very close to a 'sqrt'. A choice of mono or stereo setups."
     },
     "evi.zeroxcount~": {
         "type": "define",
@@ -671,7 +671,7 @@
     },
     "evi.zitaverb~": {
         "type": "abstraction",
-        "digest": "True stereo FDN/algorithmic reverb based on 'zitaverb' by Fons Andriesson \n",
+        "digest": "True stereo FDN/algorithmic reverb based on 'zitaverb' by Fons Adriaensen \n",
         "description": ""
     },
     "mc.evi.bands~": {

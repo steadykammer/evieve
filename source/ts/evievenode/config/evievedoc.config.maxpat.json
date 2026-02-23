@@ -93,7 +93,7 @@
                 "areas": []
             },
             "db": {
-                "browser": true,
+                "browser": false,
 				"auto": false
             }
         },
@@ -173,7 +173,7 @@
                 "areas": []
             },
             "db": {
-                "browser": true,
+                "browser": false,
 				"auto": false
             }
         },
@@ -352,7 +352,7 @@
                 "areas": []
             },
             "db": {
-                "browser": true,
+                "browser": false,
 				"auto": false
             }
         },
@@ -371,7 +371,7 @@
                 "areas": []
             },
             "db": {
-                "browser": true,
+                "browser": false,
 				"auto": false
             }
         },
@@ -409,7 +409,7 @@
                 "areas": []
             },
             "db": {
-                "browser": true,
+                "browser": false,
 				"auto": false
             }
         },
@@ -447,7 +447,7 @@
                 "areas": []
             },
             "db": {
-                "browser": true,
+                "browser": false,
 				"auto": false
             }
         },
@@ -506,8 +506,8 @@
                 "areas": []
             },
             "db": {
-                "browser": true,
-				"auto": true
+                "browser": false,
+				"auto": false
             }
         },
         "evi.plateverb_lite~": {
@@ -557,7 +557,7 @@
             "ref": true,
             "qlookup": true,
             "helpfile": {
-                "generate": true,
+                "generate": false,
                 "mctab": false,
                 "mcstab": false,
                 "mcparent": "",
@@ -605,7 +605,7 @@
                 "areas": []
             },
             "db": {
-                "browser": true,
+                "browser": false,
 				"auto": false
             }
         },
@@ -624,7 +624,7 @@
                 "areas": []
             },
             "db": {
-                "browser": true,
+                "browser": false,
 				"auto": false
             }
         },
@@ -683,7 +683,7 @@
                 ]
             },
             "db": {
-                "browser": true,
+                "browser": false,
 				"auto": false
             }
         },
@@ -879,7 +879,7 @@
                 "areas": []
             },
             "db": {
-                "browser": true,
+                "browser": false,
 				"auto": false
             }
         },
@@ -945,7 +945,7 @@
             "ref": true,
             "qlookup": true,
             "helpfile": {
-                "generate": true,
+                "generate": false,
                 "mctab": false,
                 "mcstab": false,
                 "mcparent": "",
@@ -955,8 +955,8 @@
                 "areas": []
             },
             "db": {
-                "browser": true,
-				"auto": true
+                "browser": false,
+				"auto": false
             }
         },
         "mc.evi.nth~": {

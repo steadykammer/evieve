@@ -10,7 +10,8 @@
         "inlets": "input, ff0, ff1, ff2, fb1, fb2"
     },
     "includes": [
-        "evi_biquads"
+        "evi_biquads",
+        "evi_biquads_filters"
     ],
     "inlets": [
         {

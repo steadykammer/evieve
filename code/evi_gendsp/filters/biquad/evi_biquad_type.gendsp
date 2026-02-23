@@ -3,8 +3,8 @@
         "fileversion": 1,
         "appversion": {
             "major": 9,
-            "minor": 1,
-            "revision": 2,
+            "minor": 2,
+            "revision": 0,
             "architecture": "x64",
             "modernui": 1
         },
@@ -82,7 +82,7 @@
             },
             {
                 "box": {
-                    "code": "\r\n// this is stupid\r\n\r\nrequire(\"evi_biquads.genexpr\");\r\n\r\n// 0 = direct form 1 (MSP), 1 = direct form 2 (default), 2 = transposed direct form 2\r\nParam   type(1, min=0, max=2);\r\nmode    = int(type);\r\nreset   = delta(change(mode)) < 0;\r\n\r\neviBiquad = 0;\r\nif (mode == 1) {    // default\r\n    eviBiquad   = biquadDf2reset(in1, in2, in3, in4, in5, in6, reset);\r\n}\r\nelse if (mode == 2) {\r\n    eviBiquad   = biquadTdf2reset(in1, in2, in3, in4, in5, in6, reset);\r\n}\r\nelse {\r\n    eviBiquad   = biquadDf1reset(in1, in2, in3, in4, in5, in6, reset);\r\n}\r\n\r\nout1    = eviBiquad;\r\n\r\n",
+                    "code": "\r\n// this is stupid\r\n\r\nrequire(\"evi_biquads_filters.genexpr\");\r\n\r\n// 0 = direct form 1 (MSP), 1 = direct form 2 (default), 2 = transposed direct form 2\r\nParam   type(1, min=0, max=2);\r\nmode    = int(type);\r\nreset   = delta(change(mode)) < 0;\r\n\r\neviBiquad = 0;\r\nif (mode == 1) {    // default\r\n    eviBiquad   = biquadDf2reset(in1, in2, in3, in4, in5, in6, reset);\r\n}\r\nelse if (mode == 2) {\r\n    eviBiquad   = biquadTdf2reset(in1, in2, in3, in4, in5, in6, reset);\r\n}\r\nelse {\r\n    eviBiquad   = biquadDf1reset(in1, in2, in3, in4, in5, in6, reset);\r\n}\r\n\r\nout1    = eviBiquad;\r\n\r\n",
                     "fontface": 0,
                     "fontname": "<Monospaced>",
                     "fontsize": 12.0,
@@ -148,6 +148,7 @@
                     "source": [ "obj-8", 0 ]
                 }
             }
-        ]
+        ],
+        "autosave": 0
     }
 }

@@ -9,7 +9,7 @@
         <b>evi_eq3</b> is an abstraction for using inside <o>gen~</o> or <b>GenExpr</b>. <br />
          <br />
         evi_eq3.gendsp requires the GenExpr file(s): <br />
-        <o>evi_svfs</o>.genexpr <br />
+        <o>evi_svfs</o>.genexpr, <o>evi_svfs_lto</o>.genexpr <br />
          <br />
         evi_eq3 is also available in MSP as: <o>evi.eq3~</o>. <br />
          <br />

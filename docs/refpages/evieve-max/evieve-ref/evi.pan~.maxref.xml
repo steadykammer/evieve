@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
 <c74object name="evi.pan~" module="evieve-ref" category="evieve">
-  <digest>TEXT_HERE</digest>
-  <description>TEXT_HERE</description>
+  <digest>Pan audio signals</digest>
+  <description>Pan input(s) to output(s) using an efficient cosine algorithm very close to a 'sqrt'.</description>
   <metadatalist>
     <metadata name="author">Pete Dowling</metadata>
     <metadata name="tag">evieve</metadata>
@@ -15,7 +15,7 @@
     </inlet>
     <inlet id="1" type="signal/float">
       <digest>Pan Amount 0..1</digest>
-      <description>TEXT_HERE</description>
+      <description>Pan input(s) to output(s) using an efficient cosine algorithm very close to a 'sqrt'</description>
     </inlet>
   </inletlist>
   <outletlist>
@@ -59,7 +59,7 @@
     </attribute>
     <attribute name="pan2" get="1" set="1" type="float" size="1" alias="panning2">
       <digest>Panning (Right) 0..1</digest>
-      <description>TEXT_HERE</description>
+      <description>Pan input(s) to output(s) using an efficient cosine algorithm very close to a 'sqrt'</description>
       <attributelist>
         <attribute name="basic" get="1" set="1" type="int" size="1" value="1"></attribute>
         <attribute name="label" get="1" set="1" type="symbol" size="1" value="Panning (Right) 0..1"></attribute>
@@ -70,6 +70,7 @@
     <example caption="" img=""></example>
   </examplelist>
   <seealsolist>
-    <seealso name="bogus">TEXT_HERE</seealso>
+    <seealso name="evi.xfade~"></seealso>
+    <seealso name="evi_utilities" display="evi_utilities.genexpr" type="refpage"></seealso>
   </seealsolist>
 </c74object>

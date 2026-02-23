@@ -9,7 +9,7 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 63.0, 131.0, 1314.0, 790.0 ],
+        "rect": [ 63.0, 131.0, 660.0, 568.0 ],
         "openrect": [ 0.0, 0.0, 660.0, 568.0 ],
         "openrectmode": 0,
         "bglocked": 1,
@@ -101,7 +101,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 298.0, 268.0, 178.0, 33.0 ],
+                    "patching_rect": [ 298.0, 268.0, 179.0, 33.0 ],
                     "text": "<<-- needs to be an abstraction because of coefficients"
                 }
             },
@@ -111,7 +111,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 30.0, 321.0, 150.0, 20.0 ],
+                    "patching_rect": [ 30.0, 321.0, 168.0, 20.0 ],
                     "text": "Simpler basic ports:"
                 }
             },
@@ -157,7 +157,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 747.0, 40.0, 152.0, 100.0 ],
+                                    "patching_rect": [ 747.0, 40.0, 158.0, 100.0 ],
                                     "text": "in gen~ this will by default only work @48kHz samplerate, unless you feed in the coefficients from an external source. @see the MSP abstraction for details"
                                 }
                             },
@@ -460,7 +460,7 @@
                     "numinlets": 6,
                     "numoutlets": 2,
                     "outlettype": [ "signal", "signal" ],
-                    "patching_rect": [ 219.0, 358.0, 72.0, 22.0 ],
+                    "patching_rect": [ 229.0, 358.0, 72.0, 22.0 ],
                     "text": "evi.teeth~"
                 }
             },
@@ -471,7 +471,7 @@
                     "numinlets": 5,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 126.0, 358.0, 64.0, 22.0 ],
+                    "patching_rect": [ 133.5, 358.0, 64.0, 22.0 ],
                     "text": "evi.comb~"
                 }
             },

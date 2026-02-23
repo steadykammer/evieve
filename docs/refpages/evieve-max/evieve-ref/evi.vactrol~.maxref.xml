@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
 <c74object name="evi.vactrol~" module="evieve-ref" category="evieve">
-  <digest>TEXT_HERE</digest>
-  <description>TEXT_HERE</description>
+  <digest>Vactrol response time domain filter</digest>
+  <description>Analog modelled vactrol opto isolator emulation.</description>
   <metadatalist>
     <metadata name="author">Pete Dowling</metadata>
     <metadata name="tag">evieve</metadata>

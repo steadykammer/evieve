@@ -9,7 +9,7 @@
         <b>evi_svf</b> is an abstraction for using inside <o>gen~</o> or <b>GenExpr</b>. <br />
          <br />
         evi_svf.gendsp requires the GenExpr file(s): <br />
-        <o>evi_svfs</o>.genexpr <br />
+        <o>evi_svfs</o>.genexpr, <o>evi_svfs_filters</o>.genexpr <br />
          <br />
         evi_svf is also available in MSP as: <o>evi.svf~</o>. <br />
          <br />

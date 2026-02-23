@@ -9,7 +9,7 @@
         <b>evi_biquad_analog</b> is an abstraction for using inside <o>gen~</o> or <b>GenExpr</b>. <br />
          <br />
         evi_biquad_analog.gendsp requires the GenExpr file(s): <br />
-        <o>evi_biquads</o>.genexpr <br />
+        <o>evi_biquads</o>.genexpr, <o>evi_biquads_union</o>.genexpr, <o>evi_biquads_filters</o>.genexpr <br />
          <br />
         evi_biquad_analog is also available in MSP as: <o>evi.biquad.analog~</o>. <br />
          <br />

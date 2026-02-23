@@ -11,7 +11,8 @@
     },
     "includes": [
         "evi_svfs",
-        "evi_smooth"
+        "evi_smooth",
+        "evi_svfs_tpt_filters"
     ],
     "inlets": [
         {

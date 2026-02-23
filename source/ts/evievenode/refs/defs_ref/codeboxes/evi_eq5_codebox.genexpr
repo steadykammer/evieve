@@ -2,7 +2,7 @@
 // 5-band parametric EQ using TPT SVF filters, @see also: "evi_eq8.gendsp".
 // For audio rate control of all EQ parameters @see: "evi_eq3.gendsp".
 
-require("evi_svfs.genexpr");
+require("evi_svfs_lto.genexpr");
 
 eqBand(x, cutoff, db, Q, filter, reset, smooth=0)
 {

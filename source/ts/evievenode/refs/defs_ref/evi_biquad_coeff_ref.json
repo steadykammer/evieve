@@ -13,7 +13,9 @@
         "tags": []
     },
     "includes": [
-        "evi_biquads.genexpr"
+        "evi_biquads.genexpr",
+        "evi_biquads_union.genexpr",
+        "evi_biquads_filters.genexpr"
     ],
     "inlets": [
         {

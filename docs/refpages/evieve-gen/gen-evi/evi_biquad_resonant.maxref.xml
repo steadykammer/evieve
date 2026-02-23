@@ -9,7 +9,7 @@
         <b>evi_biquad_resonant</b> is an abstraction for using inside <o>gen~</o> or <b>GenExpr</b>. <br />
          <br />
         evi_biquad_resonant.gendsp requires the GenExpr file(s): <br />
-        <o>evi_biquads</o>.genexpr <br />
+        <o>evi_biquads</o>.genexpr, <o>evi_biquads_coeffs</o>.genexpr, <o>evi_biquads_filters</o>.genexpr <br />
          <br />
         evi_biquad_resonant is also available in MSP as: <o>evi.biquad.resonant~</o>. <br />
          <br />

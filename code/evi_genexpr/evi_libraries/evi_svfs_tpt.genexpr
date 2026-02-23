@@ -1,0 +1,751 @@
+
+//  //  //  For all evieve TPT SVF filters require "evi_svfs.genexpr".
+//  //  //  Because Gen does not cache require files, the evieve SVFs are
+//  //  //  separated out into smaller require files such as this one
+
+require("evi_smooth.genexpr");	// includes 'evi_utilities.genexpr' & 'evi_approx.genexpr'
+
+//	//	//	TPT (Topology Preserving Transform, Zavalishin et al)
+//	//	//	This linear core is also used as the basis for many of the nonlinear filters in evieve
+//	//	//	This is also used in the linear [evi.svf~] replacement & [evi.multimode~]
+
+require("evi_svfs_filters.genexpr");    // all raw filters in here
+
+
+/*
+	Calculators ("filter" parameter is integer index - sorry, that is gen~)
+
+	Index	Filter
+
+	0 		Bypass
+	1 		Lowpass
+	2 		Highpass
+	3 		Bandpass
+	4 		Peak
+	5 		Notch
+	6 		Resonant
+	7 		Bell
+	8 		BellAdaptiveQ
+	9 		Lowshelf
+	10 		Highshelf
+	11 		Tilt
+	12 		Allpass
+*/
+// make g, r, h & summing gains
+// look how simple this is compared to Direct Form !
+tptSvfCoeff(filter, cutoff, gain, fullQ)// gain is linear !
+{
+	cL, cB, cH	= 0;					// LP, BP, HP gain staging for summing the outputs
+	highQ 	= maximum(fullQ, 0.05);
+	Q 		= minimum(highQ, 20);
+
+	w	= PI * cutoff / SAMPLERATE;		// prewarp cutoff
+	g 	= tanA2(w);						// embedded integrator gain
+	r 	= sqrt2;						// damp, pre gain
+
+	if			(filter == 1) {			// LOWPASS
+		r 	= 1 / Q;
+		cL	= gain;
+		cB	= 0;
+		cH	= 0;
+	} else if	(filter == 2) {			// HIGHPASS
+		r 	= 1 / Q;
+		cL	= 0;
+		cB	= 0;
+		cH	= gain;
+	} else if	(filter == 3) {			// BANDPASS_SKIRT 
+		r 	= 1 / Q;
+		cL	= 0;
+		cB	= gain;
+		cH	= 0;
+	} else if	(filter == 4) {			// PEAK (this is a little bit wonky, not sure why)
+		r 	=  1 / Q;
+		cL	=  gain;
+		cB	= -r * gain;
+		cH	= -(gain + gain);
+	} else if	(filter == 5) {			// BANDREJECT (NOTCH)
+		r 	= 1 / Q;
+		cL	= gain;
+		cB	= 0;
+		cH	= gain;
+	} else if	(filter == 6) {			// BANDPASS_PEAK (RESON) (accepts much higher 'Q')
+		r 	= 1 / highQ;
+		cL	= 0;
+		cB	= r * gain;
+		cH	= 0;
+	} else if	(filter == 7) {			// BELL
+		r	= w / ((g + g) * Q);		// access w for bell
+		r	= g / tanA2(w / (r + sqrt(r * r + 1)));
+		r	= r * r;
+		s 	= sqrt(((r * r + 1) / r - 2) / (gain + gain + gain + gain));
+		r	= (s + s);
+		cL	= 1;
+		cB	= r * gain;
+		cH	= 1;
+	} else if	(filter == 8) {			// BELL_ADAPTIVE_Q
+		A	= sqrt(gain);
+        AA	= A * A;
+		vA	= (gain >= 1) ? (gain) : (1 / gain);
+		vQ	= Q * sqrt(vA);
+		r	= 1 / (vQ * A);
+		cL	= 1;
+		cB	= r * AA;
+		cH	= 1;
+	} else if	(filter == 9) {			// LOWSHELF
+		A	= sqrt(gain);
+		g  /= sqrt(A);					// scale cutoff frequency for shelfs
+		rh	= 0.5 / Q;
+		rh += sqrt((rh * rh) + 1);
+		r  -= 1 / rh;
+		cL	= gain;
+		cB	= r * A;
+		cH	= 1;
+	} else if	(filter == 10) {		// HIGHSHELF
+		A	= sqrt(gain);
+		g  *= sqrt(A);					// scale cutoff frequency for shelfs
+		rh	= 0.5 / Q;
+		rh += sqrt((rh * rh) + 1);
+		r  -= 1 / rh;
+		cL	= 1;
+		cB	= r * A;
+		cH	= gain;
+	} else if (filter == 11) {			// TILT
+		A	= sqrt(gain);
+        AA	= A * A;
+        g	= g * A;					// g *= sqrt(A) ??
+        dQ  = 1 / Q - 1;
+        rs	= 1 / (sqrt(dQ + dQ + 2));
+        r	= 1 / rs;
+        cL	= 1 / AA;
+        cB	= 1;
+        cH	= AA;
+	} else if	(filter == 12) {		// ALLPASS (normalised)
+		r 	=  1 / Q;
+		cL	=  1;                       // gain ?
+		cB	= -r;
+		cH	=  1;                       // gain ?
+	} else { // (filter == 0)			// BYPASS
+		g	= 0;						// tanA2(halfpi) (tan approx is safely 0)
+		r	= 1;						// 1 / Q
+		cL	= 1; 
+		cB	= r;
+		cH	= 1;
+	}
+
+	// feedback factor
+	h	= 1 / (1 + (r + g) * g);		// 1 / (1 + r * g + g * g)
+
+	return	g, r, h, cL, cB, cH;
+}
+
+// version for gen no tilde, because Max
+tptSvfCoeffNoTilde(filter, cutoff, gain, fullQ, AUDIO_SR=48000)	// gain is linear !
+{
+	cL, cB, cH	= 0;					// LP, BP, HP gain staging for summing the outputs
+	highQ 	= maximum(fullQ, 0.05);
+	Q 		= minimum(highQ, 20);
+
+	w	= PI * cutoff / AUDIO_SR;		// prewarp cutoff
+	g 	= tanA2(w);						// embedded integrator gain
+	r 	= sqrt2;						// damp, pre gain
+
+	if			(filter == 1) {			// LOWPASS
+		r 	= 1 / Q;
+		cL	= gain;
+		cB	= 0;
+		cH	= 0;
+	} else if	(filter == 2) {			// HIGHPASS
+		r 	= 1 / Q;
+		cL	= 0;
+		cB	= 0;
+		cH	= gain;
+	} else if	(filter == 3) {			// BANDPASS_SKIRT 
+		r 	= 1 / Q;
+		cL	= 0;
+		cB	= gain;
+		cH	= 0;
+	} else if	(filter == 4) {			// PEAK (this is a little bit wonky, not sure why)
+		r 	=  1 / Q;
+		cL	=  gain;
+		cB	= -r * gain;
+		cH	= -(gain + gain);
+	} else if	(filter == 5) {			// BANDREJECT (NOTCH)
+		r 	= 1 / Q;
+		cL	= gain;
+		cB	= 0;
+		cH	= gain;
+	} else if	(filter == 6) {			// BANDPASS_PEAK (RESON) (accepts much higher 'Q')
+		r 	= 1 / highQ;
+		cL	= 0;
+		cB	= r * gain;
+		cH	= 0;
+	} else if	(filter == 7) {			// BELL
+		r	= w / ((g + g) * Q);		// access w for bell
+		r	= g / tanA2(w / (r + sqrt(r * r + 1)));
+		r	= r * r;
+		s 	= sqrt(((r * r + 1) / r - 2) / (gain + gain + gain + gain));
+		r	= (s + s);
+		cL	= 1;
+		cB	= r * gain;
+		cH	= 1;
+	} else if	(filter == 8) {			// BELL_ADAPTIVE_Q
+		A	= sqrt(gain);
+        AA	= A * A;
+		vA	= (gain >= 1) ? (gain) : (1 / gain);
+		vQ	= Q * sqrt(vA);
+		r	= 1 / (vQ * A);
+		cL	= 1;
+		cB	= r * AA;
+		cH	= 1;
+	} else if	(filter == 9) {			// LOWSHELF
+		A	= sqrt(gain);
+		g  /= sqrt(A);					// scale cutoff frequency for shelfs
+		rh	= 0.5 / Q;
+		rh += sqrt((rh * rh) + 1);
+		r  -= 1 / rh;
+		cL	= gain;
+		cB	= r * A;
+		cH	= 1;
+	} else if	(filter == 10) {		// HIGHSHELF
+		A	= sqrt(gain);
+		g  *= sqrt(A);					// scale cutoff frequency for shelfs
+		rh	= 0.5 / Q;
+		rh += sqrt((rh * rh) + 1);
+		r  -= 1 / rh;
+		cL	= 1;
+		cB	= r * A;
+		cH	= gain;
+	} else if (filter == 11) {			// TILT
+		A	= sqrt(gain);
+        AA	= A * A;
+        g	= g * A;					// g *= sqrt(A) ??
+        dQ  = 1 / Q - 1;
+        rs	= 1 / (sqrt(dQ + dQ + 2));
+        r	= 1 / rs;
+        cL	= 1 / AA;
+        cB	= 1;
+        cH	= AA;
+	} else if	(filter == 12) {		// ALLPASS (normalised)
+		r 	=  1 / Q;
+		cL	=  1;                       // gain ?
+		cB	= -r;
+		cH	=  1;                       // gain ?
+	} else { // (filter == 0)			// BYPASS
+		g	= 0;						// tanA2(halfpi) (tan approx is safely 0)
+		r	= 1;						// 1 / Q
+		cL	= 1; 
+		cB	= r;
+		cH	= 1;
+	}
+
+	// feedback factor
+	h	= 1 / (1 + (r + g) * g);		// 1 / (1 + r * g + g * g)
+
+	return	g, r, h, cL, cB, cH;
+}
+
+// all in one section for use in gen~/GenExpr
+eviFilterTpt(x, cutoff, db, Q, filter, smooth=0)	// gain in dB, smooth time in ms
+{
+	History eftdummy(0);
+	smoothsecs	= smooth * 0.001;
+	gain 		= dbtoaApprox(db);
+	g, r, h, cL, cB, cH = tptSvfCoeff(filter, cutoff, gain, Q);
+	yL, yB, yH 	= tptSvf(x, g, r, h);
+	if (smooth > 0) {
+		cL, cB, cH 		= expsmoothBank3(cL, cB, cH, smoothsecs);
+	}
+	filtered	= (yL * cL) + (yB * cB) + (yH * cH);
+	return 		filtered;
+}
+
+eviFilterTptReset(x, cutoff, db, Q, filter, reset, smooth=0)	// gain in dB, smooth time in ms
+{
+	History eftrdummy(0);
+	smoothsecs	= smooth * 0.001;
+	gain 		= dbtoaApprox(db);
+	g, r, h, cL, cB, cH = tptSvfCoeff(filter, cutoff, gain, Q);
+	yL, yB, yH 	= tptSvfReset(x, g, r, h, reset);
+	if (smooth > 0) {
+		cL, cB, cH 		= expsmoothBank3(cL, cB, cH, smoothsecs);
+	}
+	filtered	= (yL * cL) + (yB * cB) + (yH * cH);
+	return 		filtered;
+}
+
+/*
+	EQ Calculators ("filter" parameter is integer index - sorry, that is gen~)
+
+	Index	Filter
+
+	0 		Bypass
+	1 		Highpass
+	2 		Lowshelf
+	3 		Bell
+	4 		BellAdaptiveQ
+	5 		Notch
+	6 		Highshelf
+	7 		Lowpass
+*/
+// coefficients just for EQ-ing, note different ordering as well
+tptSvfCoeffEq(filter, cutoff, gain, Q)	// gain is linear !
+{
+	cL, cB, cH	= 0;					// LP, BP, HP gain staging for summing the outputs
+
+	w	= PI * cutoff / SAMPLERATE;		// prewarp cutoff
+	g 	= tanA2(w);						// embedded integrator gain
+	r 	= sqrt2;						// damp, pre gain
+
+	if			(filter == 1) {			// HIGHPASS
+		r 	= 1 / Q;
+		cL	= 0;
+		cB	= 0;
+		cH	= gain;
+	} else if	(filter == 2) {			// LOWSHELF
+		A	= sqrt(gain);
+		g  /= sqrt(A);					// scale cutoff frequency for shelfs
+		r	= 0.5 / Q;
+		r  += sqrt((r * r) + 1);
+		r  -= 1 / r;
+		cL	= gain;
+		cB	= r * A;
+		cH	= 1;
+	} else if	(filter == 3) {			// BELL
+		r	= w / ((g + g) * Q);		// access w for bell
+		r	= g / tanA2(w / (r + sqrt(r * r + 1)));
+		r	= r * r;
+		s 	= sqrt(((r * r + 1) / r - 2) / (gain + gain + gain + gain));
+		r	= (s + s);
+		cL	= 1;
+		cB	= r * gain;
+		cH	= 1;
+	} else if	(filter == 4) {			// BELL_ADAPTIVE_Q
+		A	= sqrt(gain);
+        AA	= A * A;
+		vA	= (gain >= 1) ? (gain) : (1 / gain);
+		vQ	= Q * sqrt(vA);
+		r	= 1 / (vQ * A);
+		cL	= 1;
+		cB	= r * AA;
+		cH	= 1;
+	} else if	(filter == 5) {			// NOTCH
+		r 	= 1 / Q;
+		cL	= gain;
+		cB	= 0;
+		cH	= gain;
+	} else if	(filter == 6) {			// HIGHSHELF
+		A	= sqrt(gain);
+		g  *= sqrt(A);					// scale cutoff frequency for shelfs
+		r	= 0.5 / Q;
+		r  += sqrt((r * r) + 1);
+		r  -= 1 / r;
+		cL	= 1;
+		cB	= r * A;
+		cH	= gain;
+	} else if	(filter == 7) {			// LOWPASS
+		r 	= 1 / Q;
+		cL	= gain;
+		cB	= 0;
+		cH	= 0;
+	} else { // (filter == 0)			// BYPASS
+		g	= 0;						// tanA2(halfpi) (tan approx is safely 0)
+		r	= 1;						// 1 / Q
+		cL	= 1;
+		cB	= r;
+		cH	= 1;
+	}
+
+	// feedback factor
+	h	= 1 / (1 + (r + g) * g);		// 1 / (1 + r * g + g * g)
+
+	return	g, r, h, cL, cB, cH;
+}
+
+// version for gen no tilde, because Max
+tptSvfCoeffEqNoTilde(filter, cutoff, gain, Q, AUDIO_SR=48000)	// gain is linear !
+{
+	cL, cB, cH	= 0;					// LP, BP, HP gain staging for summing the outputs
+
+	w	= PI * cutoff / AUDIO_SR;		// prewarp cutoff
+	g 	= tanA2(w);						// embedded integrator gain
+	r 	= sqrt2;						// damp, pre gain
+
+	if			(filter == 1) {			// HIGHPASS
+		r 	= 1 / Q;
+		cL	= 0;
+		cB	= 0;
+		cH	= gain;
+	} else if	(filter == 2) {			// LOWSHELF
+		A	= sqrt(gain);
+		g  /= sqrt(A);					// scale cutoff frequency for shelfs
+		r	= 0.5 / Q;
+		r  += sqrt((r * r) + 1);
+		r  -= 1 / r;
+		cL	= gain;
+		cB	= r * A;
+		cH	= 1;
+	} else if	(filter == 3) {			// BELL
+		r	= w / ((g + g) * Q);		// access w for bell
+		r	= g / tanA2(w / (r + sqrt(r * r + 1)));
+		r	= r * r;
+		s 	= sqrt(((r * r + 1) / r - 2) / (gain + gain + gain + gain));
+		r	= (s + s);
+		cL	= 1;
+		cB	= r * gain;
+		cH	= 1;
+	} else if	(filter == 4) {			// BELL_ADAPTIVE_Q
+		A	= sqrt(gain);
+        AA	= A * A;
+		vA	= (gain >= 1) ? (gain) : (1 / gain);
+		vQ	= Q * sqrt(vA);
+		r	= 1 / (vQ * A);
+		cL	= 1;
+		cB	= r * AA;
+		cH	= 1;
+	} else if	(filter == 5) {			// NOTCH
+		r 	= 1 / Q;
+		cL	= gain;
+		cB	= 0;
+		cH	= gain;
+	} else if	(filter == 6) {			// HIGHSHELF
+		A	= sqrt(gain);
+		g  *= sqrt(A);					// scale cutoff frequency for shelfs
+		r	= 0.5 / Q;
+		r  += sqrt((r * r) + 1);
+		r  -= 1 / r;
+		cL	= 1;
+		cB	= r * A;
+		cH	= gain;
+	} else if	(filter == 7) {			// LOWPASS
+		r 	= 1 / Q;
+		cL	= gain;
+		cB	= 0;
+		cH	= 0;
+	} else { // (filter == 0)			// BYPASS
+		g	= 0;						// tanA2(halfpi) (tan approx is safely 0)
+		r	= 1;						// 1 / Q
+		cL	= 1;
+		cB	= r;
+		cH	= 1;
+	}
+
+	// feedback factor
+	h	= 1 / (1 + (r + g) * g);		// 1 / (1 + r * g + g * g)
+
+	return	g, r, h, cL, cB, cH;
+}
+
+// the linear filter, summed internally for EQ sections
+tptSvfEq(x, g, r, h, cL, cB, cH)
+{
+	History	s1(0), s2(0);
+	yH	= (x - (r + g) * s1 - s2) * h;
+	gyH	= g * yH;
+	yB	= gyH + s1;
+	s1	= gyH + yB;
+	gyB	= g * yB;
+	yL	= gyB + s2;
+	s2	= gyB + yL;
+	// summed low, band, high
+	return	(yL * cL) + (yB * cB) + (yH * cH);
+}
+
+tptSvfEqReset(x, g, r, h, cL, cB, cH, reset)
+{
+	History	s1(0), s2(0);
+	if (reset) {
+		s1 = 0;
+		s2 = 0;
+	}
+	yH	= (x - (r + g) * s1 - s2) * h;
+	gyH	= g * yH;
+	yB	= gyH + s1;
+	s1	= gyH + yB;
+	gyB	= g * yB;
+	yL	= gyB + s2;
+	s2	= gyB + yL;
+	// summed low, band, high
+	return	(yL * cL) + (yB * cB) + (yH * cH);
+}
+
+//	//	//	all in one sections for using in parametric EQ-ing etc
+//	//	//	also see below in LTO section
+
+eviFilterTptEq(x, cutoff, db, Q, filter, reset, smooth=0)	// gain in dB, smooth time in ms)
+{
+	History efedummy(0);
+	smoothsecs	= smooth * 0.001;
+	gain 		= dbtoaApprox(db);
+	g, r, h, cL, cB, cH = tptSvfCoeffEq(filter, cutoff, gain, Q);
+	if (smooth > 0) {
+		cL, cB, cH 		= expsmoothBank3(cL, cB, cH, smoothsecs);
+	}
+	eq			= tptSvfEqReset(x, g, r, h, cL, cB, cH, reset);
+	return 		eq;
+}
+
+eviFilterTptEqStereo(xL, xR, cutoff, db, Q, filter, reset, smooth=0)	// gain in dB, smooth time in ms)
+{
+	History efesdummy(0);
+	smoothsecs	= smooth * 0.001;
+	gain 		= dbtoaApprox(db);
+	g, r, h, cL, cB, cH = tptSvfCoeffEq(filter, cutoff, gain, Q);
+	if (smooth > 0) {
+		cL, cB, cH 		= expsmoothBank3(cL, cB, cH, smoothsecs);
+	}
+	eqL			= tptSvfEqReset(xL, g, r, h, cL, cB, cH, reset);
+	eqR			= tptSvfEqReset(xR, g, r, h, cL, cB, cH, reset);
+	return 		eqL, eqR;
+}
+
+// special morphing filter sections, use with 'tptSvf()'
+
+// morph filter coefficients LP..BP..HP..NOTCH..LP @like Ableton 'Morph Filter'
+tptSvfCoeffMorphFull(cutoff, gain, Q, morph, comp)		// gain is Linear, morph 0..1, compensate 0/1
+{
+	g	= tanA2(PI * cutoff / SAMPLERATE);
+//	gain    = expA(0.11512925464970 * db) + 0.000128;   // dBtoA
+	r	= sqrt2;
+
+    // i'm sure this could be done in a less arse about face sort of a way, but it works
+    cL, cB, cH, cN = 0;
+    if (morph < 0.5) {
+	    r	= 1 / Q;
+        cN  = 1;
+        x0  = morph + morph;
+	    x1	= (x0 + x0) - 1;
+	    cL	= maximum(-x1, 0);
+	    cH	= maximum( x1, 0);
+	    cB	= 1 - (cL + cH);
+	    cB	= sqrt(sqrt(cB));
+	    // scaling ensures constant gain at cutoff
+	    sc	= Q * sqrt((r * r) / (cL * cL + cB * cB + cH * cH - (cL + cL) * cH)) * gain;
+	    cL *= sc;
+	    cB *= sc;
+	    cH *= sc;
+    } else {
+        cB  = 0;
+        x0  = morph - 0.5;
+        cL  = x0 + x0;
+        cH  = 1 - cL;
+	    x1	= (cL + cL) - 1;
+        cN  = 2 - abs(x1);
+        // switch ensures notch clarity at high Q (if compensate is on)
+        r   = comp ? 1 / (Q * (1 / cN)) : 1 / Q;
+        cH *= gain;
+        cN *= gain;
+    }
+
+	h	= 1 / (1 + (r + g) * g);
+
+	return	g, r, h, cL, cB, cH, cN;    // !! 'cN' is extra !!
+}
+
+// morph filter coefficients based on Schmidt
+// ...'morph' 0..1 interpolates LP..BP..HP
+tptSvfCoeffMorphLpBpHp(cutoff, gain, Q, morph)		// gain is Linear
+{
+	g	= tanA2(PI * cutoff / SAMPLERATE);
+	r	= 1 / Q;
+	x	= (morph + morph) - 1;
+
+	cL	= maximum(-x, 0);
+	cH	= maximum( x, 0);
+	cB	= 1 - (cL + cH);
+//	cB	= fastpow( cB, 0.25) * 1.02196;	// function should map the range 0..1 monotonically
+	cB	= sqrt(sqrt(cB));
+	// 'sc' scaling ensures constant gain at cutoff
+	sc	= Q * sqrt((r * r) / (cL * cL + cB * cB + cH * cH - (cL + cL) * cH)) * gain;
+	cL *= sc;
+	cB *= sc;
+	cH *= sc;
+
+	// feedback factor
+	h	= 1 / (1 + (r + g) * g);
+
+	return	g, r, h, cL, cB, cH;
+}
+
+// ...'morph' 0..1 interpolates LP..NOTCH..HP
+tptSvfCoeffMorphLpBrHp(cutoff, gain, Q, morph, comp)	// gain is Linear, morph 0..1, compensate 0/1
+{
+	g	= tanA2(PI * cutoff / SAMPLERATE);
+	r	= sqrt2;
+
+    cH  = morph;
+    cL  = 1 - cH;
+	x	= (cH + cH) - 1;
+    cN  = 2 - abs(x);
+    // switch ensures notch clarity at high Q (if compensate is on)
+    r   = comp ? 1 / (Q * (1 / cN)) : 1 / Q;
+    cH *= gain;
+    cN *= gain;
+
+	h	= 1 / (1 + (r + g) * g);
+
+	return	g, r, h, cL, cN, cH;    // !! no 'cB', 'cN' instead !!
+}
+
+// 'morph' 0..1 interpolates LP..BP..HP..NOTCH..LP
+eviFilterMorph(x, hz, db, bw, morph, smooth=22.666)     // gain in dB, bandwidth 0..1, smooth in ms
+{
+	History efmdummy(0);
+	smoothsecs	= smooth * 0.001;
+	gain		= dbtoaApprox(db);
+	q 			= bandwidth2Q(((1 - sqrt(bw)) * 9.95) + 0.05);	// bw 0..1 to bandwidth to q, 10 octaves range
+	g, r, h, cL, cB, cH, cN = tptSvfCoeffMorphFull(hz, gain, q, morph, 1);
+	yL, yB, yH 	= tptSvf(x, g, r, h);
+	if (smooth > 0) {
+		cL, cB, cH, cN 		= expsmoothBank4(cL, cB, cH, cN, smoothsecs);
+	}
+	morphed		= cN * (yL * cL) + (yB * cB) + (yH * cH);
+	return 		morphed;
+}
+
+// 'morph' 0..1 interpolates LP..BP..HP..NOTCH..LP
+eviFilterMorphStereo(xL, xR, hz, db, bw, morph, smooth=22.666)  // gain in dB, bandwidth 0..1, smooth in ms
+{
+	History efmsdummy(0);
+	smoothsecs	= smooth * 0.001;
+	gain		= dbtoaApprox(db);
+	q 			= bandwidth2Q(((1 - sqrt(bw)) * 9.95) + 0.05);	// bw 0..1 to bandwidth to q, 10 octaves range
+	g, r, h, cL, cB, cH, cN = tptSvfCoeffMorphFull(hz, gain, q, morph, 1);
+	yLL, yBL, yHL 		= tptSvf(xL, g, r, h);
+	yLR, yBR, yHR 		= tptSvf(xR, g, r, h);
+	if (smooth > 0) {
+		cL, cB, cH, cN 		= expsmoothBank4(cL, cB, cH, cN, smoothsecs);
+	}
+	morphL		= cN * (yLL * cL) + (yBL * cB) + (yHL * cH);
+	morphR		= cN * (yLR * cL) + (yBR * cB) + (yHR * cH);
+	return 		morphL, morphR;
+}
+
+// 'morph' 0..1 interpolates LP..BP..HP
+eviFilterMorphLpBpHp(x, hz, db, bw, morph, smooth=22.666)	// gain in dB, bandwidth 0..1, smooth in ms
+{
+	History efmlbhdummy(0);
+	smoothsecs	= smooth * 0.001;
+	gain		= dbtoaApprox(db);
+	q 			= bandwidth2Q(((1 - sqrt(bw)) * 9.95) + 0.05);	// bw 0..1 to bandwidth to q, 10 octaves range
+	g, r, h, cL, cB, cH = tptSvfCoeffMorphLpBpHp(hz, gain, q, morph);
+	yL, yB, yH 	= tptSvf(x, g, r, h);
+	if (smooth > 0) {
+		cL, cB, cH 		= expsmoothBank3(cL, cB, cH, smoothsecs);
+	}
+	morphed		= (yL * cL) + (yB * cB) + (yH * cH);
+	return 		morphed;
+}
+
+// 'morph' 0..1 interpolates LP..BP..HP
+eviFilterMorphLpBpHpStereo(xL, xR, hz, db, bw, morph, smooth=22.666)	// gain in dB, bandwidth 0..1, smooth in ms
+{
+	History efmlbhsdummy(0);
+	smoothsecs	= smooth * 0.001;
+	gain		= dbtoaApprox(db);
+	q 			= bandwidth2Q(((1 - sqrt(bw)) * 9.95) + 0.05);	// bw 0..1 to bandwidth to q, 10 octaves range
+	g, r, h, cL, cB, cH = tptSvfCoeffMorphLpBpHp(hz, gain, q, morph);
+	yLL, yBL, yHL 		= tptSvf(xL, g, r, h);
+	yLR, yBR, yHR 		= tptSvf(xR, g, r, h);
+	if (smooth > 0) {
+		cL, cB, cH 		= expsmoothBank3(cL, cB, cH, smoothsecs);
+	}
+	morphL		= (yLL * cL) + (yBL * cB) + (yHL * cH);
+	morphR		= (yLR * cL) + (yBR * cB) + (yHR * cH);
+	return 		morphL, morphR;
+}
+
+// 'morph' 0..1 interpolates LP..NOTCH..HP
+eviFilterMorphLpBrHp(x, hz, db, bw, morph, smooth=22.666)	// gain in dB, bandwidth 0..1, smooth in ms
+{
+	History efmlnhdummy(0);
+	smoothsecs	= smooth * 0.001;
+	gain		= dbtoaApprox(db);
+	q 			= bandwidth2Q(((1 - sqrt(bw)) * 9.95) + 0.05);	// bw 0..1 to bandwidth to q, 10 octaves range
+	g, r, h, cL, cN, cH = tptSvfCoeffMorphLpBrHp(hz, gain, q, morph, 1);
+	yL, yB, yH 	= tptSvf(x, g, r, h);
+	if (smooth > 0) {
+		cL, cN, cH 		= expsmoothBank3(cL, cN, cH, smoothsecs);
+	}
+	morphed		= cN * (yL * cL) + (yH * cH); // note cN * yL first saves one mul
+	return 		morphed;
+}
+
+// 'morph' 0..1 interpolates LP..NOTCH..HP
+eviFilterMorphLpBrHpStereo(xL, xR, hz, db, bw, morph, smooth=22.666)	// gain in dB, bandwidth 0..1, smooth in ms
+{
+	History efmlnhsdummy(0);
+	smoothsecs	= smooth * 0.001;
+	gain		= dbtoaApprox(db);
+	q 			= bandwidth2Q(((1 - sqrt(bw)) * 9.95) + 0.05);	// bw 0..1 to bandwidth to q, 10 octaves range
+	g, r, h, cL, cN, cH = tptSvfCoeffMorphLpBrHp(hz, gain, q, morph, 1);
+	yLL, yBL, yHL 		= tptSvf(xL, g, r, h);
+	yLR, yBR, yHR 		= tptSvf(xR, g, r, h);
+	if (smooth > 0) {
+		cL, cN, cH 		= expsmoothBank3(cL, cN, cH, smoothsecs);
+	}
+	morphL		= cN * (yLL * cL) + (yHL * cH);
+	morphR		= cN * (yLR * cL) + (yHR * cH);
+	return 		morphL, morphR;
+}
+
+// a formlet filter, work in progress
+
+tptSvfFormlet(x, g, r1, r2, a1, a2)
+{
+	History	s11(0), s21(0), s12(0), s22(0);
+
+	yH1	= (x - (r1 + g) * s11 - s21) * a1;
+	yH2	= (x - (r2 + g) * s12 - s22) * a2;
+
+	gyH1	= g * yH1;
+	yB1	    = gyH1 + s11;
+	s11	    = gyH1 + yB1;
+
+	gyH2	= g * yH2;
+	yB2	    = gyH2 + s12;
+	s12	    = gyH2 + yB2;
+
+	gyB1	= g * yB1;
+	yL1	    = gyB1 + s21;
+	s21	    = gyB1 + yL1;
+
+	gyB2	= g * yB2;
+	yL2	    = gyB2 + s22;
+	s22	    = gyB2 + yL2;
+
+	return	yB2 - yB1;  // you can mess with the summing here and produce interesting impulses
+}
+
+tptSvfCoeffFormlet(cutoff, AT, DT)      // AT/DT are attack/decay times in seconds
+{
+    LOGTH   = -6.907755278982137;       // ln(0.001) = -60dB
+	w		= PI * cutoff / SAMPLERATE;
+	g 		= tanA2(w);
+	temp 	= samplerate * 0.1;
+    // something is wrong with my calculations, time is not right
+    // also, at the moment, decay seems to be frequency dependent, which is wrong
+	r1 		= 1 - maximum(expA(LOGTH / (AT * temp)), 0);  // t60...
+    r2  	= 1 - maximum(expA(LOGTH / (DT * temp)), 0);
+//  omg		= 1 - g;
+	h1		= 1 / (1 + (r1 + g) * g);	// problem must be in feedback factor, oder?
+	h2		= 1 / (1 + (r2 + g) * g);
+
+	return	g, r1, r2, h1, h2;
+}
+
+// attack / decay times in ms, must be clamped low, such as 0.01 ?
+eviFilterFormlet(x, cutoff, attack, decay)
+{
+	History prev_cf(0);
+	// g corrected for audio rate FM of cutoff
+    lin_cf  = cutoff - prev_cf;
+    corr_cf = cutoff + 0.5 * lin_cf;
+    prev_cf = cutoff;
+    AT          = attack * 0.001;
+    DT          = decay * 0.001;
+	g, r1, r2, h1, h2   = tptSvfCoeffFormlet(corr_cf, AT, DT);
+	yB 	        = tptSvfFormlet(x, g, r1, r2, h1, h2);
+	fofilt		= yB * 1.995262; // + 6dB, because
+	return 		fofilt;
+}
+

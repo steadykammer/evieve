@@ -9,7 +9,7 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 63.0, 131.0, 908.0, 766.0 ],
+        "rect": [ 63.0, 131.0, 660.0, 568.0 ],
         "openrect": [ 0.0, 0.0, 660.0, 568.0 ],
         "openrectmode": 0,
         "bglocked": 1,
@@ -77,8 +77,8 @@
                     "numinlets": 2,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
-                    "patching_rect": [ 336.0, 570.0, 203.0, 22.0 ],
-                    "text": "list.reg evieve_biquad_filters.maxpat"
+                    "patching_rect": [ 336.0, 570.0, 192.0, 22.0 ],
+                    "text": "list.reg areas_help_biquad.maxpat"
                 }
             },
             {

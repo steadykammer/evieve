@@ -1,0 +1,2074 @@
+{
+    "description": "",
+    "requires": [
+        "evi_smooth.genexpr",
+        "evi_svfs_filters.genexpr"
+    ],
+    "functions": [
+        {
+            "document": true,
+            "digest": "",
+            "name": "tptSvfCoeffLowpass",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "cutoff",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "gain",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "Q",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 6,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "tptSvfCoeffHighpass",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "cutoff",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "gain",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "Q",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 6,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "tptSvfCoeffBandpass",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "cutoff",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "gain",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "Q",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 6,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "ltoSvfCoeffPeak",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "cutoff",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "gain",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "Q",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 6,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "tptSvfCoeffBandreject",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "cutoff",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "gain",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "Q",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 6,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "tptSvfCoeffResonant",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "cutoff",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "gain",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "Q",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 6,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "tptSvfCoeffReson",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "cutoff",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "gain",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "Q",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "compensate",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "tptSvfCoeffPeakNotch",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "cutoff",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "gain",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "Q",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 6,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "tptSvfCoeffBellAdaptive",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "cutoff",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "gain",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "Q",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 6,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "tptSvfCoeffLowshelf",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "cutoff",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "gain",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "Q",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 6,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "tptSvfCoeffHighshelf",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "cutoff",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "gain",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "Q",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 6,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "tptSvfCoeffTilt",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "cutoff",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "gain",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "Q",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 6,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "tptSvfCoeffAllpassNorm",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "cutoff",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "Q",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 6,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "eviFilterLowpass",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "cutoff",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "db",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "Q",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "param",
+                    "name": "smooth",
+                    "default": 0,
+                    "type": "integer",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "eviFilterLowpassStereo",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "xL",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "xR",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "cutoff",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "db",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "input",
+                    "name": "Q",
+                    "digest": ""
+                },
+                {
+                    "id": 6,
+                    "kind": "param",
+                    "name": "smooth",
+                    "default": 0,
+                    "type": "integer",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "eviFilterHighpass",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "cutoff",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "db",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "Q",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "param",
+                    "name": "smooth",
+                    "default": 0,
+                    "type": "integer",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "eviFilterHighpassStereo",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "xL",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "xR",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "cutoff",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "db",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "input",
+                    "name": "Q",
+                    "digest": ""
+                },
+                {
+                    "id": 6,
+                    "kind": "param",
+                    "name": "smooth",
+                    "default": 0,
+                    "type": "integer",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "eviFilterBandpass",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "cutoff",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "db",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "Q",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "param",
+                    "name": "smooth",
+                    "default": 0,
+                    "type": "integer",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "eviFilterBandpassStereo",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "xL",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "xR",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "cutoff",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "db",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "input",
+                    "name": "Q",
+                    "digest": ""
+                },
+                {
+                    "id": 6,
+                    "kind": "param",
+                    "name": "smooth",
+                    "default": 0,
+                    "type": "integer",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "eviFilterPeak",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "cutoff",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "db",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "Q",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "param",
+                    "name": "smooth",
+                    "default": 0,
+                    "type": "integer",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "eviFilterPeakStereo",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "xL",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "xR",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "cutoff",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "db",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "input",
+                    "name": "Q",
+                    "digest": ""
+                },
+                {
+                    "id": 6,
+                    "kind": "param",
+                    "name": "smooth",
+                    "default": 0,
+                    "type": "integer",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "eviFilterNotch",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "cutoff",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "db",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "Q",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "param",
+                    "name": "smooth",
+                    "default": 0,
+                    "type": "integer",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "eviFilterNotchStereo",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "xL",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "xR",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "cutoff",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "db",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "input",
+                    "name": "Q",
+                    "digest": ""
+                },
+                {
+                    "id": 6,
+                    "kind": "param",
+                    "name": "smooth",
+                    "default": 0,
+                    "type": "integer",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "eviFilterResonant",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "cutoff",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "db",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "Q",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "param",
+                    "name": "smooth",
+                    "default": 0,
+                    "type": "integer",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "eviFilterResonantStereo",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "xL",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "xR",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "cutoff",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "db",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "input",
+                    "name": "Q",
+                    "digest": ""
+                },
+                {
+                    "id": 6,
+                    "kind": "param",
+                    "name": "smooth",
+                    "default": 0,
+                    "type": "integer",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "eviFilterReson",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "gain",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "cutoff",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "Q",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "input",
+                    "name": "compensate",
+                    "digest": ""
+                },
+                {
+                    "id": 6,
+                    "kind": "param",
+                    "name": "smooth",
+                    "default": 0,
+                    "type": "integer",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "eviFilterResonStereo",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "gain",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "cutoff",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "Q",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "input",
+                    "name": "compensate",
+                    "digest": ""
+                },
+                {
+                    "id": 6,
+                    "kind": "param",
+                    "name": "smooth",
+                    "default": 0,
+                    "type": "integer",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "eviFilterBell",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "cutoff",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "db",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "Q",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "param",
+                    "name": "smooth",
+                    "default": 0,
+                    "type": "integer",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "eviFilterBellStereo",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "xL",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "xR",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "cutoff",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "db",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "input",
+                    "name": "Q",
+                    "digest": ""
+                },
+                {
+                    "id": 6,
+                    "kind": "param",
+                    "name": "smooth",
+                    "default": 0,
+                    "type": "integer",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "eviFilterBellAdaptive",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "cutoff",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "db",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "Q",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "param",
+                    "name": "smooth",
+                    "default": 0,
+                    "type": "integer",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "eviFilterBellAdaptiveStereo",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "xL",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "xR",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "cutoff",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "db",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "input",
+                    "name": "Q",
+                    "digest": ""
+                },
+                {
+                    "id": 6,
+                    "kind": "param",
+                    "name": "smooth",
+                    "default": 0,
+                    "type": "integer",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "eviFilterLowshelf",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "cutoff",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "db",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "Q",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "param",
+                    "name": "smooth",
+                    "default": 0,
+                    "type": "integer",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "eviFilterLowshelfStereo",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "xL",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "xR",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "cutoff",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "db",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "input",
+                    "name": "Q",
+                    "digest": ""
+                },
+                {
+                    "id": 6,
+                    "kind": "param",
+                    "name": "smooth",
+                    "default": 0,
+                    "type": "integer",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "eviFilterHighshelf",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "cutoff",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "db",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "Q",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "param",
+                    "name": "smooth",
+                    "default": 0,
+                    "type": "integer",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "eviFilterHighshelfStereo",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "xL",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "xR",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "cutoff",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "db",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "input",
+                    "name": "Q",
+                    "digest": ""
+                },
+                {
+                    "id": 6,
+                    "kind": "param",
+                    "name": "smooth",
+                    "default": 0,
+                    "type": "integer",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "eviFilterTilt",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "cutoff",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "db",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "Q",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "param",
+                    "name": "smooth",
+                    "default": 0,
+                    "type": "integer",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "eviFilterTiltStereo",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "xL",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "xR",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "cutoff",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "db",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "input",
+                    "name": "Q",
+                    "digest": ""
+                },
+                {
+                    "id": 6,
+                    "kind": "param",
+                    "name": "smooth",
+                    "default": 0,
+                    "type": "integer",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "eviFilterAllpassNorm",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "cutoff",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "Q",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "param",
+                    "name": "smooth",
+                    "default": 0,
+                    "type": "integer",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "eviFilterAllpassNormStereo",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "xL",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "xR",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "cutoff",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "Q",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "param",
+                    "name": "smooth",
+                    "default": 0,
+                    "type": "integer",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        }
+    ],
+    "seealso": []
+}

@@ -10,7 +10,7 @@
 // @see also: 'evi_freqshift_hilbert.gendsp' and 'evi_freqshift_weaver.gendsp'
 
 
-require("evi_biquad");
+require("evi_biquads_extras.genexpr");
 
 // 64-bit Polyphase IIR Halfband Allpass Cascade Coefficients updated
 // from Javascript, defaults are for 48kHz Samplerate & 40Hz bandwidth

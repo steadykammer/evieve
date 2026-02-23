@@ -10,7 +10,8 @@
         "inlets": "input, frequency, q"
     },
     "includes": [
-        "evi_svfs"
+        "evi_svfs",
+        "evi_svfs_tpt_filters"
     ],
     "inlets": [
         {

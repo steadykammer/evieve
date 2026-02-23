@@ -1,0 +1,1303 @@
+{
+    "description": "",
+    "requires": [
+        "evi_smooth.genexpr",
+        "evi_svfs_filters.genexpr"
+    ],
+    "functions": [
+        {
+            "document": true,
+            "digest": "",
+            "name": "svfSectionCoeff",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "filter",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "cutoff",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "gain",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "fullQ",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 6,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "svfSectionCoeffNoTilde",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "filter",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "cutoff",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "gain",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "fullQ",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "param",
+                    "name": "AUDIO_SR",
+                    "default": 48000,
+                    "type": "integer",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 6,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "eviFilterLto",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "cutoff",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "db",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "Q",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "input",
+                    "name": "filter",
+                    "digest": ""
+                },
+                {
+                    "id": 6,
+                    "kind": "param",
+                    "name": "smooth",
+                    "default": 0,
+                    "type": "integer",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "eviFilterLtoReset",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "cutoff",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "db",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "Q",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "input",
+                    "name": "filter",
+                    "digest": ""
+                },
+                {
+                    "id": 6,
+                    "kind": "input",
+                    "name": "reset",
+                    "digest": ""
+                },
+                {
+                    "id": 7,
+                    "kind": "param",
+                    "name": "smooth",
+                    "default": 0,
+                    "type": "integer",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "svfSectionCoeffEq",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "filter",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "cutoff",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "gain",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "Q",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 6,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "svfSectionCoeffEqNoTilde",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "filter",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "cutoff",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "gain",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "Q",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "param",
+                    "name": "AUDIO_SR",
+                    "default": 48000,
+                    "type": "integer",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 6,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "eviFilterEq",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "cutoff",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "db",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "Q",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "input",
+                    "name": "filter",
+                    "digest": ""
+                },
+                {
+                    "id": 6,
+                    "kind": "param",
+                    "name": "smooth",
+                    "default": 0,
+                    "type": "integer",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "eviFilterEqReset",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "cutoff",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "db",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "Q",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "input",
+                    "name": "filter",
+                    "digest": ""
+                },
+                {
+                    "id": 6,
+                    "kind": "input",
+                    "name": "reset",
+                    "digest": ""
+                },
+                {
+                    "id": 7,
+                    "kind": "param",
+                    "name": "smooth",
+                    "default": 0,
+                    "type": "integer",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "eviFilterEq4",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "cutoff",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "db",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "Q",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "input",
+                    "name": "filter",
+                    "digest": ""
+                },
+                {
+                    "id": 6,
+                    "kind": "param",
+                    "name": "smooth",
+                    "default": 0,
+                    "type": "integer",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "eviFilterEq4Reset",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "cutoff",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "db",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "Q",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "input",
+                    "name": "filter",
+                    "digest": ""
+                },
+                {
+                    "id": 6,
+                    "kind": "input",
+                    "name": "reset",
+                    "digest": ""
+                },
+                {
+                    "id": 7,
+                    "kind": "param",
+                    "name": "smooth",
+                    "default": 0,
+                    "type": "integer",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "eviFilterEqStereo",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "xL",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "xR",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "cutoff",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "db",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "input",
+                    "name": "Q",
+                    "digest": ""
+                },
+                {
+                    "id": 6,
+                    "kind": "input",
+                    "name": "filter",
+                    "digest": ""
+                },
+                {
+                    "id": 7,
+                    "kind": "param",
+                    "name": "smooth",
+                    "default": 0,
+                    "type": "integer",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "eviFilterEq4Stereo",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "xL",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "xR",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "cutoff",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "db",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "input",
+                    "name": "Q",
+                    "digest": ""
+                },
+                {
+                    "id": 6,
+                    "kind": "input",
+                    "name": "filter",
+                    "digest": ""
+                },
+                {
+                    "id": 7,
+                    "kind": "param",
+                    "name": "smooth",
+                    "default": 0,
+                    "type": "integer",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "eviSvfTwoSections",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "band0",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "a11",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "a21",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "a31",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "input",
+                    "name": "m01",
+                    "digest": ""
+                },
+                {
+                    "id": 6,
+                    "kind": "input",
+                    "name": "m11",
+                    "digest": ""
+                },
+                {
+                    "id": 7,
+                    "kind": "input",
+                    "name": "m21",
+                    "digest": ""
+                },
+                {
+                    "id": 8,
+                    "kind": "input",
+                    "name": "a12",
+                    "digest": ""
+                },
+                {
+                    "id": 9,
+                    "kind": "input",
+                    "name": "a22",
+                    "digest": ""
+                },
+                {
+                    "id": 10,
+                    "kind": "input",
+                    "name": "a32",
+                    "digest": ""
+                },
+                {
+                    "id": 11,
+                    "kind": "input",
+                    "name": "m02",
+                    "digest": ""
+                },
+                {
+                    "id": 12,
+                    "kind": "input",
+                    "name": "m12",
+                    "digest": ""
+                },
+                {
+                    "id": 13,
+                    "kind": "input",
+                    "name": "m22",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "eviSvfTwoSectionsStereo",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "band0L",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "band0R",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "a11",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "a21",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "input",
+                    "name": "a31",
+                    "digest": ""
+                },
+                {
+                    "id": 6,
+                    "kind": "input",
+                    "name": "m01",
+                    "digest": ""
+                },
+                {
+                    "id": 7,
+                    "kind": "input",
+                    "name": "m11",
+                    "digest": ""
+                },
+                {
+                    "id": 8,
+                    "kind": "input",
+                    "name": "m21",
+                    "digest": ""
+                },
+                {
+                    "id": 9,
+                    "kind": "input",
+                    "name": "a12",
+                    "digest": ""
+                },
+                {
+                    "id": 10,
+                    "kind": "input",
+                    "name": "a22",
+                    "digest": ""
+                },
+                {
+                    "id": 11,
+                    "kind": "input",
+                    "name": "a32",
+                    "digest": ""
+                },
+                {
+                    "id": 12,
+                    "kind": "input",
+                    "name": "m02",
+                    "digest": ""
+                },
+                {
+                    "id": 13,
+                    "kind": "input",
+                    "name": "m12",
+                    "digest": ""
+                },
+                {
+                    "id": 14,
+                    "kind": "input",
+                    "name": "m22",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "eviParametric2",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "filter1",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "cutoff1",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "db1",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "input",
+                    "name": "Q1",
+                    "digest": ""
+                },
+                {
+                    "id": 6,
+                    "kind": "input",
+                    "name": "filter2",
+                    "digest": ""
+                },
+                {
+                    "id": 7,
+                    "kind": "input",
+                    "name": "cutoff2",
+                    "digest": ""
+                },
+                {
+                    "id": 8,
+                    "kind": "input",
+                    "name": "db2",
+                    "digest": ""
+                },
+                {
+                    "id": 9,
+                    "kind": "input",
+                    "name": "Q2",
+                    "digest": ""
+                },
+                {
+                    "id": 10,
+                    "kind": "param",
+                    "name": "smooth",
+                    "default": 0,
+                    "type": "integer",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "eviParametric3",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "filter1",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "cutoff1",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "db1",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "input",
+                    "name": "Q1",
+                    "digest": ""
+                },
+                {
+                    "id": 6,
+                    "kind": "input",
+                    "name": "filter2",
+                    "digest": ""
+                },
+                {
+                    "id": 7,
+                    "kind": "input",
+                    "name": "cutoff2",
+                    "digest": ""
+                },
+                {
+                    "id": 8,
+                    "kind": "input",
+                    "name": "db2",
+                    "digest": ""
+                },
+                {
+                    "id": 9,
+                    "kind": "input",
+                    "name": "Q2",
+                    "digest": ""
+                },
+                {
+                    "id": 10,
+                    "kind": "input",
+                    "name": "filter3",
+                    "digest": ""
+                },
+                {
+                    "id": 11,
+                    "kind": "input",
+                    "name": "cutoff3",
+                    "digest": ""
+                },
+                {
+                    "id": 12,
+                    "kind": "input",
+                    "name": "db3",
+                    "digest": ""
+                },
+                {
+                    "id": 13,
+                    "kind": "input",
+                    "name": "Q3",
+                    "digest": ""
+                },
+                {
+                    "id": 14,
+                    "kind": "param",
+                    "name": "smooth",
+                    "default": 0,
+                    "type": "integer",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "eviParametricStereo2",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "xL",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "xR",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "filter1",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "cutoff1",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "input",
+                    "name": "db1",
+                    "digest": ""
+                },
+                {
+                    "id": 6,
+                    "kind": "input",
+                    "name": "Q1",
+                    "digest": ""
+                },
+                {
+                    "id": 7,
+                    "kind": "input",
+                    "name": "filter2",
+                    "digest": ""
+                },
+                {
+                    "id": 8,
+                    "kind": "input",
+                    "name": "cutoff2",
+                    "digest": ""
+                },
+                {
+                    "id": 9,
+                    "kind": "input",
+                    "name": "db2",
+                    "digest": ""
+                },
+                {
+                    "id": 10,
+                    "kind": "input",
+                    "name": "Q2",
+                    "digest": ""
+                },
+                {
+                    "id": 11,
+                    "kind": "param",
+                    "name": "smooth",
+                    "default": 0,
+                    "type": "integer",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "eviParametricStereo3",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "xL",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "xR",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "filter1",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "cutoff1",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "input",
+                    "name": "db1",
+                    "digest": ""
+                },
+                {
+                    "id": 6,
+                    "kind": "input",
+                    "name": "Q1",
+                    "digest": ""
+                },
+                {
+                    "id": 7,
+                    "kind": "input",
+                    "name": "filter2",
+                    "digest": ""
+                },
+                {
+                    "id": 8,
+                    "kind": "input",
+                    "name": "cutoff2",
+                    "digest": ""
+                },
+                {
+                    "id": 9,
+                    "kind": "input",
+                    "name": "db2",
+                    "digest": ""
+                },
+                {
+                    "id": 10,
+                    "kind": "input",
+                    "name": "Q2",
+                    "digest": ""
+                },
+                {
+                    "id": 11,
+                    "kind": "input",
+                    "name": "filter3",
+                    "digest": ""
+                },
+                {
+                    "id": 12,
+                    "kind": "input",
+                    "name": "cutoff3",
+                    "digest": ""
+                },
+                {
+                    "id": 13,
+                    "kind": "input",
+                    "name": "db3",
+                    "digest": ""
+                },
+                {
+                    "id": 14,
+                    "kind": "input",
+                    "name": "Q3",
+                    "digest": ""
+                },
+                {
+                    "id": 15,
+                    "kind": "param",
+                    "name": "smooth",
+                    "default": 0,
+                    "type": "integer",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        }
+    ],
+    "seealso": []
+}

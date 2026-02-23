@@ -1,0 +1,955 @@
+{
+    "description": "",
+    "requires": [],
+    "functions": [
+        {
+            "document": true,
+            "digest": "",
+            "name": "biquadDf1",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "a0",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "a1",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "a2",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "input",
+                    "name": "b1",
+                    "digest": ""
+                },
+                {
+                    "id": 6,
+                    "kind": "input",
+                    "name": "b2",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "biquadDf1reset",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "a0",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "a1",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "a2",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "input",
+                    "name": "b1",
+                    "digest": ""
+                },
+                {
+                    "id": 6,
+                    "kind": "input",
+                    "name": "b2",
+                    "digest": ""
+                },
+                {
+                    "id": 7,
+                    "kind": "input",
+                    "name": "reset",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "biquadDf2",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "a0",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "a1",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "a2",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "input",
+                    "name": "b1",
+                    "digest": ""
+                },
+                {
+                    "id": 6,
+                    "kind": "input",
+                    "name": "b2",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "biquadDf2reset",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "a0",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "a1",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "a2",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "input",
+                    "name": "b1",
+                    "digest": ""
+                },
+                {
+                    "id": 6,
+                    "kind": "input",
+                    "name": "b2",
+                    "digest": ""
+                },
+                {
+                    "id": 7,
+                    "kind": "input",
+                    "name": "reset",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "biquadTdf2",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "a0",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "a1",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "a2",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "input",
+                    "name": "b1",
+                    "digest": ""
+                },
+                {
+                    "id": 6,
+                    "kind": "input",
+                    "name": "b2",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "biquadTdf2reset",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "a0",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "a1",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "a2",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "input",
+                    "name": "b1",
+                    "digest": ""
+                },
+                {
+                    "id": 6,
+                    "kind": "input",
+                    "name": "b2",
+                    "digest": ""
+                },
+                {
+                    "id": 7,
+                    "kind": "input",
+                    "name": "reset",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "polezeroDf1",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "a0",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "_a1",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "_a2",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "input",
+                    "name": "b1",
+                    "digest": ""
+                },
+                {
+                    "id": 6,
+                    "kind": "input",
+                    "name": "_b2",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "polezeroDf1reset",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "a0",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "_a1",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "_a2",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "input",
+                    "name": "b1",
+                    "digest": ""
+                },
+                {
+                    "id": 6,
+                    "kind": "input",
+                    "name": "_b2",
+                    "digest": ""
+                },
+                {
+                    "id": 7,
+                    "kind": "input",
+                    "name": "reset",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "biquadDf2cascade",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x0",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "a0",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "a1",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "a2",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "input",
+                    "name": "b1",
+                    "digest": ""
+                },
+                {
+                    "id": 6,
+                    "kind": "input",
+                    "name": "b2",
+                    "digest": ""
+                },
+                {
+                    "id": 7,
+                    "kind": "input",
+                    "name": "x1",
+                    "digest": ""
+                },
+                {
+                    "id": 8,
+                    "kind": "input",
+                    "name": "x2",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "biquadTdf2cascade",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x0",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "a0",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "a1",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "a2",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "input",
+                    "name": "b1",
+                    "digest": ""
+                },
+                {
+                    "id": 6,
+                    "kind": "input",
+                    "name": "b2",
+                    "digest": ""
+                },
+                {
+                    "id": 7,
+                    "kind": "input",
+                    "name": "x1",
+                    "digest": ""
+                },
+                {
+                    "id": 8,
+                    "kind": "input",
+                    "name": "x2",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "biquadDf2parallel",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "a0_1",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "a1_1",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "a2_1",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "input",
+                    "name": "b1_1",
+                    "digest": ""
+                },
+                {
+                    "id": 6,
+                    "kind": "input",
+                    "name": "b2_1",
+                    "digest": ""
+                },
+                {
+                    "id": 7,
+                    "kind": "input",
+                    "name": "a0_2",
+                    "digest": ""
+                },
+                {
+                    "id": 8,
+                    "kind": "input",
+                    "name": "a1_2",
+                    "digest": ""
+                },
+                {
+                    "id": 9,
+                    "kind": "input",
+                    "name": "a2_2",
+                    "digest": ""
+                },
+                {
+                    "id": 10,
+                    "kind": "input",
+                    "name": "b1_2",
+                    "digest": ""
+                },
+                {
+                    "id": 11,
+                    "kind": "input",
+                    "name": "b2_2",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "biquadDf2double",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "a0_1",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "a1_1",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "a2_1",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "input",
+                    "name": "b1_1",
+                    "digest": ""
+                },
+                {
+                    "id": 6,
+                    "kind": "input",
+                    "name": "b2_1",
+                    "digest": ""
+                },
+                {
+                    "id": 7,
+                    "kind": "input",
+                    "name": "a0_2",
+                    "digest": ""
+                },
+                {
+                    "id": 8,
+                    "kind": "input",
+                    "name": "a1_2",
+                    "digest": ""
+                },
+                {
+                    "id": 9,
+                    "kind": "input",
+                    "name": "a2_2",
+                    "digest": ""
+                },
+                {
+                    "id": 10,
+                    "kind": "input",
+                    "name": "b1_2",
+                    "digest": ""
+                },
+                {
+                    "id": 11,
+                    "kind": "input",
+                    "name": "b2_2",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "biquadDf2triple",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x0",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "a0_1",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "a1_1",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "a2_1",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "input",
+                    "name": "b1_1",
+                    "digest": ""
+                },
+                {
+                    "id": 6,
+                    "kind": "input",
+                    "name": "b2_1",
+                    "digest": ""
+                },
+                {
+                    "id": 7,
+                    "kind": "input",
+                    "name": "a0_2",
+                    "digest": ""
+                },
+                {
+                    "id": 8,
+                    "kind": "input",
+                    "name": "a1_2",
+                    "digest": ""
+                },
+                {
+                    "id": 9,
+                    "kind": "input",
+                    "name": "a2_2",
+                    "digest": ""
+                },
+                {
+                    "id": 10,
+                    "kind": "input",
+                    "name": "b1_2",
+                    "digest": ""
+                },
+                {
+                    "id": 11,
+                    "kind": "input",
+                    "name": "b2_2",
+                    "digest": ""
+                },
+                {
+                    "id": 12,
+                    "kind": "input",
+                    "name": "a0_3",
+                    "digest": ""
+                },
+                {
+                    "id": 13,
+                    "kind": "input",
+                    "name": "a1_3",
+                    "digest": ""
+                },
+                {
+                    "id": 14,
+                    "kind": "input",
+                    "name": "a2_3",
+                    "digest": ""
+                },
+                {
+                    "id": 15,
+                    "kind": "input",
+                    "name": "b1_3",
+                    "digest": ""
+                },
+                {
+                    "id": 16,
+                    "kind": "input",
+                    "name": "b2_3",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "biquadDf2tmw",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x0",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "a0_1",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "a1_1",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "a2_1",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "input",
+                    "name": "b1_1",
+                    "digest": ""
+                },
+                {
+                    "id": 6,
+                    "kind": "input",
+                    "name": "b2_1",
+                    "digest": ""
+                },
+                {
+                    "id": 7,
+                    "kind": "input",
+                    "name": "a0_2",
+                    "digest": ""
+                },
+                {
+                    "id": 8,
+                    "kind": "input",
+                    "name": "a1_2",
+                    "digest": ""
+                },
+                {
+                    "id": 9,
+                    "kind": "input",
+                    "name": "a2_2",
+                    "digest": ""
+                },
+                {
+                    "id": 10,
+                    "kind": "input",
+                    "name": "b1_2",
+                    "digest": ""
+                },
+                {
+                    "id": 11,
+                    "kind": "input",
+                    "name": "b2_2",
+                    "digest": ""
+                },
+                {
+                    "id": 12,
+                    "kind": "input",
+                    "name": "a0_3",
+                    "digest": ""
+                },
+                {
+                    "id": 13,
+                    "kind": "input",
+                    "name": "a1_3",
+                    "digest": ""
+                },
+                {
+                    "id": 14,
+                    "kind": "input",
+                    "name": "a2_3",
+                    "digest": ""
+                },
+                {
+                    "id": 15,
+                    "kind": "input",
+                    "name": "b1_3",
+                    "digest": ""
+                },
+                {
+                    "id": 16,
+                    "kind": "input",
+                    "name": "b2_3",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        }
+    ],
+    "seealso": []
+}

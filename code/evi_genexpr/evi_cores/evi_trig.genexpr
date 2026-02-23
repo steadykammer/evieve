@@ -249,6 +249,8 @@ sin73param(x)
 	return cos73param(HALFPI - x);
 }
 
+/*
+
 //
 //		cosQ121 computes cosine(x)
 //
@@ -933,6 +935,7 @@ atan137(x)
 	return y;
 }
 
+*/
 
 // *********************************************************
 

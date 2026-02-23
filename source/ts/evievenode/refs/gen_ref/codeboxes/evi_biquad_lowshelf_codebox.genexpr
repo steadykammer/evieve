@@ -1,5 +1,6 @@
 
-require("evi_biquads.genexpr");
+require("evi_biquads_coeffs");
+require("evi_biquads_filters.genexpr");
 
 /*
     0   eviBiquadCoeffLowshelfMSP           cutoff, gain, Q     (default)

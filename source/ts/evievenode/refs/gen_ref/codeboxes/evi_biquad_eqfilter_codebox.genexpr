@@ -1,5 +1,6 @@
 
-require("evi_biquads.genexpr");
+require("evi_biquads_union");
+require("evi_biquads_filters.genexpr");
 
 /*
     filter  calculator                              	parameters

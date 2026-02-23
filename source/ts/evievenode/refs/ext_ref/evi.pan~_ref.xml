@@ -5,10 +5,10 @@
 <!--Data marked TEXT_HERE, INLET_TYPE, OUTLET_TYPE, ARG_NAME and ARG_TYPE need to be filled in-->
 <c74object name="evi.pan~" module="" category="">
 	<digest>
-		TEXT_HERE
+		Pan audio signals
 	</digest>
 	<description>
-		TEXT_HERE
+		Pan input(s) to output(s) using an efficient cosine algorithm very close to a 'sqrt'.
 	</description>
 	<!--METADATA-->
 	<metadatalist>
@@ -34,7 +34,7 @@
 				Pan Amount 0..1
 			</digest>
 			<description>
-				TEXT_HERE
+				Pan input(s) to output(s) using an efficient cosine algorithm very close to a 'sqrt'
 			</description>
 		</inlet>
 	</inletlist>
@@ -110,7 +110,7 @@
 				Panning (Right) 0..1
 			</digest>
 			<description>
-				TEXT_HERE
+				Pan input(s) to output(s) using an efficient cosine algorithm very close to a 'sqrt'
 			</description>
 			<attributelist>
 				<attribute name="basic" get="1" set="1" type="int" size="1" value="1" />
@@ -124,8 +124,7 @@
 	</examplelist>
 	<!--SEEALSO-->
 	<seealsolist>
-		<seealso name="bogus">
-			TEXT_HERE
-		</seealso>
+		<seealso name="evi.xfade~"></seealso>
+		<seealso name="evi_utilities" display="evi_utilities.genexpr" type="refpage"/>
 	</seealsolist>
 </c74object>

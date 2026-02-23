@@ -58,7 +58,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 188.0, 191.0, 216.0, 20.0 ],
-                    "presentation_linecount": 2,
                     "text": "allpass compensate crossover mixes"
                 }
             },
@@ -69,7 +68,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 148.0, 137.0, 189.0, 20.0 ],
-                    "presentation_linecount": 2,
                     "text": "similar to above but with options"
                 }
             },
@@ -346,7 +344,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 79.0, 59.0, 191.0, 20.0 ],
-                                    "text": "evieve crossover filtersin gen~"
+                                    "text": "evieve crossover filters in gen~"
                                 }
                             }
                         ],
@@ -412,7 +410,6 @@
                 }
             }
         ],
-        "autosave": 0,
         "toolbaradditions": [ "audiosolo", "audiomute" ]
     }
 }

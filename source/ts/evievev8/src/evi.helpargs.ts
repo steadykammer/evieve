@@ -36,27 +36,25 @@ function init() {
 	// @ts-expect-error - ".getrefdict()" is secret C74 internal function
 	const dict: Dict = max.getrefdict(objectNameArgument);
 	const args = dict.get('objargs');
-	const argsKeys = args.getkeys();
 	if (args) {
-		post(`${JSON.stringify(args)}`);
-		// if (Array.isArray(argsKeys)) {
-		// 	for (let i = 0; i < argsKeys.length; i++) {
-		// 		if (args.get(argsKeys[i]).get('optional') === 1) {
-		// 			opt = ' (optional)'; // !! space
-		// 		}
-		// 		value[i] = `${args.get(argsKeys[i]).get('fullname')} (${args.get(argsKeys[i]).get('type')})${opt}`;
-		// 	}
-		// } else {
-		// 	if (args.get(argsKeys).get('optional') === 1) {
-		// 		opt = ' (optional)'; // !! space
-		// 	}
-		// 	value = `${args.get(argsKeys).get('fullname')} (${args.get(argsKeys).get('type')})${opt}`;
-		// }
-	}
-	dict.freepeer();
-	if (args) {
+		// post(`${JSON.stringify(args)}`);
+		const argsKeys = args.getkeys();
+		if (Array.isArray(argsKeys)) {
+			for (let i = 0; i < argsKeys.length; i++) {
+				if (args.get(argsKeys[i]).get('optional') === 1) {
+					opt = ' (optional)'; // !! space
+				}
+				value[i] = `${args.get(argsKeys[i]).get('fullname')} (${args.get(argsKeys[i]).get('type')})${opt}`;
+			}
+		} else {
+			if (args.get(argsKeys).get('optional') === 1) {
+				opt = ' (optional)'; // !! space
+			}
+			value = `${args.get(argsKeys).get('fullname')} (${args.get(argsKeys).get('type')})${opt}`;
+		}
 		args.freepeer();
 	}
+	dict.freepeer();
 }
 
 init();

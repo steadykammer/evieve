@@ -10,7 +10,9 @@
         "inlets": "input, cutoff, gain, q"
     },
     "includes": [
-        "evi_biquads"
+        "evi_biquads",
+        "evi_biquads_coeffs",
+        "evi_biquads_filters"
     ],
     "inlets": [
         {

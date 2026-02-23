@@ -1,0 +1,425 @@
+{
+    "description": "",
+    "requires": [],
+    "functions": [
+        {
+            "document": true,
+            "digest": "",
+            "name": "biquadDf2",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "a0",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "a1",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "a2",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "input",
+                    "name": "b1",
+                    "digest": ""
+                },
+                {
+                    "id": 6,
+                    "kind": "input",
+                    "name": "b2",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "eviBiquadCoeffBp",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "cutoff",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "Q",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "eviButterworthLp6",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x0",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "cutoff",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "hilbertTdf2",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x0",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "a0",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "eviHilbertCascade",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "y0",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "hc1",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "hc2",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "hc3",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "input",
+                    "name": "hc4",
+                    "digest": ""
+                },
+                {
+                    "id": 6,
+                    "kind": "input",
+                    "name": "hc5",
+                    "digest": ""
+                },
+                {
+                    "id": 7,
+                    "kind": "input",
+                    "name": "hc6",
+                    "digest": ""
+                },
+                {
+                    "id": 8,
+                    "kind": "input",
+                    "name": "hc7",
+                    "digest": ""
+                },
+                {
+                    "id": 9,
+                    "kind": "input",
+                    "name": "hc8",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "eviCascadeCoeffAllpass",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "cutoff",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "Q",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "param",
+                    "name": "R",
+                    "default": 0,
+                    "type": "integer",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "biquadDf2cascadeAllpass",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x0",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "a0",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "a1",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "a2",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "input",
+                    "name": "x1",
+                    "digest": ""
+                },
+                {
+                    "id": 6,
+                    "kind": "input",
+                    "name": "x2",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "resringzCoeffs",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "cutoff",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "QorT60",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "param",
+                    "name": "filt",
+                    "default": 0,
+                    "type": "integer",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "firOrder12",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x0",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "param",
+                    "name": "a0",
+                    "default": 1,
+                    "type": "integer",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "param",
+                    "name": "a1",
+                    "default": 2,
+                    "type": "integer",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "param",
+                    "name": "a2",
+                    "default": 1,
+                    "type": "integer",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        }
+    ],
+    "seealso": []
+}

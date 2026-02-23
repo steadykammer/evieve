@@ -141,6 +141,7 @@
 		<seealso name="evi.logdecay~"></seealso>
 		<seealso name="evi.logattackdecay~"></seealso>
 		<seealso name="evi.logahr~"></seealso>
+		<seealso name="evi_smooth" display="evi_smooth.genexpr" type="refpage"/>
 	</seealsolist>
   <misc name="Discussion">
     <entry name="Keywords">

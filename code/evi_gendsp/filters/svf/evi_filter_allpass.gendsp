@@ -51,7 +51,7 @@
             },
             {
                 "box": {
-                    "code": "\r\nrequire(\"evi_svfs.genexpr\");\r\n\r\nParam   smooth(0, min=0, max=333);\r\n\r\n                            // In    Hz   Q    ms\r\nout1    = eviFilterAllpassNorm(in1, in2, in3, smooth=smooth);\r\n\r\n",
+                    "code": "\r\nrequire(\"evi_svfs_tpt_filters.genexpr\");\r\n\r\nParam   smooth(0, min=0, max=333);\r\n\r\n                            // In    Hz   Q    ms\r\nout1    = eviFilterAllpassNorm(in1, in2, in3, smooth=smooth);\r\n\r\n",
                     "fontface": 0,
                     "fontname": "<Monospaced>",
                     "fontsize": 12.0,

@@ -9,7 +9,7 @@
         <b>evi_biquad_lowshelf</b> is an abstraction for using inside <o>gen~</o> or <b>GenExpr</b>. <br />
          <br />
         evi_biquad_lowshelf.gendsp requires the GenExpr file(s): <br />
-        <o>evi_biquads</o>.genexpr <br />
+        <o>evi_biquads</o>.genexpr, <o>evi_biquads_coeffs</o>.genexpr, <o>evi_biquads_filters</o>.genexpr <br />
          <br />
         evi_biquad_lowshelf is also available in MSP as: <o>evi.biquad.lowshelf~</o>. <br />
          <br />

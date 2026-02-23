@@ -4,7 +4,7 @@
 // @see also: "evi_svfsmooth.gendsp" / [evi.svfsmooth~] for nonlinear LP..BP..HP morphing.
 // @see also: "evi_arpnotch.gendsp" / [evi.arpnotch~] for nonlinear LP..NOTCH..HP morphing.
 
-require("evi_svfs.genexpr"); // & other morphing filters in here
+require("evi_svfs_tpt.genexpr"); // & other morphing filters in here
 
 
 Param   smooth(22.666, min=0, max=1000); // in ms

@@ -1926,8 +1926,8 @@
                 ]
             },
             "db": {
-                "browser": true,
-                "auto": true
+                "browser": false,
+                "auto": false
             }
         },
         "evi_korgms10.gendsp": {
@@ -2118,8 +2118,8 @@
                 ]
             },
             "db": {
-                "browser": true,
-                "auto": true
+                "browser": false,
+                "auto": false
             }
         },
         "evi_limiterfast.gendsp": {
@@ -2606,7 +2606,7 @@
                 ]
             },
             "db": {
-                "browser": true,
+                "browser": false,
                 "auto": false
             }
         },
@@ -2954,8 +2954,8 @@
                 "areas": []
             },
             "db": {
-                "browser": true,
-                "auto": true
+                "browser": false,
+                "auto": false
             }
         },
         "evi_plateverb_lite.gendsp": {
@@ -3118,8 +3118,8 @@
                 "areas": ["noise"]
             },
             "db": {
-                "browser": true,
-                "auto": true
+                "browser": false,
+                "auto": false
             }
         },
         "evi_randy.gendsp": {
@@ -3562,7 +3562,7 @@
         },
         "evi_sustainfdn.gendsp": {
             "define": {
-                "object": false,
+                "object": true,
                 "msp": "evi.sustainfdn~",
                 "mcwrapper": false
             },
@@ -3586,7 +3586,7 @@
         },
         "evi_sustainfdnclear.gendsp": {
             "define": {
-                "object": false,
+                "object": true,
                 "msp": "evi.sustainfdnclear~",
                 "mcwrapper": false
             },
@@ -3961,7 +3961,7 @@
         },
         "evi_vactrol_shape.gendsp": {
             "define": {
-                "object": false,
+                "object": true,
                 "msp": "evi.vactrol.shape~",
                 "mcwrapper": false
             },
@@ -4139,8 +4139,8 @@
                 "areas": []
             },
             "db": {
-                "browser": true,
-                "auto": true
+                "browser": false,
+                "auto": false
             }
         },
         "evi_zeroxcount.gendsp": {

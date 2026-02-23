@@ -63,7 +63,7 @@
             },
             {
                 "box": {
-                    "code": "\r\n// evieve version of [reson~] as a TPT filter, exactly the same response but\r\n// with better modulation properties (& cutoff can be safely FM-ed).\r\n// also includes optional gain compensation.\r\n\r\nrequire(\"evi_svfs.genexpr\");\r\n\r\nParam   smooth(0, min=0, max=333);\r\nParam   compensate(0, min=0, max=1); // addition to MSP version, gain compensate\r\ncomp    = int(compensate);\r\n\r\n// MSP ordering of inputs, and like MSP gain is still linear here!\r\n// params: 'compensate' is flag 0/1, 'smooth' is time in ms\r\n\r\n                   // input, gain,  Hz,  Q\nout1    = eviFilterReson(in1, in2, in3, in4, comp, smooth=smooth);\n\r\n",
+                    "code": "\r\n// evieve version of [reson~] as a TPT filter, exactly the same response but\r\n// with better modulation properties (& cutoff can be safely FM-ed).\r\n// also includes optional gain compensation.\r\n\r\nrequire(\"evi_svfs_tpt_filters.genexpr\");\r\n\r\nParam   smooth(0, min=0, max=333);\r\nParam   compensate(0, min=0, max=1); // addition to MSP version, gain compensate\r\ncomp    = int(compensate);\r\n\r\n// MSP ordering of inputs, and like MSP gain is still linear here!\r\n// params: 'compensate' is flag 0/1, 'smooth' is time in ms\r\n\r\n                   // input, gain,  Hz,  Q\nout1    = eviFilterReson(in1, in2, in3, in4, comp, smooth=smooth);\n\r\n",
                     "fontface": 0,
                     "fontname": "<Monospaced>",
                     "fontsize": 12.0,
@@ -120,6 +120,7 @@
                     "source": [ "obj-6", 0 ]
                 }
             }
-        ]
+        ],
+        "autosave": 0
     }
 }

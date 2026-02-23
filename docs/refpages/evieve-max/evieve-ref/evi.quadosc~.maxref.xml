@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
 <c74object name="evi.quadosc~" module="evieve-ref" category="evieve">
-  <digest>TEXT_HERE</digest>
+  <digest>Phase locked quadrature oscillator</digest>
   <description>TEXT_HERE</description>
   <metadatalist>
     <metadata name="author">Pete Dowling</metadata>

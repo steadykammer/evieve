@@ -5,10 +5,10 @@
 <!--Data marked TEXT_HERE, INLET_TYPE, OUTLET_TYPE, ARG_NAME and ARG_TYPE need to be filled in-->
 <c74object name="evi.logattackdecay~" module="" category="">
 	<digest>
-		TEXT_HERE
+		Attack/decay envelope follower
 	</digest>
 	<description>
-		TEXT_HERE
+		Logarithmic attack/decay envelope follower / smoother.
 	</description>
 	<!--METADATA-->
 	<metadatalist>

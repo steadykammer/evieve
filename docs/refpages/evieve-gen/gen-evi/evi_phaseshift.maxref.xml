@@ -9,7 +9,7 @@
         <b>evi_phaseshift</b> is an abstraction for using inside <o>gen~</o> or <b>GenExpr</b>. <br />
          <br />
         evi_phaseshift.gendsp requires the GenExpr file(s): <br />
-        <o>evi_svfs</o>.genexpr <br />
+        <o>evi_svfs</o>.genexpr, <o>evi_svfs_tpt_filters</o>.genexpr <br />
          <br />
         evi_phaseshift is also available in MSP as: <o>evi.phaseshift~</o>. <br />
          <br />

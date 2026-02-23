@@ -1,5 +1,5 @@
 
-require("evi_svfs.genexpr");
+require("evi_svfs_tpt.genexpr");
 
 Param   smooth(0, min=0, max=333);
 Param   filter(3, min=0, max=7);

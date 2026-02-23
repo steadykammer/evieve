@@ -13,7 +13,8 @@
         "tags": []
     },
     "includes": [
-        "evi_svfs.genexpr"
+        "evi_svfs.genexpr",
+        "evi_svfs_tpt.genexpr"
     ],
     "inlets": [
         {

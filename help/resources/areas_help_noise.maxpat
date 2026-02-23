@@ -20,13 +20,24 @@
         "boxes": [
             {
                 "box": {
-                    "id": "obj-8",
-                    "maxclass": "newobj",
+                    "border": 0,
+                    "fontface": 0,
+                    "fontname": "Lato",
+                    "fontsize": 12.0,
+                    "id": "obj-27",
+                    "linkbold": 1,
+                    "maxclass": "markup",
                     "numinlets": 1,
                     "numoutlets": 1,
-                    "outlettype": [ "signal" ],
-                    "patching_rect": [ 254.0, 440.0, 64.0, 22.0 ],
-                    "text": "evi.randy~"
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 162.0, 542.0, 318.0, 33.0 ],
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor"
+                        }
+                    },
+                    "text": "For more noise, see the Todd Ingalls code: <link href=\"https://github.com/testcase/gen_noise\">GitHub</link>",
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
                 }
             },
             {

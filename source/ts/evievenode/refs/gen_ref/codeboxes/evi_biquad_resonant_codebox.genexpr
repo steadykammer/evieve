@@ -1,5 +1,6 @@
 
-require("evi_biquads.genexpr");
+require("evi_biquads_coeffs");
+require("evi_biquads_filters.genexpr");
 
 /*                                         (these filters can take very high Q)
     0   eviBiquadCoeffResonant              cutoff, Q

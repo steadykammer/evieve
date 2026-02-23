@@ -9,7 +9,7 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 546.0, 114.0, 812.0, 790.0 ],
+        "rect": [ 73.0, 115.0, 812.0, 790.0 ],
         "gridonopen": 2,
         "subpatcher_template": "sub",
         "integercoordinates": 1,

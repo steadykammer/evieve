@@ -13,7 +13,8 @@
         "tags": []
     },
     "includes": [
-        "evi_biquads.genexpr"
+        "evi_biquads.genexpr",
+        "evi_biquads_extras.genexpr"
     ],
     "inlets": [
         {

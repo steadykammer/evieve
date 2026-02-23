@@ -10,7 +10,8 @@
         "inlets": "input, freq, db, q, freq, db, q, freq, db, q"
     },
     "includes": [
-        "evi_svfs"
+        "evi_svfs",
+        "evi_svfs_lto"
     ],
     "inlets": [
         {
