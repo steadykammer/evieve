@@ -1,12 +1,29 @@
-/*
-	This source code is Copyright 2022 Cycling '74 -- All rights reserved.
-	Cycling '74 does not grant you permission to copy, modify, or distribute
-	this source without its express written permission.
-*/
-/*
+/**
 	This document implements the GenExpr grammar
 
-	It is based on the original Lua/LPEG grammar used in Gen 2, but the AST it produces is closer to estree in style.
+    Copyright (c) 2025 Cycling '74
+
+    Permission is hereby granted, free of charge, to any person obtaining a 
+    copy of this software and associated documentation files (the “Software”), 
+    to deal in the Software without restriction, including without limitation 
+    the rights to use, copy, modify, merge, publish, distribute, sublicense, 
+    and/or sell copies of the Software, and to permit persons to whom the 
+    Software is furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in 
+    all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR 
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE 
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING 
+    FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
+    DEALINGS IN THE SOFTWARE.
+**/
+
+/*
+	This document is based on the original Lua/LPEG grammar used in Gen 2, but the AST it produces is closer to estree in style.
 
 	It uses the Parsing Expression Grammar formalism (PEG),
 	as implemented in [pegjs](http://pegjs.org/documentation).
@@ -714,7 +731,7 @@ argument
 primary_expression
   = IDENTIFIER
   / LITERAL
-  / "(" expr:expression ")" { return expr; }
+  / "(" _ expr:expression _ ")" { return expr; } // !!
 
 // list of words that can't be used for identifiers
 // because the grammar would break if they were
