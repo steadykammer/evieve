@@ -87,7 +87,7 @@
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
                     "patching_rect": [ 15.0, 116.0, 67.0, 22.0 ],
-                    "save": [ "#N", "thispatcher", ";", "#Q", "window", "flags", "nogrow", "close", "nozoom", "nofloat", "menu", "nominimize", ";", "#Q", "window", "constrain", 63, 131, 796, 822, ";", "#Q", "window", "size", 63, 131, 859, 851, ";", "#Q", "window", "title", ";", "#Q", "window", "exec", ";", "#Q", "savewindow", 1, ";", "#Q", "end", ";" ],
+                    "save": [ "#N", "thispatcher", ";", "#Q", "window", "flags", "nogrow", "close", "nozoom", "nofloat", "menu", "nominimize", ";", "#Q", "window", "constrain", 63, 131, 796, 822, ";", "#Q", "window", "size", 63, 131, 859, 821, ";", "#Q", "window", "title", ";", "#Q", "window", "exec", ";", "#Q", "savewindow", 1, ";", "#Q", "end", ";" ],
                     "text": "thispatcher"
                 }
             },
@@ -103,7 +103,7 @@
                     "lockeddragscroll": 2,
                     "lockedsize": 0,
                     "maxclass": "bpatcher",
-                    "name": "evieveGenExprIndexLogic.maxpat",
+                    "name": "evieve_exprindex_logic.maxpat",
                     "numinlets": 1,
                     "numoutlets": 0,
                     "offset": [ 0.0, 0.0 ],

@@ -1,42 +1,43 @@
 
-require("evi_polyblep.genexpr");
+require("evi_polyblep_utility.genexpr");
+require("evi_polyblep_two.genexpr");
 
-classicOscSelect(phase, norm, width, gain, type, wave)
+classicOscSelect(phase, nrm, width, gain, type, wav)
 {
     osc = 0;
-    if (wave == 1) {            // tri
+    if (wav == 1) {            // tri
         if (type == 1) {
             pw = (width >= 0.5) ? width : width * 0.8 + 0.1;
-            osc = poly_trip(phase, norm, pw);
+            osc = poly_trip(phase, nrm, pw);
         }
         else {  // (type == 0)
-            osc = poly_tri(phase, norm);
+            osc = poly_tri(phase, nrm);
         }
     }
-    else if (wave == 2) {       // saw
+    else if (wav == 2) {       // saw
         if (type == 1) {
-            osc = morph_saw_tri_saw(phase, norm, width);
+            osc = morph_saw_tri_saw(phase, nrm, width);
         }
         else {  // (type == 0)  // default
-            osc = poly_saw(phase, norm);
+            osc = poly_saw(phase, nrm);
         }
     }
-    else if (wave == 3) {       // rect
+    else if (wav == 3) {       // rect
         if (type == 1) {
             pwm = width * 0.9 + 0.05;
-            osc = poly_rect(phase, norm, pwm);
+            osc = poly_rect(phase, nrm, pwm);
         }
         else {  // (type == 0)
-            osc = poly_sqr(phase, norm);
+            osc = poly_sqr(phase, nrm);
         }
     }
-    else {  // (wave == 0)      // sine
+    else {  // (wav == 0)      // sine
         if (type == 1) {
             pwm = (width >= 0.5) ? width : width * 0.92 + 0.04;
-            osc = poly_half2(phase, norm, pwm);
+            osc = poly_half20(phase, nrm, pwm);
         }
         else {  // (type == 0)
-            osc = poly_sin(phase);
+            osc = sin73(phase * TWOPI);
         }
     }
 
@@ -46,15 +47,15 @@ classicOscSelect(phase, norm, width, gain, type, wave)
 // only 4-point works for oscillators
 
 // fixed 2x quasi downsampling 
-classicOscSelect_2x_4POINT(phase, norm, width, gain, type, wave)
+classicOscSelect_2x_4POINT(phase, nrm, width, gain, type, wav)
 {	// down 2
 	History	dmT2_1(0), dmT1_1(0), dmT0_1(0);
 	// align
 	History	doX0(0);
 
 	// process 2x
-	y1_0	= classicOscSelect(phase, norm, width, gain, type, wave);
-	y2_0	= classicOscSelect(phase, norm, width, gain, type, wave);
+	y1_0	= classicOscSelect(phase, nrm, width, gain, type, wav);
+	y2_0	= classicOscSelect(phase, nrm, width, gain, type, wav);
 
 	// down 2x
 	y2_0_a	= y2_0 + 0;
@@ -73,15 +74,15 @@ classicOscSelect_2x_4POINT(phase, norm, width, gain, type, wave)
 }
 
 // fixed 4x quasi downsampling 
-classicOscSelect_4x_4POINT(phase, norm, width, gain, type, wave)
+classicOscSelect_4x_4POINT(phase, nrm, width, gain, type, wav)
 {	// down 2
 	History	dmT2_1(0), dmT1_1(0), dmT0_1(0);
 	// align
 	History	doX0(0);
 
 	// process 4x
-	y1_0	= classicOscSelect_2x_4POINT(phase, norm, width, gain, type, wave);
-	y2_0	= classicOscSelect_2x_4POINT(phase, norm, width, gain, type, wave);
+	y1_0	= classicOscSelect_2x_4POINT(phase, nrm, width, gain, type, wav);
+	y2_0	= classicOscSelect_2x_4POINT(phase, nrm, width, gain, type, wav);
 
 	// down 2x
 	y2_0_a	= y2_0 + 0;
@@ -100,15 +101,15 @@ classicOscSelect_4x_4POINT(phase, norm, width, gain, type, wave)
 }
 
 // fixed 8x quasi downsampling 
-classicOscSelect_8x_4POINT(phase, norm, width, gain, type, wave)
+classicOscSelect_8x_4POINT(phase, nrm, width, gain, type, wav)
 {	// down 2
 	History	dmT2_1(0), dmT1_1(0), dmT0_1(0);
 	// align
 	History	doX0(0);
 
 	// process 8x
-	y1_0	= classicOscSelect_4x_4POINT(phase, norm, width, gain, type, wave);
-	y2_0	= classicOscSelect_4x_4POINT(phase, norm, width, gain, type, wave);
+	y1_0	= classicOscSelect_4x_4POINT(phase, nrm, width, gain, type, wav);
+	y2_0	= classicOscSelect_4x_4POINT(phase, nrm, width, gain, type, wav);
 
 	// down 2x
 	y2_0_a	= y2_0 + 0;
@@ -126,21 +127,21 @@ classicOscSelect_8x_4POINT(phase, norm, width, gain, type, wave)
 	return y0_0;
 }
 
-classicOscSelectOversample(phase, norm, width, gain, type, wave, over)
+classicOscSelectOversample(phase, nrm, width, gain, type, wav, over)
 {
     History ovdummy(0);
     osc = 0;
     if (over == 1) {
-        osc = classicOscSelect_2x_4POINT(phase, norm, width, gain, type, wave);
+        osc = classicOscSelect_2x_4POINT(phase, nrm, width, gain, type, wav);
     }
     else if (over == 2) {
-        osc = classicOscSelect_4x_4POINT(phase, norm, width, gain, type, wave);
+        osc = classicOscSelect_4x_4POINT(phase, nrm, width, gain, type, wav);
     }
     else if (over == 3) {
-        osc = classicOscSelect_8x_4POINT(phase, norm, width, gain, type, wave);
+        osc = classicOscSelect_8x_4POINT(phase, nrm, width, gain, type, wav);
     }
     else {  // (over == 0)
-        osc = classicOscSelect(phase, norm, width, gain, type, wave);
+        osc = classicOscSelect(phase, nrm, width, gain, type, wav);
     }
     return osc;
 }
@@ -153,7 +154,7 @@ Param   dc(1, min=0, max=3);			// 0=off, 1=on,	2=auto for lfos, 3=auto for oscil
 Param   compensate(1, min=0, max=2);    // decorrelation high frequency compensation filters, off/1/2
 Param   oversample(1, min=0, max=3);	// fake oversampling, 0=1x, 1=2x, 2=4x, 3=8x
 
-wave    = int(oscillator);
+wav     = int(oscillator);
 typ     = int(type);
 
 dci		= int(dc);
@@ -180,10 +181,10 @@ dtn			= clip((dt + dt), 0, 1);
 oscsync		= delta(t) < 0;
 gain		= minimum(scale(clip(freqInHz, 0, 20), 1, 20, 0.9564, 0.5, 3), 0.9564) * (((1 - (filt * (freqInHz < 20))) * 0.157588) + 0.842412);
 smoothsamps = mstosamps(33);
-a, an		= eviLine(gain, smoothsamps);	// 0.5 for Oscillators, 1.0 for LFOs ... oder ?? (dynamic like dc)
+a, an		= evi_line(gain, smoothsamps);	// 0.5 for Oscillators, 1.0 for LFOs ... oder ?? (dynamic like dc)
 
 ov			= latch(over,	oscsync);
-wv			= latch(wave,	oscsync);
+wv			= latch(wav,	oscsync);
 tp          = latch(typ,    oscsync);
 dcn			= latch(dci,	oscsync);
 ft			= latch(filt,	oscsync);
@@ -201,9 +202,9 @@ osc = dynamicDc(osc, dtn, dcn);
 
 // restore high frequencies options...
 if (ft > 0) {
-	osc = decorelate(osc);      // for Bleps ?
+	osc = decorelateOsc(osc);      // for Bleps ?
 	if (ft > 1) {
-		osc = decorelate(osc);  // for Blamps / Bluhs ?
+		osc = decorelateOsc(osc);  // for Blamps / Bluhs ?
 	}
 }
 

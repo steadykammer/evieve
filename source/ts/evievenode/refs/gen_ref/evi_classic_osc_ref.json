@@ -10,7 +10,9 @@
         "inlets": "frequency, pulse, sync"
     },
     "includes": [
-        "evi_polyblep"
+        "evi_polyblep",
+        "evi_polyblep_two",
+        "evi_polyblep_utility"
     ],
     "inlets": [
         {

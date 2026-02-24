@@ -1,0 +1,1796 @@
+{
+    "type": "TranslationUnit",
+    "commands": [],
+    "functions": [
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "polyblep4",
+                "raw": "polyblep4"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "t",
+                    "raw": "t"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "dt",
+                    "raw": "dt"
+                }
+            ],
+            "defaults": [
+                null,
+                null
+            ],
+            "decls": [],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "y",
+                                "raw": "y"
+                            },
+                            "right": {
+                                "type": "Literal",
+                                "value": 0,
+                                "raw": "0",
+                                "gen_kind": "integer"
+                            }
+                        }
+                    },
+                    {
+                        "type": "IfStatement",
+                        "test": {
+                            "type": "BinaryExpression",
+                            "operator": "&&",
+                            "left": {
+                                "type": "BinaryExpression",
+                                "operator": "<=",
+                                "left": {
+                                    "type": "Literal",
+                                    "value": 0,
+                                    "raw": "0",
+                                    "gen_kind": "integer"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "t",
+                                    "raw": "t"
+                                }
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "<",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "t",
+                                    "raw": "t"
+                                },
+                                "right": {
+                                    "type": "BinaryExpression",
+                                    "operator": "+",
+                                    "left": {
+                                        "type": "Identifier",
+                                        "name": "dt",
+                                        "raw": "dt"
+                                    },
+                                    "right": {
+                                        "type": "Identifier",
+                                        "name": "dt",
+                                        "raw": "dt"
+                                    }
+                                }
+                            }
+                        },
+                        "consequent": {
+                            "type": "BlockStatement",
+                            "body": [
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "x",
+                                            "raw": "x"
+                                        },
+                                        "right": {
+                                            "type": "BinaryExpression",
+                                            "operator": "/",
+                                            "left": {
+                                                "type": "Identifier",
+                                                "name": "t",
+                                                "raw": "t"
+                                            },
+                                            "right": {
+                                                "type": "Identifier",
+                                                "name": "dt",
+                                                "raw": "dt"
+                                            }
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "u",
+                                            "raw": "u"
+                                        },
+                                        "right": {
+                                            "type": "BinaryExpression",
+                                            "operator": "-",
+                                            "left": {
+                                                "type": "Literal",
+                                                "value": 2,
+                                                "raw": "2",
+                                                "gen_kind": "integer"
+                                            },
+                                            "right": {
+                                                "type": "Identifier",
+                                                "name": "x",
+                                                "raw": "x"
+                                            }
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "*=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "u",
+                                            "raw": "u"
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "u",
+                                            "raw": "u"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "*=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "u",
+                                            "raw": "u"
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "u",
+                                            "raw": "u"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "+=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "y",
+                                            "raw": "y"
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "u",
+                                            "raw": "u"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "IfStatement",
+                                    "test": {
+                                        "type": "BinaryExpression",
+                                        "operator": "<",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "t",
+                                            "raw": "t"
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "dt",
+                                            "raw": "dt"
+                                        }
+                                    },
+                                    "consequent": {
+                                        "type": "BlockStatement",
+                                        "body": [
+                                            {
+                                                "type": "ExpressionStatement",
+                                                "expression": {
+                                                    "type": "AssignmentExpression",
+                                                    "operator": "=",
+                                                    "left": {
+                                                        "type": "Identifier",
+                                                        "name": "v",
+                                                        "raw": "v"
+                                                    },
+                                                    "right": {
+                                                        "type": "BinaryExpression",
+                                                        "operator": "-",
+                                                        "left": {
+                                                            "type": "Literal",
+                                                            "value": 1,
+                                                            "raw": "1",
+                                                            "gen_kind": "integer"
+                                                        },
+                                                        "right": {
+                                                            "type": "Identifier",
+                                                            "name": "x",
+                                                            "raw": "x"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                "type": "ExpressionStatement",
+                                                "expression": {
+                                                    "type": "AssignmentExpression",
+                                                    "operator": "*=",
+                                                    "left": {
+                                                        "type": "Identifier",
+                                                        "name": "v",
+                                                        "raw": "v"
+                                                    },
+                                                    "right": {
+                                                        "type": "Identifier",
+                                                        "name": "v",
+                                                        "raw": "v"
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                "type": "ExpressionStatement",
+                                                "expression": {
+                                                    "type": "AssignmentExpression",
+                                                    "operator": "*=",
+                                                    "left": {
+                                                        "type": "Identifier",
+                                                        "name": "v",
+                                                        "raw": "v"
+                                                    },
+                                                    "right": {
+                                                        "type": "Identifier",
+                                                        "name": "v",
+                                                        "raw": "v"
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                "type": "ExpressionStatement",
+                                                "expression": {
+                                                    "type": "AssignmentExpression",
+                                                    "operator": "-=",
+                                                    "left": {
+                                                        "type": "Identifier",
+                                                        "name": "y",
+                                                        "raw": "y"
+                                                    },
+                                                    "right": {
+                                                        "type": "BinaryExpression",
+                                                        "operator": "*",
+                                                        "left": {
+                                                            "type": "Identifier",
+                                                            "name": "v",
+                                                            "raw": "v"
+                                                        },
+                                                        "right": {
+                                                            "type": "Literal",
+                                                            "value": 4,
+                                                            "raw": "4",
+                                                            "gen_kind": "integer"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "alternate": null
+                                }
+                            ]
+                        },
+                        "alternate": null
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "BinaryExpression",
+                            "operator": "*",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "y",
+                                "raw": "y"
+                            },
+                            "right": {
+                                "type": "Literal",
+                                "value": 0.083333333333333,
+                                "raw": "0.083333333333333",
+                                "gen_kind": "float"
+                            }
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "polyblamp4",
+                "raw": "polyblamp4"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "t",
+                    "raw": "t"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "dt",
+                    "raw": "dt"
+                }
+            ],
+            "defaults": [
+                null,
+                null
+            ],
+            "decls": [],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "y",
+                                "raw": "y"
+                            },
+                            "right": {
+                                "type": "Literal",
+                                "value": 0,
+                                "raw": "0",
+                                "gen_kind": "integer"
+                            }
+                        }
+                    },
+                    {
+                        "type": "IfStatement",
+                        "test": {
+                            "type": "BinaryExpression",
+                            "operator": "&&",
+                            "left": {
+                                "type": "BinaryExpression",
+                                "operator": "<=",
+                                "left": {
+                                    "type": "Literal",
+                                    "value": 0,
+                                    "raw": "0",
+                                    "gen_kind": "integer"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "t",
+                                    "raw": "t"
+                                }
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "<",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "t",
+                                    "raw": "t"
+                                },
+                                "right": {
+                                    "type": "BinaryExpression",
+                                    "operator": "+",
+                                    "left": {
+                                        "type": "Identifier",
+                                        "name": "dt",
+                                        "raw": "dt"
+                                    },
+                                    "right": {
+                                        "type": "Identifier",
+                                        "name": "dt",
+                                        "raw": "dt"
+                                    }
+                                }
+                            }
+                        },
+                        "consequent": {
+                            "type": "BlockStatement",
+                            "body": [
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "x",
+                                            "raw": "x"
+                                        },
+                                        "right": {
+                                            "type": "BinaryExpression",
+                                            "operator": "/",
+                                            "left": {
+                                                "type": "Identifier",
+                                                "name": "t",
+                                                "raw": "t"
+                                            },
+                                            "right": {
+                                                "type": "Identifier",
+                                                "name": "dt",
+                                                "raw": "dt"
+                                            }
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "u",
+                                            "raw": "u"
+                                        },
+                                        "right": {
+                                            "type": "BinaryExpression",
+                                            "operator": "-",
+                                            "left": {
+                                                "type": "Literal",
+                                                "value": 2,
+                                                "raw": "2",
+                                                "gen_kind": "integer"
+                                            },
+                                            "right": {
+                                                "type": "Identifier",
+                                                "name": "x",
+                                                "raw": "x"
+                                            }
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "u2",
+                                            "raw": "u2"
+                                        },
+                                        "right": {
+                                            "type": "BinaryExpression",
+                                            "operator": "*",
+                                            "left": {
+                                                "type": "Identifier",
+                                                "name": "u",
+                                                "raw": "u"
+                                            },
+                                            "right": {
+                                                "type": "Identifier",
+                                                "name": "u",
+                                                "raw": "u"
+                                            }
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "*=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "u",
+                                            "raw": "u"
+                                        },
+                                        "right": {
+                                            "type": "BinaryExpression",
+                                            "operator": "*",
+                                            "left": {
+                                                "type": "Identifier",
+                                                "name": "u2",
+                                                "raw": "u2"
+                                            },
+                                            "right": {
+                                                "type": "Identifier",
+                                                "name": "u2",
+                                                "raw": "u2"
+                                            }
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "-=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "y",
+                                            "raw": "y"
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "u",
+                                            "raw": "u"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "IfStatement",
+                                    "test": {
+                                        "type": "BinaryExpression",
+                                        "operator": "<",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "t",
+                                            "raw": "t"
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "dt",
+                                            "raw": "dt"
+                                        }
+                                    },
+                                    "consequent": {
+                                        "type": "BlockStatement",
+                                        "body": [
+                                            {
+                                                "type": "ExpressionStatement",
+                                                "expression": {
+                                                    "type": "AssignmentExpression",
+                                                    "operator": "=",
+                                                    "left": {
+                                                        "type": "Identifier",
+                                                        "name": "v",
+                                                        "raw": "v"
+                                                    },
+                                                    "right": {
+                                                        "type": "BinaryExpression",
+                                                        "operator": "-",
+                                                        "left": {
+                                                            "type": "Literal",
+                                                            "value": 1,
+                                                            "raw": "1",
+                                                            "gen_kind": "integer"
+                                                        },
+                                                        "right": {
+                                                            "type": "Identifier",
+                                                            "name": "x",
+                                                            "raw": "x"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                "type": "ExpressionStatement",
+                                                "expression": {
+                                                    "type": "AssignmentExpression",
+                                                    "operator": "=",
+                                                    "left": {
+                                                        "type": "Identifier",
+                                                        "name": "v2",
+                                                        "raw": "v2"
+                                                    },
+                                                    "right": {
+                                                        "type": "BinaryExpression",
+                                                        "operator": "*",
+                                                        "left": {
+                                                            "type": "Identifier",
+                                                            "name": "v",
+                                                            "raw": "v"
+                                                        },
+                                                        "right": {
+                                                            "type": "Identifier",
+                                                            "name": "v",
+                                                            "raw": "v"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                "type": "ExpressionStatement",
+                                                "expression": {
+                                                    "type": "AssignmentExpression",
+                                                    "operator": "*=",
+                                                    "left": {
+                                                        "type": "Identifier",
+                                                        "name": "v",
+                                                        "raw": "v"
+                                                    },
+                                                    "right": {
+                                                        "type": "BinaryExpression",
+                                                        "operator": "*",
+                                                        "left": {
+                                                            "type": "Identifier",
+                                                            "name": "v2",
+                                                            "raw": "v2"
+                                                        },
+                                                        "right": {
+                                                            "type": "Identifier",
+                                                            "name": "v2",
+                                                            "raw": "v2"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                "type": "ExpressionStatement",
+                                                "expression": {
+                                                    "type": "AssignmentExpression",
+                                                    "operator": "+=",
+                                                    "left": {
+                                                        "type": "Identifier",
+                                                        "name": "y",
+                                                        "raw": "y"
+                                                    },
+                                                    "right": {
+                                                        "type": "BinaryExpression",
+                                                        "operator": "*",
+                                                        "left": {
+                                                            "type": "Identifier",
+                                                            "name": "v",
+                                                            "raw": "v"
+                                                        },
+                                                        "right": {
+                                                            "type": "Literal",
+                                                            "value": 4,
+                                                            "raw": "4",
+                                                            "gen_kind": "integer"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "alternate": null
+                                }
+                            ]
+                        },
+                        "alternate": null
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "BinaryExpression",
+                            "operator": "*",
+                            "left": {
+                                "type": "BinaryExpression",
+                                "operator": "*",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "y",
+                                    "raw": "y"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "dt",
+                                    "raw": "dt"
+                                }
+                            },
+                            "right": {
+                                "type": "Literal",
+                                "value": 0.066666666666667,
+                                "raw": "0.066666666666667",
+                                "gen_kind": "float"
+                            }
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "polysaw4",
+                "raw": "polysaw4"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "t",
+                    "raw": "t"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "dt",
+                    "raw": "dt"
+                }
+            ],
+            "defaults": [
+                null,
+                null
+            ],
+            "decls": [],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "v",
+                                "raw": "v"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "-",
+                                "left": {
+                                    "type": "BinaryExpression",
+                                    "operator": "+",
+                                    "left": {
+                                        "type": "Identifier",
+                                        "name": "t",
+                                        "raw": "t"
+                                    },
+                                    "right": {
+                                        "type": "Identifier",
+                                        "name": "t",
+                                        "raw": "t"
+                                    }
+                                },
+                                "right": {
+                                    "type": "Literal",
+                                    "value": 1,
+                                    "raw": "1",
+                                    "gen_kind": "integer"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "+=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "v",
+                                "raw": "v"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "t",
+                                        "raw": "t"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "dt",
+                                        "raw": "dt"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "polyblep4",
+                                    "raw": "polyblep4"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "-=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "v",
+                                "raw": "v"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "BinaryExpression",
+                                        "operator": "-",
+                                        "left": {
+                                            "type": "Literal",
+                                            "value": 1,
+                                            "raw": "1",
+                                            "gen_kind": "integer"
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "t",
+                                            "raw": "t"
+                                        }
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "dt",
+                                        "raw": "dt"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "polyblep4",
+                                    "raw": "polyblep4"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "BinaryExpression",
+                            "operator": "*",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "v",
+                                "raw": "v"
+                            },
+                            "right": {
+                                "type": "Literal",
+                                "value": 0.5,
+                                "raw": "0.5",
+                                "gen_kind": "float"
+                            }
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "polyrect4",
+                "raw": "polyrect4"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "t",
+                    "raw": "t"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "dt",
+                    "raw": "dt"
+                }
+            ],
+            "defaults": [
+                null,
+                null
+            ],
+            "decls": [],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "v",
+                                "raw": "v"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "BinaryExpression",
+                                        "operator": "-",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "t",
+                                            "raw": "t"
+                                        },
+                                        "right": {
+                                            "type": "Literal",
+                                            "value": 0.5,
+                                            "raw": "0.5",
+                                            "gen_kind": "float"
+                                        }
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "sign",
+                                    "raw": "sign"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "+=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "v",
+                                "raw": "v"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "t",
+                                        "raw": "t"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "dt",
+                                        "raw": "dt"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "polyblep4",
+                                    "raw": "polyblep4"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "-=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "v",
+                                "raw": "v"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "BinaryExpression",
+                                        "operator": "-",
+                                        "left": {
+                                            "type": "Literal",
+                                            "value": 1,
+                                            "raw": "1",
+                                            "gen_kind": "integer"
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "t",
+                                            "raw": "t"
+                                        }
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "dt",
+                                        "raw": "dt"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "polyblep4",
+                                    "raw": "polyblep4"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "+=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "v",
+                                "raw": "v"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "BinaryExpression",
+                                        "operator": "-",
+                                        "left": {
+                                            "type": "Literal",
+                                            "value": 0.5,
+                                            "raw": "0.5",
+                                            "gen_kind": "float"
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "t",
+                                            "raw": "t"
+                                        }
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "dt",
+                                        "raw": "dt"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "polyblep4",
+                                    "raw": "polyblep4"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "-=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "v",
+                                "raw": "v"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "BinaryExpression",
+                                        "operator": "-",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "t",
+                                            "raw": "t"
+                                        },
+                                        "right": {
+                                            "type": "Literal",
+                                            "value": 0.5,
+                                            "raw": "0.5",
+                                            "gen_kind": "float"
+                                        }
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "dt",
+                                        "raw": "dt"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "polyblep4",
+                                    "raw": "polyblep4"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "BinaryExpression",
+                            "operator": "*",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "v",
+                                "raw": "v"
+                            },
+                            "right": {
+                                "type": "Literal",
+                                "value": 0.5,
+                                "raw": "0.5",
+                                "gen_kind": "float"
+                            }
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "polyrect4pwm",
+                "raw": "polyrect4pwm"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "t",
+                    "raw": "t"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "dt",
+                    "raw": "dt"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "pw",
+                    "raw": "pw"
+                }
+            ],
+            "defaults": [
+                null,
+                null,
+                null
+            ],
+            "decls": [],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "t1",
+                                "raw": "t1"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "BinaryExpression",
+                                        "operator": "-",
+                                        "left": {
+                                            "type": "BinaryExpression",
+                                            "operator": "+",
+                                            "left": {
+                                                "type": "Identifier",
+                                                "name": "t",
+                                                "raw": "t"
+                                            },
+                                            "right": {
+                                                "type": "Literal",
+                                                "value": 1,
+                                                "raw": "1",
+                                                "gen_kind": "integer"
+                                            }
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "pw",
+                                            "raw": "pw"
+                                        }
+                                    },
+                                    {
+                                        "type": "Literal",
+                                        "value": 0,
+                                        "raw": "0",
+                                        "gen_kind": "integer"
+                                    },
+                                    {
+                                        "type": "Literal",
+                                        "value": 1,
+                                        "raw": "1",
+                                        "gen_kind": "integer"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "wrap",
+                                    "raw": "wrap"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "v",
+                                "raw": "v"
+                            },
+                            "right": {
+                                "type": "UnaryExpression",
+                                "operator": "-",
+                                "argument": {
+                                    "type": "BinaryExpression",
+                                    "operator": "+",
+                                    "left": {
+                                        "type": "Identifier",
+                                        "name": "pw",
+                                        "raw": "pw"
+                                    },
+                                    "right": {
+                                        "type": "Identifier",
+                                        "name": "pw",
+                                        "raw": "pw"
+                                    }
+                                },
+                                "prefix": true
+                            }
+                        }
+                    },
+                    {
+                        "type": "IfStatement",
+                        "test": {
+                            "type": "BinaryExpression",
+                            "operator": "<",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "t",
+                                "raw": "t"
+                            },
+                            "right": {
+                                "type": "Identifier",
+                                "name": "pw",
+                                "raw": "pw"
+                            }
+                        },
+                        "consequent": {
+                            "type": "ExpressionStatement",
+                            "expression": {
+                                "type": "AssignmentExpression",
+                                "operator": "+=",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "v",
+                                    "raw": "v"
+                                },
+                                "right": {
+                                    "type": "Literal",
+                                    "value": 2,
+                                    "raw": "2",
+                                    "gen_kind": "integer"
+                                }
+                            }
+                        },
+                        "alternate": null
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "+=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "v",
+                                "raw": "v"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "BinaryExpression",
+                                        "operator": "-",
+                                        "left": {
+                                            "type": "Literal",
+                                            "value": 1,
+                                            "raw": "1",
+                                            "gen_kind": "integer"
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "t",
+                                            "raw": "t"
+                                        }
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "dt",
+                                        "raw": "dt"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "polyblep4",
+                                    "raw": "polyblep4"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "-=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "v",
+                                "raw": "v"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "t",
+                                        "raw": "t"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "dt",
+                                        "raw": "dt"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "polyblep4",
+                                    "raw": "polyblep4"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "+=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "v",
+                                "raw": "v"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "t1",
+                                        "raw": "t1"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "dt",
+                                        "raw": "dt"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "polyblep4",
+                                    "raw": "polyblep4"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "-=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "v",
+                                "raw": "v"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "BinaryExpression",
+                                        "operator": "-",
+                                        "left": {
+                                            "type": "Literal",
+                                            "value": 1,
+                                            "raw": "1",
+                                            "gen_kind": "integer"
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "t1",
+                                            "raw": "t1"
+                                        }
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "dt",
+                                        "raw": "dt"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "polyblep4",
+                                    "raw": "polyblep4"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "BinaryExpression",
+                            "operator": "*",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "v",
+                                "raw": "v"
+                            },
+                            "right": {
+                                "type": "Literal",
+                                "value": 0.5,
+                                "raw": "0.5",
+                                "gen_kind": "float"
+                            }
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "polytri4",
+                "raw": "polytri4"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "t",
+                    "raw": "t"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "dt",
+                    "raw": "dt"
+                }
+            ],
+            "defaults": [
+                null,
+                null
+            ],
+            "decls": [],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "u",
+                                "raw": "u"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "-",
+                                "left": {
+                                    "type": "CallExpression",
+                                    "arguments": [
+                                        {
+                                            "type": "BinaryExpression",
+                                            "operator": "-",
+                                            "left": {
+                                                "type": "BinaryExpression",
+                                                "operator": "+",
+                                                "left": {
+                                                    "type": "Identifier",
+                                                    "name": "t",
+                                                    "raw": "t"
+                                                },
+                                                "right": {
+                                                    "type": "Identifier",
+                                                    "name": "t",
+                                                    "raw": "t"
+                                                }
+                                            },
+                                            "right": {
+                                                "type": "Literal",
+                                                "value": 1,
+                                                "raw": "1",
+                                                "gen_kind": "integer"
+                                            }
+                                        }
+                                    ],
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "abs",
+                                        "raw": "abs"
+                                    }
+                                },
+                                "right": {
+                                    "type": "Literal",
+                                    "value": 1,
+                                    "raw": "1",
+                                    "gen_kind": "integer"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "v",
+                                "raw": "v"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "+",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "u",
+                                    "raw": "u"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "u",
+                                    "raw": "u"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "+=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "v",
+                                "raw": "v"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "t",
+                                        "raw": "t"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "dt",
+                                        "raw": "dt"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "polyblamp4",
+                                    "raw": "polyblamp4"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "+=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "v",
+                                "raw": "v"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "BinaryExpression",
+                                        "operator": "-",
+                                        "left": {
+                                            "type": "Literal",
+                                            "value": 1,
+                                            "raw": "1",
+                                            "gen_kind": "integer"
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "t",
+                                            "raw": "t"
+                                        }
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "dt",
+                                        "raw": "dt"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "polyblamp4",
+                                    "raw": "polyblamp4"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "+=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "t",
+                                "raw": "t"
+                            },
+                            "right": {
+                                "type": "Literal",
+                                "value": 0.5,
+                                "raw": "0.5",
+                                "gen_kind": "float"
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "-=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "t",
+                                "raw": "t"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "t",
+                                        "raw": "t"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "floor",
+                                    "raw": "floor"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "-=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "v",
+                                "raw": "v"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "t",
+                                        "raw": "t"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "dt",
+                                        "raw": "dt"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "polyblamp4",
+                                    "raw": "polyblamp4"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "-=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "v",
+                                "raw": "v"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "BinaryExpression",
+                                        "operator": "-",
+                                        "left": {
+                                            "type": "Literal",
+                                            "value": 1,
+                                            "raw": "1",
+                                            "gen_kind": "integer"
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "t",
+                                            "raw": "t"
+                                        }
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "dt",
+                                        "raw": "dt"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "polyblamp4",
+                                    "raw": "polyblamp4"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "BinaryExpression",
+                            "operator": "*",
+                            "left": {
+                                "type": "BinaryExpression",
+                                "operator": "+",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "v",
+                                    "raw": "v"
+                                },
+                                "right": {
+                                    "type": "Literal",
+                                    "value": 1,
+                                    "raw": "1",
+                                    "gen_kind": "integer"
+                                }
+                            },
+                            "right": {
+                                "type": "Literal",
+                                "value": 0.5,
+                                "raw": "0.5",
+                                "gen_kind": "float"
+                            }
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        }
+    ],
+    "decls": [],
+    "body": []
+}

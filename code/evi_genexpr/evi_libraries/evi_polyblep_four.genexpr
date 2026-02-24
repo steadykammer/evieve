@@ -1,0 +1,86 @@
+
+// evieve poly bleps etc
+
+// these 4-point poly bleps are much better than the rest of this file
+// (2-points) in terms of anti aliasing, and better than 3rd order PTR, too
+// thanks to Matías Giovannini
+
+polyblep4(t, dt)
+{
+    y = 0;
+    if (0 <= t && t < (dt + dt)) {
+        x = t / dt;
+        u = 2 - x;
+        u *= u;
+        u *= u;
+        y += u;
+        if (t < dt) {
+            v = 1 - x;
+            v *= v;
+            v *= v;
+            y -= (v * 4);
+        }
+    }
+    return y * 0.083333333333333;
+}
+
+polyblamp4(t, dt)
+{
+    y = 0;
+    if (0 <= t && t < (dt + dt)) {
+        x = t / dt;
+        u = 2 - x;
+        u2 = u * u;
+        u *= u2 * u2;
+        y -= u;
+        if (t < dt) {
+            v = 1 - x;
+            v2 = v * v;
+            v *= v2 * v2;
+            y += (v * 4);
+        }
+    }
+    return y * dt * 0.066666666666667;
+}
+
+polysaw4(t, dt) {
+    v = (t + t) - 1;
+    v += polyblep4(t, dt);
+    v -= polyblep4(1 - t, dt);
+    return v * 0.5;
+}
+
+polyrect4(t, dt) {
+//  v = sign((t + t) - 1);	// surely sign(t - 0.5), oder?
+    v = sign(t - 0.5);
+    v += polyblep4(t, dt);
+    v -= polyblep4(1 - t, dt);
+    v += polyblep4(0.5 - t, dt);
+    v -= polyblep4(t - 0.5, dt);
+    return v * 0.5;
+}
+
+polyrect4pwm(t, dt, pw) {
+    t1 = wrap(t + 1 - pw, 0, 1);
+    v  = -(pw + pw);
+    if (t < pw)
+		v += 2;
+    v += polyblep4(1 - t, dt);
+    v -= polyblep4(t, dt);
+    v += polyblep4(t1, dt);
+    v -= polyblep4(1 - t1, dt);
+    return v * 0.5;
+}
+
+polytri4(t, dt) {
+    u = abs((t + t) - 1) - 1;
+    v = u + u;
+    v += polyblamp4(t, dt);
+    v += polyblamp4(1 - t, dt);
+    t += 0.5;	// phase 0..1, 0.25 would give us phase through the zero crossing, but...
+    t -= floor(t);
+    v -= polyblamp4(t, dt);
+    v -= polyblamp4(1 - t, dt);
+    return (v + 1) * 0.5;
+}
+

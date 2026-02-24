@@ -24,6 +24,10 @@
 <refpage name='evi_lib.maxref.xml'/>
 <refpage name='evi_pade.maxref.xml'/>
 <refpage name='evi_polyblep.maxref.xml'/>
+<refpage name='evi_polyblep_four.maxref.xml'/>
+<refpage name='evi_polyblep_shapes.maxref.xml'/>
+<refpage name='evi_polyblep_two.maxref.xml'/>
+<refpage name='evi_polyblep_utility.maxref.xml'/>
 <refpage name='evi_ptr.maxref.xml'/>
 <refpage name='evi_rcfilters.maxref.xml'/>
 <refpage name='evi_resampling_templates.maxref.xml'/>

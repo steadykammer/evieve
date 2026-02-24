@@ -10,7 +10,9 @@
         "inlets": "frequency, naive"
     },
     "includes": [
-        "evi_polyblep"
+        "evi_polyblep",
+        "evi_polyblep_four",
+        "evi_polyblep_utility"
     ],
     "inlets": [
         {

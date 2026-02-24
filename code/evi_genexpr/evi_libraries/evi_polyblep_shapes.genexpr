@@ -1,0 +1,376 @@
+
+// polyblep waves ...
+
+require("evi_polyblep_utility.genexpr");
+require("evi_polyblep_two.genexpr"); // bandlimiters in here
+
+// Shapes by:
+// https://www.taletn.com/reaper/mono_synth/
+// Copyright (C) 2013-2019 Theo Niessink <theo@taletn.com>
+// ^^ Thank you for all your work and sharing ^^
+// License:
+// This work is free. You can redistribute it and/or modify it under the
+// terms of the "Do What The Fuck You Want To Public License", Version 2,
+// as published by Sam Hocevar:
+// http://www.wtfpl.net/
+
+// half-wave rectified sines
+
+// ok for full range, but does not zero cross with phase :-(
+poly_half(t, dt)
+{
+	h		=  0;
+	tdp		=  0.6366197723675814;	//  2 / PI
+	t2		=  wrap(t + 0.5, 0, 1);
+	if (t < 0.5) {
+		h0	= sin73(TWOPI * t);
+		h 	= (h0 + h0) - tdp;
+	} else {
+		h	= -tdp;
+	}
+	h	+= TWOPI * dt * (poly_blamp(t, dt) + poly_blamp(t2, dt));
+	return	h;
+}
+
+// pw < 0.5 not good above 1k (unusable), pw > 0.5 && < 1 not too good above 4k, but fine
+// pw: morphs between +pulse..full_wave_rectified_sine, but does not zero cross with phase :-(
+poly_half2(t, dt, pw)
+{
+	h	= 0;
+	fdp	= 1.2732395447351628;		// 4 / PI
+	t6	= (pw * 0.5 + t + 0.75) - pw;
+	t7	= t6;
+	t6	= wrap(t6, 0, 1);
+	t77	= t7 - wrap(t7, 0, 1);
+	if (t6 < pw) {
+		h	= (sin73(t6 / pw * PI) * 2) - pw * fdp;
+	} else {
+		h	= 0 - pw * fdp;
+	}
+	h2	= (poly_blamp(t7 - t77, dt) + poly_blamp(t6, dt)) / pw * PI * dt + h;
+	return	h2;
+}
+
+// we do not use this one
+poly_half22(t, dt, pw)
+{
+	h	= 0;
+	fdp	= 1.2732395447351628;		// 4 / PI
+	t6	= (pw * 0.5 + t + 0.75) - pw;
+	t7	= t6;
+	t6	= wrap(t6, 0, 1);
+	t77	= t7 - wrap(t7, 0, 1);
+	if ((pw >= 0.4999) && (pw <= 0.5001)) {
+//	if (pw == 0.5) {
+		h 	= poly_half(t, dt);		// same shape at default pw, because this algo aliases like hell
+	} else if (t6 < pw) {
+		h	= (sin73(t6 / pw * PI) * 2) - pw * fdp;
+	} else {
+		h	= 0 - pw * fdp;
+	}
+	h2	= (poly_blamp(t7 - t77, dt) + poly_blamp(t6, dt)) / pw * PI * dt + h;
+	return	h2;
+}
+
+// waveforms
+
+// using the approxes, for completeness ...
+
+poly_sin(t)
+{
+	return	sin73(TWOPI * t);
+}
+
+poly_cos(t)
+{
+	return	cos73(TWOPI * t);
+}
+
+// polyblep waves ...
+
+// full-wave rectified sine
+
+// ok for full range, but does not zero cross with phase, but would if we nudged it a tiny bit
+poly_full(t, dt)
+{
+	fdp	= 1.2732395447351628;		// 4 / PI
+	t1	= wrap(t + 0.25, 0, 1);
+	f0	= sin73(PI * t1);
+	f 	= (f0 + f0) - fdp;
+	f  += TWOPI * dt * poly_blamp(t1, dt);
+	return	f;
+}
+
+// pulse sine
+
+// this does not work ?!
+poly_sinp(t, dt)
+{
+	tdp	= 0.63661977236758134;		// 2 / PI
+	t2	= wrap(t + 0.5, 0, 1);
+	s	= 0;
+	if (t < 0.5) {
+		ss 	=  sin73(t * PI);
+		s	= (ss + ss) - tdp;
+	} else {
+		s	= -tdp;
+	}
+	sp	= ((-poly_blep((t + 0.5) - t2, dt) + (poly_blamp(t, dt) * PI * dt))) + s;
+	return sp;						//	?? !!
+}
+
+// saw pulse
+
+// warning: not usable above about 6k, but this is a great osc
+poly_sawp(t2, dt)					// not t
+{
+//	t2	= wrap(t + 0.5, 0, 1);		// surely should not shift this for phase zero crossing ??
+	w	= 0;
+	if (t2 >= 0.5) {
+		w	= (cos73(t2 * TWOPI) + 1) - 0.5;
+	} else {
+		w	= -0.5;
+	}
+	wp	= -poly_blep(t2, dt) + w;
+	return	wp;
+}
+
+// alternating sine
+
+// warning: not usable above about 4k
+poly_alt(t, dt)
+{
+	pi4	= 12.566370614359173;		// 4 * PI
+	t2	= wrap(t + 0.5, 0, 1);
+	at	= 0;
+	if (t2 < 0.5) {
+		at	= sin73(t2 * pi4);
+	} else {
+		at	= 0;
+	}
+	alt	= ((poly_blamp((t2 + 0.5) - t2, dt) - poly_blamp(t2, dt)) * -TWOPI * dt) + at;
+	return	alt;
+}
+
+// camel sine
+
+// warning: shit above about 1k,
+// almost zero crosses with phase, could be nudged
+poly_camel(t, dt)
+{
+	pi4	= 12.566370614359173;		// 4 * PI
+	tdp	= 0.63661977236758134;		// 2 / PI
+	t2	= t + 0.5;
+	t3	= t2 + 0.25;
+	t22	= wrap(t2, 0, 1);
+	t33	= wrap(t3, 0, 1);
+	c	= 0;
+	if (t < 0.5) {
+		cc  =  abs(sin73(t * pi4));
+		c	= (cc + cc) - tdp;
+	} else {
+		c	= -tdp;
+	}
+	cm	= (((poly_blamp(t3 - t33, dt) * 2) + poly_blamp(t2 - t22, dt) + poly_blamp(t, dt)) * pi4 * dt) + c;
+	return	cm;
+}
+
+// bipolar squared sine
+
+// warning: shit above about 4k
+poly_sin2(t, dt)
+{
+	msp	= -1.772453850905516;		// -sqrt(PI);
+	t2	=  wrap(t + 0.5, 0, 1);
+	s1	=  sin73(t * TWOPI);
+	s2 	=  s1 * s1;
+	s0 	= (t < 0.5) ? s2 : -s2;
+	s2	= ((poly_bluh((t + 0.5) - t2, dt) - poly_bluh(t, dt)) * (dt * dt) * msp) + s0;
+	return	s2;
+}
+
+// parabola
+
+// warning: not good above about 5k
+poly_para(t, dt)
+{
+	t2	=   wrap(t + 0.5, 0, 1);
+	p	= ((poly_bluh((t + 0.5) - t2, dt) - poly_bluh(t, dt)) * sqrt1_2 * (dt * dt)) + (((t * 16) - 8) * (abs(t - 0.5) - 0.5));
+	return	p;
+}
+
+// circle (approximation)
+
+// warning: this is shit, but very interesting, (my implementation is probably wrong)
+poly_circ(t, dt)
+{
+	History	lp(0);
+	odn2	= 0.015625;					// 1 / 64;
+	od2psn	= 0.028134884879909565;		// 1 / (TWOPI * sqrt(32))
+//	odt		= 0.3333333333333333;		// 1 / 3
+	t2		= t + odn2;
+	t3		= t2 + 0.5;
+	t22		= wrap(t2, 0, 1);
+	t33		= wrap(t3, 0, 1);
+	// "mimic linear-phase filter by mixing 1st-order low-pass filtered square...
+	lp	   += (poly_blep(t22, dt) - poly_blep(t3 - t33, dt) + ((t22 < 0.5) * 2 - 1) - lp) / (dt + od2psn) * dt;
+	cc		= (lp + sin73(t * TWOPI)) * 0.5;//odt;						// ... with sine"
+	return	cc;
+}
+
+// low-pass filtered square approximations (actually triangle waves)
+
+// ok for full range, but of course does not zero cross
+poly_lpsqr2(t, dt)
+{
+	fdt		= dt + dt + dt + dt;
+	t2		= t + 0.5;
+	t22		= wrap(t2, 0, 1);
+	y		= 0;
+	if (t < 0.5) {
+		temp	= t * 2 - 1;
+		y		= 0.5 - temp * temp;
+	} else { 
+		temp	= (1 - t) * 2;
+		y		= (temp * temp) - 0.5;
+	}
+	y2		= y * 2;
+	y2	   += poly_blamp(t, dt) * fdt;
+	y2	   -= poly_blamp(t22, dt) * fdt;
+	return		y2;
+}
+
+// ok for full range, but of course does not zero cross
+poly_lpsqr3(t, dt)
+{
+	sdt	= 6 * dt;
+	t2	= t + 0.5;
+	t22	= wrap(t2, 0, 1);
+	y	= 0;
+	if (t < 0.5) {
+		temp	= t * 2 - 1;
+		y		= (temp * temp * temp) * 2 + 1;
+	} else {
+		temp	= (1 - t) * 2;
+		y		= (temp * temp * temp) * 2 - 1;
+	}
+	y3	= y + 0;
+	y3 += poly_blamp(t, dt) * sdt;
+	y3 -= poly_blamp(t22, dt) * sdt;
+	return	y3;
+}
+
+// integrated sawtooth (this is like a reciprocal of 'poly_full()')
+
+// warning: not great above about 3k
+poly_intsaw(t, dt)						// is this not quarter out of phase ??
+{										// yes it is out of phase with 'poly_full()', do we care?
+	odtw	= 0.083333333333333333;
+	t2		= t + 0.5;
+	t22		= wrap(t2, 0, 1);
+	is		= poly_blamp(t2 - t22, dt) * dt - ((t * -2 + 1) * (t >= 0.5) + (t * t) - odtw);
+	return	is * -8;
+}
+
+// cubic sawtooth
+
+// warning: this is not great above about 4k (there is a better way of doing this)
+poly_cubsaw(t, dt)
+{
+	twsqrt3	=  20.784609690826528;	// 12 * sqrt(3)
+	t2		=  t + 0.5;
+	t02		= (t2 >= 1) - t2 + 0.5;
+	t22		= wrap(t2, 0, 1);
+	cs		= poly_bluh(t2 - t22, dt) * (dt * dt) * 0.0625 + ((t02 * t02) - 0.25) * t02;
+	return	cs * twsqrt3;
+}
+
+// sawtooth sine, i love this osc
+
+// ok for full range
+poly_sawsin(t, dt)
+{
+//	return	((poly_blep(t, dt) + sin73((0.5 - t) * PI)) * -1);
+	return -(poly_blep(t, dt) + sin73((0.5 - t) * PI));
+}
+
+// sine sawtooth (-sawtoothsine)
+
+// ok for full range
+poly_sinsaw(t, dt)
+{
+	return	(poly_blep(t, dt) + sin73((0.5 - t) * PI));
+}
+
+// high-pass filtered sawtooth approximation
+
+// surprisingly good for full range, but for the (samplerate / 4) switch
+// 'jumps' to sine() because of gain disparity by that point in frequency range...
+// ...should probably make a gain compensation as function of freq
+poly_hpsaw6(t, dt)					// this does not zero cross regardless of phase
+{
+	tds	= 0.28571428571428571;		// 2 / 7
+	freqgain = 1;					// this should be the dynamic gain function suggested in above comment
+	t15	= wrap(1.5 - t, 0, 1);
+	y	= (t15 * t15 * t15 * t15 * t15 * t15) * -2 + tds;
+	if (t15 < dt) {
+		temp	= t15 / dt - 1;
+		y	   -= (temp * temp * (dt + dt) + temp) * temp;
+	} else if (t15 > 1 - dt) {
+		temp	= (t15 - 1) / dt + 1;
+		y	   += (temp * temp * (dt + dt) + temp) * temp;
+	} else {
+		y		= y;
+	}
+	return		y * freqgain;
+}
+
+// half-wave rectified sawtooth
+
+// something is wrong...
+poly_hwsaw(t, dt, pw)
+{
+	pw3dt	= (pw * 3) * dt;
+	t2		= t + 0.5;
+	t1		= t2 + pw;
+	t11		= wrap(t1, 0, 1);
+	t22		= wrap(t2, 0, 1);
+	y		= (t11 < pw) ? t1 * 2 / pw : 0;
+	y1		= y - pw;
+ 	if (t1 < dt) {
+		temp	= t1 / dt - 1;
+		y1	   -= (temp * temp * temp) / pw3dt;
+	} else if (t1 > 1 - dt) {
+		temp	= (t1 - 1) / dt + 1;
+		y1	   += (temp * temp * temp) / pw3dt;
+	}
+	if (t22 < dt) {
+		temp	= t2 / dt - 1;
+		y1	   += ((temp * temp) / pw3dt + temp) * temp;
+	} else if (t2 > 1 - dt) {
+ 		temp	= (t2 - 1) / dt + 1;
+		y1	   -= ((temp * temp) / pw3dt + temp) * temp;
+	}
+	return	y1;						// something is wrong...
+}
+
+// logit approximation
+
+// surprisingly good for full range, but for the (samplerate / 4) switch
+// 'jumps' to sine() because of gain disparity by that point in frequency range...
+// ...should probably make a gain compensation as function of freq
+poly_logit3(t, dt)
+{
+	freqgain = 1;					// this should be the dynamic gain function suggested in above comment
+	t2	= wrap(t + 0.5, 0, 1);
+	y	= ((t2 * 8 - 12) * t2 + 6) * t2 - 1;
+	if (t2 < dt) {
+		temp	= t2 / dt - 1;
+		y	   += (temp * temp);
+	} else if (t2 > 1 - dt) {
+		temp	= (t2 - 1) / dt + 1;
+		y	   -= (temp * temp);
+	}	// else y = 0;	??
+	return	y * freqgain;
+}
+

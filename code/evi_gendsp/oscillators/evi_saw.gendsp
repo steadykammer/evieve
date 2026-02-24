@@ -38,7 +38,7 @@
             },
             {
                 "box": {
-                    "code": "\r\nrequire(\"evi_polyblep\");\r\n\r\nreset       = in2;      // naive, do not use\r\n\r\nfreqInHz    = in1;\r\nt\t        = phasor(freqInHz, reset);\r\ndt\t        = freqInHz / SAMPLERATE;\r\n\r\nout1        = decorelateOsc(polysaw4(t, dt));\r\n\r\n// TODO: HardSync\r\n\r\n",
+                    "code": "\r\nrequire(\"evi_polyblep_four.genexpr\");\r\nrequire(\"evi_polyblep_utility.genexpr\");\r\n\r\nreset       = in2;      // naive, do not use\r\n\r\nfreqInHz    = in1;\r\nt\t        = phasor(freqInHz, reset);\r\ndt\t        = freqInHz / SAMPLERATE;\r\n\r\nout1        = decorelateOsc(polysaw4(t, dt));\r\n\r\n// TODO: HardSync\r\n\r\n",
                     "fontface": 0,
                     "fontname": "<Monospaced>",
                     "fontsize": 12.0,

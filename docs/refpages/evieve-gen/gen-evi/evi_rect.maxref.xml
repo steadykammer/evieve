@@ -9,7 +9,7 @@
         <b>evi_rect</b> is an abstraction for using inside <o>gen~</o> or <b>GenExpr</b>. <br />
          <br />
         evi_rect.gendsp requires the GenExpr file(s): <br />
-        <o>evi_polyblep</o>.genexpr <br />
+        <o>evi_polyblep</o>.genexpr, <o>evi_polyblep_four</o>.genexpr, <o>evi_polyblep_utility</o>.genexpr <br />
          <br />
         evi_rect is also available in MSP as: <o>evi.rect~</o>. <br />
          <br />

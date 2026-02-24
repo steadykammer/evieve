@@ -1,5 +1,6 @@
 
-require("evi_polyblep");
+require("evi_polyblep_four.genexpr");
+require("evi_polyblep_utility.genexpr");
 
 reset       = in2;      // naive, do not use
 

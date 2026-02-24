@@ -1,5 +1,5 @@
 
-require("evi_polyblep.genexpr");
+require("evi_polyblep_shapes.genexpr");
 
 sineOscSelect(phase, norm, gain, wave)
 {
@@ -178,7 +178,7 @@ dtn			= clip((dt + dt), 0, 1);
 oscsync		= delta(t) < 0;
 gain		= minimum(scale(clip(freqInHz, 0, 20), 1, 20, 0.9564, 0.5, 3), 0.9564) * (((1 - (filt * (freqInHz < 20))) * 0.157588) + 0.842412);
 smoothsamps = mstosamps(33);
-a, an		= eviLine(gain, smoothsamps);	// 0.5 for Oscillators, 1.0 for LFOs ... oder ?? (dynamic like dc)
+a, an		= evi_line(gain, smoothsamps);	// 0.5 for Oscillators, 1.0 for LFOs ... oder ?? (dynamic like dc)
 
 ov			= latch(over,	oscsync);
 wv			= latch(wave,	oscsync);
@@ -203,9 +203,9 @@ osc = dynamicDc(osc, dtn, dcn);
 
 // restore high frequencies options...
 if (ft > 0) {
-	osc = decorelate(osc);      // for Bleps ?
+	osc = decorelateOsc(osc);      // for Bleps ?
 	if (ft > 1) {
-		osc = decorelate(osc);  // for Blamps / Bluhs ?
+		osc = decorelateOsc(osc);  // for Blamps / Bluhs ?
 	}
 }
 

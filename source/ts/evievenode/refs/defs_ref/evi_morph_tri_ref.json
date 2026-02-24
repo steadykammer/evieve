@@ -13,7 +13,9 @@
         "tags": []
     },
     "includes": [
-        "evi_polyblep.genexpr"
+        "evi_polyblep.genexpr",
+        "evi_polyblep_two.genexpr",
+        "evi_polyblep_utility.genexpr"
     ],
     "inlets": [
         {

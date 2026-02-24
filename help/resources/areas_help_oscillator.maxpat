@@ -297,17 +297,6 @@
             },
             {
                 "box": {
-                    "id": "obj-4",
-                    "maxclass": "newobj",
-                    "numinlets": 3,
-                    "numoutlets": 3,
-                    "outlettype": [ "signal", "signal", "signal" ],
-                    "patching_rect": [ 509.0, 184.0, 92.0, 22.0 ],
-                    "text": "evi.classic.osc~"
-                }
-            },
-            {
-                "box": {
                     "id": "obj-3",
                     "maxclass": "newobj",
                     "numinlets": 3,
@@ -370,17 +359,6 @@
                                     "outlettype": [ "", "" ],
                                     "patching_rect": [ 622.0, 310.0, 87.0, 22.0 ],
                                     "text": "evi_quadfmpm"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "id": "obj-19",
-                                    "maxclass": "newobj",
-                                    "numinlets": 5,
-                                    "numoutlets": 6,
-                                    "outlettype": [ "", "", "", "", "", "" ],
-                                    "patching_rect": [ 116.0, 379.0, 107.0, 22.0 ],
-                                    "text": "evi_zeroxoscnoise"
                                 }
                             },
                             {
@@ -458,17 +436,6 @@
                                     "outlettype": [ "", "", "" ],
                                     "patching_rect": [ 116.0, 241.0, 92.0, 22.0 ],
                                     "text": "evi_morph_trap"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "id": "obj-11",
-                                    "maxclass": "newobj",
-                                    "numinlets": 3,
-                                    "numoutlets": 3,
-                                    "outlettype": [ "", "", "" ],
-                                    "patching_rect": [ 599.0, 172.0, 92.0, 22.0 ],
-                                    "text": "evi_classic_osc"
                                 }
                             },
                             {
@@ -591,6 +558,26 @@
                                     "patching_rect": [ 19.0, 103.0, 35.0, 22.0 ],
                                     "text": "out 1"
                                 }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-22",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 596.0, 173.0, 113.0, 20.0 ],
+                                    "text": "[evi_classic_osc]"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-11",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 113.0, 380.0, 128.0, 20.0 ],
+                                    "text": "[evi_zeroxoscnoise]"
+                                }
                             }
                         ],
                         "lines": []
@@ -610,6 +597,16 @@
                     "numoutlets": 0,
                     "orientation": 0,
                     "patching_rect": [ 511.0, 402.0, 46.0, 101.0 ]
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-22",
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 506.0, 185.0, 113.0, 20.0 ],
+                    "text": "[evi.classic.osc~]"
                 }
             },
             {

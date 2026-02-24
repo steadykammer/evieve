@@ -12,7 +12,8 @@
     "includes": [
         "evi_smooth",
         "evi_clip",
-        "evi_biquads"
+        "evi_biquads",
+        "evi_biquads_filters"
     ],
     "inlets": [
         {
