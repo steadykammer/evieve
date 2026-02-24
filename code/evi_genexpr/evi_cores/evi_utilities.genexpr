@@ -187,6 +187,45 @@ parabolWrap(phase)
 	return	y;
 }
 
+windowCoeffs(choice) {			// choose which windowing function to use
+	a0, a1, a2 = 0;
+	if (choice == 1) {			// "Blackman"
+		a0 = 0.42;
+		a1 = 0.5;
+		a2 = 0.08;
+	} else if (choice == 2) {	// "Exact Blackman"
+		a0 = 0.426590713671539;
+		a1 = 0.496560619088564;
+		a2 = 0.076848667239897;
+	} else if (choice == 3) {	// "Blackman-Harris"
+		a0 = 0.422323;
+		a1 = 0.49755;
+		a2 = 0.07922;
+	} else if (choice == 4) {	// "Hann"
+		a0 = 0.5;
+		a1 = 0.5;
+		a2 = 0;
+	} else if (choice == 5) {	// "Hamming"
+		a0 = 0.54;
+		a1 = 0.46;
+		a2 = 0;
+	} else {					// flatten
+		a0 = 0;
+		a1 = 0;
+		a2 = 0;
+	}
+	return a0, a1, a2;			// return three coefficients for 'winman()'
+}
+
+// w = loop iterator
+winman(w, a0, a1, a2, windowsize=4096)
+{
+	FOURPI = TWOPI + TWOPI;
+	ws 	= windowsize + 1;
+	win = (a0 - (a1 * cos((TWOPI * w) / ws))) + (a2 * cos((FOURPI * w) / ws));
+	return win;					// write to 'poke()'
+}
+
 // mixing
 
 // simple parabolic approx crossfader (stereo)

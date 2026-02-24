@@ -643,13 +643,6 @@
         "keywords": [],
         "seealso": []
     },
-    "evi.pitchdetect~": {
-        "digest": "Utility wrapper around retune~ pitch detector \n",
-        "module": "evieve-ref",
-        "category": [ "evieve", "evieve Abstractions" ],
-        "keywords": [],
-        "seealso": []
-    },
     "evi.plateverb_lite~": {
         "digest": "Efficient version of evi.plateverb~ plate reverb \n",
         "module": "evieve-ref",

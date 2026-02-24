@@ -493,7 +493,7 @@
         },
         "evi.pitchdetect~": {
             "object": true,
-            "ref": true,
+            "ref": false,
             "qlookup": true,
             "helpfile": {
                 "generate": false,

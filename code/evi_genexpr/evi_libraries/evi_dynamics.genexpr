@@ -1,250 +1,16 @@
 
-require("evi_tanh.genexpr");
+require("evi_smooth.genexpr");  // incl. _utilities & _approx
+require("evi_clip.genexpr");    // incl. _interp
+require("evi_tanh.genexpr");	// adSc2()
+require("evi_biquads_filters.genexpr");
 
-xMega(X, xCONST) // sqrt1_2 or ln2 or log10e
-{
-	MEGA = xCONST * 1000;
-	return dcblock(clamp(X, -MEGA, MEGA));
-}
-
-xSgn(x) // no zero
-{
-	return (0 < x) - (x < 0);
-}
-
-xRange(x, range=1)
-{
-	return abs(x) <= range;
-}
-
-//	//	//	Hard Clip	//	//	//
-
-funcHc0(x, clip=1)
-{
-	return clamp(x, -clip, clip);
-}
-
-funcHc1(x, range=1) // first antiderivative
-{
-	ad1 = x;
-	ir = xRange(x, range=range);
-	if (ir) {
-		ad1 = x * x * 0.5;
-	} else {
-		ad1 = x * xSgn(x) - 0.5;
-	}
-	return ad1;
-}
-
-funcHc2(x, range=1) // second antiderivative
-{
-	ad2 = x;
-	ods = 0.166666666666667;
-	ir = xRange(x, range=range);
-	if (ir) {
-		ad2 = x * x * x * ods;
-	} else {
-		x05 = x * 0.5;
-		ad2 = ((x * x05) + ods) * xSgn(x) - x05;
-	}
-	return ad2;
-}
-
-adHc1(x, limit=1)
-{
-	History x1(0), ad1_x1(0);
-	TOL = 0.00001;
-	xmx1 = x - x1;
-	illCondition = abs(xmx1) < TOL;
-	ad1_x = funcHc1(x, range=limit);
-
-	y = 0;
-	if (illCondition) {
-		y = funcHc0(0.5 * (x + x1), clip=limit);
-	} else {
-		y = (ad1_x - ad1_x1) / xmx1;
-	}
-
-	ad1_x1 = ad1_x;
-	x1 = x;
-
-	return y;
-}
-
-adHc2(x, limit=1)
-{
-	History x1(0), x2(0), ad2_x1(0), d2(0);
-	TOL = 0.00001;
-	xmx2 = x - x2;
-	illCondition = abs(xmx2) < TOL;
-
-	d1 = x;
-	xmx1 = x - x1;
-	d1Condition = abs(xmx1) < TOL;
-	ad2_x0 = funcHc2(x, range=limit);
-	if (d1Condition) {
-		d1 = funcHc1(0.5 * (x + x1), range=limit);
-	} else {
-		d1 = (ad2_x0 - ad2_x1) / xmx1;
-	}
-
-	fb = x;
-	xBar = 0.5 * (x + x2);
-	delta = xBar - x1;
-	fallbackCondition = abs(delta) < TOL;
-	if (fallbackCondition) {
-		fb = funcHc0(0.5 * (xBar + x1), clip=limit);
-	} else {
-		fb = (2 / delta) * (funcHc1(xBar, range=limit) + (ad2_x1 - funcHc2(xBar, range=limit)) / delta);
-	}
-
-	y = x;
-	if (illCondition) {
-		y = fb;
-	} else {
-		y = (2 / xmx2) * (d1 - d2);
-	}
-
-	d2 = d1;
-	x2 = x1;
-	x1 = x;
-	ad2_x1 = ad2_x0;
-
-	return y;
-}
-
-// fixed 2x quasi oversampling (hermite6)
-adHc2_2x_6POINT(XIN, thresh=1)
-{	// up 2
-	History	umTm2_0(0), umTm1_0(0), umT0_0(0), umT1_0(0), umT2_0(0);
-	// down 2
-	History	dmT3_1(0), dmT2_1(0), dmT1_1(0), dmT0_1(0), dmTm1_1(0);
-	// align
-	History	doX0(0);
-
-	// up 2x
-	x0_0_a	= XIN + 0;
-	x1_0	= hermite_sixpoint_interp(0.5,	umTm2_0, umTm1_0, umT0_0, umT1_0, umT2_0, x0_0_a);
-	x2_0	= umT2_0 + 0;
-
-	// process 2x
-	y1_0	= adHc2(x1_0, limit=thresh);
-	y2_0	= adHc2(x2_0, limit=thresh);
-
-	// down 2x
-	y2_0_a	= y2_0 + 0;
-	y2_1	= hermite_sixpoint_interp(0.5,	y2_0_a,	dmTm1_1, dmT0_1, dmT1_1, dmT2_1, dmT3_1);
-
-	y0_0	= (doX0 + y2_1) * 0.5;
-
-	// update
-	umTm2_0	= umTm1_0;
-	umTm1_0	= umT0_0;
-	umT0_0	= umT1_0;
-	umT1_0 	= umT2_0;
-	umT2_0	= x0_0_a;
-
-	doX0	= y1_0;
-
-	dmT3_1	= dmT2_1;
-	dmT2_1	= dmT1_1;
-	dmT1_1	= dmT0_1;
-	dmT0_1	= dmTm1_1;
-	dmTm1_1	= y2_0;
-
-	return dcblock(y0_0);
-}
-
-// fixed 4x quasi oversampling (hermite6)
-adHc2_4x_6POINT(XIN, thresh=1)
-{	// up 2
-	History	umTm2_0(0), umTm1_0(0), umT0_0(0), umT1_0(0), umT2_0(0);
-	// down 2
-	History	dmT3_1(0), dmT2_1(0), dmT1_1(0), dmT0_1(0), dmTm1_1(0);
-	// align
-	History	doX0(0);
-
-	// up 2x
-	x0_0_a	= XIN + 0;
-	x1_0	= hermite_sixpoint_interp(0.5,	umTm2_0, umTm1_0, umT0_0, umT1_0, umT2_0, x0_0_a);
-	x2_0	= umT2_0 + 0;
-
-	// process 4x
-	y1_0	= adHc2_2x_6POINT(x1_0, thresh=thresh);
-	y2_0	= adHc2_2x_6POINT(x2_0, thresh=thresh);
-
-	// down 2x
-	y2_0_a	= y2_0 + 0;
-	y2_1	= hermite_sixpoint_interp(0.5,	y2_0_a,	dmTm1_1, dmT0_1, dmT1_1, dmT2_1, dmT3_1);
-
-	y0_0	= (doX0 + y2_1) * 0.5;
-
-	// update
-	umTm2_0	= umTm1_0;
-	umTm1_0	= umT0_0;
-	umT0_0	= umT1_0;
-	umT1_0 	= umT2_0;
-	umT2_0	= x0_0_a;
-
-	doX0	= y1_0;
-
-	dmT3_1	= dmT2_1;
-	dmT2_1	= dmT1_1;
-	dmT1_1	= dmT0_1;
-	dmT0_1	= dmTm1_1;
-	dmTm1_1	= y2_0;
-
-	return dcblock(y0_0);
-}
-
-biquadDf2(x, a0, a1, a2, b1, b2)
-{
-	History x1(0), x2(0);
-
-	b1w = x1 * b1;
-	b2w = x2 * b2;
-	w = x - b1w - b2w;
-
-	a0w = w * a0;
-	a1w = x1 * a1;
-	a2w = x2 * a2;
-	y = a0w + a1w + a2w;
-
-	x2 = x1;
-	x1 = w;
-
-	return y;
-}
-
-// for log envs
-logSad(s)							// s = time to drop 6dB (in seconds)
-{
-//	return	LN2 / (s * SAMPLERATE);
-	return	LN2 / maximum((s * SAMPLERATE), 1);
-}
-
-getMax(xL, xR)
-{
-	return	maximum(abs(xL), abs(xR));
-}
-
-// log smooth (attack/decay) envelope follower
-logAttackDecay(x, a, d)				// a/d = attack/decay times in seconds
-{
-	History	z(0);
-	ff		= x - z;
-	tt		= (ff > 0) ? a : d;
-	ad		= logSad(tt);
-	y		= (ff * ad) + z;
-//	y		= (ff * ((ff > 0) ? logSad(a) : logSad(d))) + z;	// no
-	z		= y;
-	return	y;
-}
 
 // release is in ms
 // knee is % 0..1
 // choochoo is int 0, 1, 2 ("clip", "soft", "softer")
-limiterFast(xL, xR, release, knee, choochoo, a0, a1, a2, b1, b2)
+// almost the same as 'evi_limiterfast.gendsp'
+// usage: a0, a1, a2, b1, b2 = smoothCoeff(smooth);	// in 'evi_smooth.genexpr'
+limiterHardSoft(xL, xR, release, knee, choochoo, a0, a1, a2, b1, b2)
 {
 	History		lfdummy(0);
 	soft		= choochoo != 0;
@@ -265,21 +31,48 @@ limiterFast(xL, xR, release, knee, choochoo, a0, a1, a2, b1, b2)
 	yR		= dcblock(xR * env);
 
 	if (soft) {
-		// tanh option (2nd order antiderivative...
+		// tanh option (2nd order antiderivative)
 		headroom = compress ? 0.794328 : 1;
 		expand = compress ? 1.258926 : 1;
-//		yL	= adSc2_2x_6POINT_fix2(yL * headroom) * expand;		// ...+ oversampling)
-//		yR	= adSc2_2x_6POINT_fix2(yR * headroom) * expand;
 		yL	= adSc2(yL * headroom) * expand;
 		yR	= adSc2(yR * headroom) * expand;
+	} else {
+		// hard clip (@ -0.3dB, 2nd order antiderivative + oversampling)
+		yL	= adHc2_4x_6POINT(yL);
+		yR	= adHc2_4x_6POINT(yR);
 	}
 
-	// always hard clip (@ -0.3dB, 2nd order antiderivative...
-	clipL	= adHc2_4x_6POINT(yL, thresh=0.966053);				// ...+ oversampling)
-	clipR	= adHc2_4x_6POINT(yR, thresh=0.966051);
-//	clipL	= adHc2(yL, limit=0.966053);
-//	clipR	= adHc2(yR, limit=0.966051);
-
-	return	clipL, clipR, env;
+	return	yL, yR, env;
 }
+
+//	//	//
+
+companderAverager(x0, companderCrect, T)
+{
+	History y1(0);
+	b0 = T / (10000 * companderCrect * 0.000001 + T);	// compander smoothing
+	a1 = -1 + b0;
+	y0 = (x0 * b0) - (y1 * a1);
+	y1 = y0;
+	return y0;
+}
+
+companderCompress(x, smoothing, T)
+{
+	History compPrev(0);
+	compIn = (0.5 * (x + compPrev));
+	compDiv = 1 - (companderAverager(abs(compPrev), smoothing, T) + 0.00001);
+	compProc = compIn * compDiv;
+	compPrev = compProc;
+	return compProc, compDiv;
+}
+
+companderExpand(x, smoothing, T)
+{
+	History cedummy(0);
+	expMul = ((companderAverager(abs(x), smoothing, T)) * sqrt1_2) + 1;
+	return x * expMul, expMul;
+}
+
+//	//	//
 

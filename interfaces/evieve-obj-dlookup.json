@@ -459,11 +459,6 @@
         "digest": "Zero-rest phasor with settings for reverse and pause",
         "description": ""
     },
-    "evi.pitchdetect~": {
-        "type": "abstraction",
-        "digest": "Utility wrapper around retune~ pitch detector \n",
-        "description": ""
-    },
     "evi.plateverb_lite~": {
         "type": "abstraction",
         "digest": "Efficient version of evi.plateverb~ plate reverb \n",

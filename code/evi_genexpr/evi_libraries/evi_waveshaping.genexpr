@@ -185,7 +185,7 @@ scSoftClip(x0, drive) // drive must be clamped 0++
 // ---------------------------------------- //
 
 // unbounded, does almost nothing, nice
-RaffelBBD(x)
+raffelBBD(x)
 {
     a = 0.006024096385542;
     b = 0.03125;
