@@ -1,0 +1,158 @@
+
+//  //  //  linear lowpass TPT butterworths for surgical filtering
+
+fWarp(cf)
+{
+	f = (cf * (PI / samplerate)) * (1 / TWOPI);
+	w = (f - trunc(f)) * TWOPI;
+	return evi_tan(w);			    // tan approximation (G for butterworth)
+}
+
+lp1p(x, g)							// 1-pole section
+{
+	History p(0);
+	c = (x - p) * (g / (g + 1));
+	y = c + p;
+	p = c + y;
+	return y;
+}
+
+lp2p(x, g, r)						// 2-pole zdf section
+{
+	History p0(0), p1(0);
+	c0 = r + g;
+	c1 = (g / ((c0 * g) + 1)) * (x - (p1 + (p0 * c0)));
+	c2 = c1 + p0;
+	c3 = c2 * g;
+	y  = c3 + p1;
+	p0 = c1 + c2;
+	p1 = c3 + y;
+	return y;
+}
+
+// ---
+
+butterworthLowpass1(X, G)
+{
+	History bl1(0);
+    Y   = lp1p(X,   G);
+    return Y;
+}
+
+butterworthLowpass2(X, G)
+{
+	History bl2(0);
+    Y   = lp2p(X,   G,  1.4142135623730951);
+    return Y;
+}
+
+butterworthLowpass3(X, G)
+{
+	History bl3(0);
+    y0  = lp2p(X,   G,  1.0000000000000002);
+    Y   = lp1p(y0,  G);
+    return Y;
+}
+
+butterworthLowpass4(X, G)
+{
+	History bl4(0);
+
+	y0	= lp2p(X,	G,	0.7653668647301797);
+	Y	= lp2p(y0,	G,  1.8477590650225735);
+
+	return Y;
+}
+
+butterworthLowpass5(X, G)
+{
+	History bl5(0);
+
+    y0  = lp2p(X,   G,  0.6180339887498949);
+    y1  = lp2p(y0,  G,  1.618033988749895);
+    Y   = lp1p(y1,  G);
+
+    return Y;
+}
+
+butterworthLowpass6(X, G)
+{
+	History bl6(0);
+
+    y0  = lp2p(X,   G,  0.5176380902050419);
+    y1  = lp2p(y0,  G,  1.4142135623730951);
+    Y   = lp2p(y1,  G,  1.9318516525781366);
+
+    return Y;
+}
+
+butterworthLowpass7(X, G)
+{
+	History bl7(0);
+
+    y0  = lp2p(X,   G,  0.4450418679126289);
+    y1  = lp2p(y0,  G,  1.2469796037174672);
+    y2  = lp2p(y1,  G,  1.8019377358048383);
+    Y   = lp1p(y2,  G);
+
+    return Y;
+}
+
+butterworthLowpass8(X, G)
+{
+	History bl8(0);
+
+	y0	= lp2p(X,	G,	0.3901806440322567);
+	y1	= lp2p(y0,	G,	1.1111404660392046);
+	y2	= lp2p(y1,	G,	1.6629392246050905);
+	Y	= lp2p(y2,	G,	1.9615705608064609);
+
+	return Y;
+}
+
+// ---
+
+// all in one
+linearButterworthLP8(X, cutoff, order=3)
+{
+	History blp(0);
+	Y       = 0;
+	if (order > 0) {
+		G   = fWarp(cutoff);                // get G coefficient if not bypassed
+		if          (order == 1) {
+			Y   = lp1p(X,   G);
+		} else if   (order == 2) {
+			Y   = lp2p(X,   G, 1.4142135623730951);
+		} else if   (order == 4) {
+			y0  = lp2p(X,   G, 0.7653668647301797);
+			Y   = lp2p(y0,  G, 1.8477590650225735);
+		} else if   (order == 5) {
+			y0  = lp2p(X,   G, 0.6180339887498949);
+			y1  = lp2p(y0,  G, 1.618033988749895);
+			Y   = lp1p(y1,  G);
+		} else if   (order == 6) {
+			y0  = lp2p(X,   G, 0.5176380902050419);
+			y1  = lp2p(y0,  G, 1.4142135623730951);
+			Y   = lp2p(y1,  G, 1.9318516525781366);
+		} else if   (order == 7) {
+			y0  = lp2p(X,   G, 0.4450418679126289);
+			y1  = lp2p(y0,  G, 1.2469796037174672);
+			y2  = lp2p(y1,  G, 1.8019377358048383);
+			Y   = lp1p(y2,  G);
+		} else if   (order == 8) {
+			y0  = lp2p(X,   G, 0.39018064403225666);
+			y1  = lp2p(y0,  G, 1.1111404660392046);
+			y2  = lp2p(y1,  G, 1.6629392246050905);
+			Y   = lp2p(y2,  G, 1.9615705608064609);
+		} else {//  (order == 3)			// default
+			y0  = lp2p(X,   G, 1.0000000000000002);
+			Y   = lp1p(y0,  G);
+		}
+
+	} else {    //  (order == 0)			// bypassed
+		Y   = X;
+	}
+
+	return Y;
+}
+

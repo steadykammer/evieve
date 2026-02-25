@@ -1,153 +1,141 @@
 
+// loosely based on 'mda detune' copyright (c) 1998-2000 Paul Kellett (mda-vst.com)
+
+require("evi_smooth.genexpr");
+require("evi_waveshaping.genexpr");
 require("evi_crossovers.genexpr");
+require("evi_butterworth.genexpr");
+require("evi_svfs_tpt.genexpr");
+require("evi_adaa.genexpr");
 
-Data	detuneData(4096, 2);							// chan1 = audio, chan2 = window
-History	pos0(0), pos1(0), pos2(0);					// write / read phases for 'stereo detune' effect
+History init(1), prevSize(1024), prevWin(4);
 
+Data	detuneData(4096, 2);						// chan1 = audio, chan2 = window
+History	pos0(0), pos1(0), pos2(0);					// write / read phases
+History phaseReset(0);
 
+History dryL(0), dryR(0);                           // align
+History circuitL(0), circuitR(0);
 
-// master phasor / lfo controls
-Param	rate(0.5, min=0, max=1);
-Param	link(1, min=0.125, max=4);			// 'link' ([rate]) == 1 = same as ... 'rate' [hz] (sub phasor / master phasor)
-Param	depth(0.25, min=0, max=1);			// master range for all lfo's (delay time, filter cutoff, amplitude, etc)
-Param	center(0.75, min=0, max=1);			// master offset for all lfo's (for filters = cutoff in midi 0..134 if linked)
-Param	warp(0, min=-1, max=1);				// 'warp factor' for stage offsets; 0 = uniform, -1..1 modded by 'ws'
+Param   xover(250, min=125, max=1000);
+Param	feedback(0, min=-1, max=1);				    // feedback gain, amplitude, -1..1
 
-//Param	sddetune(0.2, min=0, max=1);				// use "Depth" dial instead
-//Param	sdmix(0.9, min=0, max=1);					// use "Center" dial instead
-Param	sdlosat(0, min=0, max=1);					// saturate low end of 'stereo detune' ? (0/1 flag)
-Param	sdwindow(4, min=0, max=5);					// 'stereo detune' window, default 4 == "Hann" (do not change !)
-Param	sdlatency(4, min=0, max=4);					// 0..4, default 4 (4096 samples, ONLY use 4096, rest broken !!)
+Param	detune(0.2, min=0, max=1);
+Param	mix(0.9, min=0, max=1);
+Param	window(4, min=0, max=5);					// detune window, default 4 == "Hann"
+Param	latency(2, min=0, max=4);					// 0..4, default 2 = 1024 samples
 
+winsize = selector((int(latency) + 1), 256, 512, 1024, 2048, 4096); // size in samples of write section
+Size    = latch(int(winsize), phaseReset);
+Win     = latch(int(window), phaseReset);
+a0, a1, a2 = windowCoeffs(Win);
 
-sdsize	= selector((int(sdlatency) + 1), 256, 512, 1024, 2048, 4096);// 'stereo detune' size in samples of write section
+if ((init) || (prevSize != Size) || (prevWin != Win)) {
+    for (w = 0; w < winsize; w += 1) {
+        win = winMan(w, a0, a1, a2, windowsize=winsize);
+        poke(detuneData, win, w, 1, index="samples");	// window function to 'detuneData' chan2
+    }
+	for (k = winsize; k < dim(detuneData); k += 1) {
+		poke(detuneData, 0, k, 1, index="samples");		// zero rest of window Data
+	}
+    init = 0;
+}
+prevSize = Size;
+prevWin = Win;
 
+laura	= 1.059463094359295264561825;
+semi	= eviLine((3 * detune * detune * detune), rsm*samplerate);
+dpos2	= pow(laura, semi);				        // dpos2 (must be accurate = use 'pow')
+dpos1	= 1 / dpos2;							// dpos1
+dryMix, wetMix = logsmoothBank2((1 - (mix * mix)), ((2 - mix) * mix), rsm);
 
-reset		= clip(in4, 0, 1);				// (should sync zero reset sah ?)
-retrigger	= (delta(reset) > 0) > 0;
-
-
-//	//	//	DETUNER		(always write to detuner buffer)	(should be rewritten to use globals)
-
-laura	= 1.059463094359295264561825;		// might as well
-sdsemi	= rsmooth((3 * depth * depth * depth), rsm);		// rsmooth((3 * sddetune * sddetune * sddetune), rsm);
-sdd2	= pow(laura, sdsemi);				// dpos2 (must be accurate = use 'pow')
-sdd1	= 1 / sdd2;							// dpos1
-// normalise 'sdoutput' out to '0.5' ('pw' = '1')
-sddry	= rsmooth((1 - (center * center)), rsm);		// rsmooth((1 - (sdmix * sdmix)), rsm);
-sdwet	= rsmooth(((2 - center) * center), rsm);		// rsmooth(((2 - sdmix) * sdmix), rsm);
-
-// wrap sdsize for 'stereo detune' phases
-p0		= wrap(((retrigger ? 0 : pos0) - 1),    0, sdsize);	// drive poke
-p1		= wrap(((retrigger ? 0 : pos1) - sdd1), 0, sdsize);	// read peeks L
-p2		= wrap(((retrigger ? 0 : pos2) - sdd2), 0, sdsize);	// read peeks R
+// wrap winsize for phases
+p0		= wrap(((retrigger ? 0 : pos0) - 1),     0, winsize);	// drive poke
+p1		= wrap(((retrigger ? 0 : pos1) - dpos1), 0, winsize);	// read peeks L
+p2		= wrap(((retrigger ? 0 : pos2) - dpos2), 0, winsize);	// read peeks R
 pos0	= p0;
 pos1	= p1;
 pos2	= p2;
 
+phaseReset  = delta(p0) < 0;
+reset		= clip(in4, 0, 1);
+retrigger	= (delta(reset) > 0) > 0;
 
-	freqIn = scale(rate, 0, 1, 0.1, 7, 0.7);
-	dp = ((fastpow((depth * 127), 1.69)) * 0.126) + 1;// samples
-	cn = center * 1000;
-	dStyle = 0;
-	dpf = scale(dp, 1, 476.6185, 1, 72, 1);			// semitones
+xL      = in1;
+xR      = in2;
+dryL    = in1;
+dryR    = in2;
+xoverLowL, xoverLowR, wetInL, wetInR = eviXover2pole2bandStereo(xL, xR, xover); // L, R, L, R
 
-
-	fsf = 1;
-	qStyle = 1;
-	qCenter = 0;
-	qDepth = 1;
-
-// not used for detune
-// sL, sR			= lfoScaler(spL, spR, qStyle, qDepth, qCenter, trDrive, skw);// scaled to samples/hz etc for delaylines/allpasses etc
-sL, sR = 0;
-
-
-// for switching...
-msfs			= mstosamps(250);
-fsfS, fn		= genLine(fsf, msfs, 0);
-fsfL			= mix(sL, 1, fsfS);     // always 1 for detune
-fsfR			= mix(sR, 1, fsfS);
-//fsfL			= fsf ? 1 : sL;
-//fsfR			= fsf ? 1 : sR;
-
-// not used for detune
-// pfL				= delayCircuitL.read(fsfL, 0, interp="cubic");
-// pfR				= delayCircuitR.read(fsfR, 0, interp="cubic");
-pfL, pfR = 0; // these are inputs
-
-yLL, yLR, yHL, yHR = eviXover2pole2bandStereo(xL, xR, xover); // L, R, L, R
-
-
-// 'stereo detune' audio inputs
-xabwet = sdwet * ((pfL + pfR) * 0.5);			// 'mix' wet input to detuneData poke
-ya1dry = pfL * sddry;							// 'dry' Left mix
-yb1dry = pfR * sddry;							// 'dry' Right mix
+// audio inputs
+circMonoWet = wetMix * ((circuitL + circuitR) * 0.5);	// 'mix' wet input to detuneData poke
+circLdry = circuitL * dryMix;							// 'dry' Left mix
+circRdry = circuitR * dryMix;							// 'dry' Right mix
 // always write input to buffer
-poke(detuneData, xabwet, p0, 0, index="samples", boundmode="wrap");
-for (m = sdsize; m < detdat; m += 1) {
-	poke(detuneData, 0, m, 0, index="samples");	// zero remainder
-}
+poke(detuneData, circMonoWet, p0, 0, index="samples", boundmode="wrap");
+// for (m = winsize; m < dim(detuneData); m += 1) {
+// 	poke(detuneData, 0, m, 0, index="samples");	// zero remainder
+// }
 
-preSumL, preSumR			= 0;
-		// detuneL (Up)
-		Lp1i = p1;//trunc(p1);							// phase
-		Lp2i = wrap((Lp1i + sdlh),   0, sdsize);			// 180-degree phase
-		Lp0i = wrap((Lp1i - p0),     0, sdsize);			// window phase
-		Lax = peek(detuneData, Lp1i, 0, interp="linear", boundmode="wrap", index="samples");	// read audio from detuneData
-		Lbx = peek(detuneData, Lp2i, 0, interp="linear", boundmode="wrap", index="samples");	// 180-degree output
-		Lx  = peek(detuneData, Lp0i, 1, interp="linear", boundmode="wrap", index="samples");	// read window from windowMem
-		preSumL = Lbx + (Lx * (Lax - Lbx));				// c = Left
-		// detuneR (Down)
-		Rp1i = p2;//trunc(p2);							// phase
-		Rp2i = wrap((Rp1i + sdlh),   0, sdsize);			// 180-degree phase
-		Rp0i = wrap((Rp1i - p0),     0, sdsize);			// window phase
-		Rax = peek(detuneData, Rp1i, 0, interp="linear", boundmode="wrap", index="samples");	// read audio from detuneData
-		Rbx = peek(detuneData, Rp2i, 0, interp="linear", boundmode="wrap", index="samples");	// 180-degree output
-		Rx  = peek(detuneData, Rp0i, 1, interp="linear", boundmode="wrap", index="samples");	// read window from windowMem
-		preSumR = Rbx + (Rx * (Rax - Rbx));				// d = Right
+// detuneL (Up)
+Lp1i = p1;//trunc(p1);							// phase
+Lp2i = wrap((Lp1i + sdlh),    0, Size);		    // 180-degree phase
+Lp0i = wrap((Lp1i - p0),      0, Size);		    // window phase
+Lax  = peek(detuneData, Lp1i, 0, interp="cubic", boundmode="wrap", index="samples");	 // read audio from detuneData
+Lbx  = peek(detuneData, Lp2i, 0, interp="cubic", boundmode="wrap", index="samples");	 // 180-degree output
+Lx   = peek(detuneData, Lp0i, 1, interp="linear", boundmode="wrap", index="samples");    // read window from windowMem
+preSumL = Lbx + (Lx * (Lax - Lbx));				// c = Left
+// detuneR (Down)
+Rp1i = p2;//trunc(p2);							// phase
+Rp2i = wrap((Rp1i + sdlh),    0, Size);		    // 180-degree phase
+Rp0i = wrap((Rp1i - p0),      0, Size);		    // window phase
+Rax  = peek(detuneData, Rp1i, 0, interp="cubic", boundmode="wrap", index="samples");	// read audio from detuneData
+Rbx  = peek(detuneData, Rp2i, 0, interp="cubic", boundmode="wrap", index="samples");	// 180-degree output
+Rx   = peek(detuneData, Rp0i, 1, interp="linear", boundmode="wrap", index="samples");	// read window from windowMem
+preSumR = Rbx + (Rx * (Rax - Rbx));				// d = Right
 
+// post FILTER
+G = fWarp(cf);
+postFiltL = butterworthLowpass5(preSumL, G);
+postFiltR = butterworthLowpass5(preSumR, G);
 
+// mono-ise low end and (optionally) saturate
+lowMono = (xoverLowL + xoverLowR) * sqrt1_2;
+lowSat  = polySat(lowMono) * sqrt1_2;
+lowSumL = lowSat + circLdry;
+lowSumR = lowSat + circRdry;
 
-
-// sum outputs...
-// alex style, not kleine style, pete hack, your matrix summing idea goes here (although for-loops etc limits the possibilities)
-fxSumL = ((firstL * allZero) + preSumL) * multiGain;	// 'allZero' mul is for zero-ing phaser || detune 1st stage
-fxSumR = ((firstR * allZero) + preSumR) * multiGain;	// ...
-
-
-// FILTER GOES HERE
-
-xvL, xvR	= 0;
-if (dsp == 2) {			// if detune, mono-ise low end and optionally saturate
-	sdls	= int(sdlosat);
-	sdmsat	= (xvOutL + xvOutL) * sqrt1_2;
-	prexv	= 0;
-	if (sdls > 0) {
-		prexv = polysat(sdmsat) * sqrt1_2;
-	} else {
-		prexv = sdmsat * sqrt1_2;
-	}
-	xvL		= prexv + (expandL + ya1dry) * wog;			// (wog below will not be used if dsp == 2)
-	xvR		= prexv + (expandL + yb1dry) * wog;
-}
-
-
-wetL = ((expandL * secondZero) * wog) + xvL;			// (expandL + xvL) * wog; ??		// but xvOutX is post input gain...
-wetR = ((expandR * secondZero) * wog) + xvR;			// (expandR + xvR) * wog; ??		// ...
+wetL    = lowSumL + postFiltL;
+wetR    = lowSumR + postFiltR;
 
 //	//	//	OUTPUTS
 
-// xfade dry / wet & output				// wet outs are combined with post xovers if used
-outputMasterL, outputMasterR = stXfadePar(dryOutL, dryOutR, wetL, wetR, drywet, 0.030222);
+// xfade dry / wet & output
+outputL, outputR = stereoXfadePar(dryL, dryR, wetL, wetR, drywet);
 
-out1, out2 = outputMasterL, outputMasterR;
-
+out1 = outputL;
+out2 = outputR;
 
 // FEEDBACK TAP GOES HERE
 
-// ALL SORTS OF OTHER POST FILTER AND NONLINS HERE
+// mono
+fbSum = (((preSumL + preSumR) * sqrt1_2) * feedback); // 'fbGain' -1..1
+fbL = altTanhSqrtAdaa1(fbSum);
+fbR = fbL;
+// pointless
+// fbL, fbR = xfadeQuartApproxSwap(fbL, fbR, cross);
 
-// write to circular here
+// pre FILTER AND NONLINS
 
+// morphL, _lpL, _bpL, _hpL, _notchL = evi_svfsmooth(wetInL, freq, res, morph);
+// morphR, _lpR, _bpR, _hpR, _notchR = evi_svfsmooth(wetInR, freq, res, morph);
+morphL, morphR = eviFilterMorphLpBpHpStereo(wetInL, wetInR, freq, 0, bw, morph, smooth=22.666);	// gain in dB, bandwidth 0..1, smooth in ms
+
+// write
+
+writeL = eCubicAdaa2(morphL + fbL);
+writeR = eCubicAdaa2(morphR + fbR);
+
+circuitL = writeL;
+circuitR = writeR;
 

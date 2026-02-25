@@ -218,7 +218,7 @@ windowCoeffs(choice) {			// choose which windowing function to use
 }
 
 // w = loop iterator
-winman(w, a0, a1, a2, windowsize=4096)
+winMan(w, a0, a1, a2, windowsize=4096)
 {
 	FOURPI = TWOPI + TWOPI;
 	ws 	= windowsize + 1;

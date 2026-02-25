@@ -9,7 +9,7 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 63.0, 131.0, 812.0, 790.0 ],
+        "rect": [ 63.0, 131.0, 660.0, 568.0 ],
         "openrect": [ 0.0, 0.0, 660.0, 568.0 ],
         "openrectmode": 0,
         "bglocked": 1,
@@ -202,7 +202,7 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 62.0, 401.0, 219.0, 33.0 ],
-                    "text": "famous legacy Z-1 (not ZDF) old style filter, but still really awesome"
+                    "text": "famous legacy Z-1 (not ZDF) old style filter, but still very usable"
                 }
             },
             {
