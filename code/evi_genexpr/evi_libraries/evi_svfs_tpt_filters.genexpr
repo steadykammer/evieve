@@ -626,3 +626,23 @@ eviFilterAllpassNormStereo(xL, xR, cutoff, Q, smooth=0)
 	return 		allpassL, allpassR;
 }
 
+// made for static Q only (no smoothing of r*)
+tptAllpassCascade(x, g, r, h, cB, ap1i, ap2i)
+{
+	yL, yB, yH, ap1o, ap2o 	= tptSvfExternal(x, g, r, h, ap1i, ap2i);
+	allpass	= yL + (yB * cB) + yH;
+
+	return allpass, ap1o, ap2o;
+}
+
+// made for static Q only (no smoothing of r*)
+tptAllpassCascadeStereo(xL, xR, gL, rL, hL, cBL, gR, rR, hR, cBR, ap1iL, ap2iL, ap1iR, ap2iR)
+{
+	yLL, yBL, yHL, ap1oL, ap2oL 	= tptSvfExternal(xL, gL, rL, hL, ap1iL, ap2iL);
+	yLR, yBR, yHR, ap1oR, ap2oR 	= tptSvfExternal(xR, gR, rR, hR, ap1iR, ap2iR);
+	allpassL	= yLL + (yBL * cBL) + yHL;
+	allpassR	= yLR + (yBR * cBR) + yHR;
+
+	return allpassL, allpassR, ap1oL, ap2oL, ap1oR, ap2oR;
+}
+
