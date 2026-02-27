@@ -134,7 +134,7 @@ quartParOneApprox(modphase)								// 'modphase' must be clamped 0..1
 }
 
 // in this setup the quad osc is high quality and precise, not approx
-quadratureOsc(thisphase, thisspread)// thisspread is of course nuts and experimental, must == 0.75
+quadratureOsc(thisphase, thisspread)// thisspread is of course nuts for quadrature (must == 0.75), but here for mod osc use
 {
 	History qodummy(0);
 	re		= cycle(thisphase, index="phase");
@@ -240,7 +240,7 @@ tptSvfQuadOsc(cutoff, sync, reset, soft=0.1)
 	return	(-yL), (yB);		// cosine, sine
 }
 
-// cheap parabolic approx for LFOs etc
+// cheap parabolic approx for LFOs etc, sin phase, 0..1 input, -1..1 output
 parabolApprox(phase)
 {
 	x	= wrap(phase, -0.5, 0.5);
@@ -248,7 +248,8 @@ parabolApprox(phase)
 	return	y;
 }
 
-cosApprox01(a) {				// cosine approximation (0..1 input)
+cosApprox01(a)		// cosine approximation (0..1 input)
+{
 	p = wrap(a, 0, 1) - 0.75;
 	pa = abs(p);
 	cl = ((pa - 0.5) * (pa - 0.924933)) * (pa + 0.424933);
@@ -256,22 +257,27 @@ cosApprox01(a) {				// cosine approximation (0..1 input)
 	return p * ((cl * cr) * 60.252201);
 }
 
-sinApprox01(a) {				// sine approximation (0..1 input)
-//	return cosApp01(a - 0.25);	// one line declaration causes compile error on Max 6.1.8 - weird
+sinApprox01(a)		// sine approximation (0..1 input)
+{
+//	return cosApprox01(a - 0.25);	// one line declaration causes compile error on Max 6.1.8
 	b = a - 0.25;
-	s = cosApp01(b);
+	s = cosApprox01(b);
 	return s;
 }
 
-cosApproxPi(x) {				// cosine approximation (-pi..pi input)
+cosApproxPi(x)		// cosine approximation (-pi..pi input)
+{
 	x1 = phasewrap(x);
 	x2 = x1 * x1;
-	return (((((((((x2 * -2.605E-07) + 2.47609E-05) * x2) + -0.001389) * x2) + 0.041667) * x2) + -0.499923) * x2) + 1;
+	return (((((((((x2 * -0.0000002605) + 0.0000247609) * x2) + -0.001389) * x2) + 0.041667) * x2) + -0.499923) * x2) + 1;
 }
 
-sinApproxPi(x) {				// sine approximation (-pi..pi input)
+sinApproxPi(x)		// sine approximation (-pi..pi input)
+{
 	x1 = phasewrap(x);
 	x2 = x1 * x1;
-	return ((((((((((x2 * -2.39E-08) + 2.7526E-06) * x2) + -0.000198) * x2) + 0.008333) * x2) + -0.166667) * x2) + 1) * x1;
+	return ((((((((((x2 * -0.0000000239) + 0.0000027526) * x2) + -0.000198) * x2) + 0.008333) * x2) + -0.166667) * x2) + 1) * x1;
 }
+
+// @see evi_utilities.genexpr for a sin approximation (sin7()) driven by -1..1 input
 

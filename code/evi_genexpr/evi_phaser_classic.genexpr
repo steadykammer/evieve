@@ -37,3 +37,15 @@ if (prevNum != numSections) {
 	prevNum = numSections;
 }
 
+postFilterL = evi_korgms20_select(allpassL, postfiltfreq, postfiltres, filtersmooth=0, oversample=0);
+postFilterR = evi_korgms20_select(allpassL, postfiltfreq, postfiltres, filtersmooth=0, oversample=0);
+
+out1 = postFilterL;
+out2 = postFilterR;
+
+// feedback
+
+// nonlin / pre filter
+
+// write
+

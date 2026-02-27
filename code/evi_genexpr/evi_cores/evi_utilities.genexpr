@@ -11,8 +11,8 @@ logicalClicks(x)
 	klick	= -x + clik;			// make
 	up		= klick < 0;			// from zero (or upwards change) only
 	down	= klick > 0;			// to zero (or downwards change) only
-	updown	= up + down;		// either from zero or to zero (or upwards or downwards changes)
-	clik	= x;							// update
+	updown	= up + down;			// either from zero or to zero (or upwards or downwards changes)
+	clik	= x;					// update
 	return	updown, up, down;
 }
 
@@ -26,18 +26,18 @@ triggerHoldGate(X, hold=10, trigger=1)
 
     // parse input triggers
     value		=	maximum(X, 0);				// X = anything > 0 (amplitude, velocity, pitch, whatever)
-    gate		=	value > 0;						// make 'gate' (1/0 gate on/off)
+    gate		=	value > 0;					// make 'gate' (1/0 gate on/off)
     trg0		=	delta(gate) > 0;			// rising edge from 0 (gate-on 'click'-impulse)
-    klick		= -(value) + prev_value;// make trigger impulses
-    trgU		=	klick < 0;						// from zero or any upwards change
-    trgD		=	klick > 0;						// to zero or any downwards change
-    trgUD		=	trgU + trgD;					// either from zero or to zero or any upwards or downwards changes
+    klick		= -(value) + prev_value;		// make trigger impulses
+    trgU		=	klick < 0;					// from zero or any upwards change
+    trgD		=	klick > 0;					// to zero or any downwards change
+    trgUD		=	trgU + trgD;				// either from zero or to zero or any upwards or downwards changes
     prev_value	=	value;						// update
 
     seltrigger 	= selector(trig, trgUD, trgU, trgD);
 
-    hold_gate		= accum(hold_count, seltrigger) >= sah(maximum(int(mstosamps(hold) + 0.5), 1), seltrigger, 0.5, init=1);
-    gate				= hold_gate ? 0 : 1;
+    hold_gate	= accum(hold_count, seltrigger) >= sah(maximum(int(mstosamps(hold) + 0.5), 1), seltrigger, 0.5, init=1);
+    gate		= hold_gate ? 0 : 1;
     hold_count	= gate || seltrigger;
 
     return      gate;
@@ -89,7 +89,7 @@ xRange(x)
 // octaves to Q
 bandwidth2Q(bandwidth)
 {
-	x = expApprox(0.346573590279973 * bandwidth);			// exp(0.5 * log(2) * bandwidth)
+	x = expApprox(0.346573590279973 * bandwidth);		// exp(0.5 * log(2) * bandwidth)
 	return	1 / (x - 1 / x);
 }
 
@@ -170,6 +170,7 @@ kinky(p, k)
 	return pk05 ? pk : slope;
 }
 
+// Note: x1 = -1..1 input, this is not sin(), it is between sin & cos
 sin7(x1)	// 5 muls, 3 plus, terrible accuracy, for lfos etc only
 {
 	x2 = x1 * x1;
@@ -179,7 +180,7 @@ sin7(x1)	// 5 muls, 3 plus, terrible accuracy, for lfos etc only
 	return x5 * x1;
 }
 
-// very cheap parabolic approx for LFOs etc
+// cheap parabolic approx for LFOs etc, sin phase, 0..1 input, -1..1 output
 parabolWrap(phase)
 {
 	x	= wrap(phase, -0.5, 0.5);
@@ -260,36 +261,38 @@ xfadeSqrtStereo(a, b, c, d, x)
 
 // these are the ones we use the most in evieve
 
-xfadeQuartApproxMono(a, c, q)												// q is control, must be clamped 0..1
+xfadeQuartApproxMono(a, c, q)										// q is control, must be clamped 0..1
 {
-	qL, qR	= quartParOneApprox(q);										// cos/sin
-	return	((a * qL) + (c * qR));										// out mix L + out mix R
+	qL, qR	= quartParOneApprox(q);									// cos/sin
+	return	((a * qL) + (c * qR));									// out mix L + out mix R
 }
 
 xfadeQuartApproxStereo(a, b, c, d, q)								// q is control, must be clipped 0..1
 {
-	qL, qR	= quartParOneApprox(q);										// cos/sin
-	return	((a * qL) + (c * qR)), ((b * qL) + (d * qR));	// out mix L, out mix R
+	qL, qR	= quartParOneApprox(q);									// cos/sin
+	return	((a * qL) + (c * qR)), ((b * qL) + (d * qR));			// out mix L, out mix R
 }
 
-xfadeQuartApproxSwap(a, b, q)												// q is control, must be clipped 0..1
+xfadeQuartApproxSwap(a, b, q)										// q is control, must be clipped 0..1
 {
-	qL, qR	= quartParOneApprox(q);										// cos/sin
-	return	((a * qL) + (b * qR)), ((b * qL) + (a * qR));	// out swap L, out swap R
+	qL, qR	= quartParOneApprox(q);									// cos/sin
+	return	((a * qL) + (b * qR)), ((b * qL) + (a * qR));			// out swap L, out swap R
 }
 
-panQuartApproxMono(x, p)														// p is control, must be clipped 0..1
+panQuartApproxMono(x, p)											// p is control, must be clipped 0..1
 {
-	pL, pR	= quartParOneApprox(p);										// cos/sin(/quart)
-	return	(x * pL), (x * pR);												// out pan L, out pan R
+	pL, pR	= quartParOneApprox(p);									// cos/sin(/quart)
+	return	(x * pL), (x * pR);										// out pan L, out pan R
 }
 
 panQuartApproxDual(xL, xR, pL, pR)									// p's are controls, must be clipped 0..1
 {
 	yLL, yLR	= panQuartApproxMono(xL, pL);						// pan L
 	yRL, yRR	= panQuartApproxMono(xR, pR);						// pan R
-	return		(yLL + yRL), (yLR + yRR);								// out sum L, out sum R
+	return		(yLL + yRL), (yLR + yRR);							// out sum L, out sum R
 }
+
+//
 
 butterfly8(i1, i2, i3, i4, i5, i6, i7, i8)
 {

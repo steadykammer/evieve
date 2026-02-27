@@ -2713,6 +2713,42 @@ const areas = [
 
 // --------------------------------------------- //
 
+// stolen from genbo.js, copyright Cycling '74
+function extractParam(node: any)
+{
+	let param = {
+		value : 0
+	};
+
+	let args = node.arguments;
+	for (let i = 0; i < args.length; i++) {
+		let arg = args[i];
+		if (arg.type === "AssignmentExpression" && arg.left.type === "Identifier" && arg.right.type === "Literal") {
+			// @ts-expect-error
+			param[arg.left.name] = arg.right.value;
+		}
+		else if (i == 0) {
+			param.value = arg.value;
+		}
+	}
+
+	return param;
+}
+/*
+// decls is a list of lists, needs to be flattened:
+decls = Array.prototype.concat.apply([], decls);
+*/
+/*
+// do we have a parameter ?
+if (declarator.init && declarator.init.type === "NewExpression"
+	&& declarator.init.callee.type === "Identifier" && declarator.init.callee.name === "Param"
+) {
+	let param = extractParam(declarator.init);
+}
+*/
+
+// --------------------------------------------- //
+
 // called from Max {extract_genexpr_asts}
 async function extractGenExprASTs()
 {

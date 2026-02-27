@@ -111,6 +111,16 @@ eviRand(p) {										// phasor input, not frequency
 	return nv, n;
 }
 
+eviRandN(p, n) {									// phasor input not frequency, and external noise source
+	History prev(0);
+	rr = (delta(p)) < 0;                            // assumes positive freq only
+	a  = latch(prev, rr);
+	b  = latch(n, rr);
+	nv = mix(a, b, p);								// interp(p, a, b, mode="cosine") for more fun
+	prev = b;
+	return nv;
+}
+
 // like [rand~] but ready for cubic interpolation
 eviRands(d0, x2)									// delta input, not frequency; x2 is source
 {
@@ -135,6 +145,15 @@ eviRandy(p)											// phasor input, not frequency
     ym1, y0, y1, y2 = eviRands(d, n * sqrt1_2);
     r = interp(p, ym1, y0, y1, y2, mode="fastcubic");// & "cubic" does not work for eviRandy() anyway
     return r, n;
+}
+
+eviRandyN(p, n)										// phasor input not frequency, and external noise source
+{
+	History randyn(0);
+	d = (delta(p)) < 0;                            	// assumes positive freq only
+    ym1, y0, y1, y2 = eviRands(d, n * sqrt1_2);
+    r = interp(p, ym1, y0, y1, y2, mode="fastcubic");// & "cubic" does not work for eviRandy() anyway
+    return r;
 }
 
 // Catmull-Rom Spline Bias Tension	// 13 muls, 22 ±
