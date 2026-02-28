@@ -19,7 +19,7 @@
   <misc name="GenExpr Functions">
     <entry name="hardclipF0 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -27,21 +27,21 @@
     </entry>
     <entry name="hardclipF1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
 
       </description>
     </entry>
     <entry name="hardclipF2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
 
       </description>
     </entry>
     <entry name="hardclipAdaa1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0,  <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -49,7 +49,7 @@
     </entry>
     <entry name="hardclipAdaa2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0,  <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -57,7 +57,7 @@
     </entry>
     <entry name="halfrectF0 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -65,7 +65,7 @@
     </entry>
     <entry name="halfrectF1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -73,7 +73,7 @@
     </entry>
     <entry name="halfrectF2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -81,7 +81,7 @@
     </entry>
     <entry name="halfrectAdaa1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0,  <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -89,7 +89,7 @@
     </entry>
     <entry name="halfrectAdaa2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0,  <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -97,8 +97,8 @@
     </entry>
     <entry name="powerF0 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>param</i> (optional): beta, default: 2.345,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>param</i> (optional): beta, default: <b>2.345</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -106,8 +106,8 @@
     </entry>
     <entry name="powerF1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>param</i> (optional): beta, default: 2.345,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>param</i> (optional): beta, default: <b>2.345</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -115,8 +115,8 @@
     </entry>
     <entry name="powerF2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>param</i> (optional): beta, default: 2.345,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>param</i> (optional): beta, default: <b>2.345</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -124,7 +124,7 @@
     </entry>
     <entry name="powerAdaa1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0,  <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -132,7 +132,7 @@
     </entry>
     <entry name="powerAdaa2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0,  <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -140,9 +140,9 @@
     </entry>
     <entry name="softclip2F0 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>param</i> (optional): h, default: 1,  <br />
-        <b>In 3</b>: type=<i>param</i> (optional): ratio, default: 0.5,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>param</i> (optional): h, default: <b>1</b>, <i></i> <br />
+        <b>In 3</b>: type=<i>param</i> (optional): ratio, default: <b>0.5</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -150,9 +150,9 @@
     </entry>
     <entry name="softclip2F1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>param</i> (optional): h, default: 1,  <br />
-        <b>In 3</b>: type=<i>param</i> (optional): ratio, default: 0.5,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>param</i> (optional): h, default: <b>1</b>, <i></i> <br />
+        <b>In 3</b>: type=<i>param</i> (optional): ratio, default: <b>0.5</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -160,9 +160,9 @@
     </entry>
     <entry name="softclip2F2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>param</i> (optional): h, default: 1,  <br />
-        <b>In 3</b>: type=<i>param</i> (optional): ratio, default: 0.5,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>param</i> (optional): h, default: <b>1</b>, <i></i> <br />
+        <b>In 3</b>: type=<i>param</i> (optional): ratio, default: <b>0.5</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -170,7 +170,7 @@
     </entry>
     <entry name="softclip2Adaa1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0,  <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -178,7 +178,7 @@
     </entry>
     <entry name="softclip2Adaa2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0,  <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -186,11 +186,11 @@
     </entry>
     <entry name="softclipNF0 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0,  <br />
-        <b>In 2</b>: type=<i>param</i> (optional): C, default: 1,  <br />
-        <b>In 3</b>: type=<i>param</i> (optional): R, default: 0.5,  <br />
-        <b>In 4</b>: type=<i>param</i> (optional): beta, default: 2,  <br />
-        <b>In 5</b>: type=<i>param</i> (optional): S, default: 0.1,  <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
+        <b>In 2</b>: type=<i>param</i> (optional): C, default: <b>1</b>, <i></i> <br />
+        <b>In 3</b>: type=<i>param</i> (optional): R, default: <b>0.5</b>, <i></i> <br />
+        <b>In 4</b>: type=<i>param</i> (optional): beta, default: <b>2</b>, <i></i> <br />
+        <b>In 5</b>: type=<i>param</i> (optional): S, default: <b>0.1</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -198,22 +198,22 @@
     </entry>
     <entry name="softclipNF1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0,  <br />
-        <b>In 2</b>: type=<i>param</i> (optional): C, default: 1,  <br />
-        <b>In 3</b>: type=<i>param</i> (optional): R, default: 0.5,  <br />
-        <b>In 4</b>: type=<i>param</i> (optional): beta, default: 2,  <br />
-        <b>In 5</b>: type=<i>param</i> (optional): S, default: 0.1,  <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
+        <b>In 2</b>: type=<i>param</i> (optional): C, default: <b>1</b>, <i></i> <br />
+        <b>In 3</b>: type=<i>param</i> (optional): R, default: <b>0.5</b>, <i></i> <br />
+        <b>In 4</b>: type=<i>param</i> (optional): beta, default: <b>2</b>, <i></i> <br />
+        <b>In 5</b>: type=<i>param</i> (optional): S, default: <b>0.1</b>, <i></i> <br />
 
 
       </description>
     </entry>
     <entry name="softclipNF2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0,  <br />
-        <b>In 2</b>: type=<i>param</i> (optional): C, default: 1,  <br />
-        <b>In 3</b>: type=<i>param</i> (optional): R, default: 0.5,  <br />
-        <b>In 4</b>: type=<i>param</i> (optional): beta, default: 2,  <br />
-        <b>In 5</b>: type=<i>param</i> (optional): S, default: 0.1,  <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
+        <b>In 2</b>: type=<i>param</i> (optional): C, default: <b>1</b>, <i></i> <br />
+        <b>In 3</b>: type=<i>param</i> (optional): R, default: <b>0.5</b>, <i></i> <br />
+        <b>In 4</b>: type=<i>param</i> (optional): beta, default: <b>2</b>, <i></i> <br />
+        <b>In 5</b>: type=<i>param</i> (optional): S, default: <b>0.1</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -221,7 +221,7 @@
     </entry>
     <entry name="softclipNAdaa1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0,  <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -229,7 +229,7 @@
     </entry>
     <entry name="softclipNAdaa2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0,  <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -237,7 +237,7 @@
     </entry>
     <entry name="atanF00 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -245,7 +245,7 @@
     </entry>
     <entry name="atanF0 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -253,7 +253,7 @@
     </entry>
     <entry name="atanF10 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -261,7 +261,7 @@
     </entry>
     <entry name="atanF1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -269,7 +269,7 @@
     </entry>
     <entry name="atanF2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -277,8 +277,8 @@
     </entry>
     <entry name="atanAdaa1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0,  <br />
-        <b>In 2</b>: type=<i>input</i>: reset,  <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: reset, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -286,8 +286,8 @@
     </entry>
     <entry name="atanAdaa2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0,  <br />
-        <b>In 2</b>: type=<i>input</i>: reset,  <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: reset, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -295,7 +295,7 @@
     </entry>
     <entry name="algebraicF0 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -303,7 +303,7 @@
     </entry>
     <entry name="algebraicF1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -311,7 +311,7 @@
     </entry>
     <entry name="algebraicF2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -319,7 +319,7 @@
     </entry>
     <entry name="algebraicAdaa1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0,  <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -327,7 +327,7 @@
     </entry>
     <entry name="algebraicAdaa2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0,  <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -335,7 +335,7 @@
     </entry>
     <entry name="log1pF0 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -343,7 +343,7 @@
     </entry>
     <entry name="log1pF1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -351,7 +351,7 @@
     </entry>
     <entry name="log1pF2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -359,7 +359,7 @@
     </entry>
     <entry name="log1pAdaa1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0,  <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -367,7 +367,7 @@
     </entry>
     <entry name="log1pAdaa2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0,  <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -375,7 +375,7 @@
     </entry>
     <entry name="altTanhF0 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -383,7 +383,7 @@
     </entry>
     <entry name="altTanhF1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -391,7 +391,7 @@
     </entry>
     <entry name="altTanhF11 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -399,7 +399,7 @@
     </entry>
     <entry name="altTanhF2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -407,8 +407,8 @@
     </entry>
     <entry name="altTanhAdaa1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0,  <br />
-        <b>In 2</b>: type=<i>input</i>: reset,  <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: reset, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -416,8 +416,8 @@
     </entry>
     <entry name="altTanhAdaa2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0,  <br />
-        <b>In 2</b>: type=<i>input</i>: reset,  <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: reset, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -425,7 +425,7 @@
     </entry>
     <entry name="altTanhSqrtF0 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -433,7 +433,7 @@
     </entry>
     <entry name="altTanhSqrtF1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -441,7 +441,7 @@
     </entry>
     <entry name="altTanhSqrtF2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -449,7 +449,7 @@
     </entry>
     <entry name="altTanhSqrtAdaa1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0,  <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -457,7 +457,7 @@
     </entry>
     <entry name="altTanhSqrtAdaa2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0,  <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -465,7 +465,7 @@
     </entry>
     <entry name="altTanhPolyF0 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -473,7 +473,7 @@
     </entry>
     <entry name="altTanhPolyF1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -481,7 +481,7 @@
     </entry>
     <entry name="altTanhPolyF2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -489,7 +489,7 @@
     </entry>
     <entry name="altTanhPolyAdaa1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0,  <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -497,7 +497,7 @@
     </entry>
     <entry name="altTanhPolyAdaa2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0,  <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -505,7 +505,7 @@
     </entry>
     <entry name="sinF0 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -513,7 +513,7 @@
     </entry>
     <entry name="sinF1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -521,7 +521,7 @@
     </entry>
     <entry name="sinF2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -529,8 +529,8 @@
     </entry>
     <entry name="sinAdaa1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0,  <br />
-        <b>In 2</b>: type=<i>input</i>: osf,  <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: osf, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -538,8 +538,8 @@
     </entry>
     <entry name="sinAdaa2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0,  <br />
-        <b>In 2</b>: type=<i>input</i>: osf,  <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: osf, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -547,7 +547,7 @@
     </entry>
     <entry name="eCubicF0 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -555,7 +555,7 @@
     </entry>
     <entry name="eCubicF1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -563,7 +563,7 @@
     </entry>
     <entry name="eCubicF2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -571,7 +571,7 @@
     </entry>
     <entry name="eCubicAdaa1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -579,7 +579,7 @@
     </entry>
     <entry name="eCubicAdaa2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -587,8 +587,8 @@
     </entry>
     <entry name="tarrabiaF0 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>input</i>: a,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: a, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -596,8 +596,8 @@
     </entry>
     <entry name="tarrabiaF1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>input</i>: a,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: a, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -605,8 +605,8 @@
     </entry>
     <entry name="tarrabiaF2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>input</i>: a,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: a, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -614,8 +614,8 @@
     </entry>
     <entry name="tarrabiaAdaa1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0,  <br />
-        <b>In 2</b>: type=<i>input</i>: a,  <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: a, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -623,8 +623,8 @@
     </entry>
     <entry name="tarrabiaAdaa2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0,  <br />
-        <b>In 2</b>: type=<i>input</i>: a,  <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: a, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -632,10 +632,10 @@
     </entry>
     <entry name="lambertW ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>input</i>: ln1,  <br />
-        <b>In 3</b>: type=<i>input</i>: loop,  <br />
-        <b>In 4</b>: type=<i>input</i>: thresh,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: ln1, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: loop, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: thresh, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -643,8 +643,8 @@
     </entry>
     <entry name="lockhartAA ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: Xo,  <br />
-        <b>In 2</b>: type=<i>param</i> (optional): loop, default: 1000,  <br />
+        <b>In 1</b>: type=<i>input</i>: Xo, <i></i> <br />
+        <b>In 2</b>: type=<i>param</i> (optional): loop, default: <b>1000</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 

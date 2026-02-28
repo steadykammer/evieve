@@ -21,7 +21,7 @@
   <misc name="GenExpr Functions">
     <entry name="gaussnoise ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: ngain,  <br />
+        <b>In 1</b>: type=<i>input</i>: ngain, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -29,7 +29,7 @@
     </entry>
     <entry name="dnl ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0,  <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -37,7 +37,7 @@
     </entry>
     <entry name="dnl3x ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN,  <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -45,8 +45,8 @@
     </entry>
     <entry name="dnlNonlin ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: xin,  <br />
-        <b>In 2</b>: type=<i>input</i>: oversampling,  <br />
+        <b>In 1</b>: type=<i>input</i>: xin, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: oversampling, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -54,16 +54,16 @@
     </entry>
     <entry name="dft ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>input</i>: l,  <br />
-        <b>In 3</b>: type=<i>input</i>: h,  <br />
-        <b>In 4</b>: type=<i>input</i>: a,  <br />
-        <b>In 5</b>: type=<i>input</i>: b,  <br />
-        <b>In 6</b>: type=<i>input</i>: r,  <br />
-        <b>In 7</b>: type=<i>input</i>: noisegain,  <br />
-        <b>In 8</b>: type=<i>input</i>: POSTGAIN,  <br />
-        <b>In 9</b>: type=<i>input</i>: HEADROOM,  <br />
-        <b>In 10</b>: type=<i>input</i>: nl,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: l, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: h, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: a, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: b, <i></i> <br />
+        <b>In 6</b>: type=<i>input</i>: r, <i></i> <br />
+        <b>In 7</b>: type=<i>input</i>: noisegain, <i></i> <br />
+        <b>In 8</b>: type=<i>input</i>: POSTGAIN, <i></i> <br />
+        <b>In 9</b>: type=<i>input</i>: HEADROOM, <i></i> <br />
+        <b>In 10</b>: type=<i>input</i>: nl, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -71,17 +71,17 @@
     </entry>
     <entry name="dft2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0,  <br />
-        <b>In 2</b>: type=<i>input</i>: x1,  <br />
-        <b>In 3</b>: type=<i>input</i>: l,  <br />
-        <b>In 4</b>: type=<i>input</i>: h,  <br />
-        <b>In 5</b>: type=<i>input</i>: a,  <br />
-        <b>In 6</b>: type=<i>input</i>: b,  <br />
-        <b>In 7</b>: type=<i>input</i>: r,  <br />
-        <b>In 8</b>: type=<i>input</i>: noisegain,  <br />
-        <b>In 9</b>: type=<i>input</i>: POSTGAIN,  <br />
-        <b>In 10</b>: type=<i>input</i>: HEADROOM,  <br />
-        <b>In 11</b>: type=<i>input</i>: nl,  <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: x1, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: l, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: h, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: a, <i></i> <br />
+        <b>In 6</b>: type=<i>input</i>: b, <i></i> <br />
+        <b>In 7</b>: type=<i>input</i>: r, <i></i> <br />
+        <b>In 8</b>: type=<i>input</i>: noisegain, <i></i> <br />
+        <b>In 9</b>: type=<i>input</i>: POSTGAIN, <i></i> <br />
+        <b>In 10</b>: type=<i>input</i>: HEADROOM, <i></i> <br />
+        <b>In 11</b>: type=<i>input</i>: nl, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -90,16 +90,16 @@
     </entry>
     <entry name="dft2_2x6 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN,  <br />
-        <b>In 2</b>: type=<i>input</i>: l,  <br />
-        <b>In 3</b>: type=<i>input</i>: h,  <br />
-        <b>In 4</b>: type=<i>input</i>: a,  <br />
-        <b>In 5</b>: type=<i>input</i>: b,  <br />
-        <b>In 6</b>: type=<i>input</i>: r,  <br />
-        <b>In 7</b>: type=<i>input</i>: noisegain,  <br />
-        <b>In 8</b>: type=<i>input</i>: POSTGAIN,  <br />
-        <b>In 9</b>: type=<i>input</i>: HEADROOM,  <br />
-        <b>In 10</b>: type=<i>input</i>: nl,  <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: l, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: h, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: a, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: b, <i></i> <br />
+        <b>In 6</b>: type=<i>input</i>: r, <i></i> <br />
+        <b>In 7</b>: type=<i>input</i>: noisegain, <i></i> <br />
+        <b>In 8</b>: type=<i>input</i>: POSTGAIN, <i></i> <br />
+        <b>In 9</b>: type=<i>input</i>: HEADROOM, <i></i> <br />
+        <b>In 10</b>: type=<i>input</i>: nl, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -107,16 +107,16 @@
     </entry>
     <entry name="dft2_2x4 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN,  <br />
-        <b>In 2</b>: type=<i>input</i>: l,  <br />
-        <b>In 3</b>: type=<i>input</i>: h,  <br />
-        <b>In 4</b>: type=<i>input</i>: a,  <br />
-        <b>In 5</b>: type=<i>input</i>: b,  <br />
-        <b>In 6</b>: type=<i>input</i>: r,  <br />
-        <b>In 7</b>: type=<i>input</i>: noisegain,  <br />
-        <b>In 8</b>: type=<i>input</i>: POSTGAIN,  <br />
-        <b>In 9</b>: type=<i>input</i>: HEADROOM,  <br />
-        <b>In 10</b>: type=<i>input</i>: nl,  <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: l, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: h, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: a, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: b, <i></i> <br />
+        <b>In 6</b>: type=<i>input</i>: r, <i></i> <br />
+        <b>In 7</b>: type=<i>input</i>: noisegain, <i></i> <br />
+        <b>In 8</b>: type=<i>input</i>: POSTGAIN, <i></i> <br />
+        <b>In 9</b>: type=<i>input</i>: HEADROOM, <i></i> <br />
+        <b>In 10</b>: type=<i>input</i>: nl, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -124,15 +124,15 @@
     </entry>
     <entry name="dft3x ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN,  <br />
-        <b>In 2</b>: type=<i>input</i>: l,  <br />
-        <b>In 3</b>: type=<i>input</i>: h,  <br />
-        <b>In 4</b>: type=<i>input</i>: a,  <br />
-        <b>In 5</b>: type=<i>input</i>: b,  <br />
-        <b>In 6</b>: type=<i>input</i>: r,  <br />
-        <b>In 7</b>: type=<i>input</i>: ng,  <br />
-        <b>In 8</b>: type=<i>input</i>: n,  <br />
-        <b>In 9</b>: type=<i>input</i>: nl,  <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: l, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: h, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: a, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: b, <i></i> <br />
+        <b>In 6</b>: type=<i>input</i>: r, <i></i> <br />
+        <b>In 7</b>: type=<i>input</i>: ng, <i></i> <br />
+        <b>In 8</b>: type=<i>input</i>: n, <i></i> <br />
+        <b>In 9</b>: type=<i>input</i>: nl, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -140,15 +140,15 @@
     </entry>
     <entry name="dft12x ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN,  <br />
-        <b>In 2</b>: type=<i>input</i>: l,  <br />
-        <b>In 3</b>: type=<i>input</i>: h,  <br />
-        <b>In 4</b>: type=<i>input</i>: a,  <br />
-        <b>In 5</b>: type=<i>input</i>: b,  <br />
-        <b>In 6</b>: type=<i>input</i>: r,  <br />
-        <b>In 7</b>: type=<i>input</i>: ng,  <br />
-        <b>In 8</b>: type=<i>input</i>: n,  <br />
-        <b>In 9</b>: type=<i>input</i>: nl,  <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: l, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: h, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: a, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: b, <i></i> <br />
+        <b>In 6</b>: type=<i>input</i>: r, <i></i> <br />
+        <b>In 7</b>: type=<i>input</i>: ng, <i></i> <br />
+        <b>In 8</b>: type=<i>input</i>: n, <i></i> <br />
+        <b>In 9</b>: type=<i>input</i>: nl, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -156,14 +156,14 @@
     </entry>
     <entry name="dfts ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>input</i>: l,  <br />
-        <b>In 3</b>: type=<i>input</i>: h,  <br />
-        <b>In 4</b>: type=<i>input</i>: a,  <br />
-        <b>In 5</b>: type=<i>input</i>: b,  <br />
-        <b>In 6</b>: type=<i>input</i>: r,  <br />
-        <b>In 7</b>: type=<i>input</i>: N,  <br />
-        <b>In 8</b>: type=<i>input</i>: os,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: l, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: h, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: a, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: b, <i></i> <br />
+        <b>In 6</b>: type=<i>input</i>: r, <i></i> <br />
+        <b>In 7</b>: type=<i>input</i>: N, <i></i> <br />
+        <b>In 8</b>: type=<i>input</i>: os, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 

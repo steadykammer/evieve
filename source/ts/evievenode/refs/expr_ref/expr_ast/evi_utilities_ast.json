@@ -3054,6 +3054,759 @@
             "type": "FunctionDeclaration",
             "id": {
                 "type": "Identifier",
+                "name": "windowCoeffs",
+                "raw": "windowCoeffs"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "choice",
+                    "raw": "choice"
+                }
+            ],
+            "defaults": [
+                null
+            ],
+            "decls": [],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "ArrayPattern",
+                                "elements": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "a0",
+                                        "raw": "a0"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "a1",
+                                        "raw": "a1"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "a2",
+                                        "raw": "a2"
+                                    }
+                                ]
+                            },
+                            "right": {
+                                "type": "Literal",
+                                "value": 0,
+                                "raw": "0",
+                                "gen_kind": "integer"
+                            }
+                        }
+                    },
+                    {
+                        "type": "IfStatement",
+                        "test": {
+                            "type": "BinaryExpression",
+                            "operator": "==",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "choice",
+                                "raw": "choice"
+                            },
+                            "right": {
+                                "type": "Literal",
+                                "value": 1,
+                                "raw": "1",
+                                "gen_kind": "integer"
+                            }
+                        },
+                        "consequent": {
+                            "type": "BlockStatement",
+                            "body": [
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "a0",
+                                            "raw": "a0"
+                                        },
+                                        "right": {
+                                            "type": "Literal",
+                                            "value": 0.42,
+                                            "raw": "0.42",
+                                            "gen_kind": "float"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "a1",
+                                            "raw": "a1"
+                                        },
+                                        "right": {
+                                            "type": "Literal",
+                                            "value": 0.5,
+                                            "raw": "0.5",
+                                            "gen_kind": "float"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "a2",
+                                            "raw": "a2"
+                                        },
+                                        "right": {
+                                            "type": "Literal",
+                                            "value": 0.08,
+                                            "raw": "0.08",
+                                            "gen_kind": "float"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "alternate": {
+                            "type": "IfStatement",
+                            "test": {
+                                "type": "BinaryExpression",
+                                "operator": "==",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "choice",
+                                    "raw": "choice"
+                                },
+                                "right": {
+                                    "type": "Literal",
+                                    "value": 2,
+                                    "raw": "2",
+                                    "gen_kind": "integer"
+                                }
+                            },
+                            "consequent": {
+                                "type": "BlockStatement",
+                                "body": [
+                                    {
+                                        "type": "ExpressionStatement",
+                                        "expression": {
+                                            "type": "AssignmentExpression",
+                                            "operator": "=",
+                                            "left": {
+                                                "type": "Identifier",
+                                                "name": "a0",
+                                                "raw": "a0"
+                                            },
+                                            "right": {
+                                                "type": "Literal",
+                                                "value": 0.426590713671539,
+                                                "raw": "0.426590713671539",
+                                                "gen_kind": "float"
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "type": "ExpressionStatement",
+                                        "expression": {
+                                            "type": "AssignmentExpression",
+                                            "operator": "=",
+                                            "left": {
+                                                "type": "Identifier",
+                                                "name": "a1",
+                                                "raw": "a1"
+                                            },
+                                            "right": {
+                                                "type": "Literal",
+                                                "value": 0.496560619088564,
+                                                "raw": "0.496560619088564",
+                                                "gen_kind": "float"
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "type": "ExpressionStatement",
+                                        "expression": {
+                                            "type": "AssignmentExpression",
+                                            "operator": "=",
+                                            "left": {
+                                                "type": "Identifier",
+                                                "name": "a2",
+                                                "raw": "a2"
+                                            },
+                                            "right": {
+                                                "type": "Literal",
+                                                "value": 0.076848667239897,
+                                                "raw": "0.076848667239897",
+                                                "gen_kind": "float"
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "alternate": {
+                                "type": "IfStatement",
+                                "test": {
+                                    "type": "BinaryExpression",
+                                    "operator": "==",
+                                    "left": {
+                                        "type": "Identifier",
+                                        "name": "choice",
+                                        "raw": "choice"
+                                    },
+                                    "right": {
+                                        "type": "Literal",
+                                        "value": 3,
+                                        "raw": "3",
+                                        "gen_kind": "integer"
+                                    }
+                                },
+                                "consequent": {
+                                    "type": "BlockStatement",
+                                    "body": [
+                                        {
+                                            "type": "ExpressionStatement",
+                                            "expression": {
+                                                "type": "AssignmentExpression",
+                                                "operator": "=",
+                                                "left": {
+                                                    "type": "Identifier",
+                                                    "name": "a0",
+                                                    "raw": "a0"
+                                                },
+                                                "right": {
+                                                    "type": "Literal",
+                                                    "value": 0.422323,
+                                                    "raw": "0.422323",
+                                                    "gen_kind": "float"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "type": "ExpressionStatement",
+                                            "expression": {
+                                                "type": "AssignmentExpression",
+                                                "operator": "=",
+                                                "left": {
+                                                    "type": "Identifier",
+                                                    "name": "a1",
+                                                    "raw": "a1"
+                                                },
+                                                "right": {
+                                                    "type": "Literal",
+                                                    "value": 0.49755,
+                                                    "raw": "0.49755",
+                                                    "gen_kind": "float"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "type": "ExpressionStatement",
+                                            "expression": {
+                                                "type": "AssignmentExpression",
+                                                "operator": "=",
+                                                "left": {
+                                                    "type": "Identifier",
+                                                    "name": "a2",
+                                                    "raw": "a2"
+                                                },
+                                                "right": {
+                                                    "type": "Literal",
+                                                    "value": 0.07922,
+                                                    "raw": "0.07922",
+                                                    "gen_kind": "float"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                },
+                                "alternate": {
+                                    "type": "IfStatement",
+                                    "test": {
+                                        "type": "BinaryExpression",
+                                        "operator": "==",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "choice",
+                                            "raw": "choice"
+                                        },
+                                        "right": {
+                                            "type": "Literal",
+                                            "value": 4,
+                                            "raw": "4",
+                                            "gen_kind": "integer"
+                                        }
+                                    },
+                                    "consequent": {
+                                        "type": "BlockStatement",
+                                        "body": [
+                                            {
+                                                "type": "ExpressionStatement",
+                                                "expression": {
+                                                    "type": "AssignmentExpression",
+                                                    "operator": "=",
+                                                    "left": {
+                                                        "type": "Identifier",
+                                                        "name": "a0",
+                                                        "raw": "a0"
+                                                    },
+                                                    "right": {
+                                                        "type": "Literal",
+                                                        "value": 0.5,
+                                                        "raw": "0.5",
+                                                        "gen_kind": "float"
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                "type": "ExpressionStatement",
+                                                "expression": {
+                                                    "type": "AssignmentExpression",
+                                                    "operator": "=",
+                                                    "left": {
+                                                        "type": "Identifier",
+                                                        "name": "a1",
+                                                        "raw": "a1"
+                                                    },
+                                                    "right": {
+                                                        "type": "Literal",
+                                                        "value": 0.5,
+                                                        "raw": "0.5",
+                                                        "gen_kind": "float"
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                "type": "ExpressionStatement",
+                                                "expression": {
+                                                    "type": "AssignmentExpression",
+                                                    "operator": "=",
+                                                    "left": {
+                                                        "type": "Identifier",
+                                                        "name": "a2",
+                                                        "raw": "a2"
+                                                    },
+                                                    "right": {
+                                                        "type": "Literal",
+                                                        "value": 0,
+                                                        "raw": "0",
+                                                        "gen_kind": "integer"
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "alternate": {
+                                        "type": "IfStatement",
+                                        "test": {
+                                            "type": "BinaryExpression",
+                                            "operator": "==",
+                                            "left": {
+                                                "type": "Identifier",
+                                                "name": "choice",
+                                                "raw": "choice"
+                                            },
+                                            "right": {
+                                                "type": "Literal",
+                                                "value": 5,
+                                                "raw": "5",
+                                                "gen_kind": "integer"
+                                            }
+                                        },
+                                        "consequent": {
+                                            "type": "BlockStatement",
+                                            "body": [
+                                                {
+                                                    "type": "ExpressionStatement",
+                                                    "expression": {
+                                                        "type": "AssignmentExpression",
+                                                        "operator": "=",
+                                                        "left": {
+                                                            "type": "Identifier",
+                                                            "name": "a0",
+                                                            "raw": "a0"
+                                                        },
+                                                        "right": {
+                                                            "type": "Literal",
+                                                            "value": 0.54,
+                                                            "raw": "0.54",
+                                                            "gen_kind": "float"
+                                                        }
+                                                    }
+                                                },
+                                                {
+                                                    "type": "ExpressionStatement",
+                                                    "expression": {
+                                                        "type": "AssignmentExpression",
+                                                        "operator": "=",
+                                                        "left": {
+                                                            "type": "Identifier",
+                                                            "name": "a1",
+                                                            "raw": "a1"
+                                                        },
+                                                        "right": {
+                                                            "type": "Literal",
+                                                            "value": 0.46,
+                                                            "raw": "0.46",
+                                                            "gen_kind": "float"
+                                                        }
+                                                    }
+                                                },
+                                                {
+                                                    "type": "ExpressionStatement",
+                                                    "expression": {
+                                                        "type": "AssignmentExpression",
+                                                        "operator": "=",
+                                                        "left": {
+                                                            "type": "Identifier",
+                                                            "name": "a2",
+                                                            "raw": "a2"
+                                                        },
+                                                        "right": {
+                                                            "type": "Literal",
+                                                            "value": 0,
+                                                            "raw": "0",
+                                                            "gen_kind": "integer"
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        "alternate": {
+                                            "type": "BlockStatement",
+                                            "body": [
+                                                {
+                                                    "type": "ExpressionStatement",
+                                                    "expression": {
+                                                        "type": "AssignmentExpression",
+                                                        "operator": "=",
+                                                        "left": {
+                                                            "type": "Identifier",
+                                                            "name": "a0",
+                                                            "raw": "a0"
+                                                        },
+                                                        "right": {
+                                                            "type": "Literal",
+                                                            "value": 0,
+                                                            "raw": "0",
+                                                            "gen_kind": "integer"
+                                                        }
+                                                    }
+                                                },
+                                                {
+                                                    "type": "ExpressionStatement",
+                                                    "expression": {
+                                                        "type": "AssignmentExpression",
+                                                        "operator": "=",
+                                                        "left": {
+                                                            "type": "Identifier",
+                                                            "name": "a1",
+                                                            "raw": "a1"
+                                                        },
+                                                        "right": {
+                                                            "type": "Literal",
+                                                            "value": 0,
+                                                            "raw": "0",
+                                                            "gen_kind": "integer"
+                                                        }
+                                                    }
+                                                },
+                                                {
+                                                    "type": "ExpressionStatement",
+                                                    "expression": {
+                                                        "type": "AssignmentExpression",
+                                                        "operator": "=",
+                                                        "left": {
+                                                            "type": "Identifier",
+                                                            "name": "a2",
+                                                            "raw": "a2"
+                                                        },
+                                                        "right": {
+                                                            "type": "Literal",
+                                                            "value": 0,
+                                                            "raw": "0",
+                                                            "gen_kind": "integer"
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "ArrayExpression",
+                            "elements": [
+                                {
+                                    "type": "Identifier",
+                                    "name": "a0",
+                                    "raw": "a0"
+                                },
+                                {
+                                    "type": "Identifier",
+                                    "name": "a1",
+                                    "raw": "a1"
+                                },
+                                {
+                                    "type": "Identifier",
+                                    "name": "a2",
+                                    "raw": "a2"
+                                }
+                            ]
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "winMan",
+                "raw": "winMan"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "w",
+                    "raw": "w"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "a0",
+                    "raw": "a0"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "a1",
+                    "raw": "a1"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "a2",
+                    "raw": "a2"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "windowsize",
+                    "raw": "windowsize"
+                }
+            ],
+            "defaults": [
+                null,
+                null,
+                null,
+                null,
+                {
+                    "type": "Literal",
+                    "value": 4096,
+                    "raw": "4096",
+                    "gen_kind": "integer"
+                }
+            ],
+            "decls": [],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "FOURPI",
+                                "raw": "FOURPI"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "+",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "TWOPI",
+                                    "raw": "TWOPI"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "TWOPI",
+                                    "raw": "TWOPI"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "ws",
+                                "raw": "ws"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "+",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "windowsize",
+                                    "raw": "windowsize"
+                                },
+                                "right": {
+                                    "type": "Literal",
+                                    "value": 1,
+                                    "raw": "1",
+                                    "gen_kind": "integer"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "win",
+                                "raw": "win"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "+",
+                                "left": {
+                                    "type": "BinaryExpression",
+                                    "operator": "-",
+                                    "left": {
+                                        "type": "Identifier",
+                                        "name": "a0",
+                                        "raw": "a0"
+                                    },
+                                    "right": {
+                                        "type": "BinaryExpression",
+                                        "operator": "*",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "a1",
+                                            "raw": "a1"
+                                        },
+                                        "right": {
+                                            "type": "CallExpression",
+                                            "arguments": [
+                                                {
+                                                    "type": "BinaryExpression",
+                                                    "operator": "/",
+                                                    "left": {
+                                                        "type": "BinaryExpression",
+                                                        "operator": "*",
+                                                        "left": {
+                                                            "type": "Identifier",
+                                                            "name": "TWOPI",
+                                                            "raw": "TWOPI"
+                                                        },
+                                                        "right": {
+                                                            "type": "Identifier",
+                                                            "name": "w",
+                                                            "raw": "w"
+                                                        }
+                                                    },
+                                                    "right": {
+                                                        "type": "Identifier",
+                                                        "name": "ws",
+                                                        "raw": "ws"
+                                                    }
+                                                }
+                                            ],
+                                            "callee": {
+                                                "type": "Identifier",
+                                                "name": "cos",
+                                                "raw": "cos"
+                                            }
+                                        }
+                                    }
+                                },
+                                "right": {
+                                    "type": "BinaryExpression",
+                                    "operator": "*",
+                                    "left": {
+                                        "type": "Identifier",
+                                        "name": "a2",
+                                        "raw": "a2"
+                                    },
+                                    "right": {
+                                        "type": "CallExpression",
+                                        "arguments": [
+                                            {
+                                                "type": "BinaryExpression",
+                                                "operator": "/",
+                                                "left": {
+                                                    "type": "BinaryExpression",
+                                                    "operator": "*",
+                                                    "left": {
+                                                        "type": "Identifier",
+                                                        "name": "FOURPI",
+                                                        "raw": "FOURPI"
+                                                    },
+                                                    "right": {
+                                                        "type": "Identifier",
+                                                        "name": "w",
+                                                        "raw": "w"
+                                                    }
+                                                },
+                                                "right": {
+                                                    "type": "Identifier",
+                                                    "name": "ws",
+                                                    "raw": "ws"
+                                                }
+                                            }
+                                        ],
+                                        "callee": {
+                                            "type": "Identifier",
+                                            "name": "cos",
+                                            "raw": "cos"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "Identifier",
+                            "name": "win",
+                            "raw": "win"
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
                 "name": "stereoXfadePar",
                 "raw": "stereoXfadePar"
             },

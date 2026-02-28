@@ -16,7 +16,7 @@
   <misc name="GenExpr Functions">
     <entry name="cosQ73 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -24,7 +24,7 @@
     </entry>
     <entry name="cos73 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -32,7 +32,7 @@
     </entry>
     <entry name="sin73 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -40,9 +40,9 @@
     </entry>
     <entry name="varDcblockReset ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0,  <br />
-        <b>In 2</b>: type=<i>input</i>: a0,  <br />
-        <b>In 3</b>: type=<i>input</i>: r0,  <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: a0, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: r0, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -50,9 +50,9 @@
     </entry>
     <entry name="dynamicDc ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: osc,  <br />
-        <b>In 2</b>: type=<i>input</i>: dtn,  <br />
-        <b>In 3</b>: type=<i>input</i>: dcn,  <br />
+        <b>In 1</b>: type=<i>input</i>: osc, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: dtn, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: dcn, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -60,7 +60,7 @@
     </entry>
     <entry name="decorelateOsc ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 

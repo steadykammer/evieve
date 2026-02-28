@@ -20,7 +20,7 @@
   <misc name="GenExpr Functions">
     <entry name="D ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -28,9 +28,9 @@
     </entry>
     <entry name="szilagyi ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: drive,  <br />
-        <b>In 2</b>: type=<i>input</i>: blend,  <br />
-        <b>In 3</b>: type=<i>input</i>: sr,  <br />
+        <b>In 1</b>: type=<i>input</i>: drive, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: blend, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: sr, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -45,7 +45,7 @@
     </entry>
     <entry name="sD ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -53,7 +53,7 @@
     </entry>
     <entry name="szilagyiF0 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -61,7 +61,7 @@
     </entry>
     <entry name="szilagyiF1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -69,7 +69,7 @@
     </entry>
     <entry name="szilagyiF2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -77,7 +77,7 @@
     </entry>
     <entry name="szilagyiAdaa1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0,  <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -85,7 +85,7 @@
     </entry>
     <entry name="szilagyiAdaa2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0,  <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -93,9 +93,9 @@
     </entry>
     <entry name="saturate ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>input</i>: l,  <br />
-        <b>In 3</b>: type=<i>input</i>: h,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: l, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: h, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -103,9 +103,9 @@
     </entry>
     <entry name="saturateAdaa2_2x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN,  <br />
-        <b>In 2</b>: type=<i>input</i>: l,  <br />
-        <b>In 3</b>: type=<i>input</i>: h,  <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: l, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: h, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -113,9 +113,9 @@
     </entry>
     <entry name="saturateAdaa2_4x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN,  <br />
-        <b>In 2</b>: type=<i>input</i>: l,  <br />
-        <b>In 3</b>: type=<i>input</i>: h,  <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: l, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: h, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -123,10 +123,10 @@
     </entry>
     <entry name="boost ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>input</i>: s,  <br />
-        <b>In 3</b>: type=<i>input</i>: m,  <br />
-        <b>In 4</b>: type=<i>input</i>: g,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: s, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: m, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: g, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -134,7 +134,7 @@
     </entry>
     <entry name="fWarp ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cf,  <br />
+        <b>In 1</b>: type=<i>input</i>: cf, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -142,8 +142,8 @@
     </entry>
     <entry name="lp1p ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>input</i>: g,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: g, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -151,9 +151,9 @@
     </entry>
     <entry name="lp2p ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>input</i>: g,  <br />
-        <b>In 3</b>: type=<i>input</i>: r,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: g, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: r, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 

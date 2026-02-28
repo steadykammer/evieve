@@ -4,7 +4,7 @@
         "parent": "evi_phaseshift",
         "category": "evieve",
         "tilde": "~",
-        "digest": "Reimplementation of MSP <o>phaseshift~</o> filter object",
+        "digest": "Reimplementation of MSP <o>phaseshift~</o> object as a TPT filter",
         "description": "TEXT_HERE",
         "discussion": ""
     },

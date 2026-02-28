@@ -30,7 +30,7 @@
         <br />
         {{/if}}
         {{#each inputs}}
-        <b>In {{id}}</b>: type=<i>{{kind}}</i>{{#if default}} (optional){{/if}}: {{name}}, {{#if default}}default: {{default}}, {{/if}}{{digest}} <br />
+        <b>In {{id}}</b>: type=<i>{{kind}}</i>{{#if default includeZero=true}} (optional){{/if}}: {{name}}, {{#if default includeZero=true}}default: <b>{{default}}</b>, {{/if}}{{#if min includeZero=true}}min: {{min}}, {{/if}}{{#if max includeZero=true}}max: {{max}}, {{/if}}<i>{{digest}}</i> <br />
         {{/each}}
 
         {{#each returns}}
@@ -41,6 +41,9 @@
     </entry>
     {{/if}}
     {{/each}}
+  </misc>
+  {{else}}
+  <misc name="No Functions (require-only file)">
   </misc>
   {{/if}}
   <metadatalist>

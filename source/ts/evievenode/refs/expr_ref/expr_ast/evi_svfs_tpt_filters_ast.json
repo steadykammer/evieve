@@ -15763,6 +15763,598 @@
             },
             "generator": false,
             "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "tptAllpassCascade",
+                "raw": "tptAllpassCascade"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "x",
+                    "raw": "x"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "g",
+                    "raw": "g"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "r",
+                    "raw": "r"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "h",
+                    "raw": "h"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "cB",
+                    "raw": "cB"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "ap1i",
+                    "raw": "ap1i"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "ap2i",
+                    "raw": "ap2i"
+                }
+            ],
+            "defaults": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+            ],
+            "decls": [],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "ArrayPattern",
+                                "elements": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "yL",
+                                        "raw": "yL"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "yB",
+                                        "raw": "yB"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "yH",
+                                        "raw": "yH"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "ap1o",
+                                        "raw": "ap1o"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "ap2o",
+                                        "raw": "ap2o"
+                                    }
+                                ]
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "x",
+                                        "raw": "x"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "g",
+                                        "raw": "g"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "r",
+                                        "raw": "r"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "h",
+                                        "raw": "h"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "ap1i",
+                                        "raw": "ap1i"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "ap2i",
+                                        "raw": "ap2i"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "tptSvfExternal",
+                                    "raw": "tptSvfExternal"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "allpass",
+                                "raw": "allpass"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "+",
+                                "left": {
+                                    "type": "BinaryExpression",
+                                    "operator": "+",
+                                    "left": {
+                                        "type": "Identifier",
+                                        "name": "yL",
+                                        "raw": "yL"
+                                    },
+                                    "right": {
+                                        "type": "BinaryExpression",
+                                        "operator": "*",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "yB",
+                                            "raw": "yB"
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "cB",
+                                            "raw": "cB"
+                                        }
+                                    }
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "yH",
+                                    "raw": "yH"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "ArrayExpression",
+                            "elements": [
+                                {
+                                    "type": "Identifier",
+                                    "name": "allpass",
+                                    "raw": "allpass"
+                                },
+                                {
+                                    "type": "Identifier",
+                                    "name": "ap1o",
+                                    "raw": "ap1o"
+                                },
+                                {
+                                    "type": "Identifier",
+                                    "name": "ap2o",
+                                    "raw": "ap2o"
+                                }
+                            ]
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "tptAllpassCascadeStereo",
+                "raw": "tptAllpassCascadeStereo"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "xL",
+                    "raw": "xL"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "xR",
+                    "raw": "xR"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "gL",
+                    "raw": "gL"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "rL",
+                    "raw": "rL"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "hL",
+                    "raw": "hL"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "cBL",
+                    "raw": "cBL"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "gR",
+                    "raw": "gR"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "rR",
+                    "raw": "rR"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "hR",
+                    "raw": "hR"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "cBR",
+                    "raw": "cBR"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "ap1iL",
+                    "raw": "ap1iL"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "ap2iL",
+                    "raw": "ap2iL"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "ap1iR",
+                    "raw": "ap1iR"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "ap2iR",
+                    "raw": "ap2iR"
+                }
+            ],
+            "defaults": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+            ],
+            "decls": [],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "ArrayPattern",
+                                "elements": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "yLL",
+                                        "raw": "yLL"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "yBL",
+                                        "raw": "yBL"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "yHL",
+                                        "raw": "yHL"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "ap1oL",
+                                        "raw": "ap1oL"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "ap2oL",
+                                        "raw": "ap2oL"
+                                    }
+                                ]
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "xL",
+                                        "raw": "xL"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "gL",
+                                        "raw": "gL"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "rL",
+                                        "raw": "rL"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "hL",
+                                        "raw": "hL"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "ap1iL",
+                                        "raw": "ap1iL"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "ap2iL",
+                                        "raw": "ap2iL"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "tptSvfExternal",
+                                    "raw": "tptSvfExternal"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "ArrayPattern",
+                                "elements": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "yLR",
+                                        "raw": "yLR"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "yBR",
+                                        "raw": "yBR"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "yHR",
+                                        "raw": "yHR"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "ap1oR",
+                                        "raw": "ap1oR"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "ap2oR",
+                                        "raw": "ap2oR"
+                                    }
+                                ]
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "xR",
+                                        "raw": "xR"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "gR",
+                                        "raw": "gR"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "rR",
+                                        "raw": "rR"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "hR",
+                                        "raw": "hR"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "ap1iR",
+                                        "raw": "ap1iR"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "ap2iR",
+                                        "raw": "ap2iR"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "tptSvfExternal",
+                                    "raw": "tptSvfExternal"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "allpassL",
+                                "raw": "allpassL"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "+",
+                                "left": {
+                                    "type": "BinaryExpression",
+                                    "operator": "+",
+                                    "left": {
+                                        "type": "Identifier",
+                                        "name": "yLL",
+                                        "raw": "yLL"
+                                    },
+                                    "right": {
+                                        "type": "BinaryExpression",
+                                        "operator": "*",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "yBL",
+                                            "raw": "yBL"
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "cBL",
+                                            "raw": "cBL"
+                                        }
+                                    }
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "yHL",
+                                    "raw": "yHL"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "allpassR",
+                                "raw": "allpassR"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "+",
+                                "left": {
+                                    "type": "BinaryExpression",
+                                    "operator": "+",
+                                    "left": {
+                                        "type": "Identifier",
+                                        "name": "yLR",
+                                        "raw": "yLR"
+                                    },
+                                    "right": {
+                                        "type": "BinaryExpression",
+                                        "operator": "*",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "yBR",
+                                            "raw": "yBR"
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "cBR",
+                                            "raw": "cBR"
+                                        }
+                                    }
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "yHR",
+                                    "raw": "yHR"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "ArrayExpression",
+                            "elements": [
+                                {
+                                    "type": "Identifier",
+                                    "name": "allpassL",
+                                    "raw": "allpassL"
+                                },
+                                {
+                                    "type": "Identifier",
+                                    "name": "allpassR",
+                                    "raw": "allpassR"
+                                },
+                                {
+                                    "type": "Identifier",
+                                    "name": "ap1oL",
+                                    "raw": "ap1oL"
+                                },
+                                {
+                                    "type": "Identifier",
+                                    "name": "ap2oL",
+                                    "raw": "ap2oL"
+                                },
+                                {
+                                    "type": "Identifier",
+                                    "name": "ap1oR",
+                                    "raw": "ap1oR"
+                                },
+                                {
+                                    "type": "Identifier",
+                                    "name": "ap2oR",
+                                    "raw": "ap2oR"
+                                }
+                            ]
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
         }
     ],
     "decls": [],

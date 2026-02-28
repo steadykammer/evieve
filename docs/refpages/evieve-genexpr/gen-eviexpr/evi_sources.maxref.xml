@@ -16,7 +16,7 @@
   <misc name="GenExpr Functions">
     <entry name="audioDust ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: freq,  <br />
+        <b>In 1</b>: type=<i>input</i>: freq, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -26,9 +26,9 @@
     </entry>
     <entry name="sparseVelvetNoise ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: freq,  <br />
-        <b>In 2</b>: type=<i>input</i>: mix,  <br />
-        <b>In 3</b>: type=<i>param</i> (optional): amp, default: 1,  <br />
+        <b>In 1</b>: type=<i>input</i>: freq, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: mix, <i></i> <br />
+        <b>In 3</b>: type=<i>param</i> (optional): amp, default: <b>1</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -38,7 +38,7 @@
     </entry>
     <entry name="gaussianNoise ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: gain,  <br />
+        <b>In 1</b>: type=<i>input</i>: gain, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -48,9 +48,9 @@
     </entry>
     <entry name="likeZerox ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>param</i>: windowSize,  <br />
-        <b>In 3</b>: type=<i>param</i> (optional): threshold, default: 0.1,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>param</i> (optional): windowSize, default: <b>0</b>, <i></i> <br />
+        <b>In 3</b>: type=<i>param</i> (optional): threshold, default: <b>0.1</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -60,8 +60,8 @@
     </entry>
     <entry name="simpleZerox ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>param</i> (optional): threshold, default: 0.1,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>param</i> (optional): threshold, default: <b>0.1</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -71,17 +71,26 @@
     </entry>
     <entry name="eviRand ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: p,  <br />
+        <b>In 1</b>: type=<i>input</i>: p, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
 
       </description>
     </entry>
+    <entry name="eviRandN ( )">
+      <description>
+        <b>In 1</b>: type=<i>input</i>: p, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: n, <i></i> <br />
+
+        <b>Return 1</b>: ,  <br />
+
+      </description>
+    </entry>
     <entry name="eviRands ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: d0,  <br />
-        <b>In 2</b>: type=<i>input</i>: x2,  <br />
+        <b>In 1</b>: type=<i>input</i>: d0, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: x2, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -92,22 +101,31 @@
     </entry>
     <entry name="eviRandy ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: p,  <br />
+        <b>In 1</b>: type=<i>input</i>: p, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
 
       </description>
     </entry>
+    <entry name="eviRandyN ( )">
+      <description>
+        <b>In 1</b>: type=<i>input</i>: p, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: n, <i></i> <br />
+
+        <b>Return 1</b>: ,  <br />
+
+      </description>
+    </entry>
     <entry name="catmullRomSplineDynamic ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: f,  <br />
-        <b>In 2</b>: type=<i>input</i>: y0,  <br />
-        <b>In 3</b>: type=<i>input</i>: y1,  <br />
-        <b>In 4</b>: type=<i>input</i>: y2,  <br />
-        <b>In 5</b>: type=<i>input</i>: y3,  <br />
-        <b>In 6</b>: type=<i>input</i>: bias,  <br />
-        <b>In 7</b>: type=<i>input</i>: tension,  <br />
+        <b>In 1</b>: type=<i>input</i>: f, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: y0, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: y1, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: y2, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: y3, <i></i> <br />
+        <b>In 6</b>: type=<i>input</i>: bias, <i></i> <br />
+        <b>In 7</b>: type=<i>input</i>: tension, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -115,9 +133,9 @@
     </entry>
     <entry name="eviRandLfo ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: hz,  <br />
-        <b>In 2</b>: type=<i>input</i>: skew,  <br />
-        <b>In 3</b>: type=<i>input</i>: reset,  <br />
+        <b>In 1</b>: type=<i>input</i>: hz, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: skew, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: reset, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />

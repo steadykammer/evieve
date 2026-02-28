@@ -2713,41 +2713,31 @@ const areas = [
 
 // --------------------------------------------- //
 
-// stolen from genbo.js, copyright Cycling '74
-function extractParam(node: any)
+// stolen and modified from genbo.js, copyright Cycling '74
+function extractParam(node: any, name: string)
 {
 	let param = {
-		value : 0
+		name: "",
+		value : 0,
+		type: ""
 	};
 
 	let args = node.arguments;
 	for (let i = 0; i < args.length; i++) {
 		let arg = args[i];
-		if (arg.type === "AssignmentExpression" && arg.left.type === "Identifier" && arg.right.type === "Literal") {
+		if (arg.type === 'AssignmentExpression' && arg.left.type === 'Identifier' && arg.right.type === 'Literal') {
 			// @ts-expect-error
-			param[arg.left.name] = arg.right.value;
+			param[arg.left.name] = arg.right.value; // 'min' & 'max'
 		}
 		else if (i == 0) {
-			param.value = arg.value;
+			param.name = name;
+			param.value = arg.value;	// 'default'
+			param.type = arg.gen_kind;
 		}
 	}
 
-	return param;
+	return param;	// 'name' is grabbed external to this function
 }
-/*
-// decls is a list of lists, needs to be flattened:
-decls = Array.prototype.concat.apply([], decls);
-*/
-/*
-// do we have a parameter ?
-if (declarator.init && declarator.init.type === "NewExpression"
-	&& declarator.init.callee.type === "Identifier" && declarator.init.callee.name === "Param"
-) {
-	let param = extractParam(declarator.init);
-}
-*/
-
-// --------------------------------------------- //
 
 // called from Max {extract_genexpr_asts}
 async function extractGenExprASTs()
@@ -2834,6 +2824,18 @@ function parseGenExprAstsForDoc()
 		"digest": ""
 	};
 
+	// decls
+	const inputsParamBodyTemplate: any = {
+		"id": 0,
+		"kind": "",
+		"name": "",
+		"default": 0,
+		"min": 0,
+		"max": 0,
+		"type": "",
+		"digest": ""
+	};
+
 	const returnsTemplate: any = {
 		"id": 0,
 		"name": "",
@@ -2881,7 +2883,8 @@ function parseGenExprAstsForDoc()
 					let thisFunc = JSON.parse(JSON.stringify(functionsTemplate));
 					thisFunc.name = func.id.name;
 					// inputs - can be 'input' or 'param'
-					for (let i = 0; i < func.params.length; i++) {
+					let numParams = func.params.length;
+					for (let i = 0; i < numParams; i++) {
 						if (func.defaults[i] != null) { // 'defaults' always same length as 'params'
 							let thisParam = JSON.parse(JSON.stringify(inputsParamTemplate));
 							thisParam.id = i+1; // controversial, ins/outs indexing from '1', bad decision?
@@ -2896,6 +2899,41 @@ function parseGenExprAstsForDoc()
 							thisInput.kind = 'input';
 							thisInput.name = func.params[i].name;
 							thisFunc.inputs.push(thisInput);
+						}
+					}
+					// params - we are only looking for 'Param's declared inside the body of a function
+					if (func.decls.length) {
+						// decls is a list of lists, so we flatten it
+						const thisDecls = Array.prototype.concat.apply([], func.decls);
+						let j = 0;
+						for (const decl of thisDecls) {
+							const declarators = decl.declarations;
+							// it is only ever one element array. should i loop (like genbo.js) just in case?
+							const declarator = declarators[0];
+							const name = declarator.id.name;
+							// do we have a parameter ?
+							if (declarator.init 
+							&& declarator.init.type === 'NewExpression'
+							&& declarator.init.callee.type === 'Identifier' 
+							&& declarator.init.callee.name === 'Param') {
+								let param = extractParam(declarator.init, name);
+								let thisBodyParam = JSON.parse(JSON.stringify(inputsParamBodyTemplate));
+								thisBodyParam.id = numParams+j+1;
+								thisBodyParam.kind = 'Param'; // capitalised to differentiate, bad idea?
+								thisBodyParam.name = param.name;
+								thisBodyParam.default = param.value;
+								if (param.hasOwnProperty('min')) {
+									// @ts-expect-error
+									thisBodyParam.min = param.min;
+								}
+								if (param.hasOwnProperty('max')) {
+									// @ts-expect-error
+									thisBodyParam.max = param.max;
+								}
+								thisBodyParam.type = param.type;
+								thisFunc.inputs.push(thisBodyParam);
+								j++;
+							}
 						}
 					}
 					// returns - this is all total bullshit
@@ -2916,11 +2954,11 @@ function parseGenExprAstsForDoc()
 							} else { // for now, will be wrong sometimes
 								rets = 1;
 							}
-							for (let j = 0; j < rets; j++) {
+							for (let k = 0; k < rets; k++) {
 								let thisReturn = JSON.parse(JSON.stringify(returnsTemplate));
-								thisReturn.id = j+1; // controversial...
+								thisReturn.id = k+1; // controversial...
 								// if (ret.argument.type === 'ArrayExpression') {
-								// 	thisFunc.name = arrayExpression[j];
+								// 	thisFunc.name = arrayExpression[k];
 								// } else if (ret.argument.type === 'Identifier') {
 								// 	thisFunc.name = ret.argument.name;
 								// }
@@ -3006,21 +3044,18 @@ async function makeGenExprRefpages()
 		const copyPath = `${copyDir}/${dataFile}`;
 		const thisConfigJson = fs.readFileSync(readPath, 'utf8');
 		const thisConfigObject = JSON.parse(thisConfigJson);
-		const fileName = dataFile.replace('_data.json', '');//'.genexpr');
-		// const file = dataFile.replace('_data.json', ''); // needed for xml crap
+		const fileName = dataFile.replace('_data.json', '');
 		const cat = catObj[`${fileName}.genexpr`];
-		// const shouldRequire: boolean = (thisConfigObject.requires.length > 0);
 		const writeName = dataFile.replace('_data.json', '.maxref.xml');
 		const writePath = `${outDir}/${writeName}`;
 		// totally stupid
 		renderFromTemplate('../templates/refpage_genexpr.handlebars',
 			{
-				// name: file,
 				name: fileName,
 				category: cat,
 				description: thisConfigObject.description,
-				// require: shouldRequire,
 				requires: thisConfigObject.requires,
+				// we need a 'Handlebars.registerHelper()' here to deal with p/Param etc
 				functions: thisConfigObject.functions,
 				seealso: thisConfigObject.seealso
 			},

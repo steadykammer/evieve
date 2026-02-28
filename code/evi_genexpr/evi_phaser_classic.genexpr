@@ -2,10 +2,10 @@
 require("evi_svfs_tpt_filters.genexpr");
 
 History prevNum(4);
-Data	allpassCascade(32, 4);
-Param	stages(4, min=2, max=32);
+Data	allpassCascade(16, 4);
+Param	stages(4);
 maxSections = dim(allpassCascade);
-numSections = clamp(int(stages), 2, maxSections);
+numSections = clamp(int(stages), 1, maxSections);
 
 // Q should be static
 gL, rL, hL, _cLL, cBL, _cHL = tptSvfCoeffAllpassNorm(cfL, Q);	// 3.068 ?

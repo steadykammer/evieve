@@ -16,7 +16,7 @@
   <misc name="GenExpr Functions">
     <entry name="makeCosPhase ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -25,7 +25,7 @@
     </entry>
     <entry name="cosQ32 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -33,7 +33,7 @@
     </entry>
     <entry name="cos32 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -41,7 +41,7 @@
     </entry>
     <entry name="sin32 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -49,7 +49,7 @@
     </entry>
     <entry name="cos32param ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -57,7 +57,7 @@
     </entry>
     <entry name="sin32param ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -65,7 +65,7 @@
     </entry>
     <entry name="cos32quad12 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -73,7 +73,7 @@
     </entry>
     <entry name="cosQ52 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -81,7 +81,7 @@
     </entry>
     <entry name="cos52 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -89,7 +89,7 @@
     </entry>
     <entry name="sin52 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -97,7 +97,7 @@
     </entry>
     <entry name="cos52param ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -105,7 +105,7 @@
     </entry>
     <entry name="sin52param ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -113,8 +113,8 @@
     </entry>
     <entry name="mixSin ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>input</i>: a,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: a, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -122,7 +122,7 @@
     </entry>
     <entry name="cosQ73 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -130,7 +130,7 @@
     </entry>
     <entry name="cos73 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -138,7 +138,7 @@
     </entry>
     <entry name="sin73 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -146,7 +146,7 @@
     </entry>
     <entry name="cos73param ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -154,7 +154,7 @@
     </entry>
     <entry name="sin73param ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 

@@ -19,10 +19,10 @@
   <misc name="GenExpr Functions">
     <entry name="eviBiquadCoeff ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: filter,  <br />
-        <b>In 2</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 3</b>: type=<i>input</i>: gain,  <br />
-        <b>In 4</b>: type=<i>input</i>: fullQ,  <br />
+        <b>In 1</b>: type=<i>input</i>: filter, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: gain, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: fullQ, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -34,10 +34,10 @@
     </entry>
     <entry name="eviBiquadCoeffEQ ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: filter,  <br />
-        <b>In 2</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 3</b>: type=<i>input</i>: gain,  <br />
-        <b>In 4</b>: type=<i>input</i>: fullQ,  <br />
+        <b>In 1</b>: type=<i>input</i>: filter, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: gain, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: fullQ, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -49,10 +49,10 @@
     </entry>
     <entry name="eviBiquadCoeffButterworth ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: filter,  <br />
-        <b>In 2</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 3</b>: type=<i>input</i>: gain,  <br />
-        <b>In 4</b>: type=<i>input</i>: fullQ,  <br />
+        <b>In 1</b>: type=<i>input</i>: filter, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: gain, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: fullQ, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -64,10 +64,10 @@
     </entry>
     <entry name="eviBiquadCoeffAnalog ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: filter,  <br />
-        <b>In 2</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 3</b>: type=<i>input</i>: gain,  <br />
-        <b>In 4</b>: type=<i>input</i>: fullQ,  <br />
+        <b>In 1</b>: type=<i>input</i>: filter, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: gain, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: fullQ, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />

@@ -16,9 +16,9 @@
   <misc name="GenExpr Functions">
     <entry name="eviBiquadCoeffLowpass ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 2</b>: type=<i>input</i>: Q,  <br />
-        <b>In 3</b>: type=<i>param</i> (optional): AUDIO_SR, default: 48000,  <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: Q, <i></i> <br />
+        <b>In 3</b>: type=<i>param</i> (optional): AUDIO_SR, default: <b>48000</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -30,9 +30,9 @@
     </entry>
     <entry name="eviBiquadCoeffHighpass ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 2</b>: type=<i>input</i>: Q,  <br />
-        <b>In 3</b>: type=<i>param</i> (optional): AUDIO_SR, default: 48000,  <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: Q, <i></i> <br />
+        <b>In 3</b>: type=<i>param</i> (optional): AUDIO_SR, default: <b>48000</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -44,9 +44,9 @@
     </entry>
     <entry name="eviBiquadCoeffBandpass ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 2</b>: type=<i>input</i>: Q,  <br />
-        <b>In 3</b>: type=<i>param</i> (optional): AUDIO_SR, default: 48000,  <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: Q, <i></i> <br />
+        <b>In 3</b>: type=<i>param</i> (optional): AUDIO_SR, default: <b>48000</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -58,9 +58,9 @@
     </entry>
     <entry name="eviBiquadCoeffNotch ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 2</b>: type=<i>input</i>: Q,  <br />
-        <b>In 3</b>: type=<i>param</i> (optional): AUDIO_SR, default: 48000,  <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: Q, <i></i> <br />
+        <b>In 3</b>: type=<i>param</i> (optional): AUDIO_SR, default: <b>48000</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -72,10 +72,10 @@
     </entry>
     <entry name="eviBiquadCoeffPeakNotch ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 2</b>: type=<i>input</i>: gain,  <br />
-        <b>In 3</b>: type=<i>input</i>: Q,  <br />
-        <b>In 4</b>: type=<i>param</i> (optional): AUDIO_SR, default: 48000,  <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: gain, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: Q, <i></i> <br />
+        <b>In 4</b>: type=<i>param</i> (optional): AUDIO_SR, default: <b>48000</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -87,10 +87,10 @@
     </entry>
     <entry name="eviBiquadCoeffLowshelfMSP ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 2</b>: type=<i>input</i>: gain,  <br />
-        <b>In 3</b>: type=<i>input</i>: Q,  <br />
-        <b>In 4</b>: type=<i>param</i> (optional): AUDIO_SR, default: 48000,  <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: gain, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: Q, <i></i> <br />
+        <b>In 4</b>: type=<i>param</i> (optional): AUDIO_SR, default: <b>48000</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -102,10 +102,10 @@
     </entry>
     <entry name="eviBiquadCoeffLowshelfCookbook ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 2</b>: type=<i>input</i>: gain,  <br />
-        <b>In 3</b>: type=<i>input</i>: Q,  <br />
-        <b>In 4</b>: type=<i>param</i> (optional): AUDIO_SR, default: 48000,  <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: gain, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: Q, <i></i> <br />
+        <b>In 4</b>: type=<i>param</i> (optional): AUDIO_SR, default: <b>48000</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -117,10 +117,10 @@
     </entry>
     <entry name="eviBiquadCoeffHighshelfMSP ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 2</b>: type=<i>input</i>: gain,  <br />
-        <b>In 3</b>: type=<i>input</i>: Q,  <br />
-        <b>In 4</b>: type=<i>param</i> (optional): AUDIO_SR, default: 48000,  <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: gain, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: Q, <i></i> <br />
+        <b>In 4</b>: type=<i>param</i> (optional): AUDIO_SR, default: <b>48000</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -132,10 +132,10 @@
     </entry>
     <entry name="eviBiquadCoeffHighshelfCookbook ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 2</b>: type=<i>input</i>: gain,  <br />
-        <b>In 3</b>: type=<i>input</i>: Q,  <br />
-        <b>In 4</b>: type=<i>param</i> (optional): AUDIO_SR, default: 48000,  <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: gain, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: Q, <i></i> <br />
+        <b>In 4</b>: type=<i>param</i> (optional): AUDIO_SR, default: <b>48000</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -147,9 +147,9 @@
     </entry>
     <entry name="eviBiquadCoeffResonant ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 2</b>: type=<i>input</i>: Q,  <br />
-        <b>In 3</b>: type=<i>param</i> (optional): AUDIO_SR, default: 48000,  <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: Q, <i></i> <br />
+        <b>In 3</b>: type=<i>param</i> (optional): AUDIO_SR, default: <b>48000</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -161,9 +161,9 @@
     </entry>
     <entry name="eviBiquadCoeffBp ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 2</b>: type=<i>input</i>: Q,  <br />
-        <b>In 3</b>: type=<i>param</i> (optional): AUDIO_SR, default: 48000,  <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: Q, <i></i> <br />
+        <b>In 3</b>: type=<i>param</i> (optional): AUDIO_SR, default: <b>48000</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -175,9 +175,9 @@
     </entry>
     <entry name="eviBiquadCoeffAllpass ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 2</b>: type=<i>input</i>: Q,  <br />
-        <b>In 3</b>: type=<i>param</i> (optional): AUDIO_SR, default: 48000,  <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: Q, <i></i> <br />
+        <b>In 3</b>: type=<i>param</i> (optional): AUDIO_SR, default: <b>48000</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -189,10 +189,10 @@
     </entry>
     <entry name="eviBiquadCoeffLowpassGain ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 2</b>: type=<i>input</i>: gain,  <br />
-        <b>In 3</b>: type=<i>input</i>: Q,  <br />
-        <b>In 4</b>: type=<i>param</i> (optional): AUDIO_SR, default: 48000,  <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: gain, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: Q, <i></i> <br />
+        <b>In 4</b>: type=<i>param</i> (optional): AUDIO_SR, default: <b>48000</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -204,10 +204,10 @@
     </entry>
     <entry name="eviBiquadCoeffHighpassGain ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 2</b>: type=<i>input</i>: gain,  <br />
-        <b>In 3</b>: type=<i>input</i>: Q,  <br />
-        <b>In 4</b>: type=<i>param</i> (optional): AUDIO_SR, default: 48000,  <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: gain, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: Q, <i></i> <br />
+        <b>In 4</b>: type=<i>param</i> (optional): AUDIO_SR, default: <b>48000</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -219,10 +219,10 @@
     </entry>
     <entry name="eviBiquadCoeffBandpassGain ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 2</b>: type=<i>input</i>: gain,  <br />
-        <b>In 3</b>: type=<i>input</i>: Q,  <br />
-        <b>In 4</b>: type=<i>param</i> (optional): AUDIO_SR, default: 48000,  <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: gain, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: Q, <i></i> <br />
+        <b>In 4</b>: type=<i>param</i> (optional): AUDIO_SR, default: <b>48000</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -234,10 +234,10 @@
     </entry>
     <entry name="eviBiquadCoeffNotchGain ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 2</b>: type=<i>input</i>: gain,  <br />
-        <b>In 3</b>: type=<i>input</i>: Q,  <br />
-        <b>In 4</b>: type=<i>param</i> (optional): AUDIO_SR, default: 48000,  <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: gain, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: Q, <i></i> <br />
+        <b>In 4</b>: type=<i>param</i> (optional): AUDIO_SR, default: <b>48000</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -249,10 +249,10 @@
     </entry>
     <entry name="eviBiquadCoeffResonantGain ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 2</b>: type=<i>input</i>: gain,  <br />
-        <b>In 3</b>: type=<i>input</i>: Q,  <br />
-        <b>In 4</b>: type=<i>param</i> (optional): AUDIO_SR, default: 48000,  <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: gain, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: Q, <i></i> <br />
+        <b>In 4</b>: type=<i>param</i> (optional): AUDIO_SR, default: <b>48000</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -264,10 +264,10 @@
     </entry>
     <entry name="eviBiquadCoeffBpGain ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 2</b>: type=<i>input</i>: gain,  <br />
-        <b>In 3</b>: type=<i>input</i>: Q,  <br />
-        <b>In 4</b>: type=<i>param</i> (optional): AUDIO_SR, default: 48000,  <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: gain, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: Q, <i></i> <br />
+        <b>In 4</b>: type=<i>param</i> (optional): AUDIO_SR, default: <b>48000</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -279,10 +279,10 @@
     </entry>
     <entry name="eviBiquadCoeffAllpassGain ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 2</b>: type=<i>input</i>: gain,  <br />
-        <b>In 3</b>: type=<i>input</i>: Q,  <br />
-        <b>In 4</b>: type=<i>param</i> (optional): AUDIO_SR, default: 48000,  <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: gain, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: Q, <i></i> <br />
+        <b>In 4</b>: type=<i>param</i> (optional): AUDIO_SR, default: <b>48000</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -294,9 +294,9 @@
     </entry>
     <entry name="eviBiquadCoeffLowpassAnalog1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 2</b>: type=<i>input</i>: Q,  <br />
-        <b>In 3</b>: type=<i>param</i> (optional): AUDIO_SR, default: 48000,  <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: Q, <i></i> <br />
+        <b>In 3</b>: type=<i>param</i> (optional): AUDIO_SR, default: <b>48000</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -308,9 +308,9 @@
     </entry>
     <entry name="eviBiquadCoeffLowpassAnalog2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 2</b>: type=<i>input</i>: fullQ,  <br />
-        <b>In 3</b>: type=<i>param</i> (optional): AUDIO_SR, default: 48000,  <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: fullQ, <i></i> <br />
+        <b>In 3</b>: type=<i>param</i> (optional): AUDIO_SR, default: <b>48000</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -322,9 +322,9 @@
     </entry>
     <entry name="eviBiquadCoeffHighpassAnalog ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 2</b>: type=<i>input</i>: fullQ,  <br />
-        <b>In 3</b>: type=<i>param</i> (optional): AUDIO_SR, default: 48000,  <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: fullQ, <i></i> <br />
+        <b>In 3</b>: type=<i>param</i> (optional): AUDIO_SR, default: <b>48000</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -336,9 +336,9 @@
     </entry>
     <entry name="eviBiquadCoeffBandpassAnalog ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 2</b>: type=<i>input</i>: Q,  <br />
-        <b>In 3</b>: type=<i>param</i> (optional): AUDIO_SR, default: 48000,  <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: Q, <i></i> <br />
+        <b>In 3</b>: type=<i>param</i> (optional): AUDIO_SR, default: <b>48000</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -350,10 +350,10 @@
     </entry>
     <entry name="eviBiquadCoeffBandpassGainAnalog ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 2</b>: type=<i>input</i>: gain,  <br />
-        <b>In 3</b>: type=<i>input</i>: Q,  <br />
-        <b>In 4</b>: type=<i>param</i> (optional): AUDIO_SR, default: 48000,  <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: gain, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: Q, <i></i> <br />
+        <b>In 4</b>: type=<i>param</i> (optional): AUDIO_SR, default: <b>48000</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -365,9 +365,9 @@
     </entry>
     <entry name="eviBiquadCoeffNotchAnalog ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 2</b>: type=<i>input</i>: fullQ,  <br />
-        <b>In 3</b>: type=<i>param</i> (optional): AUDIO_SR, default: 48000,  <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: fullQ, <i></i> <br />
+        <b>In 3</b>: type=<i>param</i> (optional): AUDIO_SR, default: <b>48000</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -379,10 +379,10 @@
     </entry>
     <entry name="eviBiquadCoeffPeakNotchAnalog1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 2</b>: type=<i>input</i>: gain,  <br />
-        <b>In 3</b>: type=<i>input</i>: Q,  <br />
-        <b>In 4</b>: type=<i>param</i> (optional): AUDIO_SR, default: 48000,  <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: gain, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: Q, <i></i> <br />
+        <b>In 4</b>: type=<i>param</i> (optional): AUDIO_SR, default: <b>48000</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -394,10 +394,10 @@
     </entry>
     <entry name="eviBiquadCoeffPeakNotchAnalog2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 2</b>: type=<i>input</i>: gain,  <br />
-        <b>In 3</b>: type=<i>input</i>: fullQ,  <br />
-        <b>In 4</b>: type=<i>param</i> (optional): AUDIO_SR, default: 48000,  <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: gain, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: fullQ, <i></i> <br />
+        <b>In 4</b>: type=<i>param</i> (optional): AUDIO_SR, default: <b>48000</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -409,10 +409,10 @@
     </entry>
     <entry name="eviBiquadCoeffLowshelfAnalog1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 2</b>: type=<i>input</i>: gain,  <br />
-        <b>In 3</b>: type=<i>input</i>: fullQ,  <br />
-        <b>In 4</b>: type=<i>param</i> (optional): AUDIO_SR, default: 48000,  <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: gain, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: fullQ, <i></i> <br />
+        <b>In 4</b>: type=<i>param</i> (optional): AUDIO_SR, default: <b>48000</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -424,9 +424,9 @@
     </entry>
     <entry name="eviBiquadCoeffLowshelfAnalog2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 2</b>: type=<i>input</i>: gain,  <br />
-        <b>In 3</b>: type=<i>param</i> (optional): AUDIO_SR, default: 48000,  <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: gain, <i></i> <br />
+        <b>In 3</b>: type=<i>param</i> (optional): AUDIO_SR, default: <b>48000</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -438,10 +438,10 @@
     </entry>
     <entry name="eviBiquadCoeffHighshelfAnalog1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 2</b>: type=<i>input</i>: gain,  <br />
-        <b>In 3</b>: type=<i>input</i>: fullQ,  <br />
-        <b>In 4</b>: type=<i>param</i> (optional): AUDIO_SR, default: 48000,  <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: gain, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: fullQ, <i></i> <br />
+        <b>In 4</b>: type=<i>param</i> (optional): AUDIO_SR, default: <b>48000</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -453,9 +453,9 @@
     </entry>
     <entry name="eviBiquadCoeffHighshelfAnalog2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 2</b>: type=<i>input</i>: gain,  <br />
-        <b>In 3</b>: type=<i>param</i> (optional): AUDIO_SR, default: 48000,  <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: gain, <i></i> <br />
+        <b>In 3</b>: type=<i>param</i> (optional): AUDIO_SR, default: <b>48000</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -467,9 +467,9 @@
     </entry>
     <entry name="eviBiquadCoeffResonantAnalog ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 2</b>: type=<i>input</i>: fullQ,  <br />
-        <b>In 3</b>: type=<i>param</i> (optional): AUDIO_SR, default: 48000,  <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: fullQ, <i></i> <br />
+        <b>In 3</b>: type=<i>param</i> (optional): AUDIO_SR, default: <b>48000</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -481,8 +481,8 @@
     </entry>
     <entry name="eviBiquadCoeffButterworthLowpass ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 2</b>: type=<i>param</i> (optional): AUDIO_SR, default: 48000,  <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 2</b>: type=<i>param</i> (optional): AUDIO_SR, default: <b>48000</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -494,8 +494,8 @@
     </entry>
     <entry name="eviBiquadCoeffButterworthHighpass ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 2</b>: type=<i>param</i> (optional): AUDIO_SR, default: 48000,  <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 2</b>: type=<i>param</i> (optional): AUDIO_SR, default: <b>48000</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -507,9 +507,9 @@
     </entry>
     <entry name="eviBiquadCoeffButterworthBandpass ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 2</b>: type=<i>input</i>: Q,  <br />
-        <b>In 3</b>: type=<i>param</i> (optional): AUDIO_SR, default: 48000,  <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: Q, <i></i> <br />
+        <b>In 3</b>: type=<i>param</i> (optional): AUDIO_SR, default: <b>48000</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -521,9 +521,9 @@
     </entry>
     <entry name="eviBiquadCoeffButterworthBandreject ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 2</b>: type=<i>input</i>: Q,  <br />
-        <b>In 3</b>: type=<i>param</i> (optional): AUDIO_SR, default: 48000,  <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: Q, <i></i> <br />
+        <b>In 3</b>: type=<i>param</i> (optional): AUDIO_SR, default: <b>48000</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -535,9 +535,9 @@
     </entry>
     <entry name="eviBiquadCoeffButterworthLowpassGain ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 2</b>: type=<i>input</i>: gain,  <br />
-        <b>In 3</b>: type=<i>param</i> (optional): AUDIO_SR, default: 48000,  <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: gain, <i></i> <br />
+        <b>In 3</b>: type=<i>param</i> (optional): AUDIO_SR, default: <b>48000</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -549,9 +549,9 @@
     </entry>
     <entry name="eviBiquadCoeffButterworthHighpassGain ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 2</b>: type=<i>input</i>: gain,  <br />
-        <b>In 3</b>: type=<i>param</i> (optional): AUDIO_SR, default: 48000,  <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: gain, <i></i> <br />
+        <b>In 3</b>: type=<i>param</i> (optional): AUDIO_SR, default: <b>48000</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -563,10 +563,10 @@
     </entry>
     <entry name="eviBiquadCoeffButterworthBandpassGain ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 2</b>: type=<i>input</i>: gain,  <br />
-        <b>In 3</b>: type=<i>input</i>: Q,  <br />
-        <b>In 4</b>: type=<i>param</i> (optional): AUDIO_SR, default: 48000,  <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: gain, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: Q, <i></i> <br />
+        <b>In 4</b>: type=<i>param</i> (optional): AUDIO_SR, default: <b>48000</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -578,10 +578,10 @@
     </entry>
     <entry name="eviBiquadCoeffButterworthBandrejectGain ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 2</b>: type=<i>input</i>: gain,  <br />
-        <b>In 3</b>: type=<i>input</i>: Q,  <br />
-        <b>In 4</b>: type=<i>param</i> (optional): AUDIO_SR, default: 48000,  <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: gain, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: Q, <i></i> <br />
+        <b>In 4</b>: type=<i>param</i> (optional): AUDIO_SR, default: <b>48000</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -593,11 +593,11 @@
     </entry>
     <entry name="eviBiquadCoeff ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: filter,  <br />
-        <b>In 2</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 3</b>: type=<i>input</i>: gain,  <br />
-        <b>In 4</b>: type=<i>input</i>: fullQ,  <br />
-        <b>In 5</b>: type=<i>param</i> (optional): AUDIO_SAMPLERATE, default: 48000,  <br />
+        <b>In 1</b>: type=<i>input</i>: filter, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: gain, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: fullQ, <i></i> <br />
+        <b>In 5</b>: type=<i>param</i> (optional): AUDIO_SAMPLERATE, default: <b>48000</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -609,11 +609,11 @@
     </entry>
     <entry name="eviBiquadCoeffEQ ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: filter,  <br />
-        <b>In 2</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 3</b>: type=<i>input</i>: gain,  <br />
-        <b>In 4</b>: type=<i>input</i>: fullQ,  <br />
-        <b>In 5</b>: type=<i>param</i> (optional): AUDIO_SAMPLERATE, default: 48000,  <br />
+        <b>In 1</b>: type=<i>input</i>: filter, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: gain, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: fullQ, <i></i> <br />
+        <b>In 5</b>: type=<i>param</i> (optional): AUDIO_SAMPLERATE, default: <b>48000</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -625,11 +625,11 @@
     </entry>
     <entry name="eviBiquadCoeffButterworth ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: filter,  <br />
-        <b>In 2</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 3</b>: type=<i>input</i>: gain,  <br />
-        <b>In 4</b>: type=<i>input</i>: fullQ,  <br />
-        <b>In 5</b>: type=<i>param</i> (optional): AUDIO_SAMPLERATE, default: 48000,  <br />
+        <b>In 1</b>: type=<i>input</i>: filter, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: gain, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: fullQ, <i></i> <br />
+        <b>In 5</b>: type=<i>param</i> (optional): AUDIO_SAMPLERATE, default: <b>48000</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -641,11 +641,11 @@
     </entry>
     <entry name="eviBiquadCoeffAnalog ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: filter,  <br />
-        <b>In 2</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 3</b>: type=<i>input</i>: gain,  <br />
-        <b>In 4</b>: type=<i>input</i>: fullQ,  <br />
-        <b>In 5</b>: type=<i>param</i> (optional): AUDIO_SAMPLERATE, default: 48000,  <br />
+        <b>In 1</b>: type=<i>input</i>: filter, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: gain, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: fullQ, <i></i> <br />
+        <b>In 5</b>: type=<i>param</i> (optional): AUDIO_SAMPLERATE, default: <b>48000</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -657,8 +657,8 @@
     </entry>
     <entry name="eviBiquadCoeffBpButterworth6 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 2</b>: type=<i>param</i> (optional): AUDIO_SAMPLERATE, default: 48000,  <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 2</b>: type=<i>param</i> (optional): AUDIO_SAMPLERATE, default: <b>48000</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />

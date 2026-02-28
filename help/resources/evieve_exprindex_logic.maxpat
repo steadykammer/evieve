@@ -408,7 +408,8 @@
                                     "presentation_rect": [ 0.0, 400.0, 660.0, 23.0 ],
                                     "readonly": 1,
                                     "rounded": 2.0,
-                                    "tabmode": 0
+                                    "tabmode": 0,
+                                    "wordwrap": 0
                                 }
                             },
                             {
@@ -434,7 +435,8 @@
                                     "presentation_rect": [ 0.0, 375.0, 660.0, 23.0 ],
                                     "readonly": 1,
                                     "rounded": 2.0,
-                                    "tabmode": 0
+                                    "tabmode": 0,
+                                    "wordwrap": 0
                                 }
                             },
                             {
@@ -460,7 +462,8 @@
                                     "presentation_rect": [ 0.0, 350.0, 660.0, 23.0 ],
                                     "readonly": 1,
                                     "rounded": 2.0,
-                                    "tabmode": 0
+                                    "tabmode": 0,
+                                    "wordwrap": 0
                                 }
                             },
                             {
@@ -486,7 +489,8 @@
                                     "presentation_rect": [ 0.0, 325.0, 660.0, 23.0 ],
                                     "readonly": 1,
                                     "rounded": 2.0,
-                                    "tabmode": 0
+                                    "tabmode": 0,
+                                    "wordwrap": 0
                                 }
                             },
                             {
@@ -512,7 +516,8 @@
                                     "presentation_rect": [ 0.0, 300.0, 660.0, 23.0 ],
                                     "readonly": 1,
                                     "rounded": 2.0,
-                                    "tabmode": 0
+                                    "tabmode": 0,
+                                    "wordwrap": 0
                                 }
                             },
                             {
@@ -538,7 +543,8 @@
                                     "presentation_rect": [ 0.0, 275.0, 660.0, 23.0 ],
                                     "readonly": 1,
                                     "rounded": 2.0,
-                                    "tabmode": 0
+                                    "tabmode": 0,
+                                    "wordwrap": 0
                                 }
                             },
                             {
@@ -564,7 +570,8 @@
                                     "presentation_rect": [ 0.0, 250.0, 660.0, 23.0 ],
                                     "readonly": 1,
                                     "rounded": 2.0,
-                                    "tabmode": 0
+                                    "tabmode": 0,
+                                    "wordwrap": 0
                                 }
                             },
                             {
@@ -590,7 +597,8 @@
                                     "presentation_rect": [ 0.0, 225.0, 660.0, 23.0 ],
                                     "readonly": 1,
                                     "rounded": 2.0,
-                                    "tabmode": 0
+                                    "tabmode": 0,
+                                    "wordwrap": 0
                                 }
                             },
                             {
@@ -616,7 +624,8 @@
                                     "presentation_rect": [ 0.0, 200.0, 660.0, 23.0 ],
                                     "readonly": 1,
                                     "rounded": 2.0,
-                                    "tabmode": 0
+                                    "tabmode": 0,
+                                    "wordwrap": 0
                                 }
                             },
                             {
@@ -642,7 +651,8 @@
                                     "presentation_rect": [ 0.0, 175.0, 660.0, 23.0 ],
                                     "readonly": 1,
                                     "rounded": 2.0,
-                                    "tabmode": 0
+                                    "tabmode": 0,
+                                    "wordwrap": 0
                                 }
                             },
                             {
@@ -668,7 +678,8 @@
                                     "presentation_rect": [ 0.0, 150.0, 660.0, 23.0 ],
                                     "readonly": 1,
                                     "rounded": 2.0,
-                                    "tabmode": 0
+                                    "tabmode": 0,
+                                    "wordwrap": 0
                                 }
                             },
                             {
@@ -694,7 +705,8 @@
                                     "presentation_rect": [ 0.0, 125.0, 660.0, 23.0 ],
                                     "readonly": 1,
                                     "rounded": 2.0,
-                                    "tabmode": 0
+                                    "tabmode": 0,
+                                    "wordwrap": 0
                                 }
                             },
                             {
@@ -720,7 +732,8 @@
                                     "presentation_rect": [ 0.0, 100.0, 660.0, 23.0 ],
                                     "readonly": 1,
                                     "rounded": 2.0,
-                                    "tabmode": 0
+                                    "tabmode": 0,
+                                    "wordwrap": 0
                                 }
                             },
                             {
@@ -746,7 +759,8 @@
                                     "presentation_rect": [ 0.0, 75.0, 660.0, 23.0 ],
                                     "readonly": 1,
                                     "rounded": 2.0,
-                                    "tabmode": 0
+                                    "tabmode": 0,
+                                    "wordwrap": 0
                                 }
                             },
                             {
@@ -772,7 +786,8 @@
                                     "presentation_rect": [ 0.0, 50.0, 660.0, 23.0 ],
                                     "readonly": 1,
                                     "rounded": 2.0,
-                                    "tabmode": 0
+                                    "tabmode": 0,
+                                    "wordwrap": 0
                                 }
                             },
                             {
@@ -834,7 +849,8 @@
                                     "presentation_rect": [ 0.0, 25.0, 660.0, 23.0 ],
                                     "readonly": 1,
                                     "rounded": 2.0,
-                                    "tabmode": 0
+                                    "tabmode": 0,
+                                    "wordwrap": 0
                                 }
                             },
                             {
@@ -1135,7 +1151,8 @@
                                     "presentation_rect": [ 0.0, 400.0, 660.0, 23.0 ],
                                     "readonly": 1,
                                     "rounded": 2.0,
-                                    "tabmode": 0
+                                    "tabmode": 0,
+                                    "wordwrap": 0
                                 }
                             },
                             {
@@ -1161,7 +1178,8 @@
                                     "presentation_rect": [ 0.0, 375.0, 660.0, 23.0 ],
                                     "readonly": 1,
                                     "rounded": 2.0,
-                                    "tabmode": 0
+                                    "tabmode": 0,
+                                    "wordwrap": 0
                                 }
                             },
                             {
@@ -1187,7 +1205,8 @@
                                     "presentation_rect": [ 0.0, 350.0, 660.0, 23.0 ],
                                     "readonly": 1,
                                     "rounded": 2.0,
-                                    "tabmode": 0
+                                    "tabmode": 0,
+                                    "wordwrap": 0
                                 }
                             },
                             {
@@ -1213,7 +1232,8 @@
                                     "presentation_rect": [ 0.0, 325.0, 660.0, 23.0 ],
                                     "readonly": 1,
                                     "rounded": 2.0,
-                                    "tabmode": 0
+                                    "tabmode": 0,
+                                    "wordwrap": 0
                                 }
                             },
                             {
@@ -1239,7 +1259,8 @@
                                     "presentation_rect": [ 0.0, 300.0, 660.0, 23.0 ],
                                     "readonly": 1,
                                     "rounded": 2.0,
-                                    "tabmode": 0
+                                    "tabmode": 0,
+                                    "wordwrap": 0
                                 }
                             },
                             {
@@ -1265,7 +1286,8 @@
                                     "presentation_rect": [ 0.0, 275.0, 660.0, 23.0 ],
                                     "readonly": 1,
                                     "rounded": 2.0,
-                                    "tabmode": 0
+                                    "tabmode": 0,
+                                    "wordwrap": 0
                                 }
                             },
                             {
@@ -1291,7 +1313,8 @@
                                     "presentation_rect": [ 0.0, 250.0, 660.0, 23.0 ],
                                     "readonly": 1,
                                     "rounded": 2.0,
-                                    "tabmode": 0
+                                    "tabmode": 0,
+                                    "wordwrap": 0
                                 }
                             },
                             {
@@ -1317,7 +1340,8 @@
                                     "presentation_rect": [ 0.0, 225.0, 660.0, 23.0 ],
                                     "readonly": 1,
                                     "rounded": 2.0,
-                                    "tabmode": 0
+                                    "tabmode": 0,
+                                    "wordwrap": 0
                                 }
                             },
                             {
@@ -1343,7 +1367,8 @@
                                     "presentation_rect": [ 0.0, 200.0, 660.0, 23.0 ],
                                     "readonly": 1,
                                     "rounded": 2.0,
-                                    "tabmode": 0
+                                    "tabmode": 0,
+                                    "wordwrap": 0
                                 }
                             },
                             {
@@ -1369,7 +1394,8 @@
                                     "presentation_rect": [ 0.0, 175.0, 660.0, 23.0 ],
                                     "readonly": 1,
                                     "rounded": 2.0,
-                                    "tabmode": 0
+                                    "tabmode": 0,
+                                    "wordwrap": 0
                                 }
                             },
                             {
@@ -1395,7 +1421,8 @@
                                     "presentation_rect": [ 0.0, 150.0, 660.0, 23.0 ],
                                     "readonly": 1,
                                     "rounded": 2.0,
-                                    "tabmode": 0
+                                    "tabmode": 0,
+                                    "wordwrap": 0
                                 }
                             },
                             {
@@ -1421,7 +1448,8 @@
                                     "presentation_rect": [ 0.0, 125.0, 660.0, 23.0 ],
                                     "readonly": 1,
                                     "rounded": 2.0,
-                                    "tabmode": 0
+                                    "tabmode": 0,
+                                    "wordwrap": 0
                                 }
                             },
                             {
@@ -1447,7 +1475,8 @@
                                     "presentation_rect": [ 0.0, 100.0, 660.0, 23.0 ],
                                     "readonly": 1,
                                     "rounded": 2.0,
-                                    "tabmode": 0
+                                    "tabmode": 0,
+                                    "wordwrap": 0
                                 }
                             },
                             {
@@ -1473,7 +1502,8 @@
                                     "presentation_rect": [ 0.0, 75.0, 660.0, 23.0 ],
                                     "readonly": 1,
                                     "rounded": 2.0,
-                                    "tabmode": 0
+                                    "tabmode": 0,
+                                    "wordwrap": 0
                                 }
                             },
                             {
@@ -1499,7 +1529,8 @@
                                     "presentation_rect": [ 0.0, 50.0, 660.0, 23.0 ],
                                     "readonly": 1,
                                     "rounded": 2.0,
-                                    "tabmode": 0
+                                    "tabmode": 0,
+                                    "wordwrap": 0
                                 }
                             },
                             {
@@ -1561,7 +1592,8 @@
                                     "presentation_rect": [ 0.0, 25.0, 660.0, 23.0 ],
                                     "readonly": 1,
                                     "rounded": 2.0,
-                                    "tabmode": 0
+                                    "tabmode": 0,
+                                    "wordwrap": 0
                                 }
                             },
                             {
@@ -2191,7 +2223,7 @@
                     "fontname": "Lato",
                     "fontsize": 14.0,
                     "id": "obj-5",
-                    "items": "<empty>",
+                    "items": [ "(Select GenExpr File)", ",", "<separator>", ",", "evi_adaa.genexpr", ",", "evi_approx.genexpr", ",", "evi_biquads_coeffs.genexpr", ",", "evi_biquads.genexpr", ",", "evi_biquads_extras.genexpr", ",", "evi_biquads_filters.genexpr", ",", "evi_biquads_no_tilde.genexpr", ",", "evi_biquads_selectors.genexpr", ",", "evi_biquads_union.genexpr", ",", "evi_buchla.genexpr", ",", "evi_butterworth.genexpr", ",", "evi_clip.genexpr", ",", "evi_core.genexpr", ",", "evi_cossin.genexpr", ",", "evi_counting.genexpr", ",", "evi_crossovers.genexpr", ",", "evi_dfm_lib.genexpr", ",", "evi_dynamics.genexpr", ",", "evi_env.genexpr", ",", "evi_evieve.genexpr", ",", "evi_fastskew.genexpr", ",", "evi_interp.genexpr", ",", "evi_lfo.genexpr", ",", "evi_lib.genexpr", ",", "evi_pade.genexpr", ",", "evi_phaser_classic.genexpr", ",", "evi_polyblep.genexpr", ",", "evi_polyblep_four.genexpr", ",", "evi_polyblep_shapes.genexpr", ",", "evi_polyblep_two.genexpr", ",", "evi_polyblep_utility.genexpr", ",", "evi_ptr.genexpr", ",", "evi_rcfilters.genexpr", ",", "evi_resampling_templates.genexpr", ",", "evi_resbank.genexpr", ",", "evi_reverb_library.genexpr", ",", "evi_ringmod_enhanced.genexpr", ",", "evi_saturators.genexpr", ",", "evi_sinfold_lib.genexpr", ",", "evi_smooth.genexpr", ",", "evi_sources.genexpr", ",", "evi_ssb.genexpr", ",", "evi_svfs.genexpr", ",", "evi_svfs_filters.genexpr", ",", "evi_svfs_lto.genexpr", ",", "evi_svfs_lto_extras.genexpr", ",", "evi_svfs_tpt.genexpr", ",", "evi_svfs_tpt_filters.genexpr", ",", "evi_tanh.genexpr", ",", "evi_trig.genexpr", ",", "evi_utilities.genexpr", ",", "evi_warmer_lib.genexpr", ",", "evi_waveshaping.genexpr" ],
                     "maxclass": "umenu",
                     "numinlets": 1,
                     "numoutlets": 3,

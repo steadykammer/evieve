@@ -20,7 +20,7 @@
   <misc name="GenExpr Functions">
     <entry name="rcPreWarp1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -28,7 +28,7 @@
     </entry>
     <entry name="rcPreWarp2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -36,8 +36,8 @@
     </entry>
     <entry name="rcFilter ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: Vin,  <br />
-        <b>In 2</b>: type=<i>input</i>: g,  <br />
+        <b>In 1</b>: type=<i>input</i>: Vin, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: g, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -45,8 +45,8 @@
     </entry>
     <entry name="rcFilterHp ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: Vin,  <br />
-        <b>In 2</b>: type=<i>input</i>: g,  <br />
+        <b>In 1</b>: type=<i>input</i>: Vin, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: g, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -54,8 +54,8 @@
     </entry>
     <entry name="rcFilterLpHp ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: Vin,  <br />
-        <b>In 2</b>: type=<i>input</i>: g,  <br />
+        <b>In 1</b>: type=<i>input</i>: Vin, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: g, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -64,8 +64,8 @@
     </entry>
     <entry name="rcFilterLpApHp ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: Vin,  <br />
-        <b>In 2</b>: type=<i>input</i>: g,  <br />
+        <b>In 1</b>: type=<i>input</i>: Vin, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: g, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -75,9 +75,9 @@
     </entry>
     <entry name="rcFilterBandpass ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: xp,  <br />
-        <b>In 2</b>: type=<i>input</i>: glp,  <br />
-        <b>In 3</b>: type=<i>input</i>: ghp,  <br />
+        <b>In 1</b>: type=<i>input</i>: xp, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: glp, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: ghp, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -85,9 +85,9 @@
     </entry>
     <entry name="rcDampCoeffs ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 2</b>: type=<i>input</i>: damp,  <br />
-        <b>In 3</b>: type=<i>input</i>: mode,  <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: damp, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: mode, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -96,10 +96,10 @@
     </entry>
     <entry name="rcDampCoeffsNoTilde ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 2</b>: type=<i>input</i>: damp,  <br />
-        <b>In 3</b>: type=<i>input</i>: mode,  <br />
-        <b>In 4</b>: type=<i>param</i> (optional): AUDIO_SR, default: 48000,  <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: damp, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: mode, <i></i> <br />
+        <b>In 4</b>: type=<i>param</i> (optional): AUDIO_SR, default: <b>48000</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -108,8 +108,8 @@
     </entry>
     <entry name="rcDampCoeffs0 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 2</b>: type=<i>input</i>: damp,  <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: damp, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -118,8 +118,8 @@
     </entry>
     <entry name="rcDampCoeffs1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 2</b>: type=<i>input</i>: damp,  <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: damp, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -128,8 +128,8 @@
     </entry>
     <entry name="rcDampCoeffs2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 2</b>: type=<i>input</i>: damp,  <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: damp, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -138,9 +138,9 @@
     </entry>
     <entry name="rcFilterDamp ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: Vin,  <br />
-        <b>In 2</b>: type=<i>input</i>: g,  <br />
-        <b>In 3</b>: type=<i>input</i>: k,  <br />
+        <b>In 1</b>: type=<i>input</i>: Vin, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: g, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: k, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -148,9 +148,9 @@
     </entry>
     <entry name="rcFilterDampHp ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: Vin,  <br />
-        <b>In 2</b>: type=<i>input</i>: g,  <br />
-        <b>In 3</b>: type=<i>input</i>: k,  <br />
+        <b>In 1</b>: type=<i>input</i>: Vin, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: g, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: k, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -158,9 +158,9 @@
     </entry>
     <entry name="rcFilterDampLpHp ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: Vin,  <br />
-        <b>In 2</b>: type=<i>input</i>: g,  <br />
-        <b>In 3</b>: type=<i>input</i>: k,  <br />
+        <b>In 1</b>: type=<i>input</i>: Vin, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: g, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: k, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -169,11 +169,11 @@
     </entry>
     <entry name="rcFilterDampBandpass ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: Vin,  <br />
-        <b>In 2</b>: type=<i>input</i>: glp,  <br />
-        <b>In 3</b>: type=<i>input</i>: ghp,  <br />
-        <b>In 4</b>: type=<i>input</i>: lk,  <br />
-        <b>In 5</b>: type=<i>input</i>: hk,  <br />
+        <b>In 1</b>: type=<i>input</i>: Vin, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: glp, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: ghp, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: lk, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: hk, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -181,7 +181,7 @@
     </entry>
     <entry name="tanhLApprox ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -189,7 +189,7 @@
     </entry>
     <entry name="sech2_with_tanh ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: tanh_value,  <br />
+        <b>In 1</b>: type=<i>input</i>: tanh_value, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -197,8 +197,8 @@
     </entry>
     <entry name="rcOnePole ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: Vin,  <br />
-        <b>In 2</b>: type=<i>input</i>: g,  <br />
+        <b>In 1</b>: type=<i>input</i>: Vin, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: g, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -206,8 +206,8 @@
     </entry>
     <entry name="rcOnePoleLpHp ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: Vin,  <br />
-        <b>In 2</b>: type=<i>input</i>: g,  <br />
+        <b>In 1</b>: type=<i>input</i>: Vin, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: g, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -216,8 +216,8 @@
     </entry>
     <entry name="rcOnePole_x2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN,  <br />
-        <b>In 2</b>: type=<i>input</i>: g,  <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: g, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 

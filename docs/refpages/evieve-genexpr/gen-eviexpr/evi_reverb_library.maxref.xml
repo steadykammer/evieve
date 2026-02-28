@@ -20,10 +20,10 @@
   <misc name="GenExpr Functions">
     <entry name="spreadLate ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: diffscale,  <br />
-        <b>In 2</b>: type=<i>input</i>: mul1,  <br />
-        <b>In 3</b>: type=<i>input</i>: mul2,  <br />
-        <b>In 4</b>: type=<i>input</i>: spread,  <br />
+        <b>In 1</b>: type=<i>input</i>: diffscale, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: mul1, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: mul2, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: spread, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -33,7 +33,7 @@
     </entry>
     <entry name="gainCoeff ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: normalised,  <br />
+        <b>In 1</b>: type=<i>input</i>: normalised, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -41,9 +41,9 @@
     </entry>
     <entry name="filterParams ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: high,  <br />
-        <b>In 2</b>: type=<i>input</i>: low,  <br />
-        <b>In 3</b>: type=<i>input</i>: base,  <br />
+        <b>In 1</b>: type=<i>input</i>: high, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: low, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: base, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -54,7 +54,7 @@
     </entry>
     <entry name="sizeParams ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: size,  <br />
+        <b>In 1</b>: type=<i>input</i>: size, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -67,8 +67,8 @@
     </entry>
     <entry name="fastskewlfo052neg ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>input</i>: skewneg,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: skewneg, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -76,8 +76,8 @@
     </entry>
     <entry name="fastskewlfo052pos ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>input</i>: skewpos,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: skewpos, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -85,8 +85,8 @@
     </entry>
     <entry name="fastskewlfo052ar ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>input</i>: skew,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: skew, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -94,10 +94,10 @@
     </entry>
     <entry name="lfoCalc ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: phase,  <br />
-        <b>In 2</b>: type=<i>input</i>: duty,  <br />
-        <b>In 3</b>: type=<i>input</i>: shape,  <br />
-        <b>In 4</b>: type=<i>input</i>: skew,  <br />
+        <b>In 1</b>: type=<i>input</i>: phase, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: duty, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: shape, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: skew, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -105,12 +105,12 @@
     </entry>
     <entry name="oneMod1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: modFreq,  <br />
-        <b>In 2</b>: type=<i>input</i>: modDepth,  <br />
-        <b>In 3</b>: type=<i>input</i>: modOffset,  <br />
-        <b>In 4</b>: type=<i>input</i>: _modDuty,  <br />
-        <b>In 5</b>: type=<i>input</i>: _modShape,  <br />
-        <b>In 6</b>: type=<i>input</i>: _modSkew,  <br />
+        <b>In 1</b>: type=<i>input</i>: modFreq, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: modDepth, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: modOffset, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: _modDuty, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: _modShape, <i></i> <br />
+        <b>In 6</b>: type=<i>input</i>: _modSkew, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -118,12 +118,12 @@
     </entry>
     <entry name="oneMod2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: modFreq,  <br />
-        <b>In 2</b>: type=<i>input</i>: modDepth,  <br />
-        <b>In 3</b>: type=<i>input</i>: modOffset,  <br />
-        <b>In 4</b>: type=<i>input</i>: modDuty,  <br />
-        <b>In 5</b>: type=<i>input</i>: modShape,  <br />
-        <b>In 6</b>: type=<i>input</i>: modSkew,  <br />
+        <b>In 1</b>: type=<i>input</i>: modFreq, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: modDepth, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: modOffset, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: modDuty, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: modShape, <i></i> <br />
+        <b>In 6</b>: type=<i>input</i>: modSkew, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -131,12 +131,12 @@
     </entry>
     <entry name="delmod2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: delay1,  <br />
-        <b>In 2</b>: type=<i>input</i>: delay2,  <br />
-        <b>In 3</b>: type=<i>input</i>: rate,  <br />
-        <b>In 4</b>: type=<i>input</i>: depth,  <br />
-        <b>In 5</b>: type=<i>input</i>: offset1,  <br />
-        <b>In 6</b>: type=<i>input</i>: offset2,  <br />
+        <b>In 1</b>: type=<i>input</i>: delay1, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: delay2, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: rate, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: depth, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: offset1, <i></i> <br />
+        <b>In 6</b>: type=<i>input</i>: offset2, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -145,17 +145,17 @@
     </entry>
     <entry name="delmod4 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: delay1,  <br />
-        <b>In 2</b>: type=<i>input</i>: delay2,  <br />
-        <b>In 3</b>: type=<i>input</i>: delay3,  <br />
-        <b>In 4</b>: type=<i>input</i>: delay4,  <br />
-        <b>In 5</b>: type=<i>input</i>: rate1,  <br />
-        <b>In 6</b>: type=<i>input</i>: rate2,  <br />
-        <b>In 7</b>: type=<i>input</i>: depth,  <br />
-        <b>In 8</b>: type=<i>input</i>: offset1,  <br />
-        <b>In 9</b>: type=<i>input</i>: offset2,  <br />
-        <b>In 10</b>: type=<i>input</i>: offset3,  <br />
-        <b>In 11</b>: type=<i>input</i>: offset4,  <br />
+        <b>In 1</b>: type=<i>input</i>: delay1, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: delay2, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: delay3, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: delay4, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: rate1, <i></i> <br />
+        <b>In 6</b>: type=<i>input</i>: rate2, <i></i> <br />
+        <b>In 7</b>: type=<i>input</i>: depth, <i></i> <br />
+        <b>In 8</b>: type=<i>input</i>: offset1, <i></i> <br />
+        <b>In 9</b>: type=<i>input</i>: offset2, <i></i> <br />
+        <b>In 10</b>: type=<i>input</i>: offset3, <i></i> <br />
+        <b>In 11</b>: type=<i>input</i>: offset4, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -166,7 +166,7 @@
     </entry>
     <entry name="noiseMod ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: depth,  <br />
+        <b>In 1</b>: type=<i>input</i>: depth, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -174,8 +174,8 @@
     </entry>
     <entry name="eightMod ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: modFreq,  <br />
-        <b>In 2</b>: type=<i>input</i>: modDepth,  <br />
+        <b>In 1</b>: type=<i>input</i>: modFreq, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: modDepth, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -190,9 +190,9 @@
     </entry>
     <entry name="eightModMatt ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: modFreq,  <br />
-        <b>In 2</b>: type=<i>input</i>: modDepth,  <br />
-        <b>In 3</b>: type=<i>input</i>: modSpread,  <br />
+        <b>In 1</b>: type=<i>input</i>: modFreq, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: modDepth, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: modSpread, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -207,8 +207,8 @@
     </entry>
     <entry name="calcDelays ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: delay,  <br />
-        <b>In 2</b>: type=<i>input</i>: time,  <br />
+        <b>In 1</b>: type=<i>input</i>: delay, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: time, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -218,9 +218,9 @@
     </entry>
     <entry name="preDelayVar ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0,  <br />
-        <b>In 2</b>: type=<i>input</i>: pdTime,  <br />
-        <b>In 3</b>: type=<i>input</i>: pdRamp,  <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: pdTime, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: pdRamp, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -228,9 +228,9 @@
     </entry>
     <entry name="preDelayWindow ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0,  <br />
-        <b>In 2</b>: type=<i>input</i>: pdTime0,  <br />
-        <b>In 3</b>: type=<i>input</i>: pdWindow,  <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: pdTime0, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: pdWindow, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -238,9 +238,9 @@
     </entry>
     <entry name="delayReadZero1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0,  <br />
-        <b>In 2</b>: type=<i>input</i>: dTime,  <br />
-        <b>In 3</b>: type=<i>input</i>: dRamp,  <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: dTime, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: dRamp, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -248,10 +248,10 @@
     </entry>
     <entry name="delayReadZero1mod ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0,  <br />
-        <b>In 2</b>: type=<i>input</i>: dTime,  <br />
-        <b>In 3</b>: type=<i>input</i>: dRamp,  <br />
-        <b>In 4</b>: type=<i>input</i>: mDepth,  <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: dTime, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: dRamp, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: mDepth, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -259,10 +259,10 @@
     </entry>
     <entry name="delayReadZero2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0,  <br />
-        <b>In 2</b>: type=<i>input</i>: dTime1,  <br />
-        <b>In 3</b>: type=<i>input</i>: dTime2,  <br />
-        <b>In 4</b>: type=<i>input</i>: dRamp,  <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: dTime1, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: dTime2, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: dRamp, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -271,8 +271,8 @@
     </entry>
     <entry name="poleZeroDamp ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>input</i>: a,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: a, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -280,11 +280,11 @@
     </entry>
     <entry name="fbComb ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cIn,  <br />
-        <b>In 2</b>: type=<i>input</i>: cDamp1,  <br />
-        <b>In 3</b>: type=<i>input</i>: cDamp2,  <br />
-        <b>In 4</b>: type=<i>input</i>: cFeedback,  <br />
-        <b>In 5</b>: type=<i>input</i>: cTime,  <br />
+        <b>In 1</b>: type=<i>input</i>: cIn, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: cDamp1, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: cDamp2, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: cFeedback, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: cTime, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -292,9 +292,9 @@
     </entry>
     <entry name="fbAllpass ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: aIn,  <br />
-        <b>In 2</b>: type=<i>input</i>: aFeedback,  <br />
-        <b>In 3</b>: type=<i>input</i>: aTime,  <br />
+        <b>In 1</b>: type=<i>input</i>: aIn, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: aFeedback, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: aTime, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -302,9 +302,9 @@
     </entry>
     <entry name="fbAllpass3 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: aIn,  <br />
-        <b>In 2</b>: type=<i>input</i>: aFeedback,  <br />
-        <b>In 3</b>: type=<i>input</i>: aTime,  <br />
+        <b>In 1</b>: type=<i>input</i>: aIn, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: aFeedback, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: aTime, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -312,9 +312,9 @@
     </entry>
     <entry name="fffbAllpassShort ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: aIn,  <br />
-        <b>In 2</b>: type=<i>input</i>: aGain,  <br />
-        <b>In 3</b>: type=<i>input</i>: aTime,  <br />
+        <b>In 1</b>: type=<i>input</i>: aIn, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: aGain, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: aTime, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -322,9 +322,9 @@
     </entry>
     <entry name="fffbAllpassMedium ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: aIn,  <br />
-        <b>In 2</b>: type=<i>input</i>: aGain,  <br />
-        <b>In 3</b>: type=<i>input</i>: aTime,  <br />
+        <b>In 1</b>: type=<i>input</i>: aIn, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: aGain, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: aTime, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -332,9 +332,9 @@
     </entry>
     <entry name="fffbAllpassLong ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: aIn,  <br />
-        <b>In 2</b>: type=<i>input</i>: aGain,  <br />
-        <b>In 3</b>: type=<i>input</i>: aTime,  <br />
+        <b>In 1</b>: type=<i>input</i>: aIn, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: aGain, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: aTime, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -342,9 +342,9 @@
     </entry>
     <entry name="DiffAllpass ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: xIn,  <br />
-        <b>In 2</b>: type=<i>input</i>: xCoeff,  <br />
-        <b>In 3</b>: type=<i>input</i>: xTime,  <br />
+        <b>In 1</b>: type=<i>input</i>: xIn, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: xCoeff, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: xTime, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -352,10 +352,10 @@
     </entry>
     <entry name="AllpassDiffuseShort ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>input</i>: time,  <br />
-        <b>In 3</b>: type=<i>input</i>: diffusion,  <br />
-        <b>In 4</b>: type=<i>input</i>: apgain,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: time, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: diffusion, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: apgain, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -363,10 +363,10 @@
     </entry>
     <entry name="AllpassDiffuseLong ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>input</i>: time,  <br />
-        <b>In 3</b>: type=<i>input</i>: diffusion,  <br />
-        <b>In 4</b>: type=<i>input</i>: apgain,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: time, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: diffusion, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: apgain, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -374,9 +374,9 @@
     </entry>
     <entry name="allpassDiffuseShort ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>input</i>: time,  <br />
-        <b>In 3</b>: type=<i>input</i>: diffusion,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: time, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: diffusion, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -384,9 +384,9 @@
     </entry>
     <entry name="allpassDiffuseLong ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>input</i>: time,  <br />
-        <b>In 3</b>: type=<i>input</i>: diffusion,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: time, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: diffusion, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -394,14 +394,14 @@
     </entry>
     <entry name="allpassDiffuseDamp ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>input</i>: time,  <br />
-        <b>In 3</b>: type=<i>input</i>: diffusion,  <br />
-        <b>In 4</b>: type=<i>input</i>: g0,  <br />
-        <b>In 5</b>: type=<i>input</i>: k0,  <br />
-        <b>In 6</b>: type=<i>input</i>: g1,  <br />
-        <b>In 7</b>: type=<i>input</i>: k1,  <br />
-        <b>In 8</b>: type=<i>input</i>: damp,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: time, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: diffusion, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: g0, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: k0, <i></i> <br />
+        <b>In 6</b>: type=<i>input</i>: g1, <i></i> <br />
+        <b>In 7</b>: type=<i>input</i>: k1, <i></i> <br />
+        <b>In 8</b>: type=<i>input</i>: damp, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -409,22 +409,22 @@
     </entry>
     <entry name="DiffuseDelayShort ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>input</i>: time,  <br />
-        <b>In 3</b>: type=<i>input</i>: diffusion,  <br />
-        <b>In 4</b>: type=<i>input</i>: apgain,  <br />
-        <b>In 5</b>: type=<i>input</i>: hs_a1,  <br />
-        <b>In 6</b>: type=<i>input</i>: hs_a2,  <br />
-        <b>In 7</b>: type=<i>input</i>: hs_a3,  <br />
-        <b>In 8</b>: type=<i>input</i>: hs_m0,  <br />
-        <b>In 9</b>: type=<i>input</i>: hs_m1,  <br />
-        <b>In 10</b>: type=<i>input</i>: hs_m2,  <br />
-        <b>In 11</b>: type=<i>input</i>: ls_a1,  <br />
-        <b>In 12</b>: type=<i>input</i>: ls_a2,  <br />
-        <b>In 13</b>: type=<i>input</i>: ls_a3,  <br />
-        <b>In 14</b>: type=<i>input</i>: ls_m0,  <br />
-        <b>In 15</b>: type=<i>input</i>: ls_m1,  <br />
-        <b>In 16</b>: type=<i>input</i>: ls_m2,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: time, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: diffusion, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: apgain, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: hs_a1, <i></i> <br />
+        <b>In 6</b>: type=<i>input</i>: hs_a2, <i></i> <br />
+        <b>In 7</b>: type=<i>input</i>: hs_a3, <i></i> <br />
+        <b>In 8</b>: type=<i>input</i>: hs_m0, <i></i> <br />
+        <b>In 9</b>: type=<i>input</i>: hs_m1, <i></i> <br />
+        <b>In 10</b>: type=<i>input</i>: hs_m2, <i></i> <br />
+        <b>In 11</b>: type=<i>input</i>: ls_a1, <i></i> <br />
+        <b>In 12</b>: type=<i>input</i>: ls_a2, <i></i> <br />
+        <b>In 13</b>: type=<i>input</i>: ls_a3, <i></i> <br />
+        <b>In 14</b>: type=<i>input</i>: ls_m0, <i></i> <br />
+        <b>In 15</b>: type=<i>input</i>: ls_m1, <i></i> <br />
+        <b>In 16</b>: type=<i>input</i>: ls_m2, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -432,22 +432,22 @@
     </entry>
     <entry name="DiffuseDelayLong ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>input</i>: time,  <br />
-        <b>In 3</b>: type=<i>input</i>: diffusion,  <br />
-        <b>In 4</b>: type=<i>input</i>: apgain,  <br />
-        <b>In 5</b>: type=<i>input</i>: hs_a1,  <br />
-        <b>In 6</b>: type=<i>input</i>: hs_a2,  <br />
-        <b>In 7</b>: type=<i>input</i>: hs_a3,  <br />
-        <b>In 8</b>: type=<i>input</i>: hs_m0,  <br />
-        <b>In 9</b>: type=<i>input</i>: hs_m1,  <br />
-        <b>In 10</b>: type=<i>input</i>: hs_m2,  <br />
-        <b>In 11</b>: type=<i>input</i>: ls_a1,  <br />
-        <b>In 12</b>: type=<i>input</i>: ls_a2,  <br />
-        <b>In 13</b>: type=<i>input</i>: ls_a3,  <br />
-        <b>In 14</b>: type=<i>input</i>: ls_m0,  <br />
-        <b>In 15</b>: type=<i>input</i>: ls_m1,  <br />
-        <b>In 16</b>: type=<i>input</i>: ls_m2,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: time, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: diffusion, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: apgain, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: hs_a1, <i></i> <br />
+        <b>In 6</b>: type=<i>input</i>: hs_a2, <i></i> <br />
+        <b>In 7</b>: type=<i>input</i>: hs_a3, <i></i> <br />
+        <b>In 8</b>: type=<i>input</i>: hs_m0, <i></i> <br />
+        <b>In 9</b>: type=<i>input</i>: hs_m1, <i></i> <br />
+        <b>In 10</b>: type=<i>input</i>: hs_m2, <i></i> <br />
+        <b>In 11</b>: type=<i>input</i>: ls_a1, <i></i> <br />
+        <b>In 12</b>: type=<i>input</i>: ls_a2, <i></i> <br />
+        <b>In 13</b>: type=<i>input</i>: ls_a3, <i></i> <br />
+        <b>In 14</b>: type=<i>input</i>: ls_m0, <i></i> <br />
+        <b>In 15</b>: type=<i>input</i>: ls_m1, <i></i> <br />
+        <b>In 16</b>: type=<i>input</i>: ls_m2, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -455,9 +455,9 @@
     </entry>
     <entry name="apDelaySingle ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: apIn,  <br />
-        <b>In 2</b>: type=<i>input</i>: apTime,  <br />
-        <b>In 3</b>: type=<i>input</i>: apGain,  <br />
+        <b>In 1</b>: type=<i>input</i>: apIn, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: apTime, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: apGain, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -465,12 +465,12 @@
     </entry>
     <entry name="delayFiltCoeff ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: del,  <br />
-        <b>In 2</b>: type=<i>input</i>: tlo,  <br />
-        <b>In 3</b>: type=<i>input</i>: tmf,  <br />
-        <b>In 4</b>: type=<i>input</i>: wlo,  <br />
-        <b>In 5</b>: type=<i>input</i>: chi,  <br />
-        <b>In 6</b>: type=<i>input</i>: m3l10c,  <br />
+        <b>In 1</b>: type=<i>input</i>: del, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: tlo, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: tmf, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: wlo, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: chi, <i></i> <br />
+        <b>In 6</b>: type=<i>input</i>: m3l10c, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -481,11 +481,11 @@
     </entry>
     <entry name="delayFilt ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0,  <br />
-        <b>In 2</b>: type=<i>input</i>: wlo,  <br />
-        <b>In 3</b>: type=<i>input</i>: glo,  <br />
-        <b>In 4</b>: type=<i>input</i>: whi,  <br />
-        <b>In 5</b>: type=<i>input</i>: gmf,  <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: wlo, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: glo, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: whi, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: gmf, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -493,13 +493,13 @@
     </entry>
     <entry name="delayFilter ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0,  <br />
-        <b>In 2</b>: type=<i>input</i>: del,  <br />
-        <b>In 3</b>: type=<i>input</i>: tlo,  <br />
-        <b>In 4</b>: type=<i>input</i>: tmf,  <br />
-        <b>In 5</b>: type=<i>input</i>: wlo,  <br />
-        <b>In 6</b>: type=<i>input</i>: chi,  <br />
-        <b>In 7</b>: type=<i>input</i>: m3l10c,  <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: del, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: tlo, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: tmf, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: wlo, <i></i> <br />
+        <b>In 6</b>: type=<i>input</i>: chi, <i></i> <br />
+        <b>In 7</b>: type=<i>input</i>: m3l10c, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 

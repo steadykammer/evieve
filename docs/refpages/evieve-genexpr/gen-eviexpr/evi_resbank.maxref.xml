@@ -16,7 +16,7 @@
   <misc name="GenExpr Functions">
     <entry name="expA ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0,  <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -24,7 +24,7 @@
     </entry>
     <entry name="tauA ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: t,  <br />
+        <b>In 1</b>: type=<i>input</i>: t, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -32,7 +32,7 @@
     </entry>
     <entry name="tanA2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -40,7 +40,7 @@
     </entry>
     <entry name="cosQ32 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -48,7 +48,7 @@
     </entry>
     <entry name="cos32 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -56,7 +56,7 @@
     </entry>
     <entry name="acosT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -64,7 +64,7 @@
     </entry>
     <entry name="expApprox ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -72,7 +72,7 @@
     </entry>
     <entry name="pow2Approx ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: y,  <br />
+        <b>In 1</b>: type=<i>input</i>: y, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -80,7 +80,7 @@
     </entry>
     <entry name="coshApprox ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -88,7 +88,7 @@
     </entry>
     <entry name="log2Approx ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -96,7 +96,7 @@
     </entry>
     <entry name="logApprox ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -104,7 +104,7 @@
     </entry>
     <entry name="log10Approx ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -112,7 +112,7 @@
     </entry>
     <entry name="logsad ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: s,  <br />
+        <b>In 1</b>: type=<i>input</i>: s, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -120,8 +120,8 @@
     </entry>
     <entry name="logso ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>input</i>: ad,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: ad, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -129,8 +129,8 @@
     </entry>
     <entry name="logsmooth ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>input</i>: s,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: s, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -138,9 +138,9 @@
     </entry>
     <entry name="logsmoothBank2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x1,  <br />
-        <b>In 2</b>: type=<i>input</i>: x2,  <br />
-        <b>In 3</b>: type=<i>input</i>: s,  <br />
+        <b>In 1</b>: type=<i>input</i>: x1, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: x2, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: s, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -149,8 +149,8 @@
     </entry>
     <entry name="expso ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>input</i>: z,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: z, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -158,9 +158,9 @@
     </entry>
     <entry name="expsmoothBank2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x1,  <br />
-        <b>In 2</b>: type=<i>input</i>: x2,  <br />
-        <b>In 3</b>: type=<i>input</i>: t,  <br />
+        <b>In 1</b>: type=<i>input</i>: x1, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: x2, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: t, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -169,11 +169,11 @@
     </entry>
     <entry name="expsmoothBank4 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x1,  <br />
-        <b>In 2</b>: type=<i>input</i>: x2,  <br />
-        <b>In 3</b>: type=<i>input</i>: x3,  <br />
-        <b>In 4</b>: type=<i>input</i>: x4,  <br />
-        <b>In 5</b>: type=<i>input</i>: t,  <br />
+        <b>In 1</b>: type=<i>input</i>: x1, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: x2, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: x3, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: x4, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: t, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -184,11 +184,11 @@
     </entry>
     <entry name="eviMap ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: valueIn,  <br />
-        <b>In 2</b>: type=<i>input</i>: inLow,  <br />
-        <b>In 3</b>: type=<i>input</i>: inHigh,  <br />
-        <b>In 4</b>: type=<i>input</i>: outLow,  <br />
-        <b>In 5</b>: type=<i>input</i>: outHigh,  <br />
+        <b>In 1</b>: type=<i>input</i>: valueIn, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: inLow, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: inHigh, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: outLow, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: outHigh, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -196,8 +196,8 @@
     </entry>
     <entry name="eviLine ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: target,  <br />
-        <b>In 2</b>: type=<i>input</i>: duration,  <br />
+        <b>In 1</b>: type=<i>input</i>: target, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: duration, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -206,13 +206,13 @@
     </entry>
     <entry name="hermite_sixpoint_interp ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: f0,  <br />
-        <b>In 2</b>: type=<i>input</i>: ym2,  <br />
-        <b>In 3</b>: type=<i>input</i>: ym1,  <br />
-        <b>In 4</b>: type=<i>input</i>: y0,  <br />
-        <b>In 5</b>: type=<i>input</i>: y1,  <br />
-        <b>In 6</b>: type=<i>input</i>: y2,  <br />
-        <b>In 7</b>: type=<i>input</i>: y3,  <br />
+        <b>In 1</b>: type=<i>input</i>: f0, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: ym2, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: ym1, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: y0, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: y1, <i></i> <br />
+        <b>In 6</b>: type=<i>input</i>: y2, <i></i> <br />
+        <b>In 7</b>: type=<i>input</i>: y3, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -220,7 +220,7 @@
     </entry>
     <entry name="funcSc0 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -228,7 +228,7 @@
     </entry>
     <entry name="funcSc1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -236,7 +236,7 @@
     </entry>
     <entry name="adSc1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -244,7 +244,7 @@
     </entry>
     <entry name="adSc1_2x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN,  <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -252,7 +252,7 @@
     </entry>
     <entry name="rcPreWarp0 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -260,7 +260,7 @@
     </entry>
     <entry name="svfButterCoeffs ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: R,  <br />
+        <b>In 1</b>: type=<i>input</i>: R, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -271,8 +271,8 @@
     </entry>
     <entry name="svfButterPreWarp ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 2</b>: type=<i>input</i>: resonance,  <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: resonance, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -285,8 +285,8 @@
     </entry>
     <entry name="svfCoeffReson ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: hz,  <br />
-        <b>In 2</b>: type=<i>input</i>: q,  <br />
+        <b>In 1</b>: type=<i>input</i>: hz, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: q, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -297,9 +297,9 @@
     </entry>
     <entry name="svfButterBp ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>input</i>: w,  <br />
-        <b>In 3</b>: type=<i>input</i>: k,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: w, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: k, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -307,10 +307,10 @@
     </entry>
     <entry name="svfSectionReson ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: v0,  <br />
-        <b>In 2</b>: type=<i>input</i>: a0,  <br />
-        <b>In 3</b>: type=<i>input</i>: a1,  <br />
-        <b>In 4</b>: type=<i>input</i>: a2,  <br />
+        <b>In 1</b>: type=<i>input</i>: v0, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: a0, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: a1, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: a2, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -318,10 +318,10 @@
     </entry>
     <entry name="onepole_init ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>input</i>: g,  <br />
-        <b>In 3</b>: type=<i>input</i>: s,  <br />
-        <b>In 4</b>: type=<i>input</i>: k,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: g, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: s, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: k, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -329,11 +329,11 @@
     </entry>
     <entry name="onepole_II ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: g,  <br />
-        <b>In 2</b>: type=<i>input</i>: s,  <br />
-        <b>In 3</b>: type=<i>input</i>: w,  <br />
-        <b>In 4</b>: type=<i>input</i>: n,  <br />
-        <b>In 5</b>: type=<i>input</i>: z,  <br />
+        <b>In 1</b>: type=<i>input</i>: g, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: s, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: w, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: n, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: z, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -343,11 +343,11 @@
     </entry>
     <entry name="onepole_I ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: y,  <br />
-        <b>In 2</b>: type=<i>input</i>: w,  <br />
-        <b>In 3</b>: type=<i>input</i>: n,  <br />
-        <b>In 4</b>: type=<i>input</i>: z,  <br />
-        <b>In 5</b>: type=<i>input</i>: zz,  <br />
+        <b>In 1</b>: type=<i>input</i>: y, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: w, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: n, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: z, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: zz, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -356,11 +356,11 @@
     </entry>
     <entry name="onepole_next ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: y,  <br />
-        <b>In 2</b>: type=<i>input</i>: x,  <br />
-        <b>In 3</b>: type=<i>input</i>: g,  <br />
-        <b>In 4</b>: type=<i>input</i>: s,  <br />
-        <b>In 5</b>: type=<i>input</i>: k,  <br />
+        <b>In 1</b>: type=<i>input</i>: y, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: g, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: s, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: k, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -368,9 +368,9 @@
     </entry>
     <entry name="onepole4 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>input</i>: w,  <br />
-        <b>In 3</b>: type=<i>input</i>: k,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: w, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: k, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />

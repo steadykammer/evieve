@@ -235,6 +235,36 @@
                     "kind": "input",
                     "name": "SR",
                     "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "Param",
+                    "name": "CR",
+                    "default": 0.000022,
+                    "min": 0,
+                    "max": 0,
+                    "type": "float",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "Param",
+                    "name": "IR",
+                    "default": 2.2e-13,
+                    "min": 0,
+                    "max": 0,
+                    "type": "float",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "Param",
+                    "name": "VT",
+                    "default": 0.026,
+                    "min": 0,
+                    "max": 0,
+                    "type": "float",
+                    "digest": ""
                 }
             ],
             "returns": [

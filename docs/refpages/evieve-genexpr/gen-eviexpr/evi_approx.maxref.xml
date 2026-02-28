@@ -18,7 +18,7 @@
       <description>
         Represents a quarter section of a cosine function, used by subsequent approximations <br />
         <br />
-        <b>In 1</b>: type=<i>input</i>: x, 0..twopi <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>0..twopi</i> <br />
 
         <b>Return 1</b>: cos, approximated section of a cosine <br />
 
@@ -28,7 +28,7 @@
       <description>
         Approximated cosine function to 7.3 digits of precision, just about accurate enough for audio <br />
         <br />
-        <b>In 1</b>: type=<i>input</i>: x, 0..twopi <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>0..twopi</i> <br />
 
         <b>Return 1</b>: cosine, cosine function <br />
 
@@ -38,7 +38,7 @@
       <description>
         Approximated sine function to 7.3 digits of precision, just about accurate enough for audio <br />
         <br />
-        <b>In 1</b>: type=<i>input</i>: x, 0..twopi <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>0..twopi</i> <br />
 
         <b>Return 1</b>: sine, sine function <br />
 
@@ -48,7 +48,7 @@
       <description>
         Same as 'cos73()' but appropriate for Param rate usage (stays out of while loop) <br />
         <br />
-        <b>In 1</b>: type=<i>input</i>: x, 0..twopi <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>0..twopi</i> <br />
 
         <b>Return 1</b>: cosine, cosine function <br />
 
@@ -58,7 +58,7 @@
       <description>
         Same as 'sin73()' but appropriate for Param rate usage (stays out of while loop) <br />
         <br />
-        <b>In 1</b>: type=<i>input</i>: x, 0..twopi <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>0..twopi</i> <br />
 
         <b>Return 1</b>: sine, sine function <br />
 
@@ -68,7 +68,7 @@
       <description>
         One quarter of a cosine function, accurate at extremes and half, excellent for crossfading and panning etc <br />
         <br />
-        <b>In 1</b>: type=<i>input</i>: modphase, 0..1 <br />
+        <b>In 1</b>: type=<i>input</i>: modphase, <i>0..1</i> <br />
 
         <b>Return 1</b>: cos, cos() portion of ramp (e.g. left multiplier) <br />
         <b>Return 2</b>: sin, sin() portion of ramp (e.g. right multiplier) <br />
@@ -79,7 +79,7 @@
       <description>
         Cheapest approximation of 'tan()', useful for BLT <br />
         <br />
-        <b>In 1</b>: type=<i>input</i>: x, 0..1 <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>0..1</i> <br />
 
         <b>Return 1</b>: tan, approximated tan() of input <br />
 
@@ -89,7 +89,7 @@
       <description>
         More accurate appromimation of 'tan()', useful for BLT with stricter tuning requirements <br />
         <br />
-        <b>In 1</b>: type=<i>input</i>: x, 0..halfpi <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>0..halfpi</i> <br />
 
         <b>Return 1</b>: tan, approximated tan() of input <br />
 
@@ -99,7 +99,7 @@
       <description>
         Most accurate appromimation of 'tan()', useful for BLT with very strict tuning requirements <br />
         <br />
-        <b>In 1</b>: type=<i>input</i>: x, -halfpi..halfpi <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>-halfpi..halfpi</i> <br />
 
         <b>Return 1</b>: tan, accurate approximated tan() of input <br />
 
@@ -109,7 +109,7 @@
       <description>
         Approximation of 'arctan()', 2x faster than library, also accurate enough for audio usage <br />
         <br />
-        <b>In 1</b>: type=<i>input</i>: x, float <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>float</i> <br />
 
         <b>Return 1</b>: arctan, approximated arctan of input <br />
 
@@ -119,7 +119,7 @@
       <description>
         3rd order approximation of arctan, maximum approximation error 0.00811º <br />
         <br />
-        <b>In 1</b>: type=<i>input</i>: x, 0..infinity <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>0..infinity</i> <br />
 
         <b>Return 1</b>: arctan, approximated arctan of input <br />
 
@@ -129,8 +129,8 @@
       <description>
         Famous 'atan2()' approximation, over 2x faster than library <br />
         <br />
-        <b>In 1</b>: type=<i>input</i>: y, float <br />
-        <b>In 2</b>: type=<i>input</i>: x, float <br />
+        <b>In 1</b>: type=<i>input</i>: y, <i>float</i> <br />
+        <b>In 2</b>: type=<i>input</i>: x, <i>float</i> <br />
 
         <b>Return 1</b>: atan2, approximation of atan2 <br />
 
@@ -140,7 +140,7 @@
       <description>
         Approximation of 'acos()', only useful for very specific scenarios <br />
         <br />
-        <b>In 1</b>: type=<i>input</i>: x, 0.2..1 for accuracy <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>0.2..1 for accuracy</i> <br />
 
         <b>Return 1</b>: acos, approximated acos of input <br />
 
@@ -150,7 +150,7 @@
       <description>
         Padé approximation of 'exp()', only useful for very specific scenarios, almost 2x faster than library <br />
         <br />
-        <b>In 1</b>: type=<i>input</i>: x, -2..2 <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>-2..2</i> <br />
 
         <b>Return 1</b>: exp, approximated exp of input <br />
 
@@ -160,7 +160,7 @@
       <description>
         Cheapest full range exp() approximation that evieve offers, we use this everywhere, more accurate than 'fastexp()', at least 1.5 x faster than library exp() <br />
         <br />
-        <b>In 1</b>: type=<i>input</i>: x0, float <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i>float</i> <br />
 
         <b>Return 1</b>: exp, approximated exp of input <br />
 
@@ -170,7 +170,7 @@
       <description>
         Slightly more accurate than 'expA()', about 1.5 x faster than library exp() <br />
         <br />
-        <b>In 1</b>: type=<i>input</i>: x, float <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>float</i> <br />
 
         <b>Return 1</b>: exp, approximated exp of input <br />
 
@@ -180,7 +180,7 @@
       <description>
         Approximation of pow(2, input), uses 'expApprox()' <br />
         <br />
-        <b>In 1</b>: type=<i>input</i>: y, float <br />
+        <b>In 1</b>: type=<i>input</i>: y, <i>float</i> <br />
 
         <b>Return 1</b>: pow2, approximated pow2 of input <br />
 
@@ -190,7 +190,7 @@
       <description>
         Approximated 'cosh()' of input, uses 'expApprox()' <br />
         <br />
-        <b>In 1</b>: type=<i>input</i>: x, float <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>float</i> <br />
 
         <b>Return 1</b>: cosh, approximated cosh of input <br />
 
@@ -200,7 +200,7 @@
       <description>
         Approximated 'log2()' of input, 1.7 to 2 x faster than library 'log2()' <br />
         <br />
-        <b>In 1</b>: type=<i>input</i>: x, float <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>float</i> <br />
 
         <b>Return 1</b>: log2, approximated log2 of input <br />
 
@@ -210,7 +210,7 @@
       <description>
         Approximated log() of input, uses 'log2Approx()' <br />
         <br />
-        <b>In 1</b>: type=<i>input</i>: x, float <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>float</i> <br />
 
         <b>Return 1</b>: log, approximated log of input <br />
 
@@ -220,7 +220,7 @@
       <description>
         Approximated log10() of input, uses 'log2Approx()' <br />
         <br />
-        <b>In 1</b>: type=<i>input</i>: x, float <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>float</i> <br />
 
         <b>Return 1</b>: log10, approximated log10 of input <br />
 
@@ -230,7 +230,7 @@
       <description>
         Approximated 'log1p()' of input, uses 'log2Approx()' <br />
         <br />
-        <b>In 1</b>: type=<i>input</i>: x, float <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>float</i> <br />
 
         <b>Return 1</b>: log1p, approximated log1p <br />
 
@@ -240,7 +240,7 @@
       <description>
         Transpose semitones input (0=none), like [transratio] and [evi.transratio] <br />
         <br />
-        <b>In 1</b>: type=<i>input</i>: pitch, pitch <br />
+        <b>In 1</b>: type=<i>input</i>: pitch, <i>pitch</i> <br />
 
         <b>Return 1</b>: ratio, ratio <br />
 
@@ -250,8 +250,8 @@
       <description>
         Approximation of 'mtof()' <br />
         <br />
-        <b>In 1</b>: type=<i>input</i>: pitch, MIDI Pitch <br />
-        <b>In 2</b>: type=<i>param</i> (optional): base, default: 440, Hz 415..467 <br />
+        <b>In 1</b>: type=<i>input</i>: pitch, <i>MIDI Pitch</i> <br />
+        <b>In 2</b>: type=<i>param</i> (optional): base, default: <b>440</b>, <i>Hz 415..467</i> <br />
 
         <b>Return 1</b>: frequency, Hz <br />
 
@@ -261,7 +261,7 @@
       <description>
         Approximation of 'mtof()' <br />
         <br />
-        <b>In 1</b>: type=<i>input</i>: pitch, MIDI Pitch <br />
+        <b>In 1</b>: type=<i>input</i>: pitch, <i>MIDI Pitch</i> <br />
 
         <b>Return 1</b>: frequency, Hz <br />
 
@@ -271,7 +271,7 @@
       <description>
         Approximation of 'mtof()', most expensive but very accurate accross full range <br />
         <br />
-        <b>In 1</b>: type=<i>input</i>: pitch, MIDI Pitch <br />
+        <b>In 1</b>: type=<i>input</i>: pitch, <i>MIDI Pitch</i> <br />
 
         <b>Return 1</b>: frequency, Hz <br />
 
@@ -281,7 +281,7 @@
       <description>
         Approximation of 'ftom()' <br />
         <br />
-        <b>In 1</b>: type=<i>input</i>: frequency, Hz <br />
+        <b>In 1</b>: type=<i>input</i>: frequency, <i>Hz</i> <br />
 
         <b>Return 1</b>: pitch, MIDI Pitch <br />
 
@@ -291,7 +291,7 @@
       <description>
         Approximation of 'ftom()', most expensive but accurate accross full range <br />
         <br />
-        <b>In 1</b>: type=<i>input</i>: frequency, Hz <br />
+        <b>In 1</b>: type=<i>input</i>: frequency, <i>Hz</i> <br />
 
         <b>Return 1</b>: pitch, MIDI Pitch <br />
 
@@ -301,7 +301,7 @@
       <description>
         Approximation of 'dbtoa()' <br />
         <br />
-        <b>In 1</b>: type=<i>input</i>: db, dB <br />
+        <b>In 1</b>: type=<i>input</i>: db, <i>dB</i> <br />
 
         <b>Return 1</b>: a, linear amplitude <br />
 
@@ -311,7 +311,7 @@
       <description>
         Approximation of 'dbtoa()', very fast but not very accurate <br />
         <br />
-        <b>In 1</b>: type=<i>input</i>: db, dB <br />
+        <b>In 1</b>: type=<i>input</i>: db, <i>dB</i> <br />
 
         <b>Return 1</b>: a, linear amplitude <br />
 
@@ -321,7 +321,7 @@
       <description>
         Approximation of 'dbtoa(sqrt(input))', useful for filter coefficients <br />
         <br />
-        <b>In 1</b>: type=<i>input</i>: db, dB <br />
+        <b>In 1</b>: type=<i>input</i>: db, <i>dB</i> <br />
 
         <b>Return 1</b>: sqrt, approximated sqrt of amplitude <br />
 
@@ -331,7 +331,7 @@
       <description>
         Approximated 'atodb()' <br />
         <br />
-        <b>In 1</b>: type=<i>input</i>: amplitude, linear amplitude <br />
+        <b>In 1</b>: type=<i>input</i>: amplitude, <i>linear amplitude</i> <br />
 
         <b>Return 1</b>: db, dB <br />
 
@@ -341,7 +341,7 @@
       <description>
         Approximation of 'exp(-1 / (seconds * samplerate))' for time..pole calculations <br />
         <br />
-        <b>In 1</b>: type=<i>input</i>: t, seconds, &gt; 0.01 for best accuracy <br />
+        <b>In 1</b>: type=<i>input</i>: t, <i>seconds, &gt; 0.01 for best accuracy</i> <br />
 
         <b>Return 1</b>: exp, exp(-1/samples) <br />
 
@@ -351,7 +351,7 @@
       <description>
         Approximation of Hz to Bark coefficients <br />
         <br />
-        <b>In 1</b>: type=<i>input</i>: f, Hz <br />
+        <b>In 1</b>: type=<i>input</i>: f, <i>Hz</i> <br />
 
         <b>Return 1</b>: bark, bark coefficient <br />
 
@@ -361,7 +361,7 @@
       <description>
         Approximation of Bark coefficients to Hz <br />
         <br />
-        <b>In 1</b>: type=<i>input</i>: b, bark coefficient <br />
+        <b>In 1</b>: type=<i>input</i>: b, <i>bark coefficient</i> <br />
 
         <b>Return 1</b>: frequency, Hz <br />
 
@@ -371,7 +371,7 @@
       <description>
         Approximation of Hz to Mel coefficients <br />
         <br />
-        <b>In 1</b>: type=<i>input</i>: f, Hz <br />
+        <b>In 1</b>: type=<i>input</i>: f, <i>Hz</i> <br />
 
         <b>Return 1</b>: mel, mel coefficient <br />
 
@@ -381,7 +381,7 @@
       <description>
         Approximation of Mel coefficients to Hz <br />
         <br />
-        <b>In 1</b>: type=<i>input</i>: m, mel coefficient <br />
+        <b>In 1</b>: type=<i>input</i>: m, <i>mel coefficient</i> <br />
 
         <b>Return 1</b>: frequency, Hz <br />
 
@@ -391,8 +391,8 @@
       <description>
         Approximation of 'cartopol()' <br />
         <br />
-        <b>In 1</b>: type=<i>input</i>: real, cartesian <br />
-        <b>In 2</b>: type=<i>input</i>: imag, cartesian <br />
+        <b>In 1</b>: type=<i>input</i>: real, <i>cartesian</i> <br />
+        <b>In 2</b>: type=<i>input</i>: imag, <i>cartesian</i> <br />
 
         <b>Return 1</b>: alpha, polar <br />
         <b>Return 2</b>: theta, polar <br />
@@ -403,8 +403,8 @@
       <description>
         Approximation of 'poltocar()' <br />
         <br />
-        <b>In 1</b>: type=<i>input</i>: alpha, polar <br />
-        <b>In 2</b>: type=<i>input</i>: theta, polar <br />
+        <b>In 1</b>: type=<i>input</i>: alpha, <i>polar</i> <br />
+        <b>In 2</b>: type=<i>input</i>: theta, <i>polar</i> <br />
 
         <b>Return 1</b>: real, cartesian <br />
         <b>Return 2</b>: imag, cartesian <br />
@@ -415,8 +415,8 @@
       <description>
         Approximation of 'poltocar()' suitable for Param rate (keep out of while loop) <br />
         <br />
-        <b>In 1</b>: type=<i>input</i>: alpha, polar <br />
-        <b>In 2</b>: type=<i>input</i>: theta, polar <br />
+        <b>In 1</b>: type=<i>input</i>: alpha, <i>polar</i> <br />
+        <b>In 2</b>: type=<i>input</i>: theta, <i>polar</i> <br />
 
         <b>Return 1</b>: real, cartesian <br />
         <b>Return 2</b>: imag, cartesian <br />
@@ -427,8 +427,8 @@
       <description>
         Approximation of one cosine quarter of 'poltocar()' <br />
         <br />
-        <b>In 1</b>: type=<i>input</i>: al,  <br />
-        <b>In 2</b>: type=<i>input</i>: th,  <br />
+        <b>In 1</b>: type=<i>input</i>: al, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: th, <i></i> <br />
 
         <b>Return 1</b>: real, multiplier 1 <br />
         <b>Return 2</b>: imag, multiplier 2 <br />
@@ -439,7 +439,7 @@
       <description>
         Not an approximation, full range implementation of 'log1p()' <br />
         <br />
-        <b>In 1</b>: type=<i>input</i>: value, float <br />
+        <b>In 1</b>: type=<i>input</i>: value, <i>float</i> <br />
 
         <b>Return 1</b>: log1p, library log(1 + x) <br />
 
@@ -449,7 +449,7 @@
       <description>
         Approximation of real dilogarithm mathrm{Li}_2(x), Alexander Voigt, @license GPL v3 <br />
         <br />
-        <b>In 1</b>: type=<i>input</i>: x, real argument <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>real argument</i> <br />
 
         <b>Return 1</b>: Li2, mathrm{Li}_2(x) <br />
 

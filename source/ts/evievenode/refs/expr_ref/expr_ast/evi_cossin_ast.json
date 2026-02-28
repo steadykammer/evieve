@@ -3715,8 +3715,8 @@
                                 ],
                                 "callee": {
                                     "type": "Identifier",
-                                    "name": "cosApp01",
-                                    "raw": "cosApp01"
+                                    "name": "cosApprox01",
+                                    "raw": "cosApprox01"
                                 }
                             }
                         }
@@ -3852,7 +3852,7 @@
                                                                     "argument": {
                                                                         "type": "Literal",
                                                                         "value": 2.605e-7,
-                                                                        "raw": "2.605E-07",
+                                                                        "raw": "0.0000002605",
                                                                         "gen_kind": "float"
                                                                     },
                                                                     "prefix": true
@@ -3861,7 +3861,7 @@
                                                             "right": {
                                                                 "type": "Literal",
                                                                 "value": 0.0000247609,
-                                                                "raw": "2.47609E-05",
+                                                                "raw": "0.0000247609",
                                                                 "gen_kind": "float"
                                                             }
                                                         },
@@ -4054,7 +4054,7 @@
                                                                         "argument": {
                                                                             "type": "Literal",
                                                                             "value": 2.39e-8,
-                                                                            "raw": "2.39E-08",
+                                                                            "raw": "0.0000000239",
                                                                             "gen_kind": "float"
                                                                         },
                                                                         "prefix": true
@@ -4063,7 +4063,7 @@
                                                                 "right": {
                                                                     "type": "Literal",
                                                                     "value": 0.0000027526,
-                                                                    "raw": "2.7526E-06",
+                                                                    "raw": "0.0000027526",
                                                                     "gen_kind": "float"
                                                                 }
                                                             },

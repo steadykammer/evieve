@@ -20,9 +20,9 @@
   <misc name="GenExpr Functions">
     <entry name="tptSvfCoeffLowpass ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 2</b>: type=<i>input</i>: gain,  <br />
-        <b>In 3</b>: type=<i>input</i>: Q,  <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: gain, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: Q, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -35,9 +35,9 @@
     </entry>
     <entry name="tptSvfCoeffHighpass ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 2</b>: type=<i>input</i>: gain,  <br />
-        <b>In 3</b>: type=<i>input</i>: Q,  <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: gain, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: Q, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -50,9 +50,9 @@
     </entry>
     <entry name="tptSvfCoeffBandpass ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 2</b>: type=<i>input</i>: gain,  <br />
-        <b>In 3</b>: type=<i>input</i>: Q,  <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: gain, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: Q, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -65,9 +65,9 @@
     </entry>
     <entry name="ltoSvfCoeffPeak ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 2</b>: type=<i>input</i>: gain,  <br />
-        <b>In 3</b>: type=<i>input</i>: Q,  <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: gain, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: Q, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -80,9 +80,9 @@
     </entry>
     <entry name="tptSvfCoeffBandreject ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 2</b>: type=<i>input</i>: gain,  <br />
-        <b>In 3</b>: type=<i>input</i>: Q,  <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: gain, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: Q, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -95,9 +95,9 @@
     </entry>
     <entry name="tptSvfCoeffResonant ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 2</b>: type=<i>input</i>: gain,  <br />
-        <b>In 3</b>: type=<i>input</i>: Q,  <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: gain, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: Q, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -110,10 +110,10 @@
     </entry>
     <entry name="tptSvfCoeffReson ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 2</b>: type=<i>input</i>: gain,  <br />
-        <b>In 3</b>: type=<i>input</i>: Q,  <br />
-        <b>In 4</b>: type=<i>input</i>: compensate,  <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: gain, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: Q, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: compensate, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -124,9 +124,9 @@
     </entry>
     <entry name="tptSvfCoeffPeakNotch ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 2</b>: type=<i>input</i>: gain,  <br />
-        <b>In 3</b>: type=<i>input</i>: Q,  <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: gain, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: Q, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -139,9 +139,9 @@
     </entry>
     <entry name="tptSvfCoeffBellAdaptive ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 2</b>: type=<i>input</i>: gain,  <br />
-        <b>In 3</b>: type=<i>input</i>: Q,  <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: gain, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: Q, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -154,9 +154,9 @@
     </entry>
     <entry name="tptSvfCoeffLowshelf ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 2</b>: type=<i>input</i>: gain,  <br />
-        <b>In 3</b>: type=<i>input</i>: Q,  <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: gain, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: Q, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -169,9 +169,9 @@
     </entry>
     <entry name="tptSvfCoeffHighshelf ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 2</b>: type=<i>input</i>: gain,  <br />
-        <b>In 3</b>: type=<i>input</i>: Q,  <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: gain, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: Q, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -184,9 +184,9 @@
     </entry>
     <entry name="tptSvfCoeffTilt ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 2</b>: type=<i>input</i>: gain,  <br />
-        <b>In 3</b>: type=<i>input</i>: Q,  <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: gain, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: Q, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -199,8 +199,8 @@
     </entry>
     <entry name="tptSvfCoeffAllpassNorm ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 2</b>: type=<i>input</i>: Q,  <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: Q, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -213,11 +213,11 @@
     </entry>
     <entry name="eviFilterLowpass ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 3</b>: type=<i>input</i>: db,  <br />
-        <b>In 4</b>: type=<i>input</i>: Q,  <br />
-        <b>In 5</b>: type=<i>param</i>: smooth,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: db, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: Q, <i></i> <br />
+        <b>In 5</b>: type=<i>param</i> (optional): smooth, default: <b>0</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -225,12 +225,12 @@
     </entry>
     <entry name="eviFilterLowpassStereo ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: xL,  <br />
-        <b>In 2</b>: type=<i>input</i>: xR,  <br />
-        <b>In 3</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 4</b>: type=<i>input</i>: db,  <br />
-        <b>In 5</b>: type=<i>input</i>: Q,  <br />
-        <b>In 6</b>: type=<i>param</i>: smooth,  <br />
+        <b>In 1</b>: type=<i>input</i>: xL, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: xR, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: db, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: Q, <i></i> <br />
+        <b>In 6</b>: type=<i>param</i> (optional): smooth, default: <b>0</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -239,11 +239,11 @@
     </entry>
     <entry name="eviFilterHighpass ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 3</b>: type=<i>input</i>: db,  <br />
-        <b>In 4</b>: type=<i>input</i>: Q,  <br />
-        <b>In 5</b>: type=<i>param</i>: smooth,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: db, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: Q, <i></i> <br />
+        <b>In 5</b>: type=<i>param</i> (optional): smooth, default: <b>0</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -251,12 +251,12 @@
     </entry>
     <entry name="eviFilterHighpassStereo ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: xL,  <br />
-        <b>In 2</b>: type=<i>input</i>: xR,  <br />
-        <b>In 3</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 4</b>: type=<i>input</i>: db,  <br />
-        <b>In 5</b>: type=<i>input</i>: Q,  <br />
-        <b>In 6</b>: type=<i>param</i>: smooth,  <br />
+        <b>In 1</b>: type=<i>input</i>: xL, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: xR, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: db, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: Q, <i></i> <br />
+        <b>In 6</b>: type=<i>param</i> (optional): smooth, default: <b>0</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -265,11 +265,11 @@
     </entry>
     <entry name="eviFilterBandpass ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 3</b>: type=<i>input</i>: db,  <br />
-        <b>In 4</b>: type=<i>input</i>: Q,  <br />
-        <b>In 5</b>: type=<i>param</i>: smooth,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: db, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: Q, <i></i> <br />
+        <b>In 5</b>: type=<i>param</i> (optional): smooth, default: <b>0</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -277,12 +277,12 @@
     </entry>
     <entry name="eviFilterBandpassStereo ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: xL,  <br />
-        <b>In 2</b>: type=<i>input</i>: xR,  <br />
-        <b>In 3</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 4</b>: type=<i>input</i>: db,  <br />
-        <b>In 5</b>: type=<i>input</i>: Q,  <br />
-        <b>In 6</b>: type=<i>param</i>: smooth,  <br />
+        <b>In 1</b>: type=<i>input</i>: xL, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: xR, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: db, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: Q, <i></i> <br />
+        <b>In 6</b>: type=<i>param</i> (optional): smooth, default: <b>0</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -291,11 +291,11 @@
     </entry>
     <entry name="eviFilterPeak ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 3</b>: type=<i>input</i>: db,  <br />
-        <b>In 4</b>: type=<i>input</i>: Q,  <br />
-        <b>In 5</b>: type=<i>param</i>: smooth,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: db, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: Q, <i></i> <br />
+        <b>In 5</b>: type=<i>param</i> (optional): smooth, default: <b>0</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -303,12 +303,12 @@
     </entry>
     <entry name="eviFilterPeakStereo ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: xL,  <br />
-        <b>In 2</b>: type=<i>input</i>: xR,  <br />
-        <b>In 3</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 4</b>: type=<i>input</i>: db,  <br />
-        <b>In 5</b>: type=<i>input</i>: Q,  <br />
-        <b>In 6</b>: type=<i>param</i>: smooth,  <br />
+        <b>In 1</b>: type=<i>input</i>: xL, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: xR, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: db, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: Q, <i></i> <br />
+        <b>In 6</b>: type=<i>param</i> (optional): smooth, default: <b>0</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -317,11 +317,11 @@
     </entry>
     <entry name="eviFilterNotch ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 3</b>: type=<i>input</i>: db,  <br />
-        <b>In 4</b>: type=<i>input</i>: Q,  <br />
-        <b>In 5</b>: type=<i>param</i>: smooth,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: db, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: Q, <i></i> <br />
+        <b>In 5</b>: type=<i>param</i> (optional): smooth, default: <b>0</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -329,12 +329,12 @@
     </entry>
     <entry name="eviFilterNotchStereo ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: xL,  <br />
-        <b>In 2</b>: type=<i>input</i>: xR,  <br />
-        <b>In 3</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 4</b>: type=<i>input</i>: db,  <br />
-        <b>In 5</b>: type=<i>input</i>: Q,  <br />
-        <b>In 6</b>: type=<i>param</i>: smooth,  <br />
+        <b>In 1</b>: type=<i>input</i>: xL, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: xR, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: db, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: Q, <i></i> <br />
+        <b>In 6</b>: type=<i>param</i> (optional): smooth, default: <b>0</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -343,11 +343,11 @@
     </entry>
     <entry name="eviFilterResonant ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 3</b>: type=<i>input</i>: db,  <br />
-        <b>In 4</b>: type=<i>input</i>: Q,  <br />
-        <b>In 5</b>: type=<i>param</i>: smooth,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: db, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: Q, <i></i> <br />
+        <b>In 5</b>: type=<i>param</i> (optional): smooth, default: <b>0</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -355,12 +355,12 @@
     </entry>
     <entry name="eviFilterResonantStereo ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: xL,  <br />
-        <b>In 2</b>: type=<i>input</i>: xR,  <br />
-        <b>In 3</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 4</b>: type=<i>input</i>: db,  <br />
-        <b>In 5</b>: type=<i>input</i>: Q,  <br />
-        <b>In 6</b>: type=<i>param</i>: smooth,  <br />
+        <b>In 1</b>: type=<i>input</i>: xL, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: xR, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: db, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: Q, <i></i> <br />
+        <b>In 6</b>: type=<i>param</i> (optional): smooth, default: <b>0</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -369,12 +369,12 @@
     </entry>
     <entry name="eviFilterReson ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>input</i>: gain,  <br />
-        <b>In 3</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 4</b>: type=<i>input</i>: Q,  <br />
-        <b>In 5</b>: type=<i>input</i>: compensate,  <br />
-        <b>In 6</b>: type=<i>param</i>: smooth,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: gain, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: Q, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: compensate, <i></i> <br />
+        <b>In 6</b>: type=<i>param</i> (optional): smooth, default: <b>0</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -382,12 +382,12 @@
     </entry>
     <entry name="eviFilterResonStereo ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>input</i>: gain,  <br />
-        <b>In 3</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 4</b>: type=<i>input</i>: Q,  <br />
-        <b>In 5</b>: type=<i>input</i>: compensate,  <br />
-        <b>In 6</b>: type=<i>param</i>: smooth,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: gain, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: Q, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: compensate, <i></i> <br />
+        <b>In 6</b>: type=<i>param</i> (optional): smooth, default: <b>0</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -396,11 +396,11 @@
     </entry>
     <entry name="eviFilterBell ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 3</b>: type=<i>input</i>: db,  <br />
-        <b>In 4</b>: type=<i>input</i>: Q,  <br />
-        <b>In 5</b>: type=<i>param</i>: smooth,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: db, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: Q, <i></i> <br />
+        <b>In 5</b>: type=<i>param</i> (optional): smooth, default: <b>0</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -408,12 +408,12 @@
     </entry>
     <entry name="eviFilterBellStereo ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: xL,  <br />
-        <b>In 2</b>: type=<i>input</i>: xR,  <br />
-        <b>In 3</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 4</b>: type=<i>input</i>: db,  <br />
-        <b>In 5</b>: type=<i>input</i>: Q,  <br />
-        <b>In 6</b>: type=<i>param</i>: smooth,  <br />
+        <b>In 1</b>: type=<i>input</i>: xL, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: xR, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: db, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: Q, <i></i> <br />
+        <b>In 6</b>: type=<i>param</i> (optional): smooth, default: <b>0</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -422,11 +422,11 @@
     </entry>
     <entry name="eviFilterBellAdaptive ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 3</b>: type=<i>input</i>: db,  <br />
-        <b>In 4</b>: type=<i>input</i>: Q,  <br />
-        <b>In 5</b>: type=<i>param</i>: smooth,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: db, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: Q, <i></i> <br />
+        <b>In 5</b>: type=<i>param</i> (optional): smooth, default: <b>0</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -434,12 +434,12 @@
     </entry>
     <entry name="eviFilterBellAdaptiveStereo ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: xL,  <br />
-        <b>In 2</b>: type=<i>input</i>: xR,  <br />
-        <b>In 3</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 4</b>: type=<i>input</i>: db,  <br />
-        <b>In 5</b>: type=<i>input</i>: Q,  <br />
-        <b>In 6</b>: type=<i>param</i>: smooth,  <br />
+        <b>In 1</b>: type=<i>input</i>: xL, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: xR, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: db, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: Q, <i></i> <br />
+        <b>In 6</b>: type=<i>param</i> (optional): smooth, default: <b>0</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -448,11 +448,11 @@
     </entry>
     <entry name="eviFilterLowshelf ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 3</b>: type=<i>input</i>: db,  <br />
-        <b>In 4</b>: type=<i>input</i>: Q,  <br />
-        <b>In 5</b>: type=<i>param</i>: smooth,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: db, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: Q, <i></i> <br />
+        <b>In 5</b>: type=<i>param</i> (optional): smooth, default: <b>0</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -460,12 +460,12 @@
     </entry>
     <entry name="eviFilterLowshelfStereo ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: xL,  <br />
-        <b>In 2</b>: type=<i>input</i>: xR,  <br />
-        <b>In 3</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 4</b>: type=<i>input</i>: db,  <br />
-        <b>In 5</b>: type=<i>input</i>: Q,  <br />
-        <b>In 6</b>: type=<i>param</i>: smooth,  <br />
+        <b>In 1</b>: type=<i>input</i>: xL, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: xR, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: db, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: Q, <i></i> <br />
+        <b>In 6</b>: type=<i>param</i> (optional): smooth, default: <b>0</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -474,11 +474,11 @@
     </entry>
     <entry name="eviFilterHighshelf ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 3</b>: type=<i>input</i>: db,  <br />
-        <b>In 4</b>: type=<i>input</i>: Q,  <br />
-        <b>In 5</b>: type=<i>param</i>: smooth,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: db, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: Q, <i></i> <br />
+        <b>In 5</b>: type=<i>param</i> (optional): smooth, default: <b>0</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -486,12 +486,12 @@
     </entry>
     <entry name="eviFilterHighshelfStereo ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: xL,  <br />
-        <b>In 2</b>: type=<i>input</i>: xR,  <br />
-        <b>In 3</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 4</b>: type=<i>input</i>: db,  <br />
-        <b>In 5</b>: type=<i>input</i>: Q,  <br />
-        <b>In 6</b>: type=<i>param</i>: smooth,  <br />
+        <b>In 1</b>: type=<i>input</i>: xL, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: xR, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: db, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: Q, <i></i> <br />
+        <b>In 6</b>: type=<i>param</i> (optional): smooth, default: <b>0</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -500,11 +500,11 @@
     </entry>
     <entry name="eviFilterTilt ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 3</b>: type=<i>input</i>: db,  <br />
-        <b>In 4</b>: type=<i>input</i>: Q,  <br />
-        <b>In 5</b>: type=<i>param</i>: smooth,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: db, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: Q, <i></i> <br />
+        <b>In 5</b>: type=<i>param</i> (optional): smooth, default: <b>0</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -512,12 +512,12 @@
     </entry>
     <entry name="eviFilterTiltStereo ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: xL,  <br />
-        <b>In 2</b>: type=<i>input</i>: xR,  <br />
-        <b>In 3</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 4</b>: type=<i>input</i>: db,  <br />
-        <b>In 5</b>: type=<i>input</i>: Q,  <br />
-        <b>In 6</b>: type=<i>param</i>: smooth,  <br />
+        <b>In 1</b>: type=<i>input</i>: xL, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: xR, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: db, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: Q, <i></i> <br />
+        <b>In 6</b>: type=<i>param</i> (optional): smooth, default: <b>0</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -526,10 +526,10 @@
     </entry>
     <entry name="eviFilterAllpassNorm ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 3</b>: type=<i>input</i>: Q,  <br />
-        <b>In 4</b>: type=<i>param</i>: smooth,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: Q, <i></i> <br />
+        <b>In 4</b>: type=<i>param</i> (optional): smooth, default: <b>0</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -537,14 +537,56 @@
     </entry>
     <entry name="eviFilterAllpassNormStereo ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: xL,  <br />
-        <b>In 2</b>: type=<i>input</i>: xR,  <br />
-        <b>In 3</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 4</b>: type=<i>input</i>: Q,  <br />
-        <b>In 5</b>: type=<i>param</i>: smooth,  <br />
+        <b>In 1</b>: type=<i>input</i>: xL, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: xR, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: Q, <i></i> <br />
+        <b>In 5</b>: type=<i>param</i> (optional): smooth, default: <b>0</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
+
+      </description>
+    </entry>
+    <entry name="tptAllpassCascade ( )">
+      <description>
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: g, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: r, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: h, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: cB, <i></i> <br />
+        <b>In 6</b>: type=<i>input</i>: ap1i, <i></i> <br />
+        <b>In 7</b>: type=<i>input</i>: ap2i, <i></i> <br />
+
+        <b>Return 1</b>: ,  <br />
+        <b>Return 2</b>: ,  <br />
+        <b>Return 3</b>: ,  <br />
+
+      </description>
+    </entry>
+    <entry name="tptAllpassCascadeStereo ( )">
+      <description>
+        <b>In 1</b>: type=<i>input</i>: xL, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: xR, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: gL, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: rL, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: hL, <i></i> <br />
+        <b>In 6</b>: type=<i>input</i>: cBL, <i></i> <br />
+        <b>In 7</b>: type=<i>input</i>: gR, <i></i> <br />
+        <b>In 8</b>: type=<i>input</i>: rR, <i></i> <br />
+        <b>In 9</b>: type=<i>input</i>: hR, <i></i> <br />
+        <b>In 10</b>: type=<i>input</i>: cBR, <i></i> <br />
+        <b>In 11</b>: type=<i>input</i>: ap1iL, <i></i> <br />
+        <b>In 12</b>: type=<i>input</i>: ap2iL, <i></i> <br />
+        <b>In 13</b>: type=<i>input</i>: ap1iR, <i></i> <br />
+        <b>In 14</b>: type=<i>input</i>: ap2iR, <i></i> <br />
+
+        <b>Return 1</b>: ,  <br />
+        <b>Return 2</b>: ,  <br />
+        <b>Return 3</b>: ,  <br />
+        <b>Return 4</b>: ,  <br />
+        <b>Return 5</b>: ,  <br />
+        <b>Return 6</b>: ,  <br />
 
       </description>
     </entry>

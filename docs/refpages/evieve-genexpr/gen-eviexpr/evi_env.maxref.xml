@@ -16,8 +16,8 @@
   <misc name="GenExpr Functions">
     <entry name="averageAbsolute ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: inputSample,  <br />
-        <b>In 2</b>: type=<i>input</i>: windowSizeInSamples,  <br />
+        <b>In 1</b>: type=<i>input</i>: inputSample, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: windowSizeInSamples, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -25,9 +25,9 @@
     </entry>
     <entry name="averageCore ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: X,  <br />
-        <b>In 2</b>: type=<i>input</i>: reset,  <br />
-        <b>In 3</b>: type=<i>param</i>: windowSize,  <br />
+        <b>In 1</b>: type=<i>input</i>: X, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: reset, <i></i> <br />
+        <b>In 3</b>: type=<i>param</i> (optional): windowSize, default: <b>0</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -36,10 +36,10 @@
     </entry>
     <entry name="averageWrap ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: X,  <br />
-        <b>In 2</b>: type=<i>input</i>: reset,  <br />
-        <b>In 3</b>: type=<i>param</i> (optional): interval, default: 500,  <br />
-        <b>In 4</b>: type=<i>param</i>: mode,  <br />
+        <b>In 1</b>: type=<i>input</i>: X, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: reset, <i></i> <br />
+        <b>In 3</b>: type=<i>param</i> (optional): interval, default: <b>500</b>, <i></i> <br />
+        <b>In 4</b>: type=<i>param</i> (optional): mode, default: <b>0</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -48,9 +48,9 @@
     </entry>
     <entry name="envRawDetect ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>input</i>: attack,  <br />
-        <b>In 3</b>: type=<i>input</i>: release,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: attack, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: release, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -58,7 +58,7 @@
     </entry>
     <entry name="envSad ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: s,  <br />
+        <b>In 1</b>: type=<i>input</i>: s, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -66,8 +66,8 @@
     </entry>
     <entry name="envDecay ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>input</i>: d,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: d, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -75,9 +75,9 @@
     </entry>
     <entry name="envAttackDecay ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>input</i>: a,  <br />
-        <b>In 3</b>: type=<i>input</i>: d,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: a, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: d, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -85,10 +85,10 @@
     </entry>
     <entry name="envAttackHoldRelease ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>input</i>: a,  <br />
-        <b>In 3</b>: type=<i>input</i>: h,  <br />
-        <b>In 4</b>: type=<i>input</i>: r,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: a, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: h, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: r, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -96,8 +96,8 @@
     </entry>
     <entry name="vactrolSad ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>input</i>: a,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: a, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -105,9 +105,9 @@
     </entry>
     <entry name="vactrol ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: impulse,  <br />
-        <b>In 2</b>: type=<i>input</i>: rise,  <br />
-        <b>In 3</b>: type=<i>input</i>: fall,  <br />
+        <b>In 1</b>: type=<i>input</i>: impulse, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: rise, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: fall, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -115,9 +115,9 @@
     </entry>
     <entry name="envFollSimple ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: X,  <br />
-        <b>In 2</b>: type=<i>input</i>: attack,  <br />
-        <b>In 3</b>: type=<i>input</i>: release,  <br />
+        <b>In 1</b>: type=<i>input</i>: X, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: attack, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: release, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 

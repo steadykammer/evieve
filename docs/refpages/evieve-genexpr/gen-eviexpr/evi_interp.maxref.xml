@@ -16,11 +16,11 @@
   <misc name="GenExpr Functions">
     <entry name="cubic_hermite_interp ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: f,  <br />
-        <b>In 2</b>: type=<i>input</i>: y0,  <br />
-        <b>In 3</b>: type=<i>input</i>: y1,  <br />
-        <b>In 4</b>: type=<i>input</i>: y2,  <br />
-        <b>In 5</b>: type=<i>input</i>: y3,  <br />
+        <b>In 1</b>: type=<i>input</i>: f, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: y0, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: y1, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: y2, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: y3, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -28,13 +28,13 @@
     </entry>
     <entry name="hermite_sixpoint_interp ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: f0,  <br />
-        <b>In 2</b>: type=<i>input</i>: ym2,  <br />
-        <b>In 3</b>: type=<i>input</i>: ym1,  <br />
-        <b>In 4</b>: type=<i>input</i>: y0,  <br />
-        <b>In 5</b>: type=<i>input</i>: y1,  <br />
-        <b>In 6</b>: type=<i>input</i>: y2,  <br />
-        <b>In 7</b>: type=<i>input</i>: y3,  <br />
+        <b>In 1</b>: type=<i>input</i>: f0, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: ym2, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: ym1, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: y0, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: y1, <i></i> <br />
+        <b>In 6</b>: type=<i>input</i>: y2, <i></i> <br />
+        <b>In 7</b>: type=<i>input</i>: y3, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -42,11 +42,11 @@
     </entry>
     <entry name="cubic_lagrange_interp ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: f,  <br />
-        <b>In 2</b>: type=<i>input</i>: y0,  <br />
-        <b>In 3</b>: type=<i>input</i>: y1,  <br />
-        <b>In 4</b>: type=<i>input</i>: y2,  <br />
-        <b>In 5</b>: type=<i>input</i>: y3,  <br />
+        <b>In 1</b>: type=<i>input</i>: f, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: y0, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: y1, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: y2, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: y3, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -54,11 +54,11 @@
     </entry>
     <entry name="cubic_bspline_interp ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: f,  <br />
-        <b>In 2</b>: type=<i>input</i>: y0,  <br />
-        <b>In 3</b>: type=<i>input</i>: y1,  <br />
-        <b>In 4</b>: type=<i>input</i>: y2,  <br />
-        <b>In 5</b>: type=<i>input</i>: y3,  <br />
+        <b>In 1</b>: type=<i>input</i>: f, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: y0, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: y1, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: y2, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: y3, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 

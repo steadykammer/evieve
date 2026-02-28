@@ -66,9 +66,17 @@ function selectfunction(genExprFunction: string)
 	outlet(2, 'inputs', 'clear');
 	for (const input of thisFunc.inputs) {
 		if (input.kind === 'input') {
+			outlet(2, 'inputs', i, 'fontsize', 14);
+			outlet(2, 'inputs', i, 'presentation_size', 660, 23);
 			outlet(2, 'inputs', i, 'set', `in=${input.id}\, type=${input.kind}\, name=${input.name}\, ${input.digest}`);
 		} else if (input.kind === 'param') {
+			outlet(2, 'inputs', i, 'fontsize', 11);
+			outlet(2, 'inputs', i, 'presentation_size', 660, 23);
 			outlet(2, 'inputs', i, 'set', `in=${input.id}\, type=${input.kind} (optional)\, name=${input.name}\, default=(${input.type}) ${input.default}\, ${input.digest}`);
+		} else if (input.kind === 'Param') {
+			outlet(2, 'inputs', i, 'fontsize', 11);
+			outlet(2, 'inputs', i, 'presentation_size', 660, 23);
+			outlet(2, 'inputs', i, 'set', `in=${input.id}\, type=${input.kind} (optional)\, name=${input.name}\, default=(${input.type}) ${input.default}\, min=${input.min}\, max=${input.max}, ${input.digest}`);
 		}
 		i++;
 	}

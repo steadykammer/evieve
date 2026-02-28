@@ -5,13 +5,13 @@
 eviPhasor0(frequency, reset)    // Hz, Trigger
 {
     History init(1);
-    History jump(0);
+    History jump(0.);
 
     Param   minimumhz(0.125, min=0, max=1); // minimum zero reset frequency in hz 0..1
     Param   mode(1, min=0, max=1);          // free running or zero reset ? 0/1
     Param   reverse(1, min=0, max=1);       // reverse allowed ? 0/1
     Param   pause(0, min=0, max=1);         // pause current ramp ? 0/1
-    Param   phase(0, min=0, max=1);         // set phase on next reset 0..1
+    Param   phase(0., min=0, max=1);        // set phase on next reset 0..1
 
     intpause    = int(pause);
     intreverse  = int(reverse);
@@ -174,7 +174,7 @@ rateCycle(mainphase, multiplier, reset)
 	return phase;
 }
 
-// pointless, use rate() instead
+// almost pointless, use native rate() instead
 // sync: 0 = lock, 1 = off, 2 = cycle <<-- MSP / Gen native ordering, not me !
 eviRate(mainphase, multiplier, reset, sync=0)
 {							// ^^ so that we can reset phase when sync source changes
@@ -196,13 +196,13 @@ eviRate(mainphase, multiplier, reset, sync=0)
 eviPhasorRate0(frequency, rate, reset)
 {
     History init(1);
-    History jump(0);
+    History jump(0.);
 
     Param   minimumhz(0.125, min=0, max=1); // minimum zero reset frequency in hz 0..1
     Param   mode(1, min=0, max=1);          // free running or zero reset ? 0/1
     Param   reverse(1, min=0, max=1);       // reverse allowed ? 0/1
     Param   pause(0, min=0, max=1);         // pause current ramp ? 0/1
-    Param   phase(0, min=0, max=1);         // set phase on next reset 0..1
+    Param   phase(0., min=0, max=1);        // set phase on next reset 0..1
 //  Param   sync(1, min=0, max=2);			// rate sync, 0=lock, 1=off, 2=cycle
 
     intpause    = int(pause);
@@ -249,9 +249,9 @@ eviPhasorRate0(frequency, rate, reset)
 // i made this for my friend rodrigo constanzo
 eviRamp0(trig)
 {
-	History jump(0);
+	History jump(0.);
 
-	Param   duration(1000, min=0, max=60000);   // ramp duration in ms
+	Param   duration(1000., min=0, max=60000);  // ramp duration in ms
 	Param   zeroreset(0, min=0, max=1);         // zero reset phase off/on 0/1
 	Param   retrigger(1, min=0, max=1);         // allow retriggering of ramp during ramp off/on 0/1
 	Param   loop(0, min=0, max=1);              // loop ramp off/on 0/1 (@loop 1 = a phasor)

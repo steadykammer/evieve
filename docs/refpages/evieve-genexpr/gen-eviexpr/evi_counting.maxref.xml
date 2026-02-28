@@ -16,8 +16,13 @@
   <misc name="GenExpr Functions">
     <entry name="eviPhasor0 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: frequency,  <br />
-        <b>In 2</b>: type=<i>input</i>: reset,  <br />
+        <b>In 1</b>: type=<i>input</i>: frequency, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: reset, <i></i> <br />
+        <b>In 3</b>: type=<i>Param</i> (optional): minimumhz, default: <b>0.125</b>, min: 0, max: 1, <i>Set minimum Hz for zero reset behaviour</i> <br />
+        <b>In 4</b>: type=<i>Param</i> (optional): mode, default: <b>1</b>, min: 0, max: 1, <i>Zero reset behaviour off/on</i> <br />
+        <b>In 5</b>: type=<i>Param</i> (optional): reverse, default: <b>1</b>, min: 0, max: 1, <i>Reverse allowed?</i> <br />
+        <b>In 6</b>: type=<i>Param</i> (optional): pause, default: <b>0</b>, min: 0, max: 1, <i>Pause current ramp off/on</i> <br />
+        <b>In 7</b>: type=<i>Param</i> (optional): phase, default: <b>0</b>, min: 0, max: 1, <i>Set to this phase on next reset</i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -27,8 +32,8 @@
     </entry>
     <entry name="quantF ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: f1,  <br />
-        <b>In 2</b>: type=<i>input</i>: f2,  <br />
+        <b>In 1</b>: type=<i>input</i>: f1, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: f2, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -36,10 +41,10 @@
     </entry>
     <entry name="multChange ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x2,  <br />
-        <b>In 2</b>: type=<i>input</i>: mult,  <br />
-        <b>In 3</b>: type=<i>input</i>: invmult,  <br />
-        <b>In 4</b>: type=<i>input</i>: wantlock,  <br />
+        <b>In 1</b>: type=<i>input</i>: x2, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: mult, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: invmult, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: wantlock, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -49,7 +54,7 @@
     </entry>
     <entry name="wrapDiff ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: diff,  <br />
+        <b>In 1</b>: type=<i>input</i>: diff, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -57,9 +62,9 @@
     </entry>
     <entry name="rateLock ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: mainphase,  <br />
-        <b>In 2</b>: type=<i>input</i>: multiplier,  <br />
-        <b>In 3</b>: type=<i>input</i>: reset,  <br />
+        <b>In 1</b>: type=<i>input</i>: mainphase, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: multiplier, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: reset, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -67,9 +72,9 @@
     </entry>
     <entry name="rateOff ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: mainphase,  <br />
-        <b>In 2</b>: type=<i>input</i>: multiplier,  <br />
-        <b>In 3</b>: type=<i>input</i>: reset,  <br />
+        <b>In 1</b>: type=<i>input</i>: mainphase, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: multiplier, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: reset, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -77,9 +82,9 @@
     </entry>
     <entry name="rateCycle ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: mainphase,  <br />
-        <b>In 2</b>: type=<i>input</i>: multiplier,  <br />
-        <b>In 3</b>: type=<i>input</i>: reset,  <br />
+        <b>In 1</b>: type=<i>input</i>: mainphase, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: multiplier, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: reset, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -87,10 +92,10 @@
     </entry>
     <entry name="eviRate ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: mainphase,  <br />
-        <b>In 2</b>: type=<i>input</i>: multiplier,  <br />
-        <b>In 3</b>: type=<i>input</i>: reset,  <br />
-        <b>In 4</b>: type=<i>param</i>: sync,  <br />
+        <b>In 1</b>: type=<i>input</i>: mainphase, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: multiplier, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: reset, <i></i> <br />
+        <b>In 4</b>: type=<i>param</i> (optional): sync, default: <b>0</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -98,9 +103,14 @@
     </entry>
     <entry name="eviPhasorRate0 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: frequency,  <br />
-        <b>In 2</b>: type=<i>input</i>: rate,  <br />
-        <b>In 3</b>: type=<i>input</i>: reset,  <br />
+        <b>In 1</b>: type=<i>input</i>: frequency, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: rate, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: reset, <i></i> <br />
+        <b>In 4</b>: type=<i>Param</i> (optional): minimumhz, default: <b>0.125</b>, min: 0, max: 1, <i></i> <br />
+        <b>In 5</b>: type=<i>Param</i> (optional): mode, default: <b>1</b>, min: 0, max: 1, <i></i> <br />
+        <b>In 6</b>: type=<i>Param</i> (optional): reverse, default: <b>1</b>, min: 0, max: 1, <i></i> <br />
+        <b>In 7</b>: type=<i>Param</i> (optional): pause, default: <b>0</b>, min: 0, max: 1, <i></i> <br />
+        <b>In 8</b>: type=<i>Param</i> (optional): phase, default: <b>0</b>, min: 0, max: 1, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -113,7 +123,14 @@
     </entry>
     <entry name="eviRamp0 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: trig,  <br />
+        <b>In 1</b>: type=<i>input</i>: trig, <i></i> <br />
+        <b>In 2</b>: type=<i>Param</i> (optional): duration, default: <b>1000</b>, min: 0, max: 60000, <i></i> <br />
+        <b>In 3</b>: type=<i>Param</i> (optional): zeroreset, default: <b>0</b>, min: 0, max: 1, <i></i> <br />
+        <b>In 4</b>: type=<i>Param</i> (optional): retrigger, default: <b>1</b>, min: 0, max: 1, <i></i> <br />
+        <b>In 5</b>: type=<i>Param</i> (optional): loop, default: <b>0</b>, min: 0, max: 1, <i></i> <br />
+        <b>In 6</b>: type=<i>Param</i> (optional): restingstate, default: <b>1</b>, min: 0, max: 1, <i></i> <br />
+        <b>In 7</b>: type=<i>Param</i> (optional): curve, default: <b>0</b>, min: 0, max: 1, <i></i> <br />
+        <b>In 8</b>: type=<i>Param</i> (optional): pause, default: <b>0</b>, min: 0, max: 1, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />

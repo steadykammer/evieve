@@ -12,6 +12,7 @@
      <br />
     The <b>evi_ringmod_enhanced.genexpr</b> file also requires: <br />
     evi_ssb.genexpr <br />
+    evi_butterworth.genexpr <br />
     <br />
     <b>About this File</b>: <br />
      <br />
@@ -19,8 +20,8 @@
   <misc name="GenExpr Functions">
     <entry name="simpleRingmod ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: xin1,  <br />
-        <b>In 2</b>: type=<i>input</i>: xin2,  <br />
+        <b>In 1</b>: type=<i>input</i>: xin1, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: xin2, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -28,10 +29,10 @@
     </entry>
     <entry name="pDiode ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: vin,  <br />
-        <b>In 2</b>: type=<i>input</i>: Vb,  <br />
-        <b>In 3</b>: type=<i>input</i>: VL,  <br />
-        <b>In 4</b>: type=<i>input</i>: H,  <br />
+        <b>In 1</b>: type=<i>input</i>: vin, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: Vb, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: VL, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: H, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -39,11 +40,11 @@
     </entry>
     <entry name="pRingmod ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: car,  <br />
-        <b>In 2</b>: type=<i>input</i>: mod,  <br />
-        <b>In 3</b>: type=<i>input</i>: voltage,  <br />
-        <b>In 4</b>: type=<i>input</i>: knee,  <br />
-        <b>In 5</b>: type=<i>input</i>: slope,  <br />
+        <b>In 1</b>: type=<i>input</i>: car, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: mod, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: voltage, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: knee, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: slope, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -51,12 +52,12 @@
     </entry>
     <entry name="evieveRingmodAdaa1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: xin1,  <br />
-        <b>In 2</b>: type=<i>input</i>: xin2,  <br />
-        <b>In 3</b>: type=<i>input</i>: g,  <br />
-        <b>In 4</b>: type=<i>input</i>: p,  <br />
-        <b>In 5</b>: type=<i>input</i>: s,  <br />
-        <b>In 6</b>: type=<i>input</i>: t,  <br />
+        <b>In 1</b>: type=<i>input</i>: xin1, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: xin2, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: g, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: p, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: s, <i></i> <br />
+        <b>In 6</b>: type=<i>input</i>: t, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -64,12 +65,12 @@
     </entry>
     <entry name="evieveRingmodAdaa2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: xin1,  <br />
-        <b>In 2</b>: type=<i>input</i>: xin2,  <br />
-        <b>In 3</b>: type=<i>input</i>: g,  <br />
-        <b>In 4</b>: type=<i>input</i>: p,  <br />
-        <b>In 5</b>: type=<i>input</i>: s,  <br />
-        <b>In 6</b>: type=<i>input</i>: t,  <br />
+        <b>In 1</b>: type=<i>input</i>: xin1, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: xin2, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: g, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: p, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: s, <i></i> <br />
+        <b>In 6</b>: type=<i>input</i>: t, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -77,12 +78,12 @@
     </entry>
     <entry name="evieveRingmodAdaa1_2x ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: xin1,  <br />
-        <b>In 2</b>: type=<i>input</i>: xin2,  <br />
-        <b>In 3</b>: type=<i>input</i>: g,  <br />
-        <b>In 4</b>: type=<i>input</i>: p,  <br />
-        <b>In 5</b>: type=<i>input</i>: s,  <br />
-        <b>In 6</b>: type=<i>input</i>: t,  <br />
+        <b>In 1</b>: type=<i>input</i>: xin1, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: xin2, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: g, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: p, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: s, <i></i> <br />
+        <b>In 6</b>: type=<i>input</i>: t, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -90,12 +91,12 @@
     </entry>
     <entry name="evieveRingmodAdaa1_4x ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: xin1,  <br />
-        <b>In 2</b>: type=<i>input</i>: xin2,  <br />
-        <b>In 3</b>: type=<i>input</i>: g,  <br />
-        <b>In 4</b>: type=<i>input</i>: p,  <br />
-        <b>In 5</b>: type=<i>input</i>: s,  <br />
-        <b>In 6</b>: type=<i>input</i>: t,  <br />
+        <b>In 1</b>: type=<i>input</i>: xin1, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: xin2, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: g, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: p, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: s, <i></i> <br />
+        <b>In 6</b>: type=<i>input</i>: t, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -103,12 +104,12 @@
     </entry>
     <entry name="evieveRingmodAdaa2_2x ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: xin1,  <br />
-        <b>In 2</b>: type=<i>input</i>: xin2,  <br />
-        <b>In 3</b>: type=<i>input</i>: g,  <br />
-        <b>In 4</b>: type=<i>input</i>: p,  <br />
-        <b>In 5</b>: type=<i>input</i>: s,  <br />
-        <b>In 6</b>: type=<i>input</i>: t,  <br />
+        <b>In 1</b>: type=<i>input</i>: xin1, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: xin2, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: g, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: p, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: s, <i></i> <br />
+        <b>In 6</b>: type=<i>input</i>: t, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -116,12 +117,12 @@
     </entry>
     <entry name="evieveRingmodAdaa2_4x ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: xin1,  <br />
-        <b>In 2</b>: type=<i>input</i>: xin2,  <br />
-        <b>In 3</b>: type=<i>input</i>: g,  <br />
-        <b>In 4</b>: type=<i>input</i>: p,  <br />
-        <b>In 5</b>: type=<i>input</i>: s,  <br />
-        <b>In 6</b>: type=<i>input</i>: t,  <br />
+        <b>In 1</b>: type=<i>input</i>: xin1, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: xin2, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: g, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: p, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: s, <i></i> <br />
+        <b>In 6</b>: type=<i>input</i>: t, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -129,12 +130,12 @@
     </entry>
     <entry name="evieveRingmodAdaa1__2x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN1,  <br />
-        <b>In 2</b>: type=<i>input</i>: XIN2,  <br />
-        <b>In 3</b>: type=<i>input</i>: g,  <br />
-        <b>In 4</b>: type=<i>input</i>: p,  <br />
-        <b>In 5</b>: type=<i>input</i>: s,  <br />
-        <b>In 6</b>: type=<i>input</i>: t,  <br />
+        <b>In 1</b>: type=<i>input</i>: XIN1, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: XIN2, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: g, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: p, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: s, <i></i> <br />
+        <b>In 6</b>: type=<i>input</i>: t, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -142,12 +143,12 @@
     </entry>
     <entry name="evieveRingmodAdaa2__2x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN1,  <br />
-        <b>In 2</b>: type=<i>input</i>: XIN2,  <br />
-        <b>In 3</b>: type=<i>input</i>: g,  <br />
-        <b>In 4</b>: type=<i>input</i>: p,  <br />
-        <b>In 5</b>: type=<i>input</i>: s,  <br />
-        <b>In 6</b>: type=<i>input</i>: t,  <br />
+        <b>In 1</b>: type=<i>input</i>: XIN1, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: XIN2, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: g, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: p, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: s, <i></i> <br />
+        <b>In 6</b>: type=<i>input</i>: t, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -155,12 +156,12 @@
     </entry>
     <entry name="evieveRingmodAdaa2__4x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN1,  <br />
-        <b>In 2</b>: type=<i>input</i>: XIN2,  <br />
-        <b>In 3</b>: type=<i>input</i>: g,  <br />
-        <b>In 4</b>: type=<i>input</i>: p,  <br />
-        <b>In 5</b>: type=<i>input</i>: s,  <br />
-        <b>In 6</b>: type=<i>input</i>: t,  <br />
+        <b>In 1</b>: type=<i>input</i>: XIN1, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: XIN2, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: g, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: p, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: s, <i></i> <br />
+        <b>In 6</b>: type=<i>input</i>: t, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -168,12 +169,12 @@
     </entry>
     <entry name="evieveRingmodAdaa2__8x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN1,  <br />
-        <b>In 2</b>: type=<i>input</i>: XIN2,  <br />
-        <b>In 3</b>: type=<i>input</i>: g,  <br />
-        <b>In 4</b>: type=<i>input</i>: p,  <br />
-        <b>In 5</b>: type=<i>input</i>: s,  <br />
-        <b>In 6</b>: type=<i>input</i>: t,  <br />
+        <b>In 1</b>: type=<i>input</i>: XIN1, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: XIN2, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: g, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: p, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: s, <i></i> <br />
+        <b>In 6</b>: type=<i>input</i>: t, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -181,12 +182,12 @@
     </entry>
     <entry name="evieveRingmodAdaa2_4x__2x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN1,  <br />
-        <b>In 2</b>: type=<i>input</i>: XIN2,  <br />
-        <b>In 3</b>: type=<i>input</i>: g,  <br />
-        <b>In 4</b>: type=<i>input</i>: p,  <br />
-        <b>In 5</b>: type=<i>input</i>: s,  <br />
-        <b>In 6</b>: type=<i>input</i>: t,  <br />
+        <b>In 1</b>: type=<i>input</i>: XIN1, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: XIN2, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: g, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: p, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: s, <i></i> <br />
+        <b>In 6</b>: type=<i>input</i>: t, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -194,12 +195,12 @@
     </entry>
     <entry name="evieveRingmodAdaa2_4x__4x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN1,  <br />
-        <b>In 2</b>: type=<i>input</i>: XIN2,  <br />
-        <b>In 3</b>: type=<i>input</i>: g,  <br />
-        <b>In 4</b>: type=<i>input</i>: p,  <br />
-        <b>In 5</b>: type=<i>input</i>: s,  <br />
-        <b>In 6</b>: type=<i>input</i>: t,  <br />
+        <b>In 1</b>: type=<i>input</i>: XIN1, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: XIN2, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: g, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: p, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: s, <i></i> <br />
+        <b>In 6</b>: type=<i>input</i>: t, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -207,41 +208,12 @@
     </entry>
     <entry name="evieveRingmodAdaa2_4x__8x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN1,  <br />
-        <b>In 2</b>: type=<i>input</i>: XIN2,  <br />
-        <b>In 3</b>: type=<i>input</i>: g,  <br />
-        <b>In 4</b>: type=<i>input</i>: p,  <br />
-        <b>In 5</b>: type=<i>input</i>: s,  <br />
-        <b>In 6</b>: type=<i>input</i>: t,  <br />
-
-        <b>Return 1</b>: ,  <br />
-
-      </description>
-    </entry>
-    <entry name="lp1p ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>input</i>: g,  <br />
-
-        <b>Return 1</b>: ,  <br />
-
-      </description>
-    </entry>
-    <entry name="lp2p ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>input</i>: g,  <br />
-        <b>In 3</b>: type=<i>input</i>: r,  <br />
-
-        <b>Return 1</b>: ,  <br />
-
-      </description>
-    </entry>
-    <entry name="linearButterworthLP8 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: X,  <br />
-        <b>In 2</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 3</b>: type=<i>param</i> (optional): order, default: 3,  <br />
+        <b>In 1</b>: type=<i>input</i>: XIN1, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: XIN2, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: g, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: p, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: s, <i></i> <br />
+        <b>In 6</b>: type=<i>input</i>: t, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 

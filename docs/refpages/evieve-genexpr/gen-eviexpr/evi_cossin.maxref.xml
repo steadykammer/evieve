@@ -16,8 +16,8 @@
   <misc name="GenExpr Functions">
     <entry name="quartParApproxFull ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: modphase,  <br />
-        <b>In 2</b>: type=<i>input</i>: precision,  <br />
+        <b>In 1</b>: type=<i>input</i>: modphase, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: precision, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -27,7 +27,7 @@
     </entry>
     <entry name="quartParOneApprox ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: modphase,  <br />
+        <b>In 1</b>: type=<i>input</i>: modphase, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -36,8 +36,8 @@
     </entry>
     <entry name="quadratureOsc ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: thisphase,  <br />
-        <b>In 2</b>: type=<i>input</i>: thisspread,  <br />
+        <b>In 1</b>: type=<i>input</i>: thisphase, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: thisspread, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -46,7 +46,7 @@
     </entry>
     <entry name="tanApprox3 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -54,8 +54,8 @@
     </entry>
     <entry name="quadOsc ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: frequency,  <br />
-        <b>In 2</b>: type=<i>input</i>: reset,  <br />
+        <b>In 1</b>: type=<i>input</i>: frequency, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: reset, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -64,8 +64,8 @@
     </entry>
     <entry name="quadOscSync ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: frequency,  <br />
-        <b>In 2</b>: type=<i>input</i>: reset,  <br />
+        <b>In 1</b>: type=<i>input</i>: frequency, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: reset, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -76,10 +76,10 @@
     </entry>
     <entry name="tptSvfQuadOsc ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 2</b>: type=<i>input</i>: sync,  <br />
-        <b>In 3</b>: type=<i>input</i>: reset,  <br />
-        <b>In 4</b>: type=<i>param</i> (optional): soft, default: 0.1,  <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: sync, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: reset, <i></i> <br />
+        <b>In 4</b>: type=<i>param</i> (optional): soft, default: <b>0.1</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -88,7 +88,7 @@
     </entry>
     <entry name="parabolApprox ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: phase,  <br />
+        <b>In 1</b>: type=<i>input</i>: phase, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -96,7 +96,7 @@
     </entry>
     <entry name="cosApprox01 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: a,  <br />
+        <b>In 1</b>: type=<i>input</i>: a, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -104,7 +104,7 @@
     </entry>
     <entry name="sinApprox01 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: a,  <br />
+        <b>In 1</b>: type=<i>input</i>: a, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -112,7 +112,7 @@
     </entry>
     <entry name="cosApproxPi ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -120,7 +120,7 @@
     </entry>
     <entry name="sinApproxPi ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 

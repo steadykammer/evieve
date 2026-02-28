@@ -1,0 +1,154 @@
+
+require("evi_smooth.genexpr");
+require("evi_sources.genexpr");
+
+// ---
+
+// sadly this is a repeat from "evi_fastskew.genexpr" to avoid another require
+
+// negative only
+fastskewlfo052neg(x, skewneg)				// !! skewneg must be clamped 0.5..1 !!
+{
+	sk5	= skewneg - 0.5;
+	return mix(sqrt(x), x, sk5 + sk5);	// Alex and I hate mix(), but sadly it is a tiny bit cheaper
+}
+
+// positive only, generally positive is far less accurate in terms of pow(), especially for greater ranges
+fastskewlfo052pos(x, skewpos)				// !! skewpos must be clamped 1..2 !!
+{
+ 	return mix(x, x*x, skewpos - 1);
+}
+
+// pow(x, 0.5..2), audio rate version (branch, only compute neccessary)
+// a branch to select between a sqrt & a multiply does not make much difference for audio rate
+fastskewlfo052ar(x, skew)					// !! skew must be clamped 0.5..2 !!
+{
+	y = 0;
+	if (skew < 1) {
+		y = fastskewlfo052neg(x, skew);
+	} else {
+		y = fastskewlfo052pos(x, skew);
+	}
+	return y;
+}
+
+// thanks Alex
+lfoCalc(phase, duty, shape, skew)	// input phase must be wrapped 0..1 (for tri phase)
+{
+    tri = (phase < duty) ? (phase / duty) : (1 - phase) / (1 - duty);
+	sphase = wrap(phase - 0.25, 0, 1);
+   	sine = (sphase > 0.5) ? sphase - 1 : sphase;
+    sine = sine * (4 - (abs(sine) * 8)) + 0.5;
+
+    return fastskewlfo052ar(interp(shape, tri, sine), skew);
+}
+
+// ---
+
+tanhC(x)
+{
+	x = clip(x, -3, 3);
+	return x * ((27 + (x * x)) / (27 + (9 * (x * x))));
+}
+
+triC(phase, pwm, times, plus)
+{
+    return (triangle(phase, pwm) * times) + plus;
+}
+
+// computed LFOs, phase 0..1 in, wave 0..1 out
+lfoShapes01(phase, sync, width, wave)
+{
+    lfo = 0;
+    if ((wave >= 1) && (wave <= 3)) {
+        pwm = wave == 3 ? width : (wave == 2 ? 0.04 : 0.96); // 3=triangle, 2=ramp down, 1=ramp up
+        lfo = triC(phase, pwm, 1, 0);
+    }
+    else if ((wave == 4) || (wave == 5)) {
+        sine = parabolWrap(phase);
+        if (wave == 4) {        // sine
+            lfo = (sine * 0.5) + 0.5;
+        }
+        else {                  // 5=tanh
+            lfo = (tanhC(sine * maximum(((width * width) * 8), 0.999999)) * 0.5) + 0.5;
+        }
+    }
+    else if (wave == 6) {       // square
+        sr20 = samplerate * 0.02;
+        lfo = phase > width;
+        lfo = eviRampsmooth(lfo, sr20, sr20);
+    }
+    else if (wave > 6) {
+        n = noise();
+        if (wave == 7) {        // random step
+            sr10 = samplerate * 0.01;
+            sr20 = sr10 + sr10;
+            lfo = (latch(n, sync) * 0.5) + 0.5;
+            lfo = eviRampsmooth(lfo, sr20, sr10);
+        }
+        else if (wave == 8) {   // random linear
+            lfo = (eviRandN(phase, n) * 0.5) + 0.5;
+        }
+        else if (wave == 9) {   // random cubic
+            lfo = (eviRandyN(phase, n) * 0.5) + 0.5;
+        }
+        else {                  // white noise
+            lfo = (n * 0.5) + 0.5;
+        }
+    }
+    else {                      // 0=off
+        lfo = 0;
+    }
+
+    return lfo;
+}
+
+// computed LFOs, phase 0..1 in, wave -1..1 out
+lfoShapes11(phase, sync, width, wave)  //  width 0..1
+{
+    lfo = 0;
+    if ((wave >= 1) && (wave <= 3)) {
+        pwm = wave == 3 ? width : (wave == 2 ? 0.04 : 0.96); // 3=triangle, 2=ramp down, 1=ramp up
+        lfo = triC(phase, pwm, 2, -1);
+    }
+    else if ((wave == 4) || (wave == 5)) {
+        sine = parabolWrap(phase);
+        if (wave == 4) {        // sine
+            lfo = sine;
+        }
+        else {                  // 5=tanh
+            lfo = tanhC(sine * maximum(((width * width) * 8), 0.999999));
+        }
+    }
+    else if (wave == 6) {       // square
+        sr20 = samplerate * 0.02;
+        lfo = phase > width;
+        lfo = (eviRampsmooth(lfo, sr20, sr20) * 2) - 1;
+    }
+    else if (wave > 6) {
+        n = noise();
+        if (wave == 7) {        // random step
+            sr10 = samplerate * 0.01;
+            sr20 = sr10 + sr10;
+            lfo = latch(n, sync);
+            lfo = eviRampsmooth(lfo, sr20, sr10);
+        }
+        else if (wave == 8) {   // random linear
+            lfo = eviRandN(phase, n);
+        }
+        else if (wave == 9) {   // random cubic
+            lfo = eviRandyN(phase, n);
+        }
+        else {                  // white noise
+            lfo = n;
+        }
+    }
+    else {                      // 0=off
+        lfo = 0;
+    }
+
+    return lfo;
+}
+
+// ---
+

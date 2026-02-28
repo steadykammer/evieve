@@ -16,7 +16,7 @@
   <misc name="GenExpr Functions">
     <entry name="localExpA ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -24,7 +24,7 @@
     </entry>
     <entry name="tanhLApprox ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -32,8 +32,8 @@
     </entry>
     <entry name="tanhAxA ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>input</i>: gain,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: gain, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -41,7 +41,7 @@
     </entry>
     <entry name="tanhSqrt ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -49,7 +49,7 @@
     </entry>
     <entry name="tanhPoly ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -57,7 +57,7 @@
     </entry>
     <entry name="atanApprox ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -65,7 +65,7 @@
     </entry>
     <entry name="atanDrive ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: drive,  <br />
+        <b>In 1</b>: type=<i>input</i>: drive, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -74,8 +74,8 @@
     </entry>
     <entry name="atanSat ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>input</i>: drive,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: drive, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -83,8 +83,8 @@
     </entry>
     <entry name="tarrabiaShaper ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>input</i>: a,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: a, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -92,8 +92,8 @@
     </entry>
     <entry name="jongShaper ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>input</i>: a,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: a, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -101,7 +101,7 @@
     </entry>
     <entry name="cubicNL ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -109,7 +109,7 @@
     </entry>
     <entry name="thbNL ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -117,7 +117,7 @@
     </entry>
     <entry name="polyNom ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -125,7 +125,7 @@
     </entry>
     <entry name="polySat ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -133,9 +133,9 @@
     </entry>
     <entry name="parabolSat ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>input</i>: a,  <br />
-        <b>In 3</b>: type=<i>input</i>: c,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: a, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: c, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -143,8 +143,8 @@
     </entry>
     <entry name="scDistort ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0,  <br />
-        <b>In 2</b>: type=<i>input</i>: drive,  <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: drive, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -152,16 +152,16 @@
     </entry>
     <entry name="scSoftClip ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0,  <br />
-        <b>In 2</b>: type=<i>input</i>: drive,  <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: drive, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
       </description>
     </entry>
-    <entry name="RaffelBBD ( )">
+    <entry name="raffelBBD ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -169,7 +169,7 @@
     </entry>
     <entry name="cosQ32p ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -177,7 +177,7 @@
     </entry>
     <entry name="cos32quad12p ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -185,7 +185,7 @@
     </entry>
     <entry name="sinParam ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: drive,  <br />
+        <b>In 1</b>: type=<i>input</i>: drive, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -194,8 +194,8 @@
     </entry>
     <entry name="sinSat ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>input</i>: drive,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: drive, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -203,9 +203,9 @@
     </entry>
     <entry name="modHT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0,  <br />
-        <b>In 2</b>: type=<i>input</i>: d,  <br />
-        <b>In 3</b>: type=<i>input</i>: a,  <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: d, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: a, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -213,8 +213,8 @@
     </entry>
     <entry name="foldBD ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: xin,  <br />
-        <b>In 2</b>: type=<i>input</i>: thresh,  <br />
+        <b>In 1</b>: type=<i>input</i>: xin, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: thresh, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -222,8 +222,8 @@
     </entry>
     <entry name="tapeH ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: xin,  <br />
-        <b>In 2</b>: type=<i>input</i>: sigmoid,  <br />
+        <b>In 1</b>: type=<i>input</i>: xin, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: sigmoid, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -231,8 +231,8 @@
     </entry>
     <entry name="gloubiBoulga ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x2,  <br />
-        <b>In 2</b>: type=<i>input</i>: drive,  <br />
+        <b>In 1</b>: type=<i>input</i>: x2, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: drive, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -240,7 +240,7 @@
     </entry>
     <entry name="boulgaStatic ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: xin,  <br />
+        <b>In 1</b>: type=<i>input</i>: xin, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 

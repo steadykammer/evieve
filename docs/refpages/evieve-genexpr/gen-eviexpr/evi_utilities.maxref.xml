@@ -19,7 +19,7 @@
   <misc name="GenExpr Functions">
     <entry name="logicalClicks ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -29,9 +29,9 @@
     </entry>
     <entry name="triggerHoldGate ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: X,  <br />
-        <b>In 2</b>: type=<i>param</i> (optional): hold, default: 10,  <br />
-        <b>In 3</b>: type=<i>param</i> (optional): trigger, default: 1,  <br />
+        <b>In 1</b>: type=<i>input</i>: X, <i></i> <br />
+        <b>In 2</b>: type=<i>param</i> (optional): hold, default: <b>10</b>, <i></i> <br />
+        <b>In 3</b>: type=<i>param</i> (optional): trigger, default: <b>1</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -39,8 +39,8 @@
     </entry>
     <entry name="varDcblock ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0,  <br />
-        <b>In 2</b>: type=<i>input</i>: a0,  <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: a0, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -48,7 +48,7 @@
     </entry>
     <entry name="preWarpG ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -56,8 +56,8 @@
     </entry>
     <entry name="eviCopysign ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: y,  <br />
-        <b>In 2</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: y, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -65,8 +65,8 @@
     </entry>
     <entry name="getMax ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: xL,  <br />
-        <b>In 2</b>: type=<i>input</i>: xR,  <br />
+        <b>In 1</b>: type=<i>input</i>: xL, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: xR, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -74,8 +74,8 @@
     </entry>
     <entry name="xMega ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: X,  <br />
-        <b>In 2</b>: type=<i>param</i>: xCONST,  <br />
+        <b>In 1</b>: type=<i>input</i>: X, <i></i> <br />
+        <b>In 2</b>: type=<i>param</i>: xCONST, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -83,7 +83,7 @@
     </entry>
     <entry name="xSgn ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -91,7 +91,7 @@
     </entry>
     <entry name="xRange ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -99,7 +99,7 @@
     </entry>
     <entry name="bandwidth2Q ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: bandwidth,  <br />
+        <b>In 1</b>: type=<i>input</i>: bandwidth, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -107,7 +107,7 @@
     </entry>
     <entry name="Q2bandwidth ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: Q,  <br />
+        <b>In 1</b>: type=<i>input</i>: Q, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -115,7 +115,7 @@
     </entry>
     <entry name="pitch2timeSamps ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: size,  <br />
+        <b>In 1</b>: type=<i>input</i>: size, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -123,7 +123,7 @@
     </entry>
     <entry name="pitch2timeSecs ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: size,  <br />
+        <b>In 1</b>: type=<i>input</i>: size, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -131,7 +131,7 @@
     </entry>
     <entry name="decorelate ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -139,7 +139,7 @@
     </entry>
     <entry name="eviScurve ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: segment,  <br />
+        <b>In 1</b>: type=<i>input</i>: segment, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -147,11 +147,11 @@
     </entry>
     <entry name="eviMap ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: valueIn,  <br />
-        <b>In 2</b>: type=<i>input</i>: inLow,  <br />
-        <b>In 3</b>: type=<i>input</i>: inHigh,  <br />
-        <b>In 4</b>: type=<i>input</i>: outLow,  <br />
-        <b>In 5</b>: type=<i>input</i>: outHigh,  <br />
+        <b>In 1</b>: type=<i>input</i>: valueIn, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: inLow, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: inHigh, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: outLow, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: outHigh, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -159,11 +159,11 @@
     </entry>
     <entry name="eviZmap ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: valueIn,  <br />
-        <b>In 2</b>: type=<i>input</i>: inLow,  <br />
-        <b>In 3</b>: type=<i>input</i>: inHigh,  <br />
-        <b>In 4</b>: type=<i>input</i>: outLow,  <br />
-        <b>In 5</b>: type=<i>input</i>: outHigh,  <br />
+        <b>In 1</b>: type=<i>input</i>: valueIn, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: inLow, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: inHigh, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: outLow, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: outHigh, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -171,8 +171,8 @@
     </entry>
     <entry name="kinky ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: p,  <br />
-        <b>In 2</b>: type=<i>input</i>: k,  <br />
+        <b>In 1</b>: type=<i>input</i>: p, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: k, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -180,7 +180,7 @@
     </entry>
     <entry name="sin7 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x1,  <br />
+        <b>In 1</b>: type=<i>input</i>: x1, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -188,7 +188,29 @@
     </entry>
     <entry name="parabolWrap ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: phase,  <br />
+        <b>In 1</b>: type=<i>input</i>: phase, <i></i> <br />
+
+        <b>Return 1</b>: ,  <br />
+
+      </description>
+    </entry>
+    <entry name="windowCoeffs ( )">
+      <description>
+        <b>In 1</b>: type=<i>input</i>: choice, <i></i> <br />
+
+        <b>Return 1</b>: ,  <br />
+        <b>Return 2</b>: ,  <br />
+        <b>Return 3</b>: ,  <br />
+
+      </description>
+    </entry>
+    <entry name="winMan ( )">
+      <description>
+        <b>In 1</b>: type=<i>input</i>: w, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: a0, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: a1, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: a2, <i></i> <br />
+        <b>In 5</b>: type=<i>param</i> (optional): windowsize, default: <b>4096</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -196,11 +218,11 @@
     </entry>
     <entry name="stereoXfadePar ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: L1,  <br />
-        <b>In 2</b>: type=<i>input</i>: R1,  <br />
-        <b>In 3</b>: type=<i>input</i>: L2,  <br />
-        <b>In 4</b>: type=<i>input</i>: R2,  <br />
-        <b>In 5</b>: type=<i>input</i>: x0,  <br />
+        <b>In 1</b>: type=<i>input</i>: L1, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: R1, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: L2, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: R2, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: x0, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -209,7 +231,7 @@
     </entry>
     <entry name="ctrlSqrt ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -218,9 +240,9 @@
     </entry>
     <entry name="xfadeSqrt ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: a,  <br />
-        <b>In 2</b>: type=<i>input</i>: c,  <br />
-        <b>In 3</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: a, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: c, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -228,11 +250,11 @@
     </entry>
     <entry name="xfadeSqrtStereo ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: a,  <br />
-        <b>In 2</b>: type=<i>input</i>: b,  <br />
-        <b>In 3</b>: type=<i>input</i>: c,  <br />
-        <b>In 4</b>: type=<i>input</i>: d,  <br />
-        <b>In 5</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: a, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: b, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: c, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: d, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -241,9 +263,9 @@
     </entry>
     <entry name="xfadeQuartApproxMono ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: a,  <br />
-        <b>In 2</b>: type=<i>input</i>: c,  <br />
-        <b>In 3</b>: type=<i>input</i>: q,  <br />
+        <b>In 1</b>: type=<i>input</i>: a, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: c, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: q, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -251,11 +273,11 @@
     </entry>
     <entry name="xfadeQuartApproxStereo ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: a,  <br />
-        <b>In 2</b>: type=<i>input</i>: b,  <br />
-        <b>In 3</b>: type=<i>input</i>: c,  <br />
-        <b>In 4</b>: type=<i>input</i>: d,  <br />
-        <b>In 5</b>: type=<i>input</i>: q,  <br />
+        <b>In 1</b>: type=<i>input</i>: a, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: b, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: c, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: d, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: q, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -264,9 +286,9 @@
     </entry>
     <entry name="xfadeQuartApproxSwap ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: a,  <br />
-        <b>In 2</b>: type=<i>input</i>: b,  <br />
-        <b>In 3</b>: type=<i>input</i>: q,  <br />
+        <b>In 1</b>: type=<i>input</i>: a, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: b, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: q, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -275,8 +297,8 @@
     </entry>
     <entry name="panQuartApproxMono ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>input</i>: p,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: p, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -285,10 +307,10 @@
     </entry>
     <entry name="panQuartApproxDual ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: xL,  <br />
-        <b>In 2</b>: type=<i>input</i>: xR,  <br />
-        <b>In 3</b>: type=<i>input</i>: pL,  <br />
-        <b>In 4</b>: type=<i>input</i>: pR,  <br />
+        <b>In 1</b>: type=<i>input</i>: xL, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: xR, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: pL, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: pR, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -297,14 +319,14 @@
     </entry>
     <entry name="butterfly8 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: i1,  <br />
-        <b>In 2</b>: type=<i>input</i>: i2,  <br />
-        <b>In 3</b>: type=<i>input</i>: i3,  <br />
-        <b>In 4</b>: type=<i>input</i>: i4,  <br />
-        <b>In 5</b>: type=<i>input</i>: i5,  <br />
-        <b>In 6</b>: type=<i>input</i>: i6,  <br />
-        <b>In 7</b>: type=<i>input</i>: i7,  <br />
-        <b>In 8</b>: type=<i>input</i>: i8,  <br />
+        <b>In 1</b>: type=<i>input</i>: i1, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: i2, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: i3, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: i4, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: i5, <i></i> <br />
+        <b>In 6</b>: type=<i>input</i>: i6, <i></i> <br />
+        <b>In 7</b>: type=<i>input</i>: i7, <i></i> <br />
+        <b>In 8</b>: type=<i>input</i>: i8, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -319,10 +341,10 @@
     </entry>
     <entry name="butterfly4 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: i1,  <br />
-        <b>In 2</b>: type=<i>input</i>: i2,  <br />
-        <b>In 3</b>: type=<i>input</i>: i3,  <br />
-        <b>In 4</b>: type=<i>input</i>: i4,  <br />
+        <b>In 1</b>: type=<i>input</i>: i1, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: i2, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: i3, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: i4, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -333,8 +355,8 @@
     </entry>
     <entry name="butterfly2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: i1,  <br />
-        <b>In 2</b>: type=<i>input</i>: i2,  <br />
+        <b>In 1</b>: type=<i>input</i>: i1, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: i2, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -343,14 +365,14 @@
     </entry>
     <entry name="hadamard8 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: i1,  <br />
-        <b>In 2</b>: type=<i>input</i>: i2,  <br />
-        <b>In 3</b>: type=<i>input</i>: i3,  <br />
-        <b>In 4</b>: type=<i>input</i>: i4,  <br />
-        <b>In 5</b>: type=<i>input</i>: i5,  <br />
-        <b>In 6</b>: type=<i>input</i>: i6,  <br />
-        <b>In 7</b>: type=<i>input</i>: i7,  <br />
-        <b>In 8</b>: type=<i>input</i>: i8,  <br />
+        <b>In 1</b>: type=<i>input</i>: i1, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: i2, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: i3, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: i4, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: i5, <i></i> <br />
+        <b>In 6</b>: type=<i>input</i>: i6, <i></i> <br />
+        <b>In 7</b>: type=<i>input</i>: i7, <i></i> <br />
+        <b>In 8</b>: type=<i>input</i>: i8, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -365,22 +387,22 @@
     </entry>
     <entry name="butterfly16 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: bf0_1,  <br />
-        <b>In 2</b>: type=<i>input</i>: bf0_2,  <br />
-        <b>In 3</b>: type=<i>input</i>: bf0_3,  <br />
-        <b>In 4</b>: type=<i>input</i>: bf0_4,  <br />
-        <b>In 5</b>: type=<i>input</i>: bf0_5,  <br />
-        <b>In 6</b>: type=<i>input</i>: bf0_6,  <br />
-        <b>In 7</b>: type=<i>input</i>: bf0_7,  <br />
-        <b>In 8</b>: type=<i>input</i>: bf0_8,  <br />
-        <b>In 9</b>: type=<i>input</i>: bf0_9,  <br />
-        <b>In 10</b>: type=<i>input</i>: bf0_10,  <br />
-        <b>In 11</b>: type=<i>input</i>: bf0_11,  <br />
-        <b>In 12</b>: type=<i>input</i>: bf0_12,  <br />
-        <b>In 13</b>: type=<i>input</i>: bf0_13,  <br />
-        <b>In 14</b>: type=<i>input</i>: bf0_14,  <br />
-        <b>In 15</b>: type=<i>input</i>: bf0_15,  <br />
-        <b>In 16</b>: type=<i>input</i>: bf0_16,  <br />
+        <b>In 1</b>: type=<i>input</i>: bf0_1, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: bf0_2, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: bf0_3, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: bf0_4, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: bf0_5, <i></i> <br />
+        <b>In 6</b>: type=<i>input</i>: bf0_6, <i></i> <br />
+        <b>In 7</b>: type=<i>input</i>: bf0_7, <i></i> <br />
+        <b>In 8</b>: type=<i>input</i>: bf0_8, <i></i> <br />
+        <b>In 9</b>: type=<i>input</i>: bf0_9, <i></i> <br />
+        <b>In 10</b>: type=<i>input</i>: bf0_10, <i></i> <br />
+        <b>In 11</b>: type=<i>input</i>: bf0_11, <i></i> <br />
+        <b>In 12</b>: type=<i>input</i>: bf0_12, <i></i> <br />
+        <b>In 13</b>: type=<i>input</i>: bf0_13, <i></i> <br />
+        <b>In 14</b>: type=<i>input</i>: bf0_14, <i></i> <br />
+        <b>In 15</b>: type=<i>input</i>: bf0_15, <i></i> <br />
+        <b>In 16</b>: type=<i>input</i>: bf0_16, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -403,10 +425,10 @@
     </entry>
     <entry name="butterflyMatrix ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: i1,  <br />
-        <b>In 2</b>: type=<i>input</i>: i2,  <br />
-        <b>In 3</b>: type=<i>input</i>: i3,  <br />
-        <b>In 4</b>: type=<i>input</i>: i4,  <br />
+        <b>In 1</b>: type=<i>input</i>: i1, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: i2, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: i3, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: i4, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />

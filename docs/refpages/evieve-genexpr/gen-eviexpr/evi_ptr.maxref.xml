@@ -16,9 +16,9 @@
   <misc name="GenExpr Functions">
     <entry name="ptr3_saw ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: p,  <br />
-        <b>In 2</b>: type=<i>input</i>: T0,  <br />
-        <b>In 3</b>: type=<i>input</i>: P0,  <br />
+        <b>In 1</b>: type=<i>input</i>: p, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: T0, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: P0, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -26,10 +26,10 @@
     </entry>
     <entry name="ptr3_rect ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: p,  <br />
-        <b>In 2</b>: type=<i>input</i>: T0,  <br />
-        <b>In 3</b>: type=<i>input</i>: P0,  <br />
-        <b>In 4</b>: type=<i>input</i>: w,  <br />
+        <b>In 1</b>: type=<i>input</i>: p, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: T0, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: P0, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: w, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 

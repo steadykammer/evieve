@@ -21,7 +21,7 @@
   <misc name="GenExpr Functions">
     <entry name="sinParam ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: drive,  <br />
+        <b>In 1</b>: type=<i>input</i>: drive, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -30,9 +30,9 @@
     </entry>
     <entry name="sinFoldNaive ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>input</i>: pidrive,  <br />
-        <b>In 3</b>: type=<i>input</i>: sindrive,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: pidrive, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: sindrive, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -40,9 +40,9 @@
     </entry>
     <entry name="sinFoldAdaa1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>input</i>: pidrive,  <br />
-        <b>In 3</b>: type=<i>input</i>: sindrive,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: pidrive, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: sindrive, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -50,9 +50,9 @@
     </entry>
     <entry name="sinFoldAdaa1_2x ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>input</i>: pidrive,  <br />
-        <b>In 3</b>: type=<i>input</i>: sindrive,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: pidrive, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: sindrive, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -60,9 +60,9 @@
     </entry>
     <entry name="sinFoldAdaa1_4x ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>input</i>: pidrive,  <br />
-        <b>In 3</b>: type=<i>input</i>: sindrive,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: pidrive, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: sindrive, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -70,9 +70,9 @@
     </entry>
     <entry name="sinFoldAdaa2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>input</i>: pidrive,  <br />
-        <b>In 3</b>: type=<i>input</i>: sindrive,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: pidrive, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: sindrive, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -80,9 +80,9 @@
     </entry>
     <entry name="sinFoldAdaa2_2x ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>input</i>: pidrive,  <br />
-        <b>In 3</b>: type=<i>input</i>: sindrive,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: pidrive, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: sindrive, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -90,9 +90,9 @@
     </entry>
     <entry name="sinFoldAdaa2_4x ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>input</i>: pidrive,  <br />
-        <b>In 3</b>: type=<i>input</i>: sindrive,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: pidrive, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: sindrive, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 

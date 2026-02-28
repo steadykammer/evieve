@@ -2359,8 +2359,8 @@
             "type": "FunctionDeclaration",
             "id": {
                 "type": "Identifier",
-                "name": "RaffelBBD",
-                "raw": "RaffelBBD"
+                "name": "raffelBBD",
+                "raw": "raffelBBD"
             },
             "params": [
                 {

@@ -16,8 +16,8 @@
   <misc name="GenExpr Functions">
     <entry name="poly_blep ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: t,  <br />
-        <b>In 2</b>: type=<i>input</i>: dt,  <br />
+        <b>In 1</b>: type=<i>input</i>: t, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: dt, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -25,8 +25,8 @@
     </entry>
     <entry name="poly_blamp ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: t,  <br />
-        <b>In 2</b>: type=<i>input</i>: dt,  <br />
+        <b>In 1</b>: type=<i>input</i>: t, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: dt, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -34,8 +34,8 @@
     </entry>
     <entry name="poly_bluh ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: t,  <br />
-        <b>In 2</b>: type=<i>input</i>: dt,  <br />
+        <b>In 1</b>: type=<i>input</i>: t, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: dt, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -43,8 +43,8 @@
     </entry>
     <entry name="poly_saw ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: t,  <br />
-        <b>In 2</b>: type=<i>input</i>: dt,  <br />
+        <b>In 1</b>: type=<i>input</i>: t, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: dt, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -52,8 +52,8 @@
     </entry>
     <entry name="poly_ramp ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: t,  <br />
-        <b>In 2</b>: type=<i>input</i>: dt,  <br />
+        <b>In 1</b>: type=<i>input</i>: t, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: dt, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -61,8 +61,8 @@
     </entry>
     <entry name="poly_sqr ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: t,  <br />
-        <b>In 2</b>: type=<i>input</i>: dt,  <br />
+        <b>In 1</b>: type=<i>input</i>: t, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: dt, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -70,9 +70,9 @@
     </entry>
     <entry name="poly_rect ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: t,  <br />
-        <b>In 2</b>: type=<i>input</i>: dt,  <br />
-        <b>In 3</b>: type=<i>input</i>: pw,  <br />
+        <b>In 1</b>: type=<i>input</i>: t, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: dt, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: pw, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -80,9 +80,9 @@
     </entry>
     <entry name="poly_sqr2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: t,  <br />
-        <b>In 2</b>: type=<i>input</i>: dt,  <br />
-        <b>In 3</b>: type=<i>input</i>: pw,  <br />
+        <b>In 1</b>: type=<i>input</i>: t, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: dt, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: pw, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -90,8 +90,8 @@
     </entry>
     <entry name="poly_tri ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: t,  <br />
-        <b>In 2</b>: type=<i>input</i>: dt,  <br />
+        <b>In 1</b>: type=<i>input</i>: t, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: dt, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -99,9 +99,9 @@
     </entry>
     <entry name="poly_tri2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: t,  <br />
-        <b>In 2</b>: type=<i>input</i>: dt,  <br />
-        <b>In 3</b>: type=<i>input</i>: pw,  <br />
+        <b>In 1</b>: type=<i>input</i>: t, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: dt, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: pw, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -109,9 +109,9 @@
     </entry>
     <entry name="poly_trip ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: t,  <br />
-        <b>In 2</b>: type=<i>input</i>: dt,  <br />
-        <b>In 3</b>: type=<i>input</i>: pw,  <br />
+        <b>In 1</b>: type=<i>input</i>: t, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: dt, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: pw, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -119,8 +119,8 @@
     </entry>
     <entry name="poly_trap ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: t,  <br />
-        <b>In 2</b>: type=<i>input</i>: dt,  <br />
+        <b>In 1</b>: type=<i>input</i>: t, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: dt, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -128,9 +128,9 @@
     </entry>
     <entry name="poly_trap2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: t,  <br />
-        <b>In 2</b>: type=<i>input</i>: dt,  <br />
-        <b>In 3</b>: type=<i>input</i>: pw,  <br />
+        <b>In 1</b>: type=<i>input</i>: t, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: dt, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: pw, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -138,9 +138,9 @@
     </entry>
     <entry name="morph_saw_tri_saw ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: t,  <br />
-        <b>In 2</b>: type=<i>input</i>: dt,  <br />
-        <b>In 3</b>: type=<i>input</i>: morph,  <br />
+        <b>In 1</b>: type=<i>input</i>: t, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: dt, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: morph, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -148,9 +148,9 @@
     </entry>
     <entry name="morph_saw_tri_square ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: t,  <br />
-        <b>In 2</b>: type=<i>input</i>: dt,  <br />
-        <b>In 3</b>: type=<i>input</i>: morph,  <br />
+        <b>In 1</b>: type=<i>input</i>: t, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: dt, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: morph, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -158,9 +158,9 @@
     </entry>
     <entry name="morph_pulse_tri_pulse ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: t,  <br />
-        <b>In 2</b>: type=<i>input</i>: dt,  <br />
-        <b>In 3</b>: type=<i>input</i>: morph,  <br />
+        <b>In 1</b>: type=<i>input</i>: t, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: dt, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: morph, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -168,9 +168,9 @@
     </entry>
     <entry name="morph_sawpulse_trirect ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: t,  <br />
-        <b>In 2</b>: type=<i>input</i>: dt,  <br />
-        <b>In 3</b>: type=<i>input</i>: morph,  <br />
+        <b>In 1</b>: type=<i>input</i>: t, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: dt, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: morph, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -178,9 +178,9 @@
     </entry>
     <entry name="morph_pulsepulse_trirect ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: t,  <br />
-        <b>In 2</b>: type=<i>input</i>: dt,  <br />
-        <b>In 3</b>: type=<i>input</i>: morph,  <br />
+        <b>In 1</b>: type=<i>input</i>: t, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: dt, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: morph, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -188,9 +188,9 @@
     </entry>
     <entry name="morph_pulsebipulse_trirect ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: t,  <br />
-        <b>In 2</b>: type=<i>input</i>: dt,  <br />
-        <b>In 3</b>: type=<i>input</i>: morph,  <br />
+        <b>In 1</b>: type=<i>input</i>: t, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: dt, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: morph, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -198,9 +198,9 @@
     </entry>
     <entry name="poly_half20 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: t,  <br />
-        <b>In 2</b>: type=<i>input</i>: dt,  <br />
-        <b>In 3</b>: type=<i>input</i>: pw,  <br />
+        <b>In 1</b>: type=<i>input</i>: t, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: dt, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: pw, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 

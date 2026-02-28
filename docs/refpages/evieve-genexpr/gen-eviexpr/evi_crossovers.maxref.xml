@@ -19,8 +19,8 @@
   <misc name="GenExpr Functions">
     <entry name="eviXover2pole2band ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: X,  <br />
-        <b>In 2</b>: type=<i>input</i>: xover,  <br />
+        <b>In 1</b>: type=<i>input</i>: X, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: xover, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -29,8 +29,8 @@
     </entry>
     <entry name="eviXover4pole2band ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: X,  <br />
-        <b>In 2</b>: type=<i>input</i>: xover,  <br />
+        <b>In 1</b>: type=<i>input</i>: X, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: xover, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -39,9 +39,9 @@
     </entry>
     <entry name="eviXover2pole3band ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: X,  <br />
-        <b>In 2</b>: type=<i>input</i>: xoverLow,  <br />
-        <b>In 3</b>: type=<i>input</i>: xoverHigh,  <br />
+        <b>In 1</b>: type=<i>input</i>: X, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: xoverLow, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: xoverHigh, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -51,9 +51,9 @@
     </entry>
     <entry name="eviXover4pole3band ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: X,  <br />
-        <b>In 2</b>: type=<i>input</i>: xoverLow,  <br />
-        <b>In 3</b>: type=<i>input</i>: xoverHigh,  <br />
+        <b>In 1</b>: type=<i>input</i>: X, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: xoverLow, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: xoverHigh, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -63,8 +63,8 @@
     </entry>
     <entry name="eviXoverAllpass1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: X,  <br />
-        <b>In 2</b>: type=<i>input</i>: hz,  <br />
+        <b>In 1</b>: type=<i>input</i>: X, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: hz, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -72,8 +72,8 @@
     </entry>
     <entry name="eviXoverAllpass2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: X,  <br />
-        <b>In 2</b>: type=<i>input</i>: hz,  <br />
+        <b>In 1</b>: type=<i>input</i>: X, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: hz, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -81,10 +81,10 @@
     </entry>
     <entry name="eviXover2pole3bandSum ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: LOW,  <br />
-        <b>In 2</b>: type=<i>input</i>: MID,  <br />
-        <b>In 3</b>: type=<i>input</i>: HIGH,  <br />
-        <b>In 4</b>: type=<i>input</i>: xoverHigh,  <br />
+        <b>In 1</b>: type=<i>input</i>: LOW, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: MID, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: HIGH, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: xoverHigh, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -92,10 +92,10 @@
     </entry>
     <entry name="eviXover4pole3bandSum ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: LOW,  <br />
-        <b>In 2</b>: type=<i>input</i>: MID,  <br />
-        <b>In 3</b>: type=<i>input</i>: HIGH,  <br />
-        <b>In 4</b>: type=<i>input</i>: xoverHigh,  <br />
+        <b>In 1</b>: type=<i>input</i>: LOW, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: MID, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: HIGH, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: xoverHigh, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -103,9 +103,9 @@
     </entry>
     <entry name="eviXover2pole2bandStereo ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: xL,  <br />
-        <b>In 2</b>: type=<i>input</i>: xR,  <br />
-        <b>In 3</b>: type=<i>input</i>: xover,  <br />
+        <b>In 1</b>: type=<i>input</i>: xL, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: xR, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: xover, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -116,9 +116,9 @@
     </entry>
     <entry name="eviXover4pole2bandStereo ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: xL,  <br />
-        <b>In 2</b>: type=<i>input</i>: xR,  <br />
-        <b>In 3</b>: type=<i>input</i>: xover,  <br />
+        <b>In 1</b>: type=<i>input</i>: xL, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: xR, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: xover, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -129,10 +129,10 @@
     </entry>
     <entry name="eviXover2pole3bandStereo ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: xL,  <br />
-        <b>In 2</b>: type=<i>input</i>: xR,  <br />
-        <b>In 3</b>: type=<i>input</i>: hzLow,  <br />
-        <b>In 4</b>: type=<i>input</i>: hzHigh,  <br />
+        <b>In 1</b>: type=<i>input</i>: xL, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: xR, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: hzLow, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: hzHigh, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -145,10 +145,10 @@
     </entry>
     <entry name="eviXover4pole3bandStereo ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: xL,  <br />
-        <b>In 2</b>: type=<i>input</i>: xR,  <br />
-        <b>In 3</b>: type=<i>input</i>: hzLow,  <br />
-        <b>In 4</b>: type=<i>input</i>: hzHigh,  <br />
+        <b>In 1</b>: type=<i>input</i>: xL, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: xR, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: hzLow, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: hzHigh, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -161,9 +161,9 @@
     </entry>
     <entry name="eviXoverAllpass1Stereo ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: xL,  <br />
-        <b>In 2</b>: type=<i>input</i>: xR,  <br />
-        <b>In 3</b>: type=<i>input</i>: hz,  <br />
+        <b>In 1</b>: type=<i>input</i>: xL, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: xR, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: hz, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -172,9 +172,9 @@
     </entry>
     <entry name="eviXoverAllpass2Stereo ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: xL,  <br />
-        <b>In 2</b>: type=<i>input</i>: xR,  <br />
-        <b>In 3</b>: type=<i>input</i>: hz,  <br />
+        <b>In 1</b>: type=<i>input</i>: xL, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: xR, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: hz, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -183,13 +183,13 @@
     </entry>
     <entry name="eviXover2pole3bandSumStereo ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: lowL,  <br />
-        <b>In 2</b>: type=<i>input</i>: lowR,  <br />
-        <b>In 3</b>: type=<i>input</i>: midL,  <br />
-        <b>In 4</b>: type=<i>input</i>: midR,  <br />
-        <b>In 5</b>: type=<i>input</i>: highL,  <br />
-        <b>In 6</b>: type=<i>input</i>: highR,  <br />
-        <b>In 7</b>: type=<i>input</i>: xoverHigh,  <br />
+        <b>In 1</b>: type=<i>input</i>: lowL, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: lowR, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: midL, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: midR, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: highL, <i></i> <br />
+        <b>In 6</b>: type=<i>input</i>: highR, <i></i> <br />
+        <b>In 7</b>: type=<i>input</i>: xoverHigh, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -198,13 +198,13 @@
     </entry>
     <entry name="eviXover4pole3bandSumStereo ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: lowL,  <br />
-        <b>In 2</b>: type=<i>input</i>: lowR,  <br />
-        <b>In 3</b>: type=<i>input</i>: midL,  <br />
-        <b>In 4</b>: type=<i>input</i>: midR,  <br />
-        <b>In 5</b>: type=<i>input</i>: highL,  <br />
-        <b>In 6</b>: type=<i>input</i>: highR,  <br />
-        <b>In 7</b>: type=<i>input</i>: xoverHigh,  <br />
+        <b>In 1</b>: type=<i>input</i>: lowL, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: lowR, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: midL, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: midR, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: highL, <i></i> <br />
+        <b>In 6</b>: type=<i>input</i>: highR, <i></i> <br />
+        <b>In 7</b>: type=<i>input</i>: xoverHigh, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />

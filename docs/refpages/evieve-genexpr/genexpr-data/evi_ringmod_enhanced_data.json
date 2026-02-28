@@ -1,7 +1,8 @@
 {
     "description": "",
     "requires": [
-        "evi_ssb.genexpr"
+        "evi_ssb.genexpr",
+        "evi_butterworth.genexpr"
     ],
     "functions": [
         {
@@ -751,98 +752,6 @@
                     "id": 6,
                     "kind": "input",
                     "name": "t",
-                    "digest": ""
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "",
-                    "digest": ""
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "",
-            "name": "lp1p",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "x",
-                    "digest": ""
-                },
-                {
-                    "id": 2,
-                    "kind": "input",
-                    "name": "g",
-                    "digest": ""
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "",
-                    "digest": ""
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "",
-            "name": "lp2p",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "x",
-                    "digest": ""
-                },
-                {
-                    "id": 2,
-                    "kind": "input",
-                    "name": "g",
-                    "digest": ""
-                },
-                {
-                    "id": 3,
-                    "kind": "input",
-                    "name": "r",
-                    "digest": ""
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "",
-                    "digest": ""
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "",
-            "name": "linearButterworthLP8",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "X",
-                    "digest": ""
-                },
-                {
-                    "id": 2,
-                    "kind": "input",
-                    "name": "cutoff",
-                    "digest": ""
-                },
-                {
-                    "id": 3,
-                    "kind": "param",
-                    "name": "order",
-                    "default": 3,
-                    "type": "integer",
                     "digest": ""
                 }
             ],

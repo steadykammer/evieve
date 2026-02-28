@@ -398,7 +398,7 @@
         {
             "document": true,
             "digest": "",
-            "name": "RaffelBBD",
+            "name": "raffelBBD",
             "inputs": [
                 {
                     "id": 1,

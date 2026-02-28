@@ -11,157 +11,63 @@
     By declaring <m>require("evi_dynamics.genexpr");</m> at the top of a codebox you can then access all of the functions included in this file. <br />
      <br />
     The <b>evi_dynamics.genexpr</b> file also requires: <br />
+    evi_smooth.genexpr <br />
+    evi_clip.genexpr <br />
     evi_tanh.genexpr <br />
+    evi_biquads_filters.genexpr <br />
     <br />
     <b>About this File</b>: <br />
      <br />
   </description>
   <misc name="GenExpr Functions">
-    <entry name="xMega ( )">
+    <entry name="limiterHardSoft ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: X,  <br />
-        <b>In 2</b>: type=<i>input</i>: xCONST,  <br />
-
-        <b>Return 1</b>: ,  <br />
-
-      </description>
-    </entry>
-    <entry name="xSgn ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-
-        <b>Return 1</b>: ,  <br />
-
-      </description>
-    </entry>
-    <entry name="xRange ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>param</i> (optional): range, default: 1,  <br />
-
-        <b>Return 1</b>: ,  <br />
-
-      </description>
-    </entry>
-    <entry name="funcHc0 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>param</i> (optional): clip, default: 1,  <br />
-
-        <b>Return 1</b>: ,  <br />
-
-      </description>
-    </entry>
-    <entry name="funcHc1 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>param</i> (optional): range, default: 1,  <br />
-
-        <b>Return 1</b>: ,  <br />
-
-      </description>
-    </entry>
-    <entry name="funcHc2 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>param</i> (optional): range, default: 1,  <br />
-
-        <b>Return 1</b>: ,  <br />
-
-      </description>
-    </entry>
-    <entry name="adHc1 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>param</i> (optional): limit, default: 1,  <br />
-
-        <b>Return 1</b>: ,  <br />
-
-      </description>
-    </entry>
-    <entry name="adHc2 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>param</i> (optional): limit, default: 1,  <br />
-
-        <b>Return 1</b>: ,  <br />
-
-      </description>
-    </entry>
-    <entry name="adHc2_2x_6POINT ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: XIN,  <br />
-        <b>In 2</b>: type=<i>param</i> (optional): thresh, default: 1,  <br />
-
-        <b>Return 1</b>: ,  <br />
-
-      </description>
-    </entry>
-    <entry name="adHc2_4x_6POINT ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: XIN,  <br />
-        <b>In 2</b>: type=<i>param</i> (optional): thresh, default: 1,  <br />
-
-        <b>Return 1</b>: ,  <br />
-
-      </description>
-    </entry>
-    <entry name="biquadDf2 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>input</i>: a0,  <br />
-        <b>In 3</b>: type=<i>input</i>: a1,  <br />
-        <b>In 4</b>: type=<i>input</i>: a2,  <br />
-        <b>In 5</b>: type=<i>input</i>: b1,  <br />
-        <b>In 6</b>: type=<i>input</i>: b2,  <br />
-
-        <b>Return 1</b>: ,  <br />
-
-      </description>
-    </entry>
-    <entry name="logSad ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: s,  <br />
-
-        <b>Return 1</b>: ,  <br />
-
-      </description>
-    </entry>
-    <entry name="getMax ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: xL,  <br />
-        <b>In 2</b>: type=<i>input</i>: xR,  <br />
-
-        <b>Return 1</b>: ,  <br />
-
-      </description>
-    </entry>
-    <entry name="logAttackDecay ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>input</i>: a,  <br />
-        <b>In 3</b>: type=<i>input</i>: d,  <br />
-
-        <b>Return 1</b>: ,  <br />
-
-      </description>
-    </entry>
-    <entry name="limiterFast ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: xL,  <br />
-        <b>In 2</b>: type=<i>input</i>: xR,  <br />
-        <b>In 3</b>: type=<i>input</i>: release,  <br />
-        <b>In 4</b>: type=<i>input</i>: knee,  <br />
-        <b>In 5</b>: type=<i>input</i>: choochoo,  <br />
-        <b>In 6</b>: type=<i>input</i>: a0,  <br />
-        <b>In 7</b>: type=<i>input</i>: a1,  <br />
-        <b>In 8</b>: type=<i>input</i>: a2,  <br />
-        <b>In 9</b>: type=<i>input</i>: b1,  <br />
-        <b>In 10</b>: type=<i>input</i>: b2,  <br />
+        <b>In 1</b>: type=<i>input</i>: xL, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: xR, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: release, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: knee, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: choochoo, <i></i> <br />
+        <b>In 6</b>: type=<i>input</i>: a0, <i></i> <br />
+        <b>In 7</b>: type=<i>input</i>: a1, <i></i> <br />
+        <b>In 8</b>: type=<i>input</i>: a2, <i></i> <br />
+        <b>In 9</b>: type=<i>input</i>: b1, <i></i> <br />
+        <b>In 10</b>: type=<i>input</i>: b2, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
         <b>Return 3</b>: ,  <br />
+
+      </description>
+    </entry>
+    <entry name="companderAverager ( )">
+      <description>
+        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: companderCrect, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: T, <i></i> <br />
+
+        <b>Return 1</b>: ,  <br />
+
+      </description>
+    </entry>
+    <entry name="companderCompress ( )">
+      <description>
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: smoothing, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: T, <i></i> <br />
+
+        <b>Return 1</b>: ,  <br />
+        <b>Return 2</b>: ,  <br />
+
+      </description>
+    </entry>
+    <entry name="companderExpand ( )">
+      <description>
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: smoothing, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: T, <i></i> <br />
+
+        <b>Return 1</b>: ,  <br />
+        <b>Return 2</b>: ,  <br />
 
       </description>
     </entry>

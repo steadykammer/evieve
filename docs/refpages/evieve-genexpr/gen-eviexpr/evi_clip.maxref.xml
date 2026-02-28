@@ -20,7 +20,7 @@
   <misc name="GenExpr Functions">
     <entry name="funcHc0 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -28,7 +28,7 @@
     </entry>
     <entry name="funcHc1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -36,7 +36,7 @@
     </entry>
     <entry name="funcHc2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -44,7 +44,7 @@
     </entry>
     <entry name="adHc1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -52,7 +52,7 @@
     </entry>
     <entry name="adHc2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -60,7 +60,7 @@
     </entry>
     <entry name="adHc2_2x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN,  <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -68,7 +68,7 @@
     </entry>
     <entry name="adHc2_4x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN,  <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -76,7 +76,7 @@
     </entry>
     <entry name="adHc2_2x_4POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN,  <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -84,7 +84,7 @@
     </entry>
     <entry name="adHc2_4x_4POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN,  <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -92,7 +92,7 @@
     </entry>
     <entry name="w3 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -100,7 +100,7 @@
     </entry>
     <entry name="w4 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -108,7 +108,10 @@
     </entry>
     <entry name="diodeCoeffs ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: SR,  <br />
+        <b>In 1</b>: type=<i>input</i>: SR, <i></i> <br />
+        <b>In 2</b>: type=<i>Param</i> (optional): CR, default: <b>0.000022</b>, min: 0, max: 0, <i></i> <br />
+        <b>In 3</b>: type=<i>Param</i> (optional): IR, default: <b>2.2e-13</b>, min: 0, max: 0, <i></i> <br />
+        <b>In 4</b>: type=<i>Param</i> (optional): VT, default: <b>0.026</b>, min: 0, max: 0, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -123,15 +126,15 @@
     </entry>
     <entry name="diode ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: Vin,  <br />
-        <b>In 2</b>: type=<i>input</i>: k1,  <br />
-        <b>In 3</b>: type=<i>input</i>: k2,  <br />
-        <b>In 4</b>: type=<i>input</i>: k3,  <br />
-        <b>In 5</b>: type=<i>input</i>: k4,  <br />
-        <b>In 6</b>: type=<i>input</i>: k5,  <br />
-        <b>In 7</b>: type=<i>input</i>: k6,  <br />
-        <b>In 8</b>: type=<i>input</i>: VT,  <br />
-        <b>In 9</b>: type=<i>input</i>: A1,  <br />
+        <b>In 1</b>: type=<i>input</i>: Vin, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: k1, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: k2, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: k3, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: k4, <i></i> <br />
+        <b>In 6</b>: type=<i>input</i>: k5, <i></i> <br />
+        <b>In 7</b>: type=<i>input</i>: k6, <i></i> <br />
+        <b>In 8</b>: type=<i>input</i>: VT, <i></i> <br />
+        <b>In 9</b>: type=<i>input</i>: A1, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -139,17 +142,17 @@
     </entry>
     <entry name="diodeWrap ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: Vin,  <br />
-        <b>In 2</b>: type=<i>input</i>: k1,  <br />
-        <b>In 3</b>: type=<i>input</i>: k2,  <br />
-        <b>In 4</b>: type=<i>input</i>: k3,  <br />
-        <b>In 5</b>: type=<i>input</i>: k4,  <br />
-        <b>In 6</b>: type=<i>input</i>: k5,  <br />
-        <b>In 7</b>: type=<i>input</i>: k6,  <br />
-        <b>In 8</b>: type=<i>input</i>: VT,  <br />
-        <b>In 9</b>: type=<i>input</i>: A1,  <br />
-        <b>In 10</b>: type=<i>param</i> (optional): gain, default: 0.999999,  <br />
-        <b>In 11</b>: type=<i>param</i> (optional): bias, default: 0.000001,  <br />
+        <b>In 1</b>: type=<i>input</i>: Vin, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: k1, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: k2, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: k3, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: k4, <i></i> <br />
+        <b>In 6</b>: type=<i>input</i>: k5, <i></i> <br />
+        <b>In 7</b>: type=<i>input</i>: k6, <i></i> <br />
+        <b>In 8</b>: type=<i>input</i>: VT, <i></i> <br />
+        <b>In 9</b>: type=<i>input</i>: A1, <i></i> <br />
+        <b>In 10</b>: type=<i>param</i> (optional): gain, default: <b>0.999999</b>, <i></i> <br />
+        <b>In 11</b>: type=<i>param</i> (optional): bias, default: <b>0.000001</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -157,15 +160,15 @@
     </entry>
     <entry name="diode_2x_4POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN,  <br />
-        <b>In 2</b>: type=<i>input</i>: k1,  <br />
-        <b>In 3</b>: type=<i>input</i>: k2,  <br />
-        <b>In 4</b>: type=<i>input</i>: k3,  <br />
-        <b>In 5</b>: type=<i>input</i>: k4,  <br />
-        <b>In 6</b>: type=<i>input</i>: k5,  <br />
-        <b>In 7</b>: type=<i>input</i>: k6,  <br />
-        <b>In 8</b>: type=<i>input</i>: VT,  <br />
-        <b>In 9</b>: type=<i>input</i>: A1,  <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: k1, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: k2, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: k3, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: k4, <i></i> <br />
+        <b>In 6</b>: type=<i>input</i>: k5, <i></i> <br />
+        <b>In 7</b>: type=<i>input</i>: k6, <i></i> <br />
+        <b>In 8</b>: type=<i>input</i>: VT, <i></i> <br />
+        <b>In 9</b>: type=<i>input</i>: A1, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -173,15 +176,15 @@
     </entry>
     <entry name="diode_4x_4POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN,  <br />
-        <b>In 2</b>: type=<i>input</i>: k1,  <br />
-        <b>In 3</b>: type=<i>input</i>: k2,  <br />
-        <b>In 4</b>: type=<i>input</i>: k3,  <br />
-        <b>In 5</b>: type=<i>input</i>: k4,  <br />
-        <b>In 6</b>: type=<i>input</i>: k5,  <br />
-        <b>In 7</b>: type=<i>input</i>: k6,  <br />
-        <b>In 8</b>: type=<i>input</i>: VT,  <br />
-        <b>In 9</b>: type=<i>input</i>: A1,  <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: k1, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: k2, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: k3, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: k4, <i></i> <br />
+        <b>In 6</b>: type=<i>input</i>: k5, <i></i> <br />
+        <b>In 7</b>: type=<i>input</i>: k6, <i></i> <br />
+        <b>In 8</b>: type=<i>input</i>: VT, <i></i> <br />
+        <b>In 9</b>: type=<i>input</i>: A1, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -189,15 +192,15 @@
     </entry>
     <entry name="diode_8x_4POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN,  <br />
-        <b>In 2</b>: type=<i>input</i>: k1,  <br />
-        <b>In 3</b>: type=<i>input</i>: k2,  <br />
-        <b>In 4</b>: type=<i>input</i>: k3,  <br />
-        <b>In 5</b>: type=<i>input</i>: k4,  <br />
-        <b>In 6</b>: type=<i>input</i>: k5,  <br />
-        <b>In 7</b>: type=<i>input</i>: k6,  <br />
-        <b>In 8</b>: type=<i>input</i>: VT,  <br />
-        <b>In 9</b>: type=<i>input</i>: A1,  <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: k1, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: k2, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: k3, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: k4, <i></i> <br />
+        <b>In 6</b>: type=<i>input</i>: k5, <i></i> <br />
+        <b>In 7</b>: type=<i>input</i>: k6, <i></i> <br />
+        <b>In 8</b>: type=<i>input</i>: VT, <i></i> <br />
+        <b>In 9</b>: type=<i>input</i>: A1, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -205,7 +208,7 @@
     </entry>
     <entry name="asym ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: xin,  <br />
+        <b>In 1</b>: type=<i>input</i>: xin, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -213,8 +216,8 @@
     </entry>
     <entry name="asymWrap ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x2,  <br />
-        <b>In 2</b>: type=<i>input</i>: drive,  <br />
+        <b>In 1</b>: type=<i>input</i>: x2, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: drive, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -222,7 +225,7 @@
     </entry>
     <entry name="asym_2x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN,  <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -230,7 +233,7 @@
     </entry>
     <entry name="asym_4x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN,  <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -238,7 +241,7 @@
     </entry>
     <entry name="funcSc0 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -246,7 +249,7 @@
     </entry>
     <entry name="funcSc1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -254,7 +257,7 @@
     </entry>
     <entry name="funcSc11 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -262,7 +265,7 @@
     </entry>
     <entry name="funcSc2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -270,7 +273,7 @@
     </entry>
     <entry name="adSc1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -278,8 +281,8 @@
     </entry>
     <entry name="adSc2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>input</i>: OS,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: OS, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -287,7 +290,7 @@
     </entry>
     <entry name="adSc1_2x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN,  <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -295,7 +298,7 @@
     </entry>
     <entry name="adSc2_2x_6POINT_fix2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN,  <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -303,7 +306,7 @@
     </entry>
     <entry name="adSc2_2x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN,  <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -311,7 +314,7 @@
     </entry>
     <entry name="adSc2_4x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN,  <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -319,7 +322,7 @@
     </entry>
     <entry name="adSc2_2x_4POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN,  <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -327,7 +330,7 @@
     </entry>
     <entry name="adSc2_4x_4POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN,  <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 

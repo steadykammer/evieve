@@ -218,6 +218,32 @@
         {
             "document": true,
             "digest": "",
+            "name": "eviRandN",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "p",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "n",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
             "name": "eviRands",
             "inputs": [
                 {
@@ -276,6 +302,32 @@
                 },
                 {
                     "id": 2,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "eviRandyN",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "p",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "n",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
                     "name": "",
                     "digest": ""
                 }

@@ -20,7 +20,7 @@
   <misc name="GenExpr Functions">
     <entry name="tanhLapprox ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -28,7 +28,7 @@
     </entry>
     <entry name="cubicClip ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -36,8 +36,8 @@
     </entry>
     <entry name="nonlin ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>input</i>: nl,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: nl, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -45,13 +45,13 @@
     </entry>
     <entry name="buchlaLpg1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>input</i>: rf,  <br />
-        <b>In 3</b>: type=<i>input</i>: res,  <br />
-        <b>In 4</b>: type=<i>input</i>: resist,  <br />
-        <b>In 5</b>: type=<i>input</i>: vcamode,  <br />
-        <b>In 6</b>: type=<i>input</i>: lpgmode,  <br />
-        <b>In 7</b>: type=<i>input</i>: nl,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: rf, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: res, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: resist, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: vcamode, <i></i> <br />
+        <b>In 6</b>: type=<i>input</i>: lpgmode, <i></i> <br />
+        <b>In 7</b>: type=<i>input</i>: nl, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -61,14 +61,14 @@
     </entry>
     <entry name="buchlaLpg2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0,  <br />
-        <b>In 2</b>: type=<i>input</i>: x1,  <br />
-        <b>In 3</b>: type=<i>input</i>: rf,  <br />
-        <b>In 4</b>: type=<i>input</i>: res,  <br />
-        <b>In 5</b>: type=<i>input</i>: resist,  <br />
-        <b>In 6</b>: type=<i>input</i>: vcamode,  <br />
-        <b>In 7</b>: type=<i>input</i>: lpgmode,  <br />
-        <b>In 8</b>: type=<i>input</i>: nl,  <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: x1, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: rf, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: res, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: resist, <i></i> <br />
+        <b>In 6</b>: type=<i>input</i>: vcamode, <i></i> <br />
+        <b>In 7</b>: type=<i>input</i>: lpgmode, <i></i> <br />
+        <b>In 8</b>: type=<i>input</i>: nl, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -77,15 +77,15 @@
     </entry>
     <entry name="buchlaLpg3 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0,  <br />
-        <b>In 2</b>: type=<i>input</i>: x1,  <br />
-        <b>In 3</b>: type=<i>input</i>: x2,  <br />
-        <b>In 4</b>: type=<i>input</i>: rf,  <br />
-        <b>In 5</b>: type=<i>input</i>: res,  <br />
-        <b>In 6</b>: type=<i>input</i>: resist,  <br />
-        <b>In 7</b>: type=<i>input</i>: vcamode,  <br />
-        <b>In 8</b>: type=<i>input</i>: lpgmode,  <br />
-        <b>In 9</b>: type=<i>input</i>: nl,  <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: x1, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: x2, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: rf, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: res, <i></i> <br />
+        <b>In 6</b>: type=<i>input</i>: resist, <i></i> <br />
+        <b>In 7</b>: type=<i>input</i>: vcamode, <i></i> <br />
+        <b>In 8</b>: type=<i>input</i>: lpgmode, <i></i> <br />
+        <b>In 9</b>: type=<i>input</i>: nl, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -95,16 +95,16 @@
     </entry>
     <entry name="buchlaLpg4 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0,  <br />
-        <b>In 2</b>: type=<i>input</i>: x1,  <br />
-        <b>In 3</b>: type=<i>input</i>: x2,  <br />
-        <b>In 4</b>: type=<i>input</i>: x3,  <br />
-        <b>In 5</b>: type=<i>input</i>: rf,  <br />
-        <b>In 6</b>: type=<i>input</i>: res,  <br />
-        <b>In 7</b>: type=<i>input</i>: resist,  <br />
-        <b>In 8</b>: type=<i>input</i>: vcamode,  <br />
-        <b>In 9</b>: type=<i>input</i>: lpgmode,  <br />
-        <b>In 10</b>: type=<i>input</i>: nl,  <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: x1, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: x2, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: x3, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: rf, <i></i> <br />
+        <b>In 6</b>: type=<i>input</i>: res, <i></i> <br />
+        <b>In 7</b>: type=<i>input</i>: resist, <i></i> <br />
+        <b>In 8</b>: type=<i>input</i>: vcamode, <i></i> <br />
+        <b>In 9</b>: type=<i>input</i>: lpgmode, <i></i> <br />
+        <b>In 10</b>: type=<i>input</i>: nl, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -115,18 +115,18 @@
     </entry>
     <entry name="buchlaLpg6 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0,  <br />
-        <b>In 2</b>: type=<i>input</i>: x1,  <br />
-        <b>In 3</b>: type=<i>input</i>: x2,  <br />
-        <b>In 4</b>: type=<i>input</i>: x3,  <br />
-        <b>In 5</b>: type=<i>input</i>: x4,  <br />
-        <b>In 6</b>: type=<i>input</i>: x5,  <br />
-        <b>In 7</b>: type=<i>input</i>: rf,  <br />
-        <b>In 8</b>: type=<i>input</i>: res,  <br />
-        <b>In 9</b>: type=<i>input</i>: resist,  <br />
-        <b>In 10</b>: type=<i>input</i>: vcamode,  <br />
-        <b>In 11</b>: type=<i>input</i>: lpgmode,  <br />
-        <b>In 12</b>: type=<i>input</i>: nl,  <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: x1, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: x2, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: x3, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: x4, <i></i> <br />
+        <b>In 6</b>: type=<i>input</i>: x5, <i></i> <br />
+        <b>In 7</b>: type=<i>input</i>: rf, <i></i> <br />
+        <b>In 8</b>: type=<i>input</i>: res, <i></i> <br />
+        <b>In 9</b>: type=<i>input</i>: resist, <i></i> <br />
+        <b>In 10</b>: type=<i>input</i>: vcamode, <i></i> <br />
+        <b>In 11</b>: type=<i>input</i>: lpgmode, <i></i> <br />
+        <b>In 12</b>: type=<i>input</i>: nl, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -139,20 +139,20 @@
     </entry>
     <entry name="buchlaLpg8 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0,  <br />
-        <b>In 2</b>: type=<i>input</i>: x1,  <br />
-        <b>In 3</b>: type=<i>input</i>: x2,  <br />
-        <b>In 4</b>: type=<i>input</i>: x3,  <br />
-        <b>In 5</b>: type=<i>input</i>: x4,  <br />
-        <b>In 6</b>: type=<i>input</i>: x5,  <br />
-        <b>In 7</b>: type=<i>input</i>: x6,  <br />
-        <b>In 8</b>: type=<i>input</i>: x7,  <br />
-        <b>In 9</b>: type=<i>input</i>: rf,  <br />
-        <b>In 10</b>: type=<i>input</i>: res,  <br />
-        <b>In 11</b>: type=<i>input</i>: resist,  <br />
-        <b>In 12</b>: type=<i>input</i>: vcamode,  <br />
-        <b>In 13</b>: type=<i>input</i>: lpgmode,  <br />
-        <b>In 14</b>: type=<i>input</i>: nl,  <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: x1, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: x2, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: x3, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: x4, <i></i> <br />
+        <b>In 6</b>: type=<i>input</i>: x5, <i></i> <br />
+        <b>In 7</b>: type=<i>input</i>: x6, <i></i> <br />
+        <b>In 8</b>: type=<i>input</i>: x7, <i></i> <br />
+        <b>In 9</b>: type=<i>input</i>: rf, <i></i> <br />
+        <b>In 10</b>: type=<i>input</i>: res, <i></i> <br />
+        <b>In 11</b>: type=<i>input</i>: resist, <i></i> <br />
+        <b>In 12</b>: type=<i>input</i>: vcamode, <i></i> <br />
+        <b>In 13</b>: type=<i>input</i>: lpgmode, <i></i> <br />
+        <b>In 14</b>: type=<i>input</i>: nl, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -167,13 +167,13 @@
     </entry>
     <entry name="buchlaLpg2_2x ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN,  <br />
-        <b>In 2</b>: type=<i>input</i>: rf,  <br />
-        <b>In 3</b>: type=<i>input</i>: res,  <br />
-        <b>In 4</b>: type=<i>input</i>: resist,  <br />
-        <b>In 5</b>: type=<i>input</i>: vcamode,  <br />
-        <b>In 6</b>: type=<i>input</i>: lpgmode,  <br />
-        <b>In 7</b>: type=<i>input</i>: nl,  <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: rf, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: res, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: resist, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: vcamode, <i></i> <br />
+        <b>In 6</b>: type=<i>input</i>: lpgmode, <i></i> <br />
+        <b>In 7</b>: type=<i>input</i>: nl, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -181,13 +181,13 @@
     </entry>
     <entry name="buchlaLpg3_3x ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN,  <br />
-        <b>In 2</b>: type=<i>input</i>: rf,  <br />
-        <b>In 3</b>: type=<i>input</i>: res,  <br />
-        <b>In 4</b>: type=<i>input</i>: resist,  <br />
-        <b>In 5</b>: type=<i>input</i>: vcamode,  <br />
-        <b>In 6</b>: type=<i>input</i>: lpgmode,  <br />
-        <b>In 7</b>: type=<i>input</i>: nl,  <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: rf, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: res, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: resist, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: vcamode, <i></i> <br />
+        <b>In 6</b>: type=<i>input</i>: lpgmode, <i></i> <br />
+        <b>In 7</b>: type=<i>input</i>: nl, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -195,13 +195,13 @@
     </entry>
     <entry name="buchlaLpg4_4x ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN,  <br />
-        <b>In 2</b>: type=<i>input</i>: rf,  <br />
-        <b>In 3</b>: type=<i>input</i>: res,  <br />
-        <b>In 4</b>: type=<i>input</i>: resist,  <br />
-        <b>In 5</b>: type=<i>input</i>: vcamode,  <br />
-        <b>In 6</b>: type=<i>input</i>: lpgmode,  <br />
-        <b>In 7</b>: type=<i>input</i>: nl,  <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: rf, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: res, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: resist, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: vcamode, <i></i> <br />
+        <b>In 6</b>: type=<i>input</i>: lpgmode, <i></i> <br />
+        <b>In 7</b>: type=<i>input</i>: nl, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -209,13 +209,13 @@
     </entry>
     <entry name="buchlaLpg6_6x ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN,  <br />
-        <b>In 2</b>: type=<i>input</i>: rf,  <br />
-        <b>In 3</b>: type=<i>input</i>: res,  <br />
-        <b>In 4</b>: type=<i>input</i>: resist,  <br />
-        <b>In 5</b>: type=<i>input</i>: vcamode,  <br />
-        <b>In 6</b>: type=<i>input</i>: lpgmode,  <br />
-        <b>In 7</b>: type=<i>input</i>: nl,  <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: rf, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: res, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: resist, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: vcamode, <i></i> <br />
+        <b>In 6</b>: type=<i>input</i>: lpgmode, <i></i> <br />
+        <b>In 7</b>: type=<i>input</i>: nl, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -223,13 +223,13 @@
     </entry>
     <entry name="buchlaLpg8_8x ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN,  <br />
-        <b>In 2</b>: type=<i>input</i>: rf,  <br />
-        <b>In 3</b>: type=<i>input</i>: res,  <br />
-        <b>In 4</b>: type=<i>input</i>: resist,  <br />
-        <b>In 5</b>: type=<i>input</i>: vcamode,  <br />
-        <b>In 6</b>: type=<i>input</i>: lpgmode,  <br />
-        <b>In 7</b>: type=<i>input</i>: nl,  <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: rf, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: res, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: resist, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: vcamode, <i></i> <br />
+        <b>In 6</b>: type=<i>input</i>: lpgmode, <i></i> <br />
+        <b>In 7</b>: type=<i>input</i>: nl, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 

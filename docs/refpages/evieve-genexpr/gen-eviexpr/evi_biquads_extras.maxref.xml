@@ -16,12 +16,12 @@
   <misc name="GenExpr Functions">
     <entry name="biquadDf2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>input</i>: a0,  <br />
-        <b>In 3</b>: type=<i>input</i>: a1,  <br />
-        <b>In 4</b>: type=<i>input</i>: a2,  <br />
-        <b>In 5</b>: type=<i>input</i>: b1,  <br />
-        <b>In 6</b>: type=<i>input</i>: b2,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: a0, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: a1, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: a2, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: b1, <i></i> <br />
+        <b>In 6</b>: type=<i>input</i>: b2, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -29,8 +29,8 @@
     </entry>
     <entry name="eviBiquadCoeffBp ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 2</b>: type=<i>input</i>: Q,  <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: Q, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -42,8 +42,8 @@
     </entry>
     <entry name="eviButterworthLp6 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0,  <br />
-        <b>In 2</b>: type=<i>input</i>: cutoff,  <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: cutoff, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -51,8 +51,8 @@
     </entry>
     <entry name="hilbertTdf2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0,  <br />
-        <b>In 2</b>: type=<i>input</i>: a0,  <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: a0, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -60,15 +60,15 @@
     </entry>
     <entry name="eviHilbertCascade ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: y0,  <br />
-        <b>In 2</b>: type=<i>input</i>: hc1,  <br />
-        <b>In 3</b>: type=<i>input</i>: hc2,  <br />
-        <b>In 4</b>: type=<i>input</i>: hc3,  <br />
-        <b>In 5</b>: type=<i>input</i>: hc4,  <br />
-        <b>In 6</b>: type=<i>input</i>: hc5,  <br />
-        <b>In 7</b>: type=<i>input</i>: hc6,  <br />
-        <b>In 8</b>: type=<i>input</i>: hc7,  <br />
-        <b>In 9</b>: type=<i>input</i>: hc8,  <br />
+        <b>In 1</b>: type=<i>input</i>: y0, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: hc1, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: hc2, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: hc3, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: hc4, <i></i> <br />
+        <b>In 6</b>: type=<i>input</i>: hc5, <i></i> <br />
+        <b>In 7</b>: type=<i>input</i>: hc6, <i></i> <br />
+        <b>In 8</b>: type=<i>input</i>: hc7, <i></i> <br />
+        <b>In 9</b>: type=<i>input</i>: hc8, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -77,9 +77,9 @@
     </entry>
     <entry name="eviCascadeCoeffAllpass ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 2</b>: type=<i>input</i>: Q,  <br />
-        <b>In 3</b>: type=<i>param</i>: R,  <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: Q, <i></i> <br />
+        <b>In 3</b>: type=<i>param</i> (optional): R, default: <b>0</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -89,12 +89,12 @@
     </entry>
     <entry name="biquadDf2cascadeAllpass ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0,  <br />
-        <b>In 2</b>: type=<i>input</i>: a0,  <br />
-        <b>In 3</b>: type=<i>input</i>: a1,  <br />
-        <b>In 4</b>: type=<i>input</i>: a2,  <br />
-        <b>In 5</b>: type=<i>input</i>: x1,  <br />
-        <b>In 6</b>: type=<i>input</i>: x2,  <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: a0, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: a1, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: a2, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: x1, <i></i> <br />
+        <b>In 6</b>: type=<i>input</i>: x2, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -104,9 +104,9 @@
     </entry>
     <entry name="resringzCoeffs ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 2</b>: type=<i>input</i>: QorT60,  <br />
-        <b>In 3</b>: type=<i>param</i>: filt,  <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: QorT60, <i></i> <br />
+        <b>In 3</b>: type=<i>param</i> (optional): filt, default: <b>0</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -116,10 +116,10 @@
     </entry>
     <entry name="firOrder12 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0,  <br />
-        <b>In 2</b>: type=<i>param</i> (optional): a0, default: 1,  <br />
-        <b>In 3</b>: type=<i>param</i> (optional): a1, default: 2,  <br />
-        <b>In 4</b>: type=<i>param</i> (optional): a2, default: 1,  <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
+        <b>In 2</b>: type=<i>param</i> (optional): a0, default: <b>1</b>, <i></i> <br />
+        <b>In 3</b>: type=<i>param</i> (optional): a1, default: <b>2</b>, <i></i> <br />
+        <b>In 4</b>: type=<i>param</i> (optional): a2, default: <b>1</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />

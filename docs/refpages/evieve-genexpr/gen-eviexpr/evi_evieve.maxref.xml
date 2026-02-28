@@ -17,6 +17,8 @@
     <b>About this File</b>: <br />
      <br />
   </description>
+  <misc name="No Functions (require-only file)">
+  </misc>
   <metadatalist>
     <metadata name="author">Pete Dowling</metadata>
     <!-- only put one tag here for C74 harvesting algorithm issues -->

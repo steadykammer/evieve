@@ -22,10 +22,10 @@
   <misc name="GenExpr Functions">
     <entry name="complexRing ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: real,  <br />
-        <b>In 2</b>: type=<i>input</i>: imag,  <br />
-        <b>In 3</b>: type=<i>input</i>: rmod,  <br />
-        <b>In 4</b>: type=<i>input</i>: imod,  <br />
+        <b>In 1</b>: type=<i>input</i>: real, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: imag, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: rmod, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: imod, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -36,9 +36,9 @@
     </entry>
     <entry name="sinFoldNaive ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>input</i>: pidrive,  <br />
-        <b>In 3</b>: type=<i>input</i>: sindrive,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: pidrive, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: sindrive, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -46,7 +46,7 @@
     </entry>
     <entry name="fWarp ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cf,  <br />
+        <b>In 1</b>: type=<i>input</i>: cf, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -54,8 +54,8 @@
     </entry>
     <entry name="lp1p ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>input</i>: g,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: g, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -63,9 +63,9 @@
     </entry>
     <entry name="lp2p ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>input</i>: g,  <br />
-        <b>In 3</b>: type=<i>input</i>: r,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: g, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: r, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -73,8 +73,8 @@
     </entry>
     <entry name="butterworthLowpass4 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: X,  <br />
-        <b>In 2</b>: type=<i>input</i>: G,  <br />
+        <b>In 1</b>: type=<i>input</i>: X, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: G, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -82,8 +82,8 @@
     </entry>
     <entry name="butterworthLowpass8 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: X,  <br />
-        <b>In 2</b>: type=<i>input</i>: G,  <br />
+        <b>In 1</b>: type=<i>input</i>: X, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: G, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 

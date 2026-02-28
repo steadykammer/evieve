@@ -18,6 +18,56 @@
                     "kind": "input",
                     "name": "reset",
                     "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "Param",
+                    "name": "minimumhz",
+                    "default": 0.125,
+                    "min": 0,
+                    "max": 1,
+                    "type": "float",
+                    "digest": "Set minimum Hz for zero reset behaviour"
+                },
+                {
+                    "id": 4,
+                    "kind": "Param",
+                    "name": "mode",
+                    "default": 1,
+                    "min": 0,
+                    "max": 1,
+                    "type": "integer",
+                    "digest": "Zero reset behaviour off/on"
+                },
+                {
+                    "id": 5,
+                    "kind": "Param",
+                    "name": "reverse",
+                    "default": 1,
+                    "min": 0,
+                    "max": 1,
+                    "type": "integer",
+                    "digest": "Reverse allowed?"
+                },
+                {
+                    "id": 6,
+                    "kind": "Param",
+                    "name": "pause",
+                    "default": 0,
+                    "min": 0,
+                    "max": 1,
+                    "type": "integer",
+                    "digest": "Pause current ramp off/on"
+                },
+                {
+                    "id": 7,
+                    "kind": "Param",
+                    "name": "phase",
+                    "default": 0,
+                    "min": 0,
+                    "max": 1,
+                    "type": "integer",
+                    "digest": "Set to this phase on next reset"
                 }
             ],
             "returns": [
@@ -290,6 +340,56 @@
                     "kind": "input",
                     "name": "reset",
                     "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "Param",
+                    "name": "minimumhz",
+                    "default": 0.125,
+                    "min": 0,
+                    "max": 1,
+                    "type": "float",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "Param",
+                    "name": "mode",
+                    "default": 1,
+                    "min": 0,
+                    "max": 1,
+                    "type": "integer",
+                    "digest": ""
+                },
+                {
+                    "id": 6,
+                    "kind": "Param",
+                    "name": "reverse",
+                    "default": 1,
+                    "min": 0,
+                    "max": 1,
+                    "type": "integer",
+                    "digest": ""
+                },
+                {
+                    "id": 7,
+                    "kind": "Param",
+                    "name": "pause",
+                    "default": 0,
+                    "min": 0,
+                    "max": 1,
+                    "type": "integer",
+                    "digest": ""
+                },
+                {
+                    "id": 8,
+                    "kind": "Param",
+                    "name": "phase",
+                    "default": 0,
+                    "min": 0,
+                    "max": 1,
+                    "type": "integer",
+                    "digest": ""
                 }
             ],
             "returns": [
@@ -334,6 +434,76 @@
                     "id": 1,
                     "kind": "input",
                     "name": "trig",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "Param",
+                    "name": "duration",
+                    "default": 1000,
+                    "min": 0,
+                    "max": 60000,
+                    "type": "integer",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "Param",
+                    "name": "zeroreset",
+                    "default": 0,
+                    "min": 0,
+                    "max": 1,
+                    "type": "integer",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "Param",
+                    "name": "retrigger",
+                    "default": 1,
+                    "min": 0,
+                    "max": 1,
+                    "type": "integer",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "Param",
+                    "name": "loop",
+                    "default": 0,
+                    "min": 0,
+                    "max": 1,
+                    "type": "integer",
+                    "digest": ""
+                },
+                {
+                    "id": 6,
+                    "kind": "Param",
+                    "name": "restingstate",
+                    "default": 1,
+                    "min": 0,
+                    "max": 1,
+                    "type": "integer",
+                    "digest": ""
+                },
+                {
+                    "id": 7,
+                    "kind": "Param",
+                    "name": "curve",
+                    "default": 0,
+                    "min": 0,
+                    "max": 1,
+                    "type": "integer",
+                    "digest": ""
+                },
+                {
+                    "id": 8,
+                    "kind": "Param",
+                    "name": "pause",
+                    "default": 0,
+                    "min": 0,
+                    "max": 1,
+                    "type": "integer",
                     "digest": ""
                 }
             ],

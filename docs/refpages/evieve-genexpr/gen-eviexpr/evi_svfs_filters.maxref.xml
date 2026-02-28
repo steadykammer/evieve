@@ -19,10 +19,10 @@
   <misc name="GenExpr Functions">
     <entry name="tptSvf ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>input</i>: g,  <br />
-        <b>In 3</b>: type=<i>input</i>: r,  <br />
-        <b>In 4</b>: type=<i>input</i>: a,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: g, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: r, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: a, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -32,11 +32,11 @@
     </entry>
     <entry name="tptSvfReset ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>input</i>: g,  <br />
-        <b>In 3</b>: type=<i>input</i>: r,  <br />
-        <b>In 4</b>: type=<i>input</i>: a,  <br />
-        <b>In 5</b>: type=<i>input</i>: reset,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: g, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: r, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: a, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: reset, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -46,8 +46,8 @@
     </entry>
     <entry name="tptSvfOnePole ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>input</i>: g,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: g, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -56,11 +56,11 @@
     </entry>
     <entry name="tptSvf2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0,  <br />
-        <b>In 2</b>: type=<i>input</i>: x1,  <br />
-        <b>In 3</b>: type=<i>input</i>: g,  <br />
-        <b>In 4</b>: type=<i>input</i>: r,  <br />
-        <b>In 5</b>: type=<i>input</i>: a,  <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: x1, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: g, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: r, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: a, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -73,10 +73,10 @@
     </entry>
     <entry name="tptSvf2_2x ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN,  <br />
-        <b>In 2</b>: type=<i>input</i>: g,  <br />
-        <b>In 3</b>: type=<i>input</i>: r,  <br />
-        <b>In 4</b>: type=<i>input</i>: a,  <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: g, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: r, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: a, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -86,7 +86,7 @@
     </entry>
     <entry name="tanApprox2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -94,9 +94,9 @@
     </entry>
     <entry name="tptSvfUnit ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff,  <br />
-        <b>In 2</b>: type=<i>input</i>: Q,  <br />
-        <b>In 3</b>: type=<i>param</i>: os,  <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: Q, <i></i> <br />
+        <b>In 3</b>: type=<i>param</i> (optional): os, default: <b>0</b>, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -104,15 +104,32 @@
 
       </description>
     </entry>
+    <entry name="tptSvfExternal ( )">
+      <description>
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: g, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: r, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: a, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: s1i, <i></i> <br />
+        <b>In 6</b>: type=<i>input</i>: s2i, <i></i> <br />
+
+        <b>Return 1</b>: ,  <br />
+        <b>Return 2</b>: ,  <br />
+        <b>Return 3</b>: ,  <br />
+        <b>Return 4</b>: ,  <br />
+        <b>Return 5</b>: ,  <br />
+
+      </description>
+    </entry>
     <entry name="svfSection ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: v0,  <br />
-        <b>In 2</b>: type=<i>input</i>: a1,  <br />
-        <b>In 3</b>: type=<i>input</i>: a2,  <br />
-        <b>In 4</b>: type=<i>input</i>: a3,  <br />
-        <b>In 5</b>: type=<i>input</i>: m0,  <br />
-        <b>In 6</b>: type=<i>input</i>: m1,  <br />
-        <b>In 7</b>: type=<i>input</i>: m2,  <br />
+        <b>In 1</b>: type=<i>input</i>: v0, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: a1, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: a2, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: a3, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: m0, <i></i> <br />
+        <b>In 6</b>: type=<i>input</i>: m1, <i></i> <br />
+        <b>In 7</b>: type=<i>input</i>: m2, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -120,14 +137,14 @@
     </entry>
     <entry name="svfSectionReset ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: v0,  <br />
-        <b>In 2</b>: type=<i>input</i>: a1,  <br />
-        <b>In 3</b>: type=<i>input</i>: a2,  <br />
-        <b>In 4</b>: type=<i>input</i>: a3,  <br />
-        <b>In 5</b>: type=<i>input</i>: m0,  <br />
-        <b>In 6</b>: type=<i>input</i>: m1,  <br />
-        <b>In 7</b>: type=<i>input</i>: m2,  <br />
-        <b>In 8</b>: type=<i>input</i>: reset,  <br />
+        <b>In 1</b>: type=<i>input</i>: v0, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: a1, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: a2, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: a3, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: m0, <i></i> <br />
+        <b>In 6</b>: type=<i>input</i>: m1, <i></i> <br />
+        <b>In 7</b>: type=<i>input</i>: m2, <i></i> <br />
+        <b>In 8</b>: type=<i>input</i>: reset, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
 
@@ -135,8 +152,8 @@
     </entry>
     <entry name="svfSectionOnePole ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x,  <br />
-        <b>In 2</b>: type=<i>input</i>: g,  <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: g, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />
@@ -145,14 +162,14 @@
     </entry>
     <entry name="svfSectionStereo ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: xL,  <br />
-        <b>In 2</b>: type=<i>input</i>: xR,  <br />
-        <b>In 3</b>: type=<i>input</i>: a1,  <br />
-        <b>In 4</b>: type=<i>input</i>: a2,  <br />
-        <b>In 5</b>: type=<i>input</i>: a3,  <br />
-        <b>In 6</b>: type=<i>input</i>: m0,  <br />
-        <b>In 7</b>: type=<i>input</i>: m1,  <br />
-        <b>In 8</b>: type=<i>input</i>: m2,  <br />
+        <b>In 1</b>: type=<i>input</i>: xL, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: xR, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: a1, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: a2, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: a3, <i></i> <br />
+        <b>In 6</b>: type=<i>input</i>: m0, <i></i> <br />
+        <b>In 7</b>: type=<i>input</i>: m1, <i></i> <br />
+        <b>In 8</b>: type=<i>input</i>: m2, <i></i> <br />
 
         <b>Return 1</b>: ,  <br />
         <b>Return 2</b>: ,  <br />

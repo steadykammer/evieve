@@ -4,7 +4,7 @@
         "parent": "evi_zeroxoscnoise",
         "category": "evieve",
         "tilde": "~",
-        "digest": "An automatic crossfading via audio analysis oscillators / noise source used in vocoders",
+        "digest": "An automatic crossfading oscillators / noise source via audio analysis, used in vocoders",
         "description": "TEXT_HERE",
         "discussion": ""
     },
