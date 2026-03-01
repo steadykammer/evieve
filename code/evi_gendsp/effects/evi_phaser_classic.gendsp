@@ -1,0 +1,157 @@
+{
+    "patcher": {
+        "fileversion": 1,
+        "appversion": {
+            "major": 9,
+            "minor": 2,
+            "revision": 0,
+            "architecture": "x64",
+            "modernui": 1
+        },
+        "classnamespace": "dsp.gen",
+        "rect": [ 21.0, 85.0, 1096.0, 848.0 ],
+        "gridonopen": 2,
+        "lefttoolbarpinned": 2,
+        "toptoolbarpinned": 2,
+        "righttoolbarpinned": 2,
+        "bottomtoolbarpinned": 1,
+        "toolbars_unpinned_last_save": 7,
+        "subpatcher_template": "sub",
+        "integercoordinates": 1,
+        "boxes": [
+            {
+                "box": {
+                    "id": "obj-9",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 895.0, 807.0, 159.0, 22.0 ],
+                    "text": "out 4 (signal) Right LFO 0..1"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-8",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 706.0, 807.0, 151.0, 22.0 ],
+                    "text": "out 3 (signal) Left LFO 0..1"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-7",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 378.0, 807.0, 165.0, 22.0 ],
+                    "text": "out 2 (signal) Right Audio Out"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-5",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 871.0, 19.0, 183.0, 22.0 ],
+                    "text": "in 3 (signal) Reset Phases Naive"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-1",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 49.0, 19.0, 141.0, 22.0 ],
+                    "text": "in 1 (signal) Left Audio In"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-2",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 542.0, 19.0, 149.0, 22.0 ],
+                    "text": "in 2 (signal) Right Audio In"
+                }
+            },
+            {
+                "box": {
+                    "code": "\nrequire(\"evi_svfs_tpt_filters.genexpr\");\nrequire(\"evi_crossovers.genexpr\");\nrequire(\"evi_waveshaping.genexpr\");\nrequire(\"evi_counting.genexpr\");\nrequire(\"evi_lfo.genexpr\");\nrequire(\"evi_adaa.genexpr\");\n\nParam\trate(0.5, min=0, max=1);\nParam\tdepth(0.75, min=0, max=1);\nParam\tcenter(0.52, min=0, max=1);\nParam\tspread(0.222, min=0, max=1);\n\nParam\tlink(2.4, min=0.25, max=4);\nParam\tduty(0.4, min=0, max=1);\nParam\tshape(0.5, min=0, max=1);\nParam\tskew(1.2, min=0.5, max=2);\n\nParam\tcrossover(104., min=10, max=1000);\t// hz\nParam\tfilter(1, min=0, max=1);\t        // pre filter off / on\nParam\tfiltermod(1, min=0, max=1);\t        // pre filter modulation system off/on\nParam\tresonance(0.62, min=0, max=1);\nParam\tzeroreset(0, min=0, max=1);\nParam\tsmooth(22.666, min=0, max=226);\t    // ms\nParam\tdrywet(sqrt1_2, min=0, max=1);\nParam\tfeedback(0., min=-1, max=1);\t    // linear gain -1..1\nParam\tfeedbackcross(0., min=0, max=1);\n\nHistory\tdryL(0), dryR(0);\t                // align\nHistory circuitL(0), circuitR(0);\n\nHistory prevNum(8);\nData\tallpassCascade(16, 4);\t// just change dim() for different available number of stages\nParam\tstages(8);\nmaxSections = dim(allpassCascade);\nnumSections = clamp(int(stages), 1, maxSections);\nsmoothsecs\t= smooth*0.001;\nswitchsamps = mstosamps(226);\nfilte\t\t= int(filter);\n\n// SCALE\r\n\nrrt = 1 - rate;\nrt  = mtofApproxBaseless(rrt*rrt * -92);    // hz\ncn  = (center * 120) + 10;\nd2  = minimum((depth * 60), (131 - cn));\ndp  = minimum(d2, ((cn + 0.3) - 8.7));      // + 1;\n\r\n// SMOOTH\r\n\nreset = delta(in3) < 0;\nspeedScale, depthScale, centerScale, spreadScale, subScale = logsmoothBank5(rt, dp, cn, spread*0.5, link, smoothsecs);\ndutyScale, shapeScale, skewScale = expsmoothBank3(duty, shape, skew, smoothsecs*sqrt1_2);\nxover, prefiltres, drywetmix = expsmoothBank3(crossover, resonance, drywet, smoothsecs);\nfbgain, fbcross = logsmoothBank2(feedback, feedbackcross, smoothsecs*sqrt2);\nprefiltmod = eviLine(int(filtermod) * filte, switchsamps);\nfilt = eviLine(filte, switchsamps);\n\r\n// PHASES\r\n\nthisphasor, thisrate, currenthz, currentrate, syncphasor, syncrate = eviPhasorRate0(speedScale, subScale, reset, mode=zeroreset);\nphasor2 = wrap(thisphasor + spreadScale, 0, 1);\npsync2 = delta(abs(phasor2)) < 0;\nrate2 = wrap(thisrate + spreadScale, 0, 1);\nrsync2 = delta(abs(rate2)) < 0;\n\r\n// LFOS\r\n\ndepthScale2 = depthScale + 1;\nlfoL = lfoCalc(thisphasor, dutyScale, shapeScale, skewScale);\nlfoR = lfoCalc(phasor2, dutyScale, shapeScale, skewScale);\ncfMin = (-depthScale2 + centerScale);\ncfMax = (depthScale2 + centerScale);\ncfL = eviMap(lfoL, 0, 1, cfMin, cfMax);\ncfR = eviMap(lfoR, 0, 1, cfMin, cfMax);\n\ncenterFilt = centerScale - 3;\npfL = centerFilt;\npfR = centerFilt;\nif (prefiltmod > 0) {\n\tdepthFilt = (depthScale * 0.583318) + 1;\t// semitones 1..36\n\tpfoL = lfoCalc(thisrate, dutyScale, shapeScale, skewScale);\n\tpfoR = lfoCalc(rate2, dutyScale, shapeScale, skewScale);\n\tpfMin = (-depthFilt + centerFilt);\n\tpfMax = (depthFilt + centerFilt);\n\tpfL = eviMap(pfoL, 0, 1, pfMin, pfMax);\n\tpfR = eviMap(pfoR, 0, 1, pfMin, pfMax);\n\tpfL = mix(centerFilt, pfL, prefiltmod);\n\tpfR = mix(centerFilt, pfR, prefiltmod);\n}\n\nQ = 3.068;//3.068;\t// Q should be static\ngL, rL, hL, _cLL, cBL, _cHL = tptSvfCoeffAllpassNorm(cfL, Q);\t// 3.068 ?\ngR, rR, hR, _cLR, cBR, _cHR = tptSvfCoeffAllpassNorm(cfR, Q);\n\r\n// INPUTS\r\n\nxL      = in1;\nxR      = in2;\ndryL    = xL;\ndryR    = xR;\n// xover\nxoverLowL, xoverLowR, wetInL, wetInR = eviXover4pole2bandStereo(xL, xR, xover);\n\r\n// PHASER\r\n\nallpassL = circuitL;\nallpassR = circuitR;\n// allpass cascade\nfor (j = 0; j < numSections; j += 1) {\n\tap1iL = peek(allpassCascade, j, 0);\n\tap2iL = peek(allpassCascade, j, 1);\n\tap1iR = peek(allpassCascade, j, 2);\n\tap2iR = peek(allpassCascade, j, 3);\n\n\tallpassL, ap1oL, ap2oL = tptAllpassCascade(allpassL, gL, rL, hL, cBL, ap1iL, ap2iL);\n\tallpassR, ap1oR, ap2oR = tptAllpassCascade(allpassR, gR, rR, hR, cBR, ap1iR, ap2iR);\n\n\tpoke(allpassCascade, ap1oL, j, 0);\n\tpoke(allpassCascade, ap2oL, j, 1);\n\tpoke(allpassCascade, ap1oR, j, 2);\n\tpoke(allpassCascade, ap2oR, j, 3);\n}\nif (prevNum != numSections) { // should be before cascade ?\n\t// zero remainder\n\tfor (k = numSections; k < maxSections; k += 1) {\n\t\tpoke(allpassCascade, 0, k, 0);\n\t\tpoke(allpassCascade, 0, k, 1);\n\t\tpoke(allpassCascade, 0, k, 2);\n\t\tpoke(allpassCascade, 0, k, 3);\n\t}\n\tprevNum = numSections;\n}\n\n// LOW END\n\nlowMono = (xoverLowL + xoverLowR) * sqrt1_2;\nlowSat  = polySat(lowMono) * sqrt1_2;\n\n// OUTPUTS\n\nwetL    = lowSat + allpassL;\nwetR    = lowSat + allpassR;\n\n// xfade dry / wet & output\noutputL, outputR = xfadeQuartApproxStereo(dryL, dryR, wetL, wetR, drywetmix);\n\nout1 = outputL;\nout2 = outputR;\n\n// FEEDBACK\n\nfbL = altTanhSqrtAdaa1(allpassL);// * fbgain;\nfbR = altTanhSqrtAdaa1(allpassR);// * fbgain;\r\nfbL = fbL * fbgain;\nfbR = fbR * fbgain;\nfbL, fbR = xfadeQuartApproxSwap(fbL, fbR, fbcross);\n\n// NONLIN / PRE FILTER\n\npreFilterL = wetInL;\npreFilterR = wetInR;\nif (filt > 0) {\n\tpreFilterL = evi_korgms20_select(wetInL, mtofApproxBaseless(pfL), prefiltres);\n\tpreFilterR = evi_korgms20_select(wetInR, mtofApproxBaseless(pfR), prefiltres);\n\tpreFilterL = mix(wetInL, preFilterL, filt);\n\tpreFilterR = mix(wetInR, preFilterR, filt);\n}\n\n// WRITE\n\ncircuitL = preFilterL + fbL;\ncircuitR = preFilterR + fbR;\n\nout3 = lfoL;\r\nout4 = lfoR;\r\n\r\n",
+                    "fontface": 0,
+                    "fontname": "<Monospaced>",
+                    "fontsize": 12.0,
+                    "id": "obj-3",
+                    "maxclass": "codebox",
+                    "numinlets": 3,
+                    "numoutlets": 4,
+                    "outlettype": [ "", "", "", "" ],
+                    "patching_rect": [ 49.0, 58.0, 1005.0, 732.0 ]
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-4",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 49.0, 807.0, 157.0, 22.0 ],
+                    "text": "out 1 (signal) Left Audio Out"
+                }
+            }
+        ],
+        "lines": [
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 0 ],
+                    "source": [ "obj-1", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 1 ],
+                    "source": [ "obj-2", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-4", 0 ],
+                    "source": [ "obj-3", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-7", 0 ],
+                    "source": [ "obj-3", 1 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-8", 0 ],
+                    "source": [ "obj-3", 2 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-9", 0 ],
+                    "midpoints": [ 1044.5, 798.5, 904.5, 798.5 ],
+                    "source": [ "obj-3", 3 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 2 ],
+                    "midpoints": [ 880.5, 49.5, 1044.5, 49.5 ],
+                    "source": [ "obj-5", 0 ]
+                }
+            }
+        ]
+    }
+}

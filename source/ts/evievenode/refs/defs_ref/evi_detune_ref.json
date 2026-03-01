@@ -1,0 +1,235 @@
+{
+    "object": {
+        "name": "evi.detune~",
+        "parent": "evi_detune",
+        "category": "evieve",
+        "tilde": "~",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE",
+        "discussion": ""
+    },
+    "metadata": {
+        "author": "Pete Dowling",
+        "tags": []
+    },
+    "includes": [
+        "evi_smooth.genexpr",
+        "evi_waveshaping.genexpr",
+        "evi_crossovers.genexpr",
+        "evi_butterworth.genexpr",
+        "evi_svfs_tpt.genexpr",
+        "evi_adaa.genexpr"
+    ],
+    "inlets": [
+        {
+            "id": 1,
+            "type": "signal",
+            "digest": "Left Audio In",
+            "description": ""
+        },
+        {
+            "id": 2,
+            "type": "signal",
+            "digest": "Right Audio In",
+            "description": ""
+        },
+        {
+            "id": 3,
+            "type": "signal",
+            "digest": "Reset Naive",
+            "description": ""
+        }
+    ],
+    "outlets": [
+        {
+            "id": 1,
+            "type": "signal",
+            "digest": "Left Audio Out",
+            "description": ""
+        },
+        {
+            "id": 2,
+            "type": "signal",
+            "digest": "Right Audio Out",
+            "description": ""
+        },
+        {
+            "id": 3,
+            "type": "signal",
+            "digest": "Phase in Samples",
+            "description": ""
+        }
+    ],
+    "messages": [
+        {
+            "name": "history",
+            "arg": [
+                {
+                    "name": "circuitL",
+                    "type": "int",
+                    "units": "default: 0",
+                    "optional": 1
+                },
+                {
+                    "name": "circuitR",
+                    "type": "int",
+                    "units": "default: 0",
+                    "optional": 1
+                }
+            ],
+            "digest": "Top level gen~ [history] / History() declarations can be reset by messages to the object",
+            "description": ""
+        }
+    ],
+    "attributes": [
+        {
+            "name": "detune",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "1",
+                "value": "0.3"
+            }
+        },
+        {
+            "name": "drywet",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "1",
+                "value": "sqrt1_2"
+            }
+        },
+        {
+            "name": "feedback",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "-1",
+                "max": "1",
+                "value": "0"
+            }
+        },
+        {
+            "name": "latency",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "4",
+                "value": "4"
+            }
+        },
+        {
+            "name": "mix",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "1",
+                "value": "0.9"
+            }
+        },
+        {
+            "name": "postfilterfrequency",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "1000",
+                "max": "samplerate*0.49",
+                "value": "16000"
+            }
+        },
+        {
+            "name": "prefilterbandwidth",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "1",
+                "value": "0.5"
+            }
+        },
+        {
+            "name": "prefilterfrequency",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "125",
+                "max": "16000",
+                "value": "8000"
+            }
+        },
+        {
+            "name": "prefiltermorph",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "1",
+                "value": "0"
+            }
+        },
+        {
+            "name": "smooth",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "333",
+                "value": "22"
+            }
+        },
+        {
+            "name": "window",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "5",
+                "value": "4"
+            }
+        },
+        {
+            "name": "xover",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "125",
+                "max": "1000",
+                "value": "250"
+            }
+        }
+    ],
+    "example": {
+        "caption": "",
+        "image": ""
+    },
+    "seealso": []
+}

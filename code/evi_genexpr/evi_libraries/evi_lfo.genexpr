@@ -1,16 +1,16 @@
 
-require("evi_smooth.genexpr");
+// require("evi_smooth.genexpr");
 require("evi_sources.genexpr");
 
 // ---
 
-// sadly this is a repeat from "evi_fastskew.genexpr" to avoid another require
+// next three are a repeat from "evi_fastskew.genexpr" to avoid another require
 
 // negative only
 fastskewlfo052neg(x, skewneg)				// !! skewneg must be clamped 0.5..1 !!
 {
 	sk5	= skewneg - 0.5;
-	return mix(sqrt(x), x, sk5 + sk5);	// Alex and I hate mix(), but sadly it is a tiny bit cheaper
+	return mix(sqrt(x), x, sk5 + sk5);	    // Alex and I hate mix(), but sadly it is a tiny bit cheaper
 }
 
 // positive only, generally positive is far less accurate in terms of pow(), especially for greater ranges
@@ -20,7 +20,7 @@ fastskewlfo052pos(x, skewpos)				// !! skewpos must be clamped 1..2 !!
 }
 
 // pow(x, 0.5..2), audio rate version (branch, only compute neccessary)
-// a branch to select between a sqrt & a multiply does not make much difference for audio rate
+// a branch to select between a sqrt & a multiply does not make much difference ?
 fastskewlfo052ar(x, skew)					// !! skew must be clamped 0.5..2 !!
 {
 	y = 0;
@@ -33,6 +33,7 @@ fastskewlfo052ar(x, skew)					// !! skew must be clamped 0.5..2 !!
 }
 
 // thanks Alex
+// lfo morphable between tri and sine with added skew, phase 0..1 in, wave 0..1 out
 lfoCalc(phase, duty, shape, skew)	// input phase must be wrapped 0..1 (for tri phase)
 {
     tri = (phase < duty) ? (phase / duty) : (1 - phase) / (1 - duty);
@@ -40,11 +41,13 @@ lfoCalc(phase, duty, shape, skew)	// input phase must be wrapped 0..1 (for tri p
    	sine = (sphase > 0.5) ? sphase - 1 : sphase;
     sine = sine * (4 - (abs(sine) * 8)) + 0.5;
 
-    return fastskewlfo052ar(interp(shape, tri, sine), skew);
+    // return fastskewlfo052ar(interp(shape, tri, sine), skew);
+    return fastskewlfo052ar(mix(tri, sine, shape), skew);
 }
 
 // ---
 
+// cheap and dirty approx, good enough for lfos
 tanhC(x)
 {
 	x = clip(x, -3, 3);
@@ -76,7 +79,7 @@ lfoShapes01(phase, sync, width, wave)
     else if (wave == 6) {       // square
         sr20 = samplerate * 0.02;
         lfo = phase > width;
-        lfo = eviRampsmooth(lfo, sr20, sr20);
+        lfo = evi_rampsmooth(lfo, sr20, sr20);
     }
     else if (wave > 6) {
         n = noise();
@@ -84,7 +87,7 @@ lfoShapes01(phase, sync, width, wave)
             sr10 = samplerate * 0.01;
             sr20 = sr10 + sr10;
             lfo = (latch(n, sync) * 0.5) + 0.5;
-            lfo = eviRampsmooth(lfo, sr20, sr10);
+            lfo = evi_rampsmooth(lfo, sr20, sr10);
         }
         else if (wave == 8) {   // random linear
             lfo = (eviRandN(phase, n) * 0.5) + 0.5;
@@ -92,7 +95,7 @@ lfoShapes01(phase, sync, width, wave)
         else if (wave == 9) {   // random cubic
             lfo = (eviRandyN(phase, n) * 0.5) + 0.5;
         }
-        else {                  // white noise
+        else {                  // 10=white noise
             lfo = (n * 0.5) + 0.5;
         }
     }
@@ -123,7 +126,7 @@ lfoShapes11(phase, sync, width, wave)  //  width 0..1
     else if (wave == 6) {       // square
         sr20 = samplerate * 0.02;
         lfo = phase > width;
-        lfo = (eviRampsmooth(lfo, sr20, sr20) * 2) - 1;
+        lfo = (evi_rampsmooth(lfo, sr20, sr20) * 2) - 1;
     }
     else if (wave > 6) {
         n = noise();
@@ -131,7 +134,7 @@ lfoShapes11(phase, sync, width, wave)  //  width 0..1
             sr10 = samplerate * 0.01;
             sr20 = sr10 + sr10;
             lfo = latch(n, sync);
-            lfo = eviRampsmooth(lfo, sr20, sr10);
+            lfo = evi_rampsmooth(lfo, sr20, sr10);
         }
         else if (wave == 8) {   // random linear
             lfo = eviRandN(phase, n);
@@ -139,7 +142,7 @@ lfoShapes11(phase, sync, width, wave)  //  width 0..1
         else if (wave == 9) {   // random cubic
             lfo = eviRandyN(phase, n);
         }
-        else {                  // white noise
+        else {                  // 10=white noise
             lfo = n;
         }
     }

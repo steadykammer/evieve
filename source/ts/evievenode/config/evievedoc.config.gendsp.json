@@ -133,7 +133,9 @@
                 "gentab": true,
                 "genexprtab": true,
                 "areaonly": false,
-                "areas": ["noise"]
+                "areas": [
+                    "noise"
+                ]
             },
             "db": {
                 "browser": true,
@@ -1104,6 +1106,28 @@
                 "auto": true
             }
         },
+        "evi_detune.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.detune~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "helpfile": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": false,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
         "evi_dfm.gendsp": {
             "define": {
                 "object": false,
@@ -1805,7 +1829,9 @@
                 "gentab": true,
                 "genexprtab": true,
                 "areaonly": false,
-                "areas": ["noise"]
+                "areas": [
+                    "noise"
+                ]
             },
             "db": {
                 "browser": true,
@@ -3115,7 +3141,9 @@
                 "gentab": false,
                 "genexprtab": false,
                 "areaonly": false,
-                "areas": ["noise"]
+                "areas": [
+                    "noise"
+                ]
             },
             "db": {
                 "browser": false,
@@ -3137,7 +3165,9 @@
                 "gentab": true,
                 "genexprtab": true,
                 "areaonly": false,
-                "areas": ["noise"]
+                "areas": [
+                    "noise"
+                ]
             },
             "db": {
                 "browser": true,
@@ -4046,7 +4076,9 @@
                 "gentab": true,
                 "genexprtab": true,
                 "areaonly": false,
-                "areas": ["noise"]
+                "areas": [
+                    "noise"
+                ]
             },
             "db": {
                 "browser": true,
@@ -4180,7 +4212,9 @@
                 "gentab": true,
                 "genexprtab": true,
                 "areaonly": false,
-                "areas": ["noise"]
+                "areas": [
+                    "noise"
+                ]
             },
             "db": {
                 "browser": true,
