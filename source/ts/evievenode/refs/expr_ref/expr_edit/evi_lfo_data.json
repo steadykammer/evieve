@@ -86,7 +86,7 @@
         {
             "document": true,
             "digest": "",
-            "name": "lfoCalc",
+            "name": "lfoMix",
             "inputs": [
                 {
                     "id": 1,

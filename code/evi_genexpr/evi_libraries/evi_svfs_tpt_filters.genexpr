@@ -230,7 +230,7 @@ tptSvfCoeffAllpassNorm(cutoff, Q)		// !! no "gain" used in this filter
 	return	g, r, h, cL, cB, cH;
 }
 
-// filter sections (individual sections for use in gen~/GenExpr)
+//	//	//	filter sections (individual sections for use in gen~/GenExpr)
 
 eviFilterLowpass(x, cutoff, db, Q, smooth=0)	// gain in dB, smooth time in ms
 {
@@ -624,6 +624,22 @@ eviFilterAllpassNormStereo(xL, xR, cutoff, Q, smooth=0)
 	allpassL	= yLL + (yBL * cB) + yHL;
 	allpassR	= yLR + (yBR * cB) + yHR;
 	return 		allpassL, allpassR;
+}
+
+tptSvfAllpass(x, g, r, h, cB)
+{
+	yL, yB, yH = tptSvf(x, g, r, h);
+	allpass = yL + (yB * cB) + yH;
+	return allpass;
+}
+
+tptSvfAllpassStereo(xL, xR, gL, rL, hL, cBL, gR, rR, hR, cBR)
+{
+	yLL, yBL, yHL = tptSvf(xL, gL, rL, hL);
+	yLR, yBR, yHR = tptSvf(xR, gR, rR, hR);
+	allpassL = yLL + (yBL * cBL) + yHL;
+	allpassR = yLR + (yBR * cBR) + yHR;
+	return allpassL, allpassR;
 }
 
 // made for static Q only (no smoothing of r*)

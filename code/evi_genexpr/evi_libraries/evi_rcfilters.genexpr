@@ -53,6 +53,23 @@ rcFilterLpApHp(Vin, g)
 	return	  VoutLp, VoutLp - Hp, Hp;
 }
 
+rcFilterAllpass(Vin, g)
+{
+	History	  s(0);
+	VoutLp	= (g * Vin + s) / (g + 1);
+	s		= (VoutLp + VoutLp) - s;
+	Hp		= Vin - VoutLp;
+	return	  VoutLp - Hp;
+}
+
+rcFilterAllpassCascade(Vin, g, s0)
+{
+	VoutLp	= (g * Vin + s0) / (g + 1);
+	s1		= (VoutLp + VoutLp) - s0;
+	Hp		= Vin - VoutLp;
+	return	  VoutLp - Hp, s1;
+}
+
 // dual bandpass version, one in one out
 rcFilterBandpass(xp, glp, ghp)
 {

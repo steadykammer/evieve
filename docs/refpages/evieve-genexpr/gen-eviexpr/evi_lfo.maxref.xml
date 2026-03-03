@@ -45,7 +45,7 @@
 
       </description>
     </entry>
-    <entry name="lfoCalc ( )">
+    <entry name="lfoMix ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: phase, <i></i> <br />
         <b>In 2</b>: type=<i>input</i>: duty, <i></i> <br />

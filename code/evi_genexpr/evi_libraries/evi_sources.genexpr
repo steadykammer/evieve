@@ -195,3 +195,82 @@ eviRandLfo(hz, skew, reset)		// skew must be clamped -1..1
 	return 	(dynamicAtten / attenuate), x;
 }
 
+// ---
+
+// a strange series of functions for adding noise shaping to analog processors
+// heavily based on an idea by my friend Alex Harker
+
+opIIR(x, c)							// basic 6dB onepole for averaging
+{
+	History y1(0);
+
+	T  = 1 / samplerate;
+	b0 = T / (c * 0.01 + T);		// compander smoothing
+	a1 = 1 - b0;
+	y1 = (x * b0) + (y1 * a1);
+
+	return y1;
+}
+
+levelDetect(x, d, mode)				// very basic, but cheap(ish)
+{
+	History lddummy(0);
+	
+	level = 0;
+	if 				(mode == 1) {	// onepole
+		level = opIIR(x, d);
+	} else if 		(mode == 2) {	// rms
+		level = sqrt(opIIR((x * x), d));
+	} else {	//	(mode == 0)
+		level = abs(x);				// absolute
+	}
+	return level;
+}
+
+integrateN(o1, o2, y1, y2)
+{
+	return (y1 + ((o1 + o2) * (y2 - y1) / 2)) * (o2 - o1);
+}
+
+leakyIntegrateN(o1, o2, o3, y1, y2, amount)
+{
+	val  = integrateN(o1, o2, y1, y2);
+	val += integrateN(o2, o3, y1, y2) * amount;
+
+	return val / (1 + amount);
+}
+
+noiseGenerate(flav, loss, d, mode)
+{
+	History ngdummy(0);
+	
+	ns = (noise() + 1) * 0.5;
+	ratio = evi_map(fastpow(ns, flav), 0, 1, loss * 0.01, loss);
+	gainMod = 1 / (1 - (levelDetect(ratio, d, mode)));
+
+	return ratio, gainMod;
+}
+
+lossinessN(loss, flavour, d, mode)		// 'flavour' 0..1
+{
+	History lndummy(0);
+
+	flav  = fastpow(1.8, flavour);	
+	ratio, gainMod = noiseGenerate(flav, loss, d, mode);
+
+	return ratio, gainMod;
+}
+
+lossinessN2(loss, flavour, d, mode)		// 'flavour' 0..1
+{
+	History lndummy2(0);
+
+	flav  = fastpow(1.8, flavour);	
+	ratio1, gainMod1 = noiseGenerate(flav, loss, d, mode);
+	ratio2, gainMod2 = noiseGenerate(flav, loss, d, mode);
+
+	return ratio1, ratio2, gainMod1, gainMod2;
+}
+
+// ---
+

@@ -80,7 +80,7 @@ fastskewlfo052ar(x, skew)					// !! skew must be clamped 0.5..2 !!
 }
 
 // thanks Alex
-lfoCalc(phase, duty, shape, skew)	// input phase must be wrapped 0..1 for tri phase
+lfoMix(phase, duty, shape, skew)	// input phase must be wrapped 0..1 for tri phase
 {
     tri = (phase < duty) ? (phase / duty) : (1 - phase) / (1 - duty);
 
@@ -102,7 +102,7 @@ oneMod2(modFreq, modDepth, modOffset, modDuty, modShape, modSkew)
 {
 	History 	onemod2dummy(0);
 	modPhase	= wrap(phasor(modFreq) + modOffset, 0, 1);
-	return		(lfoCalc(modPhase, modDuty, modShape, modSkew) * (modDepth + modDepth)) - modDepth;
+	return		(lfoMix(modPhase, modDuty, modShape, modSkew) * (modDepth + modDepth)) - modDepth;
 }
 
 delmod2(delay1, delay2, rate, depth, offset1, offset2)

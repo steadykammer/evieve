@@ -1576,8 +1576,8 @@
             "type": "FunctionDeclaration",
             "id": {
                 "type": "Identifier",
-                "name": "lfoCalc",
-                "raw": "lfoCalc"
+                "name": "lfoMix",
+                "raw": "lfoMix"
             },
             "params": [
                 {
@@ -2231,8 +2231,8 @@
                                     ],
                                     "callee": {
                                         "type": "Identifier",
-                                        "name": "lfoCalc",
-                                        "raw": "lfoCalc"
+                                        "name": "lfoMix",
+                                        "raw": "lfoMix"
                                     }
                                 },
                                 "right": {
