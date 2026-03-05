@@ -1,0 +1,174 @@
+{
+    "patcher": {
+        "fileversion": 1,
+        "appversion": {
+            "major": 9,
+            "minor": 2,
+            "revision": 0,
+            "architecture": "x64",
+            "modernui": 1
+        },
+        "classnamespace": "dsp.gen",
+        "rect": [ 435.0, 87.0, 1077.0, 848.0 ],
+        "gridonopen": 2,
+        "lefttoolbarpinned": 2,
+        "toptoolbarpinned": 2,
+        "righttoolbarpinned": 2,
+        "bottomtoolbarpinned": 1,
+        "toolbars_unpinned_last_save": 7,
+        "subpatcher_template": "sub",
+        "integercoordinates": 1,
+        "boxes": [
+            {
+                "box": {
+                    "id": "obj-6",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 524.0, 807.0, 139.0, 22.0 ],
+                    "text": "out 3 (signal) Hz Current"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-9",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 859.0, 807.0, 159.0, 22.0 ],
+                    "text": "out 5 (signal) LFO Right Out"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-8",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 686.0, 807.0, 151.0, 22.0 ],
+                    "text": "out 4 (signal) LFO Left Out"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-7",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 287.0, 807.0, 165.0, 22.0 ],
+                    "text": "out 2 (signal) Right Audio Out"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-5",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 879.0, 19.0, 139.0, 22.0 ],
+                    "text": "in 3 (signal) Reset Naive"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-1",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 49.0, 19.0, 141.0, 22.0 ],
+                    "text": "in 1 (signal) Left Audio In"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-2",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 524.0, 19.0, 149.0, 22.0 ],
+                    "text": "in 2 (signal) Right Audio In"
+                }
+            },
+            {
+                "box": {
+                    "code": "\r\n// basic tremolo (is there any other kind?) with selection of LFO shapes and saturation, it is strange how useful this can be\r\n\r\nrequire(\"evi_crossovers.genexpr\");\r\nrequire(\"evi_counting.genexpr\");\r\nrequire(\"evi_smooth.genexpr\");\r\nrequire(\"evi_adaa.genexpr\");\r\nrequire(\"evi_lfo.genexpr\");\r\n\r\ntremLfoScale(lfo, depth, invdepth, drive, flow)\r\n{\r\n\tosc = ((lfo * depth) + invdepth) * drive;\r\n\treturn mix(drive, osc, flow);\r\n}\r\n\r\ntremAmpMix(xin, lfomix)\r\n{\r\n    History tamdummy(0);\r\n    trem = dcblock(xin * lfomix);\r\n\treturn altTanhPolyAdaa2(trem);\r\n}\r\n\r\nParam   rate(0.5, min=0, max=1);\r\nParam   depth(0.75, min=0, max=1);\r\nParam   spread(0.25, min=0, max=1);\r\nParam   drive(0.5, min=0, max=1);   // dB 0..10 saturation range\r\n\r\n// bypass, ramp up, ramp down, tri, sine (default), tanh, square, rand step, rand linear, rand cubic, noise\r\nParam   lfowave(4, min=0, max=10);\r\nParam   lfomode(1, min=0, max=1);   // zero reset 0/1\r\nParam   lfowidth(0.5, min=0, max=1);// pwm 0..1\r\nParam   lfoinvert(0, min=0, max=1); // invert waveform 0/1\r\nParam   lfoskew(1., min=0.5, max=2);// exponent 0.5..2\r\nParam   lfoout(1, min=0, max=1);    // outs4&5 0..1 lfos or amplitude scaled lfos 0/1 ?\r\n\r\nParam   maxhz(11., min=0.1, max=40);        // Hz, range of rate param\r\nParam   crossover(63.5, min=10, max=1000);  // Hz, below is mono saturated bass, above is trem\r\nParam   smooth(15.111, min=0, max=151);     // ms\r\nsmoothsecs = smooth * 0.001;\r\nlfoShape = int(lfowave);\r\nlfoMode = int(lfomode);\r\nlfoInv = int(lfoinvert);\r\nlfoOut = int(lfoout);\r\n\r\nlfoWidth, skew, xover = expsmoothBank3((lfowidth * 0.96 + 0.02), lfoskew, crossover, smoothsecs);\r\nfreqIn, depthIn, spreadIn, driveIn = logsmoothBank4((rate*maxhz), depth, spread, dbtoaApprox(drive*drive*10), smoothsecs);\r\nfreqLow = clip(freqIn, 0, 1);\r\ninvDepth = 1 - depthIn;\r\n\r\nphaseL, phaseR, phaseHz, phaseSpread, syncL, syncR = eviPhasorTwo0(freqIn, spreadIn, in3, minimumhz=0.05, mode=lfoMode);\r\n\r\n// only sync if...\r\nwidthL = lfoMode ? latch(lfoWidth, syncL) : lfoWidth;\r\nwidthR = lfoMode ? latch(lfoWidth, syncR) : lfoWidth;\r\n// always sync\r\nwaveL = latch(lfoShape, syncL);\r\nwaveR = latch(lfoShape, syncR);\r\ninvL = latch(lfoInv, syncL);\r\ninvR = latch(lfoInv, syncR);\r\n\r\nlfo01L = lfoShapes01(phaseL, syncL, widthL, waveL);\r\nlfo01R = lfoShapes01(phaseR, syncR, widthR, waveR);\r\n\r\nlfo01L = invL ? 1 - lfo01L : lfo01L;\r\nlfo01R = invR ? 1 - lfo01R : lfo01R;\r\n\r\nlfo01L = fastskewlfo052ar(lfo01L, skew);\r\nlfo01R = fastskewlfo052ar(lfo01R, skew);\r\n\r\nlfomixL = tremLfoScale(lfo01L, depthIn, invDepth, driveIn, freqLow);\r\nlfomixR = tremLfoScale(lfo01R, depthIn, invDepth, driveIn, freqLow);\r\n\r\nlowL, lowR, inL, inR = eviXover2pole2bandStereo(in1, in2, xover);\r\nlowSat = eCubicAdaa1((lowL + lowR) * 0.555);\r\n\r\nout1 = tremAmpMix(inL, lfomixL) + lowSat;\r\nout2 = tremAmpMix(inR, lfomixR) + lowSat;\r\n\r\nout3 = phaseHz;\r\n\r\nout4 = lfoOut ? lfomixL : lfo01L;\r\nout5 = lfoOut ? lfomixR : lfo01R;\r\n\r\n",
+                    "fontface": 0,
+                    "fontname": "<Monospaced>",
+                    "fontsize": 12.0,
+                    "id": "obj-3",
+                    "maxclass": "codebox",
+                    "numinlets": 3,
+                    "numoutlets": 5,
+                    "outlettype": [ "", "", "", "", "" ],
+                    "patching_rect": [ 49.0, 58.0, 969.0, 732.0 ]
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-4",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 49.0, 807.0, 157.0, 22.0 ],
+                    "text": "out 1 (signal) Left Audio Out"
+                }
+            }
+        ],
+        "lines": [
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 0 ],
+                    "source": [ "obj-1", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 1 ],
+                    "source": [ "obj-2", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-4", 0 ],
+                    "source": [ "obj-3", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-6", 0 ],
+                    "source": [ "obj-3", 2 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-7", 0 ],
+                    "source": [ "obj-3", 1 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-8", 0 ],
+                    "midpoints": [ 771.0, 798.5, 695.5, 798.5 ],
+                    "source": [ "obj-3", 3 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-9", 0 ],
+                    "midpoints": [ 1008.5, 798.5, 868.5, 798.5 ],
+                    "source": [ "obj-3", 4 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 2 ],
+                    "midpoints": [ 888.5, 49.5, 1008.5, 49.5 ],
+                    "source": [ "obj-5", 0 ]
+                }
+            }
+        ]
+    }
+}

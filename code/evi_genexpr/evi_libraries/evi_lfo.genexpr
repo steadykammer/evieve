@@ -62,24 +62,26 @@ triC(phase, pwm, times, plus)
 // computed LFOs, phase 0..1 in, wave 0..1 out
 lfoShapes01(phase, sync, width, wave)
 {
+    History ls01dummy(0);
     lfo = 0;
     if ((wave >= 1) && (wave <= 3)) {
         pwm = wave == 3 ? width : (wave == 2 ? 0.04 : 0.96); // 3=triangle, 2=ramp down, 1=ramp up
         lfo = triC(phase, pwm, 1, 0);
     }
     else if ((wave == 4) || (wave == 5)) {
-        sine = parabolWrap(phase);
+        p = wrap(phase, -0.5, 0.5);
         if (wave == 4) {        // sine
-            lfo = (sine * 0.5) + 0.5;
+            lfo = p * (4 - (abs(p) * 8)) + 0.5;
         }
         else {                  // 5=tanh
+            sine = (8 - (abs(p) * 16)) * p;
             lfo = (tanhC(sine * maximum(((width * width) * 8), 0.999999)) * 0.5) + 0.5;
         }
     }
     else if (wave == 6) {       // square
-        sr20 = samplerate * 0.02;
+        sr10 = samplerate * 0.01;
         lfo = phase > width;
-        lfo = evi_rampsmooth(lfo, sr20, sr20);
+        lfo = evi_rampsmooth(lfo, sr10, sr10);
     }
     else if (wave > 6) {
         n = noise();
@@ -87,7 +89,7 @@ lfoShapes01(phase, sync, width, wave)
             sr10 = samplerate * 0.01;
             sr20 = sr10 + sr10;
             lfo = (latch(n, sync) * 0.5) + 0.5;
-            lfo = evi_rampsmooth(lfo, sr20, sr10);
+            lfo = evi_rampsmooth(lfo, sr10, sr20);
         }
         else if (wave == 8) {   // random linear
             lfo = (eviRandN(phase, n) * 0.5) + 0.5;
@@ -109,13 +111,15 @@ lfoShapes01(phase, sync, width, wave)
 // computed LFOs, phase 0..1 in, wave -1..1 out
 lfoShapes11(phase, sync, width, wave)  //  width 0..1
 {
+    History ls11dummy(0);
     lfo = 0;
     if ((wave >= 1) && (wave <= 3)) {
         pwm = wave == 3 ? width : (wave == 2 ? 0.04 : 0.96); // 3=triangle, 2=ramp down, 1=ramp up
         lfo = triC(phase, pwm, 2, -1);
     }
     else if ((wave == 4) || (wave == 5)) {
-        sine = parabolWrap(phase);
+        p = wrap(phase, -0.5, 0.5);
+        sine = (8 - (abs(p) * 16)) * p;
         if (wave == 4) {        // sine
             lfo = sine;
         }
@@ -124,9 +128,9 @@ lfoShapes11(phase, sync, width, wave)  //  width 0..1
         }
     }
     else if (wave == 6) {       // square
-        sr20 = samplerate * 0.02;
+        sr10 = samplerate * 0.01;
         lfo = phase > width;
-        lfo = (evi_rampsmooth(lfo, sr20, sr20) * 2) - 1;
+        lfo = (evi_rampsmooth(lfo, sr10, sr10) * 2) - 1;
     }
     else if (wave > 6) {
         n = noise();
@@ -134,7 +138,7 @@ lfoShapes11(phase, sync, width, wave)  //  width 0..1
             sr10 = samplerate * 0.01;
             sr20 = sr10 + sr10;
             lfo = latch(n, sync);
-            lfo = evi_rampsmooth(lfo, sr20, sr10);
+            lfo = evi_rampsmooth(lfo, sr10, sr20);
         }
         else if (wave == 8) {   // random linear
             lfo = eviRandN(phase, n);

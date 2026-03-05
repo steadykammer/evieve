@@ -47,7 +47,49 @@ eviPhasor0(frequency, reset)    // Hz, Trigger
     return  thisphasor, (freqsign * thisfrequency), thisdelta; // Phasor, Hz, Sync
 }
 
-// these rate() related codes are just taken directly from the Gen source code
+eviPhasorTwo0(freqFree, spreadFree, reset, minimumhz=0.125, mode=1) { // Hz, 0..1, trigger, minimum Hz allows zero so be careful
+
+	History init(1);
+    History t_phase(0), w_sync(0);                  // main phases
+
+    firstfreq   = 0;
+    freqnotzero = delta(change(freqFree)) < 0;
+    if (freqnotzero && init) {
+        firstfreq   = 1;
+        init        = 0;
+    } else {
+        firstfreq   = 0;
+    }
+
+	// for phasor 1 ramp (main)
+	thisPhasor1 = wrap(t_phase, 0, 1);
+	thisPhasor1Sync = (delta(abs(thisPhasor1)) < 0) + firstfreq;
+	freqFreeMul = abs(freqFree);
+	// for phasor 2 ramp (sub)
+	spreadFreeMul = spreadFree * 0.5;
+
+	freqMain, spreadMain = 0;
+	if (mode > 0) {
+		freqMain = latch(maximum(freqFreeMul, minimumhz), (thisPhasor1Sync + reset));
+		spreadMain = latch(spreadFreeMul, w_sync);
+	} else {
+		freqMain = freqFreeMul;
+		spreadMain = spreadFreeMul;
+	}
+
+	freqNorm = freqMain / samplerate;
+	t_phase = reset ? 0 : (thisPhasor1 + freqNorm); // update phasor 1 phase
+
+	resetSpread = clip((reset ? 0 : spreadMain), 0, 0.5);
+	thisPhasor2 = wrap((t_phase + resetSpread), 0, 1);
+
+	w_sync = delta(abs(thisPhasor2)) < 0;			// update phasor 2 sync
+
+	return thisPhasor1, thisPhasor2, freqMain, (spreadMain + spreadMain), thisPhasor1Sync, w_sync;
+    // ramp 1, ramp2, current frequency (Hz), current spread (float 0..1), sync signals
+}
+
+// these rate() related codes below are just taken directly from the Gen source code
 // but so that we can hack them for our own purposes
 
 quantF(f1, f2)

@@ -53,7 +53,7 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 49.0, 13.0, 97.0, 35.0 ],
+                    "patching_rect": [ 49.0, 13.0, 100.0, 35.0 ],
                     "text": "in 1 (signal/float) Input Value"
                 }
             },
@@ -80,6 +80,18 @@
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
                     "patching_rect": [ 49.0, 58.0, 708.0, 603.0 ]
+                }
+            },
+            {
+                "box": {
+                    "hidden": 1,
+                    "id": "obj-4",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 272.0, 678.0, 103.0, 22.0 ],
+                    "text": "history because 0"
                 }
             }
         ],

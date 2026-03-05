@@ -68,6 +68,7 @@ rcFilterAllpassCascade(Vin, g, s0)
 	s1		= (VoutLp + VoutLp) - s0;
 	Hp		= Vin - VoutLp;
 	return	  VoutLp - Hp, s1;
+	// return	(Hp * -1) + VoutLp, s1; 
 }
 
 // dual bandpass version, one in one out

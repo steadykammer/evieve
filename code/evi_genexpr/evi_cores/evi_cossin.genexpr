@@ -248,6 +248,14 @@ parabolApprox(phase)
 	return	y;
 }
 
+// 0..1 output version
+parabolApprox01(phase)
+{
+	x	= wrap(phase, -0.5, 0.5);
+	y	= x * (4 - (abs(x) * 8)) + 0.5;
+	return	y;
+}
+
 cosApprox01(a)		// cosine approximation (0..1 input)
 {
 	p = wrap(a, 0, 1) - 0.75;

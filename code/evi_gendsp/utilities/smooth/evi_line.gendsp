@@ -69,6 +69,18 @@
                     "patching_rect": [ 34.0, 491.0, 186.0, 22.0 ],
                     "text": "out 1 (signal) Exact Output Ramp"
                 }
+            },
+            {
+                "box": {
+                    "hidden": 1,
+                    "id": "obj-6",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 240.0, 491.0, 103.0, 22.0 ],
+                    "text": "history because 0"
+                }
             }
         ],
         "lines": [
