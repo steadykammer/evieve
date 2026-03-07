@@ -1,0 +1,209 @@
+
+// a cheeky and bad file that enables less require dependencies in many .gendsp abstractions
+// it is all repeated from "evi_smooth.genexpr" but without any dependencies
+
+expA(x0)
+{
+	x = 0.999996 + (0.031261316 + (0.00048274797 + 0.000006 * x0) * x0) * x0;
+	x *= x; x *= x; x *= x; x *= x; x *= x;
+	return x;
+}
+
+tauA(t)										// t = seconds
+{
+	y = expA(-1 / (t * samplerate));
+	return y + 0.000128;
+}
+
+// for exp banks
+expso(x, z)									// z is pole
+{
+	History w(0);
+	y = (z * w) + (x * (1 - z));
+	w = y;
+	return y;
+}
+
+expsmoothBank2(x1, x2, t)					// t is smooth time in seconds...
+{
+	History	expsdummy2(0);
+	z		= tauA(t);
+	y1		= expso(x1, z);
+	y2		= expso(x2, z);
+	return	y1, y2;
+}
+
+expsmoothBank3(x1, x2, x3, t)
+{
+	History	expsdummy3(0);
+	z		= tauA(t);
+	y1		= expso(x1, z);
+	y2		= expso(x2, z);
+	y3		= expso(x3, z);
+	return	y1, y2, y3;
+}
+
+expsmoothBank4(x1, x2, x3, x4, t)
+{
+	History	expsdummy4(0);
+	z		= tauA(t);
+	y1		= expso(x1, z);
+	y2		= expso(x2, z);
+	y3		= expso(x3, z);
+	y4		= expso(x4, z);
+	return	y1, y2, y3, y4;
+}
+
+expsmoothBank5(x1, x2, x3, x4, x5, t)
+{
+	History	expsdummy5(0);
+	z		= tauA(t);
+	y1		= expso(x1, z);
+	y2		= expso(x2, z);
+	y3		= expso(x3, z);
+	y4		= expso(x4, z);
+	y5		= expso(x5, z);
+	return	y1, y2, y3, y4, y5;
+}
+
+expsmoothBank6(x1, x2, x3, x4, x5, x6, t)
+{
+	History	expsdummy6(0);
+	z		= tauA(t);
+	y1		= expso(x1, z);
+	y2		= expso(x2, z);
+	y3		= expso(x3, z);
+	y4		= expso(x4, z);
+	y5		= expso(x5, z);
+	y6		= expso(x6, z);
+	return	y1, y2, y3, y4, y5, y6;
+}
+
+expsmoothBank7(x1, x2, x3, x4, x5, x6, x7, t)
+{
+	History	expsdummy7(0);
+	z		= tauA(t);
+	y1		= expso(x1, z);
+	y2		= expso(x2, z);
+	y3		= expso(x3, z);
+	y4		= expso(x4, z);
+	y5		= expso(x5, z);
+	y6		= expso(x6, z);
+	y7		= expso(x7, z);
+	return	y1, y2, y3, y4, y5, y6, y7;
+}
+
+expsmoothBank8(x1, x2, x3, x4, x5, x6, x7, x8, t)
+{
+	History	expsdummy8(0);
+	z		= tauA(t);
+	y1		= expso(x1, z);
+	y2		= expso(x2, z);
+	y3		= expso(x3, z);
+	y4		= expso(x4, z);
+	y5		= expso(x5, z);
+	y6		= expso(x6, z);
+	y7		= expso(x7, z);
+	y8		= expso(x8, z);
+	return	y1, y2, y3, y4, y5, y6, y7, y8;
+}
+
+// for log banks
+logsad(s)									// s = time to drop 6dB (in seconds)
+{
+	return	LN2 / (s * samplerate);
+//	return	LN2 / maximum((s * samplerate), 1);// (0.69314718056 / samples), incl. maximum check
+}
+
+// for log banks
+logso(x, ad)
+{
+	History z(0);
+	y = ((x - z) * ad) + z;
+	z = y;
+	return y;
+}
+
+logsmoothBank2(x1, x2, s)
+{
+	History	logsdummy2(0);
+	ad		= logsad(s);
+	y1		= logso(x1, ad);
+	y2		= logso(x2, ad);
+	return	y1, y2;
+}
+
+logsmoothBank3(x1, x2, x3, s)
+{
+	History	logsdummy3(0);
+	ad		= logsad(s);
+	y1		= logso(x1, ad);
+	y2		= logso(x2, ad);
+	y3		= logso(x3, ad);
+	return	y1, y2, y3;
+}
+
+logsmoothBank4(x1, x2, x3, x4, s)
+{
+	History	logsdummy4(0);
+	ad		= logsad(s);
+	y1		= logso(x1, ad);
+	y2		= logso(x2, ad);
+	y3		= logso(x3, ad);
+	y4		= logso(x4, ad);
+	return	y1, y2, y3, y4;
+}
+
+logsmoothBank5(x1, x2, x3, x4, x5, s)
+{
+	History	logsdummy5(0);
+	ad		= logsad(s);
+	y1		= logso(x1, ad);
+	y2		= logso(x2, ad);
+	y3		= logso(x3, ad);
+	y4		= logso(x4, ad);
+	y5		= logso(x5, ad);
+	return	y1, y2, y3, y4, y5;
+}
+
+logsmoothBank6(x1, x2, x3, x4, x5, x6, s)
+{
+	History	logsdummy6(0);
+	ad		= logsad(s);
+	y1		= logso(x1, ad);
+	y2		= logso(x2, ad);
+	y3		= logso(x3, ad);
+	y4		= logso(x4, ad);
+	y5		= logso(x5, ad);
+	y6		= logso(x6, ad);
+	return	y1, y2, y3, y4, y5, y6;
+}
+
+logsmoothBank7(x1, x2, x3, x4, x5, x6, x7, s)
+{
+	History	logsdummy7(0);
+	ad		= logsad(s);
+	y1		= logso(x1, ad);
+	y2		= logso(x2, ad);
+	y3		= logso(x3, ad);
+	y4		= logso(x4, ad);
+	y5		= logso(x5, ad);
+	y6		= logso(x6, ad);
+	y7		= logso(x7, ad);
+	return	y1, y2, y3, y4, y5, y6, y7;
+}
+
+logsmoothBank8(x1, x2, x3, x4, x5, x6, x7, x8, s)
+{
+	History	logsdummy8(0);
+	ad		= logsad(s);
+	y1		= logso(x1, ad);
+	y2		= logso(x2, ad);
+	y3		= logso(x3, ad);
+	y4		= logso(x4, ad);
+	y5		= logso(x5, ad);
+	y6		= logso(x6, ad);
+	y7		= logso(x7, ad);
+	y8		= logso(x8, ad);
+	return	y1, y2, y3, y4, y5, y6, y7, y8;
+}

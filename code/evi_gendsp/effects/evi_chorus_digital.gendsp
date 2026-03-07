@@ -9,7 +9,7 @@
             "modernui": 1
         },
         "classnamespace": "dsp.gen",
-        "rect": [ 17.0, 82.0, 1096.0, 848.0 ],
+        "rect": [ 17.0, 82.0, 1156.0, 848.0 ],
         "gridonopen": 2,
         "lefttoolbarpinned": 2,
         "toptoolbarpinned": 2,
@@ -25,7 +25,7 @@
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 893.0, 807.0, 159.0, 22.0 ],
+                    "patching_rect": [ 947.0, 807.0, 159.0, 22.0 ],
                     "text": "out 4 (signal) LFO Right Out"
                 }
             },
@@ -35,7 +35,7 @@
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 705.0, 807.0, 151.0, 22.0 ],
+                    "patching_rect": [ 741.0, 807.0, 151.0, 22.0 ],
                     "text": "out 3 (signal) LFO Left Out"
                 }
             },
@@ -45,7 +45,7 @@
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 377.0, 807.0, 165.0, 22.0 ],
+                    "patching_rect": [ 395.0, 807.0, 165.0, 22.0 ],
                     "text": "out 2 (signal) Right Audio Out"
                 }
             },
@@ -56,7 +56,7 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 913.0, 19.0, 139.0, 22.0 ],
+                    "patching_rect": [ 967.0, 19.0, 139.0, 22.0 ],
                     "text": "in 3 (signal) Reset Naive"
                 }
             },
@@ -78,7 +78,7 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 541.0, 19.0, 149.0, 22.0 ],
+                    "patching_rect": [ 568.0, 19.0, 149.0, 22.0 ],
                     "text": "in 2 (signal) Right Audio In"
                 }
             },
@@ -94,7 +94,7 @@
             },
             {
                 "box": {
-                    "code": "\r\n// basic digital chorus / flanger\r\n\r\nrequire(\"evi_crossovers.genexpr\");\r\nrequire(\"evi_counting.genexpr\");\r\nrequire(\"evi_smooth.genexpr\");\r\nrequire(\"evi_adaa.genexpr\");\r\nrequire(\"evi_lfo.genexpr\");\r\n\r\n// dry\r\nDelay   dryDelayL(samplerate*0.41, 1, feedback=0);\r\nDelay   dryDelayR(samplerate*0.41, 1, feedback=0);\r\n// wet\r\nDelay   cfDelayL(samplerate*0.41, 1, feedback=1);\r\nDelay   cfDelayR(samplerate*0.41, 1, feedback=1);\r\n// main\r\nParam\trate(0.5, min=0, max=1);\r\nParam   maxhz(10., min=0, max=100);          // hz\nParam   mintime(1, min=0, max=400);         // ms\nParam   maxtime(20, min=0, max=400);        // ms\r\nParam\tdepth(0.5, min=0, max=1);\nParam\tspread(0.25, min=0, max=1);\n// lfo\nParam\tduty(0.4, min=0, max=1);\nParam\tshape(0.5, min=0, max=1);           // tri..sine 0..1\nParam\tskew(1.2, min=0.5, max=2);          // exponent\nParam\tzeroreset(0, min=0, max=1);         // flag 0/1\n// stages\r\nParam\tstages(4, min=1, max=16);\nParam   warp(0.3, min=-1, max=1);           // -1..1\r\n// mixing\nParam   drywet(0.8, min=0, max=1);          // % 0..1\r\nParam\tcrossover(104., min=10, max=1000);\t// hz\nParam   drydelay(0., min=0, max=1000);      // ms\r\nParam   inject(0.5, min=0, max=1);\r\nParam   invert(0, min=0, max=1);            // flag 0/1\r\nParam\tfeedback(0.5, min=-1, max=1);\t    // linear gain -1..1\r\nParam   feedbackmix(1., min=0, max=1);      // xfade feedback tap between first stage and all stages\nParam\tfeedbackcross(0., min=0, max=1);\nParam   smooth(30.222, min=0, max=302);     // ms\r\nsmoothsecs  = smooth*0.001;\nsmoothsamps = smoothsecs*samplerate;\r\nphaseMode   = int(zeroreset);\r\ninvSign     = (int(invert) > 0) ? -1 : 1;\r\n\r\nnumStages   = int(stages);\r\nattenStages = 1 / numStages;\r\nattenPow    = 1 / fastpow(numStages, 0.662056);\r\n\r\ndelayMin = mintime;\r\ndelayMax = ((maxtime - mintime) * depth) + mintime;\r\ndelayMin = min(delayMin, delayMax);\r\ndelayMax = max(delayMin, delayMax);\r\n\r\nfreqIn, minSamps, maxSamps, spreadIn = logsmoothBank4(rate*maxhz, mstosamps(delayMin), mstosamps(delayMax), spread, smoothsecs);\ndutyScale, shapeScale, skewScale = expsmoothBank3(duty, shape, skew, smoothsecs*sqrt1_2);\r\nfbgain, fbmix, fbcross = logsmoothBank3(feedback, feedbackmix, feedbackcross, smoothsecs*sqrt2);\r\nWarp, xOver, dryDelay, inJect = expsmoothBank4(warp, crossover, drydelay, inject, smoothsecs*0.5);\r\ndryWet = eviSline(drywet, smoothsamps);\r\ndrySamps = sqrt(dryWet) * mstosamps(dryDelay);\r\n\r\nphaseL, phaseR, phaseHz, phaseSpread, syncL, syncR = eviPhasorTwo0(freqIn, spreadIn, in3, minimumhz=0.05, mode=phaseMode);\r\n\r\nlfoL = lfoMix(phaseL, dutyScale, shapeScale, skewScale);\nlfoR = lfoMix(phaseR, dutyScale, shapeScale, skewScale);\n\r\n// first stage\nfirstStageL = cfDelayL.read(mix(minSamps, maxSamps, lfoL), 0, interp=\"spline\");\nfirstStageR = cfDelayR.read(mix(minSamps, maxSamps, lfoR), 0, interp=\"spline\");\r\nsumStageL = firstStageL;\r\nsumStageR = firstStageR;\r\n\r\n// cascade\nfor (j = 1; j < numStages; j += 1) {    // from 1\r\n\tstageOffset = pow((j / numStages), expP(Warp));\r\n\tstagePhaseL = wrap(phaseL + stageOffset, 0, 1);\n\tstagePhaseR = wrap(phaseR + stageOffset, 0, 1);\r\n    stageLfoL = lfoMix(stagePhaseL, dutyScale, shapeScale, skewScale);\n    stageLfoR = lfoMix(stagePhaseR, dutyScale, shapeScale, skewScale);\r\n        \r\n\taddStageL = cfDelayL.read(mix(minSamps, maxSamps, stageLfoL), 0, interp=\"spline\");\r\n\taddStageR = cfDelayR.read(mix(minSamps, maxSamps, stageLfoR), 0, interp=\"spline\");\r\n\t\n    sumStageL += addStageL;\n\tsumStageR += addStageR;\n}\r\n\r\nlowL, lowR, inL, inR = eviXover4pole2bandStereo(in1, in2, xOver);\r\nif (dryWet > 0) {\r\n    lowSat = eCubicAdaa1((lowL + lowR) * 0.555);\r\n    lowL = interp(dryWet, lowL, lowSat, mode=\"cosine\");\r\n    lowR = interp(dryWet, lowR, lowSat, mode=\"cosine\");\r\n}\r\ndryInL = inL;\r\ndryInR = inR;\r\ndryDelayL.write(dryInL, 0);\r\ndryDelayR.write(dryInR, 0);\r\nif (drySamps > 0) { // conflated with drywet\r\n    dryInL = dryDelayL.read(drySamps, 0, interp=\"fastcubic\");\r\n    dryInR = dryDelayR.read(drySamps, 0, interp=\"fastcubic\");\r\n}\r\n\r\nsumStageL *= attenPow;\r\nsumStageR *= attenPow;\r\n\r\nout1 = lowL + xfadeQuartApproxMono(dryInL, (sumStageL * invSign), dryWet);\r\nout2 = lowR + xfadeQuartApproxMono(dryInR, (sumStageR * invSign), dryWet);\r\n\r\ninput1L = interp(inJect, inL, 0, mode=\"cosine\");\r\ninput1R = interp(inJect, inR, 0, mode=\"cosine\");\r\ninput2L = interp(inJect, 0, inL, mode=\"cosine\");\r\ninput2R = interp(inJect, 0, inR, mode=\"cosine\");\r\n\r\nfbL = altTanhSqrtAdaa1(input1L + mix(firstStageL, (sumStageL * attenStages), fbmix)) * fbgain;\nfbR = altTanhSqrtAdaa1(input1R + mix(firstStageR, (sumStageR * attenStages), fbmix)) * fbgain;\r\nfbL, fbR = xfadeQuartApproxSwap(fbL, fbR, fbcross);\n\r\nwriteInL = input2L + fbL;\r\nwriteInR = input2R + fbR;\r\n\r\ncfDelayL.write(fixdenorm(writeInL));\r\ncfDelayR.write(fixdenorm(writeInR));\r\n\r\nout3 = lfoL;\r\nout4 = lfoR;\r\n\r\n",
+                    "code": "\r\n// basic digital chorus / flanger example\r\n\r\nrequire(\"evi_crossovers.genexpr\");\r\nrequire(\"evi_rcfilters.genexpr\");\r\nrequire(\"evi_counting.genexpr\");\r\nrequire(\"evi_smooth.genexpr\");\r\nrequire(\"evi_adaa.genexpr\");\r\nrequire(\"evi_lfo.genexpr\");\r\n\r\n// dry\r\nDelay   dryDelayL(samplerate*0.41, 1, feedback=0);\r\nDelay   dryDelayR(samplerate*0.41, 1, feedback=0);\r\n// wet\r\nDelay   cfDelayL(samplerate*0.41, 1, feedback=1);\r\nDelay   cfDelayR(samplerate*0.41, 1, feedback=1);\r\n// main\r\nParam\trate(0.5, min=0, max=1);\r\nParam   maxhz(2.69, min=0, max=100);        // hz\nParam   mintime(1., min=0, max=200);        // ms\nParam   maxtime(9., min=0, max=200);        // ms\r\nParam\tdepth(0.5, min=0, max=1);\nParam\tspread(0.5, min=0, max=1);\n// lfo\nParam\tduty(0.4, min=0, max=1);\nParam\tshape(0.5, min=0, max=1);           // tri..sine 0..1\nParam\tskew(1.2, min=0.5, max=2);          // exponent\nParam\tzeroreset(0, min=0, max=1);         // flag 0/1\n// stages\r\nParam\tstages(4, min=1, max=16);\nParam   warp(0.5, min=-1, max=1);           // -1..1\r\n// mixing\r\nParam   pregain(3., min=-10, max=10);       // dB -10..10\r\nParam   postgain(0., min=-10, max=10);      // dB -10..10\nParam   drywet(0.5, min=0, max=1);          // % 0..1\r\nParam\tcrossover(104., min=10, max=1000);\t// hz\nParam   drydelay(0., min=0, max=1000);      // ms\r\nParam   inject(0.5, min=0, max=1);\r\nParam   invert(0, min=0, max=1);            // flag 0/1\r\nParam\tfeedback(0.5, min=-1, max=1);\t    // linear gain -1..1\r\nParam   feedbackmix(0.5, min=0, max=1);     // xfade feedback tap between first stage and all stages\nParam\tfeedbackcross(0., min=0, max=1);\r\nParam   tone(0.5, min=0, max=1);\nParam   smooth(30.222, min=0, max=302);     // ms\r\nsmoothsecs  = smooth*0.001;\nsmoothsamps = smoothsecs*samplerate;\r\nphaseMode   = int(zeroreset);\r\ninvSign     = (int(invert) > 0) ? -1 : 1;\r\n\r\nnumStages   = int(stages);\r\nattenstages = 1 / numStages;\r\nattenpow    = 1 / fastpow(numStages, 0.662056);\r\n\r\ndelayMin = mintime;\r\ndelayMax = ((maxtime - mintime) * depth) + mintime;\r\ndelayMin = min(delayMin, delayMax);\r\ndelayMax = max(delayMin, delayMax);\r\n\r\ng = rcPreWarp1((tone * 13700) + (crossover+crossover));\r\n\r\nfreqIn, minSamps, maxSamps, spreadIn = logsmoothBank4(rate*maxhz, mstosamps(delayMin), mstosamps(delayMax), spread*spread, smoothsecs);\ndutyScale, shapeScale, skewScale = expsmoothBank3(duty, shape, skew, smoothsecs*sqrt1_2);\r\nfbgain, fbmix, fbcross, G = logsmoothBank4(feedback, feedbackmix, feedbackcross, g, smoothsecs*sqrt2);\r\nWarp, xOver, dryDelay, inJect = expsmoothBank4(warp, crossover, drydelay, inject, smoothsecs*0.5);\r\npreGain, postGain = logsmoothBank2(dbtoaApprox(pregain), (dbtoaApprox(postgain) * invSign), smoothsecs);\r\nattenStages, attenPow = expsmoothBank2(attenstages, attenpow, smoothsecs);\r\ndryWet = eviSline(drywet, smoothsamps);\r\ndrySamps = sqrt(dryWet) * mstosamps(dryDelay);\r\n\r\nphaseL, phaseR, phaseHz, phaseSpread, syncL, syncR = eviPhasorTwo0(freqIn, spreadIn, in3, minimumhz=0.05, mode=phaseMode);\r\n\r\nlfoL = lfoMix(phaseL, dutyScale, shapeScale, skewScale);\nlfoR = lfoMix(phaseR, dutyScale, shapeScale, skewScale);\n\r\n// first stage\nfirstStageL = cfDelayL.read(mix(minSamps, maxSamps, lfoL), 0, interp=\"spline\");\nfirstStageR = cfDelayR.read(mix(minSamps, maxSamps, lfoR), 0, interp=\"spline\");\r\nsumStageL = firstStageL;\r\nsumStageR = firstStageR;\r\n\r\n// cascade\nfor (j = 1; j < numStages; j += 1) {    // from 1\r\n\tstageOffset = pow((j / numStages), expP(Warp)); // need pow() accuracy here :-(\r\n\tstagePhaseL = wrap(phaseL + stageOffset, 0, 1);\n\tstagePhaseR = wrap(phaseR + stageOffset, 0, 1);\r\n    stageLfoL = lfoMix(stagePhaseL, dutyScale, shapeScale, skewScale);\n    stageLfoR = lfoMix(stagePhaseR, dutyScale, shapeScale, skewScale);\r\n        \r\n\taddStageL = cfDelayL.read(mix(minSamps, maxSamps, stageLfoL), 0, interp=\"spline\");\r\n\taddStageR = cfDelayR.read(mix(minSamps, maxSamps, stageLfoR), 0, interp=\"spline\");\r\n\t\n    sumStageL += addStageL;\n\tsumStageR += addStageR;\n}\r\n\r\nlowL, lowR, inL, inR = eviXover4pole2bandStereo(in1, in2, xOver);\r\nif (dryWet > 0) {\r\n    lowSat = eCubicAdaa1((lowL + lowR) * 0.555);\r\n    lowL = interp(dryWet, lowL, lowSat, mode=\"cosine\");\r\n    lowR = interp(dryWet, lowR, lowSat, mode=\"cosine\");\r\n}\r\ndryInL = inL;\r\ndryInR = inR;\r\ndryDelayL.write(dryInL, 0);\r\ndryDelayR.write(dryInR, 0);\r\nif (drySamps > 0) { // conflated with drywet\r\n    dryInL = dryDelayL.read(drySamps, 0, interp=\"fastcubic\");\r\n    dryInR = dryDelayR.read(drySamps, 0, interp=\"fastcubic\");\r\n}\r\n\r\nsumStageL *= attenPow;\r\nsumStageR *= attenPow;\r\n\r\nout1 = lowL + xfadeQuartApproxMono(dryInL, (sumStageL * postGain), dryWet);\r\nout2 = lowR + xfadeQuartApproxMono(dryInR, (sumStageR * postGain), dryWet);\r\n\r\ninput1L = interp(inJect, inL, 0, mode=\"cosine\");\r\ninput1R = interp(inJect, inR, 0, mode=\"cosine\");\r\ninput2L = interp(inJect, 0, inL, mode=\"cosine\");\r\ninput2R = interp(inJect, 0, inR, mode=\"cosine\");\r\n\r\npreL = input1L + mix(firstStageL, (sumStageL * attenStages), fbmix);\r\npreR = input1R + mix(firstStageR, (sumStageR * attenStages), fbmix);\r\nfbL = altTanhSqrtAdaa1(preL * preGain) * fbgain;\nfbR = altTanhSqrtAdaa1(preR * preGain) * fbgain;\r\nfbL = mix(fbL, fbR, fbcross);   // must be linear!\nfbR = mix(fbR, fbL, fbcross);\n\r\nwriteInL = rcFilter(input2L + fbL, G);\r\nwriteInR = rcFilter(input2R + fbR, G);\r\n\r\ncfDelayL.write(fixdenorm(writeInL));\r\ncfDelayR.write(fixdenorm(writeInR));\r\n\r\nout3 = lfoL;\r\nout4 = lfoR;\r\n\r\n",
                     "fontface": 0,
                     "fontname": "<Monospaced>",
                     "fontsize": 12.0,
@@ -103,7 +103,7 @@
                     "numinlets": 3,
                     "numoutlets": 4,
                     "outlettype": [ "", "", "", "" ],
-                    "patching_rect": [ 49.0, 58.0, 1003.0, 732.0 ]
+                    "patching_rect": [ 49.0, 58.0, 1057.0, 732.0 ]
                 }
             }
         ],
@@ -141,14 +141,14 @@
             {
                 "patchline": {
                     "destination": [ "obj-9", 0 ],
-                    "midpoints": [ 1042.5, 798.5, 902.5, 798.5 ],
+                    "midpoints": [ 1096.5, 798.5, 956.5, 798.5 ],
                     "source": [ "obj-3", 3 ]
                 }
             },
             {
                 "patchline": {
                     "destination": [ "obj-3", 2 ],
-                    "midpoints": [ 922.5, 49.5, 1042.5, 49.5 ],
+                    "midpoints": [ 976.5, 49.5, 1096.5, 49.5 ],
                     "source": [ "obj-5", 0 ]
                 }
             }
