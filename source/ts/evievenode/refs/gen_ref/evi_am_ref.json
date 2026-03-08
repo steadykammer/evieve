@@ -1,0 +1,189 @@
+{
+    "object": {
+        "name": "evi_am",
+        "child": "evi.am~",
+        "category": "evieve",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "constructor": {
+        "inlets": "left, right, reset"
+    },
+    "includes": [
+        "evi_counting",
+        "evi_smooth_bank",
+        "evi_adaa",
+        "evi_lfo"
+    ],
+    "inlets": [
+        {
+            "id": 1,
+            "name": "left",
+            "type": "float",
+            "optional": 1,
+            "digest": "or Mono Audio In"
+        },
+        {
+            "id": 2,
+            "name": "right",
+            "type": "float",
+            "optional": 1,
+            "digest": "Audio In"
+        },
+        {
+            "id": 3,
+            "name": "reset",
+            "type": "float",
+            "optional": 1,
+            "digest": "Naive"
+        }
+    ],
+    "outlets": [
+        {
+            "id": 1,
+            "name": "left",
+            "type": "float",
+            "optional": 1,
+            "digest": "Audio Out"
+        },
+        {
+            "id": 2,
+            "name": "right",
+            "type": "float",
+            "optional": 1,
+            "digest": "Audio Out"
+        },
+        {
+            "id": 3,
+            "name": "lfo",
+            "type": "float",
+            "optional": 1,
+            "digest": "Left Out"
+        },
+        {
+            "id": 4,
+            "name": "lfo",
+            "type": "float",
+            "optional": 1,
+            "digest": "Right Out"
+        }
+    ],
+    "attributes": [
+        {
+            "name": "depth",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.5"
+            }
+        },
+        {
+            "name": "factor",
+            "type": "float",
+            "digest": "@min 0.125, @max 8",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "1."
+            }
+        },
+        {
+            "name": "gain",
+            "type": "float",
+            "digest": "@min -40, @max 40",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0."
+            }
+        },
+        {
+            "name": "lfomode",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "lfoout",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "1"
+            }
+        },
+        {
+            "name": "lfowave",
+            "type": "int",
+            "digest": "@min 0, @max 10",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "4"
+            }
+        },
+        {
+            "name": "lfowidth",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.5"
+            }
+        },
+        {
+            "name": "rate",
+            "type": "float",
+            "digest": "@min 1, @max 100",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "9."
+            }
+        },
+        {
+            "name": "smooth",
+            "type": "float",
+            "digest": "@min 0, @max 266",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "26."
+            }
+        },
+        {
+            "name": "spread",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.5"
+            }
+        },
+        {
+            "name": "stereo",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        }
+    ],
+    "seealso": [
+        {
+            "name": "",
+            "display": ""
+        }
+    ]
+}

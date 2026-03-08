@@ -18,7 +18,8 @@
         "evi_crossovers.genexpr",
         "evi_butterworth.genexpr",
         "evi_svfs_tpt.genexpr",
-        "evi_adaa.genexpr"
+        "evi_adaa.genexpr",
+        "evi_smooth_bank.genexpr"
     ],
     "inlets": [
         {

@@ -122,9 +122,11 @@ function paint() {
 				// @ts-ignore
 				mgraphics.show_text(wrapText[i]);
 			}
+		} else {
+			mtO = 63;
 		}
 		// main, match icon to the left
-		mgraphics.move_to(110, mtO);//63);
+		mgraphics.move_to(110, mtO);
 		mgraphics.select_font_face('Lato');
 		mgraphics.set_source_rgba(textColor);
 		mgraphics.set_font_size(48);

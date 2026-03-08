@@ -1,0 +1,207 @@
+{
+    "object": {
+        "name": "evi.am~",
+        "parent": "evi_am",
+        "category": "evieve",
+        "tilde": "~",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE",
+        "discussion": ""
+    },
+    "metadata": {
+        "author": "Pete Dowling",
+        "tags": []
+    },
+    "includes": [
+        "evi_counting.genexpr",
+        "evi_smooth_bank.genexpr",
+        "evi_adaa.genexpr",
+        "evi_lfo.genexpr"
+    ],
+    "inlets": [
+        {
+            "id": 1,
+            "type": "signal",
+            "digest": "Left or Mono Audio In",
+            "description": ""
+        },
+        {
+            "id": 2,
+            "type": "signal",
+            "digest": "Right Audio In",
+            "description": ""
+        },
+        {
+            "id": 3,
+            "type": "signal",
+            "digest": "Reset Naive",
+            "description": ""
+        }
+    ],
+    "outlets": [
+        {
+            "id": 1,
+            "type": "signal",
+            "digest": "Left Audio Out",
+            "description": ""
+        },
+        {
+            "id": 2,
+            "type": "signal",
+            "digest": "Right Audio Out",
+            "description": ""
+        },
+        {
+            "id": 3,
+            "type": "signal",
+            "digest": "LFO Left Out",
+            "description": ""
+        },
+        {
+            "id": 4,
+            "type": "signal",
+            "digest": "LFO Right Out",
+            "description": ""
+        }
+    ],
+    "messages": [],
+    "attributes": [
+        {
+            "name": "depth",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "1",
+                "value": "0.5"
+            }
+        },
+        {
+            "name": "factor",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0.125",
+                "max": "8",
+                "value": "1."
+            }
+        },
+        {
+            "name": "gain",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "-40",
+                "max": "40",
+                "value": "0."
+            }
+        },
+        {
+            "name": "lfomode",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "1",
+                "value": "0"
+            }
+        },
+        {
+            "name": "lfoout",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "1",
+                "value": "1"
+            }
+        },
+        {
+            "name": "lfowave",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "10",
+                "value": "4"
+            }
+        },
+        {
+            "name": "lfowidth",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "1",
+                "value": "0.5"
+            }
+        },
+        {
+            "name": "rate",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "1",
+                "max": "100",
+                "value": "9."
+            }
+        },
+        {
+            "name": "smooth",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "266",
+                "value": "26."
+            }
+        },
+        {
+            "name": "spread",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "1",
+                "value": "0.5"
+            }
+        },
+        {
+            "name": "stereo",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "1",
+                "value": "0"
+            }
+        }
+    ],
+    "example": {
+        "caption": "",
+        "image": ""
+    },
+    "seealso": []
+}

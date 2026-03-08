@@ -94,6 +94,28 @@
                 "auto": true
             }
         },
+        "evi_am.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.am~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "helpfile": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": false,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
         "evi_arpnotch.gendsp": {
             "define": {
                 "object": true,
@@ -734,6 +756,28 @@
             "db": {
                 "browser": false,
                 "auto": false
+            }
+        },
+        "evi_chorus_digital.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.chorus.digital~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "helpfile": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": false,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
             }
         },
         "evi_classic_osc.gendsp": {
@@ -1626,6 +1670,28 @@
                 "areas": [
                     "filter"
                 ]
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_flanger_digital.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.flanger.digital~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "helpfile": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": false,
+                "areaonly": false,
+                "areas": []
             },
             "db": {
                 "browser": true,
@@ -2916,6 +2982,50 @@
                 "auto": true
             }
         },
+        "evi_phaser_analog.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.phaser.analog~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "helpfile": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": false,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_phaser_classic.gendsp": {
+            "define": {
+                "object": false,
+                "msp": "evi.phaser.classic~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": false,
+                "msp": false
+            },
+            "helpfile": {
+                "msp": false,
+                "gentab": false,
+                "genexprtab": false,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
         "evi_phaseshift.gendsp": {
             "define": {
                 "object": true,
@@ -3939,6 +4049,28 @@
             "db": {
                 "browser": false,
                 "auto": false
+            }
+        },
+        "evi_tremolo.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.tremolo~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "helpfile": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": false,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
             }
         },
         "evi_tri_select.gendsp": {

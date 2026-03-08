@@ -15,6 +15,15 @@ tauA(t)										// t = seconds
 	return y + 0.000128;
 }
 
+expsmooth(x, t)		// x = value			// t is smooth time in seconds
+{
+	History w(0);
+	z = tauA(t);
+	y = (z * w) + (x * (1 - z));
+	w = y;
+	return y;
+}
+
 // for exp banks
 expso(x, z)									// z is pole
 {
@@ -106,6 +115,17 @@ expsmoothBank8(x1, x2, x3, x4, x5, x6, x7, x8, t)
 	y7		= expso(x7, z);
 	y8		= expso(x8, z);
 	return	y1, y2, y3, y4, y5, y6, y7, y8;
+}
+
+// ---
+
+logsmooth(x, s)		// x = value			// s = time to drop 6dB (in seconds)
+{
+	History z(0);
+	ad = LN2 / (s * samplerate);			// (0.69314718056 / samples), no maximum check
+	y  = ((x - z) * ad) + z;
+	z  = y;
+	return y;
 }
 
 // for log banks

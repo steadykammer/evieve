@@ -1,0 +1,194 @@
+{
+    "object": {
+        "name": "evi_detune",
+        "child": "evi.detune~",
+        "category": "evieve",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "constructor": {
+        "inlets": "left, right, reset"
+    },
+    "includes": [
+        "evi_smooth_bank",
+        "evi_waveshaping",
+        "evi_crossovers",
+        "evi_butterworth",
+        "evi_svfs_tpt",
+        "evi_adaa"
+    ],
+    "inlets": [
+        {
+            "id": 1,
+            "name": "left",
+            "type": "float",
+            "optional": 1,
+            "digest": "Audio In"
+        },
+        {
+            "id": 2,
+            "name": "right",
+            "type": "float",
+            "optional": 1,
+            "digest": "Audio In"
+        },
+        {
+            "id": 3,
+            "name": "reset",
+            "type": "float",
+            "optional": 1,
+            "digest": "Naive"
+        }
+    ],
+    "outlets": [
+        {
+            "id": 1,
+            "name": "left",
+            "type": "float",
+            "optional": 1,
+            "digest": "Audio Out"
+        },
+        {
+            "id": 2,
+            "name": "right",
+            "type": "float",
+            "optional": 1,
+            "digest": "Audio Out"
+        },
+        {
+            "id": 3,
+            "name": "phase",
+            "type": "float",
+            "optional": 1,
+            "digest": "in Samples"
+        }
+    ],
+    "attributes": [
+        {
+            "name": "detune",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.3"
+            }
+        },
+        {
+            "name": "drywet",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "sqrt1_2"
+            }
+        },
+        {
+            "name": "feedback",
+            "type": "int",
+            "digest": "@min -1, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "latency",
+            "type": "int",
+            "digest": "@min 0, @max 4",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "4"
+            }
+        },
+        {
+            "name": "mix",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.9"
+            }
+        },
+        {
+            "name": "postfilterfrequency",
+            "type": "int",
+            "digest": "@min 1000, @max samplerate*0.49",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "16000"
+            }
+        },
+        {
+            "name": "prefilterbandwidth",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.5"
+            }
+        },
+        {
+            "name": "prefilterfrequency",
+            "type": "int",
+            "digest": "@min 125, @max 16000",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "8000"
+            }
+        },
+        {
+            "name": "prefiltermorph",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "smooth",
+            "type": "int",
+            "digest": "@min 0, @max 333",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "22"
+            }
+        },
+        {
+            "name": "window",
+            "type": "int",
+            "digest": "@min 0, @max 5",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "4"
+            }
+        },
+        {
+            "name": "xover",
+            "type": "int",
+            "digest": "@min 125, @max 1000",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "250"
+            }
+        }
+    ],
+    "seealso": [
+        {
+            "name": "",
+            "display": ""
+        }
+    ]
+}

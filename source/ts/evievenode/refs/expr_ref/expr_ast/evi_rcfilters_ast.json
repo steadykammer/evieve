@@ -990,6 +990,385 @@
             "type": "FunctionDeclaration",
             "id": {
                 "type": "Identifier",
+                "name": "rcFilterAllpass",
+                "raw": "rcFilterAllpass"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "Vin",
+                    "raw": "Vin"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "g",
+                    "raw": "g"
+                }
+            ],
+            "defaults": [
+                null,
+                null
+            ],
+            "decls": [
+                [
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "s",
+                                    "raw": "s"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            ],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "VoutLp",
+                                "raw": "VoutLp"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "/",
+                                "left": {
+                                    "type": "BinaryExpression",
+                                    "operator": "+",
+                                    "left": {
+                                        "type": "BinaryExpression",
+                                        "operator": "*",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "g",
+                                            "raw": "g"
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "Vin",
+                                            "raw": "Vin"
+                                        }
+                                    },
+                                    "right": {
+                                        "type": "Identifier",
+                                        "name": "s",
+                                        "raw": "s"
+                                    }
+                                },
+                                "right": {
+                                    "type": "BinaryExpression",
+                                    "operator": "+",
+                                    "left": {
+                                        "type": "Identifier",
+                                        "name": "g",
+                                        "raw": "g"
+                                    },
+                                    "right": {
+                                        "type": "Literal",
+                                        "value": 1,
+                                        "raw": "1",
+                                        "gen_kind": "integer"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "s",
+                                "raw": "s"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "-",
+                                "left": {
+                                    "type": "BinaryExpression",
+                                    "operator": "+",
+                                    "left": {
+                                        "type": "Identifier",
+                                        "name": "VoutLp",
+                                        "raw": "VoutLp"
+                                    },
+                                    "right": {
+                                        "type": "Identifier",
+                                        "name": "VoutLp",
+                                        "raw": "VoutLp"
+                                    }
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "s",
+                                    "raw": "s"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "Hp",
+                                "raw": "Hp"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "-",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "Vin",
+                                    "raw": "Vin"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "VoutLp",
+                                    "raw": "VoutLp"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "BinaryExpression",
+                            "operator": "-",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "VoutLp",
+                                "raw": "VoutLp"
+                            },
+                            "right": {
+                                "type": "Identifier",
+                                "name": "Hp",
+                                "raw": "Hp"
+                            }
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "rcFilterAllpassCascade",
+                "raw": "rcFilterAllpassCascade"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "Vin",
+                    "raw": "Vin"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "g",
+                    "raw": "g"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "s0",
+                    "raw": "s0"
+                }
+            ],
+            "defaults": [
+                null,
+                null,
+                null
+            ],
+            "decls": [],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "VoutLp",
+                                "raw": "VoutLp"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "/",
+                                "left": {
+                                    "type": "BinaryExpression",
+                                    "operator": "+",
+                                    "left": {
+                                        "type": "BinaryExpression",
+                                        "operator": "*",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "g",
+                                            "raw": "g"
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "Vin",
+                                            "raw": "Vin"
+                                        }
+                                    },
+                                    "right": {
+                                        "type": "Identifier",
+                                        "name": "s0",
+                                        "raw": "s0"
+                                    }
+                                },
+                                "right": {
+                                    "type": "BinaryExpression",
+                                    "operator": "+",
+                                    "left": {
+                                        "type": "Identifier",
+                                        "name": "g",
+                                        "raw": "g"
+                                    },
+                                    "right": {
+                                        "type": "Literal",
+                                        "value": 1,
+                                        "raw": "1",
+                                        "gen_kind": "integer"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "s1",
+                                "raw": "s1"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "-",
+                                "left": {
+                                    "type": "BinaryExpression",
+                                    "operator": "+",
+                                    "left": {
+                                        "type": "Identifier",
+                                        "name": "VoutLp",
+                                        "raw": "VoutLp"
+                                    },
+                                    "right": {
+                                        "type": "Identifier",
+                                        "name": "VoutLp",
+                                        "raw": "VoutLp"
+                                    }
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "s0",
+                                    "raw": "s0"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "Hp",
+                                "raw": "Hp"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "-",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "Vin",
+                                    "raw": "Vin"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "VoutLp",
+                                    "raw": "VoutLp"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "ArrayExpression",
+                            "elements": [
+                                {
+                                    "type": "BinaryExpression",
+                                    "operator": "-",
+                                    "left": {
+                                        "type": "Identifier",
+                                        "name": "VoutLp",
+                                        "raw": "VoutLp"
+                                    },
+                                    "right": {
+                                        "type": "Identifier",
+                                        "name": "Hp",
+                                        "raw": "Hp"
+                                    }
+                                },
+                                {
+                                    "type": "Identifier",
+                                    "name": "s1",
+                                    "raw": "s1"
+                                }
+                            ]
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
                 "name": "rcFilterBandpass",
                 "raw": "rcFilterBandpass"
             },

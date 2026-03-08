@@ -1,0 +1,301 @@
+{
+    "object": {
+        "name": "evi.phaser.analog~",
+        "parent": "evi_phaser_analog",
+        "category": "evieve",
+        "tilde": "~",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE",
+        "discussion": ""
+    },
+    "metadata": {
+        "author": "Pete Dowling",
+        "tags": []
+    },
+    "includes": [
+        "evi_smooth_bank.genexpr",
+        "evi_rcfilters.genexpr",
+        "evi_crossovers.genexpr",
+        "evi_sources.genexpr",
+        "evi_lfo.genexpr",
+        "evi_adaa.genexpr"
+    ],
+    "inlets": [
+        {
+            "id": 1,
+            "type": "",
+            "digest": "",
+            "description": ""
+        },
+        {
+            "id": 2,
+            "type": "",
+            "digest": "",
+            "description": ""
+        }
+    ],
+    "outlets": [
+        {
+            "id": 1,
+            "type": "",
+            "digest": "",
+            "description": ""
+        },
+        {
+            "id": 2,
+            "type": "",
+            "digest": "",
+            "description": ""
+        },
+        {
+            "id": 3,
+            "type": "",
+            "digest": "",
+            "description": ""
+        },
+        {
+            "id": 4,
+            "type": "",
+            "digest": "",
+            "description": ""
+        }
+    ],
+    "messages": [
+        {
+            "name": "history",
+            "arg": [
+                {
+                    "name": "prevNum",
+                    "type": "int",
+                    "units": "default: 7",
+                    "optional": 1
+                }
+            ],
+            "digest": "Top level gen~ [history] / History() declarations can be reset by messages to the object",
+            "description": ""
+        }
+    ],
+    "attributes": [
+        {
+            "name": "center",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "1",
+                "value": "0.52"
+            }
+        },
+        {
+            "name": "depth",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "1",
+                "value": "0.75"
+            }
+        },
+        {
+            "name": "duty",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "1",
+                "value": "0.4"
+            }
+        },
+        {
+            "name": "feedback",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "-1",
+                "max": "1",
+                "value": "-0.5"
+            }
+        },
+        {
+            "name": "flavour",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "-20",
+                "max": "20",
+                "value": "0.3"
+            }
+        },
+        {
+            "name": "gainmode",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "2",
+                "value": "0"
+            }
+        },
+        {
+            "name": "gaintime",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "0",
+                "value": "2."
+            }
+        },
+        {
+            "name": "leakymix",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "10",
+                "value": "0."
+            }
+        },
+        {
+            "name": "lossiness",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "1",
+                "value": "0.7"
+            }
+        },
+        {
+            "name": "postgain",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "-6",
+                "max": "6",
+                "value": "0."
+            }
+        },
+        {
+            "name": "pregain",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "-6",
+                "max": "6",
+                "value": "0."
+            }
+        },
+        {
+            "name": "rate",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "8",
+                "value": "0.5"
+            }
+        },
+        {
+            "name": "shape",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "1",
+                "value": "0.5"
+            }
+        },
+        {
+            "name": "skew",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0.5",
+                "max": "2",
+                "value": "1.2"
+            }
+        },
+        {
+            "name": "smooth",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "226",
+                "value": "22.666"
+            }
+        },
+        {
+            "name": "spread",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "1",
+                "value": "0.5"
+            }
+        },
+        {
+            "name": "stages",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "0",
+                "value": "7"
+            }
+        },
+        {
+            "name": "xover",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "10",
+                "max": "1000",
+                "value": "104."
+            }
+        }
+    ],
+    "example": {
+        "caption": "",
+        "image": ""
+    },
+    "seealso": []
+}

@@ -4,6 +4,7 @@
 <refpage name='evi_DAHDSHR.maxref.xml'/>
 <refpage name='evi_algoverb.maxref.xml'/>
 <refpage name='evi_allpass.maxref.xml'/>
+<refpage name='evi_am.maxref.xml'/>
 <refpage name='evi_arpnotch.maxref.xml'/>
 <refpage name='evi_audiodust.maxref.xml'/>
 <refpage name='evi_baxandall.maxref.xml'/>
@@ -29,6 +30,7 @@
 <refpage name='evi_bp_butterworth.maxref.xml'/>
 <refpage name='evi_butterworth8.maxref.xml'/>
 <refpage name='evi_cfsmooth.maxref.xml'/>
+<refpage name='evi_chorus_digital.maxref.xml'/>
 <refpage name='evi_classic_osc.maxref.xml'/>
 <refpage name='evi_clip_hardsoft.maxref.xml'/>
 <refpage name='evi_clipasym.maxref.xml'/>
@@ -44,6 +46,7 @@
 <refpage name='evi_damp.maxref.xml'/>
 <refpage name='evi_damp_coeffs.maxref.xml'/>
 <refpage name='evi_damp_macro.maxref.xml'/>
+<refpage name='evi_detune.maxref.xml'/>
 <refpage name='evi_dfm.maxref.xml'/>
 <refpage name='evi_eq3.maxref.xml'/>
 <refpage name='evi_eq3_stereo.maxref.xml'/>
@@ -65,6 +68,7 @@
 <refpage name='evi_filter_resonant.maxref.xml'/>
 <refpage name='evi_filter_shelving.maxref.xml'/>
 <refpage name='evi_filter_tilt.maxref.xml'/>
+<refpage name='evi_flanger_digital.maxref.xml'/>
 <refpage name='evi_formant_filter.maxref.xml'/>
 <refpage name='evi_formant_filter_morph.maxref.xml'/>
 <refpage name='evi_formant_osc.maxref.xml'/>
@@ -113,6 +117,7 @@
 <refpage name='evi_overdrive_sqrt.maxref.xml'/>
 <refpage name='evi_overdrive_tanh.maxref.xml'/>
 <refpage name='evi_paf.maxref.xml'/>
+<refpage name='evi_phaser_analog.maxref.xml'/>
 <refpage name='evi_phaseshift.maxref.xml'/>
 <refpage name='evi_phasor0.maxref.xml'/>
 <refpage name='evi_phasorrate0.maxref.xml'/>
@@ -151,6 +156,7 @@
 <refpage name='evi_thirian_allpass.maxref.xml'/>
 <refpage name='evi_tone_macro.maxref.xml'/>
 <refpage name='evi_tpqm.maxref.xml'/>
+<refpage name='evi_tremolo.maxref.xml'/>
 <refpage name='evi_tri.maxref.xml'/>
 <refpage name='evi_tri_select.maxref.xml'/>
 <refpage name='evi_vactrol.maxref.xml'/>

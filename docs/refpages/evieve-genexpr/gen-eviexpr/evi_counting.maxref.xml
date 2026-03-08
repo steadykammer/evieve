@@ -30,6 +30,23 @@
 
       </description>
     </entry>
+    <entry name="eviPhasorTwo0 ( )">
+      <description>
+        <b>In 1</b>: type=<i>input</i>: freqFree, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: spreadFree, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: reset, <i></i> <br />
+        <b>In 4</b>: type=<i>param</i> (optional): minimumhz, default: <b>0.125</b>, <i></i> <br />
+        <b>In 5</b>: type=<i>param</i> (optional): mode, default: <b>1</b>, <i></i> <br />
+
+        <b>Return 1</b>: ,  <br />
+        <b>Return 2</b>: ,  <br />
+        <b>Return 3</b>: ,  <br />
+        <b>Return 4</b>: ,  <br />
+        <b>Return 5</b>: ,  <br />
+        <b>Return 6</b>: ,  <br />
+
+      </description>
+    </entry>
     <entry name="quantF ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: f1, <i></i> <br />

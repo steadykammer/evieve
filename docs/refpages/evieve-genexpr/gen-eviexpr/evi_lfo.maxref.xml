@@ -11,7 +11,6 @@
     By declaring <m>require("evi_lfo.genexpr");</m> at the top of a codebox you can then access all of the functions included in this file. <br />
      <br />
     The <b>evi_lfo.genexpr</b> file also requires: <br />
-    evi_smooth.genexpr <br />
     evi_sources.genexpr <br />
     <br />
     <b>About this File</b>: <br />
@@ -56,7 +55,7 @@
 
       </description>
     </entry>
-    <entry name="tanhD ( )">
+    <entry name="tanhC ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
@@ -64,7 +63,29 @@
 
       </description>
     </entry>
-    <entry name="lfoShapes ( )">
+    <entry name="triC ( )">
+      <description>
+        <b>In 1</b>: type=<i>input</i>: phase, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: pwm, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: times, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: plus, <i></i> <br />
+
+        <b>Return 1</b>: ,  <br />
+
+      </description>
+    </entry>
+    <entry name="lfoShapes01 ( )">
+      <description>
+        <b>In 1</b>: type=<i>input</i>: phase, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: sync, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: width, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: wave, <i></i> <br />
+
+        <b>Return 1</b>: ,  <br />
+
+      </description>
+    </entry>
+    <entry name="lfoShapes11 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: phase, <i></i> <br />
         <b>In 2</b>: type=<i>input</i>: sync, <i></i> <br />

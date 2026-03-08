@@ -82,7 +82,7 @@ function init() {
 			'@text',
 			`v8ui @filename evi.helpdetails.js @jsarguments ${objectNameArgument} ${thisPath} @patching_rect 10. 10. 660. 220. @background 1 @embed 0`);
 
-		const PETER_BPATCHER_FILE = 'helpfile_pickup_overview.maxpat';
+		const PETER_BPATCHER_FILE = 'evieve_pickup_overview.maxpat';
 		basic.subpatcher().message(
 			'script',
 			'newobject',

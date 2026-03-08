@@ -27,6 +27,13 @@
         "keywords": [],
         "seealso": []
     },
+    "evi.am~": {
+        "digest": 0,
+        "module": "evieve-ref",
+        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "keywords": [],
+        "seealso": []
+    },
     "evi.arpnotch~": {
         "digest": "A nonlinear SVF Notch filter which can morph between LP..Notch..HP",
         "module": "evieve-ref",
@@ -103,6 +110,13 @@
         "category": [ "evieve", "evieve Objects" ],
         "keywords": [ "smooth", "ramp" ],
         "seealso": [ "evi.expsmooth~", "evi.lagsmooth~", "evi.logsmooth~", "evi_smooth" ]
+    },
+    "evi.chorus.digital~": {
+        "digest": 0,
+        "module": "evieve-ref",
+        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "keywords": [],
+        "seealso": []
     },
     "evi.classic.osc~": {
         "digest": "A selection of 'classic' oscillator shapes",
@@ -185,6 +199,13 @@
         "digest": "DC Blocking filter \n",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Abstractions" ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.detune~": {
+        "digest": 0,
+        "module": "evieve-ref",
+        "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
         "seealso": []
     },
@@ -335,6 +356,13 @@
         "keywords": [],
         "seealso": []
     },
+    "evi.flanger.digital~": {
+        "digest": 0,
+        "module": "evieve-ref",
+        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "keywords": [],
+        "seealso": []
+    },
     "evi.formantfilter.morph~": {
         "digest": "A vowel morphing TPT bandpass formant filter with morphable filter types",
         "module": "evieve-ref",
@@ -441,7 +469,7 @@
         "seealso": []
     },
     "evi.ladder.moog~": {
-        "digest": "Nonlinear Moog Ladder filter emulation, this is the smoothest and most in tune of all the evieve Ladders and handles high resonance really well",
+        "digest": "Nonlinear Moog Ladder filter emulation, this is the smoothest and most in tune of all the evieve Ladders and handles high resonance very well",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
@@ -629,8 +657,15 @@
         "keywords": [],
         "seealso": [ "evi.xfade~", "evi_utilities" ]
     },
+    "evi.phaser.analog~": {
+        "digest": 0,
+        "module": "evieve-ref",
+        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "keywords": [],
+        "seealso": []
+    },
     "evi.phaseshift~": {
-        "digest": "Reimplementation of MSP phaseshift~ filter object",
+        "digest": "Reimplementation of MSP phaseshift~ object as a TPT filter",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
@@ -853,6 +888,13 @@
         "keywords": [],
         "seealso": []
     },
+    "evi.tremolo~": {
+        "digest": 0,
+        "module": "evieve-ref",
+        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "keywords": [],
+        "seealso": []
+    },
     "evi.tri.select~": {
         "digest": "Selection of anti-aliased triangle-like oscillators",
         "module": "evieve-ref",
@@ -917,14 +959,14 @@
         "seealso": [ "evi.pan~", "evi_utilities" ]
     },
     "evi.zeroxcount~": {
-        "digest": "Like MSP zerox~ with controls for window size and threshold, with simultaneous outputs analysis",
+        "digest": "Like MSP zerox~ with controls for window size and threshold, with simultaneous analysis outputs",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
         "seealso": []
     },
     "evi.zeroxoscnoise~": {
-        "digest": "An automatic crossfading via audio analysis oscillators / noise source used in vocoders",
+        "digest": "An automatic crossfading oscillators / noise source via audio analysis, used in vocoders",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],

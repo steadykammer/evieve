@@ -3362,6 +3362,151 @@
             "type": "FunctionDeclaration",
             "id": {
                 "type": "Identifier",
+                "name": "parabolApprox01",
+                "raw": "parabolApprox01"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "phase",
+                    "raw": "phase"
+                }
+            ],
+            "defaults": [
+                null
+            ],
+            "decls": [],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "x",
+                                "raw": "x"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "phase",
+                                        "raw": "phase"
+                                    },
+                                    {
+                                        "type": "UnaryExpression",
+                                        "operator": "-",
+                                        "argument": {
+                                            "type": "Literal",
+                                            "value": 0.5,
+                                            "raw": "0.5",
+                                            "gen_kind": "float"
+                                        },
+                                        "prefix": true
+                                    },
+                                    {
+                                        "type": "Literal",
+                                        "value": 0.5,
+                                        "raw": "0.5",
+                                        "gen_kind": "float"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "wrap",
+                                    "raw": "wrap"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "y",
+                                "raw": "y"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "+",
+                                "left": {
+                                    "type": "BinaryExpression",
+                                    "operator": "*",
+                                    "left": {
+                                        "type": "Identifier",
+                                        "name": "x",
+                                        "raw": "x"
+                                    },
+                                    "right": {
+                                        "type": "BinaryExpression",
+                                        "operator": "-",
+                                        "left": {
+                                            "type": "Literal",
+                                            "value": 4,
+                                            "raw": "4",
+                                            "gen_kind": "integer"
+                                        },
+                                        "right": {
+                                            "type": "BinaryExpression",
+                                            "operator": "*",
+                                            "left": {
+                                                "type": "CallExpression",
+                                                "arguments": [
+                                                    {
+                                                        "type": "Identifier",
+                                                        "name": "x",
+                                                        "raw": "x"
+                                                    }
+                                                ],
+                                                "callee": {
+                                                    "type": "Identifier",
+                                                    "name": "abs",
+                                                    "raw": "abs"
+                                                }
+                                            },
+                                            "right": {
+                                                "type": "Literal",
+                                                "value": 8,
+                                                "raw": "8",
+                                                "gen_kind": "integer"
+                                            }
+                                        }
+                                    }
+                                },
+                                "right": {
+                                    "type": "Literal",
+                                    "value": 0.5,
+                                    "raw": "0.5",
+                                    "gen_kind": "float"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "Identifier",
+                            "name": "y",
+                            "raw": "y"
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
                 "name": "cosApprox01",
                 "raw": "cosApprox01"
             },

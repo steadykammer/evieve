@@ -19,6 +19,11 @@
         "digest": "Reimplementation of MSP allpass~ filter delay",
         "description": ""
     },
+    "evi.am~": {
+        "type": "define",
+        "digest": 0,
+        "description": ""
+    },
     "evi.arpnotch~": {
         "type": "define",
         "digest": "A nonlinear SVF Notch filter which can morph between LP..Notch..HP",
@@ -73,6 +78,11 @@
         "type": "external",
         "digest": "Signal smoother particularly well suited to smoothing cutoff frequencies",
         "description": "Based on Andy Simper's smoother, evi.cfsmooth~ tracks the input value via the bandpass output of an SVF filter and logarithmically updates. Smoothing is specified in both ramp time (ms) and filter cutoff (Hz)."
+    },
+    "evi.chorus.digital~": {
+        "type": "define",
+        "digest": 0,
+        "description": ""
     },
     "evi.classic.osc~": {
         "type": "define",
@@ -132,6 +142,11 @@
     "evi.dcblock~": {
         "type": "abstraction",
         "digest": "DC Blocking filter \n",
+        "description": ""
+    },
+    "evi.detune~": {
+        "type": "define",
+        "digest": 0,
         "description": ""
     },
     "evi.dfm~": {
@@ -239,6 +254,11 @@
         "digest": "All-in-one TPT filter section with a choice of 12 filters",
         "description": ""
     },
+    "evi.flanger.digital~": {
+        "type": "define",
+        "digest": 0,
+        "description": ""
+    },
     "evi.formantfilter.morph~": {
         "type": "define",
         "digest": "A vowel morphing TPT bandpass formant filter with morphable filter types",
@@ -316,7 +336,7 @@
     },
     "evi.ladder.moog~": {
         "type": "define",
-        "digest": "Nonlinear Moog Ladder filter emulation, this is the smoothest and most in tune of all the evieve Ladders and handles high resonance really well",
+        "digest": "Nonlinear Moog Ladder filter emulation, this is the smoothest and most in tune of all the evieve Ladders and handles high resonance very well",
         "description": ""
     },
     "evi.ladder.poles~": {
@@ -449,9 +469,14 @@
         "digest": "Pan audio signals",
         "description": "Pan input(s) to output(s) using an efficient cosine algorithm very close to a 'sqrt'."
     },
+    "evi.phaser.analog~": {
+        "type": "define",
+        "digest": 0,
+        "description": ""
+    },
     "evi.phaseshift~": {
         "type": "define",
-        "digest": "Reimplementation of MSP phaseshift~ filter object",
+        "digest": "Reimplementation of MSP phaseshift~ object as a TPT filter",
         "description": ""
     },
     "evi.phasor0~": {
@@ -609,6 +634,11 @@
         "digest": "Convert semitones to pitch and vica versa \n",
         "description": ""
     },
+    "evi.tremolo~": {
+        "type": "define",
+        "digest": 0,
+        "description": ""
+    },
     "evi.tri.select~": {
         "type": "define",
         "digest": "Selection of anti-aliased triangle-like oscillators",
@@ -656,12 +686,12 @@
     },
     "evi.zeroxcount~": {
         "type": "define",
-        "digest": "Like MSP zerox~ with controls for window size and threshold, with simultaneous outputs analysis",
+        "digest": "Like MSP zerox~ with controls for window size and threshold, with simultaneous analysis outputs",
         "description": ""
     },
     "evi.zeroxoscnoise~": {
         "type": "define",
-        "digest": "An automatic crossfading via audio analysis oscillators / noise source used in vocoders",
+        "digest": "An automatic crossfading oscillators / noise source via audio analysis, used in vocoders",
         "description": ""
     },
     "evi.zitaverb~": {

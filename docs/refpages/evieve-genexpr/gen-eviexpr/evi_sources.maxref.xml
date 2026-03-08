@@ -142,6 +142,87 @@
 
       </description>
     </entry>
+    <entry name="opIIR ( )">
+      <description>
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: c, <i></i> <br />
+
+        <b>Return 1</b>: ,  <br />
+
+      </description>
+    </entry>
+    <entry name="levelDetect ( )">
+      <description>
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: d, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: mode, <i></i> <br />
+
+        <b>Return 1</b>: ,  <br />
+
+      </description>
+    </entry>
+    <entry name="integrateN ( )">
+      <description>
+        <b>In 1</b>: type=<i>input</i>: o1, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: o2, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: y1, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: y2, <i></i> <br />
+
+        <b>Return 1</b>: ,  <br />
+
+      </description>
+    </entry>
+    <entry name="leakyIntegrateN ( )">
+      <description>
+        <b>In 1</b>: type=<i>input</i>: o1, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: o2, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: o3, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: y1, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: y2, <i></i> <br />
+        <b>In 6</b>: type=<i>input</i>: amount, <i></i> <br />
+
+        <b>Return 1</b>: ,  <br />
+
+      </description>
+    </entry>
+    <entry name="noiseGenerate ( )">
+      <description>
+        <b>In 1</b>: type=<i>input</i>: flav, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: loss, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: d, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: mode, <i></i> <br />
+
+        <b>Return 1</b>: ,  <br />
+        <b>Return 2</b>: ,  <br />
+
+      </description>
+    </entry>
+    <entry name="lossinessN ( )">
+      <description>
+        <b>In 1</b>: type=<i>input</i>: loss, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: flavour, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: d, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: mode, <i></i> <br />
+
+        <b>Return 1</b>: ,  <br />
+        <b>Return 2</b>: ,  <br />
+
+      </description>
+    </entry>
+    <entry name="lossinessN2 ( )">
+      <description>
+        <b>In 1</b>: type=<i>input</i>: loss, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: flavour, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: d, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: mode, <i></i> <br />
+
+        <b>Return 1</b>: ,  <br />
+        <b>Return 2</b>: ,  <br />
+        <b>Return 3</b>: ,  <br />
+        <b>Return 4</b>: ,  <br />
+
+      </description>
+    </entry>
   </misc>
   <metadatalist>
     <metadata name="author">Pete Dowling</metadata>

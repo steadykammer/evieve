@@ -94,6 +94,14 @@
 
       </description>
     </entry>
+    <entry name="parabolApprox01 ( )">
+      <description>
+        <b>In 1</b>: type=<i>input</i>: phase, <i></i> <br />
+
+        <b>Return 1</b>: ,  <br />
+
+      </description>
+    </entry>
     <entry name="cosApprox01 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: a, <i></i> <br />

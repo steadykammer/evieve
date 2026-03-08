@@ -167,6 +167,69 @@
         {
             "document": true,
             "digest": "",
+            "name": "rcFilterAllpass",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "Vin",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "g",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "rcFilterAllpassCascade",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "Vin",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "g",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "s0",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
             "name": "rcFilterBandpass",
             "inputs": [
                 {

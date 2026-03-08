@@ -90,6 +90,8 @@ function paint() {
         mgraphics.move_to(111, textLocation + 0.5);
         mgraphics.show_text(wrapText[i]);
       }
+    } else {
+      mtO = 63;
     }
     mgraphics.move_to(110, mtO);
     mgraphics.select_font_face("Lato");

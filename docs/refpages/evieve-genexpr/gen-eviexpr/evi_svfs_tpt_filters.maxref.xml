@@ -548,6 +548,36 @@
 
       </description>
     </entry>
+    <entry name="tptSvfAllpass ( )">
+      <description>
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: g, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: r, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: h, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: cB, <i></i> <br />
+
+        <b>Return 1</b>: ,  <br />
+
+      </description>
+    </entry>
+    <entry name="tptSvfAllpassStereo ( )">
+      <description>
+        <b>In 1</b>: type=<i>input</i>: xL, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: xR, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: gL, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: rL, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: hL, <i></i> <br />
+        <b>In 6</b>: type=<i>input</i>: cBL, <i></i> <br />
+        <b>In 7</b>: type=<i>input</i>: gR, <i></i> <br />
+        <b>In 8</b>: type=<i>input</i>: rR, <i></i> <br />
+        <b>In 9</b>: type=<i>input</i>: hR, <i></i> <br />
+        <b>In 10</b>: type=<i>input</i>: cBR, <i></i> <br />
+
+        <b>Return 1</b>: ,  <br />
+        <b>Return 2</b>: ,  <br />
+
+      </description>
+    </entry>
     <entry name="tptAllpassCascade ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />

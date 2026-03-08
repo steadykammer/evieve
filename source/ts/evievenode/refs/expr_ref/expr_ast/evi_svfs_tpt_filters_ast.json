@@ -15768,6 +15768,533 @@
             "type": "FunctionDeclaration",
             "id": {
                 "type": "Identifier",
+                "name": "tptSvfAllpass",
+                "raw": "tptSvfAllpass"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "x",
+                    "raw": "x"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "g",
+                    "raw": "g"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "r",
+                    "raw": "r"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "h",
+                    "raw": "h"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "cB",
+                    "raw": "cB"
+                }
+            ],
+            "defaults": [
+                null,
+                null,
+                null,
+                null,
+                null
+            ],
+            "decls": [
+                [
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "tsadummy",
+                                    "raw": "tsadummy"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            ],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "ArrayPattern",
+                                "elements": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "yL",
+                                        "raw": "yL"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "yB",
+                                        "raw": "yB"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "yH",
+                                        "raw": "yH"
+                                    }
+                                ]
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "x",
+                                        "raw": "x"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "g",
+                                        "raw": "g"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "r",
+                                        "raw": "r"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "h",
+                                        "raw": "h"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "tptSvf",
+                                    "raw": "tptSvf"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "allpass",
+                                "raw": "allpass"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "+",
+                                "left": {
+                                    "type": "BinaryExpression",
+                                    "operator": "+",
+                                    "left": {
+                                        "type": "Identifier",
+                                        "name": "yL",
+                                        "raw": "yL"
+                                    },
+                                    "right": {
+                                        "type": "BinaryExpression",
+                                        "operator": "*",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "yB",
+                                            "raw": "yB"
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "cB",
+                                            "raw": "cB"
+                                        }
+                                    }
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "yH",
+                                    "raw": "yH"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "Identifier",
+                            "name": "allpass",
+                            "raw": "allpass"
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "tptSvfAllpassStereo",
+                "raw": "tptSvfAllpassStereo"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "xL",
+                    "raw": "xL"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "xR",
+                    "raw": "xR"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "gL",
+                    "raw": "gL"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "rL",
+                    "raw": "rL"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "hL",
+                    "raw": "hL"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "cBL",
+                    "raw": "cBL"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "gR",
+                    "raw": "gR"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "rR",
+                    "raw": "rR"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "hR",
+                    "raw": "hR"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "cBR",
+                    "raw": "cBR"
+                }
+            ],
+            "defaults": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+            ],
+            "decls": [
+                [
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "tsasdummy",
+                                    "raw": "tsasdummy"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            ],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "ArrayPattern",
+                                "elements": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "yLL",
+                                        "raw": "yLL"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "yBL",
+                                        "raw": "yBL"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "yHL",
+                                        "raw": "yHL"
+                                    }
+                                ]
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "xL",
+                                        "raw": "xL"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "gL",
+                                        "raw": "gL"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "rL",
+                                        "raw": "rL"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "hL",
+                                        "raw": "hL"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "tptSvf",
+                                    "raw": "tptSvf"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "ArrayPattern",
+                                "elements": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "yLR",
+                                        "raw": "yLR"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "yBR",
+                                        "raw": "yBR"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "yHR",
+                                        "raw": "yHR"
+                                    }
+                                ]
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "xR",
+                                        "raw": "xR"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "gR",
+                                        "raw": "gR"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "rR",
+                                        "raw": "rR"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "hR",
+                                        "raw": "hR"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "tptSvf",
+                                    "raw": "tptSvf"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "allpassL",
+                                "raw": "allpassL"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "+",
+                                "left": {
+                                    "type": "BinaryExpression",
+                                    "operator": "+",
+                                    "left": {
+                                        "type": "Identifier",
+                                        "name": "yLL",
+                                        "raw": "yLL"
+                                    },
+                                    "right": {
+                                        "type": "BinaryExpression",
+                                        "operator": "*",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "yBL",
+                                            "raw": "yBL"
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "cBL",
+                                            "raw": "cBL"
+                                        }
+                                    }
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "yHL",
+                                    "raw": "yHL"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "allpassR",
+                                "raw": "allpassR"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "+",
+                                "left": {
+                                    "type": "BinaryExpression",
+                                    "operator": "+",
+                                    "left": {
+                                        "type": "Identifier",
+                                        "name": "yLR",
+                                        "raw": "yLR"
+                                    },
+                                    "right": {
+                                        "type": "BinaryExpression",
+                                        "operator": "*",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "yBR",
+                                            "raw": "yBR"
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "cBR",
+                                            "raw": "cBR"
+                                        }
+                                    }
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "yHR",
+                                    "raw": "yHR"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "ArrayExpression",
+                            "elements": [
+                                {
+                                    "type": "Identifier",
+                                    "name": "allpassL",
+                                    "raw": "allpassL"
+                                },
+                                {
+                                    "type": "Identifier",
+                                    "name": "allpassR",
+                                    "raw": "allpassR"
+                                }
+                            ]
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
                 "name": "tptAllpassCascade",
                 "raw": "tptAllpassCascade"
             },

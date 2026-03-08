@@ -1,0 +1,302 @@
+{
+    "object": {
+        "name": "evi.flanger.digital~",
+        "parent": "evi_flanger_digital",
+        "category": "evieve",
+        "tilde": "~",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE",
+        "discussion": ""
+    },
+    "metadata": {
+        "author": "Pete Dowling",
+        "tags": []
+    },
+    "includes": [
+        "evi_counting.genexpr",
+        "evi_smooth.genexpr",
+        "evi_lfo.genexpr"
+    ],
+    "inlets": [
+        {
+            "id": 1,
+            "type": "signal",
+            "digest": "Left Audio In",
+            "description": ""
+        },
+        {
+            "id": 2,
+            "type": "signal",
+            "digest": "Right Audio In",
+            "description": ""
+        },
+        {
+            "id": 3,
+            "type": "signal",
+            "digest": "Reset Naive",
+            "description": ""
+        }
+    ],
+    "outlets": [
+        {
+            "id": 1,
+            "type": "signal",
+            "digest": "Left Audio Out",
+            "description": ""
+        },
+        {
+            "id": 2,
+            "type": "signal",
+            "digest": "Right Audio Out",
+            "description": ""
+        },
+        {
+            "id": 3,
+            "type": "signal",
+            "digest": "LFO Left Out",
+            "description": ""
+        },
+        {
+            "id": 4,
+            "type": "signal",
+            "digest": "LFO Right Out",
+            "description": ""
+        }
+    ],
+    "messages": [],
+    "attributes": [
+        {
+            "name": "cross",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "1",
+                "value": "0."
+            }
+        },
+        {
+            "name": "depth",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "1",
+                "value": "0.74"
+            }
+        },
+        {
+            "name": "drywet",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "1",
+                "value": "0.75"
+            }
+        },
+        {
+            "name": "duty",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "1",
+                "value": "0.4"
+            }
+        },
+        {
+            "name": "feedback",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "-1",
+                "max": "1",
+                "value": "-0.5"
+            }
+        },
+        {
+            "name": "feedforward",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "1",
+                "value": "0.25"
+            }
+        },
+        {
+            "name": "gain",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "-10",
+                "max": "10",
+                "value": "0."
+            }
+        },
+        {
+            "name": "inject",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "1",
+                "value": "0.75"
+            }
+        },
+        {
+            "name": "invert",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "1",
+                "value": "0"
+            }
+        },
+        {
+            "name": "maxhz",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "100",
+                "value": "2.69"
+            }
+        },
+        {
+            "name": "maxtime",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "200",
+                "value": "2.1"
+            }
+        },
+        {
+            "name": "mintime",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "200",
+                "value": "0.03"
+            }
+        },
+        {
+            "name": "rate",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "1",
+                "value": "0.1"
+            }
+        },
+        {
+            "name": "shape",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "1",
+                "value": "0.5"
+            }
+        },
+        {
+            "name": "skew",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0.5",
+                "max": "2",
+                "value": "1.2"
+            }
+        },
+        {
+            "name": "smooth",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "301",
+                "value": "30.111"
+            }
+        },
+        {
+            "name": "spread",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "1",
+                "value": "0.7"
+            }
+        },
+        {
+            "name": "stereo",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "1",
+                "value": "0"
+            }
+        },
+        {
+            "name": "zeroreset",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "1",
+                "value": "0"
+            }
+        }
+    ],
+    "example": {
+        "caption": "",
+        "image": ""
+    },
+    "seealso": []
+}

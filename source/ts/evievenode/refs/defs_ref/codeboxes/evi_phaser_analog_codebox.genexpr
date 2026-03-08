@@ -1,0 +1,246 @@
+
+// analog-like phaser in the sort of pedal sense (good for mono input but still does stereo)
+
+require("evi_smooth_bank.genexpr");
+require("evi_rcfilters.genexpr");
+require("evi_crossovers.genexpr");
+require("evi_sources.genexpr");
+require("evi_lfo.genexpr");
+require("evi_adaa.genexpr");
+/*
+AllPoleWarp(cutoff)					// 6dB onepole Warp (not !)
+{
+	return clip(sin(cutoff * twopi / samplerate), 0.00001, 0.99999);
+}
+
+AllPoleSection(x, f, H)				// 6dB onepole Allpass
+{
+	lp = mix(H, x, f);				// lowpass
+	y0 = lp;
+	hp = x - lp;					// highpass
+	return ((hp * -1) + lp), y0;
+}
+
+AllPoleSectionFinal(x, f)			// 6dB onepole
+{
+	History y0(0);
+	lp = mix(y0, x, f);				// lowpass
+	y0 = lp;
+	hp = x - lp;					// highpass
+	return (hp * -1) + lp;
+}
+
+PoleZeroWarp(cutoff)				// 6dB pole/zero Warp
+{
+	fc = (pi * cutoff) / samplerate;			// !! no check for min/max 'cutoff' here
+	a0 = minimum(((2 * sin(fc)) / (cos(fc) + sin(fc))), 0.999999);
+	a1 = 1 - (a0 * 2);
+	return a0, a1;
+}
+
+PoleZeroSection(x, a0, a1, Q)		// 6dB pole/zero
+{
+	w = x * a0;
+	lp = Q + w;						// lowpass
+	R = w + (lp * a1);
+	hp = x - lp;					// highpass
+	return ((hp * -1) + lp), R;
+}
+
+PoleZeroSectionFinal(x, a0, a1)		// 6dB pole/zero
+{
+	History R(0);
+	w = x * a0;
+	lp = R + w;						// lowpass
+	R = w + (lp * a1);
+	hp = x - lp;					// highpass
+	return (hp * -1) + lp;
+}
+*/
+iirWarp(cutoff)						// 6dB iir BLT
+{	// alex, non-approx tan for you, but i think this very dangerous (must not get near nyquist)
+	return tan(cutoff * (pi / samplerate));	// !! no check for min/max 'cutoff' here
+}
+
+iirSection(x, w, H)					// 6dB iir Allpass
+{
+	z = (x - ((w - 1) * H)) * (1 / (w + 1));
+	hp = z - H;						// highpass
+	lp = (z + H) * w;				// lowpass
+	y0 = z;
+	return ((hp * -1) + lp), y0;
+}
+
+iirSectionFinal(x, w)				// 6dB iir
+{
+	History y0(0);
+	z = (x - ((w - 1) * y0)) * (1 / (w + 1));
+	hp = z - y0;					// highpass
+	lp = (z + y0) * w;				// lowpass
+	y0 = z;
+	return (hp * -1) + lp;
+}
+/*
+warpGlobal(cutoff, section)
+{
+	// global clip
+	cf = clip(cutoff, 5, (samplerate * 0.44));		// no need for precision here
+	// choose warp
+	w, a = 0;
+	if (section == 1) {
+		w, a = PoleZeroWarp(cf);
+	} else if (section == 2) {
+		w = iirWarp(cf);
+	} else {	// section == 0
+		w = AllPoleWarp(cf);
+	}
+	return w, a;
+}
+
+sectionGlobal(x, w, a, H, s)
+{
+	History dummy(0);	// trick gen
+	// choose filter
+	y, y0 = 0;
+	if (s == 1) {
+		y, y0 = PoleZeroSection(x, w, a, H);
+	} else if (s == 2) {
+		y, y0 = iirSection(x, w, H);
+	} else {	// s == 0
+		y, y0 = AllPoleSection(x, w, H);
+	}
+	return y, y0;
+}
+
+finalSection(x, w, a, s)
+{
+	History dummy(0);	// trick gen
+	// choose filter
+	y = 0;
+	if (s == 1) {
+		y = PoleZeroSectionFinal(x, w, a);
+	} else if (s == 2) {
+		y = iirSectionFinal(x, w);
+	} else {	// s == 0
+		y = AllPoleSectionFinal(x, w);
+	}
+	return y;
+}
+*/
+inputMixCos(xL, xR, stereo)
+{
+	monoMix = (xL + xR) * 0.5;
+    yL, yR = xfadeQuartApproxStereo(monoMix, monoMix, xL, xR, stereo);
+	return yL, yR, monoMix;
+}
+
+outputMixCos(xL, xR, stereo)
+{
+	yL = xL;
+	yR = xfadeQuartApproxMono(xL, xR, stereo);
+	return yL, yR;
+}
+
+Param	rate(0.5, min=0, max=8);
+Param	depth(0.75, min=0, max=1);
+Param	center(0.52, min=0, max=1);
+Param	spread(0.5, min=0, max=1);
+
+Param	duty(0.4, min=0, max=1);
+Param	shape(0.5, min=0, max=1);
+Param	skew(1.2, min=0.5, max=2);
+
+Param   xover(104., min=10, max=1000);
+Param   pregain(0., min=-6, max=6);
+Param   postgain(0., min=-6, max=6);
+Param	feedback(-0.5, min=-1, max=1);
+Param   smooth(22.666, min=0, max=226);
+
+Param   leakymix(0., min=0, max=10);
+Param   lossiness(0.7, min=0, max=1);
+Param   flavour(0.3, min=-20, max=20);
+Param   gaintime(2., min=0);
+Param   gainmode(0, min=0, max=2);
+
+History circuitM(0);
+
+History prevNum(7);
+Data	allpassCascade(32, 1);	// just change dim() for different available number of stages
+Param	stages(7);
+maxSections = dim(allpassCascade);
+numSections = clamp(int(stages), 2, maxSections);
+numSectsM1  = numSections - 1;  // because final section is solo
+smoothsecs	= smooth*0.001;
+
+centPitch = center * 134;
+rangPitch = centPitch * 0.5;
+rangDepth = depth * rangPitch;
+minPitch = centPitch - rangDepth;
+maxPitch = centPitch + rangDepth;
+
+fbmul	= ((1 - ((maximum(spread, 0.5) - 0.5) * 2)) * 0.75) + 0.75;
+fbsin	= fastsin(feedback * fbmul);
+fbfuck = abs(feedback) * 3;
+fuck = maximum(pregain - fbfuck, -6);
+
+phase, currentHz, sync = evi_phasor0(rate, 0);
+//phase = phasor(rate);
+
+// lfo
+lfo01	= lfoMix(phase, duty, shape, skew);
+lfomid	= mix(minPitch, maxPitch, lfo01);
+lfohz	= mtofApproxBaseless(lfomid);
+lfog    = rcPreWarp1(lfohz);
+lfow    = iirWarp(lfohz);
+
+xL      = in1;
+xR      = in2;
+stereoIn	= spread * 0.61;
+XinL, XinR, Mono  = inputMixCos(xL, xR, stereoIn);
+Sub, Xin    = eviXover2pole2band(XinL, xover);
+allpassM	= ((circuitM * fbsin) + Xin) * dbtoaApprox(fuck);
+
+pa 	    = 0.23283;
+sale	= (leakymix * leakymix) * pa;
+ratio1, gainMod1 = lossinessN(lossiness, flavour, gaintime, gainmode);
+preN	= clip(ratio1 * gainMod1, 0, 1);
+modN	= 1 - (sale * preN);
+
+// allpass cascade
+for (j = 0; j < numSectsM1; j += 1) {
+    apS0 = peek(allpassCascade, j, 0, index="samples", interp="none");
+//    allpassM, apS1 = rcFilterAllpassCascade(allpassM, lfog, apS0);
+    allpassM, apS1 = eviXoverAllpass1cascade(allpassM, lfohz, apS0);
+//    allpassM, apS1 = iirSection(allpassM, lfow, apS0);
+    apW1 = apS1 * modN;
+    poke(allpassCascade, apW1, j, 0, 0, index="samples");
+}
+if (prevNum != numSections) { // should be before cascade ?
+	// zero remainder
+	for (k = numSectsM1; k < maxSections; k += 1) {
+		poke(allpassCascade, 0, k, 0, 0, index="samples");
+	}
+	prevNum = numSections;
+}
+
+// tap feedback and saturate
+circuitM	= dcblock(atanAdaa2(allpassM * fbsin));
+//final	    = dcblock(rcFilterAllpass((allpassM * dbtoaApprox(postgain)), lfog) * -1);
+final	    = dcblock(eviXoverAllpass1((allpassM * dbtoaApprox(postgain)), lfohz) * -1);
+//final	    = dcblock(iirSectionFinal((allpassM * dbtoaApprox(postgain)), lfow) * -1);
+subFinal    = eCubicAdaa1(Sub) + final;
+
+omsq12		= 1 - sqrt1_2;
+fbattenL	= 1 - (abs(minimum(fbsin, 0)) * omsq12);
+fbattenR	= 1 - (maximum(fbsin, 0) * omsq12);
+phaserL		= (Xin + (subFinal * sqrt1_2)) * fbattenL;     // & static atten
+phaserR		= ((subFinal + (subFinal * fbsin)) + XinR) * fbattenR;
+
+stereoOut	 = (spread * 0.82) + 0.18;
+mainL, mainR = outputMixCos(phaserL, phaserR, stereoOut);
+
+out1 = mainL;
+out2 = mainR;
+
+out3 = minPitch;//lfo01;
+out4 = maxPitch;//lfohz;

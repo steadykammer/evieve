@@ -4056,6 +4056,1468 @@
             },
             "generator": false,
             "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "opIIR",
+                "raw": "opIIR"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "x",
+                    "raw": "x"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "c",
+                    "raw": "c"
+                }
+            ],
+            "defaults": [
+                null,
+                null
+            ],
+            "decls": [
+                [
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "y1",
+                                    "raw": "y1"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            ],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "T",
+                                "raw": "T"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "/",
+                                "left": {
+                                    "type": "Literal",
+                                    "value": 1,
+                                    "raw": "1",
+                                    "gen_kind": "integer"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "samplerate",
+                                    "raw": "samplerate"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "b0",
+                                "raw": "b0"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "/",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "T",
+                                    "raw": "T"
+                                },
+                                "right": {
+                                    "type": "BinaryExpression",
+                                    "operator": "+",
+                                    "left": {
+                                        "type": "BinaryExpression",
+                                        "operator": "*",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "c",
+                                            "raw": "c"
+                                        },
+                                        "right": {
+                                            "type": "Literal",
+                                            "value": 0.01,
+                                            "raw": "0.01",
+                                            "gen_kind": "float"
+                                        }
+                                    },
+                                    "right": {
+                                        "type": "Identifier",
+                                        "name": "T",
+                                        "raw": "T"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "a1",
+                                "raw": "a1"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "-",
+                                "left": {
+                                    "type": "Literal",
+                                    "value": 1,
+                                    "raw": "1",
+                                    "gen_kind": "integer"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "b0",
+                                    "raw": "b0"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "y1",
+                                "raw": "y1"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "+",
+                                "left": {
+                                    "type": "BinaryExpression",
+                                    "operator": "*",
+                                    "left": {
+                                        "type": "Identifier",
+                                        "name": "x",
+                                        "raw": "x"
+                                    },
+                                    "right": {
+                                        "type": "Identifier",
+                                        "name": "b0",
+                                        "raw": "b0"
+                                    }
+                                },
+                                "right": {
+                                    "type": "BinaryExpression",
+                                    "operator": "*",
+                                    "left": {
+                                        "type": "Identifier",
+                                        "name": "y1",
+                                        "raw": "y1"
+                                    },
+                                    "right": {
+                                        "type": "Identifier",
+                                        "name": "a1",
+                                        "raw": "a1"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "Identifier",
+                            "name": "y1",
+                            "raw": "y1"
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "levelDetect",
+                "raw": "levelDetect"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "x",
+                    "raw": "x"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "d",
+                    "raw": "d"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "mode",
+                    "raw": "mode"
+                }
+            ],
+            "defaults": [
+                null,
+                null,
+                null
+            ],
+            "decls": [
+                [
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "lddummy",
+                                    "raw": "lddummy"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            ],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "level",
+                                "raw": "level"
+                            },
+                            "right": {
+                                "type": "Literal",
+                                "value": 0,
+                                "raw": "0",
+                                "gen_kind": "integer"
+                            }
+                        }
+                    },
+                    {
+                        "type": "IfStatement",
+                        "test": {
+                            "type": "BinaryExpression",
+                            "operator": "==",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "mode",
+                                "raw": "mode"
+                            },
+                            "right": {
+                                "type": "Literal",
+                                "value": 1,
+                                "raw": "1",
+                                "gen_kind": "integer"
+                            }
+                        },
+                        "consequent": {
+                            "type": "BlockStatement",
+                            "body": [
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "level",
+                                            "raw": "level"
+                                        },
+                                        "right": {
+                                            "type": "CallExpression",
+                                            "arguments": [
+                                                {
+                                                    "type": "Identifier",
+                                                    "name": "x",
+                                                    "raw": "x"
+                                                },
+                                                {
+                                                    "type": "Identifier",
+                                                    "name": "d",
+                                                    "raw": "d"
+                                                }
+                                            ],
+                                            "callee": {
+                                                "type": "Identifier",
+                                                "name": "opIIR",
+                                                "raw": "opIIR"
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "alternate": {
+                            "type": "IfStatement",
+                            "test": {
+                                "type": "BinaryExpression",
+                                "operator": "==",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "mode",
+                                    "raw": "mode"
+                                },
+                                "right": {
+                                    "type": "Literal",
+                                    "value": 2,
+                                    "raw": "2",
+                                    "gen_kind": "integer"
+                                }
+                            },
+                            "consequent": {
+                                "type": "BlockStatement",
+                                "body": [
+                                    {
+                                        "type": "ExpressionStatement",
+                                        "expression": {
+                                            "type": "AssignmentExpression",
+                                            "operator": "=",
+                                            "left": {
+                                                "type": "Identifier",
+                                                "name": "level",
+                                                "raw": "level"
+                                            },
+                                            "right": {
+                                                "type": "CallExpression",
+                                                "arguments": [
+                                                    {
+                                                        "type": "CallExpression",
+                                                        "arguments": [
+                                                            {
+                                                                "type": "BinaryExpression",
+                                                                "operator": "*",
+                                                                "left": {
+                                                                    "type": "Identifier",
+                                                                    "name": "x",
+                                                                    "raw": "x"
+                                                                },
+                                                                "right": {
+                                                                    "type": "Identifier",
+                                                                    "name": "x",
+                                                                    "raw": "x"
+                                                                }
+                                                            },
+                                                            {
+                                                                "type": "Identifier",
+                                                                "name": "d",
+                                                                "raw": "d"
+                                                            }
+                                                        ],
+                                                        "callee": {
+                                                            "type": "Identifier",
+                                                            "name": "opIIR",
+                                                            "raw": "opIIR"
+                                                        }
+                                                    }
+                                                ],
+                                                "callee": {
+                                                    "type": "Identifier",
+                                                    "name": "sqrt",
+                                                    "raw": "sqrt"
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "alternate": {
+                                "type": "BlockStatement",
+                                "body": [
+                                    {
+                                        "type": "ExpressionStatement",
+                                        "expression": {
+                                            "type": "AssignmentExpression",
+                                            "operator": "=",
+                                            "left": {
+                                                "type": "Identifier",
+                                                "name": "level",
+                                                "raw": "level"
+                                            },
+                                            "right": {
+                                                "type": "CallExpression",
+                                                "arguments": [
+                                                    {
+                                                        "type": "Identifier",
+                                                        "name": "x",
+                                                        "raw": "x"
+                                                    }
+                                                ],
+                                                "callee": {
+                                                    "type": "Identifier",
+                                                    "name": "abs",
+                                                    "raw": "abs"
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "Identifier",
+                            "name": "level",
+                            "raw": "level"
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "integrateN",
+                "raw": "integrateN"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "o1",
+                    "raw": "o1"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "o2",
+                    "raw": "o2"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "y1",
+                    "raw": "y1"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "y2",
+                    "raw": "y2"
+                }
+            ],
+            "defaults": [
+                null,
+                null,
+                null,
+                null
+            ],
+            "decls": [],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "BinaryExpression",
+                            "operator": "*",
+                            "left": {
+                                "type": "BinaryExpression",
+                                "operator": "+",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "y1",
+                                    "raw": "y1"
+                                },
+                                "right": {
+                                    "type": "BinaryExpression",
+                                    "operator": "/",
+                                    "left": {
+                                        "type": "BinaryExpression",
+                                        "operator": "*",
+                                        "left": {
+                                            "type": "BinaryExpression",
+                                            "operator": "+",
+                                            "left": {
+                                                "type": "Identifier",
+                                                "name": "o1",
+                                                "raw": "o1"
+                                            },
+                                            "right": {
+                                                "type": "Identifier",
+                                                "name": "o2",
+                                                "raw": "o2"
+                                            }
+                                        },
+                                        "right": {
+                                            "type": "BinaryExpression",
+                                            "operator": "-",
+                                            "left": {
+                                                "type": "Identifier",
+                                                "name": "y2",
+                                                "raw": "y2"
+                                            },
+                                            "right": {
+                                                "type": "Identifier",
+                                                "name": "y1",
+                                                "raw": "y1"
+                                            }
+                                        }
+                                    },
+                                    "right": {
+                                        "type": "Literal",
+                                        "value": 2,
+                                        "raw": "2",
+                                        "gen_kind": "integer"
+                                    }
+                                }
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "-",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "o2",
+                                    "raw": "o2"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "o1",
+                                    "raw": "o1"
+                                }
+                            }
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "leakyIntegrateN",
+                "raw": "leakyIntegrateN"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "o1",
+                    "raw": "o1"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "o2",
+                    "raw": "o2"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "o3",
+                    "raw": "o3"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "y1",
+                    "raw": "y1"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "y2",
+                    "raw": "y2"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "amount",
+                    "raw": "amount"
+                }
+            ],
+            "defaults": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+            ],
+            "decls": [],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "val",
+                                "raw": "val"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "o1",
+                                        "raw": "o1"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "o2",
+                                        "raw": "o2"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "y1",
+                                        "raw": "y1"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "y2",
+                                        "raw": "y2"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "integrateN",
+                                    "raw": "integrateN"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "+=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "val",
+                                "raw": "val"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "*",
+                                "left": {
+                                    "type": "CallExpression",
+                                    "arguments": [
+                                        {
+                                            "type": "Identifier",
+                                            "name": "o2",
+                                            "raw": "o2"
+                                        },
+                                        {
+                                            "type": "Identifier",
+                                            "name": "o3",
+                                            "raw": "o3"
+                                        },
+                                        {
+                                            "type": "Identifier",
+                                            "name": "y1",
+                                            "raw": "y1"
+                                        },
+                                        {
+                                            "type": "Identifier",
+                                            "name": "y2",
+                                            "raw": "y2"
+                                        }
+                                    ],
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "integrateN",
+                                        "raw": "integrateN"
+                                    }
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "amount",
+                                    "raw": "amount"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "BinaryExpression",
+                            "operator": "/",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "val",
+                                "raw": "val"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "+",
+                                "left": {
+                                    "type": "Literal",
+                                    "value": 1,
+                                    "raw": "1",
+                                    "gen_kind": "integer"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "amount",
+                                    "raw": "amount"
+                                }
+                            }
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "noiseGenerate",
+                "raw": "noiseGenerate"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "flav",
+                    "raw": "flav"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "loss",
+                    "raw": "loss"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "d",
+                    "raw": "d"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "mode",
+                    "raw": "mode"
+                }
+            ],
+            "defaults": [
+                null,
+                null,
+                null,
+                null
+            ],
+            "decls": [
+                [
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "ngdummy",
+                                    "raw": "ngdummy"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            ],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "ns",
+                                "raw": "ns"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "*",
+                                "left": {
+                                    "type": "BinaryExpression",
+                                    "operator": "+",
+                                    "left": {
+                                        "type": "CallExpression",
+                                        "arguments": [],
+                                        "callee": {
+                                            "type": "Identifier",
+                                            "name": "noise",
+                                            "raw": "noise"
+                                        }
+                                    },
+                                    "right": {
+                                        "type": "Literal",
+                                        "value": 1,
+                                        "raw": "1",
+                                        "gen_kind": "integer"
+                                    }
+                                },
+                                "right": {
+                                    "type": "Literal",
+                                    "value": 0.5,
+                                    "raw": "0.5",
+                                    "gen_kind": "float"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "ratio",
+                                "raw": "ratio"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "CallExpression",
+                                        "arguments": [
+                                            {
+                                                "type": "Identifier",
+                                                "name": "ns",
+                                                "raw": "ns"
+                                            },
+                                            {
+                                                "type": "Identifier",
+                                                "name": "flav",
+                                                "raw": "flav"
+                                            }
+                                        ],
+                                        "callee": {
+                                            "type": "Identifier",
+                                            "name": "fastpow",
+                                            "raw": "fastpow"
+                                        }
+                                    },
+                                    {
+                                        "type": "Literal",
+                                        "value": 0,
+                                        "raw": "0",
+                                        "gen_kind": "integer"
+                                    },
+                                    {
+                                        "type": "Literal",
+                                        "value": 1,
+                                        "raw": "1",
+                                        "gen_kind": "integer"
+                                    },
+                                    {
+                                        "type": "BinaryExpression",
+                                        "operator": "*",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "loss",
+                                            "raw": "loss"
+                                        },
+                                        "right": {
+                                            "type": "Literal",
+                                            "value": 0.01,
+                                            "raw": "0.01",
+                                            "gen_kind": "float"
+                                        }
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "loss",
+                                        "raw": "loss"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "evi_map",
+                                    "raw": "evi_map"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "gainMod",
+                                "raw": "gainMod"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "/",
+                                "left": {
+                                    "type": "Literal",
+                                    "value": 1,
+                                    "raw": "1",
+                                    "gen_kind": "integer"
+                                },
+                                "right": {
+                                    "type": "BinaryExpression",
+                                    "operator": "-",
+                                    "left": {
+                                        "type": "Literal",
+                                        "value": 1,
+                                        "raw": "1",
+                                        "gen_kind": "integer"
+                                    },
+                                    "right": {
+                                        "type": "CallExpression",
+                                        "arguments": [
+                                            {
+                                                "type": "Identifier",
+                                                "name": "ratio",
+                                                "raw": "ratio"
+                                            },
+                                            {
+                                                "type": "Identifier",
+                                                "name": "d",
+                                                "raw": "d"
+                                            },
+                                            {
+                                                "type": "Identifier",
+                                                "name": "mode",
+                                                "raw": "mode"
+                                            }
+                                        ],
+                                        "callee": {
+                                            "type": "Identifier",
+                                            "name": "levelDetect",
+                                            "raw": "levelDetect"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "ArrayExpression",
+                            "elements": [
+                                {
+                                    "type": "Identifier",
+                                    "name": "ratio",
+                                    "raw": "ratio"
+                                },
+                                {
+                                    "type": "Identifier",
+                                    "name": "gainMod",
+                                    "raw": "gainMod"
+                                }
+                            ]
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "lossinessN",
+                "raw": "lossinessN"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "loss",
+                    "raw": "loss"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "flavour",
+                    "raw": "flavour"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "d",
+                    "raw": "d"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "mode",
+                    "raw": "mode"
+                }
+            ],
+            "defaults": [
+                null,
+                null,
+                null,
+                null
+            ],
+            "decls": [
+                [
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "lndummy",
+                                    "raw": "lndummy"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            ],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "flav",
+                                "raw": "flav"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Literal",
+                                        "value": 1.8,
+                                        "raw": "1.8",
+                                        "gen_kind": "float"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "flavour",
+                                        "raw": "flavour"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "fastpow",
+                                    "raw": "fastpow"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "ArrayPattern",
+                                "elements": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "ratio",
+                                        "raw": "ratio"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "gainMod",
+                                        "raw": "gainMod"
+                                    }
+                                ]
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "flav",
+                                        "raw": "flav"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "loss",
+                                        "raw": "loss"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "d",
+                                        "raw": "d"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "mode",
+                                        "raw": "mode"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "noiseGenerate",
+                                    "raw": "noiseGenerate"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "ArrayExpression",
+                            "elements": [
+                                {
+                                    "type": "Identifier",
+                                    "name": "ratio",
+                                    "raw": "ratio"
+                                },
+                                {
+                                    "type": "Identifier",
+                                    "name": "gainMod",
+                                    "raw": "gainMod"
+                                }
+                            ]
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "lossinessN2",
+                "raw": "lossinessN2"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "loss",
+                    "raw": "loss"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "flavour",
+                    "raw": "flavour"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "d",
+                    "raw": "d"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "mode",
+                    "raw": "mode"
+                }
+            ],
+            "defaults": [
+                null,
+                null,
+                null,
+                null
+            ],
+            "decls": [
+                [
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "lndummy2",
+                                    "raw": "lndummy2"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            ],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "flav",
+                                "raw": "flav"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Literal",
+                                        "value": 1.8,
+                                        "raw": "1.8",
+                                        "gen_kind": "float"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "flavour",
+                                        "raw": "flavour"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "fastpow",
+                                    "raw": "fastpow"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "ArrayPattern",
+                                "elements": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "ratio1",
+                                        "raw": "ratio1"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "gainMod1",
+                                        "raw": "gainMod1"
+                                    }
+                                ]
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "flav",
+                                        "raw": "flav"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "loss",
+                                        "raw": "loss"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "d",
+                                        "raw": "d"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "mode",
+                                        "raw": "mode"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "noiseGenerate",
+                                    "raw": "noiseGenerate"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "ArrayPattern",
+                                "elements": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "ratio2",
+                                        "raw": "ratio2"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "gainMod2",
+                                        "raw": "gainMod2"
+                                    }
+                                ]
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "flav",
+                                        "raw": "flav"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "loss",
+                                        "raw": "loss"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "d",
+                                        "raw": "d"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "mode",
+                                        "raw": "mode"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "noiseGenerate",
+                                    "raw": "noiseGenerate"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "ArrayExpression",
+                            "elements": [
+                                {
+                                    "type": "Identifier",
+                                    "name": "ratio1",
+                                    "raw": "ratio1"
+                                },
+                                {
+                                    "type": "Identifier",
+                                    "name": "ratio2",
+                                    "raw": "ratio2"
+                                },
+                                {
+                                    "type": "Identifier",
+                                    "name": "gainMod1",
+                                    "raw": "gainMod1"
+                                },
+                                {
+                                    "type": "Identifier",
+                                    "name": "gainMod2",
+                                    "raw": "gainMod2"
+                                }
+                            ]
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
         }
     ],
     "decls": [],

@@ -1,0 +1,254 @@
+{
+    "object": {
+        "name": "evi_phaser_analog",
+        "child": "evi.phaser.analog~",
+        "category": "evieve",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "constructor": {
+        "inlets": ", "
+    },
+    "includes": [
+        "evi_smooth_bank",
+        "evi_rcfilters",
+        "evi_crossovers",
+        "evi_sources",
+        "evi_lfo",
+        "evi_adaa"
+    ],
+    "inlets": [
+        {
+            "id": 1,
+            "name": "",
+            "type": "float",
+            "optional": 1,
+            "digest": ""
+        },
+        {
+            "id": 2,
+            "name": "",
+            "type": "float",
+            "optional": 1,
+            "digest": ""
+        }
+    ],
+    "outlets": [
+        {
+            "id": 1,
+            "name": "",
+            "type": "float",
+            "optional": 1,
+            "digest": ""
+        },
+        {
+            "id": 2,
+            "name": "",
+            "type": "float",
+            "optional": 1,
+            "digest": ""
+        },
+        {
+            "id": 3,
+            "name": "",
+            "type": "float",
+            "optional": 1,
+            "digest": ""
+        },
+        {
+            "id": 4,
+            "name": "",
+            "type": "float",
+            "optional": 1,
+            "digest": ""
+        }
+    ],
+    "attributes": [
+        {
+            "name": "center",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.52"
+            }
+        },
+        {
+            "name": "depth",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.75"
+            }
+        },
+        {
+            "name": "duty",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.4"
+            }
+        },
+        {
+            "name": "feedback",
+            "type": "float",
+            "digest": "@min -1, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "-0.5"
+            }
+        },
+        {
+            "name": "flavour",
+            "type": "float",
+            "digest": "@min -20, @max 20",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.3"
+            }
+        },
+        {
+            "name": "gainmode",
+            "type": "int",
+            "digest": "@min 0, @max 2",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "gaintime",
+            "type": "float",
+            "digest": "@min 0",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "2."
+            }
+        },
+        {
+            "name": "leakymix",
+            "type": "float",
+            "digest": "@min 0, @max 10",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0."
+            }
+        },
+        {
+            "name": "lossiness",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.7"
+            }
+        },
+        {
+            "name": "postgain",
+            "type": "float",
+            "digest": "@min -6, @max 6",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0."
+            }
+        },
+        {
+            "name": "pregain",
+            "type": "float",
+            "digest": "@min -6, @max 6",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0."
+            }
+        },
+        {
+            "name": "rate",
+            "type": "float",
+            "digest": "@min 0, @max 8",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.5"
+            }
+        },
+        {
+            "name": "shape",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.5"
+            }
+        },
+        {
+            "name": "skew",
+            "type": "float",
+            "digest": "@min 0.5, @max 2",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "1.2"
+            }
+        },
+        {
+            "name": "smooth",
+            "type": "float",
+            "digest": "@min 0, @max 226",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "22.666"
+            }
+        },
+        {
+            "name": "spread",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.5"
+            }
+        },
+        {
+            "name": "stages",
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "7"
+            }
+        },
+        {
+            "name": "xover",
+            "type": "float",
+            "digest": "@min 10, @max 1000",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "104."
+            }
+        }
+    ],
+    "seealso": [
+        {
+            "name": "",
+            "display": ""
+        }
+    ]
+}

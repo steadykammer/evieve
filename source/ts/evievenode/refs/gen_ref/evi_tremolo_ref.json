@@ -1,0 +1,217 @@
+{
+    "object": {
+        "name": "evi_tremolo",
+        "child": "evi.tremolo~",
+        "category": "evieve",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "constructor": {
+        "inlets": "left, right, reset"
+    },
+    "includes": [
+        "evi_crossovers",
+        "evi_counting",
+        "evi_smooth_bank",
+        "evi_adaa",
+        "evi_lfo"
+    ],
+    "inlets": [
+        {
+            "id": 1,
+            "name": "left",
+            "type": "float",
+            "optional": 1,
+            "digest": "Audio In"
+        },
+        {
+            "id": 2,
+            "name": "right",
+            "type": "float",
+            "optional": 1,
+            "digest": "Audio In"
+        },
+        {
+            "id": 3,
+            "name": "reset",
+            "type": "float",
+            "optional": 1,
+            "digest": "Naive"
+        }
+    ],
+    "outlets": [
+        {
+            "id": 1,
+            "name": "left",
+            "type": "float",
+            "optional": 1,
+            "digest": "Audio Out"
+        },
+        {
+            "id": 2,
+            "name": "right",
+            "type": "float",
+            "optional": 1,
+            "digest": "Audio Out"
+        },
+        {
+            "id": 3,
+            "name": "hz",
+            "type": "float",
+            "optional": 1,
+            "digest": "Current"
+        },
+        {
+            "id": 4,
+            "name": "lfo",
+            "type": "float",
+            "optional": 1,
+            "digest": "Left Out"
+        },
+        {
+            "id": 5,
+            "name": "lfo",
+            "type": "float",
+            "optional": 1,
+            "digest": "Right Out"
+        }
+    ],
+    "attributes": [
+        {
+            "name": "crossover",
+            "type": "float",
+            "digest": "@min 10, @max 1000",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "63.5"
+            }
+        },
+        {
+            "name": "depth",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.75"
+            }
+        },
+        {
+            "name": "drive",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.5"
+            }
+        },
+        {
+            "name": "lfoinvert",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "lfomode",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "1"
+            }
+        },
+        {
+            "name": "lfoout",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "1"
+            }
+        },
+        {
+            "name": "lfoskew",
+            "type": "float",
+            "digest": "@min 0.5, @max 2",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "1."
+            }
+        },
+        {
+            "name": "lfowave",
+            "type": "int",
+            "digest": "@min 0, @max 10",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "4"
+            }
+        },
+        {
+            "name": "lfowidth",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.5"
+            }
+        },
+        {
+            "name": "maxhz",
+            "type": "float",
+            "digest": "@min 0.1, @max 40",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "11."
+            }
+        },
+        {
+            "name": "rate",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.5"
+            }
+        },
+        {
+            "name": "smooth",
+            "type": "float",
+            "digest": "@min 0, @max 151",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "15.111"
+            }
+        },
+        {
+            "name": "spread",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.25"
+            }
+        }
+    ],
+    "seealso": [
+        {
+            "name": "",
+            "display": ""
+        }
+    ]
+}

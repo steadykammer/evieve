@@ -254,6 +254,26 @@
         {
             "document": true,
             "digest": "",
+            "name": "parabolApprox01",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "phase",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
             "name": "cosApprox01",
             "inputs": [
                 {

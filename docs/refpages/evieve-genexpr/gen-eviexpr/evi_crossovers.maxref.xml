@@ -211,6 +211,30 @@
 
       </description>
     </entry>
+    <entry name="eviXoverAllpass1cascade ( )">
+      <description>
+        <b>In 1</b>: type=<i>input</i>: X, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: hz, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: s0, <i></i> <br />
+
+        <b>Return 1</b>: ,  <br />
+        <b>Return 2</b>: ,  <br />
+
+      </description>
+    </entry>
+    <entry name="eviXoverAllpass2cascade ( )">
+      <description>
+        <b>In 1</b>: type=<i>input</i>: Xin, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: Hz, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: s0, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: s1, <i></i> <br />
+
+        <b>Return 1</b>: ,  <br />
+        <b>Return 2</b>: ,  <br />
+        <b>Return 3</b>: ,  <br />
+
+      </description>
+    </entry>
   </misc>
   <metadatalist>
     <metadata name="author">Pete Dowling</metadata>

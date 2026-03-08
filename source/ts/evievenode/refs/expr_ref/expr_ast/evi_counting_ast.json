@@ -81,8 +81,8 @@
                                         {
                                             "type": "Literal",
                                             "value": 0,
-                                            "raw": "0",
-                                            "gen_kind": "integer"
+                                            "raw": "0.",
+                                            "gen_kind": "float"
                                         }
                                     ]
                                 }
@@ -369,8 +369,8 @@
                                         {
                                             "type": "Literal",
                                             "value": 0,
-                                            "raw": "0",
-                                            "gen_kind": "integer"
+                                            "raw": "0.",
+                                            "gen_kind": "float"
                                         },
                                         {
                                             "type": "AssignmentExpression",
@@ -1206,6 +1206,896 @@
                                     "type": "Identifier",
                                     "name": "thisdelta",
                                     "raw": "thisdelta"
+                                }
+                            ]
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "eviPhasorTwo0",
+                "raw": "eviPhasorTwo0"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "freqFree",
+                    "raw": "freqFree"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "spreadFree",
+                    "raw": "spreadFree"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "reset",
+                    "raw": "reset"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "minimumhz",
+                    "raw": "minimumhz"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "mode",
+                    "raw": "mode"
+                }
+            ],
+            "defaults": [
+                null,
+                null,
+                null,
+                {
+                    "type": "Literal",
+                    "value": 0.125,
+                    "raw": "0.125",
+                    "gen_kind": "float"
+                },
+                {
+                    "type": "Literal",
+                    "value": 1,
+                    "raw": "1",
+                    "gen_kind": "integer"
+                }
+            ],
+            "decls": [
+                [
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "init",
+                                    "raw": "init"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 1,
+                                            "raw": "1",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "t_phase",
+                                    "raw": "t_phase"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "w_sync",
+                                    "raw": "w_sync"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            ],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "firstfreq",
+                                "raw": "firstfreq"
+                            },
+                            "right": {
+                                "type": "Literal",
+                                "value": 0,
+                                "raw": "0",
+                                "gen_kind": "integer"
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "freqnotzero",
+                                "raw": "freqnotzero"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "<",
+                                "left": {
+                                    "type": "CallExpression",
+                                    "arguments": [
+                                        {
+                                            "type": "CallExpression",
+                                            "arguments": [
+                                                {
+                                                    "type": "Identifier",
+                                                    "name": "freqFree",
+                                                    "raw": "freqFree"
+                                                }
+                                            ],
+                                            "callee": {
+                                                "type": "Identifier",
+                                                "name": "change",
+                                                "raw": "change"
+                                            }
+                                        }
+                                    ],
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "delta",
+                                        "raw": "delta"
+                                    }
+                                },
+                                "right": {
+                                    "type": "Literal",
+                                    "value": 0,
+                                    "raw": "0",
+                                    "gen_kind": "integer"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "IfStatement",
+                        "test": {
+                            "type": "BinaryExpression",
+                            "operator": "&&",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "freqnotzero",
+                                "raw": "freqnotzero"
+                            },
+                            "right": {
+                                "type": "Identifier",
+                                "name": "init",
+                                "raw": "init"
+                            }
+                        },
+                        "consequent": {
+                            "type": "BlockStatement",
+                            "body": [
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "firstfreq",
+                                            "raw": "firstfreq"
+                                        },
+                                        "right": {
+                                            "type": "Literal",
+                                            "value": 1,
+                                            "raw": "1",
+                                            "gen_kind": "integer"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "init",
+                                            "raw": "init"
+                                        },
+                                        "right": {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "alternate": {
+                            "type": "BlockStatement",
+                            "body": [
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "firstfreq",
+                                            "raw": "firstfreq"
+                                        },
+                                        "right": {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "thisPhasor1",
+                                "raw": "thisPhasor1"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "t_phase",
+                                        "raw": "t_phase"
+                                    },
+                                    {
+                                        "type": "Literal",
+                                        "value": 0,
+                                        "raw": "0",
+                                        "gen_kind": "integer"
+                                    },
+                                    {
+                                        "type": "Literal",
+                                        "value": 1,
+                                        "raw": "1",
+                                        "gen_kind": "integer"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "wrap",
+                                    "raw": "wrap"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "thisPhasor1Sync",
+                                "raw": "thisPhasor1Sync"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "+",
+                                "left": {
+                                    "type": "BinaryExpression",
+                                    "operator": "<",
+                                    "left": {
+                                        "type": "CallExpression",
+                                        "arguments": [
+                                            {
+                                                "type": "CallExpression",
+                                                "arguments": [
+                                                    {
+                                                        "type": "Identifier",
+                                                        "name": "thisPhasor1",
+                                                        "raw": "thisPhasor1"
+                                                    }
+                                                ],
+                                                "callee": {
+                                                    "type": "Identifier",
+                                                    "name": "abs",
+                                                    "raw": "abs"
+                                                }
+                                            }
+                                        ],
+                                        "callee": {
+                                            "type": "Identifier",
+                                            "name": "delta",
+                                            "raw": "delta"
+                                        }
+                                    },
+                                    "right": {
+                                        "type": "Literal",
+                                        "value": 0,
+                                        "raw": "0",
+                                        "gen_kind": "integer"
+                                    }
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "firstfreq",
+                                    "raw": "firstfreq"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "freqFreeMul",
+                                "raw": "freqFreeMul"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "freqFree",
+                                        "raw": "freqFree"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "abs",
+                                    "raw": "abs"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "spreadFreeMul",
+                                "raw": "spreadFreeMul"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "*",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "spreadFree",
+                                    "raw": "spreadFree"
+                                },
+                                "right": {
+                                    "type": "Literal",
+                                    "value": 0.5,
+                                    "raw": "0.5",
+                                    "gen_kind": "float"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "ArrayPattern",
+                                "elements": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "freqMain",
+                                        "raw": "freqMain"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "spreadMain",
+                                        "raw": "spreadMain"
+                                    }
+                                ]
+                            },
+                            "right": {
+                                "type": "Literal",
+                                "value": 0,
+                                "raw": "0",
+                                "gen_kind": "integer"
+                            }
+                        }
+                    },
+                    {
+                        "type": "IfStatement",
+                        "test": {
+                            "type": "BinaryExpression",
+                            "operator": ">",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "mode",
+                                "raw": "mode"
+                            },
+                            "right": {
+                                "type": "Literal",
+                                "value": 0,
+                                "raw": "0",
+                                "gen_kind": "integer"
+                            }
+                        },
+                        "consequent": {
+                            "type": "BlockStatement",
+                            "body": [
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "freqMain",
+                                            "raw": "freqMain"
+                                        },
+                                        "right": {
+                                            "type": "CallExpression",
+                                            "arguments": [
+                                                {
+                                                    "type": "CallExpression",
+                                                    "arguments": [
+                                                        {
+                                                            "type": "Identifier",
+                                                            "name": "freqFreeMul",
+                                                            "raw": "freqFreeMul"
+                                                        },
+                                                        {
+                                                            "type": "Identifier",
+                                                            "name": "minimumhz",
+                                                            "raw": "minimumhz"
+                                                        }
+                                                    ],
+                                                    "callee": {
+                                                        "type": "Identifier",
+                                                        "name": "maximum",
+                                                        "raw": "maximum"
+                                                    }
+                                                },
+                                                {
+                                                    "type": "BinaryExpression",
+                                                    "operator": "+",
+                                                    "left": {
+                                                        "type": "Identifier",
+                                                        "name": "thisPhasor1Sync",
+                                                        "raw": "thisPhasor1Sync"
+                                                    },
+                                                    "right": {
+                                                        "type": "Identifier",
+                                                        "name": "reset",
+                                                        "raw": "reset"
+                                                    }
+                                                }
+                                            ],
+                                            "callee": {
+                                                "type": "Identifier",
+                                                "name": "latch",
+                                                "raw": "latch"
+                                            }
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "spreadMain",
+                                            "raw": "spreadMain"
+                                        },
+                                        "right": {
+                                            "type": "CallExpression",
+                                            "arguments": [
+                                                {
+                                                    "type": "Identifier",
+                                                    "name": "spreadFreeMul",
+                                                    "raw": "spreadFreeMul"
+                                                },
+                                                {
+                                                    "type": "Identifier",
+                                                    "name": "w_sync",
+                                                    "raw": "w_sync"
+                                                }
+                                            ],
+                                            "callee": {
+                                                "type": "Identifier",
+                                                "name": "latch",
+                                                "raw": "latch"
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "alternate": {
+                            "type": "BlockStatement",
+                            "body": [
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "freqMain",
+                                            "raw": "freqMain"
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "freqFreeMul",
+                                            "raw": "freqFreeMul"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "spreadMain",
+                                            "raw": "spreadMain"
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "spreadFreeMul",
+                                            "raw": "spreadFreeMul"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "freqNorm",
+                                "raw": "freqNorm"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "/",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "freqMain",
+                                    "raw": "freqMain"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "samplerate",
+                                    "raw": "samplerate"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "t_phase",
+                                "raw": "t_phase"
+                            },
+                            "right": {
+                                "type": "ConditionalExpression",
+                                "test": {
+                                    "type": "Identifier",
+                                    "name": "reset",
+                                    "raw": "reset"
+                                },
+                                "consequent": {
+                                    "type": "Literal",
+                                    "value": 0,
+                                    "raw": "0",
+                                    "gen_kind": "integer"
+                                },
+                                "alternate": {
+                                    "type": "BinaryExpression",
+                                    "operator": "+",
+                                    "left": {
+                                        "type": "Identifier",
+                                        "name": "thisPhasor1",
+                                        "raw": "thisPhasor1"
+                                    },
+                                    "right": {
+                                        "type": "Identifier",
+                                        "name": "freqNorm",
+                                        "raw": "freqNorm"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "resetSpread",
+                                "raw": "resetSpread"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "ConditionalExpression",
+                                        "test": {
+                                            "type": "Identifier",
+                                            "name": "reset",
+                                            "raw": "reset"
+                                        },
+                                        "consequent": {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        },
+                                        "alternate": {
+                                            "type": "Identifier",
+                                            "name": "spreadMain",
+                                            "raw": "spreadMain"
+                                        }
+                                    },
+                                    {
+                                        "type": "Literal",
+                                        "value": 0,
+                                        "raw": "0",
+                                        "gen_kind": "integer"
+                                    },
+                                    {
+                                        "type": "Literal",
+                                        "value": 0.5,
+                                        "raw": "0.5",
+                                        "gen_kind": "float"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "clip",
+                                    "raw": "clip"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "thisPhasor2",
+                                "raw": "thisPhasor2"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "BinaryExpression",
+                                        "operator": "+",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "t_phase",
+                                            "raw": "t_phase"
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "resetSpread",
+                                            "raw": "resetSpread"
+                                        }
+                                    },
+                                    {
+                                        "type": "Literal",
+                                        "value": 0,
+                                        "raw": "0",
+                                        "gen_kind": "integer"
+                                    },
+                                    {
+                                        "type": "Literal",
+                                        "value": 1,
+                                        "raw": "1",
+                                        "gen_kind": "integer"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "wrap",
+                                    "raw": "wrap"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "w_sync",
+                                "raw": "w_sync"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "<",
+                                "left": {
+                                    "type": "CallExpression",
+                                    "arguments": [
+                                        {
+                                            "type": "CallExpression",
+                                            "arguments": [
+                                                {
+                                                    "type": "Identifier",
+                                                    "name": "thisPhasor2",
+                                                    "raw": "thisPhasor2"
+                                                }
+                                            ],
+                                            "callee": {
+                                                "type": "Identifier",
+                                                "name": "abs",
+                                                "raw": "abs"
+                                            }
+                                        }
+                                    ],
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "delta",
+                                        "raw": "delta"
+                                    }
+                                },
+                                "right": {
+                                    "type": "Literal",
+                                    "value": 0,
+                                    "raw": "0",
+                                    "gen_kind": "integer"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "ArrayExpression",
+                            "elements": [
+                                {
+                                    "type": "Identifier",
+                                    "name": "thisPhasor1",
+                                    "raw": "thisPhasor1"
+                                },
+                                {
+                                    "type": "Identifier",
+                                    "name": "thisPhasor2",
+                                    "raw": "thisPhasor2"
+                                },
+                                {
+                                    "type": "Identifier",
+                                    "name": "freqMain",
+                                    "raw": "freqMain"
+                                },
+                                {
+                                    "type": "BinaryExpression",
+                                    "operator": "+",
+                                    "left": {
+                                        "type": "Identifier",
+                                        "name": "spreadMain",
+                                        "raw": "spreadMain"
+                                    },
+                                    "right": {
+                                        "type": "Identifier",
+                                        "name": "spreadMain",
+                                        "raw": "spreadMain"
+                                    }
+                                },
+                                {
+                                    "type": "Identifier",
+                                    "name": "thisPhasor1Sync",
+                                    "raw": "thisPhasor1Sync"
+                                },
+                                {
+                                    "type": "Identifier",
+                                    "name": "w_sync",
+                                    "raw": "w_sync"
                                 }
                             ]
                         },
@@ -3913,8 +4803,8 @@
                                         {
                                             "type": "Literal",
                                             "value": 0,
-                                            "raw": "0",
-                                            "gen_kind": "integer"
+                                            "raw": "0.",
+                                            "gen_kind": "float"
                                         }
                                     ]
                                 }
@@ -4201,8 +5091,8 @@
                                         {
                                             "type": "Literal",
                                             "value": 0,
-                                            "raw": "0",
-                                            "gen_kind": "integer"
+                                            "raw": "0.",
+                                            "gen_kind": "float"
                                         },
                                         {
                                             "type": "AssignmentExpression",
@@ -5291,8 +6181,8 @@
                                         {
                                             "type": "Literal",
                                             "value": 0,
-                                            "raw": "0",
-                                            "gen_kind": "integer"
+                                            "raw": "0.",
+                                            "gen_kind": "float"
                                         }
                                     ]
                                 }
@@ -5323,8 +6213,8 @@
                                         {
                                             "type": "Literal",
                                             "value": 1000,
-                                            "raw": "1000",
-                                            "gen_kind": "integer"
+                                            "raw": "1000.",
+                                            "gen_kind": "float"
                                         },
                                         {
                                             "type": "AssignmentExpression",

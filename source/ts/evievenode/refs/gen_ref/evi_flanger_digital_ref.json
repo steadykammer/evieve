@@ -1,0 +1,268 @@
+{
+    "object": {
+        "name": "evi_flanger_digital",
+        "child": "evi.flanger.digital~",
+        "category": "evieve",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "constructor": {
+        "inlets": "left, right, reset"
+    },
+    "includes": [
+        "evi_counting",
+        "evi_smooth",
+        "evi_lfo"
+    ],
+    "inlets": [
+        {
+            "id": 1,
+            "name": "left",
+            "type": "float",
+            "optional": 1,
+            "digest": "Audio In"
+        },
+        {
+            "id": 2,
+            "name": "right",
+            "type": "float",
+            "optional": 1,
+            "digest": "Audio In"
+        },
+        {
+            "id": 3,
+            "name": "reset",
+            "type": "float",
+            "optional": 1,
+            "digest": "Naive"
+        }
+    ],
+    "outlets": [
+        {
+            "id": 1,
+            "name": "left",
+            "type": "float",
+            "optional": 1,
+            "digest": "Audio Out"
+        },
+        {
+            "id": 2,
+            "name": "right",
+            "type": "float",
+            "optional": 1,
+            "digest": "Audio Out"
+        },
+        {
+            "id": 3,
+            "name": "lfo",
+            "type": "float",
+            "optional": 1,
+            "digest": "Left Out"
+        },
+        {
+            "id": 4,
+            "name": "lfo",
+            "type": "float",
+            "optional": 1,
+            "digest": "Right Out"
+        }
+    ],
+    "attributes": [
+        {
+            "name": "cross",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0."
+            }
+        },
+        {
+            "name": "depth",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.74"
+            }
+        },
+        {
+            "name": "drywet",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.75"
+            }
+        },
+        {
+            "name": "duty",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.4"
+            }
+        },
+        {
+            "name": "feedback",
+            "type": "float",
+            "digest": "@min -1, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "-0.5"
+            }
+        },
+        {
+            "name": "feedforward",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.25"
+            }
+        },
+        {
+            "name": "gain",
+            "type": "float",
+            "digest": "@min -10, @max 10",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0."
+            }
+        },
+        {
+            "name": "inject",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.75"
+            }
+        },
+        {
+            "name": "invert",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "maxhz",
+            "type": "float",
+            "digest": "@min 0, @max 100",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "2.69"
+            }
+        },
+        {
+            "name": "maxtime",
+            "type": "float",
+            "digest": "@min 0, @max 200",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "2.1"
+            }
+        },
+        {
+            "name": "mintime",
+            "type": "float",
+            "digest": "@min 0, @max 200",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.03"
+            }
+        },
+        {
+            "name": "rate",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.1"
+            }
+        },
+        {
+            "name": "shape",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.5"
+            }
+        },
+        {
+            "name": "skew",
+            "type": "float",
+            "digest": "@min 0.5, @max 2",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "1.2"
+            }
+        },
+        {
+            "name": "smooth",
+            "type": "float",
+            "digest": "@min 0, @max 301",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "30.111"
+            }
+        },
+        {
+            "name": "spread",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.7"
+            }
+        },
+        {
+            "name": "stereo",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "zeroreset",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        }
+    ],
+    "seealso": [
+        {
+            "name": "",
+            "display": ""
+        }
+    ]
+}

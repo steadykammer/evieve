@@ -1,0 +1,69 @@
+
+// simple AM example with saturation and a selection of LFO shapes
+
+require("evi_counting.genexpr");
+require("evi_smooth_bank.genexpr");
+require("evi_adaa.genexpr");
+require("evi_lfo.genexpr");
+
+Param   rate(9., min=1, max=100);       // Hz
+Param   factor(1., min=0.125, max=8);
+Param   depth(0.5, min=0, max=1);
+Param   spread(0.5, min=0, max=1);
+Param   gain(0., min=-40, max=40);      // dB
+// bypass, up, down, tri, sine (default), tanh, square, rand step, rand linear, rand cubic, noise
+Param   lfowave(4, min=0, max=10);
+Param   lfowidth(0.5, min=0, max=1);
+Param   lfomode(0, min=0, max=1);
+Param   lfoout(1, min=0, max=1);        // flag 0/1 (output)
+
+Param   stereo(0, min=0, max=1);        // flag 0/1 (inputs)
+Param   smooth(26., min=0, max=266);    // ms
+smoothsecs = smooth*0.001;
+stro = int(stereo);
+lfo = int(lfoout);
+lfoMode = int(lfomode);
+
+freq = rate * factor;
+gn = dbtoaApprox(gain);
+gnlow = min(gn, 1);
+drive = max(gn, 1);
+amount = depth + (depth * (gnlow - 1));
+spr = spread * 0.5;
+
+freqIn, spreadIn, widthIn = expsmoothBank3(freq, spr, lfowidth, smoothsecs*sqrt2);
+amountIn, gainIn, driveIn = logsmoothBank3(amount, gnlow, drive, smoothsecs);
+
+reset = (delta(change(lfoMode)) < 0) + in3;
+phaseL, phaseR, currentHz, currentSpread, syncL, syncR 
+    = eviPhasorTwo0(freqIn, spreadIn, reset, minimumhz=0.125, mode=lfoMode);
+
+waveL = latch(lfowave, syncL);
+waveR = latch(lfowave, syncR);
+modOscL = lfoShapes11(phaseL, syncL, widthIn, waveL);
+modOscR = lfoShapes11(phaseR, syncR, widthIn, waveR);
+
+// AM
+gnMdp = gainIn - amountIn;
+amL = (modOscL * amountIn) + gnMdp;
+amR = (modOscR * amountIn) + gnMdp;
+
+driveOut = max(driveIn * 0.25, 1);
+amL = amL * driveIn;
+amR = amR * driveIn;
+
+inL = in1;
+inR = stro ? in2 : inL;
+
+ammL = dcblock(inL * amL);
+ammR = dcblock(inR * amR);
+
+mainL = eCubicAdaa2(ammL * driveOut);
+mainR = eCubicAdaa2(ammR * driveOut);
+
+out1 = mainL;
+out2 = mainR;
+
+out3 = lfo ? amL : modOscL;
+out4 = lfo ? amR : modOscR;
+

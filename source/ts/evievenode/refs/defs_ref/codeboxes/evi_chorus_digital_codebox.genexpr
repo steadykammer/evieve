@@ -1,0 +1,137 @@
+
+// basic digital chorus / flanger example
+
+require("evi_crossovers.genexpr");
+require("evi_rcfilters.genexpr");
+require("evi_counting.genexpr");
+require("evi_smooth_bank.genexpr");
+require("evi_adaa.genexpr");
+require("evi_lfo.genexpr");
+
+// dry
+Delay   dryDelayL(samplerate*0.41, 1, feedback=0);
+Delay   dryDelayR(samplerate*0.41, 1, feedback=0);
+// wet
+Delay   cfDelayL(samplerate*0.41, 1, feedback=1);
+Delay   cfDelayR(samplerate*0.41, 1, feedback=1);
+// main
+Param	rate(0.5, min=0, max=1);
+Param   maxhz(2.69, min=0, max=100);        // hz
+Param   mintime(1., min=0, max=200);        // ms
+Param   maxtime(9., min=0, max=200);        // ms
+Param	depth(0.5, min=0, max=1);
+Param	spread(0.5, min=0, max=1);
+// lfo
+Param	duty(0.4, min=0, max=1);
+Param	shape(0.5, min=0, max=1);           // tri..sine 0..1
+Param	skew(1.2, min=0.5, max=2);          // exponent
+Param	zeroreset(0, min=0, max=1);         // flag 0/1
+// stages
+Param	stages(4, min=1, max=16);
+Param   warp(0.5, min=-1, max=1);           // -1..1
+// mixing
+Param   pregain(3., min=-10, max=10);       // dB -10..10
+Param   postgain(0., min=-10, max=10);      // dB -10..10
+Param   drywet(0.5, min=0, max=1);          // % 0..1
+Param	crossover(104., min=10, max=1000);	// hz
+Param   drydelay(0., min=0, max=1000);      // ms
+Param   inject(0.5, min=0, max=1);
+Param   invert(0, min=0, max=1);            // flag 0/1
+Param	feedback(0.5, min=-1, max=1);	    // linear gain -1..1
+Param   feedbackmix(0.5, min=0, max=1);     // xfade feedback tap between first stage and all stages
+Param	feedbackcross(0., min=0, max=1);
+Param   tone(0.5, min=0, max=1);
+Param   smooth(30.222, min=0, max=302);     // ms
+smoothsecs  = smooth*0.001;
+smoothsamps = smoothsecs*samplerate;
+phaseMode   = int(zeroreset);
+invSign     = (int(invert) > 0) ? -1 : 1;
+
+numStages   = int(stages);
+attenstages = 1 / numStages;
+attenpow    = 1 / fastpow(numStages, 0.662056);
+
+delayMin = mintime;
+delayMax = ((maxtime - mintime) * depth) + mintime;
+delayMin = min(delayMin, delayMax);
+delayMax = max(delayMin, delayMax);
+
+g = rcPreWarp1((tone * 13700) + (crossover+crossover));
+
+freqIn, minSamps, maxSamps, spreadIn = logsmoothBank4(rate*maxhz, mstosamps(delayMin), mstosamps(delayMax), spread*spread, smoothsecs);
+dutyScale, shapeScale, skewScale = expsmoothBank3(duty, shape, skew, smoothsecs*sqrt1_2);
+fbgain, fbmix, fbcross, G = logsmoothBank4(feedback, feedbackmix, feedbackcross, g, smoothsecs*sqrt2);
+Warp, xOver, dryDelay, inJect = expsmoothBank4(warp, crossover, drydelay, inject, smoothsecs*0.5);
+preGain, postGain = logsmoothBank2(dbtoaApprox(pregain), (dbtoaApprox(postgain) * invSign), smoothsecs);
+attenStages, attenPow = expsmoothBank2(attenstages, attenpow, smoothsecs);
+dryWet = evi_sline(drywet, smoothsamps);
+drySamps = sqrt(dryWet) * mstosamps(dryDelay);
+
+phaseL, phaseR, phaseHz, phaseSpread, syncL, syncR = eviPhasorTwo0(freqIn, spreadIn, in3, minimumhz=0.05, mode=phaseMode);
+
+lfoL = lfoMix(phaseL, dutyScale, shapeScale, skewScale);
+lfoR = lfoMix(phaseR, dutyScale, shapeScale, skewScale);
+
+// first stage
+firstStageL = cfDelayL.read(mix(minSamps, maxSamps, lfoL), 0, interp="spline");
+firstStageR = cfDelayR.read(mix(minSamps, maxSamps, lfoR), 0, interp="spline");
+sumStageL = firstStageL;
+sumStageR = firstStageR;
+
+// cascade
+for (j = 1; j < numStages; j += 1) {    // from 1
+	stageOffset = pow((j / numStages), expP(Warp)); // need pow() accuracy here :-(
+	stagePhaseL = wrap(phaseL + stageOffset, 0, 1);
+	stagePhaseR = wrap(phaseR + stageOffset, 0, 1);
+    stageLfoL = lfoMix(stagePhaseL, dutyScale, shapeScale, skewScale);
+    stageLfoR = lfoMix(stagePhaseR, dutyScale, shapeScale, skewScale);
+        
+	addStageL = cfDelayL.read(mix(minSamps, maxSamps, stageLfoL), 0, interp="spline");
+	addStageR = cfDelayR.read(mix(minSamps, maxSamps, stageLfoR), 0, interp="spline");
+	
+    sumStageL += addStageL;
+	sumStageR += addStageR;
+}
+
+lowL, lowR, inL, inR = eviXover4pole2bandStereo(in1, in2, xOver);
+if (dryWet > 0) {
+    lowSat = eCubicAdaa1((lowL + lowR) * 0.555);
+    lowL = interp(dryWet, lowL, lowSat, mode="cosine");
+    lowR = interp(dryWet, lowR, lowSat, mode="cosine");
+}
+dryInL = inL;
+dryInR = inR;
+dryDelayL.write(dryInL, 0);
+dryDelayR.write(dryInR, 0);
+if (drySamps > 0) { // conflated with drywet
+    dryInL = dryDelayL.read(drySamps, 0, interp="fastcubic");
+    dryInR = dryDelayR.read(drySamps, 0, interp="fastcubic");
+}
+
+sumStageL *= attenPow;
+sumStageR *= attenPow;
+
+out1 = lowL + xfadeQuartApproxMono(dryInL, (sumStageL * postGain), dryWet);
+out2 = lowR + xfadeQuartApproxMono(dryInR, (sumStageR * postGain), dryWet);
+
+input1L = interp(inJect, inL, 0, mode="cosine");
+input1R = interp(inJect, inR, 0, mode="cosine");
+input2L = interp(inJect, 0, inL, mode="cosine");
+input2R = interp(inJect, 0, inR, mode="cosine");
+
+preL = input1L + mix(firstStageL, (sumStageL * attenStages), fbmix);
+preR = input1R + mix(firstStageR, (sumStageR * attenStages), fbmix);
+fbL = altTanhSqrtAdaa1(preL * preGain) * fbgain;
+fbR = altTanhSqrtAdaa1(preR * preGain) * fbgain;
+fbL = mix(fbL, fbR, fbcross);   // must be linear!
+fbR = mix(fbR, fbL, fbcross);
+
+writeInL = rcFilter(input2L + fbL, G);
+writeInR = rcFilter(input2R + fbR, G);
+
+cfDelayL.write(fixdenorm(writeInL));
+cfDelayR.write(fixdenorm(writeInR));
+
+out3 = lfoL;
+out4 = lfoR;
+

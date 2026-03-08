@@ -1,0 +1,83 @@
+
+// basic tremolo example (is there any other kind?) with selection of LFO shapes and saturation
+
+require("evi_crossovers.genexpr");
+require("evi_counting.genexpr");
+require("evi_smooth_bank.genexpr");
+require("evi_adaa.genexpr");
+require("evi_lfo.genexpr");
+
+tremLfoScale(lfo, depth, invdepth, drive, flow)
+{
+	osc = ((lfo * depth) + invdepth) * drive;
+	return mix(drive, osc, flow);
+}
+
+tremAmpMix(xin, lfomix)
+{
+    History tamdummy(0);
+    trem = dcblock(xin * lfomix);
+	return altTanhPolyAdaa2(trem);
+}
+
+Param   rate(0.5, min=0, max=1);
+Param   depth(0.75, min=0, max=1);
+Param   spread(0.25, min=0, max=1);
+Param   drive(0.5, min=0, max=1);   // dB 0..10 saturation range
+
+// bypass, ramp up, ramp down, tri, sine (default), tanh, square, rand step, rand linear, rand cubic, noise
+Param   lfowave(4, min=0, max=10);
+Param   lfomode(1, min=0, max=1);   // zero reset 0/1
+Param   lfowidth(0.5, min=0, max=1);// pwm 0..1
+Param   lfoinvert(0, min=0, max=1); // invert waveform 0/1
+Param   lfoskew(1., min=0.5, max=2);// exponent 0.5..2
+Param   lfoout(1, min=0, max=1);    // outs4&5 0..1 lfos or amplitude scaled lfos 0/1 ?
+
+Param   maxhz(11., min=0.1, max=40);        // Hz, range of rate param
+Param   crossover(63.5, min=10, max=1000);  // Hz, below is mono saturated bass, above is trem
+Param   smooth(15.111, min=0, max=151);     // ms
+smoothsecs = smooth * 0.001;
+lfoShape = int(lfowave);
+lfoMode = int(lfomode);
+lfoInv = int(lfoinvert);
+lfoOut = int(lfoout);
+
+lfoWidth, skew, xover = expsmoothBank3((lfowidth * 0.96 + 0.02), lfoskew, crossover, smoothsecs);
+freqIn, depthIn, spreadIn, driveIn = logsmoothBank4((rate*maxhz), depth, spread, dbtoaApprox(drive*drive*10), smoothsecs);
+freqLow = clip(freqIn, 0, 1);
+invDepth = 1 - depthIn;
+
+phaseL, phaseR, phaseHz, phaseSpread, syncL, syncR = eviPhasorTwo0(freqIn, spreadIn, in3, minimumhz=0.05, mode=lfoMode);
+
+// only sync if...
+widthL = lfoMode ? latch(lfoWidth, syncL) : lfoWidth;
+widthR = lfoMode ? latch(lfoWidth, syncR) : lfoWidth;
+// always sync
+waveL = latch(lfoShape, syncL);
+waveR = latch(lfoShape, syncR);
+invL = latch(lfoInv, syncL);
+invR = latch(lfoInv, syncR);
+
+lfo01L = lfoShapes01(phaseL, syncL, widthL, waveL);
+lfo01R = lfoShapes01(phaseR, syncR, widthR, waveR);
+
+lfo01L = invL ? 1 - lfo01L : lfo01L;
+lfo01R = invR ? 1 - lfo01R : lfo01R;
+
+lfo01L = fastskewlfo052ar(lfo01L, skew);
+lfo01R = fastskewlfo052ar(lfo01R, skew);
+
+lfomixL = tremLfoScale(lfo01L, depthIn, invDepth, driveIn, freqLow);
+lfomixR = tremLfoScale(lfo01R, depthIn, invDepth, driveIn, freqLow);
+
+lowL, lowR, inL, inR = eviXover2pole2bandStereo(in1, in2, xover);
+lowSat = eCubicAdaa1((lowL + lowR) * 0.555);
+
+out1 = tremAmpMix(inL, lfomixL) + lowSat;
+out2 = tremAmpMix(inR, lfomixR) + lowSat;
+
+out3 = phaseHz;
+
+out4 = lfoOut ? lfomixL : lfo01L;
+out5 = lfoOut ? lfomixR : lfo01R;
+

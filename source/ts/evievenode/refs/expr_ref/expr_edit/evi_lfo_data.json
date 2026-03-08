@@ -1,7 +1,6 @@
 {
     "description": "",
     "requires": [
-        "evi_smooth.genexpr",
         "evi_sources.genexpr"
     ],
     "functions": [
@@ -124,7 +123,7 @@
         {
             "document": true,
             "digest": "",
-            "name": "tanhD",
+            "name": "tanhC",
             "inputs": [
                 {
                     "id": 1,
@@ -144,7 +143,83 @@
         {
             "document": true,
             "digest": "",
-            "name": "lfoShapes",
+            "name": "triC",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "phase",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "pwm",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "times",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "plus",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "lfoShapes01",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "phase",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "sync",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "width",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "wave",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "",
+            "name": "lfoShapes11",
             "inputs": [
                 {
                     "id": 1,

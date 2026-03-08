@@ -73,6 +73,26 @@
 
       </description>
     </entry>
+    <entry name="rcFilterAllpass ( )">
+      <description>
+        <b>In 1</b>: type=<i>input</i>: Vin, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: g, <i></i> <br />
+
+        <b>Return 1</b>: ,  <br />
+
+      </description>
+    </entry>
+    <entry name="rcFilterAllpassCascade ( )">
+      <description>
+        <b>In 1</b>: type=<i>input</i>: Vin, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: g, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: s0, <i></i> <br />
+
+        <b>Return 1</b>: ,  <br />
+        <b>Return 2</b>: ,  <br />
+
+      </description>
+    </entry>
     <entry name="rcFilterBandpass ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: xp, <i></i> <br />

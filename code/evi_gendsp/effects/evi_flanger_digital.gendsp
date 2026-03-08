@@ -1,0 +1,157 @@
+{
+    "patcher": {
+        "fileversion": 1,
+        "appversion": {
+            "major": 9,
+            "minor": 2,
+            "revision": 0,
+            "architecture": "x64",
+            "modernui": 1
+        },
+        "classnamespace": "dsp.gen",
+        "rect": [ 304.0, 93.0, 1157.0, 848.0 ],
+        "gridonopen": 2,
+        "lefttoolbarpinned": 2,
+        "toptoolbarpinned": 2,
+        "righttoolbarpinned": 2,
+        "bottomtoolbarpinned": 1,
+        "toolbars_unpinned_last_save": 7,
+        "subpatcher_template": "sub",
+        "integercoordinates": 1,
+        "boxes": [
+            {
+                "box": {
+                    "id": "obj-9",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 947.0, 807.0, 159.0, 22.0 ],
+                    "text": "out 4 (signal) LFO Right Out"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-8",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 741.0, 807.0, 151.0, 22.0 ],
+                    "text": "out 3 (signal) LFO Left Out"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-7",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 395.0, 807.0, 165.0, 22.0 ],
+                    "text": "out 2 (signal) Right Audio Out"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-5",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 967.0, 19.0, 139.0, 22.0 ],
+                    "text": "in 3 (signal) Reset Naive"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-1",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 49.0, 19.0, 141.0, 22.0 ],
+                    "text": "in 1 (signal) Left Audio In"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-2",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 568.0, 19.0, 149.0, 22.0 ],
+                    "text": "in 2 (signal) Right Audio In"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-4",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 49.0, 807.0, 157.0, 22.0 ],
+                    "text": "out 1 (signal) Left Audio Out"
+                }
+            },
+            {
+                "box": {
+                    "code": "\n// basic 2-stage digital flanger example\n\nrequire(\"evi_counting.genexpr\");\nrequire(\"evi_smooth.genexpr\");\nrequire(\"evi_lfo.genexpr\");\n\n// main\nParam\trate(0.1, min=0, max=1);\nParam   maxhz(2.69, min=0, max=100);        // hz\nParam   mintime(0.03, min=0, max=200);      // ms\nParam   maxtime(2.1, min=0, max=200);       // ms\nParam\tdepth(0.74, min=0, max=1);\nParam\tspread(0.7, min=0, max=1);\n// lfo\nParam\tduty(0.4, min=0, max=1);\nParam\tshape(0.5, min=0, max=1);           // tri..sine 0..1\nParam\tskew(1.2, min=0.5, max=2);          // exponent\nParam\tzeroreset(0, min=0, max=1);         // flag 0/1\n// mixing\nParam   gain(0., min=-10, max=10);          // dB -10..10\nParam   invert(0, min=0, max=1);            // flag 0/1\nParam\tfeedback(-0.5, min=-1, max=1);\t    // linear gain -1..1\nParam   feedforward(0.25, min=0, max=1);    // \nParam   inject(0.75, min=0, max=1);\nParam\tcross(0., min=0, max=1);\nParam   drywet(0.75, min=0, max=1);         // % 0..1\r\nParam   stereo(0, min=0, max=1);            // flag 0/1 (inputs)\n\nParam   smooth(30.111, min=0, max=301);     // ms\nsmoothsecs  = smooth*0.001;\nsmoothsamps = smoothsecs*samplerate;\r\nstro        = int(stereo);\nphaseMode   = int(zeroreset);\ninvSign     = (int(invert) > 0) ? -1 : 1;\n\ndelayMin = mintime;\ndelayMax = ((maxtime - mintime) * depth) + mintime;\ndelayMin = min(delayMin, delayMax);\ndelayMax = max(delayMin, delayMax);\n\nfreqIn, minMs, maxMs, spreadIn = logsmoothBank4(rate*maxhz, delayMin, delayMax, spread*spread, smoothsecs);\ndutyScale, shapeScale, skewScale = expsmoothBank3(duty, shape, skew, smoothsecs*sqrt1_2);\nfbGain, ffMix, crossMix, inJect = logsmoothBank4(feedback*0.4, feedforward, cross, inject, smoothsecs*sqrt2);\npostGain = logsmooth((dbtoaApprox(gain) * invSign), smoothsecs);\ndryWet = eviLine(drywet, smoothsamps);\n\nphaseL, phaseR, phaseHz, phaseSpread, syncL, syncR = eviPhasorTwo0(freqIn, spreadIn, in3, minimumhz=0.05, mode=phaseMode);\n\nlfoL = lfoMix(phaseL, dutyScale, shapeScale, skewScale);\nlfoR = lfoMix(phaseR, dutyScale, shapeScale, skewScale);\n\ndelayL = mix(minMs, maxMs, lfoL);\ndelayR = mix(minMs, maxMs, lfoR);\n\r\ninL = in1;\r\ninR = stro ? in2 : inL;\r\n\n                  // delay,   gain,   ff,    fb\nwetL = evi_comb(inL, delayL, -inJect, ffMix, fbGain);\nwetR = evi_comb(inR, delayR, -inJect, ffMix, fbGain);\n\nwetL = mix(wetL, wetR, crossMix) * postGain;\nwetR = mix(wetR, wetL, crossMix) * postGain;\n\nwetL = evi_comb(wetL, delayL+minMs, inJect, -ffMix, fbGain);\nwetR = evi_comb(wetR, delayR+minMs, inJect, -ffMix, fbGain);\n\nout1 = xfadeQuartApproxMono(in1, wetL, dryWet);\nout2 = xfadeQuartApproxMono(in2, wetR, dryWet);\n\nout3 = lfoL;\nout4 = lfoR;\n\n",
+                    "fontface": 0,
+                    "fontname": "<Monospaced>",
+                    "fontsize": 12.0,
+                    "id": "obj-3",
+                    "maxclass": "codebox",
+                    "numinlets": 3,
+                    "numoutlets": 4,
+                    "outlettype": [ "", "", "", "" ],
+                    "patching_rect": [ 49.0, 58.0, 1057.0, 732.0 ]
+                }
+            }
+        ],
+        "lines": [
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 0 ],
+                    "source": [ "obj-1", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 1 ],
+                    "source": [ "obj-2", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-4", 0 ],
+                    "source": [ "obj-3", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-7", 0 ],
+                    "source": [ "obj-3", 1 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-8", 0 ],
+                    "source": [ "obj-3", 2 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-9", 0 ],
+                    "midpoints": [ 1096.5, 798.5, 956.5, 798.5 ],
+                    "source": [ "obj-3", 3 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 2 ],
+                    "midpoints": [ 976.5, 49.5, 1096.5, 49.5 ],
+                    "source": [ "obj-5", 0 ]
+                }
+            }
+        ]
+    }
+}

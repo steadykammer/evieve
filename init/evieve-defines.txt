@@ -4,6 +4,9 @@ max define mc.evi.4wave~ mc.gen~ @gen evi_4wave.gendsp @chans 2;
 max define evi.allpass~ gen~ @gen evi_allpass.gendsp;
 max define mc.evi.allpass~ mc.gen~ @gen evi_allpass.gendsp @chans 2;
 
+max define evi.am~ gen~ @gen evi_am.gendsp;
+max define mc.evi.am~ mc.gen~ @gen evi_am.gendsp @chans 2;
+
 max define evi.arpnotch~ gen~ @gen evi_arpnotch.gendsp;
 max define mc.evi.arpnotch~ mc.gen~ @gen evi_arpnotch.gendsp @chans 2;
 
@@ -69,6 +72,9 @@ max define mc.evi.bp~ mc.gen~ @gen evi_bp.gendsp @chans 2;
 
 max define evi.butterworthlp8~ gen~ @gen evi_butterworth8.gendsp;
 max define mc.evi.butterworthlp8~ mc.gen~ @gen evi_butterworth8.gendsp @chans 2;
+
+max define evi.chorus.digital~ gen~ @gen evi_chorus_digital.gendsp;
+max define mc.evi.chorus.digital~ mc.gen~ @gen evi_chorus_digital.gendsp @chans 2;
 
 max define evi.classic.osc~ gen~ @gen evi_classic_osc.gendsp;
 max define mc.evi.classic.osc~ mc.gen~ @gen evi_classic_osc.gendsp @chans 2;
@@ -159,6 +165,9 @@ max define mc.evi.filter.tilt~ mc.gen~ @gen evi_filter_tilt.gendsp @chans 2;
 
 max define evi.filter~ gen~ @gen evi_filter.gendsp;
 max define mc.evi.filter~ mc.gen~ @gen evi_filter.gendsp @chans 2;
+
+max define evi.flanger.digital~ gen~ @gen evi_flanger_digital.gendsp;
+max define mc.evi.flanger.digital~ mc.gen~ @gen evi_flanger_digital.gendsp @chans 2;
 
 max define evi.formantfilter.morph~ gen~ @gen evi_formant_filter_morph.gendsp;
 max define mc.evi.formantfilter.morph~ mc.gen~ @gen evi_formant_filter_morph.gendsp @chans 2;
@@ -251,6 +260,9 @@ max define mc.evi.overdrive.tanh~ mc.gen~ @gen evi_overdrive_tanh.gendsp @chans 
 max define evi.paf~ gen~ @gen evi_paf.gendsp;
 max define mc.evi.paf~ mc.gen~ @gen evi_paf.gendsp @chans 2;
 
+max define evi.phaser.analog~ gen~ @gen evi_phaser_analog.gendsp;
+max define mc.evi.phaser.analog~ mc.gen~ @gen evi_phaser_analog.gendsp @chans 2;
+
 max define evi.phaseshift~ gen~ @gen evi_phaseshift.gendsp;
 max define mc.evi.phaseshift~ mc.gen~ @gen evi_phaseshift.gendsp @chans 2;
 
@@ -318,6 +330,9 @@ max define mc.evi.teeth~ mc.gen~ @gen evi_teeth.gendsp @chans 2;
 
 max define evi.tone.macro~ gen~ @gen evi_tone_macro.gendsp;
 max define mc.evi.tone.macro~ mc.gen~ @gen evi_tone_macro.gendsp @chans 2;
+
+max define evi.tremolo~ gen~ @gen evi_tremolo.gendsp;
+max define mc.evi.tremolo~ mc.gen~ @gen evi_tremolo.gendsp @chans 2;
 
 max define evi.tri.select~ gen~ @gen evi_tri_select.gendsp;
 max define mc.evi.tri.select~ mc.gen~ @gen evi_tri_select.gendsp @chans 2;

@@ -64,7 +64,7 @@
                     "patching_rect": [ 25.0, 190.0, 399.0, 30.0 ],
                     "presentation": 1,
                     "presentation_rect": [ 547.0, 154.0, 400.0, 30.0 ],
-                    "text": "abstraction",
+                    "text": " ",
                     "textcolor": [ 0.85, 0.85, 0.85, 0.0 ]
                 }
             },
@@ -80,7 +80,7 @@
                     "lockeddragscroll": 0,
                     "lockedsize": 1,
                     "maxclass": "bpatcher",
-                    "name": "helpfile_pickup_overview.maxpat",
+                    "name": "evieve_pickup_overview.maxpat",
                     "numinlets": 0,
                     "numoutlets": 0,
                     "offset": [ 0.0, 0.0 ],
@@ -103,7 +103,7 @@
                     "patching_rect": [ 25.0, 144.0, 399.0, 30.0 ],
                     "presentation": 1,
                     "presentation_rect": [ 547.0, 112.0, 400.0, 30.0 ],
-                    "text": "evi.adsr~",
+                    "text": "evi.crossover.sum~",
                     "textcolor": [ 0.85, 0.85, 0.85, 0.0 ]
                 }
             },
@@ -112,15 +112,13 @@
                     "fontname": "Lato",
                     "fontsize": 20.0,
                     "id": "obj-21",
-                    "linecount": 2,
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 25.0, 236.0, 399.0, 54.0 ],
+                    "patching_rect": [ 25.0, 236.0, 401.0, 30.0 ],
                     "presentation": 1,
-                    "presentation_linecount": 2,
-                    "presentation_rect": [ 547.0, 199.0, 400.0, 54.0 ],
-                    "text": "ADSR envelope generator , same features as adsr~ but with logarithmic segments",
+                    "presentation_rect": [ 547.0, 199.0, 401.0, 30.0 ],
+                    "text": " ",
                     "textcolor": [ 0.85, 0.85, 0.85, 0.0 ]
                 }
             },
@@ -129,15 +127,13 @@
                     "fontname": "Lato",
                     "fontsize": 16.0,
                     "id": "obj-10",
-                    "linecount": 3,
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 25.0, 374.0, 399.0, 64.0 ],
+                    "patching_rect": [ 25.0, 374.0, 399.0, 26.0 ],
                     "presentation": 1,
-                    "presentation_linecount": 3,
-                    "presentation_rect": [ 547.0, 349.0, 400.0, 64.0 ],
-                    "text": "ADSR by default , but actually DAHDSHR capabale generator via attributes. Logarithmic segment shapes but still capable of controlling poly~ and thispoly~",
+                    "presentation_rect": [ 547.0, 349.0, 400.0, 26.0 ],
+                    "text": " ",
                     "textcolor": [ 0.85, 0.85, 0.85, 0.0 ]
                 }
             },
@@ -219,7 +215,7 @@
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
                     "patching_rect": [ 649.0, 582.0, 74.0, 22.0 ],
-                    "save": [ "#N", "thispatcher", ";", "#Q", "window", "flags", "nogrow", "close", "nozoom", "nofloat", "menu", "nominimize", ";", "#Q", "window", "constrain", 50, 50, 32768, 32768, ";", "#Q", "window", "size", 40, 98, 1007, 923, ";", "#Q", "window", "title", ";", "#Q", "window", "exec", ";", "#Q", "savewindow", 1, ";", "#Q", "end", ";" ],
+                    "save": [ "#N", "thispatcher", ";", "#Q", "window", "flags", "nogrow", "close", "nozoom", "nofloat", "menu", "nominimize", ";", "#Q", "window", "constrain", 50, 50, 32768, 32768, ";", "#Q", "window", "size", 40, 98, 1007, 893, ";", "#Q", "window", "title", ";", "#Q", "window", "exec", ";", "#Q", "savewindow", 1, ";", "#Q", "end", ";" ],
                     "text": "thispatcher"
                 }
             },
@@ -3837,7 +3833,7 @@
                     "rounded": 2.0,
                     "spacing_x": 2.0,
                     "spacing_y": 2.0,
-                    "tabs": [ "evi.4wave~", "evi.adsr~", "evi.algoverb~", "evi.allpass~", "evi.arpnotch~", "evi.audiodust~", "evi.backverb~", "evi.baxandall~", "evi.biquad.filter~", "evi.biquadcoeff", "evi.biquadcoeff~", "evi.blitwaves~", "evi.butterworthlp6~", "evi.butterworthlp8~", "evi.cfsmooth~", "evi.classic.osc~", "evi.clipasym~", "evi.clip~", "evi.comb~", "evi.crossover.3band~", "evi.crossover.allpass~", "evi.crossover.sum~", "evi.crossover~", "evi.cross~", "evi.damp.macro~", "evi.damp~", "evi.dcblock~", "evi.dfm~", "evi.eq3stereo~", "evi.eq3~", "evi.eq5~", "evi.eq8~", "evi.expsmooth~", "evi.filter.allpass~", "evi.filter.bandpass~", "evi.filter.bell~", "evi.filter.eq~", "evi.filter.highpass~", "evi.filter.highshelf~", "evi.filter.lowpass~", "evi.filter.lowshelf~", "evi.filter.morph~", "evi.filter.notch~", "evi.filter.peak~", "evi.filter.resonant~", "evi.filter.shelving~", "evi.filter.tilt~", "evi.filter~", "evi.formantfilter.morph~", "evi.formantfilter~", "evi.formantosc~", "evi.formletfilter~", "evi.freezeverb~", "evi.freqshift.hilbert~", "evi.freqshift.weaver~", "evi.gaussiannoise~", "evi.gigaverb~", "evi.hardclip~", "evi.hilbert~", "evi.korgms10~", "evi.korgms20.select~", "evi.korgms20~", "evi.ladder.diode~", "evi.ladder.moog~", "evi.ladder.poles~", "evi.ladder.transistor~", "evi.lagsmooth~", "evi.limiterfast~", "evi.lockhart.cascade~", "evi.lockhart.simple~", "evi.logahr~", "evi.logattackdecay~", "evi.logdecay~", "evi.logsmooth~", "evi.lores~", "evi.lorez~", "evi.lpg~", "evi.mattaverb~", "evi.modalres~", "evi.modosc~", "evi.morph.trap~", "evi.morph.tri~", "evi.multimode~", "evi.onepole.shelving~", "evi.onepole~", "evi.overdrive.atan~", "evi.overdrive.sqrt~", "evi.overdrive.tanh~", "evi.paf~", "evi.pan~", "evi.phaseshift~", "evi.phasor0~", "evi.pitchdetect~", "evi.plateverb_lite~", "evi.plateverb~", "evi.polyphaseiirhilbertcoeffs", "evi.quadosc~", "evi.ramp0~", "evi.randy~", "evi.rcfilter~", "evi.rect.select~", "evi.rect~", "evi.reson~", "evi.ringmod.diode~", "evi.ringmod~", "evi.saw.select~", "evi.saw~", "evi.shaper~", "evi.sine.select~", "evi.sinfold~", "evi.skfinputmix~", "evi.softclip~", "evi.squine.simple~", "evi.sustainverb_lite~", "evi.sustainverb~", "evi.svfinputmix~", "evi.svfsmooth~", "evi.svfsynth~", "evi.svf~", "evi.teeth~", "evi.tone.macro~", "evi.tpqm", "evi.transratio", "evi.tri.select~", "evi.tri~", "evi.vactrol~", "evi.vcf~", "evi.velvetnoise~", "evi.vosim.basic~", "evi.warmer~", "evi.weightingcoeffs", "evi.xfade~", "evi.zeroxcount~", "evi.zeroxoscnoise~", "evi.zitaverb~", "mc.evi.bands~", "mc.evi.listgen" ]
+                    "tabs": [ "evi.4wave~", "evi.adsr~", "evi.algoverb~", "evi.allpass~", "evi.am~", "evi.arpnotch~", "evi.audiodust~", "evi.backverb~", "evi.baxandall~", "evi.biquad.filter~", "evi.biquadcoeff", "evi.biquadcoeff~", "evi.blitwaves~", "evi.butterworthlp6~", "evi.butterworthlp8~", "evi.cfsmooth~", "evi.chorus.digital~", "evi.classic.osc~", "evi.clipasym~", "evi.clip~", "evi.comb~", "evi.crossover.3band~", "evi.crossover.allpass~", "evi.crossover.sum~", "evi.crossover~", "evi.cross~", "evi.damp.macro~", "evi.damp~", "evi.dcblock~", "evi.detune~", "evi.dfm~", "evi.eq3stereo~", "evi.eq3~", "evi.eq5~", "evi.eq8~", "evi.expsmooth~", "evi.filter.allpass~", "evi.filter.bandpass~", "evi.filter.bell~", "evi.filter.eq~", "evi.filter.highpass~", "evi.filter.highshelf~", "evi.filter.lowpass~", "evi.filter.lowshelf~", "evi.filter.morph~", "evi.filter.notch~", "evi.filter.peak~", "evi.filter.resonant~", "evi.filter.shelving~", "evi.filter.tilt~", "evi.filter~", "evi.flanger.digital~", "evi.formantfilter.morph~", "evi.formantfilter~", "evi.formantosc~", "evi.formletfilter~", "evi.freezeverb~", "evi.freqshift.hilbert~", "evi.freqshift.weaver~", "evi.gaussiannoise~", "evi.gigaverb~", "evi.hardclip~", "evi.hilbert~", "evi.korgms10~", "evi.korgms20.select~", "evi.korgms20~", "evi.ladder.diode~", "evi.ladder.moog~", "evi.ladder.poles~", "evi.ladder.transistor~", "evi.lagsmooth~", "evi.limiterfast~", "evi.lockhart.cascade~", "evi.lockhart.simple~", "evi.logahr~", "evi.logattackdecay~", "evi.logdecay~", "evi.logsmooth~", "evi.lores~", "evi.lorez~", "evi.lpg~", "evi.mattaverb~", "evi.modalres~", "evi.modosc~", "evi.morph.trap~", "evi.morph.tri~", "evi.multimode~", "evi.onepole.shelving~", "evi.onepole~", "evi.overdrive.atan~", "evi.overdrive.sqrt~", "evi.overdrive.tanh~", "evi.paf~", "evi.pan~", "evi.phaser.analog~", "evi.phaseshift~", "evi.phasor0~", "evi.plateverb_lite~", "evi.plateverb~", "evi.polyphaseiirhilbertcoeffs", "evi.quadosc~", "evi.ramp0~", "evi.randy~", "evi.rcfilter~", "evi.rect.select~", "evi.rect~", "evi.reson~", "evi.ringmod.diode~", "evi.ringmod~", "evi.saw.select~", "evi.saw~", "evi.shaper~", "evi.sine.select~", "evi.sinfold~", "evi.skfinputmix~", "evi.softclip~", "evi.squine.simple~", "evi.sustainverb_lite~", "evi.sustainverb~", "evi.svfinputmix~", "evi.svfsmooth~", "evi.svfsynth~", "evi.svf~", "evi.teeth~", "evi.tone.macro~", "evi.tpqm", "evi.transratio", "evi.tremolo~", "evi.tri.select~", "evi.tri~", "evi.vactrol~", "evi.vcf~", "evi.velvetnoise~", "evi.vosim.basic~", "evi.warmer~", "evi.weightingcoeffs", "evi.xfade~", "evi.zeroxcount~", "evi.zeroxoscnoise~", "evi.zitaverb~", "mc.evi.bands~", "mc.evi.listgen" ]
                 }
             },
             {

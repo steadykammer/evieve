@@ -247,3 +247,40 @@ eviXover4pole3bandSumStereo(lowL, lowR, midL, midR, highL, highR, xoverHigh)
 
 //
 
+// for reading / writing from / to Data() in cascade form
+
+eviXoverAllpass1cascade(X, hz, s0)
+{
+    w2  = tanA2(hz * PI / samplerate);
+
+    x0  = ((X * -w2) - s0) * (1 / (1 + w2));
+    y0  = X + x0;
+    x1  = y0 * w2;
+    y1  = x1 + s0;
+    s1  = x1 + y1;
+
+    return y1 - y0, s1;
+}
+
+eviXoverAllpass2cascade(Xin, Hz, s0, s1)
+{
+    w2  = tanA2(Hz * PI / samplerate);
+    g0  = 1 / (1 + w2);
+
+    x0  = ((Xin * -w2) - s0) * g0;
+    y0  = Xin + x0;
+    x1  = y0 * w2;
+    y1  = x1 + s0;
+    s2  = x1 + y1;
+    ap1 = y1 - y0;
+
+    x2  = ((ap1 * -w2) - s1) * g0;
+    y2  = ap1 + x2;
+    x3  = y2 * w2;
+    y3  = x3 + s1;
+    s3  = x3 + y3;
+    ap2 = y3 - y2;
+
+    return ap2, s2, s3;
+}
+

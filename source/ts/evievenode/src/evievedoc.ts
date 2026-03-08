@@ -1665,6 +1665,10 @@ async function parseDefinesGendspsLoop(gendspPath: string, gendspName: string, t
 							thisArg.units = `default: ${units}`;
 						}
 						thisMessage.arg.push(thisArg);
+						thisMessage.arg = thinUniqueArrayByKey(thisMessage.arg, "name");
+						thisMessage.arg.sort((a: { name: string; }, b: { name: string; }) => {
+							return a.name >= b.name ? 1 : -1;
+						});
 						thisConfigObject.messages.fill(thisMessage, objIndex, objIndex);
 
 					} else {
@@ -1689,6 +1693,10 @@ async function parseDefinesGendspsLoop(gendspPath: string, gendspName: string, t
 							thisArg.units = `default: ${units}`;
 						}
 						thisMessage.arg.push(thisArg);
+						thisMessage.arg = thinUniqueArrayByKey(thisMessage.arg, "name");
+						thisMessage.arg.sort((a: { name: string; }, b: { name: string; }) => {
+							return a.name >= b.name ? 1 : -1;
+						});
 						thisMessage.digest = messageHistoryDigest;
 						thisConfigObject.messages.push(thisMessage);
 					}

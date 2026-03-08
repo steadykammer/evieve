@@ -1,0 +1,74 @@
+
+// basic 2-stage digital flanger example
+
+require("evi_counting.genexpr");
+require("evi_smooth.genexpr");
+require("evi_lfo.genexpr");
+
+// main
+Param	rate(0.1, min=0, max=1);
+Param   maxhz(2.69, min=0, max=100);        // hz
+Param   mintime(0.03, min=0, max=200);      // ms
+Param   maxtime(2.1, min=0, max=200);       // ms
+Param	depth(0.74, min=0, max=1);
+Param	spread(0.7, min=0, max=1);
+// lfo
+Param	duty(0.4, min=0, max=1);
+Param	shape(0.5, min=0, max=1);           // tri..sine 0..1
+Param	skew(1.2, min=0.5, max=2);          // exponent
+Param	zeroreset(0, min=0, max=1);         // flag 0/1
+// mixing
+Param   gain(0., min=-10, max=10);          // dB -10..10
+Param   invert(0, min=0, max=1);            // flag 0/1
+Param	feedback(-0.5, min=-1, max=1);	    // linear gain -1..1
+Param   feedforward(0.25, min=0, max=1);    // 
+Param   inject(0.75, min=0, max=1);
+Param	cross(0., min=0, max=1);
+Param   drywet(0.75, min=0, max=1);         // % 0..1
+Param   stereo(0, min=0, max=1);            // flag 0/1 (inputs)
+
+Param   smooth(30.111, min=0, max=301);     // ms
+smoothsecs  = smooth*0.001;
+smoothsamps = smoothsecs*samplerate;
+stro        = int(stereo);
+phaseMode   = int(zeroreset);
+invSign     = (int(invert) > 0) ? -1 : 1;
+
+delayMin = mintime;
+delayMax = ((maxtime - mintime) * depth) + mintime;
+delayMin = min(delayMin, delayMax);
+delayMax = max(delayMin, delayMax);
+
+freqIn, minMs, maxMs, spreadIn = logsmoothBank4(rate*maxhz, delayMin, delayMax, spread*spread, smoothsecs);
+dutyScale, shapeScale, skewScale = expsmoothBank3(duty, shape, skew, smoothsecs*sqrt1_2);
+fbGain, ffMix, crossMix, inJect = logsmoothBank4(feedback*0.4, feedforward, cross, inject, smoothsecs*sqrt2);
+postGain = logsmooth((dbtoaApprox(gain) * invSign), smoothsecs);
+dryWet = eviLine(drywet, smoothsamps);
+
+phaseL, phaseR, phaseHz, phaseSpread, syncL, syncR = eviPhasorTwo0(freqIn, spreadIn, in3, minimumhz=0.05, mode=phaseMode);
+
+lfoL = lfoMix(phaseL, dutyScale, shapeScale, skewScale);
+lfoR = lfoMix(phaseR, dutyScale, shapeScale, skewScale);
+
+delayL = mix(minMs, maxMs, lfoL);
+delayR = mix(minMs, maxMs, lfoR);
+
+inL = in1;
+inR = stro ? in2 : inL;
+
+                  // delay,   gain,   ff,    fb
+wetL = evi_comb(inL, delayL, -inJect, ffMix, fbGain);
+wetR = evi_comb(inR, delayR, -inJect, ffMix, fbGain);
+
+wetL = mix(wetL, wetR, crossMix) * postGain;
+wetR = mix(wetR, wetL, crossMix) * postGain;
+
+wetL = evi_comb(wetL, delayL+minMs, inJect, -ffMix, fbGain);
+wetR = evi_comb(wetR, delayR+minMs, inJect, -ffMix, fbGain);
+
+out1 = xfadeQuartApproxMono(in1, wetL, dryWet);
+out2 = xfadeQuartApproxMono(in2, wetR, dryWet);
+
+out3 = lfoL;
+out4 = lfoR;
+
