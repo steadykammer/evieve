@@ -11,304 +11,294 @@
     By declaring <m>require("evi_smooth_bank.genexpr");</m> at the top of a codebox you can then access all of the functions included in this file. <br />
         <br />
     <b>About this File</b>: <br />
-     <br />
+    This file contains a subset extracted from the 'evi_smooth.genexpr' file but with no dependencies, for when you need basic smoothing banks and do not wish to require more than is needed. This can be useful in complex require situations and is used by some of the evieve examples. <br />
   </description>
   <misc name="GenExpr Functions">
-    <entry name="expA ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
-
-        <b>Return 1</b>: ,  <br />
-
-      </description>
-    </entry>
-    <entry name="tauA ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: t, <i></i> <br />
-
-        <b>Return 1</b>: ,  <br />
-
-      </description>
-    </entry>
     <entry name="expsmooth ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: t, <i></i> <br />
+        Excellent cheap generic smoother, fast(er) response than 'logsmooth()' <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Value to smooth</i> <br />
+        <b>In 2</b>: type=<i>input</i>: t, <i>Smoothing time in SECONDS</i> <br />
 
-        <b>Return 1</b>: ,  <br />
-
-      </description>
-    </entry>
-    <entry name="expso ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: z, <i></i> <br />
-
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Smooth, <i>Smoothed output ramp</i> <br />
 
       </description>
     </entry>
     <entry name="expsmoothBank2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x1, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: x2, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: t, <i></i> <br />
+        Bank of 2 'expsmooth()' smoothers with one time inlet <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x1, <i>Value to smooth 1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: x2, <i>Value to smooth 2</i> <br />
+        <b>In 3</b>: type=<i>input</i>: t, <i>Smoothing time in SECONDS</i> <br />
 
-        <b>Return 1</b>: ,  <br />
-        <b>Return 2</b>: ,  <br />
+        <b>Return 1</b>: Smooth 1, <i>Smoothed output ramp 1</i> <br />
+        <b>Return 2</b>: Smooth 2, <i>Smoothed output ramp 2</i> <br />
 
       </description>
     </entry>
     <entry name="expsmoothBank3 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x1, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: x2, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: x3, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: t, <i></i> <br />
+        Bank of 3 'expsmooth()' smoothers with one time inlet <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x1, <i>Value to smooth 1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: x2, <i>Value to smooth 2</i> <br />
+        <b>In 3</b>: type=<i>input</i>: x3, <i>Value to smooth 3</i> <br />
+        <b>In 4</b>: type=<i>input</i>: t, <i>Smoothing time in SECONDS</i> <br />
 
-        <b>Return 1</b>: ,  <br />
-        <b>Return 2</b>: ,  <br />
-        <b>Return 3</b>: ,  <br />
+        <b>Return 1</b>: Smooth 1, <i>Smoothed output ramp 1</i> <br />
+        <b>Return 2</b>: Smooth 2, <i>Smoothed output ramp 2</i> <br />
+        <b>Return 3</b>: Smooth 3, <i>Smoothed output ramp 3</i> <br />
 
       </description>
     </entry>
     <entry name="expsmoothBank4 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x1, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: x2, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: x3, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: x4, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: t, <i></i> <br />
+        Bank of 4 'expsmooth()' smoothers with one time inlet <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x1, <i>Value to smooth 1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: x2, <i>Value to smooth 2</i> <br />
+        <b>In 3</b>: type=<i>input</i>: x3, <i>Value to smooth 3</i> <br />
+        <b>In 4</b>: type=<i>input</i>: x4, <i>Value to smooth 4</i> <br />
+        <b>In 5</b>: type=<i>input</i>: t, <i>Smoothing time in SECONDS</i> <br />
 
-        <b>Return 1</b>: ,  <br />
-        <b>Return 2</b>: ,  <br />
-        <b>Return 3</b>: ,  <br />
-        <b>Return 4</b>: ,  <br />
+        <b>Return 1</b>: Smooth 1, <i>Smoothed output ramp 1</i> <br />
+        <b>Return 2</b>: Smooth 2, <i>Smoothed output ramp 2</i> <br />
+        <b>Return 3</b>: Smooth 3, <i>Smoothed output ramp 3</i> <br />
+        <b>Return 4</b>: Smooth 4, <i>Smoothed output ramp 4</i> <br />
 
       </description>
     </entry>
     <entry name="expsmoothBank5 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x1, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: x2, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: x3, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: x4, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: x5, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: t, <i></i> <br />
+        Bank of 5 'expsmooth()' smoothers with one time inlet <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x1, <i>Value to smooth 1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: x2, <i>Value to smooth 2</i> <br />
+        <b>In 3</b>: type=<i>input</i>: x3, <i>Value to smooth 3</i> <br />
+        <b>In 4</b>: type=<i>input</i>: x4, <i>Value to smooth 4</i> <br />
+        <b>In 5</b>: type=<i>input</i>: x5, <i>Value to smooth 5</i> <br />
+        <b>In 6</b>: type=<i>input</i>: t, <i>Smoothing time in SECONDS</i> <br />
 
-        <b>Return 1</b>: ,  <br />
-        <b>Return 2</b>: ,  <br />
-        <b>Return 3</b>: ,  <br />
-        <b>Return 4</b>: ,  <br />
-        <b>Return 5</b>: ,  <br />
+        <b>Return 1</b>: Smooth 1, <i>Smoothed output ramp 1</i> <br />
+        <b>Return 2</b>: Smooth 2, <i>Smoothed output ramp 2</i> <br />
+        <b>Return 3</b>: Smooth 3, <i>Smoothed output ramp 3</i> <br />
+        <b>Return 4</b>: Smooth 4, <i>Smoothed output ramp 4</i> <br />
+        <b>Return 5</b>: Smooth 5, <i>Smoothed output ramp 5</i> <br />
 
       </description>
     </entry>
     <entry name="expsmoothBank6 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x1, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: x2, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: x3, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: x4, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: x5, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: x6, <i></i> <br />
-        <b>In 7</b>: type=<i>input</i>: t, <i></i> <br />
+        Bank of 6 'expsmooth()' smoothers with one time inlet <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x1, <i>Value to smooth 1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: x2, <i>Value to smooth 2</i> <br />
+        <b>In 3</b>: type=<i>input</i>: x3, <i>Value to smooth 3</i> <br />
+        <b>In 4</b>: type=<i>input</i>: x4, <i>Value to smooth 4</i> <br />
+        <b>In 5</b>: type=<i>input</i>: x5, <i>Value to smooth 5</i> <br />
+        <b>In 6</b>: type=<i>input</i>: x6, <i>Value to smooth 6</i> <br />
+        <b>In 7</b>: type=<i>input</i>: t, <i>Smoothing time in SECONDS</i> <br />
 
-        <b>Return 1</b>: ,  <br />
-        <b>Return 2</b>: ,  <br />
-        <b>Return 3</b>: ,  <br />
-        <b>Return 4</b>: ,  <br />
-        <b>Return 5</b>: ,  <br />
-        <b>Return 6</b>: ,  <br />
+        <b>Return 1</b>: Smooth 1, <i>Smoothed output ramp 1</i> <br />
+        <b>Return 2</b>: Smooth 2, <i>Smoothed output ramp 2</i> <br />
+        <b>Return 3</b>: Smooth 3, <i>Smoothed output ramp 3</i> <br />
+        <b>Return 4</b>: Smooth 4, <i>Smoothed output ramp 4</i> <br />
+        <b>Return 5</b>: Smooth 5, <i>Smoothed output ramp 5</i> <br />
+        <b>Return 6</b>: Smooth 6, <i>Smoothed output ramp 6</i> <br />
 
       </description>
     </entry>
     <entry name="expsmoothBank7 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x1, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: x2, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: x3, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: x4, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: x5, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: x6, <i></i> <br />
-        <b>In 7</b>: type=<i>input</i>: x7, <i></i> <br />
-        <b>In 8</b>: type=<i>input</i>: t, <i></i> <br />
+        Bank of 7 'expsmooth()' smoothers with one time inlet <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x1, <i>Value to smooth 1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: x2, <i>Value to smooth 2</i> <br />
+        <b>In 3</b>: type=<i>input</i>: x3, <i>Value to smooth 3</i> <br />
+        <b>In 4</b>: type=<i>input</i>: x4, <i>Value to smooth 4</i> <br />
+        <b>In 5</b>: type=<i>input</i>: x5, <i>Value to smooth 5</i> <br />
+        <b>In 6</b>: type=<i>input</i>: x6, <i>Value to smooth 6</i> <br />
+        <b>In 7</b>: type=<i>input</i>: x7, <i>Value to smooth 7</i> <br />
+        <b>In 8</b>: type=<i>input</i>: t, <i>Smoothing time in SECONDS</i> <br />
 
-        <b>Return 1</b>: ,  <br />
-        <b>Return 2</b>: ,  <br />
-        <b>Return 3</b>: ,  <br />
-        <b>Return 4</b>: ,  <br />
-        <b>Return 5</b>: ,  <br />
-        <b>Return 6</b>: ,  <br />
-        <b>Return 7</b>: ,  <br />
+        <b>Return 1</b>: Smooth 1, <i>Smoothed output ramp 1</i> <br />
+        <b>Return 2</b>: Smooth 2, <i>Smoothed output ramp 2</i> <br />
+        <b>Return 3</b>: Smooth 3, <i>Smoothed output ramp 3</i> <br />
+        <b>Return 4</b>: Smooth 4, <i>Smoothed output ramp 4</i> <br />
+        <b>Return 5</b>: Smooth 5, <i>Smoothed output ramp 5</i> <br />
+        <b>Return 6</b>: Smooth 6, <i>Smoothed output ramp 6</i> <br />
+        <b>Return 7</b>: Smooth 7, <i>Smoothed output ramp 7</i> <br />
 
       </description>
     </entry>
     <entry name="expsmoothBank8 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x1, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: x2, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: x3, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: x4, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: x5, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: x6, <i></i> <br />
-        <b>In 7</b>: type=<i>input</i>: x7, <i></i> <br />
-        <b>In 8</b>: type=<i>input</i>: x8, <i></i> <br />
-        <b>In 9</b>: type=<i>input</i>: t, <i></i> <br />
+        Bank of 8 'expsmooth()' smoothers with one time inlet <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x1, <i>Value to smooth 1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: x2, <i>Value to smooth 2</i> <br />
+        <b>In 3</b>: type=<i>input</i>: x3, <i>Value to smooth 3</i> <br />
+        <b>In 4</b>: type=<i>input</i>: x4, <i>Value to smooth 4</i> <br />
+        <b>In 5</b>: type=<i>input</i>: x5, <i>Value to smooth 5</i> <br />
+        <b>In 6</b>: type=<i>input</i>: x6, <i>Value to smooth 6</i> <br />
+        <b>In 7</b>: type=<i>input</i>: x7, <i>Value to smooth 7</i> <br />
+        <b>In 8</b>: type=<i>input</i>: x8, <i>Value to smooth 8</i> <br />
+        <b>In 9</b>: type=<i>input</i>: t, <i>Smoothing time in SECONDS</i> <br />
 
-        <b>Return 1</b>: ,  <br />
-        <b>Return 2</b>: ,  <br />
-        <b>Return 3</b>: ,  <br />
-        <b>Return 4</b>: ,  <br />
-        <b>Return 5</b>: ,  <br />
-        <b>Return 6</b>: ,  <br />
-        <b>Return 7</b>: ,  <br />
-        <b>Return 8</b>: ,  <br />
+        <b>Return 1</b>: Smooth 1, <i>Smoothed output ramp 1</i> <br />
+        <b>Return 2</b>: Smooth 2, <i>Smoothed output ramp 2</i> <br />
+        <b>Return 3</b>: Smooth 3, <i>Smoothed output ramp 3</i> <br />
+        <b>Return 4</b>: Smooth 4, <i>Smoothed output ramp 4</i> <br />
+        <b>Return 5</b>: Smooth 5, <i>Smoothed output ramp 5</i> <br />
+        <b>Return 6</b>: Smooth 6, <i>Smoothed output ramp 6</i> <br />
+        <b>Return 7</b>: Smooth 7, <i>Smoothed output ramp 7</i> <br />
+        <b>Return 8</b>: Smooth 8, <i>Smoothed output ramp 8</i> <br />
 
       </description>
     </entry>
     <entry name="logsmooth ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: s, <i></i> <br />
+        Excellent and cheapest generic smoother, slow(er) response than 'expsmooth()' <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Value to smooth</i> <br />
+        <b>In 2</b>: type=<i>input</i>: s, <i>Smoothing time in SECONDS (time to drop 6dB)</i> <br />
 
-        <b>Return 1</b>: ,  <br />
-
-      </description>
-    </entry>
-    <entry name="logsad ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: s, <i></i> <br />
-
-        <b>Return 1</b>: ,  <br />
-
-      </description>
-    </entry>
-    <entry name="logso ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: ad, <i></i> <br />
-
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Smooth, <i>Smoothed output ramp</i> <br />
 
       </description>
     </entry>
     <entry name="logsmoothBank2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x1, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: x2, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: s, <i></i> <br />
+        Bank of 2 'logsmooth()' smoothers with one time inlet <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x1, <i>Value to smooth 1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: x2, <i>Value to smooth 2</i> <br />
+        <b>In 3</b>: type=<i>input</i>: s, <i>Smoothing time in SECONDS (time to drop 6dB)</i> <br />
 
-        <b>Return 1</b>: ,  <br />
-        <b>Return 2</b>: ,  <br />
+        <b>Return 1</b>: Smooth 1, <i>Smoothed output ramp 1</i> <br />
+        <b>Return 2</b>: Smooth 2, <i>Smoothed output ramp 2</i> <br />
 
       </description>
     </entry>
     <entry name="logsmoothBank3 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x1, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: x2, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: x3, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: s, <i></i> <br />
+        Bank of 3 'logsmooth()' smoothers with one time inlet <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x1, <i>Value to smooth 1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: x2, <i>Value to smooth 2</i> <br />
+        <b>In 3</b>: type=<i>input</i>: x3, <i>Value to smooth 3</i> <br />
+        <b>In 4</b>: type=<i>input</i>: s, <i>Smoothing time in SECONDS (time to drop 6dB)</i> <br />
 
-        <b>Return 1</b>: ,  <br />
-        <b>Return 2</b>: ,  <br />
-        <b>Return 3</b>: ,  <br />
+        <b>Return 1</b>: Smooth 1, <i>Smoothed output ramp 1</i> <br />
+        <b>Return 2</b>: Smooth 2, <i>Smoothed output ramp 2</i> <br />
+        <b>Return 3</b>: Smooth 3, <i>Smoothed output ramp 3</i> <br />
 
       </description>
     </entry>
     <entry name="logsmoothBank4 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x1, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: x2, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: x3, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: x4, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: s, <i></i> <br />
+        Bank of 4 'logsmooth()' smoothers with one time inlet <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x1, <i>Value to smooth 1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: x2, <i>Value to smooth 2</i> <br />
+        <b>In 3</b>: type=<i>input</i>: x3, <i>Value to smooth 3</i> <br />
+        <b>In 4</b>: type=<i>input</i>: x4, <i>Value to smooth 4</i> <br />
+        <b>In 5</b>: type=<i>input</i>: s, <i>Smoothing time in SECONDS (time to drop 6dB)</i> <br />
 
-        <b>Return 1</b>: ,  <br />
-        <b>Return 2</b>: ,  <br />
-        <b>Return 3</b>: ,  <br />
-        <b>Return 4</b>: ,  <br />
+        <b>Return 1</b>: Smooth 1, <i>Smoothed output ramp 1</i> <br />
+        <b>Return 2</b>: Smooth 2, <i>Smoothed output ramp 2</i> <br />
+        <b>Return 3</b>: Smooth 3, <i>Smoothed output ramp 4</i> <br />
+        <b>Return 4</b>: Smooth 4, <i>Smoothed output ramp 4</i> <br />
 
       </description>
     </entry>
     <entry name="logsmoothBank5 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x1, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: x2, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: x3, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: x4, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: x5, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: s, <i></i> <br />
+        Bank of 5 'logsmooth()' smoothers with one time inlet <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x1, <i>Value to smooth 1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: x2, <i>Value to smooth 2</i> <br />
+        <b>In 3</b>: type=<i>input</i>: x3, <i>Value to smooth 3</i> <br />
+        <b>In 4</b>: type=<i>input</i>: x4, <i>Value to smooth 4</i> <br />
+        <b>In 5</b>: type=<i>input</i>: x5, <i>Value to smooth 5</i> <br />
+        <b>In 6</b>: type=<i>input</i>: s, <i>Smoothing time in SECONDS (time to drop 6dB)</i> <br />
 
-        <b>Return 1</b>: ,  <br />
-        <b>Return 2</b>: ,  <br />
-        <b>Return 3</b>: ,  <br />
-        <b>Return 4</b>: ,  <br />
-        <b>Return 5</b>: ,  <br />
+        <b>Return 1</b>: Smooth 1, <i>Smoothed output ramp 1</i> <br />
+        <b>Return 2</b>: Smooth 2, <i>Smoothed output ramp 2</i> <br />
+        <b>Return 3</b>: Smooth 3, <i>Smoothed output ramp 3</i> <br />
+        <b>Return 4</b>: Smooth 4, <i>Smoothed output ramp 4</i> <br />
+        <b>Return 5</b>: Smooth 5, <i>Smoothed output ramp 5</i> <br />
 
       </description>
     </entry>
     <entry name="logsmoothBank6 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x1, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: x2, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: x3, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: x4, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: x5, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: x6, <i></i> <br />
-        <b>In 7</b>: type=<i>input</i>: s, <i></i> <br />
+        Bank of 6 'logsmooth()' smoothers with one time inlet <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x1, <i>Value to smooth 1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: x2, <i>Value to smooth 2</i> <br />
+        <b>In 3</b>: type=<i>input</i>: x3, <i>Value to smooth 3</i> <br />
+        <b>In 4</b>: type=<i>input</i>: x4, <i>Value to smooth 4</i> <br />
+        <b>In 5</b>: type=<i>input</i>: x5, <i>Value to smooth 5</i> <br />
+        <b>In 6</b>: type=<i>input</i>: x6, <i>Value to smooth 6</i> <br />
+        <b>In 7</b>: type=<i>input</i>: s, <i>Smoothing time in SECONDS (time to drop 6dB)</i> <br />
 
-        <b>Return 1</b>: ,  <br />
-        <b>Return 2</b>: ,  <br />
-        <b>Return 3</b>: ,  <br />
-        <b>Return 4</b>: ,  <br />
-        <b>Return 5</b>: ,  <br />
-        <b>Return 6</b>: ,  <br />
+        <b>Return 1</b>: Smooth 1, <i>Smoothed output ramp 1</i> <br />
+        <b>Return 2</b>: Smooth 2, <i>Smoothed output ramp 2</i> <br />
+        <b>Return 3</b>: Smooth 3, <i>Smoothed output ramp 3</i> <br />
+        <b>Return 4</b>: Smooth 4, <i>Smoothed output ramp 4</i> <br />
+        <b>Return 5</b>: Smooth 5, <i>Smoothed output ramp 5</i> <br />
+        <b>Return 6</b>: Smooth 6, <i>Smoothed output ramp 6</i> <br />
 
       </description>
     </entry>
     <entry name="logsmoothBank7 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x1, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: x2, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: x3, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: x4, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: x5, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: x6, <i></i> <br />
-        <b>In 7</b>: type=<i>input</i>: x7, <i></i> <br />
-        <b>In 8</b>: type=<i>input</i>: s, <i></i> <br />
+        Bank of 7 'logsmooth()' smoothers with one time inlet <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x1, <i>Value to smooth 1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: x2, <i>Value to smooth 2</i> <br />
+        <b>In 3</b>: type=<i>input</i>: x3, <i>Value to smooth 3</i> <br />
+        <b>In 4</b>: type=<i>input</i>: x4, <i>Value to smooth 4</i> <br />
+        <b>In 5</b>: type=<i>input</i>: x5, <i>Value to smooth 5</i> <br />
+        <b>In 6</b>: type=<i>input</i>: x6, <i>Value to smooth 6</i> <br />
+        <b>In 7</b>: type=<i>input</i>: x7, <i>Value to smooth 7</i> <br />
+        <b>In 8</b>: type=<i>input</i>: s, <i>Smoothing time in SECONDS (time to drop 6dB)</i> <br />
 
-        <b>Return 1</b>: ,  <br />
-        <b>Return 2</b>: ,  <br />
-        <b>Return 3</b>: ,  <br />
-        <b>Return 4</b>: ,  <br />
-        <b>Return 5</b>: ,  <br />
-        <b>Return 6</b>: ,  <br />
-        <b>Return 7</b>: ,  <br />
+        <b>Return 1</b>: Smooth 1, <i>Smoothed output ramp 1</i> <br />
+        <b>Return 2</b>: Smooth 2, <i>Smoothed output ramp 2</i> <br />
+        <b>Return 3</b>: Smooth 3, <i>Smoothed output ramp 3</i> <br />
+        <b>Return 4</b>: Smooth 4, <i>Smoothed output ramp 4</i> <br />
+        <b>Return 5</b>: Smooth 5, <i>Smoothed output ramp 5</i> <br />
+        <b>Return 6</b>: Smooth 6, <i>Smoothed output ramp 6</i> <br />
+        <b>Return 7</b>: Smooth 7, <i>Smoothed output ramp 7</i> <br />
 
       </description>
     </entry>
     <entry name="logsmoothBank8 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x1, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: x2, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: x3, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: x4, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: x5, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: x6, <i></i> <br />
-        <b>In 7</b>: type=<i>input</i>: x7, <i></i> <br />
-        <b>In 8</b>: type=<i>input</i>: x8, <i></i> <br />
-        <b>In 9</b>: type=<i>input</i>: s, <i></i> <br />
+        Bank of 8 'logsmooth()' smoothers with one time inlet <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x1, <i>Value to smooth 1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: x2, <i>Value to smooth 2</i> <br />
+        <b>In 3</b>: type=<i>input</i>: x3, <i>Value to smooth 3</i> <br />
+        <b>In 4</b>: type=<i>input</i>: x4, <i>Value to smooth 4</i> <br />
+        <b>In 5</b>: type=<i>input</i>: x5, <i>Value to smooth 5</i> <br />
+        <b>In 6</b>: type=<i>input</i>: x6, <i>Value to smooth 6</i> <br />
+        <b>In 7</b>: type=<i>input</i>: x7, <i>Value to smooth 7</i> <br />
+        <b>In 8</b>: type=<i>input</i>: x8, <i>Value to smooth 8</i> <br />
+        <b>In 9</b>: type=<i>input</i>: s, <i>Smoothing time in SECONDS (time to drop 6dB)</i> <br />
 
-        <b>Return 1</b>: ,  <br />
-        <b>Return 2</b>: ,  <br />
-        <b>Return 3</b>: ,  <br />
-        <b>Return 4</b>: ,  <br />
-        <b>Return 5</b>: ,  <br />
-        <b>Return 6</b>: ,  <br />
-        <b>Return 7</b>: ,  <br />
-        <b>Return 8</b>: ,  <br />
+        <b>Return 1</b>: Smooth 1, <i>Smoothed output ramp 1</i> <br />
+        <b>Return 2</b>: Smooth 2, <i>Smoothed output ramp 2</i> <br />
+        <b>Return 3</b>: Smooth 3, <i>Smoothed output ramp 3</i> <br />
+        <b>Return 4</b>: Smooth 4, <i>Smoothed output ramp 4</i> <br />
+        <b>Return 5</b>: Smooth 5, <i>Smoothed output ramp 5</i> <br />
+        <b>Return 6</b>: Smooth 6, <i>Smoothed output ramp 6</i> <br />
+        <b>Return 7</b>: Smooth 7, <i>Smoothed output ramp 7</i> <br />
+        <b>Return 8</b>: Smooth 8, <i>Smoothed output ramp 8</i> <br />
 
       </description>
     </entry>
@@ -320,6 +310,7 @@
   </metadatalist>
   <seealsolist>
     <!-- we use 'refpage' here not 'genrefpage' to trick Max -->
+    <seealso name="evi_smooth" type="refpage"/>
   </seealsolist>
   <misc name="Discussion">
     <entry name="Keywords">

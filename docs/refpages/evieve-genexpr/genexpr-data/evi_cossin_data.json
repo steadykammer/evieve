@@ -1,101 +1,101 @@
 {
-    "description": "",
+    "description": "A collection of cosine/sine functions and supporting code for oft used approximiations.",
     "requires": [],
     "functions": [
         {
             "document": true,
-            "digest": "",
+            "digest": "This function offers different precisions of a famous cos/sin osc approximation. It is not intended for production but to extract the precision you need from the code.",
             "name": "quartParApproxFull",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "modphase",
-                    "digest": ""
+                    "digest": "Osc phase, must be wrapped 0..1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "precision",
-                    "digest": ""
+                    "digest": "Int 0..3. Type of precision. See source code for details."
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Cos",
+                    "digest": "Cosine quadrature output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Sin",
+                    "digest": "Sine quadrature output"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "Quart",
+                    "digest": "Which quarter the approximation is currently in, int 0..3"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Highly optimised cosine quarter extracted from 'quartParApproxFull()', excellent for crossfading or panning applications",
             "name": "quartParOneApprox",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "modphase",
-                    "digest": ""
+                    "digest": "Osc phase, must be wrapped 0..1"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Cos",
+                    "digest": "Cosine quadrature output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Sin",
+                    "digest": "Sine quadrature output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Not an approximation, just two full precision matched cycle() lookups in quadrature form",
             "name": "quadratureOsc",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "thisphase",
-                    "digest": ""
+                    "digest": "Phase 0..1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "thisspread",
-                    "digest": ""
+                    "digest": "Should always be 0.75 for quadrature behaviour, but can be changed for other uses"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Real",
+                    "digest": "Cosine (quadrature) output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Imag",
+                    "digest": "Sine (quadrature) output"
                 }
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "tanApprox3",
             "inputs": [
@@ -116,98 +116,98 @@
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Accurate and efficient quadrature oscillator approximation",
             "name": "quadOsc",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "frequency",
-                    "digest": ""
+                    "digest": "in Hz"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "reset",
-                    "digest": ""
+                    "digest": "Sample accurate phase reset"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Cos",
+                    "digest": "Cosine quadrature output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Sin",
+                    "digest": "Sine quadrature output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Accurate and efficient quadrature oscillator approximation with independent sync outputs",
             "name": "quadOscSync",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "frequency",
-                    "digest": ""
+                    "digest": "in Hz"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "reset",
-                    "digest": ""
+                    "digest": "Sample accurate phase reset"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Cos",
+                    "digest": "Cosine quadrature output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Sin",
+                    "digest": "Sine quadrature output"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "Cos Sync",
+                    "digest": "Sync output of cos quadrature oscillator"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "Sin Sync",
+                    "digest": "Sync output of sin quadrature oscillator"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Quad osc from a tpt filter primed for audio rate FM, reset resets filter states",
             "name": "tptSvfQuadOsc",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "in Hz"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "sync",
-                    "digest": ""
+                    "digest": "Soft sync reset, use this not 'reset'"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "reset",
-                    "digest": ""
+                    "digest": "Hard reset, use 'sync' instead for audio applications"
                 },
                 {
                     "id": 4,
@@ -215,142 +215,147 @@
                     "name": "soft",
                     "default": 0.1,
                     "type": "float",
-                    "digest": ""
+                    "digest": "Softness of 'sync' reset 0..1"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Cos",
+                    "digest": "Cosine quadrature output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Sin",
+                    "digest": "Sine quadrature output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Very cheap parabolic approximation for LFOs etc, -1..1",
             "name": "parabolApprox",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "phase",
-                    "digest": ""
+                    "digest": "Sin phase 0..1"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Sine",
+                    "digest": "In range -1..1"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Very cheap parabolic approximation for LFOs etc, 0..1",
             "name": "parabolApprox01",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "phase",
-                    "digest": ""
+                    "digest": "Sin phase 0..1"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Sine",
+                    "digest": "In range 0..1"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Very cheap cosine approximation for LFOs etc",
             "name": "cosApprox01",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "a",
-                    "digest": ""
+                    "digest": "Cosine phase 0..1"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Cosine",
+                    "digest": "In range -1..1"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Very cheap sine approximation for LFOs etc",
             "name": "sinApprox01",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "a",
-                    "digest": ""
+                    "digest": "Sine phase 0..1"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Sine",
+                    "digest": "In range -1..1"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Very cheap cosine approximation for LFOs etc",
             "name": "cosApproxPi",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Cos phase -PI..PI"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Cosine",
+                    "digest": "In range -1..1"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Very cheap sine approximation for LFOs etc",
             "name": "sinApproxPi",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Sin phase -PI..PI"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Sine",
+                    "digest": "In range -1..1"
                 }
             ]
         }
     ],
-    "seealso": []
+    "seealso": [
+        "evi_utilities",
+        "evi_trig",
+        "evi_approx",
+        "evi_pade"
+    ]
 }

@@ -33,9 +33,9 @@
         <b>In 9</b>: type=<i>input</i>: b1, <i></i> <br />
         <b>In 10</b>: type=<i>input</i>: b2, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
-        <b>Return 2</b>: ,  <br />
-        <b>Return 3</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 2</b>: , <i></i> <br />
+        <b>Return 3</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -45,7 +45,7 @@
         <b>In 2</b>: type=<i>input</i>: companderCrect, <i></i> <br />
         <b>In 3</b>: type=<i>input</i>: T, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -55,8 +55,8 @@
         <b>In 2</b>: type=<i>input</i>: smoothing, <i></i> <br />
         <b>In 3</b>: type=<i>input</i>: T, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
-        <b>Return 2</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 2</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -66,8 +66,8 @@
         <b>In 2</b>: type=<i>input</i>: smoothing, <i></i> <br />
         <b>In 3</b>: type=<i>input</i>: T, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
-        <b>Return 2</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 2</b>: , <i></i> <br />
 
       </description>
     </entry>

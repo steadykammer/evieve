@@ -22,7 +22,7 @@
         <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
         <b>In 2</b>: type=<i>input</i>: skewneg, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -31,7 +31,7 @@
         <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
         <b>In 2</b>: type=<i>input</i>: skewpos, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -40,7 +40,7 @@
         <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
         <b>In 2</b>: type=<i>input</i>: skew, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -51,7 +51,7 @@
         <b>In 3</b>: type=<i>input</i>: shape, <i></i> <br />
         <b>In 4</b>: type=<i>input</i>: skew, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -59,7 +59,7 @@
       <description>
         <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -70,7 +70,7 @@
         <b>In 3</b>: type=<i>input</i>: times, <i></i> <br />
         <b>In 4</b>: type=<i>input</i>: plus, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -81,7 +81,7 @@
         <b>In 3</b>: type=<i>input</i>: width, <i></i> <br />
         <b>In 4</b>: type=<i>input</i>: wave, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -92,7 +92,7 @@
         <b>In 3</b>: type=<i>input</i>: width, <i></i> <br />
         <b>In 4</b>: type=<i>input</i>: wave, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>

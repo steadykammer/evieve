@@ -1,10 +1,10 @@
 {
-    "description": "",
+    "description": "This file contains a subset extracted from the 'evi_smooth.genexpr' file but with no dependencies, for when you need basic smoothing banks and do not wish to require more than is needed. This can be useful in complex require situations and is used by some of the evieve examples.",
     "requires": [],
     "functions": [
         {
-            "document": true,
-            "digest": "",
+            "document": false,
+            "digest": "Cheapest full range exp() approximation that evieve offers, we use this everywhere, more accurate than 'fastexp()', at least 1.5 x faster than library exp()",
             "name": "expA",
             "inputs": [
                 {
@@ -23,8 +23,8 @@
             ]
         },
         {
-            "document": true,
-            "digest": "",
+            "document": false,
+            "digest": "Approximation of 'exp(-1 / (seconds * samplerate))' for time..pole calculations",
             "name": "tauA",
             "inputs": [
                 {
@@ -44,32 +44,32 @@
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Excellent cheap generic smoother, fast(er) response than 'logsmooth()'",
             "name": "expsmooth",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Value to smooth"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "t",
-                    "digest": ""
+                    "digest": "Smoothing time in SECONDS"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Smooth",
+                    "digest": "Smoothed output ramp"
                 }
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "expso",
             "inputs": [
@@ -96,522 +96,522 @@
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Bank of 2 'expsmooth()' smoothers with one time inlet",
             "name": "expsmoothBank2",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x1",
-                    "digest": ""
+                    "digest": "Value to smooth 1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "x2",
-                    "digest": ""
+                    "digest": "Value to smooth 2"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "t",
-                    "digest": ""
+                    "digest": "Smoothing time in SECONDS"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Smooth 1",
+                    "digest": "Smoothed output ramp 1"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Smooth 2",
+                    "digest": "Smoothed output ramp 2"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Bank of 3 'expsmooth()' smoothers with one time inlet",
             "name": "expsmoothBank3",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x1",
-                    "digest": ""
+                    "digest": "Value to smooth 1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "x2",
-                    "digest": ""
+                    "digest": "Value to smooth 2"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "x3",
-                    "digest": ""
+                    "digest": "Value to smooth 3"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "t",
-                    "digest": ""
+                    "digest": "Smoothing time in SECONDS"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Smooth 1",
+                    "digest": "Smoothed output ramp 1"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Smooth 2",
+                    "digest": "Smoothed output ramp 2"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "Smooth 3",
+                    "digest": "Smoothed output ramp 3"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Bank of 4 'expsmooth()' smoothers with one time inlet",
             "name": "expsmoothBank4",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x1",
-                    "digest": ""
+                    "digest": "Value to smooth 1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "x2",
-                    "digest": ""
+                    "digest": "Value to smooth 2"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "x3",
-                    "digest": ""
+                    "digest": "Value to smooth 3"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "x4",
-                    "digest": ""
+                    "digest": "Value to smooth 4"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "t",
-                    "digest": ""
+                    "digest": "Smoothing time in SECONDS"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Smooth 1",
+                    "digest": "Smoothed output ramp 1"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Smooth 2",
+                    "digest": "Smoothed output ramp 2"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "Smooth 3",
+                    "digest": "Smoothed output ramp 3"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "Smooth 4",
+                    "digest": "Smoothed output ramp 4"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Bank of 5 'expsmooth()' smoothers with one time inlet",
             "name": "expsmoothBank5",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x1",
-                    "digest": ""
+                    "digest": "Value to smooth 1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "x2",
-                    "digest": ""
+                    "digest": "Value to smooth 2"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "x3",
-                    "digest": ""
+                    "digest": "Value to smooth 3"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "x4",
-                    "digest": ""
+                    "digest": "Value to smooth 4"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "x5",
-                    "digest": ""
+                    "digest": "Value to smooth 5"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "t",
-                    "digest": ""
+                    "digest": "Smoothing time in SECONDS"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Smooth 1",
+                    "digest": "Smoothed output ramp 1"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Smooth 2",
+                    "digest": "Smoothed output ramp 2"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "Smooth 3",
+                    "digest": "Smoothed output ramp 3"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "Smooth 4",
+                    "digest": "Smoothed output ramp 4"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "Smooth 5",
+                    "digest": "Smoothed output ramp 5"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Bank of 6 'expsmooth()' smoothers with one time inlet",
             "name": "expsmoothBank6",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x1",
-                    "digest": ""
+                    "digest": "Value to smooth 1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "x2",
-                    "digest": ""
+                    "digest": "Value to smooth 2"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "x3",
-                    "digest": ""
+                    "digest": "Value to smooth 3"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "x4",
-                    "digest": ""
+                    "digest": "Value to smooth 4"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "x5",
-                    "digest": ""
+                    "digest": "Value to smooth 5"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "x6",
-                    "digest": ""
+                    "digest": "Value to smooth 6"
                 },
                 {
                     "id": 7,
                     "kind": "input",
                     "name": "t",
-                    "digest": ""
+                    "digest": "Smoothing time in SECONDS"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Smooth 1",
+                    "digest": "Smoothed output ramp 1"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Smooth 2",
+                    "digest": "Smoothed output ramp 2"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "Smooth 3",
+                    "digest": "Smoothed output ramp 3"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "Smooth 4",
+                    "digest": "Smoothed output ramp 4"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "Smooth 5",
+                    "digest": "Smoothed output ramp 5"
                 },
                 {
                     "id": 6,
-                    "name": "",
-                    "digest": ""
+                    "name": "Smooth 6",
+                    "digest": "Smoothed output ramp 6"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Bank of 7 'expsmooth()' smoothers with one time inlet",
             "name": "expsmoothBank7",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x1",
-                    "digest": ""
+                    "digest": "Value to smooth 1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "x2",
-                    "digest": ""
+                    "digest": "Value to smooth 2"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "x3",
-                    "digest": ""
+                    "digest": "Value to smooth 3"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "x4",
-                    "digest": ""
+                    "digest": "Value to smooth 4"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "x5",
-                    "digest": ""
+                    "digest": "Value to smooth 5"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "x6",
-                    "digest": ""
+                    "digest": "Value to smooth 6"
                 },
                 {
                     "id": 7,
                     "kind": "input",
                     "name": "x7",
-                    "digest": ""
+                    "digest": "Value to smooth 7"
                 },
                 {
                     "id": 8,
                     "kind": "input",
                     "name": "t",
-                    "digest": ""
+                    "digest": "Smoothing time in SECONDS"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Smooth 1",
+                    "digest": "Smoothed output ramp 1"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Smooth 2",
+                    "digest": "Smoothed output ramp 2"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "Smooth 3",
+                    "digest": "Smoothed output ramp 3"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "Smooth 4",
+                    "digest": "Smoothed output ramp 4"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "Smooth 5",
+                    "digest": "Smoothed output ramp 5"
                 },
                 {
                     "id": 6,
-                    "name": "",
-                    "digest": ""
+                    "name": "Smooth 6",
+                    "digest": "Smoothed output ramp 6"
                 },
                 {
                     "id": 7,
-                    "name": "",
-                    "digest": ""
+                    "name": "Smooth 7",
+                    "digest": "Smoothed output ramp 7"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Bank of 8 'expsmooth()' smoothers with one time inlet",
             "name": "expsmoothBank8",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x1",
-                    "digest": ""
+                    "digest": "Value to smooth 1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "x2",
-                    "digest": ""
+                    "digest": "Value to smooth 2"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "x3",
-                    "digest": ""
+                    "digest": "Value to smooth 3"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "x4",
-                    "digest": ""
+                    "digest": "Value to smooth 4"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "x5",
-                    "digest": ""
+                    "digest": "Value to smooth 5"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "x6",
-                    "digest": ""
+                    "digest": "Value to smooth 6"
                 },
                 {
                     "id": 7,
                     "kind": "input",
                     "name": "x7",
-                    "digest": ""
+                    "digest": "Value to smooth 7"
                 },
                 {
                     "id": 8,
                     "kind": "input",
                     "name": "x8",
-                    "digest": ""
+                    "digest": "Value to smooth 8"
                 },
                 {
                     "id": 9,
                     "kind": "input",
                     "name": "t",
-                    "digest": ""
+                    "digest": "Smoothing time in SECONDS"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Smooth 1",
+                    "digest": "Smoothed output ramp 1"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Smooth 2",
+                    "digest": "Smoothed output ramp 2"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "Smooth 3",
+                    "digest": "Smoothed output ramp 3"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "Smooth 4",
+                    "digest": "Smoothed output ramp 4"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "Smooth 5",
+                    "digest": "Smoothed output ramp 5"
                 },
                 {
                     "id": 6,
-                    "name": "",
-                    "digest": ""
+                    "name": "Smooth 6",
+                    "digest": "Smoothed output ramp 6"
                 },
                 {
                     "id": 7,
-                    "name": "",
-                    "digest": ""
+                    "name": "Smooth 7",
+                    "digest": "Smoothed output ramp 7"
                 },
                 {
                     "id": 8,
-                    "name": "",
-                    "digest": ""
+                    "name": "Smooth 8",
+                    "digest": "Smoothed output ramp 8"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Excellent and cheapest generic smoother, slow(er) response than 'expsmooth()'",
             "name": "logsmooth",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Value to smooth"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "s",
-                    "digest": ""
+                    "digest": "Smoothing time in SECONDS (time to drop 6dB)"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Smooth",
+                    "digest": "Smoothed output ramp"
                 }
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "logsad",
             "inputs": [
@@ -631,7 +631,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "logso",
             "inputs": [
@@ -658,494 +658,494 @@
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Bank of 2 'logsmooth()' smoothers with one time inlet",
             "name": "logsmoothBank2",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x1",
-                    "digest": ""
+                    "digest": "Value to smooth 1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "x2",
-                    "digest": ""
+                    "digest": "Value to smooth 2"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "s",
-                    "digest": ""
+                    "digest": "Smoothing time in SECONDS (time to drop 6dB)"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Smooth 1",
+                    "digest": "Smoothed output ramp 1"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Smooth 2",
+                    "digest": "Smoothed output ramp 2"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Bank of 3 'logsmooth()' smoothers with one time inlet",
             "name": "logsmoothBank3",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x1",
-                    "digest": ""
+                    "digest": "Value to smooth 1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "x2",
-                    "digest": ""
+                    "digest": "Value to smooth 2"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "x3",
-                    "digest": ""
+                    "digest": "Value to smooth 3"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "s",
-                    "digest": ""
+                    "digest": "Smoothing time in SECONDS (time to drop 6dB)"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Smooth 1",
+                    "digest": "Smoothed output ramp 1"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Smooth 2",
+                    "digest": "Smoothed output ramp 2"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "Smooth 3",
+                    "digest": "Smoothed output ramp 3"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Bank of 4 'logsmooth()' smoothers with one time inlet",
             "name": "logsmoothBank4",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x1",
-                    "digest": ""
+                    "digest": "Value to smooth 1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "x2",
-                    "digest": ""
+                    "digest": "Value to smooth 2"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "x3",
-                    "digest": ""
+                    "digest": "Value to smooth 3"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "x4",
-                    "digest": ""
+                    "digest": "Value to smooth 4"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "s",
-                    "digest": ""
+                    "digest": "Smoothing time in SECONDS (time to drop 6dB)"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Smooth 1",
+                    "digest": "Smoothed output ramp 1"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Smooth 2",
+                    "digest": "Smoothed output ramp 2"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "Smooth 3",
+                    "digest": "Smoothed output ramp 4"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "Smooth 4",
+                    "digest": "Smoothed output ramp 4"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Bank of 5 'logsmooth()' smoothers with one time inlet",
             "name": "logsmoothBank5",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x1",
-                    "digest": ""
+                    "digest": "Value to smooth 1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "x2",
-                    "digest": ""
+                    "digest": "Value to smooth 2"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "x3",
-                    "digest": ""
+                    "digest": "Value to smooth 3"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "x4",
-                    "digest": ""
+                    "digest": "Value to smooth 4"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "x5",
-                    "digest": ""
+                    "digest": "Value to smooth 5"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "s",
-                    "digest": ""
+                    "digest": "Smoothing time in SECONDS (time to drop 6dB)"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Smooth 1",
+                    "digest": "Smoothed output ramp 1"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Smooth 2",
+                    "digest": "Smoothed output ramp 2"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "Smooth 3",
+                    "digest": "Smoothed output ramp 3"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "Smooth 4",
+                    "digest": "Smoothed output ramp 4"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "Smooth 5",
+                    "digest": "Smoothed output ramp 5"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Bank of 6 'logsmooth()' smoothers with one time inlet",
             "name": "logsmoothBank6",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x1",
-                    "digest": ""
+                    "digest": "Value to smooth 1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "x2",
-                    "digest": ""
+                    "digest": "Value to smooth 2"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "x3",
-                    "digest": ""
+                    "digest": "Value to smooth 3"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "x4",
-                    "digest": ""
+                    "digest": "Value to smooth 4"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "x5",
-                    "digest": ""
+                    "digest": "Value to smooth 5"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "x6",
-                    "digest": ""
+                    "digest": "Value to smooth 6"
                 },
                 {
                     "id": 7,
                     "kind": "input",
                     "name": "s",
-                    "digest": ""
+                    "digest": "Smoothing time in SECONDS (time to drop 6dB)"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Smooth 1",
+                    "digest": "Smoothed output ramp 1"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Smooth 2",
+                    "digest": "Smoothed output ramp 2"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "Smooth 3",
+                    "digest": "Smoothed output ramp 3"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "Smooth 4",
+                    "digest": "Smoothed output ramp 4"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "Smooth 5",
+                    "digest": "Smoothed output ramp 5"
                 },
                 {
                     "id": 6,
-                    "name": "",
-                    "digest": ""
+                    "name": "Smooth 6",
+                    "digest": "Smoothed output ramp 6"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Bank of 7 'logsmooth()' smoothers with one time inlet",
             "name": "logsmoothBank7",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x1",
-                    "digest": ""
+                    "digest": "Value to smooth 1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "x2",
-                    "digest": ""
+                    "digest": "Value to smooth 2"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "x3",
-                    "digest": ""
+                    "digest": "Value to smooth 3"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "x4",
-                    "digest": ""
+                    "digest": "Value to smooth 4"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "x5",
-                    "digest": ""
+                    "digest": "Value to smooth 5"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "x6",
-                    "digest": ""
+                    "digest": "Value to smooth 6"
                 },
                 {
                     "id": 7,
                     "kind": "input",
                     "name": "x7",
-                    "digest": ""
+                    "digest": "Value to smooth 7"
                 },
                 {
                     "id": 8,
                     "kind": "input",
                     "name": "s",
-                    "digest": ""
+                    "digest": "Smoothing time in SECONDS (time to drop 6dB)"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Smooth 1",
+                    "digest": "Smoothed output ramp 1"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Smooth 2",
+                    "digest": "Smoothed output ramp 2"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "Smooth 3",
+                    "digest": "Smoothed output ramp 3"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "Smooth 4",
+                    "digest": "Smoothed output ramp 4"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "Smooth 5",
+                    "digest": "Smoothed output ramp 5"
                 },
                 {
                     "id": 6,
-                    "name": "",
-                    "digest": ""
+                    "name": "Smooth 6",
+                    "digest": "Smoothed output ramp 6"
                 },
                 {
                     "id": 7,
-                    "name": "",
-                    "digest": ""
+                    "name": "Smooth 7",
+                    "digest": "Smoothed output ramp 7"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Bank of 8 'logsmooth()' smoothers with one time inlet",
             "name": "logsmoothBank8",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x1",
-                    "digest": ""
+                    "digest": "Value to smooth 1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "x2",
-                    "digest": ""
+                    "digest": "Value to smooth 2"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "x3",
-                    "digest": ""
+                    "digest": "Value to smooth 3"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "x4",
-                    "digest": ""
+                    "digest": "Value to smooth 4"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "x5",
-                    "digest": ""
+                    "digest": "Value to smooth 5"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "x6",
-                    "digest": ""
+                    "digest": "Value to smooth 6"
                 },
                 {
                     "id": 7,
                     "kind": "input",
                     "name": "x7",
-                    "digest": ""
+                    "digest": "Value to smooth 7"
                 },
                 {
                     "id": 8,
                     "kind": "input",
                     "name": "x8",
-                    "digest": ""
+                    "digest": "Value to smooth 8"
                 },
                 {
                     "id": 9,
                     "kind": "input",
                     "name": "s",
-                    "digest": ""
+                    "digest": "Smoothing time in SECONDS (time to drop 6dB)"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Smooth 1",
+                    "digest": "Smoothed output ramp 1"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Smooth 2",
+                    "digest": "Smoothed output ramp 2"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "Smooth 3",
+                    "digest": "Smoothed output ramp 3"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "Smooth 4",
+                    "digest": "Smoothed output ramp 4"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "Smooth 5",
+                    "digest": "Smoothed output ramp 5"
                 },
                 {
                     "id": 6,
-                    "name": "",
-                    "digest": ""
+                    "name": "Smooth 6",
+                    "digest": "Smoothed output ramp 6"
                 },
                 {
                     "id": 7,
-                    "name": "",
-                    "digest": ""
+                    "name": "Smooth 7",
+                    "digest": "Smoothed output ramp 7"
                 },
                 {
                     "id": 8,
-                    "name": "",
-                    "digest": ""
+                    "name": "Smooth 8",
+                    "digest": "Smoothed output ramp 8"
                 }
             ]
         }
     ],
-    "seealso": []
+    "seealso": ["evi_smooth"]
 }

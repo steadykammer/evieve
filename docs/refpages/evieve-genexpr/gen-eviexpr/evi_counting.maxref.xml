@@ -24,9 +24,9 @@
         <b>In 6</b>: type=<i>Param</i> (optional): pause, default: <b>0</b>, min: 0, max: 1, <i>Pause current ramp off/on</i> <br />
         <b>In 7</b>: type=<i>Param</i> (optional): phase, default: <b>0</b>, min: 0, max: 1, <i>Set to this phase on next reset</i> <br />
 
-        <b>Return 1</b>: ,  <br />
-        <b>Return 2</b>: ,  <br />
-        <b>Return 3</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 2</b>: , <i></i> <br />
+        <b>Return 3</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -38,12 +38,12 @@
         <b>In 4</b>: type=<i>param</i> (optional): minimumhz, default: <b>0.125</b>, <i></i> <br />
         <b>In 5</b>: type=<i>param</i> (optional): mode, default: <b>1</b>, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
-        <b>Return 2</b>: ,  <br />
-        <b>Return 3</b>: ,  <br />
-        <b>Return 4</b>: ,  <br />
-        <b>Return 5</b>: ,  <br />
-        <b>Return 6</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 2</b>: , <i></i> <br />
+        <b>Return 3</b>: , <i></i> <br />
+        <b>Return 4</b>: , <i></i> <br />
+        <b>Return 5</b>: , <i></i> <br />
+        <b>Return 6</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -52,7 +52,7 @@
         <b>In 1</b>: type=<i>input</i>: f1, <i></i> <br />
         <b>In 2</b>: type=<i>input</i>: f2, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -63,9 +63,9 @@
         <b>In 3</b>: type=<i>input</i>: invmult, <i></i> <br />
         <b>In 4</b>: type=<i>input</i>: wantlock, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
-        <b>Return 2</b>: ,  <br />
-        <b>Return 3</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 2</b>: , <i></i> <br />
+        <b>Return 3</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -73,7 +73,7 @@
       <description>
         <b>In 1</b>: type=<i>input</i>: diff, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -83,7 +83,7 @@
         <b>In 2</b>: type=<i>input</i>: multiplier, <i></i> <br />
         <b>In 3</b>: type=<i>input</i>: reset, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -93,7 +93,7 @@
         <b>In 2</b>: type=<i>input</i>: multiplier, <i></i> <br />
         <b>In 3</b>: type=<i>input</i>: reset, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -103,7 +103,7 @@
         <b>In 2</b>: type=<i>input</i>: multiplier, <i></i> <br />
         <b>In 3</b>: type=<i>input</i>: reset, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -114,7 +114,7 @@
         <b>In 3</b>: type=<i>input</i>: reset, <i></i> <br />
         <b>In 4</b>: type=<i>param</i> (optional): sync, default: <b>0</b>, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -129,12 +129,12 @@
         <b>In 7</b>: type=<i>Param</i> (optional): pause, default: <b>0</b>, min: 0, max: 1, <i></i> <br />
         <b>In 8</b>: type=<i>Param</i> (optional): phase, default: <b>0</b>, min: 0, max: 1, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
-        <b>Return 2</b>: ,  <br />
-        <b>Return 3</b>: ,  <br />
-        <b>Return 4</b>: ,  <br />
-        <b>Return 5</b>: ,  <br />
-        <b>Return 6</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 2</b>: , <i></i> <br />
+        <b>Return 3</b>: , <i></i> <br />
+        <b>Return 4</b>: , <i></i> <br />
+        <b>Return 5</b>: , <i></i> <br />
+        <b>Return 6</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -149,10 +149,10 @@
         <b>In 7</b>: type=<i>Param</i> (optional): curve, default: <b>0</b>, min: 0, max: 1, <i></i> <br />
         <b>In 8</b>: type=<i>Param</i> (optional): pause, default: <b>0</b>, min: 0, max: 1, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
-        <b>Return 2</b>: ,  <br />
-        <b>Return 3</b>: ,  <br />
-        <b>Return 4</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 2</b>: , <i></i> <br />
+        <b>Return 3</b>: , <i></i> <br />
+        <b>Return 4</b>: , <i></i> <br />
 
       </description>
     </entry>

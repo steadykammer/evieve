@@ -14,137 +14,109 @@
     evi_approx.genexpr <br />
     <br />
     <b>About this File</b>: <br />
-     <br />
+    A collection of tanh() approximations because we use them so much. Approximations are faster than library functions but less accurate. You should be careful using approximations - they can break your code. In evieve all approximations are tested to work on the code in which they are used. <br />
   </description>
   <misc name="GenExpr Functions">
     <entry name="tanhL ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        High quality Lambert approx, 2x faster than library tanh(). Excellent mathematical and sonic closeness to library tanh(). In general we use this one most often <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Input</i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Tanh, <i>Approximate tanh() of input</i> <br />
 
       </description>
     </entry>
     <entry name="tanhLxA ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: a, <i></i> <br />
+        Wrapper for tanhL(). Returns 'tanh(x / a) * a' <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: a, <i>± linear gain, input div, output mul</i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Tanh, <i>Approximate tanh() of input wrapped by gain coefficient</i> <br />
 
       </description>
     </entry>
     <entry name="tanhO ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        By fire-sledge (LdS), we use this for some of the Adaa methods in evieve, similar efficiency to 'tanhL()' <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Input</i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Tanh, <i>Approximate tanh() of input</i> <br />
 
       </description>
     </entry>
     <entry name="tanhA ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        'Bright' tanh <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Input</i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Tanh, <i>Approximate tanh() of input</i> <br />
 
       </description>
     </entry>
     <entry name="tanhD ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        'Dark' tanh, the cheapest of all the tanh approximations here <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Input</i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Tanh, <i>Very approximate tanh() of input</i> <br />
 
       </description>
     </entry>
     <entry name="tanhQ ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        'Dull' tanh <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Input</i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Tanh, <i>Approximate tanh() of input</i> <br />
 
       </description>
     </entry>
     <entry name="tanhR ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
+        'Crap' tanh <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i>Input</i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Tanh, <i>Approximate tanh() of input</i> <br />
 
       </description>
     </entry>
     <entry name="tanhXdX ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        Padé approximation for tanh(sqrt(x))/sqrt(x) <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Input range -1..1</i> <br />
 
-        <b>Return 1</b>: ,  <br />
-
-      </description>
-    </entry>
-    <entry name="altTanhF0 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-
-        <b>Return 1</b>: ,  <br />
-
-      </description>
-    </entry>
-    <entry name="altTanhF00 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-
-        <b>Return 1</b>: ,  <br />
-
-      </description>
-    </entry>
-    <entry name="altTanhF1 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-
-        <b>Return 1</b>: ,  <br />
-
-      </description>
-    </entry>
-    <entry name="altTanhF11 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-
-        <b>Return 1</b>: ,  <br />
-
-      </description>
-    </entry>
-    <entry name="altTanhF2 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-
-        <b>Return 1</b>: ,  <br />
-
-      </description>
-    </entry>
-    <entry name="altTanhF22 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: TanhXdX, <i>Approximate tanh(sqrt(x))/sqrt(x) of input</i> <br />
 
       </description>
     </entry>
     <entry name="altTanhAdaa1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: reset, <i></i> <br />
+        First order anti-derivative anti-aliasing of an accurate tanh-like function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i>Audio input to saturate</i> <br />
+        <b>In 2</b>: type=<i>input</i>: reset, <i>(Optional) reset state</i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Tanh saturation, <i>Anti-aliased tanh-like saturated output</i> <br />
 
       </description>
     </entry>
     <entry name="altTanhAdaa2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: reset, <i></i> <br />
+        Second order anti-derivative anti-aliasing of an accurate tanh-like function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i>Audio input to saturate</i> <br />
+        <b>In 2</b>: type=<i>input</i>: reset, <i>(Optional) reset state</i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Tanh saturation, <i>Anti-aliased tanh-like saturated output</i> <br />
 
       </description>
     </entry>
@@ -156,6 +128,11 @@
   </metadatalist>
   <seealsolist>
     <!-- we use 'refpage' here not 'genrefpage' to trick Max -->
+    <seealso name="evi_trig" type="refpage"/>
+    <seealso name="evi_cossin" type="refpage"/>
+    <seealso name="evi_approx" type="refpage"/>
+    <seealso name="evi_pade" type="refpage"/>
+    <seealso name="evi_fastskew" type="refpage"/>
   </seealsolist>
   <misc name="Discussion">
     <entry name="Keywords">

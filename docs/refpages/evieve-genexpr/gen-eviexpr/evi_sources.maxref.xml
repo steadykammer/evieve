@@ -18,9 +18,9 @@
       <description>
         <b>In 1</b>: type=<i>input</i>: freq, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
-        <b>Return 2</b>: ,  <br />
-        <b>Return 3</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 2</b>: , <i></i> <br />
+        <b>Return 3</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -30,9 +30,9 @@
         <b>In 2</b>: type=<i>input</i>: mix, <i></i> <br />
         <b>In 3</b>: type=<i>param</i> (optional): amp, default: <b>1</b>, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
-        <b>Return 2</b>: ,  <br />
-        <b>Return 3</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 2</b>: , <i></i> <br />
+        <b>Return 3</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -40,9 +40,9 @@
       <description>
         <b>In 1</b>: type=<i>input</i>: gain, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
-        <b>Return 2</b>: ,  <br />
-        <b>Return 3</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 2</b>: , <i></i> <br />
+        <b>Return 3</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -52,9 +52,9 @@
         <b>In 2</b>: type=<i>param</i> (optional): windowSize, default: <b>0</b>, <i></i> <br />
         <b>In 3</b>: type=<i>param</i> (optional): threshold, default: <b>0.1</b>, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
-        <b>Return 2</b>: ,  <br />
-        <b>Return 3</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 2</b>: , <i></i> <br />
+        <b>Return 3</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -63,9 +63,9 @@
         <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
         <b>In 2</b>: type=<i>param</i> (optional): threshold, default: <b>0.1</b>, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
-        <b>Return 2</b>: ,  <br />
-        <b>Return 3</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 2</b>: , <i></i> <br />
+        <b>Return 3</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -73,8 +73,8 @@
       <description>
         <b>In 1</b>: type=<i>input</i>: p, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
-        <b>Return 2</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 2</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -83,7 +83,7 @@
         <b>In 1</b>: type=<i>input</i>: p, <i></i> <br />
         <b>In 2</b>: type=<i>input</i>: n, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -92,10 +92,10 @@
         <b>In 1</b>: type=<i>input</i>: d0, <i></i> <br />
         <b>In 2</b>: type=<i>input</i>: x2, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
-        <b>Return 2</b>: ,  <br />
-        <b>Return 3</b>: ,  <br />
-        <b>Return 4</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 2</b>: , <i></i> <br />
+        <b>Return 3</b>: , <i></i> <br />
+        <b>Return 4</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -103,8 +103,8 @@
       <description>
         <b>In 1</b>: type=<i>input</i>: p, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
-        <b>Return 2</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 2</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -113,7 +113,7 @@
         <b>In 1</b>: type=<i>input</i>: p, <i></i> <br />
         <b>In 2</b>: type=<i>input</i>: n, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -127,7 +127,7 @@
         <b>In 6</b>: type=<i>input</i>: bias, <i></i> <br />
         <b>In 7</b>: type=<i>input</i>: tension, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -137,8 +137,8 @@
         <b>In 2</b>: type=<i>input</i>: skew, <i></i> <br />
         <b>In 3</b>: type=<i>input</i>: reset, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
-        <b>Return 2</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 2</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -147,7 +147,7 @@
         <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
         <b>In 2</b>: type=<i>input</i>: c, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -157,7 +157,7 @@
         <b>In 2</b>: type=<i>input</i>: d, <i></i> <br />
         <b>In 3</b>: type=<i>input</i>: mode, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -168,7 +168,7 @@
         <b>In 3</b>: type=<i>input</i>: y1, <i></i> <br />
         <b>In 4</b>: type=<i>input</i>: y2, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -181,7 +181,7 @@
         <b>In 5</b>: type=<i>input</i>: y2, <i></i> <br />
         <b>In 6</b>: type=<i>input</i>: amount, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -192,8 +192,8 @@
         <b>In 3</b>: type=<i>input</i>: d, <i></i> <br />
         <b>In 4</b>: type=<i>input</i>: mode, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
-        <b>Return 2</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 2</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -204,8 +204,8 @@
         <b>In 3</b>: type=<i>input</i>: d, <i></i> <br />
         <b>In 4</b>: type=<i>input</i>: mode, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
-        <b>Return 2</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 2</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -216,10 +216,10 @@
         <b>In 3</b>: type=<i>input</i>: d, <i></i> <br />
         <b>In 4</b>: type=<i>input</i>: mode, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
-        <b>Return 2</b>: ,  <br />
-        <b>Return 3</b>: ,  <br />
-        <b>Return 4</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 2</b>: , <i></i> <br />
+        <b>Return 3</b>: , <i></i> <br />
+        <b>Return 4</b>: , <i></i> <br />
 
       </description>
     </entry>

@@ -18,7 +18,7 @@
       <description>
         <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -26,7 +26,7 @@
       <description>
         <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -34,7 +34,7 @@
       <description>
         <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -44,7 +44,7 @@
         <b>In 2</b>: type=<i>input</i>: a0, <i></i> <br />
         <b>In 3</b>: type=<i>input</i>: r0, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -54,7 +54,7 @@
         <b>In 2</b>: type=<i>input</i>: dtn, <i></i> <br />
         <b>In 3</b>: type=<i>input</i>: dcn, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -62,7 +62,7 @@
       <description>
         <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>

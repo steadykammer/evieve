@@ -1,195 +1,195 @@
 {
-    "description": "",
+    "description": "Additional interpolation routines not already available in gen~",
     "requires": [],
     "functions": [
         {
             "document": true,
-            "digest": "",
+            "digest": "Cubic Hermite, McCartney/Harker, 8 muls, 11 ±. Not gen~ [interp mode='cubic']. This is faster and better quality than the gen~ cubic (which is the tri-cubic interp from [groove~])",
             "name": "cubic_hermite_interp",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "f",
-                    "digest": ""
+                    "digest": "Interpolator 0..1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "y0",
-                    "digest": ""
+                    "digest": "Current sample minus 2"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "y1",
-                    "digest": ""
+                    "digest": "Current sample minus 1"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "y2",
-                    "digest": ""
+                    "digest": "Current sample"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "y3",
-                    "digest": ""
+                    "digest": "Current sample plus 1"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Cubic",
+                    "digest": "Cubic interpolated output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Hermite 6-point 5th-order, Olli Niemitalo, 23 muls, 24 ±. Not gen~ [interp mode='spline6']. This is what Niemitalo calls '6-point, 5th-order 2nd-order-osculating z-form implementation' and is actually different to the gen~ 'spline6' which uses the slightly cheaper '6-point, 5th-order B-spline x-form implementation', but which I think is not as useful (the B-spline is not as useful for audio samples representation).",
             "name": "hermite_sixpoint_interp",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "f0",
-                    "digest": ""
+                    "digest": "Interpolator 0..1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "ym2",
-                    "digest": ""
+                    "digest": "Current sample minus 2"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "ym1",
-                    "digest": ""
+                    "digest": "Current sample minus 1"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "y0",
-                    "digest": ""
+                    "digest": "Current sample"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "y1",
-                    "digest": ""
+                    "digest": "Current sample plus 1"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "y2",
-                    "digest": ""
+                    "digest": "Current sample plus 2"
                 },
                 {
                     "id": 7,
                     "kind": "input",
                     "name": "y3",
-                    "digest": ""
+                    "digest": "Current sample plus 3"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Hermite",
+                    "digest": "Hermite interpolated output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Four point Lagrange interpolator",
             "name": "cubic_lagrange_interp",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "f",
-                    "digest": ""
+                    "digest": "Interpolator 0..1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "y0",
-                    "digest": ""
+                    "digest": "Current sample minus 2"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "y1",
-                    "digest": ""
+                    "digest": "Current sample minus 1"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "y2",
-                    "digest": ""
+                    "digest": "Current sample"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "y3",
-                    "digest": ""
+                    "digest": "Current sample plus 1"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Cubic",
+                    "digest": "Lagrange interpolated output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Four point B-spline interpolator",
             "name": "cubic_bspline_interp",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "f",
-                    "digest": ""
+                    "digest": "Interpolator 0..1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "y0",
-                    "digest": ""
+                    "digest": "Current sample minus 2"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "y1",
-                    "digest": ""
+                    "digest": "Current sample minus 1"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "y2",
-                    "digest": ""
+                    "digest": "Current sample"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "y3",
-                    "digest": ""
+                    "digest": "Current sample plus 1"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Cubic",
+                    "digest": "B-spline interpolated output"
                 }
             ]
         }
     ],
-    "seealso": []
+    "seealso": ["evi_saturators", "evi_resampling_templates"]
 }

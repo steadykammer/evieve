@@ -1,378 +1,384 @@
 {
-    "description": "",
+    "description": "Some trigonomic approximations: cos, sin, tan, arctan, © 2001 The Ganssle Group. Approximations are faster than library functions but less accurate. You should be careful using approximations - they can break your code. In evieve all approximations are tested to work on the code in which they are used. Note, in this 'evi_trig' GenExpr code, in terms of cos/sin CPU savings, only '73' or lower are worthwhile, for 121 or higher there is no point over library cos/sin. See the source code for more (commented out) code if you are interested.",
     "requires": [],
     "functions": [
         {
             "document": true,
-            "digest": "",
+            "digest": "Make phase and quadrant for all of the cos/sin approximations",
             "name": "makeCosPhase",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Phase 0..TWOPI"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Phase",
+                    "digest": "Phase for cos/sin approximations"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Quadrant",
+                    "digest": "The quadrant to switch to for the cos/sin approximations"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Polynomial computes cosine(x) accurate to about 3.2 decimal digits over the range [0, PI/2]",
             "name": "cosQ32",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "The input argument is in radians"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Cos",
+                    "digest": "One quadrant of cosine()"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Reduces the input argument's range to [0, PI/2], then calls the approximator",
             "name": "cos32",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Phase 0..TWOPI"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Cos",
+                    "digest": "Approximate cos() of input"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "The sine is just cosine shifted by HALFPI, calls the cosine approximation",
             "name": "sin32",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Phase 0..TWOPI"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Sin",
+                    "digest": "Approximate sin() of input"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Param rate version of 'cos32()' (keep out of while loop in export)",
             "name": "cos32param",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Phase 0..TWOPI"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Cos",
+                    "digest": "Approximate cos() of input"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Param rate version of 'sin32()' (keep out of while loop in export)",
             "name": "sin32param",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Phase 0..TWOPI"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Sin",
+                    "digest": "Approximate sin() of input"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Special, for 0..HALFPI only, cheap cheat not exactly correct, for parameter mappings etc",
             "name": "cos32quad12",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Phase 0..HALFPI"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Half cos",
+                    "digest": "Approximate half cos() of input"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Polynomial computes cosine(x) accurate to about 5.2 decimal digits over the range [0, PI/2]",
             "name": "cosQ52",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "The input argument is in radians"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Cos",
+                    "digest": "One quadrant of cosine()"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Reduces the input argument's range to [0, PI/2], then calls the approximator",
             "name": "cos52",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Phase 0..TWOPI"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Cos",
+                    "digest": "Approximate cos() of input"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "The sine is just cosine shifted by HALFPI, calls the cosine approximation",
             "name": "sin52",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Phase 0..TWOPI"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Sin",
+                    "digest": "Approximate sin() of input"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Param rate version of 'cos52()' (keep out of while loop in export)",
             "name": "cos52param",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Phase 0..TWOPI"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Cos",
+                    "digest": "Approximate cos() of input"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Param rate version of 'sin52()' (keep out of while loop in export)",
             "name": "sin52param",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Phase 0..TWOPI"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Sin",
+                    "digest": "Approximate sin() of input"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "The sine element of a mixer parameterisation",
             "name": "mixSin",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Normalised 0..1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "a",
-                    "digest": ""
+                    "digest": "Mix offset -1..1"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Sine element",
+                    "digest": "Sine shaped output in range 0..1"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Polynomial computes cosine(x) accurate to about 7.3 decimal digits over the range [0, PI/2]. This approximation is good enough for audio in some situations.",
             "name": "cosQ73",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "The input argument is in radians"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Cos",
+                    "digest": "One quadrant of cosine()"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Reduces the input argument's range to [0, PI/2], then calls the approximator",
             "name": "cos73",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Phase 0..TWOPI"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Cos",
+                    "digest": "Approximate cos() of input"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "The sine is just cosine shifted by HALFPI, calls the cosine approximation",
             "name": "sin73",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Phase 0..TWOPI"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Sin",
+                    "digest": "Approximate sin() of input"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Param rate version of 'cos73()' (keep out of while loop in export)",
             "name": "cos73param",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Phase 0..TWOPI"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Cos",
+                    "digest": "Approximate cos() of input"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Param rate version of 'sin73()' (keep out of while loop in export)",
             "name": "sin73param",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Phase 0..TWOPI"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Sin",
+                    "digest": "Approximate sin() of input"
                 }
             ]
         }
     ],
-    "seealso": []
+    "seealso": [
+        "evi_tanh",
+        "evi_cossin",
+        "evi_approx",
+        "evi_pade",
+        "evi_fastskew"
+    ]
 }

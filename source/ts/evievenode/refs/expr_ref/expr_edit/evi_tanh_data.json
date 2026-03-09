@@ -1,177 +1,177 @@
 {
-    "description": "",
+    "description": "A collection of tanh() approximations because we use them so much. Approximations are faster than library functions but less accurate. You should be careful using approximations - they can break your code. In evieve all approximations are tested to work on the code in which they are used.",
     "requires": [
         "evi_approx.genexpr"
     ],
     "functions": [
         {
             "document": true,
-            "digest": "",
+            "digest": "High quality Lambert approx, 2x faster than library tanh(). Excellent mathematical and sonic closeness to library tanh(). In general we use this one most often",
             "name": "tanhL",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Tanh",
+                    "digest": "Approximate tanh() of input"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Wrapper for tanhL(). Returns 'tanh(x / a) * a'",
             "name": "tanhLxA",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "a",
-                    "digest": ""
+                    "digest": "± linear gain, input div, output mul"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Tanh",
+                    "digest": "Approximate tanh() of input wrapped by gain coefficient"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "By fire-sledge (LdS), we use this for some of the Adaa methods in evieve, similar efficiency to 'tanhL()'",
             "name": "tanhO",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Tanh",
+                    "digest": "Approximate tanh() of input"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "'Bright' tanh",
             "name": "tanhA",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Tanh",
+                    "digest": "Approximate tanh() of input"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "'Dark' tanh, the cheapest of all the tanh approximations here",
             "name": "tanhD",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Tanh",
+                    "digest": "Very approximate tanh() of input"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "'Dull' tanh",
             "name": "tanhQ",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Tanh",
+                    "digest": "Approximate tanh() of input"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "'Crap' tanh",
             "name": "tanhR",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x0",
-                    "digest": ""
+                    "digest": "Input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Tanh",
+                    "digest": "Approximate tanh() of input"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Padé approximation for tanh(sqrt(x))/sqrt(x)",
             "name": "tanhXdX",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Input range -1..1"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "TanhXdX",
+                    "digest": "Approximate tanh(sqrt(x))/sqrt(x) of input"
                 }
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "altTanhF0",
             "inputs": [
@@ -191,7 +191,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "altTanhF00",
             "inputs": [
@@ -211,7 +211,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "altTanhF1",
             "inputs": [
@@ -231,7 +231,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "altTanhF11",
             "inputs": [
@@ -251,7 +251,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "altTanhF2",
             "inputs": [
@@ -271,7 +271,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "altTanhF22",
             "inputs": [
@@ -292,56 +292,62 @@
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "First order anti-derivative anti-aliasing of an accurate tanh-like function",
             "name": "altTanhAdaa1",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x0",
-                    "digest": ""
+                    "digest": "Audio input to saturate"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "reset",
-                    "digest": ""
+                    "digest": "(Optional) reset state"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Tanh saturation",
+                    "digest": "Anti-aliased tanh-like saturated output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Second order anti-derivative anti-aliasing of an accurate tanh-like function",
             "name": "altTanhAdaa2",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x0",
-                    "digest": ""
+                    "digest": "Audio input to saturate"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "reset",
-                    "digest": ""
+                    "digest": "(Optional) reset state"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Tanh saturation",
+                    "digest": "Anti-aliased tanh-like saturated output"
                 }
             ]
         }
     ],
-    "seealso": []
+    "seealso": [
+        "evi_trig",
+        "evi_cossin",
+        "evi_approx",
+        "evi_pade",
+        "evi_fastskew"
+    ]
 }

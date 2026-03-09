@@ -11,152 +11,188 @@
     By declaring <m>require("evi_trig.genexpr");</m> at the top of a codebox you can then access all of the functions included in this file. <br />
         <br />
     <b>About this File</b>: <br />
-     <br />
+    Some trigonomic approximations: cos, sin, tan, arctan, © 2001 The Ganssle Group. Approximations are faster than library functions but less accurate. You should be careful using approximations - they can break your code. In evieve all approximations are tested to work on the code in which they are used. Note, in this 'evi_trig' GenExpr code, in terms of cos/sin CPU savings, only '73' or lower are worthwhile, for 121 or higher there is no point over library cos/sin. See the source code for more (commented out) code if you are interested. <br />
   </description>
   <misc name="GenExpr Functions">
     <entry name="makeCosPhase ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        Make phase and quadrant for all of the cos/sin approximations <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Phase 0..TWOPI</i> <br />
 
-        <b>Return 1</b>: ,  <br />
-        <b>Return 2</b>: ,  <br />
+        <b>Return 1</b>: Phase, <i>Phase for cos/sin approximations</i> <br />
+        <b>Return 2</b>: Quadrant, <i>The quadrant to switch to for the cos/sin approximations</i> <br />
 
       </description>
     </entry>
     <entry name="cosQ32 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        Polynomial computes cosine(x) accurate to about 3.2 decimal digits over the range [0, PI/2] <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>The input argument is in radians</i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Cos, <i>One quadrant of cosine()</i> <br />
 
       </description>
     </entry>
     <entry name="cos32 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        Reduces the input argument's range to [0, PI/2], then calls the approximator <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Phase 0..TWOPI</i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Cos, <i>Approximate cos() of input</i> <br />
 
       </description>
     </entry>
     <entry name="sin32 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        The sine is just cosine shifted by HALFPI, calls the cosine approximation <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Phase 0..TWOPI</i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Sin, <i>Approximate sin() of input</i> <br />
 
       </description>
     </entry>
     <entry name="cos32param ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        Param rate version of 'cos32()' (keep out of while loop in export) <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Phase 0..TWOPI</i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Cos, <i>Approximate cos() of input</i> <br />
 
       </description>
     </entry>
     <entry name="sin32param ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        Param rate version of 'sin32()' (keep out of while loop in export) <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Phase 0..TWOPI</i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Sin, <i>Approximate sin() of input</i> <br />
 
       </description>
     </entry>
     <entry name="cos32quad12 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        Special, for 0..HALFPI only, cheap cheat not exactly correct, for parameter mappings etc <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Phase 0..HALFPI</i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Half cos, <i>Approximate half cos() of input</i> <br />
 
       </description>
     </entry>
     <entry name="cosQ52 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        Polynomial computes cosine(x) accurate to about 5.2 decimal digits over the range [0, PI/2] <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>The input argument is in radians</i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Cos, <i>One quadrant of cosine()</i> <br />
 
       </description>
     </entry>
     <entry name="cos52 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        Reduces the input argument's range to [0, PI/2], then calls the approximator <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Phase 0..TWOPI</i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Cos, <i>Approximate cos() of input</i> <br />
 
       </description>
     </entry>
     <entry name="sin52 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        The sine is just cosine shifted by HALFPI, calls the cosine approximation <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Phase 0..TWOPI</i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Sin, <i>Approximate sin() of input</i> <br />
 
       </description>
     </entry>
     <entry name="cos52param ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        Param rate version of 'cos52()' (keep out of while loop in export) <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Phase 0..TWOPI</i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Cos, <i>Approximate cos() of input</i> <br />
 
       </description>
     </entry>
     <entry name="sin52param ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        Param rate version of 'sin52()' (keep out of while loop in export) <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Phase 0..TWOPI</i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Sin, <i>Approximate sin() of input</i> <br />
 
       </description>
     </entry>
     <entry name="mixSin ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: a, <i></i> <br />
+        The sine element of a mixer parameterisation <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Normalised 0..1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: a, <i>Mix offset -1..1</i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Sine element, <i>Sine shaped output in range 0..1</i> <br />
 
       </description>
     </entry>
     <entry name="cosQ73 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        Polynomial computes cosine(x) accurate to about 7.3 decimal digits over the range [0, PI/2]. This approximation is good enough for audio in some situations. <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>The input argument is in radians</i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Cos, <i>One quadrant of cosine()</i> <br />
 
       </description>
     </entry>
     <entry name="cos73 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        Reduces the input argument's range to [0, PI/2], then calls the approximator <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Phase 0..TWOPI</i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Cos, <i>Approximate cos() of input</i> <br />
 
       </description>
     </entry>
     <entry name="sin73 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        The sine is just cosine shifted by HALFPI, calls the cosine approximation <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Phase 0..TWOPI</i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Sin, <i>Approximate sin() of input</i> <br />
 
       </description>
     </entry>
     <entry name="cos73param ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        Param rate version of 'cos73()' (keep out of while loop in export) <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Phase 0..TWOPI</i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Cos, <i>Approximate cos() of input</i> <br />
 
       </description>
     </entry>
     <entry name="sin73param ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        Param rate version of 'sin73()' (keep out of while loop in export) <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Phase 0..TWOPI</i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Sin, <i>Approximate sin() of input</i> <br />
 
       </description>
     </entry>
@@ -168,6 +204,11 @@
   </metadatalist>
   <seealsolist>
     <!-- we use 'refpage' here not 'genrefpage' to trick Max -->
+    <seealso name="evi_tanh" type="refpage"/>
+    <seealso name="evi_cossin" type="refpage"/>
+    <seealso name="evi_approx" type="refpage"/>
+    <seealso name="evi_pade" type="refpage"/>
+    <seealso name="evi_fastskew" type="refpage"/>
   </seealsolist>
   <misc name="Discussion">
     <entry name="Keywords">

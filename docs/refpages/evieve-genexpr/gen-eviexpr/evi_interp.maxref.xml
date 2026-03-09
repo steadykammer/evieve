@@ -11,56 +11,64 @@
     By declaring <m>require("evi_interp.genexpr");</m> at the top of a codebox you can then access all of the functions included in this file. <br />
         <br />
     <b>About this File</b>: <br />
-     <br />
+    Additional interpolation routines not already available in gen~ <br />
   </description>
   <misc name="GenExpr Functions">
     <entry name="cubic_hermite_interp ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: f, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: y0, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: y1, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: y2, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: y3, <i></i> <br />
+        Cubic Hermite, McCartney/Harker, 8 muls, 11 ±. Not gen~ [interp mode='cubic']. This is faster and better quality than the gen~ cubic (which is the tri-cubic interp from [groove~]) <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: f, <i>Interpolator 0..1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: y0, <i>Current sample minus 2</i> <br />
+        <b>In 3</b>: type=<i>input</i>: y1, <i>Current sample minus 1</i> <br />
+        <b>In 4</b>: type=<i>input</i>: y2, <i>Current sample</i> <br />
+        <b>In 5</b>: type=<i>input</i>: y3, <i>Current sample plus 1</i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Cubic, <i>Cubic interpolated output</i> <br />
 
       </description>
     </entry>
     <entry name="hermite_sixpoint_interp ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: f0, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: ym2, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: ym1, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: y0, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: y1, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: y2, <i></i> <br />
-        <b>In 7</b>: type=<i>input</i>: y3, <i></i> <br />
+        Hermite 6-point 5th-order, Olli Niemitalo, 23 muls, 24 ±. Not gen~ [interp mode='spline6']. This is what Niemitalo calls '6-point, 5th-order 2nd-order-osculating z-form implementation' and is actually different to the gen~ 'spline6' which uses the slightly cheaper '6-point, 5th-order B-spline x-form implementation', but which I think is not as useful (the B-spline is not as useful for audio samples representation). <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: f0, <i>Interpolator 0..1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: ym2, <i>Current sample minus 2</i> <br />
+        <b>In 3</b>: type=<i>input</i>: ym1, <i>Current sample minus 1</i> <br />
+        <b>In 4</b>: type=<i>input</i>: y0, <i>Current sample</i> <br />
+        <b>In 5</b>: type=<i>input</i>: y1, <i>Current sample plus 1</i> <br />
+        <b>In 6</b>: type=<i>input</i>: y2, <i>Current sample plus 2</i> <br />
+        <b>In 7</b>: type=<i>input</i>: y3, <i>Current sample plus 3</i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Hermite, <i>Hermite interpolated output</i> <br />
 
       </description>
     </entry>
     <entry name="cubic_lagrange_interp ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: f, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: y0, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: y1, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: y2, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: y3, <i></i> <br />
+        Four point Lagrange interpolator <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: f, <i>Interpolator 0..1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: y0, <i>Current sample minus 2</i> <br />
+        <b>In 3</b>: type=<i>input</i>: y1, <i>Current sample minus 1</i> <br />
+        <b>In 4</b>: type=<i>input</i>: y2, <i>Current sample</i> <br />
+        <b>In 5</b>: type=<i>input</i>: y3, <i>Current sample plus 1</i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Cubic, <i>Lagrange interpolated output</i> <br />
 
       </description>
     </entry>
     <entry name="cubic_bspline_interp ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: f, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: y0, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: y1, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: y2, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: y3, <i></i> <br />
+        Four point B-spline interpolator <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: f, <i>Interpolator 0..1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: y0, <i>Current sample minus 2</i> <br />
+        <b>In 3</b>: type=<i>input</i>: y1, <i>Current sample minus 1</i> <br />
+        <b>In 4</b>: type=<i>input</i>: y2, <i>Current sample</i> <br />
+        <b>In 5</b>: type=<i>input</i>: y3, <i>Current sample plus 1</i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Cubic, <i>B-spline interpolated output</i> <br />
 
       </description>
     </entry>
@@ -72,6 +80,8 @@
   </metadatalist>
   <seealsolist>
     <!-- we use 'refpage' here not 'genrefpage' to trick Max -->
+    <seealso name="evi_saturators" type="refpage"/>
+    <seealso name="evi_resampling_templates" type="refpage"/>
   </seealsolist>
   <misc name="Discussion">
     <entry name="Keywords">

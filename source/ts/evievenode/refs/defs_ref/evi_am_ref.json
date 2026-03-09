@@ -4,7 +4,7 @@
         "parent": "evi_am",
         "category": "evieve",
         "tilde": "~",
-        "digest": "TEXT_HERE",
+        "digest": "Basic AM processor with saturation and choice of LFO shapes",
         "description": "TEXT_HERE",
         "discussion": ""
     },

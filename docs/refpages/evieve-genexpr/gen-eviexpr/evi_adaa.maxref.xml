@@ -14,639 +14,318 @@
     evi_utilities.genexpr <br />
     <br />
     <b>About this File</b>: <br />
-     <br />
+    'Adaa' stands for 'Anti-derivative anti-aliasing', which is an important technique for anti-aliasing memoryless nonlinearities without resorting to oversampling, or as a precursor to oversampling (thus reducing the amount of oversampling required). The technique involves time domain convolution of a function with it's anti-derivatives. You should always use this technique instead of naive waveshapers to minimise aliasing distortion in your audio signal chains. evieve uses these Adaa functions all over the Package to apply nonlinear behaviour. <br />
   </description>
   <misc name="GenExpr Functions">
-    <entry name="hardclipF0 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-
-        <b>Return 1</b>: ,  <br />
-
-      </description>
-    </entry>
-    <entry name="hardclipF1 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-
-
-      </description>
-    </entry>
-    <entry name="hardclipF2 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-
-
-      </description>
-    </entry>
     <entry name="hardclipAdaa1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
+        First order anti-derivative anti-aliasing of a hard clip function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i>Audio input for clipping</i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Hard Clip, <i>Anti-aliased hard clipping output</i> <br />
 
       </description>
     </entry>
     <entry name="hardclipAdaa2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
+        Second order anti-derivative anti-aliasing of a hard clip function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i>Audio input for clipping</i> <br />
 
-        <b>Return 1</b>: ,  <br />
-
-      </description>
-    </entry>
-    <entry name="halfrectF0 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-
-        <b>Return 1</b>: ,  <br />
-
-      </description>
-    </entry>
-    <entry name="halfrectF1 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-
-        <b>Return 1</b>: ,  <br />
-
-      </description>
-    </entry>
-    <entry name="halfrectF2 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Hard Clip, <i>Anti-aliased hard clipping output</i> <br />
 
       </description>
     </entry>
     <entry name="halfrectAdaa1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
+        First order anti-derivative anti-aliasing of a half rectified sine function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i>Audio input for rectifying</i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Rectified, <i>Anti-aliased rectified output</i> <br />
 
       </description>
     </entry>
     <entry name="halfrectAdaa2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
+        Second order anti-derivative anti-aliasing of a half rectified sine function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i>Audio input for rectifying</i> <br />
 
-        <b>Return 1</b>: ,  <br />
-
-      </description>
-    </entry>
-    <entry name="powerF0 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>param</i> (optional): beta, default: <b>2.345</b>, <i></i> <br />
-
-        <b>Return 1</b>: ,  <br />
-
-      </description>
-    </entry>
-    <entry name="powerF1 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>param</i> (optional): beta, default: <b>2.345</b>, <i></i> <br />
-
-        <b>Return 1</b>: ,  <br />
-
-      </description>
-    </entry>
-    <entry name="powerF2 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>param</i> (optional): beta, default: <b>2.345</b>, <i></i> <br />
-
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Rectified, <i>Anti-aliased rectified output</i> <br />
 
       </description>
     </entry>
     <entry name="powerAdaa1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
+        First order anti-derivative anti-aliasing of a power function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i>Audio input to distort</i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Power output, <i>Anti-aliased power output</i> <br />
 
       </description>
     </entry>
     <entry name="powerAdaa2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
+        Second order anti-derivative anti-aliasing of a power function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i>Audio input to distort</i> <br />
 
-        <b>Return 1</b>: ,  <br />
-
-      </description>
-    </entry>
-    <entry name="softclip2F0 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>param</i> (optional): h, default: <b>1</b>, <i></i> <br />
-        <b>In 3</b>: type=<i>param</i> (optional): ratio, default: <b>0.5</b>, <i></i> <br />
-
-        <b>Return 1</b>: ,  <br />
-
-      </description>
-    </entry>
-    <entry name="softclip2F1 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>param</i> (optional): h, default: <b>1</b>, <i></i> <br />
-        <b>In 3</b>: type=<i>param</i> (optional): ratio, default: <b>0.5</b>, <i></i> <br />
-
-        <b>Return 1</b>: ,  <br />
-
-      </description>
-    </entry>
-    <entry name="softclip2F2 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>param</i> (optional): h, default: <b>1</b>, <i></i> <br />
-        <b>In 3</b>: type=<i>param</i> (optional): ratio, default: <b>0.5</b>, <i></i> <br />
-
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Power output, <i>Anti-aliased power output</i> <br />
 
       </description>
     </entry>
     <entry name="softclip2Adaa1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
+        First order anti-derivative anti-aliasing of a variable soft clipping function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i>Audio input to Soft Clip</i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Soft Clip, <i>Anti-aliased soft clipping output</i> <br />
 
       </description>
     </entry>
     <entry name="softclip2Adaa2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
+        Second order anti-derivative anti-aliasing of a variable soft clipping function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i>Audio input to Soft Clip</i> <br />
 
-        <b>Return 1</b>: ,  <br />
-
-      </description>
-    </entry>
-    <entry name="softclipNF0 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
-        <b>In 2</b>: type=<i>param</i> (optional): C, default: <b>1</b>, <i></i> <br />
-        <b>In 3</b>: type=<i>param</i> (optional): R, default: <b>0.5</b>, <i></i> <br />
-        <b>In 4</b>: type=<i>param</i> (optional): beta, default: <b>2</b>, <i></i> <br />
-        <b>In 5</b>: type=<i>param</i> (optional): S, default: <b>0.1</b>, <i></i> <br />
-
-        <b>Return 1</b>: ,  <br />
-
-      </description>
-    </entry>
-    <entry name="softclipNF1 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
-        <b>In 2</b>: type=<i>param</i> (optional): C, default: <b>1</b>, <i></i> <br />
-        <b>In 3</b>: type=<i>param</i> (optional): R, default: <b>0.5</b>, <i></i> <br />
-        <b>In 4</b>: type=<i>param</i> (optional): beta, default: <b>2</b>, <i></i> <br />
-        <b>In 5</b>: type=<i>param</i> (optional): S, default: <b>0.1</b>, <i></i> <br />
-
-
-      </description>
-    </entry>
-    <entry name="softclipNF2 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
-        <b>In 2</b>: type=<i>param</i> (optional): C, default: <b>1</b>, <i></i> <br />
-        <b>In 3</b>: type=<i>param</i> (optional): R, default: <b>0.5</b>, <i></i> <br />
-        <b>In 4</b>: type=<i>param</i> (optional): beta, default: <b>2</b>, <i></i> <br />
-        <b>In 5</b>: type=<i>param</i> (optional): S, default: <b>0.1</b>, <i></i> <br />
-
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Soft Clip, <i>Anti-aliased soft clipping output</i> <br />
 
       </description>
     </entry>
     <entry name="softclipNAdaa1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
+        First order anti-derivative anti-aliasing of a variable soft clipping function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i>Audio input to Soft Clip</i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Soft Clip, <i>Anti-aliased soft clipping output</i> <br />
 
       </description>
     </entry>
     <entry name="softclipNAdaa2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
+        Second order anti-derivative anti-aliasing of a variable soft clipping function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i>Audio input to Soft Clip</i> <br />
 
-        <b>Return 1</b>: ,  <br />
-
-      </description>
-    </entry>
-    <entry name="atanF00 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-
-        <b>Return 1</b>: ,  <br />
-
-      </description>
-    </entry>
-    <entry name="atanF0 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-
-        <b>Return 1</b>: ,  <br />
-
-      </description>
-    </entry>
-    <entry name="atanF10 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-
-        <b>Return 1</b>: ,  <br />
-
-      </description>
-    </entry>
-    <entry name="atanF1 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-
-        <b>Return 1</b>: ,  <br />
-
-      </description>
-    </entry>
-    <entry name="atanF2 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Soft Clip, <i>Anti-aliased soft clipping output</i> <br />
 
       </description>
     </entry>
     <entry name="atanAdaa1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: reset, <i></i> <br />
+        First order anti-derivative anti-aliasing of an atan function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i>Audio input to saturate</i> <br />
+        <b>In 2</b>: type=<i>input</i>: reset, <i>(Optional) reset state (on switching)</i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Saturated, <i>Saturated audio output</i> <br />
 
       </description>
     </entry>
     <entry name="atanAdaa2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: reset, <i></i> <br />
+        Second order anti-derivative anti-aliasing of an atan function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i>Audio input to saturate</i> <br />
+        <b>In 2</b>: type=<i>input</i>: reset, <i>(Optional) reset state (on switching)</i> <br />
 
-        <b>Return 1</b>: ,  <br />
-
-      </description>
-    </entry>
-    <entry name="algebraicF0 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-
-        <b>Return 1</b>: ,  <br />
-
-      </description>
-    </entry>
-    <entry name="algebraicF1 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-
-        <b>Return 1</b>: ,  <br />
-
-      </description>
-    </entry>
-    <entry name="algebraicF2 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Saturated, <i>Saturated audio output</i> <br />
 
       </description>
     </entry>
     <entry name="algebraicAdaa1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
+        First order anti-derivative anti-aliasing of an algebraic tanh-like function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i>Audio input to saturate</i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Saturated, <i>Saturated audio output</i> <br />
 
       </description>
     </entry>
     <entry name="algebraicAdaa2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
+        Second order anti-derivative anti-aliasing of an algebraic tanh-like function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i>Audio input to saturate</i> <br />
 
-        <b>Return 1</b>: ,  <br />
-
-      </description>
-    </entry>
-    <entry name="log1pF0 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-
-        <b>Return 1</b>: ,  <br />
-
-      </description>
-    </entry>
-    <entry name="log1pF1 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-
-        <b>Return 1</b>: ,  <br />
-
-      </description>
-    </entry>
-    <entry name="log1pF2 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Saturated, <i>Saturated audio output</i> <br />
 
       </description>
     </entry>
     <entry name="log1pAdaa1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
+        First order anti-derivative anti-aliasing of a log1p() function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i>Audio input to shape</i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Shaped output, <i>Saturated shaped audio output</i> <br />
 
       </description>
     </entry>
     <entry name="log1pAdaa2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
+        Second order anti-derivative anti-aliasing of a log1p() function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i>Audio input to shape</i> <br />
 
-        <b>Return 1</b>: ,  <br />
-
-      </description>
-    </entry>
-    <entry name="altTanhF0 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-
-        <b>Return 1</b>: ,  <br />
-
-      </description>
-    </entry>
-    <entry name="altTanhF1 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-
-        <b>Return 1</b>: ,  <br />
-
-      </description>
-    </entry>
-    <entry name="altTanhF11 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-
-        <b>Return 1</b>: ,  <br />
-
-      </description>
-    </entry>
-    <entry name="altTanhF2 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Shaped output, <i>Saturated shaped audio output</i> <br />
 
       </description>
     </entry>
     <entry name="altTanhAdaa1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: reset, <i></i> <br />
+        First order anti-derivative anti-aliasing of an alternative tanh-like function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i>Audio input to saturate</i> <br />
+        <b>In 2</b>: type=<i>input</i>: reset, <i>(Optional) reset state (on switching)</i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Tanh, <i>Tanh-like output</i> <br />
 
       </description>
     </entry>
     <entry name="altTanhAdaa2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: reset, <i></i> <br />
+        Second order anti-derivative anti-aliasing of an alternative tanh-like function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i>Audio input to saturate</i> <br />
+        <b>In 2</b>: type=<i>input</i>: reset, <i>(Optional) reset state (on switching)</i> <br />
 
-        <b>Return 1</b>: ,  <br />
-
-      </description>
-    </entry>
-    <entry name="altTanhSqrtF0 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-
-        <b>Return 1</b>: ,  <br />
-
-      </description>
-    </entry>
-    <entry name="altTanhSqrtF1 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-
-        <b>Return 1</b>: ,  <br />
-
-      </description>
-    </entry>
-    <entry name="altTanhSqrtF2 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Tanh, <i>Tanh-like output</i> <br />
 
       </description>
     </entry>
     <entry name="altTanhSqrtAdaa1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
+        First order anti-derivative anti-aliasing of a buzzy tanh-like function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i>Audio input to saturate</i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Tanh, <i>Tanh-like output</i> <br />
 
       </description>
     </entry>
     <entry name="altTanhSqrtAdaa2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
+        Second order anti-derivative anti-aliasing of a buzzy tanh-like function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i>Audio input to saturate</i> <br />
 
-        <b>Return 1</b>: ,  <br />
-
-      </description>
-    </entry>
-    <entry name="altTanhPolyF0 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-
-        <b>Return 1</b>: ,  <br />
-
-      </description>
-    </entry>
-    <entry name="altTanhPolyF1 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-
-        <b>Return 1</b>: ,  <br />
-
-      </description>
-    </entry>
-    <entry name="altTanhPolyF2 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Tanh, <i>Tanh-like output</i> <br />
 
       </description>
     </entry>
     <entry name="altTanhPolyAdaa1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
+        First order anti-derivative anti-aliasing of a polynomial tanh-like function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i>Audio input to saturate</i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Tanh, <i>Tanh-like output</i> <br />
 
       </description>
     </entry>
     <entry name="altTanhPolyAdaa2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
+        Second order anti-derivative anti-aliasing of a polynomial tanh-like function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i>Audio input to saturate</i> <br />
 
-        <b>Return 1</b>: ,  <br />
-
-      </description>
-    </entry>
-    <entry name="sinF0 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-
-        <b>Return 1</b>: ,  <br />
-
-      </description>
-    </entry>
-    <entry name="sinF1 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-
-        <b>Return 1</b>: ,  <br />
-
-      </description>
-    </entry>
-    <entry name="sinF2 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Tanh, <i>Tanh-like output</i> <br />
 
       </description>
     </entry>
     <entry name="sinAdaa1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: osf, <i></i> <br />
+        First order anti-derivative anti-aliasing of a sine shaping function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i>Audio input to shape</i> <br />
+        <b>In 2</b>: type=<i>input</i>: osf, <i>External over sampling factor</i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Shaped, <i>Sine shaped audio output</i> <br />
 
       </description>
     </entry>
     <entry name="sinAdaa2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: osf, <i></i> <br />
+        Second order anti-derivative anti-aliasing of a sine shaping function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i>Audio input to shape</i> <br />
+        <b>In 2</b>: type=<i>input</i>: osf, <i>External over sampling factor</i> <br />
 
-        <b>Return 1</b>: ,  <br />
-
-      </description>
-    </entry>
-    <entry name="eCubicF0 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-
-        <b>Return 1</b>: ,  <br />
-
-      </description>
-    </entry>
-    <entry name="eCubicF1 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-
-        <b>Return 1</b>: ,  <br />
-
-      </description>
-    </entry>
-    <entry name="eCubicF2 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Shaped, <i>Sine shaped audio output</i> <br />
 
       </description>
     </entry>
     <entry name="eCubicAdaa1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        First order anti-derivative anti-aliasing of a classic nonlinear cubic function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Audio input to distort</i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Shaped output, <i>Cubic saturated audio output</i> <br />
 
       </description>
     </entry>
     <entry name="eCubicAdaa2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        Second order anti-derivative anti-aliasing of a classic nonlinear cubic function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Audio input to distort</i> <br />
 
-        <b>Return 1</b>: ,  <br />
-
-      </description>
-    </entry>
-    <entry name="tarrabiaF0 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: a, <i></i> <br />
-
-        <b>Return 1</b>: ,  <br />
-
-      </description>
-    </entry>
-    <entry name="tarrabiaF1 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: a, <i></i> <br />
-
-        <b>Return 1</b>: ,  <br />
-
-      </description>
-    </entry>
-    <entry name="tarrabiaF2 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: a, <i></i> <br />
-
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Shaped output, <i>Cubic saturated audio output</i> <br />
 
       </description>
     </entry>
     <entry name="tarrabiaAdaa1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: a, <i></i> <br />
+        First order anti-derivative anti-aliasing of a novel waveshaper function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i>Audio input to saturate</i> <br />
+        <b>In 2</b>: type=<i>input</i>: a, <i>Amount of saturation (linear)</i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Saturated, <i>Saturated audio output</i> <br />
 
       </description>
     </entry>
     <entry name="tarrabiaAdaa2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: a, <i></i> <br />
+        Second order anti-derivative anti-aliasing of a novel waveshaper function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i>Audio input to saturate</i> <br />
+        <b>In 2</b>: type=<i>input</i>: a, <i>Amount of saturation (linear)</i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Saturated, <i>Saturated audio output</i> <br />
 
       </description>
     </entry>
     <entry name="lambertW ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: ln1, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: loop, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: thresh, <i></i> <br />
+        Lambert W loop for the Lockhart wavefolder <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: ln1, <i>Linear prediction (previous) state</i> <br />
+        <b>In 3</b>: type=<i>input</i>: loop, <i>Number of loops to process</i> <br />
+        <b>In 4</b>: type=<i>input</i>: thresh, <i>Adaa error threshold (epsilon)</i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Anti-aliased form, <i>Computed anti-derivative</i> <br />
 
       </description>
     </entry>
     <entry name="lockhartAA ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: Xo, <i></i> <br />
-        <b>In 2</b>: type=<i>param</i> (optional): loop, default: <b>1000</b>, <i></i> <br />
+        First order anti-derivative anti-aliasing of the Lockhart wavefolder function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: Xo, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>param</i> (optional): loop, default: <b>1000</b>, <i>Number of inner loops to process</i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Wavefolded output, <i>Anti-aliased wavefolded audio out</i> <br />
 
       </description>
     </entry>
@@ -658,6 +337,8 @@
   </metadatalist>
   <seealsolist>
     <!-- we use 'refpage' here not 'genrefpage' to trick Max -->
+    <seealso name="evi_waveshaping" type="refpage"/>
+    <seealso name="evi_saturators" type="refpage"/>
   </seealsolist>
   <misc name="Discussion">
     <entry name="Keywords">

@@ -20,7 +20,7 @@
         <b>In 2</b>: type=<i>input</i>: T0, <i></i> <br />
         <b>In 3</b>: type=<i>input</i>: P0, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -31,7 +31,7 @@
         <b>In 3</b>: type=<i>input</i>: P0, <i></i> <br />
         <b>In 4</b>: type=<i>input</i>: w, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>

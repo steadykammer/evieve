@@ -1,11 +1,11 @@
 {
-    "description": "",
+    "description": "'Adaa' stands for 'Anti-derivative anti-aliasing', which is an important technique for anti-aliasing memoryless nonlinearities without resorting to oversampling, or as a precursor to oversampling (thus reducing the amount of oversampling required). The technique involves time domain convolution of a function with it's anti-derivatives. You should always use this technique instead of naive waveshapers to minimise aliasing distortion in your audio signal chains. evieve uses these Adaa functions all over the Package to apply nonlinear behaviour.",
     "requires": [
         "evi_utilities.genexpr"
     ],
     "functions": [
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "hardclipF0",
             "inputs": [
@@ -25,7 +25,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "hardclipF1",
             "inputs": [
@@ -39,7 +39,7 @@
             "returns": []
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "hardclipF2",
             "inputs": [
@@ -54,46 +54,46 @@
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "First order anti-derivative anti-aliasing of a hard clip function",
             "name": "hardclipAdaa1",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x0",
-                    "digest": ""
+                    "digest": "Audio input for clipping"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Hard Clip",
+                    "digest": "Anti-aliased hard clipping output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Second order anti-derivative anti-aliasing of a hard clip function",
             "name": "hardclipAdaa2",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x0",
-                    "digest": ""
+                    "digest": "Audio input for clipping"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Hard Clip",
+                    "digest": "Anti-aliased hard clipping output"
                 }
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "halfrectF0",
             "inputs": [
@@ -113,7 +113,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "halfrectF1",
             "inputs": [
@@ -133,7 +133,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "halfrectF2",
             "inputs": [
@@ -154,46 +154,46 @@
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "First order anti-derivative anti-aliasing of a half rectified sine function",
             "name": "halfrectAdaa1",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x0",
-                    "digest": ""
+                    "digest": "Audio input for rectifying"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Rectified",
+                    "digest": "Anti-aliased rectified output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Second order anti-derivative anti-aliasing of a half rectified sine function",
             "name": "halfrectAdaa2",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x0",
-                    "digest": ""
+                    "digest": "Audio input for rectifying"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Rectified",
+                    "digest": "Anti-aliased rectified output"
                 }
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "powerF0",
             "inputs": [
@@ -221,7 +221,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "powerF1",
             "inputs": [
@@ -249,7 +249,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "powerF2",
             "inputs": [
@@ -278,46 +278,46 @@
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "First order anti-derivative anti-aliasing of a power function",
             "name": "powerAdaa1",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x0",
-                    "digest": ""
+                    "digest": "Audio input to distort"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Power output",
+                    "digest": "Anti-aliased power output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Second order anti-derivative anti-aliasing of a power function",
             "name": "powerAdaa2",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x0",
-                    "digest": ""
+                    "digest": "Audio input to distort"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Power output",
+                    "digest": "Anti-aliased power output"
                 }
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "softclip2F0",
             "inputs": [
@@ -353,7 +353,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "softclip2F1",
             "inputs": [
@@ -389,7 +389,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "softclip2F2",
             "inputs": [
@@ -426,46 +426,46 @@
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "First order anti-derivative anti-aliasing of a variable soft clipping function",
             "name": "softclip2Adaa1",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x0",
-                    "digest": ""
+                    "digest": "Audio input to Soft Clip"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Soft Clip",
+                    "digest": "Anti-aliased soft clipping output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Second order anti-derivative anti-aliasing of a variable soft clipping function",
             "name": "softclip2Adaa2",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x0",
-                    "digest": ""
+                    "digest": "Audio input to Soft Clip"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Soft Clip",
+                    "digest": "Anti-aliased soft clipping output"
                 }
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "softclipNF0",
             "inputs": [
@@ -517,7 +517,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "softclipNF1",
             "inputs": [
@@ -563,7 +563,7 @@
             "returns": []
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "softclipNF2",
             "inputs": [
@@ -616,46 +616,46 @@
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "First order anti-derivative anti-aliasing of a variable soft clipping function",
             "name": "softclipNAdaa1",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x0",
-                    "digest": ""
+                    "digest": "Audio input to Soft Clip"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Soft Clip",
+                    "digest": "Anti-aliased soft clipping output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Second order anti-derivative anti-aliasing of a variable soft clipping function",
             "name": "softclipNAdaa2",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x0",
-                    "digest": ""
+                    "digest": "Audio input to Soft Clip"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Soft Clip",
+                    "digest": "Anti-aliased soft clipping output"
                 }
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "atanF00",
             "inputs": [
@@ -675,7 +675,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "atanF0",
             "inputs": [
@@ -695,7 +695,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "atanF10",
             "inputs": [
@@ -715,7 +715,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "atanF1",
             "inputs": [
@@ -735,7 +735,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "atanF2",
             "inputs": [
@@ -756,58 +756,58 @@
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "First order anti-derivative anti-aliasing of an atan function",
             "name": "atanAdaa1",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x0",
-                    "digest": ""
+                    "digest": "Audio input to saturate"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "reset",
-                    "digest": ""
+                    "digest": "(Optional) reset state (on switching)"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Saturated",
+                    "digest": "Saturated audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Second order anti-derivative anti-aliasing of an atan function",
             "name": "atanAdaa2",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x0",
-                    "digest": ""
+                    "digest": "Audio input to saturate"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "reset",
-                    "digest": ""
+                    "digest": "(Optional) reset state (on switching)"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Saturated",
+                    "digest": "Saturated audio output"
                 }
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "algebraicF0",
             "inputs": [
@@ -827,7 +827,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "algebraicF1",
             "inputs": [
@@ -847,7 +847,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "algebraicF2",
             "inputs": [
@@ -868,46 +868,46 @@
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "First order anti-derivative anti-aliasing of an algebraic tanh-like function",
             "name": "algebraicAdaa1",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x0",
-                    "digest": ""
+                    "digest": "Audio input to saturate"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Saturated",
+                    "digest": "Saturated audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Second order anti-derivative anti-aliasing of an algebraic tanh-like function",
             "name": "algebraicAdaa2",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x0",
-                    "digest": ""
+                    "digest": "Audio input to saturate"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Saturated",
+                    "digest": "Saturated audio output"
                 }
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "log1pF0",
             "inputs": [
@@ -927,7 +927,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "log1pF1",
             "inputs": [
@@ -947,7 +947,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "log1pF2",
             "inputs": [
@@ -968,46 +968,46 @@
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "First order anti-derivative anti-aliasing of a log1p() function",
             "name": "log1pAdaa1",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x0",
-                    "digest": ""
+                    "digest": "Audio input to shape"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Shaped output",
+                    "digest": "Saturated shaped audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Second order anti-derivative anti-aliasing of a log1p() function",
             "name": "log1pAdaa2",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x0",
-                    "digest": ""
+                    "digest": "Audio input to shape"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Shaped output",
+                    "digest": "Saturated shaped audio output"
                 }
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "altTanhF0",
             "inputs": [
@@ -1027,7 +1027,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "altTanhF1",
             "inputs": [
@@ -1047,7 +1047,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "altTanhF11",
             "inputs": [
@@ -1067,7 +1067,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "altTanhF2",
             "inputs": [
@@ -1088,58 +1088,58 @@
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "First order anti-derivative anti-aliasing of an alternative tanh-like function",
             "name": "altTanhAdaa1",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x0",
-                    "digest": ""
+                    "digest": "Audio input to saturate"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "reset",
-                    "digest": ""
+                    "digest": "(Optional) reset state (on switching)"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Tanh",
+                    "digest": "Tanh-like output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Second order anti-derivative anti-aliasing of an alternative tanh-like function",
             "name": "altTanhAdaa2",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x0",
-                    "digest": ""
+                    "digest": "Audio input to saturate"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "reset",
-                    "digest": ""
+                    "digest": "(Optional) reset state (on switching)"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Tanh",
+                    "digest": "Tanh-like output"
                 }
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "altTanhSqrtF0",
             "inputs": [
@@ -1159,7 +1159,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "altTanhSqrtF1",
             "inputs": [
@@ -1179,7 +1179,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "altTanhSqrtF2",
             "inputs": [
@@ -1200,46 +1200,46 @@
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "First order anti-derivative anti-aliasing of a buzzy tanh-like function",
             "name": "altTanhSqrtAdaa1",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x0",
-                    "digest": ""
+                    "digest": "Audio input to saturate"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Tanh",
+                    "digest": "Tanh-like output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Second order anti-derivative anti-aliasing of a buzzy tanh-like function",
             "name": "altTanhSqrtAdaa2",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x0",
-                    "digest": ""
+                    "digest": "Audio input to saturate"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Tanh",
+                    "digest": "Tanh-like output"
                 }
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "altTanhPolyF0",
             "inputs": [
@@ -1259,7 +1259,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "altTanhPolyF1",
             "inputs": [
@@ -1279,7 +1279,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "altTanhPolyF2",
             "inputs": [
@@ -1300,46 +1300,46 @@
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "First order anti-derivative anti-aliasing of a polynomial tanh-like function",
             "name": "altTanhPolyAdaa1",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x0",
-                    "digest": ""
+                    "digest": "Audio input to saturate"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Tanh",
+                    "digest": "Tanh-like output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Second order anti-derivative anti-aliasing of a polynomial tanh-like function",
             "name": "altTanhPolyAdaa2",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x0",
-                    "digest": ""
+                    "digest": "Audio input to saturate"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Tanh",
+                    "digest": "Tanh-like output"
                 }
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "sinF0",
             "inputs": [
@@ -1359,7 +1359,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "sinF1",
             "inputs": [
@@ -1379,7 +1379,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "sinF2",
             "inputs": [
@@ -1400,58 +1400,58 @@
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "First order anti-derivative anti-aliasing of a sine shaping function",
             "name": "sinAdaa1",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x0",
-                    "digest": ""
+                    "digest": "Audio input to shape"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "osf",
-                    "digest": ""
+                    "digest": "External over sampling factor"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Shaped",
+                    "digest": "Sine shaped audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Second order anti-derivative anti-aliasing of a sine shaping function",
             "name": "sinAdaa2",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x0",
-                    "digest": ""
+                    "digest": "Audio input to shape"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "osf",
-                    "digest": ""
+                    "digest": "External over sampling factor"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Shaped",
+                    "digest": "Sine shaped audio output"
                 }
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "eCubicF0",
             "inputs": [
@@ -1471,7 +1471,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "eCubicF1",
             "inputs": [
@@ -1491,7 +1491,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "eCubicF2",
             "inputs": [
@@ -1512,46 +1512,46 @@
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "First order anti-derivative anti-aliasing of a classic nonlinear cubic function",
             "name": "eCubicAdaa1",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input to distort"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Shaped output",
+                    "digest": "Cubic saturated audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Second order anti-derivative anti-aliasing of a classic nonlinear cubic function",
             "name": "eCubicAdaa2",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input to distort"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Shaped output",
+                    "digest": "Cubic saturated audio output"
                 }
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "tarrabiaF0",
             "inputs": [
@@ -1577,7 +1577,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "tarrabiaF1",
             "inputs": [
@@ -1603,7 +1603,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "tarrabiaF2",
             "inputs": [
@@ -1630,104 +1630,104 @@
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "First order anti-derivative anti-aliasing of a novel waveshaper function",
             "name": "tarrabiaAdaa1",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x0",
-                    "digest": ""
+                    "digest": "Audio input to saturate"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "a",
-                    "digest": ""
+                    "digest": "Amount of saturation (linear)"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Saturated",
+                    "digest": "Saturated audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Second order anti-derivative anti-aliasing of a novel waveshaper function",
             "name": "tarrabiaAdaa2",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x0",
-                    "digest": ""
+                    "digest": "Audio input to saturate"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "a",
-                    "digest": ""
+                    "digest": "Amount of saturation (linear)"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Saturated",
+                    "digest": "Saturated audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Lambert W loop for the Lockhart wavefolder",
             "name": "lambertW",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "ln1",
-                    "digest": ""
+                    "digest": "Linear prediction (previous) state"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "loop",
-                    "digest": ""
+                    "digest": "Number of loops to process"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "thresh",
-                    "digest": ""
+                    "digest": "Adaa error threshold (epsilon)"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Anti-aliased form",
+                    "digest": "Computed anti-derivative"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "First order anti-derivative anti-aliasing of the Lockhart wavefolder function",
             "name": "lockhartAA",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "Xo",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
@@ -1735,17 +1735,17 @@
                     "name": "loop",
                     "default": 1000,
                     "type": "integer",
-                    "digest": ""
+                    "digest": "Number of inner loops to process"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Wavefolded output",
+                    "digest": "Anti-aliased wavefolded audio out"
                 }
             ]
         }
     ],
-    "seealso": []
+    "seealso": ["evi_waveshaping", "evi_saturators"]
 }

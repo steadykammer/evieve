@@ -22,7 +22,7 @@
       <description>
         <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -30,7 +30,7 @@
       <description>
         <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -39,7 +39,7 @@
         <b>In 1</b>: type=<i>input</i>: Vin, <i></i> <br />
         <b>In 2</b>: type=<i>input</i>: g, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -48,7 +48,7 @@
         <b>In 1</b>: type=<i>input</i>: Vin, <i></i> <br />
         <b>In 2</b>: type=<i>input</i>: g, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -57,8 +57,8 @@
         <b>In 1</b>: type=<i>input</i>: Vin, <i></i> <br />
         <b>In 2</b>: type=<i>input</i>: g, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
-        <b>Return 2</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 2</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -67,9 +67,9 @@
         <b>In 1</b>: type=<i>input</i>: Vin, <i></i> <br />
         <b>In 2</b>: type=<i>input</i>: g, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
-        <b>Return 2</b>: ,  <br />
-        <b>Return 3</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 2</b>: , <i></i> <br />
+        <b>Return 3</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -78,7 +78,7 @@
         <b>In 1</b>: type=<i>input</i>: Vin, <i></i> <br />
         <b>In 2</b>: type=<i>input</i>: g, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -88,8 +88,8 @@
         <b>In 2</b>: type=<i>input</i>: g, <i></i> <br />
         <b>In 3</b>: type=<i>input</i>: s0, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
-        <b>Return 2</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 2</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -99,7 +99,7 @@
         <b>In 2</b>: type=<i>input</i>: glp, <i></i> <br />
         <b>In 3</b>: type=<i>input</i>: ghp, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -109,8 +109,8 @@
         <b>In 2</b>: type=<i>input</i>: damp, <i></i> <br />
         <b>In 3</b>: type=<i>input</i>: mode, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
-        <b>Return 2</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 2</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -121,8 +121,8 @@
         <b>In 3</b>: type=<i>input</i>: mode, <i></i> <br />
         <b>In 4</b>: type=<i>param</i> (optional): AUDIO_SR, default: <b>48000</b>, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
-        <b>Return 2</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 2</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -131,8 +131,8 @@
         <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
         <b>In 2</b>: type=<i>input</i>: damp, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
-        <b>Return 2</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 2</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -141,8 +141,8 @@
         <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
         <b>In 2</b>: type=<i>input</i>: damp, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
-        <b>Return 2</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 2</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -151,8 +151,8 @@
         <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
         <b>In 2</b>: type=<i>input</i>: damp, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
-        <b>Return 2</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 2</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -162,7 +162,7 @@
         <b>In 2</b>: type=<i>input</i>: g, <i></i> <br />
         <b>In 3</b>: type=<i>input</i>: k, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -172,7 +172,7 @@
         <b>In 2</b>: type=<i>input</i>: g, <i></i> <br />
         <b>In 3</b>: type=<i>input</i>: k, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -182,8 +182,8 @@
         <b>In 2</b>: type=<i>input</i>: g, <i></i> <br />
         <b>In 3</b>: type=<i>input</i>: k, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
-        <b>Return 2</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 2</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -195,7 +195,7 @@
         <b>In 4</b>: type=<i>input</i>: lk, <i></i> <br />
         <b>In 5</b>: type=<i>input</i>: hk, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -203,7 +203,7 @@
       <description>
         <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -211,7 +211,7 @@
       <description>
         <b>In 1</b>: type=<i>input</i>: tanh_value, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -220,7 +220,7 @@
         <b>In 1</b>: type=<i>input</i>: Vin, <i></i> <br />
         <b>In 2</b>: type=<i>input</i>: g, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -229,8 +229,8 @@
         <b>In 1</b>: type=<i>input</i>: Vin, <i></i> <br />
         <b>In 2</b>: type=<i>input</i>: g, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
-        <b>Return 2</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 2</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -239,7 +239,7 @@
         <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
         <b>In 2</b>: type=<i>input</i>: g, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>

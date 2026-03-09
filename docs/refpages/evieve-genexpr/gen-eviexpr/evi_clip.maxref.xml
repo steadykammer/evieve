@@ -22,7 +22,7 @@
       <description>
         <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -30,7 +30,7 @@
       <description>
         <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -38,7 +38,7 @@
       <description>
         <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -46,7 +46,7 @@
       <description>
         <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -54,7 +54,7 @@
       <description>
         <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -62,7 +62,7 @@
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -70,7 +70,7 @@
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -78,7 +78,7 @@
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -86,7 +86,7 @@
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -94,7 +94,7 @@
       <description>
         <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -102,7 +102,7 @@
       <description>
         <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -113,14 +113,14 @@
         <b>In 3</b>: type=<i>Param</i> (optional): IR, default: <b>2.2e-13</b>, min: 0, max: 0, <i></i> <br />
         <b>In 4</b>: type=<i>Param</i> (optional): VT, default: <b>0.026</b>, min: 0, max: 0, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
-        <b>Return 2</b>: ,  <br />
-        <b>Return 3</b>: ,  <br />
-        <b>Return 4</b>: ,  <br />
-        <b>Return 5</b>: ,  <br />
-        <b>Return 6</b>: ,  <br />
-        <b>Return 7</b>: ,  <br />
-        <b>Return 8</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 2</b>: , <i></i> <br />
+        <b>Return 3</b>: , <i></i> <br />
+        <b>Return 4</b>: , <i></i> <br />
+        <b>Return 5</b>: , <i></i> <br />
+        <b>Return 6</b>: , <i></i> <br />
+        <b>Return 7</b>: , <i></i> <br />
+        <b>Return 8</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -136,7 +136,7 @@
         <b>In 8</b>: type=<i>input</i>: VT, <i></i> <br />
         <b>In 9</b>: type=<i>input</i>: A1, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -154,7 +154,7 @@
         <b>In 10</b>: type=<i>param</i> (optional): gain, default: <b>0.999999</b>, <i></i> <br />
         <b>In 11</b>: type=<i>param</i> (optional): bias, default: <b>0.000001</b>, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -170,7 +170,7 @@
         <b>In 8</b>: type=<i>input</i>: VT, <i></i> <br />
         <b>In 9</b>: type=<i>input</i>: A1, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -186,7 +186,7 @@
         <b>In 8</b>: type=<i>input</i>: VT, <i></i> <br />
         <b>In 9</b>: type=<i>input</i>: A1, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -202,7 +202,7 @@
         <b>In 8</b>: type=<i>input</i>: VT, <i></i> <br />
         <b>In 9</b>: type=<i>input</i>: A1, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -210,7 +210,7 @@
       <description>
         <b>In 1</b>: type=<i>input</i>: xin, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -219,7 +219,7 @@
         <b>In 1</b>: type=<i>input</i>: x2, <i></i> <br />
         <b>In 2</b>: type=<i>input</i>: drive, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -227,7 +227,7 @@
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -235,7 +235,7 @@
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -243,7 +243,7 @@
       <description>
         <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -251,7 +251,7 @@
       <description>
         <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -259,7 +259,7 @@
       <description>
         <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -267,7 +267,7 @@
       <description>
         <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -275,7 +275,7 @@
       <description>
         <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -284,7 +284,7 @@
         <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
         <b>In 2</b>: type=<i>input</i>: OS, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -292,7 +292,7 @@
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -300,7 +300,7 @@
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -308,7 +308,7 @@
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -316,7 +316,7 @@
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -324,7 +324,7 @@
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -332,7 +332,7 @@
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>

@@ -23,7 +23,7 @@
       <description>
         <b>In 1</b>: type=<i>input</i>: ngain, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -31,7 +31,7 @@
       <description>
         <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -39,7 +39,7 @@
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -48,7 +48,7 @@
         <b>In 1</b>: type=<i>input</i>: xin, <i></i> <br />
         <b>In 2</b>: type=<i>input</i>: oversampling, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -65,7 +65,7 @@
         <b>In 9</b>: type=<i>input</i>: HEADROOM, <i></i> <br />
         <b>In 10</b>: type=<i>input</i>: nl, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -83,8 +83,8 @@
         <b>In 10</b>: type=<i>input</i>: HEADROOM, <i></i> <br />
         <b>In 11</b>: type=<i>input</i>: nl, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
-        <b>Return 2</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 2</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -101,7 +101,7 @@
         <b>In 9</b>: type=<i>input</i>: HEADROOM, <i></i> <br />
         <b>In 10</b>: type=<i>input</i>: nl, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -118,7 +118,7 @@
         <b>In 9</b>: type=<i>input</i>: HEADROOM, <i></i> <br />
         <b>In 10</b>: type=<i>input</i>: nl, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -134,7 +134,7 @@
         <b>In 8</b>: type=<i>input</i>: n, <i></i> <br />
         <b>In 9</b>: type=<i>input</i>: nl, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -150,7 +150,7 @@
         <b>In 8</b>: type=<i>input</i>: n, <i></i> <br />
         <b>In 9</b>: type=<i>input</i>: nl, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -165,7 +165,7 @@
         <b>In 7</b>: type=<i>input</i>: N, <i></i> <br />
         <b>In 8</b>: type=<i>input</i>: os, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>

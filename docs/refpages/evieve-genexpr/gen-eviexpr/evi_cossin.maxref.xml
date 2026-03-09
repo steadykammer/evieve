@@ -11,126 +11,142 @@
     By declaring <m>require("evi_cossin.genexpr");</m> at the top of a codebox you can then access all of the functions included in this file. <br />
         <br />
     <b>About this File</b>: <br />
-     <br />
+    A collection of cosine/sine functions and supporting code for oft used approximiations. <br />
   </description>
   <misc name="GenExpr Functions">
     <entry name="quartParApproxFull ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: modphase, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: precision, <i></i> <br />
+        This function offers different precisions of a famous cos/sin osc approximation. It is not intended for production but to extract the precision you need from the code. <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: modphase, <i>Osc phase, must be wrapped 0..1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: precision, <i>Int 0..3. Type of precision. See source code for details.</i> <br />
 
-        <b>Return 1</b>: ,  <br />
-        <b>Return 2</b>: ,  <br />
-        <b>Return 3</b>: ,  <br />
+        <b>Return 1</b>: Cos, <i>Cosine quadrature output</i> <br />
+        <b>Return 2</b>: Sin, <i>Sine quadrature output</i> <br />
+        <b>Return 3</b>: Quart, <i>Which quarter the approximation is currently in, int 0..3</i> <br />
 
       </description>
     </entry>
     <entry name="quartParOneApprox ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: modphase, <i></i> <br />
+        Highly optimised cosine quarter extracted from 'quartParApproxFull()', excellent for crossfading or panning applications <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: modphase, <i>Osc phase, must be wrapped 0..1</i> <br />
 
-        <b>Return 1</b>: ,  <br />
-        <b>Return 2</b>: ,  <br />
+        <b>Return 1</b>: Cos, <i>Cosine quadrature output</i> <br />
+        <b>Return 2</b>: Sin, <i>Sine quadrature output</i> <br />
 
       </description>
     </entry>
     <entry name="quadratureOsc ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: thisphase, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: thisspread, <i></i> <br />
+        Not an approximation, just two full precision matched cycle() lookups in quadrature form <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: thisphase, <i>Phase 0..1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: thisspread, <i>Should always be 0.75 for quadrature behaviour, but can be changed for other uses</i> <br />
 
-        <b>Return 1</b>: ,  <br />
-        <b>Return 2</b>: ,  <br />
-
-      </description>
-    </entry>
-    <entry name="tanApprox3 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Real, <i>Cosine (quadrature) output</i> <br />
+        <b>Return 2</b>: Imag, <i>Sine (quadrature) output</i> <br />
 
       </description>
     </entry>
     <entry name="quadOsc ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: frequency, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: reset, <i></i> <br />
+        Accurate and efficient quadrature oscillator approximation <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: frequency, <i>in Hz</i> <br />
+        <b>In 2</b>: type=<i>input</i>: reset, <i>Sample accurate phase reset</i> <br />
 
-        <b>Return 1</b>: ,  <br />
-        <b>Return 2</b>: ,  <br />
+        <b>Return 1</b>: Cos, <i>Cosine quadrature output</i> <br />
+        <b>Return 2</b>: Sin, <i>Sine quadrature output</i> <br />
 
       </description>
     </entry>
     <entry name="quadOscSync ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: frequency, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: reset, <i></i> <br />
+        Accurate and efficient quadrature oscillator approximation with independent sync outputs <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: frequency, <i>in Hz</i> <br />
+        <b>In 2</b>: type=<i>input</i>: reset, <i>Sample accurate phase reset</i> <br />
 
-        <b>Return 1</b>: ,  <br />
-        <b>Return 2</b>: ,  <br />
-        <b>Return 3</b>: ,  <br />
-        <b>Return 4</b>: ,  <br />
+        <b>Return 1</b>: Cos, <i>Cosine quadrature output</i> <br />
+        <b>Return 2</b>: Sin, <i>Sine quadrature output</i> <br />
+        <b>Return 3</b>: Cos Sync, <i>Sync output of cos quadrature oscillator</i> <br />
+        <b>Return 4</b>: Sin Sync, <i>Sync output of sin quadrature oscillator</i> <br />
 
       </description>
     </entry>
     <entry name="tptSvfQuadOsc ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: sync, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: reset, <i></i> <br />
-        <b>In 4</b>: type=<i>param</i> (optional): soft, default: <b>0.1</b>, <i></i> <br />
+        Quad osc from a tpt filter primed for audio rate FM, reset resets filter states <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i>in Hz</i> <br />
+        <b>In 2</b>: type=<i>input</i>: sync, <i>Soft sync reset, use this not &#x27;reset&#x27;</i> <br />
+        <b>In 3</b>: type=<i>input</i>: reset, <i>Hard reset, use &#x27;sync&#x27; instead for audio applications</i> <br />
+        <b>In 4</b>: type=<i>param</i> (optional): soft, default: <b>0.1</b>, <i>Softness of &#x27;sync&#x27; reset 0..1</i> <br />
 
-        <b>Return 1</b>: ,  <br />
-        <b>Return 2</b>: ,  <br />
+        <b>Return 1</b>: Cos, <i>Cosine quadrature output</i> <br />
+        <b>Return 2</b>: Sin, <i>Sine quadrature output</i> <br />
 
       </description>
     </entry>
     <entry name="parabolApprox ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: phase, <i></i> <br />
+        Very cheap parabolic approximation for LFOs etc, -1..1 <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: phase, <i>Sin phase 0..1</i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Sine, <i>In range -1..1</i> <br />
 
       </description>
     </entry>
     <entry name="parabolApprox01 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: phase, <i></i> <br />
+        Very cheap parabolic approximation for LFOs etc, 0..1 <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: phase, <i>Sin phase 0..1</i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Sine, <i>In range 0..1</i> <br />
 
       </description>
     </entry>
     <entry name="cosApprox01 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: a, <i></i> <br />
+        Very cheap cosine approximation for LFOs etc <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: a, <i>Cosine phase 0..1</i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Cosine, <i>In range -1..1</i> <br />
 
       </description>
     </entry>
     <entry name="sinApprox01 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: a, <i></i> <br />
+        Very cheap sine approximation for LFOs etc <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: a, <i>Sine phase 0..1</i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Sine, <i>In range -1..1</i> <br />
 
       </description>
     </entry>
     <entry name="cosApproxPi ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        Very cheap cosine approximation for LFOs etc <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Cos phase -PI..PI</i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Cosine, <i>In range -1..1</i> <br />
 
       </description>
     </entry>
     <entry name="sinApproxPi ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        Very cheap sine approximation for LFOs etc <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Sin phase -PI..PI</i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Sine, <i>In range -1..1</i> <br />
 
       </description>
     </entry>
@@ -142,6 +158,10 @@
   </metadatalist>
   <seealsolist>
     <!-- we use 'refpage' here not 'genrefpage' to trick Max -->
+    <seealso name="evi_utilities" type="refpage"/>
+    <seealso name="evi_trig" type="refpage"/>
+    <seealso name="evi_approx" type="refpage"/>
+    <seealso name="evi_pade" type="refpage"/>
   </seealsolist>
   <misc name="Discussion">
     <entry name="Keywords">

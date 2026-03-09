@@ -159,7 +159,7 @@ eviZmap(valueIn, inLow, inHigh, outLow, outHigh)
 	return (value - inLow) * multiplier + outLow;
 }
 
-// todo: we need a knee version
+// todo: we need a (soft) knee version
 kinky(p, k)
 {
 	pk = p * k;

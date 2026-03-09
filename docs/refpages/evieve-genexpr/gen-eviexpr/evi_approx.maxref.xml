@@ -20,7 +20,7 @@
         <br />
         <b>In 1</b>: type=<i>input</i>: x, <i>0..twopi</i> <br />
 
-        <b>Return 1</b>: cos, approximated section of a cosine <br />
+        <b>Return 1</b>: cos, <i>approximated section of a cosine</i> <br />
 
       </description>
     </entry>
@@ -30,7 +30,7 @@
         <br />
         <b>In 1</b>: type=<i>input</i>: x, <i>0..twopi</i> <br />
 
-        <b>Return 1</b>: cosine, cosine function <br />
+        <b>Return 1</b>: cosine, <i>cosine function</i> <br />
 
       </description>
     </entry>
@@ -40,7 +40,7 @@
         <br />
         <b>In 1</b>: type=<i>input</i>: x, <i>0..twopi</i> <br />
 
-        <b>Return 1</b>: sine, sine function <br />
+        <b>Return 1</b>: sine, <i>sine function</i> <br />
 
       </description>
     </entry>
@@ -50,7 +50,7 @@
         <br />
         <b>In 1</b>: type=<i>input</i>: x, <i>0..twopi</i> <br />
 
-        <b>Return 1</b>: cosine, cosine function <br />
+        <b>Return 1</b>: cosine, <i>cosine function</i> <br />
 
       </description>
     </entry>
@@ -60,7 +60,7 @@
         <br />
         <b>In 1</b>: type=<i>input</i>: x, <i>0..twopi</i> <br />
 
-        <b>Return 1</b>: sine, sine function <br />
+        <b>Return 1</b>: sine, <i>sine function</i> <br />
 
       </description>
     </entry>
@@ -70,8 +70,8 @@
         <br />
         <b>In 1</b>: type=<i>input</i>: modphase, <i>0..1</i> <br />
 
-        <b>Return 1</b>: cos, cos() portion of ramp (e.g. left multiplier) <br />
-        <b>Return 2</b>: sin, sin() portion of ramp (e.g. right multiplier) <br />
+        <b>Return 1</b>: cos, <i>cos() portion of ramp (e.g. left multiplier)</i> <br />
+        <b>Return 2</b>: sin, <i>sin() portion of ramp (e.g. right multiplier)</i> <br />
 
       </description>
     </entry>
@@ -81,7 +81,7 @@
         <br />
         <b>In 1</b>: type=<i>input</i>: x, <i>0..1</i> <br />
 
-        <b>Return 1</b>: tan, approximated tan() of input <br />
+        <b>Return 1</b>: tan, <i>approximated tan() of input</i> <br />
 
       </description>
     </entry>
@@ -91,7 +91,7 @@
         <br />
         <b>In 1</b>: type=<i>input</i>: x, <i>0..halfpi</i> <br />
 
-        <b>Return 1</b>: tan, approximated tan() of input <br />
+        <b>Return 1</b>: tan, <i>approximated tan() of input</i> <br />
 
       </description>
     </entry>
@@ -101,7 +101,7 @@
         <br />
         <b>In 1</b>: type=<i>input</i>: x, <i>-halfpi..halfpi</i> <br />
 
-        <b>Return 1</b>: tan, accurate approximated tan() of input <br />
+        <b>Return 1</b>: tan, <i>accurate approximated tan() of input</i> <br />
 
       </description>
     </entry>
@@ -111,7 +111,7 @@
         <br />
         <b>In 1</b>: type=<i>input</i>: x, <i>float</i> <br />
 
-        <b>Return 1</b>: arctan, approximated arctan of input <br />
+        <b>Return 1</b>: arctan, <i>approximated arctan of input</i> <br />
 
       </description>
     </entry>
@@ -121,7 +121,7 @@
         <br />
         <b>In 1</b>: type=<i>input</i>: x, <i>0..infinity</i> <br />
 
-        <b>Return 1</b>: arctan, approximated arctan of input <br />
+        <b>Return 1</b>: arctan, <i>approximated arctan of input</i> <br />
 
       </description>
     </entry>
@@ -132,7 +132,7 @@
         <b>In 1</b>: type=<i>input</i>: y, <i>float</i> <br />
         <b>In 2</b>: type=<i>input</i>: x, <i>float</i> <br />
 
-        <b>Return 1</b>: atan2, approximation of atan2 <br />
+        <b>Return 1</b>: atan2, <i>approximation of atan2</i> <br />
 
       </description>
     </entry>
@@ -142,7 +142,7 @@
         <br />
         <b>In 1</b>: type=<i>input</i>: x, <i>0.2..1 for accuracy</i> <br />
 
-        <b>Return 1</b>: acos, approximated acos of input <br />
+        <b>Return 1</b>: acos, <i>approximated acos of input</i> <br />
 
       </description>
     </entry>
@@ -152,7 +152,7 @@
         <br />
         <b>In 1</b>: type=<i>input</i>: x, <i>-2..2</i> <br />
 
-        <b>Return 1</b>: exp, approximated exp of input <br />
+        <b>Return 1</b>: exp, <i>approximated exp of input</i> <br />
 
       </description>
     </entry>
@@ -162,7 +162,7 @@
         <br />
         <b>In 1</b>: type=<i>input</i>: x0, <i>float</i> <br />
 
-        <b>Return 1</b>: exp, approximated exp of input <br />
+        <b>Return 1</b>: exp, <i>approximated exp of input</i> <br />
 
       </description>
     </entry>
@@ -172,7 +172,7 @@
         <br />
         <b>In 1</b>: type=<i>input</i>: x, <i>float</i> <br />
 
-        <b>Return 1</b>: exp, approximated exp of input <br />
+        <b>Return 1</b>: exp, <i>approximated exp of input</i> <br />
 
       </description>
     </entry>
@@ -182,7 +182,7 @@
         <br />
         <b>In 1</b>: type=<i>input</i>: y, <i>float</i> <br />
 
-        <b>Return 1</b>: pow2, approximated pow2 of input <br />
+        <b>Return 1</b>: pow2, <i>approximated pow2 of input</i> <br />
 
       </description>
     </entry>
@@ -192,7 +192,7 @@
         <br />
         <b>In 1</b>: type=<i>input</i>: x, <i>float</i> <br />
 
-        <b>Return 1</b>: cosh, approximated cosh of input <br />
+        <b>Return 1</b>: cosh, <i>approximated cosh of input</i> <br />
 
       </description>
     </entry>
@@ -202,7 +202,7 @@
         <br />
         <b>In 1</b>: type=<i>input</i>: x, <i>float</i> <br />
 
-        <b>Return 1</b>: log2, approximated log2 of input <br />
+        <b>Return 1</b>: log2, <i>approximated log2 of input</i> <br />
 
       </description>
     </entry>
@@ -212,7 +212,7 @@
         <br />
         <b>In 1</b>: type=<i>input</i>: x, <i>float</i> <br />
 
-        <b>Return 1</b>: log, approximated log of input <br />
+        <b>Return 1</b>: log, <i>approximated log of input</i> <br />
 
       </description>
     </entry>
@@ -222,7 +222,7 @@
         <br />
         <b>In 1</b>: type=<i>input</i>: x, <i>float</i> <br />
 
-        <b>Return 1</b>: log10, approximated log10 of input <br />
+        <b>Return 1</b>: log10, <i>approximated log10 of input</i> <br />
 
       </description>
     </entry>
@@ -232,7 +232,7 @@
         <br />
         <b>In 1</b>: type=<i>input</i>: x, <i>float</i> <br />
 
-        <b>Return 1</b>: log1p, approximated log1p <br />
+        <b>Return 1</b>: log1p, <i>approximated log1p</i> <br />
 
       </description>
     </entry>
@@ -242,7 +242,7 @@
         <br />
         <b>In 1</b>: type=<i>input</i>: pitch, <i>pitch</i> <br />
 
-        <b>Return 1</b>: ratio, ratio <br />
+        <b>Return 1</b>: ratio, <i>ratio</i> <br />
 
       </description>
     </entry>
@@ -253,7 +253,7 @@
         <b>In 1</b>: type=<i>input</i>: pitch, <i>MIDI Pitch</i> <br />
         <b>In 2</b>: type=<i>param</i> (optional): base, default: <b>440</b>, <i>Hz 415..467</i> <br />
 
-        <b>Return 1</b>: frequency, Hz <br />
+        <b>Return 1</b>: frequency, <i>Hz</i> <br />
 
       </description>
     </entry>
@@ -263,7 +263,7 @@
         <br />
         <b>In 1</b>: type=<i>input</i>: pitch, <i>MIDI Pitch</i> <br />
 
-        <b>Return 1</b>: frequency, Hz <br />
+        <b>Return 1</b>: frequency, <i>Hz</i> <br />
 
       </description>
     </entry>
@@ -273,7 +273,7 @@
         <br />
         <b>In 1</b>: type=<i>input</i>: pitch, <i>MIDI Pitch</i> <br />
 
-        <b>Return 1</b>: frequency, Hz <br />
+        <b>Return 1</b>: frequency, <i>Hz</i> <br />
 
       </description>
     </entry>
@@ -283,7 +283,7 @@
         <br />
         <b>In 1</b>: type=<i>input</i>: frequency, <i>Hz</i> <br />
 
-        <b>Return 1</b>: pitch, MIDI Pitch <br />
+        <b>Return 1</b>: pitch, <i>MIDI Pitch</i> <br />
 
       </description>
     </entry>
@@ -293,7 +293,7 @@
         <br />
         <b>In 1</b>: type=<i>input</i>: frequency, <i>Hz</i> <br />
 
-        <b>Return 1</b>: pitch, MIDI Pitch <br />
+        <b>Return 1</b>: pitch, <i>MIDI Pitch</i> <br />
 
       </description>
     </entry>
@@ -303,7 +303,7 @@
         <br />
         <b>In 1</b>: type=<i>input</i>: db, <i>dB</i> <br />
 
-        <b>Return 1</b>: a, linear amplitude <br />
+        <b>Return 1</b>: a, <i>linear amplitude</i> <br />
 
       </description>
     </entry>
@@ -313,7 +313,7 @@
         <br />
         <b>In 1</b>: type=<i>input</i>: db, <i>dB</i> <br />
 
-        <b>Return 1</b>: a, linear amplitude <br />
+        <b>Return 1</b>: a, <i>linear amplitude</i> <br />
 
       </description>
     </entry>
@@ -323,7 +323,7 @@
         <br />
         <b>In 1</b>: type=<i>input</i>: db, <i>dB</i> <br />
 
-        <b>Return 1</b>: sqrt, approximated sqrt of amplitude <br />
+        <b>Return 1</b>: sqrt, <i>approximated sqrt of amplitude</i> <br />
 
       </description>
     </entry>
@@ -333,7 +333,7 @@
         <br />
         <b>In 1</b>: type=<i>input</i>: amplitude, <i>linear amplitude</i> <br />
 
-        <b>Return 1</b>: db, dB <br />
+        <b>Return 1</b>: db, <i>dB</i> <br />
 
       </description>
     </entry>
@@ -343,7 +343,7 @@
         <br />
         <b>In 1</b>: type=<i>input</i>: t, <i>seconds, &gt; 0.01 for best accuracy</i> <br />
 
-        <b>Return 1</b>: exp, exp(-1/samples) <br />
+        <b>Return 1</b>: exp, <i>exp(-1/samples)</i> <br />
 
       </description>
     </entry>
@@ -353,7 +353,7 @@
         <br />
         <b>In 1</b>: type=<i>input</i>: f, <i>Hz</i> <br />
 
-        <b>Return 1</b>: bark, bark coefficient <br />
+        <b>Return 1</b>: bark, <i>bark coefficient</i> <br />
 
       </description>
     </entry>
@@ -363,7 +363,7 @@
         <br />
         <b>In 1</b>: type=<i>input</i>: b, <i>bark coefficient</i> <br />
 
-        <b>Return 1</b>: frequency, Hz <br />
+        <b>Return 1</b>: frequency, <i>Hz</i> <br />
 
       </description>
     </entry>
@@ -373,7 +373,7 @@
         <br />
         <b>In 1</b>: type=<i>input</i>: f, <i>Hz</i> <br />
 
-        <b>Return 1</b>: mel, mel coefficient <br />
+        <b>Return 1</b>: mel, <i>mel coefficient</i> <br />
 
       </description>
     </entry>
@@ -383,7 +383,7 @@
         <br />
         <b>In 1</b>: type=<i>input</i>: m, <i>mel coefficient</i> <br />
 
-        <b>Return 1</b>: frequency, Hz <br />
+        <b>Return 1</b>: frequency, <i>Hz</i> <br />
 
       </description>
     </entry>
@@ -394,8 +394,8 @@
         <b>In 1</b>: type=<i>input</i>: real, <i>cartesian</i> <br />
         <b>In 2</b>: type=<i>input</i>: imag, <i>cartesian</i> <br />
 
-        <b>Return 1</b>: alpha, polar <br />
-        <b>Return 2</b>: theta, polar <br />
+        <b>Return 1</b>: alpha, <i>polar</i> <br />
+        <b>Return 2</b>: theta, <i>polar</i> <br />
 
       </description>
     </entry>
@@ -406,8 +406,8 @@
         <b>In 1</b>: type=<i>input</i>: alpha, <i>polar</i> <br />
         <b>In 2</b>: type=<i>input</i>: theta, <i>polar</i> <br />
 
-        <b>Return 1</b>: real, cartesian <br />
-        <b>Return 2</b>: imag, cartesian <br />
+        <b>Return 1</b>: real, <i>cartesian</i> <br />
+        <b>Return 2</b>: imag, <i>cartesian</i> <br />
 
       </description>
     </entry>
@@ -418,8 +418,8 @@
         <b>In 1</b>: type=<i>input</i>: alpha, <i>polar</i> <br />
         <b>In 2</b>: type=<i>input</i>: theta, <i>polar</i> <br />
 
-        <b>Return 1</b>: real, cartesian <br />
-        <b>Return 2</b>: imag, cartesian <br />
+        <b>Return 1</b>: real, <i>cartesian</i> <br />
+        <b>Return 2</b>: imag, <i>cartesian</i> <br />
 
       </description>
     </entry>
@@ -430,8 +430,8 @@
         <b>In 1</b>: type=<i>input</i>: al, <i></i> <br />
         <b>In 2</b>: type=<i>input</i>: th, <i></i> <br />
 
-        <b>Return 1</b>: real, multiplier 1 <br />
-        <b>Return 2</b>: imag, multiplier 2 <br />
+        <b>Return 1</b>: real, <i>multiplier 1</i> <br />
+        <b>Return 2</b>: imag, <i>multiplier 2</i> <br />
 
       </description>
     </entry>
@@ -441,7 +441,7 @@
         <br />
         <b>In 1</b>: type=<i>input</i>: value, <i>float</i> <br />
 
-        <b>Return 1</b>: log1p, library log(1 + x) <br />
+        <b>Return 1</b>: log1p, <i>library log(1 + x)</i> <br />
 
       </description>
     </entry>
@@ -451,7 +451,7 @@
         <br />
         <b>In 1</b>: type=<i>input</i>: x, <i>real argument</i> <br />
 
-        <b>Return 1</b>: Li2, mathrm{Li}_2(x) <br />
+        <b>Return 1</b>: Li2, <i>mathrm{Li}_2(x)</i> <br />
 
       </description>
     </entry>

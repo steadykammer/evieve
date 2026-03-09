@@ -1,529 +1,535 @@
 {
-    "description": "",
+    "description": "Very specific routines for approximations of pow(x, 0.5..2) or pow(x, 0.25..4), although also just an interesting curvature in its own right. Not accurate at all for very large 'x' in terms of pow(). Available in either param rate ('cr') or audio rate ('ar') versions (optimising for gen~ while loop). Also available with exponent set in real values (0.5..2 or 0.25..4) or as normalised input (-1..1 through 0==1).",
     "requires": [],
     "functions": [
         {
             "document": true,
-            "digest": "",
+            "digest": "Legacy original version for pedagogy, not quite as optimised as other functions",
             "name": "fastskew",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Raise x to the power"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "skew",
-                    "digest": ""
+                    "digest": "Must be clamped 0.5..2"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Power",
+                    "digest": "'x' to the power of 0.5..2"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Negative 0.5..2 branch for using in 'fastskew052cr()' or 'fastskew052ar()'",
             "name": "fastskew052neg",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Raise x to the power"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "skewneg",
-                    "digest": ""
+                    "digest": "must be clamped 0.5..1"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Power",
+                    "digest": "'x' to the power of 0.5..1"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Positive 0.5..2 branch for using in 'fastskew052cr()' or 'fastskew052ar()'",
             "name": "fastskew052pos",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Raise x to the power"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "skewpos",
-                    "digest": ""
+                    "digest": "must be clamped 1..2"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Power",
+                    "digest": "'x' to the power of 1..2"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Negative 0.25..4 branch for using in 'fastskew0254cr()' or 'fastskew0254ar()'",
             "name": "fastskew0254neg",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Raise x to the power"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "skewneg",
-                    "digest": ""
+                    "digest": "must be clamped 0.25..1"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Power",
+                    "digest": "'x' to the power of 0.25..1"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Positive 0.25..4 branch for using in 'fastskew0254cr()' or 'fastskew0254ar()'",
             "name": "fastskew0254pos",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Raise x to the power"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "skewpos",
-                    "digest": ""
+                    "digest": "must be clamped 1..4"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Power",
+                    "digest": "'x' to the power of 1..4"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Full 0.5..2 fastskew for control rate processing (keep out of the while loop)",
             "name": "fastskew052cr",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Raise x to the power"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "skew",
-                    "digest": ""
+                    "digest": "must be clamped 0.5..2"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Power",
+                    "digest": "'x' to the power of 0.5..2"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Full 0.25..4 fastskew for control rate processing (keep out of the while loop)",
             "name": "fastskew0254cr",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Raise x to the power"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "skew",
-                    "digest": ""
+                    "digest": "must be clamped 0.25..4"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Power",
+                    "digest": "'x' to the power of 0.5..2"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Full 0.5..2 fastskew for audio rate processing (branch, only compute neccessary)",
             "name": "fastskew052ar",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Raise x to the power"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "skew",
-                    "digest": ""
+                    "digest": "must be clamped 0.5..2"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Power",
+                    "digest": "'x' to the power of 0.5..2"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Full 0.25..4 fastskew for audio rate processing (branch, only compute neccessary)",
             "name": "fastskew0254ar",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Raise x to the power"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "skew",
-                    "digest": ""
+                    "digest": "must be clamped 0.25..4"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Power",
+                    "digest": "'x' to the power of 0.25..4"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Negative for skew range -1..1 for using in 'fastskew11052cr()' or 'fastskew11052ar()'",
             "name": "fastskew11052neg",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Raise x to the power"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "skewneg",
-                    "digest": ""
+                    "digest": "must be clamped -1..0"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Power",
+                    "digest": "'x' to the power of 0.5..1 but with skew in range -1..0"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Positive for skew range -1..1 for using in 'fastskew11052cr()' or 'fastskew11052ar()'",
             "name": "fastskew11052pos",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Raise x to the power"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "skewpos",
-                    "digest": ""
+                    "digest": "must be clamped 0..1"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Power",
+                    "digest": "'x' to the power of 1..2 but with skew in range 0..1"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Negative for skew range -1..1 for using in 'fastskew110254cr()' or 'fastskew110254ar()'",
             "name": "fastskew110254neg",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Raise x to the power"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "skewneg",
-                    "digest": ""
+                    "digest": "must be clamped -1..0"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Power",
+                    "digest": "'x' to the power of 0.25..1 but with skew in range -1..0"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Positive for skew range -1..1 for using in 'fastskew110254cr()' or 'fastskew110254ar()'",
             "name": "fastskew110254pos",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Raise x to the power"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "skewpos",
-                    "digest": ""
+                    "digest": "must be clamped 0..1"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Power",
+                    "digest": "'x' to the power of 1..4 but with skew in range 0..1"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Full -1..1 (0.5..2) fastskew for control rate processing (keep out of the while loop)",
             "name": "fastskew11052cr",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Raise x to the power"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "skew",
-                    "digest": ""
+                    "digest": "must be clamped -1..1"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Power",
+                    "digest": "'x' to the power of 0.5..2 but with skew in range -1..1"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Full -1..1 (0.25..4) fastskew for control rate processing (keep out of the while loop)",
             "name": "fastskew110254cr",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Raise x to the power"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "skew",
-                    "digest": ""
+                    "digest": "must be clamped -1..1"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Power",
+                    "digest": "'x' to the power of 0.25..4 but with skew in range -1..1"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Full -1..1 (0.5..2) fastskew for audio rate processing (branch, only compute neccessary)",
             "name": "fastskew11052ar",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Raise x to the power"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "skew",
-                    "digest": ""
+                    "digest": "must be clamped -1..1"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Power",
+                    "digest": "'x' to the power of 0.5..2 but with skew in range -1..1"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Full -1..1 (0.25..4) fastskew for audio rate processing (branch, only compute neccessary)",
             "name": "fastskew110254ar",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Raise x to the power"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "skew",
-                    "digest": ""
+                    "digest": "must be clamped -1..1"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Power",
+                    "digest": "'x' to the power of 0.25..4 but with skew in range -1..1"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Linear converter around 0==1, 'curvature' -1..1 to 'exponent' 0.5..2",
             "name": "n2p052",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "N",
-                    "digest": ""
+                    "digest": "Input must be clamped -1..1"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Exponent",
+                    "digest": "Output for 'skew' inputs 0.5..2"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Linear converter around 0==1, 'curvature' -1..1 to 'exponent' 0.25..4",
             "name": "n2p0254",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "N",
-                    "digest": ""
+                    "digest": "Input must be clamped -1..1"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Exponent",
+                    "digest": "Output for 'skew' inputs 0.25..4"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Exact converter around 0==1, 'curvature' -1..1 to 'exponent' 0.25..4 where -1 == 0.25, -0.5 == 0.5, 0 == 1, 0.5 == 2, 1 == 4",
             "name": "warpcurve",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "curvature",
-                    "digest": ""
+                    "digest": "Input must be clamped -1..1"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Exponent",
+                    "digest": "Output for 'skew' inputs 0.25..4"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Like 'warpcurve()' but for computation at control rate",
             "name": "warpcurveParam",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "curvature",
-                    "digest": ""
+                    "digest": "Input must be clamped -1..1"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Exponent",
+                    "digest": "Output for 'skew' inputs 0.25..4"
                 }
             ]
         }
     ],
-    "seealso": []
+    "seealso": [
+        "evi_trig",
+        "evi_cossin",
+        "evi_pade",
+        "evi_tanh",
+        "evi_approx"
+    ]
 }

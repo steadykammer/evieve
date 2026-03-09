@@ -19,7 +19,7 @@
         <b>In 1</b>: type=<i>input</i>: inputSample, <i></i> <br />
         <b>In 2</b>: type=<i>input</i>: windowSizeInSamples, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -29,8 +29,8 @@
         <b>In 2</b>: type=<i>input</i>: reset, <i></i> <br />
         <b>In 3</b>: type=<i>param</i> (optional): windowSize, default: <b>0</b>, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
-        <b>Return 2</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 2</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -41,8 +41,8 @@
         <b>In 3</b>: type=<i>param</i> (optional): interval, default: <b>500</b>, <i></i> <br />
         <b>In 4</b>: type=<i>param</i> (optional): mode, default: <b>0</b>, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
-        <b>Return 2</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 2</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -52,7 +52,7 @@
         <b>In 2</b>: type=<i>input</i>: attack, <i></i> <br />
         <b>In 3</b>: type=<i>input</i>: release, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -60,7 +60,7 @@
       <description>
         <b>In 1</b>: type=<i>input</i>: s, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -69,7 +69,7 @@
         <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
         <b>In 2</b>: type=<i>input</i>: d, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -79,7 +79,7 @@
         <b>In 2</b>: type=<i>input</i>: a, <i></i> <br />
         <b>In 3</b>: type=<i>input</i>: d, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -90,7 +90,7 @@
         <b>In 3</b>: type=<i>input</i>: h, <i></i> <br />
         <b>In 4</b>: type=<i>input</i>: r, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -99,7 +99,7 @@
         <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
         <b>In 2</b>: type=<i>input</i>: a, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -109,7 +109,7 @@
         <b>In 2</b>: type=<i>input</i>: rise, <i></i> <br />
         <b>In 3</b>: type=<i>input</i>: fall, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
@@ -119,7 +119,7 @@
         <b>In 2</b>: type=<i>input</i>: attack, <i></i> <br />
         <b>In 3</b>: type=<i>input</i>: release, <i></i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>

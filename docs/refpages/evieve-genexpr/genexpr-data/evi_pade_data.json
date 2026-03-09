@@ -1,247 +1,253 @@
 {
-    "description": "",
+    "description": "A collection of trigonomic Padé approximations. Padé approximations are a tried and tested method of approximation often used in computer calculations. Approximations are faster than library functions but less accurate. You should be careful using approximations - they can break your code. In evieve all approximations are tested to work on the code in which they are used.",
     "requires": [],
     "functions": [
         {
             "document": true,
-            "digest": "",
+            "digest": "Padé approximation of 'cosh()'",
             "name": "pCosh",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Input range -5..5"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Cosh",
+                    "digest": "Approximate cosh() of input"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Padé approximation of 'sinh()'",
             "name": "pSinh",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Input range -5..5"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Sinh",
+                    "digest": "Approximate sinh() of input"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Padé approximation of 'tanh()'",
             "name": "pTanh",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Input range -5..5"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Tanh",
+                    "digest": "Approximate tanh() of input"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Padé approximation of 'cos()'",
             "name": "pCos",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Input range -PI..PI"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Cos",
+                    "digest": "Approximate cos() of input"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Padé approximation of 'sin()', BROKEN?",
             "name": "pSin",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Input range -PI..PI"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Sin",
+                    "digest": "Approximate sin() of input"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Padé approximation of 'tan()'",
             "name": "pTan",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Input range -HALFPI..HALFPI"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Tan",
+                    "digest": "Approximate tan() of input"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Padé approximation of 'tan()', positive output only",
             "name": "pTan2",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Input range 0..1"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Tan",
+                    "digest": "Approximate positive tan() of input"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Padé approximation of 'tan()'",
             "name": "pTan3",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Input range 0..1"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Tan",
+                    "digest": "Approximate tan() of input"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Padé approximation of 'exp()'",
             "name": "pExp",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Input range -6..4"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Exp",
+                    "digest": "Approximate exp() of input"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Padé approximation of 'log(x+1)', usually known as 'log1p()'",
             "name": "pLog1p",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Input range -0.8..5"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Log1p",
+                    "digest": "Approximate log1p() of input"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Padé approximation of 'atan()'",
             "name": "pAtan",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Atan",
+                    "digest": "Approximate atan() of input"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Padé approximation for tanh(sqrt(x))/sqrt(x)",
             "name": "pTanhXdX",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Input range -1..1"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "TanhXdX",
+                    "digest": "Approximate tanh(sqrt(x))/sqrt(x) of input"
                 }
             ]
         }
     ],
-    "seealso": []
+    "seealso": [
+        "evi_trig",
+        "evi_cossin",
+        "evi_approx",
+        "evi_tanh",
+        "evi_fastskew"
+    ]
 }

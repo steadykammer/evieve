@@ -11,102 +11,126 @@
     By declaring <m>require("evi_pade.genexpr");</m> at the top of a codebox you can then access all of the functions included in this file. <br />
         <br />
     <b>About this File</b>: <br />
-     <br />
+    A collection of trigonomic Padé approximations. Padé approximations are a tried and tested method of approximation often used in computer calculations. Approximations are faster than library functions but less accurate. You should be careful using approximations - they can break your code. In evieve all approximations are tested to work on the code in which they are used. <br />
   </description>
   <misc name="GenExpr Functions">
     <entry name="pCosh ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        Padé approximation of 'cosh()' <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Input range -5..5</i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Cosh, <i>Approximate cosh() of input</i> <br />
 
       </description>
     </entry>
     <entry name="pSinh ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        Padé approximation of 'sinh()' <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Input range -5..5</i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Sinh, <i>Approximate sinh() of input</i> <br />
 
       </description>
     </entry>
     <entry name="pTanh ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        Padé approximation of 'tanh()' <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Input range -5..5</i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Tanh, <i>Approximate tanh() of input</i> <br />
 
       </description>
     </entry>
     <entry name="pCos ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        Padé approximation of 'cos()' <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Input range -PI..PI</i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Cos, <i>Approximate cos() of input</i> <br />
 
       </description>
     </entry>
     <entry name="pSin ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        Padé approximation of 'sin()', BROKEN? <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Input range -PI..PI</i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Sin, <i>Approximate sin() of input</i> <br />
 
       </description>
     </entry>
     <entry name="pTan ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        Padé approximation of 'tan()' <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Input range -HALFPI..HALFPI</i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Tan, <i>Approximate tan() of input</i> <br />
 
       </description>
     </entry>
     <entry name="pTan2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        Padé approximation of 'tan()', positive output only <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Input range 0..1</i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Tan, <i>Approximate positive tan() of input</i> <br />
 
       </description>
     </entry>
     <entry name="pTan3 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        Padé approximation of 'tan()' <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Input range 0..1</i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Tan, <i>Approximate tan() of input</i> <br />
 
       </description>
     </entry>
     <entry name="pExp ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        Padé approximation of 'exp()' <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Input range -6..4</i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Exp, <i>Approximate exp() of input</i> <br />
 
       </description>
     </entry>
     <entry name="pLog1p ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        Padé approximation of 'log(x+1)', usually known as 'log1p()' <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Input range -0.8..5</i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Log1p, <i>Approximate log1p() of input</i> <br />
 
       </description>
     </entry>
     <entry name="pAtan ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        Padé approximation of 'atan()' <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Input</i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: Atan, <i>Approximate atan() of input</i> <br />
 
       </description>
     </entry>
     <entry name="pTanhXdX ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        Padé approximation for tanh(sqrt(x))/sqrt(x) <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Input range -1..1</i> <br />
 
-        <b>Return 1</b>: ,  <br />
+        <b>Return 1</b>: TanhXdX, <i>Approximate tanh(sqrt(x))/sqrt(x) of input</i> <br />
 
       </description>
     </entry>
@@ -118,6 +142,11 @@
   </metadatalist>
   <seealsolist>
     <!-- we use 'refpage' here not 'genrefpage' to trick Max -->
+    <seealso name="evi_trig" type="refpage"/>
+    <seealso name="evi_cossin" type="refpage"/>
+    <seealso name="evi_approx" type="refpage"/>
+    <seealso name="evi_tanh" type="refpage"/>
+    <seealso name="evi_fastskew" type="refpage"/>
   </seealsolist>
   <misc name="Discussion">
     <entry name="Keywords">

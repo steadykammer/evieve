@@ -1,36 +1,36 @@
 {
-    "description": "",
+    "description": "These utilities get used all over evieve. They are a hodge podge of converters, sample accurate processors, mappers and mixing functions. Requiring this .genexpr file also inherits 'evi_approx.genexpr'.",
     "requires": [
         "evi_approx.genexpr"
     ],
     "functions": [
         {
             "document": true,
-            "digest": "",
+            "digest": "Similar to [click~] in MSP, outputs sample accurate clicks for all directions",
             "name": "logicalClicks",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Trigger"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Updown",
+                    "digest": "Output trigger for either direction"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Up",
+                    "digest": "Output trigger if up direction"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "Down",
+                    "digest": "Output trigger if down direction"
                 }
             ]
         },
@@ -43,15 +43,15 @@
                     "id": 1,
                     "kind": "input",
                     "name": "X",
-                    "digest": ""
+                    "digest": "Trigger (anything > 0)"
                 },
                 {
                     "id": 2,
                     "kind": "param",
                     "name": "hold",
                     "default": 10,
-                    "type": "integer",
-                    "digest": ""
+                    "type": "float",
+                    "digest": "Hold time in ms (0-ms = 1-sample click)"
                 },
                 {
                     "id": 3,
@@ -59,66 +59,66 @@
                     "name": "trigger",
                     "default": 1,
                     "type": "integer",
-                    "digest": ""
+                    "digest": "Trigger response, 0 = up/down, 1 = up only, 2 = down only"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Gate",
+                    "digest": "Sample accurate gate with hold duration"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Variable dcblock() so that effect can be bypassed (a0 = 1) or active (a0 = 0.9997) or heavy (a0 = ...)",
             "name": "varDcblock",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x0",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "a0",
-                    "digest": ""
+                    "digest": "Dc coefficient, normally 0.9997 for basic dcblock()"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Audio output",
+                    "digest": "Dc blocked audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Warp Hz..g for trapezoidal linear rc filters",
             "name": "preWarpG",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "in Hz"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "G",
+                    "digest": "g coefficient for trapezoidal linear rc filters"
                 }
             ]
         },
         {
-            "document": true,
-            "digest": "",
+            "document": false,
+            "digest": "Nobody should ever use this abomination",
             "name": "eviCopysign",
             "inputs": [
                 {
@@ -144,33 +144,33 @@
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Return absolute maximum of left and right audio inputs",
             "name": "getMax",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "xL",
-                    "digest": ""
+                    "digest": "Left audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "xR",
-                    "digest": ""
+                    "digest": "Right audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Absolute max",
+                    "digest": "Per sample maximum of left and right inputs"
                 }
             ]
         },
         {
-            "document": true,
-            "digest": "",
+            "document": false,
+            "digest": "Broadband clip and dcblock any audio input, specifically for saturators etc, not very useful",
             "name": "xMega",
             "inputs": [
                 {
@@ -183,389 +183,390 @@
                     "id": 2,
                     "kind": "param",
                     "name": "xCONST",
-                    "digest": ""
+                    "default": "SQRT1_2",
+                    "digest": "usually sqrt1_2 or ln2 or log10e, multiplied by 1000 internally"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Output",
+                    "digest": "Dc blocked and clipped output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Return sign of input but only reports -1 or 1 (no zero)",
             "name": "xSgn",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Sign",
+                    "digest": "-1 or 1"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Clip the abs(x) to maximum 1",
             "name": "xRange",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Clip",
+                    "digest": "0..1 (abs(x) to maximum 1)"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Convert octaves to Q",
             "name": "bandwidth2Q",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "bandwidth",
-                    "digest": ""
+                    "digest": "in Octaves"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Q",
+                    "digest": "Approximate Q of bandwidth"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Convert Q to bandwidth",
             "name": "Q2bandwidth",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "in Q"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Octaves",
+                    "digest": "Approximate octaves of Q"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Convert pitch to time in samples",
             "name": "pitch2timeSamps",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "size",
-                    "digest": ""
+                    "digest": "Pitch"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Samples",
+                    "digest": "Size in samples"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Convert pitch to time in seconds",
             "name": "pitch2timeSecs",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "size",
-                    "digest": ""
+                    "digest": "Pitch"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Seconds",
+                    "digest": "Size in seconds"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Post-filter to decolorate (oscillator) waveshapers when antialiasing is used, e.g. polyBlep or Adaa, Stefano D'Angelo, GPL v3",
             "name": "decorelate",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Audio output",
+                    "digest": "Decorrelated audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "S-curve segment maker for linear 0..1 input, e.g. for 'eviSline()'",
             "name": "eviScurve",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "segment",
-                    "digest": ""
+                    "digest": "Input 0..1"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "S-curve",
+                    "digest": "S-curve for 0..1 input"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Basic linear scaling like linear part of [scale], for when only linear is needed, only about 1.15 x faster than using library scale() but still worth it",
             "name": "eviMap",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "valueIn",
-                    "digest": ""
+                    "digest": "Input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "inLow",
-                    "digest": ""
+                    "digest": "Low in value"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "inHigh",
-                    "digest": ""
+                    "digest": "High in value"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "outLow",
-                    "digest": ""
+                    "digest": "Low out value"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "outHigh",
-                    "digest": ""
+                    "digest": "High out value"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Scaled",
+                    "digest": "Scaled value output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Basic linear scaling, sort of like [zmap], a clamped version of 'eviMap()'",
             "name": "eviZmap",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "valueIn",
-                    "digest": ""
+                    "digest": "Input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "inLow",
-                    "digest": ""
+                    "digest": "Low in value"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "inHigh",
-                    "digest": ""
+                    "digest": "High in value"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "outLow",
-                    "digest": ""
+                    "digest": "Low out value"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "outHigh",
-                    "digest": ""
+                    "digest": "High out value"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Mapped",
+                    "digest": "Mapped value output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Like MSP [kink~]",
             "name": "kinky",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "p",
-                    "digest": ""
+                    "digest": "Phase (0..1)"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "k",
-                    "digest": ""
+                    "digest": "Kink 0..1"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Shape",
+                    "digest": "Phase shaped kinky output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Sine approx, 5 muls 3 plus, terrible accuracy but cheap, for lfos etc only",
             "name": "sin7",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x1",
-                    "digest": ""
+                    "digest": "-1..1 input, this is not sin(), it is between sin and cos"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Sine",
+                    "digest": "Approximate sin() of input in range -1..1"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Very cheap parabolic approximation for LFOs etc, -1..1",
             "name": "parabolWrap",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "phase",
-                    "digest": ""
+                    "digest": "Sin phase 0..1"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Sine",
+                    "digest": "Approximate sin() of input in range -1..1"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Coefficients for Data() calculation and storage of 5 different window types, @see: 'winMan()'",
             "name": "windowCoeffs",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "choice",
-                    "digest": ""
+                    "digest": "1=Blackman, 2=Exact Blackman, 3=Blackman-Harris, 4=Hann, 5=Hamming"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "a0",
+                    "digest": "a0 coefficient"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "a1",
+                    "digest": "a1 coefficient"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "a2",
+                    "digest": "a2 coefficient"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "For use with 'windowCoeffs()' in a for loop to fill a Data()",
             "name": "winMan",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "w",
-                    "digest": ""
+                    "digest": "loop iterator"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "a0",
-                    "digest": ""
+                    "digest": "a0 coefficient"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "a1",
-                    "digest": ""
+                    "digest": "a1 coefficient"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "a2",
-                    "digest": ""
+                    "digest": "a2 coefficient"
                 },
                 {
                     "id": 5,
@@ -579,312 +580,312 @@
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Size",
+                    "digest": "Window size in samples"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Simple parabolic approx crossfader (stereo)",
             "name": "stereoXfadePar",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "L1",
-                    "digest": ""
+                    "digest": "Left 1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "R1",
-                    "digest": ""
+                    "digest": "Right 1"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "L2",
-                    "digest": ""
+                    "digest": "Left 2"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "R2",
-                    "digest": ""
+                    "digest": "Right 2"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "x0",
-                    "digest": ""
+                    "digest": "Crossfade 0..1"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Left",
+                    "digest": "Left crossfaded output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Right",
+                    "digest": "Right crossfaded output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Controller for sqrt crossing (used in 'xfadeSqrt()')",
             "name": "ctrlSqrt",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "0..1"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Left",
+                    "digest": "Left sqrt fade"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Right",
+                    "digest": "Right sqrt fade"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Exact sqrt crossfader Mono",
             "name": "xfadeSqrt",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "a",
-                    "digest": ""
+                    "digest": "Input 1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "c",
-                    "digest": ""
+                    "digest": "Input 2"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Crossfade 0..1"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Mix",
+                    "digest": "Mixed output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Exact sqrt crossfader Stereo",
             "name": "xfadeSqrtStereo",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "a",
-                    "digest": ""
+                    "digest": "Left 1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "b",
-                    "digest": ""
+                    "digest": "Right 1"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "c",
-                    "digest": ""
+                    "digest": "Left 2"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "d",
-                    "digest": ""
+                    "digest": "Right 2"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Crossfade 0..1"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Left",
+                    "digest": "Left crossfaded output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Right",
+                    "digest": "Right crossfaded output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Mono cosine approx crossfade",
             "name": "xfadeQuartApproxMono",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "a",
-                    "digest": ""
+                    "digest": "Input 1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "c",
-                    "digest": ""
+                    "digest": "Input 2"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "q",
-                    "digest": ""
+                    "digest": "Crossfade 0..1"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Mix",
+                    "digest": "Mixed output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Stereo cosine approx crossfade",
             "name": "xfadeQuartApproxStereo",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "a",
-                    "digest": ""
+                    "digest": "Left 1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "b",
-                    "digest": ""
+                    "digest": "Right 1"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "c",
-                    "digest": ""
+                    "digest": "Left 2"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "d",
-                    "digest": ""
+                    "digest": "Right 2"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "q",
-                    "digest": ""
+                    "digest": "Crossfade 0..1"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Left",
+                    "digest": "Left crossfaded output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Right",
+                    "digest": "Right crossfaded output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Mono cosine approx swap fade",
             "name": "xfadeQuartApproxSwap",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "a",
-                    "digest": ""
+                    "digest": "Left"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "b",
-                    "digest": ""
+                    "digest": "Right"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "q",
-                    "digest": ""
+                    "digest": "Swap fade 0..1"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Left",
+                    "digest": "Left swap faded output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Right",
+                    "digest": "Right swap faded output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Mono cosine approx panner",
             "name": "panQuartApproxMono",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "p",
-                    "digest": ""
+                    "digest": "Panning 0..1"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Left",
+                    "digest": "Left panned output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Right",
+                    "digest": "Right panned output"
                 }
             ]
         },
@@ -897,556 +898,556 @@
                     "id": 1,
                     "kind": "input",
                     "name": "xL",
-                    "digest": ""
+                    "digest": "Left input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "xR",
-                    "digest": ""
+                    "digest": "Right input"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "pL",
-                    "digest": ""
+                    "digest": "Left panning 0..1"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "pR",
-                    "digest": ""
+                    "digest": "Right panning 0..1"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Left",
+                    "digest": "Left panned output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Right",
+                    "digest": "Right panned output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "8-way butterfly audio matrix",
             "name": "butterfly8",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "i1",
-                    "digest": ""
+                    "digest": "In 1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "i2",
-                    "digest": ""
+                    "digest": "In 2"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "i3",
-                    "digest": ""
+                    "digest": "In 3"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "i4",
-                    "digest": ""
+                    "digest": "In 4"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "i5",
-                    "digest": ""
+                    "digest": "In 5"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "i6",
-                    "digest": ""
+                    "digest": "In 6"
                 },
                 {
                     "id": 7,
                     "kind": "input",
                     "name": "i7",
-                    "digest": ""
+                    "digest": "In 7"
                 },
                 {
                     "id": 8,
                     "kind": "input",
                     "name": "i8",
-                    "digest": ""
+                    "digest": "In 8"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "b1",
+                    "digest": "Out 1"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "b2",
+                    "digest": "Out 2"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "b3",
+                    "digest": "Out 3"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "b4",
+                    "digest": "Out 4"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "b5",
+                    "digest": "Out 5"
                 },
                 {
                     "id": 6,
-                    "name": "",
-                    "digest": ""
+                    "name": "b6",
+                    "digest": "Out 6"
                 },
                 {
                     "id": 7,
-                    "name": "",
-                    "digest": ""
+                    "name": "b7",
+                    "digest": "Out 7"
                 },
                 {
                     "id": 8,
-                    "name": "",
-                    "digest": ""
+                    "name": "b8",
+                    "digest": "Out 8"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "4-way butterfly audio matrix",
             "name": "butterfly4",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "i1",
-                    "digest": ""
+                    "digest": "In 1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "i2",
-                    "digest": ""
+                    "digest": "In 2"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "i3",
-                    "digest": ""
+                    "digest": "In 3"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "i4",
-                    "digest": ""
+                    "digest": "In 4"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "b1",
+                    "digest": "Out 1"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "b2",
+                    "digest": "Out 2"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "b3",
+                    "digest": "Out 3"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "b4",
+                    "digest": "Out 4"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "2-way butterfly audio matrix",
             "name": "butterfly2",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "i1",
-                    "digest": ""
+                    "digest": "In 1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "i2",
-                    "digest": ""
+                    "digest": "In 2"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "b1",
+                    "digest": "Out 1"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "b2",
+                    "digest": "Out 2"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "8-way Hadamard audio matrix",
             "name": "hadamard8",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "i1",
-                    "digest": ""
+                    "digest": "In 1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "i2",
-                    "digest": ""
+                    "digest": "In 2"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "i3",
-                    "digest": ""
+                    "digest": "In 3"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "i4",
-                    "digest": ""
+                    "digest": "In 4"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "i5",
-                    "digest": ""
+                    "digest": "In 5"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "i6",
-                    "digest": ""
+                    "digest": "In 6"
                 },
                 {
                     "id": 7,
                     "kind": "input",
                     "name": "i7",
-                    "digest": ""
+                    "digest": "In 7"
                 },
                 {
                     "id": 8,
                     "kind": "input",
                     "name": "i8",
-                    "digest": ""
+                    "digest": "In 8"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "o1",
+                    "digest": "Out 1"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "o2",
+                    "digest": "Out 2"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "o3",
+                    "digest": "Out 3"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "o4",
+                    "digest": "Out 4"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "o5",
+                    "digest": "Out 5"
                 },
                 {
                     "id": 6,
-                    "name": "",
-                    "digest": ""
+                    "name": "o6",
+                    "digest": "Out 6"
                 },
                 {
                     "id": 7,
-                    "name": "",
-                    "digest": ""
+                    "name": "o7",
+                    "digest": "Out 7"
                 },
                 {
                     "id": 8,
-                    "name": "",
-                    "digest": ""
+                    "name": "o8",
+                    "digest": "Out 8"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "16-way butterfly audio matrix",
             "name": "butterfly16",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "bf0_1",
-                    "digest": ""
+                    "digest": "In 1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "bf0_2",
-                    "digest": ""
+                    "digest": "In 2"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "bf0_3",
-                    "digest": ""
+                    "digest": "In 3"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "bf0_4",
-                    "digest": ""
+                    "digest": "In 4"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "bf0_5",
-                    "digest": ""
+                    "digest": "In 5"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "bf0_6",
-                    "digest": ""
+                    "digest": "In 6"
                 },
                 {
                     "id": 7,
                     "kind": "input",
                     "name": "bf0_7",
-                    "digest": ""
+                    "digest": "In 7"
                 },
                 {
                     "id": 8,
                     "kind": "input",
                     "name": "bf0_8",
-                    "digest": ""
+                    "digest": "In 8"
                 },
                 {
                     "id": 9,
                     "kind": "input",
                     "name": "bf0_9",
-                    "digest": ""
+                    "digest": "In 9"
                 },
                 {
                     "id": 10,
                     "kind": "input",
                     "name": "bf0_10",
-                    "digest": ""
+                    "digest": "In 10"
                 },
                 {
                     "id": 11,
                     "kind": "input",
                     "name": "bf0_11",
-                    "digest": ""
+                    "digest": "In 11"
                 },
                 {
                     "id": 12,
                     "kind": "input",
                     "name": "bf0_12",
-                    "digest": ""
+                    "digest": "In 12"
                 },
                 {
                     "id": 13,
                     "kind": "input",
                     "name": "bf0_13",
-                    "digest": ""
+                    "digest": "In 13"
                 },
                 {
                     "id": 14,
                     "kind": "input",
                     "name": "bf0_14",
-                    "digest": ""
+                    "digest": "In 14"
                 },
                 {
                     "id": 15,
                     "kind": "input",
                     "name": "bf0_15",
-                    "digest": ""
+                    "digest": "In 15"
                 },
                 {
                     "id": 16,
                     "kind": "input",
                     "name": "bf0_16",
-                    "digest": ""
+                    "digest": "In 16"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "bf4_1",
+                    "digest": "Out 1"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "bf4_2",
+                    "digest": "Out 2"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "bf4_3",
+                    "digest": "Out 3"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "bf4_4",
+                    "digest": "Out 4"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "bf4_5",
+                    "digest": "Out 5"
                 },
                 {
                     "id": 6,
-                    "name": "",
-                    "digest": ""
+                    "name": "bf4_6",
+                    "digest": "Out 6"
                 },
                 {
                     "id": 7,
-                    "name": "",
-                    "digest": ""
+                    "name": "bf4_7",
+                    "digest": "Out 7"
                 },
                 {
                     "id": 8,
-                    "name": "",
-                    "digest": ""
+                    "name": "bf4_8",
+                    "digest": "Out 8"
                 },
                 {
                     "id": 9,
-                    "name": "",
-                    "digest": ""
+                    "name": "bf4_9",
+                    "digest": "Out 9"
                 },
                 {
                     "id": 10,
-                    "name": "",
-                    "digest": ""
+                    "name": "bf4_10",
+                    "digest": "Out 10"
                 },
                 {
                     "id": 11,
-                    "name": "",
-                    "digest": ""
+                    "name": "bf4_11",
+                    "digest": "Out 11"
                 },
                 {
                     "id": 12,
-                    "name": "",
-                    "digest": ""
+                    "name": "bf4_12",
+                    "digest": "Out 12"
                 },
                 {
                     "id": 13,
-                    "name": "",
-                    "digest": ""
+                    "name": "bf4_13",
+                    "digest": "Out 13"
                 },
                 {
                     "id": 14,
-                    "name": "",
-                    "digest": ""
+                    "name": "bf4_14",
+                    "digest": "Out 14"
                 },
                 {
                     "id": 15,
-                    "name": "",
-                    "digest": ""
+                    "name": "bf4_15",
+                    "digest": "Out 15"
                 },
                 {
                     "id": 16,
-                    "name": "",
-                    "digest": ""
+                    "name": "bf4_16",
+                    "digest": "Out 16"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "4-way Hadamard audio matrix",
             "name": "butterflyMatrix",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "i1",
-                    "digest": ""
+                    "digest": "In 1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "i2",
-                    "digest": ""
+                    "digest": "In 2"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "i3",
-                    "digest": ""
+                    "digest": "In 3"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "i4",
-                    "digest": ""
+                    "digest": "In 4"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "b1",
+                    "digest": "Out 1"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "b2",
+                    "digest": "Out 2"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "b3",
+                    "digest": "Out 3"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "b4",
+                    "digest": "Out 4"
                 }
             ]
         }
     ],
-    "seealso": []
+    "seealso": ["evi_approx", "evi_cossin"]
 }
