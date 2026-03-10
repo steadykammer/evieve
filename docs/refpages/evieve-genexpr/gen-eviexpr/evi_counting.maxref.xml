@@ -11,148 +11,121 @@
     By declaring <m>require("evi_counting.genexpr");</m> at the top of a codebox you can then access all of the functions included in this file. <br />
         <br />
     <b>About this File</b>: <br />
-     <br />
+    Phasors, rates, ramps, all with zero reset functionality and various other features such as spread, reverse, pause, phase, jump, etc. For replicating some MSP functionality inside gen~. <br />
   </description>
   <misc name="GenExpr Functions">
     <entry name="eviPhasor0 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: frequency, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: reset, <i></i> <br />
+        Optionally zero reset phasor with pause, reverse and phase, @see [evi.phasor0~] for a patched version <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: frequency, <i>Phasor frequency in Hz</i> <br />
+        <b>In 2</b>: type=<i>input</i>: reset, <i>Trigger, naive phase reset</i> <br />
         <b>In 3</b>: type=<i>Param</i> (optional): minimumhz, default: <b>0.125</b>, min: 0, max: 1, <i>Set minimum Hz for zero reset behaviour</i> <br />
         <b>In 4</b>: type=<i>Param</i> (optional): mode, default: <b>1</b>, min: 0, max: 1, <i>Zero reset behaviour off/on</i> <br />
         <b>In 5</b>: type=<i>Param</i> (optional): reverse, default: <b>1</b>, min: 0, max: 1, <i>Reverse allowed?</i> <br />
         <b>In 6</b>: type=<i>Param</i> (optional): pause, default: <b>0</b>, min: 0, max: 1, <i>Pause current ramp off/on</i> <br />
         <b>In 7</b>: type=<i>Param</i> (optional): phase, default: <b>0</b>, min: 0, max: 1, <i>Set to this phase on next reset</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
+        <b>Return 1</b>: thisphasor, <i>Phase 0..1</i> <br />
+        <b>Return 2</b>: zero reset Hz, <i>Current frequency in Hz</i> <br />
+        <b>Return 3</b>: thisdelta, <i>Phasor sync signal</i> <br />
 
       </description>
     </entry>
     <entry name="eviPhasorTwo0 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: freqFree, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: spreadFree, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: reset, <i></i> <br />
-        <b>In 4</b>: type=<i>param</i> (optional): minimumhz, default: <b>0.125</b>, <i></i> <br />
-        <b>In 5</b>: type=<i>param</i> (optional): mode, default: <b>1</b>, <i></i> <br />
+        Two synchronous optionally zero reset phasors with spread control <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: freqFree, <i>Phasors frequency in Hz</i> <br />
+        <b>In 2</b>: type=<i>input</i>: spreadFree, <i>Spread phase amount 0..1</i> <br />
+        <b>In 3</b>: type=<i>input</i>: reset, <i>Trigger, naive phase reset</i> <br />
+        <b>In 4</b>: type=<i>param</i> (optional): minimumhz, default: <b>0.125</b>, <i>Set minimum Hz for zero reset behaviour</i> <br />
+        <b>In 5</b>: type=<i>param</i> (optional): mode, default: <b>1</b>, <i>Zero reset behaviour off/on</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
-        <b>Return 5</b>: , <i></i> <br />
-        <b>Return 6</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="quantF ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: f1, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: f2, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="multChange ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x2, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: mult, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: invmult, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: wantlock, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="wrapDiff ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: diff, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: thisPhasor1, <i>Phase 1 0..1</i> <br />
+        <b>Return 2</b>: thisPhasor2, <i>Phase 2 0..1</i> <br />
+        <b>Return 3</b>: freqMain, <i>Current frequency in Hz</i> <br />
+        <b>Return 4</b>: spreadMain, <i>Current spread 0..1</i> <br />
+        <b>Return 5</b>: thisPhasor1Sync, <i>Phasor 1 sync signal</i> <br />
+        <b>Return 6</b>: thisPhasor2Sync, <i>Phasor 2 sync signal</i> <br />
 
       </description>
     </entry>
     <entry name="rateLock ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: mainphase, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: multiplier, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: reset, <i></i> <br />
+        Rate 'lock' routine from gen~ rate source code <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: mainphase, <i>Phase 0..1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: multiplier, <i>Multiplier around 1&#x3D;&#x3D;input</i> <br />
+        <b>In 3</b>: type=<i>input</i>: reset, <i>Trigger, naive rate reset</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Rate, <i>Rate phase 0..1</i> <br />
 
       </description>
     </entry>
     <entry name="rateOff ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: mainphase, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: multiplier, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: reset, <i></i> <br />
+        Rate 'off' routine from gen~ rate source code <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: mainphase, <i>Phase 0..1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: multiplier, <i>Multiplier around 1&#x3D;&#x3D;input</i> <br />
+        <b>In 3</b>: type=<i>input</i>: reset, <i>Trigger, naive rate reset</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Rate, <i>Rate phase 0..1</i> <br />
 
       </description>
     </entry>
     <entry name="rateCycle ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: mainphase, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: multiplier, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: reset, <i></i> <br />
+        Rate 'cycle' routine from gen~ rate source code <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: mainphase, <i>Phase 0..1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: multiplier, <i>Multiplier around 1&#x3D;&#x3D;input</i> <br />
+        <b>In 3</b>: type=<i>input</i>: reset, <i>Trigger, naive rate reset</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="eviRate ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: mainphase, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: multiplier, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: reset, <i></i> <br />
-        <b>In 4</b>: type=<i>param</i> (optional): sync, default: <b>0</b>, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Rate, <i>Rate phase 0..1</i> <br />
 
       </description>
     </entry>
     <entry name="eviPhasorRate0 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: frequency, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: rate, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: reset, <i></i> <br />
-        <b>In 4</b>: type=<i>Param</i> (optional): minimumhz, default: <b>0.125</b>, min: 0, max: 1, <i></i> <br />
-        <b>In 5</b>: type=<i>Param</i> (optional): mode, default: <b>1</b>, min: 0, max: 1, <i></i> <br />
-        <b>In 6</b>: type=<i>Param</i> (optional): reverse, default: <b>1</b>, min: 0, max: 1, <i></i> <br />
-        <b>In 7</b>: type=<i>Param</i> (optional): pause, default: <b>0</b>, min: 0, max: 1, <i></i> <br />
-        <b>In 8</b>: type=<i>Param</i> (optional): phase, default: <b>0</b>, min: 0, max: 1, <i></i> <br />
+        Optionally zero reset synchronous phasor and rate combo, with pause, reverse and phase <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: frequency, <i>Main phasor frequency in Hz</i> <br />
+        <b>In 2</b>: type=<i>input</i>: rate, <i>Main rate multiplier around 1&#x3D;&#x3D;input</i> <br />
+        <b>In 3</b>: type=<i>input</i>: reset, <i>Trigger, naive phase reset</i> <br />
+        <b>In 4</b>: type=<i>Param</i> (optional): minimumhz, default: <b>0.125</b>, min: 0, max: 1, <i>Set minimum Hz for zero reset behaviour</i> <br />
+        <b>In 5</b>: type=<i>Param</i> (optional): mode, default: <b>1</b>, min: 0, max: 1, <i>Zero reset behaviour off/on</i> <br />
+        <b>In 6</b>: type=<i>Param</i> (optional): reverse, default: <b>1</b>, min: 0, max: 1, <i>Reverse allowed?</i> <br />
+        <b>In 7</b>: type=<i>Param</i> (optional): pause, default: <b>0</b>, min: 0, max: 1, <i>Pause current ramp off/on</i> <br />
+        <b>In 8</b>: type=<i>Param</i> (optional): phase, default: <b>0</b>, min: 0, max: 1, <i>Set to this phase on next reset</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
-        <b>Return 5</b>: , <i></i> <br />
-        <b>Return 6</b>: , <i></i> <br />
+        <b>Return 1</b>: thisphasor, <i>Phase 0..1</i> <br />
+        <b>Return 2</b>: thisrate, <i>Rate 0..1</i> <br />
+        <b>Return 3</b>: currentfrequency, <i>Current frequency in Hz</i> <br />
+        <b>Return 4</b>: currentrate, <i>Current rate multiplier</i> <br />
+        <b>Return 5</b>: thisdelta, <i>Phasor sync signal</i> <br />
+        <b>Return 6</b>: ratedelta, <i>Rate sync signal</i> <br />
 
       </description>
     </entry>
     <entry name="eviRamp0 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: trig, <i></i> <br />
-        <b>In 2</b>: type=<i>Param</i> (optional): duration, default: <b>1000</b>, min: 0, max: 60000, <i></i> <br />
-        <b>In 3</b>: type=<i>Param</i> (optional): zeroreset, default: <b>0</b>, min: 0, max: 1, <i></i> <br />
-        <b>In 4</b>: type=<i>Param</i> (optional): retrigger, default: <b>1</b>, min: 0, max: 1, <i></i> <br />
-        <b>In 5</b>: type=<i>Param</i> (optional): loop, default: <b>0</b>, min: 0, max: 1, <i></i> <br />
-        <b>In 6</b>: type=<i>Param</i> (optional): restingstate, default: <b>1</b>, min: 0, max: 1, <i></i> <br />
-        <b>In 7</b>: type=<i>Param</i> (optional): curve, default: <b>0</b>, min: 0, max: 1, <i></i> <br />
-        <b>In 8</b>: type=<i>Param</i> (optional): pause, default: <b>0</b>, min: 0, max: 1, <i></i> <br />
+        A bit like MSP [ramp~], optionally zero reset oneshot or looping ramp/phasor with numerous control features <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: trig, <i>Audio rate ramp trigger</i> <br />
+        <b>In 2</b>: type=<i>Param</i> (optional): duration, default: <b>1000</b>, min: 0, max: 60000, <i>Ramp duration in ms</i> <br />
+        <b>In 3</b>: type=<i>Param</i> (optional): zeroreset, default: <b>0</b>, min: 0, max: 1, <i>Zero reset phase off/on 0/1</i> <br />
+        <b>In 4</b>: type=<i>Param</i> (optional): retrigger, default: <b>1</b>, min: 0, max: 1, <i>Allow retriggering of ramp during ramp off/on 0/1</i> <br />
+        <b>In 5</b>: type=<i>Param</i> (optional): loop, default: <b>0</b>, min: 0, max: 1, <i>Loop ramp off/on 0/1 (@loop 1 &#x3D; a phasor)</i> <br />
+        <b>In 6</b>: type=<i>Param</i> (optional): restingstate, default: <b>1</b>, min: 0, max: 1, <i>Oneshot mode (@loop&#x3D;0) &#x27;rests&#x27; at zero or one 0/1</i> <br />
+        <b>In 7</b>: type=<i>Param</i> (optional): curve, default: <b>0</b>, min: 0, max: 1, <i>Make ramp s-curve off/on 0/1</i> <br />
+        <b>In 8</b>: type=<i>Param</i> (optional): pause, default: <b>0</b>, min: 0, max: 1, <i>Pause ramp output 0/1</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
+        <b>Return 1</b>: outramp, <i>Ramp 0..1</i> <br />
+        <b>Return 2</b>: carrycount, <i>How many ramps since last reset</i> <br />
+        <b>Return 3</b>: syncstart, <i>Sync trigger at start of a ramp</i> <br />
+        <b>Return 4</b>: syncend, <i>Sync trigger at end of a ramp</i> <br />
 
       </description>
     </entry>
@@ -164,6 +137,9 @@
   </metadatalist>
   <seealsolist>
     <!-- we use 'refpage' here not 'genrefpage' to trick Max -->
+    <seealso name="evi_env" type="refpage"/>
+    <seealso name="evi_lfo" type="refpage"/>
+    <seealso name="evi_sources" type="refpage"/>
   </seealsolist>
   <misc name="Discussion">
     <entry name="Keywords">

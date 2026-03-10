@@ -1,49 +1,49 @@
 {
-    "description": "",
+    "description": "Envelope (following) routines.",
     "requires": [],
     "functions": [
         {
             "document": true,
-            "digest": "",
+            "digest": "Like MSP [average~ 250 absolute]",
             "name": "averageAbsolute",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "inputSample",
-                    "digest": ""
+                    "digest": "Audio input to follow"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "windowSizeInSamples",
-                    "digest": ""
+                    "digest": "Averaging window size in samples"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Average",
+                    "digest": "Envelope output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Generalised for options, used by 'averageWrap()'",
             "name": "averageCore",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "X",
-                    "digest": ""
+                    "digest": "Value to follow"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "reset",
-                    "digest": ""
+                    "digest": "Sample accurate reset of internal state"
                 },
                 {
                     "id": 3,
@@ -51,38 +51,38 @@
                     "name": "windowSize",
                     "default": 0,
                     "type": "integer",
-                    "digest": ""
+                    "digest": "Optional window size in samples, default 1000 samples (like MSP)"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Average",
+                    "digest": "Mean average envelope output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Count",
+                    "digest": "Index count of window buffer in samples"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "This is expensive because it branches internally, but is useful if you need to switch averaging type",
             "name": "averageWrap",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "X",
-                    "digest": ""
+                    "digest": "Value to follow"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "reset",
-                    "digest": ""
+                    "digest": "Sample accurate reset of internal state"
                 },
                 {
                     "id": 3,
@@ -90,7 +90,7 @@
                     "name": "interval",
                     "default": 500,
                     "type": "integer",
-                    "digest": ""
+                    "digest": "Interval (window size) in samples"
                 },
                 {
                     "id": 4,
@@ -98,56 +98,56 @@
                     "name": "mode",
                     "default": 0,
                     "type": "integer",
-                    "digest": ""
+                    "digest": "0=bipolar, 1=absolute, 2=rms"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Average",
+                    "digest": "Mean average envelope output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Count",
+                    "digest": "Index count of window buffer in samples"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Simple, cheap and raw envelope following, intended to be used with post envelope smoothers such as in 'envFollSimple()'",
             "name": "envRawDetect",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Value to follow"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "attack",
-                    "digest": ""
+                    "digest": "Attack amount normalised 0..1"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "release",
-                    "digest": ""
+                    "digest": "Release amount normalised 0..1"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Raw",
+                    "digest": "Raw envelope values output"
                 }
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "envSad",
             "inputs": [
@@ -168,102 +168,102 @@
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Logarithmic decay envelope follower",
             "name": "envDecay",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Value to follow"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "d",
-                    "digest": ""
+                    "digest": "Decay time in SECONDS (to drop 6dB)"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Env",
+                    "digest": "Output Envelope"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Logarithmic attack/decay envelope follower",
             "name": "envAttackDecay",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Value to follow"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "a",
-                    "digest": ""
+                    "digest": "Attack time in SECONDS (to drop 6dB)"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "d",
-                    "digest": ""
+                    "digest": "Decay time in SECONDS (to drop 6dB)"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Env",
+                    "digest": "Output Envelope"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Logarithmic attack/hold/release envelope follower",
             "name": "envAttackHoldRelease",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Value to follow"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "a",
-                    "digest": ""
+                    "digest": "Attack time in SECONDS (to drop 6dB)"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "h",
-                    "digest": ""
+                    "digest": "Hold time in SECONDS"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "r",
-                    "digest": ""
+                    "digest": "Release time in SECONDS (to drop 6dB)"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Env",
+                    "digest": "Output Envelope"
                 }
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "vactrolSad",
             "inputs": [
@@ -290,68 +290,68 @@
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Vactrol time-domain behaviour filter, the resistive part of a photoresistive opto-isolator",
             "name": "vactrol",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "impulse",
-                    "digest": ""
+                    "digest": "Impulse"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "rise",
-                    "digest": ""
+                    "digest": "Rise time in SAMPLES"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "fall",
-                    "digest": ""
+                    "digest": "Fall time in SAMPLES"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Vactrol Envelope",
+                    "digest": "Output will behave similarly to a Buchla vactrol"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Quick, simple, cheap",
             "name": "envFollSimple",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "X",
-                    "digest": ""
+                    "digest": "Value to follow"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "attack",
-                    "digest": ""
+                    "digest": "Attack 0..1 represents 0..10 ms"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "release",
-                    "digest": ""
+                    "digest": "Release 0..1 represents 0..100 ms"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Env",
+                    "digest": "Output Envelope"
                 }
             ]
         }
     ],
-    "seealso": []
+    "seealso": ["evi_smooth", "evi_dynamics"]
 }

@@ -574,6 +574,7 @@
     <!-- we use 'refpage' here not 'genrefpage' to trick Max -->
     <seealso name="evi_smooth_bank" type="refpage"/>
     <seealso name="evi_interp" type="refpage"/>
+    <seealso name="evi_env" type="refpage"/>
   </seealsolist>
   <misc name="Discussion">
     <entry name="Keywords">

@@ -17,57 +17,65 @@
     evi_biquads_filters.genexpr <br />
     <br />
     <b>About this File</b>: <br />
-     <br />
+    Dynamics functions for evieve <br />
   </description>
   <misc name="GenExpr Functions">
     <entry name="limiterHardSoft ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: xL, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: xR, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: release, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: knee, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: choochoo, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: a0, <i></i> <br />
-        <b>In 7</b>: type=<i>input</i>: a1, <i></i> <br />
-        <b>In 8</b>: type=<i>input</i>: a2, <i></i> <br />
-        <b>In 9</b>: type=<i>input</i>: b1, <i></i> <br />
-        <b>In 10</b>: type=<i>input</i>: b2, <i></i> <br />
+        No lookahead crunchy fast limiter, almost the same as 'evi_limiterfast.gendsp' <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: xL, <i>Left audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: xR, <i>Right audio input</i> <br />
+        <b>In 3</b>: type=<i>input</i>: release, <i>Release time in ms</i> <br />
+        <b>In 4</b>: type=<i>input</i>: knee, <i>Knee softness 0..1</i> <br />
+        <b>In 5</b>: type=<i>input</i>: choochoo, <i>0&#x3D;clip, 1&#x3D;soft, 2&#x3D;softer</i> <br />
+        <b>In 6</b>: type=<i>input</i>: a0, <i>a0 coefficient from smoothCoeff() biquad calculator</i> <br />
+        <b>In 7</b>: type=<i>input</i>: a1, <i>a1 coefficient from smoothCoeff() biquad calculator</i> <br />
+        <b>In 8</b>: type=<i>input</i>: a2, <i>a2 coefficient from smoothCoeff() biquad calculator</i> <br />
+        <b>In 9</b>: type=<i>input</i>: b1, <i>b1 coefficient from smoothCoeff() biquad calculator</i> <br />
+        <b>In 10</b>: type=<i>input</i>: b2, <i>b2 coefficient from smoothCoeff() biquad calculator</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
+        <b>Return 1</b>: Left, <i>Left limiter output</i> <br />
+        <b>Return 2</b>: Right, <i>Right limiter output</i> <br />
+        <b>Return 3</b>: Envelope, <i>AGC dynamics envelope output (linear)</i> <br />
 
       </description>
     </entry>
     <entry name="companderAverager ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: companderCrect, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: T, <i></i> <br />
+        Averager for the compander <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: companderCrect, <i>Smoothing factor</i> <br />
+        <b>In 3</b>: type=<i>input</i>: T, <i>T</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Average, <i>Averaged output</i> <br />
 
       </description>
     </entry>
     <entry name="companderCompress ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: smoothing, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: T, <i></i> <br />
+        Compression part of the compander <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: smoothing, <i>Smoothing factor</i> <br />
+        <b>In 3</b>: type=<i>input</i>: T, <i>T</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
+        <b>Return 1</b>: Compress, <i>Audio output</i> <br />
+        <b>Return 2</b>: Envelope, <i>Compression factor envelope</i> <br />
 
       </description>
     </entry>
     <entry name="companderExpand ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: smoothing, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: T, <i></i> <br />
+        Expansion part of the compander <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: smoothing, <i>Smoothing factor</i> <br />
+        <b>In 3</b>: type=<i>input</i>: T, <i>T</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
+        <b>Return 1</b>: Expand, <i>Audio output</i> <br />
+        <b>Return 2</b>: Envelope, <i>Expansion factor envelope</i> <br />
 
       </description>
     </entry>

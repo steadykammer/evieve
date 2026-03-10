@@ -1,309 +1,309 @@
 {
-    "description": "",
+    "description": "A collection of Linear TPT Lowpass Butterworth filters orders 1..8, including all-in-one selector. These are surgical filters but can still be updated alias-free at audio rate if required. Very useful for clean top and tail of audio chains. For the constants calculations @see: 'evi_butterworth8_coeffs.js'",
     "requires": [],
     "functions": [
         {
             "document": true,
-            "digest": "",
+            "digest": "Frequency warping for the Butterworth filters",
             "name": "fWarp",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "cf",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "g",
+                    "digest": "Warped frequency 0..HALFPI"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "TPT onepole filter section for creating Butterworth cascades",
             "name": "lp1p",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "g",
-                    "digest": ""
+                    "digest": "Warped cutoff"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Filter",
+                    "digest": "Audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "TPT twopole filter section for creating Butterworth cascades",
             "name": "lp2p",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "g",
-                    "digest": ""
+                    "digest": "Warped cutoff"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "r",
-                    "digest": ""
+                    "digest": "Butterworth coefficient"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Filter",
+                    "digest": "Audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "First order Butterworth lowpass",
             "name": "butterworthLowpass1",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "X",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "G",
-                    "digest": ""
+                    "digest": "Warped cutoff"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Lowpass",
+                    "digest": "Lowpass 1 output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Second order Butterworth lowpass",
             "name": "butterworthLowpass2",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "X",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "G",
-                    "digest": ""
+                    "digest": "Warped cutoff"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Lowpass",
+                    "digest": "Lowpass 2 output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Third order Butterworth lowpass",
             "name": "butterworthLowpass3",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "X",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "G",
-                    "digest": ""
+                    "digest": "Warped cutoff"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Lowpass",
+                    "digest": "Lowpass 3 output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Fourth order Butterworth lowpass",
             "name": "butterworthLowpass4",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "X",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "G",
-                    "digest": ""
+                    "digest": "Warped cutoff"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Lowpass",
+                    "digest": "Lowpass 4 output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Fifth order Butterworth lowpass",
             "name": "butterworthLowpass5",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "X",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "G",
-                    "digest": ""
+                    "digest": "Warped cutoff"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Lowpass",
+                    "digest": "Lowpass 5 output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Sixth order Butterworth lowpass",
             "name": "butterworthLowpass6",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "X",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "G",
-                    "digest": ""
+                    "digest": "Warped cutoff"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Lowpass",
+                    "digest": "Lowpass 6 output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Seventh order Butterworth lowpass",
             "name": "butterworthLowpass7",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "X",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "G",
-                    "digest": ""
+                    "digest": "Warped cutoff"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Lowpass",
+                    "digest": "Lowpass 7 output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Eighth order Butterworth lowpass",
             "name": "butterworthLowpass8",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "X",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "G",
-                    "digest": ""
+                    "digest": "Warped cutoff"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Lowpass",
+                    "digest": "Lowpass 8 output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Variable order Butterworth lowpass selectable between 1st and 8th orders",
             "name": "linearButterworthLP8",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "X",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 3,
@@ -311,14 +311,14 @@
                     "name": "order",
                     "default": 3,
                     "type": "integer",
-                    "digest": ""
+                    "digest": "Filter Order 0..8, 0==bypass"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Lowpass",
+                    "digest": "Butterworth lowpass of selected order"
                 }
             ]
         }

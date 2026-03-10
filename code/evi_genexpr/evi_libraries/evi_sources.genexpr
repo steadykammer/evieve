@@ -143,7 +143,7 @@ eviRandy(p)											// phasor input, not frequency
 	d = (delta(p)) < 0;                            	// assumes positive freq only
 	n = noise();
     ym1, y0, y1, y2 = eviRands(d, n * sqrt1_2);
-    r = interp(p, ym1, y0, y1, y2, mode="fastcubic");// & "cubic" does not work for eviRandy() anyway
+    r = interp(p, ym1, y0, y1, y2, mode="fastcubic");// & "cubic" (tri) does not work for eviRandy() anyway
     return r, n;
 }
 
@@ -152,7 +152,7 @@ eviRandyN(p, n)										// phasor input not frequency, and external noise sourc
 	History randyn(0);
 	d = (delta(p)) < 0;                            	// assumes positive freq only
     ym1, y0, y1, y2 = eviRands(d, n * sqrt1_2);
-    r = interp(p, ym1, y0, y1, y2, mode="fastcubic");// & "cubic" does not work for eviRandy() anyway
+    r = interp(p, ym1, y0, y1, y2, mode="fastcubic");// & "cubic" (tri) does not work for eviRandy() anyway
     return r;
 }
 

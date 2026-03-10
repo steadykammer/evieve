@@ -1,53 +1,53 @@
 {
-    "description": "",
+    "description": "A collection of non-oscillator sources and related code. Different types of noise as well as novel random LFOs.",
     "requires": [],
     "functions": [
         {
             "document": true,
-            "digest": "",
+            "digest": "A variable gain spikey dusty noise source with variable frequency",
             "name": "audioDust",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "freq",
-                    "digest": ""
+                    "digest": "Frequency in Hz"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "dust",
+                    "digest": "The audio dust output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "white",
+                    "digest": "Synchronised white noise output"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "sync",
+                    "digest": "Full gain sync signal with every piece of dust"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "A 'sparse noise' algorithm (similar to 'audioDust()') mixable with a full 'velvet noise' algorithm",
             "name": "sparseVelvetNoise",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "freq",
-                    "digest": ""
+                    "digest": "Frequency in Hz"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "mix",
-                    "digest": ""
+                    "digest": "Mix 0..1 between sparse noise..velvet noise"
                 },
                 {
                     "id": 3,
@@ -55,67 +55,67 @@
                     "name": "amp",
                     "default": 1,
                     "type": "integer",
-                    "digest": ""
+                    "digest": "The amplitude of the noise, typically left at '1'"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "mixNoise",
+                    "digest": "The mix of sparse and velvet noise"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "sparseNoise",
+                    "digest": "Just the sparse noise algorithm"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "velvetNoise",
+                    "digest": "Just the velvet noise algorithm"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Not-really box-muller gaussian noise distribution implementation",
             "name": "gaussianNoise",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
-                    "name": "gain",
-                    "digest": ""
+                    "name": "sort-of gain",
+                    "digest": "A gain of 0.6403882032022076 gives very close to unity amplitude (-1..1) output"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "gaussian",
+                    "digest": "The gaussian noise output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Xoshiro256",
+                    "digest": "Synchronised white noise output"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "cosXos",
+                    "digest": "Synchronised cosine noise output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Zero crossing detector, like [zerox~] from RNBO or MSP",
             "name": "likeZerox",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input to be analysed"
                 },
                 {
                     "id": 2,
@@ -123,7 +123,7 @@
                     "name": "windowSize",
                     "default": 0,
                     "type": "integer",
-                    "digest": ""
+                    "digest": "Window size in samples, default 64, typically vectorsize"
                 },
                 {
                     "id": 3,
@@ -131,37 +131,37 @@
                     "name": "threshold",
                     "default": 0.1,
                     "type": "float",
-                    "digest": ""
+                    "digest": "Threshold above which the number of zero crossings reports a count"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "lastCount",
+                    "digest": "Number of crossings in most recent window"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "voiced",
+                    "digest": "Gate triggered by threshold"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "crossing",
+                    "digest": "Current crossings"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Simple zero crossing detector with a fixed window sie of vectorsize, a bit like the gen~ example",
             "name": "simpleZerox",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input to be analysed"
                 },
                 {
                     "id": 2,
@@ -169,265 +169,265 @@
                     "name": "threshold",
                     "default": 0.1,
                     "type": "float",
-                    "digest": ""
+                    "digest": "Threshold above which the number of zero crossings reports a count"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "periodCount",
+                    "digest": "Number of crossings in most recent window"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "voiced",
+                    "digest": "Gate triggered by threshold"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "crossing",
+                    "digest": "Current crossings"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Like [rand~] from MSP (linear), very predictable and gives exact notches",
             "name": "eviRand",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "p",
-                    "digest": ""
+                    "digest": "Phasor driver 0..1 (not frequency)"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "nv",
+                    "digest": "Rand oscillator output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "n",
+                    "digest": "Internal white noise source sync"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Like 'eviRand()' but with external noise source",
             "name": "eviRandN",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "p",
-                    "digest": ""
+                    "digest": "Phasor driver 0..1 (not frequency)"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "n",
-                    "digest": ""
+                    "digest": "External noise source from which rand is derived"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "nv",
+                    "digest": "Rand oscillator output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Like 'eviRand()' but ready for cubic interpolation, called by 'eviRandy()'",
             "name": "eviRands",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "d0",
-                    "digest": ""
+                    "digest": "Delta sync of phasor source"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "x2",
-                    "digest": ""
+                    "digest": "External noise source from which rand is derived"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "vm1",
+                    "digest": "Cubic interpolator output 1"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "v0",
+                    "digest": "Cubic interpolator output 2"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "v1",
+                    "digest": "Cubic interpolator output 3"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "v2",
+                    "digest": "Cubic interpolator output 4"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Like 'eviRand()' but cubic interpolated, rolls off much faster",
             "name": "eviRandy",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "p",
-                    "digest": ""
+                    "digest": "Phasor driver 0..1 (not frequency)"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "r",
+                    "digest": "Randy oscillator output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "n",
+                    "digest": "Internal white noise source sync"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Like 'eviRandy()' but with external noise source",
             "name": "eviRandyN",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "p",
-                    "digest": ""
+                    "digest": "Phasor driver 0..1 (not frequency)"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "n",
-                    "digest": ""
+                    "digest": "External noise source from which rand is derived"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "r",
+                    "digest": "Randy oscillator output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "4-point catmull rom cubic spline interpolator with bias and tension parameters",
             "name": "catmullRomSplineDynamic",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "f",
-                    "digest": ""
+                    "digest": "Interpolator 0..1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "y0",
-                    "digest": ""
+                    "digest": "Cubic interpolator input 1"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "y1",
-                    "digest": ""
+                    "digest": "Cubic interpolator input 2"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "y2",
-                    "digest": ""
+                    "digest": "Cubic interpolator input 3"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "y3",
-                    "digest": ""
+                    "digest": "Cubic interpolator input 4"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "bias",
-                    "digest": ""
+                    "digest": "Bias control, signed"
                 },
                 {
                     "id": 7,
                     "kind": "input",
                     "name": "tension",
-                    "digest": ""
+                    "digest": "Tension control, signed"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "spline",
+                    "digest": "Spline interpolated output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "A very (and needlessly) expensive spline interpolated random LFO",
             "name": "eviRandLfo",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "hz",
-                    "digest": ""
+                    "digest": "Frequency in Hz"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "skew",
-                    "digest": ""
+                    "digest": "Skew the wave, must be clamped -1..1"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "reset",
-                    "digest": ""
+                    "digest": "Hard reset of internal phase"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "r",
+                    "digest": "Random LFO -1..1"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "x",
+                    "digest": "Internal white noise source sync"
                 }
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "opIIR",
             "inputs": [
@@ -453,7 +453,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "levelDetect",
             "inputs": [
@@ -485,7 +485,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "integrateN",
             "inputs": [
@@ -523,7 +523,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "leakyIntegrateN",
             "inputs": [
@@ -573,7 +573,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "noiseGenerate",
             "inputs": [
@@ -616,7 +616,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "lossinessN",
             "inputs": [
@@ -659,7 +659,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "lossinessN2",
             "inputs": [
@@ -712,5 +712,5 @@
             ]
         }
     ],
-    "seealso": []
+    "seealso": ["evi_env", "evi_lfo", "evi_counting", "evi_polyblep"]
 }

@@ -1,9 +1,9 @@
 {
-    "description": "",
+    "description": "A very long time ago this was called 'stkr.waveshaping.genexpr'. A collection of memoryless nonlinearities for waveshaping etc. Note: all of these functions are naive and need anti-aliasing / resampling to be of any use. @see: 'evi_adaa.genexpr' for anti-derivative anti-aliasing and 'evi_saturators.genexpr' for oversampling.",
     "requires": [],
     "functions": [
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "localExpA",
             "inputs": [
@@ -416,7 +416,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "cosQ32p",
             "inputs": [
@@ -436,7 +436,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "cos32quad12p",
             "inputs": [
@@ -637,5 +637,5 @@
             ]
         }
     ],
-    "seealso": []
+    "seealso": ["evi_adaa", "evi_saturators", "evi_tanh", "evi_resampling_templates"]
 }

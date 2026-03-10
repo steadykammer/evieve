@@ -1,11 +1,11 @@
 {
-    "description": "",
+    "description": "A collection of computed but efficient LFOs",
     "requires": [
         "evi_sources.genexpr"
     ],
     "functions": [
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "fastskewlfo052neg",
             "inputs": [
@@ -31,7 +31,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "fastskewlfo052pos",
             "inputs": [
@@ -57,7 +57,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "fastskewlfo052ar",
             "inputs": [
@@ -84,44 +84,44 @@
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "A computed but cheap LFO that can morph between triangle and sine shapes, requires phase 0..1 input, produces wave shape output in tange 0..1",
             "name": "lfoMix",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "phase",
-                    "digest": ""
+                    "digest": "Phase 0..1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "duty",
-                    "digest": ""
+                    "digest": "Duty of triangle wave, 0..1, 0.5==tri"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "shape",
-                    "digest": ""
+                    "digest": "Morph between tri..sine 0..1"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "skew",
-                    "digest": ""
+                    "digest": "Skew exponent of LFO output, 0.5..2, 1==no skew"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "LFO",
+                    "digest": "Wave output in range 0..1"
                 }
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "tanhC",
             "inputs": [
@@ -141,7 +141,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "triC",
             "inputs": [
@@ -180,80 +180,80 @@
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Collection of computed switchable LFOs, all wave selections in output range 0..1",
             "name": "lfoShapes01",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "phase",
-                    "digest": ""
+                    "digest": "Phase 0..1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "sync",
-                    "digest": ""
+                    "digest": "The sync of the phase input required for random LFOs"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "width",
-                    "digest": ""
+                    "digest": "Pulse width input 0..1 for LFOs that require it (3=tri, 5=tanh, 6=square)"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "wave",
-                    "digest": ""
+                    "digest": "0=bypass, 1=ramp up, 2=ramp down, 3=tri, 4=sine (default), 5=tanh, 6=square, 7=rand step, 8=rand linear, 9=rand cubic, 10=noise"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "LFO",
+                    "digest": "Selected LFO wave in range 0..1"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Collection of computed switchable LFOs, all wave selections in output range -1..1",
             "name": "lfoShapes11",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "phase",
-                    "digest": ""
+                    "digest": "Phase 0..1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "sync",
-                    "digest": ""
+                    "digest": "The sync of the phase input required for random LFOs"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "width",
-                    "digest": ""
+                    "digest": "Pulse width input 0..1 for LFOs that require it (3=tri, 5=tanh, 6=square)"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "wave",
-                    "digest": ""
+                    "digest": "0=bypass, 1=ramp up, 2=ramp down, 3=tri, 4=sine (default), 5=tanh, 6=square, 7=rand step, 8=rand linear, 9=rand cubic, 10=noise"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "LFO",
+                    "digest": "Selected LFO wave in range -1..1"
                 }
             ]
         }
     ],
-    "seealso": []
+    "seealso": ["evi_env", "evi_sources", "evi_interp", "evi_fastskew"]
 }

@@ -1,5 +1,5 @@
 {
-    "description": "",
+    "description": "Dynamics functions for evieve",
     "requires": [
         "evi_smooth.genexpr",
         "evi_clip.genexpr",
@@ -9,191 +9,191 @@
     "functions": [
         {
             "document": true,
-            "digest": "",
+            "digest": "No lookahead crunchy fast limiter, almost the same as 'evi_limiterfast.gendsp'",
             "name": "limiterHardSoft",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "xL",
-                    "digest": ""
+                    "digest": "Left audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "xR",
-                    "digest": ""
+                    "digest": "Right audio input"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "release",
-                    "digest": ""
+                    "digest": "Release time in ms"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "knee",
-                    "digest": ""
+                    "digest": "Knee softness 0..1"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "choochoo",
-                    "digest": ""
+                    "digest": "0=clip, 1=soft, 2=softer"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "a0",
-                    "digest": ""
+                    "digest": "a0 coefficient from smoothCoeff() biquad calculator"
                 },
                 {
                     "id": 7,
                     "kind": "input",
                     "name": "a1",
-                    "digest": ""
+                    "digest": "a1 coefficient from smoothCoeff() biquad calculator"
                 },
                 {
                     "id": 8,
                     "kind": "input",
                     "name": "a2",
-                    "digest": ""
+                    "digest": "a2 coefficient from smoothCoeff() biquad calculator"
                 },
                 {
                     "id": 9,
                     "kind": "input",
                     "name": "b1",
-                    "digest": ""
+                    "digest": "b1 coefficient from smoothCoeff() biquad calculator"
                 },
                 {
                     "id": 10,
                     "kind": "input",
                     "name": "b2",
-                    "digest": ""
+                    "digest": "b2 coefficient from smoothCoeff() biquad calculator"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Left",
+                    "digest": "Left limiter output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Right",
+                    "digest": "Right limiter output"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "Envelope",
+                    "digest": "AGC dynamics envelope output (linear)"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Averager for the compander",
             "name": "companderAverager",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x0",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "companderCrect",
-                    "digest": ""
+                    "digest": "Smoothing factor"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "T",
-                    "digest": ""
+                    "digest": "T"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Average",
+                    "digest": "Averaged output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Compression part of the compander",
             "name": "companderCompress",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "smoothing",
-                    "digest": ""
+                    "digest": "Smoothing factor"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "T",
-                    "digest": ""
+                    "digest": "T"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Compress",
+                    "digest": "Audio output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Envelope",
+                    "digest": "Compression factor envelope"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Expansion part of the compander",
             "name": "companderExpand",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "smoothing",
-                    "digest": ""
+                    "digest": "Smoothing factor"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "T",
-                    "digest": ""
+                    "digest": "T"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Expand",
+                    "digest": "Audio output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Envelope",
+                    "digest": "Expansion factor envelope"
                 }
             ]
         }

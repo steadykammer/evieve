@@ -11,17 +11,9 @@
     By declaring <m>require("evi_waveshaping.genexpr");</m> at the top of a codebox you can then access all of the functions included in this file. <br />
         <br />
     <b>About this File</b>: <br />
-     <br />
+    A very long time ago this was called 'stkr.waveshaping.genexpr'. A collection of memoryless nonlinearities for waveshaping etc. Note: all of these functions are naive and need anti-aliasing / resampling to be of any use. @see: 'evi_adaa.genexpr' for anti-derivative anti-aliasing and 'evi_saturators.genexpr' for oversampling. <br />
   </description>
   <misc name="GenExpr Functions">
-    <entry name="localExpA ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
     <entry name="tanhLApprox ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
@@ -167,22 +159,6 @@
 
       </description>
     </entry>
-    <entry name="cosQ32p ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="cos32quad12p ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
     <entry name="sinParam ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: drive, <i></i> <br />
@@ -254,6 +230,10 @@
   </metadatalist>
   <seealsolist>
     <!-- we use 'refpage' here not 'genrefpage' to trick Max -->
+    <seealso name="evi_adaa" type="refpage"/>
+    <seealso name="evi_saturators" type="refpage"/>
+    <seealso name="evi_tanh" type="refpage"/>
+    <seealso name="evi_resampling_templates" type="refpage"/>
   </seealsolist>
   <misc name="Discussion">
     <entry name="Keywords">

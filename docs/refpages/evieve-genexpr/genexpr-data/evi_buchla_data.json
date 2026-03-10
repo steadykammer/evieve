@@ -1,12 +1,12 @@
 {
-    "description": "",
+    "description": "Buchla Lowpass Gate emulation. A filter modified from 'A Digital Model of the Buchla Lowpass-Gate' by Julian Parker and Stefano D’Angelo, 2013. This file renders 8 different versions of the filter for 1x..8x oversampling (with multiple passes of the processing loop in each one) and their subsequent oversampled functions. These can be used entirely inside gen~ code without resorting to using an external [poly~] for the resampling. Note, this file contains only the filter without the feeding circuit control. For an MSP/[poly~] version with circuit control see the [evi.lpg~] abstraction instead.",
     "requires": [
         "evi_interp.genexpr",
         "evi_smooth.genexpr"
     ],
     "functions": [
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "tanhLapprox",
             "inputs": [
@@ -26,7 +26,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "cubicClip",
             "inputs": [
@@ -46,7 +46,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "nonlin",
             "inputs": [
@@ -73,86 +73,86 @@
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "1x version of the filter. This version is unique in this file in that it offers 3 simultaneous outlets for mixing (LP, BP, HP) but not being oversampled it is not very useful.",
             "name": "buchlaLpg1",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio Input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "rf",
-                    "digest": ""
+                    "digest": "Voltage (not Hz) controls cutoff"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "res",
-                    "digest": ""
+                    "digest": "Resonance 0..2.."
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "resist",
-                    "digest": ""
+                    "digest": "Additional resistors 0..1, also known as 'Boom'"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "vcamode",
-                    "digest": ""
+                    "digest": "Vca mode 0..1, also known as 'Damp'"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "lpgmode",
-                    "digest": ""
+                    "digest": "Filter/LPG mode flag 0/1"
                 },
                 {
                     "id": 7,
                     "kind": "input",
                     "name": "nl",
-                    "digest": ""
+                    "digest": "Nonlin flag 0/1, switch linear/nonliner, typically on"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "LPG",
+                    "digest": "Lowpass Gate output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "BP",
+                    "digest": "Bandpass filter output"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "HP",
+                    "digest": "Highpass filter output"
                 }
             ]
         },
         {
-            "document": true,
-            "digest": "",
+            "document": false,
+            "digest": "2x version of the filter, for use by the 'buchlaLpg2_2x()' oversampler",
             "name": "buchlaLpg2",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x0",
-                    "digest": ""
+                    "digest": "Oversampling audio input 1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "x1",
-                    "digest": ""
+                    "digest": "Oversampling audio input 2"
                 },
                 {
                     "id": 3,
@@ -195,37 +195,37 @@
                 {
                     "id": 1,
                     "name": "",
-                    "digest": ""
+                    "digest": "Oversampling audio output 1"
                 },
                 {
                     "id": 2,
                     "name": "",
-                    "digest": ""
+                    "digest": "Oversampling audio output 2"
                 }
             ]
         },
         {
-            "document": true,
-            "digest": "",
+            "document": false,
+            "digest": "3x version of the filter, for use by the 'buchlaLpg3_3x()' oversampler",
             "name": "buchlaLpg3",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x0",
-                    "digest": ""
+                    "digest": "Oversampling audio input 1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "x1",
-                    "digest": ""
+                    "digest": "Oversampling audio input 2"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "x2",
-                    "digest": ""
+                    "digest": "Oversampling audio input 3"
                 },
                 {
                     "id": 4,
@@ -268,48 +268,48 @@
                 {
                     "id": 1,
                     "name": "",
-                    "digest": ""
+                    "digest": "Oversampling audio output 1"
                 },
                 {
                     "id": 2,
                     "name": "",
-                    "digest": ""
+                    "digest": "Oversampling audio output 2"
                 },
                 {
                     "id": 3,
                     "name": "",
-                    "digest": ""
+                    "digest": "Oversampling audio output 3"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "4x version of the filter, for use by the 'buchlaLpg4_4x()' oversampler",
             "name": "buchlaLpg4",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x0",
-                    "digest": ""
+                    "digest": "Oversampling audio input 1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "x1",
-                    "digest": ""
+                    "digest": "Oversampling audio input 2"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "x2",
-                    "digest": ""
+                    "digest": "Oversampling audio input 3"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "x3",
-                    "digest": ""
+                    "digest": "Oversampling audio input 4"
                 },
                 {
                     "id": 5,
@@ -352,65 +352,65 @@
                 {
                     "id": 1,
                     "name": "",
-                    "digest": ""
+                    "digest": "Oversampling audio output 1"
                 },
                 {
                     "id": 2,
                     "name": "",
-                    "digest": ""
+                    "digest": "Oversampling audio output 2"
                 },
                 {
                     "id": 3,
                     "name": "",
-                    "digest": ""
+                    "digest": "Oversampling audio output 3"
                 },
                 {
                     "id": 4,
                     "name": "",
-                    "digest": ""
+                    "digest": "Oversampling audio output 4"
                 }
             ]
         },
         {
-            "document": true,
-            "digest": "",
+            "document": false,
+            "digest": "6x version of the filter, for use by the 'buchlaLpg6_6x()' oversampler",
             "name": "buchlaLpg6",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x0",
-                    "digest": ""
+                    "digest": "Oversampling audio input 1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "x1",
-                    "digest": ""
+                    "digest": "Oversampling audio input 2"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "x2",
-                    "digest": ""
+                    "digest": "Oversampling audio input 3"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "x3",
-                    "digest": ""
+                    "digest": "Oversampling audio input 4"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "x4",
-                    "digest": ""
+                    "digest": "Oversampling audio input 5"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "x5",
-                    "digest": ""
+                    "digest": "Oversampling audio input 6"
                 },
                 {
                     "id": 7,
@@ -453,87 +453,87 @@
                 {
                     "id": 1,
                     "name": "",
-                    "digest": ""
+                    "digest": "Oversampling audio output 1"
                 },
                 {
                     "id": 2,
                     "name": "",
-                    "digest": ""
+                    "digest": "Oversampling audio output 2"
                 },
                 {
                     "id": 3,
                     "name": "",
-                    "digest": ""
+                    "digest": "Oversampling audio output 3"
                 },
                 {
                     "id": 4,
                     "name": "",
-                    "digest": ""
+                    "digest": "Oversampling audio output 4"
                 },
                 {
                     "id": 5,
                     "name": "",
-                    "digest": ""
+                    "digest": "Oversampling audio output 5"
                 },
                 {
                     "id": 6,
                     "name": "",
-                    "digest": ""
+                    "digest": "Oversampling audio output 6"
                 }
             ]
         },
         {
-            "document": true,
-            "digest": "",
+            "document": false,
+            "digest": "8x version of the filter, for use by the 'buchlaLpg8_8x()' oversampler",
             "name": "buchlaLpg8",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x0",
-                    "digest": ""
+                    "digest": "Oversampling audio input 1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "x1",
-                    "digest": ""
+                    "digest": "Oversampling audio input 2"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "x2",
-                    "digest": ""
+                    "digest": "Oversampling audio input 3"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "x3",
-                    "digest": ""
+                    "digest": "Oversampling audio input 4"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "x4",
-                    "digest": ""
+                    "digest": "Oversampling audio input 5"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "x5",
-                    "digest": ""
+                    "digest": "Oversampling audio input 6"
                 },
                 {
                     "id": 7,
                     "kind": "input",
                     "name": "x6",
-                    "digest": ""
+                    "digest": "Oversampling audio input 7"
                 },
                 {
                     "id": 8,
                     "kind": "input",
                     "name": "x7",
-                    "digest": ""
+                    "digest": "Oversampling audio input 8"
                 },
                 {
                     "id": 9,
@@ -576,325 +576,325 @@
                 {
                     "id": 1,
                     "name": "",
-                    "digest": ""
+                    "digest": "Oversampling audio output 1"
                 },
                 {
                     "id": 2,
                     "name": "",
-                    "digest": ""
+                    "digest": "Oversampling audio output 2"
                 },
                 {
                     "id": 3,
                     "name": "",
-                    "digest": ""
+                    "digest": "Oversampling audio output 3"
                 },
                 {
                     "id": 4,
                     "name": "",
-                    "digest": ""
+                    "digest": "Oversampling audio output 4"
                 },
                 {
                     "id": 5,
                     "name": "",
-                    "digest": ""
+                    "digest": "Oversampling audio output 5"
                 },
                 {
                     "id": 6,
                     "name": "",
-                    "digest": ""
+                    "digest": "Oversampling audio output 6"
                 },
                 {
                     "id": 7,
                     "name": "",
-                    "digest": ""
+                    "digest": "Oversampling audio output 7"
                 },
                 {
                     "id": 8,
                     "name": "",
-                    "digest": ""
+                    "digest": "Oversampling audio output 8"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "2x oversampled version of the filter",
             "name": "buchlaLpg2_2x",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN",
-                    "digest": ""
+                    "digest": "Audio Input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "rf",
-                    "digest": ""
+                    "digest": "Voltage (not Hz) controls cutoff"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "res",
-                    "digest": ""
+                    "digest": "Resonance 0..2.."
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "resist",
-                    "digest": ""
+                    "digest": "Additional resistors 0..1, also known as 'Boom'"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "vcamode",
-                    "digest": ""
+                    "digest": "Vca mode 0..1, also known as 'Damp'"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "lpgmode",
-                    "digest": ""
+                    "digest": "Filter/LPG mode flag 0/1"
                 },
                 {
                     "id": 7,
                     "kind": "input",
                     "name": "nl",
-                    "digest": ""
+                    "digest": "Nonlin flag 0/1, switch linear/nonliner, typically on"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "LPG",
+                    "digest": "Buchla Lowpass Gate output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "3x oversampled version of the filter",
             "name": "buchlaLpg3_3x",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN",
-                    "digest": ""
+                    "digest": "Audio Input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "rf",
-                    "digest": ""
+                    "digest": "Voltage (not Hz) controls cutoff"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "res",
-                    "digest": ""
+                    "digest": "Resonance 0..2.."
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "resist",
-                    "digest": ""
+                    "digest": "Additional resistors 0..1, also known as 'Boom'"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "vcamode",
-                    "digest": ""
+                    "digest": "Vca mode 0..1, also known as 'Damp'"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "lpgmode",
-                    "digest": ""
+                    "digest": "Filter/LPG mode flag 0/1"
                 },
                 {
                     "id": 7,
                     "kind": "input",
                     "name": "nl",
-                    "digest": ""
+                    "digest": "Nonlin flag 0/1, switch linear/nonliner, typically on"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "LPG",
+                    "digest": "Buchla Lowpass Gate output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "4x oversampled version of the filter",
             "name": "buchlaLpg4_4x",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN",
-                    "digest": ""
+                    "digest": "Audio Input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "rf",
-                    "digest": ""
+                    "digest": "Voltage (not Hz) controls cutoff"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "res",
-                    "digest": ""
+                    "digest": "Resonance 0..2.."
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "resist",
-                    "digest": ""
+                    "digest": "Additional resistors 0..1, also known as 'Boom'"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "vcamode",
-                    "digest": ""
+                    "digest": "Vca mode 0..1, also known as 'Damp'"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "lpgmode",
-                    "digest": ""
+                    "digest": "Filter/LPG mode flag 0/1"
                 },
                 {
                     "id": 7,
                     "kind": "input",
                     "name": "nl",
-                    "digest": ""
+                    "digest": "Nonlin flag 0/1, switch linear/nonliner, typically on"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "LPG",
+                    "digest": "Buchla Lowpass Gate output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "6x oversampled version of the filter",
             "name": "buchlaLpg6_6x",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN",
-                    "digest": ""
+                    "digest": "Audio Input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "rf",
-                    "digest": ""
+                    "digest": "Voltage (not Hz) controls cutoff"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "res",
-                    "digest": ""
+                    "digest": "Resonance 0..2.."
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "resist",
-                    "digest": ""
+                    "digest": "Additional resistors 0..1, also known as 'Boom'"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "vcamode",
-                    "digest": ""
+                    "digest": "Vca mode 0..1, also known as 'Damp'"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "lpgmode",
-                    "digest": ""
+                    "digest": "Filter/LPG mode flag 0/1"
                 },
                 {
                     "id": 7,
                     "kind": "input",
                     "name": "nl",
-                    "digest": ""
+                    "digest": "Nonlin flag 0/1, switch linear/nonliner, typically on"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "LPG",
+                    "digest": "Buchla Lowpass Gate output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "8x oversampled version of the filter",
             "name": "buchlaLpg8_8x",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN",
-                    "digest": ""
+                    "digest": "Audio Input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "rf",
-                    "digest": ""
+                    "digest": "Voltage (not Hz) controls cutoff"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "res",
-                    "digest": ""
+                    "digest": "Resonance 0..2.."
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "resist",
-                    "digest": ""
+                    "digest": "Additional resistors 0..1, also known as 'Boom'"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "vcamode",
-                    "digest": ""
+                    "digest": "Vca mode 0..1, also known as 'Damp'"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "lpgmode",
-                    "digest": ""
+                    "digest": "Filter/LPG mode flag 0/1"
                 },
                 {
                     "id": 7,
                     "kind": "input",
                     "name": "nl",
-                    "digest": ""
+                    "digest": "Nonlin flag 0/1, switch linear/nonliner, typically on"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "LPG",
+                    "digest": "Buchla Lowpass Gate output"
                 }
             ]
         }
     ],
-    "seealso": []
+    "seealso": ["evi_interp", "evi_resampling_templates"]
 }

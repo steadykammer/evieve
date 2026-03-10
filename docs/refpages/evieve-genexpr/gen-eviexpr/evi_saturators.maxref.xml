@@ -15,416 +15,494 @@
     evi_interp.genexpr <br />
     <br />
     <b>About this File</b>: <br />
-     <br />
+    This file performs quasi resampling on all of the antiderivitive anti-aliasing saturators contained in 'evi_adaa.genexpr'. <br />
   </description>
   <misc name="GenExpr Functions">
     <entry name="hardclipAdaa1_2x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        Adaa1, 2x oversampling, 6-point interpolator, hard clip function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Hard clip, <i>Anti-aliased audio output</i> <br />
 
       </description>
     </entry>
     <entry name="hardclipAdaa1_4x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        Adaa1, 4x oversampling, 6-point interpolator, hard clip function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Hard clip, <i>Anti-aliased audio output</i> <br />
 
       </description>
     </entry>
     <entry name="hardclipAdaa2_2x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        Adaa2, 2x oversampling, 6-point interpolator, hard clip function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Hard clip, <i>Anti-aliased audio output</i> <br />
 
       </description>
     </entry>
     <entry name="hardclipAdaa2_4x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        Adaa2, 4x oversampling, 6-point interpolator, hard clip function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Hard clip, <i>Anti-aliased audio output</i> <br />
 
       </description>
     </entry>
     <entry name="halfrectAdaa1_2x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        Adaa1, 2x oversampling, 6-point interpolator, half rectified sine function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Half Rectified Sine, <i>Anti-aliased audio output</i> <br />
 
       </description>
     </entry>
     <entry name="halfrectAdaa1_4x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        Adaa1, 4x oversampling, 6-point interpolator, half rectified sine function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Half Rectified Sine, <i>Anti-aliased audio output</i> <br />
 
       </description>
     </entry>
     <entry name="halfrectAdaa2_2x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        Adaa2, 2x oversampling, 6-point interpolator, half rectified sine function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Half Rectified Sine, <i>Anti-aliased audio output</i> <br />
 
       </description>
     </entry>
     <entry name="halfrectAdaa2_4x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        Adaa2, 4x oversampling, 6-point interpolator, half rectified sine function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Half Rectified Sine, <i>Anti-aliased audio output</i> <br />
 
       </description>
     </entry>
     <entry name="powerAdaa1_2x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        Adaa1, 2x oversampling, 6-point interpolator, power function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Power, <i>Anti-aliased audio output</i> <br />
 
       </description>
     </entry>
     <entry name="powerAdaa1_4x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        Adaa1, 4x oversampling, 6-point interpolator, power function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Power, <i>Anti-aliased audio output</i> <br />
 
       </description>
     </entry>
     <entry name="powerAdaa2_2x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        Adaa2, 2x oversampling, 6-point interpolator, power function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Power, <i>Anti-aliased audio output</i> <br />
 
       </description>
     </entry>
     <entry name="powerAdaa2_4x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        Adaa2, 4x oversampling, 6-point interpolator, power function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Power, <i>Anti-aliased audio output</i> <br />
 
       </description>
     </entry>
     <entry name="softclip2Adaa1_2x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        Adaa1, 2x oversampling, 6-point interpolator, soft clip function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Soft Clip, <i>Anti-aliased audio output</i> <br />
 
       </description>
     </entry>
     <entry name="softclip2Adaa1_4x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        Adaa1, 4x oversampling, 6-point interpolator, soft clip function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Soft Clip, <i>Anti-aliased audio output</i> <br />
 
       </description>
     </entry>
     <entry name="softclip2Adaa2_2x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        Adaa2, 2x oversampling, 6-point interpolator, soft clip function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Soft Clip, <i>Anti-aliased audio output</i> <br />
 
       </description>
     </entry>
     <entry name="softclip2Adaa2_4x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        Adaa2, 4x oversampling, 6-point interpolator, soft clip function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Soft Clip, <i>Anti-aliased audio output</i> <br />
 
       </description>
     </entry>
     <entry name="softclipNAdaa1_2x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        Adaa1, 2x oversampling, 6-point interpolator, soft clip function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Soft Clip, <i>Anti-aliased audio output</i> <br />
 
       </description>
     </entry>
     <entry name="softclipNAdaa1_4x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        Adaa1, 4x oversampling, 6-point interpolator, soft clip function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Soft Clip, <i>Anti-aliased audio output</i> <br />
 
       </description>
     </entry>
     <entry name="softclipNAdaa2_2x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        Adaa2, 2x oversampling, 6-point interpolator, soft clip function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Soft Clip, <i>Anti-aliased audio output</i> <br />
 
       </description>
     </entry>
     <entry name="softclipNAdaa2_4x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        Adaa2, 4x oversampling, 6-point interpolator, soft clip function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Soft Clip, <i>Anti-aliased audio output</i> <br />
 
       </description>
     </entry>
     <entry name="atanAdaa1_2x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        Adaa1, 2x oversampling, 6-point interpolator, atan function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Atan Saturation, <i>Anti-aliased audio output</i> <br />
 
       </description>
     </entry>
     <entry name="atanAdaa1_4x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        Adaa1, 4x oversampling, 6-point interpolator, atan function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Atan Saturation, <i>Anti-aliased audio output</i> <br />
 
       </description>
     </entry>
     <entry name="atanAdaa2_2x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        Adaa2, 2x oversampling, 6-point interpolator, atan function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Atan Saturation, <i>Anti-aliased audio output</i> <br />
 
       </description>
     </entry>
     <entry name="atanAdaa2_4x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        Adaa2, 4x oversampling, 6-point interpolator, atan function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Atan Saturation, <i>Anti-aliased audio output</i> <br />
 
       </description>
     </entry>
     <entry name="algebraicAdaa1_2x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        Adaa1, 2x oversampling, 6-point interpolator, algebraic function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Algebraic Clipping, <i>Anti-aliased audio output</i> <br />
 
       </description>
     </entry>
     <entry name="algebraicAdaa1_4x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        Adaa1, 4x oversampling, 6-point interpolator, algebraic function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Algebraic Clipping, <i>Anti-aliased audio output</i> <br />
 
       </description>
     </entry>
     <entry name="algebraicAdaa2_2x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        Adaa2, 2x oversampling, 6-point interpolator, algebraic function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Algebraic Clipping, <i>Anti-aliased audio output</i> <br />
 
       </description>
     </entry>
     <entry name="algebraicAdaa2_4x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        Adaa2, 4x oversampling, 6-point interpolator, algebraic function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Algebraic Clipping, <i>Anti-aliased audio output</i> <br />
 
       </description>
     </entry>
     <entry name="log1pAdaa1_2x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        Adaa1, 2x oversampling, 6-point interpolator, log function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Log Saturation, <i>Anti-aliased audio output</i> <br />
 
       </description>
     </entry>
     <entry name="log1pAdaa1_4x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        Adaa1, 4x oversampling, 6-point interpolator, log function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Log Saturation, <i>Anti-aliased audio output</i> <br />
 
       </description>
     </entry>
     <entry name="log1pAdaa2_2x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        Adaa2, 2x oversampling, 6-point interpolator, log function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Log Saturation, <i>Anti-aliased audio output</i> <br />
 
       </description>
     </entry>
     <entry name="log1pAdaa2_4x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        Adaa2, 4x oversampling, 6-point interpolator, log function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Log Saturation, <i>Anti-aliased audio output</i> <br />
 
       </description>
     </entry>
     <entry name="altTanhAdaa1_2x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        Adaa1, 2x oversampling, 6-point interpolator, tanh-like saturation <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Tanh-like, <i>Anti-aliased audio output</i> <br />
 
       </description>
     </entry>
     <entry name="altTanhAdaa1_4x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        Adaa1, 4x oversampling, 6-point interpolator, tanh-like saturation <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Tanh-like, <i>Anti-aliased audio output</i> <br />
 
       </description>
     </entry>
     <entry name="altTanhAdaa2_2x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        Adaa2, 2x oversampling, 6-point interpolator, tanh-like saturation <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Tanh-like, <i>Anti-aliased audio output</i> <br />
 
       </description>
     </entry>
     <entry name="altTanhAdaa2_4x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        Adaa2, 4x oversampling, 6-point interpolator, tanh-like saturation <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Tanh-like, <i>Anti-aliased audio output</i> <br />
 
       </description>
     </entry>
     <entry name="altTanhSqrtAdaa1_2x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        Adaa1, 2x oversampling, 6-point interpolator, tanh-like saturation <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Tanh-like, <i>Anti-aliased audio output</i> <br />
 
       </description>
     </entry>
     <entry name="altTanhSqrtAdaa1_4x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        Adaa1, 4x oversampling, 6-point interpolator, tanh-like saturation <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Tanh-like, <i>Anti-aliased audio output</i> <br />
 
       </description>
     </entry>
     <entry name="altTanhSqrtAdaa2_2x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        Adaa2, 2x oversampling, 6-point interpolator, tanh-like saturation <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Tanh-like, <i>Anti-aliased audio output</i> <br />
 
       </description>
     </entry>
     <entry name="altTanhSqrtAdaa2_4x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        Adaa2, 4x oversampling, 6-point interpolator, tanh-like saturation <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Tanh-like, <i>Anti-aliased audio output</i> <br />
 
       </description>
     </entry>
     <entry name="sinAdaa1_2x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: osf, <i></i> <br />
+        Adaa1, 2x oversampling, 6-point interpolator, sine folder <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: osf, <i>External oversampling factor</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Sine, <i>Anti-aliased audio output</i> <br />
 
       </description>
     </entry>
     <entry name="sinAdaa1_4x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: osf, <i></i> <br />
+        Adaa1, 4x oversampling, 6-point interpolator, sine folder <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: osf, <i>External oversampling factor</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Sine, <i>Anti-aliased audio output</i> <br />
 
       </description>
     </entry>
     <entry name="sinAdaa2_2x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: osf, <i></i> <br />
+        Adaa2, 2x oversampling, 6-point interpolator, sine folder <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: osf, <i>External oversampling factor</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Sine, <i>Anti-aliased audio output</i> <br />
 
       </description>
     </entry>
     <entry name="sinAdaa2_4x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: osf, <i></i> <br />
+        Adaa2, 4x oversampling, 6-point interpolator, sine folder <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: osf, <i>External oversampling factor</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="parabolSat ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: a, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: c, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Sine, <i>Anti-aliased audio output</i> <br />
 
       </description>
     </entry>
     <entry name="parabolSat_2x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: a, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: c, <i></i> <br />
+        Not adaa, 2x oversampling, 6-point interpolator, parabolic function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: a, <i>Linear gain</i> <br />
+        <b>In 3</b>: type=<i>input</i>: c, <i>Clipping range</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Parabolic, <i>Anti-aliased audio output</i> <br />
 
       </description>
     </entry>
     <entry name="parabolSat_4x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: a, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: c, <i></i> <br />
+        Not adaa, 4x oversampling, 6-point interpolator, parabolic function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: a, <i>Linear gain</i> <br />
+        <b>In 3</b>: type=<i>input</i>: c, <i>Clipping range</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="thbNL ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Parabolic, <i>Anti-aliased audio output</i> <br />
 
       </description>
     </entry>
     <entry name="thbNL_2x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        Not adaa, 2x oversampling, 6-point interpolator, cubic function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Cubic, <i>Anti-aliased audio output</i> <br />
 
       </description>
     </entry>
     <entry name="thbNL_4x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        Not adaa, 4x oversampling, 6-point interpolator, cubic function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Cubic, <i>Anti-aliased audio output</i> <br />
 
       </description>
     </entry>
@@ -436,6 +514,12 @@
   </metadatalist>
   <seealsolist>
     <!-- we use 'refpage' here not 'genrefpage' to trick Max -->
+    <seealso name="evi_adaa" type="refpage"/>
+    <seealso name="evi_waveshaping" type="refpage"/>
+    <seealso name="evi_tanh" type="refpage"/>
+    <seealso name="evi_clip" type="refpage"/>
+    <seealso name="evi_interp" type="refpage"/>
+    <seealso name="evi_resampling_templates" type="refpage"/>
   </seealsolist>
   <misc name="Discussion">
     <entry name="Keywords">

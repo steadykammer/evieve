@@ -1,23 +1,23 @@
 {
-    "description": "",
+    "description": "Phasors, rates, ramps, all with zero reset functionality and various other features such as spread, reverse, pause, phase, jump, etc. For replicating some MSP functionality inside gen~.",
     "requires": [],
     "functions": [
         {
             "document": true,
-            "digest": "",
+            "digest": "Optionally zero reset phasor with pause, reverse and phase, @see [evi.phasor0~] for a patched version",
             "name": "eviPhasor0",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "frequency",
-                    "digest": ""
+                    "digest": "Phasor frequency in Hz"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "reset",
-                    "digest": ""
+                    "digest": "Trigger, naive phase reset"
                 },
                 {
                     "id": 3,
@@ -73,43 +73,43 @@
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "thisphasor",
+                    "digest": "Phase 0..1"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "zero reset Hz",
+                    "digest": "Current frequency in Hz"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "thisdelta",
+                    "digest": "Phasor sync signal"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Two synchronous optionally zero reset phasors with spread control",
             "name": "eviPhasorTwo0",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "freqFree",
-                    "digest": ""
+                    "digest": "Phasors frequency in Hz"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "spreadFree",
-                    "digest": ""
+                    "digest": "Spread phase amount 0..1"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "reset",
-                    "digest": ""
+                    "digest": "Trigger, naive phase reset"
                 },
                 {
                     "id": 4,
@@ -117,7 +117,7 @@
                     "name": "minimumhz",
                     "default": 0.125,
                     "type": "float",
-                    "digest": ""
+                    "digest": "Set minimum Hz for zero reset behaviour"
                 },
                 {
                     "id": 5,
@@ -125,44 +125,44 @@
                     "name": "mode",
                     "default": 1,
                     "type": "integer",
-                    "digest": ""
+                    "digest": "Zero reset behaviour off/on"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "thisPhasor1",
+                    "digest": "Phase 1 0..1"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "thisPhasor2",
+                    "digest": "Phase 2 0..1"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "freqMain",
+                    "digest": "Current frequency in Hz"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "spreadMain",
+                    "digest": "Current spread 0..1"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "thisPhasor1Sync",
+                    "digest": "Phasor 1 sync signal"
                 },
                 {
                     "id": 6,
-                    "name": "",
-                    "digest": ""
+                    "name": "thisPhasor2Sync",
+                    "digest": "Phasor 2 sync signal"
                 }
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "quantF",
             "inputs": [
@@ -188,7 +188,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "multChange",
             "inputs": [
@@ -236,7 +236,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "wrapDiff",
             "inputs": [
@@ -257,102 +257,102 @@
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Rate 'lock' routine from gen~ rate source code",
             "name": "rateLock",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "mainphase",
-                    "digest": ""
+                    "digest": "Phase 0..1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "multiplier",
-                    "digest": ""
+                    "digest": "Multiplier around 1==input"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "reset",
-                    "digest": ""
+                    "digest": "Trigger, naive rate reset"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Rate",
+                    "digest": "Rate phase 0..1"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Rate 'off' routine from gen~ rate source code",
             "name": "rateOff",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "mainphase",
-                    "digest": ""
+                    "digest": "Phase 0..1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "multiplier",
-                    "digest": ""
+                    "digest": "Multiplier around 1==input"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "reset",
-                    "digest": ""
+                    "digest": "Trigger, naive rate reset"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Rate",
+                    "digest": "Rate phase 0..1"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Rate 'cycle' routine from gen~ rate source code",
             "name": "rateCycle",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "mainphase",
-                    "digest": ""
+                    "digest": "Phase 0..1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "multiplier",
-                    "digest": ""
+                    "digest": "Multiplier around 1==input"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "reset",
-                    "digest": ""
+                    "digest": "Trigger, naive rate reset"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Rate",
+                    "digest": "Rate phase 0..1"
                 }
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "eviRate",
             "inputs": [
@@ -393,26 +393,26 @@
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Optionally zero reset synchronous phasor and rate combo, with pause, reverse and phase",
             "name": "eviPhasorRate0",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "frequency",
-                    "digest": ""
+                    "digest": "Main phasor frequency in Hz"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "rate",
-                    "digest": ""
+                    "digest": "Main rate multiplier around 1==input"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "reset",
-                    "digest": ""
+                    "digest": "Trigger, naive phase reset"
                 },
                 {
                     "id": 4,
@@ -422,7 +422,7 @@
                     "min": 0,
                     "max": 1,
                     "type": "float",
-                    "digest": ""
+                    "digest": "Set minimum Hz for zero reset behaviour"
                 },
                 {
                     "id": 5,
@@ -432,7 +432,7 @@
                     "min": 0,
                     "max": 1,
                     "type": "integer",
-                    "digest": ""
+                    "digest": "Zero reset behaviour off/on"
                 },
                 {
                     "id": 6,
@@ -442,7 +442,7 @@
                     "min": 0,
                     "max": 1,
                     "type": "integer",
-                    "digest": ""
+                    "digest": "Reverse allowed?"
                 },
                 {
                     "id": 7,
@@ -452,7 +452,7 @@
                     "min": 0,
                     "max": 1,
                     "type": "integer",
-                    "digest": ""
+                    "digest": "Pause current ramp off/on"
                 },
                 {
                     "id": 8,
@@ -462,52 +462,52 @@
                     "min": 0,
                     "max": 1,
                     "type": "float",
-                    "digest": ""
+                    "digest": "Set to this phase on next reset"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "thisphasor",
+                    "digest": "Phase 0..1"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "thisrate",
+                    "digest": "Rate 0..1"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "currentfrequency",
+                    "digest": "Current frequency in Hz"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "currentrate",
+                    "digest": "Current rate multiplier"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "thisdelta",
+                    "digest": "Phasor sync signal"
                 },
                 {
                     "id": 6,
-                    "name": "",
-                    "digest": ""
+                    "name": "ratedelta",
+                    "digest": "Rate sync signal"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "A bit like MSP [ramp~], optionally zero reset oneshot or looping ramp/phasor with numerous control features",
             "name": "eviRamp0",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "trig",
-                    "digest": ""
+                    "digest": "Audio rate ramp trigger"
                 },
                 {
                     "id": 2,
@@ -517,7 +517,7 @@
                     "min": 0,
                     "max": 60000,
                     "type": "float",
-                    "digest": ""
+                    "digest": "Ramp duration in ms"
                 },
                 {
                     "id": 3,
@@ -527,7 +527,7 @@
                     "min": 0,
                     "max": 1,
                     "type": "integer",
-                    "digest": ""
+                    "digest": "Zero reset phase off/on 0/1"
                 },
                 {
                     "id": 4,
@@ -537,7 +537,7 @@
                     "min": 0,
                     "max": 1,
                     "type": "integer",
-                    "digest": ""
+                    "digest": "Allow retriggering of ramp during ramp off/on 0/1"
                 },
                 {
                     "id": 5,
@@ -547,7 +547,7 @@
                     "min": 0,
                     "max": 1,
                     "type": "integer",
-                    "digest": ""
+                    "digest": "Loop ramp off/on 0/1 (@loop 1 = a phasor)"
                 },
                 {
                     "id": 6,
@@ -557,7 +557,7 @@
                     "min": 0,
                     "max": 1,
                     "type": "integer",
-                    "digest": ""
+                    "digest": "Oneshot mode (@loop=0) 'rests' at zero or one 0/1"
                 },
                 {
                     "id": 7,
@@ -567,7 +567,7 @@
                     "min": 0,
                     "max": 1,
                     "type": "integer",
-                    "digest": ""
+                    "digest": "Make ramp s-curve off/on 0/1"
                 },
                 {
                     "id": 8,
@@ -577,32 +577,32 @@
                     "min": 0,
                     "max": 1,
                     "type": "integer",
-                    "digest": ""
+                    "digest": "Pause ramp output 0/1"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "outramp",
+                    "digest": "Ramp 0..1"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "carrycount",
+                    "digest": "How many ramps since last reset"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "syncstart",
+                    "digest": "Sync trigger at start of a ramp"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "syncend",
+                    "digest": "Sync trigger at end of a ramp"
                 }
             ]
         }
     ],
-    "seealso": []
+    "seealso": ["evi_env", "evi_lfo", "evi_sources"]
 }

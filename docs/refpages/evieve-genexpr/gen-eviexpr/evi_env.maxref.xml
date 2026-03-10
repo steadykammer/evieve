@@ -11,115 +11,116 @@
     By declaring <m>require("evi_env.genexpr");</m> at the top of a codebox you can then access all of the functions included in this file. <br />
         <br />
     <b>About this File</b>: <br />
-     <br />
+    Envelope (following) routines. <br />
   </description>
   <misc name="GenExpr Functions">
     <entry name="averageAbsolute ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: inputSample, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: windowSizeInSamples, <i></i> <br />
+        Like MSP [average~ 250 absolute] <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: inputSample, <i>Audio input to follow</i> <br />
+        <b>In 2</b>: type=<i>input</i>: windowSizeInSamples, <i>Averaging window size in samples</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Average, <i>Envelope output</i> <br />
 
       </description>
     </entry>
     <entry name="averageCore ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: X, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: reset, <i></i> <br />
-        <b>In 3</b>: type=<i>param</i> (optional): windowSize, default: <b>0</b>, <i></i> <br />
+        Generalised for options, used by 'averageWrap()' <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: X, <i>Value to follow</i> <br />
+        <b>In 2</b>: type=<i>input</i>: reset, <i>Sample accurate reset of internal state</i> <br />
+        <b>In 3</b>: type=<i>param</i> (optional): windowSize, default: <b>0</b>, <i>Optional window size in samples, default 1000 samples (like MSP)</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
+        <b>Return 1</b>: Average, <i>Mean average envelope output</i> <br />
+        <b>Return 2</b>: Count, <i>Index count of window buffer in samples</i> <br />
 
       </description>
     </entry>
     <entry name="averageWrap ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: X, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: reset, <i></i> <br />
-        <b>In 3</b>: type=<i>param</i> (optional): interval, default: <b>500</b>, <i></i> <br />
-        <b>In 4</b>: type=<i>param</i> (optional): mode, default: <b>0</b>, <i></i> <br />
+        This is expensive because it branches internally, but is useful if you need to switch averaging type <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: X, <i>Value to follow</i> <br />
+        <b>In 2</b>: type=<i>input</i>: reset, <i>Sample accurate reset of internal state</i> <br />
+        <b>In 3</b>: type=<i>param</i> (optional): interval, default: <b>500</b>, <i>Interval (window size) in samples</i> <br />
+        <b>In 4</b>: type=<i>param</i> (optional): mode, default: <b>0</b>, <i>0&#x3D;bipolar, 1&#x3D;absolute, 2&#x3D;rms</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
+        <b>Return 1</b>: Average, <i>Mean average envelope output</i> <br />
+        <b>Return 2</b>: Count, <i>Index count of window buffer in samples</i> <br />
 
       </description>
     </entry>
     <entry name="envRawDetect ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: attack, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: release, <i></i> <br />
+        Simple, cheap and raw envelope following, intended to be used with post envelope smoothers such as in 'envFollSimple()' <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Value to follow</i> <br />
+        <b>In 2</b>: type=<i>input</i>: attack, <i>Attack amount normalised 0..1</i> <br />
+        <b>In 3</b>: type=<i>input</i>: release, <i>Release amount normalised 0..1</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="envSad ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: s, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Raw, <i>Raw envelope values output</i> <br />
 
       </description>
     </entry>
     <entry name="envDecay ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: d, <i></i> <br />
+        Logarithmic decay envelope follower <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Value to follow</i> <br />
+        <b>In 2</b>: type=<i>input</i>: d, <i>Decay time in SECONDS (to drop 6dB)</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Env, <i>Output Envelope</i> <br />
 
       </description>
     </entry>
     <entry name="envAttackDecay ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: a, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: d, <i></i> <br />
+        Logarithmic attack/decay envelope follower <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Value to follow</i> <br />
+        <b>In 2</b>: type=<i>input</i>: a, <i>Attack time in SECONDS (to drop 6dB)</i> <br />
+        <b>In 3</b>: type=<i>input</i>: d, <i>Decay time in SECONDS (to drop 6dB)</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Env, <i>Output Envelope</i> <br />
 
       </description>
     </entry>
     <entry name="envAttackHoldRelease ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: a, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: h, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: r, <i></i> <br />
+        Logarithmic attack/hold/release envelope follower <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Value to follow</i> <br />
+        <b>In 2</b>: type=<i>input</i>: a, <i>Attack time in SECONDS (to drop 6dB)</i> <br />
+        <b>In 3</b>: type=<i>input</i>: h, <i>Hold time in SECONDS</i> <br />
+        <b>In 4</b>: type=<i>input</i>: r, <i>Release time in SECONDS (to drop 6dB)</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="vactrolSad ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: a, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Env, <i>Output Envelope</i> <br />
 
       </description>
     </entry>
     <entry name="vactrol ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: impulse, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: rise, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: fall, <i></i> <br />
+        Vactrol time-domain behaviour filter, the resistive part of a photoresistive opto-isolator <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: impulse, <i>Impulse</i> <br />
+        <b>In 2</b>: type=<i>input</i>: rise, <i>Rise time in SAMPLES</i> <br />
+        <b>In 3</b>: type=<i>input</i>: fall, <i>Fall time in SAMPLES</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Vactrol Envelope, <i>Output will behave similarly to a Buchla vactrol</i> <br />
 
       </description>
     </entry>
     <entry name="envFollSimple ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: X, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: attack, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: release, <i></i> <br />
+        Quick, simple, cheap <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: X, <i>Value to follow</i> <br />
+        <b>In 2</b>: type=<i>input</i>: attack, <i>Attack 0..1 represents 0..10 ms</i> <br />
+        <b>In 3</b>: type=<i>input</i>: release, <i>Release 0..1 represents 0..100 ms</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Env, <i>Output Envelope</i> <br />
 
       </description>
     </entry>
@@ -131,6 +132,8 @@
   </metadatalist>
   <seealsolist>
     <!-- we use 'refpage' here not 'genrefpage' to trick Max -->
+    <seealso name="evi_smooth" type="refpage"/>
+    <seealso name="evi_dynamics" type="refpage"/>
   </seealsolist>
   <misc name="Discussion">
     <entry name="Keywords">

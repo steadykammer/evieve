@@ -11,215 +11,158 @@
     By declaring <m>require("evi_sources.genexpr");</m> at the top of a codebox you can then access all of the functions included in this file. <br />
         <br />
     <b>About this File</b>: <br />
-     <br />
+    A collection of non-oscillator sources and related code. Different types of noise as well as novel random LFOs. <br />
   </description>
   <misc name="GenExpr Functions">
     <entry name="audioDust ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: freq, <i></i> <br />
+        A variable gain spikey dusty noise source with variable frequency <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: freq, <i>Frequency in Hz</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
+        <b>Return 1</b>: dust, <i>The audio dust output</i> <br />
+        <b>Return 2</b>: white, <i>Synchronised white noise output</i> <br />
+        <b>Return 3</b>: sync, <i>Full gain sync signal with every piece of dust</i> <br />
 
       </description>
     </entry>
     <entry name="sparseVelvetNoise ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: freq, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: mix, <i></i> <br />
-        <b>In 3</b>: type=<i>param</i> (optional): amp, default: <b>1</b>, <i></i> <br />
+        A 'sparse noise' algorithm (similar to 'audioDust()') mixable with a full 'velvet noise' algorithm <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: freq, <i>Frequency in Hz</i> <br />
+        <b>In 2</b>: type=<i>input</i>: mix, <i>Mix 0..1 between sparse noise..velvet noise</i> <br />
+        <b>In 3</b>: type=<i>param</i> (optional): amp, default: <b>1</b>, <i>The amplitude of the noise, typically left at &#x27;1&#x27;</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
+        <b>Return 1</b>: mixNoise, <i>The mix of sparse and velvet noise</i> <br />
+        <b>Return 2</b>: sparseNoise, <i>Just the sparse noise algorithm</i> <br />
+        <b>Return 3</b>: velvetNoise, <i>Just the velvet noise algorithm</i> <br />
 
       </description>
     </entry>
     <entry name="gaussianNoise ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: gain, <i></i> <br />
+        Not-really box-muller gaussian noise distribution implementation <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: sort-of gain, <i>A gain of 0.6403882032022076 gives very close to unity amplitude (-1..1) output</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
+        <b>Return 1</b>: gaussian, <i>The gaussian noise output</i> <br />
+        <b>Return 2</b>: Xoshiro256, <i>Synchronised white noise output</i> <br />
+        <b>Return 3</b>: cosXos, <i>Synchronised cosine noise output</i> <br />
 
       </description>
     </entry>
     <entry name="likeZerox ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>param</i> (optional): windowSize, default: <b>0</b>, <i></i> <br />
-        <b>In 3</b>: type=<i>param</i> (optional): threshold, default: <b>0.1</b>, <i></i> <br />
+        Zero crossing detector, like [zerox~] from RNBO or MSP <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Audio input to be analysed</i> <br />
+        <b>In 2</b>: type=<i>param</i> (optional): windowSize, default: <b>0</b>, <i>Window size in samples, default 64, typically vectorsize</i> <br />
+        <b>In 3</b>: type=<i>param</i> (optional): threshold, default: <b>0.1</b>, <i>Threshold above which the number of zero crossings reports a count</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
+        <b>Return 1</b>: lastCount, <i>Number of crossings in most recent window</i> <br />
+        <b>Return 2</b>: voiced, <i>Gate triggered by threshold</i> <br />
+        <b>Return 3</b>: crossing, <i>Current crossings</i> <br />
 
       </description>
     </entry>
     <entry name="simpleZerox ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>param</i> (optional): threshold, default: <b>0.1</b>, <i></i> <br />
+        Simple zero crossing detector with a fixed window sie of vectorsize, a bit like the gen~ example <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Audio input to be analysed</i> <br />
+        <b>In 2</b>: type=<i>param</i> (optional): threshold, default: <b>0.1</b>, <i>Threshold above which the number of zero crossings reports a count</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
+        <b>Return 1</b>: periodCount, <i>Number of crossings in most recent window</i> <br />
+        <b>Return 2</b>: voiced, <i>Gate triggered by threshold</i> <br />
+        <b>Return 3</b>: crossing, <i>Current crossings</i> <br />
 
       </description>
     </entry>
     <entry name="eviRand ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: p, <i></i> <br />
+        Like [rand~] from MSP (linear), very predictable and gives exact notches <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: p, <i>Phasor driver 0..1 (not frequency)</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
+        <b>Return 1</b>: nv, <i>Rand oscillator output</i> <br />
+        <b>Return 2</b>: n, <i>Internal white noise source sync</i> <br />
 
       </description>
     </entry>
     <entry name="eviRandN ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: p, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: n, <i></i> <br />
+        Like 'eviRand()' but with external noise source <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: p, <i>Phasor driver 0..1 (not frequency)</i> <br />
+        <b>In 2</b>: type=<i>input</i>: n, <i>External noise source from which rand is derived</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: nv, <i>Rand oscillator output</i> <br />
 
       </description>
     </entry>
     <entry name="eviRands ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: d0, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: x2, <i></i> <br />
+        Like 'eviRand()' but ready for cubic interpolation, called by 'eviRandy()' <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: d0, <i>Delta sync of phasor source</i> <br />
+        <b>In 2</b>: type=<i>input</i>: x2, <i>External noise source from which rand is derived</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
+        <b>Return 1</b>: vm1, <i>Cubic interpolator output 1</i> <br />
+        <b>Return 2</b>: v0, <i>Cubic interpolator output 2</i> <br />
+        <b>Return 3</b>: v1, <i>Cubic interpolator output 3</i> <br />
+        <b>Return 4</b>: v2, <i>Cubic interpolator output 4</i> <br />
 
       </description>
     </entry>
     <entry name="eviRandy ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: p, <i></i> <br />
+        Like 'eviRand()' but cubic interpolated, rolls off much faster <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: p, <i>Phasor driver 0..1 (not frequency)</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
+        <b>Return 1</b>: r, <i>Randy oscillator output</i> <br />
+        <b>Return 2</b>: n, <i>Internal white noise source sync</i> <br />
 
       </description>
     </entry>
     <entry name="eviRandyN ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: p, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: n, <i></i> <br />
+        Like 'eviRandy()' but with external noise source <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: p, <i>Phasor driver 0..1 (not frequency)</i> <br />
+        <b>In 2</b>: type=<i>input</i>: n, <i>External noise source from which rand is derived</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: r, <i>Randy oscillator output</i> <br />
 
       </description>
     </entry>
     <entry name="catmullRomSplineDynamic ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: f, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: y0, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: y1, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: y2, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: y3, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: bias, <i></i> <br />
-        <b>In 7</b>: type=<i>input</i>: tension, <i></i> <br />
+        4-point catmull rom cubic spline interpolator with bias and tension parameters <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: f, <i>Interpolator 0..1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: y0, <i>Cubic interpolator input 1</i> <br />
+        <b>In 3</b>: type=<i>input</i>: y1, <i>Cubic interpolator input 2</i> <br />
+        <b>In 4</b>: type=<i>input</i>: y2, <i>Cubic interpolator input 3</i> <br />
+        <b>In 5</b>: type=<i>input</i>: y3, <i>Cubic interpolator input 4</i> <br />
+        <b>In 6</b>: type=<i>input</i>: bias, <i>Bias control, signed</i> <br />
+        <b>In 7</b>: type=<i>input</i>: tension, <i>Tension control, signed</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: spline, <i>Spline interpolated output</i> <br />
 
       </description>
     </entry>
     <entry name="eviRandLfo ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: hz, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: skew, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: reset, <i></i> <br />
+        A very (and needlessly) expensive spline interpolated random LFO <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: hz, <i>Frequency in Hz</i> <br />
+        <b>In 2</b>: type=<i>input</i>: skew, <i>Skew the wave, must be clamped -1..1</i> <br />
+        <b>In 3</b>: type=<i>input</i>: reset, <i>Hard reset of internal phase</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="opIIR ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: c, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="levelDetect ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: d, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: mode, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="integrateN ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: o1, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: o2, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: y1, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: y2, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="leakyIntegrateN ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: o1, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: o2, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: o3, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: y1, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: y2, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: amount, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="noiseGenerate ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: flav, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: loss, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: d, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: mode, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="lossinessN ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: loss, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: flavour, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: d, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: mode, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="lossinessN2 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: loss, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: flavour, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: d, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: mode, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
+        <b>Return 1</b>: r, <i>Random LFO -1..1</i> <br />
+        <b>Return 2</b>: x, <i>Internal white noise source sync</i> <br />
 
       </description>
     </entry>
@@ -231,6 +174,10 @@
   </metadatalist>
   <seealsolist>
     <!-- we use 'refpage' here not 'genrefpage' to trick Max -->
+    <seealso name="evi_env" type="refpage"/>
+    <seealso name="evi_lfo" type="refpage"/>
+    <seealso name="evi_counting" type="refpage"/>
+    <seealso name="evi_polyblep" type="refpage"/>
   </seealsolist>
   <misc name="Discussion">
     <entry name="Keywords">

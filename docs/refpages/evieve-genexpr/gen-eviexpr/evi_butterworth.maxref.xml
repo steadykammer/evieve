@@ -11,115 +11,139 @@
     By declaring <m>require("evi_butterworth.genexpr");</m> at the top of a codebox you can then access all of the functions included in this file. <br />
         <br />
     <b>About this File</b>: <br />
-     <br />
+    A collection of Linear TPT Lowpass Butterworth filters orders 1..8, including all-in-one selector. These are surgical filters but can still be updated alias-free at audio rate if required. Very useful for clean top and tail of audio chains. For the constants calculations @see: 'evi_butterworth8_coeffs.js' <br />
   </description>
   <misc name="GenExpr Functions">
     <entry name="fWarp ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cf, <i></i> <br />
+        Frequency warping for the Butterworth filters <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: cf, <i>Cutoff frequency in Hz</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: g, <i>Warped frequency 0..HALFPI</i> <br />
 
       </description>
     </entry>
     <entry name="lp1p ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: g, <i></i> <br />
+        TPT onepole filter section for creating Butterworth cascades <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: g, <i>Warped cutoff</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Filter, <i>Audio output</i> <br />
 
       </description>
     </entry>
     <entry name="lp2p ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: g, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: r, <i></i> <br />
+        TPT twopole filter section for creating Butterworth cascades <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: g, <i>Warped cutoff</i> <br />
+        <b>In 3</b>: type=<i>input</i>: r, <i>Butterworth coefficient</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Filter, <i>Audio output</i> <br />
 
       </description>
     </entry>
     <entry name="butterworthLowpass1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: X, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: G, <i></i> <br />
+        First order Butterworth lowpass <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: X, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: G, <i>Warped cutoff</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Lowpass, <i>Lowpass 1 output</i> <br />
 
       </description>
     </entry>
     <entry name="butterworthLowpass2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: X, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: G, <i></i> <br />
+        Second order Butterworth lowpass <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: X, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: G, <i>Warped cutoff</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Lowpass, <i>Lowpass 2 output</i> <br />
 
       </description>
     </entry>
     <entry name="butterworthLowpass3 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: X, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: G, <i></i> <br />
+        Third order Butterworth lowpass <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: X, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: G, <i>Warped cutoff</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Lowpass, <i>Lowpass 3 output</i> <br />
 
       </description>
     </entry>
     <entry name="butterworthLowpass4 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: X, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: G, <i></i> <br />
+        Fourth order Butterworth lowpass <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: X, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: G, <i>Warped cutoff</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Lowpass, <i>Lowpass 4 output</i> <br />
 
       </description>
     </entry>
     <entry name="butterworthLowpass5 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: X, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: G, <i></i> <br />
+        Fifth order Butterworth lowpass <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: X, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: G, <i>Warped cutoff</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Lowpass, <i>Lowpass 5 output</i> <br />
 
       </description>
     </entry>
     <entry name="butterworthLowpass6 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: X, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: G, <i></i> <br />
+        Sixth order Butterworth lowpass <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: X, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: G, <i>Warped cutoff</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Lowpass, <i>Lowpass 6 output</i> <br />
 
       </description>
     </entry>
     <entry name="butterworthLowpass7 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: X, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: G, <i></i> <br />
+        Seventh order Butterworth lowpass <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: X, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: G, <i>Warped cutoff</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Lowpass, <i>Lowpass 7 output</i> <br />
 
       </description>
     </entry>
     <entry name="butterworthLowpass8 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: X, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: G, <i></i> <br />
+        Eighth order Butterworth lowpass <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: X, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: G, <i>Warped cutoff</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Lowpass, <i>Lowpass 8 output</i> <br />
 
       </description>
     </entry>
     <entry name="linearButterworthLP8 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: X, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: cutoff, <i></i> <br />
-        <b>In 3</b>: type=<i>param</i> (optional): order, default: <b>3</b>, <i></i> <br />
+        Variable order Butterworth lowpass selectable between 1st and 8th orders <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: X, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 3</b>: type=<i>param</i> (optional): order, default: <b>3</b>, <i>Filter Order 0..8, 0&#x3D;&#x3D;bypass</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Lowpass, <i>Butterworth lowpass of selected order</i> <br />
 
       </description>
     </entry>

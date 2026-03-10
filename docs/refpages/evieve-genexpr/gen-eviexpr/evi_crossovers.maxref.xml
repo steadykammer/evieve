@@ -14,224 +14,232 @@
     evi_approx.genexpr <br />
     <br />
     <b>About this File</b>: <br />
-     <br />
+    A collection of Linkwitz-Riley crossover filters in various configurations. These are TPT filters that sum perfectly flat on recombionation and can also be modulated at audio rate. <br />
   </description>
   <misc name="GenExpr Functions">
     <entry name="eviXover2pole2band ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: X, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: xover, <i></i> <br />
+        Two-pole two-band (low/high) crossover <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: X, <i>Audio input to be split</i> <br />
+        <b>In 2</b>: type=<i>input</i>: xover, <i>Crossover frequency in Hz</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
+        <b>Return 1</b>: Low, <i>Low band audio output</i> <br />
+        <b>Return 2</b>: High, <i>High band audio output</i> <br />
 
       </description>
     </entry>
     <entry name="eviXover4pole2band ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: X, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: xover, <i></i> <br />
+        Four-pole two-band (low/high) crossover <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: X, <i>Audio input to be split</i> <br />
+        <b>In 2</b>: type=<i>input</i>: xover, <i>Crossover frequency in Hz</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
+        <b>Return 1</b>: Low, <i>Low band audio output</i> <br />
+        <b>Return 2</b>: High, <i>High band audio output</i> <br />
 
       </description>
     </entry>
     <entry name="eviXover2pole3band ( )">
       <description>
+        Two-pole three-band (low/mid/high) crossover <br />
+        <br />
         <b>In 1</b>: type=<i>input</i>: X, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: xoverLow, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: xoverHigh, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: xoverLow, <i>Low crossover frequency in Hz</i> <br />
+        <b>In 3</b>: type=<i>input</i>: xoverHigh, <i>High crossover frequency in Hz</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
+        <b>Return 1</b>: Low, <i>Low band audio output</i> <br />
+        <b>Return 2</b>: Mid, <i>Mid band audio output</i> <br />
+        <b>Return 3</b>: High, <i>High band audio output</i> <br />
 
       </description>
     </entry>
     <entry name="eviXover4pole3band ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: X, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: xoverLow, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: xoverHigh, <i></i> <br />
+        Four-pole three-band (low/mid/high) crossover <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: X, <i>Audio input to be split</i> <br />
+        <b>In 2</b>: type=<i>input</i>: xoverLow, <i>Low crossover frequency in Hz</i> <br />
+        <b>In 3</b>: type=<i>input</i>: xoverHigh, <i>High crossover frequency in Hz</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
+        <b>Return 1</b>: Low, <i>Low band audio output</i> <br />
+        <b>Return 2</b>: Mid, <i>Mid band audio output</i> <br />
+        <b>Return 3</b>: High, <i>High band audio output</i> <br />
 
       </description>
     </entry>
     <entry name="eviXoverAllpass1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: X, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: hz, <i></i> <br />
+        Onepole allpass for summing two-pole three-band crossovers <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: X, <i>Audio input to be aligned</i> <br />
+        <b>In 2</b>: type=<i>input</i>: hz, <i>High crossover frequency in Hz (from three-band crossover)</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Filter, <i>Allpass output</i> <br />
 
       </description>
     </entry>
     <entry name="eviXoverAllpass2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: X, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: hz, <i></i> <br />
+        Two-pole allpass for summing four-pole three-band crossovers <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: X, <i>Audio input to be aligned</i> <br />
+        <b>In 2</b>: type=<i>input</i>: hz, <i>High crossover frequency in Hz (from three-band crossover)</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Filter, <i>Allpass output</i> <br />
 
       </description>
     </entry>
     <entry name="eviXover2pole3bandSum ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: LOW, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: MID, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: HIGH, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: xoverHigh, <i></i> <br />
+        All-in-one summing utility for two-pole three-band crossover <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: LOW, <i>Low audio band input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: MID, <i>Mid audio band input</i> <br />
+        <b>In 3</b>: type=<i>input</i>: HIGH, <i>High audio band input</i> <br />
+        <b>In 4</b>: type=<i>input</i>: xoverHigh, <i>High crossover frequency in Hz (from three-band crossover)</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Sum, <i>Aligned and summed audio output</i> <br />
 
       </description>
     </entry>
     <entry name="eviXover4pole3bandSum ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: LOW, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: MID, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: HIGH, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: xoverHigh, <i></i> <br />
+        All-in-one summing utility for four-pole three-band crossover <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: LOW, <i>Low audio band input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: MID, <i>Mid audio band input</i> <br />
+        <b>In 3</b>: type=<i>input</i>: HIGH, <i>High audio band input</i> <br />
+        <b>In 4</b>: type=<i>input</i>: xoverHigh, <i>High crossover frequency in Hz (from three-band crossover)</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Sum, <i>Aligned and summed audio output</i> <br />
 
       </description>
     </entry>
     <entry name="eviXover2pole2bandStereo ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: xL, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: xR, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: xover, <i></i> <br />
+        Stereo two-pole two-band (low/high) crossover <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: xL, <i>Left audio input to be split</i> <br />
+        <b>In 2</b>: type=<i>input</i>: xR, <i>Right audio input to be split</i> <br />
+        <b>In 3</b>: type=<i>input</i>: xover, <i>Crossover frequency in Hz</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
+        <b>Return 1</b>: Left, <i>Left LOW band audio output</i> <br />
+        <b>Return 2</b>: Right, <i>Right LOW band audio output</i> <br />
+        <b>Return 3</b>: Left, <i>Left HIGH band audio output</i> <br />
+        <b>Return 4</b>: Right, <i>Right HIGH band audio output</i> <br />
 
       </description>
     </entry>
     <entry name="eviXover4pole2bandStereo ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: xL, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: xR, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: xover, <i></i> <br />
+        Stereo four-pole two-band (low/high) crossover <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: xL, <i>Left audio input to be split</i> <br />
+        <b>In 2</b>: type=<i>input</i>: xR, <i>Right audio input to be split</i> <br />
+        <b>In 3</b>: type=<i>input</i>: xover, <i>Crossover frequency in Hz</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
+        <b>Return 1</b>: Left, <i>Left LOW band audio output</i> <br />
+        <b>Return 2</b>: Right, <i>Right LOW band audio output</i> <br />
+        <b>Return 3</b>: Left, <i>Left HIGH band audio output</i> <br />
+        <b>Return 4</b>: Right, <i>Right HIGH band audio output</i> <br />
 
       </description>
     </entry>
     <entry name="eviXover2pole3bandStereo ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: xL, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: xR, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: hzLow, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: hzHigh, <i></i> <br />
+        Stereo two-pole three-band (low/mid/high) crossover <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: xL, <i>Left audio input to be split</i> <br />
+        <b>In 2</b>: type=<i>input</i>: xR, <i>Right audio input to be split</i> <br />
+        <b>In 3</b>: type=<i>input</i>: hzLow, <i>Low crossover frequency in Hz</i> <br />
+        <b>In 4</b>: type=<i>input</i>: hzHigh, <i>High crossover frequency in Hz</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
-        <b>Return 5</b>: , <i></i> <br />
-        <b>Return 6</b>: , <i></i> <br />
+        <b>Return 1</b>: Left, <i>Left LOW band audio output</i> <br />
+        <b>Return 2</b>: Right, <i>Right LOW band audio output</i> <br />
+        <b>Return 3</b>: Left, <i>Left MID band audio output</i> <br />
+        <b>Return 4</b>: Right, <i>Right MID band audio output</i> <br />
+        <b>Return 5</b>: Left, <i>Left HIGH band audio output</i> <br />
+        <b>Return 6</b>: Right, <i>Right HIGH band audio output</i> <br />
 
       </description>
     </entry>
     <entry name="eviXover4pole3bandStereo ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: xL, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: xR, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: hzLow, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: hzHigh, <i></i> <br />
+        Stereo four-pole three-band (low/mid/high) crossover <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: xL, <i>Left audio input to be split</i> <br />
+        <b>In 2</b>: type=<i>input</i>: xR, <i>Right audio input to be split</i> <br />
+        <b>In 3</b>: type=<i>input</i>: hzLow, <i>Low crossover frequency in Hz</i> <br />
+        <b>In 4</b>: type=<i>input</i>: hzHigh, <i>High crossover frequency in Hz</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
-        <b>Return 5</b>: , <i></i> <br />
-        <b>Return 6</b>: , <i></i> <br />
+        <b>Return 1</b>: Left, <i>Left LOW band audio output</i> <br />
+        <b>Return 2</b>: Right, <i>Right LOW band audio output</i> <br />
+        <b>Return 3</b>: Left, <i>Left MID band audio output</i> <br />
+        <b>Return 4</b>: Right, <i>Right MID band audio output</i> <br />
+        <b>Return 5</b>: Left, <i>Left HIGH band audio output</i> <br />
+        <b>Return 6</b>: Right, <i>Right HIGH band audio output</i> <br />
 
       </description>
     </entry>
     <entry name="eviXoverAllpass1Stereo ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: xL, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: xR, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: hz, <i></i> <br />
+        Stero onepole allpass for summing two-pole three-band crossovers <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: xL, <i>Left audio input to be aligned</i> <br />
+        <b>In 2</b>: type=<i>input</i>: xR, <i>Right audio input to be aligned</i> <br />
+        <b>In 3</b>: type=<i>input</i>: hz, <i>High crossover frequency in Hz (from three-band crossover)</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
+        <b>Return 1</b>: Left, <i>Left allpass output</i> <br />
+        <b>Return 2</b>: Right, <i>Right allpass output</i> <br />
 
       </description>
     </entry>
     <entry name="eviXoverAllpass2Stereo ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: xL, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: xR, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: hz, <i></i> <br />
+        Stero two-pole allpass for summing four-pole three-band crossovers <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: xL, <i>Left audio input to be aligned</i> <br />
+        <b>In 2</b>: type=<i>input</i>: xR, <i>Right audio input to be aligned</i> <br />
+        <b>In 3</b>: type=<i>input</i>: hz, <i>High crossover frequency in Hz (from three-band crossover)</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
+        <b>Return 1</b>: Left, <i>Left allpass output</i> <br />
+        <b>Return 2</b>: Right, <i>Right allpass output</i> <br />
 
       </description>
     </entry>
     <entry name="eviXover2pole3bandSumStereo ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: lowL, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: lowR, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: midL, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: midR, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: highL, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: highR, <i></i> <br />
-        <b>In 7</b>: type=<i>input</i>: xoverHigh, <i></i> <br />
+        Stereo all-in-one summing utility for two-pole three-band crossover <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: lowL, <i>Left low audio band input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: lowR, <i>Right low audio band input</i> <br />
+        <b>In 3</b>: type=<i>input</i>: midL, <i>Left mid audio band input</i> <br />
+        <b>In 4</b>: type=<i>input</i>: midR, <i>Right mid audio band input</i> <br />
+        <b>In 5</b>: type=<i>input</i>: highL, <i>Left high audio band input</i> <br />
+        <b>In 6</b>: type=<i>input</i>: highR, <i>Right high audio band input</i> <br />
+        <b>In 7</b>: type=<i>input</i>: xoverHigh, <i>High crossover frequency in Hz (from three-band crossover)</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
+        <b>Return 1</b>: Sum Left, <i>Left aligned and summed audio output</i> <br />
+        <b>Return 2</b>: Sum Right, <i>Right aligned and summed audio output</i> <br />
 
       </description>
     </entry>
     <entry name="eviXover4pole3bandSumStereo ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: lowL, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: lowR, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: midL, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: midR, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: highL, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: highR, <i></i> <br />
-        <b>In 7</b>: type=<i>input</i>: xoverHigh, <i></i> <br />
+        Stereo all-in-one summing utility for four-pole three-band crossover <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: lowL, <i>Left low audio band input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: lowR, <i>Right low audio band input</i> <br />
+        <b>In 3</b>: type=<i>input</i>: midL, <i>Left mid audio band input</i> <br />
+        <b>In 4</b>: type=<i>input</i>: midR, <i>Right mid audio band input</i> <br />
+        <b>In 5</b>: type=<i>input</i>: highL, <i>Left high audio band input</i> <br />
+        <b>In 6</b>: type=<i>input</i>: highR, <i>Right high audio band input</i> <br />
+        <b>In 7</b>: type=<i>input</i>: xoverHigh, <i>High crossover frequency in Hz (from three-band crossover)</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="eviXoverAllpass1cascade ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: X, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: hz, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: s0, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="eviXoverAllpass2cascade ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: Xin, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: Hz, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: s0, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: s1, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
+        <b>Return 1</b>: Sum Left, <i>Left aligned and summed audio output</i> <br />
+        <b>Return 2</b>: Sum Right, <i>Right aligned and summed audio output</i> <br />
 
       </description>
     </entry>
@@ -243,6 +251,9 @@
   </metadatalist>
   <seealsolist>
     <!-- we use 'refpage' here not 'genrefpage' to trick Max -->
+    <seealso name="evi_svfs" type="refpage"/>
+    <seealso name="evi_rcfilters" type="refpage"/>
+    <seealso name="evi_butterworth" type="refpage"/>
   </seealsolist>
   <misc name="Discussion">
     <entry name="Keywords">

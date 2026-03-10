@@ -14,85 +14,45 @@
     evi_sources.genexpr <br />
     <br />
     <b>About this File</b>: <br />
-     <br />
+    A collection of computed but efficient LFOs <br />
   </description>
   <misc name="GenExpr Functions">
-    <entry name="fastskewlfo052neg ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: skewneg, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="fastskewlfo052pos ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: skewpos, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="fastskewlfo052ar ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: skew, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
     <entry name="lfoMix ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: phase, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: duty, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: shape, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: skew, <i></i> <br />
+        A computed but cheap LFO that can morph between triangle and sine shapes, requires phase 0..1 input, produces wave shape output in tange 0..1 <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: phase, <i>Phase 0..1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: duty, <i>Duty of triangle wave, 0..1, 0.5&#x3D;&#x3D;tri</i> <br />
+        <b>In 3</b>: type=<i>input</i>: shape, <i>Morph between tri..sine 0..1</i> <br />
+        <b>In 4</b>: type=<i>input</i>: skew, <i>Skew exponent of LFO output, 0.5..2, 1&#x3D;&#x3D;no skew</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="tanhC ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="triC ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: phase, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: pwm, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: times, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: plus, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: LFO, <i>Wave output in range 0..1</i> <br />
 
       </description>
     </entry>
     <entry name="lfoShapes01 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: phase, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: sync, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: width, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: wave, <i></i> <br />
+        Collection of computed switchable LFOs, all wave selections in output range 0..1 <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: phase, <i>Phase 0..1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: sync, <i>The sync of the phase input required for random LFOs</i> <br />
+        <b>In 3</b>: type=<i>input</i>: width, <i>Pulse width input 0..1 for LFOs that require it (3&#x3D;tri, 5&#x3D;tanh, 6&#x3D;square)</i> <br />
+        <b>In 4</b>: type=<i>input</i>: wave, <i>0&#x3D;bypass, 1&#x3D;ramp up, 2&#x3D;ramp down, 3&#x3D;tri, 4&#x3D;sine (default), 5&#x3D;tanh, 6&#x3D;square, 7&#x3D;rand step, 8&#x3D;rand linear, 9&#x3D;rand cubic, 10&#x3D;noise</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: LFO, <i>Selected LFO wave in range 0..1</i> <br />
 
       </description>
     </entry>
     <entry name="lfoShapes11 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: phase, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: sync, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: width, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: wave, <i></i> <br />
+        Collection of computed switchable LFOs, all wave selections in output range -1..1 <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: phase, <i>Phase 0..1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: sync, <i>The sync of the phase input required for random LFOs</i> <br />
+        <b>In 3</b>: type=<i>input</i>: width, <i>Pulse width input 0..1 for LFOs that require it (3&#x3D;tri, 5&#x3D;tanh, 6&#x3D;square)</i> <br />
+        <b>In 4</b>: type=<i>input</i>: wave, <i>0&#x3D;bypass, 1&#x3D;ramp up, 2&#x3D;ramp down, 3&#x3D;tri, 4&#x3D;sine (default), 5&#x3D;tanh, 6&#x3D;square, 7&#x3D;rand step, 8&#x3D;rand linear, 9&#x3D;rand cubic, 10&#x3D;noise</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: LFO, <i>Selected LFO wave in range -1..1</i> <br />
 
       </description>
     </entry>
@@ -104,6 +64,10 @@
   </metadatalist>
   <seealsolist>
     <!-- we use 'refpage' here not 'genrefpage' to trick Max -->
+    <seealso name="evi_env" type="refpage"/>
+    <seealso name="evi_sources" type="refpage"/>
+    <seealso name="evi_interp" type="refpage"/>
+    <seealso name="evi_fastskew" type="refpage"/>
   </seealsolist>
   <misc name="Discussion">
     <entry name="Keywords">

@@ -1,74 +1,74 @@
 {
-    "description": "",
+    "description": "A collection of Linkwitz-Riley crossover filters in various configurations. These are TPT filters that sum perfectly flat on recombionation and can also be modulated at audio rate.",
     "requires": [
         "evi_approx.genexpr"
     ],
     "functions": [
         {
             "document": true,
-            "digest": "",
+            "digest": "Two-pole two-band (low/high) crossover",
             "name": "eviXover2pole2band",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "X",
-                    "digest": ""
+                    "digest": "Audio input to be split"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "xover",
-                    "digest": ""
+                    "digest": "Crossover frequency in Hz"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Low",
+                    "digest": "Low band audio output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "High",
+                    "digest": "High band audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Four-pole two-band (low/high) crossover",
             "name": "eviXover4pole2band",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "X",
-                    "digest": ""
+                    "digest": "Audio input to be split"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "xover",
-                    "digest": ""
+                    "digest": "Crossover frequency in Hz"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Low",
+                    "digest": "Low band audio output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "High",
+                    "digest": "High band audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Two-pole three-band (low/mid/high) crossover",
             "name": "eviXover2pole3band",
             "inputs": [
                 {
@@ -81,621 +81,621 @@
                     "id": 2,
                     "kind": "input",
                     "name": "xoverLow",
-                    "digest": ""
+                    "digest": "Low crossover frequency in Hz"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "xoverHigh",
-                    "digest": ""
+                    "digest": "High crossover frequency in Hz"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Low",
+                    "digest": "Low band audio output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Mid",
+                    "digest": "Mid band audio output"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "High",
+                    "digest": "High band audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Four-pole three-band (low/mid/high) crossover",
             "name": "eviXover4pole3band",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "X",
-                    "digest": ""
+                    "digest": "Audio input to be split"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "xoverLow",
-                    "digest": ""
+                    "digest": "Low crossover frequency in Hz"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "xoverHigh",
-                    "digest": ""
+                    "digest": "High crossover frequency in Hz"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Low",
+                    "digest": "Low band audio output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Mid",
+                    "digest": "Mid band audio output"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "High",
+                    "digest": "High band audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Onepole allpass for summing two-pole three-band crossovers",
             "name": "eviXoverAllpass1",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "X",
-                    "digest": ""
+                    "digest": "Audio input to be aligned"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "hz",
-                    "digest": ""
+                    "digest": "High crossover frequency in Hz (from three-band crossover)"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Filter",
+                    "digest": "Allpass output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Two-pole allpass for summing four-pole three-band crossovers",
             "name": "eviXoverAllpass2",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "X",
-                    "digest": ""
+                    "digest": "Audio input to be aligned"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "hz",
-                    "digest": ""
+                    "digest": "High crossover frequency in Hz (from three-band crossover)"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Filter",
+                    "digest": "Allpass output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "All-in-one summing utility for two-pole three-band crossover",
             "name": "eviXover2pole3bandSum",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "LOW",
-                    "digest": ""
+                    "digest": "Low audio band input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "MID",
-                    "digest": ""
+                    "digest": "Mid audio band input"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "HIGH",
-                    "digest": ""
+                    "digest": "High audio band input"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "xoverHigh",
-                    "digest": ""
+                    "digest": "High crossover frequency in Hz (from three-band crossover)"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Sum",
+                    "digest": "Aligned and summed audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "All-in-one summing utility for four-pole three-band crossover",
             "name": "eviXover4pole3bandSum",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "LOW",
-                    "digest": ""
+                    "digest": "Low audio band input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "MID",
-                    "digest": ""
+                    "digest": "Mid audio band input"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "HIGH",
-                    "digest": ""
+                    "digest": "High audio band input"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "xoverHigh",
-                    "digest": ""
+                    "digest": "High crossover frequency in Hz (from three-band crossover)"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Sum",
+                    "digest": "Aligned and summed audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Stereo two-pole two-band (low/high) crossover",
             "name": "eviXover2pole2bandStereo",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "xL",
-                    "digest": ""
+                    "digest": "Left audio input to be split"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "xR",
-                    "digest": ""
+                    "digest": "Right audio input to be split"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "xover",
-                    "digest": ""
+                    "digest": "Crossover frequency in Hz"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Left",
+                    "digest": "Left LOW band audio output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Right",
+                    "digest": "Right LOW band audio output"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "Left",
+                    "digest": "Left HIGH band audio output"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "Right",
+                    "digest": "Right HIGH band audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Stereo four-pole two-band (low/high) crossover",
             "name": "eviXover4pole2bandStereo",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "xL",
-                    "digest": ""
+                    "digest": "Left audio input to be split"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "xR",
-                    "digest": ""
+                    "digest": "Right audio input to be split"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "xover",
-                    "digest": ""
+                    "digest": "Crossover frequency in Hz"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Left",
+                    "digest": "Left LOW band audio output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Right",
+                    "digest": "Right LOW band audio output"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "Left",
+                    "digest": "Left HIGH band audio output"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "Right",
+                    "digest": "Right HIGH band audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Stereo two-pole three-band (low/mid/high) crossover",
             "name": "eviXover2pole3bandStereo",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "xL",
-                    "digest": ""
+                    "digest": "Left audio input to be split"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "xR",
-                    "digest": ""
+                    "digest": "Right audio input to be split"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "hzLow",
-                    "digest": ""
+                    "digest": "Low crossover frequency in Hz"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "hzHigh",
-                    "digest": ""
+                    "digest": "High crossover frequency in Hz"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Left",
+                    "digest": "Left LOW band audio output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Right",
+                    "digest": "Right LOW band audio output"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "Left",
+                    "digest": "Left MID band audio output"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "Right",
+                    "digest": "Right MID band audio output"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "Left",
+                    "digest": "Left HIGH band audio output"
                 },
                 {
                     "id": 6,
-                    "name": "",
-                    "digest": ""
+                    "name": "Right",
+                    "digest": "Right HIGH band audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Stereo four-pole three-band (low/mid/high) crossover",
             "name": "eviXover4pole3bandStereo",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "xL",
-                    "digest": ""
+                    "digest": "Left audio input to be split"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "xR",
-                    "digest": ""
+                    "digest": "Right audio input to be split"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "hzLow",
-                    "digest": ""
+                    "digest": "Low crossover frequency in Hz"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "hzHigh",
-                    "digest": ""
+                    "digest": "High crossover frequency in Hz"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Left",
+                    "digest": "Left LOW band audio output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Right",
+                    "digest": "Right LOW band audio output"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "Left",
+                    "digest": "Left MID band audio output"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "Right",
+                    "digest": "Right MID band audio output"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "Left",
+                    "digest": "Left HIGH band audio output"
                 },
                 {
                     "id": 6,
-                    "name": "",
-                    "digest": ""
+                    "name": "Right",
+                    "digest": "Right HIGH band audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Stero onepole allpass for summing two-pole three-band crossovers",
             "name": "eviXoverAllpass1Stereo",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "xL",
-                    "digest": ""
+                    "digest": "Left audio input to be aligned"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "xR",
-                    "digest": ""
+                    "digest": "Right audio input to be aligned"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "hz",
-                    "digest": ""
+                    "digest": "High crossover frequency in Hz (from three-band crossover)"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Left",
+                    "digest": "Left allpass output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Right",
+                    "digest": "Right allpass output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Stero two-pole allpass for summing four-pole three-band crossovers",
             "name": "eviXoverAllpass2Stereo",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "xL",
-                    "digest": ""
+                    "digest": "Left audio input to be aligned"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "xR",
-                    "digest": ""
+                    "digest": "Right audio input to be aligned"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "hz",
-                    "digest": ""
+                    "digest": "High crossover frequency in Hz (from three-band crossover)"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Left",
+                    "digest": "Left allpass output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Right",
+                    "digest": "Right allpass output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Stereo all-in-one summing utility for two-pole three-band crossover",
             "name": "eviXover2pole3bandSumStereo",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "lowL",
-                    "digest": ""
+                    "digest": "Left low audio band input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "lowR",
-                    "digest": ""
+                    "digest": "Right low audio band input"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "midL",
-                    "digest": ""
+                    "digest": "Left mid audio band input"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "midR",
-                    "digest": ""
+                    "digest": "Right mid audio band input"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "highL",
-                    "digest": ""
+                    "digest": "Left high audio band input"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "highR",
-                    "digest": ""
+                    "digest": "Right high audio band input"
                 },
                 {
                     "id": 7,
                     "kind": "input",
                     "name": "xoverHigh",
-                    "digest": ""
+                    "digest": "High crossover frequency in Hz (from three-band crossover)"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Sum Left",
+                    "digest": "Left aligned and summed audio output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Sum Right",
+                    "digest": "Right aligned and summed audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Stereo all-in-one summing utility for four-pole three-band crossover",
             "name": "eviXover4pole3bandSumStereo",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "lowL",
-                    "digest": ""
+                    "digest": "Left low audio band input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "lowR",
-                    "digest": ""
+                    "digest": "Right low audio band input"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "midL",
-                    "digest": ""
+                    "digest": "Left mid audio band input"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "midR",
-                    "digest": ""
+                    "digest": "Right mid audio band input"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "highL",
-                    "digest": ""
+                    "digest": "Left high audio band input"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "highR",
-                    "digest": ""
+                    "digest": "Right high audio band input"
                 },
                 {
                     "id": 7,
                     "kind": "input",
                     "name": "xoverHigh",
-                    "digest": ""
+                    "digest": "High crossover frequency in Hz (from three-band crossover)"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Sum Left",
+                    "digest": "Left aligned and summed audio output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Sum Right",
+                    "digest": "Right aligned and summed audio output"
                 }
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "eviXoverAllpass1cascade",
             "inputs": [
@@ -732,7 +732,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "eviXoverAllpass2cascade",
             "inputs": [
@@ -780,5 +780,5 @@
             ]
         }
     ],
-    "seealso": []
+    "seealso": ["evi_svfs", "evi_rcfilters", "evi_butterworth"]
 }

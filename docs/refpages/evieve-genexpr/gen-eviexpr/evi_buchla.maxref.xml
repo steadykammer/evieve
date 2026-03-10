@@ -15,90 +15,35 @@
     evi_smooth.genexpr <br />
     <br />
     <b>About this File</b>: <br />
-     <br />
+    Buchla Lowpass Gate emulation. A filter modified from 'A Digital Model of the Buchla Lowpass-Gate' by Julian Parker and Stefano D’Angelo, 2013. This file renders 8 different versions of the filter for 1x..8x oversampling (with multiple passes of the processing loop in each one) and their subsequent oversampled functions. These can be used entirely inside gen~ code without resorting to using an external [poly~] for the resampling. Note, this file contains only the filter without the feeding circuit control. For an MSP/[poly~] version with circuit control see the [evi.lpg~] abstraction instead. <br />
   </description>
   <misc name="GenExpr Functions">
-    <entry name="tanhLapprox ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="cubicClip ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="nonlin ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: nl, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
     <entry name="buchlaLpg1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: rf, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: res, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: resist, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: vcamode, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: lpgmode, <i></i> <br />
-        <b>In 7</b>: type=<i>input</i>: nl, <i></i> <br />
+        1x version of the filter. This version is unique in this file in that it offers 3 simultaneous outlets for mixing (LP, BP, HP) but not being oversampled it is not very useful. <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Audio Input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: rf, <i>Voltage (not Hz) controls cutoff</i> <br />
+        <b>In 3</b>: type=<i>input</i>: res, <i>Resonance 0..2..</i> <br />
+        <b>In 4</b>: type=<i>input</i>: resist, <i>Additional resistors 0..1, also known as &#x27;Boom&#x27;</i> <br />
+        <b>In 5</b>: type=<i>input</i>: vcamode, <i>Vca mode 0..1, also known as &#x27;Damp&#x27;</i> <br />
+        <b>In 6</b>: type=<i>input</i>: lpgmode, <i>Filter/LPG mode flag 0/1</i> <br />
+        <b>In 7</b>: type=<i>input</i>: nl, <i>Nonlin flag 0/1, switch linear/nonliner, typically on</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="buchlaLpg2 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: x1, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: rf, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: res, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: resist, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: vcamode, <i></i> <br />
-        <b>In 7</b>: type=<i>input</i>: lpgmode, <i></i> <br />
-        <b>In 8</b>: type=<i>input</i>: nl, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="buchlaLpg3 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: x1, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: x2, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: rf, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: res, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: resist, <i></i> <br />
-        <b>In 7</b>: type=<i>input</i>: vcamode, <i></i> <br />
-        <b>In 8</b>: type=<i>input</i>: lpgmode, <i></i> <br />
-        <b>In 9</b>: type=<i>input</i>: nl, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
+        <b>Return 1</b>: LPG, <i>Lowpass Gate output</i> <br />
+        <b>Return 2</b>: BP, <i>Bandpass filter output</i> <br />
+        <b>Return 3</b>: HP, <i>Highpass filter output</i> <br />
 
       </description>
     </entry>
     <entry name="buchlaLpg4 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: x1, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: x2, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: x3, <i></i> <br />
+        4x version of the filter, for use by the 'buchlaLpg4_4x()' oversampler <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i>Oversampling audio input 1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: x1, <i>Oversampling audio input 2</i> <br />
+        <b>In 3</b>: type=<i>input</i>: x2, <i>Oversampling audio input 3</i> <br />
+        <b>In 4</b>: type=<i>input</i>: x3, <i>Oversampling audio input 4</i> <br />
         <b>In 5</b>: type=<i>input</i>: rf, <i></i> <br />
         <b>In 6</b>: type=<i>input</i>: res, <i></i> <br />
         <b>In 7</b>: type=<i>input</i>: resist, <i></i> <br />
@@ -106,132 +51,90 @@
         <b>In 9</b>: type=<i>input</i>: lpgmode, <i></i> <br />
         <b>In 10</b>: type=<i>input</i>: nl, <i></i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="buchlaLpg6 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: x1, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: x2, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: x3, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: x4, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: x5, <i></i> <br />
-        <b>In 7</b>: type=<i>input</i>: rf, <i></i> <br />
-        <b>In 8</b>: type=<i>input</i>: res, <i></i> <br />
-        <b>In 9</b>: type=<i>input</i>: resist, <i></i> <br />
-        <b>In 10</b>: type=<i>input</i>: vcamode, <i></i> <br />
-        <b>In 11</b>: type=<i>input</i>: lpgmode, <i></i> <br />
-        <b>In 12</b>: type=<i>input</i>: nl, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
-        <b>Return 5</b>: , <i></i> <br />
-        <b>Return 6</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="buchlaLpg8 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: x1, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: x2, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: x3, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: x4, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: x5, <i></i> <br />
-        <b>In 7</b>: type=<i>input</i>: x6, <i></i> <br />
-        <b>In 8</b>: type=<i>input</i>: x7, <i></i> <br />
-        <b>In 9</b>: type=<i>input</i>: rf, <i></i> <br />
-        <b>In 10</b>: type=<i>input</i>: res, <i></i> <br />
-        <b>In 11</b>: type=<i>input</i>: resist, <i></i> <br />
-        <b>In 12</b>: type=<i>input</i>: vcamode, <i></i> <br />
-        <b>In 13</b>: type=<i>input</i>: lpgmode, <i></i> <br />
-        <b>In 14</b>: type=<i>input</i>: nl, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
-        <b>Return 5</b>: , <i></i> <br />
-        <b>Return 6</b>: , <i></i> <br />
-        <b>Return 7</b>: , <i></i> <br />
-        <b>Return 8</b>: , <i></i> <br />
+        <b>Return 1</b>: , <i>Oversampling audio output 1</i> <br />
+        <b>Return 2</b>: , <i>Oversampling audio output 2</i> <br />
+        <b>Return 3</b>: , <i>Oversampling audio output 3</i> <br />
+        <b>Return 4</b>: , <i>Oversampling audio output 4</i> <br />
 
       </description>
     </entry>
     <entry name="buchlaLpg2_2x ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: rf, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: res, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: resist, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: vcamode, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: lpgmode, <i></i> <br />
-        <b>In 7</b>: type=<i>input</i>: nl, <i></i> <br />
+        2x oversampled version of the filter <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio Input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: rf, <i>Voltage (not Hz) controls cutoff</i> <br />
+        <b>In 3</b>: type=<i>input</i>: res, <i>Resonance 0..2..</i> <br />
+        <b>In 4</b>: type=<i>input</i>: resist, <i>Additional resistors 0..1, also known as &#x27;Boom&#x27;</i> <br />
+        <b>In 5</b>: type=<i>input</i>: vcamode, <i>Vca mode 0..1, also known as &#x27;Damp&#x27;</i> <br />
+        <b>In 6</b>: type=<i>input</i>: lpgmode, <i>Filter/LPG mode flag 0/1</i> <br />
+        <b>In 7</b>: type=<i>input</i>: nl, <i>Nonlin flag 0/1, switch linear/nonliner, typically on</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: LPG, <i>Buchla Lowpass Gate output</i> <br />
 
       </description>
     </entry>
     <entry name="buchlaLpg3_3x ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: rf, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: res, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: resist, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: vcamode, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: lpgmode, <i></i> <br />
-        <b>In 7</b>: type=<i>input</i>: nl, <i></i> <br />
+        3x oversampled version of the filter <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio Input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: rf, <i>Voltage (not Hz) controls cutoff</i> <br />
+        <b>In 3</b>: type=<i>input</i>: res, <i>Resonance 0..2..</i> <br />
+        <b>In 4</b>: type=<i>input</i>: resist, <i>Additional resistors 0..1, also known as &#x27;Boom&#x27;</i> <br />
+        <b>In 5</b>: type=<i>input</i>: vcamode, <i>Vca mode 0..1, also known as &#x27;Damp&#x27;</i> <br />
+        <b>In 6</b>: type=<i>input</i>: lpgmode, <i>Filter/LPG mode flag 0/1</i> <br />
+        <b>In 7</b>: type=<i>input</i>: nl, <i>Nonlin flag 0/1, switch linear/nonliner, typically on</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: LPG, <i>Buchla Lowpass Gate output</i> <br />
 
       </description>
     </entry>
     <entry name="buchlaLpg4_4x ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: rf, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: res, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: resist, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: vcamode, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: lpgmode, <i></i> <br />
-        <b>In 7</b>: type=<i>input</i>: nl, <i></i> <br />
+        4x oversampled version of the filter <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio Input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: rf, <i>Voltage (not Hz) controls cutoff</i> <br />
+        <b>In 3</b>: type=<i>input</i>: res, <i>Resonance 0..2..</i> <br />
+        <b>In 4</b>: type=<i>input</i>: resist, <i>Additional resistors 0..1, also known as &#x27;Boom&#x27;</i> <br />
+        <b>In 5</b>: type=<i>input</i>: vcamode, <i>Vca mode 0..1, also known as &#x27;Damp&#x27;</i> <br />
+        <b>In 6</b>: type=<i>input</i>: lpgmode, <i>Filter/LPG mode flag 0/1</i> <br />
+        <b>In 7</b>: type=<i>input</i>: nl, <i>Nonlin flag 0/1, switch linear/nonliner, typically on</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: LPG, <i>Buchla Lowpass Gate output</i> <br />
 
       </description>
     </entry>
     <entry name="buchlaLpg6_6x ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: rf, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: res, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: resist, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: vcamode, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: lpgmode, <i></i> <br />
-        <b>In 7</b>: type=<i>input</i>: nl, <i></i> <br />
+        6x oversampled version of the filter <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio Input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: rf, <i>Voltage (not Hz) controls cutoff</i> <br />
+        <b>In 3</b>: type=<i>input</i>: res, <i>Resonance 0..2..</i> <br />
+        <b>In 4</b>: type=<i>input</i>: resist, <i>Additional resistors 0..1, also known as &#x27;Boom&#x27;</i> <br />
+        <b>In 5</b>: type=<i>input</i>: vcamode, <i>Vca mode 0..1, also known as &#x27;Damp&#x27;</i> <br />
+        <b>In 6</b>: type=<i>input</i>: lpgmode, <i>Filter/LPG mode flag 0/1</i> <br />
+        <b>In 7</b>: type=<i>input</i>: nl, <i>Nonlin flag 0/1, switch linear/nonliner, typically on</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: LPG, <i>Buchla Lowpass Gate output</i> <br />
 
       </description>
     </entry>
     <entry name="buchlaLpg8_8x ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: rf, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: res, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: resist, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: vcamode, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: lpgmode, <i></i> <br />
-        <b>In 7</b>: type=<i>input</i>: nl, <i></i> <br />
+        8x oversampled version of the filter <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio Input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: rf, <i>Voltage (not Hz) controls cutoff</i> <br />
+        <b>In 3</b>: type=<i>input</i>: res, <i>Resonance 0..2..</i> <br />
+        <b>In 4</b>: type=<i>input</i>: resist, <i>Additional resistors 0..1, also known as &#x27;Boom&#x27;</i> <br />
+        <b>In 5</b>: type=<i>input</i>: vcamode, <i>Vca mode 0..1, also known as &#x27;Damp&#x27;</i> <br />
+        <b>In 6</b>: type=<i>input</i>: lpgmode, <i>Filter/LPG mode flag 0/1</i> <br />
+        <b>In 7</b>: type=<i>input</i>: nl, <i>Nonlin flag 0/1, switch linear/nonliner, typically on</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: LPG, <i>Buchla Lowpass Gate output</i> <br />
 
       </description>
     </entry>
@@ -243,6 +146,8 @@
   </metadatalist>
   <seealsolist>
     <!-- we use 'refpage' here not 'genrefpage' to trick Max -->
+    <seealso name="evi_interp" type="refpage"/>
+    <seealso name="evi_resampling_templates" type="refpage"/>
   </seealsolist>
   <misc name="Discussion">
     <entry name="Keywords">

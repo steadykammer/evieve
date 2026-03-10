@@ -1,5 +1,5 @@
 {
-    "description": "",
+    "description": "Classic analog onepole RC filters in trapezoidal form. These are high quality and extremely efficient onepole filter primitives used all over evieve and very useful in day to day patching situations. One of the reasons we use trapezoidal rule is so that the filter can be correctly nonlinearised in TPT form.",
     "requires": [
         "evi_approx.genexpr",
         "evi_interp.genexpr"
@@ -7,191 +7,191 @@
     "functions": [
         {
             "document": true,
-            "digest": "",
+            "digest": "Frequency warping for all onepole filters with a cheap approximation suited to lower range frequency values",
             "name": "rcPreWarp1",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "G",
+                    "digest": "Warped frequency g coefficient 0..1"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Frequency warping for all onepole filters with an approximation suited to full range frequency values",
             "name": "rcPreWarp2",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "G",
+                    "digest": "Warped frequency g coefficient 0..HALFPI"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Linear OnePole Lowpass RC filter (trapezoidal), 1 mul 1 div",
             "name": "rcFilter",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "Vin",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "g",
-                    "digest": ""
+                    "digest": "Normalised frequency coefficient"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Filter",
+                    "digest": "Onepole filter output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Linear OnePole Highpass RC filter",
             "name": "rcFilterHp",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "Vin",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "g",
-                    "digest": ""
+                    "digest": "Normalised frequency coefficient"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Filter",
+                    "digest": "Onepole filter output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Linear OnePole RC filter with simultaneous Lowpass/Highpass outputs",
             "name": "rcFilterLpHp",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "Vin",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "g",
-                    "digest": ""
+                    "digest": "Normalised frequency coefficient"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Lowpass",
+                    "digest": "Lowpass filter output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Highpass",
+                    "digest": "Highpass filter output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Linear OnePole RC filter with simultaneous Lowpass/Allpass/Highpass outputs",
             "name": "rcFilterLpApHp",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "Vin",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "g",
-                    "digest": ""
+                    "digest": "Normalised frequency coefficient"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Lowpass",
+                    "digest": "Lowpass filter output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Allpass",
+                    "digest": "Allpass filter output"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "Highpass",
+                    "digest": "Highpass filter output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Linear OnePole Allpass RC filter",
             "name": "rcFilterAllpass",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "Vin",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "g",
-                    "digest": ""
+                    "digest": "Normalised frequency coefficient"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Filter",
+                    "digest": "Onepole filter output"
                 }
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "rcFilterAllpassCascade",
             "inputs": [
@@ -229,95 +229,95 @@
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Linear OnePole Bandpass RC filter",
             "name": "rcFilterBandpass",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "xp",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "glp",
-                    "digest": ""
+                    "digest": "Low band normalised frequency coefficient"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "ghp",
-                    "digest": ""
+                    "digest": "High band normalised frequency coefficient"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Filter",
+                    "digest": "Onepole filter output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Coefficients calculator for Onepole attenuate/boost filters, better to use individual calculators below",
             "name": "rcDampCoeffs",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "damp",
-                    "digest": ""
+                    "digest": "Normalised damping factor -1..1"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "mode",
-                    "digest": ""
+                    "digest": "Operational mode (0=attenuation only, 1=attenuate/boost shelfs, 2=lp/hp/attenuate/boost shelfs)"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "G",
+                    "digest": "Frequency coefficient output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "K",
+                    "digest": "Gain coefficient output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Gen no tilde schedular rate coefficients calculator for Onepole attenuate/boost filters",
             "name": "rcDampCoeffsNoTilde",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "damp",
-                    "digest": ""
+                    "digest": "Normalised damping factor -1..1"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "mode",
-                    "digest": ""
+                    "digest": "Operational mode (0=attenuation only, 1=attenuate/boost shelfs, 2=lp/hp/attenuate/boost shelfs)"
                 },
                 {
                     "id": 4,
@@ -325,262 +325,262 @@
                     "name": "AUDIO_SR",
                     "default": 48000,
                     "type": "integer",
-                    "digest": ""
+                    "digest": "You must pass in the audio sampling rate here"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "G",
+                    "digest": "Frequency coefficient output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "K",
+                    "digest": "Gain coefficient output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Coefficients calculator for Onepole Damping filters, can be used at Param rate",
             "name": "rcDampCoeffs0",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "damp",
-                    "digest": ""
+                    "digest": "Normalised damping factor 0..1, 0=flat, 1=highpass/lowpass"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "G",
+                    "digest": "Frequency coefficient output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "K",
+                    "digest": "Gain coefficient output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Coefficients calculator for Onepole shelving attenuate/boost filters",
             "name": "rcDampCoeffs1",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "damp",
-                    "digest": ""
+                    "digest": "Normalised damping factor -1..1, -1=shelf attenuate, 1=shelf boost"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "G",
+                    "digest": "Frequency coefficient output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "K",
+                    "digest": "Gain coefficient output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Coefficients calculator for Onepole lp/hp/attenuate/boost filters",
             "name": "rcDampCoeffs2",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "damp",
-                    "digest": ""
+                    "digest": "Normalised damping factor -1..1, -1=lp/hp, through shelfs, 1=boost shelfs"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "G",
+                    "digest": "Frequency coefficient output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "K",
+                    "digest": "Gain coefficient output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Linear OnePole Lowpass RC damp/boost filter",
             "name": "rcFilterDamp",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "Vin",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "g",
-                    "digest": ""
+                    "digest": "Normalised frequency coefficient"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "k",
-                    "digest": ""
+                    "digest": "Gain coefficient"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Damping filter",
+                    "digest": "Onepole filter output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Linear OnePole Highpass RC damp/boost filter",
             "name": "rcFilterDampHp",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "Vin",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "g",
-                    "digest": ""
+                    "digest": "Normalised frequency coefficient"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "k",
-                    "digest": ""
+                    "digest": "Gain coefficient"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Damping filter",
+                    "digest": "Onepole filter output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Linear OnePole RC damp/boost filter with simultaneous LP/HP outputs",
             "name": "rcFilterDampLpHp",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "Vin",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "g",
-                    "digest": ""
+                    "digest": "Normalised frequency coefficient"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "k",
-                    "digest": ""
+                    "digest": "Gain coefficient"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Damping filter",
+                    "digest": "Low filter output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Damping filter",
+                    "digest": "High filter output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Linear OnePole Bandpass RC damp/boost filter",
             "name": "rcFilterDampBandpass",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "Vin",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "glp",
-                    "digest": ""
+                    "digest": "Low band normalised frequency coefficient"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "ghp",
-                    "digest": ""
+                    "digest": "High band normalised frequency coefficient"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "lk",
-                    "digest": ""
+                    "digest": "Low band gain coefficient"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "hk",
-                    "digest": ""
+                    "digest": "High band gain coefficient"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Damping filter",
+                    "digest": "Onepole bandpass filter output"
                 }
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "tanhLApprox",
             "inputs": [
@@ -600,7 +600,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "sech2_with_tanh",
             "inputs": [
@@ -621,32 +621,32 @@
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Nonlinear Onepole RC filter via Newton iteration",
             "name": "rcOnePole",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "Vin",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "g",
-                    "digest": ""
+                    "digest": "Normalised frequency coefficient"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Nonlinear Onepole",
+                    "digest": "Nonlinear onepole filter output"
                 }
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "rcOnePoleLpHp",
             "inputs": [
@@ -677,7 +677,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "rcOnePole_x2",
             "inputs": [
@@ -703,5 +703,5 @@
             ]
         }
     ],
-    "seealso": []
+    "seealso": ["evi_svfs", "evi_butterworth", "evi_crossovers"]
 }

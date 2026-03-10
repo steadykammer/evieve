@@ -15,324 +15,231 @@
     evi_interp.genexpr <br />
     <br />
     <b>About this File</b>: <br />
-     <br />
+    Anti-aliased antiderivative and oversampled clipping functions for treating your precious audio well when clipping is required. A choice of four clippers are available: Hard clipping, Diode clipping, Asymmetric clipping and Soft clipping. The oversampled versions of these functions can give up to +40dB headroom, but using just the antiderivatives when not clipping too hard are also very effective. These are for all people who disastrously like to use [clip~ -1. 1.] in their patchers (you should never do this). <br />
   </description>
   <misc name="GenExpr Functions">
-    <entry name="funcHc0 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="funcHc1 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="funcHc2 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
     <entry name="adHc1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        First order anti-derivative hard clip function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Hardclip, <i>Anti-aliased hardclip</i> <br />
 
       </description>
     </entry>
     <entry name="adHc2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        Second order anti-derivative hard clip function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Hardclip, <i>Anti-aliased hardclip</i> <br />
 
       </description>
     </entry>
     <entry name="adHc2_2x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        Second order anti-derivative 2x oversampled hard clip function, 6-point interpolation <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Hardclip, <i>Anti-aliased hardclip</i> <br />
 
       </description>
     </entry>
     <entry name="adHc2_4x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        Second order anti-derivative 4x oversampled hard clip function, 6-point interpolation <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Hardclip, <i>Anti-aliased hardclip</i> <br />
 
       </description>
     </entry>
     <entry name="adHc2_2x_4POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        Second order anti-derivative 2x oversampled hard clip function, 4-point interpolation <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Hardclip, <i>Anti-aliased hardclip</i> <br />
 
       </description>
     </entry>
     <entry name="adHc2_4x_4POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        Second order anti-derivative 4x oversampled hard clip function, 4-point interpolation <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="w3 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="w4 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Hardclip, <i>Anti-aliased hardclip</i> <br />
 
       </description>
     </entry>
     <entry name="diodeCoeffs ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: SR, <i></i> <br />
-        <b>In 2</b>: type=<i>Param</i> (optional): CR, default: <b>0.000022</b>, min: 0, max: 0, <i></i> <br />
-        <b>In 3</b>: type=<i>Param</i> (optional): IR, default: <b>2.2e-13</b>, min: 0, max: 0, <i></i> <br />
-        <b>In 4</b>: type=<i>Param</i> (optional): VT, default: <b>0.026</b>, min: 0, max: 0, <i></i> <br />
+        Coefficients for Diode clipper function, this only ever needs updating if the samplerate changes <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: SR, <i>Input SAMPLERATE</i> <br />
+        <b>In 2</b>: type=<i>Param</i> (optional): CR, default: <b>0.000022</b>, min: 0, max: 0, <i>Constant, do not change</i> <br />
+        <b>In 3</b>: type=<i>Param</i> (optional): IR, default: <b>2.2e-13</b>, min: 0, max: 0, <i>Constant, do not change</i> <br />
+        <b>In 4</b>: type=<i>Param</i> (optional): VT, default: <b>0.026</b>, min: 0, max: 0, <i>Constant, do not change</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
-        <b>Return 5</b>: , <i></i> <br />
-        <b>Return 6</b>: , <i></i> <br />
-        <b>Return 7</b>: , <i></i> <br />
-        <b>Return 8</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="diode ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: Vin, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: k1, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: k2, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: k3, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: k4, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: k5, <i></i> <br />
-        <b>In 7</b>: type=<i>input</i>: k6, <i></i> <br />
-        <b>In 8</b>: type=<i>input</i>: VT, <i></i> <br />
-        <b>In 9</b>: type=<i>input</i>: A1, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="diodeWrap ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: Vin, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: k1, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: k2, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: k3, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: k4, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: k5, <i></i> <br />
-        <b>In 7</b>: type=<i>input</i>: k6, <i></i> <br />
-        <b>In 8</b>: type=<i>input</i>: VT, <i></i> <br />
-        <b>In 9</b>: type=<i>input</i>: A1, <i></i> <br />
-        <b>In 10</b>: type=<i>param</i> (optional): gain, default: <b>0.999999</b>, <i></i> <br />
-        <b>In 11</b>: type=<i>param</i> (optional): bias, default: <b>0.000001</b>, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: k1, <i>k1 coefficient</i> <br />
+        <b>Return 2</b>: k2, <i>k2 coefficient</i> <br />
+        <b>Return 3</b>: k3, <i>k3 coefficient</i> <br />
+        <b>Return 4</b>: k4, <i>k4 coefficient</i> <br />
+        <b>Return 5</b>: k5, <i>k5 coefficient</i> <br />
+        <b>Return 6</b>: k6, <i>k6 coefficient</i> <br />
+        <b>Return 7</b>: VT, <i>VT coefficient</i> <br />
+        <b>Return 8</b>: A1, <i>A1 coefficient</i> <br />
 
       </description>
     </entry>
     <entry name="diode_2x_4POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: k1, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: k2, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: k3, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: k4, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: k5, <i></i> <br />
-        <b>In 7</b>: type=<i>input</i>: k6, <i></i> <br />
-        <b>In 8</b>: type=<i>input</i>: VT, <i></i> <br />
-        <b>In 9</b>: type=<i>input</i>: A1, <i></i> <br />
+        Anti-aliased diode clipper emulation 2x oversampled, 4-point interpolator <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: k1, <i>k1 coefficient</i> <br />
+        <b>In 3</b>: type=<i>input</i>: k2, <i>k2 coefficient</i> <br />
+        <b>In 4</b>: type=<i>input</i>: k3, <i>k3 coefficient</i> <br />
+        <b>In 5</b>: type=<i>input</i>: k4, <i>k4 coefficient</i> <br />
+        <b>In 6</b>: type=<i>input</i>: k5, <i>k5 coefficient</i> <br />
+        <b>In 7</b>: type=<i>input</i>: k6, <i>k6 coefficient</i> <br />
+        <b>In 8</b>: type=<i>input</i>: VT, <i>VT coefficient</i> <br />
+        <b>In 9</b>: type=<i>input</i>: A1, <i>A1 coefficient</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Diode clip, <i>Anti-aliased diode clipper</i> <br />
 
       </description>
     </entry>
     <entry name="diode_4x_4POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: k1, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: k2, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: k3, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: k4, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: k5, <i></i> <br />
-        <b>In 7</b>: type=<i>input</i>: k6, <i></i> <br />
-        <b>In 8</b>: type=<i>input</i>: VT, <i></i> <br />
-        <b>In 9</b>: type=<i>input</i>: A1, <i></i> <br />
+        Anti-aliased diode clipper emulation 4x oversampled, 4-point interpolator <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: k1, <i>k1 coefficient</i> <br />
+        <b>In 3</b>: type=<i>input</i>: k2, <i>k2 coefficient</i> <br />
+        <b>In 4</b>: type=<i>input</i>: k3, <i>k3 coefficient</i> <br />
+        <b>In 5</b>: type=<i>input</i>: k4, <i>k4 coefficient</i> <br />
+        <b>In 6</b>: type=<i>input</i>: k5, <i>k5 coefficient</i> <br />
+        <b>In 7</b>: type=<i>input</i>: k6, <i>k6 coefficient</i> <br />
+        <b>In 8</b>: type=<i>input</i>: VT, <i>VT coefficient</i> <br />
+        <b>In 9</b>: type=<i>input</i>: A1, <i>A1 coefficient</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Diode clip, <i>Anti-aliased diode clipper</i> <br />
 
       </description>
     </entry>
     <entry name="diode_8x_4POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: k1, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: k2, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: k3, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: k4, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: k5, <i></i> <br />
-        <b>In 7</b>: type=<i>input</i>: k6, <i></i> <br />
-        <b>In 8</b>: type=<i>input</i>: VT, <i></i> <br />
-        <b>In 9</b>: type=<i>input</i>: A1, <i></i> <br />
+        Anti-aliased diode clipper emulation 8x oversampled, 4-point interpolator <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: k1, <i>k1 coefficient</i> <br />
+        <b>In 3</b>: type=<i>input</i>: k2, <i>k2 coefficient</i> <br />
+        <b>In 4</b>: type=<i>input</i>: k3, <i>k3 coefficient</i> <br />
+        <b>In 5</b>: type=<i>input</i>: k4, <i>k4 coefficient</i> <br />
+        <b>In 6</b>: type=<i>input</i>: k5, <i>k5 coefficient</i> <br />
+        <b>In 7</b>: type=<i>input</i>: k6, <i>k6 coefficient</i> <br />
+        <b>In 8</b>: type=<i>input</i>: VT, <i>VT coefficient</i> <br />
+        <b>In 9</b>: type=<i>input</i>: A1, <i>A1 coefficient</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="asym ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: xin, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="asymWrap ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x2, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: drive, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Diode clip, <i>Anti-aliased diode clipper</i> <br />
 
       </description>
     </entry>
     <entry name="asym_2x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        Anti-aliased asymmetric clipper function, 2x oversampled, 6-point interpolator <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Asymmetric clip, <i>Anti-aliased asymmetric clipper</i> <br />
 
       </description>
     </entry>
     <entry name="asym_4x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        Anti-aliased asymmetric clipper function, 4x oversampled, 6-point interpolator <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="funcSc0 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="funcSc1 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="funcSc11 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="funcSc2 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Asymmetric clip, <i>Anti-aliased asymmetric clipper</i> <br />
 
       </description>
     </entry>
     <entry name="adSc1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        First order anti-derivative soft clip function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Soft clip, <i>Anti-aliased soft clip</i> <br />
 
       </description>
     </entry>
     <entry name="adSc2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: OS, <i></i> <br />
+        Second order anti-derivative soft clip function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: OS, <i>External oversampling factor</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Soft clip, <i>Anti-aliased soft clip</i> <br />
 
       </description>
     </entry>
     <entry name="adSc1_2x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        First order anti-derivative soft clip function, 2x oversampling, 6-point ionterpolator <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="adSc2_2x_6POINT_fix2 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Soft clip, <i>Anti-aliased soft clip</i> <br />
 
       </description>
     </entry>
     <entry name="adSc2_2x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        Second order anti-derivative soft clip function, 2x oversampling, 6-point interpolator <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Soft clip, <i>Anti-aliased soft clip</i> <br />
 
       </description>
     </entry>
     <entry name="adSc2_4x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        Second order anti-derivative soft clip function, 4x oversampling, 6-point interpolator <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Soft clip, <i>Anti-aliased soft clip</i> <br />
 
       </description>
     </entry>
     <entry name="adSc2_2x_4POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        Second order anti-derivative soft clip function, 2x oversampling, 4-point interpolator <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Soft clip, <i>Anti-aliased soft clip</i> <br />
 
       </description>
     </entry>
     <entry name="adSc2_4x_4POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        Second order anti-derivative soft clip function, 4x oversampling, 4-point interpolator <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Soft clip, <i>Anti-aliased soft clip</i> <br />
 
       </description>
     </entry>
@@ -344,6 +251,10 @@
   </metadatalist>
   <seealsolist>
     <!-- we use 'refpage' here not 'genrefpage' to trick Max -->
+    <seealso name="evi_adaa" type="refpage"/>
+    <seealso name="evi_tanh" type="refpage"/>
+    <seealso name="evi_waveshaping" type="refpage"/>
+    <seealso name="evi_saturators" type="refpage"/>
   </seealsolist>
   <misc name="Discussion">
     <entry name="Keywords">

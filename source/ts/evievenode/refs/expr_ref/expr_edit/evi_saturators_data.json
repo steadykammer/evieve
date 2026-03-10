@@ -1,5 +1,5 @@
 {
-    "description": "",
+    "description": "This file performs quasi resampling on all of the antiderivitive anti-aliasing saturators contained in 'evi_adaa.genexpr'.",
     "requires": [
         "evi_adaa.genexpr",
         "evi_interp.genexpr"
@@ -7,910 +7,910 @@
     "functions": [
         {
             "document": true,
-            "digest": "",
+            "digest": "Adaa1, 2x oversampling, 6-point interpolator, hard clip function",
             "name": "hardclipAdaa1_2x_6POINT",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN",
-                    "digest": ""
+                    "digest": "Audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Hard clip",
+                    "digest": "Anti-aliased audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Adaa1, 4x oversampling, 6-point interpolator, hard clip function",
             "name": "hardclipAdaa1_4x_6POINT",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN",
-                    "digest": ""
+                    "digest": "Audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Hard clip",
+                    "digest": "Anti-aliased audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Adaa2, 2x oversampling, 6-point interpolator, hard clip function",
             "name": "hardclipAdaa2_2x_6POINT",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN",
-                    "digest": ""
+                    "digest": "Audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Hard clip",
+                    "digest": "Anti-aliased audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Adaa2, 4x oversampling, 6-point interpolator, hard clip function",
             "name": "hardclipAdaa2_4x_6POINT",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN",
-                    "digest": ""
+                    "digest": "Audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Hard clip",
+                    "digest": "Anti-aliased audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Adaa1, 2x oversampling, 6-point interpolator, half rectified sine function",
             "name": "halfrectAdaa1_2x_6POINT",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN",
-                    "digest": ""
+                    "digest": "Audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Half Rectified Sine",
+                    "digest": "Anti-aliased audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Adaa1, 4x oversampling, 6-point interpolator, half rectified sine function",
             "name": "halfrectAdaa1_4x_6POINT",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN",
-                    "digest": ""
+                    "digest": "Audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Half Rectified Sine",
+                    "digest": "Anti-aliased audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Adaa2, 2x oversampling, 6-point interpolator, half rectified sine function",
             "name": "halfrectAdaa2_2x_6POINT",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN",
-                    "digest": ""
+                    "digest": "Audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Half Rectified Sine",
+                    "digest": "Anti-aliased audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Adaa2, 4x oversampling, 6-point interpolator, half rectified sine function",
             "name": "halfrectAdaa2_4x_6POINT",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN",
-                    "digest": ""
+                    "digest": "Audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Half Rectified Sine",
+                    "digest": "Anti-aliased audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Adaa1, 2x oversampling, 6-point interpolator, power function",
             "name": "powerAdaa1_2x_6POINT",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN",
-                    "digest": ""
+                    "digest": "Audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Power",
+                    "digest": "Anti-aliased audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Adaa1, 4x oversampling, 6-point interpolator, power function",
             "name": "powerAdaa1_4x_6POINT",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN",
-                    "digest": ""
+                    "digest": "Audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Power",
+                    "digest": "Anti-aliased audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Adaa2, 2x oversampling, 6-point interpolator, power function",
             "name": "powerAdaa2_2x_6POINT",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN",
-                    "digest": ""
+                    "digest": "Audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Power",
+                    "digest": "Anti-aliased audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Adaa2, 4x oversampling, 6-point interpolator, power function",
             "name": "powerAdaa2_4x_6POINT",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN",
-                    "digest": ""
+                    "digest": "Audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Power",
+                    "digest": "Anti-aliased audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Adaa1, 2x oversampling, 6-point interpolator, soft clip function",
             "name": "softclip2Adaa1_2x_6POINT",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN",
-                    "digest": ""
+                    "digest": "Audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Soft Clip",
+                    "digest": "Anti-aliased audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Adaa1, 4x oversampling, 6-point interpolator, soft clip function",
             "name": "softclip2Adaa1_4x_6POINT",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN",
-                    "digest": ""
+                    "digest": "Audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Soft Clip",
+                    "digest": "Anti-aliased audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Adaa2, 2x oversampling, 6-point interpolator, soft clip function",
             "name": "softclip2Adaa2_2x_6POINT",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN",
-                    "digest": ""
+                    "digest": "Audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Soft Clip",
+                    "digest": "Anti-aliased audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Adaa2, 4x oversampling, 6-point interpolator, soft clip function",
             "name": "softclip2Adaa2_4x_6POINT",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN",
-                    "digest": ""
+                    "digest": "Audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Soft Clip",
+                    "digest": "Anti-aliased audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Adaa1, 2x oversampling, 6-point interpolator, soft clip function",
             "name": "softclipNAdaa1_2x_6POINT",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN",
-                    "digest": ""
+                    "digest": "Audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Soft Clip",
+                    "digest": "Anti-aliased audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Adaa1, 4x oversampling, 6-point interpolator, soft clip function",
             "name": "softclipNAdaa1_4x_6POINT",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN",
-                    "digest": ""
+                    "digest": "Audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Soft Clip",
+                    "digest": "Anti-aliased audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Adaa2, 2x oversampling, 6-point interpolator, soft clip function",
             "name": "softclipNAdaa2_2x_6POINT",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN",
-                    "digest": ""
+                    "digest": "Audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Soft Clip",
+                    "digest": "Anti-aliased audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Adaa2, 4x oversampling, 6-point interpolator, soft clip function",
             "name": "softclipNAdaa2_4x_6POINT",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN",
-                    "digest": ""
+                    "digest": "Audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Soft Clip",
+                    "digest": "Anti-aliased audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Adaa1, 2x oversampling, 6-point interpolator, atan function",
             "name": "atanAdaa1_2x_6POINT",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN",
-                    "digest": ""
+                    "digest": "Audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Atan Saturation",
+                    "digest": "Anti-aliased audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Adaa1, 4x oversampling, 6-point interpolator, atan function",
             "name": "atanAdaa1_4x_6POINT",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN",
-                    "digest": ""
+                    "digest": "Audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Atan Saturation",
+                    "digest": "Anti-aliased audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Adaa2, 2x oversampling, 6-point interpolator, atan function",
             "name": "atanAdaa2_2x_6POINT",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN",
-                    "digest": ""
+                    "digest": "Audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Atan Saturation",
+                    "digest": "Anti-aliased audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Adaa2, 4x oversampling, 6-point interpolator, atan function",
             "name": "atanAdaa2_4x_6POINT",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN",
-                    "digest": ""
+                    "digest": "Audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Atan Saturation",
+                    "digest": "Anti-aliased audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Adaa1, 2x oversampling, 6-point interpolator, algebraic function",
             "name": "algebraicAdaa1_2x_6POINT",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN",
-                    "digest": ""
+                    "digest": "Audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Algebraic Clipping",
+                    "digest": "Anti-aliased audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Adaa1, 4x oversampling, 6-point interpolator, algebraic function",
             "name": "algebraicAdaa1_4x_6POINT",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN",
-                    "digest": ""
+                    "digest": "Audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Algebraic Clipping",
+                    "digest": "Anti-aliased audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Adaa2, 2x oversampling, 6-point interpolator, algebraic function",
             "name": "algebraicAdaa2_2x_6POINT",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN",
-                    "digest": ""
+                    "digest": "Audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Algebraic Clipping",
+                    "digest": "Anti-aliased audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Adaa2, 4x oversampling, 6-point interpolator, algebraic function",
             "name": "algebraicAdaa2_4x_6POINT",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN",
-                    "digest": ""
+                    "digest": "Audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Algebraic Clipping",
+                    "digest": "Anti-aliased audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Adaa1, 2x oversampling, 6-point interpolator, log function",
             "name": "log1pAdaa1_2x_6POINT",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN",
-                    "digest": ""
+                    "digest": "Audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Log Saturation",
+                    "digest": "Anti-aliased audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Adaa1, 4x oversampling, 6-point interpolator, log function",
             "name": "log1pAdaa1_4x_6POINT",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN",
-                    "digest": ""
+                    "digest": "Audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Log Saturation",
+                    "digest": "Anti-aliased audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Adaa2, 2x oversampling, 6-point interpolator, log function",
             "name": "log1pAdaa2_2x_6POINT",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN",
-                    "digest": ""
+                    "digest": "Audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Log Saturation",
+                    "digest": "Anti-aliased audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Adaa2, 4x oversampling, 6-point interpolator, log function",
             "name": "log1pAdaa2_4x_6POINT",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN",
-                    "digest": ""
+                    "digest": "Audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Log Saturation",
+                    "digest": "Anti-aliased audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Adaa1, 2x oversampling, 6-point interpolator, tanh-like saturation",
             "name": "altTanhAdaa1_2x_6POINT",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN",
-                    "digest": ""
+                    "digest": "Audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Tanh-like",
+                    "digest": "Anti-aliased audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Adaa1, 4x oversampling, 6-point interpolator, tanh-like saturation",
             "name": "altTanhAdaa1_4x_6POINT",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN",
-                    "digest": ""
+                    "digest": "Audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Tanh-like",
+                    "digest": "Anti-aliased audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Adaa2, 2x oversampling, 6-point interpolator, tanh-like saturation",
             "name": "altTanhAdaa2_2x_6POINT",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN",
-                    "digest": ""
+                    "digest": "Audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Tanh-like",
+                    "digest": "Anti-aliased audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Adaa2, 4x oversampling, 6-point interpolator, tanh-like saturation",
             "name": "altTanhAdaa2_4x_6POINT",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN",
-                    "digest": ""
+                    "digest": "Audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Tanh-like",
+                    "digest": "Anti-aliased audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Adaa1, 2x oversampling, 6-point interpolator, tanh-like saturation",
             "name": "altTanhSqrtAdaa1_2x_6POINT",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN",
-                    "digest": ""
+                    "digest": "Audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Tanh-like",
+                    "digest": "Anti-aliased audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Adaa1, 4x oversampling, 6-point interpolator, tanh-like saturation",
             "name": "altTanhSqrtAdaa1_4x_6POINT",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN",
-                    "digest": ""
+                    "digest": "Audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Tanh-like",
+                    "digest": "Anti-aliased audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Adaa2, 2x oversampling, 6-point interpolator, tanh-like saturation",
             "name": "altTanhSqrtAdaa2_2x_6POINT",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN",
-                    "digest": ""
+                    "digest": "Audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Tanh-like",
+                    "digest": "Anti-aliased audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Adaa2, 4x oversampling, 6-point interpolator, tanh-like saturation",
             "name": "altTanhSqrtAdaa2_4x_6POINT",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN",
-                    "digest": ""
+                    "digest": "Audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Tanh-like",
+                    "digest": "Anti-aliased audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Adaa1, 2x oversampling, 6-point interpolator, sine folder",
             "name": "sinAdaa1_2x_6POINT",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "osf",
-                    "digest": ""
+                    "digest": "External oversampling factor"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Sine",
+                    "digest": "Anti-aliased audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Adaa1, 4x oversampling, 6-point interpolator, sine folder",
             "name": "sinAdaa1_4x_6POINT",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "osf",
-                    "digest": ""
+                    "digest": "External oversampling factor"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Sine",
+                    "digest": "Anti-aliased audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Adaa2, 2x oversampling, 6-point interpolator, sine folder",
             "name": "sinAdaa2_2x_6POINT",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "osf",
-                    "digest": ""
+                    "digest": "External oversampling factor"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Sine",
+                    "digest": "Anti-aliased audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Adaa2, 4x oversampling, 6-point interpolator, sine folder",
             "name": "sinAdaa2_4x_6POINT",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "osf",
-                    "digest": ""
+                    "digest": "External oversampling factor"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Sine",
+                    "digest": "Anti-aliased audio output"
                 }
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "parabolSat",
             "inputs": [
@@ -943,70 +943,70 @@
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Not adaa, 2x oversampling, 6-point interpolator, parabolic function",
             "name": "parabolSat_2x_6POINT",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "a",
-                    "digest": ""
+                    "digest": "Linear gain"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "c",
-                    "digest": ""
+                    "digest": "Clipping range"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Parabolic",
+                    "digest": "Anti-aliased audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Not adaa, 4x oversampling, 6-point interpolator, parabolic function",
             "name": "parabolSat_4x_6POINT",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "a",
-                    "digest": ""
+                    "digest": "Linear gain"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "c",
-                    "digest": ""
+                    "digest": "Clipping range"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Parabolic",
+                    "digest": "Anti-aliased audio output"
                 }
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "thbNL",
             "inputs": [
@@ -1027,44 +1027,44 @@
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Not adaa, 2x oversampling, 6-point interpolator, cubic function",
             "name": "thbNL_2x_6POINT",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN",
-                    "digest": ""
+                    "digest": "Audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Cubic",
+                    "digest": "Anti-aliased audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Not adaa, 4x oversampling, 6-point interpolator, cubic function",
             "name": "thbNL_4x_6POINT",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN",
-                    "digest": ""
+                    "digest": "Audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Cubic",
+                    "digest": "Anti-aliased audio output"
                 }
             ]
         }
     ],
-    "seealso": []
+    "seealso": ["evi_adaa", "evi_waveshaping", "evi_tanh", "evi_clip", "evi_interp", "evi_resampling_templates"]
 }

@@ -15,231 +15,221 @@
     evi_interp.genexpr <br />
     <br />
     <b>About this File</b>: <br />
-     <br />
+    Classic analog onepole RC filters in trapezoidal form. These are high quality and extremely efficient onepole filter primitives used all over evieve and very useful in day to day patching situations. One of the reasons we use trapezoidal rule is so that the filter can be correctly nonlinearised in TPT form. <br />
   </description>
   <misc name="GenExpr Functions">
     <entry name="rcPreWarp1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        Frequency warping for all onepole filters with a cheap approximation suited to lower range frequency values <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: G, <i>Warped frequency g coefficient 0..1</i> <br />
 
       </description>
     </entry>
     <entry name="rcPreWarp2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        Frequency warping for all onepole filters with an approximation suited to full range frequency values <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: G, <i>Warped frequency g coefficient 0..HALFPI</i> <br />
 
       </description>
     </entry>
     <entry name="rcFilter ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: Vin, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: g, <i></i> <br />
+        Linear OnePole Lowpass RC filter (trapezoidal), 1 mul 1 div <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: Vin, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: g, <i>Normalised frequency coefficient</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Filter, <i>Onepole filter output</i> <br />
 
       </description>
     </entry>
     <entry name="rcFilterHp ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: Vin, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: g, <i></i> <br />
+        Linear OnePole Highpass RC filter <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: Vin, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: g, <i>Normalised frequency coefficient</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Filter, <i>Onepole filter output</i> <br />
 
       </description>
     </entry>
     <entry name="rcFilterLpHp ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: Vin, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: g, <i></i> <br />
+        Linear OnePole RC filter with simultaneous Lowpass/Highpass outputs <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: Vin, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: g, <i>Normalised frequency coefficient</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
+        <b>Return 1</b>: Lowpass, <i>Lowpass filter output</i> <br />
+        <b>Return 2</b>: Highpass, <i>Highpass filter output</i> <br />
 
       </description>
     </entry>
     <entry name="rcFilterLpApHp ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: Vin, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: g, <i></i> <br />
+        Linear OnePole RC filter with simultaneous Lowpass/Allpass/Highpass outputs <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: Vin, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: g, <i>Normalised frequency coefficient</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
+        <b>Return 1</b>: Lowpass, <i>Lowpass filter output</i> <br />
+        <b>Return 2</b>: Allpass, <i>Allpass filter output</i> <br />
+        <b>Return 3</b>: Highpass, <i>Highpass filter output</i> <br />
 
       </description>
     </entry>
     <entry name="rcFilterAllpass ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: Vin, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: g, <i></i> <br />
+        Linear OnePole Allpass RC filter <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: Vin, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: g, <i>Normalised frequency coefficient</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="rcFilterAllpassCascade ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: Vin, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: g, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: s0, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
+        <b>Return 1</b>: Filter, <i>Onepole filter output</i> <br />
 
       </description>
     </entry>
     <entry name="rcFilterBandpass ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: xp, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: glp, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: ghp, <i></i> <br />
+        Linear OnePole Bandpass RC filter <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: xp, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: glp, <i>Low band normalised frequency coefficient</i> <br />
+        <b>In 3</b>: type=<i>input</i>: ghp, <i>High band normalised frequency coefficient</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Filter, <i>Onepole filter output</i> <br />
 
       </description>
     </entry>
     <entry name="rcDampCoeffs ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: damp, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: mode, <i></i> <br />
+        Coefficients calculator for Onepole attenuate/boost filters, better to use individual calculators below <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 2</b>: type=<i>input</i>: damp, <i>Normalised damping factor -1..1</i> <br />
+        <b>In 3</b>: type=<i>input</i>: mode, <i>Operational mode (0&#x3D;attenuation only, 1&#x3D;attenuate/boost shelfs, 2&#x3D;lp/hp/attenuate/boost shelfs)</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
+        <b>Return 1</b>: G, <i>Frequency coefficient output</i> <br />
+        <b>Return 2</b>: K, <i>Gain coefficient output</i> <br />
 
       </description>
     </entry>
     <entry name="rcDampCoeffsNoTilde ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: damp, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: mode, <i></i> <br />
-        <b>In 4</b>: type=<i>param</i> (optional): AUDIO_SR, default: <b>48000</b>, <i></i> <br />
+        Gen no tilde schedular rate coefficients calculator for Onepole attenuate/boost filters <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 2</b>: type=<i>input</i>: damp, <i>Normalised damping factor -1..1</i> <br />
+        <b>In 3</b>: type=<i>input</i>: mode, <i>Operational mode (0&#x3D;attenuation only, 1&#x3D;attenuate/boost shelfs, 2&#x3D;lp/hp/attenuate/boost shelfs)</i> <br />
+        <b>In 4</b>: type=<i>param</i> (optional): AUDIO_SR, default: <b>48000</b>, <i>You must pass in the audio sampling rate here</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
+        <b>Return 1</b>: G, <i>Frequency coefficient output</i> <br />
+        <b>Return 2</b>: K, <i>Gain coefficient output</i> <br />
 
       </description>
     </entry>
     <entry name="rcDampCoeffs0 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: damp, <i></i> <br />
+        Coefficients calculator for Onepole Damping filters, can be used at Param rate <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 2</b>: type=<i>input</i>: damp, <i>Normalised damping factor 0..1, 0&#x3D;flat, 1&#x3D;highpass/lowpass</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
+        <b>Return 1</b>: G, <i>Frequency coefficient output</i> <br />
+        <b>Return 2</b>: K, <i>Gain coefficient output</i> <br />
 
       </description>
     </entry>
     <entry name="rcDampCoeffs1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: damp, <i></i> <br />
+        Coefficients calculator for Onepole shelving attenuate/boost filters <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 2</b>: type=<i>input</i>: damp, <i>Normalised damping factor -1..1, -1&#x3D;shelf attenuate, 1&#x3D;shelf boost</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
+        <b>Return 1</b>: G, <i>Frequency coefficient output</i> <br />
+        <b>Return 2</b>: K, <i>Gain coefficient output</i> <br />
 
       </description>
     </entry>
     <entry name="rcDampCoeffs2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: damp, <i></i> <br />
+        Coefficients calculator for Onepole lp/hp/attenuate/boost filters <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 2</b>: type=<i>input</i>: damp, <i>Normalised damping factor -1..1, -1&#x3D;lp/hp, through shelfs, 1&#x3D;boost shelfs</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
+        <b>Return 1</b>: G, <i>Frequency coefficient output</i> <br />
+        <b>Return 2</b>: K, <i>Gain coefficient output</i> <br />
 
       </description>
     </entry>
     <entry name="rcFilterDamp ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: Vin, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: g, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: k, <i></i> <br />
+        Linear OnePole Lowpass RC damp/boost filter <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: Vin, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: g, <i>Normalised frequency coefficient</i> <br />
+        <b>In 3</b>: type=<i>input</i>: k, <i>Gain coefficient</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Damping filter, <i>Onepole filter output</i> <br />
 
       </description>
     </entry>
     <entry name="rcFilterDampHp ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: Vin, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: g, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: k, <i></i> <br />
+        Linear OnePole Highpass RC damp/boost filter <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: Vin, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: g, <i>Normalised frequency coefficient</i> <br />
+        <b>In 3</b>: type=<i>input</i>: k, <i>Gain coefficient</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Damping filter, <i>Onepole filter output</i> <br />
 
       </description>
     </entry>
     <entry name="rcFilterDampLpHp ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: Vin, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: g, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: k, <i></i> <br />
+        Linear OnePole RC damp/boost filter with simultaneous LP/HP outputs <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: Vin, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: g, <i>Normalised frequency coefficient</i> <br />
+        <b>In 3</b>: type=<i>input</i>: k, <i>Gain coefficient</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
+        <b>Return 1</b>: Damping filter, <i>Low filter output</i> <br />
+        <b>Return 2</b>: Damping filter, <i>High filter output</i> <br />
 
       </description>
     </entry>
     <entry name="rcFilterDampBandpass ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: Vin, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: glp, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: ghp, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: lk, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: hk, <i></i> <br />
+        Linear OnePole Bandpass RC damp/boost filter <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: Vin, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: glp, <i>Low band normalised frequency coefficient</i> <br />
+        <b>In 3</b>: type=<i>input</i>: ghp, <i>High band normalised frequency coefficient</i> <br />
+        <b>In 4</b>: type=<i>input</i>: lk, <i>Low band gain coefficient</i> <br />
+        <b>In 5</b>: type=<i>input</i>: hk, <i>High band gain coefficient</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="tanhLApprox ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="sech2_with_tanh ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: tanh_value, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Damping filter, <i>Onepole bandpass filter output</i> <br />
 
       </description>
     </entry>
     <entry name="rcOnePole ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: Vin, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: g, <i></i> <br />
+        Nonlinear Onepole RC filter via Newton iteration <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: Vin, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: g, <i>Normalised frequency coefficient</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="rcOnePoleLpHp ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: Vin, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: g, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="rcOnePole_x2 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: g, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Nonlinear Onepole, <i>Nonlinear onepole filter output</i> <br />
 
       </description>
     </entry>
@@ -251,6 +241,9 @@
   </metadatalist>
   <seealsolist>
     <!-- we use 'refpage' here not 'genrefpage' to trick Max -->
+    <seealso name="evi_svfs" type="refpage"/>
+    <seealso name="evi_butterworth" type="refpage"/>
+    <seealso name="evi_crossovers" type="refpage"/>
   </seealsolist>
   <misc name="Discussion">
     <entry name="Keywords">

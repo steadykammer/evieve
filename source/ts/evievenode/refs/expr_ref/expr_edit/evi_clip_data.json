@@ -1,32 +1,32 @@
 {
-    "description": "",
+    "description": "Anti-aliased antiderivative and oversampled clipping functions for treating your precious audio well when clipping is required. A choice of four clippers are available: Hard clipping, Diode clipping, Asymmetric clipping and Soft clipping. The oversampled versions of these functions can give up to +40dB headroom, but using just the antiderivatives when not clipping too hard are also very effective. These are for all people who disastrously like to use [clip~ -1. 1.] in their patchers (you should never do this).",
     "requires": [
         "evi_utilities.genexpr",
         "evi_interp.genexpr"
     ],
     "functions": [
         {
-            "document": true,
-            "digest": "",
+            "document": false,
+            "digest": "F0, hardclip function",
             "name": "funcHc0",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Hardclip",
+                    "digest": "Audio output"
                 }
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "funcHc1",
             "inputs": [
@@ -46,7 +46,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "funcHc2",
             "inputs": [
@@ -67,126 +67,126 @@
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "First order anti-derivative hard clip function",
             "name": "adHc1",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Hardclip",
+                    "digest": "Anti-aliased hardclip"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Second order anti-derivative hard clip function",
             "name": "adHc2",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Hardclip",
+                    "digest": "Anti-aliased hardclip"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Second order anti-derivative 2x oversampled hard clip function, 6-point interpolation",
             "name": "adHc2_2x_6POINT",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN",
-                    "digest": ""
+                    "digest": "Audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Hardclip",
+                    "digest": "Anti-aliased hardclip"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Second order anti-derivative 4x oversampled hard clip function, 6-point interpolation",
             "name": "adHc2_4x_6POINT",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN",
-                    "digest": ""
+                    "digest": "Audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Hardclip",
+                    "digest": "Anti-aliased hardclip"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Second order anti-derivative 2x oversampled hard clip function, 4-point interpolation",
             "name": "adHc2_2x_4POINT",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN",
-                    "digest": ""
+                    "digest": "Audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Hardclip",
+                    "digest": "Anti-aliased hardclip"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Second order anti-derivative 4x oversampled hard clip function, 4-point interpolation",
             "name": "adHc2_4x_4POINT",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN",
-                    "digest": ""
+                    "digest": "Audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Hardclip",
+                    "digest": "Anti-aliased hardclip"
                 }
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "w3",
             "inputs": [
@@ -206,7 +206,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "w4",
             "inputs": [
@@ -227,14 +227,14 @@
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Coefficients for Diode clipper function, this only ever needs updating if the samplerate changes",
             "name": "diodeCoeffs",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "SR",
-                    "digest": ""
+                    "digest": "Input SAMPLERATE"
                 },
                 {
                     "id": 2,
@@ -244,7 +244,7 @@
                     "min": 0,
                     "max": 0,
                     "type": "float",
-                    "digest": ""
+                    "digest": "Constant, do not change"
                 },
                 {
                     "id": 3,
@@ -254,7 +254,7 @@
                     "min": 0,
                     "max": 0,
                     "type": "float",
-                    "digest": ""
+                    "digest": "Constant, do not change"
                 },
                 {
                     "id": 4,
@@ -264,178 +264,178 @@
                     "min": 0,
                     "max": 0,
                     "type": "float",
-                    "digest": ""
+                    "digest": "Constant, do not change"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "k1",
+                    "digest": "k1 coefficient"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "k2",
+                    "digest": "k2 coefficient"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "k3",
+                    "digest": "k3 coefficient"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "k4",
+                    "digest": "k4 coefficient"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "k5",
+                    "digest": "k5 coefficient"
                 },
                 {
                     "id": 6,
-                    "name": "",
-                    "digest": ""
+                    "name": "k6",
+                    "digest": "k6 coefficient"
                 },
                 {
                     "id": 7,
-                    "name": "",
-                    "digest": ""
+                    "name": "VT",
+                    "digest": "VT coefficient"
                 },
                 {
                     "id": 8,
-                    "name": "",
-                    "digest": ""
+                    "name": "A1",
+                    "digest": "A1 coefficient"
                 }
             ]
         },
         {
-            "document": true,
-            "digest": "",
+            "document": false,
+            "digest": "Anti-aliased core diode clipper emulation",
             "name": "diode",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "Vin",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "k1",
-                    "digest": ""
+                    "digest": "k1 coefficient"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "k2",
-                    "digest": ""
+                    "digest": "k2 coefficient"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "k3",
-                    "digest": ""
+                    "digest": "k3 coefficient"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "k4",
-                    "digest": ""
+                    "digest": "k4 coefficient"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "k5",
-                    "digest": ""
+                    "digest": "k5 coefficient"
                 },
                 {
                     "id": 7,
                     "kind": "input",
                     "name": "k6",
-                    "digest": ""
+                    "digest": "k6 coefficient"
                 },
                 {
                     "id": 8,
                     "kind": "input",
                     "name": "VT",
-                    "digest": ""
+                    "digest": "VT coefficient"
                 },
                 {
                     "id": 9,
                     "kind": "input",
                     "name": "A1",
-                    "digest": ""
+                    "digest": "A1 coefficient"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Diode clip",
+                    "digest": "Audio output"
                 }
             ]
         },
         {
-            "document": true,
-            "digest": "",
+            "document": false,
+            "digest": "Anti-aliased diode clipper emulation",
             "name": "diodeWrap",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "Vin",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "k1",
-                    "digest": ""
+                    "digest": "k1 coefficient"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "k2",
-                    "digest": ""
+                    "digest": "k2 coefficient"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "k3",
-                    "digest": ""
+                    "digest": "k3 coefficient"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "k4",
-                    "digest": ""
+                    "digest": "k4 coefficient"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "k5",
-                    "digest": ""
+                    "digest": "k5 coefficient"
                 },
                 {
                     "id": 7,
                     "kind": "input",
                     "name": "k6",
-                    "digest": ""
+                    "digest": "k6 coefficient"
                 },
                 {
                     "id": 8,
                     "kind": "input",
                     "name": "VT",
-                    "digest": ""
+                    "digest": "VT coefficient"
                 },
                 {
                     "id": 9,
                     "kind": "input",
                     "name": "A1",
-                    "digest": ""
+                    "digest": "A1 coefficient"
                 },
                 {
                     "id": 10,
@@ -443,7 +443,7 @@
                     "name": "gain",
                     "default": 0.999999,
                     "type": "float",
-                    "digest": ""
+                    "digest": "Gain linear"
                 },
                 {
                     "id": 11,
@@ -451,223 +451,223 @@
                     "name": "bias",
                     "default": 0.000001,
                     "type": "float",
-                    "digest": ""
+                    "digest": "Bias offset"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Diode clip",
+                    "digest": "Diode clipper"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Anti-aliased diode clipper emulation 2x oversampled, 4-point interpolator",
             "name": "diode_2x_4POINT",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "k1",
-                    "digest": ""
+                    "digest": "k1 coefficient"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "k2",
-                    "digest": ""
+                    "digest": "k2 coefficient"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "k3",
-                    "digest": ""
+                    "digest": "k3 coefficient"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "k4",
-                    "digest": ""
+                    "digest": "k4 coefficient"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "k5",
-                    "digest": ""
+                    "digest": "k5 coefficient"
                 },
                 {
                     "id": 7,
                     "kind": "input",
                     "name": "k6",
-                    "digest": ""
+                    "digest": "k6 coefficient"
                 },
                 {
                     "id": 8,
                     "kind": "input",
                     "name": "VT",
-                    "digest": ""
+                    "digest": "VT coefficient"
                 },
                 {
                     "id": 9,
                     "kind": "input",
                     "name": "A1",
-                    "digest": ""
+                    "digest": "A1 coefficient"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Diode clip",
+                    "digest": "Anti-aliased diode clipper"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Anti-aliased diode clipper emulation 4x oversampled, 4-point interpolator",
             "name": "diode_4x_4POINT",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "k1",
-                    "digest": ""
+                    "digest": "k1 coefficient"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "k2",
-                    "digest": ""
+                    "digest": "k2 coefficient"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "k3",
-                    "digest": ""
+                    "digest": "k3 coefficient"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "k4",
-                    "digest": ""
+                    "digest": "k4 coefficient"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "k5",
-                    "digest": ""
+                    "digest": "k5 coefficient"
                 },
                 {
                     "id": 7,
                     "kind": "input",
                     "name": "k6",
-                    "digest": ""
+                    "digest": "k6 coefficient"
                 },
                 {
                     "id": 8,
                     "kind": "input",
                     "name": "VT",
-                    "digest": ""
+                    "digest": "VT coefficient"
                 },
                 {
                     "id": 9,
                     "kind": "input",
                     "name": "A1",
-                    "digest": ""
+                    "digest": "A1 coefficient"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Diode clip",
+                    "digest": "Anti-aliased diode clipper"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Anti-aliased diode clipper emulation 8x oversampled, 4-point interpolator",
             "name": "diode_8x_4POINT",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "k1",
-                    "digest": ""
+                    "digest": "k1 coefficient"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "k2",
-                    "digest": ""
+                    "digest": "k2 coefficient"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "k3",
-                    "digest": ""
+                    "digest": "k3 coefficient"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "k4",
-                    "digest": ""
+                    "digest": "k4 coefficient"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "k5",
-                    "digest": ""
+                    "digest": "k5 coefficient"
                 },
                 {
                     "id": 7,
                     "kind": "input",
                     "name": "k6",
-                    "digest": ""
+                    "digest": "k6 coefficient"
                 },
                 {
                     "id": 8,
                     "kind": "input",
                     "name": "VT",
-                    "digest": ""
+                    "digest": "VT coefficient"
                 },
                 {
                     "id": 9,
                     "kind": "input",
                     "name": "A1",
-                    "digest": ""
+                    "digest": "A1 coefficient"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Diode clip",
+                    "digest": "Anti-aliased diode clipper"
                 }
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "asym",
             "inputs": [
@@ -687,7 +687,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "asymWrap",
             "inputs": [
@@ -714,46 +714,46 @@
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Anti-aliased asymmetric clipper function, 2x oversampled, 6-point interpolator",
             "name": "asym_2x_6POINT",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN",
-                    "digest": ""
+                    "digest": "Audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Asymmetric clip",
+                    "digest": "Anti-aliased asymmetric clipper"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Anti-aliased asymmetric clipper function, 4x oversampled, 6-point interpolator",
             "name": "asym_4x_6POINT",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN",
-                    "digest": ""
+                    "digest": "Audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Asymmetric clip",
+                    "digest": "Anti-aliased asymmetric clipper"
                 }
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "funcSc0",
             "inputs": [
@@ -773,7 +773,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "funcSc1",
             "inputs": [
@@ -793,7 +793,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "funcSc11",
             "inputs": [
@@ -813,7 +813,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "funcSc2",
             "inputs": [
@@ -834,72 +834,72 @@
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "First order anti-derivative soft clip function",
             "name": "adSc1",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Soft clip",
+                    "digest": "Anti-aliased soft clip"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Second order anti-derivative soft clip function",
             "name": "adSc2",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "OS",
-                    "digest": ""
+                    "digest": "External oversampling factor"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Soft clip",
+                    "digest": "Anti-aliased soft clip"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "First order anti-derivative soft clip function, 2x oversampling, 6-point ionterpolator",
             "name": "adSc1_2x_6POINT",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN",
-                    "digest": ""
+                    "digest": "Audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Soft clip",
+                    "digest": "Anti-aliased soft clip"
                 }
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "adSc2_2x_6POINT_fix2",
             "inputs": [
@@ -920,84 +920,84 @@
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Second order anti-derivative soft clip function, 2x oversampling, 6-point interpolator",
             "name": "adSc2_2x_6POINT",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN",
-                    "digest": ""
+                    "digest": "Audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Soft clip",
+                    "digest": "Anti-aliased soft clip"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Second order anti-derivative soft clip function, 4x oversampling, 6-point interpolator",
             "name": "adSc2_4x_6POINT",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN",
-                    "digest": ""
+                    "digest": "Audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Soft clip",
+                    "digest": "Anti-aliased soft clip"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Second order anti-derivative soft clip function, 2x oversampling, 4-point interpolator",
             "name": "adSc2_2x_4POINT",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN",
-                    "digest": ""
+                    "digest": "Audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Soft clip",
+                    "digest": "Anti-aliased soft clip"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Second order anti-derivative soft clip function, 4x oversampling, 4-point interpolator",
             "name": "adSc2_4x_4POINT",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN",
-                    "digest": ""
+                    "digest": "Audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Soft clip",
+                    "digest": "Anti-aliased soft clip"
                 }
             ]
         }
     ],
-    "seealso": []
+    "seealso": ["evi_adaa", "evi_tanh", "evi_waveshaping", "evi_saturators"]
 }
