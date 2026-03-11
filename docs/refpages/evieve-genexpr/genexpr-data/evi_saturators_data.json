@@ -1,5 +1,5 @@
 {
-    "description": "This file performs quasi resampling on all of the antiderivitive anti-aliasing saturators contained in 'evi_adaa.genexpr'.",
+    "description": "This file performs quasi resampling on all of the antiderivitive anti-aliasing saturators contained in 'evi_adaa.genexpr'. Usually adaa is enough for anti-aliasing, but sometimes it is useful to also resample the adaa for extreme use cases.",
     "requires": [
         "evi_adaa.genexpr",
         "evi_interp.genexpr"

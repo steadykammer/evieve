@@ -1103,7 +1103,7 @@ eviBiquadCoeffHighshelfAnalog2(cutoff, gain) // !! no Q, cutoff @ high gain
 }
 
 // Martin Vicanek matched method
-// incoreectly called "Bandpass" in the paper
+// incorrectly called "Bandpass" in the paper
 eviBiquadCoeffResonantAnalog(cutoff, fullQ)
 {
 	Q 	= maximum(fullQ, 0.5);	// empirical for vicanek analog
@@ -1211,7 +1211,6 @@ eviBiquadCoeffButterworthBandreject(cutoff, Q)
 	// return dodge/jerse coeffs (b0, b1, b2, a1, a2) as FF0, FF1, FF2, FB1, FB2
 	return  b0, b1, b2, a1, a2;		// a0, a1, a2, b1, b2
 }
-
 
 eviBiquadCoeffButterworthLowpassGain(cutoff, gain)
 {

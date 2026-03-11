@@ -1,5 +1,5 @@
 {
-    "description": "A very long time ago this was called 'stkr.waveshaping.genexpr'. A collection of memoryless nonlinearities for waveshaping etc. Note: all of these functions are naive and need anti-aliasing / resampling to be of any use. @see: 'evi_adaa.genexpr' for anti-derivative anti-aliasing and 'evi_saturators.genexpr' for oversampling.",
+    "description": "A very long time ago this was called 'stkr.waveshaping.genexpr'. A collection of memoryless nonlinearities for waveshaping etc. Note: all of these functions are naive and need anti-aliasing / resampling to be of any use. @see: 'evi_adaa.genexpr' for anti-derivative anti-aliasing and 'evi_saturators.genexpr' for quasi oversampling.",
     "requires": [],
     "functions": [
         {
@@ -24,394 +24,394 @@
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "High quality Lambert approx, 2x faster than library tanh(). Excellent mathematical and sonic closeness to library tanh(). In general we use this one most often.",
             "name": "tanhLApprox",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Tanh",
+                    "digest": "Approximate tanh() of input"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Wrapper for tanhLApprox(). Returns 'tanh(x / a) * a'",
             "name": "tanhAxA",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "gain",
-                    "digest": ""
+                    "digest": "± linear gain, input div, output mul"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Tanh",
+                    "digest": "Approximate tanh() of input wrapped by gain coefficient"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "A cheaper alternative to tanh, not exactly the same, I describe this as a 'buzzy tanh'",
             "name": "tanhSqrt",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Tanh",
+                    "digest": "Approximate tanh() of input"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Another cheaper alternative to tanh, behaves differently at very high gain",
             "name": "tanhPoly",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Tanh",
+                    "digest": "Approximate tanh() of input"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "High quality atan() approximation, excellent sonic and mathematical closeness to library atan()",
             "name": "atanApprox",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Atan",
+                    "digest": "Approximate atan() of input"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Gain wrapping for 'atanApprox()'",
             "name": "atanDrive",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "drive",
-                    "digest": ""
+                    "digest": "Linear drive control, 1++"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "pre",
+                    "digest": "Pre gain shaped"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "post",
+                    "digest": "Post gain shaped"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Full wrapping of 'atanApprox()' with 'atanDrive()' pre/post gain wrapping",
             "name": "atanSat",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "drive",
-                    "digest": ""
+                    "digest": "Linear drive control, 1++"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Atan",
+                    "digest": "Saturated atan() output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Variable shaper, if 'a' is negative effect is cubic-like, if 'a' is positive effect is diode-like",
             "name": "tarrabiaShaper",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "a",
-                    "digest": ""
+                    "digest": "Gain in range less than -1..1"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Shape",
+                    "digest": "Shaped audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "The greater the harmonics ('a') the more diode like in shape, but retains a very smooth curve",
             "name": "jongShaper",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "a",
-                    "digest": ""
+                    "digest": "1++, add harmonics"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Shape",
+                    "digest": "Shaped audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Classic cubic nonlinearity, good for guitar-like sound worlds",
             "name": "cubicNL",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Cubic",
+                    "digest": "Cubic distorted output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Cubic nonlinearity, versatile",
             "name": "thbNL",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Cubic",
+                    "digest": "Cubic distorted output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "A lovely polynomial from Reaktor, unbounded",
             "name": "polyNom",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Polynomial",
+                    "digest": "Polynomial shaped output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "You need to wrap the 'polyNom()' in something like this to make it bounded and thus usable",
             "name": "polySat",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Polynomial",
+                    "digest": "Polynomial saturated output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Smooth parabolic saturation",
             "name": "parabolSat",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "a",
-                    "digest": ""
+                    "digest": "Linear gain, default should be '1'"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "c",
-                    "digest": ""
+                    "digest": "Linear clipping range, default should be '2'"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Parabol",
+                    "digest": "Parabolic saturated output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Simple shaper from SuperCollider, like the 'distort()' UnaryOp",
             "name": "scDistort",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x0",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "drive",
-                    "digest": ""
+                    "digest": "Linear drive, 0++"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Distort",
+                    "digest": "Distorted output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Simple soft clipper from SuperCollider, like the 'softclip()'/'fold2()' UnaryOps",
             "name": "scSoftClip",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x0",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "drive",
-                    "digest": ""
+                    "digest": "Linear drive, 0++"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Soft Clip",
+                    "digest": "Soft clipped output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Unbounded, does almost nothing (adds one harmonic when you need it), nice",
             "name": "raffelBBD",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Shape",
+                    "digest": "Shaped audio output"
                 }
             ]
         },
@@ -457,182 +457,182 @@
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Create gain wrapping parameters for 'sinSat()'",
             "name": "sinParam",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "drive",
-                    "digest": ""
+                    "digest": "Drive amount % 0..1.. up to 2 is pretty safe, up to 4 be careful"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "pidrive",
+                    "digest": "Pre gain shaped"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "sindrive",
+                    "digest": "Post gain shaped"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Sine shaping saturation, gain wrapped",
             "name": "sinSat",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "drive",
-                    "digest": ""
+                    "digest": "Drive amount % 0..1.. up to 2 is pretty safe, up to 4 be careful"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Sine",
+                    "digest": "Sine shaped saturated output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "A modified gain wrapping around a tanh-like saturation shape",
             "name": "modHT",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x0",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "d",
-                    "digest": ""
+                    "digest": "Gain must be clipped 0..1"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "a",
-                    "digest": ""
+                    "digest": "Drive must be clipped 1..10"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Tanh",
+                    "digest": "Mapped tanh-like saturation"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "A folding shape algorithm around a given threshold, works particularly well on low end frequency content",
             "name": "foldBD",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "xin",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "thresh",
-                    "digest": ""
+                    "digest": "Saturation threshold 0.01..1, but best kept 0.5..1"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Fold",
+                    "digest": "Folding shaped distortion output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Morphing sigmoid, 'tape' curve == 'sigmoid' @ -5, tanh curve == 'sigmoid' @ -2",
             "name": "tapeH",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "xin",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "sigmoid",
-                    "digest": ""
+                    "digest": "Negative produces saturation, can be driven very low for extreme shapes"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Tanh",
+                    "digest": "Tanh-like saturator with increasingly strong harmonics"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "The famous 'Gloubi Boulga' by Laurent de Soras, but it is very hard to anti-alias",
             "name": "gloubiBoulga",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x2",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "drive",
-                    "digest": ""
+                    "digest": "Linear gain 1..40 -ish"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Gloubi",
+                    "digest": "Asymmetric clipping distortion"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "The famous 'Gloubi Boulga' by Laurent de Soras but in a static version slightly easier to anti-alias",
             "name": "boulgaStatic",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "xin",
-                    "digest": ""
+                    "digest": "Audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Boulga",
+                    "digest": "Asymmetric clipping distortion"
                 }
             ]
         }

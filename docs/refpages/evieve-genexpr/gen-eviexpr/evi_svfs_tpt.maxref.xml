@@ -15,331 +15,331 @@
     evi_svfs_filters.genexpr <br />
     <br />
     <b>About this File</b>: <br />
-     <br />
+    Using this require file you can access all TPT SVF filter types in evieve.  <br />
   </description>
   <misc name="GenExpr Functions">
     <entry name="tptSvfCoeff ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: filter, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: cutoff, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: gain, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: fullQ, <i></i> <br />
+        Coefficients calculator for all of the basic filter types available, @see: MSP [evi.filter~] or gen~ [evi_filter] for an example wrapper <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: filter, <i>(int) filter index (type), see abstractions or source code for listing</i> <br />
+        <b>In 2</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 3</b>: type=<i>input</i>: gain, <i>Gain (linear)</i> <br />
+        <b>In 4</b>: type=<i>input</i>: fullQ, <i>Q</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
-        <b>Return 5</b>: , <i></i> <br />
-        <b>Return 6</b>: , <i></i> <br />
+        <b>Return 1</b>: g, <i>g coefficient</i> <br />
+        <b>Return 2</b>: r, <i>r coefficient</i> <br />
+        <b>Return 3</b>: h, <i>h coefficient</i> <br />
+        <b>Return 4</b>: cL, <i>low mixing gain</i> <br />
+        <b>Return 5</b>: cB, <i>band mixing gain</i> <br />
+        <b>Return 6</b>: cH, <i>high mixing gain</i> <br />
 
       </description>
     </entry>
     <entry name="tptSvfCoeffNoTilde ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: filter, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: cutoff, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: gain, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: fullQ, <i></i> <br />
-        <b>In 5</b>: type=<i>param</i> (optional): AUDIO_SR, default: <b>48000</b>, <i></i> <br />
+        No tilde version of coefficients calculator for all of the basic filter types available <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: filter, <i>(int) filter index (type), see abstractions or source code for listing</i> <br />
+        <b>In 2</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 3</b>: type=<i>input</i>: gain, <i>Gain (linear)</i> <br />
+        <b>In 4</b>: type=<i>input</i>: fullQ, <i>Q</i> <br />
+        <b>In 5</b>: type=<i>param</i> (optional): AUDIO_SR, default: <b>48000</b>, <i>Pass audio samplerate into calculator for no tilde computation</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
-        <b>Return 5</b>: , <i></i> <br />
-        <b>Return 6</b>: , <i></i> <br />
+        <b>Return 1</b>: g, <i>g coefficient</i> <br />
+        <b>Return 2</b>: r, <i>r coefficient</i> <br />
+        <b>Return 3</b>: h, <i>h coefficient</i> <br />
+        <b>Return 4</b>: cL, <i>low mixing gain</i> <br />
+        <b>Return 5</b>: cB, <i>band mixing gain</i> <br />
+        <b>Return 6</b>: cH, <i>high mixing gain</i> <br />
 
       </description>
     </entry>
     <entry name="eviFilterTpt ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: cutoff, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: db, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: Q, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: filter, <i></i> <br />
-        <b>In 6</b>: type=<i>param</i> (optional): smooth, default: <b>0</b>, <i></i> <br />
+        All-in-one coefficients calculator and filter section for all available filter types for use in gen~/GenExpr <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 3</b>: type=<i>input</i>: db, <i>Gain in dB</i> <br />
+        <b>In 4</b>: type=<i>input</i>: Q, <i>Q</i> <br />
+        <b>In 5</b>: type=<i>input</i>: filter, <i>(int) filter index (type)</i> <br />
+        <b>In 6</b>: type=<i>param</i> (optional): smooth, default: <b>0</b>, <i>If &gt; 0, ms smoothing time of required mixing gains</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Filter, <i>Filtered audio output</i> <br />
 
       </description>
     </entry>
     <entry name="eviFilterTptReset ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: cutoff, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: db, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: Q, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: filter, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: reset, <i></i> <br />
-        <b>In 7</b>: type=<i>param</i> (optional): smooth, default: <b>0</b>, <i></i> <br />
+        Same as 'eviFilterTpt()' but with state reset input <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 3</b>: type=<i>input</i>: db, <i>Gain in dB</i> <br />
+        <b>In 4</b>: type=<i>input</i>: Q, <i>Q</i> <br />
+        <b>In 5</b>: type=<i>input</i>: filter, <i>(int) filter index (type)</i> <br />
+        <b>In 6</b>: type=<i>input</i>: reset, <i>Sample accurate reset of internal filter state (&#x27;clear&#x27;)</i> <br />
+        <b>In 7</b>: type=<i>param</i> (optional): smooth, default: <b>0</b>, <i>If &gt; 0, ms smoothing time of required mixing gains</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Filter, <i>Filtered audio output</i> <br />
 
       </description>
     </entry>
     <entry name="tptSvfCoeffEq ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: filter, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: cutoff, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: gain, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: Q, <i></i> <br />
+        Coefficients calculator for all of the EQ filter types available, @see: MSP [evi.filter.eq~] or gen~ [evi_filter_eq] for an example wrapper <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: filter, <i>(int) filter index (type), see abstractions or source code for listing</i> <br />
+        <b>In 2</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 3</b>: type=<i>input</i>: gain, <i>Gain (linear)</i> <br />
+        <b>In 4</b>: type=<i>input</i>: Q, <i>Q</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
-        <b>Return 5</b>: , <i></i> <br />
-        <b>Return 6</b>: , <i></i> <br />
+        <b>Return 1</b>: g, <i>g coefficient</i> <br />
+        <b>Return 2</b>: r, <i>r coefficient</i> <br />
+        <b>Return 3</b>: h, <i>h coefficient</i> <br />
+        <b>Return 4</b>: cL, <i>low mixing gain</i> <br />
+        <b>Return 5</b>: cB, <i>band mixing gain</i> <br />
+        <b>Return 6</b>: cH, <i>high mixing gain</i> <br />
 
       </description>
     </entry>
     <entry name="tptSvfCoeffEqNoTilde ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: filter, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: cutoff, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: gain, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: Q, <i></i> <br />
-        <b>In 5</b>: type=<i>param</i> (optional): AUDIO_SR, default: <b>48000</b>, <i></i> <br />
+        No tilde version of coefficients calculator for all of the EQ filter types available <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: filter, <i>(int) filter index (type), see abstractions or source code for listing</i> <br />
+        <b>In 2</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 3</b>: type=<i>input</i>: gain, <i>Gain (linear)</i> <br />
+        <b>In 4</b>: type=<i>input</i>: Q, <i>Q</i> <br />
+        <b>In 5</b>: type=<i>param</i> (optional): AUDIO_SR, default: <b>48000</b>, <i>Pass audio samplerate into calculator for no tilde computation</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
-        <b>Return 5</b>: , <i></i> <br />
-        <b>Return 6</b>: , <i></i> <br />
+        <b>Return 1</b>: g, <i>g coefficient</i> <br />
+        <b>Return 2</b>: r, <i>r coefficient</i> <br />
+        <b>Return 3</b>: h, <i>h coefficient</i> <br />
+        <b>Return 4</b>: cL, <i>low mixing gain</i> <br />
+        <b>Return 5</b>: cB, <i>band mixing gain</i> <br />
+        <b>Return 6</b>: cH, <i>high mixing gain</i> <br />
 
       </description>
     </entry>
     <entry name="tptSvfEq ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: g, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: r, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: h, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: cL, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: cB, <i></i> <br />
-        <b>In 7</b>: type=<i>input</i>: cH, <i></i> <br />
+        Linear TPT SVF filter, summed internally for EQ sections <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: g, <i>g coefficient</i> <br />
+        <b>In 3</b>: type=<i>input</i>: r, <i>r coefficient</i> <br />
+        <b>In 4</b>: type=<i>input</i>: h, <i>h coefficient</i> <br />
+        <b>In 5</b>: type=<i>input</i>: cL, <i>low mixing gain</i> <br />
+        <b>In 6</b>: type=<i>input</i>: cB, <i>band mixing gain</i> <br />
+        <b>In 7</b>: type=<i>input</i>: cH, <i>high mixing gain</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Filter, <i>Filtered audio output</i> <br />
 
       </description>
     </entry>
     <entry name="tptSvfEqReset ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: g, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: r, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: h, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: cL, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: cB, <i></i> <br />
-        <b>In 7</b>: type=<i>input</i>: cH, <i></i> <br />
-        <b>In 8</b>: type=<i>input</i>: reset, <i></i> <br />
+        Same as 'tptSvfEq()' but with state reset input <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: g, <i>g coefficient</i> <br />
+        <b>In 3</b>: type=<i>input</i>: r, <i>r coefficient</i> <br />
+        <b>In 4</b>: type=<i>input</i>: h, <i>h coefficient</i> <br />
+        <b>In 5</b>: type=<i>input</i>: cL, <i>low mixing gain</i> <br />
+        <b>In 6</b>: type=<i>input</i>: cB, <i>band mixing gain</i> <br />
+        <b>In 7</b>: type=<i>input</i>: cH, <i>high mixing gain</i> <br />
+        <b>In 8</b>: type=<i>input</i>: reset, <i>Sample accurate reset of internal filter state (&#x27;clear&#x27;)</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Filter, <i>Filtered audio output</i> <br />
 
       </description>
     </entry>
     <entry name="eviFilterTptEq ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: cutoff, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: db, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: Q, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: filter, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: reset, <i></i> <br />
-        <b>In 7</b>: type=<i>param</i> (optional): smooth, default: <b>0</b>, <i></i> <br />
+        All-in-one coefficients calculator and filter section for all EQ filter types for use in gen~/GenExpr <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 3</b>: type=<i>input</i>: db, <i>Gain in dB</i> <br />
+        <b>In 4</b>: type=<i>input</i>: Q, <i>Q</i> <br />
+        <b>In 5</b>: type=<i>input</i>: filter, <i>(int) filter index (type)</i> <br />
+        <b>In 6</b>: type=<i>input</i>: reset, <i>Sample accurate reset of internal filter state (&#x27;clear&#x27;)</i> <br />
+        <b>In 7</b>: type=<i>param</i> (optional): smooth, default: <b>0</b>, <i>If &gt; 0, ms smoothing time of required mixing gains</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Filter, <i>Filtered audio output</i> <br />
 
       </description>
     </entry>
     <entry name="eviFilterTptEqStereo ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: xL, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: xR, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: cutoff, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: db, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: Q, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: filter, <i></i> <br />
-        <b>In 7</b>: type=<i>input</i>: reset, <i></i> <br />
-        <b>In 8</b>: type=<i>param</i> (optional): smooth, default: <b>0</b>, <i></i> <br />
+        Stereo version of 'eviFilterTptEq()' for use in gen~/GenExpr <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: xL, <i>Left audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: xR, <i>Right audio input</i> <br />
+        <b>In 3</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 4</b>: type=<i>input</i>: db, <i>Gain in dB</i> <br />
+        <b>In 5</b>: type=<i>input</i>: Q, <i>Q</i> <br />
+        <b>In 6</b>: type=<i>input</i>: filter, <i>(int) filter index (type)</i> <br />
+        <b>In 7</b>: type=<i>input</i>: reset, <i>Sample accurate reset of internal filter state (&#x27;clear&#x27;)</i> <br />
+        <b>In 8</b>: type=<i>param</i> (optional): smooth, default: <b>0</b>, <i>If &gt; 0, ms smoothing time of required mixing gains</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
+        <b>Return 1</b>: Left EQ, <i>Left audio output</i> <br />
+        <b>Return 2</b>: Right EQ, <i>Right audio output</i> <br />
 
       </description>
     </entry>
     <entry name="tptSvfCoeffMorphFull ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: gain, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: Q, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: morph, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: comp, <i></i> <br />
+        Morphing filter coefficients LP..BP..HP..NOTCH..LP @like Ableton 'Morph Filter' <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 2</b>: type=<i>input</i>: gain, <i>Gain (linear)</i> <br />
+        <b>In 3</b>: type=<i>input</i>: Q, <i>Q</i> <br />
+        <b>In 4</b>: type=<i>input</i>: morph, <i>Filter morphing 0..1 interpolates LP..BP..HP..NOTCH..LP</i> <br />
+        <b>In 5</b>: type=<i>input</i>: comp, <i>Switch 0/1 ensures notch clarity at high Q (if &#x27;comp&#x27; is on)</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
-        <b>Return 5</b>: , <i></i> <br />
-        <b>Return 6</b>: , <i></i> <br />
-        <b>Return 7</b>: , <i></i> <br />
+        <b>Return 1</b>: g, <i>g coefficient</i> <br />
+        <b>Return 2</b>: r, <i>r coefficient</i> <br />
+        <b>Return 3</b>: h, <i>h coefficient</i> <br />
+        <b>Return 4</b>: cL, <i>low mixing gain</i> <br />
+        <b>Return 5</b>: cB, <i>band mixing gain</i> <br />
+        <b>Return 6</b>: cH, <i>high mixing gain</i> <br />
+        <b>Return 7</b>: cN, <i>notch mixing gain, additional to normal filter!</i> <br />
 
       </description>
     </entry>
     <entry name="tptSvfCoeffMorphLpBpHp ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: gain, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: Q, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: morph, <i></i> <br />
+        Morphing filter coefficients LP..BP..HP <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 2</b>: type=<i>input</i>: gain, <i>Gain (linear)</i> <br />
+        <b>In 3</b>: type=<i>input</i>: Q, <i>Q</i> <br />
+        <b>In 4</b>: type=<i>input</i>: morph, <i>Filter morphing 0..1 interpolates LP..BP..HP</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
-        <b>Return 5</b>: , <i></i> <br />
-        <b>Return 6</b>: , <i></i> <br />
+        <b>Return 1</b>: g, <i>g coefficient</i> <br />
+        <b>Return 2</b>: r, <i>r coefficient</i> <br />
+        <b>Return 3</b>: h, <i>h coefficient</i> <br />
+        <b>Return 4</b>: cL, <i>low mixing gain</i> <br />
+        <b>Return 5</b>: cB, <i>band mixing gain</i> <br />
+        <b>Return 6</b>: cH, <i>high mixing gain</i> <br />
 
       </description>
     </entry>
     <entry name="tptSvfCoeffMorphLpBrHp ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: gain, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: Q, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: morph, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: comp, <i></i> <br />
+        Morphing filter coefficients LP..NOTCH..HP <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 2</b>: type=<i>input</i>: gain, <i>Gain (linear)</i> <br />
+        <b>In 3</b>: type=<i>input</i>: Q, <i>Q</i> <br />
+        <b>In 4</b>: type=<i>input</i>: morph, <i>Filter morphing 0..1 interpolates LP..NOTCH..HP</i> <br />
+        <b>In 5</b>: type=<i>input</i>: comp, <i>Switch 0/1 ensures notch clarity at high Q (if &#x27;comp&#x27; is on)</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
-        <b>Return 5</b>: , <i></i> <br />
-        <b>Return 6</b>: , <i></i> <br />
+        <b>Return 1</b>: g, <i>g coefficient</i> <br />
+        <b>Return 2</b>: r, <i>r coefficient</i> <br />
+        <b>Return 3</b>: h, <i>h coefficient</i> <br />
+        <b>Return 4</b>: cL, <i>low mixing gain</i> <br />
+        <b>Return 5</b>: cB, <i>band mixing gain</i> <br />
+        <b>Return 6</b>: cH, <i>high mixing gain</i> <br />
 
       </description>
     </entry>
     <entry name="eviFilterMorph ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: hz, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: db, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: bw, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: morph, <i></i> <br />
-        <b>In 6</b>: type=<i>param</i> (optional): smooth, default: <b>22.666</b>, <i></i> <br />
+        All-in-one LP..BP..HP..NOTCH..LP morphing coefficients and filter section for use in gen~/GenExpr <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: hz, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 3</b>: type=<i>input</i>: db, <i>Gain in dB</i> <br />
+        <b>In 4</b>: type=<i>input</i>: bw, <i>Bandwidth 0..1 across 10 octaves</i> <br />
+        <b>In 5</b>: type=<i>input</i>: morph, <i>Filter morphing 0..1 interpolates LP..BP..HP..NOTCH..LP</i> <br />
+        <b>In 6</b>: type=<i>param</i> (optional): smooth, default: <b>22.666</b>, <i>If &gt; 0, ms smoothing time of required mixing gains</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Morph, <i>Filtered audio output</i> <br />
 
       </description>
     </entry>
     <entry name="eviFilterMorphStereo ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: xL, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: xR, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: hz, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: db, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: bw, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: morph, <i></i> <br />
-        <b>In 7</b>: type=<i>param</i> (optional): smooth, default: <b>22.666</b>, <i></i> <br />
+        Stereo version of 'eviFilterMorph()' for use in gen~/GenExpr <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: xL, <i>Left audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: xR, <i>Right audio input</i> <br />
+        <b>In 3</b>: type=<i>input</i>: hz, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 4</b>: type=<i>input</i>: db, <i>Gain in dB</i> <br />
+        <b>In 5</b>: type=<i>input</i>: bw, <i>Bandwidth 0..1 across 10 octaves</i> <br />
+        <b>In 6</b>: type=<i>input</i>: morph, <i>Filter morphing 0..1 interpolates LP..BP..HP..NOTCH..LP</i> <br />
+        <b>In 7</b>: type=<i>param</i> (optional): smooth, default: <b>22.666</b>, <i>If &gt; 0, ms smoothing time of required mixing gains</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
+        <b>Return 1</b>: Morph Left, <i>Left audio output</i> <br />
+        <b>Return 2</b>: Morph Right, <i>Right audio output</i> <br />
 
       </description>
     </entry>
     <entry name="eviFilterMorphLpBpHp ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: hz, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: db, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: bw, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: morph, <i></i> <br />
-        <b>In 6</b>: type=<i>param</i> (optional): smooth, default: <b>22.666</b>, <i></i> <br />
+        All-in-one LP..BP..HP morphing coefficients and filter section for use in gen~/GenExpr <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: hz, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 3</b>: type=<i>input</i>: db, <i>Gain in dB</i> <br />
+        <b>In 4</b>: type=<i>input</i>: bw, <i>Bandwidth 0..1 across 10 octaves</i> <br />
+        <b>In 5</b>: type=<i>input</i>: morph, <i>Filter morphing 0..1 interpolates LP..BP..HP</i> <br />
+        <b>In 6</b>: type=<i>param</i> (optional): smooth, default: <b>22.666</b>, <i>If &gt; 0, ms smoothing time of required mixing gains</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Morph, <i>Filtered audio output</i> <br />
 
       </description>
     </entry>
     <entry name="eviFilterMorphLpBpHpStereo ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: xL, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: xR, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: hz, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: db, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: bw, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: morph, <i></i> <br />
-        <b>In 7</b>: type=<i>param</i> (optional): smooth, default: <b>22.666</b>, <i></i> <br />
+        Stereo version of 'eviFilterMorphLpBpHp()' for use in gen~/GenExpr <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: xL, <i>Left audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: xR, <i>Right audio input</i> <br />
+        <b>In 3</b>: type=<i>input</i>: hz, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 4</b>: type=<i>input</i>: db, <i>Gain in dB</i> <br />
+        <b>In 5</b>: type=<i>input</i>: bw, <i>Bandwidth 0..1 across 10 octaves</i> <br />
+        <b>In 6</b>: type=<i>input</i>: morph, <i>Filter morphing 0..1 interpolates LP..BP..HP</i> <br />
+        <b>In 7</b>: type=<i>param</i> (optional): smooth, default: <b>22.666</b>, <i>If &gt; 0, ms smoothing time of required mixing gains</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
+        <b>Return 1</b>: Morph Left, <i>Left audio output</i> <br />
+        <b>Return 2</b>: Morph Right, <i>Right audio output</i> <br />
 
       </description>
     </entry>
     <entry name="eviFilterMorphLpBrHp ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: hz, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: db, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: bw, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: morph, <i></i> <br />
-        <b>In 6</b>: type=<i>param</i> (optional): smooth, default: <b>22.666</b>, <i></i> <br />
+        All-in-one LP..NOTCH..HP morphing coefficients and filter section for use in gen~/GenExpr <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: hz, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 3</b>: type=<i>input</i>: db, <i>Gain in dB</i> <br />
+        <b>In 4</b>: type=<i>input</i>: bw, <i>Bandwidth 0..1 across 10 octaves</i> <br />
+        <b>In 5</b>: type=<i>input</i>: morph, <i>Filter morphing 0..1 interpolates LP..NOTCH..HP</i> <br />
+        <b>In 6</b>: type=<i>param</i> (optional): smooth, default: <b>22.666</b>, <i>If &gt; 0, ms smoothing time of required mixing gains</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Morph, <i>Filtered audio output</i> <br />
 
       </description>
     </entry>
     <entry name="eviFilterMorphLpBrHpStereo ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: xL, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: xR, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: hz, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: db, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: bw, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: morph, <i></i> <br />
-        <b>In 7</b>: type=<i>param</i> (optional): smooth, default: <b>22.666</b>, <i></i> <br />
+        Stereo version of 'eviFilterMorphLpBrHp()' for use in gen~/GenExpr <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: xL, <i>Left audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: xR, <i>Right audio input</i> <br />
+        <b>In 3</b>: type=<i>input</i>: hz, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 4</b>: type=<i>input</i>: db, <i>Gain in dB</i> <br />
+        <b>In 5</b>: type=<i>input</i>: bw, <i>Bandwidth 0..1 across 10 octaves</i> <br />
+        <b>In 6</b>: type=<i>input</i>: morph, <i>Filter morphing 0..1 interpolates LP..NOTCH..HP</i> <br />
+        <b>In 7</b>: type=<i>param</i> (optional): smooth, default: <b>22.666</b>, <i>If &gt; 0, ms smoothing time of required mixing gains</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="tptSvfFormlet ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: g, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: r1, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: r2, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: a1, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: a2, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="tptSvfCoeffFormlet ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: AT, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: DT, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
-        <b>Return 5</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="eviFilterFormlet ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: cutoff, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: attack, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: decay, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Morph Left, <i>Left audio output</i> <br />
+        <b>Return 2</b>: Morph Right, <i>Right audio output</i> <br />
 
       </description>
     </entry>
@@ -351,6 +351,10 @@
   </metadatalist>
   <seealsolist>
     <!-- we use 'refpage' here not 'genrefpage' to trick Max -->
+    <seealso name="evi_svfs.genexpr" type="refpage"/>
+    <seealso name="evi_svfs_lto.genexpr" type="refpage"/>
+    <seealso name="evi_svfs_tpt_filters.genexpr" type="refpage"/>
+    <seealso name="evi_svfs_lto_extras.genexpr" type="refpage"/>
   </seealsolist>
   <misc name="Discussion">
     <entry name="Keywords">

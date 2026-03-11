@@ -469,7 +469,7 @@ tptSvfEqReset(x, g, r, h, cL, cB, cH, reset)
 }
 
 //	//	//	all in one sections for using in parametric EQ-ing etc
-//	//	//	also see below in LTO section
+//	//	//	also see 'evi_svfs_lto.genexpr'
 
 eviFilterTptEq(x, cutoff, db, Q, filter, reset, smooth=0)	// gain in dB, smooth time in ms)
 {

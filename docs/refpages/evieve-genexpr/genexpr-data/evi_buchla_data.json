@@ -1,5 +1,5 @@
 {
-    "description": "Buchla Lowpass Gate emulation. A filter modified from 'A Digital Model of the Buchla Lowpass-Gate' by Julian Parker and Stefano D’Angelo, 2013. This file renders 8 different versions of the filter for 1x..8x oversampling (with multiple passes of the processing loop in each one) and their subsequent oversampled functions. These can be used entirely inside gen~ code without resorting to using an external [poly~] for the resampling. Note, this file contains only the filter without the feeding circuit control. For an MSP/[poly~] version with circuit control see the [evi.lpg~] abstraction instead.",
+    "description": "Buchla Lowpass Gate emulation. A filter modified from 'A Digital Model of the Buchla Lowpass-Gate' by Julian Parker and Stefano D’Angelo, 2013. This file renders multiple versions of the filter for 1x..8x oversampling (with multiple passes of the processing loop in each one) and their subsequent oversampled functions. These can be used entirely inside gen~ code without resorting to using an external [poly~] for the resampling. Note, this file contains only the filter without the feeding circuit control. For an MSP/[poly~] version with circuit control see the [evi.lpg~] abstraction instead.",
     "requires": [
         "evi_interp.genexpr",
         "evi_smooth.genexpr"
@@ -283,7 +283,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "4x version of the filter, for use by the 'buchlaLpg4_4x()' oversampler",
             "name": "buchlaLpg4",
             "inputs": [

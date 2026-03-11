@@ -1,9 +1,9 @@
 {
-    "description": "",
+    "description": "Additional Biquad code for specific use cases, silently includes a 'DF2' so can be used without dependencies.",
     "requires": [],
     "functions": [
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "biquadDf2",
             "inputs": [
@@ -53,7 +53,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "eviBiquadCoeffBp",
             "inputs": [
@@ -100,33 +100,33 @@
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "All-in-one Butterworth lowpass 6-pole, by Miller Puckette, created from three [bp~] objects",
             "name": "eviButterworthLp6",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x0",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Butterworth Lowpass",
+                    "digest": "Filtered audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "'Transposed Direct Form 2' section, with a1, a2, b1 and b2 factored out as per Hilbert allpass",
             "name": "hilbertTdf2",
             "inputs": [
                 {
@@ -139,106 +139,106 @@
                     "id": 2,
                     "kind": "input",
                     "name": "a0",
-                    "digest": ""
+                    "digest": "a0 coefficient"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Filter",
+                    "digest": "Filtered audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Hilbert transform 90º phase shifting filter cascade, @see: [evi.polyphaseiirhilbertcoeffs] and 'evi_hilbert_coefficients.js', @see: [evi.freqshift.hilbert~] abstraction for an example.",
             "name": "eviHilbertCascade",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "y0",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "hc1",
-                    "digest": ""
+                    "digest": "Polyphase IIR coefficient 1"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "hc2",
-                    "digest": ""
+                    "digest": "Polyphase IIR coefficient 2"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "hc3",
-                    "digest": ""
+                    "digest": "Polyphase IIR coefficient 3"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "hc4",
-                    "digest": ""
+                    "digest": "Polyphase IIR coefficient 4"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "hc5",
-                    "digest": ""
+                    "digest": "Polyphase IIR coefficient 5"
                 },
                 {
                     "id": 7,
                     "kind": "input",
                     "name": "hc6",
-                    "digest": ""
+                    "digest": "Polyphase IIR coefficient 6"
                 },
                 {
                     "id": 8,
                     "kind": "input",
                     "name": "hc7",
-                    "digest": ""
+                    "digest": "Polyphase IIR coefficient 7"
                 },
                 {
                     "id": 9,
                     "kind": "input",
                     "name": "hc8",
-                    "digest": ""
+                    "digest": "Polyphase IIR coefficient 8"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Real",
+                    "digest": "First phase allpass cascade"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Imag",
+                    "digest": "Second phase allpass cascade"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Special allpass coefficients (for building evieve digital phaser cascade)",
             "name": "eviCascadeCoeffAllpass",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q with specific scaling"
                 },
                 {
                     "id": 3,
@@ -246,103 +246,103 @@
                     "name": "R",
                     "default": 0,
                     "type": "integer",
-                    "digest": ""
+                    "digest": "Resonance style, R == 1 = Reaktor-ish, R == 0 = MSP-ish"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "a0",
+                    "digest": "a0 coefficient"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "a1",
+                    "digest": "a1 coefficient"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "a2",
+                    "digest": "a2 coefficient"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "'Direct Form 2' but with coefficients reduced rather than repeated for allpass usage, in gen~ cascade form with History()s written out to / read from Data()",
             "name": "biquadDf2cascadeAllpass",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x0",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "a0",
-                    "digest": ""
+                    "digest": "a0 coefficient"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "a1",
-                    "digest": ""
+                    "digest": "a1 coefficient"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "a2",
-                    "digest": ""
+                    "digest": "a2 coefficient"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "x1",
-                    "digest": ""
+                    "digest": "State 1 input"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "x2",
-                    "digest": ""
+                    "digest": "State 2 input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Filter",
+                    "digest": "Filtered audio output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "x1",
+                    "digest": "State 1 output"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "x2",
+                    "digest": "State 2 output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Based on SuperCollider 'resonz()' and 'ringz()' coefficients, flip between 'bandpass_skirt' (bandpass) and 'bandpass_peak' (reson) with the 'filt' parameter",
             "name": "resringzCoeffs",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "QorT60",
-                    "digest": ""
+                    "digest": "Q factor or T60 depending on 'filt'"
                 },
                 {
                     "id": 3,
@@ -350,76 +350,76 @@
                     "name": "filt",
                     "default": 0,
                     "type": "integer",
-                    "digest": ""
+                    "digest": "filt=0 = 'resonz', filt=1 = 'rinqz'"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "a0",
+                    "digest": "a0 coefficient"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "b1",
+                    "digest": "b1 coefficient"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "b2",
+                    "digest": "b2 coefficient"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "A homeless FIR filter, simultaneous 1st and 2nd order outputs, default coefficients values for lowpass at nyquist",
             "name": "firOrder12",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x0",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "param",
                     "name": "a0",
                     "default": 1,
-                    "type": "integer",
-                    "digest": ""
+                    "type": "float",
+                    "digest": "a0 coefficient"
                 },
                 {
                     "id": 3,
                     "kind": "param",
                     "name": "a1",
                     "default": 2,
-                    "type": "integer",
-                    "digest": ""
+                    "type": "float",
+                    "digest": "a1 coefficient"
                 },
                 {
                     "id": 4,
                     "kind": "param",
                     "name": "a2",
                     "default": 1,
-                    "type": "integer",
-                    "digest": ""
+                    "type": "float",
+                    "digest": "a2 coefficient"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "1",
+                    "digest": "1st order output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "2",
+                    "digest": "2nd order output"
                 }
             ]
         }
     ],
-    "seealso": []
+    "seealso": ["evi_biquads", "evi_biquads_coeffs", "evi_biquads_selectors", "evi_biquads_union", "evi_biquads_filters", "evi_svfs"]
 }

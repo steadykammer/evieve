@@ -1,239 +1,239 @@
 {
-    "description": "",
+    "description": "Higher level filter type selectors for all 40 filter coefficient calculators included in 'evi_biquads_coeffs.genexpr'. Note, this file on it's own is not very useful as it needs 'evi_biquads_coeffs.genexpr' to function properly inside gen~. Use the require file 'evi_biquads_union.genexpr' in most situations.",
     "requires": [],
     "functions": [
         {
             "document": true,
-            "digest": "",
+            "digest": "Global selector for all 40 filter types, @see: [evi.biquad.filter~], [evi.biquadcoeff~] and [evi.biquadcoeff] for example wrappers and index listing",
             "name": "eviBiquadCoeff",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "filter",
-                    "digest": ""
+                    "digest": "(int) filter index (type), see abstractions or source code for listing"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "gain",
-                    "digest": ""
+                    "digest": "Gain (linear)"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "fullQ",
-                    "digest": ""
+                    "digest": "Q"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "a0",
+                    "digest": "a0 coefficient"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "a1",
+                    "digest": "a1 coefficient"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "a2",
+                    "digest": "a2 coefficient"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "b1",
+                    "digest": "b1 coefficient"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "b2",
+                    "digest": "b2 coefficient"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Selector for all of the EQ type filters in the collection",
             "name": "eviBiquadCoeffEQ",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "filter",
-                    "digest": ""
+                    "digest": "(int) filter index (type), see [evi.biquad.eqfilter~] or source code for listing"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "gain",
-                    "digest": ""
+                    "digest": "Gain (linear)"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "fullQ",
-                    "digest": ""
+                    "digest": "Q"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "a0",
+                    "digest": "a0 coefficient"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "a1",
+                    "digest": "a1 coefficient"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "a2",
+                    "digest": "a2 coefficient"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "b1",
+                    "digest": "b1 coefficient"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "b2",
+                    "digest": "b2 coefficient"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Selector for all of the Butterworth type filters in the collection",
             "name": "eviBiquadCoeffButterworth",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "filter",
-                    "digest": ""
+                    "digest": "(int) filter index (type), see [evi.biquad.butterworth~] or source code for listing"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "gain",
-                    "digest": ""
+                    "digest": "Gain (linear)"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "fullQ",
-                    "digest": ""
+                    "digest": "Q"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "a0",
+                    "digest": "a0 coefficient"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "a1",
+                    "digest": "a1 coefficient"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "a2",
+                    "digest": "a2 coefficient"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "b1",
+                    "digest": "b1 coefficient"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "b2",
+                    "digest": "b2 coefficient"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Selector for all of the Analog matched type filters in the collection",
             "name": "eviBiquadCoeffAnalog",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "filter",
-                    "digest": ""
+                    "digest": "(int) filter index (type), see [evi.biquad.analog~] or source code for listing"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "gain",
-                    "digest": ""
+                    "digest": "Gain (linear)"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "fullQ",
-                    "digest": ""
+                    "digest": "Q"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "a0",
+                    "digest": "a0 coefficient"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "a1",
+                    "digest": "a1 coefficient"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "a2",
+                    "digest": "a2 coefficient"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "b1",
+                    "digest": "b1 coefficient"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "b2",
+                    "digest": "b2 coefficient"
                 }
             ]
         }
     ],
-    "seealso": []
+    "seealso": ["evi_biquads", "evi_biquads_coeffs", "evi_biquads_union", "evi_biquads_filters", "evi_biquads_extras", "evi_svfs"]
 }

@@ -15,7 +15,7 @@
     evi_interp.genexpr <br />
     <br />
     <b>About this File</b>: <br />
-    This file performs quasi resampling on all of the antiderivitive anti-aliasing saturators contained in 'evi_adaa.genexpr'. <br />
+    This file performs quasi resampling on all of the antiderivitive anti-aliasing saturators contained in 'evi_adaa.genexpr'. Usually adaa is enough for anti-aliasing, but sometimes it is useful to also resample the adaa for extreme use cases. <br />
   </description>
   <misc name="GenExpr Functions">
     <entry name="hardclipAdaa1_2x_6POINT ( )">

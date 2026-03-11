@@ -1,5 +1,5 @@
 {
-    "description": "",
+    "description": "This file requires all evieve linear SVFs code in one require. You will rarely need this catch-all and should look into the individual requires contained here as it is more efficient to include subsets of GenExpr code. TPT SVF filters are superior to Biquads and you should always consider using these filters where possible. The linear SVFs in evieve provide a wide range of filter types with excellent modulation properties and very efficient operation.",
     "requires": [
         "evi_svfs_tpt.genexpr",
         "evi_svfs_lto.genexpr",
@@ -7,5 +7,5 @@
         "evi_svfs_lto_extras.genexpr"
     ],
     "functions": [],
-    "seealso": []
+    "seealso": ["evi_svfs_tpt.genexpr", "evi_svfs_lto.genexpr", "evi_svfs_tpt_filters.genexpr", "evi_svfs_lto_extras.genexpr", "evi_biquads.genexpr"]
 }

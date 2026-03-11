@@ -16,16 +16,16 @@
 // This file:
 
 // Part 1: Coefficients Calculators
-require("evi_biquads_coeffs");
+// require("evi_biquads_coeffs.genexpr");
 
 // Part 2: Filter Selectors
-require("evi_biquads_selectors");
+// require("evi_biquads_selectors.genexpr");
 
-// 'evi_biquads_union.genexpr' instead of above two?
+require("evi_biquads_union.genexpr"); // instead of above two?
 
 // Part 3: Biquad Filters
-require("evi_biquads_filters");
+require("evi_biquads_filters.genexpr");
 
 // Part 4: Other Stuff
-require("evi_biquads_extras");
+require("evi_biquads_extras.genexpr");
 

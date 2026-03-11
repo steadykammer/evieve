@@ -1,5 +1,5 @@
 {
-    "description": "",
+    "description": "This file includes standalone versions of all TPT SVF coefficients calculators and filter sections that use them for use in gen~/GenExpr. Require this file to include any of the available filters for this type. So if you just need a standard high quality lowpass (for example), you need only require this file then call 'eviFilterLowpass(x, cutoff, db, Q, smooth=0)' in your code. These are the 'workhorse' linear filters of evieve and are used everywhere in the Package.",
     "requires": [
         "evi_smooth.genexpr",
         "evi_svfs_filters.genexpr"
@@ -7,2070 +7,2070 @@
     "functions": [
         {
             "document": true,
-            "digest": "",
+            "digest": "Filter coefficients for the TPT SVF",
             "name": "tptSvfCoeffLowpass",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "gain",
-                    "digest": ""
+                    "digest": "Gain (linear)"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "g",
+                    "digest": "g coefficient"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "r",
+                    "digest": "r coefficient"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "h",
+                    "digest": "h coefficient"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "cL",
+                    "digest": "low mixing gain"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "cB",
+                    "digest": "band mixing gain"
                 },
                 {
                     "id": 6,
-                    "name": "",
-                    "digest": ""
+                    "name": "cH",
+                    "digest": "high mixing gain"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Filter coefficients for the TPT SVF",
             "name": "tptSvfCoeffHighpass",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "gain",
-                    "digest": ""
+                    "digest": "Gain (linear)"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "g",
+                    "digest": "g coefficient"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "r",
+                    "digest": "r coefficient"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "h",
+                    "digest": "h coefficient"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "cL",
+                    "digest": "low mixing gain"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "cB",
+                    "digest": "band mixing gain"
                 },
                 {
                     "id": 6,
-                    "name": "",
-                    "digest": ""
+                    "name": "cH",
+                    "digest": "high mixing gain"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Filter coefficients for the TPT SVF",
             "name": "tptSvfCoeffBandpass",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "gain",
-                    "digest": ""
+                    "digest": "Gain (linear)"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "g",
+                    "digest": "g coefficient"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "r",
+                    "digest": "r coefficient"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "h",
+                    "digest": "h coefficient"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "cL",
+                    "digest": "low mixing gain"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "cB",
+                    "digest": "band mixing gain"
                 },
                 {
                     "id": 6,
-                    "name": "",
-                    "digest": ""
+                    "name": "cH",
+                    "digest": "high mixing gain"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Filter coefficients for the LTO SVF (sneak in)",
             "name": "ltoSvfCoeffPeak",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "gain",
-                    "digest": ""
+                    "digest": "Gain (linear)"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "a1",
+                    "digest": "a1 coefficient"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "a2",
+                    "digest": "a2 coefficient"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "a3",
+                    "digest": "a3 coefficient"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "m0",
+                    "digest": "low mixing gain"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "m1",
+                    "digest": "band mixing gain"
                 },
                 {
                     "id": 6,
-                    "name": "",
-                    "digest": ""
+                    "name": "m2",
+                    "digest": "high mixing gain"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Filter coefficients for the TPT SVF",
             "name": "tptSvfCoeffBandreject",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "gain",
-                    "digest": ""
+                    "digest": "Gain (linear)"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "g",
+                    "digest": "g coefficient"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "r",
+                    "digest": "r coefficient"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "h",
+                    "digest": "h coefficient"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "cL",
+                    "digest": "low mixing gain"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "cB",
+                    "digest": "band mixing gain"
                 },
                 {
                     "id": 6,
-                    "name": "",
-                    "digest": ""
+                    "name": "cH",
+                    "digest": "high mixing gain"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Filter coefficients for the TPT SVF",
             "name": "tptSvfCoeffResonant",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "gain",
-                    "digest": ""
+                    "digest": "Gain (linear)"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "g",
+                    "digest": "g coefficient"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "r",
+                    "digest": "r coefficient"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "h",
+                    "digest": "h coefficient"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "cL",
+                    "digest": "low mixing gain"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "cB",
+                    "digest": "band mixing gain"
                 },
                 {
                     "id": 6,
-                    "name": "",
-                    "digest": ""
+                    "name": "cH",
+                    "digest": "high mixing gain"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Filter coefficients for the TPT SVF, for MSP [evi.reson~] or gen~ [evi_reson] substitute",
             "name": "tptSvfCoeffReson",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "gain",
-                    "digest": ""
+                    "digest": "Gain (linear)"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q, can be very high"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "compensate",
-                    "digest": ""
+                    "digest": "Gain compensation flag 0/1 for high Q scaling"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "g",
+                    "digest": "g coefficient"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "r",
+                    "digest": "r coefficient"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "h",
+                    "digest": "h coefficient"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "cB",
+                    "digest": "band mixing gain"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Filter coefficients for the TPT SVF",
             "name": "tptSvfCoeffPeakNotch",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "gain",
-                    "digest": ""
+                    "digest": "Gain (linear)"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "g",
+                    "digest": "g coefficient"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "r",
+                    "digest": "r coefficient"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "h",
+                    "digest": "h coefficient"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "cL",
+                    "digest": "low mixing gain"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "cB",
+                    "digest": "band mixing gain"
                 },
                 {
                     "id": 6,
-                    "name": "",
-                    "digest": ""
+                    "name": "cH",
+                    "digest": "high mixing gain"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Filter coefficients for the TPT SVF, adaptive 'analog' Bell mode",
             "name": "tptSvfCoeffBellAdaptive",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "gain",
-                    "digest": ""
+                    "digest": "Gain (linear)"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "g",
+                    "digest": "g coefficient"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "r",
+                    "digest": "r coefficient"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "h",
+                    "digest": "h coefficient"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "cL",
+                    "digest": "low mixing gain"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "cB",
+                    "digest": "band mixing gain"
                 },
                 {
                     "id": 6,
-                    "name": "",
-                    "digest": ""
+                    "name": "cH",
+                    "digest": "high mixing gain"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Filter coefficients for the TPT SVF",
             "name": "tptSvfCoeffLowshelf",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "gain",
-                    "digest": ""
+                    "digest": "Gain (linear)"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "g",
+                    "digest": "g coefficient"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "r",
+                    "digest": "r coefficient"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "h",
+                    "digest": "h coefficient"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "cL",
+                    "digest": "low mixing gain"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "cB",
+                    "digest": "band mixing gain"
                 },
                 {
                     "id": 6,
-                    "name": "",
-                    "digest": ""
+                    "name": "cH",
+                    "digest": "high mixing gain"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Filter coefficients for the TPT SVF",
             "name": "tptSvfCoeffHighshelf",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "gain",
-                    "digest": ""
+                    "digest": "Gain (linear)"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "g",
+                    "digest": "g coefficient"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "r",
+                    "digest": "r coefficient"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "h",
+                    "digest": "h coefficient"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "cL",
+                    "digest": "low mixing gain"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "cB",
+                    "digest": "band mixing gain"
                 },
                 {
                     "id": 6,
-                    "name": "",
-                    "digest": ""
+                    "name": "cH",
+                    "digest": "high mixing gain"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Filter coefficients for the TPT SVF, special 'tilt' mode",
             "name": "tptSvfCoeffTilt",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "gain",
-                    "digest": ""
+                    "digest": "Gain (linear), < 1 values boost bass, > 1 values boost treble"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "g",
+                    "digest": "g coefficient"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "r",
+                    "digest": "r coefficient"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "h",
+                    "digest": "h coefficient"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "cL",
+                    "digest": "low mixing gain"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "cB",
+                    "digest": "band mixing gain"
                 },
                 {
                     "id": 6,
-                    "name": "",
-                    "digest": ""
+                    "name": "cH",
+                    "digest": "high mixing gain"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Filter coefficients for the TPT SVF, no gain in this Allpass",
             "name": "tptSvfCoeffAllpassNorm",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "g",
+                    "digest": "g coefficient"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "r",
+                    "digest": "r coefficient"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "h",
+                    "digest": "h coefficient"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "cL",
+                    "digest": "low mixing gain"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "cB",
+                    "digest": "band mixing gain"
                 },
                 {
                     "id": 6,
-                    "name": "",
-                    "digest": ""
+                    "name": "cH",
+                    "digest": "high mixing gain"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "All-in-one TPT SVF filter section",
             "name": "eviFilterLowpass",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "db",
-                    "digest": ""
+                    "digest": "Gain in dB"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 },
                 {
                     "id": 5,
                     "kind": "param",
                     "name": "smooth",
                     "default": 0,
-                    "type": "integer",
-                    "digest": ""
+                    "type": "float",
+                    "digest": "If > 0, ms smoothing time of required mixing gains"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Filter",
+                    "digest": "Filtered audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Stereo version of 'eviFilterLowpass()'",
             "name": "eviFilterLowpassStereo",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "xL",
-                    "digest": ""
+                    "digest": "Left audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "xR",
-                    "digest": ""
+                    "digest": "Right audio input"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "db",
-                    "digest": ""
+                    "digest": "Gain in dB"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 },
                 {
                     "id": 6,
                     "kind": "param",
                     "name": "smooth",
                     "default": 0,
-                    "type": "integer",
-                    "digest": ""
+                    "type": "float",
+                    "digest": "If > 0, ms smoothing time of required mixing gains"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Left",
+                    "digest": "Left audio output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Right",
+                    "digest": "Right audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "All-in-one TPT SVF filter section",
             "name": "eviFilterHighpass",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "db",
-                    "digest": ""
+                    "digest": "Gain in dB"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 },
                 {
                     "id": 5,
                     "kind": "param",
                     "name": "smooth",
                     "default": 0,
-                    "type": "integer",
-                    "digest": ""
+                    "type": "float",
+                    "digest": "If > 0, ms smoothing time of required mixing gains"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Filter",
+                    "digest": "Filtered audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Stereo version of 'eviFilterHighpass()'",
             "name": "eviFilterHighpassStereo",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "xL",
-                    "digest": ""
+                    "digest": "Left audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "xR",
-                    "digest": ""
+                    "digest": "Right audio input"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "db",
-                    "digest": ""
+                    "digest": "Gain in dB"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 },
                 {
                     "id": 6,
                     "kind": "param",
                     "name": "smooth",
                     "default": 0,
-                    "type": "integer",
-                    "digest": ""
+                    "type": "float",
+                    "digest": "If > 0, ms smoothing time of required mixing gains"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Left",
+                    "digest": "Left audio output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Right",
+                    "digest": "Right audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "All-in-one TPT SVF filter section",
             "name": "eviFilterBandpass",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "db",
-                    "digest": ""
+                    "digest": "Gain in dB"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 },
                 {
                     "id": 5,
                     "kind": "param",
                     "name": "smooth",
                     "default": 0,
-                    "type": "integer",
-                    "digest": ""
+                    "type": "float",
+                    "digest": "If > 0, ms smoothing time of required mixing gains"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Filter",
+                    "digest": "Filtered audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Stereo version of 'eviFilterBandpass()'",
             "name": "eviFilterBandpassStereo",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "xL",
-                    "digest": ""
+                    "digest": "Left audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "xR",
-                    "digest": ""
+                    "digest": "Right audio input"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "db",
-                    "digest": ""
+                    "digest": "Gain in dB"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 },
                 {
                     "id": 6,
                     "kind": "param",
                     "name": "smooth",
                     "default": 0,
-                    "type": "integer",
-                    "digest": ""
+                    "type": "float",
+                    "digest": "If > 0, ms smoothing time of required mixing gains"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Left",
+                    "digest": "Left audio output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Right",
+                    "digest": "Right audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "All-in-one TPT SVF filter section",
             "name": "eviFilterPeak",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "db",
-                    "digest": ""
+                    "digest": "Gain in dB"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 },
                 {
                     "id": 5,
                     "kind": "param",
                     "name": "smooth",
                     "default": 0,
-                    "type": "integer",
-                    "digest": ""
+                    "type": "float",
+                    "digest": "If > 0, ms smoothing time of required mixing gains"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Filter",
+                    "digest": "Filtered audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Stereo version of 'eviFilterPeak()'",
             "name": "eviFilterPeakStereo",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "xL",
-                    "digest": ""
+                    "digest": "Left audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "xR",
-                    "digest": ""
+                    "digest": "Right audio input"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "db",
-                    "digest": ""
+                    "digest": "Gain in dB"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 },
                 {
                     "id": 6,
                     "kind": "param",
                     "name": "smooth",
                     "default": 0,
-                    "type": "integer",
-                    "digest": ""
+                    "type": "float",
+                    "digest": "If > 0, ms smoothing time of required mixing gains"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Left",
+                    "digest": "Left audio output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Right",
+                    "digest": "Right audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "All-in-one TPT SVF filter section",
             "name": "eviFilterNotch",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "db",
-                    "digest": ""
+                    "digest": "Gain in dB"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 },
                 {
                     "id": 5,
                     "kind": "param",
                     "name": "smooth",
                     "default": 0,
-                    "type": "integer",
-                    "digest": ""
+                    "type": "float",
+                    "digest": "If > 0, ms smoothing time of required mixing gains"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Filter",
+                    "digest": "Filtered audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Stereo version of 'eviFilterNotch()'",
             "name": "eviFilterNotchStereo",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "xL",
-                    "digest": ""
+                    "digest": "Left audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "xR",
-                    "digest": ""
+                    "digest": "Right audio input"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "db",
-                    "digest": ""
+                    "digest": "Gain in dB"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 },
                 {
                     "id": 6,
                     "kind": "param",
                     "name": "smooth",
                     "default": 0,
-                    "type": "integer",
-                    "digest": ""
+                    "type": "float",
+                    "digest": "If > 0, ms smoothing time of required mixing gains"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Left",
+                    "digest": "Left audio output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Right",
+                    "digest": "Right audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "All-in-one TPT SVF filter section",
             "name": "eviFilterResonant",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "db",
-                    "digest": ""
+                    "digest": "Gain in dB"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 },
                 {
                     "id": 5,
                     "kind": "param",
                     "name": "smooth",
                     "default": 0,
-                    "type": "integer",
-                    "digest": ""
+                    "type": "float",
+                    "digest": "If > 0, ms smoothing time of required mixing gains"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Filter",
+                    "digest": "Filtered audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Stereo version of 'eviFilterResonant()'",
             "name": "eviFilterResonantStereo",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "xL",
-                    "digest": ""
+                    "digest": "Left audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "xR",
-                    "digest": ""
+                    "digest": "Right audio input"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "db",
-                    "digest": ""
+                    "digest": "Gain in dB"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 },
                 {
                     "id": 6,
                     "kind": "param",
                     "name": "smooth",
                     "default": 0,
-                    "type": "integer",
-                    "digest": ""
+                    "type": "float",
+                    "digest": "If > 0, ms smoothing time of required mixing gains"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Left",
+                    "digest": "Left audio output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Right",
+                    "digest": "Right audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "[evi.reson~], MSP ordering of inputs, and like MSP gain is still linear here!",
             "name": "eviFilterReson",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "gain",
-                    "digest": ""
+                    "digest": "Gain (linear)"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q, can be very high"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "compensate",
-                    "digest": ""
+                    "digest": "Gain compensation flag 0/1 for high Q scaling"
                 },
                 {
                     "id": 6,
                     "kind": "param",
                     "name": "smooth",
                     "default": 0,
-                    "type": "integer",
-                    "digest": ""
+                    "type": "float",
+                    "digest": "If > 0, ms smoothing time of required mixing gains"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Filter",
+                    "digest": "Filtered audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Stereo version of 'eviFilterReson()'",
             "name": "eviFilterResonStereo",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "gain",
-                    "digest": ""
+                    "digest": "Gain (linear)"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q, can be very high"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "compensate",
-                    "digest": ""
+                    "digest": "Gain compensation flag 0/1 for high Q scaling"
                 },
                 {
                     "id": 6,
                     "kind": "param",
                     "name": "smooth",
                     "default": 0,
-                    "type": "integer",
-                    "digest": ""
+                    "type": "float",
+                    "digest": "If > 0, ms smoothing time of required mixing gains"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Reson Left",
+                    "digest": "Left audio output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Reson Right",
+                    "digest": "Right audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "All-in-one TPT SVF filter section",
             "name": "eviFilterBell",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "db",
-                    "digest": ""
+                    "digest": "Gain in dB"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 },
                 {
                     "id": 5,
                     "kind": "param",
                     "name": "smooth",
                     "default": 0,
-                    "type": "integer",
-                    "digest": ""
+                    "type": "float",
+                    "digest": "If > 0, ms smoothing time of required mixing gains"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Filter",
+                    "digest": "Filtered audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Stereo version of 'eviFilterBell()'",
             "name": "eviFilterBellStereo",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "xL",
-                    "digest": ""
+                    "digest": "Left audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "xR",
-                    "digest": ""
+                    "digest": "Right audio input"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "db",
-                    "digest": ""
+                    "digest": "Gain in dB"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 },
                 {
                     "id": 6,
                     "kind": "param",
                     "name": "smooth",
                     "default": 0,
-                    "type": "integer",
-                    "digest": ""
+                    "type": "float",
+                    "digest": "If > 0, ms smoothing time of required mixing gains"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Left",
+                    "digest": "Left audio output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Right",
+                    "digest": "Right audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "All-in-one TPT SVF filter section, adaptive 'analog' Bell",
             "name": "eviFilterBellAdaptive",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "db",
-                    "digest": ""
+                    "digest": "Gain in dB"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 },
                 {
                     "id": 5,
                     "kind": "param",
                     "name": "smooth",
                     "default": 0,
-                    "type": "integer",
-                    "digest": ""
+                    "type": "float",
+                    "digest": "If > 0, ms smoothing time of required mixing gains"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Filter",
+                    "digest": "Filtered audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Stereo version of 'eviFilterBellAdaptive()'",
             "name": "eviFilterBellAdaptiveStereo",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "xL",
-                    "digest": ""
+                    "digest": "Left audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "xR",
-                    "digest": ""
+                    "digest": "Right audio input"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "db",
-                    "digest": ""
+                    "digest": "Gain in dB"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 },
                 {
                     "id": 6,
                     "kind": "param",
                     "name": "smooth",
                     "default": 0,
-                    "type": "integer",
-                    "digest": ""
+                    "type": "float",
+                    "digest": "If > 0, ms smoothing time of required mixing gains"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Left",
+                    "digest": "Left audio output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Right",
+                    "digest": "Right audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "All-in-one TPT SVF filter section",
             "name": "eviFilterLowshelf",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "db",
-                    "digest": ""
+                    "digest": "Gain in dB"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 },
                 {
                     "id": 5,
                     "kind": "param",
                     "name": "smooth",
                     "default": 0,
-                    "type": "integer",
-                    "digest": ""
+                    "type": "float",
+                    "digest": "If > 0, ms smoothing time of required mixing gains"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Filter",
+                    "digest": "Filtered audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Stereo version of 'eviFilterLowshelf()'",
             "name": "eviFilterLowshelfStereo",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "xL",
-                    "digest": ""
+                    "digest": "Left audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "xR",
-                    "digest": ""
+                    "digest": "Right audio input"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "db",
-                    "digest": ""
+                    "digest": "Gain in dB"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 },
                 {
                     "id": 6,
                     "kind": "param",
                     "name": "smooth",
                     "default": 0,
-                    "type": "integer",
-                    "digest": ""
+                    "type": "float",
+                    "digest": "If > 0, ms smoothing time of required mixing gains"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Left",
+                    "digest": "Left audio output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Right",
+                    "digest": "Right audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "All-in-one TPT SVF filter section",
             "name": "eviFilterHighshelf",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "db",
-                    "digest": ""
+                    "digest": "Gain in dB"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 },
                 {
                     "id": 5,
                     "kind": "param",
                     "name": "smooth",
                     "default": 0,
-                    "type": "integer",
-                    "digest": ""
+                    "type": "float",
+                    "digest": "If > 0, ms smoothing time of required mixing gains"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Filter",
+                    "digest": "Filtered audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Stereo version of 'eviFilterHighshelf()'",
             "name": "eviFilterHighshelfStereo",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "xL",
-                    "digest": ""
+                    "digest": "Left audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "xR",
-                    "digest": ""
+                    "digest": "Right audio input"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "db",
-                    "digest": ""
+                    "digest": "Gain in dB"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 },
                 {
                     "id": 6,
                     "kind": "param",
                     "name": "smooth",
                     "default": 0,
-                    "type": "integer",
-                    "digest": ""
+                    "type": "float",
+                    "digest": "If > 0, ms smoothing time of required mixing gains"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Left",
+                    "digest": "Left audio output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Right",
+                    "digest": "Right audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "All-in-one TPT SVF filter section, special 'tilt' filter",
             "name": "eviFilterTilt",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "db",
-                    "digest": ""
+                    "digest": "Gain in dB, negative dB boosts low and attenuates high frequencies, positive dB boosts high and attenuates low frequencies"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 },
                 {
                     "id": 5,
                     "kind": "param",
                     "name": "smooth",
                     "default": 0,
-                    "type": "integer",
-                    "digest": ""
+                    "type": "float",
+                    "digest": "If > 0, ms smoothing time of required mixing gains"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Filter",
+                    "digest": "Filtered audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Stereo version of 'eviFilterTilt()'",
             "name": "eviFilterTiltStereo",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "xL",
-                    "digest": ""
+                    "digest": "Left audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "xR",
-                    "digest": ""
+                    "digest": "Right audio input"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "db",
-                    "digest": ""
+                    "digest": "Gain in dB, negative dB boosts low and attenuates high frequencies, positive dB boosts high and attenuates low frequencies"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 },
                 {
                     "id": 6,
                     "kind": "param",
                     "name": "smooth",
                     "default": 0,
-                    "type": "integer",
-                    "digest": ""
+                    "type": "float",
+                    "digest": "If > 0, ms smoothing time of required mixing gains"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Left",
+                    "digest": "Left audio output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Right",
+                    "digest": "Right audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "All-in-one TPT SVF filter section, no gain in this filter",
             "name": "eviFilterAllpassNorm",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 },
                 {
                     "id": 4,
                     "kind": "param",
                     "name": "smooth",
                     "default": 0,
-                    "type": "integer",
-                    "digest": ""
+                    "type": "float",
+                    "digest": "If > 0, ms smoothing time of required mixing gains"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Filter",
+                    "digest": "Filtered audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Stereo version of 'eviFilterAllpassNorm()'",
             "name": "eviFilterAllpassNormStereo",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "xL",
-                    "digest": ""
+                    "digest": "Left audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "xR",
-                    "digest": ""
+                    "digest": "Right audio output"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 },
                 {
                     "id": 5,
                     "kind": "param",
                     "name": "smooth",
                     "default": 0,
-                    "type": "integer",
-                    "digest": ""
+                    "type": "float",
+                    "digest": "If > 0, ms smoothing time of required mixing gains"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Left Normalised Allpass",
+                    "digest": "Left audio output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Right Normalised Allpass",
+                    "digest": "Right audio output"
                 }
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "tptSvfAllpass",
             "inputs": [
@@ -2108,13 +2108,13 @@
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Filter",
+                    "digest": "Filtered audio output"
                 }
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "tptSvfAllpassStereo",
             "inputs": [
@@ -2193,7 +2193,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "tptAllpassCascade",
             "inputs": [
@@ -2259,7 +2259,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "tptAllpassCascadeStereo",
             "inputs": [
@@ -2351,36 +2351,36 @@
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
+                    "name": "allpassL",
                     "digest": ""
                 },
                 {
                     "id": 2,
-                    "name": "",
+                    "name": "allpassR",
                     "digest": ""
                 },
                 {
                     "id": 3,
-                    "name": "",
+                    "name": "ap1oL",
                     "digest": ""
                 },
                 {
                     "id": 4,
-                    "name": "",
+                    "name": "ap2oL",
                     "digest": ""
                 },
                 {
                     "id": 5,
-                    "name": "",
+                    "name": "ap1oR",
                     "digest": ""
                 },
                 {
                     "id": 6,
-                    "name": "",
+                    "name": "ap2oR",
                     "digest": ""
                 }
             ]
         }
     ],
-    "seealso": []
+    "seealso": ["evi_svfs.genexpr", "evi_svfs_tpt.genexpr", "evi_svfs_lto.genexpr", "evi_svfs_lto_extras.genexpr"]
 }

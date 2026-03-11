@@ -11,118 +11,106 @@
     By declaring <m>require("evi_biquads_extras.genexpr");</m> at the top of a codebox you can then access all of the functions included in this file. <br />
         <br />
     <b>About this File</b>: <br />
-     <br />
+    Additional Biquad code for specific use cases, silently includes a 'DF2' so can be used without dependencies. <br />
   </description>
   <misc name="GenExpr Functions">
-    <entry name="biquadDf2 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: a0, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: a1, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: a2, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: b1, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: b2, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="eviBiquadCoeffBp ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: Q, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
-        <b>Return 5</b>: , <i></i> <br />
-
-      </description>
-    </entry>
     <entry name="eviButterworthLp6 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        All-in-one Butterworth lowpass 6-pole, by Miller Puckette, created from three [bp~] objects <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Butterworth Lowpass, <i>Filtered audio output</i> <br />
 
       </description>
     </entry>
     <entry name="hilbertTdf2 ( )">
       <description>
+        'Transposed Direct Form 2' section, with a1, a2, b1 and b2 factored out as per Hilbert allpass <br />
+        <br />
         <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: a0, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: a0, <i>a0 coefficient</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Filter, <i>Filtered audio output</i> <br />
 
       </description>
     </entry>
     <entry name="eviHilbertCascade ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: y0, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: hc1, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: hc2, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: hc3, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: hc4, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: hc5, <i></i> <br />
-        <b>In 7</b>: type=<i>input</i>: hc6, <i></i> <br />
-        <b>In 8</b>: type=<i>input</i>: hc7, <i></i> <br />
-        <b>In 9</b>: type=<i>input</i>: hc8, <i></i> <br />
+        Hilbert transform 90º phase shifting filter cascade, @see: [evi.polyphaseiirhilbertcoeffs] and 'evi_hilbert_coefficients.js', @see: [evi.freqshift.hilbert~] abstraction for an example. <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: y0, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: hc1, <i>Polyphase IIR coefficient 1</i> <br />
+        <b>In 3</b>: type=<i>input</i>: hc2, <i>Polyphase IIR coefficient 2</i> <br />
+        <b>In 4</b>: type=<i>input</i>: hc3, <i>Polyphase IIR coefficient 3</i> <br />
+        <b>In 5</b>: type=<i>input</i>: hc4, <i>Polyphase IIR coefficient 4</i> <br />
+        <b>In 6</b>: type=<i>input</i>: hc5, <i>Polyphase IIR coefficient 5</i> <br />
+        <b>In 7</b>: type=<i>input</i>: hc6, <i>Polyphase IIR coefficient 6</i> <br />
+        <b>In 8</b>: type=<i>input</i>: hc7, <i>Polyphase IIR coefficient 7</i> <br />
+        <b>In 9</b>: type=<i>input</i>: hc8, <i>Polyphase IIR coefficient 8</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
+        <b>Return 1</b>: Real, <i>First phase allpass cascade</i> <br />
+        <b>Return 2</b>: Imag, <i>Second phase allpass cascade</i> <br />
 
       </description>
     </entry>
     <entry name="eviCascadeCoeffAllpass ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: Q, <i></i> <br />
-        <b>In 3</b>: type=<i>param</i> (optional): R, default: <b>0</b>, <i></i> <br />
+        Special allpass coefficients (for building evieve digital phaser cascade) <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 2</b>: type=<i>input</i>: Q, <i>Q with specific scaling</i> <br />
+        <b>In 3</b>: type=<i>param</i> (optional): R, default: <b>0</b>, <i>Resonance style, R &#x3D;&#x3D; 1 &#x3D; Reaktor-ish, R &#x3D;&#x3D; 0 &#x3D; MSP-ish</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
+        <b>Return 1</b>: a0, <i>a0 coefficient</i> <br />
+        <b>Return 2</b>: a1, <i>a1 coefficient</i> <br />
+        <b>Return 3</b>: a2, <i>a2 coefficient</i> <br />
 
       </description>
     </entry>
     <entry name="biquadDf2cascadeAllpass ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: a0, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: a1, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: a2, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: x1, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: x2, <i></i> <br />
+        'Direct Form 2' but with coefficients reduced rather than repeated for allpass usage, in gen~ cascade form with History()s written out to / read from Data() <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: a0, <i>a0 coefficient</i> <br />
+        <b>In 3</b>: type=<i>input</i>: a1, <i>a1 coefficient</i> <br />
+        <b>In 4</b>: type=<i>input</i>: a2, <i>a2 coefficient</i> <br />
+        <b>In 5</b>: type=<i>input</i>: x1, <i>State 1 input</i> <br />
+        <b>In 6</b>: type=<i>input</i>: x2, <i>State 2 input</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
+        <b>Return 1</b>: Filter, <i>Filtered audio output</i> <br />
+        <b>Return 2</b>: x1, <i>State 1 output</i> <br />
+        <b>Return 3</b>: x2, <i>State 2 output</i> <br />
 
       </description>
     </entry>
     <entry name="resringzCoeffs ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: QorT60, <i></i> <br />
-        <b>In 3</b>: type=<i>param</i> (optional): filt, default: <b>0</b>, <i></i> <br />
+        Based on SuperCollider 'resonz()' and 'ringz()' coefficients, flip between 'bandpass_skirt' (bandpass) and 'bandpass_peak' (reson) with the 'filt' parameter <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 2</b>: type=<i>input</i>: QorT60, <i>Q factor or T60 depending on &#x27;filt&#x27;</i> <br />
+        <b>In 3</b>: type=<i>param</i> (optional): filt, default: <b>0</b>, <i>filt&#x3D;0 &#x3D; &#x27;resonz&#x27;, filt&#x3D;1 &#x3D; &#x27;rinqz&#x27;</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
+        <b>Return 1</b>: a0, <i>a0 coefficient</i> <br />
+        <b>Return 2</b>: b1, <i>b1 coefficient</i> <br />
+        <b>Return 3</b>: b2, <i>b2 coefficient</i> <br />
 
       </description>
     </entry>
     <entry name="firOrder12 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
-        <b>In 2</b>: type=<i>param</i> (optional): a0, default: <b>1</b>, <i></i> <br />
-        <b>In 3</b>: type=<i>param</i> (optional): a1, default: <b>2</b>, <i></i> <br />
-        <b>In 4</b>: type=<i>param</i> (optional): a2, default: <b>1</b>, <i></i> <br />
+        A homeless FIR filter, simultaneous 1st and 2nd order outputs, default coefficients values for lowpass at nyquist <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>param</i> (optional): a0, default: <b>1</b>, <i>a0 coefficient</i> <br />
+        <b>In 3</b>: type=<i>param</i> (optional): a1, default: <b>2</b>, <i>a1 coefficient</i> <br />
+        <b>In 4</b>: type=<i>param</i> (optional): a2, default: <b>1</b>, <i>a2 coefficient</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
+        <b>Return 1</b>: 1, <i>1st order output</i> <br />
+        <b>Return 2</b>: 2, <i>2nd order output</i> <br />
 
       </description>
     </entry>
@@ -134,6 +122,12 @@
   </metadatalist>
   <seealsolist>
     <!-- we use 'refpage' here not 'genrefpage' to trick Max -->
+    <seealso name="evi_biquads" type="refpage"/>
+    <seealso name="evi_biquads_coeffs" type="refpage"/>
+    <seealso name="evi_biquads_selectors" type="refpage"/>
+    <seealso name="evi_biquads_union" type="refpage"/>
+    <seealso name="evi_biquads_filters" type="refpage"/>
+    <seealso name="evi_svfs" type="refpage"/>
   </seealsolist>
   <misc name="Discussion">
     <entry name="Keywords">

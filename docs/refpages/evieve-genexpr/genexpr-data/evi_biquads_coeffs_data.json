@@ -1,1002 +1,1002 @@
 {
-    "description": "",
+    "description": "40 different coefficient calculators for Biquad filter types. All Cutoffs in Hz, all Gains are linear, all Qs are Q or S. All returns are a0, a1, a2, b1, b2 coefficients.",
     "requires": [],
     "functions": [
         {
             "document": true,
-            "digest": "",
+            "digest": "RBJ Cookbook",
             "name": "eviBiquadCoeffLowpass",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "a0",
+                    "digest": "a0 coefficient"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "a1",
+                    "digest": "a1 coefficient"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "a2",
+                    "digest": "a2 coefficient"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "b1",
+                    "digest": "b1 coefficient"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "b2",
+                    "digest": "b2 coefficient"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "RBJ Cookbook",
             "name": "eviBiquadCoeffHighpass",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "a0",
+                    "digest": "a0 coefficient"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "a1",
+                    "digest": "a1 coefficient"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "a2",
+                    "digest": "a2 coefficient"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "b1",
+                    "digest": "b1 coefficient"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "b2",
+                    "digest": "b2 coefficient"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "This is incorrectly called 'resonant' in [filtercoeff~] and [filtergraph~], in evieve 'bandpass' and 'resonant' are switched, this is a real bandpass - same resonant peak as low- and high- passes",
             "name": "eviBiquadCoeffBandpass",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "a0",
+                    "digest": "a0 coefficient"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "a1",
+                    "digest": "a1 coefficient"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "a2",
+                    "digest": "a2 coefficient"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "b1",
+                    "digest": "b1 coefficient"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "b2",
+                    "digest": "b2 coefficient"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "RBJ Cookbook",
             "name": "eviBiquadCoeffNotch",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "a0",
+                    "digest": "a0 coefficient"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "a1",
+                    "digest": "a1 coefficient"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "a2",
+                    "digest": "a2 coefficient"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "b1",
+                    "digest": "b1 coefficient"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "b2",
+                    "digest": "b2 coefficient"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "RBJ Cookbook",
             "name": "eviBiquadCoeffPeakNotch",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "gain",
-                    "digest": ""
+                    "digest": "Gain (linear)"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "a0",
+                    "digest": "a0 coefficient"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "a1",
+                    "digest": "a1 coefficient"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "a2",
+                    "digest": "a2 coefficient"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "b1",
+                    "digest": "b1 coefficient"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "b2",
+                    "digest": "b2 coefficient"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "I am not sure who made this MSP version - it has much nicer Q scaling than the cookbook version",
             "name": "eviBiquadCoeffLowshelfMSP",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "gain",
-                    "digest": ""
+                    "digest": "Gain (linear)"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "a0",
+                    "digest": "a0 coefficient"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "a1",
+                    "digest": "a1 coefficient"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "a2",
+                    "digest": "a2 coefficient"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "b1",
+                    "digest": "b1 coefficient"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "b2",
+                    "digest": "b2 coefficient"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "RBJ Cookbook",
             "name": "eviBiquadCoeffLowshelfCookbook",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "gain",
-                    "digest": ""
+                    "digest": "Gain (linear)"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "a0",
+                    "digest": "a0 coefficient"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "a1",
+                    "digest": "a1 coefficient"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "a2",
+                    "digest": "a2 coefficient"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "b1",
+                    "digest": "b1 coefficient"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "b2",
+                    "digest": "b2 coefficient"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "I am not sure who made this MSP version - it has much nicer Q scaling than the cookbook version",
             "name": "eviBiquadCoeffHighshelfMSP",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "gain",
-                    "digest": ""
+                    "digest": "Gain (linear)"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "a0",
+                    "digest": "a0 coefficient"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "a1",
+                    "digest": "a1 coefficient"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "a2",
+                    "digest": "a2 coefficient"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "b1",
+                    "digest": "b1 coefficient"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "b2",
+                    "digest": "b2 coefficient"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "RBJ Cookbook",
             "name": "eviBiquadCoeffHighshelfCookbook",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "gain",
-                    "digest": ""
+                    "digest": "Gain (linear)"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "a0",
+                    "digest": "a0 coefficient"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "a1",
+                    "digest": "a1 coefficient"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "a2",
+                    "digest": "a2 coefficient"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "b1",
+                    "digest": "b1 coefficient"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "b2",
+                    "digest": "b2 coefficient"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "This is incorrectly called 'bandpass' in [filtercoeff~] and [filtergraph~], in evieve 'bandpass' and 'resonant' are switched",
             "name": "eviBiquadCoeffResonant",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "a0",
+                    "digest": "a0 coefficient"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "a1",
+                    "digest": "a1 coefficient"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "a2",
+                    "digest": "a2 coefficient"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "b1",
+                    "digest": "b1 coefficient"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "b2",
+                    "digest": "b2 coefficient"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "This is the [bp~] object from Pd",
             "name": "eviBiquadCoeffBp",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "a0",
+                    "digest": "a0 coefficient"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "a1",
+                    "digest": "a1 coefficient"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "a2",
+                    "digest": "a2 coefficient"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "b1",
+                    "digest": "b1 coefficient"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "b2",
+                    "digest": "b2 coefficient"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "RBJ Cookbook",
             "name": "eviBiquadCoeffAllpass",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "a0",
+                    "digest": "a0 coefficient"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "a1",
+                    "digest": "a1 coefficient"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "a2",
+                    "digest": "a2 coefficient"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "b1",
+                    "digest": "b1 coefficient"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "b2",
+                    "digest": "b2 coefficient"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "RBJ Cookbook",
             "name": "eviBiquadCoeffLowpassGain",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "gain",
-                    "digest": ""
+                    "digest": "Gain (linear)"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "a0",
+                    "digest": "a0 coefficient"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "a1",
+                    "digest": "a1 coefficient"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "a2",
+                    "digest": "a2 coefficient"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "b1",
+                    "digest": "b1 coefficient"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "b2",
+                    "digest": "b2 coefficient"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "RBJ Cookbook",
             "name": "eviBiquadCoeffHighpassGain",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "gain",
-                    "digest": ""
+                    "digest": "Gain (linear)"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "a0",
+                    "digest": "a0 coefficient"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "a1",
+                    "digest": "a1 coefficient"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "a2",
+                    "digest": "a2 coefficient"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "b1",
+                    "digest": "b1 coefficient"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "b2",
+                    "digest": "b2 coefficient"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "This is incorrectly called 'gainresonant' in [filtercoeff~] and [filtergraph~], this is a real bandpass - same resonant peak as low- and high- passes",
             "name": "eviBiquadCoeffBandpassGain",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "gain",
-                    "digest": ""
+                    "digest": "Gain (linear)"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "a0",
+                    "digest": "a0 coefficient"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "a1",
+                    "digest": "a1 coefficient"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "a2",
+                    "digest": "a2 coefficient"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "b1",
+                    "digest": "b1 coefficient"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "b2",
+                    "digest": "b2 coefficient"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "RBJ Cookbook",
             "name": "eviBiquadCoeffNotchGain",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "gain",
-                    "digest": ""
+                    "digest": "Gain (linear)"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "a0",
+                    "digest": "a0 coefficient"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "a1",
+                    "digest": "a1 coefficient"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "a2",
+                    "digest": "a2 coefficient"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "b1",
+                    "digest": "b1 coefficient"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "b2",
+                    "digest": "b2 coefficient"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "This is incorrectly called 'gainbpass' in [filtercoeff~] and [filtergraph~]",
             "name": "eviBiquadCoeffResonantGain",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "gain",
-                    "digest": ""
+                    "digest": "Gain (linear)"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "a0",
+                    "digest": "a0 coefficient"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "a1",
+                    "digest": "a1 coefficient"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "a2",
+                    "digest": "a2 coefficient"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "b1",
+                    "digest": "b1 coefficient"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "b2",
+                    "digest": "b2 coefficient"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "This is the [bp~] object from Pd",
             "name": "eviBiquadCoeffBpGain",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "gain",
-                    "digest": ""
+                    "digest": "Gain (linear)"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "a0",
+                    "digest": "a0 coefficient"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "a1",
+                    "digest": "a1 coefficient"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "a2",
+                    "digest": "a2 coefficient"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "b1",
+                    "digest": "b1 coefficient"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "b2",
+                    "digest": "b2 coefficient"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "RBJ Cookbook",
             "name": "eviBiquadCoeffAllpassGain",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "gain",
-                    "digest": ""
+                    "digest": "Gain (linear)"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "a0",
+                    "digest": "a0 coefficient"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "a1",
+                    "digest": "a1 coefficient"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "a2",
+                    "digest": "a2 coefficient"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "b1",
+                    "digest": "b1 coefficient"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "b2",
+                    "digest": "b2 coefficient"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Michael Massberg coefficients for analog matched LPF, based on his paper and the Will Pirkle",
             "name": "eviBiquadCoeffLowpassAnalog1",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "a0",
+                    "digest": "a0 coefficient"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "a1",
+                    "digest": "a1 coefficient"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "a2",
+                    "digest": "a2 coefficient"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "b1",
+                    "digest": "b1 coefficient"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "b2",
+                    "digest": "b2 coefficient"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Martin Vicanek analog matched method",
             "name": "eviBiquadCoeffLowpassAnalog2",
             "inputs": [
                 {
@@ -1015,34 +1015,34 @@
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "a0",
+                    "digest": "a0 coefficient"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "a1",
+                    "digest": "a1 coefficient"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "a2",
+                    "digest": "a2 coefficient"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "b1",
+                    "digest": "b1 coefficient"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "b2",
+                    "digest": "b2 coefficient"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Martin Vicanek analog matched method",
             "name": "eviBiquadCoeffHighpassAnalog",
             "inputs": [
                 {
@@ -1061,132 +1061,132 @@
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "a0",
+                    "digest": "a0 coefficient"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "a1",
+                    "digest": "a1 coefficient"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "a2",
+                    "digest": "a2 coefficient"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "b1",
+                    "digest": "b1 coefficient"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "b2",
+                    "digest": "b2 coefficient"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Orfanidis / Dudas analog matched BPF, like [filtergraph~] (this is incorrectlly named here, it is actually a 'Resonant' filter)",
             "name": "eviBiquadCoeffBandpassAnalog",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "a0",
+                    "digest": "a0 coefficient"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "a1",
+                    "digest": "a1 coefficient"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "a2",
+                    "digest": "a2 coefficient"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "b1",
+                    "digest": "b1 coefficient"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "b2",
+                    "digest": "b2 coefficient"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Orfanidis / Dudas analog matched BPF, like [filtergraph~] (this is incorrectlly named here, it is actually a 'Resonant' filter)",
             "name": "eviBiquadCoeffBandpassGainAnalog",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "gain",
-                    "digest": ""
+                    "digest": "Gain (linear)"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "a0",
+                    "digest": "a0 coefficient"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "a1",
+                    "digest": "a1 coefficient"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "a2",
+                    "digest": "a2 coefficient"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "b1",
+                    "digest": "b1 coefficient"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "b2",
+                    "digest": "b2 coefficient"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Martin Vicanek analog matched method",
             "name": "eviBiquadCoeffNotchAnalog",
             "inputs": [
                 {
@@ -1205,86 +1205,86 @@
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "a0",
+                    "digest": "a0 coefficient"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "a1",
+                    "digest": "a1 coefficient"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "a2",
+                    "digest": "a2 coefficient"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "b1",
+                    "digest": "b1 coefficient"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "b2",
+                    "digest": "b2 coefficient"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Orfanidis / Dudas analog matched PeakNotch, like [filtergraph~]",
             "name": "eviBiquadCoeffPeakNotchAnalog1",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "gain",
-                    "digest": ""
+                    "digest": "Gain (linear)"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "a0",
+                    "digest": "a0 coefficient"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "a1",
+                    "digest": "a1 coefficient"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "a2",
+                    "digest": "a2 coefficient"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "b1",
+                    "digest": "b1 coefficient"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "b2",
+                    "digest": "b2 coefficient"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Martin Vicanek analog matched method, this is not really a 'PeakNotch', it is a 'Peaking' filter with bonus Notch",
             "name": "eviBiquadCoeffPeakNotchAnalog2",
             "inputs": [
                 {
@@ -1309,34 +1309,34 @@
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "a0",
+                    "digest": "a0 coefficient"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "a1",
+                    "digest": "a1 coefficient"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "a2",
+                    "digest": "a2 coefficient"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "b1",
+                    "digest": "b1 coefficient"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "b2",
+                    "digest": "b2 coefficient"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Worked out by Jatin Chowdhury based on the Vicanek analog matched method",
             "name": "eviBiquadCoeffLowshelfAnalog1",
             "inputs": [
                 {
@@ -1361,80 +1361,80 @@
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "a0",
+                    "digest": "a0 coefficient"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "a1",
+                    "digest": "a1 coefficient"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "a2",
+                    "digest": "a2 coefficient"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "b1",
+                    "digest": "b1 coefficient"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "b2",
+                    "digest": "b2 coefficient"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Martin Vicanek analog matched Butterworth Lowshelf, cutoff at high (yes high) gain point",
             "name": "eviBiquadCoeffLowshelfAnalog2",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "gain",
-                    "digest": ""
+                    "digest": "Gain (linear)"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "a0",
+                    "digest": "a0 coefficient"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "a1",
+                    "digest": "a1 coefficient"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "a2",
+                    "digest": "a2 coefficient"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "b1",
+                    "digest": "b1 coefficient"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "b2",
+                    "digest": "b2 coefficient"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Worked out by Jatin Chowdhury based on the Vicanek analog matched method",
             "name": "eviBiquadCoeffHighshelfAnalog1",
             "inputs": [
                 {
@@ -1459,80 +1459,80 @@
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "a0",
+                    "digest": "a0 coefficient"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "a1",
+                    "digest": "a1 coefficient"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "a2",
+                    "digest": "a2 coefficient"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "b1",
+                    "digest": "b1 coefficient"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "b2",
+                    "digest": "b2 coefficient"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Martin Vicanek analog matched Butterworth Highshelf, cutoff at high gain point",
             "name": "eviBiquadCoeffHighshelfAnalog2",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "gain",
-                    "digest": ""
+                    "digest": "Gain (linear)"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "a0",
+                    "digest": "a0 coefficient"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "a1",
+                    "digest": "a1 coefficient"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "a2",
+                    "digest": "a2 coefficient"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "b1",
+                    "digest": "b1 coefficient"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "b2",
+                    "digest": "b2 coefficient"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Martin Vicanek analog matched method, incorrectly called 'Bandpass' in the paper",
             "name": "eviBiquadCoeffResonantAnalog",
             "inputs": [
                 {
@@ -1551,399 +1551,399 @@
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "a0",
+                    "digest": "a0 coefficient"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "a1",
+                    "digest": "a1 coefficient"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "a2",
+                    "digest": "a2 coefficient"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "b1",
+                    "digest": "b1 coefficient"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "b2",
+                    "digest": "b2 coefficient"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Dodge/Jerse",
             "name": "eviBiquadCoeffButterworthLowpass",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "a0",
+                    "digest": "a0 coefficient"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "a1",
+                    "digest": "a1 coefficient"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "a2",
+                    "digest": "a2 coefficient"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "b1",
+                    "digest": "b1 coefficient"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "b2",
+                    "digest": "b2 coefficient"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Dodge/Jerse",
             "name": "eviBiquadCoeffButterworthHighpass",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "a0",
+                    "digest": "a0 coefficient"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "a1",
+                    "digest": "a1 coefficient"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "a2",
+                    "digest": "a2 coefficient"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "b1",
+                    "digest": "b1 coefficient"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "b2",
+                    "digest": "b2 coefficient"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Dodge/Jerse",
             "name": "eviBiquadCoeffButterworthBandpass",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "a0",
+                    "digest": "a0 coefficient"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "a1",
+                    "digest": "a1 coefficient"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "a2",
+                    "digest": "a2 coefficient"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "b1",
+                    "digest": "b1 coefficient"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "b2",
+                    "digest": "b2 coefficient"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Dodge/Jerse",
             "name": "eviBiquadCoeffButterworthBandreject",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "a0",
+                    "digest": "a0 coefficient"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "a1",
+                    "digest": "a1 coefficient"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "a2",
+                    "digest": "a2 coefficient"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "b1",
+                    "digest": "b1 coefficient"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "b2",
+                    "digest": "b2 coefficient"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Dodge/Jerse",
             "name": "eviBiquadCoeffButterworthLowpassGain",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "gain",
-                    "digest": ""
+                    "digest": "Gain (linear)"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "a0",
+                    "digest": "a0 coefficient"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "a1",
+                    "digest": "a1 coefficient"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "a2",
+                    "digest": "a2 coefficient"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "b1",
+                    "digest": "b1 coefficient"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "b2",
+                    "digest": "b2 coefficient"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Dodge/Jerse",
             "name": "eviBiquadCoeffButterworthHighpassGain",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "gain",
-                    "digest": ""
+                    "digest": "Gain (linear)"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "a0",
+                    "digest": "a0 coefficient"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "a1",
+                    "digest": "a1 coefficient"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "a2",
+                    "digest": "a2 coefficient"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "b1",
+                    "digest": "b1 coefficient"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "b2",
+                    "digest": "b2 coefficient"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Dodge/Jerse",
             "name": "eviBiquadCoeffButterworthBandpassGain",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "gain",
-                    "digest": ""
+                    "digest": "Gain (linear)"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "a0",
+                    "digest": "a0 coefficient"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "a1",
+                    "digest": "a1 coefficient"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "a2",
+                    "digest": "a2 coefficient"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "b1",
+                    "digest": "b1 coefficient"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "b2",
+                    "digest": "b2 coefficient"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Dodge/Jerse",
             "name": "eviBiquadCoeffButterworthBandrejectGain",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "gain",
-                    "digest": ""
+                    "digest": "Gain (linear)"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "a0",
+                    "digest": "a0 coefficient"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "a1",
+                    "digest": "a1 coefficient"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "a2",
+                    "digest": "a2 coefficient"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "b1",
+                    "digest": "b1 coefficient"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "b2",
+                    "digest": "b2 coefficient"
                 }
             ]
         }
     ],
-    "seealso": []
+    "seealso": ["evi_biquads", "evi_biquads_selectors", "evi_biquads_union", "evi_biquads_filters", "evi_biquads_extras", "evi_svfs"]
 }

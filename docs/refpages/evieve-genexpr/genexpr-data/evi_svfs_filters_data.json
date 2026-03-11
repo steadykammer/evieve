@@ -255,7 +255,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "tanApprox2",
             "inputs": [

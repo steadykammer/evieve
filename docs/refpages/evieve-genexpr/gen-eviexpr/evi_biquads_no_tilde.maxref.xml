@@ -11,7 +11,7 @@
     By declaring <m>require("evi_biquads_no_tilde.genexpr");</m> at the top of a codebox you can then access all of the functions included in this file. <br />
         <br />
     <b>About this File</b>: <br />
-     <br />
+    The first section of this file is identical to the 40 filter types available in 'evi_biquads_coeffs.genexpr', but with all coefficients calculators adjusted to accept audio samplerate as a parameter so that all of these coefficients calculators can be used at schedular rate in gen (no tilde) for huge efficiency savings when circumstances allow. @see the [evi.biquadcoeff] abstraction for the example of how this is done. The rest of this file is a repeat of 'evi_biquads_selectors', similarly adjusted for gen (no tilde) usage. All functions are named identically to their ~ equivelents, but have an additional 'AUDIO_SR' parameter so audio samplerate can be passed in. <br />
   </description>
   <misc name="GenExpr Functions">
     <entry name="eviBiquadCoeffLowpass ( )">
@@ -686,6 +686,13 @@
   </metadatalist>
   <seealsolist>
     <!-- we use 'refpage' here not 'genrefpage' to trick Max -->
+    <seealso name="evi_biquads" type="refpage"/>
+    <seealso name="evi_biquads_coeffs" type="refpage"/>
+    <seealso name="evi_biquads_selectors" type="refpage"/>
+    <seealso name="evi_biquads_union" type="refpage"/>
+    <seealso name="evi_biquads_filters" type="refpage"/>
+    <seealso name="evi_biquads_extras" type="refpage"/>
+    <seealso name="evi_svfs" type="refpage"/>
   </seealsolist>
   <misc name="Discussion">
     <entry name="Keywords">

@@ -1,5 +1,5 @@
 {
-    "description": "",
+    "description": "The first section of this file is identical to the 40 filter types available in 'evi_biquads_coeffs.genexpr', but with all coefficients calculators adjusted to accept audio samplerate as a parameter so that all of these coefficients calculators can be used at schedular rate in gen (no tilde) for huge efficiency savings when circumstances allow. @see the [evi.biquadcoeff] abstraction for the example of how this is done. The rest of this file is a repeat of 'evi_biquads_selectors', similarly adjusted for gen (no tilde) usage. All functions are named identically to their ~ equivelents, but have an additional 'AUDIO_SR' parameter so audio samplerate can be passed in.",
     "requires": [],
     "functions": [
         {
@@ -2627,5 +2627,5 @@
             ]
         }
     ],
-    "seealso": []
+    "seealso": ["evi_biquads", "evi_biquads_coeffs", "evi_biquads_selectors", "evi_biquads_union", "evi_biquads_filters", "evi_biquads_extras", "evi_svfs"]
 }

@@ -14,66 +14,74 @@
     evi_biquads_coeffs.genexpr <br />
     <br />
     <b>About this File</b>: <br />
-     <br />
+    Higher level filter type selectors for all 40 filter coefficient calculators included in 'evi_biquads_coeffs.genexpr'. Use this file to easily test all the different Biquad types in evieve. <br />
   </description>
   <misc name="GenExpr Functions">
     <entry name="eviBiquadCoeff ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: filter, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: cutoff, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: gain, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: fullQ, <i></i> <br />
+        Global selector for all 40 filter types, @see: [evi.biquad.filter~], [evi.biquadcoeff~] and [evi.biquadcoeff] for example wrappers and index listing <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: filter, <i>(int) filter index (type), see abstractions or source code for listing</i> <br />
+        <b>In 2</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 3</b>: type=<i>input</i>: gain, <i>Gain (linear)</i> <br />
+        <b>In 4</b>: type=<i>input</i>: fullQ, <i>Q</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
-        <b>Return 5</b>: , <i></i> <br />
+        <b>Return 1</b>: a0, <i>a0 coefficient</i> <br />
+        <b>Return 2</b>: a1, <i>a1 coefficient</i> <br />
+        <b>Return 3</b>: a2, <i>a2 coefficient</i> <br />
+        <b>Return 4</b>: b1, <i>b1 coefficient</i> <br />
+        <b>Return 5</b>: b2, <i>b2 coefficient</i> <br />
 
       </description>
     </entry>
     <entry name="eviBiquadCoeffEQ ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: filter, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: cutoff, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: gain, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: fullQ, <i></i> <br />
+        Selector for all of the EQ type filters in the collection <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: filter, <i>(int) filter index (type), see [evi.biquad.eqfilter~] or source code for listing</i> <br />
+        <b>In 2</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 3</b>: type=<i>input</i>: gain, <i>Gain (linear)</i> <br />
+        <b>In 4</b>: type=<i>input</i>: fullQ, <i>Q</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
-        <b>Return 5</b>: , <i></i> <br />
+        <b>Return 1</b>: a0, <i>a0 coefficient</i> <br />
+        <b>Return 2</b>: a1, <i>a1 coefficient</i> <br />
+        <b>Return 3</b>: a2, <i>a2 coefficient</i> <br />
+        <b>Return 4</b>: b1, <i>b1 coefficient</i> <br />
+        <b>Return 5</b>: b2, <i>b2 coefficient</i> <br />
 
       </description>
     </entry>
     <entry name="eviBiquadCoeffButterworth ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: filter, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: cutoff, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: gain, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: fullQ, <i></i> <br />
+        Selector for all of the Butterworth type filters in the collection <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: filter, <i>(int) filter index (type), see [evi.biquad.butterworth~] or source code for listing</i> <br />
+        <b>In 2</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 3</b>: type=<i>input</i>: gain, <i>Gain (linear)</i> <br />
+        <b>In 4</b>: type=<i>input</i>: fullQ, <i>Q</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
-        <b>Return 5</b>: , <i></i> <br />
+        <b>Return 1</b>: a0, <i>a0 coefficient</i> <br />
+        <b>Return 2</b>: a1, <i>a1 coefficient</i> <br />
+        <b>Return 3</b>: a2, <i>a2 coefficient</i> <br />
+        <b>Return 4</b>: b1, <i>b1 coefficient</i> <br />
+        <b>Return 5</b>: b2, <i>b2 coefficient</i> <br />
 
       </description>
     </entry>
     <entry name="eviBiquadCoeffAnalog ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: filter, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: cutoff, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: gain, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: fullQ, <i></i> <br />
+        Selector for all of the Analog matched type filters in the collection <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: filter, <i>(int) filter index (type), see [evi.biquad.analog~] or source code for listing</i> <br />
+        <b>In 2</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 3</b>: type=<i>input</i>: gain, <i>Gain (linear)</i> <br />
+        <b>In 4</b>: type=<i>input</i>: fullQ, <i>Q</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
-        <b>Return 5</b>: , <i></i> <br />
+        <b>Return 1</b>: a0, <i>a0 coefficient</i> <br />
+        <b>Return 2</b>: a1, <i>a1 coefficient</i> <br />
+        <b>Return 3</b>: a2, <i>a2 coefficient</i> <br />
+        <b>Return 4</b>: b1, <i>b1 coefficient</i> <br />
+        <b>Return 5</b>: b2, <i>b2 coefficient</i> <br />
 
       </description>
     </entry>
@@ -85,6 +93,12 @@
   </metadatalist>
   <seealsolist>
     <!-- we use 'refpage' here not 'genrefpage' to trick Max -->
+    <seealso name="evi_biquads" type="refpage"/>
+    <seealso name="evi_biquads_coeffs" type="refpage"/>
+    <seealso name="evi_biquads_selectors" type="refpage"/>
+    <seealso name="evi_biquads_filters" type="refpage"/>
+    <seealso name="evi_biquads_extras" type="refpage"/>
+    <seealso name="evi_svfs" type="refpage"/>
   </seealsolist>
   <misc name="Discussion">
     <entry name="Keywords">

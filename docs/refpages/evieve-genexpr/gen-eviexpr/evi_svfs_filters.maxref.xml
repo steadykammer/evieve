@@ -84,14 +84,6 @@
 
       </description>
     </entry>
-    <entry name="tanApprox2 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
     <entry name="tptSvfUnit ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />

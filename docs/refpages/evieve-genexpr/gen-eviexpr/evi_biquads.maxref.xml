@@ -17,7 +17,7 @@
     evi_biquads_extras.genexpr <br />
     <br />
     <b>About this File</b>: <br />
-     <br />
+    This file requires all evieve Biquads code in one require. You will rarely need this catch-all and should look into the individual requires contained here as it is more efficient to include subsets of GenExpr code. There are more filter types when you use Biquads (40 different types in evieve) but Biquads are inferior filters to TPT SVF filters, so you might wish to use the evieve SVFs instead in most situations. <br />
   </description>
   <misc name="No Functions (require-only file)">
   </misc>
@@ -28,6 +28,12 @@
   </metadatalist>
   <seealsolist>
     <!-- we use 'refpage' here not 'genrefpage' to trick Max -->
+    <seealso name="evi_biquads_coeffs" type="refpage"/>
+    <seealso name="evi_biquads_selectors" type="refpage"/>
+    <seealso name="evi_biquads_union" type="refpage"/>
+    <seealso name="evi_biquads_filters" type="refpage"/>
+    <seealso name="evi_biquads_extras" type="refpage"/>
+    <seealso name="evi_svfs" type="refpage"/>
   </seealsolist>
   <misc name="Discussion">
     <entry name="Keywords">

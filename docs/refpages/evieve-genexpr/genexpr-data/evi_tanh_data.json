@@ -6,7 +6,7 @@
     "functions": [
         {
             "document": true,
-            "digest": "High quality Lambert approx, 2x faster than library tanh(). Excellent mathematical and sonic closeness to library tanh(). In general we use this one most often",
+            "digest": "High quality Lambert approx, 2x faster than library tanh(). Excellent mathematical and sonic closeness to library tanh(). In general we use this one most often.",
             "name": "tanhL",
             "inputs": [
                 {

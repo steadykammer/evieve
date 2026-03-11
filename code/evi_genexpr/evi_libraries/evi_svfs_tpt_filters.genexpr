@@ -428,7 +428,7 @@ eviFilterReson(x, gain, cutoff, Q, compensate, smooth=0)	// compensate flag 0/1,
 	return 		reson;
 }
 
-eviFilterResonStereo(x, gain, cutoff, Q, compensate, smooth=0)// compensate flag 0/1, smooth time in ms
+eviFilterResonStereo(xL, xR, gain, cutoff, Q, compensate, smooth=0)// compensate flag 0/1, smooth time in ms
 {
 	History prev_cf(0);
 	// g corrected for audio rate FM of cutoff

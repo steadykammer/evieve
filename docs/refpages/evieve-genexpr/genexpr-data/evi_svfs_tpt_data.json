@@ -1,5 +1,5 @@
 {
-    "description": "",
+    "description": "Using this require file you can access all TPT SVF filter types in evieve. ",
     "requires": [
         "evi_smooth.genexpr",
         "evi_svfs_filters.genexpr"
@@ -7,95 +7,95 @@
     "functions": [
         {
             "document": true,
-            "digest": "",
+            "digest": "Coefficients calculator for all of the basic filter types available, @see: MSP [evi.filter~] or gen~ [evi_filter] for an example wrapper",
             "name": "tptSvfCoeff",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "filter",
-                    "digest": ""
+                    "digest": "(int) filter index (type), see abstractions or source code for listing"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "gain",
-                    "digest": ""
+                    "digest": "Gain (linear)"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "fullQ",
-                    "digest": ""
+                    "digest": "Q"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "g",
+                    "digest": "g coefficient"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "r",
+                    "digest": "r coefficient"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "h",
+                    "digest": "h coefficient"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "cL",
+                    "digest": "low mixing gain"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "cB",
+                    "digest": "band mixing gain"
                 },
                 {
                     "id": 6,
-                    "name": "",
-                    "digest": ""
+                    "name": "cH",
+                    "digest": "high mixing gain"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "No tilde version of coefficients calculator for all of the basic filter types available",
             "name": "tptSvfCoeffNoTilde",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "filter",
-                    "digest": ""
+                    "digest": "(int) filter index (type), see abstractions or source code for listing"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "gain",
-                    "digest": ""
+                    "digest": "Gain (linear)"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "fullQ",
-                    "digest": ""
+                    "digest": "Q"
                 },
                 {
                     "id": 5,
@@ -103,243 +103,243 @@
                     "name": "AUDIO_SR",
                     "default": 48000,
                     "type": "integer",
-                    "digest": ""
+                    "digest": "Pass audio samplerate into calculator for no tilde computation"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "g",
+                    "digest": "g coefficient"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "r",
+                    "digest": "r coefficient"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "h",
+                    "digest": "h coefficient"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "cL",
+                    "digest": "low mixing gain"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "cB",
+                    "digest": "band mixing gain"
                 },
                 {
                     "id": 6,
-                    "name": "",
-                    "digest": ""
+                    "name": "cH",
+                    "digest": "high mixing gain"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "All-in-one coefficients calculator and filter section for all available filter types for use in gen~/GenExpr",
             "name": "eviFilterTpt",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "db",
-                    "digest": ""
+                    "digest": "Gain in dB"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "filter",
-                    "digest": ""
+                    "digest": "(int) filter index (type)"
                 },
                 {
                     "id": 6,
                     "kind": "param",
                     "name": "smooth",
                     "default": 0,
-                    "type": "integer",
-                    "digest": ""
+                    "type": "float",
+                    "digest": "If > 0, ms smoothing time of required mixing gains"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Filter",
+                    "digest": "Filtered audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Same as 'eviFilterTpt()' but with state reset input",
             "name": "eviFilterTptReset",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "db",
-                    "digest": ""
+                    "digest": "Gain in dB"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "filter",
-                    "digest": ""
+                    "digest": "(int) filter index (type)"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "reset",
-                    "digest": ""
+                    "digest": "Sample accurate reset of internal filter state ('clear')"
                 },
                 {
                     "id": 7,
                     "kind": "param",
                     "name": "smooth",
                     "default": 0,
-                    "type": "integer",
-                    "digest": ""
+                    "type": "float",
+                    "digest": "If > 0, ms smoothing time of required mixing gains"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Filter",
+                    "digest": "Filtered audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Coefficients calculator for all of the EQ filter types available, @see: MSP [evi.filter.eq~] or gen~ [evi_filter_eq] for an example wrapper",
             "name": "tptSvfCoeffEq",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "filter",
-                    "digest": ""
+                    "digest": "(int) filter index (type), see abstractions or source code for listing"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "gain",
-                    "digest": ""
+                    "digest": "Gain (linear)"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "g",
+                    "digest": "g coefficient"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "r",
+                    "digest": "r coefficient"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "h",
+                    "digest": "h coefficient"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "cL",
+                    "digest": "low mixing gain"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "cB",
+                    "digest": "band mixing gain"
                 },
                 {
                     "id": 6,
-                    "name": "",
-                    "digest": ""
+                    "name": "cH",
+                    "digest": "high mixing gain"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "No tilde version of coefficients calculator for all of the EQ filter types available",
             "name": "tptSvfCoeffEqNoTilde",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "filter",
-                    "digest": ""
+                    "digest": "(int) filter index (type), see abstractions or source code for listing"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "gain",
-                    "digest": ""
+                    "digest": "Gain (linear)"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 },
                 {
                     "id": 5,
@@ -347,200 +347,200 @@
                     "name": "AUDIO_SR",
                     "default": 48000,
                     "type": "integer",
-                    "digest": ""
+                    "digest": "Pass audio samplerate into calculator for no tilde computation"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "g",
+                    "digest": "g coefficient"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "r",
+                    "digest": "r coefficient"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "h",
+                    "digest": "h coefficient"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "cL",
+                    "digest": "low mixing gain"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "cB",
+                    "digest": "band mixing gain"
                 },
                 {
                     "id": 6,
-                    "name": "",
-                    "digest": ""
+                    "name": "cH",
+                    "digest": "high mixing gain"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Linear TPT SVF filter, summed internally for EQ sections",
             "name": "tptSvfEq",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "g",
-                    "digest": ""
+                    "digest": "g coefficient"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "r",
-                    "digest": ""
+                    "digest": "r coefficient"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "h",
-                    "digest": ""
+                    "digest": "h coefficient"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "cL",
-                    "digest": ""
+                    "digest": "low mixing gain"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "cB",
-                    "digest": ""
+                    "digest": "band mixing gain"
                 },
                 {
                     "id": 7,
                     "kind": "input",
                     "name": "cH",
-                    "digest": ""
+                    "digest": "high mixing gain"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Filter",
+                    "digest": "Filtered audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Same as 'tptSvfEq()' but with state reset input",
             "name": "tptSvfEqReset",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "g",
-                    "digest": ""
+                    "digest": "g coefficient"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "r",
-                    "digest": ""
+                    "digest": "r coefficient"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "h",
-                    "digest": ""
+                    "digest": "h coefficient"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "cL",
-                    "digest": ""
+                    "digest": "low mixing gain"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "cB",
-                    "digest": ""
+                    "digest": "band mixing gain"
                 },
                 {
                     "id": 7,
                     "kind": "input",
                     "name": "cH",
-                    "digest": ""
+                    "digest": "high mixing gain"
                 },
                 {
                     "id": 8,
                     "kind": "input",
                     "name": "reset",
-                    "digest": ""
+                    "digest": "Sample accurate reset of internal filter state ('clear')"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Filter",
+                    "digest": "Filtered audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "All-in-one coefficients calculator and filter section for all EQ filter types for use in gen~/GenExpr",
             "name": "eviFilterTptEq",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "db",
-                    "digest": ""
+                    "digest": "Gain in dB"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "filter",
-                    "digest": ""
+                    "digest": "(int) filter index (type)"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "reset",
-                    "digest": ""
+                    "digest": "Sample accurate reset of internal filter state ('clear')"
                 },
                 {
                     "id": 7,
@@ -548,326 +548,326 @@
                     "name": "smooth",
                     "default": 0,
                     "type": "integer",
-                    "digest": ""
+                    "digest": "If > 0, ms smoothing time of required mixing gains"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Filter",
+                    "digest": "Filtered audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Stereo version of 'eviFilterTptEq()' for use in gen~/GenExpr",
             "name": "eviFilterTptEqStereo",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "xL",
-                    "digest": ""
+                    "digest": "Left audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "xR",
-                    "digest": ""
+                    "digest": "Right audio input"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "db",
-                    "digest": ""
+                    "digest": "Gain in dB"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "filter",
-                    "digest": ""
+                    "digest": "(int) filter index (type)"
                 },
                 {
                     "id": 7,
                     "kind": "input",
                     "name": "reset",
-                    "digest": ""
+                    "digest": "Sample accurate reset of internal filter state ('clear')"
                 },
                 {
                     "id": 8,
                     "kind": "param",
                     "name": "smooth",
                     "default": 0,
-                    "type": "integer",
-                    "digest": ""
+                    "type": "float",
+                    "digest": "If > 0, ms smoothing time of required mixing gains"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Left EQ",
+                    "digest": "Left audio output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Right EQ",
+                    "digest": "Right audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Morphing filter coefficients LP..BP..HP..NOTCH..LP @like Ableton 'Morph Filter'",
             "name": "tptSvfCoeffMorphFull",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "gain",
-                    "digest": ""
+                    "digest": "Gain (linear)"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "morph",
-                    "digest": ""
+                    "digest": "Filter morphing 0..1 interpolates LP..BP..HP..NOTCH..LP"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "comp",
-                    "digest": ""
+                    "digest": "Switch 0/1 ensures notch clarity at high Q (if 'comp' is on)"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "g",
+                    "digest": "g coefficient"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "r",
+                    "digest": "r coefficient"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "h",
+                    "digest": "h coefficient"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "cL",
+                    "digest": "low mixing gain"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "cB",
+                    "digest": "band mixing gain"
                 },
                 {
                     "id": 6,
-                    "name": "",
-                    "digest": ""
+                    "name": "cH",
+                    "digest": "high mixing gain"
                 },
                 {
                     "id": 7,
-                    "name": "",
-                    "digest": ""
+                    "name": "cN",
+                    "digest": "notch mixing gain, additional to normal filter!"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Morphing filter coefficients LP..BP..HP",
             "name": "tptSvfCoeffMorphLpBpHp",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "gain",
-                    "digest": ""
+                    "digest": "Gain (linear)"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "morph",
-                    "digest": ""
+                    "digest": "Filter morphing 0..1 interpolates LP..BP..HP"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "g",
+                    "digest": "g coefficient"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "r",
+                    "digest": "r coefficient"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "h",
+                    "digest": "h coefficient"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "cL",
+                    "digest": "low mixing gain"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "cB",
+                    "digest": "band mixing gain"
                 },
                 {
                     "id": 6,
-                    "name": "",
-                    "digest": ""
+                    "name": "cH",
+                    "digest": "high mixing gain"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Morphing filter coefficients LP..NOTCH..HP",
             "name": "tptSvfCoeffMorphLpBrHp",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "gain",
-                    "digest": ""
+                    "digest": "Gain (linear)"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "morph",
-                    "digest": ""
+                    "digest": "Filter morphing 0..1 interpolates LP..NOTCH..HP"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "comp",
-                    "digest": ""
+                    "digest": "Switch 0/1 ensures notch clarity at high Q (if 'comp' is on)"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "g",
+                    "digest": "g coefficient"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "r",
+                    "digest": "r coefficient"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "h",
+                    "digest": "h coefficient"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "cL",
+                    "digest": "low mixing gain"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "cB",
+                    "digest": "band mixing gain"
                 },
                 {
                     "id": 6,
-                    "name": "",
-                    "digest": ""
+                    "name": "cH",
+                    "digest": "high mixing gain"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "All-in-one LP..BP..HP..NOTCH..LP morphing coefficients and filter section for use in gen~/GenExpr",
             "name": "eviFilterMorph",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "hz",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "db",
-                    "digest": ""
+                    "digest": "Gain in dB"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "bw",
-                    "digest": ""
+                    "digest": "Bandwidth 0..1 across 10 octaves"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "morph",
-                    "digest": ""
+                    "digest": "Filter morphing 0..1 interpolates LP..BP..HP..NOTCH..LP"
                 },
                 {
                     "id": 6,
@@ -875,57 +875,57 @@
                     "name": "smooth",
                     "default": 22.666,
                     "type": "float",
-                    "digest": ""
+                    "digest": "If > 0, ms smoothing time of required mixing gains"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Morph",
+                    "digest": "Filtered audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Stereo version of 'eviFilterMorph()' for use in gen~/GenExpr",
             "name": "eviFilterMorphStereo",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "xL",
-                    "digest": ""
+                    "digest": "Left audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "xR",
-                    "digest": ""
+                    "digest": "Right audio input"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "hz",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "db",
-                    "digest": ""
+                    "digest": "Gain in dB"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "bw",
-                    "digest": ""
+                    "digest": "Bandwidth 0..1 across 10 octaves"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "morph",
-                    "digest": ""
+                    "digest": "Filter morphing 0..1 interpolates LP..BP..HP..NOTCH..LP"
                 },
                 {
                     "id": 7,
@@ -933,56 +933,56 @@
                     "name": "smooth",
                     "default": 22.666,
                     "type": "float",
-                    "digest": ""
+                    "digest": "If > 0, ms smoothing time of required mixing gains"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Morph Left",
+                    "digest": "Left audio output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Morph Right",
+                    "digest": "Right audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "All-in-one LP..BP..HP morphing coefficients and filter section for use in gen~/GenExpr",
             "name": "eviFilterMorphLpBpHp",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "hz",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "db",
-                    "digest": ""
+                    "digest": "Gain in dB"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "bw",
-                    "digest": ""
+                    "digest": "Bandwidth 0..1 across 10 octaves"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "morph",
-                    "digest": ""
+                    "digest": "Filter morphing 0..1 interpolates LP..BP..HP"
                 },
                 {
                     "id": 6,
@@ -990,57 +990,57 @@
                     "name": "smooth",
                     "default": 22.666,
                     "type": "float",
-                    "digest": ""
+                    "digest": "If > 0, ms smoothing time of required mixing gains"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Morph",
+                    "digest": "Filtered audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Stereo version of 'eviFilterMorphLpBpHp()' for use in gen~/GenExpr",
             "name": "eviFilterMorphLpBpHpStereo",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "xL",
-                    "digest": ""
+                    "digest": "Left audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "xR",
-                    "digest": ""
+                    "digest": "Right audio input"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "hz",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "db",
-                    "digest": ""
+                    "digest": "Gain in dB"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "bw",
-                    "digest": ""
+                    "digest": "Bandwidth 0..1 across 10 octaves"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "morph",
-                    "digest": ""
+                    "digest": "Filter morphing 0..1 interpolates LP..BP..HP"
                 },
                 {
                     "id": 7,
@@ -1048,56 +1048,56 @@
                     "name": "smooth",
                     "default": 22.666,
                     "type": "float",
-                    "digest": ""
+                    "digest": "If > 0, ms smoothing time of required mixing gains"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Morph Left",
+                    "digest": "Left audio output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Morph Right",
+                    "digest": "Right audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "All-in-one LP..NOTCH..HP morphing coefficients and filter section for use in gen~/GenExpr",
             "name": "eviFilterMorphLpBrHp",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "hz",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "db",
-                    "digest": ""
+                    "digest": "Gain in dB"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "bw",
-                    "digest": ""
+                    "digest": "Bandwidth 0..1 across 10 octaves"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "morph",
-                    "digest": ""
+                    "digest": "Filter morphing 0..1 interpolates LP..NOTCH..HP"
                 },
                 {
                     "id": 6,
@@ -1105,57 +1105,57 @@
                     "name": "smooth",
                     "default": 22.666,
                     "type": "float",
-                    "digest": ""
+                    "digest": "If > 0, ms smoothing time of required mixing gains"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Morph",
+                    "digest": "Filtered audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Stereo version of 'eviFilterMorphLpBrHp()' for use in gen~/GenExpr",
             "name": "eviFilterMorphLpBrHpStereo",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "xL",
-                    "digest": ""
+                    "digest": "Left audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "xR",
-                    "digest": ""
+                    "digest": "Right audio input"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "hz",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "db",
-                    "digest": ""
+                    "digest": "Gain in dB"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "bw",
-                    "digest": ""
+                    "digest": "Bandwidth 0..1 across 10 octaves"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "morph",
-                    "digest": ""
+                    "digest": "Filter morphing 0..1 interpolates LP..NOTCH..HP"
                 },
                 {
                     "id": 7,
@@ -1163,25 +1163,25 @@
                     "name": "smooth",
                     "default": 22.666,
                     "type": "float",
-                    "digest": ""
+                    "digest": "If > 0, ms smoothing time of required mixing gains"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Morph Left",
+                    "digest": "Left audio output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Morph Right",
+                    "digest": "Right audio output"
                 }
             ]
         },
         {
-            "document": true,
-            "digest": "",
+            "document": false,
+            "digest": "Not ready for prime time yet",
             "name": "tptSvfFormlet",
             "inputs": [
                 {
@@ -1230,8 +1230,8 @@
             ]
         },
         {
-            "document": true,
-            "digest": "",
+            "document": false,
+            "digest": "Not ready for prime time yet",
             "name": "tptSvfCoeffFormlet",
             "inputs": [
                 {
@@ -1282,8 +1282,8 @@
             ]
         },
         {
-            "document": true,
-            "digest": "",
+            "document": false,
+            "digest": "Not ready for prime time yet",
             "name": "eviFilterFormlet",
             "inputs": [
                 {
@@ -1320,5 +1320,5 @@
             ]
         }
     ],
-    "seealso": []
+    "seealso": ["evi_svfs.genexpr", "evi_svfs_lto.genexpr", "evi_svfs_tpt_filters.genexpr", "evi_svfs_lto_extras.genexpr"]
 }

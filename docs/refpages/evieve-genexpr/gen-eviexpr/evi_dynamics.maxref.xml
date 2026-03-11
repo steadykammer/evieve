@@ -87,6 +87,9 @@
   </metadatalist>
   <seealsolist>
     <!-- we use 'refpage' here not 'genrefpage' to trick Max -->
+    <seealso name="evi_env" type="refpage"/>
+    <seealso name="evi_rcfilters" type="refpage"/>
+    <seealso name="evi_crossovers" type="refpage"/>
   </seealsolist>
   <misc name="Discussion">
     <entry name="Keywords">

@@ -19,7 +19,7 @@
   <misc name="GenExpr Functions">
     <entry name="tanhL ( )">
       <description>
-        High quality Lambert approx, 2x faster than library tanh(). Excellent mathematical and sonic closeness to library tanh(). In general we use this one most often <br />
+        High quality Lambert approx, 2x faster than library tanh(). Excellent mathematical and sonic closeness to library tanh(). In general we use this one most often. <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: x, <i>Input</i> <br />
 

@@ -4,7 +4,7 @@
     "functions": [
         {
             "document": true,
-            "digest": "Cubic Hermite, McCartney/Harker, 8 muls, 11 ±. Not gen~ [interp mode='cubic']. This is faster and better quality than the gen~ cubic (which is the tri-cubic interp from [groove~])",
+            "digest": "Cubic Hermite, McCartney/Harker, 8 muls, 11 ±. Not gen~ [interp mode='cubic']. This is faster than the gen~ cubic (which is the tri-cubic interp from [groove~])",
             "name": "cubic_hermite_interp",
             "inputs": [
                 {

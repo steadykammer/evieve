@@ -11,543 +11,623 @@
     By declaring <m>require("evi_biquads_coeffs.genexpr");</m> at the top of a codebox you can then access all of the functions included in this file. <br />
         <br />
     <b>About this File</b>: <br />
-     <br />
+    40 different coefficient calculators for Biquad filter types. All Cutoffs in Hz, all Gains are linear, all Qs are Q or S. All returns are a0, a1, a2, b1, b2 coefficients. <br />
   </description>
   <misc name="GenExpr Functions">
     <entry name="eviBiquadCoeffLowpass ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: Q, <i></i> <br />
+        RBJ Cookbook <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 2</b>: type=<i>input</i>: Q, <i>Q</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
-        <b>Return 5</b>: , <i></i> <br />
+        <b>Return 1</b>: a0, <i>a0 coefficient</i> <br />
+        <b>Return 2</b>: a1, <i>a1 coefficient</i> <br />
+        <b>Return 3</b>: a2, <i>a2 coefficient</i> <br />
+        <b>Return 4</b>: b1, <i>b1 coefficient</i> <br />
+        <b>Return 5</b>: b2, <i>b2 coefficient</i> <br />
 
       </description>
     </entry>
     <entry name="eviBiquadCoeffHighpass ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: Q, <i></i> <br />
+        RBJ Cookbook <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 2</b>: type=<i>input</i>: Q, <i>Q</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
-        <b>Return 5</b>: , <i></i> <br />
+        <b>Return 1</b>: a0, <i>a0 coefficient</i> <br />
+        <b>Return 2</b>: a1, <i>a1 coefficient</i> <br />
+        <b>Return 3</b>: a2, <i>a2 coefficient</i> <br />
+        <b>Return 4</b>: b1, <i>b1 coefficient</i> <br />
+        <b>Return 5</b>: b2, <i>b2 coefficient</i> <br />
 
       </description>
     </entry>
     <entry name="eviBiquadCoeffBandpass ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: Q, <i></i> <br />
+        This is incorrectly called 'resonant' in [filtercoeff~] and [filtergraph~], in evieve 'bandpass' and 'resonant' are switched, this is a real bandpass - same resonant peak as low- and high- passes <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 2</b>: type=<i>input</i>: Q, <i>Q</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
-        <b>Return 5</b>: , <i></i> <br />
+        <b>Return 1</b>: a0, <i>a0 coefficient</i> <br />
+        <b>Return 2</b>: a1, <i>a1 coefficient</i> <br />
+        <b>Return 3</b>: a2, <i>a2 coefficient</i> <br />
+        <b>Return 4</b>: b1, <i>b1 coefficient</i> <br />
+        <b>Return 5</b>: b2, <i>b2 coefficient</i> <br />
 
       </description>
     </entry>
     <entry name="eviBiquadCoeffNotch ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: Q, <i></i> <br />
+        RBJ Cookbook <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 2</b>: type=<i>input</i>: Q, <i>Q</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
-        <b>Return 5</b>: , <i></i> <br />
+        <b>Return 1</b>: a0, <i>a0 coefficient</i> <br />
+        <b>Return 2</b>: a1, <i>a1 coefficient</i> <br />
+        <b>Return 3</b>: a2, <i>a2 coefficient</i> <br />
+        <b>Return 4</b>: b1, <i>b1 coefficient</i> <br />
+        <b>Return 5</b>: b2, <i>b2 coefficient</i> <br />
 
       </description>
     </entry>
     <entry name="eviBiquadCoeffPeakNotch ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: gain, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: Q, <i></i> <br />
+        RBJ Cookbook <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 2</b>: type=<i>input</i>: gain, <i>Gain (linear)</i> <br />
+        <b>In 3</b>: type=<i>input</i>: Q, <i>Q</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
-        <b>Return 5</b>: , <i></i> <br />
+        <b>Return 1</b>: a0, <i>a0 coefficient</i> <br />
+        <b>Return 2</b>: a1, <i>a1 coefficient</i> <br />
+        <b>Return 3</b>: a2, <i>a2 coefficient</i> <br />
+        <b>Return 4</b>: b1, <i>b1 coefficient</i> <br />
+        <b>Return 5</b>: b2, <i>b2 coefficient</i> <br />
 
       </description>
     </entry>
     <entry name="eviBiquadCoeffLowshelfMSP ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: gain, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: Q, <i></i> <br />
+        I am not sure who made this MSP version - it has much nicer Q scaling than the cookbook version <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 2</b>: type=<i>input</i>: gain, <i>Gain (linear)</i> <br />
+        <b>In 3</b>: type=<i>input</i>: Q, <i>Q</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
-        <b>Return 5</b>: , <i></i> <br />
+        <b>Return 1</b>: a0, <i>a0 coefficient</i> <br />
+        <b>Return 2</b>: a1, <i>a1 coefficient</i> <br />
+        <b>Return 3</b>: a2, <i>a2 coefficient</i> <br />
+        <b>Return 4</b>: b1, <i>b1 coefficient</i> <br />
+        <b>Return 5</b>: b2, <i>b2 coefficient</i> <br />
 
       </description>
     </entry>
     <entry name="eviBiquadCoeffLowshelfCookbook ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: gain, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: Q, <i></i> <br />
+        RBJ Cookbook <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 2</b>: type=<i>input</i>: gain, <i>Gain (linear)</i> <br />
+        <b>In 3</b>: type=<i>input</i>: Q, <i>Q</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
-        <b>Return 5</b>: , <i></i> <br />
+        <b>Return 1</b>: a0, <i>a0 coefficient</i> <br />
+        <b>Return 2</b>: a1, <i>a1 coefficient</i> <br />
+        <b>Return 3</b>: a2, <i>a2 coefficient</i> <br />
+        <b>Return 4</b>: b1, <i>b1 coefficient</i> <br />
+        <b>Return 5</b>: b2, <i>b2 coefficient</i> <br />
 
       </description>
     </entry>
     <entry name="eviBiquadCoeffHighshelfMSP ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: gain, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: Q, <i></i> <br />
+        I am not sure who made this MSP version - it has much nicer Q scaling than the cookbook version <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 2</b>: type=<i>input</i>: gain, <i>Gain (linear)</i> <br />
+        <b>In 3</b>: type=<i>input</i>: Q, <i>Q</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
-        <b>Return 5</b>: , <i></i> <br />
+        <b>Return 1</b>: a0, <i>a0 coefficient</i> <br />
+        <b>Return 2</b>: a1, <i>a1 coefficient</i> <br />
+        <b>Return 3</b>: a2, <i>a2 coefficient</i> <br />
+        <b>Return 4</b>: b1, <i>b1 coefficient</i> <br />
+        <b>Return 5</b>: b2, <i>b2 coefficient</i> <br />
 
       </description>
     </entry>
     <entry name="eviBiquadCoeffHighshelfCookbook ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: gain, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: Q, <i></i> <br />
+        RBJ Cookbook <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 2</b>: type=<i>input</i>: gain, <i>Gain (linear)</i> <br />
+        <b>In 3</b>: type=<i>input</i>: Q, <i>Q</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
-        <b>Return 5</b>: , <i></i> <br />
+        <b>Return 1</b>: a0, <i>a0 coefficient</i> <br />
+        <b>Return 2</b>: a1, <i>a1 coefficient</i> <br />
+        <b>Return 3</b>: a2, <i>a2 coefficient</i> <br />
+        <b>Return 4</b>: b1, <i>b1 coefficient</i> <br />
+        <b>Return 5</b>: b2, <i>b2 coefficient</i> <br />
 
       </description>
     </entry>
     <entry name="eviBiquadCoeffResonant ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: Q, <i></i> <br />
+        This is incorrectly called 'bandpass' in [filtercoeff~] and [filtergraph~], in evieve 'bandpass' and 'resonant' are switched <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 2</b>: type=<i>input</i>: Q, <i>Q</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
-        <b>Return 5</b>: , <i></i> <br />
+        <b>Return 1</b>: a0, <i>a0 coefficient</i> <br />
+        <b>Return 2</b>: a1, <i>a1 coefficient</i> <br />
+        <b>Return 3</b>: a2, <i>a2 coefficient</i> <br />
+        <b>Return 4</b>: b1, <i>b1 coefficient</i> <br />
+        <b>Return 5</b>: b2, <i>b2 coefficient</i> <br />
 
       </description>
     </entry>
     <entry name="eviBiquadCoeffBp ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: Q, <i></i> <br />
+        This is the [bp~] object from Pd <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 2</b>: type=<i>input</i>: Q, <i>Q</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
-        <b>Return 5</b>: , <i></i> <br />
+        <b>Return 1</b>: a0, <i>a0 coefficient</i> <br />
+        <b>Return 2</b>: a1, <i>a1 coefficient</i> <br />
+        <b>Return 3</b>: a2, <i>a2 coefficient</i> <br />
+        <b>Return 4</b>: b1, <i>b1 coefficient</i> <br />
+        <b>Return 5</b>: b2, <i>b2 coefficient</i> <br />
 
       </description>
     </entry>
     <entry name="eviBiquadCoeffAllpass ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: Q, <i></i> <br />
+        RBJ Cookbook <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 2</b>: type=<i>input</i>: Q, <i>Q</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
-        <b>Return 5</b>: , <i></i> <br />
+        <b>Return 1</b>: a0, <i>a0 coefficient</i> <br />
+        <b>Return 2</b>: a1, <i>a1 coefficient</i> <br />
+        <b>Return 3</b>: a2, <i>a2 coefficient</i> <br />
+        <b>Return 4</b>: b1, <i>b1 coefficient</i> <br />
+        <b>Return 5</b>: b2, <i>b2 coefficient</i> <br />
 
       </description>
     </entry>
     <entry name="eviBiquadCoeffLowpassGain ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: gain, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: Q, <i></i> <br />
+        RBJ Cookbook <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 2</b>: type=<i>input</i>: gain, <i>Gain (linear)</i> <br />
+        <b>In 3</b>: type=<i>input</i>: Q, <i>Q</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
-        <b>Return 5</b>: , <i></i> <br />
+        <b>Return 1</b>: a0, <i>a0 coefficient</i> <br />
+        <b>Return 2</b>: a1, <i>a1 coefficient</i> <br />
+        <b>Return 3</b>: a2, <i>a2 coefficient</i> <br />
+        <b>Return 4</b>: b1, <i>b1 coefficient</i> <br />
+        <b>Return 5</b>: b2, <i>b2 coefficient</i> <br />
 
       </description>
     </entry>
     <entry name="eviBiquadCoeffHighpassGain ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: gain, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: Q, <i></i> <br />
+        RBJ Cookbook <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 2</b>: type=<i>input</i>: gain, <i>Gain (linear)</i> <br />
+        <b>In 3</b>: type=<i>input</i>: Q, <i>Q</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
-        <b>Return 5</b>: , <i></i> <br />
+        <b>Return 1</b>: a0, <i>a0 coefficient</i> <br />
+        <b>Return 2</b>: a1, <i>a1 coefficient</i> <br />
+        <b>Return 3</b>: a2, <i>a2 coefficient</i> <br />
+        <b>Return 4</b>: b1, <i>b1 coefficient</i> <br />
+        <b>Return 5</b>: b2, <i>b2 coefficient</i> <br />
 
       </description>
     </entry>
     <entry name="eviBiquadCoeffBandpassGain ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: gain, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: Q, <i></i> <br />
+        This is incorrectly called 'gainresonant' in [filtercoeff~] and [filtergraph~], this is a real bandpass - same resonant peak as low- and high- passes <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 2</b>: type=<i>input</i>: gain, <i>Gain (linear)</i> <br />
+        <b>In 3</b>: type=<i>input</i>: Q, <i>Q</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
-        <b>Return 5</b>: , <i></i> <br />
+        <b>Return 1</b>: a0, <i>a0 coefficient</i> <br />
+        <b>Return 2</b>: a1, <i>a1 coefficient</i> <br />
+        <b>Return 3</b>: a2, <i>a2 coefficient</i> <br />
+        <b>Return 4</b>: b1, <i>b1 coefficient</i> <br />
+        <b>Return 5</b>: b2, <i>b2 coefficient</i> <br />
 
       </description>
     </entry>
     <entry name="eviBiquadCoeffNotchGain ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: gain, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: Q, <i></i> <br />
+        RBJ Cookbook <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 2</b>: type=<i>input</i>: gain, <i>Gain (linear)</i> <br />
+        <b>In 3</b>: type=<i>input</i>: Q, <i>Q</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
-        <b>Return 5</b>: , <i></i> <br />
+        <b>Return 1</b>: a0, <i>a0 coefficient</i> <br />
+        <b>Return 2</b>: a1, <i>a1 coefficient</i> <br />
+        <b>Return 3</b>: a2, <i>a2 coefficient</i> <br />
+        <b>Return 4</b>: b1, <i>b1 coefficient</i> <br />
+        <b>Return 5</b>: b2, <i>b2 coefficient</i> <br />
 
       </description>
     </entry>
     <entry name="eviBiquadCoeffResonantGain ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: gain, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: Q, <i></i> <br />
+        This is incorrectly called 'gainbpass' in [filtercoeff~] and [filtergraph~] <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 2</b>: type=<i>input</i>: gain, <i>Gain (linear)</i> <br />
+        <b>In 3</b>: type=<i>input</i>: Q, <i>Q</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
-        <b>Return 5</b>: , <i></i> <br />
+        <b>Return 1</b>: a0, <i>a0 coefficient</i> <br />
+        <b>Return 2</b>: a1, <i>a1 coefficient</i> <br />
+        <b>Return 3</b>: a2, <i>a2 coefficient</i> <br />
+        <b>Return 4</b>: b1, <i>b1 coefficient</i> <br />
+        <b>Return 5</b>: b2, <i>b2 coefficient</i> <br />
 
       </description>
     </entry>
     <entry name="eviBiquadCoeffBpGain ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: gain, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: Q, <i></i> <br />
+        This is the [bp~] object from Pd <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 2</b>: type=<i>input</i>: gain, <i>Gain (linear)</i> <br />
+        <b>In 3</b>: type=<i>input</i>: Q, <i>Q</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
-        <b>Return 5</b>: , <i></i> <br />
+        <b>Return 1</b>: a0, <i>a0 coefficient</i> <br />
+        <b>Return 2</b>: a1, <i>a1 coefficient</i> <br />
+        <b>Return 3</b>: a2, <i>a2 coefficient</i> <br />
+        <b>Return 4</b>: b1, <i>b1 coefficient</i> <br />
+        <b>Return 5</b>: b2, <i>b2 coefficient</i> <br />
 
       </description>
     </entry>
     <entry name="eviBiquadCoeffAllpassGain ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: gain, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: Q, <i></i> <br />
+        RBJ Cookbook <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 2</b>: type=<i>input</i>: gain, <i>Gain (linear)</i> <br />
+        <b>In 3</b>: type=<i>input</i>: Q, <i>Q</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
-        <b>Return 5</b>: , <i></i> <br />
+        <b>Return 1</b>: a0, <i>a0 coefficient</i> <br />
+        <b>Return 2</b>: a1, <i>a1 coefficient</i> <br />
+        <b>Return 3</b>: a2, <i>a2 coefficient</i> <br />
+        <b>Return 4</b>: b1, <i>b1 coefficient</i> <br />
+        <b>Return 5</b>: b2, <i>b2 coefficient</i> <br />
 
       </description>
     </entry>
     <entry name="eviBiquadCoeffLowpassAnalog1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: Q, <i></i> <br />
+        Michael Massberg coefficients for analog matched LPF, based on his paper and the Will Pirkle <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 2</b>: type=<i>input</i>: Q, <i>Q</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
-        <b>Return 5</b>: , <i></i> <br />
+        <b>Return 1</b>: a0, <i>a0 coefficient</i> <br />
+        <b>Return 2</b>: a1, <i>a1 coefficient</i> <br />
+        <b>Return 3</b>: a2, <i>a2 coefficient</i> <br />
+        <b>Return 4</b>: b1, <i>b1 coefficient</i> <br />
+        <b>Return 5</b>: b2, <i>b2 coefficient</i> <br />
 
       </description>
     </entry>
     <entry name="eviBiquadCoeffLowpassAnalog2 ( )">
       <description>
+        Martin Vicanek analog matched method <br />
+        <br />
         <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
         <b>In 2</b>: type=<i>input</i>: fullQ, <i></i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
-        <b>Return 5</b>: , <i></i> <br />
+        <b>Return 1</b>: a0, <i>a0 coefficient</i> <br />
+        <b>Return 2</b>: a1, <i>a1 coefficient</i> <br />
+        <b>Return 3</b>: a2, <i>a2 coefficient</i> <br />
+        <b>Return 4</b>: b1, <i>b1 coefficient</i> <br />
+        <b>Return 5</b>: b2, <i>b2 coefficient</i> <br />
 
       </description>
     </entry>
     <entry name="eviBiquadCoeffHighpassAnalog ( )">
       <description>
+        Martin Vicanek analog matched method <br />
+        <br />
         <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
         <b>In 2</b>: type=<i>input</i>: fullQ, <i></i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
-        <b>Return 5</b>: , <i></i> <br />
+        <b>Return 1</b>: a0, <i>a0 coefficient</i> <br />
+        <b>Return 2</b>: a1, <i>a1 coefficient</i> <br />
+        <b>Return 3</b>: a2, <i>a2 coefficient</i> <br />
+        <b>Return 4</b>: b1, <i>b1 coefficient</i> <br />
+        <b>Return 5</b>: b2, <i>b2 coefficient</i> <br />
 
       </description>
     </entry>
     <entry name="eviBiquadCoeffBandpassAnalog ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: Q, <i></i> <br />
+        Orfanidis / Dudas analog matched BPF, like [filtergraph~] (this is incorrectlly named here, it is actually a 'Resonant' filter) <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 2</b>: type=<i>input</i>: Q, <i>Q</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
-        <b>Return 5</b>: , <i></i> <br />
+        <b>Return 1</b>: a0, <i>a0 coefficient</i> <br />
+        <b>Return 2</b>: a1, <i>a1 coefficient</i> <br />
+        <b>Return 3</b>: a2, <i>a2 coefficient</i> <br />
+        <b>Return 4</b>: b1, <i>b1 coefficient</i> <br />
+        <b>Return 5</b>: b2, <i>b2 coefficient</i> <br />
 
       </description>
     </entry>
     <entry name="eviBiquadCoeffBandpassGainAnalog ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: gain, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: Q, <i></i> <br />
+        Orfanidis / Dudas analog matched BPF, like [filtergraph~] (this is incorrectlly named here, it is actually a 'Resonant' filter) <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 2</b>: type=<i>input</i>: gain, <i>Gain (linear)</i> <br />
+        <b>In 3</b>: type=<i>input</i>: Q, <i>Q</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
-        <b>Return 5</b>: , <i></i> <br />
+        <b>Return 1</b>: a0, <i>a0 coefficient</i> <br />
+        <b>Return 2</b>: a1, <i>a1 coefficient</i> <br />
+        <b>Return 3</b>: a2, <i>a2 coefficient</i> <br />
+        <b>Return 4</b>: b1, <i>b1 coefficient</i> <br />
+        <b>Return 5</b>: b2, <i>b2 coefficient</i> <br />
 
       </description>
     </entry>
     <entry name="eviBiquadCoeffNotchAnalog ( )">
       <description>
+        Martin Vicanek analog matched method <br />
+        <br />
         <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
         <b>In 2</b>: type=<i>input</i>: fullQ, <i></i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
-        <b>Return 5</b>: , <i></i> <br />
+        <b>Return 1</b>: a0, <i>a0 coefficient</i> <br />
+        <b>Return 2</b>: a1, <i>a1 coefficient</i> <br />
+        <b>Return 3</b>: a2, <i>a2 coefficient</i> <br />
+        <b>Return 4</b>: b1, <i>b1 coefficient</i> <br />
+        <b>Return 5</b>: b2, <i>b2 coefficient</i> <br />
 
       </description>
     </entry>
     <entry name="eviBiquadCoeffPeakNotchAnalog1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: gain, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: Q, <i></i> <br />
+        Orfanidis / Dudas analog matched PeakNotch, like [filtergraph~] <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 2</b>: type=<i>input</i>: gain, <i>Gain (linear)</i> <br />
+        <b>In 3</b>: type=<i>input</i>: Q, <i>Q</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
-        <b>Return 5</b>: , <i></i> <br />
+        <b>Return 1</b>: a0, <i>a0 coefficient</i> <br />
+        <b>Return 2</b>: a1, <i>a1 coefficient</i> <br />
+        <b>Return 3</b>: a2, <i>a2 coefficient</i> <br />
+        <b>Return 4</b>: b1, <i>b1 coefficient</i> <br />
+        <b>Return 5</b>: b2, <i>b2 coefficient</i> <br />
 
       </description>
     </entry>
     <entry name="eviBiquadCoeffPeakNotchAnalog2 ( )">
       <description>
+        Martin Vicanek analog matched method, this is not really a 'PeakNotch', it is a 'Peaking' filter with bonus Notch <br />
+        <br />
         <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
         <b>In 2</b>: type=<i>input</i>: gain, <i></i> <br />
         <b>In 3</b>: type=<i>input</i>: fullQ, <i></i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
-        <b>Return 5</b>: , <i></i> <br />
+        <b>Return 1</b>: a0, <i>a0 coefficient</i> <br />
+        <b>Return 2</b>: a1, <i>a1 coefficient</i> <br />
+        <b>Return 3</b>: a2, <i>a2 coefficient</i> <br />
+        <b>Return 4</b>: b1, <i>b1 coefficient</i> <br />
+        <b>Return 5</b>: b2, <i>b2 coefficient</i> <br />
 
       </description>
     </entry>
     <entry name="eviBiquadCoeffLowshelfAnalog1 ( )">
       <description>
+        Worked out by Jatin Chowdhury based on the Vicanek analog matched method <br />
+        <br />
         <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
         <b>In 2</b>: type=<i>input</i>: gain, <i></i> <br />
         <b>In 3</b>: type=<i>input</i>: fullQ, <i></i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
-        <b>Return 5</b>: , <i></i> <br />
+        <b>Return 1</b>: a0, <i>a0 coefficient</i> <br />
+        <b>Return 2</b>: a1, <i>a1 coefficient</i> <br />
+        <b>Return 3</b>: a2, <i>a2 coefficient</i> <br />
+        <b>Return 4</b>: b1, <i>b1 coefficient</i> <br />
+        <b>Return 5</b>: b2, <i>b2 coefficient</i> <br />
 
       </description>
     </entry>
     <entry name="eviBiquadCoeffLowshelfAnalog2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: gain, <i></i> <br />
+        Martin Vicanek analog matched Butterworth Lowshelf, cutoff at high (yes high) gain point <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 2</b>: type=<i>input</i>: gain, <i>Gain (linear)</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
-        <b>Return 5</b>: , <i></i> <br />
+        <b>Return 1</b>: a0, <i>a0 coefficient</i> <br />
+        <b>Return 2</b>: a1, <i>a1 coefficient</i> <br />
+        <b>Return 3</b>: a2, <i>a2 coefficient</i> <br />
+        <b>Return 4</b>: b1, <i>b1 coefficient</i> <br />
+        <b>Return 5</b>: b2, <i>b2 coefficient</i> <br />
 
       </description>
     </entry>
     <entry name="eviBiquadCoeffHighshelfAnalog1 ( )">
       <description>
+        Worked out by Jatin Chowdhury based on the Vicanek analog matched method <br />
+        <br />
         <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
         <b>In 2</b>: type=<i>input</i>: gain, <i></i> <br />
         <b>In 3</b>: type=<i>input</i>: fullQ, <i></i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
-        <b>Return 5</b>: , <i></i> <br />
+        <b>Return 1</b>: a0, <i>a0 coefficient</i> <br />
+        <b>Return 2</b>: a1, <i>a1 coefficient</i> <br />
+        <b>Return 3</b>: a2, <i>a2 coefficient</i> <br />
+        <b>Return 4</b>: b1, <i>b1 coefficient</i> <br />
+        <b>Return 5</b>: b2, <i>b2 coefficient</i> <br />
 
       </description>
     </entry>
     <entry name="eviBiquadCoeffHighshelfAnalog2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: gain, <i></i> <br />
+        Martin Vicanek analog matched Butterworth Highshelf, cutoff at high gain point <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 2</b>: type=<i>input</i>: gain, <i>Gain (linear)</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
-        <b>Return 5</b>: , <i></i> <br />
+        <b>Return 1</b>: a0, <i>a0 coefficient</i> <br />
+        <b>Return 2</b>: a1, <i>a1 coefficient</i> <br />
+        <b>Return 3</b>: a2, <i>a2 coefficient</i> <br />
+        <b>Return 4</b>: b1, <i>b1 coefficient</i> <br />
+        <b>Return 5</b>: b2, <i>b2 coefficient</i> <br />
 
       </description>
     </entry>
     <entry name="eviBiquadCoeffResonantAnalog ( )">
       <description>
+        Martin Vicanek analog matched method, incorrectly called 'Bandpass' in the paper <br />
+        <br />
         <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
         <b>In 2</b>: type=<i>input</i>: fullQ, <i></i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
-        <b>Return 5</b>: , <i></i> <br />
+        <b>Return 1</b>: a0, <i>a0 coefficient</i> <br />
+        <b>Return 2</b>: a1, <i>a1 coefficient</i> <br />
+        <b>Return 3</b>: a2, <i>a2 coefficient</i> <br />
+        <b>Return 4</b>: b1, <i>b1 coefficient</i> <br />
+        <b>Return 5</b>: b2, <i>b2 coefficient</i> <br />
 
       </description>
     </entry>
     <entry name="eviBiquadCoeffButterworthLowpass ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        Dodge/Jerse <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
-        <b>Return 5</b>: , <i></i> <br />
+        <b>Return 1</b>: a0, <i>a0 coefficient</i> <br />
+        <b>Return 2</b>: a1, <i>a1 coefficient</i> <br />
+        <b>Return 3</b>: a2, <i>a2 coefficient</i> <br />
+        <b>Return 4</b>: b1, <i>b1 coefficient</i> <br />
+        <b>Return 5</b>: b2, <i>b2 coefficient</i> <br />
 
       </description>
     </entry>
     <entry name="eviBiquadCoeffButterworthHighpass ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
+        Dodge/Jerse <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
-        <b>Return 5</b>: , <i></i> <br />
+        <b>Return 1</b>: a0, <i>a0 coefficient</i> <br />
+        <b>Return 2</b>: a1, <i>a1 coefficient</i> <br />
+        <b>Return 3</b>: a2, <i>a2 coefficient</i> <br />
+        <b>Return 4</b>: b1, <i>b1 coefficient</i> <br />
+        <b>Return 5</b>: b2, <i>b2 coefficient</i> <br />
 
       </description>
     </entry>
     <entry name="eviBiquadCoeffButterworthBandpass ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: Q, <i></i> <br />
+        Dodge/Jerse <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 2</b>: type=<i>input</i>: Q, <i>Q</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
-        <b>Return 5</b>: , <i></i> <br />
+        <b>Return 1</b>: a0, <i>a0 coefficient</i> <br />
+        <b>Return 2</b>: a1, <i>a1 coefficient</i> <br />
+        <b>Return 3</b>: a2, <i>a2 coefficient</i> <br />
+        <b>Return 4</b>: b1, <i>b1 coefficient</i> <br />
+        <b>Return 5</b>: b2, <i>b2 coefficient</i> <br />
 
       </description>
     </entry>
     <entry name="eviBiquadCoeffButterworthBandreject ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: Q, <i></i> <br />
+        Dodge/Jerse <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 2</b>: type=<i>input</i>: Q, <i>Q</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
-        <b>Return 5</b>: , <i></i> <br />
+        <b>Return 1</b>: a0, <i>a0 coefficient</i> <br />
+        <b>Return 2</b>: a1, <i>a1 coefficient</i> <br />
+        <b>Return 3</b>: a2, <i>a2 coefficient</i> <br />
+        <b>Return 4</b>: b1, <i>b1 coefficient</i> <br />
+        <b>Return 5</b>: b2, <i>b2 coefficient</i> <br />
 
       </description>
     </entry>
     <entry name="eviBiquadCoeffButterworthLowpassGain ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: gain, <i></i> <br />
+        Dodge/Jerse <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 2</b>: type=<i>input</i>: gain, <i>Gain (linear)</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
-        <b>Return 5</b>: , <i></i> <br />
+        <b>Return 1</b>: a0, <i>a0 coefficient</i> <br />
+        <b>Return 2</b>: a1, <i>a1 coefficient</i> <br />
+        <b>Return 3</b>: a2, <i>a2 coefficient</i> <br />
+        <b>Return 4</b>: b1, <i>b1 coefficient</i> <br />
+        <b>Return 5</b>: b2, <i>b2 coefficient</i> <br />
 
       </description>
     </entry>
     <entry name="eviBiquadCoeffButterworthHighpassGain ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: gain, <i></i> <br />
+        Dodge/Jerse <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 2</b>: type=<i>input</i>: gain, <i>Gain (linear)</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
-        <b>Return 5</b>: , <i></i> <br />
+        <b>Return 1</b>: a0, <i>a0 coefficient</i> <br />
+        <b>Return 2</b>: a1, <i>a1 coefficient</i> <br />
+        <b>Return 3</b>: a2, <i>a2 coefficient</i> <br />
+        <b>Return 4</b>: b1, <i>b1 coefficient</i> <br />
+        <b>Return 5</b>: b2, <i>b2 coefficient</i> <br />
 
       </description>
     </entry>
     <entry name="eviBiquadCoeffButterworthBandpassGain ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: gain, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: Q, <i></i> <br />
+        Dodge/Jerse <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 2</b>: type=<i>input</i>: gain, <i>Gain (linear)</i> <br />
+        <b>In 3</b>: type=<i>input</i>: Q, <i>Q</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
-        <b>Return 5</b>: , <i></i> <br />
+        <b>Return 1</b>: a0, <i>a0 coefficient</i> <br />
+        <b>Return 2</b>: a1, <i>a1 coefficient</i> <br />
+        <b>Return 3</b>: a2, <i>a2 coefficient</i> <br />
+        <b>Return 4</b>: b1, <i>b1 coefficient</i> <br />
+        <b>Return 5</b>: b2, <i>b2 coefficient</i> <br />
 
       </description>
     </entry>
     <entry name="eviBiquadCoeffButterworthBandrejectGain ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: gain, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: Q, <i></i> <br />
+        Dodge/Jerse <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 2</b>: type=<i>input</i>: gain, <i>Gain (linear)</i> <br />
+        <b>In 3</b>: type=<i>input</i>: Q, <i>Q</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
-        <b>Return 5</b>: , <i></i> <br />
+        <b>Return 1</b>: a0, <i>a0 coefficient</i> <br />
+        <b>Return 2</b>: a1, <i>a1 coefficient</i> <br />
+        <b>Return 3</b>: a2, <i>a2 coefficient</i> <br />
+        <b>Return 4</b>: b1, <i>b1 coefficient</i> <br />
+        <b>Return 5</b>: b2, <i>b2 coefficient</i> <br />
 
       </description>
     </entry>
@@ -559,6 +639,12 @@
   </metadatalist>
   <seealsolist>
     <!-- we use 'refpage' here not 'genrefpage' to trick Max -->
+    <seealso name="evi_biquads" type="refpage"/>
+    <seealso name="evi_biquads_selectors" type="refpage"/>
+    <seealso name="evi_biquads_union" type="refpage"/>
+    <seealso name="evi_biquads_filters" type="refpage"/>
+    <seealso name="evi_biquads_extras" type="refpage"/>
+    <seealso name="evi_svfs" type="refpage"/>
   </seealsolist>
   <misc name="Discussion">
     <entry name="Keywords">

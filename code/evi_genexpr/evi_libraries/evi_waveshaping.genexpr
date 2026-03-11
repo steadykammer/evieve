@@ -96,7 +96,7 @@ atanSat(x, drive)
 // ---------------------------------------- //
 
 // by Partice Tarrabia
-tarrabiaShaper(x, a)	// clip a @ ±1
+tarrabiaShaper(x, a)	// clip a @ < ±1
 {
     k = (a + a) / (1 - a);
     return ((1 + k) * x) / (1 + (k * abs(x)));

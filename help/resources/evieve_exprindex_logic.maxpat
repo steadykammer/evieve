@@ -188,12 +188,12 @@
                                     "contrastactivetab": 0,
                                     "fontname": "Lato",
                                     "fontsize": 14.0,
+                                    "frozen_box_attributes": [ "presentation_rect" ],
                                     "htabcolor": [ 0.0936600403422, 0.093660003365525, 0.093660012949313, 1.0 ],
                                     "id": "obj-55",
                                     "margin": 2,
                                     "maxclass": "tab",
                                     "mode": 1,
-                                    "multiline": 0,
                                     "numinlets": 1,
                                     "numoutlets": 3,
                                     "outlettype": [ "int", "", "" ],
@@ -302,7 +302,7 @@
                     },
                     "patching_rect": [ 244.0, 216.0, 78.0, 25.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 0.0, 437.0, 740.0, 84.0 ],
+                    "presentation_rect": [ 0.0, 485.0, 740.0, 84.0 ],
                     "varname": "#0_seealso",
                     "viewvisibility": 1
                 }
@@ -1092,7 +1092,7 @@
                     },
                     "patching_rect": [ 741.0, 219.0, 78.0, 25.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 80.0, 360.0, 660.0, 50.0 ],
+                    "presentation_rect": [ 80.0, 408.0, 660.0, 50.0 ],
                     "varname": "#0_returns",
                     "viewvisibility": 1
                 }
@@ -1835,7 +1835,7 @@
                     },
                     "patching_rect": [ 702.0, 176.0, 78.0, 25.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 80.0, 308.0, 660.0, 50.0 ],
+                    "presentation_rect": [ 80.0, 356.0, 660.0, 50.0 ],
                     "varname": "#0_inputs",
                     "viewvisibility": 1
                 }
@@ -1996,7 +1996,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 567.0, 208.0, 97.0, 23.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 95.0, 263.0, 97.0, 23.0 ],
+                    "presentation_rect": [ 95.0, 286.0, 97.0, 23.0 ],
                     "text": "About:"
                 }
             },
@@ -2020,7 +2020,7 @@
                     "parameter_mappable": 0,
                     "patching_rect": [ 552.0, 232.0, 112.0, 23.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 80.0, 285.0, 660.0, 23.0 ],
+                    "presentation_rect": [ 80.0, 308.0, 660.0, 46.0 ],
                     "readonly": 1,
                     "rounded": 2.0,
                     "tabmode": 0
@@ -2166,8 +2166,8 @@
                     "numoutlets": 0,
                     "patching_rect": [ 352.0, 112.0, 78.0, 23.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 0.0, 234.0, 78.0, 23.0 ],
-                    "text": "Functions:",
+                    "presentation_rect": [ 0.0, 257.0, 78.0, 23.0 ],
+                    "text": "Function:",
                     "textjustification": 2
                 }
             },
@@ -2181,7 +2181,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 340.0, 525.0, 78.0, 23.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 0.0, 173.0, 78.0, 23.0 ],
+                    "presentation_rect": [ 0.0, 196.0, 78.0, 23.0 ],
                     "text": "Requires:",
                     "textjustification": 2
                 }
@@ -2196,7 +2196,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 352.0, 411.0, 78.0, 23.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 0.0, 103.0, 78.0, 23.0 ],
+                    "presentation_rect": [ 0.0, 114.0, 78.0, 23.0 ],
                     "text": "About:",
                     "textjustification": 2
                 }
@@ -2223,7 +2223,7 @@
                     "fontname": "Lato",
                     "fontsize": 14.0,
                     "id": "obj-5",
-                    "items": [ "(Select GenExpr File)", ",", "<separator>", ",", "evi_adaa.genexpr", ",", "evi_approx.genexpr", ",", "evi_biquads_coeffs.genexpr", ",", "evi_biquads.genexpr", ",", "evi_biquads_extras.genexpr", ",", "evi_biquads_filters.genexpr", ",", "evi_biquads_no_tilde.genexpr", ",", "evi_biquads_selectors.genexpr", ",", "evi_biquads_union.genexpr", ",", "evi_buchla.genexpr", ",", "evi_butterworth.genexpr", ",", "evi_clip.genexpr", ",", "evi_core.genexpr", ",", "evi_cossin.genexpr", ",", "evi_counting.genexpr", ",", "evi_crossovers.genexpr", ",", "evi_dfm_lib.genexpr", ",", "evi_dynamics.genexpr", ",", "evi_env.genexpr", ",", "evi_evieve.genexpr", ",", "evi_fastskew.genexpr", ",", "evi_interp.genexpr", ",", "evi_lfo.genexpr", ",", "evi_lib.genexpr", ",", "evi_pade.genexpr", ",", "evi_phaser_classic.genexpr", ",", "evi_polyblep.genexpr", ",", "evi_polyblep_four.genexpr", ",", "evi_polyblep_shapes.genexpr", ",", "evi_polyblep_two.genexpr", ",", "evi_polyblep_utility.genexpr", ",", "evi_ptr.genexpr", ",", "evi_rcfilters.genexpr", ",", "evi_resampling_templates.genexpr", ",", "evi_resbank.genexpr", ",", "evi_reverb_library.genexpr", ",", "evi_ringmod_enhanced.genexpr", ",", "evi_saturators.genexpr", ",", "evi_sinfold_lib.genexpr", ",", "evi_smooth.genexpr", ",", "evi_sources.genexpr", ",", "evi_ssb.genexpr", ",", "evi_svfs.genexpr", ",", "evi_svfs_filters.genexpr", ",", "evi_svfs_lto.genexpr", ",", "evi_svfs_lto_extras.genexpr", ",", "evi_svfs_tpt.genexpr", ",", "evi_svfs_tpt_filters.genexpr", ",", "evi_tanh.genexpr", ",", "evi_trig.genexpr", ",", "evi_utilities.genexpr", ",", "evi_warmer_lib.genexpr", ",", "evi_waveshaping.genexpr" ],
+                    "items": [ "(Select GenExpr File)", ",", "<separator>", ",", "evi_adaa.genexpr", ",", "evi_approx.genexpr", ",", "evi_biquads_coeffs.genexpr", ",", "evi_biquads.genexpr", ",", "evi_biquads_extras.genexpr", ",", "evi_biquads_filters.genexpr", ",", "evi_biquads_no_tilde.genexpr", ",", "evi_biquads_selectors.genexpr", ",", "evi_biquads_union.genexpr", ",", "evi_buchla.genexpr", ",", "evi_butterworth.genexpr", ",", "evi_clip.genexpr", ",", "evi_core.genexpr", ",", "evi_cossin.genexpr", ",", "evi_counting.genexpr", ",", "evi_crossovers.genexpr", ",", "evi_dfm_lib.genexpr", ",", "evi_dynamics.genexpr", ",", "evi_env.genexpr", ",", "evi_evieve.genexpr", ",", "evi_fastskew.genexpr", ",", "evi_interp.genexpr", ",", "evi_lfo.genexpr", ",", "evi_lib.genexpr", ",", "evi_pade.genexpr", ",", "evi_polyblep.genexpr", ",", "evi_polyblep_four.genexpr", ",", "evi_polyblep_shapes.genexpr", ",", "evi_polyblep_two.genexpr", ",", "evi_polyblep_utility.genexpr", ",", "evi_ptr.genexpr", ",", "evi_rcfilters.genexpr", ",", "evi_resampling_templates.genexpr", ",", "evi_resbank.genexpr", ",", "evi_reverb_library.genexpr", ",", "evi_ringmod_enhanced.genexpr", ",", "evi_saturators.genexpr", ",", "evi_sinfold_lib.genexpr", ",", "evi_smooth_bank.genexpr", ",", "evi_smooth.genexpr", ",", "evi_sources.genexpr", ",", "evi_ssb.genexpr", ",", "evi_svfs.genexpr", ",", "evi_svfs_filters.genexpr", ",", "evi_svfs_lto.genexpr", ",", "evi_svfs_lto_extras.genexpr", ",", "evi_svfs_tpt.genexpr", ",", "evi_svfs_tpt_filters.genexpr", ",", "evi_tanh.genexpr", ",", "evi_trig.genexpr", ",", "evi_utilities.genexpr", ",", "evi_warmer_lib.genexpr", ",", "evi_waveshaping.genexpr" ],
                     "maxclass": "umenu",
                     "numinlets": 1,
                     "numoutlets": 3,
@@ -2249,7 +2249,7 @@
                     "parameter_enable": 0,
                     "patching_rect": [ 340.0, 137.0, 149.0, 25.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 80.0, 233.0, 496.0, 25.0 ]
+                    "presentation_rect": [ 80.0, 256.0, 496.0, 25.0 ]
                 }
             },
             {
@@ -2271,7 +2271,7 @@
                     "parameter_mappable": 0,
                     "patching_rect": [ 340.0, 525.0, 336.0, 49.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 80.0, 161.0, 660.0, 46.0 ],
+                    "presentation_rect": [ 80.0, 184.0, 660.0, 46.0 ],
                     "readonly": 1,
                     "rounded": 2.0,
                     "tabmode": 0
@@ -2295,7 +2295,7 @@
                     "parameter_mappable": 0,
                     "patching_rect": [ 352.0, 410.0, 324.0, 83.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 80.0, 68.0, 660.0, 92.0 ],
+                    "presentation_rect": [ 80.0, 68.0, 660.0, 115.0 ],
                     "readonly": 1,
                     "rounded": 2.0,
                     "tabmode": 0

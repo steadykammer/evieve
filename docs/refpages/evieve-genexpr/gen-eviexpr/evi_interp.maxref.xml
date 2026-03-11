@@ -16,7 +16,7 @@
   <misc name="GenExpr Functions">
     <entry name="cubic_hermite_interp ( )">
       <description>
-        Cubic Hermite, McCartney/Harker, 8 muls, 11 ±. Not gen~ [interp mode='cubic']. This is faster and better quality than the gen~ cubic (which is the tri-cubic interp from [groove~]) <br />
+        Cubic Hermite, McCartney/Harker, 8 muls, 11 ±. Not gen~ [interp mode='cubic']. This is faster than the gen~ cubic (which is the tri-cubic interp from [groove~]) <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: f, <i>Interpolator 0..1</i> <br />
         <b>In 2</b>: type=<i>input</i>: y0, <i>Current sample minus 2</i> <br />

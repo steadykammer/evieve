@@ -8,7 +8,7 @@
 //  //  //  added for 'evi_biquads_coeffs.genexpr'. there are problems with circular
 //  //  //  require in gen~ and we need to use this for the 'all-in-one' sections
 
-require("evi_biquads_coeffs");  // :-(
+require("evi_biquads_coeffs.genexpr");  // :-(
 
 //	//	//	Part 2: Filter Selectors
 

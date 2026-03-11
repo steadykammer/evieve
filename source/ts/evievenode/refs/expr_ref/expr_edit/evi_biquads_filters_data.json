@@ -1,848 +1,848 @@
 {
-    "description": "",
+    "description": "A collection of different biquad filters for use with the evieve biquad coefficient calculators or other calculations. Usage, e.g.: 'out1 = biquadDf2(in1, eviBiquadCoeffLowpassGain(cutoffHz, linearGain, Q))'.",
     "requires": [],
     "functions": [
         {
             "document": true,
-            "digest": "",
+            "digest": "'Direct Form 1', like MSP [biquad~], do not use this",
             "name": "biquadDf1",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "a0",
-                    "digest": ""
+                    "digest": "a0 coefficient"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "a1",
-                    "digest": ""
+                    "digest": "a1 coefficient"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "a2",
-                    "digest": ""
+                    "digest": "a2 coefficient"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "b1",
-                    "digest": ""
+                    "digest": "b1 coefficient"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "b2",
-                    "digest": ""
+                    "digest": "b2 coefficient"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Filter",
+                    "digest": "Filtered audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "'Direct Form 1', like MSP [biquad~], with reset input",
             "name": "biquadDf1reset",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "a0",
-                    "digest": ""
+                    "digest": "a0 coefficient"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "a1",
-                    "digest": ""
+                    "digest": "a1 coefficient"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "a2",
-                    "digest": ""
+                    "digest": "a2 coefficient"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "b1",
-                    "digest": ""
+                    "digest": "b1 coefficient"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "b2",
-                    "digest": ""
+                    "digest": "b2 coefficient"
                 },
                 {
                     "id": 7,
                     "kind": "input",
                     "name": "reset",
-                    "digest": ""
+                    "digest": "Sample accurate reset of internal filter state ('clear')"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Filter",
+                    "digest": "Filtered audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "'Direct Form 2', use this",
             "name": "biquadDf2",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "a0",
-                    "digest": ""
+                    "digest": "a0 coefficient"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "a1",
-                    "digest": ""
+                    "digest": "a1 coefficient"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "a2",
-                    "digest": ""
+                    "digest": "a2 coefficient"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "b1",
-                    "digest": ""
+                    "digest": "b1 coefficient"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "b2",
-                    "digest": ""
+                    "digest": "b2 coefficient"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Filter",
+                    "digest": "Filtered audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "'Direct Form 2', with reset input",
             "name": "biquadDf2reset",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "a0",
-                    "digest": ""
+                    "digest": "a0 coefficient"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "a1",
-                    "digest": ""
+                    "digest": "a1 coefficient"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "a2",
-                    "digest": ""
+                    "digest": "a2 coefficient"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "b1",
-                    "digest": ""
+                    "digest": "b1 coefficient"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "b2",
-                    "digest": ""
+                    "digest": "b2 coefficient"
                 },
                 {
                     "id": 7,
                     "kind": "input",
                     "name": "reset",
-                    "digest": ""
+                    "digest": "Sample accurate reset of internal filter state ('clear')"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Filter",
+                    "digest": "Filtered audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "'Transposed Direct Form 2', sometimes use this",
             "name": "biquadTdf2",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "a0",
-                    "digest": ""
+                    "digest": "a0 coefficient"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "a1",
-                    "digest": ""
+                    "digest": "a1 coefficient"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "a2",
-                    "digest": ""
+                    "digest": "a2 coefficient"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "b1",
-                    "digest": ""
+                    "digest": "b1 coefficient"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "b2",
-                    "digest": ""
+                    "digest": "b2 coefficient"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Filter",
+                    "digest": "Filtered audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "'Transposed Direct Form 2', with reset input",
             "name": "biquadTdf2reset",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "a0",
-                    "digest": ""
+                    "digest": "a0 coefficient"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "a1",
-                    "digest": ""
+                    "digest": "a1 coefficient"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "a2",
-                    "digest": ""
+                    "digest": "a2 coefficient"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "b1",
-                    "digest": ""
+                    "digest": "b1 coefficient"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "b2",
-                    "digest": ""
+                    "digest": "b2 coefficient"
                 },
                 {
                     "id": 7,
                     "kind": "input",
                     "name": "reset",
-                    "digest": ""
+                    "digest": "Sample accurate reset of internal filter state ('clear')"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Filter",
+                    "digest": "Filtered audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "One pole one zero section for odd ordered cascades",
             "name": "polezeroDf1",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "a0",
-                    "digest": ""
+                    "digest": "a0 coefficient"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "_a1",
-                    "digest": ""
+                    "digest": "a1 coefficient (unused)"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "_a2",
-                    "digest": ""
+                    "digest": "a2 coefficient (unused)"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "b1",
-                    "digest": ""
+                    "digest": "b1 coefficient"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "_b2",
-                    "digest": ""
+                    "digest": "b2 coefficient (unused)"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Filter",
+                    "digest": "Filtered audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "One pole one zero section, with reset input",
             "name": "polezeroDf1reset",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "a0",
-                    "digest": ""
+                    "digest": "a0 coefficient"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "_a1",
-                    "digest": ""
+                    "digest": "a1 coefficient (unused)"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "_a2",
-                    "digest": ""
+                    "digest": "a2 coefficient (unused)"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "b1",
-                    "digest": ""
+                    "digest": "b1 coefficient"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "_b2",
-                    "digest": ""
+                    "digest": "b2 coefficient (unused)"
                 },
                 {
                     "id": 7,
                     "kind": "input",
                     "name": "reset",
-                    "digest": ""
+                    "digest": "Sample accurate reset of internal filter state ('clear')"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Filter",
+                    "digest": "Filtered audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "'Direct Form 2', in gen~ cascade form with History()s written out to / read from Data() (for building cascades for eq's etc)",
             "name": "biquadDf2cascade",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x0",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "a0",
-                    "digest": ""
+                    "digest": "a0 coefficient"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "a1",
-                    "digest": ""
+                    "digest": "a1 coefficient"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "a2",
-                    "digest": ""
+                    "digest": "a2 coefficient"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "b1",
-                    "digest": ""
+                    "digest": "b1 coefficient"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "b2",
-                    "digest": ""
+                    "digest": "b2 coefficient"
                 },
                 {
                     "id": 7,
                     "kind": "input",
                     "name": "x1",
-                    "digest": ""
+                    "digest": "State 1 input"
                 },
                 {
                     "id": 8,
                     "kind": "input",
                     "name": "x2",
-                    "digest": ""
+                    "digest": "State 2 input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Filter",
+                    "digest": "Filtered audio output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "x1",
+                    "digest": "State 1 output"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "x2",
+                    "digest": "State 2 output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "'Transposed Direct Form 2', in gen~ cascade form with History()s written out to / read from Data()",
             "name": "biquadTdf2cascade",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x0",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "a0",
-                    "digest": ""
+                    "digest": "a0 coefficient"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "a1",
-                    "digest": ""
+                    "digest": "a1 coefficient"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "a2",
-                    "digest": ""
+                    "digest": "a2 coefficient"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "b1",
-                    "digest": ""
+                    "digest": "b1 coefficient"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "b2",
-                    "digest": ""
+                    "digest": "b2 coefficient"
                 },
                 {
                     "id": 7,
                     "kind": "input",
                     "name": "x1",
-                    "digest": ""
+                    "digest": "State 1 input"
                 },
                 {
                     "id": 8,
                     "kind": "input",
                     "name": "x2",
-                    "digest": ""
+                    "digest": "State 2 input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Filter",
+                    "digest": "Filtered audio output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "x1",
+                    "digest": "State 1 output"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "x2",
+                    "digest": "State 2 output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "'Direct Form 2', parallel double sum out, for bandreject etc",
             "name": "biquadDf2parallel",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "a0_1",
-                    "digest": ""
+                    "digest": "a0 coefficient 1"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "a1_1",
-                    "digest": ""
+                    "digest": "a1 coefficient 1"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "a2_1",
-                    "digest": ""
+                    "digest": "a2 coefficient 1"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "b1_1",
-                    "digest": ""
+                    "digest": "b1 coefficient 1"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "b2_1",
-                    "digest": ""
+                    "digest": "b2 coefficient 1"
                 },
                 {
                     "id": 7,
                     "kind": "input",
                     "name": "a0_2",
-                    "digest": ""
+                    "digest": "a0 coefficient 2"
                 },
                 {
                     "id": 8,
                     "kind": "input",
                     "name": "a1_2",
-                    "digest": ""
+                    "digest": "a1 coefficient 2"
                 },
                 {
                     "id": 9,
                     "kind": "input",
                     "name": "a2_2",
-                    "digest": ""
+                    "digest": "a2 coefficient 2"
                 },
                 {
                     "id": 10,
                     "kind": "input",
                     "name": "b1_2",
-                    "digest": ""
+                    "digest": "b1 coefficient 2"
                 },
                 {
                     "id": 11,
                     "kind": "input",
                     "name": "b2_2",
-                    "digest": ""
+                    "digest": "b2 coefficient 2"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Filter",
+                    "digest": "Filtered audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "'Direct Form 2', cascade double, for shelving etc",
             "name": "biquadDf2double",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "a0_1",
-                    "digest": ""
+                    "digest": "a0 coefficient 1"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "a1_1",
-                    "digest": ""
+                    "digest": "a1 coefficient 1"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "a2_1",
-                    "digest": ""
+                    "digest": "a2 coefficient 1"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "b1_1",
-                    "digest": ""
+                    "digest": "b1 coefficient 1"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "b2_1",
-                    "digest": ""
+                    "digest": "b2 coefficient 1"
                 },
                 {
                     "id": 7,
                     "kind": "input",
                     "name": "a0_2",
-                    "digest": ""
+                    "digest": "a0 coefficient 2"
                 },
                 {
                     "id": 8,
                     "kind": "input",
                     "name": "a1_2",
-                    "digest": ""
+                    "digest": "a1 coefficient 2"
                 },
                 {
                     "id": 9,
                     "kind": "input",
                     "name": "a2_2",
-                    "digest": ""
+                    "digest": "a2 coefficient 2"
                 },
                 {
                     "id": 10,
                     "kind": "input",
                     "name": "b1_2",
-                    "digest": ""
+                    "digest": "b1 coefficient 2"
                 },
                 {
                     "id": 11,
                     "kind": "input",
                     "name": "b2_2",
-                    "digest": ""
+                    "digest": "b2 coefficient 2"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Filter",
+                    "digest": "Filtered audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "'Direct Form 2', cascade triple, for simple eq-ing etc",
             "name": "biquadDf2triple",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
-                    "name": "x0",
-                    "digest": ""
+                    "name": "x",
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "a0_1",
-                    "digest": ""
+                    "digest": "a0 coefficient 1"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "a1_1",
-                    "digest": ""
+                    "digest": "a1 coefficient 1"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "a2_1",
-                    "digest": ""
+                    "digest": "a2 coefficient 1"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "b1_1",
-                    "digest": ""
+                    "digest": "b1 coefficient 1"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "b2_1",
-                    "digest": ""
+                    "digest": "b2 coefficient 1"
                 },
                 {
                     "id": 7,
                     "kind": "input",
                     "name": "a0_2",
-                    "digest": ""
+                    "digest": "a0 coefficient 2"
                 },
                 {
                     "id": 8,
                     "kind": "input",
                     "name": "a1_2",
-                    "digest": ""
+                    "digest": "a1 coefficient 2"
                 },
                 {
                     "id": 9,
                     "kind": "input",
                     "name": "a2_2",
-                    "digest": ""
+                    "digest": "a2 coefficient 2"
                 },
                 {
                     "id": 10,
                     "kind": "input",
                     "name": "b1_2",
-                    "digest": ""
+                    "digest": "b1 coefficient 2"
                 },
                 {
                     "id": 11,
                     "kind": "input",
                     "name": "b2_2",
-                    "digest": ""
+                    "digest": "b2 coefficient 2"
                 },
                 {
                     "id": 12,
                     "kind": "input",
                     "name": "a0_3",
-                    "digest": ""
+                    "digest": "a0 coefficient 3"
                 },
                 {
                     "id": 13,
                     "kind": "input",
                     "name": "a1_3",
-                    "digest": ""
+                    "digest": "a1 coefficient 3"
                 },
                 {
                     "id": 14,
                     "kind": "input",
                     "name": "a2_3",
-                    "digest": ""
+                    "digest": "a2 coefficient 3"
                 },
                 {
                     "id": 15,
                     "kind": "input",
                     "name": "b1_3",
-                    "digest": ""
+                    "digest": "b1 coefficient 3"
                 },
                 {
                     "id": 16,
                     "kind": "input",
                     "name": "b2_3",
-                    "digest": ""
+                    "digest": "b2 coefficient 3"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Filter",
+                    "digest": "Filtered audio output"
                 }
             ]
         },
         {
-            "document": true,
-            "digest": "",
+            "document": false,
+            "digest": "'Direct Form 2', cascade triple, for simple eq-ing using mathworks I, II, TII cascade, this is not required in gen~",
             "name": "biquadDf2tmw",
             "inputs": [
                 {
@@ -951,5 +951,5 @@
             ]
         }
     ],
-    "seealso": []
+    "seealso": ["evi_biquads", "evi_biquads_coeffs", "evi_biquads_selectors", "evi_biquads_union", "evi_biquads_extras", "evi_svfs"]
 }
