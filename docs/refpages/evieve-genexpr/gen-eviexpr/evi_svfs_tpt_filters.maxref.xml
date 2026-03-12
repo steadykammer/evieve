@@ -436,12 +436,13 @@
       <description>
         Stereo version of 'eviFilterReson()' <br />
         <br />
-        <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
-        <b>In 2</b>: type=<i>input</i>: gain, <i>Gain (linear)</i> <br />
-        <b>In 3</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
-        <b>In 4</b>: type=<i>input</i>: Q, <i>Q, can be very high</i> <br />
-        <b>In 5</b>: type=<i>input</i>: compensate, <i>Gain compensation flag 0/1 for high Q scaling</i> <br />
-        <b>In 6</b>: type=<i>param</i> (optional): smooth, default: <b>0</b>, <i>If &gt; 0, ms smoothing time of required mixing gains</i> <br />
+        <b>In 1</b>: type=<i>input</i>: xL, <i>Left audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: xR, <i>Right audio input</i> <br />
+        <b>In 3</b>: type=<i>input</i>: gain, <i>Gain (linear)</i> <br />
+        <b>In 4</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 5</b>: type=<i>input</i>: Q, <i>Q, can be very high</i> <br />
+        <b>In 6</b>: type=<i>input</i>: compensate, <i>Gain compensation flag 0/1 for high Q scaling</i> <br />
+        <b>In 7</b>: type=<i>param</i> (optional): smooth, default: <b>0</b>, <i>If &gt; 0, ms smoothing time of required mixing gains</i> <br />
 
         <b>Return 1</b>: Reson Left, <i>Left audio output</i> <br />
         <b>Return 2</b>: Reson Right, <i>Right audio output</i> <br />
@@ -634,10 +635,11 @@
   </metadatalist>
   <seealsolist>
     <!-- we use 'refpage' here not 'genrefpage' to trick Max -->
-    <seealso name="evi_svfs.genexpr" type="refpage"/>
-    <seealso name="evi_svfs_tpt.genexpr" type="refpage"/>
-    <seealso name="evi_svfs_lto.genexpr" type="refpage"/>
-    <seealso name="evi_svfs_lto_extras.genexpr" type="refpage"/>
+    <seealso name="evi_svfs" type="refpage"/>
+    <seealso name="evi_svfs_filters" type="refpage"/>
+    <seealso name="evi_svfs_tpt" type="refpage"/>
+    <seealso name="evi_svfs_lto" type="refpage"/>
+    <seealso name="evi_svfs_lto_extras" type="refpage"/>
   </seealsolist>
   <misc name="Discussion">
     <entry name="Keywords">

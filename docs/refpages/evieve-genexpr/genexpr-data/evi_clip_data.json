@@ -999,5 +999,10 @@
             ]
         }
     ],
-    "seealso": ["evi_adaa", "evi_tanh", "evi_waveshaping", "evi_saturators"]
+    "seealso": [
+        "evi_adaa",
+        "evi_tanh",
+        "evi_waveshaping",
+        "evi_saturators"
+    ]
 }

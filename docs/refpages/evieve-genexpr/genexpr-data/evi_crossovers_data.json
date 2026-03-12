@@ -780,5 +780,9 @@
             ]
         }
     ],
-    "seealso": ["evi_svfs", "evi_rcfilters", "evi_butterworth"]
+    "seealso": [
+        "evi_svfs",
+        "evi_rcfilters",
+        "evi_butterworth"
+    ]
 }

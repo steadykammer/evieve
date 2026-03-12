@@ -235,6 +235,7 @@ svfSectionOnePole(x, g)	// m0 m2 to mix
 
 svfSectionStereo(xL, xR, a1, a2, a3, m0, m1, m2)
 {
+	History sssdummy(0);
 	yL			= svfSection(xL, a1, a2, a3, m0, m1, m2);
 	yR			= svfSection(xR, a1, a2, a3, m0, m1, m2);
 	return 		yL, yR;

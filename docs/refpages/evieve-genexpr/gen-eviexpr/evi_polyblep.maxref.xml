@@ -15,102 +15,22 @@
     evi_polyblep_shapes.genexpr <br />
     <br />
     <b>About this File</b>: <br />
-     <br />
+    Only require this file if you need access to all of the PolyBLEP Oscillators in evieve. It is much more likely that you will require the individual PolyBLEP files ('See Also'). Using the 'poly_osc()' function here you can test all of the two-point Blep Oscillators. The PolyBLEP method antialiases oscillator shapes based on smoothing the discontinuities in a naive signal shape. The best quality in evieve are the four-point Bleps ('evi_polyblep_four.genexpr'). However the two-point Bleps are also very useful ('evi_polyblep_two.genexpr') including interesting morphing Oscillators. The two-point Bleps also offer a wide range of interesting Oscillator shapes ('evi_polyblep_shapes.genexpr'). <br />
   </description>
   <misc name="GenExpr Functions">
     <entry name="poly_osc ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: freqInHz, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: pwm, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: a, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: t, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: dt, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: morph, <i></i> <br />
-        <b>In 7</b>: type=<i>input</i>: wav, <i></i> <br />
+        A totally ridiculous 35 waveform switcher intended only for testing / demonstration, not to be used in general <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: freqInHz, <i>Oscillator Frequency in Hz</i> <br />
+        <b>In 2</b>: type=<i>input</i>: pwm, <i>Pulse Width 0..1 for Oscillators that use it</i> <br />
+        <b>In 3</b>: type=<i>input</i>: a, <i>Amplitude (linear)</i> <br />
+        <b>In 4</b>: type=<i>input</i>: t, <i>Phase 0..1</i> <br />
+        <b>In 5</b>: type=<i>input</i>: dt, <i>Phase Increment</i> <br />
+        <b>In 6</b>: type=<i>input</i>: morph, <i>Shape Morph 0..1 for Oscillators that use it</i> <br />
+        <b>In 7</b>: type=<i>input</i>: wav, <i>(int) Oscillator Type 0..36 for selection</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="poly_down3x ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: freqInHz, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: pw, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: a, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: t, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: dt, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: morph, <i></i> <br />
-        <b>In 7</b>: type=<i>input</i>: wav, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="poly_down6x ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: freqInHz, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: pw, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: a, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: t, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: dt, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: morph, <i></i> <br />
-        <b>In 7</b>: type=<i>input</i>: wav, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="poly_down4x ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: freqInHz, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: pw, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: a, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: t, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: dt, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: morph, <i></i> <br />
-        <b>In 7</b>: type=<i>input</i>: wav, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="poly_down16x ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: freqInHz, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: pw, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: a, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: t, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: dt, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: morph, <i></i> <br />
-        <b>In 7</b>: type=<i>input</i>: wav, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="xab ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: a, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: b, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="blep8 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="blamp8 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Osc, <i>Oscillator Output</i> <br />
 
       </description>
     </entry>
@@ -122,6 +42,10 @@
   </metadatalist>
   <seealsolist>
     <!-- we use 'refpage' here not 'genrefpage' to trick Max -->
+    <seealso name="evi_polyblep_four" type="refpage"/>
+    <seealso name="evi_polyblep_two" type="refpage"/>
+    <seealso name="evi_polyblep_shapes" type="refpage"/>
+    <seealso name="evi_polyblep_utility" type="refpage"/>
   </seealsolist>
   <misc name="Discussion">
     <entry name="Keywords">

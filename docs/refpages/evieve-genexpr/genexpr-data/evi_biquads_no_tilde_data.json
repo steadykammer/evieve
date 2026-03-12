@@ -2627,5 +2627,13 @@
             ]
         }
     ],
-    "seealso": ["evi_biquads", "evi_biquads_coeffs", "evi_biquads_selectors", "evi_biquads_union", "evi_biquads_filters", "evi_biquads_extras", "evi_svfs"]
+    "seealso": [
+        "evi_biquads",
+        "evi_biquads_coeffs",
+        "evi_biquads_selectors",
+        "evi_biquads_union",
+        "evi_biquads_filters",
+        "evi_biquads_extras",
+        "evi_svfs"
+    ]
 }

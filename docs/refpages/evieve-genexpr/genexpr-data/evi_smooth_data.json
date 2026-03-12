@@ -2063,5 +2063,9 @@
             ]
         }
     ],
-    "seealso": ["evi_smooth_bank", "evi_interp", "evi_env"]
+    "seealso": [
+        "evi_smooth_bank",
+        "evi_interp",
+        "evi_env"
+    ]
 }

@@ -442,7 +442,7 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 205.0, 144.0, 275.0, 33.0 ],
-                    "text": "morphs between \"sparse noise\" (similar to \"audiodust) and \"velvet noise\" (useful in reverbs)"
+                    "text": "morphs between \"sparse noise\" (similar to \"audiodust\") and \"velvet noise\" (useful in reverbs)"
                 }
             },
             {

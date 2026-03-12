@@ -191,5 +191,8 @@
             ]
         }
     ],
-    "seealso": ["evi_saturators", "evi_resampling_templates"]
+    "seealso": [
+        "evi_saturators",
+        "evi_resampling_templates"
+    ]
 }

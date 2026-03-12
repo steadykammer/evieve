@@ -1147,5 +1147,7 @@
             ]
         }
     ],
-    "seealso": ["evi_smooth"]
+    "seealso": [
+        "evi_smooth"
+    ]
 }

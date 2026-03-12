@@ -1,5 +1,5 @@
 {
-    "description": "",
+    "description": "This file offers interesting bandlimited oscillator shapes beyond the usual boring 'classic' waveforms. These shapes are by Theo Niessink, thank you! See the source code for more information. This file also inherits 'evi_polyblep_two.genexpr' so can be used to call any of the two-point PolyBLEP Oscillators in evieve.",
     "requires": [
         "evi_polyblep_utility.genexpr",
         "evi_polyblep_two.genexpr"
@@ -7,64 +7,64 @@
     "functions": [
         {
             "document": true,
-            "digest": "",
+            "digest": "Half wave rectified Sine, antialiased PolyBLAMP",
             "name": "poly_half",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "t",
-                    "digest": ""
+                    "digest": "Phase 0..1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "dt",
-                    "digest": ""
+                    "digest": "Phase increment"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Sine",
+                    "digest": "Bandlimited Sine Rectified"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Half wave rectified Sine with PWM, antialiased PolyBLAMP",
             "name": "poly_half2",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "t",
-                    "digest": ""
+                    "digest": "Phase 0..1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "dt",
-                    "digest": ""
+                    "digest": "Phase increment"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "pw",
-                    "digest": ""
+                    "digest": "PWM 0..1 morphs between +pulse..full_wave_rectified_sine"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Sine",
+                    "digest": "Bandlimited Sine Rectified"
                 }
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "poly_half22",
             "inputs": [
@@ -72,13 +72,13 @@
                     "id": 1,
                     "kind": "input",
                     "name": "t",
-                    "digest": ""
+                    "digest": "Phase 0..1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "dt",
-                    "digest": ""
+                    "digest": "Phase increment"
                 },
                 {
                     "id": 3,
@@ -96,7 +96,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "poly_sin",
             "inputs": [
@@ -116,7 +116,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "poly_cos",
             "inputs": [
@@ -137,32 +137,32 @@
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Full wave rectified Sine, antialiased PolyBLAMP",
             "name": "poly_full",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "t",
-                    "digest": ""
+                    "digest": "Phase 0..1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "dt",
-                    "digest": ""
+                    "digest": "Phase increment"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Sine",
+                    "digest": "Bandlimited Sine Rectified"
                 }
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "poly_sinp",
             "inputs": [
@@ -170,13 +170,13 @@
                     "id": 1,
                     "kind": "input",
                     "name": "t",
-                    "digest": ""
+                    "digest": "Phase 0..1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "dt",
-                    "digest": ""
+                    "digest": "Phase increment"
                 }
             ],
             "returns": [
@@ -189,124 +189,124 @@
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Saw pulse, antialiased PolyBLEP",
             "name": "poly_sawp",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "t2",
-                    "digest": ""
+                    "digest": "Phase 0..1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "dt",
-                    "digest": ""
+                    "digest": "Phase increment"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Saw",
+                    "digest": "Bandlimited Saw"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Alternating Sine, antialiased PolyBLAMP",
             "name": "poly_alt",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "t",
-                    "digest": ""
+                    "digest": "Phase 0..1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "dt",
-                    "digest": ""
+                    "digest": "Phase increment"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Sine",
+                    "digest": "Bandlimited Sine"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Camel Sine, antialiased PolyBLAMP",
             "name": "poly_camel",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "t",
-                    "digest": ""
+                    "digest": "Phase 0..1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "dt",
-                    "digest": ""
+                    "digest": "Phase increment"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Sine",
+                    "digest": "Bandlimited Sine"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Bipolar Squared Sine, antialiased PolyBLUH",
             "name": "poly_sin2",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "t",
-                    "digest": ""
+                    "digest": "Phase 0..1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "dt",
-                    "digest": ""
+                    "digest": "Phase increment"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Sine",
+                    "digest": "Bandlimited Sine"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Parabola, antialiased PolyBLUH",
             "name": "poly_para",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "t",
-                    "digest": ""
+                    "digest": "Phase 0..1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "dt",
-                    "digest": ""
+                    "digest": "Phase increment"
                 }
             ],
             "returns": [
@@ -318,7 +318,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "poly_circ",
             "inputs": [
@@ -326,13 +326,13 @@
                     "id": 1,
                     "kind": "input",
                     "name": "t",
-                    "digest": ""
+                    "digest": "Phase 0..1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "dt",
-                    "digest": ""
+                    "digest": "Phase increment"
                 }
             ],
             "returns": [
@@ -345,188 +345,188 @@
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "2nd order lowpass filtered square approximation (actually a triangle wave)",
             "name": "poly_lpsqr2",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "t",
-                    "digest": ""
+                    "digest": "Phase 0..1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "dt",
-                    "digest": ""
+                    "digest": "Phase increment"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Tri",
+                    "digest": "Bandlimited Tri"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "3rd order lowpass filtered square approximation (actually a triangle wave)",
             "name": "poly_lpsqr3",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "t",
-                    "digest": ""
+                    "digest": "Phase 0..1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "dt",
-                    "digest": ""
+                    "digest": "Phase increment"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Tri",
+                    "digest": "Bandlimited Tri"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Integrated sawtooth (this is like a reciprocal of 'poly_full()')",
             "name": "poly_intsaw",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "t",
-                    "digest": ""
+                    "digest": "Phase 0..1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "dt",
-                    "digest": ""
+                    "digest": "Phase increment"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Sine",
+                    "digest": "Bandlimited Sine"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Cubic Saw (there is a better way of doing this)",
             "name": "poly_cubsaw",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "t",
-                    "digest": ""
+                    "digest": "Phase 0..1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "dt",
-                    "digest": ""
+                    "digest": "Phase increment"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Sine",
+                    "digest": "Bandlimited Sine"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Sawtooth Sine oscillator, beautiful, works well across full frequency range",
             "name": "poly_sawsin",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "t",
-                    "digest": ""
+                    "digest": "Phase 0..1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "dt",
-                    "digest": ""
+                    "digest": "Phase increment"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Sine",
+                    "digest": "Bandlimited Saw"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Sine Sawtooth oscillator, inverse of 'poly_sawsin()'",
             "name": "poly_sinsaw",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "t",
-                    "digest": ""
+                    "digest": "Phase 0..1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "dt",
-                    "digest": ""
+                    "digest": "Phase increment"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Sine",
+                    "digest": "Bandlimited Saw"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Highpass filtered sawtooth approximation",
             "name": "poly_hpsaw6",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "t",
-                    "digest": ""
+                    "digest": "Phase 0..1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "dt",
-                    "digest": ""
+                    "digest": "Phase increment"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Saw",
+                    "digest": "Bandlimited Saw"
                 }
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "poly_hwsaw",
             "inputs": [
@@ -534,13 +534,13 @@
                     "id": 1,
                     "kind": "input",
                     "name": "t",
-                    "digest": ""
+                    "digest": "Phase 0..1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "dt",
-                    "digest": ""
+                    "digest": "Phase increment"
                 },
                 {
                     "id": 3,
@@ -559,30 +559,30 @@
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Logit approximation",
             "name": "poly_logit3",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "t",
-                    "digest": ""
+                    "digest": "Phase 0..1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "dt",
-                    "digest": ""
+                    "digest": "Phase increment"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Saw",
+                    "digest": "Bandlimited Saw"
                 }
             ]
         }
     ],
-    "seealso": []
+    "seealso": ["evi_polyblep", "evi_polyblep_four", "evi_polyblep_two", "evi_polyblep_utility"]
 }

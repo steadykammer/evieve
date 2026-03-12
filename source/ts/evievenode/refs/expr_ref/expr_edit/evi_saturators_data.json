@@ -1066,5 +1066,12 @@
             ]
         }
     ],
-    "seealso": ["evi_adaa", "evi_waveshaping", "evi_tanh", "evi_clip", "evi_interp", "evi_resampling_templates"]
+    "seealso": [
+        "evi_adaa",
+        "evi_waveshaping",
+        "evi_tanh",
+        "evi_clip",
+        "evi_interp",
+        "evi_resampling_templates"
+    ]
 }

@@ -198,5 +198,9 @@
             ]
         }
     ],
-    "seealso": ["evi_env", "evi_rcfilters", "evi_crossovers"]
+    "seealso": [
+        "evi_env",
+        "evi_rcfilters",
+        "evi_crossovers"
+    ]
 }

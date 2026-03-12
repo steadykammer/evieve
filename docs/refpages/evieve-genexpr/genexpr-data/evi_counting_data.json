@@ -604,5 +604,9 @@
             ]
         }
     ],
-    "seealso": ["evi_env", "evi_lfo", "evi_sources"]
+    "seealso": [
+        "evi_env",
+        "evi_lfo",
+        "evi_sources"
+    ]
 }

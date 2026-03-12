@@ -1,5 +1,5 @@
 {
-    "description": "",
+    "description": "Using this require file you can access coefficients selectors for all LTO SVF filters in evieve with corresponding all-in-one filter sections. This file also includes all-in-one parametric EQ filter blocks.",
     "requires": [
         "evi_smooth.genexpr",
         "evi_svfs_filters.genexpr"
@@ -7,95 +7,95 @@
     "functions": [
         {
             "document": true,
-            "digest": "",
+            "digest": "General coefficients calculator for the 11 available filter types using the LTO SVF",
             "name": "svfSectionCoeff",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "filter",
-                    "digest": ""
+                    "digest": "(int) filter index (type), see source code for listing"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "gain",
-                    "digest": ""
+                    "digest": "Gain (linear)"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "fullQ",
-                    "digest": ""
+                    "digest": "Q"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "a1",
+                    "digest": "a1 coefficient"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "a2",
+                    "digest": "a2 coefficient"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "a3",
+                    "digest": "a3 coefficient"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "m0",
+                    "digest": "low mixing gain"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "m1",
+                    "digest": "band mixing gain"
                 },
                 {
                     "id": 6,
-                    "name": "",
-                    "digest": ""
+                    "name": "m2",
+                    "digest": "high mixing gain"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "A gen (no tilde) version of 'svfSectionCoeff()' for using at schedular rate",
             "name": "svfSectionCoeffNoTilde",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "filter",
-                    "digest": ""
+                    "digest": "(int) filter index (type), see source code for listing"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "gain",
-                    "digest": ""
+                    "digest": "Gain (linear)"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "fullQ",
-                    "digest": ""
+                    "digest": "Q"
                 },
                 {
                     "id": 5,
@@ -103,76 +103,76 @@
                     "name": "AUDIO_SR",
                     "default": 48000,
                     "type": "integer",
-                    "digest": ""
+                    "digest": "You must pass in the audio samplerate for usage in gen (no tilde)"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "a1",
+                    "digest": "a1 coefficient"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "a2",
+                    "digest": "a2 coefficient"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "a3",
+                    "digest": "a3 coefficient"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "m0",
+                    "digest": "low mixing gain"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "m1",
+                    "digest": "band mixing gain"
                 },
                 {
                     "id": 6,
-                    "name": "",
-                    "digest": ""
+                    "name": "m2",
+                    "digest": "high mixing gain"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "All-in-one coefficients and filter section for the 11 LTO filter types",
             "name": "eviFilterLto",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "db",
-                    "digest": ""
+                    "digest": "Gain in dB"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "filter",
-                    "digest": ""
+                    "digest": "(int) filter index (type), see source code for listing"
                 },
                 {
                     "id": 6,
@@ -180,57 +180,57 @@
                     "name": "smooth",
                     "default": 0,
                     "type": "integer",
-                    "digest": ""
+                    "digest": "If > 0, ms smoothing time of required mixing gains"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Filter",
+                    "digest": "Filtered audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Same as 'eviFilterLto()' but with a state reset inlet",
             "name": "eviFilterLtoReset",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "db",
-                    "digest": ""
+                    "digest": "Gain in dB"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "filter",
-                    "digest": ""
+                    "digest": "(int) filter index (type), see source code for listing"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "reset",
-                    "digest": ""
+                    "digest": "Sample accurate reset of internal filter state ('clear')"
                 },
                 {
                     "id": 7,
@@ -238,108 +238,108 @@
                     "name": "smooth",
                     "default": 0,
                     "type": "integer",
-                    "digest": ""
+                    "digest": "If > 0, ms smoothing time of required mixing gains"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Filter",
+                    "digest": "Filtered audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Just EQ coefficients calculator for the 7 available EQ types using the LTO SVF",
             "name": "svfSectionCoeffEq",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "filter",
-                    "digest": ""
+                    "digest": "(int) filter index (type), see source code for listing"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "gain",
-                    "digest": ""
+                    "digest": "Gain (linear)"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "a1",
+                    "digest": "a1 coefficient"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "a2",
+                    "digest": "a2 coefficient"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "a3",
+                    "digest": "a3 coefficient"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "m0",
+                    "digest": "low mixing gain"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "m1",
+                    "digest": "band mixing gain"
                 },
                 {
                     "id": 6,
-                    "name": "",
-                    "digest": ""
+                    "name": "m2",
+                    "digest": "high mixing gain"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "A gen (no tilde) version of 'svfSectionCoeffEq()' for using at schedular rate",
             "name": "svfSectionCoeffEqNoTilde",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "filter",
-                    "digest": ""
+                    "digest": "(int) filter index (type), see source code for listing"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "gain",
-                    "digest": ""
+                    "digest": "Gain (linear)"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 },
                 {
                     "id": 5,
@@ -347,76 +347,76 @@
                     "name": "AUDIO_SR",
                     "default": 48000,
                     "type": "integer",
-                    "digest": ""
+                    "digest": "You must pass in the audio samplerate for usage in gen (no tilde)"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "a1",
+                    "digest": "a1 coefficient"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "a2",
+                    "digest": "a2 coefficient"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "a3",
+                    "digest": "a3 coefficient"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "m0",
+                    "digest": "low mixing gain"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "m1",
+                    "digest": "band mixing gain"
                 },
                 {
                     "id": 6,
-                    "name": "",
-                    "digest": ""
+                    "name": "m2",
+                    "digest": "high mixing gain"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "All-in-one coefficients and filter section for the 7 LTO EQ filter types",
             "name": "eviFilterEq",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "db",
-                    "digest": ""
+                    "digest": "Gain in dB"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "filter",
-                    "digest": ""
+                    "digest": "(int) filter index (type), see source code for listing"
                 },
                 {
                     "id": 6,
@@ -424,57 +424,57 @@
                     "name": "smooth",
                     "default": 0,
                     "type": "integer",
-                    "digest": ""
+                    "digest": "If > 0, ms smoothing time of required mixing gains"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Filter",
+                    "digest": "Filtered audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Same as 'eviFilterEq()' but with a state reset inlet",
             "name": "eviFilterEqReset",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "db",
-                    "digest": ""
+                    "digest": "Gain in dB"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "filter",
-                    "digest": ""
+                    "digest": "(int) filter index (type), see source code for listing"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "reset",
-                    "digest": ""
+                    "digest": "Sample accurate reset of internal filter state ('clear')"
                 },
                 {
                     "id": 7,
@@ -482,51 +482,51 @@
                     "name": "smooth",
                     "default": 0,
                     "type": "integer",
-                    "digest": ""
+                    "digest": "If > 0, ms smoothing time of required mixing gains"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Filter",
+                    "digest": "Filtered audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "A version of 'eviFilterEq()' for Lowpass and Highpass filter types with steeper 4-pole filters",
             "name": "eviFilterEq4",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "db",
-                    "digest": ""
+                    "digest": "Gain in dB"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "filter",
-                    "digest": ""
+                    "digest": "(int) filter index (type), 1==Highpass, 7==Lowpass"
                 },
                 {
                     "id": 6,
@@ -534,57 +534,57 @@
                     "name": "smooth",
                     "default": 0,
                     "type": "integer",
-                    "digest": ""
+                    "digest": "If > 0, ms smoothing time of required mixing gains"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "4-pole Filter",
+                    "digest": "Filtered audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Same as 'eviFilterEq4()' but with a state reset inlet",
             "name": "eviFilterEq4Reset",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "db",
-                    "digest": ""
+                    "digest": "Gain in dB"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "filter",
-                    "digest": ""
+                    "digest": "(int) filter index (type), 1==Highpass, 7==Lowpass"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "reset",
-                    "digest": ""
+                    "digest": "Sample accurate reset of internal filter state ('clear')"
                 },
                 {
                     "id": 7,
@@ -592,57 +592,57 @@
                     "name": "smooth",
                     "default": 0,
                     "type": "integer",
-                    "digest": ""
+                    "digest": "If > 0, ms smoothing time of required mixing gains"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "4-pole Filter",
+                    "digest": "Filtered audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Stereo version of 'eviFilterEq()'",
             "name": "eviFilterEqStereo",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "xL",
-                    "digest": ""
+                    "digest": "Left audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "xR",
-                    "digest": ""
+                    "digest": "Right audio input"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "db",
-                    "digest": ""
+                    "digest": "Gain in dB"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "filter",
-                    "digest": ""
+                    "digest": "(int) filter index (type), see source code for listing"
                 },
                 {
                     "id": 7,
@@ -650,62 +650,62 @@
                     "name": "smooth",
                     "default": 0,
                     "type": "integer",
-                    "digest": ""
+                    "digest": "If > 0, ms smoothing time of required mixing gains"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Left Filter",
+                    "digest": "Left audio output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Right Filter",
+                    "digest": "Right audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Stereo version of 'eviFilterEq4()'",
             "name": "eviFilterEq4Stereo",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "xL",
-                    "digest": ""
+                    "digest": "Left audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "xR",
-                    "digest": ""
+                    "digest": "Right audio input"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "db",
-                    "digest": ""
+                    "digest": "Gain in dB"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "filter",
-                    "digest": ""
+                    "digest": "(int) filter index (type), 1==Highpass, 7==Lowpass"
                 },
                 {
                     "id": 7,
@@ -713,275 +713,275 @@
                     "name": "smooth",
                     "default": 0,
                     "type": "integer",
-                    "digest": ""
+                    "digest": "If > 0, ms smoothing time of required mixing gains"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Left Filter",
+                    "digest": "Left audio output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Right Filter",
+                    "digest": "Right audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Two raw SVF sections in series, 0 dB gain input zeros cpu of gain filters (shelfs, bell)",
             "name": "eviSvfTwoSections",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "band0",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "a11",
-                    "digest": ""
+                    "digest": "a1 coefficient 1"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "a21",
-                    "digest": ""
+                    "digest": "a2 coefficient 1"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "a31",
-                    "digest": ""
+                    "digest": "a3 coefficient 1"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "m01",
-                    "digest": ""
+                    "digest": "low mixing gain 1"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "m11",
-                    "digest": ""
+                    "digest": "band mixing gain 1"
                 },
                 {
                     "id": 7,
                     "kind": "input",
                     "name": "m21",
-                    "digest": ""
+                    "digest": "high mixing gain 1"
                 },
                 {
                     "id": 8,
                     "kind": "input",
                     "name": "a12",
-                    "digest": ""
+                    "digest": "a1 coefficient 2"
                 },
                 {
                     "id": 9,
                     "kind": "input",
                     "name": "a22",
-                    "digest": ""
+                    "digest": "a2 coefficient 2"
                 },
                 {
                     "id": 10,
                     "kind": "input",
                     "name": "a32",
-                    "digest": ""
+                    "digest": "a3 coefficient 2"
                 },
                 {
                     "id": 11,
                     "kind": "input",
                     "name": "m02",
-                    "digest": ""
+                    "digest": "low mixing gain 2"
                 },
                 {
                     "id": 12,
                     "kind": "input",
                     "name": "m12",
-                    "digest": ""
+                    "digest": "band mixing gain 2"
                 },
                 {
                     "id": 13,
                     "kind": "input",
                     "name": "m22",
-                    "digest": ""
+                    "digest": "high mixing gain 2"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Filter",
+                    "digest": "Filtered audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Stereo version of 'eviSvfTwoSections()'",
             "name": "eviSvfTwoSectionsStereo",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "band0L",
-                    "digest": ""
+                    "digest": "Left audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "band0R",
-                    "digest": ""
+                    "digest": "Right audio input"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "a11",
-                    "digest": ""
+                    "digest": "a1 coefficient 1"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "a21",
-                    "digest": ""
+                    "digest": "a2 coefficient 1"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "a31",
-                    "digest": ""
+                    "digest": "a3 coefficient 1"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "m01",
-                    "digest": ""
+                    "digest": "low mixing gain 1"
                 },
                 {
                     "id": 7,
                     "kind": "input",
                     "name": "m11",
-                    "digest": ""
+                    "digest": "band mixing gain 1"
                 },
                 {
                     "id": 8,
                     "kind": "input",
                     "name": "m21",
-                    "digest": ""
+                    "digest": "high mixing gain 1"
                 },
                 {
                     "id": 9,
                     "kind": "input",
                     "name": "a12",
-                    "digest": ""
+                    "digest": "a1 coefficient 2"
                 },
                 {
                     "id": 10,
                     "kind": "input",
                     "name": "a22",
-                    "digest": ""
+                    "digest": "a2 coefficient 2"
                 },
                 {
                     "id": 11,
                     "kind": "input",
                     "name": "a32",
-                    "digest": ""
+                    "digest": "a3 coefficient 2"
                 },
                 {
                     "id": 12,
                     "kind": "input",
                     "name": "m02",
-                    "digest": ""
+                    "digest": "low mixing gain 2"
                 },
                 {
                     "id": 13,
                     "kind": "input",
                     "name": "m12",
-                    "digest": ""
+                    "digest": "band mixing gain 2"
                 },
                 {
                     "id": 14,
                     "kind": "input",
                     "name": "m22",
-                    "digest": ""
+                    "digest": "high mixing gain 2"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Left Filter",
+                    "digest": "Left audio output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Right Filter",
+                    "digest": "Right audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Two-band parametric EQ wrapper",
             "name": "eviParametric2",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "filter1",
-                    "digest": ""
+                    "digest": "(int) filter 1 index (type), see source code for listing"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "cutoff1",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz band 1"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "db1",
-                    "digest": ""
+                    "digest": "Gain in dB band 1"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "Q1",
-                    "digest": ""
+                    "digest": "Q band 1"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "filter2",
-                    "digest": ""
+                    "digest": "(int) filter 2 index (type), see source code for listing"
                 },
                 {
                     "id": 7,
                     "kind": "input",
                     "name": "cutoff2",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz band 2"
                 },
                 {
                     "id": 8,
                     "kind": "input",
                     "name": "db2",
-                    "digest": ""
+                    "digest": "Gain in dB band 2"
                 },
                 {
                     "id": 9,
                     "kind": "input",
                     "name": "Q2",
-                    "digest": ""
+                    "digest": "Q band 2"
                 },
                 {
                     "id": 10,
@@ -989,99 +989,99 @@
                     "name": "smooth",
                     "default": 0,
                     "type": "integer",
-                    "digest": ""
+                    "digest": "If > 0, ms smoothing time of required mixing gains"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "EQ",
+                    "digest": "Filtered audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Three-band parametric EQ wrapper",
             "name": "eviParametric3",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "filter1",
-                    "digest": ""
+                    "digest": "(int) filter 1 index (type), see source code for listing"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "cutoff1",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz band 1"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "db1",
-                    "digest": ""
+                    "digest": "Gain in dB band 1"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "Q1",
-                    "digest": ""
+                    "digest": "Q band 1"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "filter2",
-                    "digest": ""
+                    "digest": "(int) filter 2 index (type), see source code for listing"
                 },
                 {
                     "id": 7,
                     "kind": "input",
                     "name": "cutoff2",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz band 2"
                 },
                 {
                     "id": 8,
                     "kind": "input",
                     "name": "db2",
-                    "digest": ""
+                    "digest": "Gain in dB band 2"
                 },
                 {
                     "id": 9,
                     "kind": "input",
                     "name": "Q2",
-                    "digest": ""
+                    "digest": "Q band 2"
                 },
                 {
                     "id": 10,
                     "kind": "input",
                     "name": "filter3",
-                    "digest": ""
+                    "digest": "(int) filter 3 index (type), see source code for listing"
                 },
                 {
                     "id": 11,
                     "kind": "input",
                     "name": "cutoff3",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz band 3"
                 },
                 {
                     "id": 12,
                     "kind": "input",
                     "name": "db3",
-                    "digest": ""
+                    "digest": "Gain in dB band 3"
                 },
                 {
                     "id": 13,
                     "kind": "input",
                     "name": "Q3",
-                    "digest": ""
+                    "digest": "Q band 3"
                 },
                 {
                     "id": 14,
@@ -1089,81 +1089,81 @@
                     "name": "smooth",
                     "default": 0,
                     "type": "integer",
-                    "digest": ""
+                    "digest": "If > 0, ms smoothing time of required mixing gains"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "EQ",
+                    "digest": "Filtered audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Stereo version of 'eviParametric2()'",
             "name": "eviParametricStereo2",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "xL",
-                    "digest": ""
+                    "digest": "Left audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "xR",
-                    "digest": ""
+                    "digest": "Right audio input"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "filter1",
-                    "digest": ""
+                    "digest": "(int) filter 1 index (type), see source code for listing"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "cutoff1",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz band 1"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "db1",
-                    "digest": ""
+                    "digest": "Gain in dB band 1"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "Q1",
-                    "digest": ""
+                    "digest": "Q band 1"
                 },
                 {
                     "id": 7,
                     "kind": "input",
                     "name": "filter2",
-                    "digest": ""
+                    "digest": "(int) filter 2 index (type), see source code for listing"
                 },
                 {
                     "id": 8,
                     "kind": "input",
                     "name": "cutoff2",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz band 2"
                 },
                 {
                     "id": 9,
                     "kind": "input",
                     "name": "db2",
-                    "digest": ""
+                    "digest": "Gain in dB band 2"
                 },
                 {
                     "id": 10,
                     "kind": "input",
                     "name": "Q2",
-                    "digest": ""
+                    "digest": "Q band 2"
                 },
                 {
                     "id": 11,
@@ -1171,110 +1171,110 @@
                     "name": "smooth",
                     "default": 0,
                     "type": "integer",
-                    "digest": ""
+                    "digest": "If > 0, ms smoothing time of required mixing gains"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "EQ Left",
+                    "digest": "Left audio output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "EQ Right",
+                    "digest": "Right audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Stereo version of 'eviParametric3()'",
             "name": "eviParametricStereo3",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "xL",
-                    "digest": ""
+                    "digest": "Left audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "xR",
-                    "digest": ""
+                    "digest": "Right audio input"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "filter1",
-                    "digest": ""
+                    "digest": "(int) filter 1 index (type), see source code for listing"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "cutoff1",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz band 1"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "db1",
-                    "digest": ""
+                    "digest": "Gain in dB band 1"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "Q1",
-                    "digest": ""
+                    "digest": "Q band 1"
                 },
                 {
                     "id": 7,
                     "kind": "input",
                     "name": "filter2",
-                    "digest": ""
+                    "digest": "(int) filter 2 index (type), see source code for listing"
                 },
                 {
                     "id": 8,
                     "kind": "input",
                     "name": "cutoff2",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz band 2"
                 },
                 {
                     "id": 9,
                     "kind": "input",
                     "name": "db2",
-                    "digest": ""
+                    "digest": "Gain in dB band 2"
                 },
                 {
                     "id": 10,
                     "kind": "input",
                     "name": "Q2",
-                    "digest": ""
+                    "digest": "Q band 2"
                 },
                 {
                     "id": 11,
                     "kind": "input",
                     "name": "filter3",
-                    "digest": ""
+                    "digest": "(int) filter 3 index (type), see source code for listing"
                 },
                 {
                     "id": 12,
                     "kind": "input",
                     "name": "cutoff3",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz band 3"
                 },
                 {
                     "id": 13,
                     "kind": "input",
                     "name": "db3",
-                    "digest": ""
+                    "digest": "Gain in dB band 3"
                 },
                 {
                     "id": 14,
                     "kind": "input",
                     "name": "Q3",
-                    "digest": ""
+                    "digest": "Q band 3"
                 },
                 {
                     "id": 15,
@@ -1282,22 +1282,28 @@
                     "name": "smooth",
                     "default": 0,
                     "type": "integer",
-                    "digest": ""
+                    "digest": "If > 0, ms smoothing time of required mixing gains"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "EQ Left",
+                    "digest": "Left audio output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "EQ Right",
+                    "digest": "Right audio output"
                 }
             ]
         }
     ],
-    "seealso": []
+    "seealso": [
+        "evi_svfs",
+        "evi_svfs_filters",
+        "evi_svfs_tpt",
+        "evi_svfs_tpt_filters",
+        "evi_svfs_lto_extras"
+    ]
 }

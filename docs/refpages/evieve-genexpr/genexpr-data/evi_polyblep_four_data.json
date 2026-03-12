@@ -1,169 +1,169 @@
 {
-    "description": "",
+    "description": "High quality four-point PolyBLEP bandlimited oscillators, classic waveform shapes. When calling any of these functions you must deal with dc yourself.",
     "requires": [],
     "functions": [
         {
             "document": true,
-            "digest": "",
+            "digest": "Four-point PolyBLEP bandlimited step function for antialiasing oscillators",
             "name": "polyblep4",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "t",
-                    "digest": ""
+                    "digest": "Phase 0..1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "dt",
-                    "digest": ""
+                    "digest": "Phase increment"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Step",
+                    "digest": "Bandlimited step"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Four-point PolyBLAMP bandlimited ramp function for antialiasing oscillators",
             "name": "polyblamp4",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "t",
-                    "digest": ""
+                    "digest": "Phase 0..1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "dt",
-                    "digest": ""
+                    "digest": "Phase increment"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Ramp",
+                    "digest": "Bandlimited ramp"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Saw oscillator, antialiased PolyBLEP",
             "name": "polysaw4",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "t",
-                    "digest": ""
+                    "digest": "Phase 0..1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "dt",
-                    "digest": ""
+                    "digest": "Phase increment"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Saw",
+                    "digest": "Bandlimited Saw"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Rect oscillator, antialiased PolyBLEP",
             "name": "polyrect4",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "t",
-                    "digest": ""
+                    "digest": "Phase 0..1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "dt",
-                    "digest": ""
+                    "digest": "Phase increment"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Rect",
+                    "digest": "Bandlimited Rect"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Rect oscillator with PWM, antialiased PolyBLEP",
             "name": "polyrect4pwm",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "t",
-                    "digest": ""
+                    "digest": "Phase 0..1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "dt",
-                    "digest": ""
+                    "digest": "Phase increment"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "pw",
-                    "digest": ""
+                    "digest": "Pulse width 0..1"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Rect",
+                    "digest": "Bandlimited Rect"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Tri oscillator, antialiased PolyBLAMP",
             "name": "polytri4",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "t",
-                    "digest": ""
+                    "digest": "Phase 0..1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "dt",
-                    "digest": ""
+                    "digest": "Phase increment"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Tri",
+                    "digest": "Bandlimited Tri"
                 }
             ]
         }
     ],
-    "seealso": []
+    "seealso": ["evi_polyblep", "evi_polyblep_two", "evi_polyblep_shapes", "evi_polyblep_utility"]
 }

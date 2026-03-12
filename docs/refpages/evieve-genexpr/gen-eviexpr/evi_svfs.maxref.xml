@@ -28,11 +28,12 @@
   </metadatalist>
   <seealsolist>
     <!-- we use 'refpage' here not 'genrefpage' to trick Max -->
-    <seealso name="evi_svfs_tpt.genexpr" type="refpage"/>
-    <seealso name="evi_svfs_lto.genexpr" type="refpage"/>
-    <seealso name="evi_svfs_tpt_filters.genexpr" type="refpage"/>
-    <seealso name="evi_svfs_lto_extras.genexpr" type="refpage"/>
-    <seealso name="evi_biquads.genexpr" type="refpage"/>
+    <seealso name="evi_svfs_filters" type="refpage"/>
+    <seealso name="evi_svfs_tpt" type="refpage"/>
+    <seealso name="evi_svfs_lto" type="refpage"/>
+    <seealso name="evi_svfs_tpt_filters" type="refpage"/>
+    <seealso name="evi_svfs_lto_extras" type="refpage"/>
+    <seealso name="evi_biquads" type="refpage"/>
   </seealsolist>
   <misc name="Discussion">
     <entry name="Keywords">

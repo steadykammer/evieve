@@ -1,5 +1,5 @@
 {
-    "description": "Using this require file you can access all TPT SVF filter types in evieve. ",
+    "description": "Using this require file you can access coefficients selectors for all TPT SVF filters in evieve with corresponding all-in-one filter sections. This file also includes a selection of interesting 'morphing' filters. For accessing all the filters as individual blocks use 'evi_svfs_tpt_filters.genexpr'",
     "requires": [
         "evi_smooth.genexpr",
         "evi_svfs_filters.genexpr"
@@ -179,7 +179,7 @@
                     "kind": "param",
                     "name": "smooth",
                     "default": 0,
-                    "type": "float",
+                    "type": "integer",
                     "digest": "If > 0, ms smoothing time of required mixing gains"
                 }
             ],
@@ -237,7 +237,7 @@
                     "kind": "param",
                     "name": "smooth",
                     "default": 0,
-                    "type": "float",
+                    "type": "integer",
                     "digest": "If > 0, ms smoothing time of required mixing gains"
                 }
             ],
@@ -611,7 +611,7 @@
                     "kind": "param",
                     "name": "smooth",
                     "default": 0,
-                    "type": "float",
+                    "type": "integer",
                     "digest": "If > 0, ms smoothing time of required mixing gains"
                 }
             ],
@@ -1320,5 +1320,11 @@
             ]
         }
     ],
-    "seealso": ["evi_svfs.genexpr", "evi_svfs_lto.genexpr", "evi_svfs_tpt_filters.genexpr", "evi_svfs_lto_extras.genexpr"]
+    "seealso": [
+        "evi_svfs",
+        "evi_svfs_filters",
+        "evi_svfs_lto",
+        "evi_svfs_tpt_filters",
+        "evi_svfs_lto_extras"
+    ]
 }

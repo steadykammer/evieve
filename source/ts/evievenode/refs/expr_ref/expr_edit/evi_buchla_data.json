@@ -896,5 +896,8 @@
             ]
         }
     ],
-    "seealso": ["evi_interp", "evi_resampling_templates"]
+    "seealso": [
+        "evi_interp",
+        "evi_resampling_templates"
+    ]
 }

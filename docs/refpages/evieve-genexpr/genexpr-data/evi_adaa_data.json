@@ -1747,5 +1747,8 @@
             ]
         }
     ],
-    "seealso": ["evi_waveshaping", "evi_saturators"]
+    "seealso": [
+        "evi_waveshaping",
+        "evi_saturators"
+    ]
 }

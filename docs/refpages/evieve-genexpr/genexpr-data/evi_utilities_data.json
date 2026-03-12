@@ -50,7 +50,7 @@
                     "kind": "param",
                     "name": "hold",
                     "default": 10,
-                    "type": "float",
+                    "type": "integer",
                     "digest": "Hold time in ms (0-ms = 1-sample click)"
                 },
                 {
@@ -85,7 +85,7 @@
                     "id": 2,
                     "kind": "input",
                     "name": "a0",
-                    "digest": "Dc coefficient, normally 0.9997 for basic dcblock()"
+                    "digest": "Dc coefficient, typically 0.9997 for basic dcblock()"
                 }
             ],
             "returns": [
@@ -183,7 +183,6 @@
                     "id": 2,
                     "kind": "param",
                     "name": "xCONST",
-                    "default": "SQRT1_2",
                     "digest": "usually sqrt1_2 or ln2 or log10e, multiplied by 1000 internally"
                 }
             ],
@@ -1449,5 +1448,8 @@
             ]
         }
     ],
-    "seealso": ["evi_approx", "evi_cossin"]
+    "seealso": [
+        "evi_approx",
+        "evi_cossin"
+    ]
 }

@@ -1,275 +1,275 @@
 {
-    "description": "",
+    "description": "Two-point PolyBLEP bandlimited oscillators, classic waveform shapes. This file also includes novel morphing oscillator types. When calling any of these functions you must deal with gain and dc yourself.",
     "requires": [],
     "functions": [
         {
             "document": true,
-            "digest": "",
+            "digest": "Two-point PolyBLEP bandlimited step function for antialiasing oscillators",
             "name": "poly_blep",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "t",
-                    "digest": ""
+                    "digest": "Phase 0..1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "dt",
-                    "digest": ""
+                    "digest": "Phase increment"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Step",
+                    "digest": "Bandlimited step"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Two-point PolyBLAMP bandlimited ramp function for antialiasing oscillators",
             "name": "poly_blamp",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "t",
-                    "digest": ""
+                    "digest": "Phase 0..1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "dt",
-                    "digest": ""
+                    "digest": "Phase increment"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Ramp",
+                    "digest": "Bandlimited ramp"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Two-point PolyBLUH (Tale TM) bandlimited curve function for antialiasing oscillators",
             "name": "poly_bluh",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "t",
-                    "digest": ""
+                    "digest": "Phase 0..1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "dt",
-                    "digest": ""
+                    "digest": "Phase increment"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Curve",
+                    "digest": "Bandlimited curve"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Saw oscillator, antialiased PolyBLEP",
             "name": "poly_saw",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "t",
-                    "digest": ""
+                    "digest": "Phase 0..1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "dt",
-                    "digest": ""
+                    "digest": "Phase increment"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Saw",
+                    "digest": "Bandlimted Saw"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Inverted saw oscillator, antialiased PolyBLEP",
             "name": "poly_ramp",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "t",
-                    "digest": ""
+                    "digest": "Phase 0..1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "dt",
-                    "digest": ""
+                    "digest": "Phase increment"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Ramp",
+                    "digest": "Bandlimted Ramp"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Rect oscillator, antialiased PolyBLEP",
             "name": "poly_sqr",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "t",
-                    "digest": ""
+                    "digest": "Phase 0..1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "dt",
-                    "digest": ""
+                    "digest": "Phase increment"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Rect",
+                    "digest": "Bandlimted Rect"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Rect oscillator with PWM, antialiased PolyBLEP",
             "name": "poly_rect",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "t",
-                    "digest": ""
+                    "digest": "Phase 0..1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "dt",
-                    "digest": ""
+                    "digest": "Phase increment"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "pw",
-                    "digest": ""
+                    "digest": "Pulse width 0..1"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Rect",
+                    "digest": "Bandlimted Rect"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Rect oscillator with PWM, antialiased PolyBLEP",
             "name": "poly_sqr2",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "t",
-                    "digest": ""
+                    "digest": "Phase 0..1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "dt",
-                    "digest": ""
+                    "digest": "Phase increment"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "pw",
-                    "digest": ""
+                    "digest": "Pulse width 0..1 morphs between bipolar_pulse..square_steps..rect"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Rect",
+                    "digest": "Bandlimted Rect"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Tri oscillator, antialiased PolyBLEP",
             "name": "poly_tri",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "t",
-                    "digest": ""
+                    "digest": "Phase 0..1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "dt",
-                    "digest": ""
+                    "digest": "Phase increment"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Tri",
+                    "digest": "Bandlimted Tri"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Tri oscillator with PWM, antialiased PolyBLEP",
             "name": "poly_tri2",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "t",
-                    "digest": ""
+                    "digest": "Phase 0..1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "dt",
-                    "digest": ""
+                    "digest": "Phase increment"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "pw",
-                    "digest": ""
+                    "digest": "Pulse width 0..1 morphs between -sawtooth..sawtooth through tri"
                 }
             ],
             "returns": [
@@ -282,288 +282,288 @@
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Tri pulse oscillator with PWM, antialiased PolyBLEP",
             "name": "poly_trip",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "t",
-                    "digest": ""
+                    "digest": "Phase 0..1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "dt",
-                    "digest": ""
+                    "digest": "Phase increment"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "pw",
-                    "digest": ""
+                    "digest": "Pulse width 0..1 morphs between +pulse..tri"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Tri",
+                    "digest": "Bandlimted Tri"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Trapezoid oscillator, antialiased PolyBLEP",
             "name": "poly_trap",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "t",
-                    "digest": ""
+                    "digest": "Phase 0..1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "dt",
-                    "digest": ""
+                    "digest": "Phase increment"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Trapezoid",
+                    "digest": "Bandlimted Trapezoid"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Trapezoid oscillator with PWM, antialiased PolyBLEP",
             "name": "poly_trap2",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "t",
-                    "digest": ""
+                    "digest": "Phase 0..1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "dt",
-                    "digest": ""
+                    "digest": "Phase increment"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "pw",
-                    "digest": ""
+                    "digest": "Pulse width 0..1 morphs between triangle..square_rect"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Trapezoid",
+                    "digest": "Bandlimted Trapezoid"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Morphing oscillator, morphs between -saw..tri..saw+ and remains bandlimited at extremes",
             "name": "morph_saw_tri_saw",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "t",
-                    "digest": ""
+                    "digest": "Phase 0..1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "dt",
-                    "digest": ""
+                    "digest": "Phase increment"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "morph",
-                    "digest": ""
+                    "digest": "Morph 0..1 morphs between -saw..tri..saw+"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Morph",
+                    "digest": "Bandlimted Morph"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Morphing oscillator, morphs from saw..rect through triangle/trapezoid and remains bandlimited at extremes",
             "name": "morph_saw_tri_square",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "t",
-                    "digest": ""
+                    "digest": "Phase 0..1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "dt",
-                    "digest": ""
+                    "digest": "Phase increment"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "morph",
-                    "digest": ""
+                    "digest": "Morph 0..1 morphs between saw..tri..trap..rect"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Morph",
+                    "digest": "Bandlimted Morph"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Morphing oscillator, morphs between pulse..tri..pulse and remains bandlimited at extremes",
             "name": "morph_pulse_tri_pulse",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "t",
-                    "digest": ""
+                    "digest": "Phase 0..1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "dt",
-                    "digest": ""
+                    "digest": "Phase increment"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "morph",
-                    "digest": ""
+                    "digest": "Morph 0..1 morphs between pulse..tri..pulse"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Morph",
+                    "digest": "Bandlimted Morph"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Morphing oscillator, morphs from saw..-pulse through triangle/trapezoid and remains bandlimited at extremes",
             "name": "morph_sawpulse_trirect",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "t",
-                    "digest": ""
+                    "digest": "Phase 0..1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "dt",
-                    "digest": ""
+                    "digest": "Phase increment"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "morph",
-                    "digest": ""
+                    "digest": "Morph 0..1 morphs between saw..tri/trap..-pulse"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Morph",
+                    "digest": "Bandlimted Morph"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Morphing oscillator, morphs from +pulse..-pulse through triangle/trapezoid and remains bandlimited at extremes",
             "name": "morph_pulsepulse_trirect",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "t",
-                    "digest": ""
+                    "digest": "Phase 0..1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "dt",
-                    "digest": ""
+                    "digest": "Phase increment"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "morph",
-                    "digest": ""
+                    "digest": "Morph 0..1 morphs between +pulse..tri/trap..-pulse"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Morph",
+                    "digest": "Bandlimted Morph"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Morph 0..1 morphs between +pulse..tri/trap..±pulse",
             "name": "morph_pulsebipulse_trirect",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "t",
-                    "digest": ""
+                    "digest": "Phase 0..1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "dt",
-                    "digest": ""
+                    "digest": "Phase increment"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "morph",
-                    "digest": ""
+                    "digest": "Morph 0..1 morphs between +pulse..tri/trap..±pulse"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Morph",
+                    "digest": "Bandlimted Morph"
                 }
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "poly_half20",
             "inputs": [
@@ -571,13 +571,13 @@
                     "id": 1,
                     "kind": "input",
                     "name": "t",
-                    "digest": ""
+                    "digest": "Phase 0..1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "dt",
-                    "digest": ""
+                    "digest": "Phase increment"
                 },
                 {
                     "id": 3,
@@ -595,5 +595,5 @@
             ]
         }
     ],
-    "seealso": []
+    "seealso": ["evi_polyblep", "evi_polyblep_four", "evi_polyblep_shapes", "evi_polyblep_utility"]
 }

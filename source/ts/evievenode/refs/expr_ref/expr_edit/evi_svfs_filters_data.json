@@ -1,114 +1,114 @@
 {
-    "description": "",
+    "description": "This file contains the actual DSP filter sections used throughout evieve. The two different types of filter sections (here labled 'TPT' and 'LTO' but actually the same principle), are alternative ways of achieving a similar result. The 'TPT' sections are methematical and well suited to nonlinearising, the 'LTO' sections are circuit analysed and well suited to EQ building, but the choice of which to use is largely circumstance specific.",
     "requires": [
         "evi_interp.genexpr"
     ],
     "functions": [
         {
             "document": true,
-            "digest": "",
+            "digest": "The linear TPT filter, after Zavalishin, we use this filter section to create our filter types by summing the outputs",
             "name": "tptSvf",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "g",
-                    "digest": ""
+                    "digest": "g coefficient"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "r",
-                    "digest": ""
+                    "digest": "r coefficient"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "a",
-                    "digest": ""
+                    "digest": "a coefficient"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "yL",
+                    "digest": "Lowpass output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "yB",
+                    "digest": "Bandpass output"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "yH",
+                    "digest": "Highpass output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Same as 'tptSvf()' but with state reset input",
             "name": "tptSvfReset",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "g",
-                    "digest": ""
+                    "digest": "g coefficient"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "r",
-                    "digest": ""
+                    "digest": "r coefficient"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "a",
-                    "digest": ""
+                    "digest": "a coefficient"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "reset",
-                    "digest": ""
+                    "digest": "Sample accurate reset of internal filter state ('clear')"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "yL",
+                    "digest": "Lowpass output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "yB",
+                    "digest": "Bandpass output"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "yH",
+                    "digest": "Highpass output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Onepole version of the TPT filter, for building odd ordered cascades etc, use 'cL' 'cH' to mix",
             "name": "tptSvfOnePole",
             "inputs": [
                 {
@@ -121,25 +121,25 @@
                     "id": 2,
                     "kind": "input",
                     "name": "g",
-                    "digest": ""
+                    "digest": "g coefficient"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "lp",
+                    "digest": "Lowpass output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "hp",
+                    "digest": "Highpass output"
                 }
             ]
         },
         {
-            "document": true,
-            "digest": "",
+            "document": false,
+            "digest": "Inner filter with two passes for 2x wrapping",
             "name": "tptSvf2",
             "inputs": [
                 {
@@ -208,7 +208,7 @@
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "2x oversampling on the linear twopole filter with all three outputs, this works, but is not too successful in the task of extending HF response",
             "name": "tptSvf2_2x",
             "inputs": [
                 {
@@ -221,36 +221,36 @@
                     "id": 2,
                     "kind": "input",
                     "name": "g",
-                    "digest": ""
+                    "digest": "g coefficient"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "r",
-                    "digest": ""
+                    "digest": "r coefficient"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "a",
-                    "digest": ""
+                    "digest": "a coefficient"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "yL",
+                    "digest": "Lowpass output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "yB",
+                    "digest": "Bandpass output"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "yH",
+                    "digest": "Highpass output"
                 }
             ]
         },
@@ -276,20 +276,20 @@
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Simple coefficients calculator for single 'tptSvf()' unit as used in [evi.svf~]",
             "name": "tptSvfUnit",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 },
                 {
                     "id": 3,
@@ -297,30 +297,30 @@
                     "name": "os",
                     "default": 0,
                     "type": "integer",
-                    "digest": ""
+                    "digest": "(Optional), external oversampling factor if used with 'tptSvf2_2x()'"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "g",
+                    "digest": "g coefficient"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "r",
+                    "digest": "r coefficient"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "h",
+                    "digest": "h coefficient"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Version of the filter with state read in/read out from/to Data() for gen~ style cascades",
             "name": "tptSvfExternal",
             "inputs": [
                 {
@@ -333,277 +333,283 @@
                     "id": 2,
                     "kind": "input",
                     "name": "g",
-                    "digest": ""
+                    "digest": "g coefficient"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "r",
-                    "digest": ""
+                    "digest": "r coefficient"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "a",
-                    "digest": ""
+                    "digest": "a coefficient"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "s1i",
-                    "digest": ""
+                    "digest": "State 1 input"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "s2i",
-                    "digest": ""
+                    "digest": "State 2 input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "yL",
+                    "digest": "Lowpass output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "yB",
+                    "digest": "Bandpass output"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "yH",
+                    "digest": "Highpass output"
                 },
                 {
                     "id": 4,
                     "name": "",
-                    "digest": ""
+                    "digest": "State 1 output"
                 },
                 {
                     "id": 5,
                     "name": "",
-                    "digest": ""
+                    "digest": "State 2 output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "The linear LTO filter, after Simper, with a single output mixed by the 'm' mixing gains",
             "name": "svfSection",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "v0",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "a1",
-                    "digest": ""
+                    "digest": "a1 coefficient"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "a2",
-                    "digest": ""
+                    "digest": "a2 coefficient"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "a3",
-                    "digest": ""
+                    "digest": "a3 coefficient"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "m0",
-                    "digest": ""
+                    "digest": "low mixing gain"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "m1",
-                    "digest": ""
+                    "digest": "band mixing gain"
                 },
                 {
                     "id": 7,
                     "kind": "input",
                     "name": "m2",
-                    "digest": ""
+                    "digest": "high mixing gain"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Filter",
+                    "digest": "Mixed filter output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Same as 'svfSection()' but with state reset input",
             "name": "svfSectionReset",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "v0",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "a1",
-                    "digest": ""
+                    "digest": "a1 coefficient"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "a2",
-                    "digest": ""
+                    "digest": "a2 coefficient"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "a3",
-                    "digest": ""
+                    "digest": "a3 coefficient"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "m0",
-                    "digest": ""
+                    "digest": "low mixing gain"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "m1",
-                    "digest": ""
+                    "digest": "band mixing gain"
                 },
                 {
                     "id": 7,
                     "kind": "input",
                     "name": "m2",
-                    "digest": ""
+                    "digest": "high mixing gain"
                 },
                 {
                     "id": 8,
                     "kind": "input",
                     "name": "reset",
-                    "digest": ""
+                    "digest": "Sample accurate reset of internal filter state ('clear')"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Filter",
+                    "digest": "Mixed filter output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Onepole version of the LTO filter, for building odd ordered cascades etc, use 'm0' 'm2' to mix",
             "name": "svfSectionOnePole",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "g",
-                    "digest": ""
+                    "digest": "g coefficient"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "lp",
+                    "digest": "Lowpass output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "hp",
+                    "digest": "Highpass output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Utility stereo version of the LTO 'svfSection()' required for efficiency by some evieve processors",
             "name": "svfSectionStereo",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "xL",
-                    "digest": ""
+                    "digest": "Left audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "xR",
-                    "digest": ""
+                    "digest": "Right audio input"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "a1",
-                    "digest": ""
+                    "digest": "a1 coefficient"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "a2",
-                    "digest": ""
+                    "digest": "a2 coefficient"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "a3",
-                    "digest": ""
+                    "digest": "a3 coefficient"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "m0",
-                    "digest": ""
+                    "digest": "low mixing gain"
                 },
                 {
                     "id": 7,
                     "kind": "input",
                     "name": "m1",
-                    "digest": ""
+                    "digest": "band mixing gain"
                 },
                 {
                     "id": 8,
                     "kind": "input",
                     "name": "m2",
-                    "digest": ""
+                    "digest": "high mixing gain"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Filter Left",
+                    "digest": "Left audio output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Filter Right",
+                    "digest": "Right audio output"
                 }
             ]
         }
     ],
-    "seealso": []
+    "seealso": [
+        "evi_svfs",
+        "evi_svfs_tpt",
+        "evi_svfs_tpt_filters",
+        "evi_svfs_lto",
+        "evi_svfs_lto_extras"
+    ]
 }

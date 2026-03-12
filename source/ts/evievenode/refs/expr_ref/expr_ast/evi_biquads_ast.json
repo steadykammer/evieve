@@ -12,8 +12,8 @@
                 "arguments": [
                     {
                         "type": "Literal",
-                        "value": "evi_biquads_coeffs",
-                        "raw": "\"evi_biquads_coeffs\"",
+                        "value": "evi_biquads_union.genexpr",
+                        "raw": "\"evi_biquads_union.genexpr\"",
                         "gen_kind": "string"
                     }
                 ]
@@ -31,8 +31,8 @@
                 "arguments": [
                     {
                         "type": "Literal",
-                        "value": "evi_biquads_selectors",
-                        "raw": "\"evi_biquads_selectors\"",
+                        "value": "evi_biquads_filters.genexpr",
+                        "raw": "\"evi_biquads_filters.genexpr\"",
                         "gen_kind": "string"
                     }
                 ]
@@ -50,27 +50,8 @@
                 "arguments": [
                     {
                         "type": "Literal",
-                        "value": "evi_biquads_filters",
-                        "raw": "\"evi_biquads_filters\"",
-                        "gen_kind": "string"
-                    }
-                ]
-            },
-            "gen_kind": "compiler_command"
-        },
-        {
-            "type": "ExpressionStatement",
-            "expression": {
-                "type": "CallExpression",
-                "callee": {
-                    "type": "Identifier",
-                    "name": "require"
-                },
-                "arguments": [
-                    {
-                        "type": "Literal",
-                        "value": "evi_biquads_extras",
-                        "raw": "\"evi_biquads_extras\"",
+                        "value": "evi_biquads_extras.genexpr",
+                        "raw": "\"evi_biquads_extras.genexpr\"",
                         "gen_kind": "string"
                     }
                 ]

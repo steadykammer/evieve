@@ -15,305 +15,341 @@
     evi_svfs_filters.genexpr <br />
     <br />
     <b>About this File</b>: <br />
-     <br />
+    Using this require file you can access coefficients selectors for all LTO SVF filters in evieve with corresponding all-in-one filter sections. This file also includes all-in-one parametric EQ filter blocks. <br />
   </description>
   <misc name="GenExpr Functions">
     <entry name="svfSectionCoeff ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: filter, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: cutoff, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: gain, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: fullQ, <i></i> <br />
+        General coefficients calculator for the 11 available filter types using the LTO SVF <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: filter, <i>(int) filter index (type), see source code for listing</i> <br />
+        <b>In 2</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 3</b>: type=<i>input</i>: gain, <i>Gain (linear)</i> <br />
+        <b>In 4</b>: type=<i>input</i>: fullQ, <i>Q</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
-        <b>Return 5</b>: , <i></i> <br />
-        <b>Return 6</b>: , <i></i> <br />
+        <b>Return 1</b>: a1, <i>a1 coefficient</i> <br />
+        <b>Return 2</b>: a2, <i>a2 coefficient</i> <br />
+        <b>Return 3</b>: a3, <i>a3 coefficient</i> <br />
+        <b>Return 4</b>: m0, <i>low mixing gain</i> <br />
+        <b>Return 5</b>: m1, <i>band mixing gain</i> <br />
+        <b>Return 6</b>: m2, <i>high mixing gain</i> <br />
 
       </description>
     </entry>
     <entry name="svfSectionCoeffNoTilde ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: filter, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: cutoff, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: gain, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: fullQ, <i></i> <br />
-        <b>In 5</b>: type=<i>param</i> (optional): AUDIO_SR, default: <b>48000</b>, <i></i> <br />
+        A gen (no tilde) version of 'svfSectionCoeff()' for using at schedular rate <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: filter, <i>(int) filter index (type), see source code for listing</i> <br />
+        <b>In 2</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 3</b>: type=<i>input</i>: gain, <i>Gain (linear)</i> <br />
+        <b>In 4</b>: type=<i>input</i>: fullQ, <i>Q</i> <br />
+        <b>In 5</b>: type=<i>param</i> (optional): AUDIO_SR, default: <b>48000</b>, <i>You must pass in the audio samplerate for usage in gen (no tilde)</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
-        <b>Return 5</b>: , <i></i> <br />
-        <b>Return 6</b>: , <i></i> <br />
+        <b>Return 1</b>: a1, <i>a1 coefficient</i> <br />
+        <b>Return 2</b>: a2, <i>a2 coefficient</i> <br />
+        <b>Return 3</b>: a3, <i>a3 coefficient</i> <br />
+        <b>Return 4</b>: m0, <i>low mixing gain</i> <br />
+        <b>Return 5</b>: m1, <i>band mixing gain</i> <br />
+        <b>Return 6</b>: m2, <i>high mixing gain</i> <br />
 
       </description>
     </entry>
     <entry name="eviFilterLto ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: cutoff, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: db, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: Q, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: filter, <i></i> <br />
-        <b>In 6</b>: type=<i>param</i> (optional): smooth, default: <b>0</b>, <i></i> <br />
+        All-in-one coefficients and filter section for the 11 LTO filter types <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 3</b>: type=<i>input</i>: db, <i>Gain in dB</i> <br />
+        <b>In 4</b>: type=<i>input</i>: Q, <i>Q</i> <br />
+        <b>In 5</b>: type=<i>input</i>: filter, <i>(int) filter index (type), see source code for listing</i> <br />
+        <b>In 6</b>: type=<i>param</i> (optional): smooth, default: <b>0</b>, <i>If &gt; 0, ms smoothing time of required mixing gains</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Filter, <i>Filtered audio output</i> <br />
 
       </description>
     </entry>
     <entry name="eviFilterLtoReset ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: cutoff, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: db, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: Q, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: filter, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: reset, <i></i> <br />
-        <b>In 7</b>: type=<i>param</i> (optional): smooth, default: <b>0</b>, <i></i> <br />
+        Same as 'eviFilterLto()' but with a state reset inlet <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 3</b>: type=<i>input</i>: db, <i>Gain in dB</i> <br />
+        <b>In 4</b>: type=<i>input</i>: Q, <i>Q</i> <br />
+        <b>In 5</b>: type=<i>input</i>: filter, <i>(int) filter index (type), see source code for listing</i> <br />
+        <b>In 6</b>: type=<i>input</i>: reset, <i>Sample accurate reset of internal filter state (&#x27;clear&#x27;)</i> <br />
+        <b>In 7</b>: type=<i>param</i> (optional): smooth, default: <b>0</b>, <i>If &gt; 0, ms smoothing time of required mixing gains</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Filter, <i>Filtered audio output</i> <br />
 
       </description>
     </entry>
     <entry name="svfSectionCoeffEq ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: filter, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: cutoff, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: gain, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: Q, <i></i> <br />
+        Just EQ coefficients calculator for the 7 available EQ types using the LTO SVF <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: filter, <i>(int) filter index (type), see source code for listing</i> <br />
+        <b>In 2</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 3</b>: type=<i>input</i>: gain, <i>Gain (linear)</i> <br />
+        <b>In 4</b>: type=<i>input</i>: Q, <i>Q</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
-        <b>Return 5</b>: , <i></i> <br />
-        <b>Return 6</b>: , <i></i> <br />
+        <b>Return 1</b>: a1, <i>a1 coefficient</i> <br />
+        <b>Return 2</b>: a2, <i>a2 coefficient</i> <br />
+        <b>Return 3</b>: a3, <i>a3 coefficient</i> <br />
+        <b>Return 4</b>: m0, <i>low mixing gain</i> <br />
+        <b>Return 5</b>: m1, <i>band mixing gain</i> <br />
+        <b>Return 6</b>: m2, <i>high mixing gain</i> <br />
 
       </description>
     </entry>
     <entry name="svfSectionCoeffEqNoTilde ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: filter, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: cutoff, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: gain, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: Q, <i></i> <br />
-        <b>In 5</b>: type=<i>param</i> (optional): AUDIO_SR, default: <b>48000</b>, <i></i> <br />
+        A gen (no tilde) version of 'svfSectionCoeffEq()' for using at schedular rate <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: filter, <i>(int) filter index (type), see source code for listing</i> <br />
+        <b>In 2</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 3</b>: type=<i>input</i>: gain, <i>Gain (linear)</i> <br />
+        <b>In 4</b>: type=<i>input</i>: Q, <i>Q</i> <br />
+        <b>In 5</b>: type=<i>param</i> (optional): AUDIO_SR, default: <b>48000</b>, <i>You must pass in the audio samplerate for usage in gen (no tilde)</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
-        <b>Return 5</b>: , <i></i> <br />
-        <b>Return 6</b>: , <i></i> <br />
+        <b>Return 1</b>: a1, <i>a1 coefficient</i> <br />
+        <b>Return 2</b>: a2, <i>a2 coefficient</i> <br />
+        <b>Return 3</b>: a3, <i>a3 coefficient</i> <br />
+        <b>Return 4</b>: m0, <i>low mixing gain</i> <br />
+        <b>Return 5</b>: m1, <i>band mixing gain</i> <br />
+        <b>Return 6</b>: m2, <i>high mixing gain</i> <br />
 
       </description>
     </entry>
     <entry name="eviFilterEq ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: cutoff, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: db, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: Q, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: filter, <i></i> <br />
-        <b>In 6</b>: type=<i>param</i> (optional): smooth, default: <b>0</b>, <i></i> <br />
+        All-in-one coefficients and filter section for the 7 LTO EQ filter types <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 3</b>: type=<i>input</i>: db, <i>Gain in dB</i> <br />
+        <b>In 4</b>: type=<i>input</i>: Q, <i>Q</i> <br />
+        <b>In 5</b>: type=<i>input</i>: filter, <i>(int) filter index (type), see source code for listing</i> <br />
+        <b>In 6</b>: type=<i>param</i> (optional): smooth, default: <b>0</b>, <i>If &gt; 0, ms smoothing time of required mixing gains</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Filter, <i>Filtered audio output</i> <br />
 
       </description>
     </entry>
     <entry name="eviFilterEqReset ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: cutoff, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: db, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: Q, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: filter, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: reset, <i></i> <br />
-        <b>In 7</b>: type=<i>param</i> (optional): smooth, default: <b>0</b>, <i></i> <br />
+        Same as 'eviFilterEq()' but with a state reset inlet <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 3</b>: type=<i>input</i>: db, <i>Gain in dB</i> <br />
+        <b>In 4</b>: type=<i>input</i>: Q, <i>Q</i> <br />
+        <b>In 5</b>: type=<i>input</i>: filter, <i>(int) filter index (type), see source code for listing</i> <br />
+        <b>In 6</b>: type=<i>input</i>: reset, <i>Sample accurate reset of internal filter state (&#x27;clear&#x27;)</i> <br />
+        <b>In 7</b>: type=<i>param</i> (optional): smooth, default: <b>0</b>, <i>If &gt; 0, ms smoothing time of required mixing gains</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Filter, <i>Filtered audio output</i> <br />
 
       </description>
     </entry>
     <entry name="eviFilterEq4 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: cutoff, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: db, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: Q, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: filter, <i></i> <br />
-        <b>In 6</b>: type=<i>param</i> (optional): smooth, default: <b>0</b>, <i></i> <br />
+        A version of 'eviFilterEq()' for Lowpass and Highpass filter types with steeper 4-pole filters <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 3</b>: type=<i>input</i>: db, <i>Gain in dB</i> <br />
+        <b>In 4</b>: type=<i>input</i>: Q, <i>Q</i> <br />
+        <b>In 5</b>: type=<i>input</i>: filter, <i>(int) filter index (type), 1&#x3D;&#x3D;Highpass, 7&#x3D;&#x3D;Lowpass</i> <br />
+        <b>In 6</b>: type=<i>param</i> (optional): smooth, default: <b>0</b>, <i>If &gt; 0, ms smoothing time of required mixing gains</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: 4-pole Filter, <i>Filtered audio output</i> <br />
 
       </description>
     </entry>
     <entry name="eviFilterEq4Reset ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: cutoff, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: db, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: Q, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: filter, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: reset, <i></i> <br />
-        <b>In 7</b>: type=<i>param</i> (optional): smooth, default: <b>0</b>, <i></i> <br />
+        Same as 'eviFilterEq4()' but with a state reset inlet <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 3</b>: type=<i>input</i>: db, <i>Gain in dB</i> <br />
+        <b>In 4</b>: type=<i>input</i>: Q, <i>Q</i> <br />
+        <b>In 5</b>: type=<i>input</i>: filter, <i>(int) filter index (type), 1&#x3D;&#x3D;Highpass, 7&#x3D;&#x3D;Lowpass</i> <br />
+        <b>In 6</b>: type=<i>input</i>: reset, <i>Sample accurate reset of internal filter state (&#x27;clear&#x27;)</i> <br />
+        <b>In 7</b>: type=<i>param</i> (optional): smooth, default: <b>0</b>, <i>If &gt; 0, ms smoothing time of required mixing gains</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: 4-pole Filter, <i>Filtered audio output</i> <br />
 
       </description>
     </entry>
     <entry name="eviFilterEqStereo ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: xL, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: xR, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: cutoff, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: db, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: Q, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: filter, <i></i> <br />
-        <b>In 7</b>: type=<i>param</i> (optional): smooth, default: <b>0</b>, <i></i> <br />
+        Stereo version of 'eviFilterEq()' <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: xL, <i>Left audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: xR, <i>Right audio input</i> <br />
+        <b>In 3</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 4</b>: type=<i>input</i>: db, <i>Gain in dB</i> <br />
+        <b>In 5</b>: type=<i>input</i>: Q, <i>Q</i> <br />
+        <b>In 6</b>: type=<i>input</i>: filter, <i>(int) filter index (type), see source code for listing</i> <br />
+        <b>In 7</b>: type=<i>param</i> (optional): smooth, default: <b>0</b>, <i>If &gt; 0, ms smoothing time of required mixing gains</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
+        <b>Return 1</b>: Left Filter, <i>Left audio output</i> <br />
+        <b>Return 2</b>: Right Filter, <i>Right audio output</i> <br />
 
       </description>
     </entry>
     <entry name="eviFilterEq4Stereo ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: xL, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: xR, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: cutoff, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: db, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: Q, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: filter, <i></i> <br />
-        <b>In 7</b>: type=<i>param</i> (optional): smooth, default: <b>0</b>, <i></i> <br />
+        Stereo version of 'eviFilterEq4()' <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: xL, <i>Left audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: xR, <i>Right audio input</i> <br />
+        <b>In 3</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 4</b>: type=<i>input</i>: db, <i>Gain in dB</i> <br />
+        <b>In 5</b>: type=<i>input</i>: Q, <i>Q</i> <br />
+        <b>In 6</b>: type=<i>input</i>: filter, <i>(int) filter index (type), 1&#x3D;&#x3D;Highpass, 7&#x3D;&#x3D;Lowpass</i> <br />
+        <b>In 7</b>: type=<i>param</i> (optional): smooth, default: <b>0</b>, <i>If &gt; 0, ms smoothing time of required mixing gains</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
+        <b>Return 1</b>: Left Filter, <i>Left audio output</i> <br />
+        <b>Return 2</b>: Right Filter, <i>Right audio output</i> <br />
 
       </description>
     </entry>
     <entry name="eviSvfTwoSections ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: band0, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: a11, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: a21, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: a31, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: m01, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: m11, <i></i> <br />
-        <b>In 7</b>: type=<i>input</i>: m21, <i></i> <br />
-        <b>In 8</b>: type=<i>input</i>: a12, <i></i> <br />
-        <b>In 9</b>: type=<i>input</i>: a22, <i></i> <br />
-        <b>In 10</b>: type=<i>input</i>: a32, <i></i> <br />
-        <b>In 11</b>: type=<i>input</i>: m02, <i></i> <br />
-        <b>In 12</b>: type=<i>input</i>: m12, <i></i> <br />
-        <b>In 13</b>: type=<i>input</i>: m22, <i></i> <br />
+        Two raw SVF sections in series, 0 dB gain input zeros cpu of gain filters (shelfs, bell) <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: band0, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: a11, <i>a1 coefficient 1</i> <br />
+        <b>In 3</b>: type=<i>input</i>: a21, <i>a2 coefficient 1</i> <br />
+        <b>In 4</b>: type=<i>input</i>: a31, <i>a3 coefficient 1</i> <br />
+        <b>In 5</b>: type=<i>input</i>: m01, <i>low mixing gain 1</i> <br />
+        <b>In 6</b>: type=<i>input</i>: m11, <i>band mixing gain 1</i> <br />
+        <b>In 7</b>: type=<i>input</i>: m21, <i>high mixing gain 1</i> <br />
+        <b>In 8</b>: type=<i>input</i>: a12, <i>a1 coefficient 2</i> <br />
+        <b>In 9</b>: type=<i>input</i>: a22, <i>a2 coefficient 2</i> <br />
+        <b>In 10</b>: type=<i>input</i>: a32, <i>a3 coefficient 2</i> <br />
+        <b>In 11</b>: type=<i>input</i>: m02, <i>low mixing gain 2</i> <br />
+        <b>In 12</b>: type=<i>input</i>: m12, <i>band mixing gain 2</i> <br />
+        <b>In 13</b>: type=<i>input</i>: m22, <i>high mixing gain 2</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Filter, <i>Filtered audio output</i> <br />
 
       </description>
     </entry>
     <entry name="eviSvfTwoSectionsStereo ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: band0L, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: band0R, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: a11, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: a21, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: a31, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: m01, <i></i> <br />
-        <b>In 7</b>: type=<i>input</i>: m11, <i></i> <br />
-        <b>In 8</b>: type=<i>input</i>: m21, <i></i> <br />
-        <b>In 9</b>: type=<i>input</i>: a12, <i></i> <br />
-        <b>In 10</b>: type=<i>input</i>: a22, <i></i> <br />
-        <b>In 11</b>: type=<i>input</i>: a32, <i></i> <br />
-        <b>In 12</b>: type=<i>input</i>: m02, <i></i> <br />
-        <b>In 13</b>: type=<i>input</i>: m12, <i></i> <br />
-        <b>In 14</b>: type=<i>input</i>: m22, <i></i> <br />
+        Stereo version of 'eviSvfTwoSections()' <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: band0L, <i>Left audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: band0R, <i>Right audio input</i> <br />
+        <b>In 3</b>: type=<i>input</i>: a11, <i>a1 coefficient 1</i> <br />
+        <b>In 4</b>: type=<i>input</i>: a21, <i>a2 coefficient 1</i> <br />
+        <b>In 5</b>: type=<i>input</i>: a31, <i>a3 coefficient 1</i> <br />
+        <b>In 6</b>: type=<i>input</i>: m01, <i>low mixing gain 1</i> <br />
+        <b>In 7</b>: type=<i>input</i>: m11, <i>band mixing gain 1</i> <br />
+        <b>In 8</b>: type=<i>input</i>: m21, <i>high mixing gain 1</i> <br />
+        <b>In 9</b>: type=<i>input</i>: a12, <i>a1 coefficient 2</i> <br />
+        <b>In 10</b>: type=<i>input</i>: a22, <i>a2 coefficient 2</i> <br />
+        <b>In 11</b>: type=<i>input</i>: a32, <i>a3 coefficient 2</i> <br />
+        <b>In 12</b>: type=<i>input</i>: m02, <i>low mixing gain 2</i> <br />
+        <b>In 13</b>: type=<i>input</i>: m12, <i>band mixing gain 2</i> <br />
+        <b>In 14</b>: type=<i>input</i>: m22, <i>high mixing gain 2</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
+        <b>Return 1</b>: Left Filter, <i>Left audio output</i> <br />
+        <b>Return 2</b>: Right Filter, <i>Right audio output</i> <br />
 
       </description>
     </entry>
     <entry name="eviParametric2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: filter1, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: cutoff1, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: db1, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: Q1, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: filter2, <i></i> <br />
-        <b>In 7</b>: type=<i>input</i>: cutoff2, <i></i> <br />
-        <b>In 8</b>: type=<i>input</i>: db2, <i></i> <br />
-        <b>In 9</b>: type=<i>input</i>: Q2, <i></i> <br />
-        <b>In 10</b>: type=<i>param</i> (optional): smooth, default: <b>0</b>, <i></i> <br />
+        Two-band parametric EQ wrapper <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: filter1, <i>(int) filter 1 index (type), see source code for listing</i> <br />
+        <b>In 3</b>: type=<i>input</i>: cutoff1, <i>Cutoff frequency in Hz band 1</i> <br />
+        <b>In 4</b>: type=<i>input</i>: db1, <i>Gain in dB band 1</i> <br />
+        <b>In 5</b>: type=<i>input</i>: Q1, <i>Q band 1</i> <br />
+        <b>In 6</b>: type=<i>input</i>: filter2, <i>(int) filter 2 index (type), see source code for listing</i> <br />
+        <b>In 7</b>: type=<i>input</i>: cutoff2, <i>Cutoff frequency in Hz band 2</i> <br />
+        <b>In 8</b>: type=<i>input</i>: db2, <i>Gain in dB band 2</i> <br />
+        <b>In 9</b>: type=<i>input</i>: Q2, <i>Q band 2</i> <br />
+        <b>In 10</b>: type=<i>param</i> (optional): smooth, default: <b>0</b>, <i>If &gt; 0, ms smoothing time of required mixing gains</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: EQ, <i>Filtered audio output</i> <br />
 
       </description>
     </entry>
     <entry name="eviParametric3 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: filter1, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: cutoff1, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: db1, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: Q1, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: filter2, <i></i> <br />
-        <b>In 7</b>: type=<i>input</i>: cutoff2, <i></i> <br />
-        <b>In 8</b>: type=<i>input</i>: db2, <i></i> <br />
-        <b>In 9</b>: type=<i>input</i>: Q2, <i></i> <br />
-        <b>In 10</b>: type=<i>input</i>: filter3, <i></i> <br />
-        <b>In 11</b>: type=<i>input</i>: cutoff3, <i></i> <br />
-        <b>In 12</b>: type=<i>input</i>: db3, <i></i> <br />
-        <b>In 13</b>: type=<i>input</i>: Q3, <i></i> <br />
-        <b>In 14</b>: type=<i>param</i> (optional): smooth, default: <b>0</b>, <i></i> <br />
+        Three-band parametric EQ wrapper <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: filter1, <i>(int) filter 1 index (type), see source code for listing</i> <br />
+        <b>In 3</b>: type=<i>input</i>: cutoff1, <i>Cutoff frequency in Hz band 1</i> <br />
+        <b>In 4</b>: type=<i>input</i>: db1, <i>Gain in dB band 1</i> <br />
+        <b>In 5</b>: type=<i>input</i>: Q1, <i>Q band 1</i> <br />
+        <b>In 6</b>: type=<i>input</i>: filter2, <i>(int) filter 2 index (type), see source code for listing</i> <br />
+        <b>In 7</b>: type=<i>input</i>: cutoff2, <i>Cutoff frequency in Hz band 2</i> <br />
+        <b>In 8</b>: type=<i>input</i>: db2, <i>Gain in dB band 2</i> <br />
+        <b>In 9</b>: type=<i>input</i>: Q2, <i>Q band 2</i> <br />
+        <b>In 10</b>: type=<i>input</i>: filter3, <i>(int) filter 3 index (type), see source code for listing</i> <br />
+        <b>In 11</b>: type=<i>input</i>: cutoff3, <i>Cutoff frequency in Hz band 3</i> <br />
+        <b>In 12</b>: type=<i>input</i>: db3, <i>Gain in dB band 3</i> <br />
+        <b>In 13</b>: type=<i>input</i>: Q3, <i>Q band 3</i> <br />
+        <b>In 14</b>: type=<i>param</i> (optional): smooth, default: <b>0</b>, <i>If &gt; 0, ms smoothing time of required mixing gains</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: EQ, <i>Filtered audio output</i> <br />
 
       </description>
     </entry>
     <entry name="eviParametricStereo2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: xL, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: xR, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: filter1, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: cutoff1, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: db1, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: Q1, <i></i> <br />
-        <b>In 7</b>: type=<i>input</i>: filter2, <i></i> <br />
-        <b>In 8</b>: type=<i>input</i>: cutoff2, <i></i> <br />
-        <b>In 9</b>: type=<i>input</i>: db2, <i></i> <br />
-        <b>In 10</b>: type=<i>input</i>: Q2, <i></i> <br />
-        <b>In 11</b>: type=<i>param</i> (optional): smooth, default: <b>0</b>, <i></i> <br />
+        Stereo version of 'eviParametric2()' <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: xL, <i>Left audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: xR, <i>Right audio input</i> <br />
+        <b>In 3</b>: type=<i>input</i>: filter1, <i>(int) filter 1 index (type), see source code for listing</i> <br />
+        <b>In 4</b>: type=<i>input</i>: cutoff1, <i>Cutoff frequency in Hz band 1</i> <br />
+        <b>In 5</b>: type=<i>input</i>: db1, <i>Gain in dB band 1</i> <br />
+        <b>In 6</b>: type=<i>input</i>: Q1, <i>Q band 1</i> <br />
+        <b>In 7</b>: type=<i>input</i>: filter2, <i>(int) filter 2 index (type), see source code for listing</i> <br />
+        <b>In 8</b>: type=<i>input</i>: cutoff2, <i>Cutoff frequency in Hz band 2</i> <br />
+        <b>In 9</b>: type=<i>input</i>: db2, <i>Gain in dB band 2</i> <br />
+        <b>In 10</b>: type=<i>input</i>: Q2, <i>Q band 2</i> <br />
+        <b>In 11</b>: type=<i>param</i> (optional): smooth, default: <b>0</b>, <i>If &gt; 0, ms smoothing time of required mixing gains</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
+        <b>Return 1</b>: EQ Left, <i>Left audio output</i> <br />
+        <b>Return 2</b>: EQ Right, <i>Right audio output</i> <br />
 
       </description>
     </entry>
     <entry name="eviParametricStereo3 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: xL, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: xR, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: filter1, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: cutoff1, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: db1, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: Q1, <i></i> <br />
-        <b>In 7</b>: type=<i>input</i>: filter2, <i></i> <br />
-        <b>In 8</b>: type=<i>input</i>: cutoff2, <i></i> <br />
-        <b>In 9</b>: type=<i>input</i>: db2, <i></i> <br />
-        <b>In 10</b>: type=<i>input</i>: Q2, <i></i> <br />
-        <b>In 11</b>: type=<i>input</i>: filter3, <i></i> <br />
-        <b>In 12</b>: type=<i>input</i>: cutoff3, <i></i> <br />
-        <b>In 13</b>: type=<i>input</i>: db3, <i></i> <br />
-        <b>In 14</b>: type=<i>input</i>: Q3, <i></i> <br />
-        <b>In 15</b>: type=<i>param</i> (optional): smooth, default: <b>0</b>, <i></i> <br />
+        Stereo version of 'eviParametric3()' <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: xL, <i>Left audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: xR, <i>Right audio input</i> <br />
+        <b>In 3</b>: type=<i>input</i>: filter1, <i>(int) filter 1 index (type), see source code for listing</i> <br />
+        <b>In 4</b>: type=<i>input</i>: cutoff1, <i>Cutoff frequency in Hz band 1</i> <br />
+        <b>In 5</b>: type=<i>input</i>: db1, <i>Gain in dB band 1</i> <br />
+        <b>In 6</b>: type=<i>input</i>: Q1, <i>Q band 1</i> <br />
+        <b>In 7</b>: type=<i>input</i>: filter2, <i>(int) filter 2 index (type), see source code for listing</i> <br />
+        <b>In 8</b>: type=<i>input</i>: cutoff2, <i>Cutoff frequency in Hz band 2</i> <br />
+        <b>In 9</b>: type=<i>input</i>: db2, <i>Gain in dB band 2</i> <br />
+        <b>In 10</b>: type=<i>input</i>: Q2, <i>Q band 2</i> <br />
+        <b>In 11</b>: type=<i>input</i>: filter3, <i>(int) filter 3 index (type), see source code for listing</i> <br />
+        <b>In 12</b>: type=<i>input</i>: cutoff3, <i>Cutoff frequency in Hz band 3</i> <br />
+        <b>In 13</b>: type=<i>input</i>: db3, <i>Gain in dB band 3</i> <br />
+        <b>In 14</b>: type=<i>input</i>: Q3, <i>Q band 3</i> <br />
+        <b>In 15</b>: type=<i>param</i> (optional): smooth, default: <b>0</b>, <i>If &gt; 0, ms smoothing time of required mixing gains</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
+        <b>Return 1</b>: EQ Left, <i>Left audio output</i> <br />
+        <b>Return 2</b>: EQ Right, <i>Right audio output</i> <br />
 
       </description>
     </entry>
@@ -325,6 +361,11 @@
   </metadatalist>
   <seealsolist>
     <!-- we use 'refpage' here not 'genrefpage' to trick Max -->
+    <seealso name="evi_svfs" type="refpage"/>
+    <seealso name="evi_svfs_filters" type="refpage"/>
+    <seealso name="evi_svfs_tpt" type="refpage"/>
+    <seealso name="evi_svfs_tpt_filters" type="refpage"/>
+    <seealso name="evi_svfs_lto_extras" type="refpage"/>
   </seealsolist>
   <misc name="Discussion">
     <entry name="Keywords">

@@ -44,7 +44,7 @@
       <description>
         Not-really box-muller gaussian noise distribution implementation <br />
         <br />
-        <b>In 1</b>: type=<i>input</i>: sort-of gain, <i>A gain of 0.6403882032022076 gives very close to unity amplitude (-1..1) output</i> <br />
+        <b>In 1</b>: type=<i>input</i>: gain, <i></i> <br />
 
         <b>Return 1</b>: gaussian, <i>The gaussian noise output</i> <br />
         <b>Return 2</b>: Xoshiro256, <i>Synchronised white noise output</i> <br />

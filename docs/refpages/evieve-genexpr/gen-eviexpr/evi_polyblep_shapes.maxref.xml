@@ -15,121 +15,93 @@
     evi_polyblep_two.genexpr <br />
     <br />
     <b>About this File</b>: <br />
-     <br />
+    This file offers interesting bandlimited oscillator shapes beyond the usual boring 'classic' waveforms. These shapes are by Theo Niessink, thank you! See the source code for more information. This file also inherits 'evi_polyblep_two.genexpr' so can be used to call any of the two-point PolyBLEP Oscillators in evieve. <br />
   </description>
   <misc name="GenExpr Functions">
     <entry name="poly_half ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: t, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: dt, <i></i> <br />
+        Half wave rectified Sine, antialiased PolyBLAMP <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: t, <i>Phase 0..1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: dt, <i>Phase increment</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Sine, <i>Bandlimited Sine Rectified</i> <br />
 
       </description>
     </entry>
     <entry name="poly_half2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: t, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: dt, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: pw, <i></i> <br />
+        Half wave rectified Sine with PWM, antialiased PolyBLAMP <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: t, <i>Phase 0..1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: dt, <i>Phase increment</i> <br />
+        <b>In 3</b>: type=<i>input</i>: pw, <i>PWM 0..1 morphs between +pulse..full_wave_rectified_sine</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="poly_half22 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: t, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: dt, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: pw, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="poly_sin ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: t, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="poly_cos ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: t, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Sine, <i>Bandlimited Sine Rectified</i> <br />
 
       </description>
     </entry>
     <entry name="poly_full ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: t, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: dt, <i></i> <br />
+        Full wave rectified Sine, antialiased PolyBLAMP <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: t, <i>Phase 0..1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: dt, <i>Phase increment</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="poly_sinp ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: t, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: dt, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Sine, <i>Bandlimited Sine Rectified</i> <br />
 
       </description>
     </entry>
     <entry name="poly_sawp ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: t2, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: dt, <i></i> <br />
+        Saw pulse, antialiased PolyBLEP <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: t2, <i>Phase 0..1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: dt, <i>Phase increment</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Saw, <i>Bandlimited Saw</i> <br />
 
       </description>
     </entry>
     <entry name="poly_alt ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: t, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: dt, <i></i> <br />
+        Alternating Sine, antialiased PolyBLAMP <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: t, <i>Phase 0..1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: dt, <i>Phase increment</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Sine, <i>Bandlimited Sine</i> <br />
 
       </description>
     </entry>
     <entry name="poly_camel ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: t, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: dt, <i></i> <br />
+        Camel Sine, antialiased PolyBLAMP <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: t, <i>Phase 0..1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: dt, <i>Phase increment</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Sine, <i>Bandlimited Sine</i> <br />
 
       </description>
     </entry>
     <entry name="poly_sin2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: t, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: dt, <i></i> <br />
+        Bipolar Squared Sine, antialiased PolyBLUH <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: t, <i>Phase 0..1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: dt, <i>Phase increment</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Sine, <i>Bandlimited Sine</i> <br />
 
       </description>
     </entry>
     <entry name="poly_para ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: t, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: dt, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="poly_circ ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: t, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: dt, <i></i> <br />
+        Parabola, antialiased PolyBLUH <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: t, <i>Phase 0..1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: dt, <i>Phase increment</i> <br />
 
         <b>Return 1</b>: , <i></i> <br />
 
@@ -137,83 +109,89 @@
     </entry>
     <entry name="poly_lpsqr2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: t, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: dt, <i></i> <br />
+        2nd order lowpass filtered square approximation (actually a triangle wave) <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: t, <i>Phase 0..1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: dt, <i>Phase increment</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Tri, <i>Bandlimited Tri</i> <br />
 
       </description>
     </entry>
     <entry name="poly_lpsqr3 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: t, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: dt, <i></i> <br />
+        3rd order lowpass filtered square approximation (actually a triangle wave) <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: t, <i>Phase 0..1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: dt, <i>Phase increment</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Tri, <i>Bandlimited Tri</i> <br />
 
       </description>
     </entry>
     <entry name="poly_intsaw ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: t, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: dt, <i></i> <br />
+        Integrated sawtooth (this is like a reciprocal of 'poly_full()') <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: t, <i>Phase 0..1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: dt, <i>Phase increment</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Sine, <i>Bandlimited Sine</i> <br />
 
       </description>
     </entry>
     <entry name="poly_cubsaw ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: t, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: dt, <i></i> <br />
+        Cubic Saw (there is a better way of doing this) <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: t, <i>Phase 0..1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: dt, <i>Phase increment</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Sine, <i>Bandlimited Sine</i> <br />
 
       </description>
     </entry>
     <entry name="poly_sawsin ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: t, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: dt, <i></i> <br />
+        Sawtooth Sine oscillator, beautiful, works well across full frequency range <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: t, <i>Phase 0..1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: dt, <i>Phase increment</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Sine, <i>Bandlimited Saw</i> <br />
 
       </description>
     </entry>
     <entry name="poly_sinsaw ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: t, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: dt, <i></i> <br />
+        Sine Sawtooth oscillator, inverse of 'poly_sawsin()' <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: t, <i>Phase 0..1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: dt, <i>Phase increment</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Sine, <i>Bandlimited Saw</i> <br />
 
       </description>
     </entry>
     <entry name="poly_hpsaw6 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: t, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: dt, <i></i> <br />
+        Highpass filtered sawtooth approximation <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: t, <i>Phase 0..1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: dt, <i>Phase increment</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="poly_hwsaw ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: t, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: dt, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: pw, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Saw, <i>Bandlimited Saw</i> <br />
 
       </description>
     </entry>
     <entry name="poly_logit3 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: t, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: dt, <i></i> <br />
+        Logit approximation <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: t, <i>Phase 0..1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: dt, <i>Phase increment</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Saw, <i>Bandlimited Saw</i> <br />
 
       </description>
     </entry>
@@ -225,6 +203,10 @@
   </metadatalist>
   <seealsolist>
     <!-- we use 'refpage' here not 'genrefpage' to trick Max -->
+    <seealso name="evi_polyblep" type="refpage"/>
+    <seealso name="evi_polyblep_four" type="refpage"/>
+    <seealso name="evi_polyblep_two" type="refpage"/>
+    <seealso name="evi_polyblep_utility" type="refpage"/>
   </seealsolist>
   <misc name="Discussion">
     <entry name="Keywords">

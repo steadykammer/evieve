@@ -23,8 +23,8 @@
                     "numinlets": 2,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
-                    "patching_rect": [ 11.0, 126.0, 234.0, 22.0 ],
-                    "text": "list.reg evieve_Package_Overview.maxpat"
+                    "patching_rect": [ 11.0, 126.0, 249.0, 22.0 ],
+                    "text": "list.reg \"evieve _Package _Overview.maxpat\""
                 }
             },
             {

@@ -1,9 +1,9 @@
 {
-    "description": "",
+    "description": "This file is not very interesting on it's own and simply contains code found elsewhere in the evieve Package. It is for making the evieve polyblep requires more manageable when building gen~ or MSP abstractions.",
     "requires": [],
     "functions": [
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "cosQ73",
             "inputs": [
@@ -24,128 +24,128 @@
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Cosine approximation to 7.3 digits of accuracy",
             "name": "cos73",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Phase 0..TWOPI"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Cos",
+                    "digest": "Cosine oscillator"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Sine approximation to 7.3 digits of accuracy",
             "name": "sin73",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Phase 0..TWOPI"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Sin",
+                    "digest": "Sine oscillator"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Variable dcblock() so that effect can be bypassed (a0 = 1) or active (a0 = 0.9997) or heavy (a0 = ...), with state reset inlet",
             "name": "varDcblockReset",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x0",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "a0",
-                    "digest": ""
+                    "digest": "Dc coefficient, typically 0.9997 for basic dcblock()"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "r0",
-                    "digest": ""
+                    "digest": "Sample accurate filter state reset inlet"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Audio output",
+                    "digest": "Variable dc blocked audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Dynamically vary dcblocking and gain so that oscillators can frequency dependent morph between LFOs and audio rate osciallators. Note, this is extremely suspicious code.",
             "name": "dynamicDc",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "osc",
-                    "digest": ""
+                    "digest": "Oscillator input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "dtn",
-                    "digest": ""
+                    "digest": "clip((phase_increment*2), 0, 1)"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "dcn",
-                    "digest": ""
+                    "digest": "(int) switch state, 0=dcblock off, 1=dcblock on, 2=var dc good for low oscs, 3=var dc good for high oscs"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Osc",
+                    "digest": "Oscillator output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Post-filter to decolorate (oscillator) waveshapers when (polyblep) antialiasing is used, Stefano D'Angelo, GPL v3",
             "name": "decorelateOsc",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Audio output",
+                    "digest": "Decorrelated audio output"
                 }
             ]
         }
     ],
-    "seealso": []
+    "seealso": ["evi_polyblep", "evi_polyblep_four", "evi_polyblep_two", "evi_polyblep_shapes"]
 }

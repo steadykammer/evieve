@@ -1,11 +1,17 @@
 {
     "description": "This file requires all evieve Biquads code in one require. You will rarely need this catch-all and should look into the individual requires contained here as it is more efficient to include subsets of GenExpr code. There are more filter types when you use Biquads (40 different types in evieve) but Biquads are inferior filters to TPT SVF filters, so you might wish to use the evieve SVFs instead in most situations.",
     "requires": [
-        "evi_biquads_coeffs.genexpr",
-        "evi_biquads_selectors.genexpr",
+        "evi_biquads_union.genexpr",
         "evi_biquads_filters.genexpr",
         "evi_biquads_extras.genexpr"
     ],
     "functions": [],
-    "seealso": ["evi_biquads_coeffs", "evi_biquads_selectors", "evi_biquads_union", "evi_biquads_filters", "evi_biquads_extras", "evi_svfs"]
+    "seealso": [
+        "evi_biquads_coeffs",
+        "evi_biquads_selectors",
+        "evi_biquads_union",
+        "evi_biquads_filters",
+        "evi_biquads_extras",
+        "evi_svfs"
+    ]
 }

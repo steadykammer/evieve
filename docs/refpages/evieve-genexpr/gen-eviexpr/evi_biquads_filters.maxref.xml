@@ -220,7 +220,7 @@
       <description>
         'Direct Form 2', cascade triple, for simple eq-ing etc <br />
         <br />
-        <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
         <b>In 2</b>: type=<i>input</i>: a0_1, <i>a0 coefficient 1</i> <br />
         <b>In 3</b>: type=<i>input</i>: a1_1, <i>a1 coefficient 1</i> <br />
         <b>In 4</b>: type=<i>input</i>: a2_1, <i>a2 coefficient 1</i> <br />

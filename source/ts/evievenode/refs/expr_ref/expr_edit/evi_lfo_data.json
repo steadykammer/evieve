@@ -255,5 +255,10 @@
             ]
         }
     ],
-    "seealso": ["evi_env", "evi_sources", "evi_interp", "evi_fastskew"]
+    "seealso": [
+        "evi_env",
+        "evi_sources",
+        "evi_interp",
+        "evi_fastskew"
+    ]
 }

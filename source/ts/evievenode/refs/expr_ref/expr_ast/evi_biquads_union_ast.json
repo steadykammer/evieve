@@ -12,8 +12,8 @@
                 "arguments": [
                     {
                         "type": "Literal",
-                        "value": "evi_biquads_coeffs",
-                        "raw": "\"evi_biquads_coeffs\"",
+                        "value": "evi_biquads_coeffs.genexpr",
+                        "raw": "\"evi_biquads_coeffs.genexpr\"",
                         "gen_kind": "string"
                     }
                 ]

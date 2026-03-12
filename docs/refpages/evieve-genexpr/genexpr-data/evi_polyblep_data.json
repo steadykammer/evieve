@@ -1,5 +1,5 @@
 {
-    "description": "",
+    "description": "Only require this file if you need access to all of the PolyBLEP Oscillators in evieve. It is much more likely that you will require the individual PolyBLEP files ('See Also'). Using the 'poly_osc()' function here you can test all of the two-point Blep Oscillators. The PolyBLEP method antialiases oscillator shapes based on smoothing the discontinuities in a naive signal shape. The best quality in evieve are the four-point Bleps ('evi_polyblep_four.genexpr'). However the two-point Bleps are also very useful ('evi_polyblep_two.genexpr') including interesting morphing Oscillators. The two-point Bleps also offer a wide range of interesting Oscillator shapes ('evi_polyblep_shapes.genexpr').",
     "requires": [
         "evi_polyblep_four.genexpr",
         "evi_polyblep_shapes.genexpr"
@@ -7,62 +7,62 @@
     "functions": [
         {
             "document": true,
-            "digest": "",
+            "digest": "A totally ridiculous 35 waveform switcher intended only for testing / demonstration, not to be used in general",
             "name": "poly_osc",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "freqInHz",
-                    "digest": ""
+                    "digest": "Oscillator Frequency in Hz"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "pwm",
-                    "digest": ""
+                    "digest": "Pulse Width 0..1 for Oscillators that use it"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "a",
-                    "digest": ""
+                    "digest": "Amplitude (linear)"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "t",
-                    "digest": ""
+                    "digest": "Phase 0..1"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "dt",
-                    "digest": ""
+                    "digest": "Phase Increment"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "morph",
-                    "digest": ""
+                    "digest": "Shape Morph 0..1 for Oscillators that use it"
                 },
                 {
                     "id": 7,
                     "kind": "input",
                     "name": "wav",
-                    "digest": ""
+                    "digest": "(int) Oscillator Type 0..36 for selection"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Osc",
+                    "digest": "Oscillator Output"
                 }
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "poly_down3x",
             "inputs": [
@@ -118,7 +118,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "poly_down6x",
             "inputs": [
@@ -174,7 +174,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "poly_down4x",
             "inputs": [
@@ -230,7 +230,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "poly_down16x",
             "inputs": [
@@ -286,7 +286,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "xab",
             "inputs": [
@@ -318,7 +318,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "blep8",
             "inputs": [
@@ -338,7 +338,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "blamp8",
             "inputs": [
@@ -358,5 +358,5 @@
             ]
         }
     ],
-    "seealso": []
+    "seealso": ["evi_polyblep_four", "evi_polyblep_two", "evi_polyblep_shapes", "evi_polyblep_utility"]
 }

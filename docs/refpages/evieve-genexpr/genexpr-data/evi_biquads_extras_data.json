@@ -387,7 +387,7 @@
                     "kind": "param",
                     "name": "a0",
                     "default": 1,
-                    "type": "float",
+                    "type": "integer",
                     "digest": "a0 coefficient"
                 },
                 {
@@ -395,7 +395,7 @@
                     "kind": "param",
                     "name": "a1",
                     "default": 2,
-                    "type": "float",
+                    "type": "integer",
                     "digest": "a1 coefficient"
                 },
                 {
@@ -403,7 +403,7 @@
                     "kind": "param",
                     "name": "a2",
                     "default": 1,
-                    "type": "float",
+                    "type": "integer",
                     "digest": "a2 coefficient"
                 }
             ],
@@ -421,5 +421,12 @@
             ]
         }
     ],
-    "seealso": ["evi_biquads", "evi_biquads_coeffs", "evi_biquads_selectors", "evi_biquads_union", "evi_biquads_filters", "evi_svfs"]
+    "seealso": [
+        "evi_biquads",
+        "evi_biquads_coeffs",
+        "evi_biquads_selectors",
+        "evi_biquads_union",
+        "evi_biquads_filters",
+        "evi_svfs"
+    ]
 }

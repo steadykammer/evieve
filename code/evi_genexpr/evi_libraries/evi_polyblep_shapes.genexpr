@@ -72,8 +72,6 @@ poly_half22(t, dt, pw)
 	return	h2;
 }
 
-// waveforms
-
 // using the approxes, for completeness ...
 
 poly_sin(t)
@@ -85,8 +83,6 @@ poly_cos(t)
 {
 	return	cos73(TWOPI * t);
 }
-
-// polyblep waves ...
 
 // full-wave rectified sine
 
@@ -218,7 +214,7 @@ poly_circ(t, dt)
 	return	cc;
 }
 
-// low-pass filtered square approximations (actually triangle waves)
+// lowpass filtered square approximations (actually triangle waves)
 
 // ok for full range, but of course does not zero cross
 poly_lpsqr2(t, dt)
@@ -302,7 +298,7 @@ poly_sinsaw(t, dt)
 	return	(poly_blep(t, dt) + sin73((0.5 - t) * PI));
 }
 
-// high-pass filtered sawtooth approximation
+// highpass filtered sawtooth approximation
 
 // surprisingly good for full range, but for the (samplerate / 4) switch
 // 'jumps' to sine() because of gain disparity by that point in frequency range...

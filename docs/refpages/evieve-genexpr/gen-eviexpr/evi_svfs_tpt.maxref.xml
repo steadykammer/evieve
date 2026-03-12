@@ -15,7 +15,7 @@
     evi_svfs_filters.genexpr <br />
     <br />
     <b>About this File</b>: <br />
-    Using this require file you can access all TPT SVF filter types in evieve.  <br />
+    Using this require file you can access coefficients selectors for all TPT SVF filters in evieve with corresponding all-in-one filter sections. This file also includes a selection of interesting 'morphing' filters. For accessing all the filters as individual blocks use 'evi_svfs_tpt_filters.genexpr' <br />
   </description>
   <misc name="GenExpr Functions">
     <entry name="tptSvfCoeff ( )">
@@ -351,10 +351,11 @@
   </metadatalist>
   <seealsolist>
     <!-- we use 'refpage' here not 'genrefpage' to trick Max -->
-    <seealso name="evi_svfs.genexpr" type="refpage"/>
-    <seealso name="evi_svfs_lto.genexpr" type="refpage"/>
-    <seealso name="evi_svfs_tpt_filters.genexpr" type="refpage"/>
-    <seealso name="evi_svfs_lto_extras.genexpr" type="refpage"/>
+    <seealso name="evi_svfs" type="refpage"/>
+    <seealso name="evi_svfs_filters" type="refpage"/>
+    <seealso name="evi_svfs_lto" type="refpage"/>
+    <seealso name="evi_svfs_tpt_filters" type="refpage"/>
+    <seealso name="evi_svfs_lto_extras" type="refpage"/>
   </seealsolist>
   <misc name="Discussion">
     <entry name="Keywords">

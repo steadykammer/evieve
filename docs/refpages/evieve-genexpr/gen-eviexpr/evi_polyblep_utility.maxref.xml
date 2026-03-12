@@ -11,58 +11,60 @@
     By declaring <m>require("evi_polyblep_utility.genexpr");</m> at the top of a codebox you can then access all of the functions included in this file. <br />
         <br />
     <b>About this File</b>: <br />
-     <br />
+    This file is not very interesting on it's own and simply contains code found elsewhere in the evieve Package. It is for making the evieve polyblep requires more manageable when building gen~ or MSP abstractions. <br />
   </description>
   <misc name="GenExpr Functions">
-    <entry name="cosQ73 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
     <entry name="cos73 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        Cosine approximation to 7.3 digits of accuracy <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Phase 0..TWOPI</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Cos, <i>Cosine oscillator</i> <br />
 
       </description>
     </entry>
     <entry name="sin73 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        Sine approximation to 7.3 digits of accuracy <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Phase 0..TWOPI</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Sin, <i>Sine oscillator</i> <br />
 
       </description>
     </entry>
     <entry name="varDcblockReset ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: a0, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: r0, <i></i> <br />
+        Variable dcblock() so that effect can be bypassed (a0 = 1) or active (a0 = 0.9997) or heavy (a0 = ...), with state reset inlet <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: a0, <i>Dc coefficient, typically 0.9997 for basic dcblock()</i> <br />
+        <b>In 3</b>: type=<i>input</i>: r0, <i>Sample accurate filter state reset inlet</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Audio output, <i>Variable dc blocked audio output</i> <br />
 
       </description>
     </entry>
     <entry name="dynamicDc ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: osc, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: dtn, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: dcn, <i></i> <br />
+        Dynamically vary dcblocking and gain so that oscillators can frequency dependent morph between LFOs and audio rate osciallators. Note, this is extremely suspicious code. <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: osc, <i>Oscillator input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: dtn, <i>clip((phase_increment*2), 0, 1)</i> <br />
+        <b>In 3</b>: type=<i>input</i>: dcn, <i>(int) switch state, 0&#x3D;dcblock off, 1&#x3D;dcblock on, 2&#x3D;var dc good for low oscs, 3&#x3D;var dc good for high oscs</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Osc, <i>Oscillator output</i> <br />
 
       </description>
     </entry>
     <entry name="decorelateOsc ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        Post-filter to decolorate (oscillator) waveshapers when (polyblep) antialiasing is used, Stefano D'Angelo, GPL v3 <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Audio output, <i>Decorrelated audio output</i> <br />
 
       </description>
     </entry>
@@ -74,6 +76,10 @@
   </metadatalist>
   <seealsolist>
     <!-- we use 'refpage' here not 'genrefpage' to trick Max -->
+    <seealso name="evi_polyblep" type="refpage"/>
+    <seealso name="evi_polyblep_four" type="refpage"/>
+    <seealso name="evi_polyblep_two" type="refpage"/>
+    <seealso name="evi_polyblep_shapes" type="refpage"/>
   </seealsolist>
   <misc name="Discussion">
     <entry name="Keywords">

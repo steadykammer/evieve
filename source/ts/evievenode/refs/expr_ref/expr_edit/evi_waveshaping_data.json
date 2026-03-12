@@ -637,5 +637,10 @@
             ]
         }
     ],
-    "seealso": ["evi_adaa", "evi_saturators", "evi_tanh", "evi_resampling_templates"]
+    "seealso": [
+        "evi_adaa",
+        "evi_saturators",
+        "evi_tanh",
+        "evi_resampling_templates"
+    ]
 }

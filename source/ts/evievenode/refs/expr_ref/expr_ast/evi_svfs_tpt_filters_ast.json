@@ -9974,8 +9974,13 @@
             "params": [
                 {
                     "type": "Identifier",
-                    "name": "x",
-                    "raw": "x"
+                    "name": "xL",
+                    "raw": "xL"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "xR",
+                    "raw": "xR"
                 },
                 {
                     "type": "Identifier",
@@ -10004,6 +10009,7 @@
                 }
             ],
             "defaults": [
+                null,
                 null,
                 null,
                 null,

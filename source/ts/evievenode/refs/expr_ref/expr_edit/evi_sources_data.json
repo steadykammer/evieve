@@ -84,8 +84,8 @@
                 {
                     "id": 1,
                     "kind": "input",
-                    "name": "sort-of gain",
-                    "digest": "A gain of 0.6403882032022076 gives very close to unity amplitude (-1..1) output"
+                    "name": "gain",
+                    "digest": ""
                 }
             ],
             "returns": [
@@ -712,5 +712,10 @@
             ]
         }
     ],
-    "seealso": ["evi_env", "evi_lfo", "evi_counting", "evi_polyblep"]
+    "seealso": [
+        "evi_env",
+        "evi_lfo",
+        "evi_counting",
+        "evi_polyblep"
+    ]
 }

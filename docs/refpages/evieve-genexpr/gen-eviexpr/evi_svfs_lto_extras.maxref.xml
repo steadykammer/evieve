@@ -14,104 +14,120 @@
     evi_approx.genexpr <br />
     <br />
     <b>About this File</b>: <br />
-     <br />
+    This file contains some all-in-one multimode LTO SVF filters for using in GenExpr. <br />
   </description>
   <misc name="GenExpr Functions">
     <entry name="svfLtoMulti ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: v0, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: cutoff, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: Q, <i></i> <br />
+        All-in-one simultaneous outputs multimode SVF filter <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: v0, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 3</b>: type=<i>input</i>: Q, <i>Q</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
+        <b>Return 1</b>: Low, <i>Lowpass output</i> <br />
+        <b>Return 2</b>: Band, <i>Bandpass output</i> <br />
+        <b>Return 3</b>: High, <i>Highpass output</i> <br />
+        <b>Return 4</b>: Notch, <i>Notch output</i> <br />
 
       </description>
     </entry>
     <entry name="svfLtoSingle ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: v0, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: cutoff, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: Q, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: filt, <i></i> <br />
+        The same as 'svfLtoMulti()' but with a single filter choice output <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: v0, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 3</b>: type=<i>input</i>: Q, <i>Q</i> <br />
+        <b>In 4</b>: type=<i>input</i>: filt, <i>(int) filter: 0&#x3D;lowpass, 1&#x3D;bandpass, 2&#x3D;highpass, 3&#x3D;notch</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Selected Filter, <i>Filtered audio output</i> <br />
 
       </description>
     </entry>
     <entry name="svfLtoBell ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: v00, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: cutoff, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: gain, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: Q, <i></i> <br />
+        A standalone Bell filter <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: v00, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 3</b>: type=<i>input</i>: gain, <i>Gain in dB</i> <br />
+        <b>In 4</b>: type=<i>input</i>: Q, <i>Q</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Bell Filter, <i>Filtered audio output</i> <br />
 
       </description>
     </entry>
     <entry name="svfSinMulti ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: X, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: cutoff, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: damp, <i></i> <br />
+        All-in-one simultaneous outputs multimode SVF filter solved for sin() (theoretically more stable low-end response when modulating but in always-64-bit-doubles environment of Gen should not make much difference) <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: X, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 3</b>: type=<i>input</i>: damp, <i>Q normalised 0..1</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
-        <b>Return 5</b>: , <i></i> <br />
+        <b>Return 1</b>: Low, <i>Lowpass output</i> <br />
+        <b>Return 2</b>: Band, <i>Bandpass output</i> <br />
+        <b>Return 3</b>: High, <i>Highpass output</i> <br />
+        <b>Return 4</b>: Peak, <i>Peak output</i> <br />
+        <b>Return 5</b>: Notch, <i>Notch output</i> <br />
 
       </description>
     </entry>
     <entry name="svfSinSingle ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: X, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: cutoff, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: damp, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: filt, <i></i> <br />
+        The same as 'svfSinMulti()' but with a single filter choice output <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: X, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 3</b>: type=<i>input</i>: damp, <i>Q normalised 0..1</i> <br />
+        <b>In 4</b>: type=<i>input</i>: filt, <i>(int) filter: 0&#x3D;lowpass, 1&#x3D;bandpass, 2&#x3D;highpass, 3-peak, 4&#x3D;notch</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Selected Filter, <i>Filtered audio output</i> <br />
 
       </description>
     </entry>
     <entry name="inputMixingSvfCoefficients ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: res, <i></i> <br />
+        Param rate coefficients calculator for the 'inputMixing' SVF <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 2</b>: type=<i>input</i>: res, <i>Resonance normalised 0..1</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
+        <b>Return 1</b>: g0, <i>g0 coefficient</i> <br />
+        <b>Return 2</b>: g1, <i>g1 coefficient</i> <br />
+        <b>Return 3</b>: g2, <i>g2 coefficient</i> <br />
+        <b>Return 4</b>: g3, <i>g3 coefficient</i> <br />
 
       </description>
     </entry>
     <entry name="inputMixingSvfLoop ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: vlow, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: vband, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: vhigh, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: g0, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: g1, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: g2, <i></i> <br />
-        <b>In 7</b>: type=<i>input</i>: g3, <i></i> <br />
+        Audio loop to match with 'inputMixingSvfCoefficients()' for the 'inputMixing' SVF <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: vlow, <i>Lowpass audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: vband, <i>Bandpass audio input</i> <br />
+        <b>In 3</b>: type=<i>input</i>: vhigh, <i>Highpass audio input</i> <br />
+        <b>In 4</b>: type=<i>input</i>: g0, <i>g0 coefficient</i> <br />
+        <b>In 5</b>: type=<i>input</i>: g1, <i>g1 coefficient</i> <br />
+        <b>In 6</b>: type=<i>input</i>: g2, <i>g2 coefficient</i> <br />
+        <b>In 7</b>: type=<i>input</i>: g3, <i>g3 coefficient</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Mixed Output, <i>Filtered audio output</i> <br />
 
       </description>
     </entry>
     <entry name="inputMixingSvf ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: vlow, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: vband, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: vhigh, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: cutoff, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: res, <i></i> <br />
+        All audio rate version of the 'inputMixing' SVF <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: vlow, <i>Lowpass audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: vband, <i>Bandpass audio input</i> <br />
+        <b>In 3</b>: type=<i>input</i>: vhigh, <i>Highpass audio input</i> <br />
+        <b>In 4</b>: type=<i>input</i>: cutoff, <i>Cutoff frequency in Hz</i> <br />
+        <b>In 5</b>: type=<i>input</i>: res, <i>Resonance normalised 0..1</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Mixed Output, <i>Filtered audio output</i> <br />
 
       </description>
     </entry>
@@ -123,6 +139,11 @@
   </metadatalist>
   <seealsolist>
     <!-- we use 'refpage' here not 'genrefpage' to trick Max -->
+    <seealso name="evi_svfs" type="refpage"/>
+    <seealso name="evi_svfs_filters" type="refpage"/>
+    <seealso name="evi_svfs_tpt" type="refpage"/>
+    <seealso name="evi_svfs_tpt_filters" type="refpage"/>
+    <seealso name="evi_svfs_lto" type="refpage"/>
   </seealsolist>
   <misc name="Discussion">
     <entry name="Keywords">

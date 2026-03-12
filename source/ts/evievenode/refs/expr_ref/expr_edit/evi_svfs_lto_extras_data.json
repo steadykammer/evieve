@@ -1,363 +1,369 @@
 {
-    "description": "",
+    "description": "This file contains some all-in-one multimode LTO SVF filters for using in GenExpr.",
     "requires": [
         "evi_approx.genexpr"
     ],
     "functions": [
         {
             "document": true,
-            "digest": "",
+            "digest": "All-in-one simultaneous outputs multimode SVF filter",
             "name": "svfLtoMulti",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "v0",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Low",
+                    "digest": "Lowpass output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Band",
+                    "digest": "Bandpass output"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "High",
+                    "digest": "Highpass output"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "Notch",
+                    "digest": "Notch output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "The same as 'svfLtoMulti()' but with a single filter choice output",
             "name": "svfLtoSingle",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "v0",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "filt",
-                    "digest": ""
+                    "digest": "(int) filter: 0=lowpass, 1=bandpass, 2=highpass, 3=notch"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Selected Filter",
+                    "digest": "Filtered audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "A standalone Bell filter",
             "name": "svfLtoBell",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "v00",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "gain",
-                    "digest": ""
+                    "digest": "Gain in dB"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "Q",
-                    "digest": ""
+                    "digest": "Q"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Bell Filter",
+                    "digest": "Filtered audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "All-in-one simultaneous outputs multimode SVF filter solved for sin() (theoretically more stable low-end response when modulating but in always-64-bit-doubles environment of Gen should not make much difference)",
             "name": "svfSinMulti",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "X",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "damp",
-                    "digest": ""
+                    "digest": "Q normalised 0..1"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Low",
+                    "digest": "Lowpass output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Band",
+                    "digest": "Bandpass output"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "High",
+                    "digest": "Highpass output"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "Peak",
+                    "digest": "Peak output"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "Notch",
+                    "digest": "Notch output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "The same as 'svfSinMulti()' but with a single filter choice output",
             "name": "svfSinSingle",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "X",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "damp",
-                    "digest": ""
+                    "digest": "Q normalised 0..1"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "filt",
-                    "digest": ""
+                    "digest": "(int) filter: 0=lowpass, 1=bandpass, 2=highpass, 3-peak, 4=notch"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Selected Filter",
+                    "digest": "Filtered audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Param rate coefficients calculator for the 'inputMixing' SVF",
             "name": "inputMixingSvfCoefficients",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "res",
-                    "digest": ""
+                    "digest": "Resonance normalised 0..1"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "g0",
+                    "digest": "g0 coefficient"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "g1",
+                    "digest": "g1 coefficient"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "g2",
+                    "digest": "g2 coefficient"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "g3",
+                    "digest": "g3 coefficient"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Audio loop to match with 'inputMixingSvfCoefficients()' for the 'inputMixing' SVF",
             "name": "inputMixingSvfLoop",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "vlow",
-                    "digest": ""
+                    "digest": "Lowpass audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "vband",
-                    "digest": ""
+                    "digest": "Bandpass audio input"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "vhigh",
-                    "digest": ""
+                    "digest": "Highpass audio input"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "g0",
-                    "digest": ""
+                    "digest": "g0 coefficient"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "g1",
-                    "digest": ""
+                    "digest": "g1 coefficient"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "g2",
-                    "digest": ""
+                    "digest": "g2 coefficient"
                 },
                 {
                     "id": 7,
                     "kind": "input",
                     "name": "g3",
-                    "digest": ""
+                    "digest": "g3 coefficient"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Mixed Output",
+                    "digest": "Filtered audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "All audio rate version of the 'inputMixing' SVF",
             "name": "inputMixingSvf",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "vlow",
-                    "digest": ""
+                    "digest": "Lowpass audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "vband",
-                    "digest": ""
+                    "digest": "Bandpass audio input"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "vhigh",
-                    "digest": ""
+                    "digest": "Highpass audio input"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "Cutoff frequency in Hz"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "res",
-                    "digest": ""
+                    "digest": "Resonance normalised 0..1"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Mixed Output",
+                    "digest": "Filtered audio output"
                 }
             ]
         }
     ],
-    "seealso": []
+    "seealso": [
+        "evi_svfs",
+        "evi_svfs_filters",
+        "evi_svfs_tpt",
+        "evi_svfs_tpt_filters",
+        "evi_svfs_lto"
+    ]
 }

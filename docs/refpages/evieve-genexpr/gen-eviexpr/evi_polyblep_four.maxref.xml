@@ -11,61 +11,73 @@
     By declaring <m>require("evi_polyblep_four.genexpr");</m> at the top of a codebox you can then access all of the functions included in this file. <br />
         <br />
     <b>About this File</b>: <br />
-     <br />
+    High quality four-point PolyBLEP bandlimited oscillators, classic waveform shapes. When calling any of these functions you must deal with dc yourself. <br />
   </description>
   <misc name="GenExpr Functions">
     <entry name="polyblep4 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: t, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: dt, <i></i> <br />
+        Four-point PolyBLEP bandlimited step function for antialiasing oscillators <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: t, <i>Phase 0..1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: dt, <i>Phase increment</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Step, <i>Bandlimited step</i> <br />
 
       </description>
     </entry>
     <entry name="polyblamp4 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: t, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: dt, <i></i> <br />
+        Four-point PolyBLAMP bandlimited ramp function for antialiasing oscillators <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: t, <i>Phase 0..1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: dt, <i>Phase increment</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Ramp, <i>Bandlimited ramp</i> <br />
 
       </description>
     </entry>
     <entry name="polysaw4 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: t, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: dt, <i></i> <br />
+        Saw oscillator, antialiased PolyBLEP <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: t, <i>Phase 0..1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: dt, <i>Phase increment</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Saw, <i>Bandlimited Saw</i> <br />
 
       </description>
     </entry>
     <entry name="polyrect4 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: t, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: dt, <i></i> <br />
+        Rect oscillator, antialiased PolyBLEP <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: t, <i>Phase 0..1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: dt, <i>Phase increment</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Rect, <i>Bandlimited Rect</i> <br />
 
       </description>
     </entry>
     <entry name="polyrect4pwm ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: t, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: dt, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: pw, <i></i> <br />
+        Rect oscillator with PWM, antialiased PolyBLEP <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: t, <i>Phase 0..1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: dt, <i>Phase increment</i> <br />
+        <b>In 3</b>: type=<i>input</i>: pw, <i>Pulse width 0..1</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Rect, <i>Bandlimited Rect</i> <br />
 
       </description>
     </entry>
     <entry name="polytri4 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: t, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: dt, <i></i> <br />
+        Tri oscillator, antialiased PolyBLAMP <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: t, <i>Phase 0..1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: dt, <i>Phase increment</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Tri, <i>Bandlimited Tri</i> <br />
 
       </description>
     </entry>
@@ -77,6 +89,10 @@
   </metadatalist>
   <seealsolist>
     <!-- we use 'refpage' here not 'genrefpage' to trick Max -->
+    <seealso name="evi_polyblep" type="refpage"/>
+    <seealso name="evi_polyblep_two" type="refpage"/>
+    <seealso name="evi_polyblep_shapes" type="refpage"/>
+    <seealso name="evi_polyblep_utility" type="refpage"/>
   </seealsolist>
   <misc name="Discussion">
     <entry name="Keywords">

@@ -44,7 +44,7 @@
         Variable dcblock() so that effect can be bypassed (a0 = 1) or active (a0 = 0.9997) or heavy (a0 = ...) <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: x0, <i>Audio input</i> <br />
-        <b>In 2</b>: type=<i>input</i>: a0, <i>Dc coefficient, normally 0.9997 for basic dcblock()</i> <br />
+        <b>In 2</b>: type=<i>input</i>: a0, <i>Dc coefficient, typically 0.9997 for basic dcblock()</i> <br />
 
         <b>Return 1</b>: Audio output, <i>Dc blocked audio output</i> <br />
 

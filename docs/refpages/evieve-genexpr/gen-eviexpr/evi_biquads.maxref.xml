@@ -11,8 +11,7 @@
     By declaring <m>require("evi_biquads.genexpr");</m> at the top of a codebox you can then access all of the functions included in this file. <br />
      <br />
     The <b>evi_biquads.genexpr</b> file also requires: <br />
-    evi_biquads_coeffs.genexpr <br />
-    evi_biquads_selectors.genexpr <br />
+    evi_biquads_union.genexpr <br />
     evi_biquads_filters.genexpr <br />
     evi_biquads_extras.genexpr <br />
     <br />

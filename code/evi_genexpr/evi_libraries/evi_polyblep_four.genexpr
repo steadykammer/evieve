@@ -1,8 +1,8 @@
 
 // evieve poly bleps etc
 
-// these 4-point poly bleps are much better than the rest of this file
-// (2-points) in terms of anti aliasing, and better than 3rd order PTR, too
+// these 4-point poly bleps are much better than the 2-point bleps
+// in terms of anti aliasing, and better than 3rd order PTR, too
 // thanks to Matías Giovannini
 
 polyblep4(t, dt)

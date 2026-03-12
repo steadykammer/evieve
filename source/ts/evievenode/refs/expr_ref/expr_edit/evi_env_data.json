@@ -353,5 +353,8 @@
             ]
         }
     ],
-    "seealso": ["evi_smooth", "evi_dynamics"]
+    "seealso": [
+        "evi_smooth",
+        "evi_dynamics"
+    ]
 }

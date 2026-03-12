@@ -703,5 +703,9 @@
             ]
         }
     ],
-    "seealso": ["evi_svfs", "evi_butterworth", "evi_crossovers"]
+    "seealso": [
+        "evi_svfs",
+        "evi_butterworth",
+        "evi_crossovers"
+    ]
 }

@@ -7,5 +7,12 @@
         "evi_svfs_lto_extras.genexpr"
     ],
     "functions": [],
-    "seealso": ["evi_svfs_tpt.genexpr", "evi_svfs_lto.genexpr", "evi_svfs_tpt_filters.genexpr", "evi_svfs_lto_extras.genexpr", "evi_biquads.genexpr"]
+    "seealso": [
+        "evi_svfs_filters",
+        "evi_svfs_tpt",
+        "evi_svfs_lto",
+        "evi_svfs_tpt_filters",
+        "evi_svfs_lto_extras",
+        "evi_biquads"
+    ]
 }
