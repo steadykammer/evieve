@@ -16,37 +16,45 @@
     evi_interp.genexpr <br />
     <br />
     <b>About this File</b>: <br />
-     <br />
+    This file is a specific genexpr lib for use by the [evi.dfm~] MSP abstraction. It is likely not useful as a require() but you may find something interesting here. The enclosed [evi_dfm] gen~ abstraction only works in MSP as it requires an external LUT. [evi.dfm~] is a deluxe but dirty MS20-inspired old-school-style filter emulation, 12dB lowpass or 6dB highpass. Based on a classic by Tony Hardie-Bick ('DFM-1 Digital Filter Module'), 2010. <br />
   </description>
   <misc name="GenExpr Functions">
     <entry name="gaussnoise ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: ngain, <i></i> <br />
+        Wrap box-muller gaussian noise with local gain stage <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: ngain, <i>Gain (linear)</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Noise, <i>Post gain gaussian noise</i> <br />
 
       </description>
     </entry>
     <entry name="dnl ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
+        Cubic nonlinearity suggested by Tony Hardie-Bick <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i>Audio input</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Cubic, <i>Saturated output</i> <br />
 
       </description>
     </entry>
     <entry name="dnl3x ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        Quasi 3x oversampling of 'dnl()' <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Cubic, <i>Saturated output</i> <br />
 
       </description>
     </entry>
     <entry name="dnlNonlin ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: xin, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: oversampling, <i></i> <br />
+        Make oversampling choice on nonlinearity <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: xin, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: oversampling, <i>(int) 0&#x3D;1x, 1&#x3D;3x</i> <br />
 
         <b>Return 1</b>: , <i></i> <br />
 
@@ -54,118 +62,75 @@
     </entry>
     <entry name="dft ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: l, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: h, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: a, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: b, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: r, <i></i> <br />
-        <b>In 7</b>: type=<i>input</i>: noisegain, <i></i> <br />
-        <b>In 8</b>: type=<i>input</i>: POSTGAIN, <i></i> <br />
-        <b>In 9</b>: type=<i>input</i>: HEADROOM, <i></i> <br />
-        <b>In 10</b>: type=<i>input</i>: nl, <i></i> <br />
+        The filter (1x) <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: l, <i>Lowpass gain</i> <br />
+        <b>In 3</b>: type=<i>input</i>: h, <i>Highpass gain</i> <br />
+        <b>In 4</b>: type=<i>input</i>: a, <i>Stage 1 coefficient (factor of cutoff &amp; lut)</i> <br />
+        <b>In 5</b>: type=<i>input</i>: b, <i>Stage 2 coefficient (factor of cutoff &amp; lut)</i> <br />
+        <b>In 6</b>: type=<i>input</i>: r, <i>Resonance corrected (factor of cutoff, resonance &amp; lut)</i> <br />
+        <b>In 7</b>: type=<i>input</i>: noisegain, <i>Noise injection level</i> <br />
+        <b>In 8</b>: type=<i>input</i>: POSTGAIN, <i>Postgain constant</i> <br />
+        <b>In 9</b>: type=<i>input</i>: HEADROOM, <i>Headroom gain (factor of noise in filter)</i> <br />
+        <b>In 10</b>: type=<i>input</i>: nl, <i>IGNORE: unused (should always be &#x27;0&#x27;)</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="dft2 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: x1, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: l, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: h, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: a, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: b, <i></i> <br />
-        <b>In 7</b>: type=<i>input</i>: r, <i></i> <br />
-        <b>In 8</b>: type=<i>input</i>: noisegain, <i></i> <br />
-        <b>In 9</b>: type=<i>input</i>: POSTGAIN, <i></i> <br />
-        <b>In 10</b>: type=<i>input</i>: HEADROOM, <i></i> <br />
-        <b>In 11</b>: type=<i>input</i>: nl, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
+        <b>Return 1</b>: DFM, <i>Filtered audio output</i> <br />
 
       </description>
     </entry>
     <entry name="dft2_2x6 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: l, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: h, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: a, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: b, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: r, <i></i> <br />
-        <b>In 7</b>: type=<i>input</i>: noisegain, <i></i> <br />
-        <b>In 8</b>: type=<i>input</i>: POSTGAIN, <i></i> <br />
-        <b>In 9</b>: type=<i>input</i>: HEADROOM, <i></i> <br />
-        <b>In 10</b>: type=<i>input</i>: nl, <i></i> <br />
+        The filter, 2x oversampled, 6-point interpolator <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: l, <i>Lowpass gain</i> <br />
+        <b>In 3</b>: type=<i>input</i>: h, <i>Highpass gain</i> <br />
+        <b>In 4</b>: type=<i>input</i>: a, <i>Stage 1 coefficient (factor of cutoff &amp; lut)</i> <br />
+        <b>In 5</b>: type=<i>input</i>: b, <i>Stage 2 coefficient (factor of cutoff &amp; lut)</i> <br />
+        <b>In 6</b>: type=<i>input</i>: r, <i>Resonance corrected (factor of cutoff, resonance &amp; lut)</i> <br />
+        <b>In 7</b>: type=<i>input</i>: noisegain, <i>Noise injection level</i> <br />
+        <b>In 8</b>: type=<i>input</i>: POSTGAIN, <i>Postgain constant</i> <br />
+        <b>In 9</b>: type=<i>input</i>: HEADROOM, <i>Headroom gain (factor of noise in filter)</i> <br />
+        <b>In 10</b>: type=<i>input</i>: nl, <i>IGNORE: unused (should always be &#x27;0&#x27;)</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: DFM, <i>Filtered audio output</i> <br />
 
       </description>
     </entry>
     <entry name="dft2_2x4 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: l, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: h, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: a, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: b, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: r, <i></i> <br />
-        <b>In 7</b>: type=<i>input</i>: noisegain, <i></i> <br />
-        <b>In 8</b>: type=<i>input</i>: POSTGAIN, <i></i> <br />
-        <b>In 9</b>: type=<i>input</i>: HEADROOM, <i></i> <br />
-        <b>In 10</b>: type=<i>input</i>: nl, <i></i> <br />
+        The filter, 2x oversampled, 4-point interpolator <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: l, <i>Lowpass gain</i> <br />
+        <b>In 3</b>: type=<i>input</i>: h, <i>Highpass gain</i> <br />
+        <b>In 4</b>: type=<i>input</i>: a, <i>Stage 1 coefficient (factor of cutoff &amp; lut)</i> <br />
+        <b>In 5</b>: type=<i>input</i>: b, <i>Stage 2 coefficient (factor of cutoff &amp; lut)</i> <br />
+        <b>In 6</b>: type=<i>input</i>: r, <i>Resonance corrected (factor of cutoff, resonance &amp; lut)</i> <br />
+        <b>In 7</b>: type=<i>input</i>: noisegain, <i>Noise injection level</i> <br />
+        <b>In 8</b>: type=<i>input</i>: POSTGAIN, <i>Postgain constant</i> <br />
+        <b>In 9</b>: type=<i>input</i>: HEADROOM, <i>Headroom gain (factor of noise in filter)</i> <br />
+        <b>In 10</b>: type=<i>input</i>: nl, <i>IGNORE: unused (should always be &#x27;0&#x27;)</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="dft3x ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: l, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: h, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: a, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: b, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: r, <i></i> <br />
-        <b>In 7</b>: type=<i>input</i>: ng, <i></i> <br />
-        <b>In 8</b>: type=<i>input</i>: n, <i></i> <br />
-        <b>In 9</b>: type=<i>input</i>: nl, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="dft12x ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: l, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: h, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: a, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: b, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: r, <i></i> <br />
-        <b>In 7</b>: type=<i>input</i>: ng, <i></i> <br />
-        <b>In 8</b>: type=<i>input</i>: n, <i></i> <br />
-        <b>In 9</b>: type=<i>input</i>: nl, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: DFM, <i>Filtered audio output</i> <br />
 
       </description>
     </entry>
     <entry name="dfts ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: l, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: h, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: a, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: b, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: r, <i></i> <br />
-        <b>In 7</b>: type=<i>input</i>: N, <i></i> <br />
-        <b>In 8</b>: type=<i>input</i>: os, <i></i> <br />
+        The filter, make oversampling etc choice on entire filter <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: l, <i>Lowpass gain</i> <br />
+        <b>In 3</b>: type=<i>input</i>: h, <i>Highpass gain</i> <br />
+        <b>In 4</b>: type=<i>input</i>: a, <i>Stage 1 coefficient (factor of cutoff &amp; lut)</i> <br />
+        <b>In 5</b>: type=<i>input</i>: b, <i>Stage 2 coefficient (factor of cutoff &amp; lut)</i> <br />
+        <b>In 6</b>: type=<i>input</i>: r, <i>Resonance corrected (factor of cutoff, resonance &amp; lut)</i> <br />
+        <b>In 7</b>: type=<i>input</i>: N, <i>Noise injection level</i> <br />
+        <b>In 8</b>: type=<i>input</i>: os, <i>Oversampling choice, fades between 1..2..1 if filter switched lowpass..highpass..lowpass, otherwise (int 0, 1, 2) selector</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: DFM, <i>Filtered audio output</i> <br />
 
       </description>
     </entry>
@@ -177,6 +142,9 @@
   </metadatalist>
   <seealsolist>
     <!-- we use 'refpage' here not 'genrefpage' to trick Max -->
+    <seealso name="evi_buchla" type="refpage"/>
+    <seealso name="evi_interp" type="refpage"/>
+    <seealso name="evi_waveshaping" type="refpage"/>
   </seealsolist>
   <misc name="Discussion">
     <entry name="Keywords">

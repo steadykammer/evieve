@@ -1,5 +1,5 @@
 {
-    "description": "",
+    "description": "A catch-all file required by all of the evieve Reverbs, therefore a collection of functions which are useful for reverb building! Many of these functions are very specific to the reverbs in which they are used, but some, such as the zero hold delay calculators and the allpass and comb filters might be useful in other situations.",
     "requires": [
         "evi_svfs_lto.genexpr",
         "evi_rcfilters.genexpr"
@@ -7,166 +7,166 @@
     "functions": [
         {
             "document": true,
-            "digest": "",
+            "digest": "Sadeharju 'spread' and times for late diffusion, used only at param rate",
             "name": "spreadLate",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "diffscale",
-                    "digest": ""
+                    "digest": "Integer diffusion scale time"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "mul1",
-                    "digest": ""
+                    "digest": "Constant (12.5541 / -56.8366)"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "mul2",
-                    "digest": ""
+                    "digest": "Constant (256.2138 / -38.0445)"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "spread",
-                    "digest": ""
+                    "digest": "Global spread 0..1"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "1",
+                    "digest": "Late diffusion time 1"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "2",
+                    "digest": "Late diffusion time 2"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "3",
+                    "digest": "Late diffusion time 3"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Return normalised gain coefficient",
             "name": "gainCoeff",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "normalised",
-                    "digest": ""
+                    "digest": "Gain"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Gain",
+                    "digest": "Normalised gain"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Macroisation for shelf filter params",
             "name": "filterParams",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "high",
-                    "digest": ""
+                    "digest": "High % 0..1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "low",
-                    "digest": ""
+                    "digest": "Low % 0..1"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "base",
-                    "digest": ""
+                    "digest": "mtof() 'base' tuning"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Hz",
+                    "digest": "Highpass in Hz"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "0..1",
+                    "digest": "High attenuation"
                 },
                 {
                     "id": 3,
-                    "name": "",
+                    "name": "Lowpass in Hz",
                     "digest": ""
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "0..1",
+                    "digest": "Low attenuation"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Reverb size macroisation",
             "name": "sizeParams",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "size",
-                    "digest": ""
+                    "digest": "Size parameter 0..1"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "L",
+                    "digest": "Size left"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "R",
+                    "digest": "Size right"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "Diff",
+                    "digest": "Diffuseness"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "RT60",
+                    "digest": "RT60 in dB"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "Mod",
+                    "digest": "Modulation amount"
                 },
                 {
                     "id": 6,
-                    "name": "",
-                    "digest": ""
+                    "name": "Mod",
+                    "digest": "Modulation spread"
                 }
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "fastskewlfo052neg",
             "inputs": [
@@ -192,7 +192,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "fastskewlfo052pos",
             "inputs": [
@@ -218,7 +218,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "fastskewlfo052ar",
             "inputs": [
@@ -245,682 +245,682 @@
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Morphing LFO with 0..1 output",
             "name": "lfoMix",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "phase",
-                    "digest": ""
+                    "digest": "Phase 0..1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "duty",
-                    "digest": ""
+                    "digest": "Duty (tri) 0..1"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "shape",
-                    "digest": ""
+                    "digest": "Shape 0..1 tri..sine"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "skew",
-                    "digest": ""
+                    "digest": "Exponent 0.5..2"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "LFO",
+                    "digest": "LFO 0..1"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Sine modulation wrapper",
             "name": "oneMod1",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "modFreq",
-                    "digest": ""
+                    "digest": "Frequency in Hz"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "modDepth",
-                    "digest": ""
+                    "digest": "Depth (any range)"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "modOffset",
-                    "digest": ""
+                    "digest": "Phase offset 0..1"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "_modDuty",
-                    "digest": ""
+                    "digest": "UNUSED"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "_modShape",
-                    "digest": ""
+                    "digest": "UNUSED"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "_modSkew",
-                    "digest": ""
+                    "digest": "UNUSED"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "LFO",
+                    "digest": "Signed output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Morphing LFO modulation wrapper",
             "name": "oneMod2",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "modFreq",
-                    "digest": ""
+                    "digest": "Frequency in Hz"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "modDepth",
-                    "digest": ""
+                    "digest": "Depth (any range)"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "modOffset",
-                    "digest": ""
+                    "digest": "Phase offset 0..1"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "modDuty",
-                    "digest": ""
+                    "digest": "Duty (tri) 0..1"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "modShape",
-                    "digest": ""
+                    "digest": "Shape 0..1 tri..sine"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "modSkew",
-                    "digest": ""
+                    "digest": "Exponent 0.5..2"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "LFO",
+                    "digest": "Signed output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Dual delay times modulation wrapper",
             "name": "delmod2",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "delay1",
-                    "digest": ""
+                    "digest": "Delay time 1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "delay2",
-                    "digest": ""
+                    "digest": "Delay time 2"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "rate",
-                    "digest": ""
+                    "digest": "Frequency in Hz"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "depth",
-                    "digest": ""
+                    "digest": "Depth (any range)"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "offset1",
-                    "digest": ""
+                    "digest": "Phase offset 1 0..1"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "offset2",
-                    "digest": ""
+                    "digest": "Phase offset 2 0..1"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Delay",
+                    "digest": "Delay time 1"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Delay",
+                    "digest": "Delay time 2"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Quad delay times modulation wrapper",
             "name": "delmod4",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "delay1",
-                    "digest": ""
+                    "digest": "Delay time 1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "delay2",
-                    "digest": ""
+                    "digest": "Delay time 2"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "delay3",
-                    "digest": ""
+                    "digest": "Delay time 3"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "delay4",
-                    "digest": ""
+                    "digest": "Delay time 4"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "rate1",
-                    "digest": ""
+                    "digest": "Frequency in Hz 1"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "rate2",
-                    "digest": ""
+                    "digest": "Frequency in Hz 2"
                 },
                 {
                     "id": 7,
                     "kind": "input",
                     "name": "depth",
-                    "digest": ""
+                    "digest": "Depth (any range)"
                 },
                 {
                     "id": 8,
                     "kind": "input",
                     "name": "offset1",
-                    "digest": ""
+                    "digest": "Phase offset 1 0..1"
                 },
                 {
                     "id": 9,
                     "kind": "input",
                     "name": "offset2",
-                    "digest": ""
+                    "digest": "Phase offset 2 0..1"
                 },
                 {
                     "id": 10,
                     "kind": "input",
                     "name": "offset3",
-                    "digest": ""
+                    "digest": "Phase offset 3 0..1"
                 },
                 {
                     "id": 11,
                     "kind": "input",
                     "name": "offset4",
-                    "digest": ""
+                    "digest": "Phase offset 4 0..1"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Delay",
+                    "digest": "Delay time 1"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Delay",
+                    "digest": "Delay time 2"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "Delay",
+                    "digest": "Delay time 3"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "Delay",
+                    "digest": "Delay time 4"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Quirky noise lfo, stupid literal port of Randy Jones' MSP lores~ hack",
             "name": "noiseMod",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "depth",
-                    "digest": ""
+                    "digest": "Depth (amplitude)"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "LFO",
+                    "digest": "Random (noise) LFO"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "8 sine modulators (4 L, 4 R), 1 phase, really quite silly",
             "name": "eightMod",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "modFreq",
-                    "digest": ""
+                    "digest": "Frequency in Hz"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "modDepth",
-                    "digest": ""
+                    "digest": "Depth (any range)"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "LFO",
+                    "digest": "Modulator 1"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "LFO",
+                    "digest": "Modulator 2"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "LFO",
+                    "digest": "Modulator 3"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "LFO",
+                    "digest": "Modulator 4"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "LFO",
+                    "digest": "Modulator 5"
                 },
                 {
                     "id": 6,
-                    "name": "",
-                    "digest": ""
+                    "name": "LFO",
+                    "digest": "Modulator 6"
                 },
                 {
                     "id": 7,
-                    "name": "",
-                    "digest": ""
+                    "name": "LFO",
+                    "digest": "Modulator 7"
                 },
                 {
                     "id": 8,
-                    "name": "",
-                    "digest": ""
+                    "name": "LFO",
+                    "digest": "Modulator 8"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "8 sine modulators (4 L, 4 R), 1 phase, 5..8 controlled via 'modSpread'",
             "name": "eightModMatt",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "modFreq",
-                    "digest": ""
+                    "digest": "Frequency in Hz"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "modDepth",
-                    "digest": ""
+                    "digest": "Depth (any range)"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "modSpread",
-                    "digest": ""
+                    "digest": "Spread 0..1"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "LFO",
+                    "digest": "Modulator 1"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "LFO",
+                    "digest": "Modulator 2"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "LFO",
+                    "digest": "Modulator 3"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "LFO",
+                    "digest": "Modulator 4"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "LFO",
+                    "digest": "Modulator 5"
                 },
                 {
                     "id": 6,
-                    "name": "",
-                    "digest": ""
+                    "name": "LFO",
+                    "digest": "Modulator 6"
                 },
                 {
                     "id": 7,
-                    "name": "",
-                    "digest": ""
+                    "name": "LFO",
+                    "digest": "Modulator 7"
                 },
                 {
                     "id": 8,
-                    "name": "",
-                    "digest": ""
+                    "name": "LFO",
+                    "digest": "Modulator 8"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Zero hold sample accurate updating of delay times",
             "name": "calcDelays",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "delay",
-                    "digest": ""
+                    "digest": "Delay in units"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "time",
-                    "digest": ""
+                    "digest": "Time in samples"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Ramp",
+                    "digest": "Ramp between delay times 0..1"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Delay",
+                    "digest": "Delay time 1"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "Delay",
+                    "digest": "Delay time 2"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Zero hold delay calculator for seamless updating, very expensive but very lovely, supports at least 143 ms, cannot be used in a feedback loop",
             "name": "preDelayVar",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x0",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "pdTime",
-                    "digest": ""
+                    "digest": "(Pre) delay time in samples"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "pdRamp",
-                    "digest": ""
+                    "digest": "Ramp time in samples"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Delay",
+                    "digest": "Smoothly updated audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Less expensive than 'preDelayVar()' but not zero hold, supports at least 143 ms",
             "name": "preDelayWindow",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x0",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "pdTime0",
-                    "digest": ""
+                    "digest": "(Pre) delay time in samples"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "pdWindow",
-                    "digest": ""
+                    "digest": "Window size in Hz"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Delay",
+                    "digest": "Smoothly updated audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Zero hold delay calculator for seamless updating, very expensive but very lovely, supports at least 128 ms, cannot be used in a feedback loop",
             "name": "delayReadZero1",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x0",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "dTime",
-                    "digest": ""
+                    "digest": "Delay time in samples"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "dRamp",
-                    "digest": ""
+                    "digest": "Ramp time in samples"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Delay",
+                    "digest": "Smoothly updated audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Zero hold delay calculator for seamless updating with depth modulation, very expensive but very lovely, supports at least 272 ms, can be used anywhere",
             "name": "delayReadZero1mod",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x0",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "dTime",
-                    "digest": ""
+                    "digest": "Delay time in samples"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "dRamp",
-                    "digest": ""
+                    "digest": "Ramp time in samples"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "mDepth",
-                    "digest": ""
+                    "digest": "Depth for random LFO in seconds (sorry)"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Delay",
+                    "digest": "Smoothly updated audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Zero hold delay calculator for seamless updating with dual delayed outputs, very expensive, supports at least 256 ms, cannot be used in a feedback loop",
             "name": "delayReadZero2",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x0",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "dTime1",
-                    "digest": ""
+                    "digest": "Delay time 1 in samples"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "dTime2",
-                    "digest": ""
+                    "digest": "Delay time 2 in samples"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "dRamp",
-                    "digest": ""
+                    "digest": "Ramp time in samples"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Delay 1",
+                    "digest": "Smoothly updated audio output 1"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Delay 2",
+                    "digest": "Smoothly updated audio output 2"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Basic onepole filter for damping",
             "name": "poleZeroDamp",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "a",
-                    "digest": ""
+                    "digest": "Prewarped normalised frequency 0..1"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Onepole",
+                    "digest": "Audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Comb filter delay, supports at least 37 ms",
             "name": "fbComb",
             "inputs": [
                 {
@@ -933,69 +933,69 @@
                     "id": 2,
                     "kind": "input",
                     "name": "cDamp1",
-                    "digest": ""
+                    "digest": "Feedback damping"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "cDamp2",
-                    "digest": ""
+                    "digest": "Feedforward damping"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "cFeedback",
-                    "digest": ""
+                    "digest": "Feedback gain -1..1"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "cTime",
-                    "digest": ""
+                    "digest": "Fixed integer samples, no interpolation"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Comb",
+                    "digest": "Filtered audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Allpass filter delay, supports at least 13 ms",
             "name": "fbAllpass",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "aIn",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "aFeedback",
-                    "digest": ""
+                    "digest": "Feedback gain -1..1"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "aTime",
-                    "digest": ""
+                    "digest": "Fixed integer samples, no interpolation"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Allpass",
+                    "digest": "Filtered audio output"
                 }
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "fbAllpass3",
             "inputs": [
@@ -1028,122 +1028,122 @@
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Allpass filter delay, supports at least 12 ms, MSP-like",
             "name": "fffbAllpassShort",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "aIn",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "aGain",
-                    "digest": ""
+                    "digest": "Gain -1..1"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "aTime",
-                    "digest": ""
+                    "digest": "Fixed integer samples, no interpolation"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Allpass",
+                    "digest": "Filtered audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Allpass filter delay, supports at least 142 ms, MSP-like",
             "name": "fffbAllpassMedium",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "aIn",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "aGain",
-                    "digest": ""
+                    "digest": "Gain -1..1"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "aTime",
-                    "digest": ""
+                    "digest": "Variable samples, internally interpolated"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Allpass",
+                    "digest": "Filtered audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Allpass filter delay, supports at least 272 ms, MSP-like",
             "name": "fffbAllpassLong",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "aIn",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "aGain",
-                    "digest": ""
+                    "digest": "Gain -1..1"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "aTime",
-                    "digest": ""
+                    "digest": "Variable samples, internally interpolated"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Allpass",
+                    "digest": "Filtered audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Allpass diffusion delay, supports at least 272 ms / up to 300 meters",
             "name": "DiffAllpass",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "xIn",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "xCoeff",
-                    "digest": ""
+                    "digest": "Constant"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "xTime",
-                    "digest": ""
+                    "digest": "Variable samples, internally interpolated"
                 }
             ],
             "returns": [
@@ -1155,7 +1155,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "AllpassDiffuseShort",
             "inputs": [
@@ -1193,7 +1193,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "AllpassDiffuseLong",
             "inputs": [
@@ -1232,547 +1232,551 @@
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Allpass diffusion delay, supports maximum 29 ms",
             "name": "allpassDiffuseShort",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "time",
-                    "digest": ""
+                    "digest": "Variable samples, internally interpolated"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "diffusion",
-                    "digest": ""
+                    "digest": "Amount 0..1"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Allpass",
+                    "digest": "Filtered audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Allpass diffusion delay, supports maximum 45 ms",
             "name": "allpassDiffuseLong",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "time",
-                    "digest": ""
+                    "digest": "Variable samples, internally interpolated"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "diffusion",
-                    "digest": ""
+                    "digest": "Amount 0..1"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Allpass",
+                    "digest": "Filtered audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Allpass diffusion delay with internal damping filters in the feedback path, supports maximum 55 ms",
             "name": "allpassDiffuseDamp",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "time",
-                    "digest": ""
+                    "digest": "Variable samples, internally interpolated"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "diffusion",
-                    "digest": ""
+                    "digest": "Amount 0..1"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "g0",
-                    "digest": ""
+                    "digest": "Normalised rc frequency coefficient High"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "k0",
-                    "digest": ""
+                    "digest": "Gain coefficient High 0..1 bypassed..attenuated"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "g1",
-                    "digest": ""
+                    "digest": "Normalised rc frequency coefficient Low"
                 },
                 {
                     "id": 7,
                     "kind": "input",
                     "name": "k1",
-                    "digest": ""
+                    "digest": "Gain coefficient Low 0..1 bypassed..attenuated"
                 },
                 {
                     "id": 8,
                     "kind": "input",
                     "name": "damp",
-                    "digest": ""
+                    "digest": "Use damping filters off/on flag 0/1"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Allpass",
+                    "digest": "Filtered audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Deluxe allpass diffusion delay with internal SVF shelving filters in the feedback path, supports maximum 309 ms",
             "name": "DiffuseDelayShort",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "time",
-                    "digest": ""
+                    "digest": "Variable samples, internally interpolated"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "diffusion",
-                    "digest": ""
+                    "digest": "Amount 0..1"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "apgain",
-                    "digest": ""
+                    "digest": "Gain -1..1"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "hs_a1",
-                    "digest": ""
+                    "digest": "a1 coefficient highshelf (evieve LTO SVF)"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "hs_a2",
-                    "digest": ""
+                    "digest": "a2 coefficient highshelf (evieve LTO SVF)"
                 },
                 {
                     "id": 7,
                     "kind": "input",
                     "name": "hs_a3",
-                    "digest": ""
+                    "digest": "a3 coefficient highshelf (evieve LTO SVF)"
                 },
                 {
                     "id": 8,
                     "kind": "input",
                     "name": "hs_m0",
-                    "digest": ""
+                    "digest": "m0 mixing gain highshelf (evieve LTO SVF)"
                 },
                 {
                     "id": 9,
                     "kind": "input",
                     "name": "hs_m1",
-                    "digest": ""
+                    "digest": "m1 mixing gain highshelf (evieve LTO SVF)"
                 },
                 {
                     "id": 10,
                     "kind": "input",
                     "name": "hs_m2",
-                    "digest": ""
+                    "digest": "m2 mixing gain highshelf (evieve LTO SVF)"
                 },
                 {
                     "id": 11,
                     "kind": "input",
                     "name": "ls_a1",
-                    "digest": ""
+                    "digest": "a1 coefficient lowshelf (evieve LTO SVF)"
                 },
                 {
                     "id": 12,
                     "kind": "input",
                     "name": "ls_a2",
-                    "digest": ""
+                    "digest": "a2 coefficient lowshelf (evieve LTO SVF)"
                 },
                 {
                     "id": 13,
                     "kind": "input",
                     "name": "ls_a3",
-                    "digest": ""
+                    "digest": "a3 coefficient lowshelf (evieve LTO SVF)"
                 },
                 {
                     "id": 14,
                     "kind": "input",
                     "name": "ls_m0",
-                    "digest": ""
+                    "digest": "m0 mixing gain lowshelf (evieve LTO SVF)"
                 },
                 {
                     "id": 15,
                     "kind": "input",
                     "name": "ls_m1",
-                    "digest": ""
+                    "digest": "m1 mixing gain lowshelf (evieve LTO SVF)"
                 },
                 {
                     "id": 16,
                     "kind": "input",
                     "name": "ls_m2",
-                    "digest": ""
+                    "digest": "m2 mixing gain lowshelf (evieve LTO SVF)"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Allpass",
+                    "digest": "Filtered audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Deluxe allpass diffusion delay with internal SVF shelving filters in the feedback path, supports maximum 490 ms",
             "name": "DiffuseDelayLong",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "time",
-                    "digest": ""
+                    "digest": "Variable samples, internally interpolated"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "diffusion",
-                    "digest": ""
+                    "digest": "Amount 0..1"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "apgain",
-                    "digest": ""
+                    "digest": "Gain -1..1"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "hs_a1",
-                    "digest": ""
+                    "digest": "a1 coefficient highshelf (evieve LTO SVF)"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "hs_a2",
-                    "digest": ""
+                    "digest": "a2 coefficient highshelf (evieve LTO SVF)"
                 },
                 {
                     "id": 7,
                     "kind": "input",
                     "name": "hs_a3",
-                    "digest": ""
+                    "digest": "a3 coefficient highshelf (evieve LTO SVF)"
                 },
                 {
                     "id": 8,
                     "kind": "input",
                     "name": "hs_m0",
-                    "digest": ""
+                    "digest": "m0 mixing gain highshelf (evieve LTO SVF)"
                 },
                 {
                     "id": 9,
                     "kind": "input",
                     "name": "hs_m1",
-                    "digest": ""
+                    "digest": "m1 mixing gain highshelf (evieve LTO SVF)"
                 },
                 {
                     "id": 10,
                     "kind": "input",
                     "name": "hs_m2",
-                    "digest": ""
+                    "digest": "m2 mixing gain highshelf (evieve LTO SVF)"
                 },
                 {
                     "id": 11,
                     "kind": "input",
                     "name": "ls_a1",
-                    "digest": ""
+                    "digest": "a1 coefficient lowshelf (evieve LTO SVF)"
                 },
                 {
                     "id": 12,
                     "kind": "input",
                     "name": "ls_a2",
-                    "digest": ""
+                    "digest": "a2 coefficient lowshelf (evieve LTO SVF)"
                 },
                 {
                     "id": 13,
                     "kind": "input",
                     "name": "ls_a3",
-                    "digest": ""
+                    "digest": "a3 coefficient lowshelf (evieve LTO SVF)"
                 },
                 {
                     "id": 14,
                     "kind": "input",
                     "name": "ls_m0",
-                    "digest": ""
+                    "digest": "m0 mixing gain lowshelf (evieve LTO SVF)"
                 },
                 {
                     "id": 15,
                     "kind": "input",
                     "name": "ls_m1",
-                    "digest": ""
+                    "digest": "m1 mixing gain lowshelf (evieve LTO SVF)"
                 },
                 {
                     "id": 16,
                     "kind": "input",
                     "name": "ls_m2",
-                    "digest": ""
+                    "digest": "m2 mixing gain lowshelf (evieve LTO SVF)"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Allpass",
+                    "digest": "Filtered audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Allpass Comb filter delay, supports at least 31 ms",
             "name": "apDelaySingle",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "apIn",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "apTime",
-                    "digest": ""
+                    "digest": "Fixed integer samples, no interpolation"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "apGain",
-                    "digest": ""
+                    "digest": "Gain 0..1"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Comb",
+                    "digest": "Filtered audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Param rate coefficients calculator for 'delayFilt()'",
             "name": "delayFiltCoeff",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "del",
-                    "digest": ""
+                    "digest": "Delay time"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "tlo",
-                    "digest": ""
+                    "digest": "Low T60 in samples"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "tmf",
-                    "digest": ""
+                    "digest": "Mid T60 in samples"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "wlo",
-                    "digest": ""
+                    "digest": "Crossover frequency"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "chi",
-                    "digest": ""
+                    "digest": "Damping amount"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "m3l10c",
-                    "digest": ""
+                    "digest": "Constant"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Xover",
+                    "digest": "Coefficient 1"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Low",
+                    "digest": "Coefficient 2"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "High",
+                    "digest": "Coefficient 3"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "T60",
+                    "digest": "Coefficient 4"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Delay filter for FDN",
             "name": "delayFilt",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x0",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "wlo",
-                    "digest": ""
+                    "digest": "Coefficient 1"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "glo",
-                    "digest": ""
+                    "digest": "Coefficient 2"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "whi",
-                    "digest": ""
+                    "digest": "Coefficient 3"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "gmf",
-                    "digest": ""
+                    "digest": "Coefficient 4"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Filter",
+                    "digest": "Filtered audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "All audio rate version of 'delayFiltCoeff()'/'delayFilt()' combo",
             "name": "delayFilter",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x0",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "del",
-                    "digest": ""
+                    "digest": "Delay time"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "tlo",
-                    "digest": ""
+                    "digest": "Low T60 in samples"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "tmf",
-                    "digest": ""
+                    "digest": "Mid T60 in samples"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "wlo",
-                    "digest": ""
+                    "digest": "Crossover frequency"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "chi",
-                    "digest": ""
+                    "digest": "Damping amount"
                 },
                 {
                     "id": 7,
                     "kind": "input",
                     "name": "m3l10c",
-                    "digest": ""
+                    "digest": "Constant"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Filter",
+                    "digest": "Filtered audio output"
                 }
             ]
         }
     ],
-    "seealso": []
+    "seealso": [
+        "evi_svfs_lto",
+        "evi_rcfilters",
+        "evi_lfo"
+    ]
 }

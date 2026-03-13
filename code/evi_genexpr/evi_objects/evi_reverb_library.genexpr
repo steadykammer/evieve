@@ -621,7 +621,7 @@ allpassDiffuseDamp(x, time, diffusion, g0, k0, g1, k1, damp)
 	fb		= AllpassDiffuseD.read(time, interp="spline");
 	if ((damp) && ((k0 != 0) || (k1 != 0))) {
 		fb	= rcFilterDamp(fb, g0, k0);
-		fb	= rcFilterDamp(fb, g1, k1);
+		fb	= rcFilterDampHp(fb, g1, k1); // !! bug was here !!
 	}
 	y		= (x * -(diffusion)) + fb;
 	AllpassDiffuseD.write(x + (fixdenorm(y) * diffusion));

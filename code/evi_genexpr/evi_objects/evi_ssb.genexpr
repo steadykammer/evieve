@@ -6,6 +6,7 @@ require("evi_sinfold_lib.genexpr");
 require("evi_cossin.genexpr");
 require("evi_biquads_extras.genexpr");
 require("evi_rcfilters.genexpr");
+require("evi_butterworth.genexpr");
 
 //  //  //
 
@@ -22,15 +23,15 @@ complexRing(real, imag, rmod, imod) {
 }
 
 //  //  //
-
+/*
 // actually different to what we end up with post-Adaa
 sinFoldNaive(x, pidrive, sindrive)
 {
 	return sin(x * pidrive) * sindrive;
 }
-
+*/
 //  //  //
-
+/*
 fWarp(cf)
 {
 	f = (cf * (PI / samplerate)) * (1 / TWOPI);
@@ -81,6 +82,6 @@ butterworthLowpass8(X, G)
 
 	return Y;
 }
-
+*/
 //  //  //
 

@@ -1,5 +1,5 @@
 {
-    "description": "",
+    "description": "Specific functions for the evieve ring modulators.",
     "requires": [
         "evi_ssb.genexpr",
         "evi_butterworth.genexpr"

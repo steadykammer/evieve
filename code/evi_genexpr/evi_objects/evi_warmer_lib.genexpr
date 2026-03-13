@@ -6,6 +6,7 @@
 
 require("evi_smooth.genexpr");
 require("evi_rcfilters.genexpr");
+require("evi_butterworth.genexpr");
 
 D(x)
 {
@@ -45,6 +46,7 @@ szilagyi(drive, blend, sr)  // sr = samplerate
 }
 
 /*
+// TODO
 syDF0(x)
 {
     return sqrt(x);
@@ -306,7 +308,7 @@ boost(x, s, m, g)
   c1 = c0;
   return y;//dcblock(y);
 }
-
+/*
 fWarp(cf)
 {
   f = (cf * (pi / samplerate)) * (1 / twopi);
@@ -335,4 +337,4 @@ lp2p(x, g, r)             // 2-pole zdf section
   p1 = c3 + y;
   return y;
 }
-
+*/

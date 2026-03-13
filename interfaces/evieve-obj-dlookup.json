@@ -151,7 +151,7 @@
     },
     "evi.dfm~": {
         "type": "abstraction",
-        "digest": "Classic MS20 filter emulation based on DFM1 by Tony Hardie Blick \n",
+        "digest": "Classic MS20 filter emulation based on DFM1 by Tony Hardie-Bick \n",
         "description": ""
     },
     "evi.eq3~": {

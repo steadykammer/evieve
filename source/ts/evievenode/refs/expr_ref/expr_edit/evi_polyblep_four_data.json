@@ -165,5 +165,10 @@
             ]
         }
     ],
-    "seealso": ["evi_polyblep", "evi_polyblep_two", "evi_polyblep_shapes", "evi_polyblep_utility"]
+    "seealso": [
+        "evi_polyblep",
+        "evi_polyblep_two",
+        "evi_polyblep_shapes",
+        "evi_polyblep_utility"
+    ]
 }

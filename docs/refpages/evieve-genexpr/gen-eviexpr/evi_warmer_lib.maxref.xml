@@ -13,149 +13,137 @@
     The <b>evi_warmer_lib.genexpr</b> file also requires: <br />
     evi_smooth.genexpr <br />
     evi_rcfilters.genexpr <br />
+    evi_butterworth.genexpr <br />
     <br />
     <b>About this File</b>: <br />
-     <br />
+    This file is mainly here as a catch all for the require files it inherits for building the evieve [evi.warmer~] abstraction. It also contains core functions for that abstraction. <br />
   </description>
   <misc name="GenExpr Functions">
     <entry name="D ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        Helper function, return 'sqrt(x * sign(x)' <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>X</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Y, <i>sqrt(x * sign(x)</i> <br />
 
       </description>
     </entry>
     <entry name="szilagyi ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: drive, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: blend, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: sr, <i></i> <br />
+        Tom Szilagyi's original coefficients calculator for the saturator <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: drive, <i>Drive amount 0.1..10</i> <br />
+        <b>In 2</b>: type=<i>input</i>: blend, <i>Blend amount -10..10</i> <br />
+        <b>In 3</b>: type=<i>input</i>: sr, <i>Pass in samplerate</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
-        <b>Return 5</b>: , <i></i> <br />
-        <b>Return 6</b>: , <i></i> <br />
-        <b>Return 7</b>: , <i></i> <br />
-        <b>Return 8</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="sD ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: srct, <i>Coefficient 1</i> <br />
+        <b>Return 2</b>: ap, <i>Coefficient 2</i> <br />
+        <b>Return 3</b>: kpa, <i>Coefficient 3</i> <br />
+        <b>Return 4</b>: kpb, <i>Coefficient 4</i> <br />
+        <b>Return 5</b>: an, <i>Coefficient 5</i> <br />
+        <b>Return 6</b>: kna, <i>Coefficient 6</i> <br />
+        <b>Return 7</b>: knb, <i>Coefficient 7</i> <br />
+        <b>Return 8</b>: pwrq, <i>Coefficient 8</i> <br />
 
       </description>
     </entry>
     <entry name="szilagyiF0 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        Saturator naive function for adaa <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Saturated, <i>Audio output</i> <br />
 
       </description>
     </entry>
     <entry name="szilagyiF1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        Saturator 1st order function for adaa <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Saturated, <i>Audio output</i> <br />
 
       </description>
     </entry>
     <entry name="szilagyiF2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        Saturator 2nd order function for adaa <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Saturated, <i>Audio output</i> <br />
 
       </description>
     </entry>
     <entry name="szilagyiAdaa1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
+        Szilagyi Saturator 1st order antiderivative <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i>Audio input</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Saturated, <i>Audio output</i> <br />
 
       </description>
     </entry>
     <entry name="szilagyiAdaa2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
+        Szilagyi Saturator 2nd order antiderivative <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i>Audio input</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Saturated, <i>Audio output</i> <br />
 
       </description>
     </entry>
     <entry name="saturate ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: l, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: h, <i></i> <br />
+        Warpper for 'szilagyiAdaa2()' <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: l, <i>Low clip (linear)</i> <br />
+        <b>In 3</b>: type=<i>input</i>: h, <i>High clip (linear)</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Saturated, <i>Audio output</i> <br />
 
       </description>
     </entry>
     <entry name="saturateAdaa2_2x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: l, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: h, <i></i> <br />
+        Szilagyi Saturator Adaa2 2x oversampled 6-point interpolator <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: l, <i>Low clip (linear)</i> <br />
+        <b>In 3</b>: type=<i>input</i>: h, <i>High clip (linear)</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Saturated, <i>Audio output</i> <br />
 
       </description>
     </entry>
     <entry name="saturateAdaa2_4x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: l, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: h, <i></i> <br />
+        Szilagyi Saturator Adaa2 4x oversampled 6-point interpolator <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: l, <i>Low clip (linear)</i> <br />
+        <b>In 3</b>: type=<i>input</i>: h, <i>High clip (linear)</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Saturated, <i>Audio output</i> <br />
 
       </description>
     </entry>
     <entry name="boost ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: s, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: m, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: g, <i></i> <br />
+        Gain boost utility wrapping Szilagyi saturator <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: s, <i>Feedback gain (linear)</i> <br />
+        <b>In 3</b>: type=<i>input</i>: m, <i>Pre gain (linear)</i> <br />
+        <b>In 4</b>: type=<i>input</i>: g, <i>Post gain (linear)</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="fWarp ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: cf, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="lp1p ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: g, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="lp2p ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: g, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: r, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Saturated, <i>Audio output</i> <br />
 
       </description>
     </entry>
@@ -167,6 +155,10 @@
   </metadatalist>
   <seealsolist>
     <!-- we use 'refpage' here not 'genrefpage' to trick Max -->
+    <seealso name="evi_adaa" type="refpage"/>
+    <seealso name="evi_saturators" type="refpage"/>
+    <seealso name="evi_rcfilters" type="refpage"/>
+    <seealso name="evi_butterworth" type="refpage"/>
   </seealsolist>
   <misc name="Discussion">
     <entry name="Keywords">

@@ -1,5 +1,5 @@
 {
-    "description": "",
+    "description": "This file is a specific genexpr lib for use by the [evi.dfm~] MSP abstraction. It is likely not useful as a require() but you may find something interesting here. The enclosed [evi_dfm] gen~ abstraction only works in MSP as it requires an external LUT. [evi.dfm~] is a deluxe but dirty MS20-inspired old-school-style filter emulation, 12dB lowpass or 6dB highpass. Based on a classic by Tony Hardie-Bick ('DFM-1 Digital Filter Module'), 2010.",
     "requires": [
         "evi_smooth.genexpr",
         "evi_sources.genexpr",
@@ -8,80 +8,80 @@
     "functions": [
         {
             "document": true,
-            "digest": "",
+            "digest": "Wrap box-muller gaussian noise with local gain stage",
             "name": "gaussnoise",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "ngain",
-                    "digest": ""
+                    "digest": "Gain (linear)"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Noise",
+                    "digest": "Post gain gaussian noise"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Cubic nonlinearity suggested by Tony Hardie-Bick",
             "name": "dnl",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x0",
-                    "digest": ""
+                    "digest": "Audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Cubic",
+                    "digest": "Saturated output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Quasi 3x oversampling of 'dnl()'",
             "name": "dnl3x",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN",
-                    "digest": ""
+                    "digest": "Audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Cubic",
+                    "digest": "Saturated output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Make oversampling choice on nonlinearity",
             "name": "dnlNonlin",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "xin",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "oversampling",
-                    "digest": ""
+                    "digest": "(int) 0=1x, 1=3x"
                 }
             ],
             "returns": [
@@ -94,80 +94,80 @@
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "The filter (1x)",
             "name": "dft",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "l",
-                    "digest": ""
+                    "digest": "Lowpass gain"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "h",
-                    "digest": ""
+                    "digest": "Highpass gain"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "a",
-                    "digest": ""
+                    "digest": "Stage 1 coefficient (factor of cutoff & lut)"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "b",
-                    "digest": ""
+                    "digest": "Stage 2 coefficient (factor of cutoff & lut)"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "r",
-                    "digest": ""
+                    "digest": "Resonance corrected (factor of cutoff, resonance & lut)"
                 },
                 {
                     "id": 7,
                     "kind": "input",
                     "name": "noisegain",
-                    "digest": ""
+                    "digest": "Noise injection level"
                 },
                 {
                     "id": 8,
                     "kind": "input",
                     "name": "POSTGAIN",
-                    "digest": ""
+                    "digest": "Postgain constant"
                 },
                 {
                     "id": 9,
                     "kind": "input",
                     "name": "HEADROOM",
-                    "digest": ""
+                    "digest": "Headroom gain (factor of noise in filter)"
                 },
                 {
                     "id": 10,
                     "kind": "input",
                     "name": "nl",
-                    "digest": ""
+                    "digest": "IGNORE: unused (should always be '0')"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "DFM",
+                    "digest": "Filtered audio output"
                 }
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "dft2",
             "inputs": [
@@ -253,350 +253,218 @@
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "The filter, 2x oversampled, 6-point interpolator",
             "name": "dft2_2x6",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "l",
-                    "digest": ""
+                    "digest": "Lowpass gain"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "h",
-                    "digest": ""
+                    "digest": "Highpass gain"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "a",
-                    "digest": ""
+                    "digest": "Stage 1 coefficient (factor of cutoff & lut)"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "b",
-                    "digest": ""
+                    "digest": "Stage 2 coefficient (factor of cutoff & lut)"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "r",
-                    "digest": ""
+                    "digest": "Resonance corrected (factor of cutoff, resonance & lut)"
                 },
                 {
                     "id": 7,
                     "kind": "input",
                     "name": "noisegain",
-                    "digest": ""
+                    "digest": "Noise injection level"
                 },
                 {
                     "id": 8,
                     "kind": "input",
                     "name": "POSTGAIN",
-                    "digest": ""
+                    "digest": "Postgain constant"
                 },
                 {
                     "id": 9,
                     "kind": "input",
                     "name": "HEADROOM",
-                    "digest": ""
+                    "digest": "Headroom gain (factor of noise in filter)"
                 },
                 {
                     "id": 10,
                     "kind": "input",
                     "name": "nl",
-                    "digest": ""
+                    "digest": "IGNORE: unused (should always be '0')"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "DFM",
+                    "digest": "Filtered audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "The filter, 2x oversampled, 4-point interpolator",
             "name": "dft2_2x4",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "l",
-                    "digest": ""
+                    "digest": "Lowpass gain"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "h",
-                    "digest": ""
+                    "digest": "Highpass gain"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "a",
-                    "digest": ""
+                    "digest": "Stage 1 coefficient (factor of cutoff & lut)"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "b",
-                    "digest": ""
+                    "digest": "Stage 2 coefficient (factor of cutoff & lut)"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "r",
-                    "digest": ""
+                    "digest": "Resonance corrected (factor of cutoff, resonance & lut)"
                 },
                 {
                     "id": 7,
                     "kind": "input",
                     "name": "noisegain",
-                    "digest": ""
+                    "digest": "Noise injection level"
                 },
                 {
                     "id": 8,
                     "kind": "input",
                     "name": "POSTGAIN",
-                    "digest": ""
+                    "digest": "Postgain constant"
                 },
                 {
                     "id": 9,
                     "kind": "input",
                     "name": "HEADROOM",
-                    "digest": ""
+                    "digest": "Headroom gain (factor of noise in filter)"
                 },
                 {
                     "id": 10,
                     "kind": "input",
                     "name": "nl",
-                    "digest": ""
+                    "digest": "IGNORE: unused (should always be '0')"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "DFM",
+                    "digest": "Filtered audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
-            "name": "dft3x",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "XIN",
-                    "digest": ""
-                },
-                {
-                    "id": 2,
-                    "kind": "input",
-                    "name": "l",
-                    "digest": ""
-                },
-                {
-                    "id": 3,
-                    "kind": "input",
-                    "name": "h",
-                    "digest": ""
-                },
-                {
-                    "id": 4,
-                    "kind": "input",
-                    "name": "a",
-                    "digest": ""
-                },
-                {
-                    "id": 5,
-                    "kind": "input",
-                    "name": "b",
-                    "digest": ""
-                },
-                {
-                    "id": 6,
-                    "kind": "input",
-                    "name": "r",
-                    "digest": ""
-                },
-                {
-                    "id": 7,
-                    "kind": "input",
-                    "name": "ng",
-                    "digest": ""
-                },
-                {
-                    "id": 8,
-                    "kind": "input",
-                    "name": "n",
-                    "digest": ""
-                },
-                {
-                    "id": 9,
-                    "kind": "input",
-                    "name": "nl",
-                    "digest": ""
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "",
-                    "digest": ""
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "",
-            "name": "dft12x",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "XIN",
-                    "digest": ""
-                },
-                {
-                    "id": 2,
-                    "kind": "input",
-                    "name": "l",
-                    "digest": ""
-                },
-                {
-                    "id": 3,
-                    "kind": "input",
-                    "name": "h",
-                    "digest": ""
-                },
-                {
-                    "id": 4,
-                    "kind": "input",
-                    "name": "a",
-                    "digest": ""
-                },
-                {
-                    "id": 5,
-                    "kind": "input",
-                    "name": "b",
-                    "digest": ""
-                },
-                {
-                    "id": 6,
-                    "kind": "input",
-                    "name": "r",
-                    "digest": ""
-                },
-                {
-                    "id": 7,
-                    "kind": "input",
-                    "name": "ng",
-                    "digest": ""
-                },
-                {
-                    "id": 8,
-                    "kind": "input",
-                    "name": "n",
-                    "digest": ""
-                },
-                {
-                    "id": 9,
-                    "kind": "input",
-                    "name": "nl",
-                    "digest": ""
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "",
-                    "digest": ""
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "",
+            "digest": "The filter, make oversampling etc choice on entire filter",
             "name": "dfts",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "l",
-                    "digest": ""
+                    "digest": "Lowpass gain"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "h",
-                    "digest": ""
+                    "digest": "Highpass gain"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "a",
-                    "digest": ""
+                    "digest": "Stage 1 coefficient (factor of cutoff & lut)"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "b",
-                    "digest": ""
+                    "digest": "Stage 2 coefficient (factor of cutoff & lut)"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "r",
-                    "digest": ""
+                    "digest": "Resonance corrected (factor of cutoff, resonance & lut)"
                 },
                 {
                     "id": 7,
                     "kind": "input",
                     "name": "N",
-                    "digest": ""
+                    "digest": "Noise injection level"
                 },
                 {
                     "id": 8,
                     "kind": "input",
                     "name": "os",
-                    "digest": ""
+                    "digest": "Oversampling choice, fades between 1..2..1 if filter switched lowpass..highpass..lowpass, otherwise (int 0, 1, 2) selector"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "DFM",
+                    "digest": "Filtered audio output"
                 }
             ]
         }
     ],
-    "seealso": []
+    "seealso": [
+        "evi_buchla",
+        "evi_interp",
+        "evi_waveshaping"
+    ]
 }

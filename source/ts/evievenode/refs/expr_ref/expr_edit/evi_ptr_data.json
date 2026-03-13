@@ -1,77 +1,80 @@
 {
-    "description": "",
+    "description": "3rd order PTR ('Polynomial Transition Region') Oscillators. In evieve these are better than the polyblep 2-point, but not as good as the polyblep 4-point.",
     "requires": [],
     "functions": [
         {
             "document": true,
-            "digest": "",
+            "digest": "High quality classic Saw Oascillator",
             "name": "ptr3_saw",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "p",
-                    "digest": ""
+                    "digest": "Phase 0..1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "T0",
-                    "digest": ""
+                    "digest": "Hz / samplerate"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "P0",
-                    "digest": ""
+                    "digest": "samplerate / Hz"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Saw",
+                    "digest": "Saw oscillator"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "High quality classic Rect Oascillator with PWM",
             "name": "ptr3_rect",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "p",
-                    "digest": ""
+                    "digest": "Phase 0..1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "T0",
-                    "digest": ""
+                    "digest": "Hz / samplerate"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "P0",
-                    "digest": ""
+                    "digest": "samplerate / Hz"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "w",
-                    "digest": ""
+                    "digest": "PWM 0..1"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Rect",
+                    "digest": "Rect oscillator"
                 }
             ]
         }
     ],
-    "seealso": []
+    "seealso": [
+        "evi_polyblep_four",
+        "evi_polyblep_two"
+    ]
 }

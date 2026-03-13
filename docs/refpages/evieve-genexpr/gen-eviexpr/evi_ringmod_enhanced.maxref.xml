@@ -15,7 +15,7 @@
     evi_butterworth.genexpr <br />
     <br />
     <b>About this File</b>: <br />
-     <br />
+    Specific functions for the evieve ring modulators. <br />
   </description>
   <misc name="GenExpr Functions">
     <entry name="simpleRingmod ( )">

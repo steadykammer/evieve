@@ -1,227 +1,70 @@
 {
-    "description": "",
+    "description": "This file is mainly here as a catch all for the require files it inherits for building the evieve SSB (Single SideBand) modulators. It also contains the 'complexRing()' required for those abstractions.",
     "requires": [
         "evi_sinfold_lib.genexpr",
         "evi_cossin.genexpr",
         "evi_biquads_extras.genexpr",
-        "evi_rcfilters.genexpr"
+        "evi_rcfilters.genexpr",
+        "evi_butterworth.genexpr"
     ],
     "functions": [
         {
             "document": true,
-            "digest": "",
+            "digest": "Real/Imag complex ring modulator component",
             "name": "complexRing",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "real",
-                    "digest": ""
+                    "digest": "Real signal input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "imag",
-                    "digest": ""
+                    "digest": "Imag signal input"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "rmod",
-                    "digest": ""
+                    "digest": "Real modulator"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "imod",
-                    "digest": ""
+                    "digest": "Imag modulator"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "USB",
+                    "digest": "Upper sideband output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "LSB",
+                    "digest": "Lower sideband output"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "cosp",
+                    "digest": "Cosine audio component"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "",
-            "name": "sinFoldNaive",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "x",
-                    "digest": ""
-                },
-                {
-                    "id": 2,
-                    "kind": "input",
-                    "name": "pidrive",
-                    "digest": ""
-                },
-                {
-                    "id": 3,
-                    "kind": "input",
-                    "name": "sindrive",
-                    "digest": ""
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "",
-                    "digest": ""
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "",
-            "name": "fWarp",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "cf",
-                    "digest": ""
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "",
-                    "digest": ""
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "",
-            "name": "lp1p",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "x",
-                    "digest": ""
-                },
-                {
-                    "id": 2,
-                    "kind": "input",
-                    "name": "g",
-                    "digest": ""
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "",
-                    "digest": ""
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "",
-            "name": "lp2p",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "x",
-                    "digest": ""
-                },
-                {
-                    "id": 2,
-                    "kind": "input",
-                    "name": "g",
-                    "digest": ""
-                },
-                {
-                    "id": 3,
-                    "kind": "input",
-                    "name": "r",
-                    "digest": ""
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "",
-                    "digest": ""
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "",
-            "name": "butterworthLowpass4",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "X",
-                    "digest": ""
-                },
-                {
-                    "id": 2,
-                    "kind": "input",
-                    "name": "G",
-                    "digest": ""
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "",
-                    "digest": ""
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "",
-            "name": "butterworthLowpass8",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "X",
-                    "digest": ""
-                },
-                {
-                    "id": 2,
-                    "kind": "input",
-                    "name": "G",
-                    "digest": ""
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "sinp",
+                    "digest": "Sine audio component"
                 }
             ]
         }
     ],
-    "seealso": []
+    "seealso": [
+        "evi_sinfold_lib",
+        "evi_cossin",
+        "evi_butterworth"
+    ]
 }

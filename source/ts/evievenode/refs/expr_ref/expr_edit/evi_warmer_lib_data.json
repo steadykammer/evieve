@@ -1,429 +1,357 @@
 {
-    "description": "",
+    "description": "This file is mainly here as a catch all for the require files it inherits for building the evieve [evi.warmer~] abstraction. It also contains core functions for that abstraction.",
     "requires": [
         "evi_smooth.genexpr",
-        "evi_rcfilters.genexpr"
+        "evi_rcfilters.genexpr",
+        "evi_butterworth.genexpr"
     ],
     "functions": [
         {
             "document": true,
-            "digest": "",
+            "digest": "Helper function, return 'sqrt(x * sign(x)'",
             "name": "D",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "X"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Y",
+                    "digest": "sqrt(x * sign(x)"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Tom Szilagyi's original coefficients calculator for the saturator",
             "name": "szilagyi",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "drive",
-                    "digest": ""
+                    "digest": "Drive amount 0.1..10"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "blend",
-                    "digest": ""
+                    "digest": "Blend amount -10..10"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "sr",
-                    "digest": ""
+                    "digest": "Pass in samplerate"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "srct",
+                    "digest": "Coefficient 1"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "ap",
+                    "digest": "Coefficient 2"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "kpa",
+                    "digest": "Coefficient 3"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "kpb",
+                    "digest": "Coefficient 4"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "an",
+                    "digest": "Coefficient 5"
                 },
                 {
                     "id": 6,
-                    "name": "",
-                    "digest": ""
+                    "name": "kna",
+                    "digest": "Coefficient 6"
                 },
                 {
                     "id": 7,
-                    "name": "",
-                    "digest": ""
+                    "name": "knb",
+                    "digest": "Coefficient 7"
                 },
                 {
                     "id": 8,
-                    "name": "",
-                    "digest": ""
+                    "name": "pwrq",
+                    "digest": "Coefficient 8"
                 }
             ]
         },
         {
-            "document": true,
-            "digest": "",
+            "document": false,
+            "digest": "Helper function, return 'sqrt(x * sign(x)' (used to be Adaa'd)",
             "name": "sD",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "X"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Y",
+                    "digest": "sqrt(x * sign(x)"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Saturator naive function for adaa",
             "name": "szilagyiF0",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Saturated",
+                    "digest": "Audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Saturator 1st order function for adaa",
             "name": "szilagyiF1",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Saturated",
+                    "digest": "Audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Saturator 2nd order function for adaa",
             "name": "szilagyiF2",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Saturated",
+                    "digest": "Audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Szilagyi Saturator 1st order antiderivative",
             "name": "szilagyiAdaa1",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x0",
-                    "digest": ""
+                    "digest": "Audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Saturated",
+                    "digest": "Audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Szilagyi Saturator 2nd order antiderivative",
             "name": "szilagyiAdaa2",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x0",
-                    "digest": ""
+                    "digest": "Audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Saturated",
+                    "digest": "Audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Wrapper for 'szilagyiAdaa2()'",
             "name": "saturate",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "l",
-                    "digest": ""
+                    "digest": "Low clip (linear)"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "h",
-                    "digest": ""
+                    "digest": "High clip (linear)"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Saturated",
+                    "digest": "Audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Szilagyi Saturator Adaa2 2x oversampled 6-point interpolator",
             "name": "saturateAdaa2_2x_6POINT",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "l",
-                    "digest": ""
+                    "digest": "Low clip (linear)"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "h",
-                    "digest": ""
+                    "digest": "High clip (linear)"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Saturated",
+                    "digest": "Audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Szilagyi Saturator Adaa2 4x oversampled 6-point interpolator",
             "name": "saturateAdaa2_4x_6POINT",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "l",
-                    "digest": ""
+                    "digest": "Low clip (linear)"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "h",
-                    "digest": ""
+                    "digest": "High clip (linear)"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Saturated",
+                    "digest": "Audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Gain boost utility wrapping Szilagyi saturator",
             "name": "boost",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "s",
-                    "digest": ""
+                    "digest": "Feedback gain (linear)"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "m",
-                    "digest": ""
+                    "digest": "Pre gain (linear)"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "g",
-                    "digest": ""
+                    "digest": "Post gain (linear)"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "",
-            "name": "fWarp",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "cf",
-                    "digest": ""
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "",
-                    "digest": ""
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "",
-            "name": "lp1p",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "x",
-                    "digest": ""
-                },
-                {
-                    "id": 2,
-                    "kind": "input",
-                    "name": "g",
-                    "digest": ""
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "",
-                    "digest": ""
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "",
-            "name": "lp2p",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "x",
-                    "digest": ""
-                },
-                {
-                    "id": 2,
-                    "kind": "input",
-                    "name": "g",
-                    "digest": ""
-                },
-                {
-                    "id": 3,
-                    "kind": "input",
-                    "name": "r",
-                    "digest": ""
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Saturated",
+                    "digest": "Audio output"
                 }
             ]
         }
     ],
-    "seealso": []
+    "seealso": [
+        "evi_adaa",
+        "evi_saturators",
+        "evi_rcfilters",
+        "evi_butterworth"
+    ]
 }

@@ -1,5 +1,5 @@
 {
-    "description": "",
+    "description": "This file just wraps the 'sinFold()' adaa functions from the 'evi_saturators.genexpr' file for ease of use in the MSP [evi.sinfold~] abstraction. Not very useful for anything else, but useful if you want to use the same sine saturating waveshaper in your own code.",
     "requires": [
         "evi_smooth.genexpr",
         "evi_trig.genexpr",
@@ -8,253 +8,257 @@
     "functions": [
         {
             "document": true,
-            "digest": "",
+            "digest": "Parameter rate gain wrapping for the core 'sinFold()' functions",
             "name": "sinParam",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "drive",
-                    "digest": ""
+                    "digest": "Drive amount % 0..1.. up to 2 is pretty safe, up to 4 be careful"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "pidrive",
+                    "digest": "Pre gain shaped"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "sindrive",
+                    "digest": "Post gain shaped"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Naive waveshaping, do not use, we use the oversampled versions only",
             "name": "sinFoldNaive",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "pidrive",
-                    "digest": ""
+                    "digest": "Pre gain shaped"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "sindrive",
-                    "digest": ""
+                    "digest": "Post gain shaped"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Sine",
+                    "digest": "Sine shaped saturated output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Adaa 1 version",
             "name": "sinFoldAdaa1",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "pidrive",
-                    "digest": ""
+                    "digest": "Pre gain shaped"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "sindrive",
-                    "digest": ""
+                    "digest": "Post gain shaped"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Sine",
+                    "digest": "Sine shaped saturated output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Adaa 1 2x oversampled",
             "name": "sinFoldAdaa1_2x",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "pidrive",
-                    "digest": ""
+                    "digest": "Pre gain shaped"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "sindrive",
-                    "digest": ""
+                    "digest": "Post gain shaped"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Sine",
+                    "digest": "Sine shaped saturated output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Adaa 1 4x oversampled",
             "name": "sinFoldAdaa1_4x",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "pidrive",
-                    "digest": ""
+                    "digest": "Pre gain shaped"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "sindrive",
-                    "digest": ""
+                    "digest": "Post gain shaped"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Sine",
+                    "digest": "Sine shaped saturated output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Adaa 2 version",
             "name": "sinFoldAdaa2",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "pidrive",
-                    "digest": ""
+                    "digest": "Pre gain shaped"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "sindrive",
-                    "digest": ""
+                    "digest": "Post gain shaped"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Sine",
+                    "digest": "Sine shaped saturated output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Adaa 2 2x oversampled",
             "name": "sinFoldAdaa2_2x",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "pidrive",
-                    "digest": ""
+                    "digest": "Pre gain shaped"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "sindrive",
-                    "digest": ""
+                    "digest": "Post gain shaped"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Sine",
+                    "digest": "Sine shaped saturated output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Adaa 2 4x oversampled",
             "name": "sinFoldAdaa2_4x",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "pidrive",
-                    "digest": ""
+                    "digest": "Pre gain shaped"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "sindrive",
-                    "digest": ""
+                    "digest": "Post gain shaped"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Sine",
+                    "digest": "Sine shaped saturated output"
                 }
             ]
         }
     ],
-    "seealso": []
+    "seealso": [
+        "evi_adaa",
+        "evi_saturators",
+        "evi_waveshaping"
+    ]
 }

@@ -16,85 +16,101 @@
     evi_saturators.genexpr <br />
     <br />
     <b>About this File</b>: <br />
-     <br />
+    This file just wraps the 'sinFold()' adaa functions from the 'evi_saturators.genexpr' file for ease of use in the MSP [evi.sinfold~] abstraction. Not very useful for anything else, but useful if you want to use the same sine saturating waveshaper in your own code. <br />
   </description>
   <misc name="GenExpr Functions">
     <entry name="sinParam ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: drive, <i></i> <br />
+        Parameter rate gain wrapping for the core 'sinFold()' functions <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: drive, <i>Drive amount % 0..1.. up to 2 is pretty safe, up to 4 be careful</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
+        <b>Return 1</b>: pidrive, <i>Pre gain shaped</i> <br />
+        <b>Return 2</b>: sindrive, <i>Post gain shaped</i> <br />
 
       </description>
     </entry>
     <entry name="sinFoldNaive ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: pidrive, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: sindrive, <i></i> <br />
+        Naive waveshaping, do not use, we use the oversampled versions only <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: pidrive, <i>Pre gain shaped</i> <br />
+        <b>In 3</b>: type=<i>input</i>: sindrive, <i>Post gain shaped</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Sine, <i>Sine shaped saturated output</i> <br />
 
       </description>
     </entry>
     <entry name="sinFoldAdaa1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: pidrive, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: sindrive, <i></i> <br />
+        Adaa 1 version <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: pidrive, <i>Pre gain shaped</i> <br />
+        <b>In 3</b>: type=<i>input</i>: sindrive, <i>Post gain shaped</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Sine, <i>Sine shaped saturated output</i> <br />
 
       </description>
     </entry>
     <entry name="sinFoldAdaa1_2x ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: pidrive, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: sindrive, <i></i> <br />
+        Adaa 1 2x oversampled <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: pidrive, <i>Pre gain shaped</i> <br />
+        <b>In 3</b>: type=<i>input</i>: sindrive, <i>Post gain shaped</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Sine, <i>Sine shaped saturated output</i> <br />
 
       </description>
     </entry>
     <entry name="sinFoldAdaa1_4x ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: pidrive, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: sindrive, <i></i> <br />
+        Adaa 1 4x oversampled <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: pidrive, <i>Pre gain shaped</i> <br />
+        <b>In 3</b>: type=<i>input</i>: sindrive, <i>Post gain shaped</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Sine, <i>Sine shaped saturated output</i> <br />
 
       </description>
     </entry>
     <entry name="sinFoldAdaa2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: pidrive, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: sindrive, <i></i> <br />
+        Adaa 2 version <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: pidrive, <i>Pre gain shaped</i> <br />
+        <b>In 3</b>: type=<i>input</i>: sindrive, <i>Post gain shaped</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Sine, <i>Sine shaped saturated output</i> <br />
 
       </description>
     </entry>
     <entry name="sinFoldAdaa2_2x ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: pidrive, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: sindrive, <i></i> <br />
+        Adaa 2 2x oversampled <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: pidrive, <i>Pre gain shaped</i> <br />
+        <b>In 3</b>: type=<i>input</i>: sindrive, <i>Post gain shaped</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Sine, <i>Sine shaped saturated output</i> <br />
 
       </description>
     </entry>
     <entry name="sinFoldAdaa2_4x ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: pidrive, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: sindrive, <i></i> <br />
+        Adaa 2 4x oversampled <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: pidrive, <i>Pre gain shaped</i> <br />
+        <b>In 3</b>: type=<i>input</i>: sindrive, <i>Post gain shaped</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Sine, <i>Sine shaped saturated output</i> <br />
 
       </description>
     </entry>
@@ -106,6 +122,9 @@
   </metadatalist>
   <seealsolist>
     <!-- we use 'refpage' here not 'genrefpage' to trick Max -->
+    <seealso name="evi_adaa" type="refpage"/>
+    <seealso name="evi_saturators" type="refpage"/>
+    <seealso name="evi_waveshaping" type="refpage"/>
   </seealsolist>
   <misc name="Discussion">
     <entry name="Keywords">

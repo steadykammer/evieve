@@ -15,358 +15,349 @@
     evi_rcfilters.genexpr <br />
     <br />
     <b>About this File</b>: <br />
-     <br />
+    A catch-all file required by all of the evieve Reverbs, therefore a collection of functions which are useful for reverb building! Many of these functions are very specific to the reverbs in which they are used, but some, such as the zero hold delay calculators and the allpass and comb filters might be useful in other situations. <br />
   </description>
   <misc name="GenExpr Functions">
     <entry name="spreadLate ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: diffscale, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: mul1, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: mul2, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: spread, <i></i> <br />
+        Sadeharju 'spread' and times for late diffusion, used only at param rate <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: diffscale, <i>Integer diffusion scale time</i> <br />
+        <b>In 2</b>: type=<i>input</i>: mul1, <i>Constant (12.5541 / -56.8366)</i> <br />
+        <b>In 3</b>: type=<i>input</i>: mul2, <i>Constant (256.2138 / -38.0445)</i> <br />
+        <b>In 4</b>: type=<i>input</i>: spread, <i>Global spread 0..1</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
+        <b>Return 1</b>: 1, <i>Late diffusion time 1</i> <br />
+        <b>Return 2</b>: 2, <i>Late diffusion time 2</i> <br />
+        <b>Return 3</b>: 3, <i>Late diffusion time 3</i> <br />
 
       </description>
     </entry>
     <entry name="gainCoeff ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: normalised, <i></i> <br />
+        Return normalised gain coefficient <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: normalised, <i>Gain</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Gain, <i>Normalised gain</i> <br />
 
       </description>
     </entry>
     <entry name="filterParams ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: high, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: low, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: base, <i></i> <br />
+        Macroisation for shelf filter params <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: high, <i>High % 0..1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: low, <i>Low % 0..1</i> <br />
+        <b>In 3</b>: type=<i>input</i>: base, <i>mtof() &#x27;base&#x27; tuning</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
+        <b>Return 1</b>: Hz, <i>Highpass in Hz</i> <br />
+        <b>Return 2</b>: 0..1, <i>High attenuation</i> <br />
+        <b>Return 3</b>: Lowpass in Hz, <i></i> <br />
+        <b>Return 4</b>: 0..1, <i>Low attenuation</i> <br />
 
       </description>
     </entry>
     <entry name="sizeParams ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: size, <i></i> <br />
+        Reverb size macroisation <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: size, <i>Size parameter 0..1</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
-        <b>Return 5</b>: , <i></i> <br />
-        <b>Return 6</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="fastskewlfo052neg ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: skewneg, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="fastskewlfo052pos ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: skewpos, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="fastskewlfo052ar ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: skew, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: L, <i>Size left</i> <br />
+        <b>Return 2</b>: R, <i>Size right</i> <br />
+        <b>Return 3</b>: Diff, <i>Diffuseness</i> <br />
+        <b>Return 4</b>: RT60, <i>RT60 in dB</i> <br />
+        <b>Return 5</b>: Mod, <i>Modulation amount</i> <br />
+        <b>Return 6</b>: Mod, <i>Modulation spread</i> <br />
 
       </description>
     </entry>
     <entry name="lfoMix ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: phase, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: duty, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: shape, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: skew, <i></i> <br />
+        Morphing LFO with 0..1 output <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: phase, <i>Phase 0..1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: duty, <i>Duty (tri) 0..1</i> <br />
+        <b>In 3</b>: type=<i>input</i>: shape, <i>Shape 0..1 tri..sine</i> <br />
+        <b>In 4</b>: type=<i>input</i>: skew, <i>Exponent 0.5..2</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: LFO, <i>LFO 0..1</i> <br />
 
       </description>
     </entry>
     <entry name="oneMod1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: modFreq, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: modDepth, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: modOffset, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: _modDuty, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: _modShape, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: _modSkew, <i></i> <br />
+        Sine modulation wrapper <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: modFreq, <i>Frequency in Hz</i> <br />
+        <b>In 2</b>: type=<i>input</i>: modDepth, <i>Depth (any range)</i> <br />
+        <b>In 3</b>: type=<i>input</i>: modOffset, <i>Phase offset 0..1</i> <br />
+        <b>In 4</b>: type=<i>input</i>: _modDuty, <i>UNUSED</i> <br />
+        <b>In 5</b>: type=<i>input</i>: _modShape, <i>UNUSED</i> <br />
+        <b>In 6</b>: type=<i>input</i>: _modSkew, <i>UNUSED</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: LFO, <i>Signed output</i> <br />
 
       </description>
     </entry>
     <entry name="oneMod2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: modFreq, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: modDepth, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: modOffset, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: modDuty, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: modShape, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: modSkew, <i></i> <br />
+        Morphing LFO modulation wrapper <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: modFreq, <i>Frequency in Hz</i> <br />
+        <b>In 2</b>: type=<i>input</i>: modDepth, <i>Depth (any range)</i> <br />
+        <b>In 3</b>: type=<i>input</i>: modOffset, <i>Phase offset 0..1</i> <br />
+        <b>In 4</b>: type=<i>input</i>: modDuty, <i>Duty (tri) 0..1</i> <br />
+        <b>In 5</b>: type=<i>input</i>: modShape, <i>Shape 0..1 tri..sine</i> <br />
+        <b>In 6</b>: type=<i>input</i>: modSkew, <i>Exponent 0.5..2</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: LFO, <i>Signed output</i> <br />
 
       </description>
     </entry>
     <entry name="delmod2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: delay1, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: delay2, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: rate, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: depth, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: offset1, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: offset2, <i></i> <br />
+        Dual delay times modulation wrapper <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: delay1, <i>Delay time 1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: delay2, <i>Delay time 2</i> <br />
+        <b>In 3</b>: type=<i>input</i>: rate, <i>Frequency in Hz</i> <br />
+        <b>In 4</b>: type=<i>input</i>: depth, <i>Depth (any range)</i> <br />
+        <b>In 5</b>: type=<i>input</i>: offset1, <i>Phase offset 1 0..1</i> <br />
+        <b>In 6</b>: type=<i>input</i>: offset2, <i>Phase offset 2 0..1</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
+        <b>Return 1</b>: Delay, <i>Delay time 1</i> <br />
+        <b>Return 2</b>: Delay, <i>Delay time 2</i> <br />
 
       </description>
     </entry>
     <entry name="delmod4 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: delay1, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: delay2, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: delay3, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: delay4, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: rate1, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: rate2, <i></i> <br />
-        <b>In 7</b>: type=<i>input</i>: depth, <i></i> <br />
-        <b>In 8</b>: type=<i>input</i>: offset1, <i></i> <br />
-        <b>In 9</b>: type=<i>input</i>: offset2, <i></i> <br />
-        <b>In 10</b>: type=<i>input</i>: offset3, <i></i> <br />
-        <b>In 11</b>: type=<i>input</i>: offset4, <i></i> <br />
+        Quad delay times modulation wrapper <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: delay1, <i>Delay time 1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: delay2, <i>Delay time 2</i> <br />
+        <b>In 3</b>: type=<i>input</i>: delay3, <i>Delay time 3</i> <br />
+        <b>In 4</b>: type=<i>input</i>: delay4, <i>Delay time 4</i> <br />
+        <b>In 5</b>: type=<i>input</i>: rate1, <i>Frequency in Hz 1</i> <br />
+        <b>In 6</b>: type=<i>input</i>: rate2, <i>Frequency in Hz 2</i> <br />
+        <b>In 7</b>: type=<i>input</i>: depth, <i>Depth (any range)</i> <br />
+        <b>In 8</b>: type=<i>input</i>: offset1, <i>Phase offset 1 0..1</i> <br />
+        <b>In 9</b>: type=<i>input</i>: offset2, <i>Phase offset 2 0..1</i> <br />
+        <b>In 10</b>: type=<i>input</i>: offset3, <i>Phase offset 3 0..1</i> <br />
+        <b>In 11</b>: type=<i>input</i>: offset4, <i>Phase offset 4 0..1</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
+        <b>Return 1</b>: Delay, <i>Delay time 1</i> <br />
+        <b>Return 2</b>: Delay, <i>Delay time 2</i> <br />
+        <b>Return 3</b>: Delay, <i>Delay time 3</i> <br />
+        <b>Return 4</b>: Delay, <i>Delay time 4</i> <br />
 
       </description>
     </entry>
     <entry name="noiseMod ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: depth, <i></i> <br />
+        Quirky noise lfo, stupid literal port of Randy Jones' MSP lores~ hack <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: depth, <i>Depth (amplitude)</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: LFO, <i>Random (noise) LFO</i> <br />
 
       </description>
     </entry>
     <entry name="eightMod ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: modFreq, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: modDepth, <i></i> <br />
+        8 sine modulators (4 L, 4 R), 1 phase, really quite silly <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: modFreq, <i>Frequency in Hz</i> <br />
+        <b>In 2</b>: type=<i>input</i>: modDepth, <i>Depth (any range)</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
-        <b>Return 5</b>: , <i></i> <br />
-        <b>Return 6</b>: , <i></i> <br />
-        <b>Return 7</b>: , <i></i> <br />
-        <b>Return 8</b>: , <i></i> <br />
+        <b>Return 1</b>: LFO, <i>Modulator 1</i> <br />
+        <b>Return 2</b>: LFO, <i>Modulator 2</i> <br />
+        <b>Return 3</b>: LFO, <i>Modulator 3</i> <br />
+        <b>Return 4</b>: LFO, <i>Modulator 4</i> <br />
+        <b>Return 5</b>: LFO, <i>Modulator 5</i> <br />
+        <b>Return 6</b>: LFO, <i>Modulator 6</i> <br />
+        <b>Return 7</b>: LFO, <i>Modulator 7</i> <br />
+        <b>Return 8</b>: LFO, <i>Modulator 8</i> <br />
 
       </description>
     </entry>
     <entry name="eightModMatt ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: modFreq, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: modDepth, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: modSpread, <i></i> <br />
+        8 sine modulators (4 L, 4 R), 1 phase, 5..8 controlled via 'modSpread' <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: modFreq, <i>Frequency in Hz</i> <br />
+        <b>In 2</b>: type=<i>input</i>: modDepth, <i>Depth (any range)</i> <br />
+        <b>In 3</b>: type=<i>input</i>: modSpread, <i>Spread 0..1</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
-        <b>Return 5</b>: , <i></i> <br />
-        <b>Return 6</b>: , <i></i> <br />
-        <b>Return 7</b>: , <i></i> <br />
-        <b>Return 8</b>: , <i></i> <br />
+        <b>Return 1</b>: LFO, <i>Modulator 1</i> <br />
+        <b>Return 2</b>: LFO, <i>Modulator 2</i> <br />
+        <b>Return 3</b>: LFO, <i>Modulator 3</i> <br />
+        <b>Return 4</b>: LFO, <i>Modulator 4</i> <br />
+        <b>Return 5</b>: LFO, <i>Modulator 5</i> <br />
+        <b>Return 6</b>: LFO, <i>Modulator 6</i> <br />
+        <b>Return 7</b>: LFO, <i>Modulator 7</i> <br />
+        <b>Return 8</b>: LFO, <i>Modulator 8</i> <br />
 
       </description>
     </entry>
     <entry name="calcDelays ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: delay, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: time, <i></i> <br />
+        Zero hold sample accurate updating of delay times <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: delay, <i>Delay in units</i> <br />
+        <b>In 2</b>: type=<i>input</i>: time, <i>Time in samples</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
+        <b>Return 1</b>: Ramp, <i>Ramp between delay times 0..1</i> <br />
+        <b>Return 2</b>: Delay, <i>Delay time 1</i> <br />
+        <b>Return 3</b>: Delay, <i>Delay time 2</i> <br />
 
       </description>
     </entry>
     <entry name="preDelayVar ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: pdTime, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: pdRamp, <i></i> <br />
+        Zero hold delay calculator for seamless updating, very expensive but very lovely, supports at least 143 ms, cannot be used in a feedback loop <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: pdTime, <i>(Pre) delay time in samples</i> <br />
+        <b>In 3</b>: type=<i>input</i>: pdRamp, <i>Ramp time in samples</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Delay, <i>Smoothly updated audio output</i> <br />
 
       </description>
     </entry>
     <entry name="preDelayWindow ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: pdTime0, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: pdWindow, <i></i> <br />
+        Less expensive than 'preDelayVar()' but not zero hold, supports at least 143 ms <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: pdTime0, <i>(Pre) delay time in samples</i> <br />
+        <b>In 3</b>: type=<i>input</i>: pdWindow, <i>Window size in Hz</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Delay, <i>Smoothly updated audio output</i> <br />
 
       </description>
     </entry>
     <entry name="delayReadZero1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: dTime, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: dRamp, <i></i> <br />
+        Zero hold delay calculator for seamless updating, very expensive but very lovely, supports at least 128 ms, cannot be used in a feedback loop <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: dTime, <i>Delay time in samples</i> <br />
+        <b>In 3</b>: type=<i>input</i>: dRamp, <i>Ramp time in samples</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Delay, <i>Smoothly updated audio output</i> <br />
 
       </description>
     </entry>
     <entry name="delayReadZero1mod ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: dTime, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: dRamp, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: mDepth, <i></i> <br />
+        Zero hold delay calculator for seamless updating with depth modulation, very expensive but very lovely, supports at least 272 ms, can be used anywhere <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: dTime, <i>Delay time in samples</i> <br />
+        <b>In 3</b>: type=<i>input</i>: dRamp, <i>Ramp time in samples</i> <br />
+        <b>In 4</b>: type=<i>input</i>: mDepth, <i>Depth for random LFO in seconds (sorry)</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Delay, <i>Smoothly updated audio output</i> <br />
 
       </description>
     </entry>
     <entry name="delayReadZero2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: dTime1, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: dTime2, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: dRamp, <i></i> <br />
+        Zero hold delay calculator for seamless updating with dual delayed outputs, very expensive, supports at least 256 ms, cannot be used in a feedback loop <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: dTime1, <i>Delay time 1 in samples</i> <br />
+        <b>In 3</b>: type=<i>input</i>: dTime2, <i>Delay time 2 in samples</i> <br />
+        <b>In 4</b>: type=<i>input</i>: dRamp, <i>Ramp time in samples</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
+        <b>Return 1</b>: Delay 1, <i>Smoothly updated audio output 1</i> <br />
+        <b>Return 2</b>: Delay 2, <i>Smoothly updated audio output 2</i> <br />
 
       </description>
     </entry>
     <entry name="poleZeroDamp ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: a, <i></i> <br />
+        Basic onepole filter for damping <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: a, <i>Prewarped normalised frequency 0..1</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Onepole, <i>Audio output</i> <br />
 
       </description>
     </entry>
     <entry name="fbComb ( )">
       <description>
+        Comb filter delay, supports at least 37 ms <br />
+        <br />
         <b>In 1</b>: type=<i>input</i>: cIn, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: cDamp1, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: cDamp2, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: cFeedback, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: cTime, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: cDamp1, <i>Feedback damping</i> <br />
+        <b>In 3</b>: type=<i>input</i>: cDamp2, <i>Feedforward damping</i> <br />
+        <b>In 4</b>: type=<i>input</i>: cFeedback, <i>Feedback gain -1..1</i> <br />
+        <b>In 5</b>: type=<i>input</i>: cTime, <i>Fixed integer samples, no interpolation</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Comb, <i>Filtered audio output</i> <br />
 
       </description>
     </entry>
     <entry name="fbAllpass ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: aIn, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: aFeedback, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: aTime, <i></i> <br />
+        Allpass filter delay, supports at least 13 ms <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: aIn, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: aFeedback, <i>Feedback gain -1..1</i> <br />
+        <b>In 3</b>: type=<i>input</i>: aTime, <i>Fixed integer samples, no interpolation</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="fbAllpass3 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: aIn, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: aFeedback, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: aTime, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Allpass, <i>Filtered audio output</i> <br />
 
       </description>
     </entry>
     <entry name="fffbAllpassShort ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: aIn, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: aGain, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: aTime, <i></i> <br />
+        Allpass filter delay, supports at least 12 ms, MSP-like <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: aIn, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: aGain, <i>Gain -1..1</i> <br />
+        <b>In 3</b>: type=<i>input</i>: aTime, <i>Fixed integer samples, no interpolation</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Allpass, <i>Filtered audio output</i> <br />
 
       </description>
     </entry>
     <entry name="fffbAllpassMedium ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: aIn, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: aGain, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: aTime, <i></i> <br />
+        Allpass filter delay, supports at least 142 ms, MSP-like <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: aIn, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: aGain, <i>Gain -1..1</i> <br />
+        <b>In 3</b>: type=<i>input</i>: aTime, <i>Variable samples, internally interpolated</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Allpass, <i>Filtered audio output</i> <br />
 
       </description>
     </entry>
     <entry name="fffbAllpassLong ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: aIn, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: aGain, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: aTime, <i></i> <br />
+        Allpass filter delay, supports at least 272 ms, MSP-like <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: aIn, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: aGain, <i>Gain -1..1</i> <br />
+        <b>In 3</b>: type=<i>input</i>: aTime, <i>Variable samples, internally interpolated</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Allpass, <i>Filtered audio output</i> <br />
 
       </description>
     </entry>
     <entry name="DiffAllpass ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: xIn, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: xCoeff, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: xTime, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="AllpassDiffuseShort ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: time, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: diffusion, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: apgain, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="AllpassDiffuseLong ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: time, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: diffusion, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: apgain, <i></i> <br />
+        Allpass diffusion delay, supports at least 272 ms / up to 300 meters <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: xIn, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: xCoeff, <i>Constant</i> <br />
+        <b>In 3</b>: type=<i>input</i>: xTime, <i>Variable samples, internally interpolated</i> <br />
 
         <b>Return 1</b>: , <i></i> <br />
 
@@ -374,134 +365,152 @@
     </entry>
     <entry name="allpassDiffuseShort ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: time, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: diffusion, <i></i> <br />
+        Allpass diffusion delay, supports maximum 29 ms <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: time, <i>Variable samples, internally interpolated</i> <br />
+        <b>In 3</b>: type=<i>input</i>: diffusion, <i>Amount 0..1</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Allpass, <i>Filtered audio output</i> <br />
 
       </description>
     </entry>
     <entry name="allpassDiffuseLong ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: time, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: diffusion, <i></i> <br />
+        Allpass diffusion delay, supports maximum 45 ms <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: time, <i>Variable samples, internally interpolated</i> <br />
+        <b>In 3</b>: type=<i>input</i>: diffusion, <i>Amount 0..1</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Allpass, <i>Filtered audio output</i> <br />
 
       </description>
     </entry>
     <entry name="allpassDiffuseDamp ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: time, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: diffusion, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: g0, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: k0, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: g1, <i></i> <br />
-        <b>In 7</b>: type=<i>input</i>: k1, <i></i> <br />
-        <b>In 8</b>: type=<i>input</i>: damp, <i></i> <br />
+        Allpass diffusion delay with internal damping filters in the feedback path, supports maximum 55 ms <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: time, <i>Variable samples, internally interpolated</i> <br />
+        <b>In 3</b>: type=<i>input</i>: diffusion, <i>Amount 0..1</i> <br />
+        <b>In 4</b>: type=<i>input</i>: g0, <i>Normalised rc frequency coefficient High</i> <br />
+        <b>In 5</b>: type=<i>input</i>: k0, <i>Gain coefficient High 0..1 bypassed..attenuated</i> <br />
+        <b>In 6</b>: type=<i>input</i>: g1, <i>Normalised rc frequency coefficient Low</i> <br />
+        <b>In 7</b>: type=<i>input</i>: k1, <i>Gain coefficient Low 0..1 bypassed..attenuated</i> <br />
+        <b>In 8</b>: type=<i>input</i>: damp, <i>Use damping filters off/on flag 0/1</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Allpass, <i>Filtered audio output</i> <br />
 
       </description>
     </entry>
     <entry name="DiffuseDelayShort ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: time, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: diffusion, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: apgain, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: hs_a1, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: hs_a2, <i></i> <br />
-        <b>In 7</b>: type=<i>input</i>: hs_a3, <i></i> <br />
-        <b>In 8</b>: type=<i>input</i>: hs_m0, <i></i> <br />
-        <b>In 9</b>: type=<i>input</i>: hs_m1, <i></i> <br />
-        <b>In 10</b>: type=<i>input</i>: hs_m2, <i></i> <br />
-        <b>In 11</b>: type=<i>input</i>: ls_a1, <i></i> <br />
-        <b>In 12</b>: type=<i>input</i>: ls_a2, <i></i> <br />
-        <b>In 13</b>: type=<i>input</i>: ls_a3, <i></i> <br />
-        <b>In 14</b>: type=<i>input</i>: ls_m0, <i></i> <br />
-        <b>In 15</b>: type=<i>input</i>: ls_m1, <i></i> <br />
-        <b>In 16</b>: type=<i>input</i>: ls_m2, <i></i> <br />
+        Deluxe allpass diffusion delay with internal SVF shelving filters in the feedback path, supports maximum 309 ms <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: time, <i>Variable samples, internally interpolated</i> <br />
+        <b>In 3</b>: type=<i>input</i>: diffusion, <i>Amount 0..1</i> <br />
+        <b>In 4</b>: type=<i>input</i>: apgain, <i>Gain -1..1</i> <br />
+        <b>In 5</b>: type=<i>input</i>: hs_a1, <i>a1 coefficient highshelf (evieve LTO SVF)</i> <br />
+        <b>In 6</b>: type=<i>input</i>: hs_a2, <i>a2 coefficient highshelf (evieve LTO SVF)</i> <br />
+        <b>In 7</b>: type=<i>input</i>: hs_a3, <i>a3 coefficient highshelf (evieve LTO SVF)</i> <br />
+        <b>In 8</b>: type=<i>input</i>: hs_m0, <i>m0 mixing gain highshelf (evieve LTO SVF)</i> <br />
+        <b>In 9</b>: type=<i>input</i>: hs_m1, <i>m1 mixing gain highshelf (evieve LTO SVF)</i> <br />
+        <b>In 10</b>: type=<i>input</i>: hs_m2, <i>m2 mixing gain highshelf (evieve LTO SVF)</i> <br />
+        <b>In 11</b>: type=<i>input</i>: ls_a1, <i>a1 coefficient lowshelf (evieve LTO SVF)</i> <br />
+        <b>In 12</b>: type=<i>input</i>: ls_a2, <i>a2 coefficient lowshelf (evieve LTO SVF)</i> <br />
+        <b>In 13</b>: type=<i>input</i>: ls_a3, <i>a3 coefficient lowshelf (evieve LTO SVF)</i> <br />
+        <b>In 14</b>: type=<i>input</i>: ls_m0, <i>m0 mixing gain lowshelf (evieve LTO SVF)</i> <br />
+        <b>In 15</b>: type=<i>input</i>: ls_m1, <i>m1 mixing gain lowshelf (evieve LTO SVF)</i> <br />
+        <b>In 16</b>: type=<i>input</i>: ls_m2, <i>m2 mixing gain lowshelf (evieve LTO SVF)</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Allpass, <i>Filtered audio output</i> <br />
 
       </description>
     </entry>
     <entry name="DiffuseDelayLong ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: time, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: diffusion, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: apgain, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: hs_a1, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: hs_a2, <i></i> <br />
-        <b>In 7</b>: type=<i>input</i>: hs_a3, <i></i> <br />
-        <b>In 8</b>: type=<i>input</i>: hs_m0, <i></i> <br />
-        <b>In 9</b>: type=<i>input</i>: hs_m1, <i></i> <br />
-        <b>In 10</b>: type=<i>input</i>: hs_m2, <i></i> <br />
-        <b>In 11</b>: type=<i>input</i>: ls_a1, <i></i> <br />
-        <b>In 12</b>: type=<i>input</i>: ls_a2, <i></i> <br />
-        <b>In 13</b>: type=<i>input</i>: ls_a3, <i></i> <br />
-        <b>In 14</b>: type=<i>input</i>: ls_m0, <i></i> <br />
-        <b>In 15</b>: type=<i>input</i>: ls_m1, <i></i> <br />
-        <b>In 16</b>: type=<i>input</i>: ls_m2, <i></i> <br />
+        Deluxe allpass diffusion delay with internal SVF shelving filters in the feedback path, supports maximum 490 ms <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: time, <i>Variable samples, internally interpolated</i> <br />
+        <b>In 3</b>: type=<i>input</i>: diffusion, <i>Amount 0..1</i> <br />
+        <b>In 4</b>: type=<i>input</i>: apgain, <i>Gain -1..1</i> <br />
+        <b>In 5</b>: type=<i>input</i>: hs_a1, <i>a1 coefficient highshelf (evieve LTO SVF)</i> <br />
+        <b>In 6</b>: type=<i>input</i>: hs_a2, <i>a2 coefficient highshelf (evieve LTO SVF)</i> <br />
+        <b>In 7</b>: type=<i>input</i>: hs_a3, <i>a3 coefficient highshelf (evieve LTO SVF)</i> <br />
+        <b>In 8</b>: type=<i>input</i>: hs_m0, <i>m0 mixing gain highshelf (evieve LTO SVF)</i> <br />
+        <b>In 9</b>: type=<i>input</i>: hs_m1, <i>m1 mixing gain highshelf (evieve LTO SVF)</i> <br />
+        <b>In 10</b>: type=<i>input</i>: hs_m2, <i>m2 mixing gain highshelf (evieve LTO SVF)</i> <br />
+        <b>In 11</b>: type=<i>input</i>: ls_a1, <i>a1 coefficient lowshelf (evieve LTO SVF)</i> <br />
+        <b>In 12</b>: type=<i>input</i>: ls_a2, <i>a2 coefficient lowshelf (evieve LTO SVF)</i> <br />
+        <b>In 13</b>: type=<i>input</i>: ls_a3, <i>a3 coefficient lowshelf (evieve LTO SVF)</i> <br />
+        <b>In 14</b>: type=<i>input</i>: ls_m0, <i>m0 mixing gain lowshelf (evieve LTO SVF)</i> <br />
+        <b>In 15</b>: type=<i>input</i>: ls_m1, <i>m1 mixing gain lowshelf (evieve LTO SVF)</i> <br />
+        <b>In 16</b>: type=<i>input</i>: ls_m2, <i>m2 mixing gain lowshelf (evieve LTO SVF)</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Allpass, <i>Filtered audio output</i> <br />
 
       </description>
     </entry>
     <entry name="apDelaySingle ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: apIn, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: apTime, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: apGain, <i></i> <br />
+        Allpass Comb filter delay, supports at least 31 ms <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: apIn, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: apTime, <i>Fixed integer samples, no interpolation</i> <br />
+        <b>In 3</b>: type=<i>input</i>: apGain, <i>Gain 0..1</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Comb, <i>Filtered audio output</i> <br />
 
       </description>
     </entry>
     <entry name="delayFiltCoeff ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: del, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: tlo, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: tmf, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: wlo, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: chi, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: m3l10c, <i></i> <br />
+        Param rate coefficients calculator for 'delayFilt()' <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: del, <i>Delay time</i> <br />
+        <b>In 2</b>: type=<i>input</i>: tlo, <i>Low T60 in samples</i> <br />
+        <b>In 3</b>: type=<i>input</i>: tmf, <i>Mid T60 in samples</i> <br />
+        <b>In 4</b>: type=<i>input</i>: wlo, <i>Crossover frequency</i> <br />
+        <b>In 5</b>: type=<i>input</i>: chi, <i>Damping amount</i> <br />
+        <b>In 6</b>: type=<i>input</i>: m3l10c, <i>Constant</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
+        <b>Return 1</b>: Xover, <i>Coefficient 1</i> <br />
+        <b>Return 2</b>: Low, <i>Coefficient 2</i> <br />
+        <b>Return 3</b>: High, <i>Coefficient 3</i> <br />
+        <b>Return 4</b>: T60, <i>Coefficient 4</i> <br />
 
       </description>
     </entry>
     <entry name="delayFilt ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: wlo, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: glo, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: whi, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: gmf, <i></i> <br />
+        Delay filter for FDN <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: wlo, <i>Coefficient 1</i> <br />
+        <b>In 3</b>: type=<i>input</i>: glo, <i>Coefficient 2</i> <br />
+        <b>In 4</b>: type=<i>input</i>: whi, <i>Coefficient 3</i> <br />
+        <b>In 5</b>: type=<i>input</i>: gmf, <i>Coefficient 4</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Filter, <i>Filtered audio output</i> <br />
 
       </description>
     </entry>
     <entry name="delayFilter ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: del, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: tlo, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: tmf, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: wlo, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: chi, <i></i> <br />
-        <b>In 7</b>: type=<i>input</i>: m3l10c, <i></i> <br />
+        All audio rate version of 'delayFiltCoeff()'/'delayFilt()' combo <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: del, <i>Delay time</i> <br />
+        <b>In 3</b>: type=<i>input</i>: tlo, <i>Low T60 in samples</i> <br />
+        <b>In 4</b>: type=<i>input</i>: tmf, <i>Mid T60 in samples</i> <br />
+        <b>In 5</b>: type=<i>input</i>: wlo, <i>Crossover frequency</i> <br />
+        <b>In 6</b>: type=<i>input</i>: chi, <i>Damping amount</i> <br />
+        <b>In 7</b>: type=<i>input</i>: m3l10c, <i>Constant</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Filter, <i>Filtered audio output</i> <br />
 
       </description>
     </entry>
@@ -513,6 +522,9 @@
   </metadatalist>
   <seealsolist>
     <!-- we use 'refpage' here not 'genrefpage' to trick Max -->
+    <seealso name="evi_svfs_lto" type="refpage"/>
+    <seealso name="evi_rcfilters" type="refpage"/>
+    <seealso name="evi_lfo" type="refpage"/>
   </seealsolist>
   <misc name="Discussion">
     <entry name="Keywords">

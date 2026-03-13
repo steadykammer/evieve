@@ -15,77 +15,25 @@
     evi_cossin.genexpr <br />
     evi_biquads_extras.genexpr <br />
     evi_rcfilters.genexpr <br />
+    evi_butterworth.genexpr <br />
     <br />
     <b>About this File</b>: <br />
-     <br />
+    This file is mainly here as a catch all for the require files it inherits for building the evieve SSB (Single SideBand) modulators. It also contains the 'complexRing()' required for those abstractions. <br />
   </description>
   <misc name="GenExpr Functions">
     <entry name="complexRing ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: real, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: imag, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: rmod, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: imod, <i></i> <br />
+        Real/Imag complex ring modulator component <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: real, <i>Real signal input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: imag, <i>Imag signal input</i> <br />
+        <b>In 3</b>: type=<i>input</i>: rmod, <i>Real modulator</i> <br />
+        <b>In 4</b>: type=<i>input</i>: imod, <i>Imag modulator</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="sinFoldNaive ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: pidrive, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: sindrive, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="fWarp ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: cf, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="lp1p ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: g, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="lp2p ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: g, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: r, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="butterworthLowpass4 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: X, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: G, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="butterworthLowpass8 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: X, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: G, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: USB, <i>Upper sideband output</i> <br />
+        <b>Return 2</b>: LSB, <i>Lower sideband output</i> <br />
+        <b>Return 3</b>: cosp, <i>Cosine audio component</i> <br />
+        <b>Return 4</b>: sinp, <i>Sine audio component</i> <br />
 
       </description>
     </entry>
@@ -97,6 +45,9 @@
   </metadatalist>
   <seealsolist>
     <!-- we use 'refpage' here not 'genrefpage' to trick Max -->
+    <seealso name="evi_sinfold_lib" type="refpage"/>
+    <seealso name="evi_cossin" type="refpage"/>
+    <seealso name="evi_butterworth" type="refpage"/>
   </seealsolist>
   <misc name="Discussion">
     <entry name="Keywords">
