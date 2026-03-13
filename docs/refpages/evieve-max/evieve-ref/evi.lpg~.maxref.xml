@@ -107,6 +107,14 @@
 				
 			</description>
 		</outlet>
+		<outlet id="4" type="signal">
+			<digest>
+				Vactrol Envelope
+			</digest>
+			<description>
+				
+			</description>
+		</outlet>
 	</outletlist>
 	<!--ARGUMENTS-->
 	<objarglist>

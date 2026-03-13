@@ -7,67 +7,67 @@
         "description": "TEXT_HERE"
     },
     "constructor": {
-        "inlets": "@comment, @default, @default, @default, @default, @default, @default"
+        "inlets": "in, inlow, inmid, inhigh, outlow, outmid, outhigh"
     },
     "includes": [],
     "inlets": [
         {
             "id": 1,
-            "name": "@comment",
+            "name": "in",
             "type": "float",
             "optional": 1,
-            "digest": "in Map"
+            "digest": "Map"
         },
         {
             "id": 2,
-            "name": "@default",
+            "name": "inlow",
             "type": "float",
             "optional": 1,
-            "digest": "0 @comment inLow"
+            "digest": "@default 0"
         },
         {
             "id": 3,
-            "name": "@default",
+            "name": "inmid",
             "type": "float",
             "optional": 1,
-            "digest": "0.5 @comment inMid"
+            "digest": "@default 0.5"
         },
         {
             "id": 4,
-            "name": "@default",
+            "name": "inhigh",
             "type": "float",
             "optional": 1,
-            "digest": "1 @comment inHigh"
+            "digest": "@default 1"
         },
         {
             "id": 5,
-            "name": "@default",
+            "name": "outlow",
             "type": "float",
             "optional": 1,
-            "digest": "0 @comment outLow"
+            "digest": "@default 0"
         },
         {
             "id": 6,
-            "name": "@default",
+            "name": "outmid",
             "type": "float",
             "optional": 1,
-            "digest": "0.5 @comment outMid"
+            "digest": "@default 0.5"
         },
         {
             "id": 7,
-            "name": "@default",
+            "name": "outhigh",
             "type": "float",
             "optional": 1,
-            "digest": "1 @comment outHigh"
+            "digest": "@default 1"
         }
     ],
     "outlets": [
         {
             "id": 1,
-            "name": "@comment",
+            "name": "out",
             "type": "float",
             "optional": 1,
-            "digest": "out Map"
+            "digest": "Map"
         }
     ],
     "attributes": [

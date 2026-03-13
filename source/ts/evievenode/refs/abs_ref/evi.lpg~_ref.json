@@ -78,6 +78,12 @@
             "type": "signal",
             "digest": "hPG",
             "description": ""
+        },
+        {
+            "id": 4,
+            "type": "signal",
+            "digest": "Vactrol Envelope",
+            "description": ""
         }
     ],
     "arguments": [],

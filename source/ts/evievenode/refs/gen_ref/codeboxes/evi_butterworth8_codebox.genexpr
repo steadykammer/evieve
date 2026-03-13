@@ -1,12 +1,12 @@
 
-require("evi_approx.genexpr");
+//require("evi_butterworth.genexpr");// surely should just do this here now?
 
 fWarp(cf)
 {
     inv2pi = 0.159154943091895;
 	f = (cf * (PI / samplerate)) * inv2pi;
 	w = (f - trunc(f)) * TWOPI;
-	return tanA2(w);				// tan approximation (G for butterworth)
+	return evi_tan(w);				// tan approximation (G for butterworth)
 }
 
 lp1p(x, g)							// 1-pole tpt section

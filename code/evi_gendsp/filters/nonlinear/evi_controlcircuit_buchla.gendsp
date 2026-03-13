@@ -20,8 +20,8 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 755.0, 19.0, 287.0, 22.0 ],
-                    "text": "in 4 @c Sweep @min 0 @max 1 @default 0.408141"
+                    "patching_rect": [ 755.0, 19.0, 266.0, 22.0 ],
+                    "text": "in 4 Sweep @min 0 @max 1 @default 0.408141"
                 }
             },
             {
@@ -33,8 +33,8 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 480.0, 19.0, 258.0, 22.0 ],
-                    "text": "in 3 @c Scaler @min 0 @max 1 @default 0.48"
+                    "patching_rect": [ 480.0, 19.0, 236.0, 22.0 ],
+                    "text": "in 3 Scaler @min 0 @max 1 @default 0.48"
                 }
             },
             {
@@ -46,8 +46,8 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 214.0, 19.0, 249.0, 22.0 ],
-                    "text": "in 2 @c Offset @min 0 @max 1 @default 0.1"
+                    "patching_rect": [ 214.0, 19.0, 228.0, 22.0 ],
+                    "text": "in 2 Offset @min 0 @max 1 @default 0.1"
                 }
             },
             {
@@ -73,8 +73,8 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 34.0, 19.0, 148.0, 22.0 ],
-                    "text": "in 1 @c V_c (from Vactrol)"
+                    "patching_rect": [ 34.0, 19.0, 127.0, 22.0 ],
+                    "text": "in 1 V_c (from Vactrol)"
                 }
             },
             {
@@ -85,8 +85,8 @@
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 34.0, 807.0, 127.0, 22.0 ],
-                    "text": "out 1 @c R_f (to LPG)"
+                    "patching_rect": [ 34.0, 807.0, 106.0, 22.0 ],
+                    "text": "out 1 R_f (to LPG)"
                 }
             },
             {

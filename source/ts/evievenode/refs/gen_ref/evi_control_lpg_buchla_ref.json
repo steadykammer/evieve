@@ -61,6 +61,13 @@
             "type": "float",
             "optional": 1,
             "digest": "(to LPG)"
+        },
+        {
+            "id": 2,
+            "name": "vactrol",
+            "type": "float",
+            "optional": 1,
+            "digest": "Envelope"
         }
     ],
     "attributes": [

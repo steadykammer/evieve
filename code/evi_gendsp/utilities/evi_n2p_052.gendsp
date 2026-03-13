@@ -1,131 +1,105 @@
 {
-	"patcher" : 	{
-		"fileversion" : 1,
-		"appversion" : 		{
-			"major" : 9,
-			"minor" : 0,
-			"revision" : 0,
-			"architecture" : "x64",
-			"modernui" : 1
-		}
-,
-		"classnamespace" : "dsp.gen",
-		"rect" : [ 306.0, 66.0, 495.0, 195.0 ],
-		"bglocked" : 0,
-		"openinpresentation" : 0,
-		"default_fontsize" : 12.0,
-		"default_fontface" : 0,
-		"default_fontname" : "Arial",
-		"gridonopen" : 2,
-		"gridsize" : [ 15.0, 15.0 ],
-		"gridsnaponopen" : 1,
-		"objectsnaponopen" : 1,
-		"statusbarvisible" : 2,
-		"toolbarvisible" : 0,
-		"lefttoolbarpinned" : 2,
-		"toptoolbarpinned" : 2,
-		"righttoolbarpinned" : 2,
-		"bottomtoolbarpinned" : 2,
-		"toolbars_unpinned_last_save" : 15,
-		"tallnewobj" : 0,
-		"boxanimatetime" : 0,
-		"enablehscroll" : 1,
-		"enablevscroll" : 1,
-		"devicewidth" : 0.0,
-		"description" : "",
-		"digest" : "",
-		"tags" : "",
-		"style" : "",
-		"subpatcher_template" : "PeteSub12",
-		"assistshowspatchername" : 0,
-		"boxes" : [ 			{
-				"box" : 				{
-					"id" : "obj-3",
-					"maxclass" : "comment",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 50.0, 12.0, 246.0, 20.0 ],
-					"text" : "@see also: \"evi_n2p_0254\""
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-30",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 50.0, 88.0, 246.0, 22.0 ],
-					"text" : "expr (in1 >= 0.) ? (in1 + 1.) : (1. - (in1 * -0.5))"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-1",
-					"maxclass" : "newobj",
-					"numinlets" : 0,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 50.0, 34.0, 342.0, 22.0 ],
-					"text" : "in 1 @min -1. @max 1. @default 0. @comment curvature -1..1"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-4",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 50.0, 142.0, 169.0, 22.0 ],
-					"text" : "out 1 @comment power 0.5..2"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-6",
-					"maxclass" : "comment",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 221.0, 143.0, 262.0, 20.0 ]
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-35",
-					"maxclass" : "comment",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 50.0, 66.0, 404.0, 20.0 ],
-					"text" : "linearly map -1..1 to 0.5..2 around 0==1, input MUST be clamped -1..1"
-				}
-
-			}
- ],
-		"lines" : [ 			{
-				"patchline" : 				{
-					"destination" : [ "obj-30", 0 ],
-					"source" : [ "obj-1", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-4", 0 ],
-					"source" : [ "obj-30", 0 ]
-				}
-
-			}
- ],
-		"autosave" : 0,
-		"toolbaradditions" : [ "transport", "audiosolo", "audiomute" ],
-		"toolbarexclusions" : [ "audiopowerctrl", "browsebeap", "browsevizzie", "lessonbrowser" ],
-		"bgcolor" : [ 0.94902, 0.94902, 0.94902, 1.0 ],
-		"editing_bgcolor" : [ 0.94902, 0.94902, 0.94902, 1.0 ]
-	}
-
+    "patcher": {
+        "fileversion": 1,
+        "appversion": {
+            "major": 9,
+            "minor": 2,
+            "revision": 0,
+            "architecture": "x64",
+            "modernui": 1
+        },
+        "classnamespace": "dsp.gen",
+        "rect": [ 306.0, 66.0, 495.0, 195.0 ],
+        "gridonopen": 2,
+        "toolbarvisible": 0,
+        "lefttoolbarpinned": 2,
+        "toptoolbarpinned": 2,
+        "righttoolbarpinned": 2,
+        "bottomtoolbarpinned": 2,
+        "toolbars_unpinned_last_save": 15,
+        "boxanimatetime": 0,
+        "subpatcher_template": "PeteSub12",
+        "integercoordinates": 1,
+        "boxes": [
+            {
+                "box": {
+                    "id": "obj-3",
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 50.0, 12.0, 246.0, 20.0 ],
+                    "text": "@see also: \"evi_n2p_0254\""
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-30",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 50.0, 88.0, 246.0, 22.0 ],
+                    "text": "expr (in1 >= 0.) ? (in1 + 1.) : (1. - (in1 * -0.5))"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-1",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 50.0, 34.0, 277.0, 22.0 ],
+                    "text": "in 1 curvature -1..1 @min -1. @max 1. @default 0."
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-4",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 50.0, 142.0, 105.0, 22.0 ],
+                    "text": "out 1 power 0.5..2"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-6",
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 157.0, 143.0, 297.0, 20.0 ]
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-35",
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 50.0, 66.0, 404.0, 20.0 ],
+                    "text": "linearly map -1..1 to 0.5..2 around 0==1, input MUST be clamped -1..1"
+                }
+            }
+        ],
+        "lines": [
+            {
+                "patchline": {
+                    "destination": [ "obj-30", 0 ],
+                    "source": [ "obj-1", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-4", 0 ],
+                    "source": [ "obj-30", 0 ]
+                }
+            }
+        ],
+        "toolbaradditions": [ "transport", "audiosolo", "audiomute" ],
+        "toolbarexclusions": [ "audiopowerctrl", "browsebeap", "browsevizzie", "lessonbrowser" ],
+        "bgcolor": [ 0.94902, 0.94902, 0.94902, 1.0 ],
+        "editing_bgcolor": [ 0.94902, 0.94902, 0.94902, 1.0 ]
+    }
 }

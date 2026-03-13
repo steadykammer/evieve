@@ -7,7 +7,7 @@
         "description": "TEXT_HERE"
     },
     "constructor": {
-        "inlets": "@c, @c, @c, @c"
+        "inlets": "v_c, offset, scaler, sweep"
     },
     "includes": [
         "evi_rcfilters"
@@ -15,40 +15,40 @@
     "inlets": [
         {
             "id": 1,
-            "name": "@c",
+            "name": "v_c",
             "type": "float",
             "optional": 1,
-            "digest": "V_c (from Vactrol)"
+            "digest": "(from Vactrol)"
         },
         {
             "id": 2,
-            "name": "@c",
+            "name": "offset",
             "type": "float",
             "optional": 1,
-            "digest": "Offset @min 0 @max 1 @default 0.1"
+            "digest": "@min 0 @max 1 @default 0.1"
         },
         {
             "id": 3,
-            "name": "@c",
+            "name": "scaler",
             "type": "float",
             "optional": 1,
-            "digest": "Scaler @min 0 @max 1 @default 0.48"
+            "digest": "@min 0 @max 1 @default 0.48"
         },
         {
             "id": 4,
-            "name": "@c",
+            "name": "sweep",
             "type": "float",
             "optional": 1,
-            "digest": "Sweep @min 0 @max 1 @default 0.408141"
+            "digest": "@min 0 @max 1 @default 0.408141"
         }
     ],
     "outlets": [
         {
             "id": 1,
-            "name": "@c",
+            "name": "r_f",
             "type": "float",
             "optional": 1,
-            "digest": "R_f (to LPG)"
+            "digest": "(to LPG)"
         }
     ],
     "attributes": [

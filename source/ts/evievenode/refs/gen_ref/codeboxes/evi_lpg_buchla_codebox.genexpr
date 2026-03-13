@@ -1,5 +1,5 @@
 
-// TPT emulation of the Buchla Lowpass-Gate, unique version of a two-pole Sallen & Key filter,
+// Circuit modelled emulation of the Buchla Lowpass-Gate, unique version of a two-pole Sallen & Key filter,
 // based on "A Digital Model of the Buchla Lowpass-Gate" by Julian Parker and Stefano D’Angelo, 2013
 // @see: http://research.spa.aalto.fi/publications/papers/dafx13-lpg/DAFx2013-LPG.pdf
 

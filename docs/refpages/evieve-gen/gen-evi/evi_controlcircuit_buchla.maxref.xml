@@ -17,29 +17,29 @@
     <constructorlist>
         <constructor name='1'>
             <digest>
-                { arguments={}, inlets={ @c, @c, @c, @c } }
+                { arguments={}, inlets={ v_c, offset, scaler, sweep } }
             </digest>
         </constructor>
     </constructorlist>
     <geninletlist>
-        <geninlet name='@c' type='float' optional='1'>
+        <geninlet name='v_c' type='float' optional='1'>
             <digest>
-                V_c (from Vactrol)
+                (from Vactrol)
             </digest>
         </geninlet>
-        <geninlet name='@c' type='float' optional='1'>
+        <geninlet name='offset' type='float' optional='1'>
             <digest>
-                Offset @min 0 @max 1 @default 0.1
+                @min 0 @max 1 @default 0.1
             </digest>
         </geninlet>
-        <geninlet name='@c' type='float' optional='1'>
+        <geninlet name='scaler' type='float' optional='1'>
             <digest>
-                Scaler @min 0 @max 1 @default 0.48
+                @min 0 @max 1 @default 0.48
             </digest>
         </geninlet>
-        <geninlet name='@c' type='float' optional='1'>
+        <geninlet name='sweep' type='float' optional='1'>
             <digest>
-                Sweep @min 0 @max 1 @default 0.408141
+                @min 0 @max 1 @default 0.408141
             </digest>
         </geninlet>
     </geninletlist>

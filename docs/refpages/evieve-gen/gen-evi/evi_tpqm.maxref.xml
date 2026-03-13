@@ -14,44 +14,44 @@
     <constructorlist>
         <constructor name='1'>
             <digest>
-                { arguments={}, inlets={ @comment, @default, @default, @default, @default, @default, @default } }
+                { arguments={}, inlets={ in, inlow, inmid, inhigh, outlow, outmid, outhigh } }
             </digest>
         </constructor>
     </constructorlist>
     <geninletlist>
-        <geninlet name='@comment' type='float' optional='1'>
+        <geninlet name='in' type='float' optional='1'>
             <digest>
-                in Map
+                Map
             </digest>
         </geninlet>
-        <geninlet name='@default' type='float' optional='1'>
+        <geninlet name='inlow' type='float' optional='1'>
             <digest>
-                0 @comment inLow
+                @default 0
             </digest>
         </geninlet>
-        <geninlet name='@default' type='float' optional='1'>
+        <geninlet name='inmid' type='float' optional='1'>
             <digest>
-                0.5 @comment inMid
+                @default 0.5
             </digest>
         </geninlet>
-        <geninlet name='@default' type='float' optional='1'>
+        <geninlet name='inhigh' type='float' optional='1'>
             <digest>
-                1 @comment inHigh
+                @default 1
             </digest>
         </geninlet>
-        <geninlet name='@default' type='float' optional='1'>
+        <geninlet name='outlow' type='float' optional='1'>
             <digest>
-                0 @comment outLow
+                @default 0
             </digest>
         </geninlet>
-        <geninlet name='@default' type='float' optional='1'>
+        <geninlet name='outmid' type='float' optional='1'>
             <digest>
-                0.5 @comment outMid
+                @default 0.5
             </digest>
         </geninlet>
-        <geninlet name='@default' type='float' optional='1'>
+        <geninlet name='outhigh' type='float' optional='1'>
             <digest>
-                1 @comment outHigh
+                @default 1
             </digest>
         </geninlet>
     </geninletlist>

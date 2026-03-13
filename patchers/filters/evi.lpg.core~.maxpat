@@ -223,36 +223,42 @@
                             {
                                 "patchline": {
                                     "destination": [ "obj-10", 0 ],
+                                    "midpoints": [ 507.5, 150.5, 58.5, 150.5 ],
                                     "source": [ "obj-3", 5 ]
                                 }
                             },
                             {
                                 "patchline": {
                                     "destination": [ "obj-10", 0 ],
+                                    "midpoints": [ 459.5, 150.5, 58.5, 150.5 ],
                                     "source": [ "obj-3", 4 ]
                                 }
                             },
                             {
                                 "patchline": {
                                     "destination": [ "obj-10", 0 ],
+                                    "midpoints": [ 411.5, 150.5, 58.5, 150.5 ],
                                     "source": [ "obj-3", 3 ]
                                 }
                             },
                             {
                                 "patchline": {
                                     "destination": [ "obj-10", 0 ],
+                                    "midpoints": [ 363.5, 150.5, 58.5, 150.5 ],
                                     "source": [ "obj-3", 2 ]
                                 }
                             },
                             {
                                 "patchline": {
                                     "destination": [ "obj-10", 0 ],
+                                    "midpoints": [ 315.5, 150.5, 58.5, 150.5 ],
                                     "source": [ "obj-3", 1 ]
                                 }
                             },
                             {
                                 "patchline": {
                                     "destination": [ "obj-10", 0 ],
+                                    "midpoints": [ 267.5, 150.5, 58.5, 150.5 ],
                                     "source": [ "obj-3", 0 ]
                                 }
                             },
@@ -507,8 +513,8 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 49.0, 252.0, 306.0, 60.0 ],
-                    "text": "TPT emulation of the Buchla Lowpass-Gate, unique version of a two-pole Sallen & Key filter, based on \"A Digital Model of the Buchla Lowpass-Gate\" by Julian Parker and Stefano D’Angelo, 2013"
+                    "patching_rect": [ 49.0, 252.0, 316.0, 60.0 ],
+                    "text": "Circuit modelled emulation of the Buchla Lowpass-Gate, unique version of a two-pole Sallen & Key filter, based on \"A Digital Model of the Buchla Lowpass-Gate\" by Julian Parker and Stefano D’Angelo, 2013"
                 }
             },
             {

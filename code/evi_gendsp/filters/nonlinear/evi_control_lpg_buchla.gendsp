@@ -9,11 +9,21 @@
             "modernui": 1
         },
         "classnamespace": "dsp.gen",
-        "rect": [ 134.0, 138.0, 960.0, 447.0 ],
+        "rect": [ 134.0, 138.0, 989.0, 447.0 ],
         "gridonopen": 2,
         "subpatcher_template": "sub",
         "integercoordinates": 1,
         "boxes": [
+            {
+                "box": {
+                    "id": "obj-26",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 784.0, 356.0, 171.0, 22.0 ],
+                    "text": "out 2 (signal) Vactrol Envelope"
+                }
+            },
             {
                 "box": {
                     "id": "obj-35",
@@ -482,8 +492,17 @@
             },
             {
                 "patchline": {
+                    "color": [ 1.0, 0.5763723254, 0.0, 0.24619722682119205 ],
+                    "destination": [ "obj-26", 0 ],
+                    "order": 0,
+                    "source": [ "obj-6", 0 ]
+                }
+            },
+            {
+                "patchline": {
                     "color": [ 1.0, 0.5763723254, 0.0, 1.0 ],
                     "destination": [ "obj-5", 0 ],
+                    "order": 1,
                     "source": [ "obj-6", 0 ]
                 }
             },

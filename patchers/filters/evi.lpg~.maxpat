@@ -16,6 +16,17 @@
         "boxes": [
             {
                 "box": {
+                    "comment": "(signal) Vactrol Envelope",
+                    "id": "obj-11",
+                    "index": 4,
+                    "maxclass": "outlet",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 382.0, 468.0, 30.0, 30.0 ]
+                }
+            },
+            {
+                "box": {
                     "dontreplace": 1,
                     "id": "obj-12",
                     "ignoreclick": 1,
@@ -24,7 +35,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 251.0, 620.0, 150.0, 22.0 ],
-                    "text": "1 192000. 256 512"
+                    "text": "0 192000. 64 256"
                 }
             },
             {
@@ -44,8 +55,8 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 494.0, 472.0, 306.0, 60.0 ],
-                    "text": "TPT emulation of the Buchla Lowpass-Gate, unique version of a two-pole Sallen & Key filter, based on \"A Digital Model of the Buchla Lowpass-Gate\" by Julian Parker and Stefano D’Angelo, 2013"
+                    "patching_rect": [ 494.0, 472.0, 316.0, 60.0 ],
+                    "text": "Circuit modelled emulation of the Buchla Lowpass-Gate, unique version of a two-pole Sallen & Key filter, based on \"A Digital Model of the Buchla Lowpass-Gate\" by Julian Parker and Stefano D’Angelo, 2013"
                 }
             },
             {
@@ -714,8 +725,8 @@
                     "id": "obj-2",
                     "maxclass": "newobj",
                     "numinlets": 6,
-                    "numoutlets": 1,
-                    "outlettype": [ "signal" ],
+                    "numoutlets": 2,
+                    "outlettype": [ "signal", "signal" ],
                     "patching_rect": [ 204.0, 387.0, 197.0, 22.0 ],
                     "text": "gen~ @gen evi_control_lpg_buchla"
                 }
@@ -747,7 +758,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 403.0, 621.0, 397.0, 20.0 ],
+                    "patching_rect": [ 403.0, 621.0, 407.0, 20.0 ],
                     "text": "DSP / SAMPLERATE / SIG VECTORSIZE / IO VECTORSIZE"
                 }
             }
@@ -799,6 +810,12 @@
                 "patchline": {
                     "destination": [ "obj-1", 1 ],
                     "source": [ "obj-2", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-11", 0 ],
+                    "source": [ "obj-2", 1 ]
                 }
             },
             {
