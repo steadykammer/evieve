@@ -1,7 +1,18 @@
 
 // all evi_core & evi_libraries functionality in a single require (but not the object code)
 
+// core
 require("evi_core.genexpr");
-
+// libs
 require("evi_lib.genexpr");
 
+// to inlcude the objects code you would also need these:
+/*
+require("evi_dfm_lib.genexpr");
+require("evi_resbank.genexpr");
+require("evi_reverb_library.genexpr");
+require("evi_ringmod_enhanced.genexpr");
+require("evi_sinfold_lib.genexpr");
+require("evi_ssb.genexpr");
+require("evi_warmer_lib.genexpr");
+*/

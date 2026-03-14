@@ -113,12 +113,12 @@
         },
         {
             "name": "envmax",
-            "type": "int",
+            "type": "float",
             "digest": "@min 1",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "127"
+                "type": "float",
+                "value": "127."
             }
         },
         {
@@ -153,12 +153,12 @@
         },
         {
             "name": "loopsustain",
-            "type": "int",
+            "type": "float",
             "digest": "@min 0, @max 60000",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "100"
+                "type": "float",
+                "value": "100."
             }
         },
         {
@@ -173,22 +173,22 @@
         },
         {
             "name": "maxsustain",
-            "type": "int",
+            "type": "float",
             "digest": "@min -1, @max 60000",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "-1"
+                "type": "float",
+                "value": "-1."
             }
         },
         {
             "name": "retrigger",
-            "type": "int",
+            "type": "float",
             "digest": "@min 0, @max 1000",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "5"
+                "type": "float",
+                "value": "5."
             }
         },
         {
@@ -233,12 +233,12 @@
         },
         {
             "name": "velocitysense",
-            "type": "int",
+            "type": "float",
             "digest": "@min 0, @max 1",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "0"
+                "type": "float",
+                "value": "0."
             }
         },
         {

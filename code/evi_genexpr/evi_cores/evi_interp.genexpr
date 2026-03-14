@@ -3,7 +3,7 @@
 
 
 // Cubic Hermite, McCartney / Harker	// 8 muls, 11 ±	// NOT gen~ [interp mode="cubic"]
-// This is faster and better quality than the gen~ cubic (which is the interp from [groove~])
+// This is faster than the gen~ cubic (which is the interp from [groove~])
 cubic_hermite_interp(f, y0, y1, y2, y3)
 {
 //	c0		= y1;

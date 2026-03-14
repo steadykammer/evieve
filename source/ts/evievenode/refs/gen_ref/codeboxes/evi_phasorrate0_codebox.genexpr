@@ -5,8 +5,8 @@ Param   minimumhz(0.125, min=0, max=1); // minimum zero reset frequency in hz 0.
 Param   mode(1, min=0, max=1);          // free running or zero reset ? 0/1
 Param   reverse(1, min=0, max=1);       // reverse allowed ? 0/1
 Param   pause(0, min=0, max=1);         // pause current ramp ? 0/1
-Param   phase(0, min=0, max=1);         // set phase on next reset 0..1
-//Param   sync(1, min=0, max=2);			// rate sync, 0=lock, 1=off, 2=cycle    // todo
+Param   phase(0., min=0, max=1);        // set phase on next reset 0..1
+//Param   sync(1, min=0, max=2);		// rate sync, 0=lock, 1=off, 2=cycle    // todo
 
 // inputs: Frequency in Hz, Rate Multiplier, Reset
 

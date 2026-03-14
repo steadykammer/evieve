@@ -262,8 +262,8 @@
                 {
                     "type": "Literal",
                     "value": 10,
-                    "raw": "10",
-                    "gen_kind": "integer"
+                    "raw": "10.",
+                    "gen_kind": "float"
                 },
                 {
                     "type": "Literal",

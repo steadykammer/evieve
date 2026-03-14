@@ -19,6 +19,18 @@
         "boxes": [
             {
                 "box": {
+                    "fontface": 2,
+                    "id": "obj-28",
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 360.0, 351.0, 80.0, 20.0 ],
+                    "text": "(broken)",
+                    "textjustification": 1
+                }
+            },
+            {
+                "box": {
                     "id": "obj-10",
                     "maxclass": "comment",
                     "numinlets": 1,
@@ -324,8 +336,8 @@
                     "numinlets": 2,
                     "numoutlets": 9,
                     "outlettype": [ "signal", "signal", "signal", "signal", "signal", "signal", "signal", "signal", "" ],
-                    "patching_rect": [ 769.0, 335.0, 118.0, 22.0 ],
-                    "text": "evi.sustainverb_lite~",
+                    "patching_rect": [ 769.0, 335.0, 114.0, 22.0 ],
+                    "text": "evi.sustainverb.lite~",
                     "varname": "ial.sustainverb~[1]"
                 }
             },
@@ -435,18 +447,6 @@
                     "patching_rect": [ 113.0, 335.0, 91.0, 22.0 ],
                     "text": "evi.freezeverb~",
                     "varname": "ial.freezeverb~"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-2",
-                    "maxclass": "newobj",
-                    "numinlets": 2,
-                    "numoutlets": 3,
-                    "outlettype": [ "signal", "signal", "" ],
-                    "patching_rect": [ 360.0, 335.0, 106.0, 22.0 ],
-                    "text": "evi.plateverb_lite~",
-                    "varname": "ial.yafr3_lite~"
                 }
             },
             {
@@ -763,6 +763,16 @@
                     "text": "all three have choice of mono or stereo inputs, where stereo are treated as quasi-real stereo in the algorithm, see helpfiles for details",
                     "textjustification": 1
                 }
+            },
+            {
+                "box": {
+                    "id": "obj-22",
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 357.0, 336.0, 135.0, 20.0 ],
+                    "text": "[evi.plateverb.lite~]"
+                }
             }
         ],
         "lines": [],
@@ -781,20 +791,6 @@
             "obj-1::obj-54::obj-5": [ "damping", "damping", 0 ],
             "obj-1::obj-54::obj-7": [ "eqHighFreq", "eqHighFreq", 0 ],
             "obj-1::obj-54::obj-8": [ "smoothTime", "smoothTime", 0 ],
-            "obj-2::obj-54::obj-10": [ "damp[1]", "eqHighGain", 0 ],
-            "obj-2::obj-54::obj-12": [ "wetGain[1]", "wetGain", 0 ],
-            "obj-2::obj-54::obj-15": [ "eqLowGain[1]", "eqLowGain", 0 ],
-            "obj-2::obj-54::obj-16": [ "eqLowFreq[1]", "eqLowFreq", 0 ],
-            "obj-2::obj-54::obj-2": [ "lowDecay[1]", "reverbSize", 0 ],
-            "obj-2::obj-54::obj-33": [ "decay[1]", "decay", 0 ],
-            "obj-2::obj-54::obj-35": [ "bypass[1]", "bypass", 0 ],
-            "obj-2::obj-54::obj-36": [ "diffusion[1]", "diffusion", 0 ],
-            "obj-2::obj-54::obj-4": [ "dryGain[1]", "dryGain", 0 ],
-            "obj-2::obj-54::obj-42": [ "inputPan[1]", "inputPan", 0 ],
-            "obj-2::obj-54::obj-43": [ "stereo[1]", "stereo", 0 ],
-            "obj-2::obj-54::obj-5": [ "damping[1]", "damping", 0 ],
-            "obj-2::obj-54::obj-7": [ "eqHighFreq[1]", "eqHighFreq", 0 ],
-            "obj-2::obj-54::obj-8": [ "smoothTime[1]", "smoothTime", 0 ],
             "obj-3::obj-54::obj-10": [ "damp[2]", "eqHighGain", 0 ],
             "obj-3::obj-54::obj-12": [ "fdnGain", "earlyGain", 0 ],
             "obj-3::obj-54::obj-15": [ "eqLowGain[2]", "eqLowGain", 0 ],
@@ -897,6 +893,14 @@
             "obj-7::obj-54::obj-4": [ "fdnSum", "fdnSum", 0 ],
             "obj-7::obj-54::obj-5": [ "midDecay[1]", "damp", 0 ],
             "obj-7::obj-54::obj-9": [ "crossover[1]", "crossover", 0 ],
+            "parameterbanks": {
+                "0": {
+                    "index": 0,
+                    "name": "",
+                    "parameters": [ "-", "-", "-", "-", "-", "-", "-", "-" ],
+                    "buttons": [ "-", "-", "-", "-", "-", "-", "-", "-" ]
+                }
+            },
             "inherited_shortname": 1
         },
         "autosave": 0,

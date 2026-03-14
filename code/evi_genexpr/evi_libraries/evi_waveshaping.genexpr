@@ -8,7 +8,7 @@
 //	//	//	to be of any use. @see: "evi_adaa.genexpr" for anti-derivative anti-aliasing,
 //	//	//	@see: "evi_saturators.genexpr" for other oversampling wrapping code
 
-//	//	//	Note: if there is something missing here from the original, it is because it was rubbish :-)
+//	//	//	Note: if there is something missing here from the 2012 original, it is because it was rubbish :-)
 
 /*
 	"A typical 'waveshaper' is some function which takes an

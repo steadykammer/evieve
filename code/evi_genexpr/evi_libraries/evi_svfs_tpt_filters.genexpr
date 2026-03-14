@@ -232,7 +232,7 @@ tptSvfCoeffAllpassNorm(cutoff, Q)		// !! no "gain" used in this filter
 
 //	//	//	filter sections (individual sections for use in gen~/GenExpr)
 
-eviFilterLowpass(x, cutoff, db, Q, smooth=0)	// gain in dB, smooth time in ms
+eviFilterLowpass(x, cutoff, db, Q, smooth=0.)	// gain in dB, smooth time in ms
 {
 	History efldummy(0);
 	smoothsecs	= smooth * 0.001;
@@ -246,7 +246,7 @@ eviFilterLowpass(x, cutoff, db, Q, smooth=0)	// gain in dB, smooth time in ms
 	return 		lowpass;
 }
 
-eviFilterLowpassStereo(xL, xR, cutoff, db, Q, smooth=0)
+eviFilterLowpassStereo(xL, xR, cutoff, db, Q, smooth=0.)
 {
 	History eflsdummy(0);
 	smoothsecs	= smooth * 0.001;
@@ -262,7 +262,7 @@ eviFilterLowpassStereo(xL, xR, cutoff, db, Q, smooth=0)
 	return 		lowpassL, lowpassR;
 }
 
-eviFilterHighpass(x, cutoff, db, Q, smooth=0)	// gain in dB, smooth time in ms
+eviFilterHighpass(x, cutoff, db, Q, smooth=0.)	// gain in dB, smooth time in ms
 {
 	History efhdummy(0);
 	smoothsecs	= smooth * 0.001;
@@ -276,7 +276,7 @@ eviFilterHighpass(x, cutoff, db, Q, smooth=0)	// gain in dB, smooth time in ms
 	return 		highpass;
 }
 
-eviFilterHighpassStereo(xL, xR, cutoff, db, Q, smooth=0)
+eviFilterHighpassStereo(xL, xR, cutoff, db, Q, smooth=0.)
 {
 	History efhsdummy(0);
 	smoothsecs	= smooth * 0.001;
@@ -292,7 +292,7 @@ eviFilterHighpassStereo(xL, xR, cutoff, db, Q, smooth=0)
 	return 		highpassL, highpassR;
 }
 
-eviFilterBandpass(x, cutoff, db, Q, smooth=0)	// gain in dB, smooth time in ms
+eviFilterBandpass(x, cutoff, db, Q, smooth=0.)	// gain in dB, smooth time in ms
 {
 	History efbdummy(0);
 	smoothsecs	= smooth * 0.001;
@@ -306,7 +306,7 @@ eviFilterBandpass(x, cutoff, db, Q, smooth=0)	// gain in dB, smooth time in ms
 	return 		bandpass;
 }
 
-eviFilterBandpassStereo(xL, xR, cutoff, db, Q, smooth=0)
+eviFilterBandpassStereo(xL, xR, cutoff, db, Q, smooth=0.)
 {
 	History efbsdummy(0);
 	smoothsecs	= smooth * 0.001;
@@ -323,7 +323,7 @@ eviFilterBandpassStereo(xL, xR, cutoff, db, Q, smooth=0)
 }
 
 // oops! 'LTO'
-eviFilterPeak(x, cutoff, db, Q, smooth=0)
+eviFilterPeak(x, cutoff, db, Q, smooth=0.)
 {
 	History efpdummy(0);
 	smoothsecs	= smooth * 0.001;
@@ -336,7 +336,7 @@ eviFilterPeak(x, cutoff, db, Q, smooth=0)
 	return 	peak;
 }
 
-eviFilterPeakStereo(xL, xR, cutoff, db, Q, smooth=0)
+eviFilterPeakStereo(xL, xR, cutoff, db, Q, smooth=0.)
 {
 	History efpsdummy(0);
 	smoothsecs	= smooth * 0.001;
@@ -350,7 +350,7 @@ eviFilterPeakStereo(xL, xR, cutoff, db, Q, smooth=0)
 	return 	peakL, peakR;
 }
 
-eviFilterNotch(x, cutoff, db, Q, smooth=0)		// gain in dB, smooth time in ms
+eviFilterNotch(x, cutoff, db, Q, smooth=0.)		// gain in dB, smooth time in ms
 {
 	History efndummy(0);
 	smoothsecs	= smooth * 0.001;
@@ -364,7 +364,7 @@ eviFilterNotch(x, cutoff, db, Q, smooth=0)		// gain in dB, smooth time in ms
 	return 		notch;
 }
 
-eviFilterNotchStereo(xL, xR, cutoff, db, Q, smooth=0)
+eviFilterNotchStereo(xL, xR, cutoff, db, Q, smooth=0.)
 {
 	History efnsdummy(0);
 	smoothsecs	= smooth * 0.001;
@@ -380,7 +380,7 @@ eviFilterNotchStereo(xL, xR, cutoff, db, Q, smooth=0)
 	return 		notchL, notchR;
 }
 
-eviFilterResonant(x, cutoff, db, Q, smooth=0)		// gain in dB, smooth time in ms
+eviFilterResonant(x, cutoff, db, Q, smooth=0.)		// gain in dB, smooth time in ms
 {
 	History efrdummy(0);
 	smoothsecs	= smooth * 0.001;
@@ -394,7 +394,7 @@ eviFilterResonant(x, cutoff, db, Q, smooth=0)		// gain in dB, smooth time in ms
 	return 		resonant;
 }
 
-eviFilterResonantStereo(xL, xR, cutoff, db, Q, smooth=0)
+eviFilterResonantStereo(xL, xR, cutoff, db, Q, smooth=0.)
 {
 	History efrsdummy(0);
 	smoothsecs	= smooth * 0.001;
@@ -411,7 +411,7 @@ eviFilterResonantStereo(xL, xR, cutoff, db, Q, smooth=0)
 }
 
 // [evi.reson~], MSP ordering of inputs, and like MSP gain is still linear here!
-eviFilterReson(x, gain, cutoff, Q, compensate, smooth=0)	// compensate flag 0/1, smooth time in ms
+eviFilterReson(x, gain, cutoff, Q, compensate, smooth=0.)	// compensate flag 0/1, smooth time in ms
 {
 	History prev_cf(0);
 	// g corrected for audio rate FM of cutoff
@@ -428,7 +428,7 @@ eviFilterReson(x, gain, cutoff, Q, compensate, smooth=0)	// compensate flag 0/1,
 	return 		reson;
 }
 
-eviFilterResonStereo(xL, xR, gain, cutoff, Q, compensate, smooth=0)// compensate flag 0/1, smooth time in ms
+eviFilterResonStereo(xL, xR, gain, cutoff, Q, compensate, smooth=0.)// compensate flag 0/1, smooth time in ms
 {
 	History prev_cf(0);
 	// g corrected for audio rate FM of cutoff
@@ -447,7 +447,7 @@ eviFilterResonStereo(xL, xR, gain, cutoff, Q, compensate, smooth=0)// compensate
 	return 		resonL, resonR;
 }
 
-eviFilterBell(x, cutoff, db, Q, smooth=0)		// gain in dB, smooth time in ms
+eviFilterBell(x, cutoff, db, Q, smooth=0.)		// gain in dB, smooth time in ms
 {
 	History efbedummy(0);
 	smoothsecs	= smooth * 0.001;
@@ -461,7 +461,7 @@ eviFilterBell(x, cutoff, db, Q, smooth=0)		// gain in dB, smooth time in ms
 	return 		bell;
 }
 
-eviFilterBellStereo(xL, xR, cutoff, db, Q, smooth=0)
+eviFilterBellStereo(xL, xR, cutoff, db, Q, smooth=0.)
 {
 	History efbesdummy(0);
 	smoothsecs	= smooth * 0.001;
@@ -477,7 +477,7 @@ eviFilterBellStereo(xL, xR, cutoff, db, Q, smooth=0)
 	return 		bellL, bellR;
 }
 
-eviFilterBellAdaptive(x, cutoff, db, Q, smooth=0)	// gain in dB, smooth time in ms
+eviFilterBellAdaptive(x, cutoff, db, Q, smooth=0.)	// gain in dB, smooth time in ms
 {
 	History efbaddummy(0);
 	smoothsecs	= smooth * 0.001;
@@ -491,7 +491,7 @@ eviFilterBellAdaptive(x, cutoff, db, Q, smooth=0)	// gain in dB, smooth time in 
 	return 		bellA;
 }
 
-eviFilterBellAdaptiveStereo(xL, xR, cutoff, db, Q, smooth=0)
+eviFilterBellAdaptiveStereo(xL, xR, cutoff, db, Q, smooth=0.)
 {
 	History efbadsdummy(0);
 	smoothsecs	= smooth * 0.001;
@@ -507,7 +507,7 @@ eviFilterBellAdaptiveStereo(xL, xR, cutoff, db, Q, smooth=0)
 	return 		bellAL, bellAR;
 }
 
-eviFilterLowshelf(x, cutoff, db, Q, smooth=0)	// gain in dB, smooth time in ms
+eviFilterLowshelf(x, cutoff, db, Q, smooth=0.)	// gain in dB, smooth time in ms
 {
 	History eflsdummy(0);
 	smoothsecs	= smooth * 0.001;
@@ -521,7 +521,7 @@ eviFilterLowshelf(x, cutoff, db, Q, smooth=0)	// gain in dB, smooth time in ms
 	return 		lowshelf;
 }
 
-eviFilterLowshelfStereo(xL, xR, cutoff, db, Q, smooth=0)
+eviFilterLowshelfStereo(xL, xR, cutoff, db, Q, smooth=0.)
 {
 	History eflssdummy(0);
 	smoothsecs	= smooth * 0.001;
@@ -537,7 +537,7 @@ eviFilterLowshelfStereo(xL, xR, cutoff, db, Q, smooth=0)
 	return 		lowshelfL, lowshelfR;
 }
 
-eviFilterHighshelf(x, cutoff, db, Q, smooth=0)	// gain in dB, smooth time in ms
+eviFilterHighshelf(x, cutoff, db, Q, smooth=0.)	// gain in dB, smooth time in ms
 {
 	History efhsdummy(0);
 	smoothsecs	= smooth * 0.001;
@@ -551,7 +551,7 @@ eviFilterHighshelf(x, cutoff, db, Q, smooth=0)	// gain in dB, smooth time in ms
 	return 		highshelf;
 }
 
-eviFilterHighshelfStereo(xL, xR, cutoff, db, Q, smooth=0)
+eviFilterHighshelfStereo(xL, xR, cutoff, db, Q, smooth=0.)
 {
 	History efhssdummy(0);
 	smoothsecs	= smooth * 0.001;
@@ -567,7 +567,7 @@ eviFilterHighshelfStereo(xL, xR, cutoff, db, Q, smooth=0)
 	return 		highshelfL, highshelfR;
 }
 
-eviFilterTilt(x, cutoff, db, Q, smooth=0)		// gain in dB, smooth time in ms
+eviFilterTilt(x, cutoff, db, Q, smooth=0.)		// gain in dB, smooth time in ms
 {
 	History eftidummy(0);
 	smoothsecs	= smooth * 0.001;
@@ -581,7 +581,7 @@ eviFilterTilt(x, cutoff, db, Q, smooth=0)		// gain in dB, smooth time in ms
 	return 		tilt;
 }
 
-eviFilterTiltStereo(xL, xR, cutoff, db, Q, smooth=0)
+eviFilterTiltStereo(xL, xR, cutoff, db, Q, smooth=0.)
 {
 	History eftisdummy(0);
 	smoothsecs	= smooth * 0.001;
@@ -598,7 +598,7 @@ eviFilterTiltStereo(xL, xR, cutoff, db, Q, smooth=0)
 }
 
 // !! no "gain" used in this filter
-eviFilterAllpassNorm(x, cutoff, Q, smooth=0)	// smooth time in ms
+eviFilterAllpassNorm(x, cutoff, Q, smooth=0.)	// smooth time in ms
 {
 	History efandummy(0);
 	smoothsecs	= smooth * 0.001;
@@ -611,7 +611,7 @@ eviFilterAllpassNorm(x, cutoff, Q, smooth=0)	// smooth time in ms
 	return 		allpass;
 }
 
-eviFilterAllpassNormStereo(xL, xR, cutoff, Q, smooth=0)
+eviFilterAllpassNormStereo(xL, xR, cutoff, Q, smooth=0.)
 {
 	History efansdummy(0);
 	smoothsecs	= smooth * 0.001;

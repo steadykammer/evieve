@@ -44,7 +44,7 @@
 	</methodlist>
 	<!--ATTRIBUTES-->
 	<attributelist>
-		<attribute name="band1db" get="1" set="1" type="int" min="-24" max="24">
+		<attribute name="band1db" get="1" set="1" type="float" min="-24" max="24">
 			<digest>
 				
 			</digest>
@@ -52,7 +52,7 @@
 				
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="0" />
+				<attribute name="default" get="0" set="0" size="1" value="0." />
 			</attributelist>
 		</attribute>
 		<attribute name="band1filter" get="1" set="1" type="int" min="0" max="9">
@@ -66,7 +66,7 @@
 				<attribute name="default" get="0" set="0" size="1" value="3" />
 			</attributelist>
 		</attribute>
-		<attribute name="band1freq" get="1" set="1" type="int" min="10" max="18000">
+		<attribute name="band1freq" get="1" set="1" type="float" min="10" max="18000">
 			<digest>
 				
 			</digest>
@@ -74,10 +74,10 @@
 				
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="125" />
+				<attribute name="default" get="0" set="0" size="1" value="125." />
 			</attributelist>
 		</attribute>
-		<attribute name="band1q" get="1" set="1" type="int" min="0.1" max="18">
+		<attribute name="band1q" get="1" set="1" type="float" min="0.1" max="18">
 			<digest>
 				
 			</digest>
@@ -85,10 +85,10 @@
 				
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="1" />
+				<attribute name="default" get="0" set="0" size="1" value="1." />
 			</attributelist>
 		</attribute>
-		<attribute name="band2db" get="1" set="1" type="int" min="-24" max="24">
+		<attribute name="band2db" get="1" set="1" type="float" min="-24" max="24">
 			<digest>
 				
 			</digest>
@@ -96,7 +96,7 @@
 				
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="0" />
+				<attribute name="default" get="0" set="0" size="1" value="0." />
 			</attributelist>
 		</attribute>
 		<attribute name="band2filter" get="1" set="1" type="int" min="0" max="9">
@@ -110,7 +110,7 @@
 				<attribute name="default" get="0" set="0" size="1" value="4" />
 			</attributelist>
 		</attribute>
-		<attribute name="band2freq" get="1" set="1" type="int" min="10" max="18000">
+		<attribute name="band2freq" get="1" set="1" type="float" min="10" max="18000">
 			<digest>
 				
 			</digest>
@@ -118,7 +118,7 @@
 				
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="500" />
+				<attribute name="default" get="0" set="0" size="1" value="500." />
 			</attributelist>
 		</attribute>
 		<attribute name="band2q" get="1" set="1" type="float" min="0.1" max="18">
@@ -132,7 +132,7 @@
 				<attribute name="default" get="0" set="0" size="1" value="sqrt1_2" />
 			</attributelist>
 		</attribute>
-		<attribute name="band3db" get="1" set="1" type="int" min="-24" max="24">
+		<attribute name="band3db" get="1" set="1" type="float" min="-24" max="24">
 			<digest>
 				
 			</digest>
@@ -140,7 +140,7 @@
 				
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="0" />
+				<attribute name="default" get="0" set="0" size="1" value="0." />
 			</attributelist>
 		</attribute>
 		<attribute name="band3filter" get="1" set="1" type="int" min="0" max="9">
@@ -154,7 +154,7 @@
 				<attribute name="default" get="0" set="0" size="1" value="4" />
 			</attributelist>
 		</attribute>
-		<attribute name="band3freq" get="1" set="1" type="int" min="10" max="18000">
+		<attribute name="band3freq" get="1" set="1" type="float" min="10" max="18000">
 			<digest>
 				
 			</digest>
@@ -162,7 +162,7 @@
 				
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="1000" />
+				<attribute name="default" get="0" set="0" size="1" value="1000." />
 			</attributelist>
 		</attribute>
 		<attribute name="band3q" get="1" set="1" type="float" min="0.1" max="18">
@@ -176,7 +176,7 @@
 				<attribute name="default" get="0" set="0" size="1" value="sqrt1_2" />
 			</attributelist>
 		</attribute>
-		<attribute name="band4db" get="1" set="1" type="int" min="-24" max="24">
+		<attribute name="band4db" get="1" set="1" type="float" min="-24" max="24">
 			<digest>
 				
 			</digest>
@@ -184,7 +184,7 @@
 				
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="0" />
+				<attribute name="default" get="0" set="0" size="1" value="0." />
 			</attributelist>
 		</attribute>
 		<attribute name="band4filter" get="1" set="1" type="int" min="0" max="9">
@@ -198,7 +198,7 @@
 				<attribute name="default" get="0" set="0" size="1" value="4" />
 			</attributelist>
 		</attribute>
-		<attribute name="band4freq" get="1" set="1" type="int" min="10" max="18000">
+		<attribute name="band4freq" get="1" set="1" type="float" min="10" max="18000">
 			<digest>
 				
 			</digest>
@@ -206,7 +206,7 @@
 				
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="2000" />
+				<attribute name="default" get="0" set="0" size="1" value="2000." />
 			</attributelist>
 		</attribute>
 		<attribute name="band4q" get="1" set="1" type="float" min="0.1" max="18">
@@ -220,7 +220,7 @@
 				<attribute name="default" get="0" set="0" size="1" value="sqrt1_2" />
 			</attributelist>
 		</attribute>
-		<attribute name="band5db" get="1" set="1" type="int" min="-24" max="24">
+		<attribute name="band5db" get="1" set="1" type="float" min="-24" max="24">
 			<digest>
 				
 			</digest>
@@ -228,7 +228,7 @@
 				
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="0" />
+				<attribute name="default" get="0" set="0" size="1" value="0." />
 			</attributelist>
 		</attribute>
 		<attribute name="band5filter" get="1" set="1" type="int" min="0" max="9">
@@ -242,7 +242,7 @@
 				<attribute name="default" get="0" set="0" size="1" value="6" />
 			</attributelist>
 		</attribute>
-		<attribute name="band5freq" get="1" set="1" type="int" min="10" max="18000">
+		<attribute name="band5freq" get="1" set="1" type="float" min="10" max="18000">
 			<digest>
 				
 			</digest>
@@ -250,10 +250,10 @@
 				
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="4000" />
+				<attribute name="default" get="0" set="0" size="1" value="4000." />
 			</attributelist>
 		</attribute>
-		<attribute name="band5q" get="1" set="1" type="int" min="0.1" max="18">
+		<attribute name="band5q" get="1" set="1" type="float" min="0.1" max="18">
 			<digest>
 				
 			</digest>
@@ -261,7 +261,7 @@
 				
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="1" />
+				<attribute name="default" get="0" set="0" size="1" value="1." />
 			</attributelist>
 		</attribute>
 		<attribute name="smooth" get="1" set="1" type="float" min="0" max="333">

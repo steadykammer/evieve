@@ -91,37 +91,37 @@
         {
             "name": "morphsmooth",
             "get": 1,
-            "type": "int",
+            "type": "float",
             "digest": "",
             "description": "",
             "default": {
                 "min": "0",
                 "max": "333",
-                "value": "30"
+                "value": "30."
             }
         },
         {
             "name": "saturation",
             "get": 1,
-            "type": "int",
+            "type": "float",
             "digest": "",
             "description": "",
             "default": {
                 "min": "-20",
                 "max": "40",
-                "value": "20"
+                "value": "20."
             }
         },
         {
             "name": "saturationsmooth",
             "get": 1,
-            "type": "int",
+            "type": "float",
             "digest": "",
             "description": "",
             "default": {
                 "min": "0",
                 "max": "111",
-                "value": "0"
+                "value": "0."
             }
         }
     ],

@@ -42,7 +42,7 @@
                 <attribute name='default' type='int' value='3' />
             </attributelist>
         </attribute>
-        <attribute name='limit' type='int' get='0' set='1'>
+        <attribute name='limit' type='float' get='0' set='1'>
             <digest>
                 @min 0.9, @max 1.1
             </digest>
@@ -50,7 +50,7 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='1' />
+                <attribute name='default' type='float' value='1.' />
             </attributelist>
         </attribute>
     </attributelist>

@@ -56,25 +56,25 @@
         {
             "name": "freqsmooth",
             "get": 1,
-            "type": "int",
+            "type": "float",
             "digest": "",
             "description": "",
             "default": {
                 "min": "0",
                 "max": "666",
-                "value": "20"
+                "value": "20."
             }
         },
         {
             "name": "offset",
             "get": 1,
-            "type": "int",
+            "type": "float",
             "digest": "",
             "description": "",
             "default": {
                 "min": "0",
                 "max": "0",
-                "value": "0\t\t\t\t\t\t\t\t"
+                "value": "0.\t\t\t\t\t\t\t\t"
             }
         },
         {
@@ -92,13 +92,13 @@
         {
             "name": "scale",
             "get": 1,
-            "type": "int",
+            "type": "float",
             "digest": "",
             "description": "",
             "default": {
                 "min": "0",
                 "max": "0",
-                "value": "1"
+                "value": "1."
             }
         },
         {

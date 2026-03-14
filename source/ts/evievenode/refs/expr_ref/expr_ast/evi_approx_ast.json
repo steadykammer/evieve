@@ -4103,8 +4103,8 @@
                 {
                     "type": "Literal",
                     "value": 440,
-                    "raw": "440",
-                    "gen_kind": "integer"
+                    "raw": "440.",
+                    "gen_kind": "float"
                 }
             ],
             "decls": [],

@@ -23,7 +23,7 @@
         {
             "id": 2,
             "type": "",
-            "digest": "Cutoff in Hz @min 1 @max samplerate*0.5 @default 500",
+            "digest": "Cutoff in Hz @min 1 @max samplerate*0.5 @default 500.",
             "description": ""
         },
         {
@@ -102,37 +102,37 @@
         {
             "name": "cutoffsmooth",
             "get": 1,
-            "type": "int",
+            "type": "float",
             "digest": "",
             "description": "",
             "default": {
                 "min": "0",
                 "max": "100",
-                "value": "20"
+                "value": "20."
             }
         },
         {
             "name": "cutoffsmoothbase",
             "get": 1,
-            "type": "int",
+            "type": "float",
             "digest": "",
             "description": "",
             "default": {
                 "min": "0",
                 "max": "10",
-                "value": "2"
+                "value": "2."
             }
         },
         {
             "name": "resonancesmooth",
             "get": 1,
-            "type": "int",
+            "type": "float",
             "digest": "",
             "description": "",
             "default": {
                 "min": "0",
                 "max": "100",
-                "value": "10"
+                "value": "10."
             }
         }
     ],

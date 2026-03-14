@@ -31,12 +31,12 @@
         </geninlet>
         <geninlet name='cf' type='float' optional='1'>
             <digest>
-                in Hz @min 0 @max 18000 @default 440
+                in Hz @min 0 @max 18000 @default 440.
             </digest>
         </geninlet>
         <geninlet name='bw' type='float' optional='1'>
             <digest>
-                in Hz @min 0 @max 18000 @default 110
+                in Hz @min 0 @max 18000 @default 110.
             </digest>
         </geninlet>
         <geninlet name='reset' type='float' optional='1'>

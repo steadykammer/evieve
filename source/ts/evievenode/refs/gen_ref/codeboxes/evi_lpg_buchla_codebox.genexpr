@@ -39,21 +39,21 @@ localResampling(xin, freq, res, resistors, vca, lpg, nl, resample)
 Param	controlrf(0, min=0, max=1);
 Param	controlres(0, min=0, max=1);
 // only if "controlrf" == 1 :
-Param	rf(0, min=0, max=1000000);
+Param	rf(0., min=0, max=1000000);
 // only if "controlres" == 1 :
-Param	resonance(1, min=0, max=2);
+Param	resonance(1., min=0, max=2);
 
 // use if NOT resampling in poly~
 Param	localresample(3, min=0, max=5);	// 0 = 1x, 1 = 2x, 2 = 3x, 3 = 4x, 4 = 6x, 5 = 8x
 Param	nonlin(1, min=0, max=2);		// 0 = linear (1x & 2x only), 0/1 = tanh (default), 2 = cubic
 // you will almost never want "rfsmooth" to be on, especially if driving from "evi_controlcircuit_buchla.gendsp"
-Param	rfsmooth(0, min=0, max=666);	// ms, if 0, rf smoothing off (switch off for audio rate modulation etc)
-Param	rfhz(4, min=0.001, max=19.2);	// hz
+Param	rfsmooth(0., min=0, max=666);	// ms, if 0, rf smoothing off (switch off for audio rate modulation etc)
+Param	rfhz(4., min=0.001, max=19.2);	// hz
 Param	smooth(15.111, min=0, max=333);	// ms, if 0, vca/res smoothing off (switch off for audio rate modulation etc)
 
-Param	vca(0, min=0, max=1);           // switch or variable, smoothed below
-Param	boom(0, min=0, max=1);			// xfade extra feedback resistors, smoothed below
-Param	lpg(1, min=0, max=1);			// flag, switch filter/lpg - can be switched clicklessly in real time
+Param	vca(0., min=0, max=1);          // switch or variable, smoothed below
+Param	boom(0., min=0, max=1);			// xfade extra feedback resistors, smoothed below
+Param	lpg(1., min=0, max=1);			// flag, switch filter/lpg - can be switched clicklessly in real time
 										// (conceived as a switch, but works continuously variable like the "vca", too)
 over	= int(localresample);
 ctrlrf	= int(controlrf);

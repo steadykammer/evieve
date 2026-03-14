@@ -19,11 +19,11 @@ History	autoreset(1);
 Param	resetauto(1, min=0, max=1);		// default on
 
 Param	drive(0.5, min=0, max=2);		// % 0..1..
-Param	detune(0, min=-100, max=100);	// detune is in cents, applied ± 1 semitone
-Param	shiftmode(0, min=0, max=1);		// variable 0..1, 0 = post filter oscs (normal), 1 = pre filter oscs (weird)
-Param	highpass(40, min=10, max=400);	// Hz, fixed not dynamic
+Param	detune(0., min=-100, max=100);	// detune is in cents, applied ± 1 semitone
+Param	shiftmode(0., min=0, max=1);	// variable 0..1, 0 = post filter oscs (normal), 1 = pre filter oscs (weird)
+Param	highpass(40., min=10, max=400);	// Hz, fixed not dynamic
 Param	smooth(22.666, min=0, max=1000);// ms
-Param	freqsmooth(20, min=0, max=666);	// ms
+Param	freqsmooth(20., min=0, max=666);// ms
 Param	select(1, min=0, max=2);		// 0 = USB + LSB, 1 = LSB & optional saturation, 2 = AM & optional saturation
 Param	saturation(0, min=0, max=1);	// off (save cpu) / on
 Param   oscout(0, min=0, max=1);        // create fake quadOsc output?

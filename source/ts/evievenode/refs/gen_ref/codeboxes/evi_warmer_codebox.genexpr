@@ -10,21 +10,21 @@ History med(0), prevmed(0), prevout(0);
 
 // param rate
 
-Param highpass(100, min=10, max=400);
+Param highpass(100., min=10, max=400);
 Param order(3, min=0, max=8);
 Param cutoff(samplerate*0.125, min=samplerate*0.00125, max=samplerate*0.25);
 // turn off (0) if doing audio rate modulation of drive & blend:
 Param smooth(30.111, min=0, max=301.11);// in ms
 
-Param ingain(1, min=-48, max=48);
-Param outgain(-1, min=-24, max=24);
+Param ingain(1., min=-48, max=48);
+Param outgain(-1., min=-24, max=24);
 
-Param drive(2, min=0, max=10);
-Param blend(-2, min=-10, max=10);
+Param drive(2., min=0, max=10);
+Param blend(-2., min=-10, max=10);
 
 Param bassslope(0.23228, min=0, max=1);
 Param bassmix(0.333333, min=0, max=1);
-Param bassgain(-1, min=-12, max=12);	// fold
+Param bassgain(-1., min=-12, max=12);	// fold
 Param bassboost(0, min=0, max=1);		// 0=soft, 1=hard
 bb = int(bassboost);
 ss = smooth > 0;

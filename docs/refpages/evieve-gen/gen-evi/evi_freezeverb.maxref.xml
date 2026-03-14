@@ -78,7 +78,7 @@
                 <attribute name='default' type='float' value=' 0.4' />
             </attributelist>
         </attribute>
-        <attribute name='SCALEDRY	' type='int' get='0' set='1'>
+        <attribute name='SCALEDRY	' type='float' get='0' set='1'>
             <digest>
                 @min 0, @max 10		 
             </digest>
@@ -86,7 +86,7 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value=' 2' />
+                <attribute name='default' type='float' value=' 2.' />
             </attributelist>
         </attribute>
         <attribute name='SCALEEARLY	' type='float' get='0' set='1'>
@@ -111,7 +111,7 @@
                 <attribute name='default' type='float' value=' 0.28' />
             </attributelist>
         </attribute>
-        <attribute name='SCALEWET	' type='int' get='0' set='1'>
+        <attribute name='SCALEWET	' type='float' get='0' set='1'>
             <digest>
                 @min 0, @max 10		 
             </digest>
@@ -119,7 +119,7 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value=' 3' />
+                <attribute name='default' type='float' value=' 3.' />
             </attributelist>
         </attribute>
         <attribute name='SQRT8MUL	' type='float' get='0' set='1'>
@@ -309,7 +309,7 @@
                 <attribute name='default' type='float' value='0.42' />
             </attributelist>
         </attribute>
-        <attribute name='dry' type='int' get='0' set='1'>
+        <attribute name='dry' type='float' get='0' set='1'>
             <digest>
                 @min -90, @max 0
             </digest>
@@ -317,10 +317,10 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='-12' />
+                <attribute name='default' type='float' value='-12.' />
             </attributelist>
         </attribute>
-        <attribute name='early' type='int' get='0' set='1'>
+        <attribute name='early' type='float' get='0' set='1'>
             <digest>
                 @min -90, @max 0
             </digest>
@@ -328,7 +328,7 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='-20' />
+                <attribute name='default' type='float' value='-20.' />
             </attributelist>
         </attribute>
         <attribute name='etap1samps' type='int' get='0' set='1'>
@@ -397,7 +397,7 @@
                 <attribute name='default' type='float' value='0.123758' />
             </attributelist>
         </attribute>
-        <attribute name='highshelfK' type='int' get='0' set='1'>
+        <attribute name='highshelfK' type='float' get='0' set='1'>
             <digest>
                 @min -3, @max 1
             </digest>
@@ -405,7 +405,7 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='0' />
+                <attribute name='default' type='float' value='0.' />
             </attributelist>
         </attribute>
         <attribute name='lowshelfG' type='float' get='0' set='1'>
@@ -419,7 +419,7 @@
                 <attribute name='default' type='float' value='0.032214' />
             </attributelist>
         </attribute>
-        <attribute name='lowshelfK' type='int' get='0' set='1'>
+        <attribute name='lowshelfK' type='float' get='0' set='1'>
             <digest>
                 @min -3, @max 1
             </digest>
@@ -427,10 +427,10 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='0' />
+                <attribute name='default' type='float' value='0.' />
             </attributelist>
         </attribute>
-        <attribute name='pre' type='int' get='0' set='1'>
+        <attribute name='pre' type='float' get='0' set='1'>
             <digest>
                 @min 0, @max 143
             </digest>
@@ -438,7 +438,7 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='9' />
+                <attribute name='default' type='float' value='9.' />
             </attributelist>
         </attribute>
         <attribute name='size' type='float' get='0' set='1'>
@@ -452,7 +452,7 @@
                 <attribute name='default' type='float' value='0.78' />
             </attributelist>
         </attribute>
-        <attribute name='smoothtime	' type='int' get='0' set='1'>
+        <attribute name='smoothtime	' type='float' get='0' set='1'>
             <digest>
                 @min 1, @max 500		 
             </digest>
@@ -460,7 +460,7 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value=' 49' />
+                <attribute name='default' type='float' value=' 49.' />
             </attributelist>
         </attribute>
         <attribute name='wet' type='float' get='0' set='1'>

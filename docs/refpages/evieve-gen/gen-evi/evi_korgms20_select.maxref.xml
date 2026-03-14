@@ -52,7 +52,7 @@
                 <attribute name='default' type='int' value='0' />
             </attributelist>
         </attribute>
-        <attribute name='filtersmooth' type='int' get='0' set='1'>
+        <attribute name='filtersmooth' type='float' get='0' set='1'>
             <digest>
                 @min 0, @max 296
             </digest>
@@ -60,7 +60,7 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='92' />
+                <attribute name='default' type='float' value='92.' />
             </attributelist>
         </attribute>
         <attribute name='load' type='float' get='0' set='1'>

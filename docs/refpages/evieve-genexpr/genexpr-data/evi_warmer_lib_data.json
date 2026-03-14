@@ -215,7 +215,7 @@
         },
         {
             "document": true,
-            "digest": "Warpper for 'szilagyiAdaa2()'",
+            "digest": "Wrapper for 'szilagyiAdaa2()'",
             "name": "saturate",
             "inputs": [
                 {

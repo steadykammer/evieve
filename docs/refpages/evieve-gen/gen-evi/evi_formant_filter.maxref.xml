@@ -41,7 +41,7 @@
         </geninlet>
     </geninletlist>
     <attributelist>
-        <attribute name='bwwarp' type='int' get='0' set='1'>
+        <attribute name='bwwarp' type='float' get='0' set='1'>
             <digest>
                 @min 0.00625, @max 32
             </digest>
@@ -49,10 +49,10 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='1' />
+                <attribute name='default' type='float' value='1.' />
             </attributelist>
         </attribute>
-        <attribute name='cfwarp' type='int' get='0' set='1'>
+        <attribute name='cfwarp' type='float' get='0' set='1'>
             <digest>
                 @min 0.025, @max 4
             </digest>
@@ -60,7 +60,7 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='1' />
+                <attribute name='default' type='float' value='1.' />
             </attributelist>
         </attribute>
         <attribute name='datainterp' type='int' get='0' set='1'>
@@ -118,7 +118,7 @@
                 <attribute name='default' type='int' value='0' />
             </attributelist>
         </attribute>
-        <attribute name='gain' type='int' get='0' set='1'>
+        <attribute name='gain' type='float' get='0' set='1'>
             <digest>
                 @min -80, @max 20
             </digest>
@@ -126,7 +126,7 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='0' />
+                <attribute name='default' type='float' value='0.' />
             </attributelist>
         </attribute>
         <attribute name='gaincomp' type='int' get='0' set='1'>
@@ -151,7 +151,7 @@
                 <attribute name='default' type='int' value='0' />
             </attributelist>
         </attribute>
-        <attribute name='gainwarp' type='int' get='0' set='1'>
+        <attribute name='gainwarp' type='float' get='0' set='1'>
             <digest>
                 @min 0.025, @max 4
             </digest>
@@ -159,7 +159,7 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='1' />
+                <attribute name='default' type='float' value='1.' />
             </attributelist>
         </attribute>
         <attribute name='paramsmooth' type='float' get='0' set='1'>

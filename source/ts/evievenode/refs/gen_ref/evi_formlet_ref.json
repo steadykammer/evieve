@@ -40,72 +40,72 @@
     "attributes": [
         {
             "name": "attack",
-            "type": "int",
+            "type": "float",
             "digest": "@min 10, @max 59999",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "10"
+                "type": "float",
+                "value": "10."
             }
         },
         {
             "name": "decay",
-            "type": "int",
+            "type": "float",
             "digest": "@min 11, @max 60000",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "100"
+                "type": "float",
+                "value": "100."
             }
         },
         {
             "name": "offset",
-            "type": "int",
+            "type": "float",
             "digest": "@min -24, @max 24",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "0"
+                "type": "float",
+                "value": "0."
             }
         },
         {
             "name": "smoothfreq",
-            "type": "int",
+            "type": "float",
             "digest": "@min 0, @max 666",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "0"
+                "type": "float",
+                "value": "0."
             }
         },
         {
             "name": "smoothtime",
-            "type": "int",
+            "type": "float",
             "digest": "@min 0, @max 111",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "0"
+                "type": "float",
+                "value": "0."
             }
         },
         {
             "name": "spread",
-            "type": "int",
+            "type": "float",
             "digest": "@min -12, @max 12",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "0"
+                "type": "float",
+                "value": "0."
             }
         },
         {
             "name": "width",
-            "type": "int",
+            "type": "float",
             "digest": "@min 0, @max 24",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "0"
+                "type": "float",
+                "value": "0."
             }
         }
     ],

@@ -68,12 +68,12 @@
     "attributes": [
         {
             "name": "detune",
-            "type": "int",
+            "type": "float",
             "digest": "@min -100, @max 100",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "0"
+                "type": "float",
+                "value": "0."
             }
         },
         {
@@ -88,22 +88,22 @@
         },
         {
             "name": "freqsmooth",
-            "type": "int",
+            "type": "float",
             "digest": "@min 0, @max 666",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "20"
+                "type": "float",
+                "value": "20."
             }
         },
         {
             "name": "highpass",
-            "type": "int",
+            "type": "float",
             "digest": "@min 10, @max 400",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "40"
+                "type": "float",
+                "value": "40."
             }
         },
         {
@@ -148,12 +148,12 @@
         },
         {
             "name": "shiftmode",
-            "type": "int",
+            "type": "float",
             "digest": "@min 0, @max 1",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "0"
+                "type": "float",
+                "value": "0."
             }
         },
         {

@@ -84,7 +84,7 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 320.0, 12.0, 322.0, 20.0 ],
-                    "text": "@ttributes or messages to evi.mcs.plateverb_lite~",
+                    "text": "@ttributes or messages to evi.mcs.plateverb.lite~",
                     "textjustification": 2
                 }
             },
@@ -2629,7 +2629,7 @@
             },
             {
                 "box": {
-                    "comment": "messages to evi.mcs.plateverb_lite~",
+                    "comment": "messages to evi.mcs.plateverb.lite~",
                     "id": "obj-47",
                     "index": 0,
                     "maxclass": "inlet",

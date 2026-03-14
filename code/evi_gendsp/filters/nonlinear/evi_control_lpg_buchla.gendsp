@@ -114,8 +114,8 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 49.0, 242.0, 153.0, 22.0 ],
-                    "text": "param vactrolcontrolhz 143"
+                    "patching_rect": [ 49.0, 242.0, 157.0, 22.0 ],
+                    "text": "param vactrolcontrolhz 143."
                 }
             },
             {
@@ -136,8 +136,8 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 518.0, 317.0, 130.0, 22.0 ],
-                    "text": "param sweepsmooth 0"
+                    "patching_rect": [ 518.0, 317.0, 133.0, 22.0 ],
+                    "text": "param sweepsmooth 0."
                 }
             },
             {
@@ -147,8 +147,8 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 516.0, 224.0, 127.0, 22.0 ],
-                    "text": "param scalersmooth 0"
+                    "patching_rect": [ 516.0, 224.0, 131.0, 22.0 ],
+                    "text": "param scalersmooth 0."
                 }
             },
             {
@@ -158,8 +158,8 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 514.0, 131.0, 124.0, 22.0 ],
-                    "text": "param offsetsmooth 0"
+                    "patching_rect": [ 514.0, 131.0, 128.0, 22.0 ],
+                    "text": "param offsetsmooth 0."
                 }
             },
             {
@@ -235,8 +235,8 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 49.0, 149.0, 130.0, 22.0 ],
-                    "text": "param vactrolscalar 10"
+                    "patching_rect": [ 49.0, 149.0, 133.0, 22.0 ],
+                    "text": "param vactrolscalar 10."
                 }
             },
             {

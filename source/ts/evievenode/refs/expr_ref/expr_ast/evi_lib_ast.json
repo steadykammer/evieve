@@ -50,8 +50,65 @@
                 "arguments": [
                     {
                         "type": "Literal",
+                        "value": "evi_buchla.genexpr",
+                        "raw": "\"evi_buchla.genexpr\"",
+                        "gen_kind": "string"
+                    }
+                ]
+            },
+            "gen_kind": "compiler_command"
+        },
+        {
+            "type": "ExpressionStatement",
+            "expression": {
+                "type": "CallExpression",
+                "callee": {
+                    "type": "Identifier",
+                    "name": "require"
+                },
+                "arguments": [
+                    {
+                        "type": "Literal",
+                        "value": "evi_butterworth.genexpr",
+                        "raw": "\"evi_butterworth.genexpr\"",
+                        "gen_kind": "string"
+                    }
+                ]
+            },
+            "gen_kind": "compiler_command"
+        },
+        {
+            "type": "ExpressionStatement",
+            "expression": {
+                "type": "CallExpression",
+                "callee": {
+                    "type": "Identifier",
+                    "name": "require"
+                },
+                "arguments": [
+                    {
+                        "type": "Literal",
                         "value": "evi_clip.genexpr",
                         "raw": "\"evi_clip.genexpr\"",
+                        "gen_kind": "string"
+                    }
+                ]
+            },
+            "gen_kind": "compiler_command"
+        },
+        {
+            "type": "ExpressionStatement",
+            "expression": {
+                "type": "CallExpression",
+                "callee": {
+                    "type": "Identifier",
+                    "name": "require"
+                },
+                "arguments": [
+                    {
+                        "type": "Literal",
+                        "value": "evi_counting.genexpr",
+                        "raw": "\"evi_counting.genexpr\"",
                         "gen_kind": "string"
                     }
                 ]
@@ -107,8 +164,27 @@
                 "arguments": [
                     {
                         "type": "Literal",
-                        "value": "evi_overdrive.genexpr",
-                        "raw": "\"evi_overdrive.genexpr\"",
+                        "value": "evi_env.genexpr",
+                        "raw": "\"evi_env.genexpr\"",
+                        "gen_kind": "string"
+                    }
+                ]
+            },
+            "gen_kind": "compiler_command"
+        },
+        {
+            "type": "ExpressionStatement",
+            "expression": {
+                "type": "CallExpression",
+                "callee": {
+                    "type": "Identifier",
+                    "name": "require"
+                },
+                "arguments": [
+                    {
+                        "type": "Literal",
+                        "value": "evi_lfo.genexpr",
+                        "raw": "\"evi_lfo.genexpr\"",
                         "gen_kind": "string"
                     }
                 ]
@@ -145,6 +221,25 @@
                 "arguments": [
                     {
                         "type": "Literal",
+                        "value": "evi_ptr.genexpr",
+                        "raw": "\"evi_ptr.genexpr\"",
+                        "gen_kind": "string"
+                    }
+                ]
+            },
+            "gen_kind": "compiler_command"
+        },
+        {
+            "type": "ExpressionStatement",
+            "expression": {
+                "type": "CallExpression",
+                "callee": {
+                    "type": "Identifier",
+                    "name": "require"
+                },
+                "arguments": [
+                    {
+                        "type": "Literal",
                         "value": "evi_rcfilters.genexpr",
                         "raw": "\"evi_rcfilters.genexpr\"",
                         "gen_kind": "string"
@@ -164,8 +259,8 @@
                 "arguments": [
                     {
                         "type": "Literal",
-                        "value": "evi_reverb_library.genexpr",
-                        "raw": "\"evi_reverb_library.genexpr\"",
+                        "value": "evi_resampling_templates.genexpr",
+                        "raw": "\"evi_resampling_templates.genexpr\"",
                         "gen_kind": "string"
                     }
                 ]
@@ -202,8 +297,46 @@
                 "arguments": [
                     {
                         "type": "Literal",
+                        "value": "evi_sources.genexpr",
+                        "raw": "\"evi_sources.genexpr\"",
+                        "gen_kind": "string"
+                    }
+                ]
+            },
+            "gen_kind": "compiler_command"
+        },
+        {
+            "type": "ExpressionStatement",
+            "expression": {
+                "type": "CallExpression",
+                "callee": {
+                    "type": "Identifier",
+                    "name": "require"
+                },
+                "arguments": [
+                    {
+                        "type": "Literal",
                         "value": "evi_svfs.genexpr",
                         "raw": "\"evi_svfs.genexpr\"",
+                        "gen_kind": "string"
+                    }
+                ]
+            },
+            "gen_kind": "compiler_command"
+        },
+        {
+            "type": "ExpressionStatement",
+            "expression": {
+                "type": "CallExpression",
+                "callee": {
+                    "type": "Identifier",
+                    "name": "require"
+                },
+                "arguments": [
+                    {
+                        "type": "Literal",
+                        "value": "evi_waveshaping.genexpr",
+                        "raw": "\"evi_waveshaping.genexpr\"",
                         "gen_kind": "string"
                     }
                 ]

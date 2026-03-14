@@ -64,42 +64,42 @@
         },
         {
             "name": "cutoffhigh",
-            "type": "int",
+            "type": "float",
             "digest": "@min 500, @max 15000",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "2000"
+                "type": "float",
+                "value": "2000."
             }
         },
         {
             "name": "cutofflow",
-            "type": "int",
+            "type": "float",
             "digest": "@min 62.5, @max 4000",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "500"
+                "type": "float",
+                "value": "500."
             }
         },
         {
             "name": "damphigh",
-            "type": "int",
+            "type": "float",
             "digest": "@min -1, @max 1",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "0"
+                "type": "float",
+                "value": "0."
             }
         },
         {
             "name": "damplow",
-            "type": "int",
+            "type": "float",
             "digest": "@min -1, @max 1",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "0"
+                "type": "float",
+                "value": "0."
             }
         },
         {

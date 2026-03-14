@@ -86,12 +86,12 @@
         },
         {
             "name": "feedback",
-            "type": "int",
+            "type": "float",
             "digest": "@min -1, @max 1",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "0"
+                "type": "float",
+                "value": "0."
             }
         },
         {
@@ -116,12 +116,12 @@
         },
         {
             "name": "postfilterfrequency",
-            "type": "int",
+            "type": "float",
             "digest": "@min 1000, @max samplerate*0.49",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "16000"
+                "type": "float",
+                "value": "16000."
             }
         },
         {
@@ -136,32 +136,32 @@
         },
         {
             "name": "prefilterfrequency",
-            "type": "int",
+            "type": "float",
             "digest": "@min 125, @max 16000",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "8000"
+                "type": "float",
+                "value": "8000."
             }
         },
         {
             "name": "prefiltermorph",
-            "type": "int",
+            "type": "float",
             "digest": "@min 0, @max 1",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "0"
+                "type": "float",
+                "value": "0."
             }
         },
         {
             "name": "smooth",
-            "type": "int",
+            "type": "float",
             "digest": "@min 0, @max 333",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "22"
+                "type": "float",
+                "value": "22."
             }
         },
         {
@@ -176,12 +176,12 @@
         },
         {
             "name": "xover",
-            "type": "int",
+            "type": "float",
             "digest": "@min 125, @max 1000",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "250"
+                "type": "float",
+                "value": "250."
             }
         }
     ],

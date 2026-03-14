@@ -82,13 +82,13 @@
         {
             "name": "highcutoff",
             "get": 1,
-            "type": "int",
+            "type": "float",
             "digest": "",
             "description": "",
             "default": {
                 "min": "1000",
                 "max": "16000",
-                "value": "4000"
+                "value": "4000."
             }
         },
         {
@@ -106,25 +106,25 @@
         {
             "name": "io",
             "get": 1,
-            "type": "int",
+            "type": "float",
             "digest": "",
             "description": "",
             "default": {
                 "min": "-1",
                 "max": "1",
-                "value": "0"
+                "value": "0."
             }
         },
         {
             "name": "lowcutoff",
             "get": 1,
-            "type": "int",
+            "type": "float",
             "digest": "",
             "description": "",
             "default": {
                 "min": "10",
                 "max": "400",
-                "value": "40"
+                "value": "40."
             }
         },
         {

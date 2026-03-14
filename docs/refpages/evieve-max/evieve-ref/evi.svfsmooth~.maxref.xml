@@ -111,7 +111,7 @@
 				<attribute name="default" get="0" set="0" size="1" value="1" />
 			</attributelist>
 		</attribute>
-		<attribute name="morphsmooth" get="1" set="1" type="int" min="0" max="333">
+		<attribute name="morphsmooth" get="1" set="1" type="float" min="0" max="333">
 			<digest>
 				
 			</digest>
@@ -119,10 +119,10 @@
 				
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="30" />
+				<attribute name="default" get="0" set="0" size="1" value="30." />
 			</attributelist>
 		</attribute>
-		<attribute name="saturation" get="1" set="1" type="int" min="-20" max="40">
+		<attribute name="saturation" get="1" set="1" type="float" min="-20" max="40">
 			<digest>
 				
 			</digest>
@@ -130,10 +130,10 @@
 				
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="20" />
+				<attribute name="default" get="0" set="0" size="1" value="20." />
 			</attributelist>
 		</attribute>
-		<attribute name="saturationsmooth" get="1" set="1" type="int" min="0" max="111">
+		<attribute name="saturationsmooth" get="1" set="1" type="float" min="0" max="111">
 			<digest>
 				
 			</digest>
@@ -141,7 +141,7 @@
 				
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="0" />
+				<attribute name="default" get="0" set="0" size="1" value="0." />
 			</attributelist>
 		</attribute>
 	</attributelist>

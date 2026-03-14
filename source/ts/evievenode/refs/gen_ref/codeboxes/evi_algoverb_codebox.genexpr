@@ -14,7 +14,7 @@ require("evi_reverb_library.genexpr");
 
 // global
 
-Param	smoothtime(50, min=0, max=500);		// in ms
+Param	smoothtime(50., min=0, max=500);	// in ms
 Param	absorbtion(0.186, min=0, max=1);	// % 0..1
 Param	earlylate(0.46, min=0, max=1);		// early..late % 0..1
 Param	earlylock(1, min=0, max=1);			// hysterisis	// always int, no user interaction
@@ -31,7 +31,7 @@ History	compensateDryL(0), compensateDryR(0);
 Delay	preDelayL(samplerate*0.4, 1, feedback=0);
 Delay	preDelayR(samplerate*0.4, 1, feedback=0);
 
-Param	preTime(16, min=0, max=400);		// delay time in ms
+Param	preTime(16., min=0, max=400);		// delay time in ms
 Param	preSymmetry(0.33, min=-1, max=1);	// L/R offset
 
 // damping high/low shelfs eqs
@@ -44,7 +44,7 @@ Param	preSymmetry(0.33, min=-1, max=1);	// L/R offset
 Param	damp1_a1( 0.990808,	min=-1, max=1);
 Param	damp1_a2( 0.004585,	min=-1, max=1);
 Param	damp1_a3( 0.000021,	min=-1, max=1);
-Param	damp1_m0( 1,		min=-2, max=2);	// damp1_m0 static @ '1' for lowshelf
+Param	damp1_m0( 1.,		min=-2, max=2);	// damp1_m0 static @ '1' for lowshelf
 Param	damp1_m1(-0.078988,	min=-2, max=2);
 Param	damp1_m2(-0.077429,	min=-2, max=2);
 Param	damp2_a1( 0.873073,	min=-1, max=1);
@@ -87,7 +87,7 @@ Param	modAmplitude(0.15, min=0, max=1);	// amplitude = ms
 Param	eq1_a1( 0.993304,	min=-1,		max=1	);
 Param	eq1_a2( 0.006651,	min=-1,		max=1	);
 Param	eq1_a3( 0.000045,	min=-1,		max=1	);
-Param	eq1_m0( 1,			min=-16,	max=16	);	// eq1_m0 static @ '1' for lowshelf
+Param	eq1_m0( 1.,			min=-16,	max=16	);	// eq1_m0 static @ '1' for lowshelf
 Param	eq1_m1(-0.182477,	min=-16,	max=16	);
 Param	eq1_m2(-0.331656,	min=-16,	max=16	);
 Param	eq2_a1( 0.882013,	min=-1,		max=1	);

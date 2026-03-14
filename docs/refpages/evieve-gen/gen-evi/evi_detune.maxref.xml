@@ -63,7 +63,7 @@
                 <attribute name='default' type='float' value='sqrt1_2' />
             </attributelist>
         </attribute>
-        <attribute name='feedback' type='int' get='0' set='1'>
+        <attribute name='feedback' type='float' get='0' set='1'>
             <digest>
                 @min -1, @max 1
             </digest>
@@ -71,7 +71,7 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='0' />
+                <attribute name='default' type='float' value='0.' />
             </attributelist>
         </attribute>
         <attribute name='latency' type='int' get='0' set='1'>
@@ -96,7 +96,7 @@
                 <attribute name='default' type='float' value='0.9' />
             </attributelist>
         </attribute>
-        <attribute name='postfilterfrequency' type='int' get='0' set='1'>
+        <attribute name='postfilterfrequency' type='float' get='0' set='1'>
             <digest>
                 @min 1000, @max samplerate*0.49
             </digest>
@@ -104,7 +104,7 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='16000' />
+                <attribute name='default' type='float' value='16000.' />
             </attributelist>
         </attribute>
         <attribute name='prefilterbandwidth' type='float' get='0' set='1'>
@@ -118,7 +118,7 @@
                 <attribute name='default' type='float' value='0.5' />
             </attributelist>
         </attribute>
-        <attribute name='prefilterfrequency' type='int' get='0' set='1'>
+        <attribute name='prefilterfrequency' type='float' get='0' set='1'>
             <digest>
                 @min 125, @max 16000
             </digest>
@@ -126,10 +126,10 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='8000' />
+                <attribute name='default' type='float' value='8000.' />
             </attributelist>
         </attribute>
-        <attribute name='prefiltermorph' type='int' get='0' set='1'>
+        <attribute name='prefiltermorph' type='float' get='0' set='1'>
             <digest>
                 @min 0, @max 1
             </digest>
@@ -137,10 +137,10 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='0' />
+                <attribute name='default' type='float' value='0.' />
             </attributelist>
         </attribute>
-        <attribute name='smooth' type='int' get='0' set='1'>
+        <attribute name='smooth' type='float' get='0' set='1'>
             <digest>
                 @min 0, @max 333
             </digest>
@@ -148,7 +148,7 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='22' />
+                <attribute name='default' type='float' value='22.' />
             </attributelist>
         </attribute>
         <attribute name='window' type='int' get='0' set='1'>
@@ -162,7 +162,7 @@
                 <attribute name='default' type='int' value='4' />
             </attributelist>
         </attribute>
-        <attribute name='xover' type='int' get='0' set='1'>
+        <attribute name='xover' type='float' get='0' set='1'>
             <digest>
                 @min 125, @max 1000
             </digest>
@@ -170,7 +170,7 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='250' />
+                <attribute name='default' type='float' value='250.' />
             </attributelist>
         </attribute>
     </attributelist>

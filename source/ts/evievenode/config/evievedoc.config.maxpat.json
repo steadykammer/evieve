@@ -510,16 +510,16 @@
 				"auto": false
             }
         },
-        "evi.plateverb_lite~": {
-            "object": true,
+        "evi.plateverb.lite~": {
+            "object": false,
             "ref": true,
             "qlookup": true,
             "helpfile": {
-                "generate": true,
+                "generate": false,
                 "mctab": false,
                 "mcstab": true,
                 "mcparent": "",
-                "mcchild": "mcs.evi.plateverb_lite~",
+                "mcchild": "mcs.evi.plateverb.lite~",
                 "gentab": true,
                 "genexprtab": false,
                 "areas": [
@@ -527,8 +527,8 @@
                 ]
             },
             "db": {
-                "browser": true,
-				"auto": true
+                "browser": false,
+				"auto": false
             }
         },
         "evi.plateverb~": {
@@ -687,7 +687,7 @@
 				"auto": false
             }
         },
-        "evi.sustainverb_lite~": {
+        "evi.sustainverb.lite~": {
             "object": true,
             "ref": true,
             "qlookup": true,
@@ -696,7 +696,7 @@
                 "mctab": false,
                 "mcstab": true,
                 "mcparent": "",
-                "mcchild": "mcs.evi.sustainverb_lite~",
+                "mcchild": "mcs.evi.sustainverb.lite~",
                 "gentab": true,
                 "genexprtab": false,
                 "areas": [
@@ -1121,15 +1121,15 @@
 				"auto": true
             }
         },
-        "mcs.evi.plateverb_lite~": {
-            "object": true,
+        "mcs.evi.plateverb.lite~": {
+            "object": false,
             "ref": false,
             "qlookup": true,
             "helpfile": {
                 "generate": false,
                 "mctab": false,
                 "mcstab": false,
-                "mcparent": "evi.plateverb_lite~",
+                "mcparent": "evi.plateverb.lite~",
                 "mcchild": "",
                 "gentab": false,
                 "genexprtab": false,
@@ -1138,8 +1138,8 @@
                 ]
             },
             "db": {
-                "browser": true,
-				"auto": true
+                "browser": false,
+				"auto": false
             }
         },
         "mcs.evi.plateverb~": {
@@ -1163,7 +1163,7 @@
 				"auto": true
             }
         },
-        "mcs.evi.sustainverb_lite~": {
+        "mcs.evi.sustainverb.lite~": {
             "object": true,
             "ref": false,
             "qlookup": true,
@@ -1171,7 +1171,7 @@
                 "generate": false,
                 "mctab": false,
                 "mcstab": false,
-                "mcparent": "evi.sustainverb_lite~",
+                "mcparent": "evi.sustainverb.lite~",
                 "mcchild": "",
                 "gentab": false,
                 "genexprtab": false,

@@ -48,13 +48,13 @@
         {
             "name": "limit",
             "get": 1,
-            "type": "int",
+            "type": "float",
             "digest": "",
             "description": "",
             "default": {
                 "min": "0.9",
                 "max": "1.1",
-                "value": "1"
+                "value": "1."
             }
         }
     ],

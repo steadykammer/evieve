@@ -75,7 +75,7 @@
                 <attribute name='default' type='int' value='1' />
             </attributelist>
         </attribute>
-        <attribute name='envmax' type='int' get='0' set='1'>
+        <attribute name='envmax' type='float' get='0' set='1'>
             <digest>
                 @min 1
             </digest>
@@ -83,7 +83,7 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='127' />
+                <attribute name='default' type='float' value='127.' />
             </attributelist>
         </attribute>
         <attribute name='fallratio' type='float' get='0' set='1'>
@@ -119,7 +119,7 @@
                 <attribute name='default' type='int' value='0' />
             </attributelist>
         </attribute>
-        <attribute name='loopsustain' type='int' get='0' set='1'>
+        <attribute name='loopsustain' type='float' get='0' set='1'>
             <digest>
                 @min 0, @max 60000
             </digest>
@@ -127,7 +127,7 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='100' />
+                <attribute name='default' type='float' value='100.' />
             </attributelist>
         </attribute>
         <attribute name='looptrigger' type='int' get='0' set='1'>
@@ -141,7 +141,7 @@
                 <attribute name='default' type='int' value='0' />
             </attributelist>
         </attribute>
-        <attribute name='maxsustain' type='int' get='0' set='1'>
+        <attribute name='maxsustain' type='float' get='0' set='1'>
             <digest>
                 @min -1, @max 60000
             </digest>
@@ -149,10 +149,10 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='-1' />
+                <attribute name='default' type='float' value='-1.' />
             </attributelist>
         </attribute>
-        <attribute name='retrigger' type='int' get='0' set='1'>
+        <attribute name='retrigger' type='float' get='0' set='1'>
             <digest>
                 @min 0, @max 1000
             </digest>
@@ -160,7 +160,7 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='5' />
+                <attribute name='default' type='float' value='5.' />
             </attributelist>
         </attribute>
         <attribute name='riseratio' type='float' get='0' set='1'>
@@ -207,7 +207,7 @@
                 <attribute name='default' type='int' value='1' />
             </attributelist>
         </attribute>
-        <attribute name='velocitysense' type='int' get='0' set='1'>
+        <attribute name='velocitysense' type='float' get='0' set='1'>
             <digest>
                 @min 0, @max 1
             </digest>
@@ -215,7 +215,7 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='0' />
+                <attribute name='default' type='float' value='0.' />
             </attributelist>
         </attribute>
         <attribute name='wait' type='int' get='0' set='1'>

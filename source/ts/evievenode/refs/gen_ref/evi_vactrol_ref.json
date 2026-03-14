@@ -16,21 +16,21 @@
             "name": "trigger",
             "type": "float",
             "optional": 1,
-            "digest": "@default 0"
+            "digest": "@default 0."
         },
         {
             "id": 2,
             "name": "rise",
             "type": "float",
             "optional": 1,
-            "digest": "@min 0 @default 20"
+            "digest": "@min 0 @default 20."
         },
         {
             "id": 3,
             "name": "fall",
             "type": "float",
             "optional": 1,
-            "digest": "@min 0 @default 3000"
+            "digest": "@min 0 @default 3000."
         }
     ],
     "outlets": [
@@ -45,12 +45,12 @@
     "attributes": [
         {
             "name": "scalar",
-            "type": "int",
+            "type": "float",
             "digest": "@min 1, @max 10000",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "10"
+                "type": "float",
+                "value": "10."
             }
         }
     ],

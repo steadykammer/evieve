@@ -110,13 +110,13 @@
         {
             "name": "feedback",
             "get": 1,
-            "type": "int",
+            "type": "float",
             "digest": "",
             "description": "",
             "default": {
                 "min": "-1",
                 "max": "1",
-                "value": "0"
+                "value": "0."
             }
         },
         {
@@ -146,13 +146,13 @@
         {
             "name": "postfilterfrequency",
             "get": 1,
-            "type": "int",
+            "type": "float",
             "digest": "",
             "description": "",
             "default": {
                 "min": "1000",
                 "max": "samplerate*0.49",
-                "value": "16000"
+                "value": "16000."
             }
         },
         {
@@ -170,37 +170,37 @@
         {
             "name": "prefilterfrequency",
             "get": 1,
-            "type": "int",
+            "type": "float",
             "digest": "",
             "description": "",
             "default": {
                 "min": "125",
                 "max": "16000",
-                "value": "8000"
+                "value": "8000."
             }
         },
         {
             "name": "prefiltermorph",
             "get": 1,
-            "type": "int",
+            "type": "float",
             "digest": "",
             "description": "",
             "default": {
                 "min": "0",
                 "max": "1",
-                "value": "0"
+                "value": "0."
             }
         },
         {
             "name": "smooth",
             "get": 1,
-            "type": "int",
+            "type": "float",
             "digest": "",
             "description": "",
             "default": {
                 "min": "0",
                 "max": "333",
-                "value": "22"
+                "value": "22."
             }
         },
         {
@@ -218,13 +218,13 @@
         {
             "name": "xover",
             "get": 1,
-            "type": "int",
+            "type": "float",
             "digest": "",
             "description": "",
             "default": {
                 "min": "125",
                 "max": "1000",
-                "value": "250"
+                "value": "250."
             }
         }
     ],

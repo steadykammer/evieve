@@ -65,16 +65,16 @@ History	computeFalls(0), prev_rR(0), prev_fR(0), prev_susL(-1), prev_attRate(-1)
 Param	zerophase(0, min=0, max=1);				// sync env param changes to env start (1) or free (0)
 Param	constantrate(1, min=0, max=1);			// flag 0/1, env segments by time or by rate
 
-Param	envmax(127, min=1);						// default maximum is 'velocity', but could be anything
-Param	velocitysense(0, min=0, max=1);			// velocity sensitivity 0..1 % ('envmax' only used if this > 0)
+Param	envmax(127., min=1);					// default maximum is 'velocity', but could be anything
+Param	velocitysense(0., min=0, max=1);		// velocity sensitivity 0..1 % ('envmax' only used if this > 0)
 Param	velocitycurve(1, min=-2, max=2);		// velocity in curve, pos=log, 0=lin, neg=exp
 
-Param	retrigger(5, min=0, max=1000);			// fade to 0 in x ms if reattacking active envelope
+Param	retrigger(5., min=0, max=1000);			// fade to 0 in x ms if reattacking active envelope
 Param	legato(0, min=0, max=1);				// start from current value if reattacking active envelope
 Param	wait(0, min=0, max=1);					// wait until envelope 0 before allowing reattack of active envelope
 
-Param	maxsustain(-1, min=-1, max=60000);		// like [adsr~] (-1 = none, else x ms length even if gate still on)
-Param	loopsustain(100, min=0, max=60000);		// > 0 add fake x ms sustain portion to looping envelope ?
+Param	maxsustain(-1., min=-1, max=60000);		// like [adsr~] (-1 = none, else x ms length even if gate still on)
+Param	loopsustain(100., min=0, max=60000);	// > 0 add fake x ms sustain portion to looping envelope ?
 Param	looptrigger(0, min=0, max=1);			// loop mode needs triggering (1) or triggers itself (0) ? 
 Param	loop(0, min=0, max=1);					// loop envelope off / on
 

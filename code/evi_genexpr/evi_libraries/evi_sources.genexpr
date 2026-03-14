@@ -19,7 +19,7 @@ audioDust(freq)
 // Pete: my porting of this algorithm is a bit stupid with the phasor(), I do not
 // like it, @see: "audioDust()" for different algorithm (compared to "sparseNoise"),
 // but if you need velvet noise in evieve, this is it
-sparseVelvetNoise(freq, mix, amp=1)
+sparseVelvetNoise(freq, mix, amp=1.)
 {
 	History		prevClock(0), prevXos(0);
 

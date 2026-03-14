@@ -37,8 +37,8 @@ filter(x0, a1, a2, b1, b2)
 // setup
 
 Param	stereo(0, min=0, max=1);    // 0/1
-Param	treble(0, min=-24, max=24); // dB
-Param	bass(0, min=-24, max=24);   // dB
+Param	treble(0., min=-24, max=24);// dB
+Param	bass(0., min=-24, max=24);  // dB
 
 DBLIN	= 0.11512925464970228;
 

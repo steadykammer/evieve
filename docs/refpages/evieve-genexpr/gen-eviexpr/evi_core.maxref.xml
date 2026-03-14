@@ -13,9 +13,9 @@
     The <b>evi_core.genexpr</b> file also requires: <br />
     evi_approx.genexpr <br />
     evi_utilities.genexpr <br />
-    evi_tanh.genexpr <br />
     evi_smooth.genexpr <br />
     evi_cossin.genexpr <br />
+    evi_tanh.genexpr <br />
     evi_trig.genexpr <br />
     evi_pade.genexpr <br />
     evi_fastskew.genexpr <br />

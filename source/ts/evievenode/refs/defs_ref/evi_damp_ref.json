@@ -55,25 +55,25 @@
         {
             "name": "smoothdamp",
             "get": 1,
-            "type": "int",
+            "type": "float",
             "digest": "",
             "description": "",
             "default": {
                 "min": "0",
                 "max": "333",
-                "value": "0"
+                "value": "0."
             }
         },
         {
             "name": "smoothfreq",
             "get": 1,
-            "type": "int",
+            "type": "float",
             "digest": "",
             "description": "",
             "default": {
                 "min": "0",
                 "max": "333",
-                "value": "0"
+                "value": "0."
             }
         }
     ],

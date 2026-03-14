@@ -44,7 +44,7 @@
         </geninlet>
     </geninletlist>
     <attributelist>
-        <attribute name='extend' type='int' get='0' set='1'>
+        <attribute name='extend' type='float' get='0' set='1'>
             <digest>
                 @min 0, @max 1
             </digest>
@@ -52,7 +52,7 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='0' />
+                <attribute name='default' type='float' value='0.' />
             </attributelist>
         </attribute>
         <attribute name='filter' type='int' get='0' set='1'>
@@ -66,7 +66,7 @@
                 <attribute name='default' type='int' value='1' />
             </attributelist>
         </attribute>
-        <attribute name='gain' type='int' get='0' set='1'>
+        <attribute name='gain' type='float' get='0' set='1'>
             <digest>
                 @min -6, @max 14
             </digest>
@@ -74,7 +74,7 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='3' />
+                <attribute name='default' type='float' value='3.' />
             </attributelist>
         </attribute>
         <attribute name='io' type='int' get='0' set='1'>
@@ -121,7 +121,7 @@
                 <attribute name='default' type='float' value='22.666' />
             </attributelist>
         </attribute>
-        <attribute name='tune' type='int' get='0' set='1'>
+        <attribute name='tune' type='float' get='0' set='1'>
             <digest>
                 @min -100, @max 100
             </digest>
@@ -129,7 +129,7 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='0' />
+                <attribute name='default' type='float' value='0.' />
             </attributelist>
         </attribute>
     </attributelist>

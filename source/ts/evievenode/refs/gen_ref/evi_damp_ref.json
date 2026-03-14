@@ -55,22 +55,22 @@
     "attributes": [
         {
             "name": "smoothdamp",
-            "type": "int",
+            "type": "float",
             "digest": "@min 0, @max 333",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "0"
+                "type": "float",
+                "value": "0."
             }
         },
         {
             "name": "smoothfreq",
-            "type": "int",
+            "type": "float",
             "digest": "@min 0, @max 333",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "0"
+                "type": "float",
+                "value": "0."
             }
         }
     ],

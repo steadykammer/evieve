@@ -63,7 +63,7 @@
                 <attribute name='default' type='float' value='0.650749' />
             </attributelist>
         </attribute>
-        <attribute name='shapesmooth' type='int' get='0' set='1'>
+        <attribute name='shapesmooth' type='float' get='0' set='1'>
             <digest>
                 @min 0, @max 111
             </digest>
@@ -71,10 +71,10 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='0' />
+                <attribute name='default' type='float' value='0.' />
             </attributelist>
         </attribute>
-        <attribute name='slope' type='int' get='0' set='1'>
+        <attribute name='slope' type='float' get='0' set='1'>
             <digest>
                 @min 0, @max 1
             </digest>
@@ -82,7 +82,7 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='0' />
+                <attribute name='default' type='float' value='0.' />
             </attributelist>
         </attribute>
         <attribute name='slopesmooth' type='float' get='0' set='1'>

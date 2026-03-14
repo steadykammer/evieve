@@ -226,7 +226,7 @@
                 <attribute name='default' type='int' value='0' />
             </attributelist>
         </attribute>
-        <attribute name='feedback' type='int' get='0' set='1'>
+        <attribute name='feedback' type='float' get='0' set='1'>
             <digest>
                 @min 0, @max 1
             </digest>
@@ -234,10 +234,10 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='0' />
+                <attribute name='default' type='float' value='0.' />
             </attributelist>
         </attribute>
-        <attribute name='gain' type='int' get='0' set='1'>
+        <attribute name='gain' type='float' get='0' set='1'>
             <digest>
                 @min -80, @max 20
             </digest>
@@ -245,10 +245,10 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='0' />
+                <attribute name='default' type='float' value='0.' />
             </attributelist>
         </attribute>
-        <attribute name='smoothtime' type='int' get='0' set='1'>
+        <attribute name='smoothtime' type='float' get='0' set='1'>
             <digest>
                 @min 1, @max 500
             </digest>
@@ -256,7 +256,7 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='10' />
+                <attribute name='default' type='float' value='10.' />
             </attributelist>
         </attribute>
     </attributelist>

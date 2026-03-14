@@ -21,8 +21,8 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 771.0, 19.0, 134.0, 22.0 ],
-                    "text": "in 5 outHigh @default 1"
+                    "patching_rect": [ 771.0, 19.0, 137.0, 22.0 ],
+                    "text": "in 5 outHigh @default 1."
                 }
             },
             {
@@ -32,8 +32,8 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 587.0, 19.0, 131.0, 22.0 ],
-                    "text": "in 4 outLow @default 0"
+                    "patching_rect": [ 587.0, 19.0, 135.0, 22.0 ],
+                    "text": "in 4 outLow @default 0."
                 }
             },
             {
@@ -43,8 +43,8 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 403.0, 19.0, 127.0, 22.0 ],
-                    "text": "in 3 inHigh @default 1"
+                    "patching_rect": [ 403.0, 19.0, 130.0, 22.0 ],
+                    "text": "in 3 inHigh @default 1."
                 }
             },
             {
@@ -65,13 +65,13 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 218.0, 19.0, 124.0, 22.0 ],
-                    "text": "in 2 inLow @default 0"
+                    "patching_rect": [ 218.0, 19.0, 127.0, 22.0 ],
+                    "text": "in 2 inLow @default 0."
                 }
             },
             {
                 "box": {
-                    "code": "\r\n// use evi_map.gendsp instead for simplest version of this\r\n\n// basic linear scaling like linear part of [scale]\neviMap(valueIn, inLow, inHigh, outLow, outHigh)\n{\n\tmultiplier = (outLow - outHigh) / (inLow - inHigh);\n\treturn (valueIn - inLow) * multiplier + outLow;\n}\n\r\n// basic linear scaling, sort of like [zmap]\neviZmap(valueIn, inLow, inHigh, outLow, outHigh)\n{\r\n\tvalue\t= clamp(valueIn, inLow, inHigh);\n\tmultiplier = (outLow - outHigh) / (inLow - inHigh);\n\treturn (value - inLow) * multiplier + outLow;\n}\n\r\nParam\tinlow(0);\r\nParam\tinhigh(1);\r\nParam\toutlow(0);\r\nParam\touthigh(1);\r\n\r\nParam\tinclip(1, min=0, max=1);\r\nParam\tuseparams(0, min=0, max=1);\r\nparams\t= int(useparams);\r\nzmap\t= int(inclip);\r\n\r\nuinLow\t= 0;\r\nuinHigh\t= 1;\r\nuoutLow\t= 0;\r\nuoutHigh\t= 1;\r\n\r\nif (params) {\r\n\tuinLow\t\t= inlow;\r\n\tuinHigh\t\t= inhigh;\r\n\tuoutLow\t\t= outlow;\r\n\tuoutHigh\t= outhigh;\r\n} else {\r\n\tuinLow\t\t= in2;\r\n\tuinHigh\t\t= in3;\r\n\tuoutLow\t\t= in4;\r\n\tuoutHigh\t= in5;\r\n}\r\n\r\nmapped_value\t\t= 0;\r\nif (zmap) {\r\n\tmapped_value\t= eviZmap(in1, uinLow, uinHigh, uoutLow, uoutHigh);\r\n} else {\r\n\tmapped_value\t= eviMap(in1, uinLow, uinHigh, uoutLow, uoutHigh);\r\n}\r\n\r\nout1\t= mapped_value;\r\n\r\n",
+                    "code": "\r\n// use evi_map.gendsp instead for simplest version of this\r\n\n// basic linear scaling like linear part of [scale]\neviMap(valueIn, inLow, inHigh, outLow, outHigh)\n{\n\tmultiplier = (outLow - outHigh) / (inLow - inHigh);\n\treturn (valueIn - inLow) * multiplier + outLow;\n}\n\r\n// basic linear scaling, sort of like [zmap]\neviZmap(valueIn, inLow, inHigh, outLow, outHigh)\n{\r\n\tvalue\t= clamp(valueIn, inLow, inHigh);\n\tmultiplier = (outLow - outHigh) / (inLow - inHigh);\n\treturn (value - inLow) * multiplier + outLow;\n}\n\r\nParam\tinlow(0.);\r\nParam\tinhigh(1.);\r\nParam\toutlow(0.);\r\nParam\touthigh(1.);\r\n\r\nParam\tinclip(1, min=0, max=1);\r\nParam\tuseparams(0, min=0, max=1);\r\nparams\t= int(useparams);\r\nzmap\t= int(inclip);\r\n\r\nuinLow\t= 0;\r\nuinHigh\t= 1;\r\nuoutLow\t= 0;\r\nuoutHigh\t= 1;\r\n\r\nif (params) {\r\n\tuinLow\t\t= inlow;\r\n\tuinHigh\t\t= inhigh;\r\n\tuoutLow\t\t= outlow;\r\n\tuoutHigh\t= outhigh;\r\n} else {\r\n\tuinLow\t\t= in2;\r\n\tuinHigh\t\t= in3;\r\n\tuoutLow\t\t= in4;\r\n\tuoutHigh\t= in5;\r\n}\r\n\r\nmapped_value\t\t= 0;\r\nif (zmap) {\r\n\tmapped_value\t= eviZmap(in1, uinLow, uinHigh, uoutLow, uoutHigh);\r\n} else {\r\n\tmapped_value\t= eviMap(in1, uinLow, uinHigh, uoutLow, uoutHigh);\r\n}\r\n\r\nout1\t= mapped_value;\r\n\r\n",
                     "fontface": 0,
                     "fontname": "<Monospaced>",
                     "fontsize": 12.0,

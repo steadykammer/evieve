@@ -40,7 +40,7 @@
                 <attribute name='default' type='int' value='0' />
             </attributelist>
         </attribute>
-        <attribute name='bassgain' type='int' get='0' set='1'>
+        <attribute name='bassgain' type='float' get='0' set='1'>
             <digest>
                 @min -12, @max 12
             </digest>
@@ -48,7 +48,7 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='-1' />
+                <attribute name='default' type='float' value='-1.' />
             </attributelist>
         </attribute>
         <attribute name='bassmix' type='float' get='0' set='1'>
@@ -73,7 +73,7 @@
                 <attribute name='default' type='float' value='0.23228' />
             </attributelist>
         </attribute>
-        <attribute name='blend' type='int' get='0' set='1'>
+        <attribute name='blend' type='float' get='0' set='1'>
             <digest>
                 @min -10, @max 10
             </digest>
@@ -81,7 +81,7 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='-2' />
+                <attribute name='default' type='float' value='-2.' />
             </attributelist>
         </attribute>
         <attribute name='cutoff' type='symbol' get='0' set='1'>
@@ -95,7 +95,7 @@
                 <attribute name='default' type='symbol' value='samplerate*0.125' />
             </attributelist>
         </attribute>
-        <attribute name='drive' type='int' get='0' set='1'>
+        <attribute name='drive' type='float' get='0' set='1'>
             <digest>
                 @min 0, @max 10
             </digest>
@@ -103,10 +103,10 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='2' />
+                <attribute name='default' type='float' value='2.' />
             </attributelist>
         </attribute>
-        <attribute name='highpass' type='int' get='0' set='1'>
+        <attribute name='highpass' type='float' get='0' set='1'>
             <digest>
                 @min 10, @max 400
             </digest>
@@ -114,10 +114,10 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='100' />
+                <attribute name='default' type='float' value='100.' />
             </attributelist>
         </attribute>
-        <attribute name='ingain' type='int' get='0' set='1'>
+        <attribute name='ingain' type='float' get='0' set='1'>
             <digest>
                 @min -48, @max 48
             </digest>
@@ -125,7 +125,7 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='1' />
+                <attribute name='default' type='float' value='1.' />
             </attributelist>
         </attribute>
         <attribute name='order' type='int' get='0' set='1'>
@@ -139,7 +139,7 @@
                 <attribute name='default' type='int' value='3' />
             </attributelist>
         </attribute>
-        <attribute name='outgain' type='int' get='0' set='1'>
+        <attribute name='outgain' type='float' get='0' set='1'>
             <digest>
                 @min -24, @max 24
             </digest>
@@ -147,7 +147,7 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='-1' />
+                <attribute name='default' type='float' value='-1.' />
             </attributelist>
         </attribute>
         <attribute name='smooth' type='float' get='0' set='1'>

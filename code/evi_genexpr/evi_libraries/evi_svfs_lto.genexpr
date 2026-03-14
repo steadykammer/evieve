@@ -286,7 +286,7 @@ svfSectionCoeffNoTilde(filter, cutoff, gain, fullQ, AUDIO_SR=48000)	// gain is L
 }
 
 // all in one section for use in gen~/GenExpr
-eviFilterLto(x, cutoff, db, Q, filter, smooth=0)	// gain in dB, smooth time in ms
+eviFilterLto(x, cutoff, db, Q, filter, smooth=0.)	// gain in dB, smooth time in ms
 {
 	History efldummy(0);
 	smoothsecs	= smooth * 0.001;
@@ -299,7 +299,7 @@ eviFilterLto(x, cutoff, db, Q, filter, smooth=0)	// gain in dB, smooth time in m
 	return 		filtered;
 }
 
-eviFilterLtoReset(x, cutoff, db, Q, filter, reset, smooth=0)	// gain in dB, smooth time in ms
+eviFilterLtoReset(x, cutoff, db, Q, filter, reset, smooth=0.)	// gain in dB, smooth time in ms
 {
 	History eflrdummy(0);
 	smoothsecs	= smooth * 0.001;
@@ -532,7 +532,7 @@ svfSectionCoeffEqNoTilde(filter, cutoff, gain, Q, AUDIO_SR=48000)	// gain is Lin
 
 //	//	//	all in one sections for using in parametric EQ-ing etc
 
-eviFilterEq(x, cutoff, db, Q, filter, smooth=0)	// gain in dB, smooth time in ms)
+eviFilterEq(x, cutoff, db, Q, filter, smooth=0.)	// gain in dB, smooth time in ms)
 {
 	History 	efedummy(0);
 	smoothsecs	= smooth * 0.001;
@@ -545,7 +545,7 @@ eviFilterEq(x, cutoff, db, Q, filter, smooth=0)	// gain in dB, smooth time in ms
 	return 		eq;
 }
 
-eviFilterEqReset(x, cutoff, db, Q, filter, reset, smooth=0)	// gain in dB, smooth time in ms)
+eviFilterEqReset(x, cutoff, db, Q, filter, reset, smooth=0.)	// gain in dB, smooth time in ms)
 {
 	History 	eferdummy(0);
 	smoothsecs	= smooth * 0.001;
@@ -559,7 +559,7 @@ eviFilterEqReset(x, cutoff, db, Q, filter, reset, smooth=0)	// gain in dB, smoot
 }
 
 // for 'eviFilterEq4()' "filter" must only be lowpass or highpass !
-eviFilterEq4(x, cutoff, db, Q, filter, smooth=0)	// gain in dB, smooth time in ms)
+eviFilterEq4(x, cutoff, db, Q, filter, smooth=0.)	// gain in dB, smooth time in ms)
 {
 	History 	efe4dummy(0);
 	smoothsecs	= smooth * 0.001;
@@ -578,7 +578,7 @@ eviFilterEq4(x, cutoff, db, Q, filter, smooth=0)	// gain in dB, smooth time in m
 // @see: "evi_eq5.gendsp" for basic example of wrapping the
 // two and four pole sections into a single eq filter
 
-eviFilterEq4Reset(x, cutoff, db, Q, filter, reset, smooth=0)	// gain in dB, smooth time in ms)
+eviFilterEq4Reset(x, cutoff, db, Q, filter, reset, smooth=0.)	// gain in dB, smooth time in ms)
 {
 	History 	efe4rdummy(0);
 	smoothsecs	= smooth * 0.001;
@@ -594,7 +594,7 @@ eviFilterEq4Reset(x, cutoff, db, Q, filter, reset, smooth=0)	// gain in dB, smoo
 	return 		eq2;
 }
 
-eviFilterEqStereo(xL, xR, cutoff, db, Q, filter, smooth=0)	// gain in dB, smooth time in ms)
+eviFilterEqStereo(xL, xR, cutoff, db, Q, filter, smooth=0.)	// gain in dB, smooth time in ms)
 {
 	History 	efesdummy(0);
 	smoothsecs	= smooth * 0.001;
@@ -609,7 +609,7 @@ eviFilterEqStereo(xL, xR, cutoff, db, Q, filter, smooth=0)	// gain in dB, smooth
 }
 
 // for 'eviFilterEqStereo4()' "filter" must only be lowpass or highpass !
-eviFilterEq4Stereo(xL, xR, cutoff, db, Q, filter, smooth=0)	// gain in dB, smooth time in ms)
+eviFilterEq4Stereo(xL, xR, cutoff, db, Q, filter, smooth=0.)	// gain in dB, smooth time in ms)
 {
 	History 	efes4dummy(0);
 	smoothsecs	= smooth * 0.001;
@@ -660,7 +660,7 @@ eviSvfTwoSectionsStereo(band0L, band0R, a11, a21, a31, m01, m11, m21, a12, a22, 
 	return	band2L, band2R;
 }
 
-eviParametric2(x, filter1, cutoff1, db1, Q1, filter2, cutoff2, db2, Q2, smooth=0)
+eviParametric2(x, filter1, cutoff1, db1, Q1, filter2, cutoff2, db2, Q2, smooth=0.)
 {
 	History ep2dummy(0);
 	band1	= eviFilterEq(x, cutoff1, db1, Q1, filter1, smooth=smooth);
@@ -668,7 +668,7 @@ eviParametric2(x, filter1, cutoff1, db1, Q1, filter2, cutoff2, db2, Q2, smooth=0
 	return 	band2;
 }
 
-eviParametric3(x, filter1, cutoff1, db1, Q1, filter2, cutoff2, db2, Q2, filter3, cutoff3, db3, Q3, smooth=0)
+eviParametric3(x, filter1, cutoff1, db1, Q1, filter2, cutoff2, db2, Q2, filter3, cutoff3, db3, Q3, smooth=0.)
 {
 	History ep3dummy(0);
 	band1	= eviFilterEq(x,		cutoff1, db1, Q1, filter1, smooth=smooth);
@@ -677,7 +677,7 @@ eviParametric3(x, filter1, cutoff1, db1, Q1, filter2, cutoff2, db2, Q2, filter3,
 	return 	band3;
 }
 
-eviParametricStereo2(xL, xR, filter1, cutoff1, db1, Q1, filter2, cutoff2, db2, Q2, smooth=0)
+eviParametricStereo2(xL, xR, filter1, cutoff1, db1, Q1, filter2, cutoff2, db2, Q2, smooth=0.)
 {
 	History eps2dummy(0);
 	band1L, band1R	= eviFilterEqStereo(xL, xR, cutoff1, db1, Q1, filter1, smooth=smooth);
@@ -685,7 +685,7 @@ eviParametricStereo2(xL, xR, filter1, cutoff1, db1, Q1, filter2, cutoff2, db2, Q
 	return 	band2L, band2R;
 }
 
-eviParametricStereo3(xL, xR, filter1, cutoff1, db1, Q1, filter2, cutoff2, db2, Q2, filter3, cutoff3, db3, Q3, smooth=0)
+eviParametricStereo3(xL, xR, filter1, cutoff1, db1, Q1, filter2, cutoff2, db2, Q2, filter3, cutoff3, db3, Q3, smooth=0.)
 {
 	History eps3dummy(0);
 	band1L, band1R	= eviFilterEqStereo(xL,		xR,		cutoff1, db1, Q1, filter1, smooth=smooth);

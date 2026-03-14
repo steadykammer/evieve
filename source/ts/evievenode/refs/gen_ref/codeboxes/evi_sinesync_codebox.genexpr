@@ -4,7 +4,7 @@
 
 
 History prev(0);                        // correct main freq
-Param   subsmooth(0, min=0, max=333);   // smooth sub freq? in ms
+Param   subsmooth(0., min=0, max=333);  // smooth sub freq? in ms
 
 main = in1;
 sub = in2;

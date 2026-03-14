@@ -26,7 +26,7 @@
         </geninlet>
     </geninletlist>
     <attributelist>
-        <attribute name='base' type='int' get='0' set='1'>
+        <attribute name='base' type='float' get='0' set='1'>
             <digest>
                 @min 415, @max 467
             </digest>
@@ -34,7 +34,7 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='440' />
+                <attribute name='default' type='float' value='440.' />
             </attributelist>
         </attribute>
     </attributelist>

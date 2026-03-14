@@ -37,25 +37,25 @@
         {
             "name": "damp",
             "get": 1,
-            "type": "int",
+            "type": "float",
             "digest": "",
             "description": "",
             "default": {
                 "min": "0",
                 "max": "1",
-                "value": "0"
+                "value": "0."
             }
         },
         {
             "name": "smooth",
             "get": 1,
-            "type": "int",
+            "type": "float",
             "digest": "",
             "description": "",
             "default": {
                 "min": "0",
                 "max": "999",
-                "value": "0"
+                "value": "0."
             }
         }
     ],

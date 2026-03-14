@@ -34,12 +34,12 @@
     "attributes": [
         {
             "name": "band1db",
-            "type": "int",
+            "type": "float",
             "digest": "@min -24, @max 24",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "0"
+                "type": "float",
+                "value": "0."
             }
         },
         {
@@ -54,32 +54,32 @@
         },
         {
             "name": "band1freq",
-            "type": "int",
+            "type": "float",
             "digest": "@min 10, @max 18000",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "125"
+                "type": "float",
+                "value": "125."
             }
         },
         {
             "name": "band1q",
-            "type": "int",
+            "type": "float",
             "digest": "@min 0.1, @max 18",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "1"
+                "type": "float",
+                "value": "1."
             }
         },
         {
             "name": "band2db",
-            "type": "int",
+            "type": "float",
             "digest": "@min -24, @max 24",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "0"
+                "type": "float",
+                "value": "0."
             }
         },
         {
@@ -94,12 +94,12 @@
         },
         {
             "name": "band2freq",
-            "type": "int",
+            "type": "float",
             "digest": "@min 10, @max 18000",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "500"
+                "type": "float",
+                "value": "500."
             }
         },
         {
@@ -114,12 +114,12 @@
         },
         {
             "name": "band3db",
-            "type": "int",
+            "type": "float",
             "digest": "@min -24, @max 24",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "0"
+                "type": "float",
+                "value": "0."
             }
         },
         {
@@ -134,12 +134,12 @@
         },
         {
             "name": "band3freq",
-            "type": "int",
+            "type": "float",
             "digest": "@min 10, @max 18000",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "1000"
+                "type": "float",
+                "value": "1000."
             }
         },
         {
@@ -154,12 +154,12 @@
         },
         {
             "name": "band4db",
-            "type": "int",
+            "type": "float",
             "digest": "@min -24, @max 24",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "0"
+                "type": "float",
+                "value": "0."
             }
         },
         {
@@ -174,12 +174,12 @@
         },
         {
             "name": "band4freq",
-            "type": "int",
+            "type": "float",
             "digest": "@min 10, @max 18000",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "2000"
+                "type": "float",
+                "value": "2000."
             }
         },
         {
@@ -194,12 +194,12 @@
         },
         {
             "name": "band5db",
-            "type": "int",
+            "type": "float",
             "digest": "@min -24, @max 24",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "0"
+                "type": "float",
+                "value": "0."
             }
         },
         {
@@ -214,22 +214,22 @@
         },
         {
             "name": "band5freq",
-            "type": "int",
+            "type": "float",
             "digest": "@min 10, @max 18000",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "4000"
+                "type": "float",
+                "value": "4000."
             }
         },
         {
             "name": "band5q",
-            "type": "int",
+            "type": "float",
             "digest": "@min 0.1, @max 18",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "1"
+                "type": "float",
+                "value": "1."
             }
         },
         {

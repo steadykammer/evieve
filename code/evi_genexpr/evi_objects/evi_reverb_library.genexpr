@@ -205,7 +205,7 @@ eightModMatt(modFreq, modDepth, modSpread)
 
 // freezeverb and plateverb
 
-// thanks to Alex Harker
+// thanks to Alex Harker for the help
 calcDelays(delay, time)										// delay in units, time in samples
 {
 	History direction(-1), ramp(0), del1(0), del2(0);	

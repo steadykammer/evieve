@@ -59,19 +59,19 @@ History	xL(0), xR(0);	// compensate
 // -- -- -- -- -- -- -- -- -- --		params			-- -- -- -- -- -- -- -- -- -- -- -- \\
 
 // reverb
-Param	pre(9, min=0, max=143);						// pre delay time in ms
+Param	pre(9., min=0, max=143);					// pre delay time in ms
 Param	size(0.78, min=0, max=1);					// % 0..1 "roomsize" (comb filters feedback)
 Param	damp(0.42, min=0, max=1);					// % 0..1, comb filters damping
 Param	width(0.7, min=0, max=1);					// % 0..1
 // gains
-Param	early(-20, min=-90, max=0);					// dB (or init off?)
+Param	early(-20., min=-90, max=0);				// dB (or init off?)
 Param	wet(-9.542434, min=-90, max=0);				// dB (init 1/scalewet)
-Param	dry(-12, min=-90, max=0);					// dB
+Param	dry(-12., min=-90, max=0);					// dB
 // eq (compute coefficients externally in gen no tilde)
 Param	highshelfG(0.123758, min=0, max=1);			// pre-warped frequency (g / (1 + g)) (default 2000Hz @48kHz)
-Param	highshelfK(0, min=-3, max=1);				// -3=shelfboost..0=bypass..shelf..1=pass
+Param	highshelfK(0., min=-3, max=1);				// -3=shelfboost..0=bypass..shelf..1=pass
 Param	lowshelfG(0.032214, min=0, max=1);			// pre-warped frequency (g / (1 + g)) (default 500Hz @48kHz)
-Param	lowshelfK(0, min=-3, max=1);				// -3=shelfboost..0=bypass..shelf..1=pass
+Param	lowshelfK(0., min=-3, max=1);				// -3=shelfboost..0=bypass..shelf..1=pass
 // special
 Param	freeze(0, min=0, max=2);					// select, the reason we are here
 Param	bypass(0, min=0, max=1);					// also cpu-off, but no reset in gen~ !
@@ -85,14 +85,14 @@ History	passH(0);									// latch bypass smoother
 Param		SQRT8MUL	( 0.353553390593274, min=0, max=1);	// sqrt1_2 * 0.5;
 Param		FIXEDGAIN	( 0.015,	min=0, max=1		 );	// ?
 Param		SCALEEARLY	( 0.555555,	min=0, max=1		 );
-Param		SCALEWET	( 3,		min=0, max=10		 );
-Param		SCALEDRY	( 2,		min=0, max=10		 );
+Param		SCALEWET	( 3.,		min=0, max=10		 );
+Param		SCALEDRY	( 2.,		min=0, max=10		 );
 Param		SCALEDAMP	( 0.4,		min=0, max=1		 );
 Param		SCALEROOM	( 0.28,		min=0, max=1		 );
 Param		OFFSETROOM	( 0.7,		min=0, max=1		 );
 Param		ALLPASSFB	( 0.5,		min=0, max=1		 );	// ?
 
-Param		smoothtime	( 49,		min=1, max=500		 );	// ms
+Param		smoothtime	( 49.,		min=1, max=500		 );	// ms
 smoothsecs	= smoothtime * 0.001;					// secs
 smsecslong	= smoothsecs * 2.666667;				// secs * 3
 smoothsamps	= smoothsecs * samplerate;				// samps

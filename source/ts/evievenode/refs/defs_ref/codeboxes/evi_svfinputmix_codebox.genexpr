@@ -42,12 +42,12 @@ inputMixingSvfLoop(vlow, vband, vhigh, g0, g1, g2, g3)
 
 // param rate
 
-Param   cutoff(1000, min=10, max=10000);            // Hz, not much use above about 8kHz
+Param   cutoff(1000., min=10, max=10000);           // Hz, not much use above about 8kHz
 Param   res(sqrt1_2, min=0, max=1);                 // 0..1, not much use above about 4kHz
 
 Param   coeffsmooth(15.111, min=0, max=333);        // ms
 Param   mixsmooth(22.666, min=0, max=333);          // ms
-Param   mix(0, min=0, max=1);                       // internal 3-way sine mixer
+Param   mix(0., min=0, max=1);                      // internal 3-way sine mixer
 Param   mixenable(1, min=0, max=1);                 // enable the internal mixer 0/1 ?
 me      = int(mixenable);
 

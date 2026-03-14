@@ -28,12 +28,12 @@
         </geninlet>
         <geninlet name='pitch' type='float' optional='1'>
             <digest>
-                Mod @default 0
+                Mod @default 0.
             </digest>
         </geninlet>
         <geninlet name='freq' type='float' optional='1'>
             <digest>
-                (Hz) Mod @default 0
+                (Hz) Mod @default 0.
             </digest>
         </geninlet>
         <geninlet name='harmonics' type='float' optional='1'>
@@ -70,7 +70,7 @@
                 <attribute name='default' type='float' value='0.1' />
             </attributelist>
         </attribute>
-        <attribute name='cfsmooth' type='int' get='0' set='1'>
+        <attribute name='cfsmooth' type='float' get='0' set='1'>
             <digest>
                 @min 0, @max 1000
             </digest>
@@ -78,7 +78,7 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='20' />
+                <attribute name='default' type='float' value='20.' />
             </attributelist>
         </attribute>
     </attributelist>

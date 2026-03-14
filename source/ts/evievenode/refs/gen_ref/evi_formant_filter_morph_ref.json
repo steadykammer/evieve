@@ -63,22 +63,22 @@
     "attributes": [
         {
             "name": "bwwarp",
-            "type": "int",
+            "type": "float",
             "digest": "@min 0.00625, @max 32",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "1"
+                "type": "float",
+                "value": "1."
             }
         },
         {
             "name": "cfwarp",
-            "type": "int",
+            "type": "float",
             "digest": "@min 0.025, @max 4",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "1"
+                "type": "float",
+                "value": "1."
             }
         },
         {
@@ -133,12 +133,12 @@
         },
         {
             "name": "gain",
-            "type": "int",
+            "type": "float",
             "digest": "@min -80, @max 20",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "0"
+                "type": "float",
+                "value": "0."
             }
         },
         {
@@ -153,12 +153,12 @@
         },
         {
             "name": "gainwarp",
-            "type": "int",
+            "type": "float",
             "digest": "@min 0.025, @max 4",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "1"
+                "type": "float",
+                "value": "1."
             }
         },
         {

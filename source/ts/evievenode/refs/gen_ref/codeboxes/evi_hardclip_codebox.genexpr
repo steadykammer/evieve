@@ -288,7 +288,7 @@ adHc2_4x_6POINT(XIN, thresh=1)
 
 
 // do not use "limit"
-Param   limit(1, min=0.9, max=1.1);
+Param   limit(1., min=0.9, max=1.1);
 Param   aa(3, min=0, max=5);    // default Adaa 2nd order
 aaxx    = int(aa);
 

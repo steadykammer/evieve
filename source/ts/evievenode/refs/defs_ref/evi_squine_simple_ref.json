@@ -23,13 +23,13 @@
         {
             "id": 2,
             "type": "",
-            "digest": "Pitch Mod @default 0",
+            "digest": "Pitch Mod @default 0.",
             "description": ""
         },
         {
             "id": 3,
             "type": "",
-            "digest": "Freq (Hz) Mod @default 0",
+            "digest": "Freq (Hz) Mod @default 0.",
             "description": ""
         },
         {
@@ -94,13 +94,13 @@
         {
             "name": "cfsmooth",
             "get": 1,
-            "type": "int",
+            "type": "float",
             "digest": "",
             "description": "",
             "default": {
                 "min": "0",
                 "max": "1000",
-                "value": "20"
+                "value": "20."
             }
         }
     ],

@@ -55,22 +55,22 @@
         },
         {
             "name": "scalein",
-            "type": "int",
+            "type": "float",
             "digest": "@min 1, @max 10000",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "3"
+                "type": "float",
+                "value": "3."
             }
         },
         {
             "name": "scaleout",
-            "type": "int",
+            "type": "float",
             "digest": "@min 1, @max 1000",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "1"
+                "type": "float",
+                "value": "1."
             }
         }
     ],

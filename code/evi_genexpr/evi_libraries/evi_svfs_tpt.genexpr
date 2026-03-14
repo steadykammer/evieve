@@ -245,7 +245,7 @@ tptSvfCoeffNoTilde(filter, cutoff, gain, fullQ, AUDIO_SR=48000)	// gain is linea
 }
 
 // all in one section for use in gen~/GenExpr
-eviFilterTpt(x, cutoff, db, Q, filter, smooth=0)	// gain in dB, smooth time in ms
+eviFilterTpt(x, cutoff, db, Q, filter, smooth=0.)	// gain in dB, smooth time in ms
 {
 	History eftdummy(0);
 	smoothsecs	= smooth * 0.001;
@@ -259,7 +259,7 @@ eviFilterTpt(x, cutoff, db, Q, filter, smooth=0)	// gain in dB, smooth time in m
 	return 		filtered;
 }
 
-eviFilterTptReset(x, cutoff, db, Q, filter, reset, smooth=0)	// gain in dB, smooth time in ms
+eviFilterTptReset(x, cutoff, db, Q, filter, reset, smooth=0.)	// gain in dB, smooth time in ms
 {
 	History eftrdummy(0);
 	smoothsecs	= smooth * 0.001;
@@ -471,7 +471,7 @@ tptSvfEqReset(x, g, r, h, cL, cB, cH, reset)
 //	//	//	all in one sections for using in parametric EQ-ing etc
 //	//	//	also see 'evi_svfs_lto.genexpr'
 
-eviFilterTptEq(x, cutoff, db, Q, filter, reset, smooth=0)	// gain in dB, smooth time in ms)
+eviFilterTptEq(x, cutoff, db, Q, filter, reset, smooth=0.)	// gain in dB, smooth time in ms)
 {
 	History efedummy(0);
 	smoothsecs	= smooth * 0.001;
@@ -484,7 +484,7 @@ eviFilterTptEq(x, cutoff, db, Q, filter, reset, smooth=0)	// gain in dB, smooth 
 	return 		eq;
 }
 
-eviFilterTptEqStereo(xL, xR, cutoff, db, Q, filter, reset, smooth=0)	// gain in dB, smooth time in ms)
+eviFilterTptEqStereo(xL, xR, cutoff, db, Q, filter, reset, smooth=0.)	// gain in dB, smooth time in ms)
 {
 	History efesdummy(0);
 	smoothsecs	= smooth * 0.001;

@@ -52,7 +52,7 @@
 	</methodlist>
 	<!--ATTRIBUTES-->
 	<attributelist>
-		<attribute name="attack" get="1" set="1" type="int" min="10" max="59999">
+		<attribute name="attack" get="1" set="1" type="float" min="10" max="59999">
 			<digest>
 				
 			</digest>
@@ -60,10 +60,10 @@
 				
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="10" />
+				<attribute name="default" get="0" set="0" size="1" value="10." />
 			</attributelist>
 		</attribute>
-		<attribute name="decay" get="1" set="1" type="int" min="11" max="60000">
+		<attribute name="decay" get="1" set="1" type="float" min="11" max="60000">
 			<digest>
 				
 			</digest>
@@ -71,10 +71,10 @@
 				
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="100" />
+				<attribute name="default" get="0" set="0" size="1" value="100." />
 			</attributelist>
 		</attribute>
-		<attribute name="offset" get="1" set="1" type="int" min="-24" max="24">
+		<attribute name="offset" get="1" set="1" type="float" min="-24" max="24">
 			<digest>
 				
 			</digest>
@@ -82,10 +82,10 @@
 				
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="0" />
+				<attribute name="default" get="0" set="0" size="1" value="0." />
 			</attributelist>
 		</attribute>
-		<attribute name="smoothfreq" get="1" set="1" type="int" min="0" max="666">
+		<attribute name="smoothfreq" get="1" set="1" type="float" min="0" max="666">
 			<digest>
 				
 			</digest>
@@ -93,10 +93,10 @@
 				
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="0" />
+				<attribute name="default" get="0" set="0" size="1" value="0." />
 			</attributelist>
 		</attribute>
-		<attribute name="smoothtime" get="1" set="1" type="int" min="0" max="111">
+		<attribute name="smoothtime" get="1" set="1" type="float" min="0" max="111">
 			<digest>
 				
 			</digest>
@@ -104,10 +104,10 @@
 				
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="0" />
+				<attribute name="default" get="0" set="0" size="1" value="0." />
 			</attributelist>
 		</attribute>
-		<attribute name="spread" get="1" set="1" type="int" min="-12" max="12">
+		<attribute name="spread" get="1" set="1" type="float" min="-12" max="12">
 			<digest>
 				
 			</digest>
@@ -115,10 +115,10 @@
 				
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="0" />
+				<attribute name="default" get="0" set="0" size="1" value="0." />
 			</attributelist>
 		</attribute>
-		<attribute name="width" get="1" set="1" type="int" min="0" max="24">
+		<attribute name="width" get="1" set="1" type="float" min="0" max="24">
 			<digest>
 				
 			</digest>
@@ -126,7 +126,7 @@
 				
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="0" />
+				<attribute name="default" get="0" set="0" size="1" value="0." />
 			</attributelist>
 		</attribute>
 	</attributelist>

@@ -37,8 +37,8 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 611.0, 13.0, 188.0, 35.0 ],
-                    "text": "in 3 (signal/float) BW in Hz @min 0 @max 18000 @default 110"
+                    "patching_rect": [ 611.0, 13.0, 187.0, 35.0 ],
+                    "text": "in 3 (signal/float) BW in Hz @min 0 @max 18000 @default 110."
                 }
             },
             {
@@ -49,8 +49,8 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 408.0, 13.0, 186.0, 35.0 ],
-                    "text": "in 2 (signal/float) CF in Hz @min 0 @max 18000 @default 440"
+                    "patching_rect": [ 408.0, 13.0, 194.0, 35.0 ],
+                    "text": "in 2 (signal/float) CF in Hz @min 0 @max 18000 @default 440."
                 }
             },
             {

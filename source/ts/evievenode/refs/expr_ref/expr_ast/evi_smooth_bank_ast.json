@@ -6,8 +6,8 @@
             "type": "FunctionDeclaration",
             "id": {
                 "type": "Identifier",
-                "name": "expA",
-                "raw": "expA"
+                "name": "expApp",
+                "raw": "expApp"
             },
             "params": [
                 {
@@ -201,8 +201,8 @@
             "type": "FunctionDeclaration",
             "id": {
                 "type": "Identifier",
-                "name": "tauA",
-                "raw": "tauA"
+                "name": "tauApp",
+                "raw": "tauApp"
             },
             "params": [
                 {
@@ -263,8 +263,8 @@
                                 ],
                                 "callee": {
                                     "type": "Identifier",
-                                    "name": "expA",
-                                    "raw": "expA"
+                                    "name": "expApp",
+                                    "raw": "expApp"
                                 }
                             }
                         }
@@ -374,8 +374,8 @@
                                 ],
                                 "callee": {
                                     "type": "Identifier",
-                                    "name": "tauA",
-                                    "raw": "tauA"
+                                    "name": "tauApp",
+                                    "raw": "tauApp"
                                 }
                             }
                         }
@@ -697,8 +697,8 @@
                                 ],
                                 "callee": {
                                     "type": "Identifier",
-                                    "name": "tauA",
-                                    "raw": "tauA"
+                                    "name": "tauApp",
+                                    "raw": "tauApp"
                                 }
                             }
                         }
@@ -884,8 +884,8 @@
                                 ],
                                 "callee": {
                                     "type": "Identifier",
-                                    "name": "tauA",
-                                    "raw": "tauA"
+                                    "name": "tauApp",
+                                    "raw": "tauApp"
                                 }
                             }
                         }
@@ -1114,8 +1114,8 @@
                                 ],
                                 "callee": {
                                     "type": "Identifier",
-                                    "name": "tauA",
-                                    "raw": "tauA"
+                                    "name": "tauApp",
+                                    "raw": "tauApp"
                                 }
                             }
                         }
@@ -1387,8 +1387,8 @@
                                 ],
                                 "callee": {
                                     "type": "Identifier",
-                                    "name": "tauA",
-                                    "raw": "tauA"
+                                    "name": "tauApp",
+                                    "raw": "tauApp"
                                 }
                             }
                         }
@@ -1703,8 +1703,8 @@
                                 ],
                                 "callee": {
                                     "type": "Identifier",
-                                    "name": "tauA",
-                                    "raw": "tauA"
+                                    "name": "tauApp",
+                                    "raw": "tauApp"
                                 }
                             }
                         }
@@ -2062,8 +2062,8 @@
                                 ],
                                 "callee": {
                                     "type": "Identifier",
-                                    "name": "tauA",
-                                    "raw": "tauA"
+                                    "name": "tauApp",
+                                    "raw": "tauApp"
                                 }
                             }
                         }
@@ -2464,8 +2464,8 @@
                                 ],
                                 "callee": {
                                     "type": "Identifier",
-                                    "name": "tauA",
-                                    "raw": "tauA"
+                                    "name": "tauApp",
+                                    "raw": "tauApp"
                                 }
                             }
                         }

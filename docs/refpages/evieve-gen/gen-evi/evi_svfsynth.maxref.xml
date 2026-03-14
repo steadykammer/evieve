@@ -31,7 +31,7 @@
         </geninlet>
         <geninlet name='cutoff' type='float' optional='1'>
             <digest>
-                in Hz or Pitch @default 77
+                in Hz or Pitch @default 77.
             </digest>
         </geninlet>
         <geninlet name='resonance' type='float' optional='1'>
@@ -52,7 +52,7 @@
                 <attribute name='default' type='int' value='1' />
             </attributelist>
         </attribute>
-        <attribute name='filtinterp' type='int' get='0' set='1'>
+        <attribute name='filtinterp' type='float' get='0' set='1'>
             <digest>
                 @min 0, @max 1
             </digest>
@@ -60,7 +60,7 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='0' />
+                <attribute name='default' type='float' value='0.' />
             </attributelist>
         </attribute>
         <attribute name='filtinterpsmooth' type='float' get='0' set='1'>
@@ -96,7 +96,7 @@
                 <attribute name='default' type='float' value='sqrt1_2' />
             </attributelist>
         </attribute>
-        <attribute name='shapesmooth' type='int' get='0' set='1'>
+        <attribute name='shapesmooth' type='float' get='0' set='1'>
             <digest>
                 @min 0, @max 100
             </digest>
@@ -104,7 +104,7 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='0' />
+                <attribute name='default' type='float' value='0.' />
             </attributelist>
         </attribute>
         <attribute name='slope' type='int' get='0' set='1'>

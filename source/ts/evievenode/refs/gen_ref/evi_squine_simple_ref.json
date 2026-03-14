@@ -23,14 +23,14 @@
             "name": "pitch",
             "type": "float",
             "optional": 1,
-            "digest": "Mod @default 0"
+            "digest": "Mod @default 0."
         },
         {
             "id": 3,
             "name": "freq",
             "type": "float",
             "optional": 1,
-            "digest": "(Hz) Mod @default 0"
+            "digest": "(Hz) Mod @default 0."
         },
         {
             "id": 4,
@@ -93,12 +93,12 @@
         },
         {
             "name": "cfsmooth",
-            "type": "int",
+            "type": "float",
             "digest": "@min 0, @max 1000",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "20"
+                "type": "float",
+                "value": "20."
             }
         }
     ],

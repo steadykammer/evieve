@@ -62,13 +62,13 @@
         {
             "name": "filtersmooth",
             "get": 1,
-            "type": "int",
+            "type": "float",
             "digest": "",
             "description": "",
             "default": {
                 "min": "0",
                 "max": "296",
-                "value": "92"
+                "value": "92."
             }
         },
         {

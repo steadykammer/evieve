@@ -25,7 +25,7 @@
             "name": "index",
             "type": "float",
             "optional": 1,
-            "digest": "@default 1"
+            "digest": "@default 1."
         },
         {
             "id": 3,
@@ -60,7 +60,7 @@
             "name": "mod",
             "type": "float",
             "optional": 1,
-            "digest": "Mult @default 1"
+            "digest": "Mult @default 1."
         }
     ],
     "outlets": [
@@ -82,12 +82,12 @@
     "attributes": [
         {
             "name": "carrierfeedback",
-            "type": "int",
+            "type": "float",
             "digest": "@min 0, @max 100",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "0"
+                "type": "float",
+                "value": "0."
             }
         },
         {
@@ -102,32 +102,32 @@
         },
         {
             "name": "modulationfeedback",
-            "type": "int",
+            "type": "float",
             "digest": "@min 0, @max 100",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "0"
+                "type": "float",
+                "value": "0."
             }
         },
         {
             "name": "modulationmult",
-            "type": "int",
+            "type": "float",
             "digest": "@min 0, @max 100",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "1"
+                "type": "float",
+                "value": "1."
             }
         },
         {
             "name": "pitch",
-            "type": "int",
+            "type": "float",
             "digest": "@min 0, @max 120",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "48"
+                "type": "float",
+                "value": "48."
             }
         },
         {
@@ -162,22 +162,22 @@
         },
         {
             "name": "xfadeblend",
-            "type": "int",
+            "type": "float",
             "digest": "@min 0, @max 1",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "1"
+                "type": "float",
+                "value": "1."
             }
         },
         {
             "name": "xfadedepth",
-            "type": "int",
+            "type": "float",
             "digest": "@min 0, @max 100",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "1"
+                "type": "float",
+                "value": "1."
             }
         }
     ],

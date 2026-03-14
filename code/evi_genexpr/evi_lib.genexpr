@@ -1,16 +1,27 @@
 
 // all evi_libraries functionality in a single require
-// probably not very useful as you will always need evi_core required before this as well
-// @see: "evi_evieve.genexpr" for a global require
+// probably not very useful as you will always need evi_core.genexpr required before this as well
+// @see: "evi_evieve.genexpr" for a real global require
 
 require("evi_adaa.genexpr");
 require("evi_biquads.genexpr");
+require("evi_buchla.genexpr");
+require("evi_butterworth.genexpr");
 require("evi_clip.genexpr");
+require("evi_counting.genexpr");
 require("evi_crossovers.genexpr");
 require("evi_dynamics.genexpr");
-require("evi_overdrive.genexpr");
+require("evi_env.genexpr");
+require("evi_lfo.genexpr");
 require("evi_polyblep.genexpr");
+require("evi_ptr.genexpr");
 require("evi_rcfilters.genexpr");
-require("evi_reverb_library.genexpr");
+require("evi_resampling_templates.genexpr");
 require("evi_saturators.genexpr");
+require("evi_sources.genexpr");
 require("evi_svfs.genexpr");
+require("evi_waveshaping.genexpr");
+
+// does not include no tilde (namespace clash):
+// require("evi_biquads_no_tilde.genexpr");
+

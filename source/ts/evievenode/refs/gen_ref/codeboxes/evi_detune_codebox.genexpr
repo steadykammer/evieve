@@ -18,22 +18,22 @@ History phaseReset(1);
 History dryL(0), dryR(0);                           // align
 History circuitL(0), circuitR(0);
 
-Param   xover(250, min=125, max=1000);              // detune takes place above xover freq
-Param	feedback(0, min=-1, max=1);				    // feedback gain, amplitude, -1..1
+Param   xover(250., min=125, max=1000);             // detune takes place above xover freq
+Param	feedback(0., min=-1, max=1);				// feedback gain, amplitude, -1..1
 Param   drywet(sqrt1_2, min=0, max=1);              // entire effect
 
-Param   prefilterfrequency(8000, min=125, max=16000);
+Param   prefilterfrequency(8000., min=125, max=16000);
 Param   prefilterbandwidth(0.5, min=0, max=1);
-Param   prefiltermorph(0, min=0, max=1);            // 0=lowpass, 0.5=bandpass, 1=highpass
+Param   prefiltermorph(0., min=0, max=1);           // 0=lowpass, 0.5=bandpass, 1=highpass
 
 Param	detune(0.3, min=0, max=1);
 Param	mix(0.9, min=0, max=1);                     // dry/wet of just detune effect
 Param	window(4, min=0, max=5);					// detune window, default 4 == "Hann"
 Param	latency(4, min=0, max=4);					// 0..4, default 4 = 4096 samples
 
-Param   postfilterfrequency(16000, min=1000, max=samplerate*0.49);
+Param   postfilterfrequency(16000., min=1000, max=samplerate*0.49);
 
-Param   smooth(22, min=0, max=333);                 // ms
+Param   smooth(22., min=0, max=333);                // ms
 smsecs  = smooth * 0.001;
 smsamps = smsecs * samplerate;
 

@@ -73,12 +73,12 @@
     "attributes": [
         {
             "name": "offsetsmooth",
-            "type": "int",
+            "type": "float",
             "digest": "",
             "description": "",
             "default": {
                 "type": "float",
-                "value": "0"
+                "value": "0."
             }
         },
         {
@@ -93,22 +93,22 @@
         },
         {
             "name": "scalersmooth",
-            "type": "int",
+            "type": "float",
             "digest": "",
             "description": "",
             "default": {
                 "type": "float",
-                "value": "0"
+                "value": "0."
             }
         },
         {
             "name": "sweepsmooth",
-            "type": "int",
+            "type": "float",
             "digest": "",
             "description": "",
             "default": {
                 "type": "float",
-                "value": "0"
+                "value": "0."
             }
         },
         {
@@ -123,22 +123,22 @@
         },
         {
             "name": "vactrolcontrolhz",
-            "type": "int",
+            "type": "float",
             "digest": "",
             "description": "",
             "default": {
                 "type": "float",
-                "value": "143"
+                "value": "143."
             }
         },
         {
             "name": "vactrolscalar",
-            "type": "int",
+            "type": "float",
             "digest": "",
             "description": "",
             "default": {
                 "type": "float",
-                "value": "10"
+                "value": "10."
             }
         }
     ],

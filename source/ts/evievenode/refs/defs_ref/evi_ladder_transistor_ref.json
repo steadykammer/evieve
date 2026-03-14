@@ -73,13 +73,13 @@
         {
             "name": "cfsmooth",
             "get": 1,
-            "type": "int",
+            "type": "float",
             "digest": "",
             "description": "",
             "default": {
                 "min": "0",
                 "max": "666",
-                "value": "10"
+                "value": "10."
             }
         },
         {
@@ -97,13 +97,13 @@
         {
             "name": "ressmooth",
             "get": 1,
-            "type": "int",
+            "type": "float",
             "digest": "",
             "description": "",
             "default": {
                 "min": "0",
                 "max": "333",
-                "value": "20"
+                "value": "20."
             }
         }
     ],

@@ -34,62 +34,62 @@
     "attributes": [
         {
             "name": "highcutoff",
-            "type": "int",
+            "type": "float",
             "digest": "@min 500, @max samplerate*0.5",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "2000"
+                "type": "float",
+                "value": "2000."
             }
         },
         {
             "name": "highdb",
-            "type": "int",
+            "type": "float",
             "digest": "@min -30, @max 30",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "0"
+                "type": "float",
+                "value": "0."
             }
         },
         {
             "name": "highq",
-            "type": "int",
+            "type": "float",
             "digest": "@min 0.05, @max 20",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "1"
+                "type": "float",
+                "value": "1."
             }
         },
         {
             "name": "lowcutoff",
-            "type": "int",
+            "type": "float",
             "digest": "@min 1, @max 10000",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "250"
+                "type": "float",
+                "value": "250."
             }
         },
         {
             "name": "lowdb",
-            "type": "int",
+            "type": "float",
             "digest": "@min -30, @max 30",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "0"
+                "type": "float",
+                "value": "0."
             }
         },
         {
             "name": "lowq",
-            "type": "int",
+            "type": "float",
             "digest": "@min 0.05, @max 20",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "1"
+                "type": "float",
+                "value": "1."
             }
         },
         {

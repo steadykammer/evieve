@@ -23,7 +23,7 @@
             "name": "inlow",
             "type": "float",
             "optional": 1,
-            "digest": "@default 0"
+            "digest": "@default 0."
         },
         {
             "id": 3,
@@ -37,14 +37,14 @@
             "name": "inhigh",
             "type": "float",
             "optional": 1,
-            "digest": "@default 1"
+            "digest": "@default 1."
         },
         {
             "id": 5,
             "name": "outlow",
             "type": "float",
             "optional": 1,
-            "digest": "@default 0"
+            "digest": "@default 0."
         },
         {
             "id": 6,
@@ -58,7 +58,7 @@
             "name": "outhigh",
             "type": "float",
             "optional": 1,
-            "digest": "@default 1"
+            "digest": "@default 1."
         }
     ],
     "outlets": [
@@ -73,22 +73,22 @@
     "attributes": [
         {
             "name": "inhigh",
-            "type": "int",
+            "type": "float",
             "digest": "",
             "description": "",
             "default": {
                 "type": "float",
-                "value": "1"
+                "value": "1."
             }
         },
         {
             "name": "inlow",
-            "type": "int",
+            "type": "float",
             "digest": "",
             "description": "",
             "default": {
                 "type": "float",
-                "value": "0"
+                "value": "0."
             }
         },
         {
@@ -103,22 +103,22 @@
         },
         {
             "name": "outhigh",
-            "type": "int",
+            "type": "float",
             "digest": "",
             "description": "",
             "default": {
                 "type": "float",
-                "value": "1"
+                "value": "1."
             }
         },
         {
             "name": "outlow",
-            "type": "int",
+            "type": "float",
             "digest": "",
             "description": "",
             "default": {
                 "type": "float",
-                "value": "0"
+                "value": "0."
             }
         },
         {

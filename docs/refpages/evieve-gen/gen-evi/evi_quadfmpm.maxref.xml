@@ -29,7 +29,7 @@
         </geninlet>
         <geninlet name='index' type='float' optional='1'>
             <digest>
-                @default 1
+                @default 1.
             </digest>
         </geninlet>
         <geninlet name='fm/pm' type='float' optional='1'>
@@ -54,12 +54,12 @@
         </geninlet>
         <geninlet name='mod' type='float' optional='1'>
             <digest>
-                Mult @default 1
+                Mult @default 1.
             </digest>
         </geninlet>
     </geninletlist>
     <attributelist>
-        <attribute name='carrierfeedback' type='int' get='0' set='1'>
+        <attribute name='carrierfeedback' type='float' get='0' set='1'>
             <digest>
                 @min 0, @max 100
             </digest>
@@ -67,7 +67,7 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='0' />
+                <attribute name='default' type='float' value='0.' />
             </attributelist>
         </attribute>
         <attribute name='feedback_params' type='int' get='0' set='1'>
@@ -81,7 +81,7 @@
                 <attribute name='default' type='int' value='1' />
             </attributelist>
         </attribute>
-        <attribute name='modulationfeedback' type='int' get='0' set='1'>
+        <attribute name='modulationfeedback' type='float' get='0' set='1'>
             <digest>
                 @min 0, @max 100
             </digest>
@@ -89,10 +89,10 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='0' />
+                <attribute name='default' type='float' value='0.' />
             </attributelist>
         </attribute>
-        <attribute name='modulationmult' type='int' get='0' set='1'>
+        <attribute name='modulationmult' type='float' get='0' set='1'>
             <digest>
                 @min 0, @max 100
             </digest>
@@ -100,10 +100,10 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='1' />
+                <attribute name='default' type='float' value='1.' />
             </attributelist>
         </attribute>
-        <attribute name='pitch' type='int' get='0' set='1'>
+        <attribute name='pitch' type='float' get='0' set='1'>
             <digest>
                 @min 0, @max 120
             </digest>
@@ -111,7 +111,7 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='48' />
+                <attribute name='default' type='float' value='48.' />
             </attributelist>
         </attribute>
         <attribute name='pitch_params' type='int' get='0' set='1'>
@@ -147,7 +147,7 @@
                 <attribute name='default' type='int' value='1' />
             </attributelist>
         </attribute>
-        <attribute name='xfadeblend' type='int' get='0' set='1'>
+        <attribute name='xfadeblend' type='float' get='0' set='1'>
             <digest>
                 @min 0, @max 1
             </digest>
@@ -155,10 +155,10 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='1' />
+                <attribute name='default' type='float' value='1.' />
             </attributelist>
         </attribute>
-        <attribute name='xfadedepth' type='int' get='0' set='1'>
+        <attribute name='xfadedepth' type='float' get='0' set='1'>
             <digest>
                 @min 0, @max 100
             </digest>
@@ -166,7 +166,7 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='1' />
+                <attribute name='default' type='float' value='1.' />
             </attributelist>
         </attribute>
     </attributelist>

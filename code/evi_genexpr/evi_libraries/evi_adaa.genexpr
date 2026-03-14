@@ -406,7 +406,7 @@ softclip2Adaa2(x0)
 // - `R`: Ratio of polynomial region.
 // - `beta`: Order of polynomial.
 // - `S`: Slope of secondary linear region.
-softclipNF0(x0, C=1, R=0.5, beta=2, S=0.1)
+softclipNF0(x0, C=1., R=0.5, beta=2., S=0.1)
 {
   z = abs(x0);
 
@@ -428,7 +428,7 @@ softclipNF0(x0, C=1, R=0.5, beta=2, S=0.1)
   return eviCopysign(output, x0);
 }
 
-softclipNF1(x0, C=1, R=0.5, beta=2, S=0.1)
+softclipNF1(x0, C=1., R=0.5, beta=2., S=0.1)
 {
   z = abs(x0);
 
@@ -450,7 +450,7 @@ softclipNF1(x0, C=1, R=0.5, beta=2, S=0.1)
   }
 }
 
-softclipNF2(x0, C=1, R=0.5, beta=2, S=0.1)
+softclipNF2(x0, C=1., R=0.5, beta=2., S=0.1)
 {
   odt = 0.333333333333333;
   ods = 0.166666666666667;

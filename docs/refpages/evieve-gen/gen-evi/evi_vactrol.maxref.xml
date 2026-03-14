@@ -21,22 +21,22 @@
     <geninletlist>
         <geninlet name='trigger' type='float' optional='1'>
             <digest>
-                @default 0
+                @default 0.
             </digest>
         </geninlet>
         <geninlet name='rise' type='float' optional='1'>
             <digest>
-                @min 0 @default 20
+                @min 0 @default 20.
             </digest>
         </geninlet>
         <geninlet name='fall' type='float' optional='1'>
             <digest>
-                @min 0 @default 3000
+                @min 0 @default 3000.
             </digest>
         </geninlet>
     </geninletlist>
     <attributelist>
-        <attribute name='scalar' type='int' get='0' set='1'>
+        <attribute name='scalar' type='float' get='0' set='1'>
             <digest>
                 @min 1, @max 10000
             </digest>
@@ -44,7 +44,7 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='10' />
+                <attribute name='default' type='float' value='10.' />
             </attributelist>
         </attribute>
     </attributelist>

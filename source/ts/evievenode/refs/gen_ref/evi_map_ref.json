@@ -30,7 +30,7 @@
             "name": "high",
             "type": "float",
             "optional": 1,
-            "digest": "Input Value @default 1"
+            "digest": "Input Value @default 1."
         },
         {
             "id": 4,
@@ -44,7 +44,7 @@
             "name": "high",
             "type": "float",
             "optional": 1,
-            "digest": "Output Value @default 1"
+            "digest": "Output Value @default 1."
         }
     ],
     "outlets": [

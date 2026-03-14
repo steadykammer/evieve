@@ -294,11 +294,11 @@ sexySVFselect(X, w2, res, mod, os)
 Param   slope(0, min=0, max=1);         // 0 = 12dB filters only, 1 = and 24dB filters
 Param	cutoffmode(1, min=0, max=1);    // cutoff (in2), 0 = in Hz, 1 = in pitch
 Param	shape(sqrt1_2, min=0, max=1);   // y(1) (0.603553), do not touch
-Param	shapesmooth(0, min=0, max=100); // in ms (22.666)
-Param	filtinterp(0, min=0, max=1);    // 0=LP, 0.5=BP, 1=HP
+Param	shapesmooth(0., min=0, max=100);// in ms (22.666)
+Param	filtinterp(0., min=0, max=1);   // 0=LP, 0.5=BP, 1=HP
 Param	filtinterpsmooth(30.222, min=0, max=100);// in ms
 Param	tunesmooth(15.111, min=0, max=100);// in ms
-Param   oversample(1, min=0, max=2);    // 1x, 2x 4point, 2x 6point (6 not useful here)
+Param   oversample(1, min=0, max=2);    // 1x, 2x 4point, 2x 6point (6point not useful here)
 os      = int(oversample);
 tfdb    = int(slope);
 oso     = os > 0;

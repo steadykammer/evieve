@@ -248,22 +248,22 @@
         },
         {
             "name": "feedbackhzhigh",
-            "type": "int",
+            "type": "float",
             "digest": "@min 250, @max 8000",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "2000"
+                "type": "float",
+                "value": "2000."
             }
         },
         {
             "name": "feedbackhzlow",
-            "type": "int",
+            "type": "float",
             "digest": "@min 62.5, @max 500",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "250"
+                "type": "float",
+                "value": "250."
             }
         },
         {
@@ -278,22 +278,22 @@
         },
         {
             "name": "inputhzhigh",
-            "type": "int",
+            "type": "float",
             "digest": "@min 500, @max 14700",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "4000"
+                "type": "float",
+                "value": "4000."
             }
         },
         {
             "name": "inputhzlow",
-            "type": "int",
+            "type": "float",
             "digest": "@min 31.25, @max 500",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "125"
+                "type": "float",
+                "value": "125."
             }
         },
         {
@@ -378,12 +378,12 @@
         },
         {
             "name": "modulationdepth",
-            "type": "int",
+            "type": "float",
             "digest": "@min 0, @max 16",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "4"
+                "type": "float",
+                "value": "4."
             }
         },
         {
@@ -398,32 +398,32 @@
         },
         {
             "name": "modulationrate",
-            "type": "int",
+            "type": "float",
             "digest": "@min 0.125, @max 8",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "1"
+                "type": "float",
+                "value": "1."
             }
         },
         {
             "name": "modulationshape",
-            "type": "int",
+            "type": "float",
             "digest": "@min 0, @max 1",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "1"
+                "type": "float",
+                "value": "1."
             }
         },
         {
             "name": "modulationskew",
-            "type": "int",
+            "type": "float",
             "digest": "@min 0.5, @max 2",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "1"
+                "type": "float",
+                "value": "1."
             }
         },
         {

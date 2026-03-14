@@ -44,10 +44,10 @@ Param	smoothtime(22.666, min=0, max=300);	// ms
 Param	early(sqrt1_2, min=0, max=1);		// % 0..1 ( OR 0/1 )
 Param	late(0.803554, min=0, max=1);		// % 0..1
 // damping controls
-Param	crossover(3000, min=500, max=15000);// Hz
+Param	crossover(3000., min=500, max=15000);// Hz
 Param	damp(0.1, min=0, max=1);			// % 0..1
 // mixing controls
-Param	fdnsum(0, min=0, max=1);			// % 0..1 ( OR 0/1 )
+Param	fdnsum(0., min=0, max=1);			// % 0..1 ( OR 0/1 )
 Param	drywet(0.8666, min=0, max=1);		// % 0..1
 
 

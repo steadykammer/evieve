@@ -12,7 +12,7 @@ mtofApprox(pitch, base=440)			// 'base' should be 440 (hz) for default operation
 	return mtofA + 0.120906;		// + offset = accurate for input 48..69
 }
 
-Param	base(440, min=415, max=467);
+Param	base(440., min=415, max=467);
 
 out1	= mtofApprox(in1, base=base);
 

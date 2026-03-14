@@ -98,32 +98,32 @@
     "attributes": [
         {
             "name": "damppitchhigh",
-            "type": "int",
+            "type": "float",
             "digest": "@min 24, @max 125",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "124"
+                "type": "float",
+                "value": "124."
             }
         },
         {
             "name": "damppitchlow",
-            "type": "int",
+            "type": "float",
             "digest": "@min 12, @max 103",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "94"
+                "type": "float",
+                "value": "94."
             }
         },
         {
             "name": "envrelease",
-            "type": "int",
+            "type": "float",
             "digest": "@min 1, @max 10",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "2"
+                "type": "float",
+                "value": "2."
             }
         },
         {
@@ -138,12 +138,12 @@
         },
         {
             "name": "envslope",
-            "type": "int",
+            "type": "float",
             "digest": "@min 0.1, @max 10",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "1"
+                "type": "float",
+                "value": "1."
             }
         },
         {
@@ -168,42 +168,42 @@
         },
         {
             "name": "gainsmooth",
-            "type": "int",
+            "type": "float",
             "digest": "@min 0, @max 333",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "0"
+                "type": "float",
+                "value": "0."
             }
         },
         {
             "name": "noisegain",
-            "type": "int",
+            "type": "float",
             "digest": "@min -72, @max 30",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "0"
+                "type": "float",
+                "value": "0."
             }
         },
         {
             "name": "oscgain",
-            "type": "int",
+            "type": "float",
             "digest": "@min -72, @max 30",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "0"
+                "type": "float",
+                "value": "0."
             }
         },
         {
             "name": "oscsmoothfreq",
-            "type": "int",
+            "type": "float",
             "digest": "@min 0, @max 333",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "22"
+                "type": "float",
+                "value": "22."
             }
         },
         {

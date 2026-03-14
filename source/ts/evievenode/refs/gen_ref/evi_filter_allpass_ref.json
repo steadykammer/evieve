@@ -48,12 +48,12 @@
     "attributes": [
         {
             "name": "smooth",
-            "type": "int",
+            "type": "float",
             "digest": "@min 0, @max 333",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "0"
+                "type": "float",
+                "value": "0."
             }
         }
     ],

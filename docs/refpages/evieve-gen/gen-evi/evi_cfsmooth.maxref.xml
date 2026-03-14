@@ -31,7 +31,7 @@
         </geninlet>
     </geninletlist>
     <attributelist>
-        <attribute name='hz' type='int' get='0' set='1'>
+        <attribute name='hz' type='float' get='0' set='1'>
             <digest>
                 @min 0, @max 10
             </digest>
@@ -39,7 +39,7 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='2' />
+                <attribute name='default' type='float' value='2.' />
             </attributelist>
         </attribute>
     </attributelist>

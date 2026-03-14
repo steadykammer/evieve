@@ -65,13 +65,13 @@ Param   datainterp(1, min=0, max=1);        // 0=clip, 1=wrap, affects in2 & in3
 Param	datatype(0, min=0, max=1);			// 0 = read hz/amp data, 1 = read pitch/db data
 // ^^ 'datatype' affects the way the vox/vow interpolation sounds (interpolates lin or log data)
 
-Param	gain(0, min=-80, max=20);			// global gain in dB
+Param	gain(0., min=-80, max=20);			// global gain in dB
 
 // manually warp the formant data
 Param	warpsmooth(1, min=0, max=1);		// warp parameters (cf & bw & gain) smoothing off / on ?
-Param	cfwarp(1, min=0.025, max=4);		// multiply (warp) formant frequency size ?
-Param	bwwarp(1, min=0.00625, max=32);		// multiply (warp) formant bandwidth size ?
-Param	gainwarp(1, min=0.025, max=4);		// multiply (warp) formant gain size ?
+Param	cfwarp(1., min=0.025, max=4);		// multiply (warp) formant frequency size ?
+Param	bwwarp(1., min=0.00625, max=32);	// multiply (warp) formant bandwidth size ?
+Param	gainwarp(1., min=0.025, max=4);		// multiply (warp) formant gain size ?
 Param	gainnorm(0, min=0, max=1);			// normalise higher formants' gain in for-loop ?
 
 Param	paramsmooth(15.111, min=0, max=333);// global param smoothing in ms

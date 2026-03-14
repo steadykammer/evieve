@@ -34,7 +34,7 @@ vactrolBuchla(i, r, f)					// impulse, rise (samps), fall (samps)
 	return	  y;						// & scale externally
 }
 
-Param	scalar(10, min=1, max=10000);	// for "evi_controlcircuit_buchla.gendsp"
+Param	scalar(10., min=1, max=10000);	// for "evi_controlcircuit_buchla.gendsp"
 // "...values are chosen from the datasheet for the VTL5C3/2 as being approx 12ms
 // in the positive (rise) direction and 250ms in the negative (fall) direction.
 // This chosen value is then modulated further by the current output value of

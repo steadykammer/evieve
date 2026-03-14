@@ -64,52 +64,52 @@
         },
         {
             "name": "mapcutoff",
-            "type": "int",
+            "type": "float",
             "digest": "@min 7, @max 788",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "143"
+                "type": "float",
+                "value": "143."
             }
         },
         {
             "name": "mapdamp",
-            "type": "int",
+            "type": "float",
             "digest": "@min 0, @max 1",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "0"
+                "type": "float",
+                "value": "0."
             }
         },
         {
             "name": "offsetsmooth",
-            "type": "int",
+            "type": "float",
             "digest": "@min 0, @max 333",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "0"
+                "type": "float",
+                "value": "0."
             }
         },
         {
             "name": "scalersmooth",
-            "type": "int",
+            "type": "float",
             "digest": "@min 0, @max 111",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "0"
+                "type": "float",
+                "value": "0."
             }
         },
         {
             "name": "sweepsmooth",
-            "type": "int",
+            "type": "float",
             "digest": "@min 0, @max 222",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "0"
+                "type": "float",
+                "value": "0."
             }
         }
     ],

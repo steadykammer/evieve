@@ -770,7 +770,7 @@
                     "kind": "param",
                     "name": "smooth",
                     "default": 0,
-                    "type": "integer",
+                    "type": "float",
                     "digest": "If > 0, ms smoothing time of required mixing gains"
                 }
             ],
@@ -822,7 +822,7 @@
                     "kind": "param",
                     "name": "smooth",
                     "default": 0,
-                    "type": "integer",
+                    "type": "float",
                     "digest": "If > 0, ms smoothing time of required mixing gains"
                 }
             ],
@@ -873,7 +873,7 @@
                     "kind": "param",
                     "name": "smooth",
                     "default": 0,
-                    "type": "integer",
+                    "type": "float",
                     "digest": "If > 0, ms smoothing time of required mixing gains"
                 }
             ],
@@ -925,7 +925,7 @@
                     "kind": "param",
                     "name": "smooth",
                     "default": 0,
-                    "type": "integer",
+                    "type": "float",
                     "digest": "If > 0, ms smoothing time of required mixing gains"
                 }
             ],
@@ -976,7 +976,7 @@
                     "kind": "param",
                     "name": "smooth",
                     "default": 0,
-                    "type": "integer",
+                    "type": "float",
                     "digest": "If > 0, ms smoothing time of required mixing gains"
                 }
             ],
@@ -1028,7 +1028,7 @@
                     "kind": "param",
                     "name": "smooth",
                     "default": 0,
-                    "type": "integer",
+                    "type": "float",
                     "digest": "If > 0, ms smoothing time of required mixing gains"
                 }
             ],
@@ -1079,7 +1079,7 @@
                     "kind": "param",
                     "name": "smooth",
                     "default": 0,
-                    "type": "integer",
+                    "type": "float",
                     "digest": "If > 0, ms smoothing time of required mixing gains"
                 }
             ],
@@ -1131,7 +1131,7 @@
                     "kind": "param",
                     "name": "smooth",
                     "default": 0,
-                    "type": "integer",
+                    "type": "float",
                     "digest": "If > 0, ms smoothing time of required mixing gains"
                 }
             ],
@@ -1182,7 +1182,7 @@
                     "kind": "param",
                     "name": "smooth",
                     "default": 0,
-                    "type": "integer",
+                    "type": "float",
                     "digest": "If > 0, ms smoothing time of required mixing gains"
                 }
             ],
@@ -1234,7 +1234,7 @@
                     "kind": "param",
                     "name": "smooth",
                     "default": 0,
-                    "type": "integer",
+                    "type": "float",
                     "digest": "If > 0, ms smoothing time of required mixing gains"
                 }
             ],
@@ -1285,7 +1285,7 @@
                     "kind": "param",
                     "name": "smooth",
                     "default": 0,
-                    "type": "integer",
+                    "type": "float",
                     "digest": "If > 0, ms smoothing time of required mixing gains"
                 }
             ],
@@ -1337,7 +1337,7 @@
                     "kind": "param",
                     "name": "smooth",
                     "default": 0,
-                    "type": "integer",
+                    "type": "float",
                     "digest": "If > 0, ms smoothing time of required mixing gains"
                 }
             ],
@@ -1394,7 +1394,7 @@
                     "kind": "param",
                     "name": "smooth",
                     "default": 0,
-                    "type": "integer",
+                    "type": "float",
                     "digest": "If > 0, ms smoothing time of required mixing gains"
                 }
             ],
@@ -1452,7 +1452,7 @@
                     "kind": "param",
                     "name": "smooth",
                     "default": 0,
-                    "type": "integer",
+                    "type": "float",
                     "digest": "If > 0, ms smoothing time of required mixing gains"
                 }
             ],
@@ -1503,7 +1503,7 @@
                     "kind": "param",
                     "name": "smooth",
                     "default": 0,
-                    "type": "integer",
+                    "type": "float",
                     "digest": "If > 0, ms smoothing time of required mixing gains"
                 }
             ],
@@ -1555,7 +1555,7 @@
                     "kind": "param",
                     "name": "smooth",
                     "default": 0,
-                    "type": "integer",
+                    "type": "float",
                     "digest": "If > 0, ms smoothing time of required mixing gains"
                 }
             ],
@@ -1606,7 +1606,7 @@
                     "kind": "param",
                     "name": "smooth",
                     "default": 0,
-                    "type": "integer",
+                    "type": "float",
                     "digest": "If > 0, ms smoothing time of required mixing gains"
                 }
             ],
@@ -1658,7 +1658,7 @@
                     "kind": "param",
                     "name": "smooth",
                     "default": 0,
-                    "type": "integer",
+                    "type": "float",
                     "digest": "If > 0, ms smoothing time of required mixing gains"
                 }
             ],
@@ -1709,7 +1709,7 @@
                     "kind": "param",
                     "name": "smooth",
                     "default": 0,
-                    "type": "integer",
+                    "type": "float",
                     "digest": "If > 0, ms smoothing time of required mixing gains"
                 }
             ],
@@ -1761,7 +1761,7 @@
                     "kind": "param",
                     "name": "smooth",
                     "default": 0,
-                    "type": "integer",
+                    "type": "float",
                     "digest": "If > 0, ms smoothing time of required mixing gains"
                 }
             ],
@@ -1812,7 +1812,7 @@
                     "kind": "param",
                     "name": "smooth",
                     "default": 0,
-                    "type": "integer",
+                    "type": "float",
                     "digest": "If > 0, ms smoothing time of required mixing gains"
                 }
             ],
@@ -1864,7 +1864,7 @@
                     "kind": "param",
                     "name": "smooth",
                     "default": 0,
-                    "type": "integer",
+                    "type": "float",
                     "digest": "If > 0, ms smoothing time of required mixing gains"
                 }
             ],
@@ -1915,7 +1915,7 @@
                     "kind": "param",
                     "name": "smooth",
                     "default": 0,
-                    "type": "integer",
+                    "type": "float",
                     "digest": "If > 0, ms smoothing time of required mixing gains"
                 }
             ],
@@ -1967,7 +1967,7 @@
                     "kind": "param",
                     "name": "smooth",
                     "default": 0,
-                    "type": "integer",
+                    "type": "float",
                     "digest": "If > 0, ms smoothing time of required mixing gains"
                 }
             ],
@@ -2012,7 +2012,7 @@
                     "kind": "param",
                     "name": "smooth",
                     "default": 0,
-                    "type": "integer",
+                    "type": "float",
                     "digest": "If > 0, ms smoothing time of required mixing gains"
                 }
             ],
@@ -2058,7 +2058,7 @@
                     "kind": "param",
                     "name": "smooth",
                     "default": 0,
-                    "type": "integer",
+                    "type": "float",
                     "digest": "If > 0, ms smoothing time of required mixing gains"
                 }
             ],

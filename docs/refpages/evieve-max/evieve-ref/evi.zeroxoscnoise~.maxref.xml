@@ -116,7 +116,7 @@
 	</methodlist>
 	<!--ATTRIBUTES-->
 	<attributelist>
-		<attribute name="damppitchhigh" get="1" set="1" type="int" min="24" max="125">
+		<attribute name="damppitchhigh" get="1" set="1" type="float" min="24" max="125">
 			<digest>
 				
 			</digest>
@@ -124,10 +124,10 @@
 				
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="124" />
+				<attribute name="default" get="0" set="0" size="1" value="124." />
 			</attributelist>
 		</attribute>
-		<attribute name="damppitchlow" get="1" set="1" type="int" min="12" max="103">
+		<attribute name="damppitchlow" get="1" set="1" type="float" min="12" max="103">
 			<digest>
 				
 			</digest>
@@ -135,10 +135,10 @@
 				
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="94" />
+				<attribute name="default" get="0" set="0" size="1" value="94." />
 			</attributelist>
 		</attribute>
-		<attribute name="envrelease" get="1" set="1" type="int" min="1" max="10">
+		<attribute name="envrelease" get="1" set="1" type="float" min="1" max="10">
 			<digest>
 				
 			</digest>
@@ -146,7 +146,7 @@
 				
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="2" />
+				<attribute name="default" get="0" set="0" size="1" value="2." />
 			</attributelist>
 		</attribute>
 		<attribute name="envresponse" get="1" set="1" type="int" min="0" max="4">
@@ -160,7 +160,7 @@
 				<attribute name="default" get="0" set="0" size="1" value="2" />
 			</attributelist>
 		</attribute>
-		<attribute name="envslope" get="1" set="1" type="int" min="0.1" max="10">
+		<attribute name="envslope" get="1" set="1" type="float" min="0.1" max="10">
 			<digest>
 				
 			</digest>
@@ -168,7 +168,7 @@
 				
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="1" />
+				<attribute name="default" get="0" set="0" size="1" value="1." />
 			</attributelist>
 		</attribute>
 		<attribute name="envthresh" get="1" set="1" type="float" min="0" max="1">
@@ -193,7 +193,7 @@
 				<attribute name="default" get="0" set="0" size="1" value="vectorsize" />
 			</attributelist>
 		</attribute>
-		<attribute name="gainsmooth" get="1" set="1" type="int" min="0" max="333">
+		<attribute name="gainsmooth" get="1" set="1" type="float" min="0" max="333">
 			<digest>
 				
 			</digest>
@@ -201,10 +201,10 @@
 				
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="0" />
+				<attribute name="default" get="0" set="0" size="1" value="0." />
 			</attributelist>
 		</attribute>
-		<attribute name="noisegain" get="1" set="1" type="int" min="-72" max="30">
+		<attribute name="noisegain" get="1" set="1" type="float" min="-72" max="30">
 			<digest>
 				
 			</digest>
@@ -212,10 +212,10 @@
 				
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="0" />
+				<attribute name="default" get="0" set="0" size="1" value="0." />
 			</attributelist>
 		</attribute>
-		<attribute name="oscgain" get="1" set="1" type="int" min="-72" max="30">
+		<attribute name="oscgain" get="1" set="1" type="float" min="-72" max="30">
 			<digest>
 				
 			</digest>
@@ -223,10 +223,10 @@
 				
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="0" />
+				<attribute name="default" get="0" set="0" size="1" value="0." />
 			</attributelist>
 		</attribute>
-		<attribute name="oscsmoothfreq" get="1" set="1" type="int" min="0" max="333">
+		<attribute name="oscsmoothfreq" get="1" set="1" type="float" min="0" max="333">
 			<digest>
 				
 			</digest>
@@ -234,7 +234,7 @@
 				
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="22" />
+				<attribute name="default" get="0" set="0" size="1" value="22." />
 			</attributelist>
 		</attribute>
 		<attribute name="oscsmoothinterp" get="1" set="1" type="float" min="0" max="1000">

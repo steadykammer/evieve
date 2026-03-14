@@ -59,12 +59,12 @@
         },
         {
             "name": "filtersmooth",
-            "type": "int",
+            "type": "float",
             "digest": "@min 0, @max 296",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "92"
+                "type": "float",
+                "value": "92."
             }
         },
         {

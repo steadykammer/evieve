@@ -10,8 +10,8 @@ require("evi_smooth.genexpr");
 
 // param rate
 
-Param   damp(0, min=0, max=1);
-Param   smooth(0, min=0, max=999);
+Param   damp(0., min=0, max=1);
+Param   smooth(0., min=0, max=999);
 
 // cheapo macroisation, surprisingly it works, is even accross 0..1 range
 

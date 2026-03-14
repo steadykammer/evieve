@@ -1,11 +1,11 @@
 
-// all evi_core functionality in a single require
+// all evi_cores functionality in a single require
 
 require("evi_approx.genexpr");
 require("evi_utilities.genexpr");
-require("evi_tanh.genexpr");
 require("evi_smooth.genexpr");
 require("evi_cossin.genexpr");
+require("evi_tanh.genexpr");
 require("evi_trig.genexpr");
 require("evi_pade.genexpr");
 require("evi_fastskew.genexpr");

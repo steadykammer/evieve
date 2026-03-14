@@ -4,6 +4,7 @@
 <refpage name='evi.adsr~.maxref.xml'/>
 <refpage name='evi.algoverb~.maxref.xml'/>
 <refpage name='evi.allpass~.maxref.xml'/>
+<refpage name='evi.am~.maxref.xml'/>
 <refpage name='evi.arpnotch~.maxref.xml'/>
 <refpage name='evi.audiodust~.maxref.xml'/>
 <refpage name='evi.backverb~.maxref.xml'/>
@@ -15,6 +16,7 @@
 <refpage name='evi.butterworthlp6~.maxref.xml'/>
 <refpage name='evi.butterworthlp8~.maxref.xml'/>
 <refpage name='evi.cfsmooth~.maxref.xml'/>
+<refpage name='evi.chorus.digital~.maxref.xml'/>
 <refpage name='evi.classic.osc~.maxref.xml'/>
 <refpage name='evi.clipasym~.maxref.xml'/>
 <refpage name='evi.clip~.maxref.xml'/>
@@ -27,6 +29,7 @@
 <refpage name='evi.damp.macro~.maxref.xml'/>
 <refpage name='evi.damp~.maxref.xml'/>
 <refpage name='evi.dcblock~.maxref.xml'/>
+<refpage name='evi.detune~.maxref.xml'/>
 <refpage name='evi.dfm~.maxref.xml'/>
 <refpage name='evi.eq3stereo~.maxref.xml'/>
 <refpage name='evi.eq3~.maxref.xml'/>
@@ -48,6 +51,7 @@
 <refpage name='evi.filter.shelving~.maxref.xml'/>
 <refpage name='evi.filter.tilt~.maxref.xml'/>
 <refpage name='evi.filter~.maxref.xml'/>
+<refpage name='evi.flanger.digital~.maxref.xml'/>
 <refpage name='evi.formantfilter.morph~.maxref.xml'/>
 <refpage name='evi.formantfilter~.maxref.xml'/>
 <refpage name='evi.formantosc~.maxref.xml'/>
@@ -90,8 +94,10 @@
 <refpage name='evi.overdrive.tanh~.maxref.xml'/>
 <refpage name='evi.paf~.maxref.xml'/>
 <refpage name='evi.pan~.maxref.xml'/>
+<refpage name='evi.phaser.analog~.maxref.xml'/>
 <refpage name='evi.phaseshift~.maxref.xml'/>
 <refpage name='evi.phasor0~.maxref.xml'/>
+<refpage name='evi.plateverb.lite~.maxref.xml'/>
 <refpage name='evi.plateverb_lite~.maxref.xml'/>
 <refpage name='evi.plateverb~.maxref.xml'/>
 <refpage name='evi.polyphaseiirhilbertcoeffs.maxref.xml'/>
@@ -112,6 +118,7 @@
 <refpage name='evi.skfinputmix~.maxref.xml'/>
 <refpage name='evi.softclip~.maxref.xml'/>
 <refpage name='evi.squine.simple~.maxref.xml'/>
+<refpage name='evi.sustainverb.lite~.maxref.xml'/>
 <refpage name='evi.sustainverb_lite~.maxref.xml'/>
 <refpage name='evi.sustainverb~.maxref.xml'/>
 <refpage name='evi.svfinputmix~.maxref.xml'/>
@@ -122,6 +129,7 @@
 <refpage name='evi.tone.macro~.maxref.xml'/>
 <refpage name='evi.tpqm.maxref.xml'/>
 <refpage name='evi.transratio.maxref.xml'/>
+<refpage name='evi.tremolo~.maxref.xml'/>
 <refpage name='evi.tri.select~.maxref.xml'/>
 <refpage name='evi.tri~.maxref.xml'/>
 <refpage name='evi.vactrol~.maxref.xml'/>

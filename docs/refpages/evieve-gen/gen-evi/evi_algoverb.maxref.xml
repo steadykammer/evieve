@@ -78,7 +78,7 @@
                 <attribute name='default' type='float' value=' 0.000021' />
             </attributelist>
         </attribute>
-        <attribute name='damp1_m0' type='int' get='0' set='1'>
+        <attribute name='damp1_m0' type='float' get='0' set='1'>
             <digest>
                 @min -2, @max 2
             </digest>
@@ -86,7 +86,7 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value=' 1' />
+                <attribute name='default' type='float' value=' 1.' />
             </attributelist>
         </attribute>
         <attribute name='damp1_m1' type='float' get='0' set='1'>
@@ -287,7 +287,7 @@
                 <attribute name='default' type='float' value=' 0.000045' />
             </attributelist>
         </attribute>
-        <attribute name='eq1_m0' type='int' get='0' set='1'>
+        <attribute name='eq1_m0' type='float' get='0' set='1'>
             <digest>
                 @min -16, @max 16	
             </digest>
@@ -295,7 +295,7 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value=' 1' />
+                <attribute name='default' type='float' value=' 1.' />
             </attributelist>
         </attribute>
         <attribute name='eq1_m1' type='float' get='0' set='1'>
@@ -474,7 +474,7 @@
                 <attribute name='default' type='float' value='0.33' />
             </attributelist>
         </attribute>
-        <attribute name='preTime' type='int' get='0' set='1'>
+        <attribute name='preTime' type='float' get='0' set='1'>
             <digest>
                 @min 0, @max 400
             </digest>
@@ -482,10 +482,10 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='16' />
+                <attribute name='default' type='float' value='16.' />
             </attributelist>
         </attribute>
-        <attribute name='smoothtime' type='int' get='0' set='1'>
+        <attribute name='smoothtime' type='float' get='0' set='1'>
             <digest>
                 @min 0, @max 500
             </digest>
@@ -493,7 +493,7 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='50' />
+                <attribute name='default' type='float' value='50.' />
             </attributelist>
         </attribute>
     </attributelist>

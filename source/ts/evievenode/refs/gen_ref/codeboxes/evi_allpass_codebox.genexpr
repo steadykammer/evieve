@@ -11,8 +11,8 @@ require("evi_smooth.genexpr");              // incl. _utilities & _approx
 Delay   FFdelay(samplerate, 1, feedback=0);
 Delay   FBdelay(samplerate, 1, feedback=1);
 
-Param   smooth(0, min=0, max=333);
-Param   feedbackmix(0, min=0, max=1);
+Param   smooth(0., min=0, max=333);
+Param   feedbackmix(0., min=0, max=1);
 
 fbmix  = feedbackmix;
 if (smooth > 0) {

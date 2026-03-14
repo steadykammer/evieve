@@ -7703,8 +7703,8 @@
                 {
                     "type": "Literal",
                     "value": 1,
-                    "raw": "1",
-                    "gen_kind": "integer"
+                    "raw": "1.",
+                    "gen_kind": "float"
                 },
                 {
                     "type": "Literal",
@@ -7715,8 +7715,8 @@
                 {
                     "type": "Literal",
                     "value": 2,
-                    "raw": "2",
-                    "gen_kind": "integer"
+                    "raw": "2.",
+                    "gen_kind": "float"
                 },
                 {
                     "type": "Literal",
@@ -8254,8 +8254,8 @@
                 {
                     "type": "Literal",
                     "value": 1,
-                    "raw": "1",
-                    "gen_kind": "integer"
+                    "raw": "1.",
+                    "gen_kind": "float"
                 },
                 {
                     "type": "Literal",
@@ -8266,8 +8266,8 @@
                 {
                     "type": "Literal",
                     "value": 2,
-                    "raw": "2",
-                    "gen_kind": "integer"
+                    "raw": "2.",
+                    "gen_kind": "float"
                 },
                 {
                     "type": "Literal",
@@ -9043,8 +9043,8 @@
                 {
                     "type": "Literal",
                     "value": 1,
-                    "raw": "1",
-                    "gen_kind": "integer"
+                    "raw": "1.",
+                    "gen_kind": "float"
                 },
                 {
                     "type": "Literal",
@@ -9055,8 +9055,8 @@
                 {
                     "type": "Literal",
                     "value": 2,
-                    "raw": "2",
-                    "gen_kind": "integer"
+                    "raw": "2.",
+                    "gen_kind": "float"
                 },
                 {
                     "type": "Literal",

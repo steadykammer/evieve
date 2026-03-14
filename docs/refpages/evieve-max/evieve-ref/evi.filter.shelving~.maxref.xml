@@ -44,7 +44,7 @@
 	</methodlist>
 	<!--ATTRIBUTES-->
 	<attributelist>
-		<attribute name="highcutoff" get="1" set="1" type="int" min="500" max="samplerate*0.5">
+		<attribute name="highcutoff" get="1" set="1" type="float" min="500" max="samplerate*0.5">
 			<digest>
 				
 			</digest>
@@ -52,10 +52,10 @@
 				
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="2000" />
+				<attribute name="default" get="0" set="0" size="1" value="2000." />
 			</attributelist>
 		</attribute>
-		<attribute name="highdb" get="1" set="1" type="int" min="-30" max="30">
+		<attribute name="highdb" get="1" set="1" type="float" min="-30" max="30">
 			<digest>
 				
 			</digest>
@@ -63,10 +63,10 @@
 				
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="0" />
+				<attribute name="default" get="0" set="0" size="1" value="0." />
 			</attributelist>
 		</attribute>
-		<attribute name="highq" get="1" set="1" type="int" min="0.05" max="20">
+		<attribute name="highq" get="1" set="1" type="float" min="0.05" max="20">
 			<digest>
 				
 			</digest>
@@ -74,10 +74,10 @@
 				
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="1" />
+				<attribute name="default" get="0" set="0" size="1" value="1." />
 			</attributelist>
 		</attribute>
-		<attribute name="lowcutoff" get="1" set="1" type="int" min="1" max="10000">
+		<attribute name="lowcutoff" get="1" set="1" type="float" min="1" max="10000">
 			<digest>
 				
 			</digest>
@@ -85,10 +85,10 @@
 				
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="250" />
+				<attribute name="default" get="0" set="0" size="1" value="250." />
 			</attributelist>
 		</attribute>
-		<attribute name="lowdb" get="1" set="1" type="int" min="-30" max="30">
+		<attribute name="lowdb" get="1" set="1" type="float" min="-30" max="30">
 			<digest>
 				
 			</digest>
@@ -96,10 +96,10 @@
 				
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="0" />
+				<attribute name="default" get="0" set="0" size="1" value="0." />
 			</attributelist>
 		</attribute>
-		<attribute name="lowq" get="1" set="1" type="int" min="0.05" max="20">
+		<attribute name="lowq" get="1" set="1" type="float" min="0.05" max="20">
 			<digest>
 				
 			</digest>
@@ -107,7 +107,7 @@
 				
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="1" />
+				<attribute name="default" get="0" set="0" size="1" value="1." />
 			</attributelist>
 		</attribute>
 		<attribute name="smooth" get="1" set="1" type="float" min="0" max="333">

@@ -10,8 +10,8 @@
 require("evi_rcfilters.genexpr");
 require("evi_smooth.genexpr");
 
-Param   smoothfreq(0, min=0, max=333);      // ms
-Param   smoothdamp(0, min=0, max=333);      // ms
+Param   smoothfreq(0., min=0, max=333);     // ms
+Param   smoothdamp(0., min=0, max=333);     // ms
 
 // "Damp" (in3) input:
 // 0 == bypassed, 1 == low or high pass, 0..1 == shelving attenuation

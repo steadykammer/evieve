@@ -7,7 +7,7 @@ require("evi_ringmod_enhanced.genexpr");
 
 // param rate ...
 
-Param	highpass(40, min=10, max=400);					// hz
+Param	highpass(40., min=10, max=400);					// hz
 Param	cutoff(samplerate*0.25, min=1000, max=samplerate*0.5);	// butterworth hz
 Param	order(0, min=0, max=8);							// butterworth LP slope, default bypassed
 Param	drive(0.5, min=0, max=4);						// % 0..1..

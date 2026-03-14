@@ -2936,7 +2936,7 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 185.0, 351.0, 536.0, 127.0 ],
-                    "text": "\"yafr2\" from MSP\n\"Plate reverb, in the style of Griesinger\", by Randy Jones\n\nThis version by Pete for evieve, with dry/wet and eq added, as well \nas modifications for better filtering, interpolation, smoothing, etc\n\nThis version is expensive (approx 2 % cpu) and therefore not so useful\nUse the \"Lite\" version (evi.plateverb_lite~.maxpat) with no zero hold delay changes \nif you are not going to be making realtime changes to the \"size\" and \"diffuse\" attributes"
+                    "text": "\"yafr2\" from MSP\n\"Plate reverb, in the style of Griesinger\", by Randy Jones\n\nThis version by Pete for evieve, with dry/wet and eq added, as well \nas modifications for better filtering, interpolation, smoothing, etc\n\nThis version is quite expensive and therefore not so useful\nUse the \"Lite\" version (evi.plateverb.lite~.maxpat) with no zero hold delay changes \nif you are not going to be making realtime changes to the \"size\" and \"diffuse\" attributes"
                 }
             },
             {
@@ -3089,6 +3089,14 @@
             "obj-54::obj-5": [ "damping", "damping", 0 ],
             "obj-54::obj-7": [ "eqHighFreq", "eqHighFreq", 0 ],
             "obj-54::obj-8": [ "smoothTime", "smoothTime", 0 ],
+            "parameterbanks": {
+                "0": {
+                    "index": 0,
+                    "name": "",
+                    "parameters": [ "-", "-", "-", "-", "-", "-", "-", "-" ],
+                    "buttons": [ "-", "-", "-", "-", "-", "-", "-", "-" ]
+                }
+            },
             "inherited_shortname": 1
         },
         "autosave": 0,

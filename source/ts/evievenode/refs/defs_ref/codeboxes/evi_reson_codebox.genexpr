@@ -5,8 +5,8 @@
 
 require("evi_svfs_tpt_filters.genexpr");
 
-Param   smooth(0, min=0, max=333);
-Param   compensate(0, min=0, max=1); // addition to MSP version, gain compensate
+Param   smooth(0., min=0, max=333);
+Param   compensate(0, min=0, max=1);// addition to MSP version, gain compensate flag
 comp    = int(compensate);
 
 // MSP ordering of inputs, and like MSP gain is still linear here!

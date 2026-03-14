@@ -51,7 +51,7 @@
         </geninlet>
     </geninletlist>
     <attributelist>
-        <attribute name='offsetsmooth' type='int' get='0' set='1'>
+        <attribute name='offsetsmooth' type='float' get='0' set='1'>
             <digest>
                 
             </digest>
@@ -59,7 +59,7 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='float' value='0' />
+                <attribute name='default' type='float' value='0.' />
             </attributelist>
         </attribute>
         <attribute name='response' type='int' get='0' set='1'>
@@ -73,7 +73,7 @@
                 <attribute name='default' type='float' value='1' />
             </attributelist>
         </attribute>
-        <attribute name='scalersmooth' type='int' get='0' set='1'>
+        <attribute name='scalersmooth' type='float' get='0' set='1'>
             <digest>
                 
             </digest>
@@ -81,10 +81,10 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='float' value='0' />
+                <attribute name='default' type='float' value='0.' />
             </attributelist>
         </attribute>
-        <attribute name='sweepsmooth' type='int' get='0' set='1'>
+        <attribute name='sweepsmooth' type='float' get='0' set='1'>
             <digest>
                 
             </digest>
@@ -92,7 +92,7 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='float' value='0' />
+                <attribute name='default' type='float' value='0.' />
             </attributelist>
         </attribute>
         <attribute name='vactrolcontroldamp' type='int' get='0' set='1'>
@@ -106,7 +106,7 @@
                 <attribute name='default' type='float' value='0' />
             </attributelist>
         </attribute>
-        <attribute name='vactrolcontrolhz' type='int' get='0' set='1'>
+        <attribute name='vactrolcontrolhz' type='float' get='0' set='1'>
             <digest>
                 
             </digest>
@@ -114,10 +114,10 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='float' value='143' />
+                <attribute name='default' type='float' value='143.' />
             </attributelist>
         </attribute>
-        <attribute name='vactrolscalar' type='int' get='0' set='1'>
+        <attribute name='vactrolscalar' type='float' get='0' set='1'>
             <digest>
                 
             </digest>
@@ -125,7 +125,7 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='float' value='10' />
+                <attribute name='default' type='float' value='10.' />
             </attributelist>
         </attribute>
     </attributelist>

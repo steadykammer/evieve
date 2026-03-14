@@ -61,12 +61,12 @@
     "attributes": [
         {
             "name": "boom",
-            "type": "int",
+            "type": "float",
             "digest": "@min 0, @max 1",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "0"
+                "type": "float",
+                "value": "0."
             }
         },
         {
@@ -101,12 +101,12 @@
         },
         {
             "name": "lpg",
-            "type": "int",
+            "type": "float",
             "digest": "@min 0, @max 1",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "1"
+                "type": "float",
+                "value": "1."
             }
         },
         {
@@ -121,42 +121,42 @@
         },
         {
             "name": "resonance",
-            "type": "int",
+            "type": "float",
             "digest": "@min 0, @max 2",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "1"
+                "type": "float",
+                "value": "1."
             }
         },
         {
             "name": "rf",
-            "type": "int",
+            "type": "float",
             "digest": "@min 0, @max 1000000",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "0"
+                "type": "float",
+                "value": "0."
             }
         },
         {
             "name": "rfhz",
-            "type": "int",
+            "type": "float",
             "digest": "@min 0.001, @max 19.2",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "4"
+                "type": "float",
+                "value": "4."
             }
         },
         {
             "name": "rfsmooth",
-            "type": "int",
+            "type": "float",
             "digest": "@min 0, @max 666",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "0"
+                "type": "float",
+                "value": "0."
             }
         },
         {
@@ -171,12 +171,12 @@
         },
         {
             "name": "vca",
-            "type": "int",
+            "type": "float",
             "digest": "@min 0, @max 1",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "0"
+                "type": "float",
+                "value": "0."
             }
         }
     ],

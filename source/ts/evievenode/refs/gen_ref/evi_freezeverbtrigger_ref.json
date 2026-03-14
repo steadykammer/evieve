@@ -101,12 +101,12 @@
         },
         {
             "name": "SCALEDRY\t",
-            "type": "int",
+            "type": "float",
             "digest": "@min 0, @max 10\t\t ",
             "description": "",
             "default": {
-                "type": "int",
-                "value": " 2"
+                "type": "float",
+                "value": " 2."
             }
         },
         {
@@ -131,12 +131,12 @@
         },
         {
             "name": "SCALEWET\t",
-            "type": "int",
+            "type": "float",
             "digest": "@min 0, @max 10\t\t ",
             "description": "",
             "default": {
-                "type": "int",
-                "value": " 3"
+                "type": "float",
+                "value": " 3."
             }
         },
         {
@@ -311,22 +311,22 @@
         },
         {
             "name": "dry",
-            "type": "int",
+            "type": "float",
             "digest": "@min -90, @max 0",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "-12"
+                "type": "float",
+                "value": "-12."
             }
         },
         {
             "name": "early",
-            "type": "int",
+            "type": "float",
             "digest": "@min -90, @max 0",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "-20"
+                "type": "float",
+                "value": "-20."
             }
         },
         {
@@ -381,12 +381,12 @@
         },
         {
             "name": "highshelfK",
-            "type": "int",
+            "type": "float",
             "digest": "@min -3, @max 1",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "0"
+                "type": "float",
+                "value": "0."
             }
         },
         {
@@ -401,22 +401,22 @@
         },
         {
             "name": "lowshelfK",
-            "type": "int",
+            "type": "float",
             "digest": "@min -3, @max 1",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "0"
+                "type": "float",
+                "value": "0."
             }
         },
         {
             "name": "pre",
-            "type": "int",
+            "type": "float",
             "digest": "@min 0, @max 143",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "9"
+                "type": "float",
+                "value": "9."
             }
         },
         {
@@ -431,12 +431,12 @@
         },
         {
             "name": "smoothtime\t",
-            "type": "int",
+            "type": "float",
             "digest": "@min 1, @max 500\t\t ",
             "description": "",
             "default": {
-                "type": "int",
-                "value": " 49"
+                "type": "float",
+                "value": " 49."
             }
         },
         {

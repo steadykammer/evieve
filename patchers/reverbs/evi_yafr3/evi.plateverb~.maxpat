@@ -124,7 +124,7 @@
                 "box": {
                     "comment": "dumpout (pattrstorage)",
                     "id": "obj-58",
-                    "index": 0,
+                    "index": 3,
                     "maxclass": "outlet",
                     "numinlets": 1,
                     "numoutlets": 0,
@@ -135,7 +135,7 @@
                 "box": {
                     "comment": "(signal) Audio Out Right",
                     "id": "obj-57",
-                    "index": 0,
+                    "index": 2,
                     "maxclass": "outlet",
                     "numinlets": 1,
                     "numoutlets": 0,
@@ -146,7 +146,7 @@
                 "box": {
                     "comment": "(signal) Audio Out Left",
                     "id": "obj-56",
-                    "index": 0,
+                    "index": 1,
                     "maxclass": "outlet",
                     "numinlets": 1,
                     "numoutlets": 0,
@@ -428,6 +428,17 @@
                                                     "patching_rect": [ 183.0, 136.0, 156.0, 20.0 ],
                                                     "text": "seconds to samples"
                                                 }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-4",
+                                                    "linecount": 4,
+                                                    "maxclass": "comment",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 183.0, 48.0, 156.0, 60.0 ],
+                                                    "text": "this is hopefully temporary and in order to get round a gen~ bug regards initialising 'Delay()' params"
+                                                }
                                             }
                                         ],
                                         "lines": [
@@ -516,7 +527,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "" ],
                                     "patching_rect": [ 567.1428571428571, 291.0, 69.0, 22.0 ],
-                                    "restore": [ 0 ],
+                                    "restore": [ 0.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_initial": [ 0.0 ],
@@ -1037,7 +1048,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "" ],
                                     "patching_rect": [ 1083.75, 291.0, 97.0, 22.0 ],
-                                    "restore": [ 0 ],
+                                    "restore": [ 0.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_initial": [ 0.0 ],
@@ -1103,7 +1114,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "" ],
                                     "patching_rect": [ 937.5, 291.0, 99.0, 22.0 ],
-                                    "restore": [ 0 ],
+                                    "restore": [ 0.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_initial": [ 0.0 ],
@@ -2152,7 +2163,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "" ],
                                     "patching_rect": [ 612.0, 252.0, 74.0, 22.0 ],
-                                    "restore": [ 0 ],
+                                    "restore": [ 0.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_initial": [ 0.0 ],
@@ -2840,7 +2851,7 @@
                 "box": {
                     "comment": "(signal) Audio In Nothing or Right or 2 / messages to evi.plateverb~",
                     "id": "obj-47",
-                    "index": 0,
+                    "index": 2,
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
@@ -2852,7 +2863,7 @@
                 "box": {
                     "comment": "(signal) Audio In Mono or Left or 1 / messages to evi.plateverb~",
                     "id": "obj-46",
-                    "index": 0,
+                    "index": 1,
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
@@ -2969,7 +2980,7 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 185.0, 351.0, 536.0, 127.0 ],
-                    "text": "\"yafr2\" from MSP\n\"Plate reverb, in the style of Griesinger\", by Randy Jones\n\nThis version by Pete for evieve, with dry/wet and eq added, as well \nas modifications for better filtering, interpolation, smoothing, etc\n\nThis version is expensive (approx 2 % cpu) and therefore not so useful\nUse the \"Lite\" version (evi.plateverb_lite~.maxpat) with no zero hold delay changes \nif you are not going to be making realtime changes to the \"size\" and \"diffuse\" attributes"
+                    "text": "\"yafr2\" from MSP\n\"Plate reverb, in the style of Griesinger\", by Randy Jones\n\nThis version by Pete for evieve, with dry/wet and eq added, as well \nas modifications for better filtering, interpolation, smoothing, etc\n\nThis version is quite expensive and therefore not so useful\nUse the \"Lite\" version (evi.plateverb.lite~.maxpat) with no zero hold delay changes \nif you are not going to be making realtime changes to the \"size\" and \"diffuse\" attributes"
                 }
             }
         ],
@@ -3132,24 +3143,6 @@
                 }
             }
         ],
-        "parameters": {
-            "obj-54::obj-10": [ "eqHighGain", "eqHighGain", 0 ],
-            "obj-54::obj-12": [ "wetGain", "wetGain", 0 ],
-            "obj-54::obj-15": [ "eqLowGain", "eqLowGain", 0 ],
-            "obj-54::obj-16": [ "eqLowFreq", "eqLowFreq", 0 ],
-            "obj-54::obj-2": [ "reverbSize", "reverbSize", 0 ],
-            "obj-54::obj-33": [ "decay", "decay", 0 ],
-            "obj-54::obj-35": [ "bypass", "bypass", 0 ],
-            "obj-54::obj-36": [ "diffusion", "diffusion", 0 ],
-            "obj-54::obj-4": [ "dryGain", "dryGain", 0 ],
-            "obj-54::obj-42": [ "inputPan", "inputPan", 0 ],
-            "obj-54::obj-43": [ "stereo", "stereo", 0 ],
-            "obj-54::obj-5": [ "damping", "damping", 0 ],
-            "obj-54::obj-7": [ "eqHighFreq", "eqHighFreq", 0 ],
-            "obj-54::obj-8": [ "smoothTime", "smoothTime", 0 ],
-            "inherited_shortname": 1
-        },
-        "autosave": 0,
         "styles": [
             {
                 "name": "AudioStatus_Menu",

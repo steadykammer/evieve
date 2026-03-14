@@ -21,12 +21,12 @@ Buffer	dfm(); 								// alias to LUT[] (32-bit truncated values)
 
 Param	filter(1, min=0, max=2);			// 0 == bypass, 1 == 12dB lowpass (default), 2 == 6dB highpass
 Param	io(0, min=0, max=1);				// mono/dual-mono, true-stereo
-Param	tune(0, min=-100, max=100);			// cutoff (mtofApprox()) tuning in cents around A == 440 Hz
+Param	tune(0., min=-100, max=100);		// cutoff (mtofApprox()) tuning in cents around A == 440 Hz
 Param	smooth(22.666, min=0, max=1000);	// coefs smooth in ms, 0 == (cpu)off, turn off for modulation
-Param	gain(3, min=-6, max=14);			// input gain in dB, thb range, ! not resonance !
+Param	gain(3., min=-6, max=14);			// input gain in dB, thb range, ! not resonance !
 Param	noiselevel(0.333333, min=0, max=1);	// amplitude level of noise in filter, 0..1 remapped in code 0..0.1
 Param	oversampling(1, min=0, max=2);		// 0 == 1x, 1 == 2x good (extends freq range), 2 == 4x bad do not use
-Param	extend(0, min=0, max=1);			// a secret way for pete to do extra stuff
+Param	extend(0., min=0, max=1);			// a secret way for pete to do extra stuff
 
 
 // // // setup

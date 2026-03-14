@@ -275,7 +275,7 @@
 				<attribute name="default" get="0" set="1" type="int" size="1" value="0" />
 			</attributelist>
 		</attribute>
-		<attribute name="maxsustain" get="0" set="1" type="int" size="1">
+		<attribute name="maxsustain" get="0" set="1" type="float" size="1">
 			<digest>
 				
 			</digest>
@@ -283,7 +283,7 @@
 				
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="1" type="int" size="1" value="-1" />
+				<attribute name="default" get="0" set="1" type="float" size="1" value="-1." />
 			</attributelist>
 		</attribute>
 		<attribute name="muteupdate" get="0" set="1" type="int" size="1">
@@ -308,7 +308,7 @@
 				<attribute name="default" get="0" set="1" type="float" size="1" value="200." />
 			</attributelist>
 		</attribute>
-		<attribute name="retrigger" get="0" set="1" type="int" size="1">
+		<attribute name="retrigger" get="0" set="1" type="float" size="1">
 			<digest>
 				
 			</digest>
@@ -316,7 +316,7 @@
 				
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="1" type="int" size="1" value="5" />
+				<attribute name="default" get="0" set="1" type="float" size="1" value="5." />
 			</attributelist>
 		</attribute>
 		<attribute name="riseratio" get="0" set="1" type="float" size="1">
@@ -352,7 +352,7 @@
 				<attribute name="default" get="0" set="1" type="int" size="1" value="1" />
 			</attributelist>
 		</attribute>
-		<attribute name="velocitysense" get="0" set="1" type="int" size="1">
+		<attribute name="velocitysense" get="0" set="1" type="float" size="1">
 			<digest>
 				
 			</digest>
@@ -360,7 +360,7 @@
 				
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="1" type="int" size="1" value="0" />
+				<attribute name="default" get="0" set="1" type="float" size="1" value="0." />
 			</attributelist>
 		</attribute>
 		<attribute name="wait" get="0" set="1" type="int" size="1">

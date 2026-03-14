@@ -13,7 +13,7 @@
 // In evieve all approximations are tested to work on the code in which they are used.
 
 
-// basic cos/sin approximations, accuracy just about ok for audio, evi_trig.genexpr
+// basic cos/sin approximations, accuracy just about ok for audio, @see evi_trig.genexpr
 
 cosQ73(x)
 {
@@ -31,7 +31,7 @@ cosQ73(x)
 cos73(x)
 {
 	TWOOVERPI = 0.63661977236758;	// 2 / PI
-	x = x % TWOPI;								// phasewrap(x) cheaper ?
+	x = x % TWOPI;					// phasewrap(x) cheaper ?
 	x = (x < 0) ? -x : x;
 	QUAD = int(x * TWOOVERPI);		// get quadrant # (0..3) we are in
 	cosreturn = 0;
@@ -56,7 +56,7 @@ sin73(x)
 cos73param(x)
 {
 	TWOOVERPI = 0.63661977236758;	// 2 / PI
-	x = x % TWOPI;								// phasewrap(x) cheaper ?
+	x = x % TWOPI;					// phasewrap(x) cheaper ?
 	x = (x < 0) ? -x : x;
 	QUAD = int(x * TWOOVERPI);		// get quadrant # (0..3) we are in
 	return (QUAD == 0) ? cosQ73(x) : ((QUAD == 1) ? -cosQ73(PI - x) : ((QUAD == 2) ? -cosQ73(x - PI) : cosQ73(TWOPI - x)));
@@ -68,13 +68,13 @@ sin73param(x)
 }
 
 // for crossfading and panning etc
-quartParOneApprox(modphase)							// 'modphase' must be clamped 0..1
+quartParOneApprox(modphase)								// 'modphase' must be clamped 0..1
 {
 	x0		=  modphase - 0.5;							// 1 sub
-	// first quarter											// angle = 0 .. HALFPI
+	// first quarter									// angle = 0 .. HALFPI
 	quart	= -0.8284271247461903 * x0 * x0 + sqrt1_2;	// 2 mul, 1 add, (-0.8284271247461903 = 2 - 4*sqrt1_2)
-	sinq1	=  quart + x0;									// 1 add
-	cosq1	=  quart - x0;									// 1 sub
+	sinq1	=  quart + x0;								// 1 add
+	cosq1	=  quart - x0;								// 1 sub
 
 	return	cosq1, sinq1;
 }
@@ -155,11 +155,11 @@ atan2Approx(y, x)
 	}
 	angle += (0.1963 * r * r - 0.9817) * r;
 	if (y < 0) {
-		at2a = (-angle);					// negate if in quad 3 or 4
+		at2a = (-angle);			// negate if in quad 3 or 4
 	} else {
 		at2a = (angle);
 	}
-	if ((x == 0) && (y == 0)) {	// another kludge
+	if ((x == 0) && (y == 0)) {		// another kludge
 		at2a = 0;
 	}
 	return at2a;
@@ -250,7 +250,7 @@ transratioApprox(pitch)				// pitch default = 0
 }
 
 // maximum error at pitch 127 = -0.501315 Hz
-mtofApprox(pitch, base=440)		// 'base' should be 440 (hz) for default operation
+mtofApprox(pitch, base=440.)		// 'base' should be 440 (hz) for default operation
 {
 	mtofA = base * expA(0.05776226504666 * (pitch - 69));
 	return mtofA + 0.120906;		// + offset = accurate for input 48..69
@@ -263,7 +263,7 @@ mtofApproxBaseless(pitch)
 }
 
 // perfect for input 0..81, basically accurate to ..134..
-mtofApproxAccurate(pitch)				// by alex harker, no 'base'
+mtofApproxAccurate(pitch)			// by alex harker, no 'base'
 {
 	mtofMul	= 0.05776226504666;		// N.B.	mtofMul = log(2) / 12
 	mtofAdd	= 2.10117843869262;		// N.B.	mtofAdd = log(440) - (log(2) * 69 / 12)
@@ -294,7 +294,7 @@ ftomApproxBaseless(frequency)
 ftomApproxAccurate(frequency)
 {
 	//LOGTWODIVTWELVE = 0.057762265046662105;	// (log(2) / 12)
-	TWELVEDIVLOGTWO = 17.3123404906675609;	// (12 * log2) : (1 / LOGTWODIVTWELVE)
+	TWELVEDIVLOGTWO = 17.3123404906675609;		// (12 * log2) : (1 / LOGTWODIVTWELVE)
 	FREQPITCH = -36.3763165622959152;
 
 	return log(frequency) * TWELVEDIVLOGTWO + FREQPITCH;
@@ -308,9 +308,9 @@ dbtoaApprox(db)
 }
 
 // cheaper than above 'dbtoaApprox()', but far less accurate
-dbtoaApproxFast(db)						// i know this is shit
+dbtoaApproxFast(db)					// i know this is shit
 {
-	return fastpow(10, (db * 0.05)) + 0.028652;	// + offset = 0 dB == 1 amplitude
+	return fastpow(10, (db * 0.05)) + 0.028652;		// + offset = 0 dB == 1 amplitude
 }
 
 // for linear gain filter sections
@@ -329,11 +329,11 @@ atodbApprox(amplitude)
 }
 
 // 'exp(-1 / (seconds * samplerate))'
-tauA(t)											// t = seconds
+tauA(t)									// t = seconds
 {
 	y = expA(-1 / (t * samplerate));
-	return y + 0.000128;			// approximation has excellent accuracy above...
-}														// ...0.01 seconds input
+	return y + 0.000128;				// approximation has excellent accuracy above...
+}										// ...0.01 seconds input
 
 // 
 
@@ -388,9 +388,9 @@ p2cApproxParam(alpha, theta)
 	return real, imag;
 }
 
-p2cApproxQuart(al, th)						// al is depth, th is mix must be clamped 0..1
+p2cApproxQuart(al, th)					// al is depth, th is mix must be clamped 0..1
 {
-	re, im = quartParOneApprox(th);	// cos/sin
+	re, im = quartParOneApprox(th);		// cos/sin
 	return	(al * re), (al * im);		// out mul 1, out mul 2
 }
 
@@ -421,7 +421,7 @@ Li2Approx(x) // this is really stupid in gen~, & N.B. - cannot use Approxes in n
 	MPIPI6	= -1.6449340668482264;	// -PI*PI/6
 	MPIPI12	= -0.8224670334241132;	// -PI*PI/12
 	PIPI6 	=  1.6449340668482264;	//  PI*PI/6
-	PIPI3 	=  3.289868133696453;		//  PI*PI/3
+	PIPI3 	=  3.289868133696453;	//  PI*PI/3
 
 	li1 = 0;
 	horner = 0;
@@ -432,7 +432,7 @@ Li2Approx(x) // this is really stupid in gen~, & N.B. - cannot use Approxes in n
 	// transform to [0, 1/2)
 	if (x < -1) {
 		omx = 1 - x;
-		l = log(omx); // must be log()
+		l = log(omx); 	// must be log()
 		y = 1/omx;
 		r = MPIPI6 + l*(0.5*l - log(-x)); // must be log()
 		s = 1;

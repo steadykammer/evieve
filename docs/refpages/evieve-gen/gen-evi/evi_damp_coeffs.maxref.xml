@@ -40,7 +40,7 @@
                 <attribute name='default' type='int' value='48000 ' />
             </attributelist>
         </attribute>
-        <attribute name='cutoffhigh' type='int' get='0' set='1'>
+        <attribute name='cutoffhigh' type='float' get='0' set='1'>
             <digest>
                 @min 500, @max 15000
             </digest>
@@ -48,10 +48,10 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='2000' />
+                <attribute name='default' type='float' value='2000.' />
             </attributelist>
         </attribute>
-        <attribute name='cutofflow' type='int' get='0' set='1'>
+        <attribute name='cutofflow' type='float' get='0' set='1'>
             <digest>
                 @min 62.5, @max 4000
             </digest>
@@ -59,10 +59,10 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='500' />
+                <attribute name='default' type='float' value='500.' />
             </attributelist>
         </attribute>
-        <attribute name='damphigh' type='int' get='0' set='1'>
+        <attribute name='damphigh' type='float' get='0' set='1'>
             <digest>
                 @min -1, @max 1
             </digest>
@@ -70,10 +70,10 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='0' />
+                <attribute name='default' type='float' value='0.' />
             </attributelist>
         </attribute>
-        <attribute name='damplow' type='int' get='0' set='1'>
+        <attribute name='damplow' type='float' get='0' set='1'>
             <digest>
                 @min -1, @max 1
             </digest>
@@ -81,7 +81,7 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='0' />
+                <attribute name='default' type='float' value='0.' />
             </attributelist>
         </attribute>
         <attribute name='mode' type='int' get='0' set='1'>

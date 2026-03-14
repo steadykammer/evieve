@@ -68,13 +68,13 @@
         {
             "name": "ingain",
             "get": 1,
-            "type": "int",
+            "type": "float",
             "digest": "",
             "description": "",
             "default": {
                 "min": "-20",
                 "max": "40",
-                "value": "1"
+                "value": "1."
             }
         },
         {
@@ -92,13 +92,13 @@
         {
             "name": "release",
             "get": 1,
-            "type": "int",
+            "type": "float",
             "digest": "",
             "description": "",
             "default": {
                 "min": "1",
                 "max": "376",
-                "value": "52"
+                "value": "52."
             }
         },
         {

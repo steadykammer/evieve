@@ -21,7 +21,7 @@
     },
     "evi.am~": {
         "type": "define",
-        "digest": 0,
+        "digest": "Basic AM processor with saturation and choice of LFO shapes",
         "description": ""
     },
     "evi.arpnotch~": {
@@ -81,7 +81,7 @@
     },
     "evi.chorus.digital~": {
         "type": "define",
-        "digest": 0,
+        "digest": "A basic digital Chorus implementation, with multiple stages and saturation",
         "description": ""
     },
     "evi.classic.osc~": {
@@ -146,7 +146,7 @@
     },
     "evi.detune~": {
         "type": "define",
-        "digest": 0,
+        "digest": "A quirky digital Detune effect with filtering and saturation",
         "description": ""
     },
     "evi.dfm~": {
@@ -256,7 +256,7 @@
     },
     "evi.flanger.digital~": {
         "type": "define",
-        "digest": 0,
+        "digest": "A basic two-stage Flanger effect with saturation",
         "description": ""
     },
     "evi.formantfilter.morph~": {
@@ -471,7 +471,7 @@
     },
     "evi.phaser.analog~": {
         "type": "define",
-        "digest": 0,
+        "digest": "Analog Phaser effect with multiple stages, filtering and saturation",
         "description": ""
     },
     "evi.phaseshift~": {
@@ -484,7 +484,7 @@
         "digest": "Zero-rest phasor with settings for reverse and pause",
         "description": ""
     },
-    "evi.plateverb_lite~": {
+    "evi.plateverb.lite~": {
         "type": "abstraction",
         "digest": "Efficient version of evi.plateverb~ plate reverb \n",
         "description": ""
@@ -584,7 +584,7 @@
         "digest": "A basic implementation of Rasmus Ekman's 'squine wave' oscillator with audio rate modulation",
         "description": ""
     },
-    "evi.sustainverb_lite~": {
+    "evi.sustainverb.lite~": {
         "type": "abstraction",
         "digest": "Efficient version of evi.sustainverb~ reverb effect \n",
         "description": ""
@@ -636,7 +636,7 @@
     },
     "evi.tremolo~": {
         "type": "define",
-        "digest": 0,
+        "digest": "Basic Tremolo effect with saturation and choice of LFO shapes",
         "description": ""
     },
     "evi.tri.select~": {
@@ -707,6 +707,14 @@
     "mc.evi.listgen": {
         "type": "abstraction",
         "digest": "Create message lists with mcwrapper features \n",
+        "description": ""
+    },
+    "evi.plateverb_lite~": {
+        "digest": "Efficient version of evi.plateverb~ plate reverb \n",
+        "description": ""
+    },
+    "evi.sustainverb_lite~": {
+        "digest": "Efficient version of evi.sustainverb~ reverb effect \n",
         "description": ""
     }
 }

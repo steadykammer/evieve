@@ -29,7 +29,7 @@
 		</inlet>
 		<inlet id="2" type="">
 			<digest>
-				Inlet #2: Pitch Mod @default 0
+				Inlet #2: Pitch Mod @default 0.
 			</digest>
 			<description>
 				
@@ -37,7 +37,7 @@
 		</inlet>
 		<inlet id="3" type="">
 			<digest>
-				Inlet #3: Freq (Hz) Mod @default 0
+				Inlet #3: Freq (Hz) Mod @default 0.
 			</digest>
 			<description>
 				
@@ -114,7 +114,7 @@
 				<attribute name="default" get="0" set="0" size="1" value="0.1" />
 			</attributelist>
 		</attribute>
-		<attribute name="cfsmooth" get="1" set="1" type="int" min="0" max="1000">
+		<attribute name="cfsmooth" get="1" set="1" type="float" min="0" max="1000">
 			<digest>
 				
 			</digest>
@@ -122,7 +122,7 @@
 				
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="20" />
+				<attribute name="default" get="0" set="0" size="1" value="20." />
 			</attributelist>
 		</attribute>
 	</attributelist>

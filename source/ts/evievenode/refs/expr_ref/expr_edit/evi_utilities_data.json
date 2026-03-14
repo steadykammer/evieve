@@ -50,7 +50,7 @@
                     "kind": "param",
                     "name": "hold",
                     "default": 10,
-                    "type": "integer",
+                    "type": "float",
                     "digest": "Hold time in ms (0-ms = 1-sample click)"
                 },
                 {

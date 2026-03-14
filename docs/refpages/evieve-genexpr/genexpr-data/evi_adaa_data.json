@@ -480,7 +480,7 @@
                     "kind": "param",
                     "name": "C",
                     "default": 1,
-                    "type": "integer",
+                    "type": "float",
                     "digest": ""
                 },
                 {
@@ -496,7 +496,7 @@
                     "kind": "param",
                     "name": "beta",
                     "default": 2,
-                    "type": "integer",
+                    "type": "float",
                     "digest": ""
                 },
                 {
@@ -532,7 +532,7 @@
                     "kind": "param",
                     "name": "C",
                     "default": 1,
-                    "type": "integer",
+                    "type": "float",
                     "digest": ""
                 },
                 {
@@ -548,7 +548,7 @@
                     "kind": "param",
                     "name": "beta",
                     "default": 2,
-                    "type": "integer",
+                    "type": "float",
                     "digest": ""
                 },
                 {
@@ -578,7 +578,7 @@
                     "kind": "param",
                     "name": "C",
                     "default": 1,
-                    "type": "integer",
+                    "type": "float",
                     "digest": ""
                 },
                 {
@@ -594,7 +594,7 @@
                     "kind": "param",
                     "name": "beta",
                     "default": 2,
-                    "type": "integer",
+                    "type": "float",
                     "digest": ""
                 },
                 {

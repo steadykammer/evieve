@@ -623,7 +623,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 298.0, 22.5, 326.0, 20.0 ],
-					"text" : "@ttributes or messages to evi.sustainverb_lite~",
+					"text" : "@ttributes or messages to evi.sustainverb.lite~",
 					"textjustification" : 2
 				}
 

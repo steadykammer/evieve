@@ -31,7 +31,7 @@
         </geninlet>
     </geninletlist>
     <attributelist>
-        <attribute name='highcutoff' type='int' get='0' set='1'>
+        <attribute name='highcutoff' type='float' get='0' set='1'>
             <digest>
                 @min 500, @max samplerate*0.5
             </digest>
@@ -39,10 +39,10 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='2000' />
+                <attribute name='default' type='float' value='2000.' />
             </attributelist>
         </attribute>
-        <attribute name='highdb' type='int' get='0' set='1'>
+        <attribute name='highdb' type='float' get='0' set='1'>
             <digest>
                 @min -30, @max 30
             </digest>
@@ -50,10 +50,10 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='0' />
+                <attribute name='default' type='float' value='0.' />
             </attributelist>
         </attribute>
-        <attribute name='highq' type='int' get='0' set='1'>
+        <attribute name='highq' type='float' get='0' set='1'>
             <digest>
                 @min 0.05, @max 20
             </digest>
@@ -61,10 +61,10 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='1' />
+                <attribute name='default' type='float' value='1.' />
             </attributelist>
         </attribute>
-        <attribute name='lowcutoff' type='int' get='0' set='1'>
+        <attribute name='lowcutoff' type='float' get='0' set='1'>
             <digest>
                 @min 1, @max 10000
             </digest>
@@ -72,10 +72,10 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='250' />
+                <attribute name='default' type='float' value='250.' />
             </attributelist>
         </attribute>
-        <attribute name='lowdb' type='int' get='0' set='1'>
+        <attribute name='lowdb' type='float' get='0' set='1'>
             <digest>
                 @min -30, @max 30
             </digest>
@@ -83,10 +83,10 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='0' />
+                <attribute name='default' type='float' value='0.' />
             </attributelist>
         </attribute>
-        <attribute name='lowq' type='int' get='0' set='1'>
+        <attribute name='lowq' type='float' get='0' set='1'>
             <digest>
                 @min 0.05, @max 20
             </digest>
@@ -94,7 +94,7 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='1' />
+                <attribute name='default' type='float' value='1.' />
             </attributelist>
         </attribute>
         <attribute name='smooth' type='float' get='0' set='1'>

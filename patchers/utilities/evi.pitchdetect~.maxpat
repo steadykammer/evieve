@@ -177,7 +177,7 @@
                 "box": {
                     "comment": "(signal) Dry Audio, optionally Time Aligned",
                     "id": "obj-5",
-                    "index": 1,
+                    "index": 0,
                     "maxclass": "outlet",
                     "numinlets": 1,
                     "numoutlets": 0,
@@ -211,7 +211,7 @@
                 "box": {
                     "comment": "(int) Current Latency in Samples",
                     "id": "obj-25",
-                    "index": 3,
+                    "index": 0,
                     "maxclass": "outlet",
                     "numinlets": 1,
                     "numoutlets": 0,
@@ -222,7 +222,7 @@
                 "box": {
                     "comment": "(signal) Detected Frequency in Hz",
                     "id": "obj-24",
-                    "index": 2,
+                    "index": 0,
                     "maxclass": "outlet",
                     "numinlets": 1,
                     "numoutlets": 0,
@@ -255,7 +255,7 @@
                 "box": {
                     "comment": "(signal) Input to Detect / (messages) to evi.pitchdetect~",
                     "id": "obj-21",
-                    "index": 1,
+                    "index": 0,
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
@@ -359,7 +359,7 @@
                     "numinlets": 1,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
-                    "patching_rect": [ 138.0, 32.0, 215.0, 35.0 ],
+                    "patching_rect": [ 136.0, 32.0, 217.0, 35.0 ],
                     "text": "patcherargs @highpass 100. @gain 0. @ambience 0.1 @compensate 1"
                 }
             },
@@ -411,7 +411,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 355.0, 33.0, 350.0, 33.0 ],
+                    "patching_rect": [ 353.0, 33.0, 350.0, 33.0 ],
                     "text": "@highpass in Hz 10..1000, @gain in dB -15..15, @ambience threshold -10..10 @compensate time align 0/1"
                 }
             }
@@ -596,6 +596,7 @@
                 }
             }
         ],
+        "autosave": 0,
         "toolbaradditions": [ "audiosolo", "audiomute" ]
     }
 }

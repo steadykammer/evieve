@@ -90,13 +90,13 @@ buchlaControlCircuit(V_b, offset, scaler, Ifpow, Ifmax)
 
 History	bcc(0);
 
-Param	mapcutoff(143, min=7, max=788);
-Param	mapdamp(0, min=0, max=1);							// default bypassed
+Param	mapcutoff(143., min=7, max=788);
+Param	mapdamp(0., min=0, max=1);							// default bypassed
 
 // all smoothers default to off
-Param	offsetsmooth(0, min=0, max=333);				    // in ms
-Param	scalersmooth(0, min=0, max=111);				    // in ms
-Param	sweepsmooth(0, min=0, max=222);				        // in ms
+Param	offsetsmooth(0., min=0, max=333);				    // in ms
+Param	scalersmooth(0., min=0, max=111);				    // in ms
+Param	sweepsmooth(0., min=0, max=222);				    // in ms
 Param	control(1, min=0, max=2);							// int, select control response, default 0.04
 
 gamma	= 0.0001;

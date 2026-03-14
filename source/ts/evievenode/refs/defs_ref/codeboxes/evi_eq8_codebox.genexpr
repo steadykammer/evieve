@@ -37,44 +37,44 @@ Param   smooth(15.333, min=0, max=333);
 */
 
 Param   band1filter(3, min=0, max=9);
-Param   band1freq(63, min=10, max=18000);
-Param   band1db(0, min=-24, max=24);
-Param   band1q(1, min=0.1, max=18);
+Param   band1freq(63., min=10, max=18000);
+Param   band1db(0., min=-24, max=24);
+Param   band1q(1., min=0.1, max=18);
 
 Param   band2filter(4, min=0, max=9);
-Param   band2freq(125, min=10, max=18000);
-Param   band2db(0, min=-24, max=24);
+Param   band2freq(125., min=10, max=18000);
+Param   band2db(0., min=-24, max=24);
 Param   band2q(sqrt1_2, min=0.1, max=18);
 
 Param   band3filter(4, min=0, max=9);
-Param   band3freq(250, min=10, max=18000);
-Param   band3db(0, min=-24, max=24);
+Param   band3freq(250., min=10, max=18000);
+Param   band3db(0., min=-24, max=24);
 Param   band3q(sqrt1_2, min=0.1, max=18);
 
 Param   band4filter(4, min=0, max=9);
-Param   band4freq(500, min=10, max=18000);
-Param   band4db(0, min=-24, max=24);
+Param   band4freq(500., min=10, max=18000);
+Param   band4db(0., min=-24, max=24);
 Param   band4q(sqrt1_2, min=0.1, max=18);
 
 Param   band5filter(4, min=0, max=9);
-Param   band5freq(1000, min=10, max=18000);
-Param   band5db(0, min=-24, max=24);
+Param   band5freq(1000., min=10, max=18000);
+Param   band5db(0., min=-24, max=24);
 Param   band5q(sqrt1_2, min=0.1, max=18);
 
 Param   band6filter(4, min=0, max=9);
-Param   band6freq(2000, min=10, max=18000);
-Param   band6db(0, min=-24, max=24);
+Param   band6freq(2000., min=10, max=18000);
+Param   band6db(0., min=-24, max=24);
 Param   band6q(sqrt1_2, min=0.1, max=18);
 
 Param   band7filter(4, min=0, max=9);
-Param   band7freq(4000, min=10, max=18000);
-Param   band7db(0, min=-24, max=24);
+Param   band7freq(4000., min=10, max=18000);
+Param   band7db(0., min=-24, max=24);
 Param   band7q(sqrt1_2, min=0.1, max=18);
 
 Param   band8filter(6, min=0, max=9);
-Param   band8freq(8000, min=10, max=18000);
-Param   band8db(0, min=-24, max=24);
-Param   band8q(1, min=0.1, max=18);
+Param   band8freq(8000., min=10, max=18000);
+Param   band8db(0., min=-24, max=24);
+Param   band8q(1., min=0.1, max=18);
 
 band1filt   = int(band1filter);
 band2filt   = int(band2filter);

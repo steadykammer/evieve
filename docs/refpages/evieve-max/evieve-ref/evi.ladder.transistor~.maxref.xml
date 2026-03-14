@@ -87,7 +87,7 @@
 				<attribute name="default" get="0" set="0" size="1" value="1" />
 			</attributelist>
 		</attribute>
-		<attribute name="cfsmooth" get="1" set="1" type="int" min="0" max="666">
+		<attribute name="cfsmooth" get="1" set="1" type="float" min="0" max="666">
 			<digest>
 				
 			</digest>
@@ -95,7 +95,7 @@
 				
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="10" />
+				<attribute name="default" get="0" set="0" size="1" value="10." />
 			</attributelist>
 		</attribute>
 		<attribute name="oversample" get="1" set="1" type="int" min="0" max="1">
@@ -109,7 +109,7 @@
 				<attribute name="default" get="0" set="0" size="1" value="1" />
 			</attributelist>
 		</attribute>
-		<attribute name="ressmooth" get="1" set="1" type="int" min="0" max="333">
+		<attribute name="ressmooth" get="1" set="1" type="float" min="0" max="333">
 			<digest>
 				
 			</digest>
@@ -117,7 +117,7 @@
 				
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="20" />
+				<attribute name="default" get="0" set="0" size="1" value="20." />
 			</attributelist>
 		</attribute>
 	</attributelist>

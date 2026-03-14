@@ -50,25 +50,6 @@
                 "arguments": [
                     {
                         "type": "Literal",
-                        "value": "evi_tanh.genexpr",
-                        "raw": "\"evi_tanh.genexpr\"",
-                        "gen_kind": "string"
-                    }
-                ]
-            },
-            "gen_kind": "compiler_command"
-        },
-        {
-            "type": "ExpressionStatement",
-            "expression": {
-                "type": "CallExpression",
-                "callee": {
-                    "type": "Identifier",
-                    "name": "require"
-                },
-                "arguments": [
-                    {
-                        "type": "Literal",
                         "value": "evi_smooth.genexpr",
                         "raw": "\"evi_smooth.genexpr\"",
                         "gen_kind": "string"
@@ -90,6 +71,25 @@
                         "type": "Literal",
                         "value": "evi_cossin.genexpr",
                         "raw": "\"evi_cossin.genexpr\"",
+                        "gen_kind": "string"
+                    }
+                ]
+            },
+            "gen_kind": "compiler_command"
+        },
+        {
+            "type": "ExpressionStatement",
+            "expression": {
+                "type": "CallExpression",
+                "callee": {
+                    "type": "Identifier",
+                    "name": "require"
+                },
+                "arguments": [
+                    {
+                        "type": "Literal",
+                        "value": "evi_tanh.genexpr",
+                        "raw": "\"evi_tanh.genexpr\"",
                         "gen_kind": "string"
                     }
                 ]

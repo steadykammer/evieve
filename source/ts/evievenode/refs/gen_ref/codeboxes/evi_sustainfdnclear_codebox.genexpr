@@ -49,10 +49,10 @@ Delay	fdnDelay16	(	delayTime16+1,	1,	feedback=1	);
 
 History init(1);
 
-Param	smoothtime(10, min=1, max=500);		// ms
-Param	feedback(0, min=0, max=1);	        // % 0..1
-Param	gain(0, min=-80, max=20);		    // dB
-Param   release(500, min=10, max=1000);     // external [poly~] / [adsr~] release stage timing
+Param	smoothtime(10., min=1, max=500);	// ms
+Param	feedback(0., min=0, max=1);	        // % 0..1
+Param	gain(0., min=-80, max=20);		    // dB
+Param   release(500., min=10, max=1000);    // external [poly~] / [adsr~] release stage timing
 Param   fbinlet(0, min=0, max=1);           // inlet for all-audio-rate MC version
 fbin    = int(fbinlet);
 

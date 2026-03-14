@@ -279,8 +279,8 @@ transistorLadder2_2x4( XIN, hz, res )
 }
 
 Param	cfmode(1, min=0, max=1);			// in2 cutoff in: 1 = pitch, 0 = Hz
-Param	cfsmooth(10, min=0, max=666);		// smooth in2 in ms, 0 == off (turn off for FM etc)
-Param	ressmooth(20, min=0, max=333);		// smooth in5 in ms, 0 == off
+Param	cfsmooth(10., min=0, max=666);		// smooth in2 in ms, 0 == off (turn off for FM etc)
+Param	ressmooth(20., min=0, max=333);		// smooth in5 in ms, 0 == off
 Param	oversample(1, min=0, max=1);		// quasi oversample whole filter
 os		= int(oversample);
 boost	= 1.412538;							// +3dB

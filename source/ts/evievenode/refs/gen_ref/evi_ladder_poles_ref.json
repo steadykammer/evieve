@@ -67,22 +67,22 @@
         },
         {
             "name": "shapesmooth",
-            "type": "int",
+            "type": "float",
             "digest": "@min 0, @max 111",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "0"
+                "type": "float",
+                "value": "0."
             }
         },
         {
             "name": "slope",
-            "type": "int",
+            "type": "float",
             "digest": "@min 0, @max 1",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "0"
+                "type": "float",
+                "value": "0."
             }
         },
         {

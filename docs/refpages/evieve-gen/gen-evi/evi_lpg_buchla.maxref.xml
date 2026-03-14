@@ -39,7 +39,7 @@
         </geninlet>
     </geninletlist>
     <attributelist>
-        <attribute name='boom' type='int' get='0' set='1'>
+        <attribute name='boom' type='float' get='0' set='1'>
             <digest>
                 @min 0, @max 1
             </digest>
@@ -47,7 +47,7 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='0' />
+                <attribute name='default' type='float' value='0.' />
             </attributelist>
         </attribute>
         <attribute name='controlres' type='int' get='0' set='1'>
@@ -83,7 +83,7 @@
                 <attribute name='default' type='int' value='3' />
             </attributelist>
         </attribute>
-        <attribute name='lpg' type='int' get='0' set='1'>
+        <attribute name='lpg' type='float' get='0' set='1'>
             <digest>
                 @min 0, @max 1
             </digest>
@@ -91,7 +91,7 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='1' />
+                <attribute name='default' type='float' value='1.' />
             </attributelist>
         </attribute>
         <attribute name='nonlin' type='int' get='0' set='1'>
@@ -105,7 +105,7 @@
                 <attribute name='default' type='int' value='1' />
             </attributelist>
         </attribute>
-        <attribute name='resonance' type='int' get='0' set='1'>
+        <attribute name='resonance' type='float' get='0' set='1'>
             <digest>
                 @min 0, @max 2
             </digest>
@@ -113,10 +113,10 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='1' />
+                <attribute name='default' type='float' value='1.' />
             </attributelist>
         </attribute>
-        <attribute name='rf' type='int' get='0' set='1'>
+        <attribute name='rf' type='float' get='0' set='1'>
             <digest>
                 @min 0, @max 1000000
             </digest>
@@ -124,10 +124,10 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='0' />
+                <attribute name='default' type='float' value='0.' />
             </attributelist>
         </attribute>
-        <attribute name='rfhz' type='int' get='0' set='1'>
+        <attribute name='rfhz' type='float' get='0' set='1'>
             <digest>
                 @min 0.001, @max 19.2
             </digest>
@@ -135,10 +135,10 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='4' />
+                <attribute name='default' type='float' value='4.' />
             </attributelist>
         </attribute>
-        <attribute name='rfsmooth' type='int' get='0' set='1'>
+        <attribute name='rfsmooth' type='float' get='0' set='1'>
             <digest>
                 @min 0, @max 666
             </digest>
@@ -146,7 +146,7 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='0' />
+                <attribute name='default' type='float' value='0.' />
             </attributelist>
         </attribute>
         <attribute name='smooth' type='float' get='0' set='1'>
@@ -160,7 +160,7 @@
                 <attribute name='default' type='float' value='15.111' />
             </attributelist>
         </attribute>
-        <attribute name='vca' type='int' get='0' set='1'>
+        <attribute name='vca' type='float' get='0' set='1'>
             <digest>
                 @min 0, @max 1
             </digest>
@@ -168,7 +168,7 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='0' />
+                <attribute name='default' type='float' value='0.' />
             </attributelist>
         </attribute>
     </attributelist>

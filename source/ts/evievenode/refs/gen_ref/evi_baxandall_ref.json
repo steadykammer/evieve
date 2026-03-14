@@ -45,12 +45,12 @@
     "attributes": [
         {
             "name": "bass",
-            "type": "int",
+            "type": "float",
             "digest": "@min -24, @max 24",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "0"
+                "type": "float",
+                "value": "0."
             }
         },
         {
@@ -65,12 +65,12 @@
         },
         {
             "name": "treble",
-            "type": "int",
+            "type": "float",
             "digest": "@min -24, @max 24",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "0"
+                "type": "float",
+                "value": "0."
             }
         }
     ],

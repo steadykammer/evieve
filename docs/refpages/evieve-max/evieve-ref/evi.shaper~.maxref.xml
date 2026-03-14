@@ -66,7 +66,7 @@
 				<attribute name="default" get="0" set="0" size="1" value="0.5" />
 			</attributelist>
 		</attribute>
-		<attribute name="shape" get="1" set="1" type="int" min="-1" max="1">
+		<attribute name="shape" get="1" set="1" type="float" min="-1" max="1">
 			<digest>
 				
 			</digest>
@@ -74,10 +74,10 @@
 				
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="0" />
+				<attribute name="default" get="0" set="0" size="1" value="0." />
 			</attributelist>
 		</attribute>
-		<attribute name="smooth" get="1" set="1" type="int" min="0" max="666">
+		<attribute name="smooth" get="1" set="1" type="float" min="0" max="666">
 			<digest>
 				
 			</digest>
@@ -85,7 +85,7 @@
 				
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="0" />
+				<attribute name="default" get="0" set="0" size="1" value="0." />
 			</attributelist>
 		</attribute>
 	</attributelist>

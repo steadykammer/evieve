@@ -51,7 +51,7 @@
         </geninlet>
     </geninletlist>
     <attributelist>
-        <attribute name='damppitchhigh' type='int' get='0' set='1'>
+        <attribute name='damppitchhigh' type='float' get='0' set='1'>
             <digest>
                 @min 24, @max 125
             </digest>
@@ -59,10 +59,10 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='124' />
+                <attribute name='default' type='float' value='124.' />
             </attributelist>
         </attribute>
-        <attribute name='damppitchlow' type='int' get='0' set='1'>
+        <attribute name='damppitchlow' type='float' get='0' set='1'>
             <digest>
                 @min 12, @max 103
             </digest>
@@ -70,10 +70,10 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='94' />
+                <attribute name='default' type='float' value='94.' />
             </attributelist>
         </attribute>
-        <attribute name='envrelease' type='int' get='0' set='1'>
+        <attribute name='envrelease' type='float' get='0' set='1'>
             <digest>
                 @min 1, @max 10
             </digest>
@@ -81,7 +81,7 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='2' />
+                <attribute name='default' type='float' value='2.' />
             </attributelist>
         </attribute>
         <attribute name='envresponse' type='int' get='0' set='1'>
@@ -95,7 +95,7 @@
                 <attribute name='default' type='int' value='2' />
             </attributelist>
         </attribute>
-        <attribute name='envslope' type='int' get='0' set='1'>
+        <attribute name='envslope' type='float' get='0' set='1'>
             <digest>
                 @min 0.1, @max 10
             </digest>
@@ -103,7 +103,7 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='1' />
+                <attribute name='default' type='float' value='1.' />
             </attributelist>
         </attribute>
         <attribute name='envthresh' type='float' get='0' set='1'>
@@ -128,7 +128,7 @@
                 <attribute name='default' type='int' value='vectorsize' />
             </attributelist>
         </attribute>
-        <attribute name='gainsmooth' type='int' get='0' set='1'>
+        <attribute name='gainsmooth' type='float' get='0' set='1'>
             <digest>
                 @min 0, @max 333
             </digest>
@@ -136,10 +136,10 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='0' />
+                <attribute name='default' type='float' value='0.' />
             </attributelist>
         </attribute>
-        <attribute name='noisegain' type='int' get='0' set='1'>
+        <attribute name='noisegain' type='float' get='0' set='1'>
             <digest>
                 @min -72, @max 30
             </digest>
@@ -147,10 +147,10 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='0' />
+                <attribute name='default' type='float' value='0.' />
             </attributelist>
         </attribute>
-        <attribute name='oscgain' type='int' get='0' set='1'>
+        <attribute name='oscgain' type='float' get='0' set='1'>
             <digest>
                 @min -72, @max 30
             </digest>
@@ -158,10 +158,10 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='0' />
+                <attribute name='default' type='float' value='0.' />
             </attributelist>
         </attribute>
-        <attribute name='oscsmoothfreq' type='int' get='0' set='1'>
+        <attribute name='oscsmoothfreq' type='float' get='0' set='1'>
             <digest>
                 @min 0, @max 333
             </digest>
@@ -169,7 +169,7 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='22' />
+                <attribute name='default' type='float' value='22.' />
             </attributelist>
         </attribute>
         <attribute name='oscsmoothinterp' type='float' get='0' set='1'>

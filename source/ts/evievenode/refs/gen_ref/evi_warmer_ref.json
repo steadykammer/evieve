@@ -43,12 +43,12 @@
         },
         {
             "name": "bassgain",
-            "type": "int",
+            "type": "float",
             "digest": "@min -12, @max 12",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "-1"
+                "type": "float",
+                "value": "-1."
             }
         },
         {
@@ -73,12 +73,12 @@
         },
         {
             "name": "blend",
-            "type": "int",
+            "type": "float",
             "digest": "@min -10, @max 10",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "-2"
+                "type": "float",
+                "value": "-2."
             }
         },
         {
@@ -93,32 +93,32 @@
         },
         {
             "name": "drive",
-            "type": "int",
+            "type": "float",
             "digest": "@min 0, @max 10",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "2"
+                "type": "float",
+                "value": "2."
             }
         },
         {
             "name": "highpass",
-            "type": "int",
+            "type": "float",
             "digest": "@min 10, @max 400",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "100"
+                "type": "float",
+                "value": "100."
             }
         },
         {
             "name": "ingain",
-            "type": "int",
+            "type": "float",
             "digest": "@min -48, @max 48",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "1"
+                "type": "float",
+                "value": "1."
             }
         },
         {
@@ -133,12 +133,12 @@
         },
         {
             "name": "outgain",
-            "type": "int",
+            "type": "float",
             "digest": "@min -24, @max 24",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "-1"
+                "type": "float",
+                "value": "-1."
             }
         },
         {

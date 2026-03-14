@@ -14,7 +14,7 @@
 require("evi_rcfilters.genexpr");
 
 
-Param   smooth(0, min=0, max=333);  // ms
+Param   smooth(0., min=0, max=333); // ms
 Param   prewarp(1, min=0, max=1);   // 1 = input in Hz, 0 = input in 0..1 quasi radians
 pw      = int(prewarp);
 

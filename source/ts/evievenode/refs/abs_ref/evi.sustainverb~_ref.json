@@ -112,12 +112,12 @@
         {
             "name": "highpass",
             "get": 0,
-            "type": "int",
+            "type": "float",
             "digest": "",
             "description": "",
             "default": {
                 "get": 0,
-                "value": "0"
+                "value": "0."
             }
         },
         {

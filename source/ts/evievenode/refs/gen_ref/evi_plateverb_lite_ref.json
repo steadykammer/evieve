@@ -127,12 +127,12 @@
         },
         {
             "name": "dry",
-            "type": "int",
+            "type": "float",
             "digest": "@min -90, @max 0",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "-15"
+                "type": "float",
+                "value": "-15."
             }
         },
         {
@@ -147,12 +147,12 @@
         },
         {
             "name": "highshelfK",
-            "type": "int",
+            "type": "float",
             "digest": "@min -3, @max 1",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "0"
+                "type": "float",
+                "value": "0."
             }
         },
         {
@@ -167,12 +167,12 @@
         },
         {
             "name": "lowshelfK",
-            "type": "int",
+            "type": "float",
             "digest": "@min -3, @max 1",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "0"
+                "type": "float",
+                "value": "0."
             }
         },
         {
@@ -197,12 +197,12 @@
         },
         {
             "name": "smoothtime",
-            "type": "int",
+            "type": "float",
             "digest": "@min 0, @max 500",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "30"
+                "type": "float",
+                "value": "30."
             }
         },
         {
@@ -257,12 +257,12 @@
         },
         {
             "name": "wet",
-            "type": "int",
+            "type": "float",
             "digest": "@min -90, @max 0",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "-3"
+                "type": "float",
+                "value": "-3."
             }
         }
     ],

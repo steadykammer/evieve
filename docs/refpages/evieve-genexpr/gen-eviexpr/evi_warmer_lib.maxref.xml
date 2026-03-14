@@ -100,7 +100,7 @@
     </entry>
     <entry name="saturate ( )">
       <description>
-        Warpper for 'szilagyiAdaa2()' <br />
+        Wrapper for 'szilagyiAdaa2()' <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
         <b>In 2</b>: type=<i>input</i>: l, <i>Low clip (linear)</i> <br />

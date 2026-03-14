@@ -254,7 +254,7 @@
                 <attribute name='default' type='float' value='sqrt1_2' />
             </attributelist>
         </attribute>
-        <attribute name='feedbackhzhigh' type='int' get='0' set='1'>
+        <attribute name='feedbackhzhigh' type='float' get='0' set='1'>
             <digest>
                 @min 250, @max 8000
             </digest>
@@ -262,10 +262,10 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='2000' />
+                <attribute name='default' type='float' value='2000.' />
             </attributelist>
         </attribute>
-        <attribute name='feedbackhzlow' type='int' get='0' set='1'>
+        <attribute name='feedbackhzlow' type='float' get='0' set='1'>
             <digest>
                 @min 62.5, @max 500
             </digest>
@@ -273,7 +273,7 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='250' />
+                <attribute name='default' type='float' value='250.' />
             </attributelist>
         </attribute>
         <attribute name='feedbacknonlinear' type='int' get='0' set='1'>
@@ -287,7 +287,7 @@
                 <attribute name='default' type='int' value='1' />
             </attributelist>
         </attribute>
-        <attribute name='inputhzhigh' type='int' get='0' set='1'>
+        <attribute name='inputhzhigh' type='float' get='0' set='1'>
             <digest>
                 @min 500, @max 14700
             </digest>
@@ -295,10 +295,10 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='4000' />
+                <attribute name='default' type='float' value='4000.' />
             </attributelist>
         </attribute>
-        <attribute name='inputhzlow' type='int' get='0' set='1'>
+        <attribute name='inputhzlow' type='float' get='0' set='1'>
             <digest>
                 @min 31.25, @max 500
             </digest>
@@ -306,7 +306,7 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='125' />
+                <attribute name='default' type='float' value='125.' />
             </attributelist>
         </attribute>
         <attribute name='mod1' type='float' get='0' set='1'>
@@ -397,7 +397,7 @@
                 <attribute name='default' type='float' value='		0.122' />
             </attributelist>
         </attribute>
-        <attribute name='modulationdepth' type='int' get='0' set='1'>
+        <attribute name='modulationdepth' type='float' get='0' set='1'>
             <digest>
                 @min 0, @max 16
             </digest>
@@ -405,7 +405,7 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='4' />
+                <attribute name='default' type='float' value='4.' />
             </attributelist>
         </attribute>
         <attribute name='modulationduty' type='float' get='0' set='1'>
@@ -419,7 +419,7 @@
                 <attribute name='default' type='float' value='0.5' />
             </attributelist>
         </attribute>
-        <attribute name='modulationrate' type='int' get='0' set='1'>
+        <attribute name='modulationrate' type='float' get='0' set='1'>
             <digest>
                 @min 0.125, @max 8
             </digest>
@@ -427,10 +427,10 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='1' />
+                <attribute name='default' type='float' value='1.' />
             </attributelist>
         </attribute>
-        <attribute name='modulationshape' type='int' get='0' set='1'>
+        <attribute name='modulationshape' type='float' get='0' set='1'>
             <digest>
                 @min 0, @max 1
             </digest>
@@ -438,10 +438,10 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='1' />
+                <attribute name='default' type='float' value='1.' />
             </attributelist>
         </attribute>
-        <attribute name='modulationskew' type='int' get='0' set='1'>
+        <attribute name='modulationskew' type='float' get='0' set='1'>
             <digest>
                 @min 0.5, @max 2
             </digest>
@@ -449,7 +449,7 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='1' />
+                <attribute name='default' type='float' value='1.' />
             </attributelist>
         </attribute>
         <attribute name='outputnonlinear' type='int' get='0' set='1'>

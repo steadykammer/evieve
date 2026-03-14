@@ -95,7 +95,7 @@
 	</methodlist>
 	<!--ATTRIBUTES-->
 	<attributelist>
-		<attribute name="detune" get="1" set="1" type="int" min="-100" max="100">
+		<attribute name="detune" get="1" set="1" type="float" min="-100" max="100">
 			<digest>
 				
 			</digest>
@@ -103,7 +103,7 @@
 				
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="0" />
+				<attribute name="default" get="0" set="0" size="1" value="0." />
 			</attributelist>
 		</attribute>
 		<attribute name="drive" get="1" set="1" type="float" min="0" max="2">
@@ -117,7 +117,7 @@
 				<attribute name="default" get="0" set="0" size="1" value="0.5" />
 			</attributelist>
 		</attribute>
-		<attribute name="freqsmooth" get="1" set="1" type="int" min="0" max="666">
+		<attribute name="freqsmooth" get="1" set="1" type="float" min="0" max="666">
 			<digest>
 				
 			</digest>
@@ -125,10 +125,10 @@
 				
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="20" />
+				<attribute name="default" get="0" set="0" size="1" value="20." />
 			</attributelist>
 		</attribute>
-		<attribute name="highpass" get="1" set="1" type="int" min="10" max="400">
+		<attribute name="highpass" get="1" set="1" type="float" min="10" max="400">
 			<digest>
 				
 			</digest>
@@ -136,7 +136,7 @@
 				
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="40" />
+				<attribute name="default" get="0" set="0" size="1" value="40." />
 			</attributelist>
 		</attribute>
 		<attribute name="oscout" get="1" set="1" type="int" min="0" max="1">
@@ -183,7 +183,7 @@
 				<attribute name="default" get="0" set="0" size="1" value="1" />
 			</attributelist>
 		</attribute>
-		<attribute name="shiftmode" get="1" set="1" type="int" min="0" max="1">
+		<attribute name="shiftmode" get="1" set="1" type="float" min="0" max="1">
 			<digest>
 				
 			</digest>
@@ -191,7 +191,7 @@
 				
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="0" />
+				<attribute name="default" get="0" set="0" size="1" value="0." />
 			</attributelist>
 		</attribute>
 		<attribute name="smooth" get="1" set="1" type="float" min="0" max="1000">

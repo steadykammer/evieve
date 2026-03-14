@@ -7,13 +7,13 @@ require("evi_svfs_lto.genexpr");
 
 Param   smooth(22.666, min=0, max=333);
 
-Param   lowcutoff(250, min=1, max=10000);
-Param   lowdb(0, min=-30, max=30);
-Param   lowq(1, min=0.05, max=20);
+Param   lowcutoff(250., min=1, max=10000);
+Param   lowdb(0., min=-30, max=30);
+Param   lowq(1., min=0.05, max=20);
 
-Param   highcutoff(2000, min=500, max=samplerate*0.5);
-Param   highdb(0, min=-30, max=30);
-Param   highq(1, min=0.05, max=20);
+Param   highcutoff(2000., min=500, max=samplerate*0.5);
+Param   highdb(0., min=-30, max=30);
+Param   highq(1., min=0.05, max=20);
 
 lowshelf = 2;
 highshelf = 6;

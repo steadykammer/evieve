@@ -61,12 +61,12 @@
     "attributes": [
         {
             "name": "extend",
-            "type": "int",
+            "type": "float",
             "digest": "@min 0, @max 1",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "0"
+                "type": "float",
+                "value": "0."
             }
         },
         {
@@ -81,12 +81,12 @@
         },
         {
             "name": "gain",
-            "type": "int",
+            "type": "float",
             "digest": "@min -6, @max 14",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "3"
+                "type": "float",
+                "value": "3."
             }
         },
         {
@@ -131,12 +131,12 @@
         },
         {
             "name": "tune",
-            "type": "int",
+            "type": "float",
             "digest": "@min -100, @max 100",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "0"
+                "type": "float",
+                "value": "0."
             }
         }
     ],

@@ -47,7 +47,7 @@
                 <attribute name='default' type='int' value='0' />
             </attributelist>
         </attribute>
-        <attribute name='scalein' type='int' get='0' set='1'>
+        <attribute name='scalein' type='float' get='0' set='1'>
             <digest>
                 @min 1, @max 10000
             </digest>
@@ -55,10 +55,10 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='3' />
+                <attribute name='default' type='float' value='3.' />
             </attributelist>
         </attribute>
-        <attribute name='scaleout' type='int' get='0' set='1'>
+        <attribute name='scaleout' type='float' get='0' set='1'>
             <digest>
                 @min 1, @max 1000
             </digest>
@@ -66,7 +66,7 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='1' />
+                <attribute name='default' type='float' value='1.' />
             </attributelist>
         </attribute>
     </attributelist>

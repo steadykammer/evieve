@@ -107,22 +107,22 @@
         },
         {
             "name": "dry",
-            "type": "int",
+            "type": "float",
             "digest": "@min -90, @max 0",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "-3"
+                "type": "float",
+                "value": "-3."
             }
         },
         {
             "name": "early",
-            "type": "int",
+            "type": "float",
             "digest": "@min -90, @max 0",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "-9"
+                "type": "float",
+                "value": "-9."
             }
         },
         {
@@ -137,22 +137,22 @@
         },
         {
             "name": "highshelfK",
-            "type": "int",
+            "type": "float",
             "digest": "@min -3, @max 1",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "0"
+                "type": "float",
+                "value": "0."
             }
         },
         {
             "name": "late",
-            "type": "int",
+            "type": "float",
             "digest": "@min -90, @max 0",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "-11"
+                "type": "float",
+                "value": "-11."
             }
         },
         {
@@ -167,12 +167,12 @@
         },
         {
             "name": "lowshelfK",
-            "type": "int",
+            "type": "float",
             "digest": "@min -3, @max 1",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "0"
+                "type": "float",
+                "value": "0."
             }
         },
         {
@@ -187,22 +187,22 @@
         },
         {
             "name": "size",
-            "type": "int",
+            "type": "float",
             "digest": "@min 0.1, @max 300",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "80"
+                "type": "float",
+                "value": "80."
             }
         },
         {
             "name": "smoothtime\t",
-            "type": "int",
-            "digest": "@min 1, @max 500\t\t",
+            "type": "float",
+            "digest": "@min 1, @max 500\t",
             "description": "",
             "default": {
-                "type": "int",
-                "value": " \t50"
+                "type": "float",
+                "value": " \t50."
             }
         },
         {

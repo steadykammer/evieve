@@ -25,13 +25,13 @@
         {
             "id": 2,
             "type": "signal/float",
-            "digest": "CF in Hz @min 0 @max 18000 @default 440",
+            "digest": "CF in Hz @min 0 @max 18000 @default 440.",
             "description": ""
         },
         {
             "id": 3,
             "type": "signal/float",
-            "digest": "BW in Hz @min 0 @max 18000 @default 110",
+            "digest": "BW in Hz @min 0 @max 18000 @default 110.",
             "description": ""
         },
         {

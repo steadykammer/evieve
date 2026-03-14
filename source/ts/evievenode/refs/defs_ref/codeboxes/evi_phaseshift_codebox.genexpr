@@ -4,7 +4,7 @@
 
 require("evi_svfs_tpt_filters.genexpr");
 
-Param   smooth(0, min=0, max=333);
+Param   smooth(0., min=0, max=333);
 
                             // In   Hz    Q    ms
 out1    = eviFilterAllpassNorm(in1, in2, in3, smooth=smooth);

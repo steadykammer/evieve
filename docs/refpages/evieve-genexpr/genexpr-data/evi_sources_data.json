@@ -54,7 +54,7 @@
                     "kind": "param",
                     "name": "amp",
                     "default": 1,
-                    "type": "integer",
+                    "type": "float",
                     "digest": "The amplitude of the noise, typically left at '1'"
                 }
             ],

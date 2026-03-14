@@ -62,13 +62,13 @@
         {
             "name": "cutoffsmooth",
             "get": 1,
-            "type": "int",
+            "type": "float",
             "digest": "",
             "description": "",
             "default": {
                 "min": "0",
                 "max": "333",
-                "value": "0"
+                "value": "0."
             }
         },
         {
@@ -98,13 +98,13 @@
         {
             "name": "ressmooth",
             "get": 1,
-            "type": "int",
+            "type": "float",
             "digest": "",
             "description": "",
             "default": {
                 "min": "0",
                 "max": "333",
-                "value": "0"
+                "value": "0."
             }
         }
     ],

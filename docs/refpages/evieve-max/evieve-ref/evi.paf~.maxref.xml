@@ -29,7 +29,7 @@
 		</inlet>
 		<inlet id="2" type="signal/float">
 			<digest>
-				Inlet #2: CF in Hz @min 0 @max 18000 @default 440
+				Inlet #2: CF in Hz @min 0 @max 18000 @default 440.
 			</digest>
 			<description>
 				
@@ -37,7 +37,7 @@
 		</inlet>
 		<inlet id="3" type="signal/float">
 			<digest>
-				Inlet #3: BW in Hz @min 0 @max 18000 @default 110
+				Inlet #3: BW in Hz @min 0 @max 18000 @default 110.
 			</digest>
 			<description>
 				

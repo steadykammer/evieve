@@ -87,7 +87,7 @@
 				<attribute name="default" get="0" set="0" size="1" value="1" />
 			</attributelist>
 		</attribute>
-		<attribute name="cfsmooth" get="1" set="1" type="int" min="0" max="1000">
+		<attribute name="cfsmooth" get="1" set="1" type="float" min="0" max="1000">
 			<digest>
 				
 			</digest>
@@ -95,7 +95,7 @@
 				
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="20" />
+				<attribute name="default" get="0" set="0" size="1" value="20." />
 			</attributelist>
 		</attribute>
 		<attribute name="nonlin" get="1" set="1" type="int" min="0" max="5">
@@ -120,7 +120,7 @@
 				<attribute name="default" get="0" set="0" size="1" value="1" />
 			</attributelist>
 		</attribute>
-		<attribute name="ressmooth" get="1" set="1" type="int" min="0" max="333">
+		<attribute name="ressmooth" get="1" set="1" type="float" min="0" max="333">
 			<digest>
 				
 			</digest>
@@ -128,7 +128,7 @@
 				
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="20" />
+				<attribute name="default" get="0" set="0" size="1" value="20." />
 			</attributelist>
 		</attribute>
 		<attribute name="shaping" get="1" set="1" type="float" min="1" max="40">

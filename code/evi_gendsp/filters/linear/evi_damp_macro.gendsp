@@ -27,7 +27,7 @@
             },
             {
                 "box": {
-                    "code": "\r\n// a 'one knob' (\"damp\" parameter) macroisation for quick onepole damping filters\r\n// useful for light damping or inside a feedback loop\r\n// @see: \"evi_damp.gendsp\" / [evi.damp~] for more control\r\n// @see: \"evi_onepole_shelving.gendsp\" / [evi.onepole.shelving~] for cut/boost\r\n// @see: \"evi_tone_macro.gendsp\" / [evi.tone.macro~] for the opposite\r\n\r\nrequire(\"evi_rcfilters.genexpr\");\r\nrequire(\"evi_smooth.genexpr\");\r\n\r\n// param rate\r\n\r\nParam   damp(0, min=0, max=1);\r\nParam   smooth(0, min=0, max=999);\r\n\r\n// cheapo macroisation, surprisingly it works, is even accross 0..1 range\r\n\r\nsqdamp = sqrt(damp);\r\ndampHzLpHs = ((1 - sqdamp) * 17000) + 1000;\r\ndampHzHpLs = ((damp * damp) * 390) + 10;\r\ng1, d1 = rcDampCoeffs0(dampHzLpHs, sqdamp);\r\ng2, d2 = rcDampCoeffs0(dampHzHpLs, sqrt(sqdamp));\r\n\r\nglp = g1; ghp = g2; lk = d1; hk = d2;\r\n\r\n// audio rate\r\n\r\nif (smooth > 0) {\r\n    glp, lk, ghp, hk = expsmoothBank4(glp, lk, ghp, hk, smooth*0.001);\r\n}\r\n\r\nout1 = rcFilterDampBandpass(in1, glp, ghp, lk, hk);\r\n\n",
+                    "code": "\r\n// a 'one knob' (\"damp\" parameter) macroisation for quick onepole damping filters\r\n// useful for light damping or inside a feedback loop\r\n// @see: \"evi_damp.gendsp\" / [evi.damp~] for more control\r\n// @see: \"evi_onepole_shelving.gendsp\" / [evi.onepole.shelving~] for cut/boost\r\n// @see: \"evi_tone_macro.gendsp\" / [evi.tone.macro~] for the opposite\r\n\r\nrequire(\"evi_rcfilters.genexpr\");\r\nrequire(\"evi_smooth.genexpr\");\r\n\r\n// param rate\r\n\r\nParam   damp(0., min=0, max=1);\r\nParam   smooth(0., min=0, max=999);\r\n\r\n// cheapo macroisation, surprisingly it works, is even accross 0..1 range\r\n\r\nsqdamp = sqrt(damp);\r\ndampHzLpHs = ((1 - sqdamp) * 17000) + 1000;\r\ndampHzHpLs = ((damp * damp) * 390) + 10;\r\ng1, d1 = rcDampCoeffs0(dampHzLpHs, sqdamp);\r\ng2, d2 = rcDampCoeffs0(dampHzHpLs, sqrt(sqdamp));\r\n\r\nglp = g1; ghp = g2; lk = d1; hk = d2;\r\n\r\n// audio rate\r\n\r\nif (smooth > 0) {\r\n    glp, lk, ghp, hk = expsmoothBank4(glp, lk, ghp, hk, smooth*0.001);\r\n}\r\n\r\nout1 = rcFilterDampBandpass(in1, glp, ghp, lk, hk);\r\n\n",
                     "fontface": 0,
                     "fontname": "<Monospaced>",
                     "fontsize": 12.0,
@@ -63,7 +63,6 @@
                     "source": [ "obj-3", 0 ]
                 }
             }
-        ],
-        "autosave": 0
+        ]
     }
 }

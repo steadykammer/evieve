@@ -12,17 +12,35 @@
     },
     "inlets": [
         {
-            "id": 0,
+            "id": 1,
             "type": "signal",
             "digest": "Audio In Mono or Left or 1 / messages to evi.plateverb~",
+            "description": ""
+        },
+        {
+            "id": 2,
+            "type": "signal",
+            "digest": "Audio In Nothing or Right or 2 / messages to evi.plateverb~",
             "description": ""
         }
     ],
     "outlets": [
         {
-            "id": 0,
+            "id": 1,
             "type": "signal",
             "digest": "Audio Out Left",
+            "description": ""
+        },
+        {
+            "id": 2,
+            "type": "signal",
+            "digest": "Audio Out Right",
+            "description": ""
+        },
+        {
+            "id": 3,
+            "type": "",
+            "digest": "dumpout (pattrstorage)",
             "description": ""
         }
     ],

@@ -39,7 +39,7 @@ Param	drive(0.5, min=0, max=2);			// % 0..1.. , if sat on
 Param	resetauto(1, min=0, max=1);			// 0/1 off/on, default on
 Param	bandsmix(0.5, min=0, max=1);		// % 0..1, default equal mix
 Param	smooth(22.666, min=0, max=333);		// ms
-Param	freqsmooth(20, min=0, max=666);		// ms
+Param	freqsmooth(20., min=0, max=666);	// ms
 
 modclamp	= samplerate*0.0625;
 smoothsecs	= smooth*0.001;

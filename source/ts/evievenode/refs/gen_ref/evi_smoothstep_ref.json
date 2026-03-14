@@ -16,14 +16,14 @@
             "name": "x",
             "type": "float",
             "optional": 1,
-            "digest": "@default 0"
+            "digest": "@default 0."
         },
         {
             "id": 2,
             "name": "y",
             "type": "float",
             "optional": 1,
-            "digest": "@default 1"
+            "digest": "@default 1."
         },
         {
             "id": 3,

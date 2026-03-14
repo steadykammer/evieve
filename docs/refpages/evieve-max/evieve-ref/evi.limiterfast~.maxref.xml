@@ -79,7 +79,7 @@
 				<attribute name="default" get="0" set="0" size="1" value="0" />
 			</attributelist>
 		</attribute>
-		<attribute name="ingain" get="1" set="1" type="int" min="-20" max="40">
+		<attribute name="ingain" get="1" set="1" type="float" min="-20" max="40">
 			<digest>
 				
 			</digest>
@@ -87,7 +87,7 @@
 				
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="1" />
+				<attribute name="default" get="0" set="0" size="1" value="1." />
 			</attributelist>
 		</attribute>
 		<attribute name="knee" get="1" set="1" type="float" min="0.001" max="1">
@@ -101,7 +101,7 @@
 				<attribute name="default" get="0" set="0" size="1" value="0.55" />
 			</attributelist>
 		</attribute>
-		<attribute name="release" get="1" set="1" type="int" min="1" max="376">
+		<attribute name="release" get="1" set="1" type="float" min="1" max="376">
 			<digest>
 				
 			</digest>
@@ -109,7 +109,7 @@
 				
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="52" />
+				<attribute name="default" get="0" set="0" size="1" value="52." />
 			</attributelist>
 		</attribute>
 		<attribute name="smooth" get="1" set="1" type="float" min="0" max="1">

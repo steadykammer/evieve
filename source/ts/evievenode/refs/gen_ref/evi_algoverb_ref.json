@@ -87,12 +87,12 @@
         },
         {
             "name": "damp1_m0",
-            "type": "int",
+            "type": "float",
             "digest": "@min -2, @max 2",
             "description": "",
             "default": {
-                "type": "int",
-                "value": " 1"
+                "type": "float",
+                "value": " 1."
             }
         },
         {
@@ -277,12 +277,12 @@
         },
         {
             "name": "eq1_m0",
-            "type": "int",
+            "type": "float",
             "digest": "@min -16, @max 16\t",
             "description": "",
             "default": {
-                "type": "int",
-                "value": " 1"
+                "type": "float",
+                "value": " 1."
             }
         },
         {
@@ -447,22 +447,22 @@
         },
         {
             "name": "preTime",
-            "type": "int",
+            "type": "float",
             "digest": "@min 0, @max 400",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "16"
+                "type": "float",
+                "value": "16."
             }
         },
         {
             "name": "smoothtime",
-            "type": "int",
+            "type": "float",
             "digest": "@min 0, @max 500",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "50"
+                "type": "float",
+                "value": "50."
             }
         }
     ],

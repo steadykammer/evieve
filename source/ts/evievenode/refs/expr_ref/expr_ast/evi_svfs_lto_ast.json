@@ -5114,8 +5114,8 @@
                 {
                     "type": "Literal",
                     "value": 0,
-                    "raw": "0",
-                    "gen_kind": "integer"
+                    "raw": "0.",
+                    "gen_kind": "float"
                 }
             ],
             "decls": [
@@ -5487,8 +5487,8 @@
                 {
                     "type": "Literal",
                     "value": 0,
-                    "raw": "0",
-                    "gen_kind": "integer"
+                    "raw": "0.",
+                    "gen_kind": "float"
                 }
             ],
             "decls": [
@@ -10834,8 +10834,8 @@
                 {
                     "type": "Literal",
                     "value": 0,
-                    "raw": "0",
-                    "gen_kind": "integer"
+                    "raw": "0.",
+                    "gen_kind": "float"
                 }
             ],
             "decls": [
@@ -11207,8 +11207,8 @@
                 {
                     "type": "Literal",
                     "value": 0,
-                    "raw": "0",
-                    "gen_kind": "integer"
+                    "raw": "0.",
+                    "gen_kind": "float"
                 }
             ],
             "decls": [
@@ -11579,8 +11579,8 @@
                 {
                     "type": "Literal",
                     "value": 0,
-                    "raw": "0",
-                    "gen_kind": "integer"
+                    "raw": "0.",
+                    "gen_kind": "float"
                 }
             ],
             "decls": [
@@ -12158,8 +12158,8 @@
                 {
                     "type": "Literal",
                     "value": 0,
-                    "raw": "0",
-                    "gen_kind": "integer"
+                    "raw": "0.",
+                    "gen_kind": "float"
                 }
             ],
             "decls": [
@@ -12747,8 +12747,8 @@
                 {
                     "type": "Literal",
                     "value": 0,
-                    "raw": "0",
-                    "gen_kind": "integer"
+                    "raw": "0.",
+                    "gen_kind": "float"
                 }
             ],
             "decls": [
@@ -13187,8 +13187,8 @@
                 {
                     "type": "Literal",
                     "value": 0,
-                    "raw": "0",
-                    "gen_kind": "integer"
+                    "raw": "0.",
+                    "gen_kind": "float"
                 }
             ],
             "decls": [
@@ -14776,8 +14776,8 @@
                 {
                     "type": "Literal",
                     "value": 0,
-                    "raw": "0",
-                    "gen_kind": "integer"
+                    "raw": "0.",
+                    "gen_kind": "float"
                 }
             ],
             "decls": [
@@ -15051,8 +15051,8 @@
                 {
                     "type": "Literal",
                     "value": 0,
-                    "raw": "0",
-                    "gen_kind": "integer"
+                    "raw": "0.",
+                    "gen_kind": "float"
                 }
             ],
             "decls": [
@@ -15370,8 +15370,8 @@
                 {
                     "type": "Literal",
                     "value": 0,
-                    "raw": "0",
-                    "gen_kind": "integer"
+                    "raw": "0.",
+                    "gen_kind": "float"
                 }
             ],
             "decls": [
@@ -15691,8 +15691,8 @@
                 {
                     "type": "Literal",
                     "value": 0,
-                    "raw": "0",
-                    "gen_kind": "integer"
+                    "raw": "0.",
+                    "gen_kind": "float"
                 }
             ],
             "decls": [

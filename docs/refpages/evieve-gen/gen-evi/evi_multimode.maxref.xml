@@ -28,7 +28,7 @@
         </geninlet>
         <geninlet name='cutoff' type='float' optional='1'>
             <digest>
-                in Hz @min 1 @max samplerate*0.5 @default 500
+                in Hz @min 1 @max samplerate*0.5 @default 500.
             </digest>
         </geninlet>
         <geninlet name='q' type='float' optional='1'>
@@ -38,7 +38,7 @@
         </geninlet>
     </geninletlist>
     <attributelist>
-        <attribute name='cutoffsmooth' type='int' get='0' set='1'>
+        <attribute name='cutoffsmooth' type='float' get='0' set='1'>
             <digest>
                 @min 0, @max 100
             </digest>
@@ -46,10 +46,10 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='20' />
+                <attribute name='default' type='float' value='20.' />
             </attributelist>
         </attribute>
-        <attribute name='cutoffsmoothbase' type='int' get='0' set='1'>
+        <attribute name='cutoffsmoothbase' type='float' get='0' set='1'>
             <digest>
                 @min 0, @max 10
             </digest>
@@ -57,10 +57,10 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='2' />
+                <attribute name='default' type='float' value='2.' />
             </attributelist>
         </attribute>
-        <attribute name='resonancesmooth' type='int' get='0' set='1'>
+        <attribute name='resonancesmooth' type='float' get='0' set='1'>
             <digest>
                 @min 0, @max 100
             </digest>
@@ -68,7 +68,7 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='10' />
+                <attribute name='default' type='float' value='10.' />
             </attributelist>
         </attribute>
     </attributelist>

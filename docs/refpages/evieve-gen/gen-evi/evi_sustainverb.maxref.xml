@@ -34,7 +34,7 @@
         </geninlet>
     </geninletlist>
     <attributelist>
-        <attribute name='crossover' type='int' get='0' set='1'>
+        <attribute name='crossover' type='float' get='0' set='1'>
             <digest>
                 @min 10, @max 10000
             </digest>
@@ -42,7 +42,7 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='3000' />
+                <attribute name='default' type='float' value='3000.' />
             </attributelist>
         </attribute>
         <attribute name='damp' type='float' get='0' set='1'>
@@ -232,7 +232,7 @@
                 <attribute name='default' type='int' value='	2241' />
             </attributelist>
         </attribute>
-        <attribute name='drywet' type='int' get='0' set='1'>
+        <attribute name='drywet' type='float' get='0' set='1'>
             <digest>
                 @min 0, @max 1
             </digest>
@@ -240,10 +240,10 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='1' />
+                <attribute name='default' type='float' value='1.' />
             </attributelist>
         </attribute>
-        <attribute name='early' type='int' get='0' set='1'>
+        <attribute name='early' type='float' get='0' set='1'>
             <digest>
                 @min 0, @max 1
             </digest>
@@ -251,7 +251,7 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='0' />
+                <attribute name='default' type='float' value='0.' />
             </attributelist>
         </attribute>
         <attribute name='earlyTime1 	' type='int' get='0' set='1'>
@@ -309,7 +309,7 @@
                 <attribute name='default' type='float' value='sqrt1_2' />
             </attributelist>
         </attribute>
-        <attribute name='highpass' type='int' get='0' set='1'>
+        <attribute name='highpass' type='float' get='0' set='1'>
             <digest>
                 @min 0, @max 1
             </digest>
@@ -317,10 +317,10 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='0' />
+                <attribute name='default' type='float' value='0.' />
             </attributelist>
         </attribute>
-        <attribute name='outgain' type='int' get='0' set='1'>
+        <attribute name='outgain' type='float' get='0' set='1'>
             <digest>
                 @min -80, @max 20
             </digest>
@@ -328,10 +328,10 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='-3' />
+                <attribute name='default' type='float' value='-3.' />
             </attributelist>
         </attribute>
-        <attribute name='smoothtime' type='int' get='0' set='1'>
+        <attribute name='smoothtime' type='float' get='0' set='1'>
             <digest>
                 @min 1, @max 500
             </digest>
@@ -339,7 +339,7 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='43' />
+                <attribute name='default' type='float' value='43.' />
             </attributelist>
         </attribute>
     </attributelist>

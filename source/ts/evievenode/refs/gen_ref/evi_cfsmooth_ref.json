@@ -38,12 +38,12 @@
     "attributes": [
         {
             "name": "hz",
-            "type": "int",
+            "type": "float",
             "digest": "@min 0, @max 10",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "2"
+                "type": "float",
+                "value": "2."
             }
         }
     ],

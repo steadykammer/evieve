@@ -60,12 +60,12 @@
         },
         {
             "name": "highpass",
-            "type": "int",
+            "type": "float",
             "digest": "@min 10, @max 400",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "40"
+                "type": "float",
+                "value": "40."
             }
         },
         {

@@ -33,7 +33,7 @@
         </geninlet>
     </geninletlist>
     <attributelist>
-        <attribute name='bass' type='int' get='0' set='1'>
+        <attribute name='bass' type='float' get='0' set='1'>
             <digest>
                 @min -24, @max 24
             </digest>
@@ -41,7 +41,7 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='0' />
+                <attribute name='default' type='float' value='0.' />
             </attributelist>
         </attribute>
         <attribute name='stereo' type='int' get='0' set='1'>
@@ -55,7 +55,7 @@
                 <attribute name='default' type='int' value='0' />
             </attributelist>
         </attribute>
-        <attribute name='treble' type='int' get='0' set='1'>
+        <attribute name='treble' type='float' get='0' set='1'>
             <digest>
                 @min -24, @max 24
             </digest>
@@ -63,7 +63,7 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='0' />
+                <attribute name='default' type='float' value='0.' />
             </attributelist>
         </attribute>
     </attributelist>

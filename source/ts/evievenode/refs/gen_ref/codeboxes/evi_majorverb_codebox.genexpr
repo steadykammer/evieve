@@ -102,11 +102,11 @@ Delay	cross_Y(samplerate*0.214, 8, feedback=0);	// fixed taps
 
 // EQs (bandwidth & damping)
 
-Param	inputhzlow(125, min=31.25, max=500);		// highpass in Hz
-Param	inputhzhigh(4000, min=500, max=14700);		// lowpass in Hz
+Param	inputhzlow(125., min=31.25, max=500);		// highpass in Hz
+Param	inputhzhigh(4000., min=500, max=14700);		// lowpass in Hz
 
-Param	feedbackhzlow(250, min=62.5, max=500);		// highpass in Hz
-Param	feedbackhzhigh(2000, min=250, max=8000);	// lowpass in Hz
+Param	feedbackhzlow(250., min=62.5, max=500);		// highpass in Hz
+Param	feedbackhzhigh(2000., min=250, max=8000);	// lowpass in Hz
 Param	feedbackdamplow(sqrt1_2, min=0, max=1);		// % 0..1, 0 = bypass .. 1 = maximum damping ...
 Param	feedbackdamphigh(0.8666, min=0, max=1);		// ...
 
@@ -119,11 +119,11 @@ Param	outputnonlinear(1, min=0, max=2);			// 0 = 1x, 1 = 2x, 2 = 4x oversampled
 // secret gains (careful, not smoothed)
 Param	outputnonlineargains(0, min=0, max=1);		// switch input/output gains of output nonlinearity pre/post
 
-Param	modulationdepth(4, min=0, max=16);			// ± ms peak to peak
-Param	modulationrate(1, min=0.125, max=8);		// global multiplier (of Hz), slower..faster
+Param	modulationdepth(4., min=0, max=16);			// ± ms peak to peak
+Param	modulationrate(1., min=0.125, max=8);		// global multiplier (of Hz), slower..faster
 // secret modulation (careful, not smoothed)
-Param	modulationshape(1, min=0, max=1);			// tri..sine morph 0..1
-Param	modulationskew(1, min=0.5, max=2);			// skew shape power 0.5..2 through 1
+Param	modulationshape(1., min=0, max=1);			// tri..sine morph 0..1
+Param	modulationskew(1., min=0.5, max=2);			// skew shape power 0.5..2 through 1
 Param	modulationduty(0.5, min=0, max=1);			// tri duty cycle
 
 Param	drywet(sqrt1_2, min=0, max=1);				// % 0..1

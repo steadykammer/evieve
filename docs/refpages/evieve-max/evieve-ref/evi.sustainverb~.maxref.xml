@@ -121,7 +121,7 @@
 				<attribute name="default" get="0" set="1" type="float" size="1" value="-3." />
 			</attributelist>
 		</attribute>
-		<attribute name="highpass" get="0" set="1" type="int" size="1">
+		<attribute name="highpass" get="0" set="1" type="float" size="1">
 			<digest>
 				
 			</digest>
@@ -129,7 +129,7 @@
 				
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="1" type="int" size="1" value="0" />
+				<attribute name="default" get="0" set="1" type="float" size="1" value="0." />
 			</attributelist>
 		</attribute>
 		<attribute name="smoothtime" get="0" set="1" type="float" size="1">

@@ -74,12 +74,12 @@
         },
         {
             "name": "low",
-            "type": "int",
+            "type": "float",
             "digest": "@min -samplerate*0.5, @max samplerate*0.5",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "0"
+                "type": "float",
+                "value": "0."
             }
         },
         {
@@ -94,12 +94,12 @@
         },
         {
             "name": "smooth",
-            "type": "int",
+            "type": "float",
             "digest": "@min 0, @max 1000",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "0"
+                "type": "float",
+                "value": "0."
             }
         },
         {
@@ -114,12 +114,12 @@
         },
         {
             "name": "tuning",
-            "type": "int",
+            "type": "float",
             "digest": "@min 415, @max 467",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "440"
+                "type": "float",
+                "value": "440."
             }
         }
     ],

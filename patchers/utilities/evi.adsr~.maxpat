@@ -395,7 +395,7 @@
                     "numinlets": 2,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
-                    "patching_rect": [ 1152.0, 58.0, 66.0, 22.0 ],
+                    "patching_rect": [ 1159.0, 59.0, 66.0, 22.0 ],
                     "text": "route done"
                 }
             },
@@ -428,8 +428,8 @@
                     "numinlets": 1,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
-                    "patching_rect": [ 325.0, 19.0, 846.0, 22.0 ],
-                    "text": "patcherargs 10. 100. 0.707946 200. @delay 0. @hold1 0. @hold2 0. @riseratio 0.3 @fallratio 0.05 @retrigger 5 @legato 0 @maxsustain -1 @muteupdate 10"
+                    "patching_rect": [ 325.0, 19.0, 853.0, 22.0 ],
+                    "text": "patcherargs 10. 100. 0.707946 200. @delay 0. @hold1 0. @hold2 0. @riseratio 0.3 @fallratio 0.05 @retrigger 5. @legato 0 @maxsustain -1. @muteupdate 10"
                 }
             },
             {
@@ -586,7 +586,7 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 416.0, 53.0, 578.0, 33.0 ],
-                    "text": "evievedoc @attack 10. @decay 100. @sustain 0.707946 @release 200. @zerophase 0 @constantrate 1 @envmax 127. @velocitysense 0 @velocitycurve 1 @wait 0 @loopsustain 100. @looptrigger 0 @loop 0",
+                    "text": "evievedoc @attack 10. @decay 100. @sustain 0.707946 @release 200. @zerophase 0 @constantrate 1 @envmax 127. @velocitysense 0. @velocitycurve 1 @wait 0 @loopsustain 100. @looptrigger 0 @loop 0",
                     "varname": "evievedoc"
                 }
             }
@@ -655,7 +655,7 @@
             {
                 "patchline": {
                     "destination": [ "obj-13", 0 ],
-                    "midpoints": [ 1208.5, 88.5, 425.5, 88.5 ],
+                    "midpoints": [ 1215.5, 88.5, 425.5, 88.5 ],
                     "source": [ "obj-18", 1 ]
                 }
             },

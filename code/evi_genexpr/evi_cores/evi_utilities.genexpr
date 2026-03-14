@@ -18,7 +18,7 @@ logicalClicks(x)
 
 // 'hold' = ms (0 = 1 sample 'click'),
 // 'trigger' = trigger type: 0 = up/down, 1 = up only, 2 = down only
-triggerHoldGate(X, hold=10, trigger=1)
+triggerHoldGate(X, hold=10., trigger=1)
 {
     History		prev_value(0);
     History		hold_count(0);
@@ -102,14 +102,12 @@ Q2bandwidth(Q)
 
 pitch2timeSamps(size)			// pitch in, samples out
 {
-//	return (1 / (440 * exp(0.057762265046662105 * (size - 69)))) * samplerate;
 	return (1 / expApprox((0.057762265046662105 * size) + 2.10117843869262)) * samplerate;
 }
 
 // for modulation (late reflections)
 pitch2timeSecs(size)			// pitch in, seconds out
 {
-//	return	1 / mtofApprox(size);
 	return 	1 / mtofApproxAccurate0(size);	// same approx as 'pitch2timeSamps()'
 }
 
@@ -132,7 +130,7 @@ decorelate(x)
 	return y;
 }
 
-// for eviLine() etc (@see: evi_smooth.genexpr)
+// for eviLine() etc (@see: 'evi_smooth.genexpr')
 
 // segment must be linear (ramp) 0..1
 eviScurve(segment)
@@ -188,7 +186,7 @@ parabolWrap(phase)
 	return	y;
 }
 
-windowCoeffs(choice) {			// choose which windowing function to use
+windowCoeffs(choice) {			// choice = which windowing function to use
 	a0, a1, a2 = 0;
 	if (choice == 1) {			// "Blackman"
 		a0 = 0.42;

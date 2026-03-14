@@ -28,7 +28,7 @@
         "seealso": []
     },
     "evi.am~": {
-        "digest": 0,
+        "digest": "Basic AM processor with saturation and choice of LFO shapes",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
@@ -112,7 +112,7 @@
         "seealso": [ "evi.expsmooth~", "evi.lagsmooth~", "evi.logsmooth~", "evi_smooth" ]
     },
     "evi.chorus.digital~": {
-        "digest": 0,
+        "digest": "A basic digital Chorus implementation, with multiple stages and saturation",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
@@ -203,7 +203,7 @@
         "seealso": []
     },
     "evi.detune~": {
-        "digest": 0,
+        "digest": "A quirky digital Detune effect with filtering and saturation",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
@@ -357,7 +357,7 @@
         "seealso": []
     },
     "evi.flanger.digital~": {
-        "digest": 0,
+        "digest": "A basic two-stage Flanger effect with saturation",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
@@ -658,7 +658,7 @@
         "seealso": [ "evi.xfade~", "evi_utilities" ]
     },
     "evi.phaser.analog~": {
-        "digest": 0,
+        "digest": "Analog Phaser effect with multiple stages, filtering and saturation",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
@@ -675,6 +675,13 @@
         "digest": "Zero-rest phasor with settings for reverse and pause",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
+        "keywords": [],
+        "seealso": []
+    },
+    "evi.plateverb.lite~": {
+        "digest": "Efficient version of evi.plateverb~ plate reverb \n",
+        "module": "evieve-ref",
+        "category": [ "evieve", "evieve Abstractions" ],
         "keywords": [],
         "seealso": []
     },
@@ -818,6 +825,13 @@
         "keywords": [],
         "seealso": []
     },
+    "evi.sustainverb.lite~": {
+        "digest": "Efficient version of evi.sustainverb~ reverb effect \n",
+        "module": "evieve-ref",
+        "category": [ "evieve", "evieve Abstractions" ],
+        "keywords": [],
+        "seealso": []
+    },
     "evi.sustainverb_lite~": {
         "digest": "Efficient version of evi.sustainverb~ reverb effect \n",
         "module": "evieve-ref",
@@ -889,7 +903,7 @@
         "seealso": []
     },
     "evi.tremolo~": {
-        "digest": 0,
+        "digest": "Basic Tremolo effect with saturation and choice of LFO shapes",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],

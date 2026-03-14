@@ -46,7 +46,7 @@
         </geninlet>
     </geninletlist>
     <attributelist>
-        <attribute name='detune' type='int' get='0' set='1'>
+        <attribute name='detune' type='float' get='0' set='1'>
             <digest>
                 @min -100, @max 100
             </digest>
@@ -54,7 +54,7 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='0' />
+                <attribute name='default' type='float' value='0.' />
             </attributelist>
         </attribute>
         <attribute name='drive' type='float' get='0' set='1'>
@@ -68,7 +68,7 @@
                 <attribute name='default' type='float' value='0.5' />
             </attributelist>
         </attribute>
-        <attribute name='freqsmooth' type='int' get='0' set='1'>
+        <attribute name='freqsmooth' type='float' get='0' set='1'>
             <digest>
                 @min 0, @max 666
             </digest>
@@ -76,10 +76,10 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='20' />
+                <attribute name='default' type='float' value='20.' />
             </attributelist>
         </attribute>
-        <attribute name='highpass' type='int' get='0' set='1'>
+        <attribute name='highpass' type='float' get='0' set='1'>
             <digest>
                 @min 10, @max 400
             </digest>
@@ -87,7 +87,7 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='40' />
+                <attribute name='default' type='float' value='40.' />
             </attributelist>
         </attribute>
         <attribute name='oscout' type='int' get='0' set='1'>
@@ -134,7 +134,7 @@
                 <attribute name='default' type='int' value='1' />
             </attributelist>
         </attribute>
-        <attribute name='shiftmode' type='int' get='0' set='1'>
+        <attribute name='shiftmode' type='float' get='0' set='1'>
             <digest>
                 @min 0, @max 1
             </digest>
@@ -142,7 +142,7 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='0' />
+                <attribute name='default' type='float' value='0.' />
             </attributelist>
         </attribute>
         <attribute name='smooth' type='float' get='0' set='1'>

@@ -189,12 +189,12 @@
         },
         {
             "name": "freqsmooth",
-            "type": "int",
+            "type": "float",
             "digest": "@min 0, @max 666",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "20"
+                "type": "float",
+                "value": "20."
             }
         },
         {

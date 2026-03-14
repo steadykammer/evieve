@@ -144,7 +144,7 @@
                 <attribute name='default' type='float' value=' 0.333333333333333' />
             </attributelist>
         </attribute>
-        <attribute name='crossover	' type='int' get='0' set='1'>
+        <attribute name='crossover	' type='float' get='0' set='1'>
             <digest>
                 @min  31.25, @max  1260	
             </digest>
@@ -152,10 +152,10 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='	315' />
+                <attribute name='default' type='float' value='	315.' />
             </attributelist>
         </attribute>
-        <attribute name='damp		' type='int' get='0' set='1'>
+        <attribute name='damp		' type='float' get='0' set='1'>
             <digest>
                 @min  500, @max  15000	
             </digest>
@@ -163,7 +163,7 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='	3780' />
+                <attribute name='default' type='float' value='	3780.' />
             </attributelist>
         </attribute>
         <attribute name='dfTime1' type='int' get='0' set='1'>
@@ -298,7 +298,7 @@
                 <attribute name='default' type='float' value='	0.000416' />
             </attributelist>
         </attribute>
-        <attribute name='eq1_m0		' type='int' get='0' set='1'>
+        <attribute name='eq1_m0		' type='float' get='0' set='1'>
             <digest>
                 @min -16, @max  16		
             </digest>
@@ -306,10 +306,10 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='	1' />
+                <attribute name='default' type='float' value='	1.' />
             </attributelist>
         </attribute>
-        <attribute name='eq1_m1		' type='int' get='0' set='1'>
+        <attribute name='eq1_m1		' type='float' get='0' set='1'>
             <digest>
                 @min -16, @max  16		
             </digest>
@@ -317,10 +317,10 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='	0' />
+                <attribute name='default' type='float' value='	0.' />
             </attributelist>
         </attribute>
-        <attribute name='eq1_m2		' type='int' get='0' set='1'>
+        <attribute name='eq1_m2		' type='float' get='0' set='1'>
             <digest>
                 @min -16, @max  16		
             </digest>
@@ -328,7 +328,7 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='	0' />
+                <attribute name='default' type='float' value='	0.' />
             </attributelist>
         </attribute>
         <attribute name='eq2_a1		' type='float' get='0' set='1'>
@@ -364,7 +364,7 @@
                 <attribute name='default' type='float' value='	0.005828' />
             </attributelist>
         </attribute>
-        <attribute name='eq2_m0		' type='int' get='0' set='1'>
+        <attribute name='eq2_m0		' type='float' get='0' set='1'>
             <digest>
                 @min -16, @max  16		
             </digest>
@@ -372,10 +372,10 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='	1' />
+                <attribute name='default' type='float' value='	1.' />
             </attributelist>
         </attribute>
-        <attribute name='eq2_m1		' type='int' get='0' set='1'>
+        <attribute name='eq2_m1		' type='float' get='0' set='1'>
             <digest>
                 @min -16, @max  16		
             </digest>
@@ -383,10 +383,10 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='	0' />
+                <attribute name='default' type='float' value='	0.' />
             </attributelist>
         </attribute>
-        <attribute name='eq2_m2		' type='int' get='0' set='1'>
+        <attribute name='eq2_m2		' type='float' get='0' set='1'>
             <digest>
                 @min -16, @max  16		
             </digest>
@@ -394,7 +394,7 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='	0' />
+                <attribute name='default' type='float' value='	0.' />
             </attributelist>
         </attribute>
         <attribute name='fbTime1' type='int' get='0' set='1'>
@@ -485,7 +485,7 @@
                 <attribute name='default' type='int' value='10560' />
             </attributelist>
         </attribute>
-        <attribute name='gain		' type='int' get='0' set='1'>
+        <attribute name='gain		' type='float' get='0' set='1'>
             <digest>
                 @min -80, @max  20		
             </digest>
@@ -493,7 +493,7 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='  -1' />
+                <attribute name='default' type='float' value='  -1.' />
             </attributelist>
         </attribute>
         <attribute name='gainAPconst	 ' type='float' get='0' set='1'>
@@ -540,7 +540,7 @@
                 <attribute name='default' type='float' value='	2.222222' />
             </attributelist>
         </attribute>
-        <attribute name='predelay	' type='int' get='0' set='1'>
+        <attribute name='predelay	' type='float' get='0' set='1'>
             <digest>
                 @min  0, @max  170	
             </digest>
@@ -548,7 +548,7 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='	19' />
+                <attribute name='default' type='float' value='	19.' />
             </attributelist>
         </attribute>
         <attribute name='sqrt8const	 ' type='float' get='0' set='1'>

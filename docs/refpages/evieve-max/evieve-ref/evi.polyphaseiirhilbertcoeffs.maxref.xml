@@ -62,7 +62,7 @@
 				
 			</description>
 		</objarg>
-		<objarg name="" type="int" default="0" optional="1">
+		<objarg name="" type="float" default="0." optional="1">
 			<digest>
 				arg#3: 
 			</digest>

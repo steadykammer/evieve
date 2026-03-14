@@ -36,7 +36,7 @@
         </geninlet>
     </geninletlist>
     <attributelist>
-        <attribute name='attack' type='int' get='0' set='1'>
+        <attribute name='attack' type='float' get='0' set='1'>
             <digest>
                 @min 10, @max 59999
             </digest>
@@ -44,10 +44,10 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='10' />
+                <attribute name='default' type='float' value='10.' />
             </attributelist>
         </attribute>
-        <attribute name='decay' type='int' get='0' set='1'>
+        <attribute name='decay' type='float' get='0' set='1'>
             <digest>
                 @min 11, @max 60000
             </digest>
@@ -55,10 +55,10 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='100' />
+                <attribute name='default' type='float' value='100.' />
             </attributelist>
         </attribute>
-        <attribute name='offset' type='int' get='0' set='1'>
+        <attribute name='offset' type='float' get='0' set='1'>
             <digest>
                 @min -24, @max 24
             </digest>
@@ -66,10 +66,10 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='0' />
+                <attribute name='default' type='float' value='0.' />
             </attributelist>
         </attribute>
-        <attribute name='smoothfreq' type='int' get='0' set='1'>
+        <attribute name='smoothfreq' type='float' get='0' set='1'>
             <digest>
                 @min 0, @max 666
             </digest>
@@ -77,10 +77,10 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='0' />
+                <attribute name='default' type='float' value='0.' />
             </attributelist>
         </attribute>
-        <attribute name='smoothtime' type='int' get='0' set='1'>
+        <attribute name='smoothtime' type='float' get='0' set='1'>
             <digest>
                 @min 0, @max 111
             </digest>
@@ -88,10 +88,10 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='0' />
+                <attribute name='default' type='float' value='0.' />
             </attributelist>
         </attribute>
-        <attribute name='spread' type='int' get='0' set='1'>
+        <attribute name='spread' type='float' get='0' set='1'>
             <digest>
                 @min -12, @max 12
             </digest>
@@ -99,10 +99,10 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='0' />
+                <attribute name='default' type='float' value='0.' />
             </attributelist>
         </attribute>
-        <attribute name='width' type='int' get='0' set='1'>
+        <attribute name='width' type='float' get='0' set='1'>
             <digest>
                 @min 0, @max 24
             </digest>
@@ -110,7 +110,7 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='0' />
+                <attribute name='default' type='float' value='0.' />
             </attributelist>
         </attribute>
     </attributelist>

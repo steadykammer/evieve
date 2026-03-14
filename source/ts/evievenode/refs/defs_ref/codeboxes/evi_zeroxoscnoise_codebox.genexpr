@@ -117,18 +117,18 @@ oscSources(freq, width, reset, oscinterp, smoothfreq)           // "reset" is na
 Param   envresponse(2, min=0, max=4);               // 1=linear, 2=log (default), 3=vactrol fast, 4=vactrol slow, 0=off
 Param   envwindow(vectorsize, min=16, max=4096);    // in samples, do not change this
 Param   envthresh(0.1, min=0, max=1);               // linear threshold for noise (zero crossings) detection
-Param   envslope(1, min=0.1, max=10);               // slowness of attack/decay slope
-Param   envrelease(2, min=1, max=10);               // slowness of decays
+Param   envslope(1., min=0.1, max=10);              // slowness of attack/decay slope
+Param   envrelease(2., min=1, max=10);              // slowness of decays
 
-Param   damppitchlow(94, min=12, max=103);          // pitch...
-Param   damppitchhigh(124, min=24, max=125);
-Param   noisegain(0, min=-72, max=30);              // in dB
+Param   damppitchlow(94., min=12, max=103);         // pitch...
+Param   damppitchhigh(124., min=24, max=125);
+Param   noisegain(0., min=-72, max=30);             // in dB
 
-Param   gainsmooth(0, min=0, max=333);              // in ms, default off, final gains unused by default
+Param   gainsmooth(0., min=0, max=333);             // in ms, default off, final gains unused by default
 
 // note: turn off oscsmoothfreq if modulating externally
-Param	oscsmoothfreq(22, min=0, max=333);          // in ms, smooth the frequency changes of the oscillators? (in2)
-Param	oscgain(0, min=-72, max=30);                // in dB
+Param	oscsmoothfreq(22., min=0, max=333);         // in ms, smooth the frequency changes of the oscillators? (in2)
+Param	oscgain(0., min=-72, max=30);               // in dB
 // note: there might be a problem somewhere if oscsmoothinterp == 0
 Param	oscsmoothinterp(30.111, min=0, max=1000);   // in ms, smooth the oscillators interpolation? (in3)
 oscsmoothinterpsamps    = mstosamps(oscsmoothinterp);

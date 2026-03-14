@@ -82,7 +82,7 @@ tanhQ(x)
 // 'crap'
 tanhR(x0)
 {
-	x1	= (x0 * 1.84726402473396);										// * (7.38905609893584 / 4);
+	x1	= (x0 * 1.84726402473396);						// * (7.38905609893584 / 4);
 	ex	= 0.999996 + (0.031261316 + (0.00048274797 + 0.000006 * x1) * x1) * x1;
 	ex *= ex; ex *= ex; ex *= ex; ex *= ex; ex *= ex;	// ex = pow(7.38905609893584, x);
 	return ((ex - 1) / (ex + 1));
@@ -98,7 +98,7 @@ tanhXdX(x)
 }
 
 
-// adaa
+// adaa, @see: 'evi_adaa.genexpr' for many more functions
 
 // these are the antiderivatives of the approximation, not of a real tanh - that is crucial !
 // sadly we still end up with a bloody Li2 in the 2nd order :-(
@@ -156,7 +156,7 @@ altTanhF22(x)
 
 // first order antiderivative method
 
-// this is broken - gain staging is wrong (requires more gain to reach same as adaa2)
+// this is slightly broken - gain staging is wrong (requires more gain to reach same as adaa2)
 // but apart from that it works!
 altTanhAdaa1(x0, reset)
 {
@@ -187,9 +187,8 @@ altTanhAdaa1(x0, reset)
 altTanhAdaa2(x0, reset)
 {
 	History x1(0), x2(0), s1(0);
-//eps = 0.001;	// precision    // only works to +11 dB if using F00 etc
+	//eps = 0.001;		// precision    // only works to +11 dB if using F00 etc
 	eps = 0.0000001;	// precision    // does not work low gain
-//eps = 0.0000000001;
 	if (reset) {
 		x1 = 0; x2 = 0; s1 = 0;
 	}

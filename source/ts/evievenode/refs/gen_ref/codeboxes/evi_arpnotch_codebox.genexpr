@@ -63,7 +63,7 @@ preWarp(cutoff, type)
 // declare
 
 Param	cutoffmode(1, min=0, max=1);			// 0 = Hz, 1 = pitch (default)
-Param	morphsmooth(0, min=0, max=333);	        // in ms, default off
+Param	morphsmooth(0., min=0, max=333);	    // in ms, default off
 
 // inputs (smooth || mod res & cutoff externally)
 morph   = clip(     in4, 0, 1);                 // 0=LP .. 0.5=Notch .. 1=HP

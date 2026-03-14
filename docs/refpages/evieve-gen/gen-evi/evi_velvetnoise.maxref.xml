@@ -33,7 +33,7 @@
         </geninlet>
     </geninletlist>
     <attributelist>
-        <attribute name='amplitude' type='int' get='0' set='1'>
+        <attribute name='amplitude' type='float' get='0' set='1'>
             <digest>
                 @min 0, @max 1
             </digest>
@@ -41,7 +41,7 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='1' />
+                <attribute name='default' type='float' value='1.' />
             </attributelist>
         </attribute>
     </attributelist>

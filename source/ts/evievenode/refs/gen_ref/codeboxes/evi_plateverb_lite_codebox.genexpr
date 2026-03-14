@@ -1,4 +1,8 @@
 
+// this is broken since Max 9.2 update, which is a shame as 9.2 fixed most other gen problems
+// if you can work out what is wrong, please let me know (it is maybe something to do with dryL/dryR)
+// in the meantime just use 'evi_plateverb.gendsp'
+
 // -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- \\
 
 // evi_plateverb_lite.gendsp
@@ -29,29 +33,29 @@ Param	diffuse(0.3, min=0, max=1);
 Param	damp(0.67682, min=0, max=1);		// pre-warped frequency (a 0..1) (default 6593Hz @48kHz)
 // eq (compute coefficients externally in gen no tilde)
 Param	highshelfG(0.123758, min=0, max=1);	// pre-warped frequency (g / (1 + g)) (default 2000Hz @48kHz)
-Param	highshelfK(0, min=-3, max=1);		// -3=shelfboost..0=bypass..shelf..1=pass
+Param	highshelfK(0., min=-3, max=1);		// -3=shelfboost..0=bypass..shelf..1=pass
 Param	lowshelfG(0.032214, min=0, max=1);	// pre-warped frequency (g / (1 + g)) (default 500Hz @48kHz)
-Param	lowshelfK(0, min=-3, max=1);		// -3=shelfboost..0=bypass..shelf..1=pass
+Param	lowshelfK(0., min=-3, max=1);		// -3=shelfboost..0=bypass..shelf..1=pass
 // mix
-Param	wet(-3, min=-90, max=0);							// wet '0' dB & dry '-90' dB...
-Param	dry(-15, min=-90, max=0);							// ...= 'yafr2' default (no dry)
+Param	wet(-3., min=-90, max=0);							// wet '0' dB & dry '-90' dB...
+Param	dry(-15., min=-90, max=0);							// ...= 'yafr2' default (no dry)
 Param	pan(0.5, min=0, max=1);								// pan for DRY signal in MONO mode
 Param	stereo(0, min=0, max=2);							// input is mono / stereo / 2-chans ?
 Param	bypass(0, min=0, max=1);							// also cpu-off, but no reset in gen~ !!
 
 History	dryL(0), dryR(0);									// compensate
 
-Delay	tapsL(samplerate*0.20010,	3,	feedback=1);		// loops...
-Delay	tapsR(samplerate*0.17005,	3,	feedback=1);
+Delay    tapsL(samplerate*0.20010,    3,    feedback=1);    // loops...
+Delay    tapsR(samplerate*0.17005,    3,    feedback=1);
 
 // in this "Lite" version of plate, we have no zero delay holds, so...
-Delay	modDelayL(samplerate*0.25969,	3,	feedback=0);
-Delay	modDelayR(samplerate*0.24666,	3,	feedback=0);
+Delay    modDelayL(samplerate*0.25969,    3,    feedback=0);
+Delay    modDelayR(samplerate*0.24666,    3,    feedback=0);
 
-Delay	sum2L(samplerate*0.0570,	1,	feedback=0);
-Delay	sum2R(samplerate*0.1107,	1,	feedback=0);
-Delay	sum4L(samplerate*0.0834,	2,	feedback=0);
-Delay	sum4R(samplerate*0.1210,	2,	feedback=0);
+Delay    sum2L(samplerate*0.0570,    1,    feedback=0);
+Delay    sum2R(samplerate*0.1107,    1,    feedback=0);
+Delay    sum4L(samplerate*0.0834,    2,    feedback=0);
+Delay    sum4R(samplerate*0.1210,    2,    feedback=0);
 
 // constants, not user
 
@@ -65,7 +69,7 @@ Param	apGain2		(  0.625,	min= 0, max= 1);
 Param	apGain3		( -sqrt1_2,	min=-1, max= 1);
 Param	apGain4		(  0.5,		min= 0, max= 1);
 
-Param	smoothtime(30, min=0, max=500);	// ms
+Param	smoothtime(30., min=0, max=500);// ms
 smoothsecs	= smoothtime * 0.001;		// secs
 smoothsamps	= smoothsecs * samplerate;	// samps
 
@@ -117,16 +121,16 @@ RtimeMul1	= sizescale * (0.03051 * SRATE);
 RtimeMul3	= sizescale * (0.08924 * SRATE);
 RtimeMul4	= sizescale * (0.10628 * SRATE);
 
-CtimeMul1L	= sizediff 	* (0.110   * SRATE);
-CtimeMul2L	= sizediff 	* (0.160   * SRATE);
+CtimeMul1L	= sizediff  * (0.110   * SRATE);
+CtimeMul2L	= sizediff  * (0.160   * SRATE);
 CtimeMul3L	= sizediff  * (0.050   * SRATE);
 CtimeMul4L	= sizediff  * (0.025   * SRATE);
 CtimeMul5L	= sizediff  * (0.069   * SRATE);
 CtimeMul6L	= sizediff  * (0.080   * SRATE);
 CtimeMul7L	= sizediff  * (0.075   * SRATE);
 
-CtimeMul1R	= sizediff 	* (0.110   * SRATE);
-CtimeMul2R	= sizediff 	* (0.135   * SRATE);
+CtimeMul1R	= sizediff  * (0.110   * SRATE);
+CtimeMul2R	= sizediff  * (0.135   * SRATE);
 CtimeMul3R	= sizediff  * (0.055   * SRATE);
 CtimeMul4R	= sizediff  * (0.003   * SRATE);
 CtimeMul5R	= sizediff  * (0.035   * SRATE);
@@ -136,14 +140,15 @@ CtimeMul7R	= sizediff  * (0.052   * SRATE);
 
 // -------	inputs / outputs (audio rate from here)
 
-x0, xN		=  0;
-if (iStereo >  0) {
+x0  = 0;
+//xN  = 0;
+if (iStereo > 0) {
 	x0		= (in1 + in2) * stereoMul;				// !! stereoMul not smoothed !!
 	dryL	=  in1;									// compensate
 	dryR	=  in2;
 } else {
 	x0		=  in1;
-	xN		=  in2;
+//	xN		=  in2;
 	dryL	=  in1 * cosL;							// & compensate
 	dryR	=  in1 * sinR;
 }

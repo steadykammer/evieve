@@ -240,7 +240,7 @@ SandKtwo_2x4( XIN, hz, k1, M1, M2, load )
 }
 
 Param	filter(0, min=0, max=1);						// switch LP/HP 0/1 flag
-Param	filtersmooth(92, min=0, max=296);				// in ms
+Param	filtersmooth(92., min=0, max=296);				// in ms
 // do not change load
 Param   load(1.333333333333, min=0.25, max=4);
 Param   oversample(1, min=0, max=1);                    // default 2x

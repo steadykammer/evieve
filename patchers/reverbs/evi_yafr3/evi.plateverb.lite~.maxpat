@@ -73,7 +73,7 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 334.0, 12.0, 322.0, 20.0 ],
-                    "text": "@ttributes or messages to evi.plateverb_lite~",
+                    "text": "@ttributes or messages to evi.plateverb.lite~",
                     "textjustification": 2
                 }
             },
@@ -124,7 +124,7 @@
                 "box": {
                     "comment": "dumpout (pattrstorage)",
                     "id": "obj-58",
-                    "index": 0,
+                    "index": 3,
                     "maxclass": "outlet",
                     "numinlets": 1,
                     "numoutlets": 0,
@@ -135,7 +135,7 @@
                 "box": {
                     "comment": "(signal) Audio Out Right",
                     "id": "obj-57",
-                    "index": 0,
+                    "index": 2,
                     "maxclass": "outlet",
                     "numinlets": 1,
                     "numoutlets": 0,
@@ -146,7 +146,7 @@
                 "box": {
                     "comment": "(signal) Audio Out Left",
                     "id": "obj-56",
-                    "index": 0,
+                    "index": 1,
                     "maxclass": "outlet",
                     "numinlets": 1,
                     "numoutlets": 0,
@@ -313,12 +313,12 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "" ],
                                     "patching_rect": [ 567.1428571428571, 291.0, 69.0, 22.0 ],
-                                    "restore": [ 0 ],
+                                    "restore": [ 0.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_initial": [ 0.0 ],
                                             "parameter_linknames": 1,
-                                            "parameter_longname": "stereo",
+                                            "parameter_longname": "stereo[1]",
                                             "parameter_mmax": 2.0,
                                             "parameter_modmode": 0,
                                             "parameter_shortname": "stereo",
@@ -350,7 +350,7 @@
                                         "valueof": {
                                             "parameter_initial": [ 0.5 ],
                                             "parameter_linknames": 1,
-                                            "parameter_longname": "inputPan",
+                                            "parameter_longname": "inputPan[1]",
                                             "parameter_mmax": 1.0,
                                             "parameter_modmode": 3,
                                             "parameter_shortname": "inputPan",
@@ -382,7 +382,7 @@
                                         "valueof": {
                                             "parameter_initial": [ 0.3 ],
                                             "parameter_linknames": 1,
-                                            "parameter_longname": "diffusion",
+                                            "parameter_longname": "diffusion[1]",
                                             "parameter_mmax": 1.0,
                                             "parameter_modmode": 3,
                                             "parameter_shortname": "diffusion",
@@ -414,7 +414,7 @@
                                         "valueof": {
                                             "parameter_initial": [ 0.6 ],
                                             "parameter_linknames": 1,
-                                            "parameter_longname": "decay",
+                                            "parameter_longname": "decay[1]",
                                             "parameter_mmax": 1.0,
                                             "parameter_modmode": 3,
                                             "parameter_shortname": "decay",
@@ -834,12 +834,12 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "" ],
                                     "patching_rect": [ 1083.75, 291.0, 97.0, 22.0 ],
-                                    "restore": [ 0 ],
+                                    "restore": [ 0.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_initial": [ 0.0 ],
                                             "parameter_linknames": 1,
-                                            "parameter_longname": "eqLowGain",
+                                            "parameter_longname": "eqLowGain[1]",
                                             "parameter_mmax": 1.0,
                                             "parameter_mmin": -1.0,
                                             "parameter_modmode": 3,
@@ -872,7 +872,7 @@
                                         "valueof": {
                                             "parameter_initial": [ 500.0 ],
                                             "parameter_linknames": 1,
-                                            "parameter_longname": "eqLowFreq",
+                                            "parameter_longname": "eqLowFreq[1]",
                                             "parameter_mmax": 4000.0,
                                             "parameter_mmin": 63.5,
                                             "parameter_modmode": 3,
@@ -900,12 +900,12 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "" ],
                                     "patching_rect": [ 937.5, 291.0, 99.0, 22.0 ],
-                                    "restore": [ 0 ],
+                                    "restore": [ 0.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_initial": [ 0.0 ],
                                             "parameter_linknames": 1,
-                                            "parameter_longname": "eqHighGain",
+                                            "parameter_longname": "eqHighGain[1]",
                                             "parameter_mmax": 1.0,
                                             "parameter_mmin": -1.0,
                                             "parameter_modmode": 3,
@@ -938,7 +938,7 @@
                                         "valueof": {
                                             "parameter_initial": [ 2000.0 ],
                                             "parameter_linknames": 1,
-                                            "parameter_longname": "eqHighFreq",
+                                            "parameter_longname": "eqHighFreq[1]",
                                             "parameter_mmax": 15000.0,
                                             "parameter_mmin": 500.0,
                                             "parameter_modmode": 3,
@@ -1475,7 +1475,7 @@
                                         "valueof": {
                                             "parameter_initial": [ 49.0 ],
                                             "parameter_linknames": 1,
-                                            "parameter_longname": "smoothTime",
+                                            "parameter_longname": "smoothTime[1]",
                                             "parameter_mmax": 500.0,
                                             "parameter_mmin": 1.0,
                                             "parameter_modmode": 3,
@@ -1508,7 +1508,7 @@
                                         "valueof": {
                                             "parameter_initial": [ -15.0 ],
                                             "parameter_linknames": 1,
-                                            "parameter_longname": "dryGain",
+                                            "parameter_longname": "dryGain[1]",
                                             "parameter_mmax": 0.0,
                                             "parameter_mmin": -90.0,
                                             "parameter_modmode": 3,
@@ -1949,12 +1949,12 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "" ],
                                     "patching_rect": [ 612.0, 252.0, 74.0, 22.0 ],
-                                    "restore": [ 0 ],
+                                    "restore": [ 0.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_initial": [ 0.0 ],
                                             "parameter_linknames": 1,
-                                            "parameter_longname": "bypass",
+                                            "parameter_longname": "bypass[1]",
                                             "parameter_mmax": 1.0,
                                             "parameter_modmode": 0,
                                             "parameter_shortname": "bypass",
@@ -1986,7 +1986,7 @@
                                         "valueof": {
                                             "parameter_initial": [ -3.0 ],
                                             "parameter_linknames": 1,
-                                            "parameter_longname": "wetGain",
+                                            "parameter_longname": "wetGain[1]",
                                             "parameter_mmax": 0.0,
                                             "parameter_mmin": -90.0,
                                             "parameter_modmode": 3,
@@ -2019,7 +2019,7 @@
                                         "valueof": {
                                             "parameter_initial": [ 6593.0 ],
                                             "parameter_linknames": 1,
-                                            "parameter_longname": "damping",
+                                            "parameter_longname": "damping[1]",
                                             "parameter_mmax": 12000.0,
                                             "parameter_mmin": 20.0,
                                             "parameter_modmode": 3,
@@ -2052,7 +2052,7 @@
                                         "valueof": {
                                             "parameter_initial": [ 0.2 ],
                                             "parameter_linknames": 1,
-                                            "parameter_longname": "reverbSize",
+                                            "parameter_longname": "reverbSize[1]",
                                             "parameter_mmax": 1.0,
                                             "parameter_modmode": 3,
                                             "parameter_shortname": "reverbSize",
@@ -2629,9 +2629,9 @@
             },
             {
                 "box": {
-                    "comment": "(signal) Audio In Nothing or Right or 2 / messages to evi.plateverb_lite~",
+                    "comment": "(signal) Audio In Nothing or Right or 2 / messages to evi.plateverb.lite~",
                     "id": "obj-47",
-                    "index": 0,
+                    "index": 2,
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
@@ -2641,9 +2641,9 @@
             },
             {
                 "box": {
-                    "comment": "(signal) Audio In Mono or Left or 1 / messages to evi.plateverb_lite~",
+                    "comment": "(signal) Audio In Mono or Left or 1 / messages to evi.plateverb.lite~",
                     "id": "obj-46",
-                    "index": 0,
+                    "index": 1,
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
@@ -2946,24 +2946,6 @@
                 }
             }
         ],
-        "parameters": {
-            "obj-54::obj-10": [ "eqHighGain", "eqHighGain", 0 ],
-            "obj-54::obj-12": [ "wetGain", "wetGain", 0 ],
-            "obj-54::obj-15": [ "eqLowGain", "eqLowGain", 0 ],
-            "obj-54::obj-16": [ "eqLowFreq", "eqLowFreq", 0 ],
-            "obj-54::obj-2": [ "reverbSize", "reverbSize", 0 ],
-            "obj-54::obj-33": [ "decay", "decay", 0 ],
-            "obj-54::obj-35": [ "bypass", "bypass", 0 ],
-            "obj-54::obj-36": [ "diffusion", "diffusion", 0 ],
-            "obj-54::obj-4": [ "dryGain", "dryGain", 0 ],
-            "obj-54::obj-42": [ "inputPan", "inputPan", 0 ],
-            "obj-54::obj-43": [ "stereo", "stereo", 0 ],
-            "obj-54::obj-5": [ "damping", "damping", 0 ],
-            "obj-54::obj-7": [ "eqHighFreq", "eqHighFreq", 0 ],
-            "obj-54::obj-8": [ "smoothTime", "smoothTime", 0 ],
-            "inherited_shortname": 1
-        },
-        "autosave": 0,
         "styles": [
             {
                 "name": "AudioStatus_Menu",

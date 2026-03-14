@@ -67,11 +67,11 @@ hShaper(x, shape, harmonics, compensate=1)
     return (shaped) * (compensate ? (((1 - ashape) * 0.412538) + 1) : 1);
 }
 
-Param   shape(0, min=-1, max=1);        // > 0 == odd harmincs, < 0 = even harmonics
+Param   shape(0., min=-1, max=1);       // > 0 == odd harmincs, < 0 = even harmonics
 Param   harmonics(0.5, min=0, max=1);   // 0..1 = 0..8 harmonics (0 = 0, 0.25 = 1, 0.5 = 2, 0.75 = 4, 1 = 8)
 Param   compensate(1, min=0, max=1);    // gain compensation
 
-Param   smooth(0, min=0, max=666);      // optional smoothing in ms (default off)
+Param   smooth(0., min=0, max=666);     // optional smoothing in ms (default off)
 smoothsamps = mstosamps(smooth);
 
 c   = int(compensate);

@@ -58,12 +58,12 @@ History	xL(0), xR(0);						// align dry signals
 History	tL(0), tR(0);						// align tapped signals
 
 // reverb controls
-Param	predelay	(	19,			min= 0,		max= 170	);	// ms
-Param	crossover	(	315,		min= 31.25,	max= 1260	);	// Hz
+Param	predelay	(	19.,		min= 0,		max= 170	);	// ms
+Param	crossover	(	315.,		min= 31.25,	max= 1260	);	// Hz
 Param	lowdecay	(	3.333333,	min= 0.06,	max= 60		);	// seconds, low RT60
 Param	middecay	(	2.222222,	min= 0.06,	max= 60		);	// seconds, mid RT60
-Param	damp		(	3780,		min= 500,	max= 15000	);	// Hz (1000 .. 8000 ?)	// maximum will actually be sr/4
-//Param	feedback	(	1,			min= 0.001,	max= 1		);	// amplitude, for testing only, keep at '1' !!
+Param	damp		(	3780.,		min= 500,	max= 15000	);	// Hz (1000 .. 8000 ?)	// maximum will actually be sr/4
+//Param	feedback	(	1.,			min= 0.001,	max= 1		);	// amplitude, for testing only, keep at '1' !!
 
 // eq coefficients
 // calculated externally, defaults: samplerate: 48000 / lowshelf: 315 Hz, 0 dB, 1.0 res / highshelf: 1260 Hz, 0 dB, 0.5 res
@@ -71,18 +71,18 @@ Param	damp		(	3780,		min= 500,	max= 15000	);	// Hz (1000 .. 8000 ?)	// maximum w
 Param	eq1_a1		(	0.979389,	min=-1,		max= 1		);
 Param	eq1_a2		(	0.020195,	min=-1,		max= 1		);
 Param	eq1_a3		(	0.000416,	min=-1,		max= 1		);
-Param	eq1_m0		(	1,			min=-16,	max= 16		);	// eq1_m0 static @ '1' for lowshelf or bell choices
-Param	eq1_m1		(	0,			min=-16,	max= 16		);
-Param	eq1_m2		(	0,			min=-16,	max= 16		);
+Param	eq1_m0		(	1.,			min=-16,	max= 16		);	// eq1_m0 static @ '1' for lowshelf or bell choices
+Param	eq1_m1		(	0.,			min=-16,	max= 16		);
+Param	eq1_m2		(	0.,			min=-16,	max= 16		);
 Param	eq2_a1		(	0.853140,	min=-1,		max= 1		);
 Param	eq2_a2		(	0.070516,	min=-1,		max= 1		);
 Param	eq2_a3		(	0.005828,	min=-1,		max= 1		);
-Param	eq2_m0		(	1,			min=-16,	max= 16		);	// (highshelf / bell requires eq2_m0 coefficient)
-Param	eq2_m1		(	0,			min=-16,	max= 16		);
-Param	eq2_m2		(	0,			min=-16,	max= 16		);
+Param	eq2_m0		(	1.,			min=-16,	max= 16		);	// (highshelf / bell requires eq2_m0 coefficient)
+Param	eq2_m1		(	0.,			min=-16,	max= 16		);
+Param	eq2_m2		(	0.,			min=-16,	max= 16		);
 
 // mix controls
-Param	gain		(  -1,			min=-80,	max= 20		);	// dB
+Param	gain		(  -1.,			min=-80,	max= 20		);	// dB
 Param	drywet		(	0.8666,		min= 0,		max= 1		);	// % 0..1
 Param	bypass		(	0,			min= 0,		max= 1		);	// 'mix' to real '0'
 

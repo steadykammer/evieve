@@ -253,12 +253,12 @@
         {
             "name": "maxsustain",
             "get": 0,
-            "type": "int",
+            "type": "float",
             "digest": "",
             "description": "",
             "default": {
                 "get": 0,
-                "value": "-1"
+                "value": "-1."
             }
         },
         {
@@ -286,12 +286,12 @@
         {
             "name": "retrigger",
             "get": 0,
-            "type": "int",
+            "type": "float",
             "digest": "",
             "description": "",
             "default": {
                 "get": 0,
-                "value": "5"
+                "value": "5."
             }
         },
         {
@@ -330,12 +330,12 @@
         {
             "name": "velocitysense",
             "get": 0,
-            "type": "int",
+            "type": "float",
             "digest": "",
             "description": "",
             "default": {
                 "get": 0,
-                "value": "0"
+                "value": "0."
             }
         },
         {

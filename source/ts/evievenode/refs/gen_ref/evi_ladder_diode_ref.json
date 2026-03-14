@@ -73,12 +73,12 @@
         },
         {
             "name": "cfsmooth",
-            "type": "int",
+            "type": "float",
             "digest": "@min 0, @max 1000",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "20"
+                "type": "float",
+                "value": "20."
             }
         },
         {
@@ -103,12 +103,12 @@
         },
         {
             "name": "ressmooth",
-            "type": "int",
+            "type": "float",
             "digest": "@min 0, @max 333",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "20"
+                "type": "float",
+                "value": "20."
             }
         },
         {

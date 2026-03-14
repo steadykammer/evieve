@@ -83,7 +83,7 @@
 				<attribute name="default" get="0" set="0" size="1" value="15.111" />
 			</attributelist>
 		</attribute>
-		<attribute name="cutoff" get="1" set="1" type="int" min="10" max="10000">
+		<attribute name="cutoff" get="1" set="1" type="float" min="10" max="10000">
 			<digest>
 				
 			</digest>
@@ -91,10 +91,10 @@
 				
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="1000" />
+				<attribute name="default" get="0" set="0" size="1" value="1000." />
 			</attributelist>
 		</attribute>
-		<attribute name="mix" get="1" set="1" type="int" min="0" max="1">
+		<attribute name="mix" get="1" set="1" type="float" min="0" max="1">
 			<digest>
 				
 			</digest>
@@ -102,7 +102,7 @@
 				
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="0" />
+				<attribute name="default" get="0" set="0" size="1" value="0." />
 			</attributelist>
 		</attribute>
 		<attribute name="mixenable" get="1" set="1" type="int" min="0" max="1">

@@ -1,190 +1,11 @@
 
 // three different resonant-like filters for filterbank style setups
-// by pete for evieve
+// by pete for evieve (note, this is inprogress for an ongoing project)
 
 
-// approxes
+require("evi_smooth.genexpr");
+require("evi_interp.genexpr");
 
-expA(x0)
-{
-	x = 0.999996 + (0.031261316 + (0.00048274797 + 0.000006 * x0) * x0) * x0;
-	x *= x; x *= x; x *= x; x *= x; x *= x;
-	return x;
-}
-
-tauA(t)
-{
-	y = expA(-1 / (t * SAMPLERATE));
-	return y + 0.000128;
-}
-
-tanA2(x)							// tan(0..halfpi)
-{
-	a	= ((((x * -0.0896638) + 0.0388452) * x) + 1.00005) * x;
-	b	= (((x * -0.430871) + 0.0404318) * x) + 1;
-	return	a / b;
-}
-
-cosQ32(x)
-{
-	c1 =  0.99940307;
-	c2 = -0.49558072;
-	c3 =  0.03679168;
-	x2 =  x * x;
-	return (c1 + x2 * (c2 + c3 * x2));
-}
-
-cos32(x) {
-	twodivpi = 0.63661977236758;	// 2 / pi
-	x = x % TWOPI;
-	x = (x < 0) ? -x : x;
-	quad = int(x * twodivpi);		// get quadrant # (0 to 3) we're in
-	// param rate version (keep out of while loop)
-	return (quad == 0) ? cosQ32(x) : (quad == 1) ? -cosQ32(PI - x) : (quad == 2) ? -cosQ32(x - PI) : cosQ32(TWOPI - x);
-}
-
-acosT(x)			// for x 1..0.2, rubbish, but fine for this usage
-{
-	onediveleven = 0.09090909090909091;
-	sq1x = sqrt(1 - x);
-	return	SQRT2 * (sq1x + onediveleven * (sq1x * sq1x * sq1x));
-}
-
-expApprox(x)
-{
-	x = 1 + (0.062500309 + (0.0019527233 + (0.0000408663 + (0.00000060184965 + 0.000000010856791*x)*x)*x)*x)*x;
-	x *= x; x *= x; x *= x;
-	return x*x;
-}
-
-pow2Approx(y) // approx pow(2, y)
-{
-	return expApprox(y * LN2);
-}
-
-coshApprox(x)
-{
-	return 0.5 * (expApprox(x) + expApprox(-x));
-}
-
-log2Approx(x) // sorry
-{
-	return (-0.2119568027628040757e-1 + (-0.38815224340108325886 + (-0.8900051141728954376 + (0.4001641794691007527
-			+ (0.79615191430677253059 + 0.10303694407435362078*x)*x)*x)*x)*x) /
-				(0.298115002929551095e-2 + (0.1066700361116609290 + (0.6070463053447878628 + (0.8584931203106122717
-					+ (0.30170842595823793523 + 0.16863931436090069014e-1*x)*x)*x)*x)*x);
-}
-
-logApprox(x)
-{
-	return LN2 * log2Approx(x);
-}
-
-log10Approx(x)
-{
-	return 0.3010299956639811 * log2Approx(x); // log10(2)*log2(x)
-}
-
-
-// smoothing
-
-logsad(s)									// s = time to drop 6dB (in seconds)
-{
-	return	LN2 / (s * SAMPLERATE);
-//	return	LN2 / maximum((s * SAMPLERATE), 1);// incl. maximum check
-}
-
-logso(x, ad)
-{
-	History z(0);
-	y = ((x - z) * ad) + z;
-	z = y;
-	return y;
-}
-
-logsmooth(x, s)
-{
-	History	logsdummy1(0);
-	ad		= logsad(s);
-	y		= logso(x, ad);
-	return	y;
-}
-
-logsmoothBank2(x1, x2, s)
-{
-	History	logsdummy2(0);
-	ad		= logsad(s);
-	y1		= logso(x1, ad);
-	y2		= logso(x2, ad);
-	return	y1, y2;
-}
-
-expso(x, z)									// z is pole
-{
-	History w(0);
-	y = (z * w) + (x * (1 - z));
-	w = y;
-	return y;
-}
-
-expsmoothBank2(x1, x2, t)
-{
-	History	expsdummy2(0);
-	z		= tauA(t);
-	y1		= expso(x1, z);
-	y2		= expso(x2, z);
-	return	y1, y2;
-}
-
-expsmoothBank4(x1, x2, x3, x4, t)
-{
-	History	expsdummy4(0);
-	z		= tauA(t);
-	y1		= expso(x1, z);
-	y2		= expso(x2, z);
-	y3		= expso(x3, z);
-	y4		= expso(x4, z);
-	return	y1, y2, y3, y4;
-}
-
-eviMap(valueIn, inLow, inHigh, outLow, outHigh)	// basic linear scaling like linear part of [scale]
-{
-    multiplier = (outLow - outHigh) / (inLow - inHigh);
-    return (valueIn - inLow) * multiplier + outLow;
-}
-
-eviLine(target, duration)						// target, duration in samples
-{
-	History val(0);
-    trigger	= change(target);
-    ramp	= clamp(accum((1 / latch(duration, trigger)), trigger), 0, 1);
-    lin 	= eviMap(ramp, 0, 1, latch(val, trigger), latch(target, trigger));
-    val 	= lin;
-    return  lin, (ramp == 1);
-}
-
-
-// nonlin
-
-hermite_sixpoint_interp(f0, ym2, ym1, y0, y1, y2, y3)
-{
-	f1		=  f0 - 0.5;
-	even1	= ym2 + y3;
-	odd1	= ym2 - y3;
-	even2	= ym1 + y2;
-	odd2	= ym1 - y2;
-	even3	=  y0 + y1;
-	odd3	=  y0 - y1;
-
-	c0	= 0.01171875*even1		- 0.09765625*even2		+ 0.5859375*even3;
-	c1	= 0.2109375*odd2		- 1.463541666667*odd3	- 0.033854166667*odd1;
-	c2	= 0.40625*even2			- 0.354166666667*even3	- 0.052083333333*even1;
-	c3	= 0.1875*odd1			- 1.104166666667*odd2	+ 2.375*odd3;
-	c4	= 0.020833333333*even1	- 0.0625*even2			+ 0.041666666667*even3;
-	c5	= 1.041666666667*odd2	- 2.083333333333*odd3	- 0.208333333333*odd1;
-
-	return ((((c5*f1 + c4)*f1 + c3)*f1 + c2)*f1 + c1)*f1 + c0;
-}
 
 funcSc0(x) // tanh Lambert approx
 {
@@ -200,10 +21,10 @@ funcSc1(x)
 	return logApprox(coshApprox(x));
 }
 
-adSc1(x)	// first antiderivative only
+adSc1(x)			// first antiderivative only (half sample)
 {
 	History x1(0), ad1_x1(0);
-	TOL = 0.00001; // i've seen this in some sources as 0.018
+	TOL = 0.00001;	// i've seen this in some sources as 0.018
 	xmx1 = x - x1;
 	illCondition = abs(xmx1) < TOL;
 	ad1_x = funcSc1(x);
@@ -221,6 +42,7 @@ adSc1(x)	// first antiderivative only
 	return y;
 }
 
+// fake 2x oversample
 adSc1_2x_6POINT(XIN)
 {	// up 2
 	History	umTm2_0(0), umTm1_0(0), umT0_0(0), umT1_0(0), umT2_0(0);
@@ -270,7 +92,7 @@ rcPreWarp0(cutoff)
 	return	tanA2(PI * cutoff / SAMPLERATE);
 }
 
-svfButterCoeffs(R)	// TODO: could optimise more by just using cosQ32()'s
+svfButterCoeffs(R)	// TODO: could optimise more by just using cosQ32() quadrants
 {
 	threepidiveight = 1.1780972450961724;
 	pidiveight = 0.39269908169872414;
@@ -320,7 +142,7 @@ svfCoeffReson(hz, q)							// use with "svfSectionReson()"
 // used for '1956'
 
 // pete: is there a reason we compute g0 here and we don't just use
-// 'tptSvf()' from 'evi_svfs.genexpr' ?
+// 'tptSvf()' from 'evi_svfs_filters.genexpr' ?
 svfButterBp(x, w, k)			// transposed tpt svf
 {
 	History	s1(0), s2(0);
@@ -345,7 +167,7 @@ svfButterBp(x, w, k)			// transposed tpt svf
 
 // used for '1998'
 
-svfSectionReson(v0, a0, a1, a2)					// linear trapezoidal zdf
+svfSectionReson(v0, a0, a1, a2)	// linear trapezoidal zdf
 {
 	History ic1eq(0), ic2eq(0);
     v3		=  v0 - ic2eq;
@@ -353,12 +175,12 @@ svfSectionReson(v0, a0, a1, a2)					// linear trapezoidal zdf
     v1		= (a0 * ic1eq) + (a1 * v3);
     ic1eq	= fixdenorm(v1 + v1) - ic1eq;
     ic2eq	= fixdenorm(v2 + v2) - ic2eq;
-    return 	v1;									// only v1 required for reson filter
+    return 	v1;					// only v1 required for reson filter
 }
 
 // used for nonlinear-ish '1977'
 
-onepole_init(x, g, s, k) {			// initial feedback loop settings
+onepole_init(x, g, s, k) {		// initial feedback loop settings
 	spg = s + g;
 	smg = s - g;
 	x > spg * k ? spg : x;
@@ -366,14 +188,14 @@ onepole_init(x, g, s, k) {			// initial feedback loop settings
 	return x;
 }
 
-onepole_II(g, s, w, n, z) {			// onepole part II - only signal after the delayed signal
+onepole_II(g, s, w, n, z) {		// onepole part II - only signal after the delayed signal
 	zz = z + z;
 	g = g * w * n;
 	s = ((s * w) + zz) * n;
 	return g, s, zz;
 }
 
-onepole_I(y, w, n, z, zz) {			// onepole part I - direct signal mixed with the delayed signal
+onepole_I(y, w, n, z, zz) {		// onepole part I - direct signal mixed with the delayed signal
 	t = ((y - (((y * w) + zz) * n)) * w) + z;
 	return t + z, t;
 }
@@ -381,8 +203,8 @@ onepole_I(y, w, n, z, zz) {			// onepole part I - direct signal mixed with the d
 // nonlinearity (usually with exit loop as function of k, but not here)
 onepole_next(y, x, g, s, k)
 {
-//	t = tanhL(x - (k * y));
-	t = adSc1((x - (k * y)), 0);	// 1st order antiderivative... ...2nd order is fucked
+//	t = funcSc0(x - (k * y));				// tanhL()
+	t = adSc1((x - (k * y)), 0);			// 1st order antiderivative
 //	t = adSc1_2x_6POINT((x - (k * y)), 0);	// 1st order antiderivative but 2x oversampled
 	return y - (((t * g) + s - y) / ((((t * t) - 1) * k * g) - 1));
 }
@@ -395,12 +217,12 @@ onepole_sat(x, nl)
 		k1, k2, k3, k4, k5, k6, VT, A1 = diodeCoeffs(SAMPLERATE);
 		y = diode_2x_6POINT(x, k1, k2, k3, k4, k5, k6, VT, A1);
 	} else {
-		y = adSc2(x, 0);			// 2nd order antiderivative
+		y = adSc1(x, 0);		// 1st order antiderivative
 	}
 	return y;
 }
 */
-// it is a shocking bastardisation of an evieve transistor ladder
+// it is a shocking bastardisation of an evieve transistor ladder (@see: 'evi_ladder_moog.gendsp')
 onepole4(x, w, k)
 {
 	History z1, z2, z3, z4;

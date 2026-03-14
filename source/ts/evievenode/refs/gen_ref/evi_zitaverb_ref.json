@@ -147,22 +147,22 @@
         },
         {
             "name": "crossover\t",
-            "type": "int",
+            "type": "float",
             "digest": "@min  31.25, @max  1260\t",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "\t315"
+                "type": "float",
+                "value": "\t315."
             }
         },
         {
             "name": "damp\t\t",
-            "type": "int",
+            "type": "float",
             "digest": "@min  500, @max  15000\t",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "\t3780"
+                "type": "float",
+                "value": "\t3780."
             }
         },
         {
@@ -287,32 +287,32 @@
         },
         {
             "name": "eq1_m0\t\t",
-            "type": "int",
+            "type": "float",
             "digest": "@min -16, @max  16\t\t",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "\t1"
+                "type": "float",
+                "value": "\t1."
             }
         },
         {
             "name": "eq1_m1\t\t",
-            "type": "int",
+            "type": "float",
             "digest": "@min -16, @max  16\t\t",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "\t0"
+                "type": "float",
+                "value": "\t0."
             }
         },
         {
             "name": "eq1_m2\t\t",
-            "type": "int",
+            "type": "float",
             "digest": "@min -16, @max  16\t\t",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "\t0"
+                "type": "float",
+                "value": "\t0."
             }
         },
         {
@@ -347,32 +347,32 @@
         },
         {
             "name": "eq2_m0\t\t",
-            "type": "int",
+            "type": "float",
             "digest": "@min -16, @max  16\t\t",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "\t1"
+                "type": "float",
+                "value": "\t1."
             }
         },
         {
             "name": "eq2_m1\t\t",
-            "type": "int",
+            "type": "float",
             "digest": "@min -16, @max  16\t\t",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "\t0"
+                "type": "float",
+                "value": "\t0."
             }
         },
         {
             "name": "eq2_m2\t\t",
-            "type": "int",
+            "type": "float",
             "digest": "@min -16, @max  16\t\t",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "\t0"
+                "type": "float",
+                "value": "\t0."
             }
         },
         {
@@ -457,12 +457,12 @@
         },
         {
             "name": "gain\t\t",
-            "type": "int",
+            "type": "float",
             "digest": "@min -80, @max  20\t\t",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "  -1"
+                "type": "float",
+                "value": "  -1."
             }
         },
         {
@@ -507,12 +507,12 @@
         },
         {
             "name": "predelay\t",
-            "type": "int",
+            "type": "float",
             "digest": "@min  0, @max  170\t",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "\t19"
+                "type": "float",
+                "value": "\t19."
             }
         },
         {

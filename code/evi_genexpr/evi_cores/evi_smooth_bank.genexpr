@@ -2,23 +2,23 @@
 // a cheeky and bad file that enables less require dependencies in many .gendsp abstractions
 // it is all repeated from "evi_smooth.genexpr" but without any dependencies
 
-expA(x0)
+expApp(x0)
 {
 	x = 0.999996 + (0.031261316 + (0.00048274797 + 0.000006 * x0) * x0) * x0;
 	x *= x; x *= x; x *= x; x *= x; x *= x;
 	return x;
 }
 
-tauA(t)										// t = seconds
+tauApp(t)									// t = seconds
 {
-	y = expA(-1 / (t * samplerate));
+	y = expApp(-1 / (t * samplerate));
 	return y + 0.000128;
 }
 
 expsmooth(x, t)		// x = value			// t is smooth time in seconds
 {
 	History w(0);
-	z = tauA(t);
+	z = tauApp(t);
 	y = (z * w) + (x * (1 - z));
 	w = y;
 	return y;
@@ -36,7 +36,7 @@ expso(x, z)									// z is pole
 expsmoothBank2(x1, x2, t)					// t is smooth time in seconds...
 {
 	History	expsdummy2(0);
-	z		= tauA(t);
+	z		= tauApp(t);
 	y1		= expso(x1, z);
 	y2		= expso(x2, z);
 	return	y1, y2;
@@ -45,7 +45,7 @@ expsmoothBank2(x1, x2, t)					// t is smooth time in seconds...
 expsmoothBank3(x1, x2, x3, t)
 {
 	History	expsdummy3(0);
-	z		= tauA(t);
+	z		= tauApp(t);
 	y1		= expso(x1, z);
 	y2		= expso(x2, z);
 	y3		= expso(x3, z);
@@ -55,7 +55,7 @@ expsmoothBank3(x1, x2, x3, t)
 expsmoothBank4(x1, x2, x3, x4, t)
 {
 	History	expsdummy4(0);
-	z		= tauA(t);
+	z		= tauApp(t);
 	y1		= expso(x1, z);
 	y2		= expso(x2, z);
 	y3		= expso(x3, z);
@@ -66,7 +66,7 @@ expsmoothBank4(x1, x2, x3, x4, t)
 expsmoothBank5(x1, x2, x3, x4, x5, t)
 {
 	History	expsdummy5(0);
-	z		= tauA(t);
+	z		= tauApp(t);
 	y1		= expso(x1, z);
 	y2		= expso(x2, z);
 	y3		= expso(x3, z);
@@ -78,7 +78,7 @@ expsmoothBank5(x1, x2, x3, x4, x5, t)
 expsmoothBank6(x1, x2, x3, x4, x5, x6, t)
 {
 	History	expsdummy6(0);
-	z		= tauA(t);
+	z		= tauApp(t);
 	y1		= expso(x1, z);
 	y2		= expso(x2, z);
 	y3		= expso(x3, z);
@@ -91,7 +91,7 @@ expsmoothBank6(x1, x2, x3, x4, x5, x6, t)
 expsmoothBank7(x1, x2, x3, x4, x5, x6, x7, t)
 {
 	History	expsdummy7(0);
-	z		= tauA(t);
+	z		= tauApp(t);
 	y1		= expso(x1, z);
 	y2		= expso(x2, z);
 	y3		= expso(x3, z);
@@ -105,7 +105,7 @@ expsmoothBank7(x1, x2, x3, x4, x5, x6, x7, t)
 expsmoothBank8(x1, x2, x3, x4, x5, x6, x7, x8, t)
 {
 	History	expsdummy8(0);
-	z		= tauA(t);
+	z		= tauApp(t);
 	y1		= expso(x1, z);
 	y2		= expso(x2, z);
 	y3		= expso(x3, z);

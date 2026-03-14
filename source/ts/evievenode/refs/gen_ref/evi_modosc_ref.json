@@ -40,22 +40,22 @@
     "attributes": [
         {
             "name": "freqsmooth",
-            "type": "int",
+            "type": "float",
             "digest": "@min 0, @max 666",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "20"
+                "type": "float",
+                "value": "20."
             }
         },
         {
             "name": "offset",
-            "type": "int",
+            "type": "float",
             "digest": "",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "0\t\t\t\t\t\t\t\t"
+                "type": "float",
+                "value": "0.\t\t\t\t\t\t\t\t"
             }
         },
         {
@@ -70,12 +70,12 @@
         },
         {
             "name": "scale",
-            "type": "int",
+            "type": "float",
             "digest": "@min 0",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "1"
+                "type": "float",
+                "value": "1."
             }
         },
         {

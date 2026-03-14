@@ -114,12 +114,12 @@
         },
         {
             "name": "smooth",
-            "type": "int",
+            "type": "float",
             "digest": "@min 0, @max 333",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "22"
+                "type": "float",
+                "value": "22."
             }
         }
     ],

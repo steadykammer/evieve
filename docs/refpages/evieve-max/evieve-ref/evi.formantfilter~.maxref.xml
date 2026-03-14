@@ -68,7 +68,7 @@
 	</methodlist>
 	<!--ATTRIBUTES-->
 	<attributelist>
-		<attribute name="bwwarp" get="1" set="1" type="int" min="0.00625" max="32">
+		<attribute name="bwwarp" get="1" set="1" type="float" min="0.00625" max="32">
 			<digest>
 				
 			</digest>
@@ -76,10 +76,10 @@
 				
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="1" />
+				<attribute name="default" get="0" set="0" size="1" value="1." />
 			</attributelist>
 		</attribute>
-		<attribute name="cfwarp" get="1" set="1" type="int" min="0.025" max="4">
+		<attribute name="cfwarp" get="1" set="1" type="float" min="0.025" max="4">
 			<digest>
 				
 			</digest>
@@ -87,7 +87,7 @@
 				
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="1" />
+				<attribute name="default" get="0" set="0" size="1" value="1." />
 			</attributelist>
 		</attribute>
 		<attribute name="datainterp" get="1" set="1" type="int" min="0" max="1">
@@ -145,7 +145,7 @@
 				<attribute name="default" get="0" set="0" size="1" value="0" />
 			</attributelist>
 		</attribute>
-		<attribute name="gain" get="1" set="1" type="int" min="-80" max="20">
+		<attribute name="gain" get="1" set="1" type="float" min="-80" max="20">
 			<digest>
 				
 			</digest>
@@ -153,7 +153,7 @@
 				
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="0" />
+				<attribute name="default" get="0" set="0" size="1" value="0." />
 			</attributelist>
 		</attribute>
 		<attribute name="gaincomp" get="1" set="1" type="int" min="0" max="1">
@@ -178,7 +178,7 @@
 				<attribute name="default" get="0" set="0" size="1" value="0" />
 			</attributelist>
 		</attribute>
-		<attribute name="gainwarp" get="1" set="1" type="int" min="0.025" max="4">
+		<attribute name="gainwarp" get="1" set="1" type="float" min="0.025" max="4">
 			<digest>
 				
 			</digest>
@@ -186,7 +186,7 @@
 				
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="1" />
+				<attribute name="default" get="0" set="0" size="1" value="1." />
 			</attributelist>
 		</attribute>
 		<attribute name="paramsmooth" get="1" set="1" type="float" min="0" max="333">

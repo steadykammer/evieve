@@ -25,8 +25,8 @@ likeAvactrol(V, up, down)
 	return	Y;
 }
 
-Param	scalein(3, min=1, max=10000);	// static
-Param	scaleout(1, min=1, max=1000);	// ...
+Param	scalein(3., min=1, max=10000);	// static
+Param	scaleout(1., min=1, max=1000);	// ...
 //Param	rise(0.0707107, min=0, max=1);	// % 0..1
 //Param	fall(sqrt1_2, min=0, max=1);	// ...
 Param	mode(0, min=0, max=3);

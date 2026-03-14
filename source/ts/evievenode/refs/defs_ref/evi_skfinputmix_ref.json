@@ -82,25 +82,25 @@
         {
             "name": "cutoff",
             "get": 1,
-            "type": "int",
+            "type": "float",
             "digest": "",
             "description": "",
             "default": {
                 "min": "10",
                 "max": "10000",
-                "value": "1000"
+                "value": "1000."
             }
         },
         {
             "name": "mix",
             "get": 1,
-            "type": "int",
+            "type": "float",
             "digest": "",
             "description": "",
             "default": {
                 "min": "0",
                 "max": "1",
-                "value": "0"
+                "value": "0."
             }
         },
         {

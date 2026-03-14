@@ -66,13 +66,13 @@
         {
             "name": "duration",
             "get": 1,
-            "type": "int",
+            "type": "float",
             "digest": "",
             "description": "",
             "default": {
                 "min": "0",
                 "max": "60000",
-                "value": "1000"
+                "value": "1000."
             }
         },
         {

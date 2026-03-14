@@ -16,9 +16,17 @@
 	</metadatalist>
 	<!--INLETS-->
 	<inletlist>
-		<inlet id="0" type="signal">
+		<inlet id="1" type="signal">
 			<digest>
 				Audio In Mono or Left or 1 / messages to evi.plateverb~
+			</digest>
+			<description>
+				
+			</description>
+		</inlet>
+		<inlet id="2" type="signal">
+			<digest>
+				Audio In Nothing or Right or 2 / messages to evi.plateverb~
 			</digest>
 			<description>
 				
@@ -27,9 +35,25 @@
 	</inletlist>
 	<!--OUTLETS-->
 	<outletlist>
-		<outlet id="0" type="signal">
+		<outlet id="1" type="signal">
 			<digest>
 				Audio Out Left
+			</digest>
+			<description>
+				
+			</description>
+		</outlet>
+		<outlet id="2" type="signal">
+			<digest>
+				Audio Out Right
+			</digest>
+			<description>
+				
+			</description>
+		</outlet>
+		<outlet id="3" type="">
+			<digest>
+				dumpout (pattrstorage)
 			</digest>
 			<description>
 				

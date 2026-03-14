@@ -4,8 +4,8 @@
     "functions": [
         {
             "document": false,
-            "digest": "Cheapest full range exp() approximation that evieve offers, we use this everywhere, more accurate than 'fastexp()', at least 1.5 x faster than library exp()",
-            "name": "expA",
+            "digest": "",
+            "name": "expApp",
             "inputs": [
                 {
                     "id": 1,
@@ -24,8 +24,8 @@
         },
         {
             "document": false,
-            "digest": "Approximation of 'exp(-1 / (seconds * samplerate))' for time..pole calculations",
-            "name": "tauA",
+            "digest": "",
+            "name": "tauApp",
             "inputs": [
                 {
                     "id": 1,

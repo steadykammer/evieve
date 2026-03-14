@@ -43,8 +43,8 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 49.0, 34.0, 167.0, 22.0 ],
-                    "text": "in 1 (signal/float) x @default 0"
+                    "patching_rect": [ 49.0, 34.0, 171.0, 22.0 ],
+                    "text": "in 1 (signal/float) x @default 0."
                 }
             },
             {
@@ -54,8 +54,8 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 259.0, 34.0, 167.0, 22.0 ],
-                    "text": "in 2 (signal/float) y @default 1"
+                    "patching_rect": [ 259.0, 34.0, 171.0, 22.0 ],
+                    "text": "in 2 (signal/float) y @default 1."
                 }
             },
             {

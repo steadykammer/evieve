@@ -58,7 +58,7 @@
                 <attribute name='default' type='int' value='1' />
             </attributelist>
         </attribute>
-        <attribute name='highcutoff' type='int' get='0' set='1'>
+        <attribute name='highcutoff' type='float' get='0' set='1'>
             <digest>
                 @min 1000, @max 16000
             </digest>
@@ -66,7 +66,7 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='4000' />
+                <attribute name='default' type='float' value='4000.' />
             </attributelist>
         </attribute>
         <attribute name='highdamp' type='float' get='0' set='1'>
@@ -80,7 +80,7 @@
                 <attribute name='default' type='float' value='0.5' />
             </attributelist>
         </attribute>
-        <attribute name='io' type='int' get='0' set='1'>
+        <attribute name='io' type='float' get='0' set='1'>
             <digest>
                 @min -1, @max 1
             </digest>
@@ -88,10 +88,10 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='0' />
+                <attribute name='default' type='float' value='0.' />
             </attributelist>
         </attribute>
-        <attribute name='lowcutoff' type='int' get='0' set='1'>
+        <attribute name='lowcutoff' type='float' get='0' set='1'>
             <digest>
                 @min 10, @max 400
             </digest>
@@ -99,7 +99,7 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='40' />
+                <attribute name='default' type='float' value='40.' />
             </attributelist>
         </attribute>
         <attribute name='lowdamp' type='float' get='0' set='1'>

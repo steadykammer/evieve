@@ -543,7 +543,7 @@
 			}
 , 			{
 				"box" : 				{
-					"comment" : "(messages) controls to evi.mcs.sustainverb_lite~",
+					"comment" : "(messages) controls to evi.mcs.sustainverb.lite~",
 					"id" : "obj-5",
 					"index" : 0,
 					"maxclass" : "inlet",
@@ -623,7 +623,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 309.5, 37.5, 326.0, 20.0 ],
-					"text" : "@ttributes or messages to evi.mcs.sustainverb_lite~",
+					"text" : "@ttributes or messages to evi.mcs.sustainverb.lite~",
 					"textjustification" : 2
 				}
 

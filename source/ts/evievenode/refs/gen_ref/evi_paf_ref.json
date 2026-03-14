@@ -25,14 +25,14 @@
             "name": "cf",
             "type": "float",
             "optional": 1,
-            "digest": "in Hz @min 0 @max 18000 @default 440"
+            "digest": "in Hz @min 0 @max 18000 @default 440."
         },
         {
             "id": 3,
             "name": "bw",
             "type": "float",
             "optional": 1,
-            "digest": "in Hz @min 0 @max 18000 @default 110"
+            "digest": "in Hz @min 0 @max 18000 @default 110."
         },
         {
             "id": 4,

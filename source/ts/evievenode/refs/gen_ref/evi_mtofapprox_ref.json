@@ -31,12 +31,12 @@
     "attributes": [
         {
             "name": "base",
-            "type": "int",
+            "type": "float",
             "digest": "@min 415, @max 467",
             "description": "",
             "default": {
-                "type": "int",
-                "value": "440"
+                "type": "float",
+                "value": "440."
             }
         }
     ],

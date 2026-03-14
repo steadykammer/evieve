@@ -44,7 +44,7 @@
 	</methodlist>
 	<!--ATTRIBUTES-->
 	<attributelist>
-		<attribute name="damp" get="1" set="1" type="int" min="0" max="1">
+		<attribute name="damp" get="1" set="1" type="float" min="0" max="1">
 			<digest>
 				
 			</digest>
@@ -52,10 +52,10 @@
 				
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="0" />
+				<attribute name="default" get="0" set="0" size="1" value="0." />
 			</attributelist>
 		</attribute>
-		<attribute name="smooth" get="1" set="1" type="int" min="0" max="999">
+		<attribute name="smooth" get="1" set="1" type="float" min="0" max="999">
 			<digest>
 				
 			</digest>
@@ -63,7 +63,7 @@
 				
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="0" />
+				<attribute name="default" get="0" set="0" size="1" value="0." />
 			</attributelist>
 		</attribute>
 	</attributelist>

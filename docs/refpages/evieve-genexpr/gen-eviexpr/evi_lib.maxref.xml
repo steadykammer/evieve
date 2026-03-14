@@ -13,15 +13,22 @@
     The <b>evi_lib.genexpr</b> file also requires: <br />
     evi_adaa.genexpr <br />
     evi_biquads.genexpr <br />
+    evi_buchla.genexpr <br />
+    evi_butterworth.genexpr <br />
     evi_clip.genexpr <br />
+    evi_counting.genexpr <br />
     evi_crossovers.genexpr <br />
     evi_dynamics.genexpr <br />
-    evi_overdrive.genexpr <br />
+    evi_env.genexpr <br />
+    evi_lfo.genexpr <br />
     evi_polyblep.genexpr <br />
+    evi_ptr.genexpr <br />
     evi_rcfilters.genexpr <br />
-    evi_reverb_library.genexpr <br />
+    evi_resampling_templates.genexpr <br />
     evi_saturators.genexpr <br />
+    evi_sources.genexpr <br />
     evi_svfs.genexpr <br />
+    evi_waveshaping.genexpr <br />
     <br />
     <b>About this File</b>: <br />
      <br />

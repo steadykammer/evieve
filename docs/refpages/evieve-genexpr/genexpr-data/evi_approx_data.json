@@ -509,7 +509,7 @@
                     "kind": "param",
                     "name": "base",
                     "default": 440,
-                    "type": "integer",
+                    "type": "float",
                     "digest": "Hz 415..467"
                 }
             ],

@@ -7,126 +7,7 @@ require("evi_crossovers.genexpr");
 require("evi_sources.genexpr");
 require("evi_lfo.genexpr");
 require("evi_adaa.genexpr");
-/*
-AllPoleWarp(cutoff)					// 6dB onepole Warp (not !)
-{
-	return clip(sin(cutoff * twopi / samplerate), 0.00001, 0.99999);
-}
 
-AllPoleSection(x, f, H)				// 6dB onepole Allpass
-{
-	lp = mix(H, x, f);				// lowpass
-	y0 = lp;
-	hp = x - lp;					// highpass
-	return ((hp * -1) + lp), y0;
-}
-
-AllPoleSectionFinal(x, f)			// 6dB onepole
-{
-	History y0(0);
-	lp = mix(y0, x, f);				// lowpass
-	y0 = lp;
-	hp = x - lp;					// highpass
-	return (hp * -1) + lp;
-}
-
-PoleZeroWarp(cutoff)				// 6dB pole/zero Warp
-{
-	fc = (pi * cutoff) / samplerate;			// !! no check for min/max 'cutoff' here
-	a0 = minimum(((2 * sin(fc)) / (cos(fc) + sin(fc))), 0.999999);
-	a1 = 1 - (a0 * 2);
-	return a0, a1;
-}
-
-PoleZeroSection(x, a0, a1, Q)		// 6dB pole/zero
-{
-	w = x * a0;
-	lp = Q + w;						// lowpass
-	R = w + (lp * a1);
-	hp = x - lp;					// highpass
-	return ((hp * -1) + lp), R;
-}
-
-PoleZeroSectionFinal(x, a0, a1)		// 6dB pole/zero
-{
-	History R(0);
-	w = x * a0;
-	lp = R + w;						// lowpass
-	R = w + (lp * a1);
-	hp = x - lp;					// highpass
-	return (hp * -1) + lp;
-}
-*/
-iirWarp(cutoff)						// 6dB iir BLT
-{	// alex, non-approx tan for you, but i think this very dangerous (must not get near nyquist)
-	return tan(cutoff * (pi / samplerate));	// !! no check for min/max 'cutoff' here
-}
-
-iirSection(x, w, H)					// 6dB iir Allpass
-{
-	z = (x - ((w - 1) * H)) * (1 / (w + 1));
-	hp = z - H;						// highpass
-	lp = (z + H) * w;				// lowpass
-	y0 = z;
-	return ((hp * -1) + lp), y0;
-}
-
-iirSectionFinal(x, w)				// 6dB iir
-{
-	History y0(0);
-	z = (x - ((w - 1) * y0)) * (1 / (w + 1));
-	hp = z - y0;					// highpass
-	lp = (z + y0) * w;				// lowpass
-	y0 = z;
-	return (hp * -1) + lp;
-}
-/*
-warpGlobal(cutoff, section)
-{
-	// global clip
-	cf = clip(cutoff, 5, (samplerate * 0.44));		// no need for precision here
-	// choose warp
-	w, a = 0;
-	if (section == 1) {
-		w, a = PoleZeroWarp(cf);
-	} else if (section == 2) {
-		w = iirWarp(cf);
-	} else {	// section == 0
-		w = AllPoleWarp(cf);
-	}
-	return w, a;
-}
-
-sectionGlobal(x, w, a, H, s)
-{
-	History dummy(0);	// trick gen
-	// choose filter
-	y, y0 = 0;
-	if (s == 1) {
-		y, y0 = PoleZeroSection(x, w, a, H);
-	} else if (s == 2) {
-		y, y0 = iirSection(x, w, H);
-	} else {	// s == 0
-		y, y0 = AllPoleSection(x, w, H);
-	}
-	return y, y0;
-}
-
-finalSection(x, w, a, s)
-{
-	History dummy(0);	// trick gen
-	// choose filter
-	y = 0;
-	if (s == 1) {
-		y = PoleZeroSectionFinal(x, w, a);
-	} else if (s == 2) {
-		y = iirSectionFinal(x, w);
-	} else {	// s == 0
-		y = AllPoleSectionFinal(x, w);
-	}
-	return y;
-}
-*/
 inputMixCos(xL, xR, stereo)
 {
 	monoMix = (xL + xR) * 0.5;
@@ -191,7 +72,7 @@ lfo01	= lfoMix(phase, duty, shape, skew);
 lfomid	= mix(minPitch, maxPitch, lfo01);
 lfohz	= mtofApproxBaseless(lfomid);
 lfog    = rcPreWarp1(lfohz);
-lfow    = iirWarp(lfohz);
+//lfow    = iirWarp(lfohz);
 
 xL      = in1;
 xR      = in2;
@@ -209,8 +90,8 @@ modN	= 1 - (sale * preN);
 // allpass cascade
 for (j = 0; j < numSectsM1; j += 1) {
     apS0 = peek(allpassCascade, j, 0, index="samples", interp="none");
-//    allpassM, apS1 = rcFilterAllpassCascade(allpassM, lfog, apS0);
-    allpassM, apS1 = eviXoverAllpass1cascade(allpassM, lfohz, apS0);
+    allpassM, apS1 = rcFilterAllpassCascade(allpassM, lfog, apS0);
+//    allpassM, apS1 = eviXoverAllpass1cascade(allpassM, lfohz, apS0);
 //    allpassM, apS1 = iirSection(allpassM, lfow, apS0);
     apW1 = apS1 * modN;
     poke(allpassCascade, apW1, j, 0, 0, index="samples");
@@ -225,8 +106,8 @@ if (prevNum != numSections) { // should be before cascade ?
 
 // tap feedback and saturate
 circuitM	= dcblock(atanAdaa2(allpassM * fbsin));
-//final	    = dcblock(rcFilterAllpass((allpassM * dbtoaApprox(postgain)), lfog) * -1);
-final	    = dcblock(eviXoverAllpass1((allpassM * dbtoaApprox(postgain)), lfohz) * -1);
+final	    = dcblock(rcFilterAllpass((allpassM * dbtoaApprox(postgain)), lfog) * -1);
+//final	    = dcblock(eviXoverAllpass1((allpassM * dbtoaApprox(postgain)), lfohz) * -1);
 //final	    = dcblock(iirSectionFinal((allpassM * dbtoaApprox(postgain)), lfow) * -1);
 subFinal    = eCubicAdaa1(Sub) + final;
 
@@ -242,5 +123,5 @@ mainL, mainR = outputMixCos(phaserL, phaserR, stereoOut);
 out1 = mainL;
 out2 = mainR;
 
-out3 = minPitch;//lfo01;
-out4 = maxPitch;//lfohz;
+out3 = lfo01;
+out4 = lfohz;

@@ -46,7 +46,7 @@ Param	damping(0.41, min=0, max=1);
 //
 
 // 'roomsize' in meters
-Param	size(80, min=0.1, max=300);	// min=1 ?
+Param	size(80., min=0.1, max=300);	// min=1 ?
 // "The size of the room, in meters. Excessivly large, and excessivly small values will
 // make it sound a bit unrealistic. Values of around 30 sound good."
 //
@@ -66,18 +66,18 @@ Param	spread(0.22, min=0, max=1);
 //
 
 // early refelections level in dB
-Param	early(-9, min=-90, max=0);
+Param	early(-9., min=-90, max=0);
 // "The quantity of early reflections (scatter reflections directly from the source).
 // Think of Lexicon's ambiance patches."
 //
 
 // 'tail' level in dB
-Param	late(-11, min=-90, max=0);
+Param	late(-11., min=-90, max=0);
 // "The level of the classic reverb tail reflections."
 //
 
 // dry level in dB
-Param	dry(-3, min=-90, max=0);
+Param	dry(-3., min=-90, max=0);
 // "The level of the unreverberated signal."
 //
 
@@ -107,8 +107,8 @@ Param	stereo(0, min=0, max=2);
 Param	highshelfG(0.123758, min=0, max=1);
 Param	lowshelfG(0.032214, min=0, max=1);
 // -3=shelfboost..0=bypass..shelf..1=pass
-Param	highshelfK(0, min=-3, max=1);
-Param	lowshelfK(0, min=-3, max=1);
+Param	highshelfK(0., min=-3, max=1);
+Param	lowshelfK(0., min=-3, max=1);
 
 
 // -- -- -- -- -- -- -- -- -- --			declare			-- -- -- -- -- -- -- -- -- -- -- \\
@@ -129,7 +129,7 @@ Param	div340		(	0.0029411764705882,		min=  0, max=1);// / 340
 Param	div1341		(	0.00074571215510813,	min=  0, max=1);// / 1341
 Param	m3l10const	(  -6.907755278982138,		min=-10, max=0);// -3 * log(10)
 
-Param	smoothtime	( 	50,	min=1,	max=500		);				// parameter smoothing in ms
+Param	smoothtime	( 	50.,	min=1,	max=500	);				// parameter smoothing in ms
 smoothsecs	=		smoothtime * 0.001;
 smoothsamps	=		smoothsecs * samplerate;
 

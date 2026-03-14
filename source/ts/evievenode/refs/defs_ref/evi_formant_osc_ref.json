@@ -69,7 +69,7 @@
             "arg": [
                 {
                     "name": "prevff",
-                    "type": "int",
+                    "type": "float",
                     "units": "default: 0",
                     "optional": 1
                 }
@@ -82,25 +82,25 @@
         {
             "name": "bwwarp",
             "get": 1,
-            "type": "int",
+            "type": "float",
             "digest": "",
             "description": "",
             "default": {
                 "min": "0.00625",
                 "max": "32",
-                "value": "1"
+                "value": "1."
             }
         },
         {
             "name": "cfwarp",
             "get": 1,
-            "type": "int",
+            "type": "float",
             "digest": "",
             "description": "",
             "default": {
                 "min": "0.025",
                 "max": "4",
-                "value": "1"
+                "value": "1."
             }
         },
         {
@@ -166,13 +166,13 @@
         {
             "name": "gain",
             "get": 1,
-            "type": "int",
+            "type": "float",
             "digest": "",
             "description": "",
             "default": {
                 "min": "-80",
                 "max": "20",
-                "value": "0"
+                "value": "0."
             }
         },
         {
@@ -190,13 +190,13 @@
         {
             "name": "gainwarp",
             "get": 1,
-            "type": "int",
+            "type": "float",
             "digest": "",
             "description": "",
             "default": {
                 "min": "0.025",
                 "max": "4",
-                "value": "1"
+                "value": "1."
             }
         },
         {

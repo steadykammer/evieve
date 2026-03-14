@@ -41,7 +41,7 @@
         </geninlet>
     </geninletlist>
     <attributelist>
-        <attribute name='feedbackmix' type='int' get='0' set='1'>
+        <attribute name='feedbackmix' type='float' get='0' set='1'>
             <digest>
                 @min 0, @max 1
             </digest>
@@ -49,10 +49,10 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='0' />
+                <attribute name='default' type='float' value='0.' />
             </attributelist>
         </attribute>
-        <attribute name='smooth' type='int' get='0' set='1'>
+        <attribute name='smooth' type='float' get='0' set='1'>
             <digest>
                 @min 0, @max 333
             </digest>
@@ -60,7 +60,7 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='0' />
+                <attribute name='default' type='float' value='0.' />
             </attributelist>
         </attribute>
     </attributelist>
