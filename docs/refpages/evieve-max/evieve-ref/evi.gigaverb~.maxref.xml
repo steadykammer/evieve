@@ -227,6 +227,14 @@
 	</examplelist>
 	<!--SEEALSO-->
 	<seealsolist>
+		<seealso name="evi.algoverb~"> </seealso>
+		<seealso name="evi.backverb~"> </seealso>
+		<seealso name="evi.freezeverb~"> </seealso>
+		<seealso name="evi.mattaverb~"> </seealso>
+		<seealso name="evi.plateverb~"> </seealso>
+		<seealso name="evi.sustainverb.lite~"> </seealso>
+		<seealso name="evi.sustainverb~"> </seealso>
+		<seealso name="evi.zitaverb~"> </seealso>
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>

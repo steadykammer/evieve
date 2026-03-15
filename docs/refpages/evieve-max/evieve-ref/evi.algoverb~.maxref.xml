@@ -6,7 +6,7 @@
 		True stereo algorithmic reverb <br />
 	</digest>
 	<description>
-		TEXT_HERE <br />
+		Relatively expensive algorithmic reverb with many tweekable parameters, 15 embedded presets and an internal pattrstorage system. The reverb is modular, with pred delay, early reflections and late reflections all controllable individually, as well as high quality linear SVF filters in both the feedback path and end of wet path. The MSP abstraction does a lot of massaging of the input parameters, so when using the gen~ abstraction careful to study the internal Param declarations. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>
@@ -65,15 +65,17 @@
 	</objarglist>
 	<!--MESSAGES-->
 	<methodlist>
-		<method name="">
+		<method name="anything">
 			<arglist>
-				<arg name="" type="" units="" optional="1" />
+				<arg name="bypass" type="int" units="0/1" optional="1" />
+				<arg name="mute" type="int" units="0/1" optional="1" />
+				<arg name="pattrstorage" type="anything" units="messages to pattrstorage" optional="1" />
 			</arglist>
 			<digest>
-				
+				In left inlet, messages to &lt;o&gt;evi.algoverb~&lt;/o&gt;
 			</digest>
 			<description>
-				
+				&#x27;bypass&#x27; will smoothly bypass the reverb to dry, &#x27;mute&#x27; will smoothly bypass and cpu mute the reverb. Prepending the word &#x27;pattrstorage&#x27; allows you to send any message &lt;o&gt;pattrstorage&lt;/o&gt; understands to the internal pattrstorage object - you can recieve pattrstorage output via the far right outlet.
 			</description>
 		</method>
 	</methodlist>
@@ -372,6 +374,14 @@
 	</examplelist>
 	<!--SEEALSO-->
 	<seealsolist>
+		<seealso name="evi.backverb~"> </seealso>
+		<seealso name="evi.freezeverb~"> </seealso>
+		<seealso name="evi.gigaverb~"> </seealso>
+		<seealso name="evi.mattaverb~"> </seealso>
+		<seealso name="evi.plateverb~"> </seealso>
+		<seealso name="evi.sustainverb.lite~"> </seealso>
+		<seealso name="evi.sustainverb~"> </seealso>
+		<seealso name="evi.zitaverb~"> </seealso>
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>

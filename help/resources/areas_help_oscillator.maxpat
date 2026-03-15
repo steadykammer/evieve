@@ -352,6 +352,17 @@
                         "boxes": [
                             {
                                 "box": {
+                                    "id": "obj-21",
+                                    "linecount": 4,
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 262.0, 311.0, 126.0, 60.0 ],
+                                    "text": "[evi_formant_osc] does not work in gen~ alone as it requires an external LUT"
+                                }
+                            },
+                            {
+                                "box": {
                                     "id": "obj-20",
                                     "maxclass": "newobj",
                                     "numinlets": 7,
@@ -381,17 +392,6 @@
                                     "outlettype": [ "", "", "", "", "" ],
                                     "patching_rect": [ 399.0, 310.0, 61.0, 22.0 ],
                                     "text": "evi_paf"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "id": "obj-16",
-                                    "maxclass": "newobj",
-                                    "numinlets": 4,
-                                    "numoutlets": 3,
-                                    "outlettype": [ "", "", "" ],
-                                    "patching_rect": [ 265.0, 310.0, 97.0, 22.0 ],
-                                    "text": "evi_formant_osc"
                                 }
                             },
                             {
@@ -644,7 +644,6 @@
                 }
             }
         ],
-        "autosave": 0,
         "toolbaradditions": [ "audiosolo", "audiomute" ]
     }
 }

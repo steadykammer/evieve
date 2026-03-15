@@ -260,18 +260,18 @@
         "description": ""
     },
     "evi.formantfilter.morph~": {
-        "type": "define",
-        "digest": "A vowel morphing TPT bandpass formant filter with morphable filter types",
+        "type": "abstraction",
+        "digest": 0,
         "description": ""
     },
     "evi.formantfilter~": {
-        "type": "define",
-        "digest": "A vowel morphing TPT resonant formant filter",
+        "type": "abstraction",
+        "digest": 0,
         "description": ""
     },
     "evi.formantosc~": {
-        "type": "define",
-        "digest": "A vowel morphing formant oscillator",
+        "type": "abstraction",
+        "digest": 0,
         "description": ""
     },
     "evi.formletfilter~": {

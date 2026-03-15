@@ -1929,7 +1929,7 @@ async function parseAbstractionMaxpatLoop(patcherPath: string, patcherName: stri
 	}
 
 	// if we are editing a brand new template, clear the template json
-	// i know, this is very weak code, but .maxpat will never have an id/index = 0
+	// i know, this is very weak code, but .maxpat will never have an id/index = 0 // <<-- THIS IS NOT TRUE !!
 	thisConfigObject.inlets = thisConfigObject.inlets.filter((entry: { id: number; }) => entry.id !== 0);
 	thisConfigObject.outlets = thisConfigObject.outlets.filter((entry: { id: number; }) => entry.id !== 0);
 

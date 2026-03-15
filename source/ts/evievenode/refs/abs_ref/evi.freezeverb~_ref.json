@@ -209,5 +209,14 @@
         "caption": "",
         "image": ""
     },
-    "seealso": []
+    "seealso": [
+        "evi.algoverb~",
+        "evi.backverb~",
+        "evi.gigaverb~",
+        "evi.mattaverb~",
+        "evi.plateverb~",
+        "evi.sustainverb.lite~",
+        "evi.sustainverb~",
+        "evi.zitaverb~"
+    ]
 }

@@ -5,7 +5,7 @@
 <!--Data marked TEXT_HERE, INLET_TYPE, OUTLET_TYPE, ARG_NAME and ARG_TYPE need to be filled in-->
 <c74object name="evi.cfsmooth~" module="" category="">
 	<digest>
-		Signal smoother particularly well suited to smoothing cutoff frequencies
+		Signal smoother particularly well suited to smoothing filter cutoff frequencies
 	</digest>
 	<description>
 		Based on Andy Simper's smoother, evi.cfsmooth~ tracks the input value via the bandpass output of an SVF filter and logarithmically updates. Smoothing is specified in both ramp time (ms) and filter cutoff (Hz).

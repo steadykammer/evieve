@@ -7,7 +7,7 @@
   "main": "",
   "scripts": {
     "build": "tsc",
-    "postbuild": "esbuild src/**/*.ts --outdir=../../../javascript/v8",
+    "postbuild": "esbuild src/maxv8/*.ts --outdir=../../../javascript/v8 && esbuild src/maxdoc/*.ts --outdir=../../../help/resources",
     "ci": "pnpm run linter && pnpm run build",
     "dev": "onchange --initial \"src/**/*.ts\" \"**/*.json\" -- pnpm run build",
     "linter": "tsc --noEmit",

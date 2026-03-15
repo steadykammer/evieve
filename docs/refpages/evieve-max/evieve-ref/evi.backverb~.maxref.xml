@@ -6,7 +6,7 @@
 		Ursa Major reverb unit with saturating feedback <br />
 	</digest>
 	<description>
-		TEXT_HERE <br />
+		A strange reverb-like effect, based on Christopher Moore's legendary 1978 Ursa Major Space Station algorithm. This is not an attempt to model the 1970's digital hardware, but more of a trope on it, although it does sound very close to the original with the right settings. Nonlinearities and trap filters have been added, much as you might find in an analog delay, as well as different modulation, interpolation, smoothing and filtering modifications. Also cheap on CPU. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>
@@ -65,15 +65,15 @@
 	</objarglist>
 	<!--MESSAGES-->
 	<methodlist>
-		<method name="">
+		<method name="anything">
 			<arglist>
-				<arg name="" type="" units="" optional="1" />
+				<arg name="pattrstorage" type="anything" units="messages to pattrstorage" optional="1" />
 			</arglist>
 			<digest>
-				
+				In left inlet, messages to &lt;o&gt;evi.backverb~&lt;/o&gt;
 			</digest>
 			<description>
-				
+				Prepending the word &#x27;pattrstorage&#x27; allows you to send any message &lt;o&gt;pattrstorage&lt;/o&gt; understands to the internal pattrstorage object - you can recieve pattrstorage output via the far right outlet.
 			</description>
 		</method>
 	</methodlist>
@@ -189,7 +189,40 @@
 				<attribute name="default" get="0" set="1" type="float" size="1" value="4." />
 			</attributelist>
 		</attribute>
+		<attribute name="modulationduty" get="0" set="1" type="float" size="1">
+			<digest>
+				
+			</digest>
+			<description>
+				
+			</description>
+			<attributelist>
+				<attribute name="default" get="0" set="1" type="float" size="1" value="0.5" />
+			</attributelist>
+		</attribute>
 		<attribute name="modulationrate" get="0" set="1" type="float" size="1">
+			<digest>
+				
+			</digest>
+			<description>
+				
+			</description>
+			<attributelist>
+				<attribute name="default" get="0" set="1" type="float" size="1" value="1." />
+			</attributelist>
+		</attribute>
+		<attribute name="modulationshape" get="0" set="1" type="float" size="1">
+			<digest>
+				
+			</digest>
+			<description>
+				
+			</description>
+			<attributelist>
+				<attribute name="default" get="0" set="1" type="float" size="1" value="1." />
+			</attributelist>
+		</attribute>
+		<attribute name="modulationskew" get="0" set="1" type="float" size="1">
 			<digest>
 				
 			</digest>
@@ -218,6 +251,14 @@
 	</examplelist>
 	<!--SEEALSO-->
 	<seealsolist>
+		<seealso name="evi.algoverb~"> </seealso>
+		<seealso name="evi.freezeverb~"> </seealso>
+		<seealso name="evi.gigaverb~"> </seealso>
+		<seealso name="evi.mattaverb~"> </seealso>
+		<seealso name="evi.plateverb~"> </seealso>
+		<seealso name="evi.sustainverb.lite~"> </seealso>
+		<seealso name="evi.sustainverb~"> </seealso>
+		<seealso name="evi.zitaverb~"> </seealso>
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>

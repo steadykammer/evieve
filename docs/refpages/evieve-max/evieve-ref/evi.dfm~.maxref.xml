@@ -18,15 +18,15 @@
 	<inletlist>
 		<inlet id="1" type="signal">
 			<digest>
-				Audio Input Mono (messages) filter io base smooth gain noiselevel oversampling state (bang) reset abstraction to default values
+				Audio Input Mono/Left (messages) filter io base smooth gain noiselevel oversampling (bang) reset abstraction to default values
 			</digest>
 			<description>
 				
 			</description>
 		</inlet>
-		<inlet id="2" type="">
+		<inlet id="2" type="signal">
 			<digest>
-				inactive [Audio Input Right if @io &#x3D;&#x3D; 1, 3 or 4]
+				Audio Input nothing/Right
 			</digest>
 			<description>
 				
@@ -53,15 +53,15 @@
 	<outletlist>
 		<outlet id="1" type="signal">
 			<digest>
-				Dirty MS20 Output Mono ( filter currently LOWPASS _ Mono_Mono _ three_times_oversampled )
+				Dirty MS20 Output Mono/Left
 			</digest>
 			<description>
 				
 			</description>
 		</outlet>
-		<outlet id="2" type="">
+		<outlet id="2" type="signal">
 			<digest>
-				inactive [Audio Output Right if @io &#x3D;&#x3D; 1, 3 or 4]
+				Dirty MS20 Output Mono/Right
 			</digest>
 			<description>
 				

@@ -365,5 +365,11 @@
         "caption": "",
         "image": ""
     },
-    "seealso": []
+    "seealso": [
+        "evi.phasor0~",
+        "evi.ramp0~",
+        "evi.lpg~",
+        "evi.limiterfast~",
+        "evi.zeroxcount~"
+    ]
 }

@@ -169,15 +169,6 @@ max define mc.evi.filter~ mc.gen~ @gen evi_filter.gendsp @chans 2;
 max define evi.flanger.digital~ gen~ @gen evi_flanger_digital.gendsp;
 max define mc.evi.flanger.digital~ mc.gen~ @gen evi_flanger_digital.gendsp @chans 2;
 
-max define evi.formantfilter.morph~ gen~ @gen evi_formant_filter_morph.gendsp;
-max define mc.evi.formantfilter.morph~ mc.gen~ @gen evi_formant_filter_morph.gendsp @chans 2;
-
-max define evi.formantfilter~ gen~ @gen evi_formant_filter.gendsp;
-max define mc.evi.formantfilter~ mc.gen~ @gen evi_formant_filter.gendsp @chans 2;
-
-max define evi.formantosc~ gen~ @gen evi_formant_osc.gendsp;
-max define mc.evi.formantosc~ mc.gen~ @gen evi_formant_osc.gendsp @chans 2;
-
 max define evi.formletfilter~ gen~ @gen evi_formlet.gendsp;
 max define mc.evi.formletfilter~ mc.gen~ @gen evi_formlet.gendsp @chans 2;
 

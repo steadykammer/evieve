@@ -392,6 +392,11 @@
 	</examplelist>
 	<!--SEEALSO-->
 	<seealsolist>
+		<seealso name="evi.phasor0~"> </seealso>
+		<seealso name="evi.ramp0~"> </seealso>
+		<seealso name="evi.lpg~"> </seealso>
+		<seealso name="evi.limiterfast~"> </seealso>
+		<seealso name="evi.zeroxcount~"> </seealso>
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>

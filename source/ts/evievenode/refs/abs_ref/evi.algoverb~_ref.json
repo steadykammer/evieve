@@ -3,7 +3,7 @@
         "name": "evi.algoverb~",
         "category": "evieve",
         "digest": "True stereo algorithmic reverb",
-        "description": "TEXT_HERE",
+        "description": "Relatively expensive algorithmic reverb with many tweekable parameters, 15 embedded presets and an internal pattrstorage system. The reverb is modular, with pre delay, early reflections and late reflections all controllable individually, as well as high quality linear SVF filters in both the feedback path and end of wet path. The MSP abstraction does a lot of massaging of the input parameters, so when using the gen~ abstraction careful to study the internal Param declarations.",
         "discussion": ""
     },
     "metadata": {
@@ -14,14 +14,14 @@
         {
             "id": 1,
             "type": "signal",
-            "digest": "Audio In Left / (messages) [bypass mute pattrstorage factorypreset outputmode predelay pretime predelaytime presymmetry earlysize earlysymmetry earlydiffusion latesize latesymmetry latediffusion highdampfrequency highdampgain lowdampfrequency lowdampgain decay absorbtion modrate modfrequency moddepth modepth modamplitude earlylate higheqfrequency higheqgain loweqfrequency loweqgain drywet earlylatehysterisis smoothtime]",
-            "description": ""
+            "digest": "Audio In Left",
+            "description": "Audio In Left / (messages) [bypass mute pattrstorage factorypreset outputmode predelay pretime predelaytime presymmetry earlysize earlysymmetry earlydiffusion latesize latesymmetry latediffusion highdampfrequency highdampgain lowdampfrequency lowdampgain decay absorbtion modrate modfrequency moddepth modepth modamplitude earlylate higheqfrequency higheqgain loweqfrequency loweqgain drywet earlylatehysterisis smoothtime]"
         },
         {
             "id": 2,
             "type": "signal",
             "digest": "Audio In Right",
-            "description": ""
+            "description": "Audio In Right"
         }
     ],
     "outlets": [
@@ -29,35 +29,47 @@
             "id": 1,
             "type": "signal",
             "digest": "Audio Out Left",
-            "description": ""
+            "description": "Audio Out Left"
         },
         {
             "id": 2,
             "type": "signal",
             "digest": "Audio Out Right",
-            "description": ""
+            "description": "Audio Out Right"
         },
         {
             "id": 3,
-            "type": "",
+            "type": "anything",
             "digest": "dumpout (pattrstorage)",
-            "description": ""
+            "description": "Recieve pattrstorage output"
         }
     ],
     "arguments": [],
     "messages": [
         {
-            "name": "",
+            "name": "anything",
             "arg": [
                 {
-                    "name": "",
-                    "type": "",
-                    "units": "",
+                    "name": "bypass",
+                    "type": "int",
+                    "units": "0/1",
+                    "optional": 1
+                },
+                {
+                    "name": "mute",
+                    "type": "int",
+                    "units": "0/1",
+                    "optional": 1
+                },
+                {
+                    "name": "pattrstorage",
+                    "type": "anything",
+                    "units": "messages to pattrstorage",
                     "optional": 1
                 }
             ],
-            "digest": "",
-            "description": ""
+            "digest": "In left inlet, messages to <o>evi.algoverb~</o>",
+            "description": "'bypass' will smoothly bypass the reverb to dry, 'mute' will smoothly bypass and cpu mute the reverb. Prepending the word 'pattrstorage' allows you to send any message <o>pattrstorage</o> understands to the internal pattrstorage object - you can recieve pattrstorage output via the far right outlet."
         }
     ],
     "attributes": [
@@ -352,5 +364,14 @@
         "caption": "",
         "image": ""
     },
-    "seealso": []
+    "seealso": [
+        "evi.backverb~",
+        "evi.freezeverb~",
+        "evi.gigaverb~",
+        "evi.mattaverb~",
+        "evi.plateverb~",
+        "evi.sustainverb.lite~",
+        "evi.sustainverb~",
+        "evi.zitaverb~"
+    ]
 }

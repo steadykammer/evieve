@@ -10,7 +10,8 @@
         },
         "classnamespace": "box",
         "rect": [ 63.0, 131.0, 812.0, 790.0 ],
-        "bglocked": 1,
+        "openrect": [ 0.0, 0.0, 660.0, 568.0 ],
+        "openrectmode": 0,
         "gridonopen": 2,
         "subpatcher_template": "sub",
         "integercoordinates": 1,
@@ -116,7 +117,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 92.0, 72.0, 465.0, 47.0 ],
+                    "patching_rect": [ 92.0, 72.0, 467.0, 47.0 ],
                     "text": "All evieve overdrives are built using 'anti-derivative antialiasing' techniques, offering excellent and cheap antialiasing, as well as optional oversampling and high frequency compensation. All are antialiased better than MSP [overdrive~]."
                 }
             },
@@ -150,7 +151,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 204.0, 260.0, 429.0, 20.0 ],
-                    "presentation_linecount": 3,
                     "text": "with 'Shape' input to control saturation (similar behaviour to MSP [overdrive~])"
                 }
             },

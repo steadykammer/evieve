@@ -291,7 +291,7 @@
                         "embed": 0,
                         "parameter_enable": 0
                     },
-                    "text": "v8 Patcher:../../evievev8/dist/evievetranslaterefdict.js",
+                    "text": "v8 Patcher:../../evievev8/dist/evievedoc/evievetranslaterefdict.js",
                     "textfile": {
                         "filename": "evievetranslaterefdict.js",
                         "flags": 0,
@@ -2064,8 +2064,6 @@
                     "saved_object_attributes": {
                         "autostart": 0,
                         "defer": 0,
-                        "node_bin_path": "",
-                        "npm_bin_path": "",
                         "watch": 0
                     },
                     "text": "node.script Patcher:../dist/evievedoc.js",

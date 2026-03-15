@@ -364,23 +364,23 @@
         "seealso": []
     },
     "evi.formantfilter.morph~": {
-        "digest": "A vowel morphing TPT bandpass formant filter with morphable filter types",
+        "digest": 0,
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve Abstractions" ],
         "keywords": [],
         "seealso": []
     },
     "evi.formantfilter~": {
-        "digest": "A vowel morphing TPT resonant formant filter",
+        "digest": 0,
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve Abstractions" ],
         "keywords": [],
         "seealso": []
     },
     "evi.formantosc~": {
-        "digest": "A vowel morphing formant oscillator",
+        "digest": 0,
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve Abstractions" ],
         "keywords": [],
         "seealso": []
     },

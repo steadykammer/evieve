@@ -16,7 +16,7 @@
             },
             "db": {
                 "browser": false,
-				"auto": false
+                "auto": false
             }
         },
         "evi.adsr~": {
@@ -35,7 +35,7 @@
             },
             "db": {
                 "browser": true,
-				"auto": true
+                "auto": true
             }
         },
         "evi.algoverb.factorypresetsmenu": {
@@ -54,7 +54,7 @@
             },
             "db": {
                 "browser": false,
-				"auto": false
+                "auto": false
             }
         },
         "evi.algoverb~": {
@@ -75,7 +75,7 @@
             },
             "db": {
                 "browser": true,
-				"auto": true
+                "auto": true
             }
         },
         "evi.atodb": {
@@ -94,7 +94,7 @@
             },
             "db": {
                 "browser": false,
-				"auto": false
+                "auto": false
             }
         },
         "evi.backverb~": {
@@ -115,7 +115,7 @@
             },
             "db": {
                 "browser": true,
-				"auto": true
+                "auto": true
             }
         },
         "evi.biquadcoeff": {
@@ -136,7 +136,7 @@
             },
             "db": {
                 "browser": true,
-				"auto": true
+                "auto": true
             }
         },
         "evi.clipasym~": {
@@ -155,7 +155,7 @@
             },
             "db": {
                 "browser": true,
-				"auto": true
+                "auto": true
             }
         },
         "evi.dbtoa": {
@@ -174,7 +174,7 @@
             },
             "db": {
                 "browser": false,
-				"auto": false
+                "auto": false
             }
         },
         "evi.dcblock~": {
@@ -193,7 +193,7 @@
             },
             "db": {
                 "browser": true,
-				"auto": true
+                "auto": true
             }
         },
         "evi.dfm~": {
@@ -206,7 +206,7 @@
                 "mcstab": false,
                 "mcparent": "",
                 "mcchild": "",
-                "gentab": true,
+                "gentab": false,
                 "genexprtab": false,
                 "areas": [
                     "korg"
@@ -214,7 +214,7 @@
             },
             "db": {
                 "browser": true,
-				"auto": true
+                "auto": true
             }
         },
         "evi.enable": {
@@ -233,7 +233,7 @@
             },
             "db": {
                 "browser": false,
-				"auto": false
+                "auto": false
             }
         },
         "evi.findhost": {
@@ -252,7 +252,64 @@
             },
             "db": {
                 "browser": false,
-				"auto": false
+                "auto": false
+            }
+        },
+        "evi.formantfilter.morph~": {
+            "object": true,
+            "ref": true,
+            "qlookup": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi.formantfilter~": {
+            "object": true,
+            "ref": true,
+            "qlookup": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi.formantosc~": {
+            "object": true,
+            "ref": true,
+            "qlookup": true,
+            "helpfile": {
+                "generate": true,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": ["oscillator"]
+            },
+            "db": {
+                "browser": true,
+                "auto": true
             }
         },
         "evi.freezeverb~": {
@@ -273,7 +330,7 @@
             },
             "db": {
                 "browser": true,
-				"auto": true
+                "auto": true
             }
         },
         "evi.freqshift.hilbert~": {
@@ -292,7 +349,7 @@
             },
             "db": {
                 "browser": true,
-				"auto": true
+                "auto": true
             }
         },
         "evi.gigaverb~": {
@@ -313,7 +370,7 @@
             },
             "db": {
                 "browser": true,
-				"auto": true
+                "auto": true
             }
         },
         "evi.hilbert~": {
@@ -334,7 +391,7 @@
             },
             "db": {
                 "browser": true,
-				"auto": true
+                "auto": true
             }
         },
         "evi.list.interp": {
@@ -353,7 +410,7 @@
             },
             "db": {
                 "browser": false,
-				"auto": false
+                "auto": false
             }
         },
         "evi.list.xfade": {
@@ -372,10 +429,10 @@
             },
             "db": {
                 "browser": false,
-				"auto": false
+                "auto": false
             }
         },
-        "evi.listproduct": {
+        "evi.list.product": {
             "object": true,
             "ref": false,
             "qlookup": false,
@@ -391,7 +448,7 @@
             },
             "db": {
                 "browser": false,
-				"auto": false
+                "auto": false
             }
         },
         "evi.lpg.core~": {
@@ -410,7 +467,7 @@
             },
             "db": {
                 "browser": false,
-				"auto": false
+                "auto": false
             }
         },
         "evi.lpg~": {
@@ -429,7 +486,7 @@
             },
             "db": {
                 "browser": true,
-				"auto": true
+                "auto": true
             }
         },
         "evi.magnitude": {
@@ -448,7 +505,7 @@
             },
             "db": {
                 "browser": false,
-				"auto": false
+                "auto": false
             }
         },
         "evi.mattaverb~": {
@@ -469,7 +526,7 @@
             },
             "db": {
                 "browser": true,
-				"auto": true
+                "auto": true
             }
         },
         "evi.notes2ints": {
@@ -488,7 +545,7 @@
             },
             "db": {
                 "browser": false,
-				"auto": false
+                "auto": false
             }
         },
         "evi.pitchdetect~": {
@@ -507,7 +564,7 @@
             },
             "db": {
                 "browser": false,
-				"auto": false
+                "auto": false
             }
         },
         "evi.plateverb.lite~": {
@@ -528,7 +585,7 @@
             },
             "db": {
                 "browser": false,
-				"auto": false
+                "auto": false
             }
         },
         "evi.plateverb~": {
@@ -549,7 +606,7 @@
             },
             "db": {
                 "browser": true,
-				"auto": true
+                "auto": true
             }
         },
         "evi.polyphaseiirhilbertcoeffs": {
@@ -568,7 +625,7 @@
             },
             "db": {
                 "browser": true,
-				"auto": true
+                "auto": true
             }
         },
         "evi.pz": {
@@ -587,7 +644,7 @@
             },
             "db": {
                 "browser": false,
-				"auto": false
+                "auto": false
             }
         },
         "evi.recursivefolder": {
@@ -606,7 +663,7 @@
             },
             "db": {
                 "browser": false,
-				"auto": false
+                "auto": false
             }
         },
         "evi.ringmod.diode.core~": {
@@ -625,7 +682,7 @@
             },
             "db": {
                 "browser": false,
-				"auto": false
+                "auto": false
             }
         },
         "evi.ringmod.diode~": {
@@ -644,7 +701,7 @@
             },
             "db": {
                 "browser": true,
-				"auto": true
+                "auto": true
             }
         },
         "evi.sinfold~": {
@@ -663,7 +720,7 @@
             },
             "db": {
                 "browser": true,
-				"auto": true
+                "auto": true
             }
         },
         "evi.sustainfdn.core~": {
@@ -684,7 +741,7 @@
             },
             "db": {
                 "browser": false,
-				"auto": false
+                "auto": false
             }
         },
         "evi.sustainverb.lite~": {
@@ -705,7 +762,7 @@
             },
             "db": {
                 "browser": true,
-				"auto": true
+                "auto": true
             }
         },
         "evi.sustainverb~": {
@@ -726,7 +783,7 @@
             },
             "db": {
                 "browser": true,
-				"auto": true
+                "auto": true
             }
         },
         "evi.tpqm": {
@@ -745,7 +802,7 @@
             },
             "db": {
                 "browser": true,
-				"auto": true
+                "auto": true
             }
         },
         "evi.transratio": {
@@ -764,7 +821,7 @@
             },
             "db": {
                 "browser": true,
-				"auto": true
+                "auto": true
             }
         },
         "evi.typeroute": {
@@ -783,7 +840,7 @@
             },
             "db": {
                 "browser": false,
-				"auto": false
+                "auto": false
             }
         },
         "evi.voiceexclude": {
@@ -802,7 +859,7 @@
             },
             "db": {
                 "browser": false,
-				"auto": false
+                "auto": false
             }
         },
         "evi.warmer~": {
@@ -821,7 +878,7 @@
             },
             "db": {
                 "browser": true,
-				"auto": true
+                "auto": true
             }
         },
         "evi.weightingcoeffs": {
@@ -840,7 +897,7 @@
             },
             "db": {
                 "browser": true,
-				"auto": true
+                "auto": true
             }
         },
         "evi.zitaverb~": {
@@ -861,7 +918,7 @@
             },
             "db": {
                 "browser": true,
-				"auto": true
+                "auto": true
             }
         },
         "evi.zpk": {
@@ -880,7 +937,7 @@
             },
             "db": {
                 "browser": false,
-				"auto": false
+                "auto": false
             }
         },
         "mc.evi.bands~": {
@@ -899,7 +956,7 @@
             },
             "db": {
                 "browser": true,
-				"auto": true
+                "auto": true
             }
         },
         "mc.evi.clipasym~": {
@@ -918,7 +975,7 @@
             },
             "db": {
                 "browser": true,
-				"auto": true
+                "auto": true
             }
         },
         "mc.evi.dcblock~": {
@@ -937,7 +994,7 @@
             },
             "db": {
                 "browser": true,
-				"auto": true
+                "auto": true
             }
         },
         "mc.evi.listgen": {
@@ -956,7 +1013,7 @@
             },
             "db": {
                 "browser": false,
-				"auto": false
+                "auto": false
             }
         },
         "mc.evi.nth~": {
@@ -975,7 +1032,7 @@
             },
             "db": {
                 "browser": false,
-				"auto": false
+                "auto": false
             }
         },
         "mc.evi.sinfold~": {
@@ -994,7 +1051,7 @@
             },
             "db": {
                 "browser": true,
-				"auto": true
+                "auto": true
             }
         },
         "mc.evi.warmer~": {
@@ -1013,7 +1070,7 @@
             },
             "db": {
                 "browser": true,
-				"auto": true
+                "auto": true
             }
         },
         "mcs.evi.algoverb~": {
@@ -1034,7 +1091,7 @@
             },
             "db": {
                 "browser": true,
-				"auto": true
+                "auto": true
             }
         },
         "mcs.evi.backverb~": {
@@ -1055,7 +1112,7 @@
             },
             "db": {
                 "browser": true,
-				"auto": true
+                "auto": true
             }
         },
         "mcs.evi.freezeverb~": {
@@ -1076,7 +1133,7 @@
             },
             "db": {
                 "browser": true,
-				"auto": true
+                "auto": true
             }
         },
         "mcs.evi.gigaverb~": {
@@ -1097,7 +1154,7 @@
             },
             "db": {
                 "browser": true,
-				"auto": true
+                "auto": true
             }
         },
         "mcs.evi.mattaverb~": {
@@ -1118,7 +1175,7 @@
             },
             "db": {
                 "browser": true,
-				"auto": true
+                "auto": true
             }
         },
         "mcs.evi.plateverb.lite~": {
@@ -1139,7 +1196,7 @@
             },
             "db": {
                 "browser": false,
-				"auto": false
+                "auto": false
             }
         },
         "mcs.evi.plateverb~": {
@@ -1160,7 +1217,7 @@
             },
             "db": {
                 "browser": true,
-				"auto": true
+                "auto": true
             }
         },
         "mcs.evi.sustainverb.lite~": {
@@ -1181,7 +1238,7 @@
             },
             "db": {
                 "browser": true,
-				"auto": true
+                "auto": true
             }
         },
         "mcs.evi.sustainverb~": {
@@ -1202,7 +1259,7 @@
             },
             "db": {
                 "browser": true,
-				"auto": true
+                "auto": true
             }
         },
         "mcs.evi.zitaverb~": {
@@ -1223,7 +1280,7 @@
             },
             "db": {
                 "browser": true,
-				"auto": true
+                "auto": true
             }
         }
     }

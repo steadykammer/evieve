@@ -27,7 +27,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 164.5504586984723, 254.5, 144.0, 22.0 ],
-                    "text": "evi.listproduct @iterate 1"
+                    "text": "evi.list.product @iterate 1"
                 }
             },
             {

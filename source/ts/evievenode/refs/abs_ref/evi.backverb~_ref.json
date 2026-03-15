@@ -3,7 +3,7 @@
         "name": "evi.backverb~",
         "category": "evieve",
         "digest": "Ursa Major reverb unit with saturating feedback",
-        "description": "TEXT_HERE",
+        "description": "A strange reverb-like effect, based on Christopher Moore's legendary 1978 Ursa Major Space Station algorithm. This is not an attempt to model the 1970's digital hardware, but more of a trope on it, although it does sound very close to the original with the right settings. Nonlinearities and trap filters have been added, much as you might find in an analog delay, as well as different modulation, interpolation, smoothing and filtering modifications. Also cheap on CPU.",
         "discussion": ""
     },
     "metadata": {
@@ -14,50 +14,50 @@
         {
             "id": 1,
             "type": "signal",
-            "digest": "Audio In Left / messages to evi.backverb~",
-            "description": ""
+            "digest": "Audio In Left",
+            "description": "Audio In Left / messages to evi.backverb~"
         },
         {
             "id": 2,
             "type": "signal",
-            "digest": "Audio In Right / messages to evi.backverb~",
-            "description": ""
+            "digest": "Audio In Right",
+            "description": "Audio In Right / messages to evi.backverb~"
         }
     ],
     "outlets": [
         {
             "id": 1,
-            "type": "",
+            "type": "signal",
             "digest": "RVRB Out Left",
-            "description": ""
+            "description": "Audio out Left"
         },
         {
             "id": 2,
-            "type": "",
+            "type": "signal",
             "digest": "RVRB Out Right",
-            "description": ""
+            "description": "Audio out Right"
         },
         {
             "id": 3,
-            "type": "",
+            "type": "anything",
             "digest": "dumpout (pattrstorage)",
-            "description": ""
+            "description": "Recieve pattrstorage output"
         }
     ],
     "arguments": [],
     "messages": [
         {
-            "name": "",
+            "name": "anything",
             "arg": [
                 {
-                    "name": "",
-                    "type": "",
-                    "units": "",
+                    "name": "pattrstorage",
+                    "type": "anything",
+                    "units": "messages to pattrstorage",
                     "optional": 1
                 }
             ],
-            "digest": "",
-            "description": ""
+            "digest": "In left inlet, messages to <o>evi.backverb~</o>",
+            "description": "Prepending the word 'pattrstorage' allows you to send any message <o>pattrstorage</o> understands to the internal pattrstorage object - you can recieve pattrstorage output via the far right outlet."
         }
     ],
     "attributes": [
@@ -172,7 +172,40 @@
             }
         },
         {
+            "name": "modulationduty",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "0.5"
+            }
+        },
+        {
             "name": "modulationrate",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "1."
+            }
+        },
+        {
+            "name": "modulationshape",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "1."
+            }
+        },
+        {
+            "name": "modulationskew",
             "get": 0,
             "type": "float",
             "digest": "",
@@ -198,5 +231,14 @@
         "caption": "",
         "image": ""
     },
-    "seealso": []
+    "seealso": [
+        "evi.algoverb~",
+        "evi.freezeverb~",
+        "evi.gigaverb~",
+        "evi.mattaverb~",
+        "evi.plateverb~",
+        "evi.sustainverb.lite~",
+        "evi.sustainverb~",
+        "evi.zitaverb~"
+    ]
 }

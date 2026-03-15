@@ -14,13 +14,13 @@
         {
             "id": 1,
             "type": "signal",
-            "digest": "Audio Input Mono (messages) filter io base smooth gain noiselevel oversampling state (bang) reset abstraction to default values",
+            "digest": "Audio Input Mono/Left (messages) filter io base smooth gain noiselevel oversampling (bang) reset abstraction to default values",
             "description": ""
         },
         {
             "id": 2,
-            "type": "",
-            "digest": "inactive [Audio Input Right if @io == 1, 3 or 4]",
+            "type": "signal",
+            "digest": "Audio Input nothing/Right",
             "description": ""
         },
         {
@@ -40,13 +40,13 @@
         {
             "id": 1,
             "type": "signal",
-            "digest": "Dirty MS20 Output Mono ( filter currently LOWPASS _ Mono_Mono _ three_times_oversampled )",
+            "digest": "Dirty MS20 Output Mono/Left",
             "description": ""
         },
         {
             "id": 2,
-            "type": "",
-            "digest": "inactive [Audio Output Right if @io == 1, 3 or 4]",
+            "type": "signal",
+            "digest": "Dirty MS20 Output Mono/Right",
             "description": ""
         }
     ],

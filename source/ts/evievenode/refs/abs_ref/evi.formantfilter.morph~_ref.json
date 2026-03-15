@@ -1,10 +1,8 @@
 {
     "object": {
-        "name": "evi.formantosc~",
-        "parent": "evi_formant_osc",
+        "name": "evi.formantfilter.morph~",
         "category": "evieve",
-        "tilde": "~",
-        "digest": "A vowel morphing formant oscillator",
+        "digest": "TEXT_HERE",
         "description": "TEXT_HERE",
         "discussion": ""
     },
@@ -12,16 +10,11 @@
         "author": "Pete Dowling",
         "tags": []
     },
-    "includes": [
-        "evi_smooth.genexpr",
-        "evi_trig.genexpr",
-        "evi_rcfilters.genexpr"
-    ],
     "inlets": [
         {
             "id": 1,
-            "type": "signal/float",
-            "digest": "Fundamental Frequency",
+            "type": "signal",
+            "digest": "Audio Input",
             "description": ""
         },
         {
@@ -38,8 +31,8 @@
         },
         {
             "id": 4,
-            "type": "signal",
-            "digest": "Naive Reset (do not use)",
+            "type": "signal/float",
+            "digest": "Morph Filters 0..1",
             "description": ""
         }
     ],
@@ -47,227 +40,162 @@
         {
             "id": 1,
             "type": "signal",
-            "digest": "Formant Oscillator",
+            "digest": "Formant Filter",
             "description": ""
         },
         {
             "id": 2,
             "type": "signal",
-            "digest": "Phase 0",
-            "description": ""
-        },
-        {
-            "id": 3,
-            "type": "signal",
-            "digest": "Phase 180",
+            "digest": "Current Formant Frequency in Hz (depending on 'formantfrequency' param)",
             "description": ""
         }
     ],
+    "arguments": [],
     "messages": [
         {
-            "name": "history",
+            "name": "",
             "arg": [
                 {
-                    "name": "prevff",
-                    "type": "float",
-                    "units": "default: 0",
+                    "name": "",
+                    "type": "",
+                    "units": "",
                     "optional": 1
                 }
             ],
-            "digest": "Top level gen~ [history] / History() declarations can be reset by messages to the object",
+            "digest": "",
             "description": ""
         }
     ],
     "attributes": [
         {
             "name": "bwwarp",
-            "get": 1,
+            "get": 0,
             "type": "float",
             "digest": "",
             "description": "",
             "default": {
-                "min": "0.00625",
-                "max": "32",
+                "get": 0,
                 "value": "1."
             }
         },
         {
             "name": "cfwarp",
-            "get": 1,
+            "get": 0,
             "type": "float",
             "digest": "",
             "description": "",
             "default": {
-                "min": "0.025",
-                "max": "4",
+                "get": 0,
                 "value": "1."
             }
         },
         {
             "name": "datainterp",
-            "get": 1,
+            "get": 0,
             "type": "int",
             "digest": "",
             "description": "",
             "default": {
-                "min": "0",
-                "max": "1",
+                "get": 0,
                 "value": "1"
             }
         },
         {
             "name": "datatype",
-            "get": 1,
+            "get": 0,
             "type": "int",
             "digest": "",
             "description": "",
             "default": {
-                "min": "0",
-                "max": "1",
+                "get": 0,
+                "value": "0"
+            }
+        },
+        {
+            "name": "formantfrequency",
+            "get": 0,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
                 "value": "0"
             }
         },
         {
             "name": "formants",
-            "get": 1,
+            "get": 0,
             "type": "int",
             "digest": "",
             "description": "",
             "default": {
-                "min": "1",
-                "max": "5",
+                "get": 0,
                 "value": "5"
             }
         },
         {
             "name": "formantsoffset",
-            "get": 1,
+            "get": 0,
             "type": "int",
             "digest": "",
             "description": "",
             "default": {
-                "min": "0",
-                "max": "0",
-                "value": "0"
-            }
-        },
-        {
-            "name": "fundfreqmode",
-            "get": 1,
-            "type": "int",
-            "digest": "",
-            "description": "",
-            "default": {
-                "min": "0",
-                "max": "1",
+                "get": 0,
                 "value": "0"
             }
         },
         {
             "name": "gain",
-            "get": 1,
+            "get": 0,
             "type": "float",
             "digest": "",
             "description": "",
             "default": {
-                "min": "-80",
-                "max": "20",
+                "get": 0,
                 "value": "0."
             }
         },
         {
             "name": "gainnorm",
-            "get": 1,
+            "get": 0,
             "type": "int",
             "digest": "",
             "description": "",
             "default": {
-                "min": "0",
-                "max": "1",
+                "get": 0,
                 "value": "0"
             }
         },
         {
             "name": "gainwarp",
-            "get": 1,
+            "get": 0,
             "type": "float",
             "digest": "",
             "description": "",
             "default": {
-                "min": "0.025",
-                "max": "4",
+                "get": 0,
                 "value": "1."
             }
         },
         {
-            "name": "highpass",
-            "get": 1,
-            "type": "float",
-            "digest": "",
-            "description": "",
-            "default": {
-                "min": "15.625",
-                "max": "1000",
-                "value": "31.25"
-            }
-        },
-        {
             "name": "paramsmooth",
-            "get": 1,
+            "get": 0,
             "type": "float",
             "digest": "",
             "description": "",
             "default": {
-                "min": "0",
-                "max": "333",
+                "get": 0,
                 "value": "15.111"
             }
         },
         {
-            "name": "voices",
-            "get": 1,
-            "type": "int",
-            "digest": "",
-            "description": "",
-            "default": {
-                "min": "1",
-                "max": "5",
-                "value": "5"
-            }
-        },
-        {
-            "name": "vowels",
-            "get": 1,
-            "type": "int",
-            "digest": "",
-            "description": "",
-            "default": {
-                "min": "1",
-                "max": "5",
-                "value": "5"
-            }
-        },
-        {
             "name": "warpsmooth",
-            "get": 1,
+            "get": 0,
             "type": "int",
             "digest": "",
             "description": "",
             "default": {
-                "min": "0",
-                "max": "1",
-                "value": "1"
-            }
-        },
-        {
-            "name": "zerophasor",
-            "get": 1,
-            "type": "int",
-            "digest": "",
-            "description": "",
-            "default": {
-                "min": "-1",
-                "max": "1",
+                "get": 0,
                 "value": "1"
             }
         }

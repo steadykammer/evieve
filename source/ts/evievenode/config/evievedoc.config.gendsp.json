@@ -1179,7 +1179,7 @@
                 "mcwrapper": false
             },
             "ref": {
-                "gen": true,
+                "gen": false,
                 "msp": false
             },
             "helpfile": {
@@ -1700,18 +1700,18 @@
         },
         "evi_formant_filter_morph.gendsp": {
             "define": {
-                "object": true,
-                "msp": "evi.formantfilter.morph~",
-                "mcwrapper": true
+                "object": false,
+                "msp": "",
+                "mcwrapper": false
             },
             "ref": {
-                "gen": true,
-                "msp": true
+                "gen": false,
+                "msp": false
             },
             "helpfile": {
-                "msp": true,
-                "gentab": true,
-                "genexprtab": true,
+                "msp": false,
+                "gentab": false,
+                "genexprtab": false,
                 "areaonly": false,
                 "areas": []
             },
@@ -1722,18 +1722,18 @@
         },
         "evi_formant_filter.gendsp": {
             "define": {
-                "object": true,
-                "msp": "evi.formantfilter~",
-                "mcwrapper": true
+                "object": false,
+                "msp": "",
+                "mcwrapper": false
             },
             "ref": {
-                "gen": true,
-                "msp": true
+                "gen": false,
+                "msp": false
             },
             "helpfile": {
-                "msp": true,
-                "gentab": true,
-                "genexprtab": true,
+                "msp": false,
+                "gentab": false,
+                "genexprtab": false,
                 "areaonly": false,
                 "areas": []
             },
@@ -1744,18 +1744,18 @@
         },
         "evi_formant_osc.gendsp": {
             "define": {
-                "object": true,
-                "msp": "evi.formantosc~",
-                "mcwrapper": true
+                "object": false,
+                "msp": "",
+                "mcwrapper": false
             },
             "ref": {
-                "gen": true,
-                "msp": true
+                "gen": false,
+                "msp": false
             },
             "helpfile": {
-                "msp": true,
-                "gentab": true,
-                "genexprtab": true,
+                "msp": false,
+                "gentab": false,
+                "genexprtab": false,
                 "areaonly": false,
                 "areas": [
                     "oscillator"
