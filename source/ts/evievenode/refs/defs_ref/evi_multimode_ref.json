@@ -16,19 +16,19 @@
     "inlets": [
         {
             "id": 1,
-            "type": "",
+            "type": "signal",
             "digest": "Input",
             "description": ""
         },
         {
             "id": 2,
-            "type": "",
+            "type": "signal",
             "digest": "Cutoff in Hz @min 1 @max samplerate*0.5 @default 500.",
             "description": ""
         },
         {
             "id": 3,
-            "type": "",
+            "type": "signal",
             "digest": "Q @min 0.05 @default 0.707107",
             "description": ""
         }
@@ -36,43 +36,43 @@
     "outlets": [
         {
             "id": 1,
-            "type": "",
+            "type": "signal",
             "digest": "Low",
             "description": ""
         },
         {
             "id": 2,
-            "type": "",
+            "type": "signal",
             "digest": "Band",
             "description": ""
         },
         {
             "id": 3,
-            "type": "",
+            "type": "signal",
             "digest": "High",
             "description": ""
         },
         {
             "id": 4,
-            "type": "",
+            "type": "signal",
             "digest": "Peak",
             "description": ""
         },
         {
             "id": 5,
-            "type": "",
+            "type": "signal",
             "digest": "Notch",
             "description": ""
         },
         {
             "id": 6,
-            "type": "",
+            "type": "signal",
             "digest": "Reson",
             "description": ""
         },
         {
             "id": 7,
-            "type": "",
+            "type": "signal",
             "digest": "Allpass",
             "description": ""
         }

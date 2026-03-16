@@ -40,37 +40,37 @@
     "outlets": [
         {
             "id": 1,
-            "type": "",
+            "type": "signal",
             "digest": "SAW",
             "description": ""
         },
         {
             "id": 2,
-            "type": "",
+            "type": "signal",
             "digest": "RECT",
             "description": ""
         },
         {
             "id": 3,
-            "type": "",
+            "type": "signal",
             "digest": "TRI",
             "description": ""
         },
         {
             "id": 4,
-            "type": "",
+            "type": "signal",
             "digest": "SINE (if param addsine set)",
             "description": ""
         },
         {
             "id": 5,
-            "type": "",
+            "type": "signal",
             "digest": "Train 0/1 (if param addtrain set)",
             "description": ""
         },
         {
             "id": 6,
-            "type": "",
+            "type": "signal",
             "digest": "Sync 0..1 (if param addsync set)",
             "description": ""
         }

@@ -1035,12 +1035,23 @@ async function parseGendspsCodeboxes()
 							thisAttr.type = type;
 							thisAttr.default.type = type;
 							thisAttr.default.value = paramDefault;
+							let NO_MIN_MAX = false;
 							if (HAS_MIN && !HAS_MAX) {
 								thisAttr.digest = `@min ${paramMin}`;
 							} else if (!HAS_MIN && HAS_MAX) {
 								thisAttr.digest = `@max ${paramMax}`;
 							} else if (HAS_MIN && HAS_MAX) {
 								thisAttr.digest = `@min ${paramMin}, @max ${paramMax}`;
+							} else {
+								NO_MIN_MAX = true;
+							}
+							// if already exists, fill human edited data from current
+							const currentAttr = thisConfigObject.attributes.find((obj: { name: string; }) => obj.name === paramName);
+							if (currentAttr != undefined) {
+								if (NO_MIN_MAX) {
+									thisAttr.digest = currentAttr.digest;
+								}
+								thisAttr.description = currentAttr.description;
 							}
 							thisConfigObject.attributes.push(thisAttr);
 
@@ -1073,6 +1084,7 @@ async function parseGendspsCodeboxes()
 	}
 }
 
+// {make_gens_ref_xml_configs}
 async function parseGendspsData()
 {
 	const gendspsFolder = `${cwd()}/${config.referenceFiles.genDsp.input}`;
@@ -1141,11 +1153,12 @@ async function parseGendspsLoop(gendspPath: string, gendspName: string, thisConf
 				// parse it
 				let thisIO: any = JSON.parse(JSON.stringify(inoutletsConfig));
 				const IO_tokens = BOX_TEXT.split(' ');
-				thisIO.id = parseInt(IO_tokens[1]);
+				const thisId = parseInt(IO_tokens[1]);
+				thisIO.id = thisId;
 				if (IO_tokens.length > 2) {
 					if (IO_tokens[2].startsWith('(') && IO_tokens[2].endsWith(')')) {
 						const type = IO_tokens[2].replace('(', '').replace(')', '');
-						thisIO.type = type.includes("signal") ? "float" : type; // for gen~
+						thisIO.type = type.includes('signal') ? 'float' : type; // for gen~
 						if (IO_tokens.length > 3) {
 							thisIO.name = IO_tokens[3].toLowerCase().trim(); // weak
 							if (IO_tokens.length > 4) {
@@ -1153,6 +1166,7 @@ async function parseGendspsLoop(gendspPath: string, gendspName: string, thisConf
 							}
 						}
 					} else {
+						thisIO.type = 'float';
 						thisIO.name = IO_tokens[2].toLowerCase().trim(); // weak
 						if (IO_tokens.length > 3) {
 							thisIO.digest = IO_tokens.slice(3).join(' ').trim();
@@ -1161,15 +1175,30 @@ async function parseGendspsLoop(gendspPath: string, gendspName: string, thisConf
 				}
 				// push it
 				if (isInlet) {
+					// if already exists, fill human edited data from current, if no auto data created
+					if (!(thisIO.digest.length)) {
+						const currentIO = thisConfigObject.inlets.find((obj: { id: number; }) => obj.id === thisId);
+						if (currentIO != undefined) {
+							thisIO.digest = currentIO.digest;
+						}
+					}
 					thisConfigObject.inlets.push(thisIO);
 				} else if (isOutlet) {
+					// if already exists, fill human edited data from current, if no auto data created
+					if (!(thisIO.digest.length)) {
+						const currentIO = thisConfigObject.outlets.find((obj: { id: number; }) => obj.id === thisId);
+						if (currentIO != undefined) {
+							thisIO.digest = currentIO.digest;
+						}
+					}
 					thisConfigObject.outlets.push(thisIO);
 				}
 			} else if (isParam) {
 				// this run is only for patched gen~ objects, we do parsing of GenExpr code later
 				let thisAttr: any = JSON.parse(JSON.stringify(attributesConfig));
 				const ATTR_tokens = BOX_TEXT.split(' ');
-				thisAttr.name = ATTR_tokens[1];
+				const thisName = ATTR_tokens[1];
+				thisAttr.name = thisName;
 				let remainder: string[] = [];
 				let NO_TYPE: boolean = false;
 				if (!ATTR_tokens[2].startsWith('@')) {
@@ -1198,6 +1227,12 @@ async function parseGendspsLoop(gendspPath: string, gendspName: string, thisConf
 							}
 						}
 					}
+				}
+				// if already exists, fill human edited data from current
+				const currentAttr = thisConfigObject.attributes.find((obj: { name: string; }) => obj.name === thisName);
+				if (currentAttr != undefined) {
+					thisAttr.digest = currentAttr.digest;
+					thisAttr.description = currentAttr.description;
 				}
 				thisConfigObject.attributes.push(thisAttr);
 			}
@@ -1457,6 +1492,12 @@ async function parseDefinesCodeboxes()
 							thisAttr.default.value = paramDefault;
 							thisAttr.default.min = paramMin;
 							thisAttr.default.max = paramMax;
+							// if already exists, fill human edited data from current
+							const currentAttr = thisConfigObject.attributes.find((obj: { name: string; }) => obj.name === paramName);
+							if (currentAttr != undefined) {
+								thisAttr.digest = currentAttr.digest;
+								thisAttr.description = currentAttr.description;
+							}
 							thisConfigObject.attributes.push(thisAttr);
 
 							FOUND_PARAM = true;
@@ -1489,6 +1530,7 @@ async function parseDefinesCodeboxes()
 	}
 }
 
+// {make_defs_ref_xml_configs}
 async function parseDefinesData()
 {
 	const gendspsFolder = `${cwd()}/${config.referenceFiles.genDsp.input}`;
@@ -1586,7 +1628,8 @@ async function parseDefinesGendspsLoop(gendspPath: string, gendspName: string, t
 				// parse it
 				let thisIO: any = JSON.parse(JSON.stringify(inoutletsConfig));
 				const IO_tokens = BOX_TEXT.split(' ');
-				thisIO.id = parseInt(IO_tokens[1]);
+				const thisId = parseInt(IO_tokens[1]);
+				thisIO.id = thisId;
 				if (IO_tokens.length > 2) {
 					if (IO_tokens[2].startsWith('(') && IO_tokens[2].endsWith(')')) {
 						thisIO.type = IO_tokens[2].replace('(', '').replace(')', '');
@@ -1594,19 +1637,31 @@ async function parseDefinesGendspsLoop(gendspPath: string, gendspName: string, t
 							thisIO.digest = IO_tokens.slice(3).join(' ').trim();
 						}
 					} else {
+						thisIO.type = 'signal'; // this is gen dsp define after all
 						thisIO.digest = IO_tokens.slice(2).join(' ').trim();
 					}
 				}
 				// push it
 				if (isInlet) {
+					// if already exists, fill human edited data from current
+					const currentIO = thisConfigObject.inlets.find((obj: { id: number; }) => obj.id === thisId);
+					if (currentIO != undefined) {
+						thisIO.description = currentIO.description
+					}
 					thisConfigObject.inlets.push(thisIO);
 				} else if (isOutlet) {
+					// if already exists, fill human edited data from current
+					const currentIO = thisConfigObject.outlets.find((obj: { id: number; }) => obj.id === thisId);
+					if (currentIO != undefined) {
+						thisIO.description = currentIO.description
+					}
 					thisConfigObject.outlets.push(thisIO);
 				}
 			} else if (isParam) {
 				let thisAttr: any = JSON.parse(JSON.stringify(attributesConfig));
 				const ATTR_tokens = BOX_TEXT.split(' ');
-				thisAttr.name = ATTR_tokens[1];
+				const thisName = ATTR_tokens[1];
+				thisAttr.name = thisName;
 				let remainder: string[] = [];
 				let NO_TYPE: boolean = false;
 				if (!ATTR_tokens[2].startsWith('@')) {
@@ -1635,6 +1690,12 @@ async function parseDefinesGendspsLoop(gendspPath: string, gendspName: string, t
 							}
 						}
 					}
+				}
+				// if already exists, fill human edited data from current
+				const currentAttr = thisConfigObject.attributes.find((obj: { name: string; }) => obj.name === thisName);
+				if (currentAttr != undefined) {
+					thisAttr.digest = currentAttr.digest;
+					thisAttr.description = currentAttr.description;
 				}
 				thisConfigObject.attributes.push(thisAttr);
 			} else if (isHistory) {
@@ -1747,6 +1808,7 @@ function thinUniqueArrayByKey(array: any, key: string) {
 
 // --------------------------------------------- //
 
+// {make_abs_ref_xml_configs}
 async function parseAbstractionsData()
 {
 	const patchersFolder = `${cwd()}/${config.referenceFiles.abstractions.input}`
@@ -1769,9 +1831,10 @@ async function parseAbstractionsData()
 
 async function parseAbstractionMaxpatLoop(patcherPath: string, patcherName: string, thisConfigFullPath: string) {
 	const fullPatcherPath = `${patcherPath}/${patcherName}.maxpat`;
-    const maxpatRaw = fs.readFileSync(fullPatcherPath, 'utf8'); // patcher is read only in this logic
+	// import the Max patcher as JSON
+    const maxpatRaw = fs.readFileSync(fullPatcherPath, 'utf8');
     const maxpatJson = JSON.parse(maxpatRaw);
-
+	// import the evieve style reference page JSON
 	const thisConfigJson = fs.readFileSync(thisConfigFullPath, 'utf8');
     const thisConfigObject = JSON.parse(thisConfigJson);
 
@@ -1820,17 +1883,27 @@ async function parseAbstractionMaxpatLoop(patcherPath: string, patcherName: stri
 					// i know, this does not do attributes with multiple args
 					if (BOX_tokens[i].startsWith('@')) {
 						AT_PARSED = true;
+						const thisName = BOX_tokens[i].replace('@', '');
 						let thisAttr: any = JSON.parse(JSON.stringify(attributesConfig));
-						thisAttr.name = BOX_tokens[i].replace('@', '');
+						thisAttr.name = thisName;
 						const thisValue = (BOX_tokens[i + 1].startsWith('@')) ? "" : BOX_tokens[i + 1];
 						thisAttr.default.value = thisValue;
 						thisAttr.type = inferTypeFromString(thisValue);
-						thisConfigObject.attributes.push(thisAttr);
+						// if already exists, fill human edited data from current
+						const currentAttr = thisConfigObject.attributes.find((obj: { name: string; }) => obj.name === thisName);
+						if (currentAttr != undefined) {
+							thisAttr.digest = currentAttr.digest;
+							thisAttr.description = currentAttr.description;
+						}
+						thisConfigObject.attributes.push(thisAttr); // we thin it later, lazy i know
 					} else {
 						if ((AT_PARSED) || (i === BOX_tokens.length - 1)) {
 							continue;
 						} else {
 							argNum += 1;
+							const thisDigest = `arg#${argNum}`;
+							// for the args this is very tenuous
+							const currentArg = thisConfigObject.arguments.find((obj: { digest: string; }) => obj.digest.startsWith(thisDigest));
 							let thisArgs: any = JSON.parse(JSON.stringify(argumentsConfig));
 							thisArgs.type = inferTypeFromString(BOX_tokens[i]);
 							thisArgs.default = BOX_tokens[i];
@@ -1840,8 +1913,15 @@ async function parseAbstractionMaxpatLoop(patcherPath: string, patcherName: stri
 								thisArgs = {};
 								continue;
 							} else {
-								thisArgs.digest = `arg#${argNum}: `;
-								thisConfigObject.arguments.push(thisArgs);
+								thisArgs.digest = `${thisDigest}: `; // space
+								// if already exists, fill human edited data from current
+								if (currentArg != undefined) {
+									thisArgs.name = currentArg.name;
+									// we must do this digest overwrite for tenous thinning algo to work (already checked startsWith() above)
+									thisArgs.digest = currentArg.digest;
+									thisArgs.description = currentArg.description;
+								}
+								thisConfigObject.arguments.push(thisArgs); // we thin it later
 							}
 						}
 					}
@@ -1866,18 +1946,28 @@ async function parseAbstractionMaxpatLoop(patcherPath: string, patcherName: stri
 					// the [comment]@varname"evievedoc" feature support is very specific
 					if (BOX_tokens[i].startsWith('@')) {
 						ED_PARSED = true;
+						const thisName = BOX_tokens[i].replace('@', '');
 						let thisAttr: any = JSON.parse(JSON.stringify(attributesConfig));
-						thisAttr.name = BOX_tokens[i].replace('@', '');
+						thisAttr.name = thisName;
 						const thisValue = (BOX_tokens[i + 1].startsWith('@')) ? "" : BOX_tokens[i + 1];
 						thisAttr.default.value = thisValue;
 						thisAttr.type = inferTypeFromString(thisValue);
-						thisConfigObject.attributes.push(thisAttr);
+						// if already exists, fill human edited data from current
+						const currentAttr = thisConfigObject.attributes.find((obj: { name: string; }) => obj.name === thisName);
+						if (currentAttr != undefined) {
+							thisAttr.digest = currentAttr.digest;
+							thisAttr.description = currentAttr.description;
+						}
+						thisConfigObject.attributes.push(thisAttr); // thin later
 					} else {
 						if ((ED_PARSED) || (i === BOX_tokens.length - 1)) {
 							continue;
 						// actually we shouldn't support this as part of 'evievedoc'?
 						} else {
 							argNum += 1;
+							const thisDigest = `arg#${argNum}`;
+							// for the args this is very tenuous
+							const currentArg = thisConfigObject.arguments.find((obj: { digest: string; }) => obj.digest.startsWith(thisDigest));
 							let thisArgs: any = JSON.parse(JSON.stringify(argumentsConfig));
 							thisArgs.type = inferTypeFromString(BOX_tokens[i]);
 							thisArgs.default = BOX_tokens[i];
@@ -1887,8 +1977,15 @@ async function parseAbstractionMaxpatLoop(patcherPath: string, patcherName: stri
 								thisArgs = {};
 								continue;
 							} else {
-								thisArgs.digest = `arg#${argNum}: `;
-								thisConfigObject.arguments.push(thisArgs);
+								thisArgs.digest = `${thisDigest}: `; // space
+								// if already exists, fill human edited data from current
+								if (currentArg != undefined) {
+									thisArgs.name = currentArg.name;
+									// we must do this digest overwrite for tenous thinning algo to work (already checked startsWith() above)
+									thisArgs.digest = currentArg.digest;
+									thisArgs.description = currentArg.description;
+								}
+								thisConfigObject.arguments.push(thisArgs); // we thin it later
 							}
 						}
 					}
@@ -1914,7 +2011,6 @@ async function parseAbstractionMaxpatLoop(patcherPath: string, patcherName: stri
 		thisConfigObject.arguments.sort((a: { digest: string; }, b: { digest: string; }) => {
 			return a.digest >= b.digest ? 1 : -1;
 		});
-		// keeps most recent
 		thisConfigObject.attributes = thinUniqueArrayByKey(thisConfigObject.attributes, "name");
 		thisConfigObject.arguments = thinUniqueArrayByKey(thisConfigObject.arguments, "digest"); // !! "name" will not work !!
 	}
@@ -1938,8 +2034,9 @@ async function parseAbstractionMaxpatLoop(patcherPath: string, patcherName: stri
 		if (object.box.maxclass === IN_LET || object.box.maxclass === OUT_LET) {
 			let thisIO: any = JSON.parse(JSON.stringify(inoutletsConfig));
 			let IO_ASSIST = object.box.comment;
+			const thisId = object.box.index;
 			// parse it
-			thisIO.id = object.box.index;
+			thisIO.id = thisId;
 			const IO_tokens = IO_ASSIST.split(' ');
 			if (IO_tokens[0].startsWith('(') && IO_tokens[0].endsWith(')')) {
 				thisIO.type = IO_tokens[0].replace('(', '').replace(')', '');
@@ -1949,8 +2046,18 @@ async function parseAbstractionMaxpatLoop(patcherPath: string, patcherName: stri
 			}
 			// push it
 			if (object.box.maxclass === IN_LET) {
+				// if already exists, fill human edited data from current
+				const currentIO = thisConfigObject.inlets.find((obj: { id: number; }) => obj.id === thisId);
+				if (currentIO != undefined) {
+					thisIO.description = currentIO.description
+				}
 				thisConfigObject.inlets.push(thisIO);
 			} else if (object.box.maxclass === OUT_LET) {
+				// if already exists, fill human edited data from current
+				const currentIO = thisConfigObject.outlets.find((obj: { id: number; }) => obj.id === thisId);
+				if (currentIO != undefined) {
+					thisIO.description = currentIO.description
+				}
 				thisConfigObject.outlets.push(thisIO);
 			}
 		}
@@ -2000,6 +2107,7 @@ function inferTypeFromString(thisValue: string)
 
 // --------------------------------------------- //
 
+// {make_abs_ref_jsons}
 async function createMaxpatRefJson()
 {
 	const maxpatRefsPath = `${cwd()}/${config.referenceFiles.abstractions.config}`;

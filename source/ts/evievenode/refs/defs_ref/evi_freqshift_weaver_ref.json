@@ -24,7 +24,7 @@
         },
         {
             "id": 2,
-            "type": "",
+            "type": "signal",
             "digest": "(float/int use freqsmooth attr) Frequency Shift in Hz ±",
             "description": ""
         },
@@ -50,13 +50,13 @@
         },
         {
             "id": 2,
-            "type": "",
+            "type": "signal",
             "digest": "fake quadOsc Cos (if oscout attr)",
             "description": ""
         },
         {
             "id": 3,
-            "type": "",
+            "type": "signal",
             "digest": "fake quadOsc Sin (if oscout attr)",
             "description": ""
         }

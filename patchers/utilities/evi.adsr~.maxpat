@@ -585,8 +585,8 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 416.0, 53.0, 578.0, 33.0 ],
-                    "text": "evievedoc @attack 10. @decay 100. @sustain 0.707946 @release 200. @zerophase 0 @constantrate 1 @envmax 127. @velocitysense 0. @velocitycurve 1 @wait 0 @loopsustain 100. @looptrigger 0 @loop 0",
+                    "patching_rect": [ 416.0, 53.0, 539.0, 33.0 ],
+                    "text": "evievedoc @attack 10. @decay 100. @sustain 0.707946 @release 200. @zerophase 0 @envmax 127. @velocitysense 0. @velocitycurve 1 @wait 0 @loopsustain 100. @looptrigger 0 @loop 0",
                     "varname": "evievedoc"
                 }
             }

@@ -7,12 +7,10 @@ require("evi_clip.genexpr");    // incl. _interp
 require("evi_biquads_filters.genexpr");
 
 // release is in ms, knee is % 0..1
-// choochoo is int, 0 = 2nd order Adaa, 1 = 2nd order + 2x oversample, 2 = ... + 4x oversample
-
 // N.B. - there is no lookahead in this limiter, so we engage the crunch quite a lot,
-// the anti-aliased clipping system (choochoo) makes the crunch sound good
+// the anti-aliased clipping system makes the crunch sound good
 
-limiterFastStereo(xL, xR, release, knee, choochoo, a0, a1, a2, b1, b2)
+limiterFastStereo(xL, xR, release, knee, a0, a1, a2, b1, b2)
 {
 	History		lfsdummy(0);
 
@@ -31,16 +29,8 @@ limiterFastStereo(xL, xR, release, knee, choochoo, a0, a1, a2, b1, b2)
 	yR		= dcblock(xR * env) * 1.033949;
 
     // clipping
-	if (choochoo == 2) {
-		yL	= adHc2_4x_6POINT(yL);			// 2nd order + oversampling)...
-		yR	= adHc2_4x_6POINT(yR);
-	} else if (choochoo == 1) {
-		yL	= adHc2_2x_6POINT(yL);			// ...
-		yR	= adHc2_2x_6POINT(yR);
-	} else {
-		yL	= adHc2(yL);                    // just 2nd order adaa, this is fine for most needs
-		yR	= adHc2(yR);
-	}
+	yL	= adHc2(yL);                        // just 2nd order adaa, this is fine for most needs
+	yR	= adHc2(yR);
 
 	return	yL, yR, env;
 }
@@ -52,11 +42,8 @@ Param	release(52., min=1, max=376);			// ms
 
 // audio
 Param	ingain(1., min=-20, max=40);			// dB
-Param	clip(0, min=0, max=2);					// 0 = 2nd order, 1 = + 2x, 2 = + 4x
 
 // param rate
-
-choochoo = int(clip);
 
 envsmooth = ((1 - smooth*smooth) * 99) + 1;		// stupid, map 0..1 to hz
 a0, a1, a2, b1, b2 = smoothCoeff(envsmooth);
@@ -71,5 +58,5 @@ xL = in1 * inputgainsmooth;
 xR = in2 * inputgainsmooth;
 
 // yL, yR, env
-out1, out2, out3 = limiterFastStereo(xL, xR, release, knee, choochoo, a0, a1, a2, b1, b2);
+out1, out2, out3 = limiterFastStereo(xL, xR, release, knee, a0, a1, a2, b1, b2);
 

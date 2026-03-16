@@ -27,7 +27,7 @@
 				
 			</description>
 		</inlet>
-		<inlet id="2" type="">
+		<inlet id="2" type="signal">
 			<digest>
 				Inlet #2: (float/int use freqsmooth attr) Frequency Shift in Hz ±
 			</digest>
@@ -62,7 +62,7 @@
 				
 			</description>
 		</outlet>
-		<outlet id="2" type="">
+		<outlet id="2" type="signal">
 			<digest>
 				Outlet #2: fake quadOsc Cos (if oscout attr)
 			</digest>
@@ -70,7 +70,7 @@
 				
 			</description>
 		</outlet>
-		<outlet id="3" type="">
+		<outlet id="3" type="signal">
 			<digest>
 				Outlet #3: fake quadOsc Sin (if oscout attr)
 			</digest>

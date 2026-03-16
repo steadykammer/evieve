@@ -3,7 +3,7 @@
         "name": "evi.algoverb~",
         "category": "evieve",
         "digest": "True stereo algorithmic reverb",
-        "description": "Relatively expensive algorithmic reverb with many tweekable parameters, 15 embedded presets and an internal pattrstorage system. The reverb is modular, with pre delay, early reflections and late reflections all controllable individually, as well as high quality linear SVF filters in both the feedback path and end of wet path. The MSP abstraction does a lot of massaging of the input parameters, so when using the gen~ abstraction careful to study the internal Param declarations.",
+        "description": "Relatively expensive algorithmic reverb with many tweekable parameters, 15 embedded presets and an internal pattrstorage system. The reverb is modular, with pre delay, early reflections and late reflections all controllable individually, as well as high quality linear SVF filters in both the feedback path and end of wet path. Loosely based on a Martijn Zwartjes Reaktor ensemble. The MSP abstraction does a lot of massaging of the input parameters, so when using the gen~ abstraction study the internal Param declarations.",
         "discussion": ""
     },
     "metadata": {
@@ -14,8 +14,8 @@
         {
             "id": 1,
             "type": "signal",
-            "digest": "Audio In Left",
-            "description": "Audio In Left / (messages) [bypass mute pattrstorage factorypreset outputmode predelay pretime predelaytime presymmetry earlysize earlysymmetry earlydiffusion latesize latesymmetry latediffusion highdampfrequency highdampgain lowdampfrequency lowdampgain decay absorbtion modrate modfrequency moddepth modepth modamplitude earlylate higheqfrequency higheqgain loweqfrequency loweqgain drywet earlylatehysterisis smoothtime]"
+            "digest": "Audio In Left / (messages)",
+            "description": "Audio In Left / (messages) [bypass mute pattrstorage factorypreset outputmode predelay pretime predelaytime presymmetry earlysize earlysymmetry earlydiffusion latesize latesymmetry latediffusion highdampfrequency highdampgain lowdampfrequency lowdampgain decay absorbtion modrate modfrequency moddepth modepth modamplitude earlylate higheqfrequency higheqgain loweqfrequency loweqgain drywet smoothtime]"
         },
         {
             "id": 2,
@@ -39,9 +39,9 @@
         },
         {
             "id": 3,
-            "type": "anything",
+            "type": "",
             "digest": "dumpout (pattrstorage)",
-            "description": "Recieve pattrstorage output"
+            "description": "Recieve output from internal pattrstorage"
         }
     ],
     "arguments": [],
@@ -68,8 +68,8 @@
                     "optional": 1
                 }
             ],
-            "digest": "In left inlet, messages to <o>evi.algoverb~</o>",
-            "description": "'bypass' will smoothly bypass the reverb to dry, 'mute' will smoothly bypass and cpu mute the reverb. Prepending the word 'pattrstorage' allows you to send any message <o>pattrstorage</o> understands to the internal pattrstorage object - you can recieve pattrstorage output via the far right outlet."
+            "digest": "In left inlet, messages to evi.algoverb~",
+            "description": "'bypass 1' will smoothly bypass the reverb to dry, 'mute 1' will smoothly bypass and cpu mute the reverb. Prepending the word 'pattrstorage' allows you to send any message pattrstorage understands to the internal pattrstorage object - you can recieve pattrstorage output via the far right outlet."
         }
     ],
     "attributes": [
@@ -77,8 +77,8 @@
             "name": "absorbtion",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Normalised 0..1",
+            "description": "Greater values mean softer materials, lesser values mean harder materials.",
             "default": {
                 "get": 0,
                 "value": "0.186"
@@ -88,8 +88,8 @@
             "name": "decay",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Normalised 0..1",
+            "description": "Represents RT60 decay time, higher values create longer decays.",
             "default": {
                 "get": 0,
                 "value": "0.475"
@@ -99,8 +99,8 @@
             "name": "drywet",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Normalised 0..1",
+            "description": "Dry/Wet mix of direct signal and reverberated signal. Dry is 0, completely wet is 1.",
             "default": {
                 "get": 0,
                 "value": "0.4"
@@ -110,8 +110,8 @@
             "name": "earlydiffusion",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Normalised 0..1",
+            "description": "Amount of diffuseness in the early reflections.",
             "default": {
                 "get": 0,
                 "value": "0.7"
@@ -121,30 +121,19 @@
             "name": "earlylate",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Normalised 0..1",
+            "description": "Mix between the early reflections and the late reflections. If at 0 or 1 the opposite DSP is not computed.",
             "default": {
                 "get": 0,
                 "value": "0.46"
             }
         },
         {
-            "name": "earlylatehysterisis",
-            "get": 0,
-            "type": "int",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "3333"
-            }
-        },
-        {
             "name": "earlysize",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Normalised 0..1",
+            "description": "The relative size of the early reflections.",
             "default": {
                 "get": 0,
                 "value": "0.389"
@@ -154,8 +143,8 @@
             "name": "earlysymmetry",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "-4..4",
+            "description": "The symmetry of the early reflections. A stereo imager, negative values favour left, positive values favour right.",
             "default": {
                 "get": 0,
                 "value": "1.7"
@@ -165,8 +154,8 @@
             "name": "factorypreset",
             "get": 0,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Select 1..15",
+            "description": "The evi.algoverb~ comes with 15 internal presets which can optionally be selected via the internal pattrstorage. See the helpfile for more info.",
             "default": {
                 "get": 0,
                 "value": "8"
@@ -176,8 +165,8 @@
             "name": "highdampfrequency",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "In Hz, 30..20000",
+            "description": "The high damping frequency point of the internal feedback path filters.",
             "default": {
                 "get": 0,
                 "value": "1108.7"
@@ -187,8 +176,8 @@
             "name": "highdampgain",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "In dB -6..0",
+            "description": "The high damping amount (negative dB) at the 'highdampfrequency' point in the feedback path of the reverb.",
             "default": {
                 "get": 0,
                 "value": "-1.2"
@@ -198,8 +187,8 @@
             "name": "higheqfrequency",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "In Hz, 30..20000",
+            "description": "The high EQ frequency point of the end of wet chain shelving filters.",
             "default": {
                 "get": 0,
                 "value": "2217.5"
@@ -209,8 +198,8 @@
             "name": "higheqgain",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "In dB -24..24",
+            "description": "The high EQ gain ± dB of the end of wet chain shelving filters at the 'higheqfrequency' point.",
             "default": {
                 "get": 0,
                 "value": "-7."
@@ -220,8 +209,8 @@
             "name": "latediffusion",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Normalised 0..1",
+            "description": "Amount of diffuseness in the late reflections.",
             "default": {
                 "get": 0,
                 "value": "0.7"
@@ -231,8 +220,8 @@
             "name": "latesize",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Normalised 0..1",
+            "description": "The relative size of the late reflections.",
             "default": {
                 "get": 0,
                 "value": "0.653"
@@ -242,8 +231,8 @@
             "name": "latesymmetry",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "-3..3",
+            "description": "The symmetry of the late reflections. A stereo imager, negative values favour left, positive values favour right.",
             "default": {
                 "get": 0,
                 "value": "-1.3"
@@ -253,8 +242,8 @@
             "name": "lowdampfrequency",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "In Hz, 10..18000",
+            "description": "The low damping frequency point of the internal feedback path filters.",
             "default": {
                 "get": 0,
                 "value": "69.3"
@@ -264,8 +253,8 @@
             "name": "lowdampgain",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "In dB -6..0",
+            "description": "The low damping amount (negative dB) at the 'lowdampfrequency' point in the feedback path of the reverb.",
             "default": {
                 "get": 0,
                 "value": "-0.7"
@@ -275,8 +264,8 @@
             "name": "loweqfrequency",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "In Hz, 10..18000",
+            "description": "The low EQ frequency point of the end of wet chain shelving filters.",
             "default": {
                 "get": 0,
                 "value": "92.5"
@@ -286,8 +275,8 @@
             "name": "loweqgain",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "In dB -24..24",
+            "description": "The low EQ gain ± dB of the end of wet chain shelving filters at the 'loweqfrequency' point.",
             "default": {
                 "get": 0,
                 "value": "-3.5"
@@ -297,8 +286,8 @@
             "name": "moddepth",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Normalised 0..1",
+            "description": "The depth of the late reflections modulation.",
             "default": {
                 "get": 0,
                 "value": "0.15"
@@ -308,8 +297,8 @@
             "name": "modrate",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Normalised 0..1",
+            "description": "The speed of the late reflections modulation.",
             "default": {
                 "get": 0,
                 "value": "0.23"
@@ -319,8 +308,8 @@
             "name": "outputmode",
             "get": 0,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "0..6",
+            "description": "Access to the 'outputmode' attribute of the internal pattrstorage, controls output of far right dumpoutlet.",
             "default": {
                 "get": 0,
                 "value": "4"
@@ -330,8 +319,8 @@
             "name": "predelay",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "In ms 0..400",
+            "description": "The initial pre delay time in ms before the onset of early reflections.",
             "default": {
                 "get": 0,
                 "value": "16."
@@ -341,8 +330,8 @@
             "name": "presymmetry",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "-1..1",
+            "description": "The symmetry of the pre delay. A stereo imager, negative values favour left, positive values favour right.",
             "default": {
                 "get": 0,
                 "value": "0.33"
@@ -352,8 +341,8 @@
             "name": "smoothtime",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Time in ms",
+            "description": "Set the smoothing time in ms of all the internal parameter smoothing functions.",
             "default": {
                 "get": 0,
                 "value": "50."
@@ -370,7 +359,6 @@
         "evi.gigaverb~",
         "evi.mattaverb~",
         "evi.plateverb~",
-        "evi.sustainverb.lite~",
         "evi.sustainverb~",
         "evi.zitaverb~"
     ]

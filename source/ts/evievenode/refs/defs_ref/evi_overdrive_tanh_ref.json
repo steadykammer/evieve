@@ -20,7 +20,7 @@
     "inlets": [
         {
             "id": 1,
-            "type": "",
+            "type": "signal",
             "digest": "Input Signal",
             "description": ""
         },
@@ -34,7 +34,7 @@
     "outlets": [
         {
             "id": 1,
-            "type": "",
+            "type": "signal",
             "digest": "Tanh(x)-based Saturation Out - anti-aliased for your audio not for Maths",
             "description": ""
         }

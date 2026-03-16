@@ -41,7 +41,7 @@
                 @min 0, @max 1
             </digest>
             <description>
-                
+                hello attributey
             </description>
             <attributelist>
                 <attribute name='default' type='int' value='0' />

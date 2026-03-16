@@ -19,7 +19,7 @@
 	</metadatalist>
 	<!--INLETS-->
 	<inletlist>
-		<inlet id="1" type="">
+		<inlet id="1" type="signal">
 			<digest>
 				Inlet #1: Input Signal
 			</digest>
@@ -30,7 +30,7 @@
 	</inletlist>
 	<!--OUTLETS-->
 	<outletlist>
-		<outlet id="1" type="">
+		<outlet id="1" type="signal">
 			<digest>
 				Outlet #1: Buzzy-tanh(x) Out - anti-aliased for your audio not for Maths
 			</digest>

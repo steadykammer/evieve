@@ -46,7 +46,7 @@
 				
 			</description>
 		</outlet>
-		<outlet id="2" type="">
+		<outlet id="2" type="signal">
 			<digest>
 				Outlet #2: Reset (Param has changed)
 			</digest>

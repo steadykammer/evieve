@@ -16,7 +16,7 @@
     "inlets": [
         {
             "id": 1,
-            "type": "",
+            "type": "signal",
             "digest": "Dummy",
             "description": ""
         }
@@ -24,19 +24,19 @@
     "outlets": [
         {
             "id": 1,
-            "type": "",
+            "type": "signal",
             "digest": "(Box Muller) Gaussian Noise Distribution",
             "description": ""
         },
         {
             "id": 2,
-            "type": "",
+            "type": "signal",
             "digest": "Sync White Noise",
             "description": ""
         },
         {
             "id": 3,
-            "type": "",
+            "type": "signal",
             "digest": "Cos Noise",
             "description": ""
         }

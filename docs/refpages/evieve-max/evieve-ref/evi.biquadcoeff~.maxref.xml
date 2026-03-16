@@ -46,7 +46,7 @@
 	</inletlist>
 	<!--OUTLETS-->
 	<outletlist>
-		<outlet id="1" type="">
+		<outlet id="1" type="signal">
 			<digest>
 				Outlet #1: a0 (FF0)
 			</digest>
@@ -54,7 +54,7 @@
 				
 			</description>
 		</outlet>
-		<outlet id="2" type="">
+		<outlet id="2" type="signal">
 			<digest>
 				Outlet #2: a1 (FF1)
 			</digest>
@@ -62,7 +62,7 @@
 				
 			</description>
 		</outlet>
-		<outlet id="3" type="">
+		<outlet id="3" type="signal">
 			<digest>
 				Outlet #3: a2 (FF2)
 			</digest>
@@ -70,7 +70,7 @@
 				
 			</description>
 		</outlet>
-		<outlet id="4" type="">
+		<outlet id="4" type="signal">
 			<digest>
 				Outlet #4: b1 (FB1)
 			</digest>
@@ -78,7 +78,7 @@
 				
 			</description>
 		</outlet>
-		<outlet id="5" type="">
+		<outlet id="5" type="signal">
 			<digest>
 				Outlet #5: b2 (FB2)
 			</digest>

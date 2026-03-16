@@ -19,7 +19,7 @@
 	</metadatalist>
 	<!--INLETS-->
 	<inletlist>
-		<inlet id="1" type="">
+		<inlet id="1" type="signal">
 			<digest>
 				Inlet #1: Input
 			</digest>

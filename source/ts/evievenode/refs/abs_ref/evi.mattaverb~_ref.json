@@ -3,7 +3,7 @@
         "name": "evi.mattaverb~",
         "category": "evieve",
         "digest": "True stereo one knob allpass diffuse reverb",
-        "description": "TEXT_HERE",
+        "description": "A simple allpass diffusion reverb with minimal controls interaction. True stereo input/output, no early reflections, designed wet and spacey but very dampable.",
         "discussion": ""
     },
     "metadata": {
@@ -15,13 +15,13 @@
             "id": 1,
             "type": "signal",
             "digest": "Audio In Left / messages to evi.mattaverb~",
-            "description": ""
+            "description": "Audio In Left / messages to evi.mattaverb~"
         },
         {
             "id": 2,
             "type": "signal",
             "digest": "Audio In Right / messages to evi.mattaverb~",
-            "description": ""
+            "description": "Audio In Right / messages to evi.mattaverb~"
         }
     ],
     "outlets": [
@@ -29,44 +29,61 @@
             "id": 1,
             "type": "signal",
             "digest": "Audio Out Left",
-            "description": ""
+            "description": "Audio Out Left"
         },
         {
             "id": 2,
             "type": "signal",
             "digest": "Audio Out Right",
-            "description": ""
+            "description": "Audio Out Right"
         },
         {
             "id": 3,
             "type": "",
             "digest": "dumpout (pattrstorage)",
-            "description": ""
+            "description": "Recieve output from internal pattrstorage"
         }
     ],
     "arguments": [],
     "messages": [
         {
-            "name": "",
+            "name": "anything",
             "arg": [
                 {
-                    "name": "",
-                    "type": "",
-                    "units": "",
+                    "name": "bypass",
+                    "type": "int",
+                    "units": "0/1",
+                    "optional": 1
+                },
+                {
+                    "name": "pattrstorage",
+                    "type": "anything",
+                    "units": "messages to pattrstorage",
                     "optional": 1
                 }
             ],
-            "digest": "",
-            "description": ""
+            "digest": "In left inlet, messages to evi.gigaverb~",
+            "description": "'bypass 1' will smoothly bypass the reverb to dry. Prepending the word 'pattrstorage' allows you to send any message pattrstorage understands to the internal pattrstorage object - you can recieve pattrstorage output via the far right outlet."
         }
     ],
     "attributes": [
         {
+            "name": "damp",
+            "get": 0,
+            "type": "int",
+            "digest": "Flag 0/1",
+            "description": "Not smoothed. Selects onepole (0) or twopole (1) damping filters in the reverb chain. Greatly affects the tone of the reverb sound.",
+            "default": {
+                "get": 0,
+                "value": "0"
+            }
+        },
+        {
             "name": "drywet",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Normalised 0..1",
+            "description": "Dry/Wet mix of direct signal and reverberated signal. Dry is 0, completely wet is 1.",
             "default": {
                 "get": 0,
                 "value": "0.707107"
@@ -76,8 +93,8 @@
             "name": "high",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Normalised 0..1",
+            "description": "High frequency damping EQ 0..1 less..more.",
             "default": {
                 "get": 0,
                 "value": "0.666666"
@@ -87,8 +104,8 @@
             "name": "low",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Normalised 0..1",
+            "description": "Low frequency damping EQ 0..1 less..more.",
             "default": {
                 "get": 0,
                 "value": "0.333333"
@@ -98,11 +115,22 @@
             "name": "size",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Normalised 0..1",
+            "description": "Could be the only one knob control you need and much of the point of this reverb tuning. Small to large.",
             "default": {
                 "get": 0,
                 "value": "0.5"
+            }
+        },
+        {
+            "name": "space",
+            "get": 0,
+            "type": "int",
+            "digest": "Flag 0/1",
+            "description": "Not smoothed. Add damping filters into the allpass feedback path (1) or not (0). Interesting wet sounds can be made by turning off filter stages here.",
+            "default": {
+                "get": 0,
+                "value": "1"
             }
         }
     ],
@@ -116,7 +144,6 @@
         "evi.freezeverb~",
         "evi.gigaverb~",
         "evi.plateverb~",
-        "evi.sustainverb.lite~",
         "evi.sustainverb~",
         "evi.zitaverb~"
     ]

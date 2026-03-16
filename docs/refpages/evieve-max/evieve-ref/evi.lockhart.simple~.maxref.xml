@@ -19,7 +19,7 @@
 	</metadatalist>
 	<!--INLETS-->
 	<inletlist>
-		<inlet id="1" type="">
+		<inlet id="1" type="signal">
 			<digest>
 				Inlet #1: Osc Input
 			</digest>
@@ -30,7 +30,7 @@
 	</inletlist>
 	<!--OUTLETS-->
 	<outletlist>
-		<outlet id="1" type="">
+		<outlet id="1" type="signal">
 			<digest>
 				Outlet #1: 4-section
 			</digest>
@@ -38,7 +38,7 @@
 				
 			</description>
 		</outlet>
-		<outlet id="2" type="">
+		<outlet id="2" type="signal">
 			<digest>
 				Outlet #2: 3-section
 			</digest>
@@ -46,7 +46,7 @@
 				
 			</description>
 		</outlet>
-		<outlet id="3" type="">
+		<outlet id="3" type="signal">
 			<digest>
 				Outlet #3: 2-section
 			</digest>
@@ -54,7 +54,7 @@
 				
 			</description>
 		</outlet>
-		<outlet id="4" type="">
+		<outlet id="4" type="signal">
 			<digest>
 				Outlet #4: 1-section
 			</digest>

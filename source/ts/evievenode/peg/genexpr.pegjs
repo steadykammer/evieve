@@ -1,5 +1,6 @@
 /**
-	This document implements the GenExpr grammar
+	This document implements the GenExpr grammar. Many thanks to Cycling '74
+	for letting me include this file in the evieve source code.
 
     Copyright (c) 2025 Cycling '74
 

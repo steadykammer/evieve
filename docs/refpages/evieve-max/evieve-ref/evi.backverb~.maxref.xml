@@ -21,7 +21,7 @@
 				Audio In Left / messages to evi.backverb~
 			</digest>
 			<description>
-				
+				Audio In Left / messages to evi.backverb~
 			</description>
 		</inlet>
 		<inlet id="2" type="signal">
@@ -29,26 +29,26 @@
 				Audio In Right / messages to evi.backverb~
 			</digest>
 			<description>
-				
+				Audio In Right / messages to evi.backverb~
 			</description>
 		</inlet>
 	</inletlist>
 	<!--OUTLETS-->
 	<outletlist>
-		<outlet id="1" type="">
+		<outlet id="1" type="signal">
 			<digest>
-				RVRB Out Left
+				Rvrb Out Left
 			</digest>
 			<description>
-				
+				Audio out Left
 			</description>
 		</outlet>
-		<outlet id="2" type="">
+		<outlet id="2" type="signal">
 			<digest>
-				RVRB Out Right
+				Rvrb Out Right
 			</digest>
 			<description>
-				
+				Audio out Right
 			</description>
 		</outlet>
 		<outlet id="3" type="">
@@ -56,7 +56,7 @@
 				dumpout (pattrstorage)
 			</digest>
 			<description>
-				
+				Recieve output from internal pattrstorage
 			</description>
 		</outlet>
 	</outletlist>
@@ -70,10 +70,10 @@
 				<arg name="pattrstorage" type="anything" units="messages to pattrstorage" optional="1" />
 			</arglist>
 			<digest>
-				In left inlet, messages to &lt;o&gt;evi.backverb~&lt;/o&gt;
+				In left inlet, messages to evi.backverb~
 			</digest>
 			<description>
-				Prepending the word &#x27;pattrstorage&#x27; allows you to send any message &lt;o&gt;pattrstorage&lt;/o&gt; understands to the internal pattrstorage object - you can recieve pattrstorage output via the far right outlet.
+				Prepending the word &#x27;pattrstorage&#x27; allows you to send any message &#x27;pattrstorage&#x27; understands to the internal pattrstorage object - you can recieve pattrstorage output via the far right outlet.
 			</description>
 		</method>
 	</methodlist>
@@ -81,10 +81,10 @@
 	<attributelist>
 		<attribute name="drywet" get="0" set="1" type="float" size="1">
 			<digest>
-				
+				Normalised 0..1
 			</digest>
 			<description>
-				
+				Dry/Wet mix of direct signal and reverberated signal. Dry is 0, completely wet is 1.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="0.707107" />
@@ -92,10 +92,10 @@
 		</attribute>
 		<attribute name="feedback" get="0" set="1" type="float" size="1">
 			<digest>
-				
+				Gain 0.01..10
 			</digest>
 			<description>
-				
+				Linear amplitude, but does not act like it. Think of this as the amount of feedback potential in the system, depending on other attributes.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="2.4" />
@@ -103,10 +103,10 @@
 		</attribute>
 		<attribute name="feedbackdamphigh" get="0" set="1" type="float" size="1">
 			<digest>
-				
+				Normalised 0..1
 			</digest>
 			<description>
-				
+				The high damping amount of the post feedback trap filters at the Hz point of &#x27;feedbackhzhigh&#x27;. The higher the values the more damping takes place, the lower the values the more feedback will recirculate.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="0.8666" />
@@ -114,10 +114,10 @@
 		</attribute>
 		<attribute name="feedbackdamplow" get="0" set="1" type="float" size="1">
 			<digest>
-				
+				Normalised 0..1
 			</digest>
 			<description>
-				
+				The low damping amount of the post feedback trap filters at the Hz point of &#x27;feedbackhzlow&#x27;. The higher the values the more damping takes place, the lower the values the more feedback will recirculate.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="0.707107" />
@@ -125,10 +125,10 @@
 		</attribute>
 		<attribute name="feedbackhzhigh" get="0" set="1" type="float" size="1">
 			<digest>
-				
+				In Hz 250..8000
 			</digest>
 			<description>
-				
+				The high feedback attenuation point in Hz of the post feedback trap filters.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="2000." />
@@ -136,10 +136,10 @@
 		</attribute>
 		<attribute name="feedbackhzlow" get="0" set="1" type="float" size="1">
 			<digest>
-				
+				In Hz 62.5..500
 			</digest>
 			<description>
-				
+				The low feedback attenuation point in Hz of the post feedback trap filters.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="250." />
@@ -147,10 +147,10 @@
 		</attribute>
 		<attribute name="feedbacknonlinear" get="0" set="1" type="int" size="1">
 			<digest>
-				
+				Select 0..2
 			</digest>
 			<description>
-				
+				The nonlinearity in the feedback path of the reverb. 0&#x3D;Adaa2 (2nd order antiderivative anti-aliasing) tanh-like saturation, 1&#x3D;same but 2x oversampled, 2&#x3D;same but 4x oversampled.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="int" size="1" value="1" />
@@ -158,10 +158,10 @@
 		</attribute>
 		<attribute name="inputhzhigh" get="0" set="1" type="float" size="1">
 			<digest>
-				
+				In Hz 500..14700
 			</digest>
 			<description>
-				
+				Lowpass the audio input at specified Hz
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="4000." />
@@ -169,10 +169,10 @@
 		</attribute>
 		<attribute name="inputhzlow" get="0" set="1" type="float" size="1">
 			<digest>
-				
+				In Hz 31.25..500
 			</digest>
 			<description>
-				
+				Highpass the audio input at specified Hz
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="125." />
@@ -180,10 +180,10 @@
 		</attribute>
 		<attribute name="modulationdepth" get="0" set="1" type="float" size="1">
 			<digest>
-				
+				-16..16
 			</digest>
 			<description>
-				
+				The closer to zero this value is, the more feedback recirculation will be allowed to occur. The higher the values the more movement in the sound. This can be a really useful parameter to be in control of feedback surges.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="4." />
@@ -191,10 +191,10 @@
 		</attribute>
 		<attribute name="modulationduty" get="0" set="1" type="float" size="1">
 			<digest>
-				
+				Normalised 0..1
 			</digest>
 			<description>
-				
+				The duty of the triangle portion of the modulation LFO (if selected).
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="0.5" />
@@ -202,10 +202,10 @@
 		</attribute>
 		<attribute name="modulationrate" get="0" set="1" type="float" size="1">
 			<digest>
-				
+				Rate multiplier 0.125..8
 			</digest>
 			<description>
-				
+				The slower the rate (lower values) the more the feedback can build, the higher the rate the more in control the feedback can be kept.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="1." />
@@ -213,10 +213,10 @@
 		</attribute>
 		<attribute name="modulationshape" get="0" set="1" type="float" size="1">
 			<digest>
-				
+				Normalised 0..1
 			</digest>
 			<description>
-				
+				Morph modulation LFO between triangle..sine shapes 0..1.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="1." />
@@ -224,10 +224,10 @@
 		</attribute>
 		<attribute name="modulationskew" get="0" set="1" type="float" size="1">
 			<digest>
-				
+				Exponent 0.5..2
 			</digest>
 			<description>
-				
+				Exponentially skew the modulation LFO shape.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="1." />
@@ -235,10 +235,10 @@
 		</attribute>
 		<attribute name="outputnonlinear" get="0" set="1" type="int" size="1">
 			<digest>
-				
+				Select 0..2
 			</digest>
 			<description>
-				
+				The parabolic nonlinearity shape at the end of the reverb chain. 0&#x3D;naive (not recommended as can alias), 1&#x3D;same but 2x oversampled, 2&#x3D;same but 4x oversampled.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="int" size="1" value="1" />
@@ -256,7 +256,6 @@
 		<seealso name="evi.gigaverb~"> </seealso>
 		<seealso name="evi.mattaverb~"> </seealso>
 		<seealso name="evi.plateverb~"> </seealso>
-		<seealso name="evi.sustainverb.lite~"> </seealso>
 		<seealso name="evi.sustainverb~"> </seealso>
 		<seealso name="evi.zitaverb~"> </seealso>
 	</seealsolist>

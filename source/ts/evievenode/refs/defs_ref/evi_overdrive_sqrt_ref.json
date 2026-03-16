@@ -18,7 +18,7 @@
     "inlets": [
         {
             "id": 1,
-            "type": "",
+            "type": "signal",
             "digest": "Input Signal",
             "description": ""
         }
@@ -26,7 +26,7 @@
     "outlets": [
         {
             "id": 1,
-            "type": "",
+            "type": "signal",
             "digest": "Buzzy-tanh(x) Out - anti-aliased for your audio not for Maths",
             "description": ""
         }

@@ -6,7 +6,7 @@
 		True stereo algorithmic reverb <br />
 	</digest>
 	<description>
-		Relatively expensive algorithmic reverb with many tweekable parameters, 15 embedded presets and an internal pattrstorage system. The reverb is modular, with pred delay, early reflections and late reflections all controllable individually, as well as high quality linear SVF filters in both the feedback path and end of wet path. The MSP abstraction does a lot of massaging of the input parameters, so when using the gen~ abstraction careful to study the internal Param declarations. <br />
+		Relatively expensive algorithmic reverb with many tweekable parameters, 15 embedded presets and an internal pattrstorage system. The reverb is modular, with pre delay, early reflections and late reflections all controllable individually, as well as high quality linear SVF filters in both the feedback path and end of wet path. Loosely based on a Martijn Zwartjes Reaktor ensemble. The MSP abstraction does a lot of massaging of the input parameters, so when using the gen~ abstraction study the internal Param declarations. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>
@@ -18,10 +18,10 @@
 	<inletlist>
 		<inlet id="1" type="signal">
 			<digest>
-				Audio In Left / (messages) [bypass mute pattrstorage factorypreset outputmode predelay pretime predelaytime presymmetry earlysize earlysymmetry earlydiffusion latesize latesymmetry latediffusion highdampfrequency highdampgain lowdampfrequency lowdampgain decay absorbtion modrate modfrequency moddepth modepth modamplitude earlylate higheqfrequency higheqgain loweqfrequency loweqgain drywet earlylatehysterisis smoothtime]
+				Audio In Left / (messages)
 			</digest>
 			<description>
-				
+				Audio In Left / (messages) [bypass mute pattrstorage factorypreset outputmode predelay pretime predelaytime presymmetry earlysize earlysymmetry earlydiffusion latesize latesymmetry latediffusion highdampfrequency highdampgain lowdampfrequency lowdampgain decay absorbtion modrate modfrequency moddepth modepth modamplitude earlylate higheqfrequency higheqgain loweqfrequency loweqgain drywet smoothtime]
 			</description>
 		</inlet>
 		<inlet id="2" type="signal">
@@ -29,7 +29,7 @@
 				Audio In Right
 			</digest>
 			<description>
-				
+				Audio In Right
 			</description>
 		</inlet>
 	</inletlist>
@@ -40,7 +40,7 @@
 				Audio Out Left
 			</digest>
 			<description>
-				
+				Audio Out Left
 			</description>
 		</outlet>
 		<outlet id="2" type="signal">
@@ -48,7 +48,7 @@
 				Audio Out Right
 			</digest>
 			<description>
-				
+				Audio Out Right
 			</description>
 		</outlet>
 		<outlet id="3" type="">
@@ -56,7 +56,7 @@
 				dumpout (pattrstorage)
 			</digest>
 			<description>
-				
+				Recieve output from internal pattrstorage
 			</description>
 		</outlet>
 	</outletlist>
@@ -72,10 +72,10 @@
 				<arg name="pattrstorage" type="anything" units="messages to pattrstorage" optional="1" />
 			</arglist>
 			<digest>
-				In left inlet, messages to &lt;o&gt;evi.algoverb~&lt;/o&gt;
+				In left inlet, messages to evi.algoverb~
 			</digest>
 			<description>
-				&#x27;bypass&#x27; will smoothly bypass the reverb to dry, &#x27;mute&#x27; will smoothly bypass and cpu mute the reverb. Prepending the word &#x27;pattrstorage&#x27; allows you to send any message &lt;o&gt;pattrstorage&lt;/o&gt; understands to the internal pattrstorage object - you can recieve pattrstorage output via the far right outlet.
+				&#x27;bypass 1&#x27; will smoothly bypass the reverb to dry, &#x27;mute 1&#x27; will smoothly bypass and cpu mute the reverb. Prepending the word &#x27;pattrstorage&#x27; allows you to send any message pattrstorage understands to the internal pattrstorage object - you can recieve pattrstorage output via the far right outlet.
 			</description>
 		</method>
 	</methodlist>
@@ -83,10 +83,10 @@
 	<attributelist>
 		<attribute name="absorbtion" get="0" set="1" type="float" size="1">
 			<digest>
-				
+				Normalised 0..1
 			</digest>
 			<description>
-				
+				Greater values mean softer materials, lesser values mean harder materials.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="0.186" />
@@ -94,10 +94,10 @@
 		</attribute>
 		<attribute name="decay" get="0" set="1" type="float" size="1">
 			<digest>
-				
+				Normalised 0..1
 			</digest>
 			<description>
-				
+				Represents RT60 decay time, higher values create longer decays.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="0.475" />
@@ -105,10 +105,10 @@
 		</attribute>
 		<attribute name="drywet" get="0" set="1" type="float" size="1">
 			<digest>
-				
+				Normalised 0..1
 			</digest>
 			<description>
-				
+				Dry/Wet mix of direct signal and reverberated signal. Dry is 0, completely wet is 1.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="0.4" />
@@ -116,10 +116,10 @@
 		</attribute>
 		<attribute name="earlydiffusion" get="0" set="1" type="float" size="1">
 			<digest>
-				
+				Normalised 0..1
 			</digest>
 			<description>
-				
+				Amount of diffuseness in the early reflections.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="0.7" />
@@ -127,32 +127,21 @@
 		</attribute>
 		<attribute name="earlylate" get="0" set="1" type="float" size="1">
 			<digest>
-				
+				Normalised 0..1
 			</digest>
 			<description>
-				
+				Mix between the early reflections and the late reflections. If at 0 or 1 the opposite DSP is not computed.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="0.46" />
 			</attributelist>
 		</attribute>
-		<attribute name="earlylatehysterisis" get="0" set="1" type="int" size="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="int" size="1" value="3333" />
-			</attributelist>
-		</attribute>
 		<attribute name="earlysize" get="0" set="1" type="float" size="1">
 			<digest>
-				
+				Normalised 0..1
 			</digest>
 			<description>
-				
+				The relative size of the early reflections.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="0.389" />
@@ -160,10 +149,10 @@
 		</attribute>
 		<attribute name="earlysymmetry" get="0" set="1" type="float" size="1">
 			<digest>
-				
+				-4..4
 			</digest>
 			<description>
-				
+				The symmetry of the early reflections. A stereo imager, negative values favour left, positive values favour right.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="1.7" />
@@ -171,10 +160,10 @@
 		</attribute>
 		<attribute name="factorypreset" get="0" set="1" type="int" size="1">
 			<digest>
-				
+				Select 1..15
 			</digest>
 			<description>
-				
+				The evi.algoverb~ comes with 15 internal presets which can optionally be selected via the internal pattrstorage. See the helpfile for more info.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="int" size="1" value="8" />
@@ -182,10 +171,10 @@
 		</attribute>
 		<attribute name="highdampfrequency" get="0" set="1" type="float" size="1">
 			<digest>
-				
+				In Hz, 30..20000
 			</digest>
 			<description>
-				
+				The high damping frequency point of the internal feedback path filters.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="1108.7" />
@@ -193,10 +182,10 @@
 		</attribute>
 		<attribute name="highdampgain" get="0" set="1" type="float" size="1">
 			<digest>
-				
+				In dB -6..0
 			</digest>
 			<description>
-				
+				The high damping amount (negative dB) at the &#x27;highdampfrequency&#x27; point in the feedback path of the reverb.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="-1.2" />
@@ -204,10 +193,10 @@
 		</attribute>
 		<attribute name="higheqfrequency" get="0" set="1" type="float" size="1">
 			<digest>
-				
+				In Hz, 30..20000
 			</digest>
 			<description>
-				
+				The high EQ frequency point of the end of wet chain shelving filters.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="2217.5" />
@@ -215,10 +204,10 @@
 		</attribute>
 		<attribute name="higheqgain" get="0" set="1" type="float" size="1">
 			<digest>
-				
+				In dB -24..24
 			</digest>
 			<description>
-				
+				The high EQ gain ± dB of the end of wet chain shelving filters at the &#x27;higheqfrequency&#x27; point.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="-7." />
@@ -226,10 +215,10 @@
 		</attribute>
 		<attribute name="latediffusion" get="0" set="1" type="float" size="1">
 			<digest>
-				
+				Normalised 0..1
 			</digest>
 			<description>
-				
+				Amount of diffuseness in the late reflections.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="0.7" />
@@ -237,10 +226,10 @@
 		</attribute>
 		<attribute name="latesize" get="0" set="1" type="float" size="1">
 			<digest>
-				
+				Normalised 0..1
 			</digest>
 			<description>
-				
+				The relative size of the late reflections.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="0.653" />
@@ -248,10 +237,10 @@
 		</attribute>
 		<attribute name="latesymmetry" get="0" set="1" type="float" size="1">
 			<digest>
-				
+				-3..3
 			</digest>
 			<description>
-				
+				The symmetry of the late reflections. A stereo imager, negative values favour left, positive values favour right.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="-1.3" />
@@ -259,10 +248,10 @@
 		</attribute>
 		<attribute name="lowdampfrequency" get="0" set="1" type="float" size="1">
 			<digest>
-				
+				In Hz, 10..18000
 			</digest>
 			<description>
-				
+				The low damping frequency point of the internal feedback path filters.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="69.3" />
@@ -270,10 +259,10 @@
 		</attribute>
 		<attribute name="lowdampgain" get="0" set="1" type="float" size="1">
 			<digest>
-				
+				In dB -6..0
 			</digest>
 			<description>
-				
+				The low damping amount (negative dB) at the &#x27;lowdampfrequency&#x27; point in the feedback path of the reverb.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="-0.7" />
@@ -281,10 +270,10 @@
 		</attribute>
 		<attribute name="loweqfrequency" get="0" set="1" type="float" size="1">
 			<digest>
-				
+				In Hz, 10..18000
 			</digest>
 			<description>
-				
+				The low EQ frequency point of the end of wet chain shelving filters.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="92.5" />
@@ -292,10 +281,10 @@
 		</attribute>
 		<attribute name="loweqgain" get="0" set="1" type="float" size="1">
 			<digest>
-				
+				In dB -24..24
 			</digest>
 			<description>
-				
+				The low EQ gain ± dB of the end of wet chain shelving filters at the &#x27;loweqfrequency&#x27; point.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="-3.5" />
@@ -303,10 +292,10 @@
 		</attribute>
 		<attribute name="moddepth" get="0" set="1" type="float" size="1">
 			<digest>
-				
+				Normalised 0..1
 			</digest>
 			<description>
-				
+				The depth of the late reflections modulation.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="0.15" />
@@ -314,10 +303,10 @@
 		</attribute>
 		<attribute name="modrate" get="0" set="1" type="float" size="1">
 			<digest>
-				
+				Normalised 0..1
 			</digest>
 			<description>
-				
+				The speed of the late reflections modulation.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="0.23" />
@@ -325,10 +314,10 @@
 		</attribute>
 		<attribute name="outputmode" get="0" set="1" type="int" size="1">
 			<digest>
-				
+				0..6
 			</digest>
 			<description>
-				
+				Access to the &#x27;outputmode&#x27; attribute of the internal pattrstorage, controls output of far right dumpoutlet.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="int" size="1" value="4" />
@@ -336,10 +325,10 @@
 		</attribute>
 		<attribute name="predelay" get="0" set="1" type="float" size="1">
 			<digest>
-				
+				In ms 0..400
 			</digest>
 			<description>
-				
+				The initial pre delay time in ms before the onset of early reflections.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="16." />
@@ -347,10 +336,10 @@
 		</attribute>
 		<attribute name="presymmetry" get="0" set="1" type="float" size="1">
 			<digest>
-				
+				-1..1
 			</digest>
 			<description>
-				
+				The symmetry of the pre delay. A stereo imager, negative values favour left, positive values favour right.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="0.33" />
@@ -358,10 +347,10 @@
 		</attribute>
 		<attribute name="smoothtime" get="0" set="1" type="float" size="1">
 			<digest>
-				
+				Time in ms
 			</digest>
 			<description>
-				
+				Set the smoothing time in ms of all the internal parameter smoothing functions.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="50." />
@@ -379,7 +368,6 @@
 		<seealso name="evi.gigaverb~"> </seealso>
 		<seealso name="evi.mattaverb~"> </seealso>
 		<seealso name="evi.plateverb~"> </seealso>
-		<seealso name="evi.sustainverb.lite~"> </seealso>
 		<seealso name="evi.sustainverb~"> </seealso>
 		<seealso name="evi.zitaverb~"> </seealso>
 	</seealsolist>

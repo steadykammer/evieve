@@ -19,18 +19,6 @@
         "boxes": [
             {
                 "box": {
-                    "fontface": 2,
-                    "id": "obj-28",
-                    "maxclass": "comment",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 360.0, 351.0, 80.0, 20.0 ],
-                    "text": "(broken)",
-                    "textjustification": 1
-                }
-            },
-            {
-                "box": {
                     "id": "obj-10",
                     "maxclass": "comment",
                     "numinlets": 1,
@@ -276,79 +264,12 @@
             },
             {
                 "box": {
-                    "bubble": 1,
-                    "bubblepoint": 0.333333,
-                    "bubbleside": 2,
-                    "bubbleusescolors": 1,
-                    "fontface": 2,
-                    "id": "obj-20",
-                    "linecount": 6,
-                    "maxclass": "comment",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 767.0, 128.0, 136.0, 106.0 ],
-                    "text": "cheaper, 4x4 feedback delay network version of [evi.sustainverb~]. Does the 'forever sustain' trick but not as smoothly",
-                    "textjustification": 1
-                }
-            },
-            {
-                "box": {
-                    "fontface": 2,
-                    "id": "obj-13",
-                    "maxclass": "comment",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 769.0, 374.0, 114.0, 20.0 ],
-                    "text": "very cheap",
-                    "textjustification": 1
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-9",
-                    "linecount": 2,
-                    "maxclass": "comment",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 767.0, 236.0, 119.0, 33.0 ],
-                    "text": "clever stereo-in, could be mono",
-                    "textjustification": 1
-                }
-            },
-            {
-                "box": {
-                    "bubble": 1,
-                    "bubbleside": 2,
-                    "id": "obj-11",
-                    "linecount": 3,
-                    "maxclass": "comment",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 767.0, 267.0, 119.0, 66.0 ],
-                    "text": "stereo-in / stereo-out / multichannel-out",
-                    "textjustification": 1
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-7",
-                    "maxclass": "newobj",
-                    "numinlets": 2,
-                    "numoutlets": 9,
-                    "outlettype": [ "signal", "signal", "signal", "signal", "signal", "signal", "signal", "signal", "" ],
-                    "patching_rect": [ 769.0, 335.0, 114.0, 22.0 ],
-                    "text": "evi.sustainverb.lite~",
-                    "varname": "ial.sustainverb~[1]"
-                }
-            },
-            {
-                "box": {
                     "fontface": 1,
                     "id": "obj-46",
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 906.0, 53.0, 152.0, 20.0 ],
+                    "patching_rect": [ 750.0, 53.0, 152.0, 20.0 ],
                     "text": "zitaverb~",
                     "textjustification": 1
                 }
@@ -360,7 +281,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 613.0, 93.0, 290.0, 20.0 ],
+                    "patching_rect": [ 579.0, 93.0, 154.0, 20.0 ],
                     "text": "sustainverb~",
                     "textjustification": 1
                 }
@@ -372,7 +293,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 461.0, 133.0, 145.0, 20.0 ],
+                    "patching_rect": [ 427.0, 133.0, 145.0, 20.0 ],
                     "text": "gigaverb~",
                     "textjustification": 1
                 }
@@ -396,7 +317,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 185.0, 11.0, 244.0, 20.0 ],
+                    "patching_rect": [ 203.0, 93.0, 208.0, 20.0 ],
                     "text": "plateverb~",
                     "textjustification": 1
                 }
@@ -408,7 +329,7 @@
                     "numinlets": 2,
                     "numoutlets": 3,
                     "outlettype": [ "signal", "signal", "" ],
-                    "patching_rect": [ 945.0, 335.0, 76.0, 22.0 ],
+                    "patching_rect": [ 789.0, 335.0, 76.0, 22.0 ],
                     "text": "evi.zitaverb~",
                     "varname": "ial.zitaverb~"
                 }
@@ -420,7 +341,7 @@
                     "numinlets": 2,
                     "numoutlets": 9,
                     "outlettype": [ "signal", "signal", "signal", "signal", "signal", "signal", "signal", "signal", "" ],
-                    "patching_rect": [ 634.0, 335.0, 103.0, 22.0 ],
+                    "patching_rect": [ 600.0, 335.0, 103.0, 22.0 ],
                     "text": "evi.sustainverb~",
                     "varname": "ial.sustainverb~"
                 }
@@ -432,7 +353,7 @@
                     "numinlets": 2,
                     "numoutlets": 3,
                     "outlettype": [ "signal", "signal", "" ],
-                    "patching_rect": [ 495.0, 335.0, 80.0, 22.0 ],
+                    "patching_rect": [ 461.0, 335.0, 80.0, 22.0 ],
                     "text": "evi.gigaverb~",
                     "varname": "ial.gigaverb~"
                 }
@@ -468,7 +389,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 936.0, 374.0, 92.0, 20.0 ],
+                    "patching_rect": [ 780.0, 374.0, 92.0, 20.0 ],
                     "text": "expensive-ish",
                     "textjustification": 1
                 }
@@ -480,7 +401,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 634.0, 374.0, 103.0, 20.0 ],
+                    "patching_rect": [ 600.0, 374.0, 103.0, 20.0 ],
                     "text": "cheap",
                     "textjustification": 1
                 }
@@ -492,19 +413,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 499.0, 374.0, 73.0, 20.0 ],
-                    "text": "cheap-ish",
-                    "textjustification": 1
-                }
-            },
-            {
-                "box": {
-                    "fontface": 2,
-                    "id": "obj-16",
-                    "maxclass": "comment",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 360.0, 374.0, 80.0, 20.0 ],
+                    "patching_rect": [ 465.0, 374.0, 73.0, 20.0 ],
                     "text": "cheap-ish",
                     "textjustification": 1
                 }
@@ -516,7 +425,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 243.0, 374.0, 69.0, 20.0 ],
+                    "patching_rect": [ 256.0, 374.0, 69.0, 20.0 ],
                     "text": "expensive",
                     "textjustification": 1
                 }
@@ -556,7 +465,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 906.0, 74.0, 156.0, 160.0 ],
+                    "patching_rect": [ 750.0, 74.0, 156.0, 160.0 ],
                     "text": "stereo in / stereo out 8x8 feedback delay network with nested allpasses. Has a proper 'room' quality, but also the ability to almost 'forever sustain' (very long decays) whilst maintaining it's 'room' feeling. Decays can be controlled separately low / high",
                     "textjustification": 1
                 }
@@ -573,7 +482,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 613.0, 115.0, 154.0, 119.0 ],
+                    "patching_rect": [ 579.0, 115.0, 154.0, 119.0 ],
                     "text": "stereo in / stereo (or multi) out 16x16 feedback delay network with extras to add more reverby options. Does the 'forever sustain' trick in a very smooth and sexy digital way",
                     "textjustification": 1
                 }
@@ -589,7 +498,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 461.0, 155.0, 145.0, 79.0 ],
+                    "patching_rect": [ 427.0, 155.0, 145.0, 79.0 ],
                     "text": "mono in / stereo out feedback delay network with allpass diffusion, smooth and rich",
                     "textjustification": 1
                 }
@@ -597,33 +506,17 @@
             {
                 "box": {
                     "bubble": 1,
-                    "bubblepoint": 0.75,
-                    "bubbleside": 2,
-                    "bubbleusescolors": 1,
-                    "fontface": 2,
-                    "id": "obj-36",
-                    "linecount": 6,
-                    "maxclass": "comment",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 207.0, 128.0, 243.0, 106.0 ],
-                    "text": "\"Lite\" version is less expensive than the 'full' version. If you need buttery smooth updating of attributes in realtime, use the full version, if not, the lite version should be fine (gains are smooth, decay & damp are quite smooth, everything else clicks)",
-                    "textjustification": 1
-                }
-            },
-            {
-                "box": {
-                    "bubble": 1,
+                    "bubblepoint": 0.4,
                     "bubbleside": 2,
                     "bubbleusescolors": 1,
                     "fontface": 2,
                     "id": "obj-35",
-                    "linecount": 5,
+                    "linecount": 6,
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 185.0, 33.0, 245.0, 93.0 ],
-                    "text": "\"yafr2\" from MSP. \"Plate reverb, in the style of Griesinger\", by Randy Jones. These versions with dry/wet and eq added, as well \nas modifications for better filtering, interpolation, smoothing, etc",
+                    "patching_rect": [ 203.0, 115.0, 208.0, 106.0 ],
+                    "text": "\"yafr2\" from MSP. \"Plate reverb, in the style of Griesinger\", by Randy Jones. This version with dry/wet and eq added, as well \nas modifications for better filtering, interpolation, smoothing, etc",
                     "textjustification": 1
                 }
             },
@@ -650,7 +543,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 954.0, 250.0, 55.0, 33.0 ],
+                    "patching_rect": [ 798.0, 250.0, 55.0, 33.0 ],
                     "text": "real stereo-in",
                     "textjustification": 1
                 }
@@ -662,7 +555,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 658.0, 236.0, 55.0, 33.0 ],
+                    "patching_rect": [ 624.0, 236.0, 55.0, 33.0 ],
                     "text": "clever stereo-in",
                     "textjustification": 1
                 }
@@ -676,7 +569,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 945.0, 281.0, 73.0, 52.0 ],
+                    "patching_rect": [ 789.0, 281.0, 73.0, 52.0 ],
                     "text": "stereo-in / stereo-out",
                     "textjustification": 1
                 }
@@ -690,7 +583,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 626.0, 267.0, 119.0, 66.0 ],
+                    "patching_rect": [ 592.0, 267.0, 119.0, 66.0 ],
                     "text": "stereo-in / stereo-out / multichannel-out",
                     "textjustification": 1
                 }
@@ -704,21 +597,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 495.0, 281.0, 77.0, 52.0 ],
-                    "text": "mono-in / stereo-out",
-                    "textjustification": 1
-                }
-            },
-            {
-                "box": {
-                    "bubble": 1,
-                    "bubbleside": 2,
-                    "id": "obj-24",
-                    "linecount": 2,
-                    "maxclass": "comment",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 365.0, 281.0, 71.0, 52.0 ],
+                    "patching_rect": [ 461.0, 281.0, 77.0, 52.0 ],
                     "text": "mono-in / stereo-out",
                     "textjustification": 1
                 }
@@ -759,19 +638,9 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 248.0, 236.0, 331.0, 47.0 ],
-                    "text": "all three have choice of mono or stereo inputs, where stereo are treated as quasi-real stereo in the algorithm, see helpfiles for details",
+                    "patching_rect": [ 248.0, 236.0, 283.0, 47.0 ],
+                    "text": "both have choice of mono or stereo inputs, where stereo are treated as quasi-real stereo in the algorithm, see helpfiles for details",
                     "textjustification": 1
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-22",
-                    "maxclass": "comment",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 357.0, 336.0, 135.0, 20.0 ],
-                    "text": "[evi.plateverb.lite~]"
                 }
             }
         ],
@@ -886,13 +755,6 @@
             "obj-6::obj-54::obj-35": [ "bypass[19]", "bypass", 0 ],
             "obj-6::obj-54::obj-5": [ "midDecay[14]", "midDecay", 0 ],
             "obj-6::obj-54::obj-9": [ "crossover[14]", "crossover", 0 ],
-            "obj-7::obj-54::obj-2": [ "preDelay[1]", "early", 0 ],
-            "obj-7::obj-54::obj-3": [ "late", "late", 0 ],
-            "obj-7::obj-54::obj-33": [ "dryWet[1]", "dryWet", 0 ],
-            "obj-7::obj-54::obj-35": [ "bypass[18]", "smoothTime", 0 ],
-            "obj-7::obj-54::obj-4": [ "fdnSum", "fdnSum", 0 ],
-            "obj-7::obj-54::obj-5": [ "midDecay[1]", "damp", 0 ],
-            "obj-7::obj-54::obj-9": [ "crossover[1]", "crossover", 0 ],
             "parameterbanks": {
                 "0": {
                     "index": 0,

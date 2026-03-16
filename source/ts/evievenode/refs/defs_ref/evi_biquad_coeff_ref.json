@@ -39,31 +39,31 @@
     "outlets": [
         {
             "id": 1,
-            "type": "",
+            "type": "signal",
             "digest": "a0 (FF0)",
             "description": ""
         },
         {
             "id": 2,
-            "type": "",
+            "type": "signal",
             "digest": "a1 (FF1)",
             "description": ""
         },
         {
             "id": 3,
-            "type": "",
+            "type": "signal",
             "digest": "a2 (FF2)",
             "description": ""
         },
         {
             "id": 4,
-            "type": "",
+            "type": "signal",
             "digest": "b1 (FB1)",
             "description": ""
         },
         {
             "id": 5,
-            "type": "",
+            "type": "signal",
             "digest": "b2 (FB2)",
             "description": ""
         }

@@ -11,14 +11,14 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.phasor0~", "evi.ramp0~", "evi.lpg~", "evi.limiterfast~", "evi.zeroxcount~" ]
     },
     "evi.algoverb~": {
         "digest": "True stereo algorithmic reverb \n",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.backverb~", "evi.freezeverb~", "evi.gigaverb~", "evi.mattaverb~", "evi.plateverb~", "evi.sustainverb~", "evi.zitaverb~" ]
     },
     "evi.allpass~": {
         "digest": "Reimplementation of MSP allpass~ filter delay",
@@ -53,7 +53,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.algoverb~", "evi.freezeverb~", "evi.gigaverb~", "evi.mattaverb~", "evi.plateverb~", "evi.sustainverb~", "evi.zitaverb~" ]
     },
     "evi.baxandall~": {
         "digest": "Emulation of a classic baxandall EQ",
@@ -396,7 +396,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.algoverb~", "evi.backverb~", "evi.gigaverb~", "evi.mattaverb~", "evi.plateverb~", "evi.sustainverb~", "evi.zitaverb~" ]
     },
     "evi.freqshift.hilbert~": {
         "digest": "Hilbert frequency shifter effect \n",
@@ -420,11 +420,11 @@
         "seealso": []
     },
     "evi.gigaverb~": {
-        "digest": "Classic gigaverb reverb algorithm \n",
+        "digest": "Classic gigaverb reverb algorithm, mono in / stereo out, fdn / allpass \n",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.algoverb~", "evi.backverb~", "evi.freezeverb~", "evi.mattaverb~", "evi.plateverb~", "evi.sustainverb~", "evi.zitaverb~" ]
     },
     "evi.hardclip~": {
         "digest": "Anti-aliased hard clipping function",
@@ -571,7 +571,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.algoverb~", "evi.backverb~", "evi.freezeverb~", "evi.gigaverb~", "evi.plateverb~", "evi.sustainverb~", "evi.zitaverb~" ]
     },
     "evi.modalres~": {
         "digest": "Max Mathews modal resonator",
@@ -683,7 +683,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.algoverb~", "evi.backverb~", "evi.freezeverb~", "evi.gigaverb~", "evi.mattaverb~", "evi.plateverb~", "evi.sustainverb.lite~", "evi.sustainverb~", "evi.zitaverb~" ]
     },
     "evi.plateverb_lite~": {
         "digest": "Efficient version of evi.plateverb~ plate reverb \n",
@@ -697,7 +697,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.algoverb~", "evi.backverb~", "evi.freezeverb~", "evi.gigaverb~", "evi.mattaverb~", "evi.sustainverb~", "evi.zitaverb~" ]
     },
     "evi.polyphaseiirhilbertcoeffs": {
         "digest": "Coefficient calculator for polyphase IIR halfband allpass hilbert cascade \n",
@@ -830,21 +830,14 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Abstractions" ],
         "keywords": [],
-        "seealso": []
-    },
-    "evi.sustainverb_lite~": {
-        "digest": "Efficient version of evi.sustainverb~ reverb effect \n",
-        "module": "evieve-ref",
-        "category": [ "evieve", "evieve Abstractions" ],
-        "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.algoverb~", "evi.backverb~", "evi.freezeverb~", "evi.gigaverb~", "evi.mattaverb~", "evi.plateverb~", "evi.plateverb.lite~", "evi.sustainverb~", "evi.zitaverb~" ]
     },
     "evi.sustainverb~": {
         "digest": "16x16 FDN reverb with smooth sustaining effect \n",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.algoverb~", "evi.backverb~", "evi.freezeverb~", "evi.gigaverb~", "evi.mattaverb~", "evi.plateverb~", "evi.zitaverb~" ]
     },
     "evi.svfinputmix~": {
         "digest": "SVF input mixing multimode filter",
@@ -991,7 +984,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.algoverb~", "evi.backverb~", "evi.freezeverb~", "evi.gigaverb~", "evi.mattaverb~", "evi.plateverb~", "evi.sustainverb~" ]
     },
     "mc.evi.bands~": {
         "digest": "Evenly distribute resonant filter bands across a spectrum \n",

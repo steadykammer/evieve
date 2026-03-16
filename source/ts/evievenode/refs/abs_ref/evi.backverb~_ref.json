@@ -14,13 +14,13 @@
         {
             "id": 1,
             "type": "signal",
-            "digest": "Audio In Left",
+            "digest": "Audio In Left / messages to evi.backverb~",
             "description": "Audio In Left / messages to evi.backverb~"
         },
         {
             "id": 2,
             "type": "signal",
-            "digest": "Audio In Right",
+            "digest": "Audio In Right / messages to evi.backverb~",
             "description": "Audio In Right / messages to evi.backverb~"
         }
     ],
@@ -28,20 +28,20 @@
         {
             "id": 1,
             "type": "signal",
-            "digest": "RVRB Out Left",
+            "digest": "Rvrb Out Left",
             "description": "Audio out Left"
         },
         {
             "id": 2,
             "type": "signal",
-            "digest": "RVRB Out Right",
+            "digest": "Rvrb Out Right",
             "description": "Audio out Right"
         },
         {
             "id": 3,
-            "type": "anything",
+            "type": "",
             "digest": "dumpout (pattrstorage)",
-            "description": "Recieve pattrstorage output"
+            "description": "Recieve output from internal pattrstorage"
         }
     ],
     "arguments": [],
@@ -56,8 +56,8 @@
                     "optional": 1
                 }
             ],
-            "digest": "In left inlet, messages to <o>evi.backverb~</o>",
-            "description": "Prepending the word 'pattrstorage' allows you to send any message <o>pattrstorage</o> understands to the internal pattrstorage object - you can recieve pattrstorage output via the far right outlet."
+            "digest": "In left inlet, messages to evi.backverb~",
+            "description": "Prepending the word 'pattrstorage' allows you to send any message 'pattrstorage' understands to the internal pattrstorage object - you can recieve pattrstorage output via the far right outlet."
         }
     ],
     "attributes": [
@@ -65,8 +65,8 @@
             "name": "drywet",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Normalised 0..1",
+            "description": "Dry/Wet mix of direct signal and reverberated signal. Dry is 0, completely wet is 1.",
             "default": {
                 "get": 0,
                 "value": "0.707107"
@@ -76,8 +76,8 @@
             "name": "feedback",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Gain 0.01..10",
+            "description": "Linear amplitude, but does not act like it. Think of this as the amount of feedback potential in the system, depending on other attributes.",
             "default": {
                 "get": 0,
                 "value": "2.4"
@@ -87,8 +87,8 @@
             "name": "feedbackdamphigh",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Normalised 0..1",
+            "description": "The high damping amount of the post feedback trap filters at the Hz point of 'feedbackhzhigh'. The higher the values the more damping takes place, the lower the values the more feedback will recirculate.",
             "default": {
                 "get": 0,
                 "value": "0.8666"
@@ -98,8 +98,8 @@
             "name": "feedbackdamplow",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Normalised 0..1",
+            "description": "The low damping amount of the post feedback trap filters at the Hz point of 'feedbackhzlow'. The higher the values the more damping takes place, the lower the values the more feedback will recirculate.",
             "default": {
                 "get": 0,
                 "value": "0.707107"
@@ -109,8 +109,8 @@
             "name": "feedbackhzhigh",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "In Hz 250..8000",
+            "description": "The high feedback attenuation point in Hz of the post feedback trap filters.",
             "default": {
                 "get": 0,
                 "value": "2000."
@@ -120,8 +120,8 @@
             "name": "feedbackhzlow",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "In Hz 62.5..500",
+            "description": "The low feedback attenuation point in Hz of the post feedback trap filters.",
             "default": {
                 "get": 0,
                 "value": "250."
@@ -131,8 +131,8 @@
             "name": "feedbacknonlinear",
             "get": 0,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Select 0..2",
+            "description": "The nonlinearity in the feedback path of the reverb. 0=Adaa2 (2nd order antiderivative anti-aliasing) tanh-like saturation, 1=same but 2x oversampled, 2=same but 4x oversampled.",
             "default": {
                 "get": 0,
                 "value": "1"
@@ -142,8 +142,8 @@
             "name": "inputhzhigh",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "In Hz 500..14700",
+            "description": "Lowpass the audio input at specified Hz",
             "default": {
                 "get": 0,
                 "value": "4000."
@@ -153,8 +153,8 @@
             "name": "inputhzlow",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "In Hz 31.25..500",
+            "description": "Highpass the audio input at specified Hz",
             "default": {
                 "get": 0,
                 "value": "125."
@@ -164,8 +164,8 @@
             "name": "modulationdepth",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "-16..16",
+            "description": "The closer to zero this value is, the more feedback recirculation will be allowed to occur. The higher the values the more movement in the sound. This can be a really useful parameter to be in control of feedback surges.",
             "default": {
                 "get": 0,
                 "value": "4."
@@ -175,8 +175,8 @@
             "name": "modulationduty",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Normalised 0..1",
+            "description": "The duty of the triangle portion of the modulation LFO (if selected).",
             "default": {
                 "get": 0,
                 "value": "0.5"
@@ -186,8 +186,8 @@
             "name": "modulationrate",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Rate multiplier 0.125..8",
+            "description": "The slower the rate (lower values) the more the feedback can build, the higher the rate the more in control the feedback can be kept.",
             "default": {
                 "get": 0,
                 "value": "1."
@@ -197,8 +197,8 @@
             "name": "modulationshape",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Normalised 0..1",
+            "description": "Morph modulation LFO between triangle..sine shapes 0..1.",
             "default": {
                 "get": 0,
                 "value": "1."
@@ -208,8 +208,8 @@
             "name": "modulationskew",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Exponent 0.5..2",
+            "description": "Exponentially skew the modulation LFO shape.",
             "default": {
                 "get": 0,
                 "value": "1."
@@ -219,8 +219,8 @@
             "name": "outputnonlinear",
             "get": 0,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Select 0..2",
+            "description": "The parabolic nonlinearity shape at the end of the reverb chain. 0=naive (not recommended as can alias), 1=same but 2x oversampled, 2=same but 4x oversampled.",
             "default": {
                 "get": 0,
                 "value": "1"
@@ -237,7 +237,6 @@
         "evi.gigaverb~",
         "evi.mattaverb~",
         "evi.plateverb~",
-        "evi.sustainverb.lite~",
         "evi.sustainverb~",
         "evi.zitaverb~"
     ]

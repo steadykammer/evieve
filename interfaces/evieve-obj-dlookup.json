@@ -12,7 +12,7 @@
     "evi.algoverb~": {
         "type": "abstraction",
         "digest": "True stereo algorithmic reverb \n",
-        "description": ""
+        "description": "Relatively expensive algorithmic reverb with many tweekable parameters, 15 embedded presets and an internal pattrstorage system. The reverb is modular, with pre delay, early reflections and late reflections all controllable individually, as well as high quality linear SVF filters in both the feedback path and end of wet path. Loosely based on a Martijn Zwartjes Reaktor ensemble. The MSP abstraction does a lot of massaging of the input parameters, so when using the gen~ abstraction study the internal Param declarations."
     },
     "evi.allpass~": {
         "type": "define",
@@ -37,7 +37,7 @@
     "evi.backverb~": {
         "type": "abstraction",
         "digest": "Ursa Major reverb unit with saturating feedback \n",
-        "description": ""
+        "description": "A strange reverb-like effect, based on Christopher Moore's legendary 1978 Ursa Major Space Station algorithm. This is not an attempt to model the 1970's digital hardware, but more of a trope on it, although it does sound very close to the original with the right settings. Nonlinearities and trap filters have been added, much as you might find in an analog delay, as well as different modulation, interpolation, smoothing and filtering modifications. Also cheap on CPU."
     },
     "evi.baxandall~": {
         "type": "define",
@@ -282,7 +282,7 @@
     "evi.freezeverb~": {
         "type": "abstraction",
         "digest": "Classic freeverb reverb algorithm with buttery smooth freezing effect \n",
-        "description": ""
+        "description": "This is a basic Schroeder reverb effect but with additional filtering and controls, very servicable for certain situations. But the main feature here is the ability to smoothly capture the input audio in the recirculating feedback path in a way which gives a forever freezing effect. This can be triggered and released with wet+dry or with wet alone."
     },
     "evi.freqshift.hilbert~": {
         "type": "abstraction",
@@ -301,8 +301,8 @@
     },
     "evi.gigaverb~": {
         "type": "abstraction",
-        "digest": "Classic gigaverb reverb algorithm \n",
-        "description": ""
+        "digest": "Classic gigaverb reverb algorithm, mono in / stereo out, fdn / allpass \n",
+        "description": "A mono-in, stereo-out reverb implementation by Juhana Sadeharju. Originally Max/MSP-ified by Olaf Matthes (2004) Version 1.0test5, (c) 1999-2006 Juhana Sadeharju / Olaf Matthes. Originally Gen-ified by Graham Wakefield (2011). 64-bit MSP reference version by Volker Böhm (2016). This evieve version with updated filtering and parameter smooting. Attribute descriptions in this documentation are mainly from the Olaf Matthes originals."
     },
     "evi.hardclip~": {
         "type": "define",
@@ -407,7 +407,7 @@
     "evi.mattaverb~": {
         "type": "abstraction",
         "digest": "True stereo one knob allpass diffuse reverb \n",
-        "description": ""
+        "description": "A simple allpass diffusion reverb with minimal controls interaction. True stereo input/output, no early reflections, designed wet and spacey but very dampable."
     },
     "evi.modalres~": {
         "type": "define",
@@ -711,10 +711,6 @@
     },
     "evi.plateverb_lite~": {
         "digest": "Efficient version of evi.plateverb~ plate reverb \n",
-        "description": ""
-    },
-    "evi.sustainverb_lite~": {
-        "digest": "Efficient version of evi.sustainverb~ reverb effect \n",
         "description": ""
     }
 }

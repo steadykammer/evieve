@@ -15,31 +15,31 @@
             "id": 1,
             "type": "signal/float",
             "digest": "trigger/gate",
-            "description": ""
+            "description": "Non-zero triggers the envelope, which will sustain until a zero is received or another non-zero is received."
         },
         {
             "id": 2,
             "type": "signal/float",
             "digest": "attack",
-            "description": ""
+            "description": "Attack time in ms"
         },
         {
             "id": 3,
             "type": "signal/float",
             "digest": "decay",
-            "description": ""
+            "description": "Decay time in ms"
         },
         {
             "id": 4,
             "type": "signal/float",
             "digest": "sustain",
-            "description": ""
+            "description": "Sustain (linear amplitude)"
         },
         {
             "id": 5,
             "type": "signal/float",
             "digest": "release",
-            "description": ""
+            "description": "Release time in ms"
         }
     ],
     "outlets": [
@@ -47,59 +47,59 @@
             "id": 1,
             "type": "signal",
             "digest": "adsr+ envelope",
-            "description": ""
+            "description": "dAhDShR envelope with logarithmic segments"
         },
         {
             "id": 2,
             "type": "signal",
             "digest": "new envelope trigger",
-            "description": ""
+            "description": "Trigger up on new envelope, trigger down on beginning of release stage"
         },
         {
             "id": 3,
             "type": "message",
             "digest": "mute outlet to [thispoly~]",
-            "description": ""
+            "description": "Attach to 'thispoly~' to control 'poly~' voice mute state"
         },
         {
             "id": 4,
             "type": "signal",
             "digest": "set busy state to [thispoly~]",
-            "description": ""
+            "description": "Attach to 'thispoly~' to control 'poly~' busy state"
         }
     ],
     "arguments": [
         {
-            "name": "",
+            "name": "attack",
             "type": "float",
             "default": "10.",
             "optional": 1,
-            "digest": "arg#1: ",
-            "description": ""
+            "digest": "arg#1: attack time in ms",
+            "description": "Attack time in ms"
         },
         {
-            "name": "",
+            "name": "decay",
             "type": "float",
             "default": "100.",
             "optional": 1,
-            "digest": "arg#2: ",
-            "description": ""
+            "digest": "arg#2: decay time in ms",
+            "description": "Decay time in ms"
         },
         {
-            "name": "",
+            "name": "sustain",
             "type": "float",
             "default": "0.707946",
             "optional": 1,
-            "digest": "arg#3: ",
-            "description": ""
+            "digest": "arg#3: sustain (linear amplitude)",
+            "description": "Sustain (linear amplitude)"
         },
         {
-            "name": "",
+            "name": "release",
             "type": "float",
             "default": "200.",
             "optional": 1,
-            "digest": "arg#4: ",
-            "description": ""
+            "digest": "arg#4: release time in ms",
+            "description": "Release time in ms"
         }
     ],
     "messages": [
@@ -122,7 +122,7 @@
             "name": "attack",
             "get": 0,
             "type": "float",
-            "digest": "",
+            "digest": "Attack time in ms",
             "description": "",
             "default": {
                 "get": 0,
@@ -130,21 +130,10 @@
             }
         },
         {
-            "name": "constantrate",
-            "get": 0,
-            "type": "int",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "1"
-            }
-        },
-        {
             "name": "decay",
             "get": 0,
             "type": "float",
-            "digest": "",
+            "digest": "Decay time in ms",
             "description": "",
             "default": {
                 "get": 0,
@@ -155,8 +144,8 @@
             "name": "delay",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Delay time in ms",
+            "description": "Initial delay time in ms before the attack segment of the envelope",
             "default": {
                 "get": 0,
                 "value": "0."
@@ -166,8 +155,8 @@
             "name": "envmax",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Expected maximum of input to left trigger inlet",
+            "description": "This can be any value, by default it assumes velocity. Only used if the <m>velocitysense</m> attribute is > 0.",
             "default": {
                 "get": 0,
                 "value": "127."
@@ -177,8 +166,8 @@
             "name": "fallratio",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Ratio 0..10, minimum -120dB",
+            "description": "Ratio 0..10, very exponential..almost linear",
             "default": {
                 "get": 0,
                 "value": "0.05"
@@ -188,8 +177,8 @@
             "name": "hold1",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Time in ms",
+            "description": "Time in ms for first hold segment, between attack and decay",
             "default": {
                 "get": 0,
                 "value": "0."
@@ -199,8 +188,8 @@
             "name": "hold2",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Time in ms",
+            "description": "Time in ms for second hold segment, between sustain and release",
             "default": {
                 "get": 0,
                 "value": "0."
@@ -210,8 +199,8 @@
             "name": "legato",
             "get": 0,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Flag 0/1",
+            "description": "Start from current value if reattacking active envelope (rather than ramping to zero)",
             "default": {
                 "get": 0,
                 "value": "0"
@@ -221,8 +210,8 @@
             "name": "loop",
             "get": 0,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Flag 0/1",
+            "description": "Loop the envelope off/on.",
             "default": {
                 "get": 0,
                 "value": "0"
@@ -232,8 +221,8 @@
             "name": "loopsustain",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Time in ms",
+            "description": "Add fake x ms sustain portion to looping envelope ?",
             "default": {
                 "get": 0,
                 "value": "100."
@@ -243,8 +232,8 @@
             "name": "looptrigger",
             "get": 0,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Flag 0/1",
+            "description": "Loop mode needs triggering (1) or triggers itself (0)",
             "default": {
                 "get": 0,
                 "value": "0"
@@ -254,8 +243,8 @@
             "name": "maxsustain",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Time in ms",
+            "description": "like 'adsr~' (-1 = none, else x ms length even if gate still on).",
             "default": {
                 "get": 0,
                 "value": "-1."
@@ -265,8 +254,8 @@
             "name": "muteupdate",
             "get": 0,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Time in ms",
+            "description": "Update rate of mute message outlet.",
             "default": {
                 "get": 0,
                 "value": "10"
@@ -276,7 +265,7 @@
             "name": "release",
             "get": 0,
             "type": "float",
-            "digest": "",
+            "digest": "Release time in ms",
             "description": "",
             "default": {
                 "get": 0,
@@ -287,8 +276,8 @@
             "name": "retrigger",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Time in ms",
+            "description": "Fade to 0 in x ms if reattacking active envelope",
             "default": {
                 "get": 0,
                 "value": "5."
@@ -298,8 +287,8 @@
             "name": "riseratio",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Ratio 0..10, minimum -120dB",
+            "description": "Ratio 0..10, very logarithmic..almost linear",
             "default": {
                 "get": 0,
                 "value": "0.3"
@@ -309,8 +298,8 @@
             "name": "sustain",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Sustain level",
+            "description": "Linear Gain",
             "default": {
                 "get": 0,
                 "value": "0.707946"
@@ -320,8 +309,8 @@
             "name": "velocitycurve",
             "get": 0,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Type -2, -1, 0, 1, 2",
+            "description": "Velocity in curve, positive=log, 0=lin, negative=exp",
             "default": {
                 "get": 0,
                 "value": "1"
@@ -331,8 +320,8 @@
             "name": "velocitysense",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Normalised 0..1",
+            "description": "Velocity sensitivity 0..1 (<m>envmax</m> is only used if this > 0.)",
             "default": {
                 "get": 0,
                 "value": "0."
@@ -342,8 +331,8 @@
             "name": "wait",
             "get": 0,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Flag 0/1",
+            "description": "Wait until envelope 0 before allowing reattack of active envelope",
             "default": {
                 "get": 0,
                 "value": "0"
@@ -353,8 +342,8 @@
             "name": "zerophase",
             "get": 0,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Flag 0/1",
+            "description": "Sync env param changes to env start (1) or free (0)",
             "default": {
                 "get": 0,
                 "value": "0"

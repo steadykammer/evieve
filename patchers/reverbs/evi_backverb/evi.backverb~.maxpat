@@ -2271,7 +2271,7 @@
                                         "valueof": {
                                             "parameter_initial": [ 0.707107 ],
                                             "parameter_linknames": 1,
-                                            "parameter_longname": "dryWet",
+                                            "parameter_longname": "dryWet[1]",
                                             "parameter_mmax": 1.0,
                                             "parameter_modmode": 3,
                                             "parameter_shortname": "dryWet",
@@ -2848,7 +2848,7 @@
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
-                    "outlettype": [ "signal" ],
+                    "outlettype": [ "" ],
                     "patching_rect": [ 177.0, 43.0, 30.0, 30.0 ]
                 }
             },
@@ -2860,7 +2860,7 @@
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
-                    "outlettype": [ "signal" ],
+                    "outlettype": [ "" ],
                     "patching_rect": [ 57.0, 43.0, 30.0, 30.0 ]
                 }
             },
@@ -2966,7 +2966,7 @@
             },
             {
                 "box": {
-                    "comment": "RVRB Out Right",
+                    "comment": "(signal) Rvrb Out Right",
                     "id": "obj-6",
                     "index": 2,
                     "maxclass": "outlet",
@@ -2977,7 +2977,7 @@
             },
             {
                 "box": {
-                    "comment": "RVRB Out Left",
+                    "comment": "(signal) Rvrb Out Left",
                     "id": "obj-5",
                     "index": 1,
                     "maxclass": "outlet",

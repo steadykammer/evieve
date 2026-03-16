@@ -46,7 +46,7 @@
 	</inletlist>
 	<!--OUTLETS-->
 	<outletlist>
-		<outlet id="1" type="">
+		<outlet id="1" type="signal">
 			<digest>
 				Outlet #1: SAW
 			</digest>
@@ -54,7 +54,7 @@
 				
 			</description>
 		</outlet>
-		<outlet id="2" type="">
+		<outlet id="2" type="signal">
 			<digest>
 				Outlet #2: RECT
 			</digest>
@@ -62,7 +62,7 @@
 				
 			</description>
 		</outlet>
-		<outlet id="3" type="">
+		<outlet id="3" type="signal">
 			<digest>
 				Outlet #3: TRI
 			</digest>
@@ -70,7 +70,7 @@
 				
 			</description>
 		</outlet>
-		<outlet id="4" type="">
+		<outlet id="4" type="signal">
 			<digest>
 				Outlet #4: SINE (if param addsine set)
 			</digest>
@@ -78,7 +78,7 @@
 				
 			</description>
 		</outlet>
-		<outlet id="5" type="">
+		<outlet id="5" type="signal">
 			<digest>
 				Outlet #5: Train 0/1 (if param addtrain set)
 			</digest>
@@ -86,7 +86,7 @@
 				
 			</description>
 		</outlet>
-		<outlet id="6" type="">
+		<outlet id="6" type="signal">
 			<digest>
 				Outlet #6: Sync 0..1 (if param addsync set)
 			</digest>

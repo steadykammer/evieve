@@ -16,7 +16,7 @@
     "inlets": [
         {
             "id": 1,
-            "type": "",
+            "type": "signal",
             "digest": "Osc Input",
             "description": ""
         }
@@ -24,25 +24,25 @@
     "outlets": [
         {
             "id": 1,
-            "type": "",
+            "type": "signal",
             "digest": "4-section",
             "description": ""
         },
         {
             "id": 2,
-            "type": "",
+            "type": "signal",
             "digest": "3-section",
             "description": ""
         },
         {
             "id": 3,
-            "type": "",
+            "type": "signal",
             "digest": "2-section",
             "description": ""
         },
         {
             "id": 4,
-            "type": "",
+            "type": "signal",
             "digest": "1-section",
             "description": ""
         }

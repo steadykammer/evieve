@@ -3,7 +3,7 @@
         "name": "evi.freezeverb~",
         "category": "evieve",
         "digest": "Classic freeverb reverb algorithm with buttery smooth freezing effect",
-        "description": "TEXT_HERE",
+        "description": "This is a basic Schroeder reverb effect but with additional filtering and controls, very servicable for certain situations. But the main feature here is the ability to smoothly capture the input audio in the recirculating feedback path in a way which gives a forever freezing effect. This can be triggered and released with wet+dry or with wet alone.",
         "discussion": ""
     },
     "metadata": {
@@ -15,13 +15,13 @@
             "id": 1,
             "type": "signal",
             "digest": "Audio In Mono or Left or 1 / messages to evi.freezeverb~",
-            "description": ""
+            "description": "Audio In Mono or Left or 1 / messages to evi.freezeverb~"
         },
         {
             "id": 2,
             "type": "signal",
             "digest": "Audio In Nothing or Right or 2 / messages to evi.freezeverb~",
-            "description": ""
+            "description": "Audio In Nothing or Right or 2 / messages to evi.freezeverb~"
         }
     ],
     "outlets": [
@@ -29,35 +29,41 @@
             "id": 1,
             "type": "signal",
             "digest": "Audio Out Left",
-            "description": ""
+            "description": "Audio Out Left"
         },
         {
             "id": 2,
             "type": "signal",
             "digest": "Audio Out Right",
-            "description": ""
+            "description": "Audio Out Right"
         },
         {
             "id": 3,
             "type": "",
             "digest": "dumpout (pattrstorage)",
-            "description": ""
+            "description": "Recieve output from internal pattrstorage"
         }
     ],
     "arguments": [],
     "messages": [
         {
-            "name": "",
+            "name": "anything",
             "arg": [
                 {
-                    "name": "",
-                    "type": "",
-                    "units": "",
+                    "name": "freeze",
+                    "type": "int",
+                    "units": "0, 1, 2, 3, 4",
+                    "optional": 1
+                },
+                {
+                    "name": "pattrstorage",
+                    "type": "anything",
+                    "units": "messages to pattrstorage",
                     "optional": 1
                 }
             ],
-            "digest": "",
-            "description": ""
+            "digest": "In left inlet, messages to evi.freezeverb~",
+            "description": "The word 'freeze' followed by an integer between 0 and 4 engages the special freeze effect in different ways. 0=freeze off, 1=freeze on with dry/wet mix, 2=freeze on solo (wet only), 3=retrigger the 'freeze 1' (if already on), 4=retrigger the 'freeze 2' (if already on). All 'freeze' switching is buttery smooth. Prepending the word 'pattrstorage' allows you to send any message pattrstorage understands to the internal pattrstorage object - you can recieve pattrstorage output via the far right outlet."
         }
     ],
     "attributes": [
@@ -65,8 +71,8 @@
             "name": "bypass",
             "get": 0,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Flag 0/1",
+            "description": "Smooth bypass the reverb (1). Bypassing also CPU-mutes the internal DSP.",
             "default": {
                 "get": 0,
                 "value": "0"
@@ -76,8 +82,8 @@
             "name": "damping",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Normalised 0..1",
+            "description": "The higher the value, the more damping is applied to the decay of the internal comb filters.",
             "default": {
                 "get": 0,
                 "value": "0.42"
@@ -87,8 +93,8 @@
             "name": "dry",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "In dB -90..0",
+            "description": "There is no 'dry/wet' in this reverb. Instead we have dry, early and wet gains. This dry gain controls the amount of gain applied to the unprocessed audio in the final mix.",
             "default": {
                 "get": 0,
                 "value": "-12."
@@ -98,8 +104,8 @@
             "name": "early",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "In dB -90..0",
+            "description": "There is no 'dry/wet' in this reverb. Instead we have dry, early and wet gains. This early gain controls the amount of gain applied to the early reflections in the final mix.",
             "default": {
                 "get": 0,
                 "value": "-20."
@@ -109,8 +115,8 @@
             "name": "highfrequency",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "In Hz 500..15000",
+            "description": "High frequency point in Hz of the end of wet chain onepole shelving filters.",
             "default": {
                 "get": 0,
                 "value": "2000."
@@ -120,8 +126,8 @@
             "name": "highgain",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "-1..1",
+            "description": "± gain of the high shelving onpole filters. Negative values damp, positive values boost. -1..1 equates to approximately -10..10 dB.",
             "default": {
                 "get": 0,
                 "value": "0."
@@ -131,8 +137,8 @@
             "name": "lowfrequency",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "In Hz 62.5..4000",
+            "description": "Low frequency point in Hz of the end of wet chain onepole shelving filters.",
             "default": {
                 "get": 0,
                 "value": "500."
@@ -142,8 +148,8 @@
             "name": "lowgain",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "-1..1",
+            "description": "± gain of the low shelving onpole filters. Negative values damp, positive values boost. -1..1 equates to approximately -10..10 dB.",
             "default": {
                 "get": 0,
                 "value": "0."
@@ -153,8 +159,8 @@
             "name": "predelay",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Time in ms, 0..143",
+            "description": "The pre delay time in ms applied to the dry input before the early reflections.",
             "default": {
                 "get": 0,
                 "value": "9."
@@ -164,8 +170,8 @@
             "name": "size",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Normalised 0..1",
+            "description": "The perceived size of the reverb, higher values create a bigger space.",
             "default": {
                 "get": 0,
                 "value": "0.78"
@@ -175,8 +181,8 @@
             "name": "smoothtime",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Time in ms",
+            "description": "Set the smoothing time in ms of all the internal parameter smoothing functions.",
             "default": {
                 "get": 0,
                 "value": "49."
@@ -186,8 +192,8 @@
             "name": "wet",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "In dB -90..0",
+            "description": "There is no 'dry/wet' in this reverb. Instead we have dry, early and wet gains. This wet gain controls the amount of gain applied to the processed reverberated (late reflections) in the final mix.",
             "default": {
                 "get": 0,
                 "value": "-9.542434"
@@ -197,8 +203,8 @@
             "name": "width",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Normalised 0..1",
+            "description": "The perceived stereo width of the reverb, the higher the value the bigger the late reflections feel.",
             "default": {
                 "get": 0,
                 "value": "0.7"
@@ -215,7 +221,6 @@
         "evi.gigaverb~",
         "evi.mattaverb~",
         "evi.plateverb~",
-        "evi.sustainverb.lite~",
         "evi.sustainverb~",
         "evi.zitaverb~"
     ]

@@ -19,7 +19,7 @@
 	</metadatalist>
 	<!--INLETS-->
 	<inletlist>
-		<inlet id="1" type="">
+		<inlet id="1" type="signal">
 			<digest>
 				Inlet #1: Audio Input to be treated nicely
 			</digest>
@@ -30,7 +30,7 @@
 	</inletlist>
 	<!--OUTLETS-->
 	<outletlist>
-		<outlet id="1" type="">
+		<outlet id="1" type="signal">
 			<digest>
 				Outlet #1: Anti Aliased Clipped Output
 			</digest>

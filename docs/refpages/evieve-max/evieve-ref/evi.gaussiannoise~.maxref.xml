@@ -19,7 +19,7 @@
 	</metadatalist>
 	<!--INLETS-->
 	<inletlist>
-		<inlet id="1" type="">
+		<inlet id="1" type="signal">
 			<digest>
 				Inlet #1: Dummy
 			</digest>
@@ -30,7 +30,7 @@
 	</inletlist>
 	<!--OUTLETS-->
 	<outletlist>
-		<outlet id="1" type="">
+		<outlet id="1" type="signal">
 			<digest>
 				Outlet #1: (Box Muller) Gaussian Noise Distribution
 			</digest>
@@ -38,7 +38,7 @@
 				
 			</description>
 		</outlet>
-		<outlet id="2" type="">
+		<outlet id="2" type="signal">
 			<digest>
 				Outlet #2: Sync White Noise
 			</digest>
@@ -46,7 +46,7 @@
 				
 			</description>
 		</outlet>
-		<outlet id="3" type="">
+		<outlet id="3" type="signal">
 			<digest>
 				Outlet #3: Cos Noise
 			</digest>

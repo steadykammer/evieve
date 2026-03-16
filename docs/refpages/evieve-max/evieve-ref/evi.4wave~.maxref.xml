@@ -9,7 +9,7 @@
 		<b>evi.4wave~</b> is a 'max define' for the <o>evi_4wave</o>.gendsp gen~ abstraction.
 		Because evi.4wave~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		<br />
-		TEXT_HERE <br />
+		TEXT_HERE CHOOCHOO <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>
@@ -24,7 +24,7 @@
 				Inlet #1: Frequency in Hz
 			</digest>
 			<description>
-				
+				My frequency is cool
 			</description>
 		</inlet>
 		<inlet id="2" type="signal">
@@ -38,7 +38,7 @@
 	</inletlist>
 	<!--OUTLETS-->
 	<outletlist>
-		<outlet id="1" type="">
+		<outlet id="1" type="signal">
 			<digest>
 				Outlet #1: SAW
 			</digest>
@@ -46,7 +46,7 @@
 				
 			</description>
 		</outlet>
-		<outlet id="2" type="">
+		<outlet id="2" type="signal">
 			<digest>
 				Outlet #2: RECT
 			</digest>
@@ -54,7 +54,7 @@
 				
 			</description>
 		</outlet>
-		<outlet id="3" type="">
+		<outlet id="3" type="signal">
 			<digest>
 				Outlet #3: TRI
 			</digest>
@@ -62,7 +62,7 @@
 				
 			</description>
 		</outlet>
-		<outlet id="4" type="">
+		<outlet id="4" type="signal">
 			<digest>
 				Outlet #4: SINE
 			</digest>
@@ -70,7 +70,7 @@
 				
 			</description>
 		</outlet>
-		<outlet id="5" type="">
+		<outlet id="5" type="signal">
 			<digest>
 				Outlet #5: Phase
 			</digest>

@@ -745,16 +745,16 @@
             }
         },
         "evi.sustainverb.lite~": {
-            "object": true,
-            "ref": true,
+            "object": false,
+            "ref": false,
             "qlookup": true,
             "helpfile": {
-                "generate": true,
+                "generate": false,
                 "mctab": false,
-                "mcstab": true,
+                "mcstab": false,
                 "mcparent": "",
                 "mcchild": "mcs.evi.sustainverb.lite~",
-                "gentab": true,
+                "gentab": false,
                 "genexprtab": false,
                 "areas": [
                     "reverb"
@@ -1221,7 +1221,7 @@
             }
         },
         "mcs.evi.sustainverb.lite~": {
-            "object": true,
+            "object": false,
             "ref": false,
             "qlookup": true,
             "helpfile": {

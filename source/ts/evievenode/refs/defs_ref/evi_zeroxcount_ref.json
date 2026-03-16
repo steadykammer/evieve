@@ -16,7 +16,7 @@
     "inlets": [
         {
             "id": 1,
-            "type": "",
+            "type": "signal",
             "digest": "Input",
             "description": ""
         }

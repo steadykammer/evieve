@@ -6,7 +6,7 @@
 		True stereo one knob allpass diffuse reverb <br />
 	</digest>
 	<description>
-		TEXT_HERE <br />
+		A simple allpass diffusion reverb with minimal controls interaction. True stereo input/output, no early reflections, designed wet and spacey but very dampable. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>
@@ -21,7 +21,7 @@
 				Audio In Left / messages to evi.mattaverb~
 			</digest>
 			<description>
-				
+				Audio In Left / messages to evi.mattaverb~
 			</description>
 		</inlet>
 		<inlet id="2" type="signal">
@@ -29,7 +29,7 @@
 				Audio In Right / messages to evi.mattaverb~
 			</digest>
 			<description>
-				
+				Audio In Right / messages to evi.mattaverb~
 			</description>
 		</inlet>
 	</inletlist>
@@ -40,7 +40,7 @@
 				Audio Out Left
 			</digest>
 			<description>
-				
+				Audio Out Left
 			</description>
 		</outlet>
 		<outlet id="2" type="signal">
@@ -48,7 +48,7 @@
 				Audio Out Right
 			</digest>
 			<description>
-				
+				Audio Out Right
 			</description>
 		</outlet>
 		<outlet id="3" type="">
@@ -56,7 +56,7 @@
 				dumpout (pattrstorage)
 			</digest>
 			<description>
-				
+				Recieve output from internal pattrstorage
 			</description>
 		</outlet>
 	</outletlist>
@@ -65,26 +65,38 @@
 	</objarglist>
 	<!--MESSAGES-->
 	<methodlist>
-		<method name="">
+		<method name="anything">
 			<arglist>
-				<arg name="" type="" units="" optional="1" />
+				<arg name="bypass" type="int" units="0/1" optional="1" />
+				<arg name="pattrstorage" type="anything" units="messages to pattrstorage" optional="1" />
 			</arglist>
 			<digest>
-				
+				In left inlet, messages to evi.gigaverb~
 			</digest>
 			<description>
-				
+				&#x27;bypass 1&#x27; will smoothly bypass the reverb to dry. Prepending the word &#x27;pattrstorage&#x27; allows you to send any message pattrstorage understands to the internal pattrstorage object - you can recieve pattrstorage output via the far right outlet.
 			</description>
 		</method>
 	</methodlist>
 	<!--ATTRIBUTES-->
 	<attributelist>
-		<attribute name="drywet" get="0" set="1" type="float" size="1">
+		<attribute name="damp" get="0" set="1" type="int" size="1">
 			<digest>
-				
+				Flag 0/1
 			</digest>
 			<description>
-				
+				Not smoothed. Selects onepole (0) or twopole (1) damping filters in the reverb chain. Greatly affects the tone of the reverb sound.
+			</description>
+			<attributelist>
+				<attribute name="default" get="0" set="1" type="int" size="1" value="0" />
+			</attributelist>
+		</attribute>
+		<attribute name="drywet" get="0" set="1" type="float" size="1">
+			<digest>
+				Normalised 0..1
+			</digest>
+			<description>
+				Dry/Wet mix of direct signal and reverberated signal. Dry is 0, completely wet is 1.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="0.707107" />
@@ -92,10 +104,10 @@
 		</attribute>
 		<attribute name="high" get="0" set="1" type="float" size="1">
 			<digest>
-				
+				Normalised 0..1
 			</digest>
 			<description>
-				
+				High frequency damping EQ 0..1 less..more.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="0.666666" />
@@ -103,10 +115,10 @@
 		</attribute>
 		<attribute name="low" get="0" set="1" type="float" size="1">
 			<digest>
-				
+				Normalised 0..1
 			</digest>
 			<description>
-				
+				Low frequency damping EQ 0..1 less..more.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="0.333333" />
@@ -114,13 +126,24 @@
 		</attribute>
 		<attribute name="size" get="0" set="1" type="float" size="1">
 			<digest>
-				
+				Normalised 0..1
 			</digest>
 			<description>
-				
+				Could be the only one knob control you need and much of the point of this reverb tuning. Small to large.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="0.5" />
+			</attributelist>
+		</attribute>
+		<attribute name="space" get="0" set="1" type="int" size="1">
+			<digest>
+				Flag 0/1
+			</digest>
+			<description>
+				Not smoothed. Add damping filters into the allpass feedback path (1) or not (0). Interesting wet sounds can be made by turning off filter stages here.
+			</description>
+			<attributelist>
+				<attribute name="default" get="0" set="1" type="int" size="1" value="1" />
 			</attributelist>
 		</attribute>
 	</attributelist>
@@ -135,7 +158,6 @@
 		<seealso name="evi.freezeverb~"> </seealso>
 		<seealso name="evi.gigaverb~"> </seealso>
 		<seealso name="evi.plateverb~"> </seealso>
-		<seealso name="evi.sustainverb.lite~"> </seealso>
 		<seealso name="evi.sustainverb~"> </seealso>
 		<seealso name="evi.zitaverb~"> </seealso>
 	</seealsolist>

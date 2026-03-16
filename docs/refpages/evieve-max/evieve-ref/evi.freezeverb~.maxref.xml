@@ -6,7 +6,7 @@
 		Classic freeverb reverb algorithm with buttery smooth freezing effect <br />
 	</digest>
 	<description>
-		TEXT_HERE <br />
+		This is a basic Schroeder reverb effect but with additional filtering and controls, very servicable for certain situations. But the main feature here is the ability to smoothly capture the input audio in the recirculating feedback path in a way which gives a forever freezing effect. This can be triggered and released with wet+dry or with wet alone. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>
@@ -21,7 +21,7 @@
 				Audio In Mono or Left or 1 / messages to evi.freezeverb~
 			</digest>
 			<description>
-				
+				Audio In Mono or Left or 1 / messages to evi.freezeverb~
 			</description>
 		</inlet>
 		<inlet id="2" type="signal">
@@ -29,7 +29,7 @@
 				Audio In Nothing or Right or 2 / messages to evi.freezeverb~
 			</digest>
 			<description>
-				
+				Audio In Nothing or Right or 2 / messages to evi.freezeverb~
 			</description>
 		</inlet>
 	</inletlist>
@@ -40,7 +40,7 @@
 				Audio Out Left
 			</digest>
 			<description>
-				
+				Audio Out Left
 			</description>
 		</outlet>
 		<outlet id="2" type="signal">
@@ -48,7 +48,7 @@
 				Audio Out Right
 			</digest>
 			<description>
-				
+				Audio Out Right
 			</description>
 		</outlet>
 		<outlet id="3" type="">
@@ -56,7 +56,7 @@
 				dumpout (pattrstorage)
 			</digest>
 			<description>
-				
+				Recieve output from internal pattrstorage
 			</description>
 		</outlet>
 	</outletlist>
@@ -65,15 +65,16 @@
 	</objarglist>
 	<!--MESSAGES-->
 	<methodlist>
-		<method name="">
+		<method name="anything">
 			<arglist>
-				<arg name="" type="" units="" optional="1" />
+				<arg name="freeze" type="int" units="0, 1, 2, 3, 4" optional="1" />
+				<arg name="pattrstorage" type="anything" units="messages to pattrstorage" optional="1" />
 			</arglist>
 			<digest>
-				
+				In left inlet, messages to evi.freezeverb~
 			</digest>
 			<description>
-				
+				The word &#x27;freeze&#x27; followed by an integer between 0 and 4 engages the special freeze effect in different ways. 0&#x3D;freeze off, 1&#x3D;freeze on with dry/wet mix, 2&#x3D;freeze on solo (wet only), 3&#x3D;retrigger the &#x27;freeze 1&#x27; (if already on), 4&#x3D;retrigger the &#x27;freeze 2&#x27; (if already on). All &#x27;freeze&#x27; switching is buttery smooth. Prepending the word &#x27;pattrstorage&#x27; allows you to send any message pattrstorage understands to the internal pattrstorage object - you can recieve pattrstorage output via the far right outlet.
 			</description>
 		</method>
 	</methodlist>
@@ -81,10 +82,10 @@
 	<attributelist>
 		<attribute name="bypass" get="0" set="1" type="int" size="1">
 			<digest>
-				
+				Flag 0/1
 			</digest>
 			<description>
-				
+				Smooth bypass the reverb (1). Bypassing also CPU-mutes the internal DSP.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="int" size="1" value="0" />
@@ -92,10 +93,10 @@
 		</attribute>
 		<attribute name="damping" get="0" set="1" type="float" size="1">
 			<digest>
-				
+				Normalised 0..1
 			</digest>
 			<description>
-				
+				The higher the value, the more damping is applied to the decay of the internal comb filters.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="0.42" />
@@ -103,10 +104,10 @@
 		</attribute>
 		<attribute name="dry" get="0" set="1" type="float" size="1">
 			<digest>
-				
+				In dB -90..0
 			</digest>
 			<description>
-				
+				There is no &#x27;dry/wet&#x27; in this reverb. Instead we have dry, early and wet gains. This dry gain controls the amount of gain applied to the unprocessed audio in the final mix.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="-12." />
@@ -114,10 +115,10 @@
 		</attribute>
 		<attribute name="early" get="0" set="1" type="float" size="1">
 			<digest>
-				
+				In dB -90..0
 			</digest>
 			<description>
-				
+				There is no &#x27;dry/wet&#x27; in this reverb. Instead we have dry, early and wet gains. This early gain controls the amount of gain applied to the early reflections in the final mix.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="-20." />
@@ -125,10 +126,10 @@
 		</attribute>
 		<attribute name="highfrequency" get="0" set="1" type="float" size="1">
 			<digest>
-				
+				In Hz 500..15000
 			</digest>
 			<description>
-				
+				High frequency point in Hz of the end of wet chain onepole shelving filters.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="2000." />
@@ -136,10 +137,10 @@
 		</attribute>
 		<attribute name="highgain" get="0" set="1" type="float" size="1">
 			<digest>
-				
+				-1..1
 			</digest>
 			<description>
-				
+				± gain of the high shelving onpole filters. Negative values damp, positive values boost. -1..1 equates to approximately -10..10 dB.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="0." />
@@ -147,10 +148,10 @@
 		</attribute>
 		<attribute name="lowfrequency" get="0" set="1" type="float" size="1">
 			<digest>
-				
+				In Hz 62.5..4000
 			</digest>
 			<description>
-				
+				Low frequency point in Hz of the end of wet chain onepole shelving filters.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="500." />
@@ -158,10 +159,10 @@
 		</attribute>
 		<attribute name="lowgain" get="0" set="1" type="float" size="1">
 			<digest>
-				
+				-1..1
 			</digest>
 			<description>
-				
+				± gain of the low shelving onpole filters. Negative values damp, positive values boost. -1..1 equates to approximately -10..10 dB.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="0." />
@@ -169,10 +170,10 @@
 		</attribute>
 		<attribute name="predelay" get="0" set="1" type="float" size="1">
 			<digest>
-				
+				Time in ms, 0..143
 			</digest>
 			<description>
-				
+				The pre delay time in ms applied to the dry input before the early reflections.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="9." />
@@ -180,10 +181,10 @@
 		</attribute>
 		<attribute name="size" get="0" set="1" type="float" size="1">
 			<digest>
-				
+				Normalised 0..1
 			</digest>
 			<description>
-				
+				The perceived size of the reverb, higher values create a bigger space.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="0.78" />
@@ -191,10 +192,10 @@
 		</attribute>
 		<attribute name="smoothtime" get="0" set="1" type="float" size="1">
 			<digest>
-				
+				Time in ms
 			</digest>
 			<description>
-				
+				Set the smoothing time in ms of all the internal parameter smoothing functions.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="49." />
@@ -202,10 +203,10 @@
 		</attribute>
 		<attribute name="wet" get="0" set="1" type="float" size="1">
 			<digest>
-				
+				In dB -90..0
 			</digest>
 			<description>
-				
+				There is no &#x27;dry/wet&#x27; in this reverb. Instead we have dry, early and wet gains. This wet gain controls the amount of gain applied to the processed reverberated (late reflections) in the final mix.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="-9.542434" />
@@ -213,10 +214,10 @@
 		</attribute>
 		<attribute name="width" get="0" set="1" type="float" size="1">
 			<digest>
-				
+				Normalised 0..1
 			</digest>
 			<description>
-				
+				The perceived stereo width of the reverb, the higher the value the bigger the late reflections feel.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="0.7" />
@@ -234,7 +235,6 @@
 		<seealso name="evi.gigaverb~"> </seealso>
 		<seealso name="evi.mattaverb~"> </seealso>
 		<seealso name="evi.plateverb~"> </seealso>
-		<seealso name="evi.sustainverb.lite~"> </seealso>
 		<seealso name="evi.sustainverb~"> </seealso>
 		<seealso name="evi.zitaverb~"> </seealso>
 	</seealsolist>

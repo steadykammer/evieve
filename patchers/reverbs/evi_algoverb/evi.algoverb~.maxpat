@@ -6117,7 +6117,7 @@
             },
             {
                 "box": {
-                    "comment": "(signal) Audio In Left / (messages) [bypass mute pattrstorage factorypreset outputmode predelay pretime predelaytime presymmetry earlysize earlysymmetry earlydiffusion latesize latesymmetry latediffusion highdampfrequency highdampgain lowdampfrequency lowdampgain decay absorbtion modrate modfrequency moddepth modepth modamplitude earlylate higheqfrequency higheqgain loweqfrequency loweqgain drywet earlylatehysterisis smoothtime]",
+                    "comment": "(signal) Audio In Left / (messages)",
                     "id": "obj-2",
                     "index": 1,
                     "maxclass": "inlet",
@@ -6681,7 +6681,7 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 497.0, 84.0, 726.5541989999997, 60.0 ],
-                    "text": "evievedoc @predelay 16. @presymmetry 0.33 @earlysize 0.389 @earlysymmetry 1.7 @earlydiffusion 0.7 @latesize 0.653 @latesymmetry -1.3 @latediffusion 0.7 @highdampfrequency 1108.7 @highdampgain -1.2 @lowdampfrequency 69.3 @lowdampgain -0.7 @decay 0.475 @absorbtion 0.186 @modrate 0.23 @moddepth 0.15 @earlylate 0.46 @earlylatehysterisis 3333 @higheqfrequency 2217.5 @higheqgain -7. @loweqfrequency 92.5 @loweqgain -3.5 @drywet 0.4 @smoothtime 50.",
+                    "text": "evievedoc @predelay 16. @presymmetry 0.33 @earlysize 0.389 @earlysymmetry 1.7 @earlydiffusion 0.7 @latesize 0.653 @latesymmetry -1.3 @latediffusion 0.7 @highdampfrequency 1108.7 @highdampgain -1.2 @lowdampfrequency 69.3 @lowdampgain -0.7 @decay 0.475 @absorbtion 0.186 @modrate 0.23 @moddepth 0.15 @earlylate 0.46 @higheqfrequency 2217.5 @higheqgain -7. @loweqfrequency 92.5 @loweqgain -3.5 @drywet 0.4 @smoothtime 50.",
                     "varname": "evievedoc"
                 }
             },

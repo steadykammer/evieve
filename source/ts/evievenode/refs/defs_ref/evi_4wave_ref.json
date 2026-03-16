@@ -5,7 +5,7 @@
         "category": "evieve",
         "tilde": "~",
         "digest": "Phase synchronous shared frequency oscillators with simultaneous Saw, Rect, Tri and Sine outputs",
-        "description": "TEXT_HERE",
+        "description": "TEXT_HERE CHOOCHOO",
         "discussion": ""
     },
     "metadata": {
@@ -22,7 +22,7 @@
             "id": 1,
             "type": "signal/float",
             "digest": "Frequency in Hz",
-            "description": ""
+            "description": "My frequency is cool"
         },
         {
             "id": 2,
@@ -34,31 +34,31 @@
     "outlets": [
         {
             "id": 1,
-            "type": "",
+            "type": "signal",
             "digest": "SAW",
             "description": ""
         },
         {
             "id": 2,
-            "type": "",
+            "type": "signal",
             "digest": "RECT",
             "description": ""
         },
         {
             "id": 3,
-            "type": "",
+            "type": "signal",
             "digest": "TRI",
             "description": ""
         },
         {
             "id": 4,
-            "type": "",
+            "type": "signal",
             "digest": "SINE",
             "description": ""
         },
         {
             "id": 5,
-            "type": "",
+            "type": "signal",
             "digest": "Phase",
             "description": ""
         }

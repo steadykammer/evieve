@@ -16,7 +16,7 @@
     "inlets": [
         {
             "id": 1,
-            "type": "",
+            "type": "signal",
             "digest": "Oscillator Input",
             "description": ""
         }
@@ -24,7 +24,7 @@
     "outlets": [
         {
             "id": 1,
-            "type": "",
+            "type": "signal",
             "digest": "Wavefolded Output",
             "description": ""
         }
