@@ -2,9 +2,9 @@
     "object": {
         "name": "evi.lpg~",
         "category": "evieve",
-        "digest": "Buchla Lowpass Gate emulation",
-        "description": "TEXT_HERE",
-        "discussion": ""
+        "digest": "Buchla Lowpass Gate emulation for your west coast synthesis fun",
+        "description": "Circuit modelled emulation of the Buchla Lowpass-Gate, unique version of a two-pole Sallen and Key filter, based on 'A Digital Model of the Buchla Lowpass-Gate' by Julian Parker and Stefano DAngelo, 2013. In evieve this is all audio rate inputs to control the voltage input to the gate, with additional features such as extra feedback resistors (<m>boom</m> ) and simultaneous filter outputs. Refactored code for optimal CPU usage.",
+        "discussion": "The code of this abstraction can also be used entirely inside gen~ / GenExpr using the <o>evi_lpg_buchla</o>.gendsp abstraction (with internal oversampling) and <o>evi_control_lpg_buchla</o>.gendsp for control."
     },
     "metadata": {
         "author": "Pete Dowling",
@@ -15,49 +15,49 @@
             "id": 1,
             "type": "signal",
             "digest": "Audio Input to LPG",
-            "description": ""
+            "description": "Audio input to be filtered."
         },
         {
             "id": 2,
             "type": "signal",
             "digest": "Ping the LPG",
-            "description": ""
+            "description": "Audio rate ping to attack the filter gate."
         },
         {
             "id": 3,
             "type": "signal/float",
             "digest": "Resonance 0..2",
-            "description": ""
+            "description": "Filter resonance. Effect depends on other settings, such as "
         },
         {
             "id": 4,
             "type": "signal/float",
             "digest": "Vactrol Rise in ms",
-            "description": ""
+            "description": "Ping attack time in ms."
         },
         {
             "id": 5,
             "type": "signal/float",
             "digest": "Vactrol Fall in ms",
-            "description": ""
+            "description": "Ping decay time in ms."
         },
         {
             "id": 6,
             "type": "signal/float",
             "digest": "Control Offset 0..1",
-            "description": ""
+            "description": "Offset (add to) the voltage input to the LPG. Part of the control circuit that engages the voltage (frequency) of the filter/gate."
         },
         {
             "id": 7,
             "type": "signal/float",
             "digest": "Control Scale 0..1",
-            "description": ""
+            "description": "Scale (multiply) the voltage input to the LPG. Part of the control circuit that engages the voltage (frequency) of the filter/gate."
         },
         {
             "id": 8,
             "type": "signal/float",
             "digest": "Control Sweep 0..1",
-            "description": ""
+            "description": "Amount of sweep range of the voltage input to the LPG. Part of the control circuit that engages the voltage (frequency) of the filter/gate."
         }
     ],
     "outlets": [
@@ -65,47 +65,184 @@
             "id": 1,
             "type": "signal",
             "digest": "LPG",
-            "description": ""
+            "description": "The lowpass gate signal."
         },
         {
             "id": 2,
             "type": "signal",
             "digest": "bPG",
-            "description": ""
+            "description": "Quirky bandpass version of the gate."
         },
         {
             "id": 3,
             "type": "signal",
             "digest": "hPG",
-            "description": ""
+            "description": "Quirky highpass version of the gate."
         },
         {
             "id": 4,
             "type": "signal",
             "digest": "Vactrol Envelope",
-            "description": ""
+            "description": "Aux output of the initial envelope follower that begins the ping of the LPG. Can be useful for synchronous downstream processing."
         }
     ],
-    "arguments": [],
-    "messages": [
+    "arguments": [
         {
-            "name": "",
-            "arg": [
-                {
-                    "name": "",
-                    "type": "",
-                    "units": "",
-                    "optional": 1
-                }
-            ],
-            "digest": "",
-            "description": ""
+            "name": "upsample",
+            "type": "int",
+            "default": "4",
+            "optional": 1,
+            "digest": "arg#1: oversampling factor",
+            "description": "Oversampling factor for the core filter algorithm. Can be 2, 4 or 8. Default 4. Can only be a typed in argument."
         }
     ],
-    "attributes": [],
+    "messages": [],
+    "attributes": [
+        {
+            "name": "boom",
+            "get": 0,
+            "type": "float",
+            "digest": "Normalised 0..1",
+            "description": "Core filter/gate functionality. Only has effect if the 'lpg' attribute is on. Smoothly crossfades additional resistors into the feedback path while maintaining filter stability. This can have a drastic effect on the tone of the filter and the resonance behaviour.",
+            "default": {
+                "get": 0,
+                "value": "0."
+            }
+        },
+        {
+            "name": "lpg",
+            "get": 0,
+            "type": "float",
+            "digest": "Normalised 0..1",
+            "description": "Core filter/gate functionality. Smoothly switch or interpolate between filter and gate behaviour.",
+            "default": {
+                "get": 0,
+                "value": "0."
+            }
+        },
+        {
+            "name": "nonlin",
+            "get": 0,
+            "type": "int",
+            "digest": "Flag 0/1",
+            "description": "Turning this off is atypical behaviour. On (the default) engages the nonlinearities in the filter/gate structure. However, it can be very interesting triggering it linearly, but if you do so be careful of overall gain.",
+            "default": {
+                "get": 0,
+                "value": "1"
+            }
+        },
+        {
+            "name": "offsetsmooth",
+            "get": 0,
+            "type": "float",
+            "digest": "Time in ms",
+            "description": "Smooth the control offset inlet. Useful if using floats on that inlet. Turn off if modulating at audio rate.",
+            "default": {
+                "get": 0,
+                "value": "0."
+            }
+        },
+        {
+            "name": "response",
+            "get": 0,
+            "type": "int",
+            "digest": "Select 0, 1, 2",
+            "description": "To quote the paper, '...it makes little difference'. But sometimes it does make a difference. This control switches between slow..long response times for the voltage input into the control circuit shaper.",
+            "default": {
+                "get": 0,
+                "value": "1"
+            }
+        },
+        {
+            "name": "scalersmooth",
+            "get": 0,
+            "type": "float",
+            "digest": "Time in ms",
+            "description": "Smooth the control scale inlet. Useful if using floats on that inlet. Turn off if modulating at audio rate.",
+            "default": {
+                "get": 0,
+                "value": "0."
+            }
+        },
+        {
+            "name": "smooth",
+            "get": 0,
+            "type": "float",
+            "digest": "Time in ms",
+            "description": "Smoothing time for the interpolated 'vca', 'lpg' and 'boom' controls.",
+            "default": {
+                "get": 0,
+                "value": "15.111"
+            }
+        },
+        {
+            "name": "sweepsmooth",
+            "get": 0,
+            "type": "float",
+            "digest": "Time in ms",
+            "description": "Smooth the control sweep inlet. Useful if using floats on that inlet. Turn off if modulating at audio rate.",
+            "default": {
+                "get": 0,
+                "value": "0."
+            }
+        },
+        {
+            "name": "vactrolcontroldamp",
+            "get": 0,
+            "type": "float",
+            "digest": "Normalised 0..1",
+            "description": "Low shelving filter damp, optionally maps between V_c and V_b (default bypassed). To quote the paper, '...it makes little difference'. 0 = no damping (default, bypassed), 1 = fully damped.",
+            "default": {
+                "get": 0,
+                "value": "0."
+            }
+        },
+        {
+            "name": "vactrolcontrolhz",
+            "get": 0,
+            "type": "float",
+            "digest": "In Hz, 7..788",
+            "description": "Low shelving filter frequency, optionally maps between V_c and V_b (default bypassed). To quote the paper, '...it makes little difference'.",
+            "default": {
+                "get": 0,
+                "value": "143."
+            }
+        },
+        {
+            "name": "vactrolscalar",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "Scale the output amplitude of the vactrol envelope at the beginning of the ping chain. The default is '10.' which seems to work well, but very different behaviour can be achieved by modifying this.",
+            "default": {
+                "get": 0,
+                "value": "10."
+            }
+        },
+        {
+            "name": "vca",
+            "get": 0,
+            "type": "float",
+            "digest": "Normalised 0..1",
+            "description": "Core filter/gate functionality. Smoothly switch or interpolate between LPG and VCA behaviour. Using the block as a pure VCA is useful but far less fun. Ultimately this can be thought of as a gate damping effect, darkening the tone.",
+            "default": {
+                "get": 0,
+                "value": "0."
+            }
+        }
+    ],
     "example": {
         "caption": "",
         "image": ""
     },
-    "seealso": []
+    "seealso": [
+        "evi.lockhart.cascade~",
+        "evi.lockhart.simple~",
+        "evi.modalres~",
+        "evi.ringmod.diode~",
+        "evi.formletfilter~",
+        "evi.korgms20~",
+        "evi.arpnotch~",
+        "evi.ladder.moog~"
+    ]
 }

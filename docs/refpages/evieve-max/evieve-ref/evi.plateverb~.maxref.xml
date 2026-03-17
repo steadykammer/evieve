@@ -6,7 +6,7 @@
 		Plate reverb based on <o>yafr2~</o> with additional filtering and smoothing <br />
 	</digest>
 	<description>
-		Based on <o>yafr2~</o> from MSP ('Plate reverb in the style of Griesinger' by Randy Jones). This version for evieve with dry/wet and eq added, as well as modifications for better filtering, interpolation and smoothing, and zero hold delay changes, Parameters normalised 0..1. Clickless and/or smooth changes possible for all parameters. <br />
+		Based on <o>yafr2~</o> from MSP ('Plate reverb in the style of Griesinger' by Randy Jones). This version for evieve with dry/wet and eq added, as well as modifications for better filtering, interpolation and smoothing, and zero hold delay changes, Parameters normalised 0..1. Clickless and smooth changes possible for all parameters. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>

@@ -442,7 +442,8 @@
                                     "source": [ "obj-85", 0 ]
                                 }
                             }
-                        ]
+                        ],
+                        "toolbaradditions": [ "audiosolo", "audiomute" ]
                     },
                     "patching_rect": [ 669.0, 432.0, 71.0, 22.0 ],
                     "text": "p route_dict"
@@ -763,7 +764,8 @@
                                     "source": [ "obj-81", 0 ]
                                 }
                             }
-                        ]
+                        ],
+                        "toolbaradditions": [ "audiosolo", "audiomute" ]
                     },
                     "patching_rect": [ 435.0, 432.0, 83.0, 22.0 ],
                     "text": "p route_buffer"
@@ -872,7 +874,7 @@
             },
             {
                 "box": {
-                    "comment": "",
+                    "comment": "(float/list) coefficients in format set by the @iterate attribute.",
                     "id": "obj-16",
                     "index": 1,
                     "maxclass": "outlet",
@@ -883,7 +885,7 @@
             },
             {
                 "box": {
-                    "comment": "dumpout",
+                    "comment": "(dumpout) individual coefficients or dictionary data depending on 'peek' and 'dict' messages to the object",
                     "id": "obj-13",
                     "index": 2,
                     "maxclass": "outlet",
@@ -894,7 +896,7 @@
             },
             {
                 "box": {
-                    "comment": "",
+                    "comment": "(anything) messages to evi.polyphaseiirhilbertcoeffs / (bang) recalculates coefficients",
                     "id": "obj-9",
                     "index": 1,
                     "maxclass": "inlet",

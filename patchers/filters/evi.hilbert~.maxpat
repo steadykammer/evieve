@@ -18,7 +18,7 @@
                 "box": {
                     "comment": "(signal) Sine/Imag Output",
                     "id": "obj-5",
-                    "index": 0,
+                    "index": 2,
                     "maxclass": "outlet",
                     "numinlets": 1,
                     "numoutlets": 0,
@@ -29,7 +29,7 @@
                 "box": {
                     "comment": "(signal) Cosine/Real Output",
                     "id": "obj-4",
-                    "index": 0,
+                    "index": 1,
                     "maxclass": "outlet",
                     "numinlets": 1,
                     "numoutlets": 0,
@@ -40,7 +40,7 @@
                 "box": {
                     "comment": "(signal) Input",
                     "id": "obj-3",
-                    "index": 0,
+                    "index": 1,
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,

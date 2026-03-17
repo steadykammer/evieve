@@ -6,7 +6,7 @@
 		DC Blocking filter <br />
 	</digest>
 	<description>
-		TEXT_HERE <br />
+		A basic dc blocking filter utility for cleaning your audio signals. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>
@@ -21,7 +21,7 @@
 				Audio Input
 			</digest>
 			<description>
-				
+				Audio to be dc filtered.
 			</description>
 		</inlet>
 		<inlet id="2" type="float">
@@ -29,7 +29,7 @@
 				pole, 0.99..1, default 0.9997
 			</digest>
 			<description>
-				
+				For an ordinary dc blocking filter this should be left at the default (0.9997). But varying this will change to strength of the dc blocker. Towards 0.99 you will start to hear the filter as it&#x27;s highpass becomes stronger. At 1 the filter is effectively bypassed.
 			</description>
 		</inlet>
 	</inletlist>
@@ -40,7 +40,7 @@
 				DC-blocked Audio Output
 			</digest>
 			<description>
-				
+				DC-blocked Audio Output
 			</description>
 		</outlet>
 	</outletlist>
@@ -49,17 +49,6 @@
 	</objarglist>
 	<!--MESSAGES-->
 	<methodlist>
-		<method name="">
-			<arglist>
-				<arg name="" type="" units="" optional="1" />
-			</arglist>
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-		</method>
 	</methodlist>
 	<!--ATTRIBUTES-->
 	<attributelist>
@@ -70,6 +59,7 @@
 	</examplelist>
 	<!--SEEALSO-->
 	<seealsolist>
+		<seealso name="biquad~"> </seealso>
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>

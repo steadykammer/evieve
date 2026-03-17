@@ -3,7 +3,7 @@
         "name": "evi.dcblock~",
         "category": "evieve",
         "digest": "DC Blocking filter",
-        "description": "TEXT_HERE",
+        "description": "A basic dc blocking filter utility for cleaning your audio signals.",
         "discussion": ""
     },
     "metadata": {
@@ -15,13 +15,13 @@
             "id": 1,
             "type": "signal",
             "digest": "Audio Input",
-            "description": ""
+            "description": "Audio to be dc filtered."
         },
         {
             "id": 2,
             "type": "float",
             "digest": "pole, 0.99..1, default 0.9997",
-            "description": ""
+            "description": "For an ordinary dc blocking filter this should be left at the default (0.9997). But varying this will change to strength of the dc blocker. Towards 0.99 you will start to hear the filter as it's highpass becomes stronger. At 1 the filter is effectively bypassed."
         }
     ],
     "outlets": [
@@ -29,29 +29,17 @@
             "id": 1,
             "type": "signal",
             "digest": "DC-blocked Audio Output",
-            "description": ""
+            "description": "DC-blocked Audio Output"
         }
     ],
     "arguments": [],
-    "messages": [
-        {
-            "name": "",
-            "arg": [
-                {
-                    "name": "",
-                    "type": "",
-                    "units": "",
-                    "optional": 1
-                }
-            ],
-            "digest": "",
-            "description": ""
-        }
-    ],
+    "messages": [],
     "attributes": [],
     "example": {
         "caption": "",
         "image": ""
     },
-    "seealso": []
+    "seealso": [
+        "biquad~"
+    ]
 }

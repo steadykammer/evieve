@@ -2,9 +2,9 @@
     "object": {
         "name": "evi.biquadcoeff",
         "category": "evieve",
-        "digest": "Message rate biquad coefficients calculator with selection of 40 different filter types",
-        "description": "TEXT_HERE",
-        "discussion": ""
+        "digest": "Message rate biquad coefficients calculator with selection of 40 different filter types.",
+        "description": "evi.biquadcoeff is an efficient message rate coefficients calculator for the <o>biquad~</o> (or <o>evi.biquad~</o>) object. It is intended to replace <o>filtergraph~</o> for when you do not need a UI or you want to take advantage of the more filter types available. High level filter parameters are frequency, gain and Q. The units used for frequency and gain can be set via attributes.",
+        "discussion": "For a complete list of available filter names or equivalent index number, @see: 'evieve/misc/data/evi.biquadcoeff.filters.txt' or look at the helpfile."
     },
     "metadata": {
         "author": "Pete Dowling",
@@ -15,19 +15,19 @@
             "id": 1,
             "type": "float",
             "digest": "Cutoff in Hz (change units with 'cutoffunits' attribute) / (symbol) Filter",
-            "description": ""
+            "description": "Cutoff in Hz or Pitch (change units with 'cutoffunits' attribute)"
         },
         {
             "id": 2,
             "type": "float",
             "digest": "Gain in dB (change units with 'gainunits' attribute)",
-            "description": ""
+            "description": "Gain in dB or linear value (change units with 'gainunits' attribute)"
         },
         {
             "id": 3,
             "type": "float",
             "digest": "Q or S",
-            "description": ""
+            "description": "Q of currently selected filter type, typically clamped 0.1..18, but some filter types can take much higher values (e.g. 'reson' or 'bp')"
         }
     ],
     "outlets": [
@@ -35,62 +35,62 @@
             "id": 1,
             "type": "list",
             "digest": "List of 5 Filter Coefficients",
-            "description": ""
+            "description": "Use outlet 1 as a list OR outlets 2..6 individually."
         },
         {
             "id": 2,
             "type": "float",
             "digest": "a0 (FF0)",
-            "description": ""
+            "description": "a0 coefficient"
         },
         {
             "id": 3,
             "type": "float",
             "digest": "a1 (FF1)",
-            "description": ""
+            "description": "a1 coefficient"
         },
         {
             "id": 4,
             "type": "float",
             "digest": "a2 (FF2)",
-            "description": ""
+            "description": "a2 coefficient"
         },
         {
             "id": 5,
             "type": "float",
             "digest": "b1 (FB1)",
-            "description": ""
+            "description": "b1 coefficient"
         },
         {
             "id": 6,
             "type": "float",
             "digest": "b2 (FB2)",
-            "description": ""
+            "description": "b2 coefficient"
         }
     ],
     "arguments": [
         {
-            "name": "",
+            "name": "filter type",
             "type": "symbol",
             "default": "bypass",
             "optional": 1,
-            "digest": "arg#1: ",
-            "description": ""
+            "digest": "arg#1: filter type",
+            "description": "A symbol will set the filter type by name, an int will set the filter type by index."
         }
     ],
     "messages": [
         {
-            "name": "",
+            "name": "anything",
             "arg": [
                 {
-                    "name": "",
-                    "type": "",
-                    "units": "",
+                    "name": "filter type",
+                    "type": "symbol",
+                    "units": "bypass, lowpass, highpass, bandpass, bandstop, peaknotch, lowshelf, lowshelfcookbook, highshelf, highshelfcookbook, resonant, bp, allpass, gainlpass, gainhpass, gainbpass, gainbstop, gainresonant, gainbp, gainapass, lowpassanalog1, lowpassanalog2, highpassanalog, bandpassanalog, gainbpassanalog, notchanalog, peaknotchanalog1, peaknotchanalog2, lowshelfanalog1, lowshelfanalog2, highshelfanalog1, highshelfanalog2, resonantanalog, butterlowpass, butterhighpass, butterbandpass, butterbandreject, buttergainlpass, buttergainhpass, buttergainbpass, buttergainbreject",
                     "optional": 1
                 }
             ],
-            "digest": "",
-            "description": ""
+            "digest": "In left inlet, messages to evi.biquadcoeff",
+            "description": "A symbol will set the filter type by name."
         }
     ],
     "attributes": [
@@ -98,8 +98,8 @@
             "name": "cutoffunits",
             "get": 0,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Flag 0/1",
+            "description": "Set the units for the cutoff frequency inlet (1). 0 = in Hz (default), 1 = in Pitch (e.g. 0..127).",
             "default": {
                 "get": 0,
                 "value": "0"
@@ -109,8 +109,8 @@
             "name": "gainunits",
             "get": 0,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Flag 0/1",
+            "description": "Set the units for the gain inlet (2). 0 = in linear amplitude, 1 = in dB (the default).",
             "default": {
                 "get": 0,
                 "value": "1"
@@ -121,5 +121,9 @@
         "caption": "",
         "image": ""
     },
-    "seealso": []
+    "seealso": [
+        "evi.biquadcoeff~",
+        "evi.biquad.filter~",
+        "evi.biquad~"
+    ]
 }

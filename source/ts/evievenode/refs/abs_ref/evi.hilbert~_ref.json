@@ -2,8 +2,8 @@
     "object": {
         "name": "evi.hilbert~",
         "category": "evieve",
-        "digest": "Hilbert phase shift filter using polyphase IIR halfband allpass cascade",
-        "description": "TEXT_HERE",
+        "digest": "Hilbert quadrature (phase shift) filter",
+        "description": "Hilbert quadrature (phase shift) filter using an 8th order polyphase IIR halfband allpass cascade.",
         "discussion": ""
     },
     "metadata": {
@@ -12,34 +12,40 @@
     },
     "inlets": [
         {
-            "id": 0,
+            "id": 1,
             "type": "signal",
             "digest": "Input",
-            "description": ""
+            "description": "Audio input to be phase shifted."
         }
     ],
     "outlets": [
         {
-            "id": 0,
+            "id": 1,
             "type": "signal",
             "digest": "Cosine/Real Output",
-            "description": ""
+            "description": "0 degrees filter phase output."
+        },
+        {
+            "id": 2,
+            "type": "signal",
+            "digest": "Sine/Imag Output",
+            "description": "+90 degrees filter phase output."
         }
     ],
     "arguments": [],
     "messages": [
         {
-            "name": "",
+            "name": "anything",
             "arg": [
                 {
-                    "name": "",
-                    "type": "",
-                    "units": "",
+                    "name": "coeffs",
+                    "type": "symbol",
+                    "units": "utility",
                     "optional": 1
                 }
             ],
-            "digest": "",
-            "description": ""
+            "digest": "In left inlet, messages to evi.hilbert~",
+            "description": "Sending the symbol 'coeffs' to the abstraction displays the current coefficients of the internal Polyphase IIR Hilbert Allpass Cascade filters in a dictionary window. This has no effect on the abstraction and is pointless other than if someone is interested."
         }
     ],
     "attributes": [],
@@ -47,5 +53,10 @@
         "caption": "",
         "image": ""
     },
-    "seealso": []
+    "seealso": [
+        "evi.polyphaseiirhilbertcoeffs",
+        "evi.freqshift.hilbert~",
+        "evi.phaseshift~",
+        "evi.cross~"
+    ]
 }

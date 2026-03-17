@@ -3,8 +3,8 @@
         "name": "evi.dfm~",
         "category": "evieve",
         "digest": "Classic MS20 filter emulation based on DFM1 by Tony Hardie-Bick",
-        "description": "TEXT_HERE",
-        "discussion": ""
+        "description": "This is a well known open source MS20 filter emulation of the old school. The agressive character of the MS20 is captured as a defining feature. The scaling of frequency and Q is a feature of the original filter and is maintained here, measured against an actual MS20 filter control response. Like the MS20 filter, the filter is switchable here between the 12dB Lowpass and 6dB (special) Highpass responses.",
+        "discussion": "Another implementation of this filter can be experienced via the <o>abl.dsp.dfm~</o> object. Better korg emulations in evieve can be found in <o>evi.korgms10~</o>, <o>evi.korgms20~</o> and <o>evi.korgms20.select~</o>."
     },
     "metadata": {
         "author": "Pete Dowling",
@@ -14,8 +14,8 @@
         {
             "id": 1,
             "type": "signal",
-            "digest": "Audio Input Mono/Left (messages) filter io base smooth gain noiselevel oversampling (bang) reset abstraction to default values",
-            "description": ""
+            "digest": "Audio Input Mono/Left / messages to evi.dfm~",
+            "description": "Audio Input Mono/Left / (messages) filter io base smooth gain noiselevel oversampling / (bang) reset abstraction to default values"
         },
         {
             "id": 2,
@@ -53,17 +53,23 @@
     "arguments": [],
     "messages": [
         {
-            "name": "",
+            "name": "anything",
             "arg": [
                 {
-                    "name": "",
-                    "type": "",
-                    "units": "",
+                    "name": "filter",
+                    "type": "symbol",
+                    "units": "bypass, lowpass, highpass",
+                    "optional": 1
+                },
+                {
+                    "name": "filter",
+                    "type": "int",
+                    "units": "0, 1, 2",
                     "optional": 1
                 }
             ],
-            "digest": "",
-            "description": ""
+            "digest": "In left inlet, messages to evi.dfm~",
+            "description": "A symbol will set the filter type by name, an int will set the filter type by index."
         }
     ],
     "attributes": [
@@ -71,8 +77,8 @@
             "name": "filter",
             "get": 0,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Select 0, 1, 2",
+            "description": "0 = bypassed, 1 = 12dB lowpass, 2 = 6dB highpass.",
             "default": {
                 "get": 0,
                 "value": "1"
@@ -82,8 +88,8 @@
             "name": "gain",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "In dB, -6..14",
+            "description": "Input gain in dB. Higher values will engage the engage the internal saturation more, but too high and the nonlinear effect is nullified.",
             "default": {
                 "get": 0,
                 "value": "3."
@@ -93,8 +99,8 @@
             "name": "io",
             "get": 0,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Flag 0/1",
+            "description": "Set the filter to be mono in/dual mono out (0, the default) ar true stereo input and output (1). The CPU is scaled accordingly.",
             "default": {
                 "get": 0,
                 "value": "0"
@@ -104,8 +110,8 @@
             "name": "noiselevel",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Normalised 0..1",
+            "description": "The level of the internal noise injection into the filter. Lower levels will add to the strength of self-oscillation as well as to the authentic grungyness of the filter. Higher levels will become overtly audible. The noise is a gaussian distribution injected at the integrators of the internal filter structure.",
             "default": {
                 "get": 0,
                 "value": "0.33"
@@ -115,8 +121,8 @@
             "name": "oversampling",
             "get": 0,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Flag 0/1",
+            "description": "(0) = no oversampling. (1) = add 2x evieve oversampling. Oversampling allows the nonlinearities to be driven harder and extends the high frequency range.",
             "default": {
                 "get": 0,
                 "value": "1"
@@ -126,8 +132,8 @@
             "name": "smooth",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Time in ms",
+            "description": "Coefficients smoothing in ms. Turn off (0) for audio rate modulation of the filter.",
             "default": {
                 "get": 0,
                 "value": "22.666"
@@ -137,8 +143,8 @@
             "name": "tune",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "In cents, -100..100",
+            "description": "Cutoff (mtof()) tuning in cents around A == 440 Hz. Almost pointless in this out of tune agressive filter, I have no idea why I included it here.",
             "default": {
                 "get": 0,
                 "value": "0."
@@ -149,5 +155,9 @@
         "caption": "",
         "image": ""
     },
-    "seealso": []
+    "seealso": [
+        "evi.korgms10~",
+        "evi.korgms20~",
+        "evi.korgms20.select~"
+    ]
 }

@@ -2,8 +2,8 @@
     "object": {
         "name": "evi.formantfilter.morph~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE",
+        "digest": "A formant filter with smoothly morphing singing voice type, sung vowel sounds and filter types.",
+        "description": "While <o>evi.formantfilter~</o> uses a bank of resonant filters, <o>evi.formantfilter.morph~</o> uses a bank of morphing EQ filters. The formant effect is lesser, but the morphing ability creates new sonic possibilities. The far right 'Morph' inlet allows for morphing the internal bank of filters between LP..BP..HP..NOTCH..LP 0..1, and adds another dimension along with the voice and vowel morphing to shape the sound. All inputs can be audio rate modulated.",
         "discussion": ""
     },
     "metadata": {
@@ -15,25 +15,25 @@
             "id": 1,
             "type": "signal",
             "digest": "Audio Input",
-            "description": ""
+            "description": "Audio input to filter."
         },
         {
             "id": 2,
             "type": "signal/float",
             "digest": "Voice Interpolator 0..1",
-            "description": ""
+            "description": "Linearly interpolate the singing voice types between Bass..Tenor..CounterTenor..Alto..Soprano. A typical use case would be to attach an X/Y pad to inlets 2 and 3."
         },
         {
             "id": 3,
             "type": "signal/float",
             "digest": "Vowel Interpolator 0..1",
-            "description": ""
+            "description": "Linearly interpolate the vowel formants between A..E..I..O..U. A typical use case would be to attach an X/Y pad to inlets 2 and 3."
         },
         {
             "id": 4,
             "type": "signal/float",
             "digest": "Morph Filters 0..1",
-            "description": ""
+            "description": "Linearly interpolate the bank of internal filters between types LP..BP..HP..NOTCH..LP over a range of 0..1."
         }
     ],
     "outlets": [
@@ -41,38 +41,24 @@
             "id": 1,
             "type": "signal",
             "digest": "Formant Filter",
-            "description": ""
+            "description": "Filtered audio output."
         },
         {
             "id": 2,
             "type": "signal",
             "digest": "Current Formant Frequency in Hz (depending on 'formantfrequency' param)",
-            "description": ""
+            "description": "Current Formant Frequency in Hz (depending on 'formantfrequency' param)."
         }
     ],
     "arguments": [],
-    "messages": [
-        {
-            "name": "",
-            "arg": [
-                {
-                    "name": "",
-                    "type": "",
-                    "units": "",
-                    "optional": 1
-                }
-            ],
-            "digest": "",
-            "description": ""
-        }
-    ],
+    "messages": [],
     "attributes": [
         {
             "name": "bwwarp",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "0.00625..32",
+            "description": "Multiply (warp) formants bandwidth size. 1 = no warping.",
             "default": {
                 "get": 0,
                 "value": "1."
@@ -82,8 +68,8 @@
             "name": "cfwarp",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "0.025..4",
+            "description": "Multiply (warp) formants frequency center. 1 = no warping.",
             "default": {
                 "get": 0,
                 "value": "1."
@@ -93,8 +79,8 @@
             "name": "datainterp",
             "get": 0,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Flag 0/1",
+            "description": "Affects the way the maximums (to 1.) are handled for inlets 2 and 3. 0=clip, 1=wrap.",
             "default": {
                 "get": 0,
                 "value": "1"
@@ -104,8 +90,8 @@
             "name": "datatype",
             "get": 0,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Flag 0/1",
+            "description": "Affects the way the voice/vowel interpolation sounds (interpolates linear or logarithmic data).",
             "default": {
                 "get": 0,
                 "value": "0"
@@ -115,30 +101,8 @@
             "name": "formantfrequency",
             "get": 0,
             "type": "int",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "0"
-            }
-        },
-        {
-            "name": "formants",
-            "get": 0,
-            "type": "int",
-            "digest": "",
-            "description": "",
-            "default": {
-                "get": 0,
-                "value": "5"
-            }
-        },
-        {
-            "name": "formantsoffset",
-            "get": 0,
-            "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Select 0, 1, 2, 3, 4",
+            "description": "A utility. Out2 sends out the frequency of which formant? 0..4 = 1..5. Can be useful for extracting data for downstream processes.",
             "default": {
                 "get": 0,
                 "value": "0"
@@ -148,8 +112,8 @@
             "name": "gain",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "In dB, -80..20",
+            "description": "Global gain of the filter.",
             "default": {
                 "get": 0,
                 "value": "0."
@@ -159,8 +123,8 @@
             "name": "gainnorm",
             "get": 0,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Flag 0/1",
+            "description": "0 respects the physical modelling of the voice, using the gain data to attenuate the formants. 1 ignores the formants data and normalises the gain of all formants. The can be useful to balance the overall filter effect.",
             "default": {
                 "get": 0,
                 "value": "0"
@@ -170,8 +134,8 @@
             "name": "gainwarp",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "0.025..4",
+            "description": "Multiply (warp) formants gain amount. 1 = no warping.",
             "default": {
                 "get": 0,
                 "value": "1."
@@ -181,8 +145,8 @@
             "name": "paramsmooth",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Time in ms",
+            "description": "Global internal parameter smoothing in ms.",
             "default": {
                 "get": 0,
                 "value": "15.111"
@@ -192,8 +156,8 @@
             "name": "warpsmooth",
             "get": 0,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Flag 0/1",
+            "description": "Turn off or on the smoothing of the warp parameters ('cfwarp', 'bwwarp', 'gainwarp').",
             "default": {
                 "get": 0,
                 "value": "1"
@@ -204,5 +168,9 @@
         "caption": "",
         "image": ""
     },
-    "seealso": []
+    "seealso": [
+        "evi.formantfilter~",
+        "evi.formletfilter~",
+        "evi.formantosc~"
+    ]
 }

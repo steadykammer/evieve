@@ -2,8 +2,8 @@
     "object": {
         "name": "evi.freqshift.hilbert~",
         "category": "evieve",
-        "digest": "Hilbert frequency shifter effect",
-        "description": "TEXT_HERE",
+        "digest": "Time-domain Hilbert frequency shifter effect with three simultaneous sidebands outputs",
+        "description": "Like MSP <o>freqshift~</o> but with a different hilbert filter and additional features, such as anti-aliased saturation.",
         "discussion": ""
     },
     "metadata": {
@@ -15,13 +15,13 @@
             "id": 1,
             "type": "signal",
             "digest": "Audio Input / (messages) messages / attributes",
-            "description": ""
+            "description": "Audio input to filter."
         },
         {
             "id": 2,
             "type": "float/int",
             "digest": "Frequency Shift in Hz +/- 0., use @freqsmooth to smooth / (signal) + FM modulation of Freq Shift ± Hz",
-            "description": ""
+            "description": "float/int/signal. If float/int, frequency shift in Hz +/- 0. (use 'freqsmooth' attribute to smooth). If signal, + audio rate FM of freq shift amount ± Hz."
         }
     ],
     "outlets": [
@@ -29,41 +29,47 @@
             "id": 1,
             "type": "signal",
             "digest": "Sidebands Mixed (use @bandsmix)",
-            "description": ""
+            "description": "Sidebands mixed and optionally saturated (use 'bandsmix' attribute and 'drive' attribute)."
         },
         {
             "id": 2,
             "type": "signal",
             "digest": "Upper Sideband",
-            "description": ""
+            "description": "Simultaneous upper (or positive) sideband output."
         },
         {
             "id": 3,
             "type": "signal",
             "digest": "Lower Sideband",
-            "description": ""
+            "description": "Simultaneous lower (or negative) sideband output."
         },
         {
             "id": 4,
             "type": "multichannelsignal",
             "digest": "3 Channels: Quad Osc Cos / Quad Osc Sin / Sync 0..1",
-            "description": ""
+            "description": "Three utility audio channels on a single 3-channel multichannel signal cable. Quad Osc Cos / Quad Osc Sin / Sync 0..1. These can be useful for synchronising downstream processing."
         }
     ],
     "arguments": [],
     "messages": [
         {
-            "name": "",
+            "name": "anything",
             "arg": [
                 {
-                    "name": "",
-                    "type": "",
-                    "units": "",
+                    "name": "coeffs",
+                    "type": "symbol",
+                    "units": "utility",
+                    "optional": 1
+                },
+                {
+                    "name": "resetphase",
+                    "type": "symbol",
+                    "units": "utility",
                     "optional": 1
                 }
             ],
-            "digest": "",
-            "description": ""
+            "digest": "In left inlet, messages to evi.freqshift.hilbert~",
+            "description": "Sending the symbol 'coeffs' to the abstraction displays the current coefficients of the internal Polyphase IIR Hilbert Allpass Cascade filters in a dictionary window. This has no effect on the abstraction and is pointless other than if someone is interested. Sending the symbol 'resetphase' to the abstraction has the same effect as sending 'resetphase' to the MSP 'freqshift~' object - it resets the phase of the quadrature oscillators that modulate the sidebands of the incoming signal. Note that in 'evi.freqshift.hilbert~' this message need not be used, as a major feature of the internal gen~ code is that it does automatic and clickless resetting of phase itself (depending on the 'resetauto' attribute, which is on by default)."
         }
     ],
     "attributes": [
@@ -71,8 +77,8 @@
             "name": "bandsmix",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Normalised 0..1",
+            "description": "Mix the far left outlet between 0 = Upper (or positive) and 1 = Lower (or negative) SideBands. Smoothed by the 'smooth' attribute.",
             "default": {
                 "get": 0,
                 "value": "0.5"
@@ -82,8 +88,8 @@
             "name": "drive",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "0..1..",
+            "description": "If the 'saturation' attribute is set to on (1), 'drive' adds gain shaping to the internal sine shaping saturation algorithm. This affects the far left bands mixing outlet but not the separately avilable USB and LSB outlets.",
             "default": {
                 "get": 0,
                 "value": "0.5"
@@ -93,8 +99,8 @@
             "name": "freqsmooth",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Time in ms, 0..666",
+            "description": "Smoothing amount in ms for the frequency shifting float/int 2nd inlet (not to the signal input to the 2nd inlet). Because float/int and signal are separated, and FM signal rate control to the 2nd inlet is merged with the smoothed freq shift float/int amount after this smoothing factor, the smoothing need not be turned off (0) when using audio rate FM if not wished for.",
             "default": {
                 "get": 0,
                 "value": "10."
@@ -104,8 +110,8 @@
             "name": "resetauto",
             "get": 0,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Flag 0/1",
+            "description": "If set to on (1, default), phase resetting of the internal quadrature oscillators happens automatically and clicklessly. If set to off (0), 'evi.freqshift.hilbert~' behaves like MSP 'freqshift~' and requires resetting the phase with a message ('resetphase') which clicks.",
             "default": {
                 "get": 0,
                 "value": "1"
@@ -115,8 +121,8 @@
             "name": "saturation",
             "get": 0,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Flag 0/1",
+            "description": "Turn the internal saturation off (0) or on (1). This saturation is a sine shaping waveshaper that is controlled by the 'drive' attribute. It is only applied to the far left bands mix outlet.",
             "default": {
                 "get": 0,
                 "value": "1"
@@ -126,8 +132,8 @@
             "name": "smooth",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Time in ms, 0..333",
+            "description": "Smooth time in ms of the internal parameters. Note that the freq shift inlet has it's own independent attribute (freqsmooth').",
             "default": {
                 "get": 0,
                 "value": "22.666"
@@ -138,5 +144,9 @@
         "caption": "",
         "image": ""
     },
-    "seealso": []
+    "seealso": [
+        "evi.freqshift.weaver~",
+        "evi.hilbert~",
+        "evi.polyphaseiirhilbertcoeffs"
+    ]
 }

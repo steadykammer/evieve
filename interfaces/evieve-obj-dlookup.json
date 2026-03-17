@@ -51,8 +51,8 @@
     },
     "evi.biquadcoeff": {
         "type": "abstraction",
-        "digest": "Message rate biquad coefficients calculator with selection of 40 different filter types \n",
-        "description": ""
+        "digest": "Message rate biquad coefficients calculator with selection of 40 different filter types. \n",
+        "description": "evi.biquadcoeff is an efficient message rate coefficients calculator for the biquad~ (or evi.biquad~) object. It is intended to replace filtergraph~ for when you do not need a UI or you want to take advantage of the more filter types available. High level filter parameters are frequency, gain and Q. The units used for frequency and gain can be set via attributes."
     },
     "evi.biquadcoeff~": {
         "type": "define",
@@ -142,7 +142,7 @@
     "evi.dcblock~": {
         "type": "abstraction",
         "digest": "DC Blocking filter \n",
-        "description": ""
+        "description": "A basic dc blocking filter utility for cleaning your audio signals."
     },
     "evi.detune~": {
         "type": "define",
@@ -152,7 +152,7 @@
     "evi.dfm~": {
         "type": "abstraction",
         "digest": "Classic MS20 filter emulation based on DFM1 by Tony Hardie-Bick \n",
-        "description": ""
+        "description": "This is a well known open source MS20 filter emulation of the old school. The agressive character of the MS20 is captured as a defining feature. The scaling of frequency and Q is a feature of the original filter and is maintained here, measured against an actual MS20 filter control response. Like the MS20 filter, the filter is switchable here between the 12dB Lowpass and 6dB (special) Highpass responses."
     },
     "evi.eq3~": {
         "type": "define",
@@ -261,18 +261,18 @@
     },
     "evi.formantfilter.morph~": {
         "type": "abstraction",
-        "digest": 0,
-        "description": ""
+        "digest": "A formant filter with smoothly morphing singing voice type, sung vowel sounds and filter types. \n",
+        "description": "While evi.formantfilter~ uses a bank of resonant filters, evi.formantfilter.morph~ uses a bank of morphing EQ filters. The formant effect is lesser, but the morphing ability creates new sonic possibilities. The far right 'Morph' inlet allows for morphing the internal bank of filters between LP..BP..HP..NOTCH..LP 0..1, and adds another dimension along with the voice and vowel morphing to shape the sound. All inputs can be audio rate modulated."
     },
     "evi.formantfilter~": {
         "type": "abstraction",
-        "digest": 0,
-        "description": ""
+        "digest": "A classic formant filter which can smoothly morph singing voice type and sung vowel sounds for voxy filtering effects on your audio streams \n",
+        "description": "evi.formantfilter~ uses a bank of resonant filters (the same TPT filters as in evi.reson~) for each formant. Interpolation and warping controls allow for a wide variety of effects, as well as controlling the filters themselves."
     },
     "evi.formantosc~": {
         "type": "abstraction",
-        "digest": 0,
-        "description": ""
+        "digest": "A classic formant oscillator which can smoothly morph singing voice type and sung vowel sounds for voxy effects. \n",
+        "description": "evi.formantosc~ allows for smoothly interpolating vowels and voices over a fundamental frequency. It gives the classic lofi physical model effect but with many attributes to modify the output and audio rate modulate it for an interesting source."
     },
     "evi.formletfilter~": {
         "type": "define",
@@ -286,8 +286,8 @@
     },
     "evi.freqshift.hilbert~": {
         "type": "abstraction",
-        "digest": "Hilbert frequency shifter effect \n",
-        "description": ""
+        "digest": "Time-domain Hilbert frequency shifter effect with three simultaneous sidebands outputs \n",
+        "description": "Like MSP freqshift~ but with a different hilbert filter and additional features, such as anti-aliased saturation."
     },
     "evi.freqshift.weaver~": {
         "type": "define",
@@ -302,7 +302,7 @@
     "evi.gigaverb~": {
         "type": "abstraction",
         "digest": "Classic gigaverb reverb algorithm, mono in / stereo out, fdn / allpass \n",
-        "description": "A mono-in, stereo-out reverb implementation by Juhana Sadeharju. Originally Max/MSP-ified by Olaf Matthes (2004) Version 1.0test5, (c) 1999-2006 Juhana Sadeharju / Olaf Matthes. Originally Gen-ified by Graham Wakefield (2011). 64-bit MSP reference version by Volker Böhm (2016). This evieve version with updated filtering and parameter smooting. Attribute descriptions in this documentation are mainly from the Olaf Matthes originals."
+        "description": "A mono-in, stereo-out reverb implementation by Juhana Sadeharju. Originally Max/MSP-ified by Olaf Matthes (2004) Version 1.0test5, (c) 1999-2006 Juhana Sadeharju / Olaf Matthes. Originally Gen-ified by Graham Wakefield (2011). 64-bit MSP reference version by Volker Böhm (2016). This evieve version with updated filtering and parameter smooting."
     },
     "evi.hardclip~": {
         "type": "define",
@@ -311,8 +311,8 @@
     },
     "evi.hilbert~": {
         "type": "abstraction",
-        "digest": "Hilbert phase shift filter using polyphase IIR halfband allpass cascade \n",
-        "description": ""
+        "digest": "Hilbert quadrature (phase shift) filter \n",
+        "description": "Hilbert quadrature (phase shift) filter using an 8th order polyphase IIR halfband allpass cascade."
     },
     "evi.korgms10~": {
         "type": "define",
@@ -401,8 +401,8 @@
     },
     "evi.lpg~": {
         "type": "abstraction",
-        "digest": "Buchla Lowpass Gate emulation \n",
-        "description": ""
+        "digest": "Buchla Lowpass Gate emulation for your west coast synthesis fun \n",
+        "description": "Circuit modelled emulation of the Buchla Lowpass-Gate, unique version of a two-pole Sallen and Key filter, based on 'A Digital Model of the Buchla Lowpass-Gate' by Julian Parker and Stefano DAngelo, 2013. In evieve this is all audio rate inputs to control the voltage input to the gate, with additional features such as extra feedback resistors ( boom ) and simultaneous filter outputs. Refactored code for optimal CPU usage."
     },
     "evi.mattaverb~": {
         "type": "abstraction",
@@ -492,12 +492,12 @@
     "evi.plateverb~": {
         "type": "abstraction",
         "digest": "Plate reverb based on yafr2~ with additional filtering and smoothing \n",
-        "description": "Based on yafr2~ from MSP ('Plate reverb in the style of Griesinger' by Randy Jones). This version for evieve with dry/wet and eq added, as well as modifications for better filtering, interpolation and smoothing, and zero hold delay changes, Parameters normalised 0..1. Clickless and/or smooth changes possible for all parameters."
+        "description": "Based on yafr2~ from MSP ('Plate reverb in the style of Griesinger' by Randy Jones). This version for evieve with dry/wet and eq added, as well as modifications for better filtering, interpolation and smoothing, and zero hold delay changes, Parameters normalised 0..1. Clickless and smooth changes possible for all parameters."
     },
     "evi.polyphaseiirhilbertcoeffs": {
         "type": "abstraction",
-        "digest": "Coefficient calculator for polyphase IIR halfband allpass hilbert cascade \n",
-        "description": ""
+        "digest": "Coefficients calculator for polyphase IIR halfband allpass quadrature hilbert filter cascade, outputs messages, dict and buffer~ arrays \n",
+        "description": "evi.polyphaseiirhilbertcoeffs wraps js code that implements the Laurent de Soras HIIR library. Using this library we can calculate filter coefficients for high quality polyphase IIR halfband allpass cascades. In evieve the filter cascades are realised in standard evieve GenExpr code ( evi.hilbert~ and evi.freqshift.hilbert~)."
     },
     "evi.quadosc~": {
         "type": "external",

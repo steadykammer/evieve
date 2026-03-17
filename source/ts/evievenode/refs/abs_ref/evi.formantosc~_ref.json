@@ -2,8 +2,8 @@
     "object": {
         "name": "evi.formantosc~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE",
+        "digest": "A classic formant oscillator which can smoothly morph singing voice type and sung vowel sounds for voxy effects.",
+        "description": "evi.formantosc~ allows for smoothly interpolating vowels and voices over a fundamental frequency. It gives the classic lofi physical model effect but with many attributes to modify the output and audio rate modulate it for an interesting source.",
         "discussion": ""
     },
     "metadata": {
@@ -15,25 +15,25 @@
             "id": 1,
             "type": "signal/float",
             "digest": "Fundamental Frequency",
-            "description": ""
+            "description": "Fundamental frequency of the vocal chords. Switch between Hz or Pitch input via the 'fundfreqmode' attribute."
         },
         {
             "id": 2,
             "type": "signal/float",
             "digest": "Voice Interpolator 0..1",
-            "description": ""
+            "description": "Linearly interpolate the singing voice types between Bass..Tenor..CounterTenor..Alto..Soprano. A typical use case would be to attach an X/Y pad to inlets 2 and 3."
         },
         {
             "id": 3,
             "type": "signal/float",
             "digest": "Vowel Interpolator 0..1",
-            "description": ""
+            "description": "Linearly interpolate the vowel formants between A..E..I..O..U. A typical use case would be to attach an X/Y pad to inlets 2 and 3."
         },
         {
             "id": 4,
             "type": "signal",
             "digest": "Reset naive (do not use)",
-            "description": ""
+            "description": "Naive reset of the oscillator phase insomuchas it does not antialias and cannot be hard synced. However it might still be useful."
         }
     ],
     "outlets": [
@@ -41,44 +41,30 @@
             "id": 1,
             "type": "signal",
             "digest": "Formant Oscillator",
-            "description": ""
+            "description": "Oscillator audio output."
         },
         {
             "id": 2,
             "type": "signal",
             "digest": "Phase 0",
-            "description": ""
+            "description": "Internal phase zero (one of two internal phases) for external synchronisation tasks."
         },
         {
             "id": 3,
             "type": "signal",
             "digest": "Phase 180",
-            "description": ""
+            "description": "Internal phase half (one of two internal phases) for external synchronisation tasks."
         }
     ],
     "arguments": [],
-    "messages": [
-        {
-            "name": "",
-            "arg": [
-                {
-                    "name": "",
-                    "type": "",
-                    "units": "",
-                    "optional": 1
-                }
-            ],
-            "digest": "",
-            "description": ""
-        }
-    ],
+    "messages": [],
     "attributes": [
         {
             "name": "bwwarp",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "0.00625..32",
+            "description": "Multiply (warp) formants bandwidth size. 1 = no warping.",
             "default": {
                 "get": 0,
                 "value": "1."
@@ -88,8 +74,8 @@
             "name": "cfwarp",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "0.025..4",
+            "description": "Multiply (warp) formants frequency center. 1 = no warping.",
             "default": {
                 "get": 0,
                 "value": "1."
@@ -99,8 +85,8 @@
             "name": "datainterp",
             "get": 0,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Flag 0/1",
+            "description": "Affects the way the maximums (to 1.) are handled for inlets 2 and 3. 0=clip, 1=wrap.",
             "default": {
                 "get": 0,
                 "value": "1"
@@ -110,8 +96,8 @@
             "name": "datatype",
             "get": 0,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Flag 0/1",
+            "description": "Affects the way the voice/vowel interpolation sounds (interpolates linear or logarithmic data).",
             "default": {
                 "get": 0,
                 "value": "0"
@@ -121,8 +107,8 @@
             "name": "formants",
             "get": 0,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "1..5",
+            "description": "evi.formantosc~ uses 5 measured formants to build an oscillator sound. However with this control you can choose to reduce the number off formants for a thinner (strange) sound. Use the 'formantsoffset' attribute to offset once selected.",
             "default": {
                 "get": 0,
                 "value": "5"
@@ -132,8 +118,8 @@
             "name": "formantsoffset",
             "get": 0,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "0..",
+            "description": "If the 'formants' attribute == 5 this attribute has no effect. If the 'formants' attribute is < 5, this attribute will shift the used formants cyclicly. So if 'formants' == 1, this attribute will shift which formant is sounded. This can have a quirky or ghostly effect. 0 = none, no shifting.",
             "default": {
                 "get": 0,
                 "value": "0"
@@ -143,8 +129,8 @@
             "name": "fundfreqmode",
             "get": 0,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Flag 0/1",
+            "description": "Set the input type (units) of the fundamental frequency input. 0 = in Hz, 1 = in Pitch.",
             "default": {
                 "get": 0,
                 "value": "0"
@@ -154,8 +140,8 @@
             "name": "gain",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "In dB, -80..20",
+            "description": "Global gain of the oscillator.",
             "default": {
                 "get": 0,
                 "value": "0."
@@ -165,8 +151,8 @@
             "name": "gainnorm",
             "get": 0,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Flag 0/1",
+            "description": "0 respects the physical modelling of the voice, using the gain data to attenuate the formants. 1 ignores the formants data and normalises the gain of all formants. The can make a cool clangourous sound.",
             "default": {
                 "get": 0,
                 "value": "0"
@@ -176,8 +162,8 @@
             "name": "gainwarp",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "0.025..4",
+            "description": "Multiply (warp) formants gain amount. 1 = no warping.",
             "default": {
                 "get": 0,
                 "value": "1."
@@ -187,8 +173,8 @@
             "name": "highpass",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "In Hz 15.625..1000",
+            "description": "Tame the low end by highpass filtering, almost a DC Block. This can also be important when (audio rate) modulating the oscillator.",
             "default": {
                 "get": 0,
                 "value": "31.25"
@@ -198,8 +184,8 @@
             "name": "paramsmooth",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Time in ms",
+            "description": "Global internal parameter smoothing in ms.",
             "default": {
                 "get": 0,
                 "value": "15.111"
@@ -209,8 +195,8 @@
             "name": "warpsmooth",
             "get": 0,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Flag 0/1",
+            "description": "Turn off or on the smoothing of the warp parameters ('cfwarp', 'bwwarp', 'gainwarp').",
             "default": {
                 "get": 0,
                 "value": "1"
@@ -220,8 +206,8 @@
             "name": "zerophasor",
             "get": 0,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "-1, 0, 1",
+            "description": "0 = free running phase updates controlling the oscialltor. 1 = lock phase updates to the changes of the fundamental frequency. Use -1 for FM applications.",
             "default": {
                 "get": 0,
                 "value": "1"
@@ -232,5 +218,10 @@
         "caption": "",
         "image": ""
     },
-    "seealso": []
+    "seealso": [
+        "evi.paf~",
+        "evi.vosim.basic~",
+        "evi.formantfilter~",
+        "evi.formantfilter.morph~"
+    ]
 }

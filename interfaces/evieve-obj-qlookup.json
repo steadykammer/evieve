@@ -70,11 +70,11 @@
         "seealso": []
     },
     "evi.biquadcoeff": {
-        "digest": "Message rate biquad coefficients calculator with selection of 40 different filter types \n",
+        "digest": "Message rate biquad coefficients calculator with selection of 40 different filter types. \n",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.biquadcoeff~", "evi.biquad.filter~", "evi.biquad~" ]
     },
     "evi.biquadcoeff~": {
         "digest": "Signal rate biquad coefficient calculator with 40 available filter types",
@@ -200,7 +200,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "biquad~" ]
     },
     "evi.detune~": {
         "digest": "A quirky digital Detune effect with filtering and saturation",
@@ -214,7 +214,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.korgms10~", "evi.korgms20~", "evi.korgms20.select~" ]
     },
     "evi.eq3stereo~": {
         "digest": "Stereo TPT 3-band EQ with signal rate modulation of all parameters",
@@ -364,25 +364,25 @@
         "seealso": []
     },
     "evi.formantfilter.morph~": {
-        "digest": 0,
+        "digest": "A formant filter with smoothly morphing singing voice type, sung vowel sounds and filter types. \n",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.formantfilter~", "evi.formletfilter~", "evi.formantosc~" ]
     },
     "evi.formantfilter~": {
-        "digest": 0,
+        "digest": "A classic formant filter which can smoothly morph singing voice type and sung vowel sounds for voxy filtering effects on your audio streams \n",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.formantfilter.morph~", "evi.formletfilter~", "evi.formantosc~" ]
     },
     "evi.formantosc~": {
-        "digest": 0,
+        "digest": "A classic formant oscillator which can smoothly morph singing voice type and sung vowel sounds for voxy effects. \n",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.paf~", "evi.vosim.basic~", "evi.formantfilter~", "evi.formantfilter.morph~" ]
     },
     "evi.formletfilter~": {
         "digest": "A ringing formlet filter model",
@@ -399,11 +399,11 @@
         "seealso": [ "evi.algoverb~", "evi.backverb~", "evi.gigaverb~", "evi.mattaverb~", "evi.plateverb~", "evi.sustainverb~", "evi.zitaverb~" ]
     },
     "evi.freqshift.hilbert~": {
-        "digest": "Hilbert frequency shifter effect \n",
+        "digest": "Time-domain Hilbert frequency shifter effect with three simultaneous sidebands outputs \n",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.freqshift.weaver~", "evi.hilbert~", "evi.polyphaseiirhilbertcoeffs" ]
     },
     "evi.freqshift.weaver~": {
         "digest": "Time domain frequency shifter after D. K. Weaver's famous 'third method'",
@@ -434,11 +434,11 @@
         "seealso": []
     },
     "evi.hilbert~": {
-        "digest": "Hilbert phase shift filter using polyphase IIR halfband allpass cascade \n",
+        "digest": "Hilbert quadrature (phase shift) filter \n",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.polyphaseiirhilbertcoeffs", "evi.freqshift.hilbert~", "evi.phaseshift~", "evi.cross~" ]
     },
     "evi.korgms10~": {
         "digest": "'Korg 35' single-amplifier unbuffered modified Sallen-Key topology nonlinear filter emulation",
@@ -560,11 +560,11 @@
         "seealso": []
     },
     "evi.lpg~": {
-        "digest": "Buchla Lowpass Gate emulation \n",
+        "digest": "Buchla Lowpass Gate emulation for your west coast synthesis fun \n",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.lockhart.cascade~", "evi.lockhart.simple~", "evi.modalres~", "evi.ringmod.diode~", "evi.formletfilter~", "evi.korgms20~", "evi.arpnotch~", "evi.ladder.moog~" ]
     },
     "evi.mattaverb~": {
         "digest": "True stereo one knob allpass diffuse reverb \n",
@@ -700,11 +700,11 @@
         "seealso": [ "evi.algoverb~", "evi.backverb~", "evi.freezeverb~", "evi.gigaverb~", "evi.mattaverb~", "evi.sustainverb~", "evi.zitaverb~" ]
     },
     "evi.polyphaseiirhilbertcoeffs": {
-        "digest": "Coefficient calculator for polyphase IIR halfband allpass hilbert cascade \n",
+        "digest": "Coefficients calculator for polyphase IIR halfband allpass quadrature hilbert filter cascade, outputs messages, dict and buffer~ arrays \n",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.hilbert~", "evi.freqshift.hilbert~" ]
     },
     "evi.quadosc~": {
         "digest": "Phase locked quadrature oscillator",

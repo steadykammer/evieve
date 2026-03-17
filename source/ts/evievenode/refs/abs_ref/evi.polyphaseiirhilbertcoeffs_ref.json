@@ -2,8 +2,8 @@
     "object": {
         "name": "evi.polyphaseiirhilbertcoeffs",
         "category": "evieve",
-        "digest": "Coefficient calculator for polyphase IIR halfband allpass hilbert cascade",
-        "description": "TEXT_HERE",
+        "digest": "Coefficients calculator for polyphase IIR halfband allpass quadrature hilbert filter cascade, outputs messages, dict and buffer~ arrays",
+        "description": "evi.polyphaseiirhilbertcoeffs wraps js code that implements the Laurent de Soras HIIR library. Using this library we can calculate filter coefficients for high quality polyphase IIR halfband allpass cascades. In evieve the filter cascades are realised in standard evieve GenExpr code (<o>evi.hilbert~</o> and <o>evi.freqshift.hilbert~</o>).",
         "discussion": ""
     },
     "metadata": {
@@ -13,64 +13,106 @@
     "inlets": [
         {
             "id": 1,
-            "type": "",
-            "digest": "",
+            "type": "anything",
+            "digest": "messages to evi.polyphaseiirhilbertcoeffs / (bang) recalculates coefficients",
             "description": ""
         }
     ],
     "outlets": [
         {
             "id": 1,
-            "type": "",
-            "digest": "",
-            "description": ""
+            "type": "float/list",
+            "digest": "coefficients in format set by the @iterate attribute.",
+            "description": "If @iterate = 0, the word 'coeffs' followed by a list of coefficients. If @iterate = 1 (default), the word 'coeffN' repeatedly, where 'N' is the coefficient number, followed by a single coefficient."
         },
         {
             "id": 2,
-            "type": "",
-            "digest": "dumpout",
-            "description": ""
+            "type": "dumpout",
+            "digest": "individual coefficients or dictionary data depending on 'peek' and 'dict' messages to the object",
+            "description": "Receive query reults from internal [buffer~] and [dict]."
         }
     ],
     "arguments": [
         {
-            "name": "",
+            "name": "Data name",
             "type": "symbol",
             "default": "NAME",
             "optional": 1,
             "digest": "arg#1: ",
-            "description": ""
+            "description": "The name of the internal data structures (buffer~ and dict). By default this is a unique name. Give your own name here if you want to access the data in other data objects in your patcher. Either way you can still query all internal data and utilise the dumpout outlet."
         },
         {
-            "name": "",
+            "name": "Number of coefficients",
             "type": "int",
             "default": "0",
             "optional": 1,
             "digest": "arg#2: ",
-            "description": ""
+            "description": "Set the number of coefficients to create, 2..64, default 8 (for evieve Hilbert). Does not technically recompute coefficients, but coefficients are computed on load."
         },
         {
-            "name": "",
+            "name": "Transition bandwidth",
             "type": "float",
             "default": "0.",
             "optional": 1,
             "digest": "arg#3: ",
-            "description": ""
+            "description": "Set the filter transition bandwidth to use in Hz, default 40, 4..samplerate*0.25. Does not technically recompute coefficients, but coefficients are computed on load."
         }
     ],
     "messages": [
         {
-            "name": "",
+            "name": "anything",
             "arg": [
                 {
-                    "name": "",
-                    "type": "",
+                    "name": "bang",
+                    "type": "bang",
+                    "units": "bang",
+                    "optional": 1
+                },
+                {
+                    "name": "int",
+                    "type": "# coefficients",
+                    "units": "int",
+                    "optional": 1
+                },
+                {
+                    "name": "float",
+                    "type": "bandwidth",
+                    "units": "Hz",
+                    "optional": 1
+                },
+                {
+                    "name": "sr",
+                    "type": "symbol",
+                    "units": "",
+                    "optional": 1
+                },
+                {
+                    "name": "buffer",
+                    "type": "symbol",
+                    "units": "messages",
+                    "optional": 1
+                },
+                {
+                    "name": "peek",
+                    "type": "symbol",
+                    "units": "int",
+                    "optional": 1
+                },
+                {
+                    "name": "dict",
+                    "type": "symbol",
+                    "units": "messages",
+                    "optional": 1
+                },
+                {
+                    "name": "view",
+                    "type": "symbol",
                     "units": "",
                     "optional": 1
                 }
             ],
-            "digest": "",
-            "description": ""
+            "digest": "In left inlet, messages to evi.polyphaseiirhilbertcoeffs",
+            "description": "(bang) (re)calculate and output coefficients. (int) Set the number of coefficients to create, 2..64, default 8 (for evieve Hilbert). Does not recompute coefficients. (float) Set the filter transition bandwidth to use in Hz, default 40, 4..samplerate*0.25. Does not recompute coefficients. The word 'sr' will (re)grab the current samplerate and recalculate and output the coefficients. The word 'buffer' followed by a 'write' message: write, writeaiff, writeflac, writeraw, writewave, will write the contents of the internal coefficients [buffer~] to a file. The word 'peek' followed by an integer representing an index of the internal [buffer~] will output the corresponding coefficient as a float from the far right dumpout outlet. The word 'dict' followed by a message that [dict] understands (excluding clear, import, read, readagain, readany) will send the message to the internal [dict] object. Query results are available at the far right dumpout outlet. The word 'view' will open the editing windows of the internal [dict] and [buffer~] objects to view their contents."
         }
     ],
     "attributes": [
@@ -78,8 +120,8 @@
             "name": "iterate",
             "get": 0,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Flag 0/1",
+            "description": "0 = output coefficients as list (Max), 1 = output coefficients iteratively one by one (gen~)",
             "default": {
                 "get": 0,
                 "value": "1"
@@ -90,5 +132,8 @@
         "caption": "",
         "image": ""
     },
-    "seealso": []
+    "seealso": [
+        "evi.hilbert~",
+        "evi.freqshift.hilbert~"
+    ]
 }

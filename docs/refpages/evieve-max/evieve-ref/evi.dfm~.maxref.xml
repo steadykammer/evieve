@@ -6,7 +6,7 @@
 		Classic MS20 filter emulation based on DFM1 by Tony Hardie-Bick <br />
 	</digest>
 	<description>
-		TEXT_HERE <br />
+		This is a well known open source MS20 filter emulation of the old school. The agressive character of the MS20 is captured as a defining feature. The scaling of frequency and Q is a feature of the original filter and is maintained here, measured against an actual MS20 filter control response. Like the MS20 filter, the filter is switchable here between the 12dB Lowpass and 6dB (special) Highpass responses. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>
@@ -18,10 +18,10 @@
 	<inletlist>
 		<inlet id="1" type="signal">
 			<digest>
-				Audio Input Mono/Left (messages) filter io base smooth gain noiselevel oversampling (bang) reset abstraction to default values
+				Audio Input Mono/Left / messages to evi.dfm~
 			</digest>
 			<description>
-				
+				Audio Input Mono/Left / (messages) filter io base smooth gain noiselevel oversampling / (bang) reset abstraction to default values
 			</description>
 		</inlet>
 		<inlet id="2" type="signal">
@@ -73,15 +73,16 @@
 	</objarglist>
 	<!--MESSAGES-->
 	<methodlist>
-		<method name="">
+		<method name="anything">
 			<arglist>
-				<arg name="" type="" units="" optional="1" />
+				<arg name="filter" type="symbol" units="bypass, lowpass, highpass" optional="1" />
+				<arg name="filter" type="int" units="0, 1, 2" optional="1" />
 			</arglist>
 			<digest>
-				
+				In left inlet, messages to evi.dfm~
 			</digest>
 			<description>
-				
+				A symbol will set the filter type by name, an int will set the filter type by index.
 			</description>
 		</method>
 	</methodlist>
@@ -89,10 +90,10 @@
 	<attributelist>
 		<attribute name="filter" get="0" set="1" type="int" size="1">
 			<digest>
-				
+				Select 0, 1, 2
 			</digest>
 			<description>
-				
+				0 &#x3D; bypassed, 1 &#x3D; 12dB lowpass, 2 &#x3D; 6dB highpass.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="int" size="1" value="1" />
@@ -100,10 +101,10 @@
 		</attribute>
 		<attribute name="gain" get="0" set="1" type="float" size="1">
 			<digest>
-				
+				In dB, -6..14
 			</digest>
 			<description>
-				
+				Input gain in dB. Higher values will engage the engage the internal saturation more, but too high and the nonlinear effect is nullified.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="3." />
@@ -111,10 +112,10 @@
 		</attribute>
 		<attribute name="io" get="0" set="1" type="int" size="1">
 			<digest>
-				
+				Flag 0/1
 			</digest>
 			<description>
-				
+				Set the filter to be mono in/dual mono out (0, the default) ar true stereo input and output (1). The CPU is scaled accordingly.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="int" size="1" value="0" />
@@ -122,10 +123,10 @@
 		</attribute>
 		<attribute name="noiselevel" get="0" set="1" type="float" size="1">
 			<digest>
-				
+				Normalised 0..1
 			</digest>
 			<description>
-				
+				The level of the internal noise injection into the filter. Lower levels will add to the strength of self-oscillation as well as to the authentic grungyness of the filter. Higher levels will become overtly audible. The noise is a gaussian distribution injected at the integrators of the internal filter structure.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="0.33" />
@@ -133,10 +134,10 @@
 		</attribute>
 		<attribute name="oversampling" get="0" set="1" type="int" size="1">
 			<digest>
-				
+				Flag 0/1
 			</digest>
 			<description>
-				
+				(0) &#x3D; no oversampling. (1) &#x3D; add 2x evieve oversampling. Oversampling allows the nonlinearities to be driven harder and extends the high frequency range.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="int" size="1" value="1" />
@@ -144,10 +145,10 @@
 		</attribute>
 		<attribute name="smooth" get="0" set="1" type="float" size="1">
 			<digest>
-				
+				Time in ms
 			</digest>
 			<description>
-				
+				Coefficients smoothing in ms. Turn off (0) for audio rate modulation of the filter.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="22.666" />
@@ -155,10 +156,10 @@
 		</attribute>
 		<attribute name="tune" get="0" set="1" type="float" size="1">
 			<digest>
-				
+				In cents, -100..100
 			</digest>
 			<description>
-				
+				Cutoff (mtof()) tuning in cents around A &#x3D;&#x3D; 440 Hz. Almost pointless in this out of tune agressive filter, I have no idea why I included it here.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="0." />
@@ -171,9 +172,12 @@
 	</examplelist>
 	<!--SEEALSO-->
 	<seealsolist>
+		<seealso name="evi.korgms10~"> </seealso>
+		<seealso name="evi.korgms20~"> </seealso>
+		<seealso name="evi.korgms20.select~"> </seealso>
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>
-         <br />
+        Another implementation of this filter can be experienced via the <o>abl.dsp.dfm~</o> object. Better korg emulations in evieve can be found in <o>evi.korgms10~</o>, <o>evi.korgms20~</o> and <o>evi.korgms20.select~</o>. <br />
 	</discussion>
 </c74object>

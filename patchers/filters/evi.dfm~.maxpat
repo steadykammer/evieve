@@ -2201,7 +2201,7 @@
             },
             {
                 "box": {
-                    "comment": "(signal) Audio Input Mono/Left (messages) filter io base smooth gain noiselevel oversampling (bang) reset abstraction to default values",
+                    "comment": "(signal) Audio Input Mono/Left / messages to evi.dfm~",
                     "id": "obj-15",
                     "index": 1,
                     "maxclass": "inlet",
