@@ -3,7 +3,7 @@
         "name": "evi.plateverb~",
         "category": "evieve",
         "digest": "Plate reverb based on <o>yafr2~</o> with additional filtering and smoothing",
-        "description": "TEXT_HERE",
+        "description": "Based on <o>yafr2~</o> from MSP ('Plate reverb in the style of Griesinger' by Randy Jones). This version for evieve with dry/wet and eq added, as well as modifications for better filtering, interpolation and smoothing, and zero hold delay changes, Parameters normalised 0..1. Clickless and smooth changes possible for all parameters.",
         "discussion": ""
     },
     "metadata": {
@@ -15,13 +15,13 @@
             "id": 1,
             "type": "signal",
             "digest": "Audio In Mono or Left or 1 / messages to evi.plateverb~",
-            "description": ""
+            "description": "Audio In Mono or Left or channel 1, depending on 'stereo' attribute"
         },
         {
             "id": 2,
             "type": "signal",
             "digest": "Audio In Nothing or Right or 2 / messages to evi.plateverb~",
-            "description": ""
+            "description": "Audio In Nothing or Right or channel 2, depending on 'stereo' attribute"
         }
     ],
     "outlets": [
@@ -29,35 +29,35 @@
             "id": 1,
             "type": "signal",
             "digest": "Audio Out Left",
-            "description": ""
+            "description": "Audio Out Left"
         },
         {
             "id": 2,
             "type": "signal",
             "digest": "Audio Out Right",
-            "description": ""
+            "description": "Audio Out Right"
         },
         {
             "id": 3,
             "type": "",
             "digest": "dumpout (pattrstorage)",
-            "description": ""
+            "description": "Recieve output from internal pattrstorage"
         }
     ],
     "arguments": [],
     "messages": [
         {
-            "name": "",
+            "name": "anything",
             "arg": [
                 {
-                    "name": "",
-                    "type": "",
-                    "units": "",
+                    "name": "pattrstorage",
+                    "type": "anything",
+                    "units": "messages to pattrstorage",
                     "optional": 1
                 }
             ],
-            "digest": "",
-            "description": ""
+            "digest": "In left inlet, messages to evi.plateverb~",
+            "description": "Prepending the word 'pattrstorage' allows you to send any message pattrstorage understands to the internal pattrstorage object - you can recieve pattrstorage output via the far right outlet."
         }
     ],
     "attributes": [
@@ -65,8 +65,8 @@
             "name": "bypass",
             "get": 0,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Flag 0/1",
+            "description": "Smooth bypass the reverb (1). Bypassing also CPU-mutes the internal DSP.",
             "default": {
                 "get": 0,
                 "value": "0"
@@ -76,8 +76,8 @@
             "name": "damp",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "In Hz 20..12000",
+            "description": "Low..high frequency of onepole damping filter on input.",
             "default": {
                 "get": 0,
                 "value": "6593."
@@ -87,8 +87,8 @@
             "name": "decay",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Normalised 0..1",
+            "description": "One of the original parameters. Length of reverb late reflections decay. Higher values give a longer decay.",
             "default": {
                 "get": 0,
                 "value": "0.6"
@@ -98,8 +98,8 @@
             "name": "diffuse",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Normalised 0..1",
+            "description": "One of the original parameters. Amount of diffuseness in the reflections. Effects times of multiple embedded delay lines.",
             "default": {
                 "get": 0,
                 "value": "0.3"
@@ -109,8 +109,8 @@
             "name": "dry",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "In dB -90..0",
+            "description": "There is no 'dry/wet' in this reverb. Instead we have separate dry and wet gains. This dry gain controls the amount of gain applied to the unprocessed audio in the final mix.",
             "default": {
                 "get": 0,
                 "value": "-15."
@@ -120,8 +120,8 @@
             "name": "highfrequency",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "In Hz 500..15000",
+            "description": "High frequency point in Hz of the end of wet chain onepole shelving filters.",
             "default": {
                 "get": 0,
                 "value": "2000."
@@ -131,8 +131,8 @@
             "name": "highgain",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "-1..1",
+            "description": "± gain of the high shelving onpole filters. Negative values damp, positive values boost. -1..1 equates to approximately -10..10 dB.",
             "default": {
                 "get": 0,
                 "value": "0."
@@ -142,8 +142,8 @@
             "name": "lowfrequency",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "In Hz 62.5..4000",
+            "description": "Low frequency point in Hz of the end of wet chain onepole shelving filters.",
             "default": {
                 "get": 0,
                 "value": "500."
@@ -153,8 +153,8 @@
             "name": "lowgain",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "-1..1",
+            "description": "± gain of the low shelving onpole filters. Negative values damp, positive values boost. -1..1 equates to approximately -10..10 dB.",
             "default": {
                 "get": 0,
                 "value": "0."
@@ -164,8 +164,8 @@
             "name": "pan",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Normalised 0..1",
+            "description": "Input panning if 'stereo' attribute == 0 (mono). 0.5=center.",
             "default": {
                 "get": 0,
                 "value": "0.5"
@@ -175,8 +175,8 @@
             "name": "size",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Normalised 0..1",
+            "description": "One of the original parameters. The perceived size of the reverb. ",
             "default": {
                 "get": 0,
                 "value": "0.2"
@@ -186,8 +186,8 @@
             "name": "smoothtime",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Time in ms",
+            "description": "Set the smoothing time in ms of all the internal parameter smoothing functions.",
             "default": {
                 "get": 0,
                 "value": "49."
@@ -197,8 +197,8 @@
             "name": "stereo",
             "get": 0,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Select 0, 1, 2. No smoothing.",
+            "description": "This affects the audio inputs of the reverb (output is always stereo), notably the internal summing of the two inputs. 0=mono in (with pan control), 1=stereo in, 2=two separate channels in.",
             "default": {
                 "get": 0,
                 "value": "0"
@@ -208,8 +208,8 @@
             "name": "wet",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "In dB -90..0",
+            "description": "There is no 'dry/wet' in this reverb. Instead we have separate dry and wet gains. This wet gain controls the amount of gain applied to the processed reverberated (late reflections) in the final mix.",
             "default": {
                 "get": 0,
                 "value": "-3."

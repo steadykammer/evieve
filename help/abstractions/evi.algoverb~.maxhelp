@@ -461,6 +461,17 @@
                             },
                             {
                                 "box": {
+                                    "hidden": 1,
+                                    "id": "obj-10",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 195.0, 396.0, 154.0, 21.0 ],
+                                    "text": "because duduk :-("
+                                }
+                            },
+                            {
+                                "box": {
                                     "id": "obj-7",
                                     "local": 1,
                                     "maxclass": "ezdac~",
@@ -955,7 +966,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 10.0, 10.0, 660.0, 50.0 ],
+                                    "patching_rect": [ 10.0, 10.0, 660.0, 57.599853515625 ],
                                     "textfile": {
                                         "filename": "evi.helpname.js",
                                         "flags": 0,
@@ -1141,13 +1152,6 @@
             "obj-11::obj-6::obj-6::obj-54::obj-35": [ "bypass[3]", "bypass", 0 ],
             "obj-11::obj-6::obj-6::obj-54::obj-5": [ "midDecay", "midDecay", 0 ],
             "obj-11::obj-6::obj-6::obj-54::obj-9": [ "crossover[1]", "crossover", 0 ],
-            "obj-11::obj-6::obj-7::obj-54::obj-2": [ "early[1]", "early", 0 ],
-            "obj-11::obj-6::obj-7::obj-54::obj-3": [ "late", "late", 0 ],
-            "obj-11::obj-6::obj-7::obj-54::obj-33": [ "dryWet[4]", "dryWet", 0 ],
-            "obj-11::obj-6::obj-7::obj-54::obj-35": [ "smoothTime[6]", "smoothTime", 0 ],
-            "obj-11::obj-6::obj-7::obj-54::obj-4": [ "fdnSum", "fdnSum", 0 ],
-            "obj-11::obj-6::obj-7::obj-54::obj-5": [ "damp[3]", "damp", 0 ],
-            "obj-11::obj-6::obj-7::obj-54::obj-9": [ "crossover[2]", "crossover", 0 ],
             "obj-2::obj-13": [ "DryWet", "Dry/Wet", 0 ],
             "obj-2::obj-5::obj-120::obj-20": [ "preTime", "preTime", 0 ],
             "obj-2::obj-5::obj-120::obj-21": [ "preSymmetry", "preSymmetry", 0 ],

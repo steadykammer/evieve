@@ -3,8 +3,8 @@
         "name": "evi.sustainverb~",
         "category": "evieve",
         "digest": "16x16 FDN reverb with smooth sustaining effect",
-        "description": "TEXT_HERE",
-        "discussion": ""
+        "description": "This is just Miller Puckette's 'rev3~' but with additional reverb features such as early reflections, filtering improvements and smoothing of parameters whilst maintaining the ability to forever sustain like the original. evi.sustainverb~ also includes multichannel taps of the FDN which can be very useful for surround-ish effects processing.",
+        "discussion": "Tips: 1) turn early and highpass OFF, drywet to 100%, feedback to or very near 100% and damp low or 0% for 'forever sustain' effects. 2) turn early and maybe highpass ON and feedback between about 0.77..0.93 and drywet % to taste for more obvious reverb (room) type effects."
     },
     "metadata": {
         "author": "Pete Dowling",
@@ -12,34 +12,88 @@
     },
     "inlets": [
         {
-            "id": 0,
+            "id": 1,
             "type": "signal",
             "digest": "Audio In Left / messages to evi.sustainverb~",
-            "description": ""
+            "description": "Audio In Left / messages to evi.sustainverb~"
+        },
+        {
+            "id": 2,
+            "type": "signal",
+            "digest": "Audio In Right / messages to evi.sustainverb~",
+            "description": "Audio In Right / messages to evi.sustainverb~"
         }
     ],
     "outlets": [
         {
-            "id": 0,
+            "id": 1,
+            "type": "signal",
+            "digest": "Rvrb Out Left",
+            "description": "Main reverb output Left, post dry/wet"
+        },
+        {
+            "id": 2,
+            "type": "signal",
+            "digest": "Rvrb Out Right",
+            "description": "Main reverb output Right, post dry/wet"
+        },
+        {
+            "id": 3,
+            "type": "signal",
+            "digest": "FDN Out Left",
+            "description": "Pure output tap of FDN loop without any dry/wet"
+        },
+        {
+            "id": 4,
+            "type": "signal",
+            "digest": "FDN Out Right",
+            "description": "Pure output tap of FDN loop without any dry/wet"
+        },
+        {
+            "id": 5,
+            "type": "signal",
+            "digest": "FDN AUX Tap 1",
+            "description": "Decorrelated output tap of FDN channel"
+        },
+        {
+            "id": 6,
+            "type": "signal",
+            "digest": "FDN AUX Tap 2",
+            "description": "Decorrelated output tap of FDN channel"
+        },
+        {
+            "id": 7,
+            "type": "signal",
+            "digest": "FDN AUX Tap 3",
+            "description": "Decorrelated output tap of FDN channel"
+        },
+        {
+            "id": 8,
+            "type": "signal",
+            "digest": "FDN AUX Tap 4",
+            "description": "Decorrelated output tap of FDN channel"
+        },
+        {
+            "id": 9,
             "type": "",
-            "digest": "RVRB Out Left",
-            "description": ""
+            "digest": "dumpout (pattrstorage)",
+            "description": "Recieve output from internal pattrstorage"
         }
     ],
     "arguments": [],
     "messages": [
         {
-            "name": "",
+            "name": "anything",
             "arg": [
                 {
-                    "name": "",
-                    "type": "",
-                    "units": "",
+                    "name": "pattrstorage",
+                    "type": "anything",
+                    "units": "messages to pattrstorage",
                     "optional": 1
                 }
             ],
-            "digest": "",
-            "description": ""
+            "digest": "In left inlet, messages to evi.sustainverb~",
+            "description": "Prepending the word 'pattrstorage' allows you to send any message pattrstorage understands to the internal pattrstorage object - you can recieve pattrstorage output via the far right outlet."
         }
     ],
     "attributes": [
@@ -47,8 +101,8 @@
             "name": "crossover",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Frequency in Hz",
+            "description": "Frequency at which 'damp' filters take effect.",
             "default": {
                 "get": 0,
                 "value": "3000."
@@ -58,8 +112,8 @@
             "name": "damp",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Normalised 0..1",
+            "description": "Amount of damping in the FDN. 0=no damping, 1=maximum damping.",
             "default": {
                 "get": 0,
                 "value": "0.2"
@@ -69,8 +123,8 @@
             "name": "drywet",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Normalised 0..1",
+            "description": "Dry/Wet mix of direct signal and reverberated signal. Dry is 0, completely wet is 1.",
             "default": {
                 "get": 0,
                 "value": "1."
@@ -80,8 +134,8 @@
             "name": "early",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Normalised 0..1",
+            "description": "This can be a switch or interpolated, both are smoothed. Add in early reflections. This makes the sound of the FDN more reverb-like.",
             "default": {
                 "get": 0,
                 "value": "0."
@@ -91,8 +145,8 @@
             "name": "feedback",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Normalised 0..1",
+            "description": "This is the key parameter of 'evi.sustainverb~'. It controls the amount of reverberation in the system, but the higher the value the more towards foreverersustain the sound becomes.",
             "default": {
                 "get": 0,
                 "value": "0.707107"
@@ -102,8 +156,8 @@
             "name": "gain",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "In dB -80..20",
+            "description": "The gain in dB of the FDN recirculation.",
             "default": {
                 "get": 0,
                 "value": "-3."
@@ -113,8 +167,8 @@
             "name": "highpass",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Normalised 0..1",
+            "description": "This can be a switch or interpolated, both are smoothed. Add in a highjpass filter to the FDN. This makes the sound of the FDN more reverb-like and tames low frequency recirculation, but also curtails the ability to foreversustain.",
             "default": {
                 "get": 0,
                 "value": "0."
@@ -124,8 +178,8 @@
             "name": "smoothtime",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Time in ms",
+            "description": "Set the smoothing time in ms of all the internal parameter smoothing functions.",
             "default": {
                 "get": 0,
                 "value": "43."

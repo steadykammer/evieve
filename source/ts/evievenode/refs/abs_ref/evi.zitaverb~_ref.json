@@ -3,8 +3,8 @@
         "name": "evi.zitaverb~",
         "category": "evieve",
         "digest": "True stereo FDN/algorithmic reverb based on 'zitaverb' by Fons Adriaensen",
-        "description": "TEXT_HERE",
-        "discussion": ""
+        "description": "A famous open source reverb algorithm with excellent room realness. GPL v2. The evieve version increases the available RT60 times for special effects, and smooths all parameters, as well as improving the internal filtering.",
+        "discussion": "Zitaverb's character is more 'hall' than 'plate', but it can be used on a wide variety of instruments or voices. It is not a spatialiser - the early reflections are different for the L and R inputs, but do not correspond to any real room. They have been tuned to match left and right sources to some extent."
     },
     "metadata": {
         "author": "Pete Dowling",
@@ -12,34 +12,52 @@
     },
     "inlets": [
         {
-            "id": 0,
+            "id": 1,
             "type": "signal",
             "digest": "Audio In Left / messages to evi.zitaverb~",
-            "description": ""
+            "description": "Audio In Left / messages to evi.zitaverb~"
+        },
+        {
+            "id": 2,
+            "type": "signal",
+            "digest": "Audio In Right / messages to evi.zitaverb~",
+            "description": "Audio In Right / messages to evi.zitaverb~"
         }
     ],
     "outlets": [
         {
-            "id": 0,
+            "id": 1,
             "type": "signal",
             "digest": "Audio Out Left",
-            "description": ""
+            "description": "Audio Out Left"
+        },
+        {
+            "id": 2,
+            "type": "signal",
+            "digest": "Audio Out Right",
+            "description": "Audio Out Right"
+        },
+        {
+            "id": 3,
+            "type": "",
+            "digest": "dumpout (pattrstorage)",
+            "description": "Recieve output from internal pattrstorage"
         }
     ],
     "arguments": [],
     "messages": [
         {
-            "name": "",
+            "name": "anything",
             "arg": [
                 {
-                    "name": "",
-                    "type": "",
-                    "units": "",
+                    "name": "pattrstorage",
+                    "type": "anything",
+                    "units": "messages to pattrstorage",
                     "optional": 1
                 }
             ],
-            "digest": "",
-            "description": ""
+            "digest": "In left inlet, messages to evi.zitaverb~",
+            "description": "Prepending the word 'pattrstorage' allows you to send any message pattrstorage understands to the internal pattrstorage object - you can recieve pattrstorage output via the far right outlet."
         }
     ],
     "attributes": [
@@ -47,8 +65,8 @@
             "name": "bypass",
             "get": 0,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Flag 0/1",
+            "description": "Smooth bypass the reverb (1). Bypassing also CPU-mutes the internal DSP.",
             "default": {
                 "get": 0,
                 "value": "0"
@@ -58,8 +76,8 @@
             "name": "crossover",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "In Hz 31.25..1260",
+            "description": "The crossover frequency in Hz between the range of the 'lowdecay' and 'middecay' RT60 times. By tuning the RT60 times precisely this crossover control can have a big effect on the tonal balance of the reverb.",
             "default": {
                 "get": 0,
                 "value": "315."
@@ -69,8 +87,8 @@
             "name": "damp",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "In Hz, 500..14700",
+            "description": "The lowpass damping effect on the FDN is set to take effect at this frequency. Lower values result in a darker reverb.",
             "default": {
                 "get": 0,
                 "value": "3780."
@@ -80,8 +98,8 @@
             "name": "drywet",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Normalised 0..1",
+            "description": "Dry/Wet mix of direct signal and reverberated signal. Dry is 0, completely wet is 1.",
             "default": {
                 "get": 0,
                 "value": "0.8666"
@@ -91,8 +109,8 @@
             "name": "eq1cutoff",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "In Hz 40..2500",
+            "description": "The frequncey on Hz of the first twopole EQ filter.",
             "default": {
                 "get": 0,
                 "value": "315."
@@ -102,8 +120,8 @@
             "name": "eq1gain",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "In dB -15..15",
+            "description": "The gain in dB of the first twopole EQ filter.",
             "default": {
                 "get": 0,
                 "value": "0."
@@ -113,8 +131,8 @@
             "name": "eq1type",
             "get": 0,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Flag 0/1, not smoothed",
+            "description": "Sets the filter type of the first EQ filter between Lowshelf (0), and Bell (1). The filters in evi.zitaverb~ are high quality TPT SVF linear filters and can be modulated in realtime.",
             "default": {
                 "get": 0,
                 "value": "0"
@@ -124,8 +142,8 @@
             "name": "eq2cutoff",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "In Hz 260..10000",
+            "description": "The frequncey on Hz of the second twopole EQ filter.",
             "default": {
                 "get": 0,
                 "value": "1260."
@@ -135,8 +153,8 @@
             "name": "eq2gain",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "In dB -15..15",
+            "description": "The gain in dB of the second twopole EQ filter.",
             "default": {
                 "get": 0,
                 "value": "0."
@@ -146,8 +164,8 @@
             "name": "eq2type",
             "get": 0,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Flag 0/1, not smoothed",
+            "description": "Sets the filter type of the second EQ filter between Highshelf (0), and Bell (1). The filters in evi.zitaverb~ are high quality TPT SVF linear filters and can be modulated in realtime.",
             "default": {
                 "get": 0,
                 "value": "0"
@@ -157,8 +175,8 @@
             "name": "lowdecay",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Time in seconds, 0.06..60",
+            "description": "The low frequencies RT60 time set in seconds. Low values give a more realistic room sound, higher values produce atypical sustain effects verging on foreversustain but on specifically low frequency content.",
             "default": {
                 "get": 0,
                 "value": "3.333333"
@@ -168,8 +186,8 @@
             "name": "middecay",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Time in seconds, 0.06..60",
+            "description": "The mid frequencies RT60 time set in seconds. Low values give a more realistic room sound, higher values produce atypical sustain effects verging on foreversustain but on specifically mid frequency content.",
             "default": {
                 "get": 0,
                 "value": "2.222222"
@@ -179,8 +197,8 @@
             "name": "predelay",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Time in ms, 0..170",
+            "description": "The pre delay time in ms applied to the dry input before the early reflections.",
             "default": {
                 "get": 0,
                 "value": "19."

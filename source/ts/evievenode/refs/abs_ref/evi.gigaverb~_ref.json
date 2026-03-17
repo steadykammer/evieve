@@ -3,8 +3,8 @@
         "name": "evi.gigaverb~",
         "category": "evieve",
         "digest": "Classic gigaverb reverb algorithm, mono in / stereo out, fdn / allpass",
-        "description": "A mono-in, stereo-out reverb implementation by Juhana Sadeharju. Originally Max/MSP-ified by Olaf Matthes (2004) Version 1.0test5, (c) 1999-2006 Juhana Sadeharju / Olaf Matthes. Originally Gen-ified by Graham Wakefield (2011). 64-bit MSP reference version by Volker Böhm (2016). This evieve version with updated filtering and parameter smooting. Attribute descriptions in this documentation are mainly from the Olaf Matthes originals.",
-        "discussion": "Note, in this evieve version there are slight differences in sound from the various Max versions, but this version is closer to the original (Sadeharju) and with slightly more diffuseness in the early taps and low-mid."
+        "description": "A mono-in, stereo-out reverb implementation by Juhana Sadeharju. Originally Max/MSP-ified by Olaf Matthes (2004) Version 1.0test5, (c) 1999-2006 Juhana Sadeharju / Olaf Matthes. Originally Gen-ified by Graham Wakefield (2011). 64-bit MSP reference version by Volker Böhm (2016). This evieve version with updated filtering and parameter smooting.",
+        "discussion": "Note, in this evieve version there are slight differences in sound from the various Max versions, but this version is closer to the original (Sadeharju) and with slightly more diffuseness in the early taps and low-mid. Attribute descriptions in this documentation are mainly from the Olaf Matthes originals."
     },
     "metadata": {
         "author": "Pete Dowling",

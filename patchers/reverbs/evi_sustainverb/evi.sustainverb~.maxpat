@@ -551,7 +551,7 @@
                 "box": {
                     "comment": "dumpout (pattrstorage)",
                     "id": "obj-58",
-                    "index": 0,
+                    "index": 9,
                     "maxclass": "outlet",
                     "numinlets": 1,
                     "numoutlets": 0,
@@ -1067,7 +1067,7 @@
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_initial": [ 43.0 ],
-                                            "parameter_longname": "smoothTime",
+                                            "parameter_longname": "bypass[11]",
                                             "parameter_mmax": 500.0,
                                             "parameter_mmin": 1.0,
                                             "parameter_modmode": 3,
@@ -1099,7 +1099,7 @@
                                         "valueof": {
                                             "parameter_initial": [ 1.0 ],
                                             "parameter_linknames": 1,
-                                            "parameter_longname": "dryWet",
+                                            "parameter_longname": "dryWet[13]",
                                             "parameter_mmax": 1.0,
                                             "parameter_modmode": 3,
                                             "parameter_shortname": "dryWet",
@@ -1129,7 +1129,7 @@
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_initial": [ -3.0 ],
-                                            "parameter_longname": "fdnGain",
+                                            "parameter_longname": "fdnGain[8]",
                                             "parameter_mmax": 20.0,
                                             "parameter_mmin": -80.0,
                                             "parameter_modmode": 3,
@@ -1161,7 +1161,7 @@
                                         "valueof": {
                                             "parameter_initial": [ 0.0 ],
                                             "parameter_linknames": 1,
-                                            "parameter_longname": "highPass",
+                                            "parameter_longname": "damp[18]",
                                             "parameter_mmax": 1.0,
                                             "parameter_modmode": 4,
                                             "parameter_shortname": "highPass",
@@ -1192,7 +1192,7 @@
                                         "valueof": {
                                             "parameter_initial": [ 3000.0 ],
                                             "parameter_linknames": 1,
-                                            "parameter_longname": "crossover",
+                                            "parameter_longname": "crossover[13]",
                                             "parameter_mmax": 10000.0,
                                             "parameter_mmin": 10.0,
                                             "parameter_modmode": 3,
@@ -1224,7 +1224,7 @@
                                         "valueof": {
                                             "parameter_initial": [ 0.2 ],
                                             "parameter_linknames": 1,
-                                            "parameter_longname": "damp",
+                                            "parameter_longname": "midDecay[13]",
                                             "parameter_mmax": 1.0,
                                             "parameter_modmode": 3,
                                             "parameter_shortname": "damp",
@@ -1255,7 +1255,7 @@
                                         "valueof": {
                                             "parameter_initial": [ 0.707107 ],
                                             "parameter_linknames": 1,
-                                            "parameter_longname": "feedback",
+                                            "parameter_longname": "lowDecay[8]",
                                             "parameter_mmax": 1.0,
                                             "parameter_modmode": 3,
                                             "parameter_shortname": "feedback",
@@ -1286,7 +1286,7 @@
                                         "valueof": {
                                             "parameter_initial": [ 0.0 ],
                                             "parameter_linknames": 1,
-                                            "parameter_longname": "early",
+                                            "parameter_longname": "preDelay[13]",
                                             "parameter_mmax": 1.0,
                                             "parameter_modmode": 3,
                                             "parameter_shortname": "early",
@@ -1761,11 +1761,11 @@
                 "box": {
                     "comment": "(signal) Audio In Right / messages to evi.sustainverb~",
                     "id": "obj-47",
-                    "index": 0,
+                    "index": 2,
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
-                    "outlettype": [ "" ],
+                    "outlettype": [ "signal" ],
                     "patching_rect": [ 207.5, 43.0, 30.0, 30.0 ]
                 }
             },
@@ -1773,11 +1773,11 @@
                 "box": {
                     "comment": "(signal) Audio In Left / messages to evi.sustainverb~",
                     "id": "obj-20",
-                    "index": 0,
+                    "index": 1,
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
-                    "outlettype": [ "" ],
+                    "outlettype": [ "signal" ],
                     "patching_rect": [ 87.5, 43.0, 30.0, 30.0 ]
                 }
             },
@@ -1883,9 +1883,9 @@
             },
             {
                 "box": {
-                    "comment": "AUX Tap 4",
+                    "comment": "(signal) FDN AUX Tap 4",
                     "id": "obj-16",
-                    "index": 0,
+                    "index": 8,
                     "maxclass": "outlet",
                     "numinlets": 1,
                     "numoutlets": 0,
@@ -1894,9 +1894,9 @@
             },
             {
                 "box": {
-                    "comment": "AUX Tap 3",
+                    "comment": "(signal) FDN AUX Tap 3",
                     "id": "obj-13",
-                    "index": 0,
+                    "index": 7,
                     "maxclass": "outlet",
                     "numinlets": 1,
                     "numoutlets": 0,
@@ -1905,9 +1905,9 @@
             },
             {
                 "box": {
-                    "comment": "AUX Tap 2",
+                    "comment": "(signal) FDN AUX Tap 2",
                     "id": "obj-12",
-                    "index": 0,
+                    "index": 6,
                     "maxclass": "outlet",
                     "numinlets": 1,
                     "numoutlets": 0,
@@ -1916,9 +1916,9 @@
             },
             {
                 "box": {
-                    "comment": "AUX Tap 1",
+                    "comment": "(signal) FDN AUX Tap 1",
                     "id": "obj-11",
-                    "index": 0,
+                    "index": 5,
                     "maxclass": "outlet",
                     "numinlets": 1,
                     "numoutlets": 0,
@@ -1927,9 +1927,9 @@
             },
             {
                 "box": {
-                    "comment": "FDN Out Right",
+                    "comment": "(signal) FDN Out Right",
                     "id": "obj-10",
-                    "index": 0,
+                    "index": 4,
                     "maxclass": "outlet",
                     "numinlets": 1,
                     "numoutlets": 0,
@@ -1938,9 +1938,9 @@
             },
             {
                 "box": {
-                    "comment": "FDN Out Left",
+                    "comment": "(signal) FDN Out Left",
                     "id": "obj-8",
-                    "index": 0,
+                    "index": 3,
                     "maxclass": "outlet",
                     "numinlets": 1,
                     "numoutlets": 0,
@@ -1949,9 +1949,9 @@
             },
             {
                 "box": {
-                    "comment": "RVRB Out Right",
+                    "comment": "(signal) Rvrb Out Right",
                     "id": "obj-6",
-                    "index": 0,
+                    "index": 2,
                     "maxclass": "outlet",
                     "numinlets": 1,
                     "numoutlets": 0,
@@ -1960,9 +1960,9 @@
             },
             {
                 "box": {
-                    "comment": "RVRB Out Left",
+                    "comment": "(signal) Rvrb Out Left",
                     "id": "obj-5",
-                    "index": 0,
+                    "index": 1,
                     "maxclass": "outlet",
                     "numinlets": 1,
                     "numoutlets": 0,
@@ -2187,26 +2187,6 @@
                 }
             }
         ],
-        "parameters": {
-            "obj-54::obj-10": [ "highPass", "highPass", 0 ],
-            "obj-54::obj-12": [ "fdnGain", "fdnGain", 0 ],
-            "obj-54::obj-2": [ "early", "early", 0 ],
-            "obj-54::obj-3": [ "feedback", "feedback", 0 ],
-            "obj-54::obj-33": [ "dryWet", "dryWet", 0 ],
-            "obj-54::obj-35": [ "smoothTime", "smoothTime", 0 ],
-            "obj-54::obj-5": [ "damp", "damp", 0 ],
-            "obj-54::obj-9": [ "crossover", "crossover", 0 ],
-            "parameterbanks": {
-                "0": {
-                    "index": 0,
-                    "name": "",
-                    "parameters": [ "-", "-", "-", "-", "-", "-", "-", "-" ],
-                    "buttons": [ "-", "-", "-", "-", "-", "-", "-", "-" ]
-                }
-            },
-            "inherited_shortname": 1
-        },
-        "autosave": 0,
         "styles": [
             {
                 "name": "AudioStatus_Menu",
