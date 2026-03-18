@@ -18,22 +18,6 @@
      <br />
   </description>
   <misc name="GenExpr Functions">
-    <entry name="funcSc0 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="funcSc1 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
     <entry name="adSc1 ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
@@ -45,14 +29,6 @@
     <entry name="adSc1_2x_6POINT ( )">
       <description>
         <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="rcPreWarp0 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
 
         <b>Return 1</b>: , <i></i> <br />
 
@@ -111,56 +87,6 @@
         <b>In 2</b>: type=<i>input</i>: a0, <i></i> <br />
         <b>In 3</b>: type=<i>input</i>: a1, <i></i> <br />
         <b>In 4</b>: type=<i>input</i>: a2, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="onepole_init ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: g, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: s, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: k, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="onepole_II ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: g, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: s, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: w, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: n, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: z, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="onepole_I ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: y, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: w, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: n, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: z, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: zz, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="onepole_next ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: y, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: g, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: s, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: k, <i></i> <br />
 
         <b>Return 1</b>: , <i></i> <br />
 

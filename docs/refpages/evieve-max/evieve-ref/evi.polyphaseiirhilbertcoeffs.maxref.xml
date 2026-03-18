@@ -48,7 +48,7 @@
 	<objarglist>
 		<objarg name="Data name" type="symbol" default="NAME" optional="1">
 			<digest>
-				arg#1: 
+				arg#1: Data name
 			</digest>
 			<description>
 				The name of the internal data structures (buffer~ and dict). By default this is a unique name. Give your own name here if you want to access the data in other data objects in your patcher. Either way you can still query all internal data and utilise the dumpout outlet.
@@ -56,7 +56,7 @@
 		</objarg>
 		<objarg name="Number of coefficients" type="int" default="0" optional="1">
 			<digest>
-				arg#2: 
+				arg#2: Number of coefficients
 			</digest>
 			<description>
 				Set the number of coefficients to create, 2..64, default 8 (for evieve Hilbert). Does not technically recompute coefficients, but coefficients are computed on load.
@@ -64,7 +64,7 @@
 		</objarg>
 		<objarg name="Transition bandwidth" type="float" default="0." optional="1">
 			<digest>
-				arg#3: 
+				arg#3: Transition bandwidth
 			</digest>
 			<description>
 				Set the filter transition bandwidth to use in Hz, default 40, 4..samplerate*0.25. Does not technically recompute coefficients, but coefficients are computed on load.
@@ -114,6 +114,7 @@
 	<seealsolist>
 		<seealso name="evi.hilbert~"> </seealso>
 		<seealso name="evi.freqshift.hilbert~"> </seealso>
+		<seealso name="evi.weightingcoeffs"> </seealso>
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>

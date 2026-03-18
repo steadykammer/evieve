@@ -150,6 +150,7 @@ linearButterworthLP8(X, cutoff, order=3)
 		}
 
 	} else {    //  (order == 0)			// bypassed
+		G	= 0.414226;
 		Y   = X;
 	}
 

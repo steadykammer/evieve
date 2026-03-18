@@ -3,7 +3,7 @@
         "name": "evi.warmer~",
         "category": "evieve",
         "digest": "Complex saturation processor with options",
-        "description": "TEXT_HERE",
+        "description": "Based on an idea by Tom Szilagyi. Contains two asymmetric saturation stages with a bass boosting function and tone control filter. The effect can be blended between cubic and tanh like behaviour, and the tonal characteristics can be continuously morphed.",
         "discussion": ""
     },
     "metadata": {
@@ -15,7 +15,7 @@
             "id": 1,
             "type": "signal",
             "digest": "audio in / (anything) messages to evi.warmer~",
-            "description": ""
+            "description": "Input to be saturated."
         }
     ],
     "outlets": [
@@ -23,32 +23,18 @@
             "id": 1,
             "type": "signal",
             "digest": "warmer audio out",
-            "description": ""
+            "description": "Output of the saturation chain."
         }
     ],
     "arguments": [],
-    "messages": [
-        {
-            "name": "",
-            "arg": [
-                {
-                    "name": "",
-                    "type": "",
-                    "units": "",
-                    "optional": 1
-                }
-            ],
-            "digest": "",
-            "description": ""
-        }
-    ],
+    "messages": [],
     "attributes": [
         {
             "name": "blend",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "-10..10",
+            "description": "One of the key parameters (along with 'drive') that shape the tonal quality of the object. @blend will only have an impact if @drive is positive. Blends the colour of the waveshaping distortion function. Positive blend is a more asymmetric sound than the cleaner negative blend.",
             "default": {
                 "get": 0,
                 "value": "-2."
@@ -58,8 +44,8 @@
             "name": "clip",
             "get": 0,
             "type": "symbol",
-            "digest": "",
-            "description": "",
+            "digest": "Flag 0/1 or symbol",
+            "description": "'0' or 'soft' sets soft clipping internally, '1' or 'hard' sets hard clipping internally.",
             "default": {
                 "get": 0,
                 "value": "soft"
@@ -69,8 +55,8 @@
             "name": "clipfold",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "In dB, -12..12",
+            "description": "Only active if @clip attribute is on. Boost bass frequecies into the folding distortion circuit, set by the @clip attribute.",
             "default": {
                 "get": 0,
                 "value": "-1."
@@ -80,8 +66,8 @@
             "name": "clipmix",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Normalised 0..1",
+            "description": "Only active if @clip attribute is on. Mix bass frequencies (1) or higher frequencies (0) through the clipping circuit.",
             "default": {
                 "get": 0,
                 "value": "0.333333"
@@ -91,8 +77,8 @@
             "name": "clipslope",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Normalised 0..1",
+            "description": "Only active if @clip attribute is on. The slope of the @clipmix attribute, favour lower frequencies (0) or higher frequencies (1).",
             "default": {
                 "get": 0,
                 "value": "0.23228"
@@ -102,8 +88,8 @@
             "name": "decouplegain",
             "get": 0,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Flag 0/1",
+            "description": "If @decouplegain is off, @ingain and @outgain are ignored and the object responds to the @gain attribute which reciprocally adjusts input and output gains around unity. If @decouplegain is on, the @gain attribute is ignored and input and output gains are controlled individually by the @ingain and @outgain attributes.",
             "default": {
                 "get": 0,
                 "value": "0"
@@ -114,7 +100,7 @@
             "get": 0,
             "type": "float",
             "digest": "",
-            "description": "",
+            "description": "One of the key parameters (along with 'blend') that shape the tonal quality of the object. In general, drive will increase the gain and increase the harmonics in the output, but this depends on the @blend attribute. Lower drive values will make the sound darker, higher values will make it brighter.",
             "default": {
                 "get": 0,
                 "value": "2."
@@ -124,19 +110,52 @@
             "name": "gain",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "In dB, out will clip at -24..24, in will clip at -48..48",
+            "description": "Activation depends on the '@decouplegain' attribute: @gain is active if @decouplegain is off. The @gain attribute reciprocally adjusts input and output gains around unity.",
             "default": {
                 "get": 0,
                 "value": "1."
             }
         },
         {
+            "name": "highpass",
+            "get": 0,
+            "type": "float",
+            "digest": "In Hz, 10..400",
+            "description": "A final onepole highpass to tame the bass if needed.",
+            "default": {
+                "get": 0,
+                "value": "100."
+            }
+        },
+        {
+            "name": "ingain",
+            "get": 0,
+            "type": "float",
+            "digest": "In dB, -48..48",
+            "description": "Activation depends on the '@decouplegain' attribute: @ingain and @outgain are active if @decouplegain is on. The @ingain attribute sets the audio input gain to the saturation processes beween -48 and +48 dB.",
+            "default": {
+                "get": 0,
+                "value": "1."
+            }
+        },
+        {
+            "name": "outgain",
+            "get": 0,
+            "type": "float",
+            "digest": "In dB, -24..24",
+            "description": "Activation depends on the '@decouplegain' attribute: @outgain and @ingain are active if @decouplegain is on. The @outgain attribute sets the audio output gain of the whole saturation chain beween -24 and +24 dB.",
+            "default": {
+                "get": 0,
+                "value": "-1."
+            }
+        },
+        {
             "name": "smooth",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Time in ms",
+            "description": "Smoothing times of internal parameters.",
             "default": {
                 "get": 0,
                 "value": "30.111"
@@ -146,8 +165,8 @@
             "name": "tone",
             "get": 0,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Flag 0/1",
+            "description": "If @tone is on, high frequencies are attenuated by the @tonecutoff and @toneslope attributes. If @tone is off, there is no high frequency attenuation and the @tonecutoff and @toneslope attributes have no effect.",
             "default": {
                 "get": 0,
                 "value": "1"
@@ -157,8 +176,8 @@
             "name": "tonecutoff",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Cutoff frequency in Hz",
+            "description": "If @tone is on: the cutoff frequency of the tone filter. The tone filter is a variable order (set by the @toneslope attribute) butterworth lowpass and can be used to make severe tonal cuts in the audio output or subtle attenuation of the high frequency content.",
             "default": {
                 "get": 0,
                 "value": "6000."
@@ -168,8 +187,8 @@
             "name": "toneslope",
             "get": 0,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "1..8",
+            "description": "If @tone is on: the order of the butterworth tone shaping filter. Higher orders produce a steeper slope/cut. The cutoff frequency is set by the @tonecutoff attribute.",
             "default": {
                 "get": 0,
                 "value": "3"
@@ -180,5 +199,11 @@
         "caption": "",
         "image": ""
     },
-    "seealso": []
+    "seealso": [
+        "evi.clipasym~",
+        "evi.sinfold~",
+        "evi.overdrive.tanh~",
+        "evi.overdrive.atan~",
+        "evi.overdrive.sqrt~"
+    ]
 }

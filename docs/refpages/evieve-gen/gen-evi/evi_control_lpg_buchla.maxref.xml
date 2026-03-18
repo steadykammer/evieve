@@ -95,7 +95,7 @@
                 <attribute name='default' type='float' value='0.' />
             </attributelist>
         </attribute>
-        <attribute name='vactrolcontroldamp' type='int' get='0' set='1'>
+        <attribute name='vactrolcontroldamp' type='float' get='0' set='1'>
             <digest>
                 
             </digest>
@@ -103,7 +103,7 @@
                 
             </description>
             <attributelist>
-                <attribute name='default' type='float' value='0' />
+                <attribute name='default' type='float' value='0.' />
             </attributelist>
         </attribute>
         <attribute name='vactrolcontrolhz' type='float' get='0' set='1'>

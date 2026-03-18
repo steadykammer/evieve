@@ -126,9 +126,9 @@
         "seealso": []
     },
     "evi.clipasym~": {
-        "digest": "Asymmetric nonlinear processor \n",
+        "digest": 0,
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Abstractions" ],
+        "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
         "seealso": []
     },
@@ -678,20 +678,6 @@
         "keywords": [],
         "seealso": []
     },
-    "evi.plateverb.lite~": {
-        "digest": "Efficient version of evi.plateverb~ plate reverb \n",
-        "module": "evieve-ref",
-        "category": [ "evieve", "evieve Abstractions" ],
-        "keywords": [],
-        "seealso": [ "evi.algoverb~", "evi.backverb~", "evi.freezeverb~", "evi.gigaverb~", "evi.mattaverb~", "evi.plateverb~", "evi.sustainverb.lite~", "evi.sustainverb~", "evi.zitaverb~" ]
-    },
-    "evi.plateverb_lite~": {
-        "digest": "Efficient version of evi.plateverb~ plate reverb \n",
-        "module": "evieve-ref",
-        "category": [ "evieve", "evieve Abstractions" ],
-        "keywords": [],
-        "seealso": []
-    },
     "evi.plateverb~": {
         "digest": "Plate reverb based on yafr2~ with additional filtering and smoothing \n",
         "module": "evieve-ref",
@@ -704,7 +690,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Abstractions" ],
         "keywords": [],
-        "seealso": [ "evi.hilbert~", "evi.freqshift.hilbert~" ]
+        "seealso": [ "evi.hilbert~", "evi.freqshift.hilbert~", "evi.weightingcoeffs" ]
     },
     "evi.quadosc~": {
         "digest": "Phase locked quadrature oscillator",
@@ -760,7 +746,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.ringmod~" ]
     },
     "evi.ringmod~": {
         "digest": "Anti-aliased nonlinear analog ring modulator",
@@ -798,9 +784,9 @@
         "seealso": []
     },
     "evi.sinfold~": {
-        "digest": "Sinusoidal waveshaping processor \n",
+        "digest": 0,
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Abstractions" ],
+        "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
         "seealso": []
     },
@@ -824,13 +810,6 @@
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
         "seealso": []
-    },
-    "evi.sustainverb.lite~": {
-        "digest": "Efficient version of evi.sustainverb~ reverb effect \n",
-        "module": "evieve-ref",
-        "category": [ "evieve", "evieve Abstractions" ],
-        "keywords": [],
-        "seealso": [ "evi.algoverb~", "evi.backverb~", "evi.freezeverb~", "evi.gigaverb~", "evi.mattaverb~", "evi.plateverb~", "evi.plateverb.lite~", "evi.sustainverb~", "evi.zitaverb~" ]
     },
     "evi.sustainverb~": {
         "digest": "16x16 FDN reverb with smooth sustaining effect \n",
@@ -886,7 +865,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.list.interp", "evi.list.xfade", "mc.evi.listgen", "evi.transratio" ]
     },
     "evi.transratio": {
         "digest": "Convert semitones to pitch and vica versa \n",
@@ -952,11 +931,11 @@
         "seealso": []
     },
     "evi.weightingcoeffs": {
-        "digest": "Compute coefficients for A-weighting and other filters \n",
+        "digest": "Compute coefficients for A-weighting and other analytical filters and output for cascade~ \n",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.polyphaseiirhilbertcoeffs" ]
     },
     "evi.xfade~": {
         "digest": "Crossfade audio signals",
@@ -991,13 +970,13 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.formantfilter~", "evi.formantfilter.morph~", "evi.reson~" ]
     },
     "mc.evi.listgen": {
         "digest": "Create message lists with mcwrapper features \n",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "mcwrapper-group" ]
     }
 }

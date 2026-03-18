@@ -82,6 +82,9 @@ max define mc.evi.classic.osc~ mc.gen~ @gen evi_classic_osc.gendsp @chans 2;
 max define evi.clip~ gen~ @gen evi_clip_hardsoft.gendsp;
 max define mc.evi.clip~ mc.gen~ @gen evi_clip_hardsoft.gendsp @chans 2;
 
+max define evi.clipasym~ gen~ @gen evi_clipasym.gendsp;
+max define mc.evi.clipasym~ mc.gen~ @gen evi_clipasym.gendsp @chans 2;
+
 max define evi.comb~ gen~ @gen evi_comb.gendsp;
 max define mc.evi.comb~ mc.gen~ @gen evi_comb.gendsp @chans 2;
 
@@ -293,6 +296,9 @@ max define mc.evi.shaper~ mc.gen~ @gen evi_shaper.gendsp @chans 2;
 max define evi.sine.select~ gen~ @gen evi_sine_select.gendsp;
 max define mc.evi.sine.select~ mc.gen~ @gen evi_sine_select.gendsp @chans 2;
 
+max define evi.sinfold~ gen~ @gen evi_sinfold.gendsp;
+max define mc.evi.sinfold~ mc.gen~ @gen evi_sinfold.gendsp @chans 2;
+
 max define evi.skfinputmix~ gen~ @gen evi_skfinputmix.gendsp;
 max define mc.evi.skfinputmix~ mc.gen~ @gen evi_skfinputmix.gendsp @chans 2;
 
@@ -302,8 +308,6 @@ max define mc.evi.softclip~ mc.gen~ @gen evi_softclip.gendsp @chans 2;
 max define evi.squine.simple~ gen~ @gen evi_squine_simple.gendsp;
 max define mc.evi.squine.simple~ mc.gen~ @gen evi_squine_simple.gendsp @chans 2;
 
-max define evi.sustainfdn~ gen~ @gen evi_sustainfdn.gendsp;
-max define evi.sustainfdnclear~ gen~ @gen evi_sustainfdnclear.gendsp;
 max define evi.svf~ gen~ @gen evi_svf.gendsp;
 max define mc.evi.svf~ mc.gen~ @gen evi_svf.gendsp @chans 2;
 

@@ -6,7 +6,7 @@
     ],
     "functions": [
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "funcSc0",
             "inputs": [
@@ -26,7 +26,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "funcSc1",
             "inputs": [
@@ -86,7 +86,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "rcPreWarp0",
             "inputs": [
@@ -303,7 +303,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "onepole_init",
             "inputs": [
@@ -341,7 +341,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "onepole_II",
             "inputs": [
@@ -395,7 +395,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "onepole_I",
             "inputs": [
@@ -444,7 +444,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "onepole_next",
             "inputs": [

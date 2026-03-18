@@ -1,0 +1,263 @@
+
+// vaguely inspired by the nonlinear part of the K35 in the MS10
+// @see: [evi.clipasym~] for a wrapper
+// note, this isn't very good in terms of anti aliasing
+
+require("evi_smooth.genexpr");
+require("evi_waveshaping.genexpr");
+
+// asymetric
+aTanhLxAS(x, a, s)							// s = 0..1
+{
+	tnhXa	= 0;
+	ss		= eviScurve(s);
+	over	= eviMap(s*s, 0, 1, 1.23, 3.000001);
+	under	= eviMap(ss, 0, 1, 0.94, 0.333333);
+	if (x > 0) {
+		tnhXa	= tanhLApprox(x / a * over);
+		tnhXa	= tnhXa * a * under;
+	} else {
+		tnhXa	= tanhLApprox(x / a * under);
+		tnhXa	= tnhXa * a * over;
+	}
+	return	dcblock(tnhXa);
+}
+
+// fixed 3x quasi oversampling
+aTanhLxAS3x(XIN, a, s)
+{	// up 3
+	History	umTm1_0(0), umT0_0(0), umT1_0(0);
+	// down 3
+	History	dmT2_1(0), dmT1_1(0), dmT0_1(0);
+	History	dmT2_2(0), dmT1_2(0), dmT0_2(0);
+	// align
+	History	doX0(0);
+
+	ODT		= 0.3333333333333333;
+	TDT		= 0.6666666666666667;
+
+	// up 3x
+	x0_0_a	= XIN + 0;
+	x1_0	= umT0_0 + 0;
+	x2_0	= interp(ODT, umTm1_0, umT0_0, umT1_0, x0_0_a, mode="spline");
+	x3_0	= interp(TDT, umTm1_0, umT0_0, umT1_0, x0_0_a, mode="spline");
+
+	// process 3x
+	y1_0	= aTanhLxAS(x1_0, a, s);
+	y2_0	= aTanhLxAS(x2_0, a, s);
+	y3_0	= aTanhLxAS(x3_0, a, s);
+
+	// down 3x
+	y2_0_a	= y2_0 + 0;
+	y2_1	= interp(TDT,	y2_0_a,	dmT0_1, dmT1_1, dmT2_1, mode="spline");
+	y3_0_a	= y3_0 + 0;
+	y3_1	= interp(ODT,	y3_0_a,	dmT0_2, dmT1_2, dmT2_2, mode="spline");
+
+	y0_0	= (doX0 + y2_1 + y3_1) * ODT;
+
+	// update
+	umTm1_0	= umT0_0;
+	umT0_0	= umT1_0;
+	umT1_0	= x0_0_a;
+
+	doX0	= y1_0;
+
+	dmT2_1	= dmT1_1;
+	dmT1_1	= dmT0_1;
+	dmT0_1	= y2_0;
+
+	dmT2_2	= dmT1_2;
+	dmT1_2	= dmT0_2;
+	dmT0_2	= y3_0;
+
+	return dcblock(y0_0);
+}
+
+// fixed 9x quasi oversampling
+aTanhLxAS9x(XIN, a, s)
+{	// up 3
+	History	umTm1_0(0), umT0_0(0), umT1_0(0);
+	// down 3
+	History	dmT2_1(0), dmT1_1(0), dmT0_1(0);
+	History	dmT2_2(0), dmT1_2(0), dmT0_2(0);
+	// align
+	History	doX0(0);
+
+	ODT		= 0.3333333333333333;
+	TDT		= 0.6666666666666667;
+
+	// up 3x
+	x0_0_a	= XIN + 0;
+	x1_0	= umT0_0 + 0;
+	x2_0	= interp(ODT, umTm1_0, umT0_0, umT1_0, x0_0_a, mode="spline");
+	x3_0	= interp(TDT, umTm1_0, umT0_0, umT1_0, x0_0_a, mode="spline");
+
+	// process 3x
+	y1_0	= aTanhLxAS3x(x1_0, a, s);
+	y2_0	= aTanhLxAS3x(x2_0, a, s);
+	y3_0	= aTanhLxAS3x(x3_0, a, s);
+
+	// down 3x
+	y2_0_a	= y2_0 + 0;
+	y2_1	= interp(TDT,	y2_0_a,	dmT0_1, dmT1_1, dmT2_1, mode="spline");
+	y3_0_a	= y3_0 + 0;
+	y3_1	= interp(ODT,	y3_0_a,	dmT0_2, dmT1_2, dmT2_2, mode="spline");
+
+	y0_0	= (doX0 + y2_1 + y3_1) * ODT;
+
+	// update
+	umTm1_0	= umT0_0;
+	umT0_0	= umT1_0;
+	umT1_0	= x0_0_a;
+
+	doX0	= y1_0;
+
+	dmT2_1	= dmT1_1;
+	dmT1_1	= dmT0_1;
+	dmT0_1	= y2_0;
+
+	dmT2_2	= dmT1_2;
+	dmT1_2	= dmT0_2;
+	dmT0_2	= y3_0;
+
+	return dcblock(y0_0);
+}
+
+// asymetric
+thbxAS(x, a, s)							// s = 0..1
+{
+	dnlXa	= 0;
+	ss		= eviScurve(s);
+	over	= eviMap(s*s, 0, 1, 1.23, 3.000001);
+	under	= eviMap(ss, 0, 1, 0.94, 0.333333);
+	if (x > 0) {
+		dnlXa	= thbNL(x / a * over);
+		dnlXa	= dnlXa * a * under;
+	} else {
+		dnlXa	= thbNL(x / a * under);
+		dnlXa	= dnlXa * a * over;
+	}
+	return	dcblock(dnlXa);
+}
+
+// fixed 3x quasi oversampling
+thbxAS3x(XIN, a, s)
+{	// up 3
+	History	umTm1_0(0), umT0_0(0), umT1_0(0);
+	// down 3
+	History	dmT2_1(0), dmT1_1(0), dmT0_1(0);
+	History	dmT2_2(0), dmT1_2(0), dmT0_2(0);
+	// align
+	History	doX0(0);
+
+	ODT		= 0.3333333333333333;
+	TDT		= 0.6666666666666667;
+
+	// up 3x
+	x0_0_a	= XIN + 0;
+	x1_0	= umT0_0 + 0;
+	x2_0	= interp(ODT, umTm1_0, umT0_0, umT1_0, x0_0_a, mode="spline");
+	x3_0	= interp(TDT, umTm1_0, umT0_0, umT1_0, x0_0_a, mode="spline");
+
+	// process 3x
+	y1_0	= thbxAS(x1_0, a, s);
+	y2_0	= thbxAS(x2_0, a, s);
+	y3_0	= thbxAS(x3_0, a, s);
+
+	// down 3x
+	y2_0_a	= y2_0 + 0;
+	y2_1	= interp(TDT,	y2_0_a,	dmT0_1, dmT1_1, dmT2_1, mode="spline");
+	y3_0_a	= y3_0 + 0;
+	y3_1	= interp(ODT,	y3_0_a,	dmT0_2, dmT1_2, dmT2_2, mode="spline");
+
+	y0_0	= (doX0 + y2_1 + y3_1) * ODT;
+
+	// update
+	umTm1_0	= umT0_0;
+	umT0_0	= umT1_0;
+	umT1_0	= x0_0_a;
+
+	doX0	= y1_0;
+
+	dmT2_1	= dmT1_1;
+	dmT1_1	= dmT0_1;
+	dmT0_1	= y2_0;
+
+	dmT2_2	= dmT1_2;
+	dmT1_2	= dmT0_2;
+	dmT0_2	= y3_0;
+
+	return dcblock(y0_0);
+}
+
+// fixed 9x quasi oversampling
+thbxAS3x9x(XIN, a, s)
+{	// up 3
+	History	umTm1_0(0), umT0_0(0), umT1_0(0);
+	// down 3
+	History	dmT2_1(0), dmT1_1(0), dmT0_1(0);
+	History	dmT2_2(0), dmT1_2(0), dmT0_2(0);
+	// align
+	History	doX0(0);
+
+	ODT		= 0.3333333333333333;
+	TDT		= 0.6666666666666667;
+
+	// up 3x
+	x0_0_a	= XIN + 0;
+	x1_0	= umT0_0 + 0;
+	x2_0	= interp(ODT, umTm1_0, umT0_0, umT1_0, x0_0_a, mode="spline");
+	x3_0	= interp(TDT, umTm1_0, umT0_0, umT1_0, x0_0_a, mode="spline");
+
+	// process 3x
+	y1_0	= thbxAS3x(x1_0, a, s);
+	y2_0	= thbxAS3x(x2_0, a, s);
+	y3_0	= thbxAS3x(x3_0, a, s);
+
+	// down 3x
+	y2_0_a	= y2_0 + 0;
+	y2_1	= interp(TDT,	y2_0_a,	dmT0_1, dmT1_1, dmT2_1, mode="spline");
+	y3_0_a	= y3_0 + 0;
+	y3_1	= interp(ODT,	y3_0_a,	dmT0_2, dmT1_2, dmT2_2, mode="spline");
+
+	y0_0	= (doX0 + y2_1 + y3_1) * ODT;
+
+	// update
+	umTm1_0	= umT0_0;
+	umT0_0	= umT1_0;
+	umT1_0	= x0_0_a;
+
+	doX0	= y1_0;
+
+	dmT2_1	= dmT1_1;
+	dmT1_1	= dmT0_1;
+	dmT0_1	= y2_0;
+
+	dmT2_2	= dmT1_2;
+	dmT1_2	= dmT0_2;
+	dmT0_2	= y3_0;
+
+	return dcblock(y0_0);
+}
+
+Param	smooth(22.666, min=0, max=226.66);	    // in ms
+Param	nonlin(0, min=0, max=1);				// 0 = cubic, 1 = tanh
+n		= int(nonlin);
+
+s		= (in2 * 0.5) + 0.5;					// in2 = 0..1
+a		= (sqrt(1 - s) * 3.73) + 0.251189;		// -12..12 dB
+m		= ((s * s * s) + 0.995262) - 0.120262;	// max +6dB
+
+// turn off if using audio rate modulation on in2
+if (smooth > 0) {
+	a, s	= expsmoothBank2(a, s, smooth*0.001);
+	m		= eviLine(m, smooth*samplerate);
+}
+
+if (n) {
+	out1	= aTanhLxAS9x(in1, a, s) * m;
+} else {
+    // more korg-ish sound
+	out1	= thbxAS3x9x(in1, a, s) * m;
+}
+

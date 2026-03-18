@@ -14,22 +14,6 @@
     This file contains a subset extracted from the 'evi_smooth.genexpr' file but with no dependencies, for when you need basic smoothing banks and do not wish to require more than is needed. This can be useful in complex require situations and is used by some of the evieve examples. <br />
   </description>
   <misc name="GenExpr Functions">
-    <entry name="expApp ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="tauApp ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: t, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
     <entry name="expsmooth ( )">
       <description>
         Excellent cheap generic smoother, fast(er) response than 'logsmooth()' <br />

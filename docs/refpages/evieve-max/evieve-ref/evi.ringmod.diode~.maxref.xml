@@ -6,7 +6,7 @@
 		analog-modelled diode-based ring modulator effect <br />
 	</digest>
 	<description>
-		TEXT_HERE <br />
+		Piece-wise approximation of a 4-diode ring modulator, naive implementation just oversampled for clean anti-aliasing, so not very efficient. But it has it's own interesting sound. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>
@@ -16,45 +16,83 @@
 	</metadatalist>
 	<!--INLETS-->
 	<inletlist>
-		<inlet id="0" type="">
+		<inlet id="1" type="signal">
 			<digest>
-				
+				Audio Input 1
 			</digest>
 			<description>
-				
+				First signal to be ring modulated (Carrier).
+			</description>
+		</inlet>
+		<inlet id="2" type="signal">
+			<digest>
+				Audio Input 2
+			</digest>
+			<description>
+				Second signal to be ring modulated (Modulator).
 			</description>
 		</inlet>
 	</inletlist>
 	<!--OUTLETS-->
 	<outletlist>
-		<outlet id="0" type="">
+		<outlet id="1" type="signal">
 			<digest>
-				
+				Ring Modulated Output
 			</digest>
 			<description>
-				
+				Audio output of the ring modulator.
 			</description>
 		</outlet>
 	</outletlist>
 	<!--ARGUMENTS-->
 	<objarglist>
+		<objarg name="upsample" type="int" default="32" optional="1">
+			<digest>
+				arg#1: oversampling factor
+			</digest>
+			<description>
+				Oversampling factor for the core ring modulator algorithm. Can be 16, 32 or 64. Default 32. Can only be a typed in argument.
+			</description>
+		</objarg>
 	</objarglist>
 	<!--MESSAGES-->
 	<methodlist>
-		<method name="">
-			<arglist>
-				<arg name="" type="" units="" optional="1" />
-			</arglist>
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-		</method>
 	</methodlist>
 	<!--ATTRIBUTES-->
 	<attributelist>
+		<attribute name="knee" get="0" set="1" type="float" size="1">
+			<digest>
+				Normalised 0..1
+			</digest>
+			<description>
+				Soft knee..Hard knee 0..1. A harder knee increases the asymmetrical saturation in the diodes.
+			</description>
+			<attributelist>
+				<attribute name="default" get="0" set="1" type="float" size="1" value="0.598425" />
+			</attributelist>
+		</attribute>
+		<attribute name="slope" get="0" set="1" type="float" size="1">
+			<digest>
+				Normalised 0..1
+			</digest>
+			<description>
+				Soft..Hard 0..1. Slope increases the gain staging at the input to the diodes.
+			</description>
+			<attributelist>
+				<attribute name="default" get="0" set="1" type="float" size="1" value="0.993701" />
+			</attributelist>
+		</attribute>
+		<attribute name="voltage" get="0" set="1" type="float" size="1">
+			<digest>
+				Normalised 0..1
+			</digest>
+			<description>
+				Increasing the voltage not only increases the gain but also smooths the diode shaping leading to more intelligable harmonics.
+			</description>
+			<attributelist>
+				<attribute name="default" get="0" set="1" type="float" size="1" value="0.598425" />
+			</attributelist>
+		</attribute>
 	</attributelist>
 	<!--EXAMPLE-->
 	<examplelist>
@@ -62,9 +100,10 @@
 	</examplelist>
 	<!--SEEALSO-->
 	<seealsolist>
+		<seealso name="evi.ringmod~"> </seealso>
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>
-         <br />
+        @see: 'A Simple Digital Model of the Diode-based Ring-Modulator', DAFx-11, 2011, by Julian Parker. <br />
 	</discussion>
 </c74object>

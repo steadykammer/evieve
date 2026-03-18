@@ -3,7 +3,7 @@
     "requires": [],
     "functions": [
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "expApp",
             "inputs": [
@@ -23,7 +23,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "tauApp",
             "inputs": [

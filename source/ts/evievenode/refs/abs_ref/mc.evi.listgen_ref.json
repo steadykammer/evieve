@@ -3,7 +3,7 @@
         "name": "mc.evi.listgen",
         "category": "evieve",
         "digest": "Create message lists with mcwrapper features",
-        "description": "TEXT_HERE",
+        "description": "Create message lists with mcwrapper features - a patch idea by Todd Ingalls - THANKS!",
         "discussion": ""
     },
     "metadata": {
@@ -12,7 +12,7 @@
     },
     "inlets": [
         {
-            "id": 0,
+            "id": 1,
             "type": "int",
             "digest": "# chans (same as @chans) / (bang) output previous list / (anything) any mcwrapper method",
             "description": ""
@@ -20,7 +20,7 @@
     ],
     "outlets": [
         {
-            "id": 0,
+            "id": 1,
             "type": "list",
             "digest": "generated list output",
             "description": ""
@@ -29,17 +29,35 @@
     "arguments": [],
     "messages": [
         {
-            "name": "",
+            "name": "anything",
             "arg": [
                 {
-                    "name": "",
-                    "type": "",
-                    "units": "",
+                    "name": "chans",
+                    "type": "int",
+                    "units": "int",
+                    "optional": 1
+                },
+                {
+                    "name": "output",
+                    "type": "bang",
+                    "units": "bang",
+                    "optional": 1
+                },
+                {
+                    "name": "clear",
+                    "type": "symbol",
+                    "units": "clear",
+                    "optional": 1
+                },
+                {
+                    "name": "anything",
+                    "type": "mcwrapper",
+                    "units": "anything",
                     "optional": 1
                 }
             ],
-            "digest": "",
-            "description": ""
+            "digest": "In left inlet, messages to 'mc.evi.listgen'",
+            "description": "An integer in the left inlet will set the number of mc channels directly. A bang in the left inlet will output the previously generated list. The word 'clear' will clear the internal stored list. Any mcwrapper feature in the left inlet will create an output list with those elements, such as deviate, increment, exponential, etc."
         }
     ],
     "attributes": [
@@ -48,7 +66,7 @@
             "get": 0,
             "type": "int",
             "digest": "",
-            "description": "",
+            "description": "mc.evi.listgen does not auto adapt to the number of mc channels. Channel count must be set via the @chans attribute exactly. This equates to the number of items in the generated list output.",
             "default": {
                 "get": 0,
                 "value": "2"
@@ -59,5 +77,7 @@
         "caption": "",
         "image": ""
     },
-    "seealso": []
+    "seealso": [
+        "mcwrapper-group"
+    ]
 }

@@ -3,7 +3,7 @@
         "name": "evi.transratio",
         "category": "evieve",
         "digest": "Convert semitones to pitch and vica versa",
-        "description": "TEXT_HERE",
+        "description": "Like the [transratio] abstraction but with multiple choices for input/output conversion.",
         "discussion": ""
     },
     "metadata": {
@@ -12,43 +12,29 @@
     },
     "inlets": [
         {
-            "id": 0,
-            "type": "",
-            "digest": "",
-            "description": ""
+            "id": 1,
+            "type": "float/int",
+            "digest": "Input in either pitch, octave, semitones, cents or ratio",
+            "description": "Set the input type with the @in attribute or the first argument to the object. (bang) retriggers the last used inlet value."
         }
     ],
     "outlets": [
         {
-            "id": 0,
-            "type": "",
-            "digest": "",
-            "description": ""
+            "id": 1,
+            "type": "float/int",
+            "digest": "Output value in either ratio, semitones, hz or pitch",
+            "description": "Set the output type with the @out attribute or the second argument to the object."
         }
     ],
     "arguments": [],
-    "messages": [
-        {
-            "name": "",
-            "arg": [
-                {
-                    "name": "",
-                    "type": "",
-                    "units": "",
-                    "optional": 1
-                }
-            ],
-            "digest": "",
-            "description": ""
-        }
-    ],
+    "messages": [],
     "attributes": [
         {
             "name": "base",
             "get": 0,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Tuning base",
+            "description": "Set the tuning for the conversion around A = 440.",
             "default": {
                 "get": 0,
                 "value": "440."
@@ -58,8 +44,8 @@
             "name": "in",
             "get": 0,
             "type": "symbol",
-            "digest": "",
-            "description": "",
+            "digest": "pitch, octave, semitones, cents, ratio",
+            "description": "symbol, one of: pitch, octave, semitones, cents, ratio. Sets the input to the convertor.",
             "default": {
                 "get": 0,
                 "value": "semitones"
@@ -69,8 +55,8 @@
             "name": "init",
             "get": 0,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Flag 0/1",
+            "description": "Init 1 will trigger a conversion of 0. and output on load. Quite pointless.",
             "default": {
                 "get": 0,
                 "value": "0"
@@ -81,7 +67,7 @@
             "get": 0,
             "type": "float",
             "digest": "",
-            "description": "",
+            "description": "Hz and pitch convert assuming middle C = 60. Via @offset you can change this to anything you need.",
             "default": {
                 "get": 0,
                 "value": "60."
@@ -91,8 +77,8 @@
             "name": "out",
             "get": 0,
             "type": "symbol",
-            "digest": "",
-            "description": "",
+            "digest": "ratio, semitones, hz, pitch",
+            "description": "symbol, one of: ratio, semitones, hz, pitch. Sets the output from the convertor.",
             "default": {
                 "get": 0,
                 "value": "ratio"

@@ -113,12 +113,12 @@
         },
         {
             "name": "vactrolcontroldamp",
-            "type": "int",
+            "type": "float",
             "digest": "",
             "description": "",
             "default": {
                 "type": "float",
-                "value": "0"
+                "value": "0."
             }
         },
         {

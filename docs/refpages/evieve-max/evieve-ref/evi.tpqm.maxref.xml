@@ -6,7 +6,7 @@
 		Three point quadratic map <br />
 	</digest>
 	<description>
-		TEXT_HERE <br />
+		A utility abstraction that allows for value scaling from a linear input map to a linear output map. Map three input points to three output points and linearly scale between them. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>
@@ -21,7 +21,7 @@
 				input to map / (list) input &amp; in/out mappings
 			</digest>
 			<description>
-				
+				int/float is an inout to map. list is input and list of up to 6 additional values for in/out mapping.
 			</description>
 		</inlet>
 		<inlet id="2" type="int/float">
@@ -29,7 +29,7 @@
 				in low
 			</digest>
 			<description>
-				
+				Low input value.
 			</description>
 		</inlet>
 		<inlet id="3" type="int/float">
@@ -37,7 +37,7 @@
 				in mid
 			</digest>
 			<description>
-				
+				Mid point input value.
 			</description>
 		</inlet>
 		<inlet id="4" type="int/float">
@@ -45,7 +45,7 @@
 				in high
 			</digest>
 			<description>
-				
+				High input value.
 			</description>
 		</inlet>
 		<inlet id="5" type="int/float">
@@ -53,7 +53,7 @@
 				out low
 			</digest>
 			<description>
-				
+				Low output value.
 			</description>
 		</inlet>
 		<inlet id="6" type="int/float">
@@ -61,7 +61,7 @@
 				out mid
 			</digest>
 			<description>
-				
+				Mid point output value.
 			</description>
 		</inlet>
 		<inlet id="7" type="int/float">
@@ -69,7 +69,7 @@
 				out high
 			</digest>
 			<description>
-				
+				High output value.
 			</description>
 		</inlet>
 	</inletlist>
@@ -80,7 +80,7 @@
 				mapped output
 			</digest>
 			<description>
-				
+				The output value mapped via the three point quadratic map.
 			</description>
 		</outlet>
 		<outlet id="2" type="list">
@@ -88,83 +88,72 @@
 				mapping list (if @dumpout &#x3D;&#x3D; 1)
 			</digest>
 			<description>
-				
+				The dumpout sends the current list of mappings if @dumpout attribute is on.
 			</description>
 		</outlet>
 	</outletlist>
 	<!--ARGUMENTS-->
 	<objarglist>
-		<objarg name="" type="float" default="0." optional="1">
+		<objarg name="Low in" type="float" default="0." optional="1">
 			<digest>
-				arg#1: 
+				arg#1: Low input value
 			</digest>
 			<description>
-				
+				Low input value to map from
 			</description>
 		</objarg>
-		<objarg name="" type="float" default="0.5" optional="1">
+		<objarg name="Mid point in" type="float" default="0.5" optional="1">
 			<digest>
-				arg#2: 
+				arg#2: Mid point input value
 			</digest>
 			<description>
-				
+				Mid point input value to map from
 			</description>
 		</objarg>
-		<objarg name="" type="float" default="1." optional="1">
+		<objarg name="High in" type="float" default="1." optional="1">
 			<digest>
-				arg#3: 
+				arg#3: High input value
 			</digest>
 			<description>
-				
+				High input value to map from
 			</description>
 		</objarg>
-		<objarg name="" type="float" default="0." optional="1">
+		<objarg name="Low out" type="float" default="0." optional="1">
 			<digest>
-				arg#4: 
+				arg#4: Low output value
 			</digest>
 			<description>
-				
+				Low output value to map to
 			</description>
 		</objarg>
-		<objarg name="" type="float" default="0.5" optional="1">
+		<objarg name="Mid point out" type="float" default="0.5" optional="1">
 			<digest>
-				arg#5: 
+				arg#5: Mid point output value
 			</digest>
 			<description>
-				
+				Mid point output value to map to
 			</description>
 		</objarg>
-		<objarg name="" type="float" default="1." optional="1">
+		<objarg name="High out" type="float" default="1." optional="1">
 			<digest>
-				arg#6: 
+				arg#6: High output value
 			</digest>
 			<description>
-				
+				High output value to map to
 			</description>
 		</objarg>
 	</objarglist>
 	<!--MESSAGES-->
 	<methodlist>
-		<method name="">
-			<arglist>
-				<arg name="" type="" units="" optional="1" />
-			</arglist>
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-		</method>
 	</methodlist>
 	<!--ATTRIBUTES-->
 	<attributelist>
 		<attribute name="dumpout" get="0" set="1" type="int" size="1">
 			<digest>
-				
+				Flag 0/1
 			</digest>
 			<description>
-				
+				If on, outputs current map list from the far right dumpoutlet.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="int" size="1" value="0" />
@@ -172,10 +161,10 @@
 		</attribute>
 		<attribute name="hot" get="0" set="1" type="int" size="1">
 			<digest>
-				
+				Flag 0/1
 			</digest>
 			<description>
-				
+				If on, updates output with every map input change.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="int" size="1" value="0" />
@@ -183,10 +172,10 @@
 		</attribute>
 		<attribute name="initial" get="0" set="1" type="symbol" size="1">
 			<digest>
-				
+				Value
 			</digest>
 			<description>
-				
+				Sets an initial value on load.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="symbol" size="1" value="none" />
@@ -199,6 +188,10 @@
 	</examplelist>
 	<!--SEEALSO-->
 	<seealsolist>
+		<seealso name="evi.list.interp"> </seealso>
+		<seealso name="evi.list.xfade"> </seealso>
+		<seealso name="mc.evi.listgen"> </seealso>
+		<seealso name="evi.transratio"> </seealso>
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>

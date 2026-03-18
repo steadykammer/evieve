@@ -6,7 +6,7 @@
 		Complex saturation processor with options <br />
 	</digest>
 	<description>
-		TEXT_HERE <br />
+		Based on an idea by Tom Szilagyi. Contains two asymmetric saturation stages with a bass boosting function and tone control filter. The effect can be blended between cubic and tanh like behaviour, and the tonal characteristics can be continuously morphed. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>
@@ -21,7 +21,7 @@
 				audio in / (anything) messages to evi.warmer~
 			</digest>
 			<description>
-				
+				Input to be saturated.
 			</description>
 		</inlet>
 	</inletlist>
@@ -32,7 +32,7 @@
 				warmer audio out
 			</digest>
 			<description>
-				
+				Output of the saturation chain.
 			</description>
 		</outlet>
 	</outletlist>
@@ -41,26 +41,15 @@
 	</objarglist>
 	<!--MESSAGES-->
 	<methodlist>
-		<method name="">
-			<arglist>
-				<arg name="" type="" units="" optional="1" />
-			</arglist>
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-		</method>
 	</methodlist>
 	<!--ATTRIBUTES-->
 	<attributelist>
 		<attribute name="blend" get="0" set="1" type="float" size="1">
 			<digest>
-				
+				-10..10
 			</digest>
 			<description>
-				
+				One of the key parameters (along with &#x27;drive&#x27;) that shape the tonal quality of the object. Positive blend is a more asymmetric sound than the cleaner negative blend.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="-2." />
@@ -68,10 +57,10 @@
 		</attribute>
 		<attribute name="clip" get="0" set="1" type="symbol" size="1">
 			<digest>
-				
+				Flag 0/1 or symbol
 			</digest>
 			<description>
-				
+				&#x27;0&#x27; or &#x27;soft&#x27; sets soft clipping internally, &#x27;1&#x27; or &#x27;hard&#x27; sets hard clipping internally.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="symbol" size="1" value="soft" />
@@ -79,10 +68,10 @@
 		</attribute>
 		<attribute name="clipfold" get="0" set="1" type="float" size="1">
 			<digest>
-				
+				In dB, -12..12
 			</digest>
 			<description>
-				
+				Boost bass frequecies into the folding distortion circuit, set by the @clip attribute.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="-1." />
@@ -90,10 +79,10 @@
 		</attribute>
 		<attribute name="clipmix" get="0" set="1" type="float" size="1">
 			<digest>
-				
+				Normalised 0..1
 			</digest>
 			<description>
-				
+				Mix bass frequencies (1) or higher frequencies (0) through the clipping circuit.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="0.333333" />
@@ -104,7 +93,7 @@
 				
 			</digest>
 			<description>
-				
+				The slope of the @clipmix attribute, favour lower frequencies (0) or higher frequencies (1).
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="0.23228" />
@@ -112,10 +101,10 @@
 		</attribute>
 		<attribute name="decouplegain" get="0" set="1" type="int" size="1">
 			<digest>
-				
+				Flag 0/1
 			</digest>
 			<description>
-				
+				If @decouplegain is off, @ingain and @outgain are ignored and the object responds to the @gain attribute which reciprocally adjusts input and output gains around unity. If @decouplegain is on, the @gain attribute is ignored and input and output gains are controlled individually by the @ingain and @outgain attributes.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="int" size="1" value="0" />
@@ -126,7 +115,7 @@
 				
 			</digest>
 			<description>
-				
+				One of the key parameters (along with &#x27;blend&#x27;) that shape the tonal quality of the object. In general, drive will increase the gain and increase the harmonics in the output, but this depends on the @blend attribute. Lower drive values will make the sound darker, higher values will make it brighter.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="2." />
@@ -134,21 +123,54 @@
 		</attribute>
 		<attribute name="gain" get="0" set="1" type="float" size="1">
 			<digest>
+				In dB, out will clip at -24..24, in will clip at -48..48
+			</digest>
+			<description>
+				Activation depends on the &#x27;@decouplegain&#x27; attribute: @gain is active if @decouplegain is off. The @gain attribute reciprocally adjusts input and output gains around unity.
+			</description>
+			<attributelist>
+				<attribute name="default" get="0" set="1" type="float" size="1" value="1." />
+			</attributelist>
+		</attribute>
+		<attribute name="highpass" get="0" set="1" type="float" size="1">
+			<digest>
 				
 			</digest>
 			<description>
 				
 			</description>
 			<attributelist>
+				<attribute name="default" get="0" set="1" type="float" size="1" value="100." />
+			</attributelist>
+		</attribute>
+		<attribute name="ingain" get="0" set="1" type="float" size="1">
+			<digest>
+				In dB, -48..48
+			</digest>
+			<description>
+				Activation depends on the &#x27;@decouplegain&#x27; attribute: @ingain and @outgain are active if @decouplegain is on. The @ingain attribute sets the audio input gain to the saturation processes beween -48 and +48 dB.
+			</description>
+			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="1." />
+			</attributelist>
+		</attribute>
+		<attribute name="outgain" get="0" set="1" type="float" size="1">
+			<digest>
+				In dB, -24..24
+			</digest>
+			<description>
+				Activation depends on the &#x27;@decouplegain&#x27; attribute: @outgain and @ingain are active if @decouplegain is on. The @outgain attribute sets the audio output gain of the whole saturation chain beween -24 and +24 dB.
+			</description>
+			<attributelist>
+				<attribute name="default" get="0" set="1" type="float" size="1" value="-1." />
 			</attributelist>
 		</attribute>
 		<attribute name="smooth" get="0" set="1" type="float" size="1">
 			<digest>
-				
+				Time in ms
 			</digest>
 			<description>
-				
+				Smoothing times of internal parameters.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="30.111" />
@@ -156,10 +178,10 @@
 		</attribute>
 		<attribute name="tone" get="0" set="1" type="int" size="1">
 			<digest>
-				
+				Flag 0/1
 			</digest>
 			<description>
-				
+				If @tone is on, high frequencies are attenuated by the @tonecutoff and @toneslope attributes. If @tone is off, there is no high frequency attenuation and the @tonecutoff and @toneslope attributes have no effect.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="int" size="1" value="1" />
@@ -167,10 +189,10 @@
 		</attribute>
 		<attribute name="tonecutoff" get="0" set="1" type="float" size="1">
 			<digest>
-				
+				Cutoff frequency in Hz
 			</digest>
 			<description>
-				
+				If @tone is on: the cutoff frequency of the tone filter. The tone filter is a variable order (set by the @toneslope attribute) butterworth lowpass and can be used to make severe tonal cuts in the audio output or subtle attenuation of the high frequency content.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="6000." />
@@ -178,10 +200,10 @@
 		</attribute>
 		<attribute name="toneslope" get="0" set="1" type="int" size="1">
 			<digest>
-				
+				1..8
 			</digest>
 			<description>
-				
+				If @tone is on: the order of the butterworth tone shaping filter. Higher orders produce a steeper slope/cut. The cutoff frequency is set by the @tonecutoff attribute.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="int" size="1" value="3" />
@@ -194,6 +216,11 @@
 	</examplelist>
 	<!--SEEALSO-->
 	<seealsolist>
+		<seealso name="evi.clipasym~"> </seealso>
+		<seealso name="evi.sinfold~"> </seealso>
+		<seealso name="evi.overdrive.tanh~"> </seealso>
+		<seealso name="evi.overdrive.atan~"> </seealso>
+		<seealso name="evi.overdrive.sqrt~"> </seealso>
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>

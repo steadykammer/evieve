@@ -66,7 +66,7 @@ if (smoothsecs > 0)							// only smooth if requested
 	drivepi, drivesin	= expsmoothBank2(drivepi, drivesin, smoothsecs * 0.995);
 }
 
-if (smoothfreq > 0)							// turn off smoothing if feeding with audio rate modulation
+if (smoothfreq > 0)							// no need to turn off smoothing if using audio rate modulation
 {
 	hz, hn	= eviLine(hz, smoothfreq);
 }

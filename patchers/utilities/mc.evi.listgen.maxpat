@@ -50,7 +50,7 @@
                 "box": {
                     "comment": "(list) generated list output",
                     "id": "obj-21",
-                    "index": 0,
+                    "index": 1,
                     "maxclass": "outlet",
                     "numinlets": 1,
                     "numoutlets": 0,
@@ -148,7 +148,7 @@
                 "box": {
                     "comment": "(int) # chans (same as @chans) / (bang) output previous list / (anything) any mcwrapper method",
                     "id": "obj-7",
-                    "index": 0,
+                    "index": 1,
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,

@@ -139,25 +139,6 @@
                 "auto": true
             }
         },
-        "evi.clipasym~": {
-            "object": true,
-            "ref": true,
-            "qlookup": true,
-            "helpfile": {
-                "generate": true,
-                "mctab": true,
-                "mcstab": false,
-                "mcparent": "",
-                "mcchild": "mc.evi.clipasym~",
-                "gentab": true,
-                "genexprtab": false,
-                "areas": []
-            },
-            "db": {
-                "browser": true,
-                "auto": true
-            }
-        },
         "evi.dbtoa": {
             "object": true,
             "ref": false,
@@ -569,15 +550,15 @@
         },
         "evi.plateverb.lite~": {
             "object": false,
-            "ref": true,
+            "ref": false,
             "qlookup": true,
             "helpfile": {
                 "generate": false,
                 "mctab": false,
-                "mcstab": true,
+                "mcstab": false,
                 "mcparent": "",
                 "mcchild": "mcs.evi.plateverb.lite~",
-                "gentab": true,
+                "gentab": false,
                 "genexprtab": false,
                 "areas": [
                     "reverb"
@@ -614,7 +595,7 @@
             "ref": true,
             "qlookup": true,
             "helpfile": {
-                "generate": false,
+                "generate": true,
                 "mctab": false,
                 "mcstab": false,
                 "mcparent": "",
@@ -695,25 +676,6 @@
                 "mcstab": false,
                 "mcparent": "",
                 "mcchild": "",
-                "gentab": true,
-                "genexprtab": false,
-                "areas": []
-            },
-            "db": {
-                "browser": true,
-                "auto": true
-            }
-        },
-        "evi.sinfold~": {
-            "object": true,
-            "ref": true,
-            "qlookup": true,
-            "helpfile": {
-                "generate": true,
-                "mctab": true,
-                "mcstab": false,
-                "mcparent": "",
-                "mcchild": "mc.evi.sinfold~",
                 "gentab": true,
                 "genexprtab": false,
                 "areas": []
@@ -959,25 +921,6 @@
                 "auto": true
             }
         },
-        "mc.evi.clipasym~": {
-            "object": true,
-            "ref": false,
-            "qlookup": true,
-            "helpfile": {
-                "generate": false,
-                "mctab": false,
-                "mcstab": false,
-                "mcparent": "evi.clipsym~",
-                "mcchild": "",
-                "gentab": false,
-                "genexprtab": false,
-                "areas": []
-            },
-            "db": {
-                "browser": true,
-                "auto": true
-            }
-        },
         "mc.evi.dcblock~": {
             "object": true,
             "ref": false,
@@ -1033,25 +976,6 @@
             "db": {
                 "browser": false,
                 "auto": false
-            }
-        },
-        "mc.evi.sinfold~": {
-            "object": true,
-            "ref": false,
-            "qlookup": true,
-            "helpfile": {
-                "generate": false,
-                "mctab": false,
-                "mcstab": false,
-                "mcparent": "evi.sinfold~",
-                "mcchild": "",
-                "gentab": false,
-                "genexprtab": false,
-                "areas": []
-            },
-            "db": {
-                "browser": true,
-                "auto": true
             }
         },
         "mc.evi.warmer~": {

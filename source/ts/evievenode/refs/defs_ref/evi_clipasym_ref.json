@@ -1,8 +1,10 @@
 {
     "object": {
-        "name": "evi.sinfold~",
+        "name": "evi.clipasym~",
+        "parent": "evi_clipasym",
         "category": "evieve",
-        "digest": "Sinusoidal waveshaping processor",
+        "tilde": "~",
+        "digest": "TEXT_HERE",
         "description": "TEXT_HERE",
         "discussion": ""
     },
@@ -10,11 +12,21 @@
         "author": "Pete Dowling",
         "tags": []
     },
+    "includes": [
+        "evi_smooth.genexpr",
+        "evi_waveshaping.genexpr"
+    ],
     "inlets": [
         {
             "id": 1,
             "type": "signal",
-            "digest": "audio in / (anything) messages to evi.sinfold~",
+            "digest": "Audio In",
+            "description": ""
+        },
+        {
+            "id": 2,
+            "type": "signal",
+            "digest": "Asymmetry @min 0 @max 1 @default 0.5",
             "description": ""
         }
     ],
@@ -22,46 +34,33 @@
         {
             "id": 1,
             "type": "signal",
-            "digest": "sine shaped audio out",
+            "digest": "Saturated Audio Out",
             "description": ""
         }
     ],
-    "arguments": [],
-    "messages": [
-        {
-            "name": "",
-            "arg": [
-                {
-                    "name": "",
-                    "type": "",
-                    "units": "",
-                    "optional": 1
-                }
-            ],
-            "digest": "",
-            "description": ""
-        }
-    ],
+    "messages": [],
     "attributes": [
         {
-            "name": "drive",
-            "get": 0,
-            "type": "float",
+            "name": "nonlin",
+            "get": 1,
+            "type": "int",
             "digest": "",
             "description": "",
             "default": {
-                "get": 0,
-                "value": "0.5"
+                "min": "0",
+                "max": "1",
+                "value": "0"
             }
         },
         {
             "name": "smooth",
-            "get": 0,
+            "get": 1,
             "type": "float",
             "digest": "",
             "description": "",
             "default": {
-                "get": 0,
+                "min": "0",
+                "max": "226.66",
                 "value": "22.666"
             }
         }

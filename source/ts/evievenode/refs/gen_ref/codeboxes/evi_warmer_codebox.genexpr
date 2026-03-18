@@ -75,46 +75,8 @@ X = saturateAdaa2_4x_6POINT(yy * outg, -0.9886, 1) * sqrt1_2;
 
 X = rcFilterHp(X, g);
 
-G = 0;
-Y = 0;
 // linear Butterworth
-if (ord > 0) {
-	CF	= logsmooth(cutoff, smooth);
-	G	= fWarp(CF);						// get G coefficient if not bypassed
-	if			(ord == 1) {
-		Y	= lp1p(X,	G);
-	} else if	(ord == 2) {
-		Y	= lp2p(X,	G, 1.4142135623730951);
-	} else if	(ord == 4) {
-		y0	= lp2p(X,	G, 0.7653668647301797);
-		Y	= lp2p(y0,	G, 1.8477590650225735);
-	} else if	(ord == 5) {
-		y0	= lp2p(X,	G, 0.6180339887498949);
-		y1	= lp2p(y0,	G, 1.618033988749895);
-		Y	= lp1p(y1,	G);
-	} else if	(ord == 6) {
-		y0	= lp2p(X,	G, 0.5176380902050419);
-		y1	= lp2p(y0,	G, 1.4142135623730951);
-		Y	= lp2p(y1,	G, 1.9318516525781366);
-	} else if	(ord == 7) {
-		y0	= lp2p(X,	G, 0.4450418679126289);
-		y1	= lp2p(y0,	G, 1.2469796037174672);
-		y2	= lp2p(y1,	G, 1.8019377358048383);
-		Y	= lp1p(y2,	G);
-	} else if	(ord == 8) {
-		y0	= lp2p(X,	G, 0.39018064403225666);
-		y1	= lp2p(y0,	G, 1.1111404660392046);
-		y2	= lp2p(y1,	G, 1.6629392246050905);
-		Y	= lp2p(y2,	G, 1.9615705608064609);
-	} else {//	(ord == 3)					// default
-		y0	= lp2p(X,	G, 1.0000000000000002);
-		Y	= lp1p(y0,	G);
-	}
-
-} else {	//	(ord == 0)					// bypassed
-	G	= 0.414226;
-	Y	= X;
-}
+Y = linearButterworthLP8(X, cutoff, order=ord);
 
 out1 = Y;
 

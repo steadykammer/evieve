@@ -3,7 +3,7 @@
         "fileversion": 1,
         "appversion": {
             "major": 9,
-            "minor": 1,
+            "minor": 2,
             "revision": 0,
             "architecture": "x64",
             "modernui": 1
@@ -213,7 +213,7 @@
                         "fileversion": 1,
                         "appversion": {
                             "major": 9,
-                            "minor": 1,
+                            "minor": 2,
                             "revision": 0,
                             "architecture": "x64",
                             "modernui": 1
@@ -996,7 +996,7 @@
             },
             {
                 "box": {
-                    "comment": "bang int float filter weighting samplerate init hot",
+                    "comment": "(bang/int) calculate coefficients",
                     "id": "obj-9",
                     "index": 0,
                     "maxclass": "inlet",
@@ -1019,7 +1019,7 @@
             },
             {
                 "box": {
-                    "comment": "15 filter coefficents out here, plug into [cascade~] (or 3 [biquad~]s)",
+                    "comment": "(list) 15 filter coefficents out here, plug into [cascade~] (or 3 [biquad~]s)",
                     "id": "obj-1",
                     "index": 0,
                     "maxclass": "outlet",
@@ -1050,7 +1050,7 @@
                         "fileversion": 1,
                         "appversion": {
                             "major": 9,
-                            "minor": 1,
+                            "minor": 2,
                             "revision": 0,
                             "architecture": "x64",
                             "modernui": 1
@@ -1101,7 +1101,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 97.0, 354.0, 515.0, 49.0 ],
+                                    "patching_rect": [ 97.0, 354.0, 518.0, 49.0 ],
                                     "text": "$1 Hz is an unsupported samplerate!, Supported samplerates for weighting filters are:, 2000 2756 3000 4000 5512 6000 8000 11025 12000 16000 22050 24000 32000 44100 48000 64000 88200 96000 128000 176400 192000 256000 352800 384000 512000 705600 768000 Hz"
                                 }
                             },

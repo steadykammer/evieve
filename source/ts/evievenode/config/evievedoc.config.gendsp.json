@@ -828,24 +828,24 @@
         },
         "evi_clipasym.gendsp": {
             "define": {
-                "object": false,
-                "msp": "",
-                "mcwrapper": false
+                "object": true,
+                "msp": "evi.clipasym~",
+                "mcwrapper": true
             },
             "ref": {
                 "gen": true,
-                "msp": false
+                "msp": true
             },
             "helpfile": {
-                "msp": false,
-                "gentab": false,
-                "genexprtab": false,
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
                 "areaonly": false,
                 "areas": []
             },
             "db": {
-                "browser": false,
-                "auto": false
+                "browser": true,
+                "auto": true
             }
         },
         "evi_comb.gendsp": {
@@ -3101,7 +3101,7 @@
                 "mcwrapper": false
             },
             "ref": {
-                "gen": true,
+                "gen": false,
                 "msp": false
             },
             "helpfile": {
@@ -3564,24 +3564,24 @@
         },
         "evi_sinfold.gendsp": {
             "define": {
-                "object": false,
-                "msp": "",
-                "mcwrapper": false
+                "object": true,
+                "msp": "evi.sinfold~",
+                "mcwrapper": true
             },
             "ref": {
                 "gen": true,
-                "msp": false
+                "msp": true
             },
             "helpfile": {
-                "msp": false,
-                "gentab": false,
-                "genexprtab": false,
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
                 "areaonly": false,
                 "areas": []
             },
             "db": {
-                "browser": false,
-                "auto": false
+                "browser": true,
+                "auto": true
             }
         },
         "evi_skfinputmix.gendsp": {
@@ -3702,7 +3702,7 @@
         },
         "evi_sustainfdn.gendsp": {
             "define": {
-                "object": true,
+                "object": false,
                 "msp": "evi.sustainfdn~",
                 "mcwrapper": false
             },
@@ -3726,7 +3726,7 @@
         },
         "evi_sustainfdnclear.gendsp": {
             "define": {
-                "object": true,
+                "object": false,
                 "msp": "evi.sustainfdnclear~",
                 "mcwrapper": false
             },

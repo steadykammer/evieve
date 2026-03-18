@@ -97,8 +97,6 @@
 <refpage name='evi.phaser.analog~.maxref.xml'/>
 <refpage name='evi.phaseshift~.maxref.xml'/>
 <refpage name='evi.phasor0~.maxref.xml'/>
-<refpage name='evi.plateverb.lite~.maxref.xml'/>
-<refpage name='evi.plateverb_lite~.maxref.xml'/>
 <refpage name='evi.plateverb~.maxref.xml'/>
 <refpage name='evi.polyphaseiirhilbertcoeffs.maxref.xml'/>
 <refpage name='evi.quadosc~.maxref.xml'/>
@@ -118,7 +116,6 @@
 <refpage name='evi.skfinputmix~.maxref.xml'/>
 <refpage name='evi.softclip~.maxref.xml'/>
 <refpage name='evi.squine.simple~.maxref.xml'/>
-<refpage name='evi.sustainverb.lite~.maxref.xml'/>
 <refpage name='evi.sustainverb~.maxref.xml'/>
 <refpage name='evi.svfinputmix~.maxref.xml'/>
 <refpage name='evi.svfsmooth~.maxref.xml'/>

@@ -6,7 +6,7 @@
 		Convert semitones to pitch and vica versa <br />
 	</digest>
 	<description>
-		TEXT_HERE <br />
+		Like the [transratio] abstraction but with multiple choices for input/output conversion. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>
@@ -16,23 +16,23 @@
 	</metadatalist>
 	<!--INLETS-->
 	<inletlist>
-		<inlet id="0" type="">
+		<inlet id="1" type="float/int">
 			<digest>
-				
+				Input in either pitch, octave, semitones, cents or ratio
 			</digest>
 			<description>
-				
+				Set the input type with the @in attribute or the first argument to the object. (bang) retriggers the last used inlet value.
 			</description>
 		</inlet>
 	</inletlist>
 	<!--OUTLETS-->
 	<outletlist>
-		<outlet id="0" type="">
+		<outlet id="1" type="float/int">
 			<digest>
-				
+				Output value in either ratio, semitones, hz or pitch
 			</digest>
 			<description>
-				
+				Set the output type with the @out attribute or the second argument to the object.
 			</description>
 		</outlet>
 	</outletlist>
@@ -41,26 +41,15 @@
 	</objarglist>
 	<!--MESSAGES-->
 	<methodlist>
-		<method name="">
-			<arglist>
-				<arg name="" type="" units="" optional="1" />
-			</arglist>
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-		</method>
 	</methodlist>
 	<!--ATTRIBUTES-->
 	<attributelist>
 		<attribute name="base" get="0" set="1" type="float" size="1">
 			<digest>
-				
+				Tuning base
 			</digest>
 			<description>
-				
+				Set the tuning for the conversion around A &#x3D; 440.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="440." />
@@ -68,10 +57,10 @@
 		</attribute>
 		<attribute name="in" get="0" set="1" type="symbol" size="1">
 			<digest>
-				
+				pitch, octave, semitones, cents, ratio
 			</digest>
 			<description>
-				
+				symbol, one of: pitch, octave, semitones, cents, ratio. Sets the input to the convertor.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="symbol" size="1" value="semitones" />
@@ -79,10 +68,10 @@
 		</attribute>
 		<attribute name="init" get="0" set="1" type="int" size="1">
 			<digest>
-				
+				Flag 0/1
 			</digest>
 			<description>
-				
+				Init 1 will trigger a conversion of 0. and output on load. Quite pointless.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="int" size="1" value="0" />
@@ -93,7 +82,7 @@
 				
 			</digest>
 			<description>
-				
+				Hz and pitch convert assuming middle C &#x3D; 60. Via @offset you can change this to anything you need.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="60." />
@@ -101,10 +90,10 @@
 		</attribute>
 		<attribute name="out" get="0" set="1" type="symbol" size="1">
 			<digest>
-				
+				ratio, semitones, hz, pitch
 			</digest>
 			<description>
-				
+				symbol, one of: ratio, semitones, hz, pitch. Sets the output from the convertor.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="symbol" size="1" value="ratio" />

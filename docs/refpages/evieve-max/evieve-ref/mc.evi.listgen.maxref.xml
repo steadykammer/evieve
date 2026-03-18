@@ -6,7 +6,7 @@
 		Create message lists with mcwrapper features <br />
 	</digest>
 	<description>
-		TEXT_HERE <br />
+		Create message lists with mcwrapper features - a patch idea by Todd Ingalls - THANKS! <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>
@@ -16,7 +16,7 @@
 	</metadatalist>
 	<!--INLETS-->
 	<inletlist>
-		<inlet id="0" type="int">
+		<inlet id="1" type="int">
 			<digest>
 				# chans (same as @chans) / (bang) output previous list / (anything) any mcwrapper method
 			</digest>
@@ -27,7 +27,7 @@
 	</inletlist>
 	<!--OUTLETS-->
 	<outletlist>
-		<outlet id="0" type="list">
+		<outlet id="1" type="list">
 			<digest>
 				generated list output
 			</digest>
@@ -41,15 +41,18 @@
 	</objarglist>
 	<!--MESSAGES-->
 	<methodlist>
-		<method name="">
+		<method name="anything">
 			<arglist>
-				<arg name="" type="" units="" optional="1" />
+				<arg name="chans" type="int" units="int" optional="1" />
+				<arg name="output" type="bang" units="bang" optional="1" />
+				<arg name="clear" type="symbol" units="clear" optional="1" />
+				<arg name="anything" type="mcwrapper" units="anything" optional="1" />
 			</arglist>
 			<digest>
-				
+				In left inlet, messages to &#x27;mc.evi.listgen&#x27;
 			</digest>
 			<description>
-				
+				An integer in the left inlet will set the number of mc channels directly. A bang in the left inlet will output the previously generated list. The word &#x27;clear&#x27; will clear the internal stored list. Any mcwrapper feature in the left inlet will create an output list with those elements, such as deviate, increment, exponential, etc.
 			</description>
 		</method>
 	</methodlist>
@@ -60,7 +63,7 @@
 				
 			</digest>
 			<description>
-				
+				mc.evi.listgen does not auto adapt to the number of mc channels. Channel count must be set via the @chans attribute exactly. This equates to the number of items in the generated list output.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="int" size="1" value="2" />
@@ -73,6 +76,7 @@
 	</examplelist>
 	<!--SEEALSO-->
 	<seealsolist>
+		<seealso name="mcwrapper-group"> </seealso>
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>

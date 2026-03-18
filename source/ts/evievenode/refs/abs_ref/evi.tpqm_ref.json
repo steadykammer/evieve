@@ -3,7 +3,7 @@
         "name": "evi.tpqm",
         "category": "evieve",
         "digest": "Three point quadratic map",
-        "description": "TEXT_HERE",
+        "description": "A utility abstraction that allows for value scaling from a linear input map to a linear output map. Map three input points to three output points and linearly scale between them.",
         "discussion": ""
     },
     "metadata": {
@@ -15,43 +15,43 @@
             "id": 1,
             "type": "int/float",
             "digest": "input to map / (list) input & in/out mappings",
-            "description": ""
+            "description": "int/float is an inout to map. list is input and list of up to 6 additional values for in/out mapping."
         },
         {
             "id": 2,
             "type": "int/float",
             "digest": "in low",
-            "description": ""
+            "description": "Low input value."
         },
         {
             "id": 3,
             "type": "int/float",
             "digest": "in mid",
-            "description": ""
+            "description": "Mid point input value."
         },
         {
             "id": 4,
             "type": "int/float",
             "digest": "in high",
-            "description": ""
+            "description": "High input value."
         },
         {
             "id": 5,
             "type": "int/float",
             "digest": "out low",
-            "description": ""
+            "description": "Low output value."
         },
         {
             "id": 6,
             "type": "int/float",
             "digest": "out mid",
-            "description": ""
+            "description": "Mid point output value."
         },
         {
             "id": 7,
             "type": "int/float",
             "digest": "out high",
-            "description": ""
+            "description": "High output value."
         }
     ],
     "outlets": [
@@ -59,87 +59,73 @@
             "id": 1,
             "type": "float",
             "digest": "mapped output",
-            "description": ""
+            "description": "The output value mapped via the three point quadratic map."
         },
         {
             "id": 2,
             "type": "list",
             "digest": "mapping list (if @dumpout == 1)",
-            "description": ""
+            "description": "The dumpout sends the current list of mappings if @dumpout attribute is on."
         }
     ],
     "arguments": [
         {
-            "name": "",
+            "name": "Low in",
             "type": "float",
             "default": "0.",
             "optional": 1,
-            "digest": "arg#1: ",
-            "description": ""
+            "digest": "arg#1: Low input value",
+            "description": "Low input value to map from"
         },
         {
-            "name": "",
+            "name": "Mid point in",
             "type": "float",
             "default": "0.5",
             "optional": 1,
-            "digest": "arg#2: ",
-            "description": ""
+            "digest": "arg#2: Mid point input value",
+            "description": "Mid point input value to map from"
         },
         {
-            "name": "",
+            "name": "High in",
             "type": "float",
             "default": "1.",
             "optional": 1,
-            "digest": "arg#3: ",
-            "description": ""
+            "digest": "arg#3: High input value",
+            "description": "High input value to map from"
         },
         {
-            "name": "",
+            "name": "Low out",
             "type": "float",
             "default": "0.",
             "optional": 1,
-            "digest": "arg#4: ",
-            "description": ""
+            "digest": "arg#4: Low output value",
+            "description": "Low output value to map to"
         },
         {
-            "name": "",
+            "name": "Mid point out",
             "type": "float",
             "default": "0.5",
             "optional": 1,
-            "digest": "arg#5: ",
-            "description": ""
+            "digest": "arg#5: Mid point output value",
+            "description": "Mid point output value to map to"
         },
         {
-            "name": "",
+            "name": "High out",
             "type": "float",
             "default": "1.",
             "optional": 1,
-            "digest": "arg#6: ",
-            "description": ""
+            "digest": "arg#6: High output value",
+            "description": "High output value to map to"
         }
     ],
-    "messages": [
-        {
-            "name": "",
-            "arg": [
-                {
-                    "name": "",
-                    "type": "",
-                    "units": "",
-                    "optional": 1
-                }
-            ],
-            "digest": "",
-            "description": ""
-        }
-    ],
+    "messages": [],
     "attributes": [
         {
             "name": "dumpout",
             "get": 0,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Flag 0/1",
+            "description": "If on, outputs current map list from the far right dumpoutlet.",
             "default": {
                 "get": 0,
                 "value": "0"
@@ -149,8 +135,8 @@
             "name": "hot",
             "get": 0,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Flag 0/1",
+            "description": "If on, updates output with every map input change.",
             "default": {
                 "get": 0,
                 "value": "0"
@@ -160,8 +146,8 @@
             "name": "initial",
             "get": 0,
             "type": "symbol",
-            "digest": "",
-            "description": "",
+            "digest": "Value",
+            "description": "Sets an initial value on load.",
             "default": {
                 "get": 0,
                 "value": "none"
@@ -172,5 +158,10 @@
         "caption": "",
         "image": ""
     },
-    "seealso": []
+    "seealso": [
+        "evi.list.interp",
+        "evi.list.xfade",
+        "mc.evi.listgen",
+        "evi.transratio"
+    ]
 }

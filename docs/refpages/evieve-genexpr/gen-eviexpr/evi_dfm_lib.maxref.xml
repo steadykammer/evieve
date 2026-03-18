@@ -16,7 +16,7 @@
     evi_interp.genexpr <br />
     <br />
     <b>About this File</b>: <br />
-    This file is a specific genexpr lib for use by the [evi.dfm~] MSP abstraction. It is likely not useful as a require() but you may find something interesting here. The enclosed [evi_dfm] gen~ abstraction only works in MSP as it requires an external LUT. [evi.dfm~] is a deluxe but dirty MS20-inspired old-school-style filter emulation, 12dB lowpass or 6dB highpass. Based on a classic by Tony Hardie-Bick ('DFM-1 Digital Filter Module'), 2010. <br />
+    This file is a specific genexpr lib for use by the [evi.dfm~] MSP abstraction. It is likely not useful as a require() but you may find something interesting here. The enclosed [evi_dfm] gen~ abstraction only works in MSP as it requires an external LUT. [evi.dfm~] is a deluxe but dirty MS20-inspired old-school-style filter emulation, 12dB lowpass or 6dB highpass. Based on a classic by Tony Hardie-Bick ('DFM-1 Digital Filter Module'), 2010. LICENSE: GPLv2. <br />
   </description>
   <misc name="GenExpr Functions">
     <entry name="gaussnoise ( )">

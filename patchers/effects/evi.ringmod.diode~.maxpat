@@ -16,9 +16,9 @@
         "boxes": [
             {
                 "box": {
-                    "comment": "",
+                    "comment": "(signal) Ring Modulated Output",
                     "id": "obj-24",
-                    "index": 0,
+                    "index": 1,
                     "maxclass": "outlet",
                     "numinlets": 1,
                     "numoutlets": 0,
@@ -32,7 +32,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 64.0, 28.0, 367.0, 20.0 ],
-                    "presentation_linecount": 2,
                     "text": "arg #1: upsampling 16, 32 or 64"
                 }
             },
@@ -484,9 +483,9 @@
             },
             {
                 "box": {
-                    "comment": "",
+                    "comment": "(signal) Audio Input 2",
                     "id": "obj-7",
-                    "index": 0,
+                    "index": 2,
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
@@ -540,9 +539,9 @@
             },
             {
                 "box": {
-                    "comment": "",
+                    "comment": "(signal) Audio Input 1",
                     "id": "obj-2",
-                    "index": 0,
+                    "index": 1,
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
@@ -559,6 +558,31 @@
                     "outlettype": [ "signal" ],
                     "patching_rect": [ 162.0, 267.0, 269.0, 22.0 ],
                     "text": "poly~ evi.ringmod.diode.core~ 1 up 32 @target 0"
+                }
+            },
+            {
+                "box": {
+                    "hidden": 1,
+                    "id": "obj-37",
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 64.0, 73.0, 367.0, 20.0 ],
+                    "text": "evievedoc @voltage 0.598425 @knee 0.598425 @slope 0.993701",
+                    "varname": "evievedoc"
+                }
+            },
+            {
+                "box": {
+                    "hidden": 1,
+                    "id": "obj-11",
+                    "linecount": 2,
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 281.0, 291.0, 150.0, 33.0 ],
+                    "text": "massive oversampling is the only way with this algo",
+                    "textjustification": 2
                 }
             }
         ],

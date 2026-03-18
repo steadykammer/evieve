@@ -95,8 +95,8 @@
         "description": ""
     },
     "evi.clipasym~": {
-        "type": "abstraction",
-        "digest": "Asymmetric nonlinear processor \n",
+        "type": "define",
+        "digest": 0,
         "description": ""
     },
     "evi.comb~": {
@@ -484,11 +484,6 @@
         "digest": "Zero-rest phasor with settings for reverse and pause",
         "description": ""
     },
-    "evi.plateverb.lite~": {
-        "type": "abstraction",
-        "digest": "Efficient version of evi.plateverb~ plate reverb \n",
-        "description": ""
-    },
     "evi.plateverb~": {
         "type": "abstraction",
         "digest": "Plate reverb based on yafr2~ with additional filtering and smoothing \n",
@@ -537,7 +532,7 @@
     "evi.ringmod.diode~": {
         "type": "abstraction",
         "digest": "analog-modelled diode-based ring modulator effect \n",
-        "description": ""
+        "description": "Piece-wise approximation of a 4-diode ring modulator, naive implementation just oversampled for clean anti-aliasing, so not very efficient. But it has it's own interesting sound."
     },
     "evi.ringmod~": {
         "type": "define",
@@ -565,8 +560,8 @@
         "description": ""
     },
     "evi.sinfold~": {
-        "type": "abstraction",
-        "digest": "Sinusoidal waveshaping processor \n",
+        "type": "define",
+        "digest": 0,
         "description": ""
     },
     "evi.skfinputmix~": {
@@ -582,11 +577,6 @@
     "evi.squine.simple~": {
         "type": "define",
         "digest": "A basic implementation of Rasmus Ekman's 'squine wave' oscillator with audio rate modulation",
-        "description": ""
-    },
-    "evi.sustainverb.lite~": {
-        "type": "abstraction",
-        "digest": "Efficient version of evi.sustainverb~ reverb effect \n",
         "description": ""
     },
     "evi.sustainverb~": {
@@ -627,12 +617,12 @@
     "evi.tpqm": {
         "type": "abstraction",
         "digest": "Three point quadratic map \n",
-        "description": ""
+        "description": "A utility abstraction that allows for value scaling from a linear input map to a linear output map. Map three input points to three output points and linearly scale between them."
     },
     "evi.transratio": {
         "type": "abstraction",
         "digest": "Convert semitones to pitch and vica versa \n",
-        "description": ""
+        "description": "Like the [transratio] abstraction but with multiple choices for input/output conversion."
     },
     "evi.tremolo~": {
         "type": "define",
@@ -672,12 +662,12 @@
     "evi.warmer~": {
         "type": "abstraction",
         "digest": "Complex saturation processor with options \n",
-        "description": ""
+        "description": "Based on an idea by Tom Szilagyi."
     },
     "evi.weightingcoeffs": {
         "type": "abstraction",
-        "digest": "Compute coefficients for A-weighting and other filters \n",
-        "description": ""
+        "digest": "Compute coefficients for A-weighting and other analytical filters and output for cascade~ \n",
+        "description": "evi.weightingcoeffs is simply a lookup table and is therefore extremely efficient. Coefficients are available for a wide range os samplerates and can therefore be used in a downsampled poly~ (for example)."
     },
     "evi.xfade~": {
         "type": "external",
@@ -702,15 +692,11 @@
     "mc.evi.bands~": {
         "type": "abstraction",
         "digest": "Evenly distribute resonant filter bands across a spectrum \n",
-        "description": ""
+        "description": "An evieve version of the native mc.bands~ abstraction. In evieve the filters are updated to use TPT resonant filters, as well as some minor optimisations and utilities."
     },
     "mc.evi.listgen": {
         "type": "abstraction",
         "digest": "Create message lists with mcwrapper features \n",
-        "description": ""
-    },
-    "evi.plateverb_lite~": {
-        "digest": "Efficient version of evi.plateverb~ plate reverb \n",
-        "description": ""
+        "description": "Create message lists with mcwrapper features - a patch idea by Todd Ingalls - THANKS!"
     }
 }

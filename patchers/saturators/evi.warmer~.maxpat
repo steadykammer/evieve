@@ -1482,6 +1482,18 @@
                     "patching_rect": [ 64.0, 187.0, 101.0, 22.0 ],
                     "text": "gen~ evi_warmer"
                 }
+            },
+            {
+                "box": {
+                    "hidden": 1,
+                    "id": "obj-13",
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 158.0, 85.0, 341.0, 20.0 ],
+                    "text": "evievedoc @ingain 1. @outgain -1. @highpass 100.",
+                    "varname": "evievedoc"
+                }
             }
         ],
         "lines": [

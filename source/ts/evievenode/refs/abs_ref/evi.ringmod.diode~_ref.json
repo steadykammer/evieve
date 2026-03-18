@@ -3,8 +3,8 @@
         "name": "evi.ringmod.diode~",
         "category": "evieve",
         "digest": "analog-modelled diode-based ring modulator effect",
-        "description": "TEXT_HERE",
-        "discussion": ""
+        "description": "Piece-wise approximation of a 4-diode ring modulator, naive implementation just oversampled for clean anti-aliasing, so not very efficient. But it has it's own interesting sound.",
+        "discussion": "@see: 'A Simple Digital Model of the Diode-based Ring-Modulator', DAFx-11, 2011, by Julian Parker."
     },
     "metadata": {
         "author": "Pete Dowling",
@@ -12,40 +12,77 @@
     },
     "inlets": [
         {
-            "id": 0,
-            "type": "",
-            "digest": "",
-            "description": ""
+            "id": 1,
+            "type": "signal",
+            "digest": "Audio Input 1",
+            "description": "First signal to be ring modulated (Carrier)."
+        },
+        {
+            "id": 2,
+            "type": "signal",
+            "digest": "Audio Input 2",
+            "description": "Second signal to be ring modulated (Modulator)."
         }
     ],
     "outlets": [
         {
-            "id": 0,
-            "type": "",
-            "digest": "",
-            "description": ""
+            "id": 1,
+            "type": "signal",
+            "digest": "Ring Modulated Output",
+            "description": "Audio output of the ring modulator."
         }
     ],
-    "arguments": [],
-    "messages": [
+    "arguments": [
         {
-            "name": "",
-            "arg": [
-                {
-                    "name": "",
-                    "type": "",
-                    "units": "",
-                    "optional": 1
-                }
-            ],
-            "digest": "",
-            "description": ""
+            "name": "upsample",
+            "type": "int",
+            "default": "32",
+            "optional": 1,
+            "digest": "arg#1: oversampling factor",
+            "description": "Oversampling factor for the core ring modulator algorithm. Can be 16, 32 or 64. Default 32. Can only be a typed in argument."
         }
     ],
-    "attributes": [],
+    "messages": [],
+    "attributes": [
+        {
+            "name": "knee",
+            "get": 0,
+            "type": "float",
+            "digest": "Normalised 0..1",
+            "description": "Soft knee..Hard knee 0..1. A harder knee increases the asymmetrical saturation in the diodes.",
+            "default": {
+                "get": 0,
+                "value": "0.598425"
+            }
+        },
+        {
+            "name": "slope",
+            "get": 0,
+            "type": "float",
+            "digest": "Normalised 0..1",
+            "description": "Soft..Hard 0..1. Slope increases the gain staging at the input to the diodes.",
+            "default": {
+                "get": 0,
+                "value": "0.993701"
+            }
+        },
+        {
+            "name": "voltage",
+            "get": 0,
+            "type": "float",
+            "digest": "Normalised 0..1",
+            "description": "Increasing the voltage not only increases the gain but also smooths the diode shaping leading to more intelligable harmonics.",
+            "default": {
+                "get": 0,
+                "value": "0.598425"
+            }
+        }
+    ],
     "example": {
         "caption": "",
         "image": ""
     },
-    "seealso": []
+    "seealso": [
+        "evi.ringmod~"
+    ]
 }

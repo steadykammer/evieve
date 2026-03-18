@@ -38,7 +38,7 @@
             "type": "symbol",
             "default": "NAME",
             "optional": 1,
-            "digest": "arg#1: ",
+            "digest": "arg#1: Data name",
             "description": "The name of the internal data structures (buffer~ and dict). By default this is a unique name. Give your own name here if you want to access the data in other data objects in your patcher. Either way you can still query all internal data and utilise the dumpout outlet."
         },
         {
@@ -46,7 +46,7 @@
             "type": "int",
             "default": "0",
             "optional": 1,
-            "digest": "arg#2: ",
+            "digest": "arg#2: Number of coefficients",
             "description": "Set the number of coefficients to create, 2..64, default 8 (for evieve Hilbert). Does not technically recompute coefficients, but coefficients are computed on load."
         },
         {
@@ -54,7 +54,7 @@
             "type": "float",
             "default": "0.",
             "optional": 1,
-            "digest": "arg#3: ",
+            "digest": "arg#3: Transition bandwidth",
             "description": "Set the filter transition bandwidth to use in Hz, default 40, 4..samplerate*0.25. Does not technically recompute coefficients, but coefficients are computed on load."
         }
     ],
@@ -134,6 +134,7 @@
     },
     "seealso": [
         "evi.hilbert~",
-        "evi.freqshift.hilbert~"
+        "evi.freqshift.hilbert~",
+        "evi.weightingcoeffs"
     ]
 }

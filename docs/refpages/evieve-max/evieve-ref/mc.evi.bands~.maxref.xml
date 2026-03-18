@@ -6,7 +6,7 @@
 		Evenly distribute resonant filter bands across a spectrum <br />
 	</digest>
 	<description>
-		TEXT_HERE <br />
+		An evieve version of the native <o>mc.bands~</o> abstraction. In evieve the filters are updated to use TPT resonant filters, as well as some minor optimisations and utilities. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>
@@ -16,72 +16,112 @@
 	</metadatalist>
 	<!--INLETS-->
 	<inletlist>
-		<inlet id="0" type="int">
+		<inlet id="1" type="signal">
+			<digest>
+				input to split
+			</digest>
+			<description>
+				A mono signal.
+			</description>
+		</inlet>
+		<inlet id="2" type="int">
 			<digest>
 				# of bands
 			</digest>
 			<description>
-				
+				The number of filter bands to create.
+			</description>
+		</inlet>
+		<inlet id="3" type="int/float">
+			<digest>
+				low freq bound (Hz)
+			</digest>
+			<description>
+				The lowest filter band is set at this frequency in Hz.
+			</description>
+		</inlet>
+		<inlet id="4" type="int/float">
+			<digest>
+				high freq bound (Hz)
+			</digest>
+			<description>
+				The highest filter band is set at this frequency in Hz.
+			</description>
+		</inlet>
+		<inlet id="5" type="int/float">
+			<digest>
+				bandwidth (% 0..100)
+			</digest>
+			<description>
+				The bandwidth of all filter bands. 0% is very narrow, 100% is very wide.
 			</description>
 		</inlet>
 	</inletlist>
 	<!--OUTLETS-->
 	<outletlist>
-		<outlet id="0" type="">
+		<outlet id="1" type="multichannelsignal">
+			<digest>
+				filter bands
+			</digest>
+			<description>
+				The audio output, an X channel multichannel signal with X bands.
+			</description>
+		</outlet>
+		<outlet id="2" type="">
 			<digest>
 				dumpout
 			</digest>
 			<description>
-				
+				Recieve query results.
 			</description>
 		</outlet>
 	</outletlist>
 	<!--ARGUMENTS-->
 	<objarglist>
-		<objarg name="" type="int" default="16" optional="1">
+		<objarg name="bands" type="int" default="16" optional="1">
 			<digest>
-				arg#1: 
+				arg#1: # of bands
 			</digest>
 			<description>
-				
+				The number of filter bands to create.
 			</description>
 		</objarg>
-		<objarg name="" type="float" default="20." optional="1">
+		<objarg name="low" type="float" default="20." optional="1">
 			<digest>
-				arg#2: 
+				arg#2: low freq bound (Hz)
 			</digest>
 			<description>
-				
+				The lowest filter band is set at this frequency in Hz.
 			</description>
 		</objarg>
-		<objarg name="" type="float" default="20000." optional="1">
+		<objarg name="high" type="float" default="20000." optional="1">
 			<digest>
-				arg#3: 
+				arg#3: high freq bound (Hz)
 			</digest>
 			<description>
-				
+				The highest filter band is set at this frequency in Hz.
 			</description>
 		</objarg>
-		<objarg name="" type="float" default="100." optional="1">
+		<objarg name="bandwidth" type="float" default="100." optional="1">
 			<digest>
-				arg#4: 
+				arg#4: bandwidth (% 0..100)
 			</digest>
 			<description>
-				
+				The bandwidth of all filter bands. 0% is very narrow, 100% is very wide.
 			</description>
 		</objarg>
 	</objarglist>
 	<!--MESSAGES-->
 	<methodlist>
-		<method name="">
+		<method name="message">
 			<arglist>
-				<arg name="" type="" units="" optional="1" />
+				<arg name="bandwidth" type="%" units="float" optional="1" />
 			</arglist>
 			<digest>
-				
+				In left inlet, the message &#x27;bandwidth&#x27; followed by an int or float
 			</digest>
 			<description>
-				
+				In left inlet, the message &#x27;bandwidth&#x27; followed by an int or float 0..100 sets the bandwidth of the filters in %.
 			</description>
 		</method>
 	</methodlist>
@@ -89,10 +129,10 @@
 	<attributelist>
 		<attribute name="compensate" get="0" set="1" type="int" size="1">
 			<digest>
-				
+				Flag 0/1
 			</digest>
 			<description>
-				
+				Gain compensation flag to account for resonant filters at very high Q values.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="int" size="1" value="1" />
@@ -100,10 +140,10 @@
 		</attribute>
 		<attribute name="maxbands" get="0" set="1" type="int" size="1">
 			<digest>
-				
+				2..1024
 			</digest>
 			<description>
-				
+				Maximum avilable bands (that the multichannelsignal can use)
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="int" size="1" value="128" />
@@ -111,10 +151,10 @@
 		</attribute>
 		<attribute name="smooth" get="0" set="1" type="float" size="1">
 			<digest>
-				
+				Time in ms
 			</digest>
 			<description>
-				
+				Smoothing time for the filter mixing gains.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="10." />
@@ -122,10 +162,10 @@
 		</attribute>
 		<attribute name="tuning" get="0" set="1" type="float" size="1">
 			<digest>
-				
+				In Hz
 			</digest>
 			<description>
-				
+				Tuning for the Hz calculations of all filter bands.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="440." />
@@ -138,6 +178,9 @@
 	</examplelist>
 	<!--SEEALSO-->
 	<seealsolist>
+		<seealso name="evi.formantfilter~"> </seealso>
+		<seealso name="evi.formantfilter.morph~"> </seealso>
+		<seealso name="evi.reson~"> </seealso>
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>

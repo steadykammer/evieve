@@ -122,7 +122,6 @@
 <refpage name='evi_phasor0.maxref.xml'/>
 <refpage name='evi_phasorrate0.maxref.xml'/>
 <refpage name='evi_plateverb.maxref.xml'/>
-<refpage name='evi_plateverb_lite.maxref.xml'/>
 <refpage name='evi_quadfmpm.maxref.xml'/>
 <refpage name='evi_ramp0.maxref.xml'/>
 <refpage name='evi_rampsmooth.maxref.xml'/>
@@ -147,7 +146,6 @@
 <refpage name='evi_sustainfdn.maxref.xml'/>
 <refpage name='evi_sustainfdnclear.maxref.xml'/>
 <refpage name='evi_sustainverb.maxref.xml'/>
-<refpage name='evi_sustainverb_lite.maxref.xml'/>
 <refpage name='evi_svf.maxref.xml'/>
 <refpage name='evi_svfinputmix.maxref.xml'/>
 <refpage name='evi_svfsmooth.maxref.xml'/>
