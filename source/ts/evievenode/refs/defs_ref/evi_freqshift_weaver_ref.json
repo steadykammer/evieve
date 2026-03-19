@@ -202,5 +202,10 @@
         "caption": "",
         "image": ""
     },
-    "seealso": []
+    "seealso": [
+        "evi.freqshift.hilbert~",
+        "evi.hilbert~",
+        "evi.ringmod~",
+        "evi.ringmod.diode~"
+    ]
 }

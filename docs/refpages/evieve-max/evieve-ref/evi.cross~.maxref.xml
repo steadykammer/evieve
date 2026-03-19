@@ -9,7 +9,7 @@
 		<b>evi.cross~</b> is a 'max define' for the <o>evi_cross</o>.gendsp gen~ abstraction.
 		Because evi.cross~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		<br />
-		TEXT_HERE <br />
+		<o>evi.cross~</o> differs from MSP <o>cross~</o> in the following ways: <o>evi.cross~</o> is a steeper 4-pole crossover slope (<o>cross~</o> is a 3-pole slope), because 3rd order is not possible with flat summing Linkwitz-Riley. <o>evi.cross~</o> is a proper Linkwitz-Riley crossover which sums perfectly flat (whereas <o>cross~</o> is pure Butterworths and sums with a +3dB bump). <o>evi.cross~</o> remains stable under modulation. For a shallower 2-pole Linkwitz-Riley crossover @see <o>evi.crossover~</o>. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>
@@ -24,7 +24,7 @@
 				Inlet #1: Input
 			</digest>
 			<description>
-				
+				Audio input to split.
 			</description>
 		</inlet>
 		<inlet id="2" type="signal/float">
@@ -32,7 +32,7 @@
 				Inlet #2: Crossover Frequency in Hz @min 10 @max 20000
 			</digest>
 			<description>
-				
+				The frequency at which to split the incoming audio into it&#x27;s lowpass and highpass outputs.
 			</description>
 		</inlet>
 	</inletlist>
@@ -43,7 +43,7 @@
 				Outlet #1: Lowpass Output
 			</digest>
 			<description>
-				
+				Lowpass filtered output.
 			</description>
 		</outlet>
 		<outlet id="2" type="signal">
@@ -51,7 +51,7 @@
 				Outlet #2: Highpass Output
 			</digest>
 			<description>
-				
+				Highpass filtered output.
 			</description>
 		</outlet>
 	</outletlist>
@@ -67,6 +67,10 @@
 	</examplelist>
 	<!--SEEALSO-->
 	<seealsolist>
+		<seealso name="evi.crossover~"> </seealso>
+		<seealso name="evi.crossover.3band~"> </seealso>
+		<seealso name="evi.crossover.sum~"> </seealso>
+		<seealso name="evi.crossover.allpass~"> </seealso>
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>

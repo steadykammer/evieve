@@ -106,6 +106,50 @@
                 <attribute name='default' type='float' value='2.' />
             </attributelist>
         </attribute>
+        <attribute name='foldboost' type='int' get='0' set='1'>
+            <digest>
+                @min 0, @max 1
+            </digest>
+            <description>
+                
+            </description>
+            <attributelist>
+                <attribute name='default' type='int' value='0' />
+            </attributelist>
+        </attribute>
+        <attribute name='foldgain' type='float' get='0' set='1'>
+            <digest>
+                @min -12, @max 12
+            </digest>
+            <description>
+                
+            </description>
+            <attributelist>
+                <attribute name='default' type='float' value='-1.' />
+            </attributelist>
+        </attribute>
+        <attribute name='foldmix' type='float' get='0' set='1'>
+            <digest>
+                @min 0, @max 1
+            </digest>
+            <description>
+                
+            </description>
+            <attributelist>
+                <attribute name='default' type='float' value='0.333333' />
+            </attributelist>
+        </attribute>
+        <attribute name='foldslope' type='float' get='0' set='1'>
+            <digest>
+                @min 0, @max 1
+            </digest>
+            <description>
+                
+            </description>
+            <attributelist>
+                <attribute name='default' type='float' value='0.23228' />
+            </attributelist>
+        </attribute>
         <attribute name='highpass' type='float' get='0' set='1'>
             <digest>
                 @min 10, @max 400
@@ -119,7 +163,7 @@
         </attribute>
         <attribute name='ingain' type='float' get='0' set='1'>
             <digest>
-                @min -48, @max 48
+                @min -24, @max 24
             </digest>
             <description>
                 

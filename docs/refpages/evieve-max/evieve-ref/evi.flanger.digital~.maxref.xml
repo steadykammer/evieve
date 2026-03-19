@@ -24,7 +24,7 @@
 				Inlet #1: Left Audio In
 			</digest>
 			<description>
-				
+				Left or mono audio input depending on the @stereo attribute.
 			</description>
 		</inlet>
 		<inlet id="2" type="signal">
@@ -32,7 +32,7 @@
 				Inlet #2: Right Audio In
 			</digest>
 			<description>
-				
+				Right audio input if @stereo attribute is on.
 			</description>
 		</inlet>
 		<inlet id="3" type="signal">
@@ -40,7 +40,7 @@
 				Inlet #3: Reset Naive
 			</digest>
 			<description>
-				
+				Reset of internal LFO phases is naive and not anti-aliased.
 			</description>
 		</inlet>
 	</inletlist>
@@ -51,7 +51,7 @@
 				Outlet #1: Left Audio Out
 			</digest>
 			<description>
-				
+				Modulated audio output left.
 			</description>
 		</outlet>
 		<outlet id="2" type="signal">
@@ -59,7 +59,7 @@
 				Outlet #2: Right Audio Out
 			</digest>
 			<description>
-				
+				Modulated audio output right.
 			</description>
 		</outlet>
 		<outlet id="3" type="signal">
@@ -67,7 +67,7 @@
 				Outlet #3: LFO Left Out
 			</digest>
 			<description>
-				
+				Left phase LFO output for downstream synchronisation.
 			</description>
 		</outlet>
 		<outlet id="4" type="signal">
@@ -75,7 +75,7 @@
 				Outlet #4: LFO Right Out
 			</digest>
 			<description>
-				
+				Right phase LFO output for downstream synchronisation.
 			</description>
 		</outlet>
 	</outletlist>
@@ -86,10 +86,10 @@
 	<attributelist>
 		<attribute name="cross" get="1" set="1" type="float" min="0" max="1">
 			<digest>
-				
+				Normalised 0..1
 			</digest>
 			<description>
-				
+				Crosses over 0..1 the wet left and wet right audio streams between the first and second stages of the flanger. Can add an interesting shift in the stereo image.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="0." />
@@ -97,10 +97,10 @@
 		</attribute>
 		<attribute name="depth" get="1" set="1" type="float" min="0" max="1">
 			<digest>
-				
+				Normalised 0..1
 			</digest>
 			<description>
-				
+				The relative size of the modulation delay. At 0 the flanger delay is 0 ms, at 1, the chorus delay modulates between its extremes, set by @mintime and @maxtime arguments in ms.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="0.74" />
@@ -108,10 +108,10 @@
 		</attribute>
 		<attribute name="drywet" get="1" set="1" type="float" min="0" max="1">
 			<digest>
-				
+				Normalised 0..1
 			</digest>
 			<description>
-				
+				The global dry/wet mix of the flanger. 0 is completely dry, 1 is completely wet.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="0.75" />
@@ -119,10 +119,10 @@
 		</attribute>
 		<attribute name="duty" get="1" set="1" type="float" min="0" max="1">
 			<digest>
-				
+				Normalised 0..1
 			</digest>
 			<description>
-				
+				One of four LFO controls (@duty, @shape, @skew, @zeroreset). @duty changes the duty cycle of the LFO triangle shape.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="0.4" />
@@ -130,10 +130,10 @@
 		</attribute>
 		<attribute name="feedback" get="1" set="1" type="float" min="-1" max="1">
 			<digest>
-				
+				Linear gain -1..1
 			</digest>
 			<description>
-				
+				The global feedback gain. The feedback path is safely saturated and anti-aliased.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="-0.5" />
@@ -141,10 +141,10 @@
 		</attribute>
 		<attribute name="feedforward" get="1" set="1" type="float" min="0" max="1">
 			<digest>
-				
+				Normalised 0..1
 			</digest>
 			<description>
-				
+				Linear feedforward gain mapped across two delay stages.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="0.25" />
@@ -152,10 +152,10 @@
 		</attribute>
 		<attribute name="gain" get="1" set="1" type="float" min="-10" max="10">
 			<digest>
-				
+				In dB -10..10
 			</digest>
 			<description>
-				
+				Attenuation or boost applied between the two saturation stages.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="0." />
@@ -163,10 +163,10 @@
 		</attribute>
 		<attribute name="inject" get="1" set="1" type="float" min="0" max="1">
 			<digest>
-				
+				Normalised 0..1
 			</digest>
 			<description>
-				
+				@inject is mapped to the direct gain coefficients of the embedded comb filter delays.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="0.75" />
@@ -174,10 +174,10 @@
 		</attribute>
 		<attribute name="invert" get="1" set="1" type="int" min="0" max="1">
 			<digest>
-				
+				Flag 0/1
 			</digest>
 			<description>
-				
+				Inverts the polarity of the flanged audio before mixing to the output. Switching invert is smoothed.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="0" />
@@ -185,10 +185,10 @@
 		</attribute>
 		<attribute name="maxhz" get="1" set="1" type="float" min="0" max="100">
 			<digest>
-				
+				Frequency in Hz
 			</digest>
 			<description>
-				
+				The maximum in Hz that the @rate attribute can reach. Typically these values are kept small for a flanger.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="2.69" />
@@ -196,10 +196,10 @@
 		</attribute>
 		<attribute name="maxtime" get="1" set="1" type="float" min="0" max="200">
 			<digest>
-				
+				Time in ms
 			</digest>
 			<description>
-				
+				The maximum delay time for the flanger. Whether or not this value is reached depends on the @depth attribute.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="2.1" />
@@ -207,10 +207,10 @@
 		</attribute>
 		<attribute name="mintime" get="1" set="1" type="float" min="0" max="200">
 			<digest>
-				
+				Time in ms
 			</digest>
 			<description>
-				
+				The minimum delay time for the chorus. Whether or not this value is reached depends on the @depth attribute. For a flanger this is typically at or near 0.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="0.03" />
@@ -218,10 +218,10 @@
 		</attribute>
 		<attribute name="rate" get="1" set="1" type="float" min="0" max="1">
 			<digest>
-				
+				Normalised 0..1
 			</digest>
 			<description>
-				
+				The global speed of the LFO phases. This sets the speed (between 0..@maxhz) the LFOs scale the delay times (set by @depth, @mintime and @maxtime).
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="0.1" />
@@ -229,10 +229,10 @@
 		</attribute>
 		<attribute name="shape" get="1" set="1" type="float" min="0" max="1">
 			<digest>
-				
+				Normalised 0..1
 			</digest>
 			<description>
-				
+				One of four LFO controls (@duty, @shape, @skew, @zeroreset). @shape smoothly morphs the LFO shape between triangle (0) and sine (1).
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="0.5" />
@@ -240,10 +240,10 @@
 		</attribute>
 		<attribute name="skew" get="1" set="1" type="float" min="0.5" max="2">
 			<digest>
-				
+				Exponent 0.5..2
 			</digest>
 			<description>
-				
+				One of four LFO controls (@duty, @shape, @skew, @zeroreset). @skew exponentially shapes the LFO output.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="1.2" />
@@ -251,10 +251,10 @@
 		</attribute>
 		<attribute name="smooth" get="1" set="1" type="float" min="0" max="301">
 			<digest>
-				
+				Time in ms
 			</digest>
 			<description>
-				
+				Smoothing time of the internal parameters.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="30.111" />
@@ -262,10 +262,10 @@
 		</attribute>
 		<attribute name="spread" get="1" set="1" type="float" min="0" max="1">
 			<digest>
-				
+				Normalised 0..1
 			</digest>
 			<description>
-				
+				The left/right spread of the audio outputs, actually the phase offset of the two internal LFOs. 0..1 is exponentially mapped to 0..180 degrees shift.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="0.7" />
@@ -273,10 +273,10 @@
 		</attribute>
 		<attribute name="stereo" get="1" set="1" type="int" min="0" max="1">
 			<digest>
-				
+				Flag 0/1
 			</digest>
 			<description>
-				
+				If off, the audio input to the process is taken only from the Left inlet 1 as mono. If @stereo is on, the audio inputs are taken from both left (1) and right (2) inlets. The audio output is always stereo.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="0" />
@@ -284,10 +284,10 @@
 		</attribute>
 		<attribute name="zeroreset" get="1" set="1" type="int" min="0" max="1">
 			<digest>
-				
+				Flag 0/1
 			</digest>
 			<description>
-				
+				One of four LFO controls (@duty, @shape, @skew, @zeroreset). If on, changes to the speed (@rate) of the internal LFOs are synchronised to zero reset of phase, which can produce seemless updating of speed changes. Otherwise the speed (@rate) updates smoothly morphing changes.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="0" />
@@ -300,6 +300,12 @@
 	</examplelist>
 	<!--SEEALSO-->
 	<seealsolist>
+		<seealso name="evi.chorus.digital~"> </seealso>
+		<seealso name="evi.am~"> </seealso>
+		<seealso name="evi.tremolo~"> </seealso>
+		<seealso name="evi.phaser.analog~"> </seealso>
+		<seealso name="evi.detune~"> </seealso>
+		<seealso name="evi.phasor0~"> </seealso>
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>

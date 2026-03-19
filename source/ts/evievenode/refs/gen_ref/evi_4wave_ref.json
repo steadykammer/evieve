@@ -7,7 +7,7 @@
         "description": "TEXT_HERE"
     },
     "constructor": {
-        "inlets": "frequency, naive"
+        "inlets": "frequency, reset"
     },
     "includes": [
         "evi_polyblep",
@@ -24,10 +24,10 @@
         },
         {
             "id": 2,
-            "name": "naive",
+            "name": "reset",
             "type": "float",
             "optional": 1,
-            "digest": "Reset"
+            "digest": "Naive"
         }
     ],
     "outlets": [

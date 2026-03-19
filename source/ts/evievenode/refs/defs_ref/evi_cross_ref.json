@@ -5,7 +5,7 @@
         "category": "evieve",
         "tilde": "~",
         "digest": "Reimplementation of MSP <o>cross~</o> filter as Likwitz-Riley",
-        "description": "TEXT_HERE",
+        "description": "<o>evi.cross~</o> differs from MSP <o>cross~</o> in the following ways: <o>evi.cross~</o> is a steeper 4-pole crossover slope (<o>cross~</o> is a 3-pole slope), because 3rd order is not possible with flat summing Linkwitz-Riley. <o>evi.cross~</o> is a proper Linkwitz-Riley crossover which sums perfectly flat (whereas <o>cross~</o> is pure Butterworths and sums with a +3dB bump). <o>evi.cross~</o> remains stable under modulation. For a shallower 2-pole Linkwitz-Riley crossover @see <o>evi.crossover~</o>.",
         "discussion": ""
     },
     "metadata": {
@@ -20,13 +20,13 @@
             "id": 1,
             "type": "signal",
             "digest": "Input",
-            "description": ""
+            "description": "Audio input to split."
         },
         {
             "id": 2,
             "type": "signal/float",
             "digest": "Crossover Frequency in Hz @min 10 @max 20000",
-            "description": ""
+            "description": "The frequency at which to split the incoming audio into it's lowpass and highpass outputs."
         }
     ],
     "outlets": [
@@ -34,13 +34,13 @@
             "id": 1,
             "type": "signal",
             "digest": "Lowpass Output",
-            "description": ""
+            "description": "Lowpass filtered output."
         },
         {
             "id": 2,
             "type": "signal",
             "digest": "Highpass Output",
-            "description": ""
+            "description": "Highpass filtered output."
         }
     ],
     "messages": [],
@@ -49,5 +49,10 @@
         "caption": "",
         "image": ""
     },
-    "seealso": []
+    "seealso": [
+        "evi.crossover~",
+        "evi.crossover.3band~",
+        "evi.crossover.sum~",
+        "evi.crossover.allpass~"
+    ]
 }

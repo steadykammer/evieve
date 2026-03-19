@@ -3,7 +3,7 @@
         "name": "evi.warmer~",
         "category": "evieve",
         "digest": "Complex saturation processor with options",
-        "description": "Based on an idea by Tom Szilagyi. Contains two asymmetric saturation stages with a bass boosting function and tone control filter. The effect can be blended between cubic and tanh like behaviour, and the tonal characteristics can be continuously morphed.",
+        "description": "Based on an idea by Tom Szilagyi. Contains two asymmetric saturation stages with a foldover boosting function and tone control filter. The effect can be blended between atan and asymmetric like behaviour, and the tonal characteristics can be continuously morphed.",
         "discussion": ""
     },
     "metadata": {
@@ -34,54 +34,10 @@
             "get": 0,
             "type": "float",
             "digest": "-10..10",
-            "description": "One of the key parameters (along with 'drive') that shape the tonal quality of the object. @blend will only have an impact if @drive is positive. Blends the colour of the waveshaping distortion function. Positive blend is a more asymmetric sound than the cleaner negative blend.",
+            "description": "One of the key parameters (along with 'drive') that shape the tonal quality of the object. @blend will only have an impact if @drive is > 0. Blends the colour of the waveshaping distortion function. Positive blend is a more asymmetric sound than the cleaner negative blend.",
             "default": {
                 "get": 0,
                 "value": "-2."
-            }
-        },
-        {
-            "name": "clip",
-            "get": 0,
-            "type": "symbol",
-            "digest": "Flag 0/1 or symbol",
-            "description": "'0' or 'soft' sets soft clipping internally, '1' or 'hard' sets hard clipping internally.",
-            "default": {
-                "get": 0,
-                "value": "soft"
-            }
-        },
-        {
-            "name": "clipfold",
-            "get": 0,
-            "type": "float",
-            "digest": "In dB, -12..12",
-            "description": "Only active if @clip attribute is on. Boost bass frequecies into the folding distortion circuit, set by the @clip attribute.",
-            "default": {
-                "get": 0,
-                "value": "-1."
-            }
-        },
-        {
-            "name": "clipmix",
-            "get": 0,
-            "type": "float",
-            "digest": "Normalised 0..1",
-            "description": "Only active if @clip attribute is on. Mix bass frequencies (1) or higher frequencies (0) through the clipping circuit.",
-            "default": {
-                "get": 0,
-                "value": "0.333333"
-            }
-        },
-        {
-            "name": "clipslope",
-            "get": 0,
-            "type": "float",
-            "digest": "Normalised 0..1",
-            "description": "Only active if @clip attribute is on. The slope of the @clipmix attribute, favour lower frequencies (0) or higher frequencies (1).",
-            "default": {
-                "get": 0,
-                "value": "0.23228"
             }
         },
         {
@@ -99,7 +55,7 @@
             "name": "drive",
             "get": 0,
             "type": "float",
-            "digest": "",
+            "digest": "0..10",
             "description": "One of the key parameters (along with 'blend') that shape the tonal quality of the object. In general, drive will increase the gain and increase the harmonics in the output, but this depends on the @blend attribute. Lower drive values will make the sound darker, higher values will make it brighter.",
             "default": {
                 "get": 0,
@@ -107,33 +63,66 @@
             }
         },
         {
+            "name": "fold",
+            "get": 0,
+            "type": "symbol",
+            "digest": "Flag 0/1 or symbol",
+            "description": "'0' or 'soft' sets soft clipping internally, '1' or 'hard' sets hard (folding) clipping internally.",
+            "default": {
+                "get": 0,
+                "value": "soft"
+            }
+        },
+        {
+            "name": "foldgain",
+            "get": 0,
+            "type": "float",
+            "digest": "In dB, -12..12",
+            "description": "Only active if @fold attribute is on. Boost effect into the folding distortion circuit, set by the @fold attribute. Very high values are increasingly aggressive, lower values give a softer sound. With very high values the entire output can alias, depending on the material fed into the circuit, so be careful!",
+            "default": {
+                "get": 0,
+                "value": "-1."
+            }
+        },
+        {
+            "name": "foldmix",
+            "get": 0,
+            "type": "float",
+            "digest": "Normalised 0..1",
+            "description": "Only active if @fold attribute is on. Mix duty cycle like effect of the foldover clipping circuit. Higher values are harsher.",
+            "default": {
+                "get": 0,
+                "value": "0.333333"
+            }
+        },
+        {
+            "name": "foldslope",
+            "get": 0,
+            "type": "float",
+            "digest": "Normalised 0..1",
+            "description": "Only active if @fold attribute is on and @foldmix is > 0. The slope of the @foldmix attribute, the higher (smoother) the value the softer the folding portion of the waveform.",
+            "default": {
+                "get": 0,
+                "value": "0.23228"
+            }
+        },
+        {
             "name": "gain",
             "get": 0,
             "type": "float",
-            "digest": "In dB, out will clip at -24..24, in will clip at -48..48",
-            "description": "Activation depends on the '@decouplegain' attribute: @gain is active if @decouplegain is off. The @gain attribute reciprocally adjusts input and output gains around unity.",
+            "digest": "In dB, -24..24",
+            "description": "Activation depends on the '@decouplegain' attribute: @gain is active if @decouplegain is off. The @gain attribute reciprocally adjusts input and output gains around unity. Positive dB boost input and attenuates output, negative dB does the opposite.",
             "default": {
                 "get": 0,
                 "value": "1."
             }
         },
         {
-            "name": "highpass",
-            "get": 0,
-            "type": "float",
-            "digest": "In Hz, 10..400",
-            "description": "A final onepole highpass to tame the bass if needed.",
-            "default": {
-                "get": 0,
-                "value": "100."
-            }
-        },
-        {
             "name": "ingain",
             "get": 0,
             "type": "float",
-            "digest": "In dB, -48..48",
-            "description": "Activation depends on the '@decouplegain' attribute: @ingain and @outgain are active if @decouplegain is on. The @ingain attribute sets the audio input gain to the saturation processes beween -48 and +48 dB.",
+            "digest": "In dB, -24..24",
+            "description": "Activation depends on the '@decouplegain' attribute: @ingain and @outgain are active if @decouplegain is on. The @ingain attribute sets the audio input gain to the saturation processes beween -24 and +24 dB.",
             "default": {
                 "get": 0,
                 "value": "1."
@@ -202,6 +191,7 @@
     "seealso": [
         "evi.clipasym~",
         "evi.sinfold~",
+        "evi.shaper~",
         "evi.overdrive.tanh~",
         "evi.overdrive.atan~",
         "evi.overdrive.sqrt~"

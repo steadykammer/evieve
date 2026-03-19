@@ -4,7 +4,7 @@
         "parent": "evi_phasor0",
         "category": "evieve",
         "tilde": "~",
-        "digest": "Zero-rest phasor with settings for reverse and pause",
+        "digest": "Zero-reset phasor with settings for reverse and pause",
         "description": "TEXT_HERE",
         "discussion": ""
     },

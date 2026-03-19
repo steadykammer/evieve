@@ -9,7 +9,7 @@
 		<b>evi.crossover~</b> is a 'max define' for the <o>evi_crossover</o>.gendsp gen~ abstraction.
 		Because evi.crossover~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		<br />
-		TEXT_HERE <br />
+		Linkwitz-Riley crossovers sum perfectly flat on recombination of the outputs. Use <o>evi.crossover~</o> to achieve multiband processing. @see the 'seealso' section for other evieve objects that can help with this. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>
@@ -24,7 +24,7 @@
 				Inlet #1: Input to Split
 			</digest>
 			<description>
-				
+				Audio input to split.
 			</description>
 		</inlet>
 		<inlet id="2" type="signal/float">
@@ -32,7 +32,7 @@
 				Inlet #2: Crossover Frequency in Hz @min 10 @max 20000
 			</digest>
 			<description>
-				
+				The frequency at which to split the incoming audio into it&#x27;s lowpass and highpass outputs.
 			</description>
 		</inlet>
 	</inletlist>
@@ -43,7 +43,7 @@
 				Outlet #1: Low Band Output
 			</digest>
 			<description>
-				
+				Lowpass filtered output.
 			</description>
 		</outlet>
 		<outlet id="2" type="signal">
@@ -51,7 +51,7 @@
 				Outlet #2: High Band Output
 			</digest>
 			<description>
-				
+				Highpass filtered output.
 			</description>
 		</outlet>
 	</outletlist>
@@ -62,10 +62,10 @@
 	<attributelist>
 		<attribute name="order" get="1" set="1" type="int" min="0" max="1">
 			<digest>
-				
+				Flag 0/1
 			</digest>
 			<description>
-				
+				0&#x3D;2-pole (shallower) crossover filters, 1&#x3D;4-pole (steeper) crossover filters. 2-pole can be subtle, 4-pole gives more rejection.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="0" />
@@ -78,6 +78,10 @@
 	</examplelist>
 	<!--SEEALSO-->
 	<seealsolist>
+		<seealso name="evi.cross~"> </seealso>
+		<seealso name="evi.crossover.3band~"> </seealso>
+		<seealso name="evi.crossover.sum~"> </seealso>
+		<seealso name="evi.crossover.allpass~"> </seealso>
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>

@@ -5,7 +5,7 @@
         "category": "evieve",
         "tilde": "~",
         "digest": "A choice of 2 or 4 pole Linkwitz-Riley crossover filters",
-        "description": "TEXT_HERE",
+        "description": "Linkwitz-Riley crossovers sum perfectly flat on recombination of the outputs. Use <o>evi.crossover~</o> to achieve multiband processing. @see the 'seealso' section for other evieve objects that can help with this.",
         "discussion": ""
     },
     "metadata": {
@@ -20,13 +20,13 @@
             "id": 1,
             "type": "signal",
             "digest": "Input to Split",
-            "description": ""
+            "description": "Audio input to split."
         },
         {
             "id": 2,
             "type": "signal/float",
             "digest": "Crossover Frequency in Hz @min 10 @max 20000",
-            "description": ""
+            "description": "The frequency at which to split the incoming audio into it's lowpass and highpass outputs."
         }
     ],
     "outlets": [
@@ -34,13 +34,13 @@
             "id": 1,
             "type": "signal",
             "digest": "Low Band Output",
-            "description": ""
+            "description": "Lowpass filtered output."
         },
         {
             "id": 2,
             "type": "signal",
             "digest": "High Band Output",
-            "description": ""
+            "description": "Highpass filtered output."
         }
     ],
     "messages": [],
@@ -49,8 +49,8 @@
             "name": "order",
             "get": 1,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Flag 0/1",
+            "description": "0=2-pole (shallower) crossover filters, 1=4-pole (steeper) crossover filters. 2-pole can be subtle, 4-pole gives more rejection.",
             "default": {
                 "min": "0",
                 "max": "1",
@@ -62,5 +62,10 @@
         "caption": "",
         "image": ""
     },
-    "seealso": []
+    "seealso": [
+        "evi.cross~",
+        "evi.crossover.3band~",
+        "evi.crossover.sum~",
+        "evi.crossover.allpass~"
+    ]
 }

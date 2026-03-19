@@ -462,6 +462,36 @@
 
       </description>
     </entry>
+    <entry name="szilagyi ( )">
+      <description>
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: l, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: h, <i></i> <br />
+
+        <b>Return 1</b>: , <i></i> <br />
+
+      </description>
+    </entry>
+    <entry name="szilagyiAdaa2_2x_6POINT ( )">
+      <description>
+        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: l, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: h, <i></i> <br />
+
+        <b>Return 1</b>: , <i></i> <br />
+
+      </description>
+    </entry>
+    <entry name="szilagyiAdaa2_4x_6POINT ( )">
+      <description>
+        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: l, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: h, <i></i> <br />
+
+        <b>Return 1</b>: , <i></i> <br />
+
+      </description>
+    </entry>
     <entry name="parabolSat_2x_6POINT ( )">
       <description>
         Not adaa, 2x oversampling, 6-point interpolator, parabolic function <br />

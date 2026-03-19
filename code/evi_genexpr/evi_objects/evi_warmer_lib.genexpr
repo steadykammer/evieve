@@ -5,336 +5,309 @@
 */
 
 require("evi_smooth.genexpr");
-require("evi_rcfilters.genexpr");
+// require("evi_rcfilters.genexpr");
+require("evi_interp.genexpr");
 require("evi_butterworth.genexpr");
 
 D(x)
 {
-  return sqrt(x * sign(x));
+	return sqrt(x * sign(x));
 }
 
+// it is a shaping function :-)
 szilagyi(drive, blend, sr)  // sr = samplerate
 {
-  sr01 = sr * 0.1;
-  srct = sr01 / (sr01 + 1);
+	sr01 = sr * 0.1;
+	srct = sr01 / (sr01 + 1);
 
-  rdrive = 12 / drive;
-  rdrive2 = rdrive * rdrive;
-  rd22 = rdrive2 + rdrive2;
-  rbdr = rdrive / (10.5 - blend) * 23.636364;
-  rbdr2 = rbdr * rbdr;
+	rdrive = 12 / drive;
+	rdrive2 = rdrive * rdrive;
+	rd22 = rdrive2 + rdrive2;
+	rbdr = rdrive / (10.5 - blend) * 23.636364;
+	rbdr2 = rbdr * rbdr;
 
-  kp0 = D(rd22 - 1);
-  kpa = kp0 + 1;
-  kpb = (2 - kpa) * 0.5;
+	kp0 = D(rd22 - 1);
+	kpa = kp0 + 1;
+	kpb = (2 - kpa) * 0.5;
 
-  ap = (rdrive2 - kpa + 1) * 0.5;
-  kc = kpa / D(kp0 + kp0 - rd22);
-  kc2 = kc * kc;
-  sq = kc2 + 1;
-  dsq = D(sq);
+	ap = (rdrive2 - kpa + 1) * 0.5;
+	kc = kpa / D(kp0 + kp0 - rd22);
+	kc2 = kc * kc;
+	sq = kc2 + 1;
+	dsq = D(sq);
 
-  kdm = rbdr / dsq;
-  knb = -(kdm);
-  kna = (kc + kc) * kdm;
+	kdm = rbdr / dsq;
+	knb = -(kdm);
+	kna = (kc + kc) * kdm;
 
-  an = rbdr2 / sq;
-  imr = (knb + knb) + D(kna + kna + an + an + an + an - 1);
-  pwrq = 2 / (imr + 1);
+	an = rbdr2 / sq;
+	imr = (knb + knb) + D(kna + kna + an + an + an + an - 1);
+	pwrq = 2 / (imr + 1);
 
-  return srct, ap, kpa, kpb, an, kna, knb, pwrq;
+	return srct, ap, kpa, kpb, an, kna, knb, pwrq;
 }
 
 /*
 // TODO
 syDF0(x)
 {
-    return sqrt(x);
+	return sqrt(x);
 }
 
 syDF1(x)
 {
-    px15 = pow(x, 1.5);
-    return (px15 + px15) * 0.333333333333333;
+	px15 = pow(x, 1.5);
+	return (px15 + px15) * 0.333333333333333;
 }
 
 syDF2(x)
 {
-    px25 = pow(x, 2.5);
-    return (px25 + px25 + px25 + px25) * 0.066666666666667;
+	px25 = pow(x, 2.5);
+	return (px25 + px25 + px25 + px25) * 0.066666666666667;
 }
 
 syDAdaa1(x0)
 {
-  History x1(0), s1(0);
-  eps = 0.0000001;
+	History x1(0), s1(0);
+	eps = 0.0000001;
 
-  y1 = 0;
-  d0 = x0 - x1;
-  s0 = syDF1(x0);    // func1
-  if ((x1 == 0 && s1 == 0) || (abs(d0) < eps)) {  // ill condition
-    y1 = syDF0(0.5 * (x0 + x1)); // func0
-  } else {
-    y1 = (s0 - s1) / d0;
-  }
+	y1 = 0;
+	d0 = x0 - x1;
+	s0 = syDF1(x0);    // func1
+	if ((x1 == 0 && s1 == 0) || (abs(d0) < eps)) {  // ill condition
+		y1 = syDF0(0.5 * (x0 + x1)); // func0
+	} else {
+		y1 = (s0 - s1) / d0;
+	}
 
-  s1 = s0;
-  x1 = x0;
-  return y1;
+	s1 = s0;
+	x1 = x0;
+	return y1;
 }
 
 syDAdaa2(x0)
 {
-  History x1(0), x2(0), s1(0);
-  eps = 000000000001;
+	History x1(0), x2(0), s1(0);
+	eps = 000000000001;
 
-  s0 = x0;//0;
-  d0 = x0 - x1;
-  f2_x1 = syDF2(x1); // func2
-  if (abs(d0) < eps) {  // ill condition
-    s0 = syDF1(0.5 * (x0 + x1)); // func1
-  } else {
-    s0 = (syDF2(x0) - f2_x1) / d0; // func2
-  }
+	s0 = x0;//0;
+	d0 = x0 - x1;
+	f2_x1 = syDF2(x1); // func2
+	if (abs(d0) < eps) {  // ill condition
+		s0 = syDF1(0.5 * (x0 + x1)); // func1
+	} else {
+		s0 = (syDF2(x0) - f2_x1) / d0; // func2
+	}
 
-  y1 = x0;//0;
-  d1 = x0 - x2;
-  if (x1 == 0 && x2 == 0) { // ill condition
-    y1 = syDF0(x0 + (x1 + x1) + x2) * 0.25; // func0
-  } else if (abs(d1) < eps) { // ill condition
-    x_bar = 0.5 * (x0 + x2);
-    x_delta = x_bar - x1;
-    if (x_delta < eps) {  // ill condition
-      y1 = syDF0((x_bar + x1) * 0.5);  // func0
-    } else {
-      y1 = (2 / x_delta) * (syDF1(x_bar) + (f2_x1 - syDF2(x_bar)) / x_delta); // func1, func2
-    }
-  } else {
-    s0s1 = s0 - s1;
-    y1 = (s0s1 + s0s1) / d1;
-  }
+	y1 = x0;//0;
+	d1 = x0 - x2;
+	if (x1 == 0 && x2 == 0) { // ill condition
+		y1 = syDF0(x0 + (x1 + x1) + x2) * 0.25; // func0
+	} else if (abs(d1) < eps) { // ill condition
+		x_bar = 0.5 * (x0 + x2);
+		x_delta = x_bar - x1;
+		if (x_delta < eps) {  // ill condition
+			y1 = syDF0((x_bar + x1) * 0.5);  // func0
+		} else {
+			y1 = (2 / x_delta) * (syDF1(x_bar) + (f2_x1 - syDF2(x_bar)) / x_delta); // func1, func2
+		}
+	} else {
+		s0s1 = s0 - s1;
+		y1 = (s0s1 + s0s1) / d1;
+	}
 
-  s1 = s0;
-  x2 = x1;
-  x1 = x0;
-  return y1;
+	s1 = s0;
+	x2 = x1;
+	x1 = x0;
+	return y1;
 }
 
 // does not work, regardless of precision :-(
 sD(x)
 {
-    return syDAdaa2(x * sign(x));
+	return syDAdaa2(x * sign(x));
 }
 */
 
 sD(x)
 {
-    return sqrt(x * sign(x));
+	return sqrt(x * sign(x));
 }
 
 szilagyiF0(x)
 {
-    return 0.5 * x * (3 - (x*x));
+	return 0.5 * x * (3 - (x*x));
 }
 
 szilagyiF1(x)
 {
-    xx3 = x*x - 3;
-    return -xx3*xx3 * 0.125;
+	xx3 = x*x - 3;
+	return -xx3*xx3 * 0.125;
 }
 
 szilagyiF2(x)
 {
-    xx = x*x;
-    return -(x * (xx*xx - 10 * xx + 45)) * 0.025;
+	xx = x*x;
+	return -(x * (xx*xx - 10 * xx + 45)) * 0.025;
 }
 
 szilagyiAdaa1(x0)
 {
-  History x1(0), s1(0);
-  eps = 0.00001;
+	History x1(0), s1(0);
+	eps = 0.00001;
 
-  y1 = 0;
-  d0 = x0 - x1;
-  s0 = szilagyiF1(x0);    // func1
-  if ((x1 == 0 && s1 == 0) || (abs(d0) < eps)) {  // ill condition
-    y1 = szilagyiF0(0.5 * (x0 + x1)); // func0
-  } else {
-    y1 = (s0 - s1) / d0;
-  }
+	y1 = 0;
+	d0 = x0 - x1;
+	s0 = szilagyiF1(x0);    // func1
+	if ((x1 == 0 && s1 == 0) || (abs(d0) < eps)) {  // ill condition
+		y1 = szilagyiF0(0.5 * (x0 + x1)); // func0
+	} else {
+		y1 = (s0 - s1) / d0;
+	}
 
-  s1 = s0;
-  x1 = x0;
-  return y1;
+	s1 = s0;
+	x1 = x0;
+	return y1;
 }
 
 szilagyiAdaa2(x0)
 {
-  History x1(0), x2(0), s1(0);
-  eps = 0.00001;
+	History x1(0), x2(0), s1(0);
+	eps = 0.00001;
 
-  s0 = x0;//0;
-  d0 = x0 - x1;
-  f2_x1 = szilagyiF2(x1); // func2
-  if (abs(d0) < eps) {  // ill condition
-    s0 = szilagyiF1(0.5 * (x0 + x1)); // func1
-  } else {
-    s0 = (szilagyiF2(x0) - f2_x1) / d0; // func2
-  }
+	s0 = x0;//0;
+	d0 = x0 - x1;
+	f2_x1 = szilagyiF2(x1); // func2
+	if (abs(d0) < eps) {  // ill condition
+		s0 = szilagyiF1(0.5 * (x0 + x1)); // func1
+	} else {
+		s0 = (szilagyiF2(x0) - f2_x1) / d0; // func2
+	}
 
-  y1 = x0;//0;
-  d1 = x0 - x2;
-  if (x1 == 0 && x2 == 0) { // ill condition
-    y1 = szilagyiF0(x0 + (x1 + x1) + x2) * 0.25; // func0
-  } else if (abs(d1) < eps) { // ill condition
-    x_bar = 0.5 * (x0 + x2);
-    x_delta = x_bar - x1;
-    if (x_delta < eps) {  // ill condition
-      y1 = szilagyiF0((x_bar + x1) * 0.5);  // func0
-    } else {
-      y1 = (2 / x_delta) * (szilagyiF1(x_bar) + (f2_x1 - szilagyiF2(x_bar)) / x_delta); // func1, func2
-    }
-  } else {
-    s0s1 = s0 - s1;
-    y1 = (s0s1 + s0s1) / d1;
-  }
+	y1 = x0;//0;
+	d1 = x0 - x2;
+	if (x1 == 0 && x2 == 0) { // ill condition
+		y1 = szilagyiF0(x0 + (x1 + x1) + x2) * 0.25; // func0
+	} else if (abs(d1) < eps) { // ill condition
+		x_bar = 0.5 * (x0 + x2);
+		x_delta = x_bar - x1;
+		if (x_delta < eps) {  // ill condition
+			y1 = szilagyiF0((x_bar + x1) * 0.5);  // func0
+		} else {
+			y1 = (2 / x_delta) * (szilagyiF1(x_bar) + (f2_x1 - szilagyiF2(x_bar)) / x_delta); // func1, func2
+		}
+	} else {
+		s0s1 = s0 - s1;
+		y1 = (s0s1 + s0s1) / d1;
+	}
 
-  s1 = s0;
-  x2 = x1;
-  x1 = x0;
-  return y1;
+	s1 = s0;
+	x2 = x1;
+	x1 = x0;
+	return y1;
 }
 
 saturate(x, l, h)
 {
-  x = clip(x, l, h);
-//  x = evi_hardclip(x, l, h);
-  return szilagyiAdaa2(x);
+	x = clip(x, l, h);
+	// x = evi_hardclip(x, l, h);
+	return szilagyiAdaa2(x);
 }
 
 // fixed 2x quasi oversampling (hermite6)
 saturateAdaa2_2x_6POINT(XIN, l, h)
-{ // up 2
-  History umTm2_0(0), umTm1_0(0), umT0_0(0), umT1_0(0), umT2_0(0);
-  // down 2
-  History dmT3_1(0), dmT2_1(0), dmT1_1(0), dmT0_1(0), dmTm1_1(0);
-  // align
-  History doX0(0);
+{	// up 2
+	History umTm2_0(0), umTm1_0(0), umT0_0(0), umT1_0(0), umT2_0(0);
+	// down 2
+	History dmT3_1(0), dmT2_1(0), dmT1_1(0), dmT0_1(0), dmTm1_1(0);
+	// align
+	History doX0(0);
 
-  // up 2x
-  x0_0_a  = XIN + 0;
-  x1_0  = hermite_sixpoint_interp(0.5,  umTm2_0, umTm1_0, umT0_0, umT1_0, umT2_0, x0_0_a);
-  x2_0  = umT2_0 + 0;
+	// up 2x
+	x0_0_a  = XIN + 0;
+	x1_0  = hermite_sixpoint_interp(0.5,  umTm2_0, umTm1_0, umT0_0, umT1_0, umT2_0, x0_0_a);
+	x2_0  = umT2_0 + 0;
 
-  // process 2x
-  y1_0  = saturate(x1_0, l, h);
-  y2_0  = saturate(x2_0, l, h);
+	// process 2x
+	y1_0  = saturate(x1_0, l, h);
+	y2_0  = saturate(x2_0, l, h);
 
-  // down 2x
-  y2_0_a  = y2_0 + 0;
-  y2_1  = hermite_sixpoint_interp(0.5,  y2_0_a, dmTm1_1, dmT0_1, dmT1_1, dmT2_1, dmT3_1);
+	// down 2x
+	y2_0_a  = y2_0 + 0;
+	y2_1  = hermite_sixpoint_interp(0.5,  y2_0_a, dmTm1_1, dmT0_1, dmT1_1, dmT2_1, dmT3_1);
 
-  y0_0  = (doX0 + y2_1) * 0.5;
+	y0_0  = (doX0 + y2_1) * 0.5;
 
-  // update
-  umTm2_0 = umTm1_0;
-  umTm1_0 = umT0_0;
-  umT0_0  = umT1_0;
-  umT1_0  = umT2_0;
-  umT2_0  = x0_0_a;
+	// update
+	umTm2_0 = umTm1_0;
+	umTm1_0 = umT0_0;
+	umT0_0  = umT1_0;
+	umT1_0  = umT2_0;
+	umT2_0  = x0_0_a;
 
-  doX0  = y1_0;
+	doX0  = y1_0;
 
-  dmT3_1  = dmT2_1;
-  dmT2_1  = dmT1_1;
-  dmT1_1  = dmT0_1;
-  dmT0_1  = dmTm1_1;
-  dmTm1_1 = y2_0;
+	dmT3_1  = dmT2_1;
+	dmT2_1  = dmT1_1;
+	dmT1_1  = dmT0_1;
+	dmT0_1  = dmTm1_1;
+	dmTm1_1 = y2_0;
 
-  return dcblock(y0_0);
+	return dcblock(y0_0);
 }
 
 // fixed 4x quasi oversampling (hermite6)
 saturateAdaa2_4x_6POINT(XIN, l, h)
-{ // up 2
-  History umTm2_0(0), umTm1_0(0), umT0_0(0), umT1_0(0), umT2_0(0);
-  // down 2
-  History dmT3_1(0), dmT2_1(0), dmT1_1(0), dmT0_1(0), dmTm1_1(0);
-  // align
-  History doX0(0);
+{	// up 2
+	History umTm2_0(0), umTm1_0(0), umT0_0(0), umT1_0(0), umT2_0(0);
+	// down 2
+	History dmT3_1(0), dmT2_1(0), dmT1_1(0), dmT0_1(0), dmTm1_1(0);
+	// align
+	History doX0(0);
 
-  // up 2x
-  x0_0_a  = XIN + 0;
-  x1_0  = hermite_sixpoint_interp(0.5,  umTm2_0, umTm1_0, umT0_0, umT1_0, umT2_0, x0_0_a);
-  x2_0  = umT2_0 + 0;
+	// up 2x
+	x0_0_a  = XIN + 0;
+	x1_0  = hermite_sixpoint_interp(0.5,  umTm2_0, umTm1_0, umT0_0, umT1_0, umT2_0, x0_0_a);
+	x2_0  = umT2_0 + 0;
 
-  // process 4x
-  y1_0  = saturateAdaa2_2x_6POINT(x1_0, l, h);
-  y2_0  = saturateAdaa2_2x_6POINT(x2_0, l, h);
+	// process 4x
+	y1_0  = saturateAdaa2_2x_6POINT(x1_0, l, h);
+	y2_0  = saturateAdaa2_2x_6POINT(x2_0, l, h);
 
-  // down 2x
-  y2_0_a  = y2_0 + 0;
-  y2_1  = hermite_sixpoint_interp(0.5,  y2_0_a, dmTm1_1, dmT0_1, dmT1_1, dmT2_1, dmT3_1);
+	// down 2x
+	y2_0_a  = y2_0 + 0;
+	y2_1  = hermite_sixpoint_interp(0.5,  y2_0_a, dmTm1_1, dmT0_1, dmT1_1, dmT2_1, dmT3_1);
 
-  y0_0  = (doX0 + y2_1) * 0.5;
+	y0_0  = (doX0 + y2_1) * 0.5;
 
-  // update
-  umTm2_0 = umTm1_0;
-  umTm1_0 = umT0_0;
-  umT0_0  = umT1_0;
-  umT1_0  = umT2_0;
-  umT2_0  = x0_0_a;
+	// update
+	umTm2_0 = umTm1_0;
+	umTm1_0 = umT0_0;
+	umT0_0  = umT1_0;
+	umT1_0  = umT2_0;
+	umT2_0  = x0_0_a;
 
-  doX0  = y1_0;
+	doX0  = y1_0;
 
-  dmT3_1  = dmT2_1;
-  dmT2_1  = dmT1_1;
-  dmT1_1  = dmT0_1;
-  dmT0_1  = dmTm1_1;
-  dmTm1_1 = y2_0;
+	dmT3_1  = dmT2_1;
+	dmT2_1  = dmT1_1;
+	dmT1_1  = dmT0_1;
+	dmT0_1  = dmTm1_1;
+	dmTm1_1 = y2_0;
 
-  return dcblock(y0_0);
+	return dcblock(y0_0);
 }
 
 boost(x, s, m, g)
 {
-  History c1(0);
+	History c1(0);
 
-  c0 = (x + (c1 * s)) * (1 / (s + 1));
+	c0 = (x + (c1 * s)) * (1 / (s + 1));
 
-  gn = clip(g, 0.9886, 2.818383);     // not audio
-  y = saturateAdaa2_2x_6POINT((x + (c0 * m)) * g, -gn, gn*0.9886);  // audio
+	gn = clip(g, 0.9886, 2.818383);     // not audio
+	y = saturateAdaa2_2x_6POINT((x + (c0 * m)) * g, -gn, gn*0.9886);  // audio
 
-  c1 = c0;
-  return y;//dcblock(y);
-}
-/*
-fWarp(cf)
-{
-  f = (cf * (pi / samplerate)) * (1 / twopi);
-  w = (f - trunc(f)) * twopi;
-  return tanA2(w);        // tan approximation (G for butterworth)
+	c1 = c0;
+	return y;//dcblock(y);
 }
 
-lp1p(x, g)                // 1-pole zdf section
-{
-  History p(0);
-  c = (x - p) * (g / (g + 1));
-  y = c + p;
-  p = c + y;
-  return y;
-}
-
-lp2p(x, g, r)             // 2-pole zdf section
-{
-  History p0(0), p1(0);
-  c0 = r + g;
-  c1 = (g / ((c0 * g) + 1)) * (x - (p1 + (p0 * c0)));
-  c2 = c1 + p0;
-  c3 = c2 * g;
-  y  = c3 + p1;
-  p0 = c1 + c2;
-  p1 = c3 + y;
-  return y;
-}
-*/

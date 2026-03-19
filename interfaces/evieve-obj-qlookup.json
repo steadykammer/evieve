@@ -1,10 +1,10 @@
 {
     "evi.4wave~": {
-        "digest": "Phase synchronous shared frequency oscillators with simultaneous Saw, Rect, Tri and Sine outputs",
+        "digest": "Anti-aliased Saw, Rect, Tri and Sine simultaneous oscillators",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.saw~", "evi.rect~", "evi.tri~", "evi.blitwaves~" ]
     },
     "evi.adsr~": {
         "digest": "ADSR envelope generator, same features as adsr~ but with logarithmic segments \n",
@@ -25,14 +25,14 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.comb~", "evi.teeth~" ]
     },
     "evi.am~": {
         "digest": "Basic AM processor with saturation and choice of LFO shapes",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.tremolo~", "evi.flanger.digital~", "evi.chorus.digital~", "evi.phaser.analog~", "evi.detune~", "evi.phasor0~" ]
     },
     "evi.arpnotch~": {
         "digest": "A nonlinear SVF Notch filter which can morph between LP..Notch..HP",
@@ -116,7 +116,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.flanger.digital~", "evi.am~", "evi.tremolo~", "evi.phaser.analog~", "evi.detune~", "evi.phasor0~" ]
     },
     "evi.classic.osc~": {
         "digest": "A selection of 'classic' oscillator shapes",
@@ -144,42 +144,42 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.allpass~", "evi.teeth~" ]
     },
     "evi.crossover.3band~": {
-        "digest": "Linkwitz-Riley 3-way crossover filter",
+        "digest": "Linkwitz-Riley 3-way (low/mid/high) crossover filter",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.cross~", "evi.crossover~", "evi.crossover.sum~", "evi.crossover.allpass~" ]
     },
     "evi.crossover.allpass~": {
-        "digest": "Allpass filter for aligning audio chains using evieve crossover filters",
+        "digest": "Allpass filter for aligning audio bands using evieve crossover filters",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.cross~", "evi.crossover~", "evi.crossover.3band~", "evi.crossover.sum~" ]
     },
     "evi.crossover.sum~": {
-        "digest": "Allpass alignment summing for use with evi.crossover.3band~",
+        "digest": "Summing, including allpass alignment, for use with evi.crossover.3band~",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.cross~", "evi.crossover~", "evi.crossover.3band~", "evi.crossover.allpass~" ]
     },
     "evi.crossover~": {
         "digest": "A choice of 2 or 4 pole Linkwitz-Riley crossover filters",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.cross~", "evi.crossover.3band~", "evi.crossover.sum~", "evi.crossover.allpass~" ]
     },
     "evi.cross~": {
         "digest": "Reimplementation of MSP cross~ filter as Likwitz-Riley",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.crossover~", "evi.crossover.3band~", "evi.crossover.sum~", "evi.crossover.allpass~" ]
     },
     "evi.damp.macro~": {
         "digest": "A 'one knob' macroisation for simple low/high onepole damping filters",
@@ -207,7 +207,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.chorus.digital~", "evi.flanger.digital~", "evi.am~", "evi.tremolo~", "evi.phaser.analog~" ]
     },
     "evi.dfm~": {
         "digest": "Classic MS20 filter emulation based on DFM1 by Tony Hardie-Bick \n",
@@ -361,7 +361,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.chorus.digital~", "evi.am~", "evi.tremolo~", "evi.phaser.analog~", "evi.detune~", "evi.phasor0~" ]
     },
     "evi.formantfilter.morph~": {
         "digest": "A formant filter with smoothly morphing singing voice type, sung vowel sounds and filter types. \n",
@@ -410,7 +410,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.freqshift.hilbert~", "evi.hilbert~", "evi.ringmod~", "evi.ringmod.diode~" ]
     },
     "evi.gaussiannoise~": {
         "digest": "Gaussian distributed noise approximation",
@@ -662,7 +662,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.chorus.digital~", "evi.flanger.digital~", "evi.am~", "evi.tremolo~", "evi.phaser.analog~", "evi.detune~", "evi.phasor0~" ]
     },
     "evi.phaseshift~": {
         "digest": "Reimplementation of MSP phaseshift~ object as a TPT filter",
@@ -851,7 +851,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.allpass~", "evi.comb~" ]
     },
     "evi.tone.macro~": {
         "digest": "A 'one knob' macroisation for nonlinear cut tone control useful for quick colourisation in your audio chain",
@@ -879,7 +879,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.am~", "evi.flanger.digital~", "evi.chorus.digital~", "evi.phaser.analog~", "evi.detune~", "evi.phasor0~" ]
     },
     "evi.tri.select~": {
         "digest": "Selection of anti-aliased triangle-like oscillators",
@@ -928,7 +928,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.clipasym~", "evi.sinfold~", "evi.shaper~", "evi.overdrive.tanh~", "evi.overdrive.atan~", "evi.overdrive.sqrt~" ]
     },
     "evi.weightingcoeffs": {
         "digest": "Compute coefficients for A-weighting and other analytical filters and output for cascade~ \n",

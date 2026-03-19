@@ -5,7 +5,7 @@
         "category": "evieve",
         "tilde": "~",
         "digest": "Analog Phaser effect with multiple stages, filtering and saturation",
-        "description": "TEXT_HERE",
+        "description": "THIS IS CURRENTLY SHIT AND NEEDS WORK",
         "discussion": ""
     },
     "metadata": {
@@ -297,5 +297,13 @@
         "caption": "",
         "image": ""
     },
-    "seealso": []
+    "seealso": [
+        "evi.chorus.digital~",
+        "evi.flanger.digital~",
+        "evi.am~",
+        "evi.tremolo~",
+        "evi.phaser.analog~",
+        "evi.detune~",
+        "evi.phasor0~"
+    ]
 }

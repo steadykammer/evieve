@@ -102,7 +102,7 @@
                                     "maxclass": "outlet",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 1023.0, 708.0, 30.0, 30.0 ]
+                                    "patching_rect": [ 1032.0, 708.0, 30.0, 30.0 ]
                                 }
                             },
                             {
@@ -726,7 +726,7 @@
                                     "numinlets": 3,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 971.0, 501.0, 47.0, 22.0 ],
+                                    "patching_rect": [ 980.0, 501.0, 47.0, 22.0 ],
                                     "text": "clip 1 8"
                                 }
                             },
@@ -737,7 +737,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 868.0, 540.0, 122.0, 22.0 ],
+                                    "patching_rect": [ 877.0, 540.0, 122.0, 22.0 ],
                                     "text": "pak 1 3"
                                 }
                             },
@@ -748,7 +748,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "int" ],
-                                    "patching_rect": [ 868.0, 579.0, 30.0, 22.0 ],
+                                    "patching_rect": [ 877.0, 579.0, 30.0, 22.0 ],
                                     "text": "* 3"
                                 }
                             },
@@ -759,7 +759,7 @@
                                     "numinlets": 3,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 868.0, 501.0, 47.0, 22.0 ],
+                                    "patching_rect": [ 877.0, 501.0, 47.0, 22.0 ],
                                     "text": "clip 0 1"
                                 }
                             },
@@ -785,8 +785,8 @@
                                     "numinlets": 1,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 699.0, 462.0, 111.0, 22.0 ],
-                                    "text": "prepend bassboost"
+                                    "patching_rect": [ 699.0, 462.0, 105.0, 22.0 ],
+                                    "text": "prepend foldboost"
                                 }
                             },
                             {
@@ -990,7 +990,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 868.0, 618.0, 84.0, 22.0 ],
+                                    "patching_rect": [ 877.0, 618.0, 84.0, 22.0 ],
                                     "text": "prepend order"
                                 }
                             },
@@ -1004,7 +1004,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 920.0, 579.0, 85.0, 22.0 ],
+                                    "patching_rect": [ 929.0, 579.0, 85.0, 22.0 ],
                                     "text": "prepend cutoff"
                                 }
                             },
@@ -1032,8 +1032,8 @@
                                     "numinlets": 1,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 741.0, 423.0, 104.0, 22.0 ],
-                                    "text": "prepend bassgain"
+                                    "patching_rect": [ 744.0, 423.0, 98.0, 22.0 ],
+                                    "text": "prepend foldgain"
                                 }
                             },
                             {
@@ -1046,8 +1046,8 @@
                                     "numinlets": 1,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 826.0, 345.0, 100.0, 22.0 ],
-                                    "text": "prepend bassmix"
+                                    "patching_rect": [ 833.0, 345.0, 94.0, 22.0 ],
+                                    "text": "prepend foldmix"
                                 }
                             },
                             {
@@ -1060,8 +1060,8 @@
                                     "numinlets": 1,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 784.0, 384.0, 110.0, 22.0 ],
-                                    "text": "prepend bassslope"
+                                    "patching_rect": [ 788.0, 384.0, 104.0, 22.0 ],
+                                    "text": "prepend foldslope"
                                 }
                             },
                             {
@@ -1071,7 +1071,7 @@
                                     "numinlets": 4,
                                     "numoutlets": 4,
                                     "outlettype": [ "", "", "", "" ],
-                                    "patching_rect": [ 868.0, 462.0, 174.0, 22.0 ],
+                                    "patching_rect": [ 877.0, 462.0, 174.0, 22.0 ],
                                     "text": "route tone tonecutoff toneslope"
                                 }
                             },
@@ -1082,8 +1082,8 @@
                                     "numinlets": 5,
                                     "numoutlets": 5,
                                     "outlettype": [ "", "", "", "", "" ],
-                                    "patching_rect": [ 699.0, 306.0, 188.0, 22.0 ],
-                                    "text": "route clip clipfold clipslope clipmix"
+                                    "patching_rect": [ 699.0, 306.0, 197.0, 22.0 ],
+                                    "text": "route fold foldgain foldslope foldmix"
                                 }
                             },
                             {
@@ -1154,6 +1154,28 @@
                                     "numoutlets": 0,
                                     "patching_rect": [ 188.0, 708.0, 30.0, 30.0 ]
                                 }
+                            },
+                            {
+                                "box": {
+                                    "hidden": 1,
+                                    "id": "obj-4",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 538.0, 211.0, 68.0, 20.0 ],
+                                    "text": "^ no"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "hidden": 1,
+                                    "id": "obj-5",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 650.0, 268.0, 68.0, 20.0 ],
+                                    "text": "no"
+                                }
                             }
                         ],
                         "lines": [
@@ -1198,7 +1220,7 @@
                                 "patchline": {
                                     "color": [ 0.701961, 0.701961, 0.701961, 0.0 ],
                                     "destination": [ "obj-2", 0 ],
-                                    "midpoints": [ 763.5, 690.0, 1032.5, 690.0 ],
+                                    "midpoints": [ 763.5, 690.0, 1041.5, 690.0 ],
                                     "source": [ "obj-18", 1 ]
                                 }
                             },
@@ -1230,12 +1252,6 @@
                                 "patchline": {
                                     "destination": [ "obj-26", 1 ],
                                     "source": [ "obj-27", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
-                                    "destination": [ "obj-1", 0 ],
-                                    "source": [ "obj-30", 2 ]
                                 }
                             },
                             {
@@ -1424,7 +1440,7 @@
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
                     "patching_rect": [ 158.0, 34.0, 341.0, 49.0 ],
-                    "text": "patcherargs @decouplegain 0 @gain 1. @drive 2. @blend -2. @smooth 30.111 @clip soft @clipfold -1. @clipslope 0.23228 @clipmix 0.333333 @tone 1 @tonecutoff 6000. @toneslope 3"
+                    "text": "patcherargs @decouplegain 0 @gain 1. @drive 2. @blend -2. @smooth 30.111 @fold soft @foldgain -1. @foldslope 0.23228 @foldmix 0.333333 @tone 1 @tonecutoff 6000. @toneslope 3"
                 }
             },
             {
@@ -1491,7 +1507,7 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 158.0, 85.0, 341.0, 20.0 ],
-                    "text": "evievedoc @ingain 1. @outgain -1. @highpass 100.",
+                    "text": "evievedoc @ingain 1. @outgain -1.",
                     "varname": "evievedoc"
                 }
             }

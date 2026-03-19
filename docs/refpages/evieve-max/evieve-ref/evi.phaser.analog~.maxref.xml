@@ -9,7 +9,7 @@
 		<b>evi.phaser.analog~</b> is a 'max define' for the <o>evi_phaser_analog</o>.gendsp gen~ abstraction.
 		Because evi.phaser.analog~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		<br />
-		TEXT_HERE <br />
+		THIS IS CURRENTLY SHIT AND NEEDS WORK <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>
@@ -292,6 +292,13 @@
 	</examplelist>
 	<!--SEEALSO-->
 	<seealsolist>
+		<seealso name="evi.chorus.digital~"> </seealso>
+		<seealso name="evi.flanger.digital~"> </seealso>
+		<seealso name="evi.am~"> </seealso>
+		<seealso name="evi.tremolo~"> </seealso>
+		<seealso name="evi.phaser.analog~"> </seealso>
+		<seealso name="evi.detune~"> </seealso>
+		<seealso name="evi.phasor0~"> </seealso>
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>

@@ -19,7 +19,7 @@
     <constructorlist>
         <constructor name='1'>
             <digest>
-                { arguments={}, inlets={ frequency, naive } }
+                { arguments={}, inlets={ frequency, reset } }
             </digest>
         </constructor>
     </constructorlist>
@@ -29,9 +29,9 @@
                 in Hz
             </digest>
         </geninlet>
-        <geninlet name='naive' type='float' optional='1'>
+        <geninlet name='reset' type='float' optional='1'>
             <digest>
-                Reset
+                Naive
             </digest>
         </geninlet>
     </geninletlist>

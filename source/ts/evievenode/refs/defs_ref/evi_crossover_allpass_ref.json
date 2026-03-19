@@ -4,9 +4,9 @@
         "parent": "evi_crossover_allpass",
         "category": "evieve",
         "tilde": "~",
-        "digest": "Allpass filter for aligning audio chains using evieve crossover filters",
-        "description": "TEXT_HERE",
-        "discussion": ""
+        "digest": "Allpass filter for aligning audio bands using evieve crossover filters",
+        "description": "Multiband Linkwitz-Riley crossover filters require alpass alignment. This filter gives access to the same filters used in all the evieve crossover filters, in case a custom summing method is wished for.",
+        "discussion": "Of course <o>evi.crossover.allpass~</o> is also just a very useful allpass filter away from this crossover business :-)"
     },
     "metadata": {
         "author": "Pete Dowling",
@@ -20,13 +20,13 @@
             "id": 1,
             "type": "signal",
             "digest": "Input to be Compensated",
-            "description": ""
+            "description": "One band of audio input."
         },
         {
             "id": 2,
             "type": "signal/float",
             "digest": "Allpass Frequency in Hz @min 10 @max 20000",
-            "description": ""
+            "description": "This should be fed from the 'High Frequency Cutoff' of a multiband crossover filter split to achieve correct alignment."
         }
     ],
     "outlets": [
@@ -34,7 +34,7 @@
             "id": 1,
             "type": "signal",
             "digest": "Allpass-Aligned Output",
-            "description": ""
+            "description": "One aligned band output audio."
         }
     ],
     "messages": [],
@@ -43,8 +43,8 @@
             "name": "order",
             "get": 1,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Flag 0/1",
+            "description": "0=1-pole allpass filter, 1=2-pole allpass filter. 1-pole allpass filters are for aligning one band of a 2-pole crossover filter. 2-pole allpass filters are for aligning one band of a 4-pole crossover filter.",
             "default": {
                 "min": "0",
                 "max": "1",
@@ -56,5 +56,10 @@
         "caption": "",
         "image": ""
     },
-    "seealso": []
+    "seealso": [
+        "evi.cross~",
+        "evi.crossover~",
+        "evi.crossover.3band~",
+        "evi.crossover.sum~"
+    ]
 }

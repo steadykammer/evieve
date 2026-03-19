@@ -2,7 +2,7 @@
     "description": "This file is mainly here as a catch all for the require files it inherits for building the evieve [evi.warmer~] abstraction. It also contains core functions for that abstraction.",
     "requires": [
         "evi_smooth.genexpr",
-        "evi_rcfilters.genexpr",
+        "evi_interp.genexpr",
         "evi_butterworth.genexpr"
     ],
     "functions": [

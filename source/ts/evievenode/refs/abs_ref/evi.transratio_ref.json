@@ -66,7 +66,7 @@
             "name": "offset",
             "get": 0,
             "type": "float",
-            "digest": "",
+            "digest": "Pitch",
             "description": "Hz and pitch convert assuming middle C = 60. Via @offset you can change this to anything you need.",
             "default": {
                 "get": 0,

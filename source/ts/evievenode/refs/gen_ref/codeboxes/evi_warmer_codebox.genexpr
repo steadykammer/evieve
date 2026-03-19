@@ -10,39 +10,39 @@ History med(0), prevmed(0), prevout(0);
 
 // param rate
 
-Param highpass(100., min=10, max=400);
+//Param highpass(100., min=10, max=400); // no
 Param order(3, min=0, max=8);
 Param cutoff(samplerate*0.125, min=samplerate*0.00125, max=samplerate*0.25);
 // turn off (0) if doing audio rate modulation of drive & blend:
 Param smooth(30.111, min=0, max=301.11);// in ms
 
-Param ingain(1., min=-48, max=48);
+Param ingain(1., min=-24, max=24);
 Param outgain(-1., min=-24, max=24);
 
 Param drive(2., min=0, max=10);
 Param blend(-2., min=-10, max=10);
 
-Param bassslope(0.23228, min=0, max=1);
-Param bassmix(0.333333, min=0, max=1);
-Param bassgain(-1., min=-12, max=12);	// fold
-Param bassboost(0, min=0, max=1);		// 0=soft, 1=hard
-bb = int(bassboost);
+Param foldslope(0.23228, min=0, max=1);
+Param foldmix(0.333333, min=0, max=1);
+Param foldgain(-1., min=-12, max=12);	// fold
+Param foldboost(0, min=0, max=1);		// 0=soft, 1=hard
+bb = int(foldboost);
 ss = smooth > 0;
 smoothsecs = smooth * 0.001;
 ord = int(order);
 
-bs = bassslope * 254 + 3;
-bg = dbtoaApprox(bassgain);
+bs = foldslope * 254 + 3;
+bg = dbtoaApprox(foldgain);
 ingn = dbtoaApprox(ingain);
 outgn = dbtoaApprox(outgain);
-hp = rcPreWarp1(highpass);
+//hp = rcPreWarp1(highpass); // no
+drve = (drive * 0.99) + 0.1;
+blnd = blend;
 
 // audio rate
 
-g = logsmooth(hp, smoothsecs);
+//g = logsmooth(hp, smoothsecs); // no
 
-drve = (drive * 0.99) + 0.1;
-blnd = blend;
 if (ss) {
 	drve = logsmooth(drve, smoothsecs);
 	blnd = eviLine(blnd, vectorsize*4);
@@ -52,17 +52,18 @@ if (ss) {
 srct, ap, kpa, kpb, an, kna, knb, pwrq = szilagyi(drve, blnd, samplerate);
 
 bbev = eviSline(bb, mstosamps(smooth+100));
-xinput = in1 * (1 - bbev);
+xin1 = in1 * (1 - bbev);
+xin2 = 0;
 if (bbev > 0) {
-	s, g = expsmoothBank2(bs, bg, 0.015222);
-	m = eviLine(bassmix, vectorsize*6);
-	xinput = boost((in1 * bbev), s, m, g);
+	s, g = expsmoothBank2(bs, bg, smoothsecs*0.501);
+	m = eviLine(foldmix, vectorsize*6);
+	xin2 = boost((in1 * bbev), s, m, g);    
 }
+xinput = xin1 + xin2;
 
-ing, outg = expsmoothBank2(ingn, outgn, 0.022666);
+ing, outg = expsmoothBank2(ingn, outgn, smoothsecs*0.666666);
 
 xin = dcblock(xinput * ing);
-med = 0;
 if (xin > 0) {
 	med = (sD(ap + xin * (kpa - xin)) + kpb) * pwrq;    // sD() like D() but Adaa
 } else {
@@ -73,9 +74,8 @@ med = dcblock(med);
 yy = maximum((srct * (med - prevmed + prevout)), -1);
 X = saturateAdaa2_4x_6POINT(yy * outg, -0.9886, 1) * sqrt1_2;
 
-X = rcFilterHp(X, g);
+//X = rcFilterHp(X, g); // no
 
-// linear Butterworth
 Y = linearButterworthLP8(X, cutoff, order=ord);
 
 out1 = Y;

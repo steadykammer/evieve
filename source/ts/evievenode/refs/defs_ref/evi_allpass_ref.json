@@ -5,7 +5,7 @@
         "category": "evieve",
         "tilde": "~",
         "digest": "Reimplementation of MSP <o>allpass~</o> filter delay",
-        "description": "TEXT_HERE",
+        "description": "Cubic interpolated allpass filter delay unit. The same structure as MSP <o>allpass~</o>, but with cubic interpolation for smoother high end decays, and a tamed gain coefficient so no digital clipping or aliasing. Quite different than MSP. This abstraction also includes an optional <m>feedbackmix</m> attribute which does ridiculous nonlinear comb effects - you should probably not use this at all (default off).",
         "discussion": ""
     },
     "metadata": {
@@ -20,19 +20,19 @@
             "id": 1,
             "type": "signal",
             "digest": "Input",
-            "description": ""
+            "description": "Audio input to filter"
         },
         {
             "id": 2,
             "type": "signal/float",
             "digest": "Delay in ms @min 0.1 @max 1000",
-            "description": ""
+            "description": "Delay time in ms."
         },
         {
             "id": 3,
             "type": "signal/float",
             "digest": "Gain Coefficient @min -1 @max 1",
-            "description": ""
+            "description": "Not smoothed internally. Applies negative or positive gain to the feedforward and feedback paths."
         }
     ],
     "outlets": [
@@ -40,7 +40,7 @@
             "id": 1,
             "type": "signal",
             "digest": "Allpass Delay Filter Output",
-            "description": ""
+            "description": "Filtered audio output."
         }
     ],
     "messages": [],
@@ -49,8 +49,8 @@
             "name": "feedbackmix",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Normalised 0..1",
+            "description": "If > 0, applies saturating gain stage to the internal feedback path.",
             "default": {
                 "min": "0",
                 "max": "1",
@@ -61,8 +61,8 @@
             "name": "smooth",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Time in ms",
+            "description": "Smoothing time of @feedbackmix attribute.",
             "default": {
                 "min": "0",
                 "max": "333",
@@ -74,5 +74,8 @@
         "caption": "",
         "image": ""
     },
-    "seealso": []
+    "seealso": [
+        "evi.comb~",
+        "evi.teeth~"
+    ]
 }

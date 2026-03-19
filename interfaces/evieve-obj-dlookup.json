@@ -1,8 +1,8 @@
 {
     "evi.4wave~": {
         "type": "define",
-        "digest": "Phase synchronous shared frequency oscillators with simultaneous Saw, Rect, Tri and Sine outputs",
-        "description": ""
+        "digest": "Anti-aliased Saw, Rect, Tri and Sine simultaneous oscillators",
+        "description": "evi.4wave~ is a 'max define' for the evi_4wave.gendsp gen~ abstraction. Because evi.4wave~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nPhase synchronous shared frequency oscillators with simultaneous Saw, Rect, Tri and Sine outputs. Anti-aliasing method is 4-point polyblep."
     },
     "evi.adsr~": {
         "type": "abstraction",
@@ -17,7 +17,7 @@
     "evi.allpass~": {
         "type": "define",
         "digest": "Reimplementation of MSP allpass~ filter delay",
-        "description": ""
+        "description": "evi.allpass~ is a 'max define' for the evi_allpass.gendsp gen~ abstraction. Because evi.allpass~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nCubic interpolated allpass filter delay unit. The same structure as MSP allpass~, but with cubic interpolation for smoother high end decays, and a tamed gain coefficient so no digital clipping or aliasing. Quite different than MSP. This abstraction also includes an optional feedbackmix attribute which does ridiculous nonlinear comb effects - you should probably not use this at all (default off)."
     },
     "evi.am~": {
         "type": "define",
@@ -42,7 +42,7 @@
     "evi.baxandall~": {
         "type": "define",
         "digest": "Emulation of a classic baxandall EQ",
-        "description": ""
+        "description": "evi.baxandall~ is a 'max define' for the evi_baxandall.gendsp gen~ abstraction. Because evi.baxandall~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nAn EQ tone control shape popularised in the 1950s, often used in HiFi equipment and guitar amplifiers."
     },
     "evi.biquad.filter~": {
         "type": "define",
@@ -82,7 +82,7 @@
     "evi.chorus.digital~": {
         "type": "define",
         "digest": "A basic digital Chorus implementation, with multiple stages and saturation",
-        "description": ""
+        "description": "evi.chorus.digital~ is a 'max define' for the evi_chorus_digital.gendsp gen~ abstraction. Because evi.chorus.digital~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nThere are many attributes so that the user can macroise the controls themselves to higher level parameters."
     },
     "evi.classic.osc~": {
         "type": "define",
@@ -102,32 +102,32 @@
     "evi.comb~": {
         "type": "define",
         "digest": "Reimplementation of MSP comb~ filter delay",
-        "description": ""
+        "description": "evi.comb~ is a 'max define' for the evi_comb.gendsp gen~ abstraction. Because evi.comb~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nComb filter delay unit with saturation in the feedback path. The same structure as MSP comb~, but with cubic interpolation (softer in the high end) and no digital clipping at FB Gain == 1 (via internal saturation, which makes the whole filter softer but will not clip your precious audio)."
     },
     "evi.cross~": {
         "type": "define",
         "digest": "Reimplementation of MSP cross~ filter as Likwitz-Riley",
-        "description": ""
+        "description": "evi.cross~ is a 'max define' for the evi_cross.gendsp gen~ abstraction. Because evi.cross~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nevi.cross~ differs from MSP cross~ in the following ways: evi.cross~ is a steeper 4-pole crossover slope ( cross~ is a 3-pole slope), because 3rd order is not possible with flat summing Linkwitz-Riley. evi.cross~ is a proper Linkwitz-Riley crossover which sums perfectly flat (whereas cross~ is pure Butterworths and sums with a +3dB bump). evi.cross~ remains stable under modulation. For a shallower 2-pole Linkwitz-Riley crossover @see evi.crossover~."
     },
     "evi.crossover.3band~": {
         "type": "define",
-        "digest": "Linkwitz-Riley 3-way crossover filter",
-        "description": ""
+        "digest": "Linkwitz-Riley 3-way (low/mid/high) crossover filter",
+        "description": "evi.crossover.3band~ is a 'max define' for the evi_crossover_3band.gendsp gen~ abstraction. Because evi.crossover.3band~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nLinkwitz-Riley crossovers sum perfectly flat on recombination of the outputs (providing allpass alignment is used). Use evi.crossover.3band~ to achieve multiband processing. @see the 'seealso' section for other evieve objects that can help with this."
     },
     "evi.crossover.allpass~": {
         "type": "define",
-        "digest": "Allpass filter for aligning audio chains using evieve crossover filters",
-        "description": ""
+        "digest": "Allpass filter for aligning audio bands using evieve crossover filters",
+        "description": "evi.crossover.allpass~ is a 'max define' for the evi_crossover_allpass.gendsp gen~ abstraction. Because evi.crossover.allpass~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nMultiband Linkwitz-Riley crossover filters require alpass alignment. This filter gives access to the same filters used in all the evieve crossover filters, in case a custom summing method is wished for."
     },
     "evi.crossover.sum~": {
         "type": "define",
-        "digest": "Allpass alignment summing for use with evi.crossover.3band~",
-        "description": ""
+        "digest": "Summing, including allpass alignment, for use with evi.crossover.3band~",
+        "description": "evi.crossover.sum~ is a 'max define' for the evi_crossover_sum.gendsp gen~ abstraction. Because evi.crossover.sum~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nLinkwitz-Riley crossovers sum perfectly flat on recombination of the outputs (providing allpass alignment is used). Use evi.crossover.sum~ to sum multiband processing created with the evi.crossover.3band~ object. @see the 'seealso' section for other evieve objects that are related."
     },
     "evi.crossover~": {
         "type": "define",
         "digest": "A choice of 2 or 4 pole Linkwitz-Riley crossover filters",
-        "description": ""
+        "description": "evi.crossover~ is a 'max define' for the evi_crossover.gendsp gen~ abstraction. Because evi.crossover~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nLinkwitz-Riley crossovers sum perfectly flat on recombination of the outputs. Use evi.crossover~ to achieve multiband processing. @see the 'seealso' section for other evieve objects that can help with this."
     },
     "evi.damp.macro~": {
         "type": "define",
@@ -147,7 +147,7 @@
     "evi.detune~": {
         "type": "define",
         "digest": "A quirky digital Detune effect with filtering and saturation",
-        "description": ""
+        "description": "evi.detune~ is a 'max define' for the evi_detune.gendsp gen~ abstraction. Because evi.detune~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nLoosely based on 'mda detune' copyright (c) 1998-2000 Paul Kellett. evi.detune~ adds a feedback path as would be found in modulation effects, and implements a linkwitz-riley crossover to shift the focus and strength of the effect. In addition a dynamically controllable morphing pre-filter can accentuate certain frequencies hitting the detuner, feedback path and output are saturated and anti-aliased."
     },
     "evi.dfm~": {
         "type": "abstraction",
@@ -472,7 +472,7 @@
     "evi.phaser.analog~": {
         "type": "define",
         "digest": "Analog Phaser effect with multiple stages, filtering and saturation",
-        "description": ""
+        "description": "evi.phaser.analog~ is a 'max define' for the evi_phaser_analog.gendsp gen~ abstraction. Because evi.phaser.analog~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nTHIS IS CURRENTLY SHIT AND NEEDS WORK"
     },
     "evi.phaseshift~": {
         "type": "define",
@@ -607,7 +607,7 @@
     "evi.teeth~": {
         "type": "define",
         "digest": "Reimplementation of MSP teeth~ as a TPT filter",
-        "description": ""
+        "description": "evi.teeth~ is a 'max define' for the evi_teeth.gendsp gen~ abstraction. Because evi.teeth~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nComb filter delay unit with independent control of feedforward and feedback delay times and saturation in the feedback path. The same structure as MSP teeth~, but with cubic interpolation (softer in the high end) and no digital clipping at FB Gain == 1 (via internal saturation, which makes the whole filter softer but will not clip your precious audio)."
     },
     "evi.tone.macro~": {
         "type": "define",
@@ -662,12 +662,12 @@
     "evi.warmer~": {
         "type": "abstraction",
         "digest": "Complex saturation processor with options \n",
-        "description": "Based on an idea by Tom Szilagyi."
+        "description": "Based on an idea by Tom Szilagyi. Contains two asymmetric saturation stages with a foldover boosting function and tone control filter. The effect can be blended between atan and asymmetric like behaviour, and the tonal characteristics can be continuously morphed."
     },
     "evi.weightingcoeffs": {
         "type": "abstraction",
         "digest": "Compute coefficients for A-weighting and other analytical filters and output for cascade~ \n",
-        "description": "evi.weightingcoeffs is simply a lookup table and is therefore extremely efficient. Coefficients are available for a wide range os samplerates and can therefore be used in a downsampled poly~ (for example)."
+        "description": "evi.weightingcoeffs is simply a lookup table and is therefore extremely efficient. Coefficients are available for a wide range of samplerates and can therefore be used in a downsampled poly~ (for example)."
     },
     "evi.xfade~": {
         "type": "external",

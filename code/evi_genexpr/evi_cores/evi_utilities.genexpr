@@ -186,7 +186,7 @@ parabolWrap(phase)
 	return	y;
 }
 
-windowCoeffs(choice) {			// choice = which windowing function to use
+windowCoeffs(choice) {		// choice = which windowing function to use
 	a0, a1, a2 = 0;
 	if (choice == 1) {			// "Blackman"
 		a0 = 0.42;

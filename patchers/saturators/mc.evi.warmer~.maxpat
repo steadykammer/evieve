@@ -382,7 +382,8 @@
                                                     "source": [ "obj-7", 1 ]
                                                 }
                                             }
-                                        ]
+                                        ],
+                                        "toolbaradditions": [ "audiosolo", "audiomute" ]
                                     },
                                     "patching_rect": [ 188.0, 83.0, 98.0, 22.0 ],
                                     "text": "p parse_and_mc"
@@ -418,7 +419,7 @@
                                     "maxclass": "outlet",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 1055.0, 711.0, 30.0, 30.0 ]
+                                    "patching_rect": [ 1064.0, 711.0, 30.0, 30.0 ]
                                 }
                             },
                             {
@@ -1048,7 +1049,7 @@
                                     "numinlets": 3,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 1003.0, 501.0, 47.0, 22.0 ],
+                                    "patching_rect": [ 1012.0, 501.0, 47.0, 22.0 ],
                                     "text": "clip 1 8"
                                 }
                             },
@@ -1059,7 +1060,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 900.0, 540.0, 122.0, 22.0 ],
+                                    "patching_rect": [ 909.0, 540.0, 122.0, 22.0 ],
                                     "text": "pak 1 3"
                                 }
                             },
@@ -1070,7 +1071,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "int" ],
-                                    "patching_rect": [ 900.0, 579.0, 30.0, 22.0 ],
+                                    "patching_rect": [ 909.0, 579.0, 30.0, 22.0 ],
                                     "text": "* 3"
                                 }
                             },
@@ -1081,20 +1082,8 @@
                                     "numinlets": 3,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 900.0, 501.0, 47.0, 22.0 ],
+                                    "patching_rect": [ 909.0, 501.0, 47.0, 22.0 ],
                                     "text": "clip 0 1"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "hidden": 1,
-                                    "id": "obj-19",
-                                    "maxclass": "newobj",
-                                    "numinlets": 2,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "float" ],
-                                    "patching_rect": [ 634.0, 267.0, 47.0, 22.0 ],
-                                    "text": "* 0.001"
                                 }
                             },
                             {
@@ -1107,8 +1096,8 @@
                                     "numinlets": 1,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 731.0, 462.0, 111.0, 22.0 ],
-                                    "text": "prepend bassboost"
+                                    "patching_rect": [ 731.0, 462.0, 105.0, 22.0 ],
+                                    "text": "prepend foldboost"
                                 }
                             },
                             {
@@ -1318,7 +1307,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 900.0, 618.0, 84.0, 22.0 ],
+                                    "patching_rect": [ 909.0, 618.0, 84.0, 22.0 ],
                                     "text": "prepend order"
                                 }
                             },
@@ -1332,7 +1321,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 952.0, 579.0, 85.0, 22.0 ],
+                                    "patching_rect": [ 961.0, 579.0, 85.0, 22.0 ],
                                     "text": "prepend cutoff"
                                 }
                             },
@@ -1360,8 +1349,8 @@
                                     "numinlets": 1,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 773.0, 423.0, 104.0, 22.0 ],
-                                    "text": "prepend bassgain"
+                                    "patching_rect": [ 776.0, 423.0, 98.0, 22.0 ],
+                                    "text": "prepend foldgain"
                                 }
                             },
                             {
@@ -1374,8 +1363,8 @@
                                     "numinlets": 1,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 858.0, 345.0, 100.0, 22.0 ],
-                                    "text": "prepend bassmix"
+                                    "patching_rect": [ 865.0, 345.0, 94.0, 22.0 ],
+                                    "text": "prepend foldmix"
                                 }
                             },
                             {
@@ -1388,8 +1377,8 @@
                                     "numinlets": 1,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 816.0, 384.0, 110.0, 22.0 ],
-                                    "text": "prepend bassslope"
+                                    "patching_rect": [ 820.0, 384.0, 104.0, 22.0 ],
+                                    "text": "prepend foldslope"
                                 }
                             },
                             {
@@ -1399,7 +1388,7 @@
                                     "numinlets": 4,
                                     "numoutlets": 4,
                                     "outlettype": [ "", "", "", "" ],
-                                    "patching_rect": [ 900.0, 462.0, 174.0, 22.0 ],
+                                    "patching_rect": [ 909.0, 462.0, 174.0, 22.0 ],
                                     "text": "route tone tonecutoff toneslope"
                                 }
                             },
@@ -1410,8 +1399,8 @@
                                     "numinlets": 5,
                                     "numoutlets": 5,
                                     "outlettype": [ "", "", "", "", "" ],
-                                    "patching_rect": [ 731.0, 306.0, 188.0, 22.0 ],
-                                    "text": "route clip clipfold clipslope clipmix"
+                                    "patching_rect": [ 731.0, 306.0, 197.0, 22.0 ],
+                                    "text": "route fold foldgain foldslope foldmix"
                                 }
                             },
                             {
@@ -1504,7 +1493,7 @@
                                 "patchline": {
                                     "color": [ 0.701961, 0.701961, 0.701961, 0.0 ],
                                     "destination": [ "obj-2", 0 ],
-                                    "midpoints": [ 790.5, 690.0, 1064.5, 690.0 ],
+                                    "midpoints": [ 790.5, 690.0, 1073.5, 690.0 ],
                                     "source": [ "obj-18", 1 ]
                                 }
                             },
@@ -1536,12 +1525,6 @@
                                 "patchline": {
                                     "destination": [ "obj-26", 1 ],
                                     "source": [ "obj-27", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
-                                    "destination": [ "obj-4", 0 ],
-                                    "source": [ "obj-30", 2 ]
                                 }
                             },
                             {
@@ -1755,8 +1738,8 @@
                     "numinlets": 1,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
-                    "patching_rect": [ 244.0, 34.0, 343.0, 62.0 ],
-                    "text": "patcherargs @decouplegain 0 @gain 1. @drive 2. @blend -2. @smooth 30.111 @clip soft @clipfold -1. @clipslope 0.23228 @clipmix 0.333333 @tone 1 @tonecutoff 6000. @toneslope 3 @replicate 0"
+                    "patching_rect": [ 244.0, 34.0, 344.0, 62.0 ],
+                    "text": "patcherargs @decouplegain 0 @gain 1. @drive 2. @blend -2. @smooth 30.111 @fold soft @foldgain -1. @foldslope 0.23228 @foldmix 0.333333 @tone 1 @tonecutoff 6000. @toneslope 3 @replicate 0"
                 }
             },
             {

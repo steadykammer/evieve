@@ -9,7 +9,7 @@
 		<b>evi.allpass~</b> is a 'max define' for the <o>evi_allpass</o>.gendsp gen~ abstraction.
 		Because evi.allpass~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		<br />
-		TEXT_HERE <br />
+		Cubic interpolated allpass filter delay unit. The same structure as MSP <o>allpass~</o>, but with cubic interpolation for smoother high end decays, and a tamed gain coefficient so no digital clipping or aliasing. Quite different than MSP. This abstraction also includes an optional <m>feedbackmix</m> attribute which does ridiculous nonlinear comb effects - you should probably not use this at all (default off). <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>
@@ -24,7 +24,7 @@
 				Inlet #1: Input
 			</digest>
 			<description>
-				
+				Audio input to filter
 			</description>
 		</inlet>
 		<inlet id="2" type="signal/float">
@@ -32,7 +32,7 @@
 				Inlet #2: Delay in ms @min 0.1 @max 1000
 			</digest>
 			<description>
-				
+				Delay time in ms.
 			</description>
 		</inlet>
 		<inlet id="3" type="signal/float">
@@ -40,7 +40,7 @@
 				Inlet #3: Gain Coefficient @min -1 @max 1
 			</digest>
 			<description>
-				
+				Not smoothed internally. Applies negative or positive gain to the feedforward and feedback paths.
 			</description>
 		</inlet>
 	</inletlist>
@@ -51,7 +51,7 @@
 				Outlet #1: Allpass Delay Filter Output
 			</digest>
 			<description>
-				
+				Filtered audio output.
 			</description>
 		</outlet>
 	</outletlist>
@@ -62,10 +62,10 @@
 	<attributelist>
 		<attribute name="feedbackmix" get="1" set="1" type="float" min="0" max="1">
 			<digest>
-				
+				Normalised 0..1
 			</digest>
 			<description>
-				
+				If &gt; 0, applies saturating gain stage to the internal feedback path.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="0." />
@@ -73,10 +73,10 @@
 		</attribute>
 		<attribute name="smooth" get="1" set="1" type="float" min="0" max="333">
 			<digest>
-				
+				Time in ms
 			</digest>
 			<description>
-				
+				Smoothing time of @feedbackmix attribute.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="0." />
@@ -89,6 +89,8 @@
 	</examplelist>
 	<!--SEEALSO-->
 	<seealsolist>
+		<seealso name="evi.comb~"> </seealso>
+		<seealso name="evi.teeth~"> </seealso>
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>

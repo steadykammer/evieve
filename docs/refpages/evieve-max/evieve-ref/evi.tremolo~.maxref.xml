@@ -24,7 +24,7 @@
 				Inlet #1: Left Audio In
 			</digest>
 			<description>
-				
+				Left audio input.
 			</description>
 		</inlet>
 		<inlet id="2" type="signal">
@@ -32,7 +32,7 @@
 				Inlet #2: Right Audio In
 			</digest>
 			<description>
-				
+				Right audio input.
 			</description>
 		</inlet>
 		<inlet id="3" type="signal">
@@ -40,7 +40,7 @@
 				Inlet #3: Reset Naive
 			</digest>
 			<description>
-				
+				Reset of internal LFO phases is naive and not anti-aliased.
 			</description>
 		</inlet>
 	</inletlist>
@@ -51,7 +51,7 @@
 				Outlet #1: Left Audio Out
 			</digest>
 			<description>
-				
+				Modulated audio output left.
 			</description>
 		</outlet>
 		<outlet id="2" type="signal">
@@ -59,7 +59,7 @@
 				Outlet #2: Right Audio Out
 			</digest>
 			<description>
-				
+				Modulated audio output right.
 			</description>
 		</outlet>
 		<outlet id="3" type="signal">
@@ -67,7 +67,7 @@
 				Outlet #3: Hz Current
 			</digest>
 			<description>
-				
+				The currently computed speed in Hz of the modulating LFOs. This is important for downstream processing because if @lfomode is on, this will not necessarily be synchronised with changes to the @rate attribute.
 			</description>
 		</outlet>
 		<outlet id="4" type="signal">
@@ -75,7 +75,7 @@
 				Outlet #4: LFO Left Out
 			</digest>
 			<description>
-				
+				Left LFO output for downstream synchronisation.
 			</description>
 		</outlet>
 		<outlet id="5" type="signal">
@@ -83,7 +83,7 @@
 				Outlet #5: LFO Right Out
 			</digest>
 			<description>
-				
+				Right LFO output for downstream synchronisation.
 			</description>
 		</outlet>
 	</outletlist>
@@ -94,10 +94,10 @@
 	<attributelist>
 		<attribute name="crossover" get="1" set="1" type="float" min="10" max="1000">
 			<digest>
-				
+				Frequency in Hz
 			</digest>
 			<description>
-				
+				Crossover frequency in Hz. Below this crossover point (the bass) the audio is mono summed, saturated and added back into the wet output mix. Above this crossover point the audio is chanelled through the tremolo effect.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="63.5" />
@@ -105,10 +105,10 @@
 		</attribute>
 		<attribute name="depth" get="1" set="1" type="float" min="0" max="1">
 			<digest>
-				
+				Normalised 0..1
 			</digest>
 			<description>
-				
+				Internally, increasing depth increases the amplitude size of the LFO movement.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="0.75" />
@@ -116,10 +116,10 @@
 		</attribute>
 		<attribute name="drive" get="1" set="1" type="float" min="0" max="1">
 			<digest>
-				
+				Normalised 0..1
 			</digest>
 			<description>
-				
+				0..1 equates to about 0..+10 dB drive gain into the saturation stage. evi.tremolo~ can be safely overdriven to modulation well above unity gain and remain anti-aliased on output.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="0.5" />
@@ -127,10 +127,10 @@
 		</attribute>
 		<attribute name="lfoinvert" get="1" set="1" type="int" min="0" max="1">
 			<digest>
-				
+				Flag 0/1
 			</digest>
 			<description>
-				
+				Invert the wave shape of the current LFO shape. Switching is synchronised to the zero phase of the LFOs.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="0" />
@@ -138,10 +138,10 @@
 		</attribute>
 		<attribute name="lfomode" get="1" set="1" type="int" min="0" max="1">
 			<digest>
-				
+				Flag 0/1, zero reset phase off/on
 			</digest>
 			<description>
-				
+				If on, changes to the speed (@rate) of the internal LFOs are synchronised to zero reset of phase, which can produce seemless updating of speed changes. Otherwise the speed (@rate) updates smoothly morphing changes.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="1" />
@@ -149,10 +149,10 @@
 		</attribute>
 		<attribute name="lfoout" get="1" set="1" type="int" min="0" max="1">
 			<digest>
-				
+				Flag 0/1
 			</digest>
 			<description>
-				
+				Switch the LFO outputs (outlets 3 and 4) to output raw 0..1 range or output the actual amplitude used by the effect.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="1" />
@@ -160,10 +160,10 @@
 		</attribute>
 		<attribute name="lfoskew" get="1" set="1" type="float" min="0.5" max="2">
 			<digest>
-				
+				Exponent 0.5..2
 			</digest>
 			<description>
-				
+				@lfoskew exponentially shapes the LFO output.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="1." />
@@ -171,10 +171,10 @@
 		</attribute>
 		<attribute name="lfowave" get="1" set="1" type="int" min="0" max="10">
 			<digest>
-				
+				0..10
 			</digest>
 			<description>
-				
+				The shape of the LFOs driving the modulation. 0&#x3D;bypass, 1&#x3D;up, 2&#x3D;down, 3&#x3D;tri, 4&#x3D;sine (default), 5&#x3D;tanh, 6&#x3D;square, 7&#x3D;rand step, 8&#x3D;rand linear, 9&#x3D;rand cubic, 10&#x3D;noise. Switching LFO wave is synchronised to zero crossing phase. LFOs are always slightly smoothed, even hard edges such as square and random.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="4" />
@@ -182,10 +182,10 @@
 		</attribute>
 		<attribute name="lfowidth" get="1" set="1" type="float" min="0" max="1">
 			<digest>
-				
+				Normalised 0..1
 			</digest>
 			<description>
-				
+				The pulse width of the LFO wave shapes that use it: 3&#x3D;triangle, 5&#x3D;tanh, 6&#x3D;square.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="0.5" />
@@ -193,10 +193,10 @@
 		</attribute>
 		<attribute name="maxhz" get="1" set="1" type="float" min="0.1" max="40">
 			<digest>
-				
+				Frequency in Hz
 			</digest>
 			<description>
-				
+				The maximum in Hz that the @rate attribute can reach.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="11." />
@@ -204,10 +204,10 @@
 		</attribute>
 		<attribute name="rate" get="1" set="1" type="float" min="0" max="1">
 			<digest>
-				
+				Normalised 0..1
 			</digest>
 			<description>
-				
+				The global speed of the LFO phases. This sets the speed (between 0..@maxhz) the LFOs scale the amplitudes (set by @depth and @drive).
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="0.5" />
@@ -215,10 +215,10 @@
 		</attribute>
 		<attribute name="smooth" get="1" set="1" type="float" min="0" max="151">
 			<digest>
-				
+				Time in ms
 			</digest>
 			<description>
-				
+				The smoothing time of the internal parameters.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="15.111" />
@@ -226,10 +226,10 @@
 		</attribute>
 		<attribute name="spread" get="1" set="1" type="float" min="0" max="1">
 			<digest>
-				
+				Normalised 0..1
 			</digest>
 			<description>
-				
+				The left/right spread of the audio outputs, actually the phase offset of the two internal LFOs. 0..1 is mapped to 0..180 degrees shift.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="0.25" />
@@ -242,6 +242,12 @@
 	</examplelist>
 	<!--SEEALSO-->
 	<seealsolist>
+		<seealso name="evi.am~"> </seealso>
+		<seealso name="evi.flanger.digital~"> </seealso>
+		<seealso name="evi.chorus.digital~"> </seealso>
+		<seealso name="evi.phaser.analog~"> </seealso>
+		<seealso name="evi.detune~"> </seealso>
+		<seealso name="evi.phasor0~"> </seealso>
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>

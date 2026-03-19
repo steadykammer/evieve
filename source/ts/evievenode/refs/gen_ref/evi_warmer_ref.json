@@ -102,6 +102,46 @@
             }
         },
         {
+            "name": "foldboost",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "foldgain",
+            "type": "float",
+            "digest": "@min -12, @max 12",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "-1."
+            }
+        },
+        {
+            "name": "foldmix",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.333333"
+            }
+        },
+        {
+            "name": "foldslope",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.23228"
+            }
+        },
+        {
             "name": "highpass",
             "type": "float",
             "digest": "@min 10, @max 400",
@@ -114,7 +154,7 @@
         {
             "name": "ingain",
             "type": "float",
-            "digest": "@min -48, @max 48",
+            "digest": "@min -24, @max 24",
             "description": "",
             "default": {
                 "type": "float",

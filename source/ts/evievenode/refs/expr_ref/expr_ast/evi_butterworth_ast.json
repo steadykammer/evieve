@@ -3051,6 +3051,24 @@
                                         "operator": "=",
                                         "left": {
                                             "type": "Identifier",
+                                            "name": "G",
+                                            "raw": "G"
+                                        },
+                                        "right": {
+                                            "type": "Literal",
+                                            "value": 0.414226,
+                                            "raw": "0.414226",
+                                            "gen_kind": "float"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
                                             "name": "Y",
                                             "raw": "Y"
                                         },

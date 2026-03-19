@@ -12,7 +12,7 @@
      <br />
     The <b>evi_warmer_lib.genexpr</b> file also requires: <br />
     evi_smooth.genexpr <br />
-    evi_rcfilters.genexpr <br />
+    evi_interp.genexpr <br />
     evi_butterworth.genexpr <br />
     <br />
     <b>About this File</b>: <br />

@@ -212,6 +212,10 @@
 	</examplelist>
 	<!--SEEALSO-->
 	<seealsolist>
+		<seealso name="evi.freqshift.hilbert~"> </seealso>
+		<seealso name="evi.hilbert~"> </seealso>
+		<seealso name="evi.ringmod~"> </seealso>
+		<seealso name="evi.ringmod.diode~"> </seealso>
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>

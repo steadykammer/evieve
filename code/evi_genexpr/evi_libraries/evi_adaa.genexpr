@@ -1266,6 +1266,80 @@ tarrabiaAdaa2(x0, a)
   return y1;
 }
 
+//
+
+szilagyiF0(x)
+{
+	return 0.5 * x * (3 - (x*x));
+}
+
+szilagyiF1(x)
+{
+	xx3 = x*x - 3;
+	return -xx3*xx3 * 0.125;
+}
+
+szilagyiF2(x)
+{
+	xx = x*x;
+	return -(x * (xx*xx - 10 * xx + 45)) * 0.025;
+}
+
+szilagyiAdaa1(x0)
+{
+	History x1(0), s1(0);
+	eps = 0.00001;
+
+	y1 = 0;
+	d0 = x0 - x1;
+	s0 = szilagyiF1(x0);    // func1
+	if ((x1 == 0 && s1 == 0) || (abs(d0) < eps)) {  // ill condition
+		y1 = szilagyiF0(0.5 * (x0 + x1)); // func0
+	} else {
+		y1 = (s0 - s1) / d0;
+	}
+
+	s1 = s0;
+	x1 = x0;
+	return y1;
+}
+
+szilagyiAdaa2(x0)
+{
+	History x1(0), x2(0), s1(0);
+	eps = 0.00001;
+
+	s0 = x0;//0;
+	d0 = x0 - x1;
+	f2_x1 = szilagyiF2(x1); // func2
+	if (abs(d0) < eps) {  // ill condition
+		s0 = szilagyiF1(0.5 * (x0 + x1)); // func1
+	} else {
+		s0 = (szilagyiF2(x0) - f2_x1) / d0; // func2
+	}
+
+	y1 = x0;//0;
+	d1 = x0 - x2;
+	if (x1 == 0 && x2 == 0) { // ill condition
+		y1 = szilagyiF0(x0 + (x1 + x1) + x2) * 0.25; // func0
+	} else if (abs(d1) < eps) { // ill condition
+		x_bar = 0.5 * (x0 + x2);
+		x_delta = x_bar - x1;
+		if (x_delta < eps) {  // ill condition
+			y1 = szilagyiF0((x_bar + x1) * 0.5);  // func0
+		} else {
+			y1 = (2 / x_delta) * (szilagyiF1(x_bar) + (f2_x1 - szilagyiF2(x_bar)) / x_delta); // func1, func2
+		}
+	} else {
+		s0s1 = s0 - s1;
+		y1 = (s0s1 + s0s1) / d1;
+	}
+
+	s1 = s0;
+	x2 = x1;
+	x1 = x0;
+	return y1;
+}
 
 // the Adaa templates
 // these are just like the previous evieve and the Chowdry, but the adaa2 is cleverer

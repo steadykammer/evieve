@@ -24,19 +24,19 @@
             "id": 1,
             "type": "signal",
             "digest": "Left Audio In",
-            "description": ""
+            "description": "Left audio input."
         },
         {
             "id": 2,
             "type": "signal",
             "digest": "Right Audio In",
-            "description": ""
+            "description": "Right audio input."
         },
         {
             "id": 3,
             "type": "signal",
             "digest": "Reset Naive",
-            "description": ""
+            "description": "Reset of internal LFO phases is naive and not anti-aliased."
         }
     ],
     "outlets": [
@@ -44,31 +44,31 @@
             "id": 1,
             "type": "signal",
             "digest": "Left Audio Out",
-            "description": ""
+            "description": "Modulated audio output left."
         },
         {
             "id": 2,
             "type": "signal",
             "digest": "Right Audio Out",
-            "description": ""
+            "description": "Modulated audio output right."
         },
         {
             "id": 3,
             "type": "signal",
             "digest": "Hz Current",
-            "description": ""
+            "description": "The currently computed speed in Hz of the modulating LFOs. This is important for downstream processing because if @lfomode is on, this will not necessarily be synchronised with changes to the @rate attribute."
         },
         {
             "id": 4,
             "type": "signal",
             "digest": "LFO Left Out",
-            "description": ""
+            "description": "Left LFO output for downstream synchronisation."
         },
         {
             "id": 5,
             "type": "signal",
             "digest": "LFO Right Out",
-            "description": ""
+            "description": "Right LFO output for downstream synchronisation."
         }
     ],
     "messages": [],
@@ -77,8 +77,8 @@
             "name": "crossover",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Frequency in Hz",
+            "description": "Crossover frequency in Hz. Below this crossover point (the bass) the audio is mono summed, saturated and added back into the wet output mix. Above this crossover point the audio is chanelled through the tremolo effect.",
             "default": {
                 "min": "10",
                 "max": "1000",
@@ -89,8 +89,8 @@
             "name": "depth",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Normalised 0..1",
+            "description": "Internally, increasing depth increases the amplitude size of the LFO movement.",
             "default": {
                 "min": "0",
                 "max": "1",
@@ -101,8 +101,8 @@
             "name": "drive",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Normalised 0..1",
+            "description": "0..1 equates to about 0..+10 dB drive gain into the saturation stage. evi.tremolo~ can be safely overdriven to modulation well above unity gain and remain anti-aliased on output.",
             "default": {
                 "min": "0",
                 "max": "1",
@@ -113,8 +113,8 @@
             "name": "lfoinvert",
             "get": 1,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Flag 0/1",
+            "description": "Invert the wave shape of the current LFO shape. Switching is synchronised to the zero phase of the LFOs.",
             "default": {
                 "min": "0",
                 "max": "1",
@@ -125,8 +125,8 @@
             "name": "lfomode",
             "get": 1,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Flag 0/1, zero reset phase off/on",
+            "description": "If on, changes to the speed (@rate) of the internal LFOs are synchronised to zero reset of phase, which can produce seemless updating of speed changes. Otherwise the speed (@rate) updates smoothly morphing changes.",
             "default": {
                 "min": "0",
                 "max": "1",
@@ -137,8 +137,8 @@
             "name": "lfoout",
             "get": 1,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Flag 0/1",
+            "description": "Switch the LFO outputs (outlets 3 and 4) to output raw 0..1 range or output the actual amplitude used by the effect.",
             "default": {
                 "min": "0",
                 "max": "1",
@@ -149,8 +149,8 @@
             "name": "lfoskew",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Exponent 0.5..2",
+            "description": "@lfoskew exponentially shapes the LFO output.",
             "default": {
                 "min": "0.5",
                 "max": "2",
@@ -161,8 +161,8 @@
             "name": "lfowave",
             "get": 1,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "0..10",
+            "description": "The shape of the LFOs driving the modulation. 0=bypass, 1=up, 2=down, 3=tri, 4=sine (default), 5=tanh, 6=square, 7=rand step, 8=rand linear, 9=rand cubic, 10=noise. Switching LFO wave is synchronised to zero crossing phase. LFOs are always slightly smoothed, even hard edges such as square and random.",
             "default": {
                 "min": "0",
                 "max": "10",
@@ -173,8 +173,8 @@
             "name": "lfowidth",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Normalised 0..1",
+            "description": "The pulse width of the LFO wave shapes that use it: 3=triangle, 5=tanh, 6=square.",
             "default": {
                 "min": "0",
                 "max": "1",
@@ -185,8 +185,8 @@
             "name": "maxhz",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Frequency in Hz",
+            "description": "The maximum in Hz that the @rate attribute can reach.",
             "default": {
                 "min": "0.1",
                 "max": "40",
@@ -197,8 +197,8 @@
             "name": "rate",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Normalised 0..1",
+            "description": "The global speed of the LFO phases. This sets the speed (between 0..@maxhz) the LFOs scale the amplitudes (set by @depth and @drive).",
             "default": {
                 "min": "0",
                 "max": "1",
@@ -209,8 +209,8 @@
             "name": "smooth",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Time in ms",
+            "description": "The smoothing time of the internal parameters.",
             "default": {
                 "min": "0",
                 "max": "151",
@@ -221,8 +221,8 @@
             "name": "spread",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Normalised 0..1",
+            "description": "The left/right spread of the audio outputs, actually the phase offset of the two internal LFOs. 0..1 is mapped to 0..180 degrees shift.",
             "default": {
                 "min": "0",
                 "max": "1",
@@ -234,5 +234,12 @@
         "caption": "",
         "image": ""
     },
-    "seealso": []
+    "seealso": [
+        "evi.am~",
+        "evi.flanger.digital~",
+        "evi.chorus.digital~",
+        "evi.phaser.analog~",
+        "evi.detune~",
+        "evi.phasor0~"
+    ]
 }

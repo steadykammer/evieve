@@ -9,7 +9,7 @@
 		<b>evi.detune~</b> is a 'max define' for the <o>evi_detune</o>.gendsp gen~ abstraction.
 		Because evi.detune~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		<br />
-		TEXT_HERE <br />
+		Loosely based on 'mda detune' copyright (c) 1998-2000 Paul Kellett. <o>evi.detune~</o> adds a feedback path as would be found in modulation effects, and implements a linkwitz-riley crossover to shift the focus and strength of the effect. In addition a dynamically controllable morphing pre-filter can accentuate certain frequencies hitting the detuner, feedback path and output are saturated and anti-aliased. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>
@@ -24,7 +24,7 @@
 				Inlet #1: Left Audio In
 			</digest>
 			<description>
-				
+				Left audio input.
 			</description>
 		</inlet>
 		<inlet id="2" type="signal">
@@ -32,7 +32,7 @@
 				Inlet #2: Right Audio In
 			</digest>
 			<description>
-				
+				Right audio input.
 			</description>
 		</inlet>
 		<inlet id="3" type="signal">
@@ -40,7 +40,7 @@
 				Inlet #3: Reset Naive
 			</digest>
 			<description>
-				
+				Reset of internal detune phase is naive and not anti-aliased.
 			</description>
 		</inlet>
 	</inletlist>
@@ -51,7 +51,7 @@
 				Outlet #1: Left Audio Out
 			</digest>
 			<description>
-				
+				Detuned audio output left.
 			</description>
 		</outlet>
 		<outlet id="2" type="signal">
@@ -59,7 +59,7 @@
 				Outlet #2: Right Audio Out
 			</digest>
 			<description>
-				
+				Detuned audio output right.
 			</description>
 		</outlet>
 		<outlet id="3" type="signal">
@@ -67,7 +67,7 @@
 				Outlet #3: Phase in Samples
 			</digest>
 			<description>
-				
+				The phase of the internal modulation in samples, for synchronous downstream processing.
 			</description>
 		</outlet>
 	</outletlist>
@@ -90,7 +90,7 @@
 	<attributelist>
 		<attribute name="detune" get="1" set="1" type="float" min="0" max="1">
 			<digest>
-				
+				Normalised 0..1
 			</digest>
 			<description>
 				
@@ -101,10 +101,10 @@
 		</attribute>
 		<attribute name="drywet" get="1" set="1" type="float" min="0" max="1">
 			<digest>
-				
+				Normalised 0..1
 			</digest>
 			<description>
-				
+				The global dry/wet mix of the detuner. 0 is completely dry, 1 is completely wet.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="sqrt1_2" />
@@ -112,10 +112,10 @@
 		</attribute>
 		<attribute name="feedback" get="1" set="1" type="float" min="-1" max="1">
 			<digest>
-				
+				Linear gain -1..1
 			</digest>
 			<description>
-				
+				The level of gain to send the tapped audio through the feedback saturator.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="0." />
@@ -123,10 +123,10 @@
 		</attribute>
 		<attribute name="latency" get="1" set="1" type="int" min="0" max="4">
 			<digest>
-				
+				0..4
 			</digest>
 			<description>
-				
+				The amount of time in samples used by the detuner. 0&#x3D;256, 1&#x3D;512, 2&#x3D;1024, 3&#x3D;2048, 4&#x3D;4096. This has a strong effect of the granular sound of the effect.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="4" />
@@ -134,10 +134,10 @@
 		</attribute>
 		<attribute name="mix" get="1" set="1" type="float" min="0" max="1">
 			<digest>
-				
+				Normalised 0..1
 			</digest>
 			<description>
-				
+				Not dry/wet mix. @mix refers to the internal mix of the wet detune chain. It mixes the crossover low/high audio around the feedback path, thus changing the strength of saturated and unsaturated audio into the detuning effect.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="0.9" />
@@ -145,10 +145,10 @@
 		</attribute>
 		<attribute name="postfilterfrequency" get="1" set="1" type="float" min="1000" max="samplerate*0.49">
 			<digest>
-				
+				Frequency in Hz
 			</digest>
 			<description>
-				
+				A clean linear lowpass butterworth for attenuating the top end if needed.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="16000." />
@@ -156,10 +156,10 @@
 		</attribute>
 		<attribute name="prefilterbandwidth" get="1" set="1" type="float" min="0" max="1">
 			<digest>
-				
+				Normalised 0..1
 			</digest>
 			<description>
-				
+				The bandwidth approx 0..10 octaves of the pre-filter (inverse resonance).
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="0.5" />
@@ -167,10 +167,10 @@
 		</attribute>
 		<attribute name="prefilterfrequency" get="1" set="1" type="float" min="125" max="16000">
 			<digest>
-				
+				Frequency in Hz
 			</digest>
 			<description>
-				
+				The frequency of the pre-filter. A linear TPT morphing filter which can be used for shaping the input to the detuner. Filter type set by @prefiltermorph attribute.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="8000." />
@@ -181,7 +181,7 @@
 				
 			</digest>
 			<description>
-				
+				Smoothly interpolate the filter type of the pre-filter, 0&#x3D;lowpass, 0.5&#x3D;bandpass, 1&#x3D;highpass.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="0." />
@@ -189,10 +189,10 @@
 		</attribute>
 		<attribute name="smooth" get="1" set="1" type="float" min="0" max="333">
 			<digest>
-				
+				Time in ms
 			</digest>
 			<description>
-				
+				Smoothing time of the internal parameters.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="22." />
@@ -200,10 +200,10 @@
 		</attribute>
 		<attribute name="window" get="1" set="1" type="int" min="0" max="5">
 			<digest>
-				
+				0..5
 			</digest>
 			<description>
-				
+				The gain window to use in theleft/right offset of the up/down detuning. 0&#x3D;flat, 1&#x3D;Blackman, 2&#x3D;Exact Blackman, 3&#x3D;Blackman-Harris, 4&#x3D;Hann, 5&#x3D;Hamming. Default Hann.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="4" />
@@ -211,10 +211,10 @@
 		</attribute>
 		<attribute name="xover" get="1" set="1" type="float" min="125" max="1000">
 			<digest>
-				
+				Frequency in Hz
 			</digest>
 			<description>
-				
+				Crossover frequency in Hz. Below this crossover point (the bass) the audio is mono summed, saturated and added back into the wet output mix. Above this crossover point the audio is chanelled through the detune effect.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="250." />
@@ -227,6 +227,11 @@
 	</examplelist>
 	<!--SEEALSO-->
 	<seealsolist>
+		<seealso name="evi.chorus.digital~"> </seealso>
+		<seealso name="evi.flanger.digital~"> </seealso>
+		<seealso name="evi.am~"> </seealso>
+		<seealso name="evi.tremolo~"> </seealso>
+		<seealso name="evi.phaser.analog~"> </seealso>
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>
