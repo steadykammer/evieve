@@ -24,12 +24,12 @@
     <geninletlist>
         <geninlet name='audio' type='float' optional='1'>
             <digest>
-                In
+                In. 
             </digest>
         </geninlet>
         <geninlet name='asymmetry' type='float' optional='1'>
             <digest>
-                @min 0 @max 1 @default 0.5
+                @min 0 @max 1 @default 0.5. 
             </digest>
         </geninlet>
     </geninletlist>

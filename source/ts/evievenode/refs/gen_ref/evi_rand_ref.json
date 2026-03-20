@@ -16,7 +16,8 @@
             "name": "frequency",
             "type": "float",
             "optional": 1,
-            "digest": "in Hz @min 0."
+            "digestauto": "in Hz @min 0.",
+            "digest": ""
         }
     ],
     "outlets": [
@@ -25,7 +26,7 @@
             "name": "rand~like",
             "type": "float",
             "optional": 1,
-            "digest": "(Brown-ish) Noise Output"
+            "digest": ""
         }
     ],
     "attributes": [],

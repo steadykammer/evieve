@@ -3,8 +3,8 @@
         "name": "evi_phaser_analog",
         "child": "evi.phaser.analog~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Analog Phaser effect with multiple stages, filtering and saturation",
+        "description": "THIS IS CURRENTLY SHIT AND NEEDS WORK"
     },
     "constructor": {
         "inlets": ", "
@@ -247,8 +247,32 @@
     ],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_chorus_digital",
+            "display": "evi_chorus_digital"
+        },
+        {
+            "name": "evi_flanger_digital",
+            "display": "evi_flanger_digital"
+        },
+        {
+            "name": "evi_am",
+            "display": "evi_am"
+        },
+        {
+            "name": "evi_tremolo",
+            "display": "evi_tremolo"
+        },
+        {
+            "name": "evi_phaser_analog",
+            "display": "evi_phaser_analog"
+        },
+        {
+            "name": "evi_detune",
+            "display": "evi_detune"
+        },
+        {
+            "name": "evi_phasor0",
+            "display": "evi_phasor0"
         }
     ]
 }

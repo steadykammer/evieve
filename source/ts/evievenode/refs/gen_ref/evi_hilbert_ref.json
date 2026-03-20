@@ -29,14 +29,14 @@
             "name": "cosine/real",
             "type": "float",
             "optional": 1,
-            "digest": "Output"
+            "digest": ""
         },
         {
             "id": 2,
             "name": "sine/imag",
             "type": "float",
             "optional": 1,
-            "digest": "Output"
+            "digest": ""
         }
     ],
     "attributes": [

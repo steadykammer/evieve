@@ -21,22 +21,22 @@
     <geninletlist>
         <geninlet name='value' type='float' optional='1'>
             <digest>
-                to Follow
+                to Follow. 
             </digest>
         </geninlet>
         <geninlet name='attack' type='float' optional='1'>
             <digest>
-                Time in milliseconds @min 0
+                Time in milliseconds @min 0. 
             </digest>
         </geninlet>
         <geninlet name='hold' type='float' optional='1'>
             <digest>
-                Time in milliseconds @min 0
+                Time in milliseconds @min 0. 
             </digest>
         </geninlet>
         <geninlet name='release' type='float' optional='1'>
             <digest>
-                Time in milliseconds @min 0
+                Time in milliseconds @min 0. 
             </digest>
         </geninlet>
     </geninletlist>

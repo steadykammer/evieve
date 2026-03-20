@@ -238,5 +238,12 @@
         "caption": "",
         "image": ""
     },
-    "seealso": []
+    "seealso": [
+        "evi.audiodust~",
+        "evi.gaussiannoise~",
+        "evi.velvetnoise~",
+        "evi.zeroxcount~",
+        "evi.randy~",
+        "evi.blitwaves~"
+    ]
 }

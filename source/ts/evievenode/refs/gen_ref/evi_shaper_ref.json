@@ -3,7 +3,7 @@
         "name": "evi_shaper",
         "child": "evi.shaper~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
+        "digest": "An interpolated choice of even or odd harmonics waveshaping",
         "description": "TEXT_HERE"
     },
     "constructor": {
@@ -16,7 +16,8 @@
             "name": "audio",
             "type": "float",
             "optional": 1,
-            "digest": "to be Shaped"
+            "digestauto": "to be Shaped",
+            "digest": ""
         }
     ],
     "outlets": [
@@ -25,7 +26,7 @@
             "name": "shaped",
             "type": "float",
             "optional": 1,
-            "digest": "Audio Output"
+            "digest": ""
         }
     ],
     "attributes": [

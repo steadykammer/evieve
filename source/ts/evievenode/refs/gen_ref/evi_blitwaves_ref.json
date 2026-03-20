@@ -3,7 +3,7 @@
         "name": "evi_blitwaves",
         "child": "evi.blitwaves~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
+        "digest": "No aliasing BLIT oscillators with a choice of simultaneous wave shapes outputs",
         "description": "TEXT_HERE"
     },
     "constructor": {
@@ -20,21 +20,24 @@
             "name": "frequency",
             "type": "float",
             "optional": 1,
-            "digest": "in Hz"
+            "digestauto": "in Hz",
+            "digest": ""
         },
         {
             "id": 2,
             "name": "pulse",
             "type": "float",
             "optional": 1,
-            "digest": "Width 0..1 @default 0.5"
+            "digestauto": "Width 0..1 @default 0.5",
+            "digest": ""
         },
         {
             "id": 3,
             "name": "naive",
             "type": "float",
             "optional": 1,
-            "digest": "Reset"
+            "digestauto": "Reset",
+            "digest": ""
         }
     ],
     "outlets": [
@@ -64,21 +67,21 @@
             "name": "sine",
             "type": "float",
             "optional": 1,
-            "digest": "(if param addsine set)"
+            "digest": ""
         },
         {
             "id": 5,
             "name": "train",
             "type": "float",
             "optional": 1,
-            "digest": "0/1 (if param addtrain set)"
+            "digest": ""
         },
         {
             "id": 6,
             "name": "sync",
             "type": "float",
             "optional": 1,
-            "digest": "0..1 (if param addsync set)"
+            "digest": ""
         }
     ],
     "attributes": [

@@ -9,7 +9,7 @@
 		<b>evi.zeroxcount~</b> is a 'max define' for the <o>evi_zeroxcount</o>.gendsp gen~ abstraction.
 		Because evi.zeroxcount~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		<br />
-		TEXT_HERE <br />
+		This was built for a very specific need but might be useful as a controller. It is very similar to the RNBO 'zerox_count~' object but with simultaneous outlets for a > threshold gate and # of crossings. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>
@@ -24,7 +24,7 @@
 				Inlet #1: Input
 			</digest>
 			<description>
-				
+				The audio input to be analysed for zero crossings.
 			</description>
 		</inlet>
 	</inletlist>
@@ -35,7 +35,7 @@
 				Outlet #1: Number of Zerocrossings per Window
 			</digest>
 			<description>
-				
+				Number of zero crossings per analysis window.
 			</description>
 		</outlet>
 		<outlet id="2" type="gate">
@@ -43,7 +43,7 @@
 				Outlet #2: &gt; threshold
 			</digest>
 			<description>
-				
+				Gate out, if crossings in window period &gt; @threshold amount.
 			</description>
 		</outlet>
 		<outlet id="3" type="signal">
@@ -51,7 +51,7 @@
 				Outlet #3: the Zerocrossings
 			</digest>
 			<description>
-				
+				Constant zero crossings update.
 			</description>
 		</outlet>
 	</outletlist>
@@ -62,10 +62,10 @@
 	<attributelist>
 		<attribute name="size" get="1" set="1" type="int" min="1" max="4096">
 			<digest>
-				
+				int
 			</digest>
 			<description>
-				
+				The size of the analysis window with which to count zero crossings in. By default this is &#x27;vectorsize&#x27; which is a typical use case.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="vectorsize" />
@@ -73,10 +73,10 @@
 		</attribute>
 		<attribute name="thresh" get="1" set="1" type="float" min="0" max="1">
 			<digest>
-				
+				Linear 0..1
 			</digest>
 			<description>
-				
+				If count/window size is &gt; than this threshold, report a gate event (middle outlet).
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="0.1" />
@@ -89,6 +89,13 @@
 	</examplelist>
 	<!--SEEALSO-->
 	<seealsolist>
+		<seealso name="evi.audiodust~"> </seealso>
+		<seealso name="evi.gaussiannoise~"> </seealso>
+		<seealso name="evi.velvetnoise~"> </seealso>
+		<seealso name="evi.zeroxoscnoise~"> </seealso>
+		<seealso name="evi.randy~"> </seealso>
+		<seealso name="evi.phasor0~"> </seealso>
+		<seealso name="evi.ramp0~"> </seealso>
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>

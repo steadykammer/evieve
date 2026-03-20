@@ -16,6 +16,17 @@
         "boxes": [
             {
                 "box": {
+                    "id": "obj-114",
+                    "maxclass": "message",
+                    "numinlets": 2,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 1053.0, 556.0, 150.0, 22.0 ],
+                    "text": "make_gendsps_from_defs"
+                }
+            },
+            {
+                "box": {
                     "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
                     "fontname": "Arial Bold",
                     "hint": "",
@@ -2064,6 +2075,8 @@
                     "saved_object_attributes": {
                         "autostart": 0,
                         "defer": 0,
+                        "node_bin_path": "",
+                        "npm_bin_path": "",
                         "watch": 0
                     },
                     "text": "node.script Patcher:../dist/evievedoc.js",
@@ -2149,6 +2162,12 @@
                 "patchline": {
                     "destination": [ "obj-68", 0 ],
                     "source": [ "obj-110", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 0 ],
+                    "source": [ "obj-114", 0 ]
                 }
             },
             {

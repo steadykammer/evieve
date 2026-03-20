@@ -3,7 +3,7 @@
         "name": "evi_phasor0",
         "child": "evi.phasor0~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
+        "digest": "Zero-reset phasor with settings for reverse and pause",
         "description": "TEXT_HERE"
     },
     "constructor": {
@@ -16,7 +16,8 @@
             "name": "frequency",
             "type": "float",
             "optional": 1,
-            "digest": "in Hz"
+            "digestauto": "in Hz",
+            "digest": ""
         },
         {
             "id": 2,
@@ -32,14 +33,14 @@
             "name": "phasor",
             "type": "float",
             "optional": 1,
-            "digest": "0..1"
+            "digest": ""
         },
         {
             "id": 2,
             "name": "current",
             "type": "float",
             "optional": 1,
-            "digest": "Frequency in Hz"
+            "digest": ""
         },
         {
             "id": 3,

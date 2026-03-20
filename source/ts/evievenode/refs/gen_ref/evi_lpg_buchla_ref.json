@@ -18,21 +18,24 @@
             "name": "audio",
             "type": "float",
             "optional": 1,
-            "digest": "Input"
+            "digestauto": "Input",
+            "digest": ""
         },
         {
             "id": 2,
             "name": "frequency",
             "type": "float",
             "optional": 1,
-            "digest": "Rf"
+            "digestauto": "Rf",
+            "digest": ""
         },
         {
             "id": 3,
             "name": "resonance",
             "type": "float",
             "optional": 1,
-            "digest": "0..2 @default 1"
+            "digestauto": "0..2 @default 1",
+            "digest": ""
         }
     ],
     "outlets": [
@@ -48,14 +51,14 @@
             "name": "something",
             "type": "float",
             "optional": 1,
-            "digest": "BP"
+            "digest": ""
         },
         {
             "id": 3,
             "name": "something",
             "type": "float",
             "optional": 1,
-            "digest": "HP"
+            "digest": ""
         }
     ],
     "attributes": [

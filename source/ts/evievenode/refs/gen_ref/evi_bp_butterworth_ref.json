@@ -3,7 +3,7 @@
         "name": "evi_bp_butterworth",
         "child": "evi.butterworthlp6~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
+        "digest": "Unique 6th order Butterworth Lowpass filter created from <o>evi.bp~</o> sections after Miller Puckette",
         "description": "TEXT_HERE"
     },
     "constructor": {
@@ -26,7 +26,8 @@
             "name": "cutoff",
             "type": "float",
             "optional": 1,
-            "digest": "in Hz @min samplerate*0.000041 @max samplerate*0.470588"
+            "digestauto": "in Hz @min samplerate*0.000041 @max samplerate*0.470588",
+            "digest": ""
         }
     ],
     "outlets": [
@@ -35,7 +36,7 @@
             "name": "bp",
             "type": "float",
             "optional": 1,
-            "digest": "6-pole Butterworth Lowpass Output"
+            "digest": ""
         }
     ],
     "attributes": [],

@@ -24,12 +24,12 @@
     <geninletlist>
         <geninlet name='in' type='float' optional='1'>
             <digest>
-                Left
+                Left. 
             </digest>
         </geninlet>
         <geninlet name='in' type='float' optional='1'>
             <digest>
-                Right
+                Right. 
             </digest>
         </geninlet>
     </geninletlist>

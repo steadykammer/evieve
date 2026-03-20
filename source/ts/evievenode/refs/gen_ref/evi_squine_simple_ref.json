@@ -3,7 +3,7 @@
         "name": "evi_squine_simple",
         "child": "evi.squine.simple~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
+        "digest": "A basic implementation of Rasmus Ekman's 'squine wave' oscillator with audio rate modulation",
         "description": "TEXT_HERE"
     },
     "constructor": {
@@ -16,35 +16,40 @@
             "name": "freq",
             "type": "float",
             "optional": 1,
-            "digest": "in Hz or Pitch"
+            "digestauto": "in Hz or Pitch",
+            "digest": ""
         },
         {
             "id": 2,
             "name": "pitch",
             "type": "float",
             "optional": 1,
-            "digest": "Mod @default 0."
+            "digestauto": "Mod @default 0.",
+            "digest": ""
         },
         {
             "id": 3,
             "name": "freq",
             "type": "float",
             "optional": 1,
-            "digest": "(Hz) Mod @default 0."
+            "digestauto": "(Hz) Mod @default 0.",
+            "digest": ""
         },
         {
             "id": 4,
             "name": "harmonics",
             "type": "float",
             "optional": 1,
-            "digest": "0..1 @default 0.5"
+            "digestauto": "0..1 @default 0.5",
+            "digest": ""
         },
         {
             "id": 5,
             "name": "duty",
             "type": "float",
             "optional": 1,
-            "digest": "Cycle 0..1 @default 0.5"
+            "digestauto": "Cycle 0..1 @default 0.5",
+            "digest": ""
         }
     ],
     "outlets": [
@@ -53,7 +58,7 @@
             "name": "phase",
             "type": "float",
             "optional": 1,
-            "digest": "Modulation Oscillator"
+            "digest": ""
         },
         {
             "id": 2,

@@ -18,14 +18,16 @@
             "name": "mono",
             "type": "float",
             "optional": 1,
-            "digest": "/ Left / 1"
+            "digestauto": "/ Left / 1",
+            "digest": ""
         },
         {
             "id": 2,
             "name": "nothing",
             "type": "float",
             "optional": 1,
-            "digest": "/ Right / 2"
+            "digestauto": "/ Right / 2",
+            "digest": ""
         }
     ],
     "outlets": [
@@ -34,14 +36,14 @@
             "name": "reverb",
             "type": "float",
             "optional": 1,
-            "digest": "Left"
+            "digest": ""
         },
         {
             "id": 2,
             "name": "reverb",
             "type": "float",
             "optional": 1,
-            "digest": "Right"
+            "digest": ""
         }
     ],
     "attributes": [

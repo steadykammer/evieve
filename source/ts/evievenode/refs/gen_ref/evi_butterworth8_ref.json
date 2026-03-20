@@ -3,7 +3,7 @@
         "name": "evi_butterworth8",
         "child": "evi.butterworthlp8~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
+        "digest": "TPT variable order Butterworth Lowpass filter",
         "description": "TEXT_HERE"
     },
     "constructor": {
@@ -18,14 +18,16 @@
             "name": "audio",
             "type": "float",
             "optional": 1,
-            "digest": "Input"
+            "digestauto": "Input",
+            "digest": ""
         },
         {
             "id": 2,
             "name": "cutoff",
             "type": "float",
             "optional": 1,
-            "digest": "in Hz @default samplerate*0.5-1800"
+            "digestauto": "in Hz @default samplerate*0.5-1800",
+            "digest": ""
         }
     ],
     "outlets": [
@@ -34,7 +36,7 @@
             "name": "butterworth",
             "type": "float",
             "optional": 1,
-            "digest": "Lowpass"
+            "digest": ""
         }
     ],
     "attributes": [

@@ -3,8 +3,8 @@
         "name": "evi_audiodust",
         "child": "evi.audiodust~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Spikey sparse noise implementation",
+        "description": "Audio dust is a sparse random noise source driven at a given frequency. It produces 'spikes' and random amplitude and time offsets. It can be very useful as both a control signal and an audio signal. @see: 'evi_sources.genexpr' for more where this came from."
     },
     "constructor": {
         "inlets": "frequency"
@@ -16,7 +16,8 @@
             "name": "frequency",
             "type": "float",
             "optional": 1,
-            "digest": "in Hz @default 10 @min -SAMPLERATE*0.5 @max SAMPLERATE*0.5"
+            "digestauto": "in Hz @default 10 @min -SAMPLERATE*0.5 @max SAMPLERATE*0.5",
+            "digest": "The frequency at which to internally sample the noise. Typically used at low frequencies."
         }
     ],
     "outlets": [
@@ -25,28 +26,44 @@
             "name": "so",
             "type": "float",
             "optional": 1,
-            "digest": "Called \"Audio Dust\""
+            "digest": "Beautiful spikes."
         },
         {
             "id": 2,
             "name": "\"white",
             "type": "float",
             "optional": 1,
-            "digest": "Noise\""
+            "digest": "Synchronised to the audio dust process."
         },
         {
             "id": 3,
             "name": "click",
             "type": "float",
             "optional": 1,
-            "digest": "(Sample Accurate Unipolar Sync Source)"
+            "digest": "Synchronised to the audio dust process for synchronising other processes downstream."
         }
     ],
     "attributes": [],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_gaussiannoise",
+            "display": "evi_gaussiannoise"
+        },
+        {
+            "name": "evi_velvetnoise",
+            "display": "evi_velvetnoise"
+        },
+        {
+            "name": "evi_zeroxcount",
+            "display": "evi_zeroxcount"
+        },
+        {
+            "name": "evi_zeroxoscnoise",
+            "display": "evi_zeroxoscnoise"
+        },
+        {
+            "name": "evi_randy",
+            "display": "evi_randy"
         }
     ]
 }

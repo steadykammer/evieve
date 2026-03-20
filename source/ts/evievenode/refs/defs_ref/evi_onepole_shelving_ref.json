@@ -5,7 +5,7 @@
         "category": "evieve",
         "tilde": "~",
         "digest": "Onepole shelving filters with simultaneous outputs",
-        "description": "TEXT_HERE",
+        "description": "Onepole low/high shelving filter using trapezoidal integration, simultaneous outputs, very smooth and very cheap. Frequency input in Hz, shelving input is linear -1..0..1, optional smoothing attributes are default off.",
         "discussion": ""
     },
     "metadata": {
@@ -13,41 +13,40 @@
         "tags": []
     },
     "includes": [
-        "evi_rcfilters.genexpr",
-        "evi_smooth.genexpr"
+        "evi_rcfilters.genexpr"
     ],
     "inlets": [
         {
             "id": 1,
             "type": "signal",
             "digest": "Input",
-            "description": ""
+            "description": "Audio input to be filtered."
         },
         {
             "id": 2,
             "type": "signal/float",
             "digest": "Frequency in Hz @min 1 @max samplerate*0.5",
-            "description": ""
+            "description": "The center frequency around which the filters attenuate or boost the input signal."
         },
         {
             "id": 3,
             "type": "signal/float",
             "digest": "Shelf -1..1 @min -1 @max 1 @default 0",
-            "description": ""
+            "description": "The amount of shelving. A special normalised control: 0 = the filters are bypassed. -1..0 the filters are attenuating shelves. 0..1 the filters are boosting shelves. -1..1 equates to about ± -10..10 dB."
         }
     ],
     "outlets": [
         {
             "id": 1,
             "type": "signal",
-            "digest": "6dB Lowpass/Highshelf attenuate/boost",
-            "description": ""
+            "digest": "6dB Highshelf attenuate/boost",
+            "description": "Highshelf attenuate/boost output."
         },
         {
             "id": 2,
             "type": "signal",
-            "digest": "6dB Highpass/Lowshelf attenuate/boost",
-            "description": ""
+            "digest": "6dB Lowshelf attenuate/boost",
+            "description": "Lowshelf attenuate/boost output."
         }
     ],
     "messages": [],
@@ -56,8 +55,8 @@
             "name": "smoothfreq",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Time in ms",
+            "description": "The time in ms with which to smooth the frequency inlet control. If 0, smoothing is CPU-off.",
             "default": {
                 "min": "0",
                 "max": "333",
@@ -68,8 +67,8 @@
             "name": "smoothshelf",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Time in ms",
+            "description": "The time in ms with which to smooth the shelving inlet control. If 0, smoothing is CPU-off.",
             "default": {
                 "min": "0",
                 "max": "333",
@@ -81,5 +80,13 @@
         "caption": "",
         "image": ""
     },
-    "seealso": []
+    "seealso": [
+        "evi.onepole~",
+        "evi.damp~",
+        "evi.damp.macro~",
+        "evi.tone.macro~",
+        "evi.filter.shelving~",
+        "evi.filter.tilt~",
+        "evi.baxandall~"
+    ]
 }

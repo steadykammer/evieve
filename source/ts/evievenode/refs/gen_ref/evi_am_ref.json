@@ -3,8 +3,8 @@
         "name": "evi_am",
         "child": "evi.am~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Basic AM processor with saturation and choice of LFO shapes",
+        "description": "A basic but useful AM processor with the core basic algorithm and assocoiated cotrols surrounded by saturation when driving the modulation signal > 0 dB. The saturation is anti-aliased and can cope with very hot input and has the feel of a guitar pedal. Because everybody needs a bosom for a pillow."
     },
     "constructor": {
         "inlets": "left, right, reset"
@@ -21,21 +21,24 @@
             "name": "left",
             "type": "float",
             "optional": 1,
-            "digest": "or Mono Audio In"
+            "digestauto": "or Mono Audio In",
+            "digest": "Left or mono audio input depending on the @stereo attribute."
         },
         {
             "id": 2,
             "name": "right",
             "type": "float",
             "optional": 1,
-            "digest": "Audio In"
+            "digestauto": "Audio In",
+            "digest": "Right audio input if @stereo attribute is on."
         },
         {
             "id": 3,
             "name": "reset",
             "type": "float",
             "optional": 1,
-            "digest": "Naive"
+            "digestauto": "Naive",
+            "digest": "Reset of internal LFO phases is naive and not anti-aliased."
         }
     ],
     "outlets": [
@@ -44,28 +47,28 @@
             "name": "left",
             "type": "float",
             "optional": 1,
-            "digest": "Audio Out"
+            "digest": "Modulated audio output left."
         },
         {
             "id": 2,
             "name": "right",
             "type": "float",
             "optional": 1,
-            "digest": "Audio Out"
+            "digest": "Modulated audio output right."
         },
         {
             "id": 3,
             "name": "lfo",
             "type": "float",
             "optional": 1,
-            "digest": "Left Out"
+            "digest": "Left LFO output for downstream synchronisation."
         },
         {
             "id": 4,
             "name": "lfo",
             "type": "float",
             "optional": 1,
-            "digest": "Right Out"
+            "digest": "Right LFO output for downstream synchronisation."
         }
     ],
     "attributes": [
@@ -73,7 +76,7 @@
             "name": "depth",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Internally, increasing depth increases the amplitude size of the LFO movement.",
             "default": {
                 "type": "float",
                 "value": "0.5"
@@ -83,7 +86,7 @@
             "name": "factor",
             "type": "float",
             "digest": "@min 0.125, @max 8",
-            "description": "",
+            "description": "Multiply @rate (speed in Hz) by this factor.",
             "default": {
                 "type": "float",
                 "value": "1."
@@ -93,7 +96,7 @@
             "name": "gain",
             "type": "float",
             "digest": "@min -40, @max 40",
-            "description": "",
+            "description": "Below 0 dB, @gain attenuates the gain affecting the LFO modulation. Above 0 dB the gain increases the LFO gain and also saturates the audio output. evi.am~ can take high aggressive gain staging and will saturate increasingly strongly in an anti-aliased way.",
             "default": {
                 "type": "float",
                 "value": "0."
@@ -103,7 +106,7 @@
             "name": "lfomode",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "If on, changes to the speed (@rate) of the internal LFOs are synchronised to zero reset of phase, which can produce seemless updating of speed changes. Otherwise the speed (@rate) updates smoothly morphing changes.",
             "default": {
                 "type": "int",
                 "value": "0"
@@ -113,7 +116,7 @@
             "name": "lfoout",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Switch the LFO outputs (outlets 3 and 4) to output raw -1..1 range or output the actual amplitude (AM) used.",
             "default": {
                 "type": "int",
                 "value": "1"
@@ -123,7 +126,7 @@
             "name": "lfowave",
             "type": "int",
             "digest": "@min 0, @max 10",
-            "description": "",
+            "description": "The shape of the LFOs driving the modulation. 0=bypass, 1=up, 2=down, 3=tri, 4=sine (default), 5=tanh, 6=square, 7=rand step, 8=rand linear, 9=rand cubic, 10=noise. Switching LFO wave is synchronised to zero crossing phase. LFOs are always slightly smoothed, even hard edges such as square and random.",
             "default": {
                 "type": "int",
                 "value": "4"
@@ -133,7 +136,7 @@
             "name": "lfowidth",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "The pulse width of the LFO wave shapes that use it: 3=triangle, 5=tanh, 6=square.",
             "default": {
                 "type": "float",
                 "value": "0.5"
@@ -143,7 +146,7 @@
             "name": "rate",
             "type": "float",
             "digest": "@min 1, @max 100",
-            "description": "",
+            "description": "The frequency in Hz of the LFO phases.",
             "default": {
                 "type": "float",
                 "value": "9."
@@ -153,7 +156,7 @@
             "name": "smooth",
             "type": "float",
             "digest": "@min 0, @max 266",
-            "description": "",
+            "description": "The smoothing time of the internal parameters.",
             "default": {
                 "type": "float",
                 "value": "26."
@@ -163,7 +166,7 @@
             "name": "spread",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "The left/right spread of the audio outputs, actually the phase offset of the two internal LFOs. 0..1 is mapped to 0..180 degrees shift.",
             "default": {
                 "type": "float",
                 "value": "0.5"
@@ -173,7 +176,7 @@
             "name": "stereo",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "If off, the audio input to the process is taken only from the Left inlet 1 as mono. If @stereo is on, the audio inputs are taken from both left (1) and right (2) inlets. The audio output is always stereo.",
             "default": {
                 "type": "int",
                 "value": "0"
@@ -182,8 +185,28 @@
     ],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_tremolo",
+            "display": "evi_tremolo"
+        },
+        {
+            "name": "evi_flanger_digital",
+            "display": "evi_flanger_digital"
+        },
+        {
+            "name": "evi_chorus_digital",
+            "display": "evi_chorus_digital"
+        },
+        {
+            "name": "evi_phaser_analog",
+            "display": "evi_phaser_analog"
+        },
+        {
+            "name": "evi_detune",
+            "display": "evi_detune"
+        },
+        {
+            "name": "evi_phasor0",
+            "display": "evi_phasor0"
         }
     ]
 }

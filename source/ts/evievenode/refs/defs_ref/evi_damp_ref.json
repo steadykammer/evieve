@@ -5,35 +5,34 @@
         "category": "evieve",
         "tilde": "~",
         "digest": "Onepole pass/shelf damping filters with simultaneous outputs",
-        "description": "TEXT_HERE",
-        "discussion": ""
+        "description": "Two very efficient damping filters in series. A lowpass/highshelf filter (left outlet) and a highpass/lowshelf filter (right outlet). The frequency and damping inlets control both filters simultaneously for high level attenuation control. Useful for damping in reverbs and other situations. With the 'damp' inlet at 0.71..0.99 the first lowpass outlet is similar to MSP [onepole~] (depending on Hz).",
+        "discussion": "Most of the evieve reverbs use some form of these filters internally."
     },
     "metadata": {
         "author": "Pete Dowling",
         "tags": []
     },
     "includes": [
-        "evi_rcfilters.genexpr",
-        "evi_smooth.genexpr"
+        "evi_rcfilters.genexpr"
     ],
     "inlets": [
         {
             "id": 1,
             "type": "signal",
             "digest": "Input",
-            "description": ""
+            "description": "Audio input to be damped."
         },
         {
             "id": 2,
             "type": "signal/float",
             "digest": "Frequency in Hz @min 1 @max samplerate*0.5",
-            "description": ""
+            "description": "The center frequency around which the filters damp the input signal."
         },
         {
             "id": 3,
             "type": "signal/float",
             "digest": "Damp 0..1 @min 0 @max 1 @default 0.75",
-            "description": ""
+            "description": "The amount of damping. A special normalised control: 0 = the filters are bypassed, 1 = the left filter is lowpassed and the right filter is highpassed. Between 0..1 the filters are attenuating shelves."
         }
     ],
     "outlets": [
@@ -41,13 +40,13 @@
             "id": 1,
             "type": "signal",
             "digest": "6dB Lowpass/Highshelf",
-            "description": ""
+            "description": "Lowpass/Highshelf damped filter output. With damp 0.71..0.99 this outlet is similar to MSP [onepole~] (depending on Hz)."
         },
         {
             "id": 2,
             "type": "signal",
             "digest": "6dB Highpass/Lowshelf",
-            "description": ""
+            "description": "Highpass/Lowshelf damped filter output."
         }
     ],
     "messages": [],
@@ -56,8 +55,8 @@
             "name": "smoothdamp",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Time in ms",
+            "description": "The time in ms with which to smooth the damping input control. If 0, smoothing is CPU-off.",
             "default": {
                 "min": "0",
                 "max": "333",
@@ -68,8 +67,8 @@
             "name": "smoothfreq",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Time in ms",
+            "description": "The time in ms with which to smooth the frequency input control. If 0, smoothing is CPU-off.",
             "default": {
                 "min": "0",
                 "max": "333",
@@ -81,5 +80,12 @@
         "caption": "",
         "image": ""
     },
-    "seealso": []
+    "seealso": [
+        "evi.damp.macro~",
+        "evi.onepole.shelving~",
+        "evi.tone.macro~",
+        "evi.filter.shelving~",
+        "evi.filter.tilt~",
+        "evi.baxandall~"
+    ]
 }

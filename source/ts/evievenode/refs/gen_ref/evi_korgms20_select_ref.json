@@ -3,8 +3,8 @@
         "name": "evi_korgms20_select",
         "child": "evi.korgms20.select~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Korg OTA dual-amplifier buffered modified Sallen-Key topology nonlinear filter emulation",
+        "description": "The 'KLM' OTA chip was found in the later MS-20s and other Korg synthesisers - it is different to the earlier 'Korg 35' single-amplifier unbuffered Korg chip found in the earlier MS-20s and MS-10 and also in the 'monotron' series. This is a fabricated evieve version able to smoothly switch (with a nice 'plop') between 12dB LP and 6dB HP filter types, realised in transposed TPT form. With 2x option."
     },
     "constructor": {
         "inlets": "audio, cutoff, resonance"
@@ -20,21 +20,24 @@
             "name": "audio",
             "type": "float",
             "optional": 1,
-            "digest": "Input"
+            "digestauto": "Input",
+            "digest": ""
         },
         {
             "id": 2,
             "name": "cutoff",
             "type": "float",
             "optional": 1,
-            "digest": "Frequency in Hz @min 1"
+            "digestauto": "Frequency in Hz @min 1",
+            "digest": ""
         },
         {
             "id": 3,
             "name": "resonance",
             "type": "float",
             "optional": 1,
-            "digest": "0..1 @min 0.01 @max 1 @default 0.88"
+            "digestauto": "0..1 @min 0.01 @max 1 @default 0.88",
+            "digest": ""
         }
     ],
     "outlets": [
@@ -43,7 +46,7 @@
             "name": "korg",
             "type": "float",
             "optional": 1,
-            "digest": "OTA S&K LP or HP Filter"
+            "digest": ""
         }
     ],
     "attributes": [

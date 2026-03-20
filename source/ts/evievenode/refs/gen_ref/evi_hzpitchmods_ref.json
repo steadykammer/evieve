@@ -18,21 +18,24 @@
             "name": "cutoff",
             "type": "float",
             "optional": 1,
-            "digest": "in Pitch or Hz"
+            "digestauto": "in Pitch or Hz",
+            "digest": ""
         },
         {
             "id": 2,
             "name": "pitch",
             "type": "float",
             "optional": 1,
-            "digest": "Modulation @default 0"
+            "digestauto": "Modulation @default 0",
+            "digest": ""
         },
         {
             "id": 3,
             "name": "frequency",
             "type": "float",
             "optional": 1,
-            "digest": "Hz Modulation @default 0"
+            "digestauto": "Hz Modulation @default 0",
+            "digest": ""
         }
     ],
     "outlets": [
@@ -41,14 +44,14 @@
             "name": "optionally",
             "type": "float",
             "optional": 1,
-            "digest": "smoothed\\, scaled & FM-ed f (Hz)"
+            "digest": ""
         },
         {
             "id": 2,
             "name": "hz",
             "type": "float",
             "optional": 1,
-            "digest": "limit"
+            "digest": ""
         }
     ],
     "attributes": [

@@ -19,14 +19,16 @@
             "name": "audio",
             "type": "float",
             "optional": 1,
-            "digest": "In"
+            "digestauto": "In",
+            "digest": ""
         },
         {
             "id": 2,
             "name": "asymmetry",
             "type": "float",
             "optional": 1,
-            "digest": "@min 0 @max 1 @default 0.5"
+            "digestauto": "@min 0 @max 1 @default 0.5",
+            "digest": ""
         }
     ],
     "outlets": [
@@ -35,7 +37,7 @@
             "name": "saturated",
             "type": "float",
             "optional": 1,
-            "digest": "Audio Out"
+            "digest": ""
         }
     ],
     "attributes": [

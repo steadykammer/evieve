@@ -1,6 +1,6 @@
 
-// a fast limiter. i made this for my friend james bradbury, based on
-// some very old surreal machines code i had lying around.
+// a fast limiter. i made this for my friend james bradbury,
+// based on some old amxd~ code i had lying around.
 
 require("evi_smooth.genexpr");  // incl. _utilities & _approx
 require("evi_clip.genexpr");    // incl. _interp

@@ -40,10 +40,10 @@
 	<outletlist>
 		<outlet id="1" type="signal">
 			<digest>
-				Outlet #1: Anti Aliased Saw Oscillator
+				Outlet #1: I can&#x27;t believe it&#x27;s not...
 			</digest>
 			<description>
-				
+				Anti Aliased Saw Oscillator
 			</description>
 		</outlet>
 	</outletlist>

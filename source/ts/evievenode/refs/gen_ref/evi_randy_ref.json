@@ -3,8 +3,8 @@
         "name": "evi_randy",
         "child": "evi.randy~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Cubic interpolated version of the linear MSP <o>rand~</o>",
+        "description": "Being cubic interpolated the spectrum of this random oscillator rolls off much more steeply than the output of <o>rand~</o>, which may or may not be useful. At LFO frequencies this is a really useful smooth control source. @see: 'evi_sources.genexpr' and 'evi_lfo.genexpr' for more like this."
     },
     "constructor": {
         "inlets": "frequency"
@@ -16,7 +16,8 @@
             "name": "frequency",
             "type": "float",
             "optional": 1,
-            "digest": "in Hz @min 0."
+            "digestauto": "in Hz @min 0.",
+            "digest": "Frequency at which to sample new values internally, controlling the speed of the segments."
         }
     ],
     "outlets": [
@@ -25,14 +26,30 @@
             "name": "cubic",
             "type": "float",
             "optional": 1,
-            "digest": "Interpolated Rand~like Noise Output"
+            "digest": "Cubic interpolated random noise source."
         }
     ],
     "attributes": [],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_audiodust",
+            "display": "evi_audiodust"
+        },
+        {
+            "name": "evi_gaussiannoise",
+            "display": "evi_gaussiannoise"
+        },
+        {
+            "name": "evi_velvetnoise",
+            "display": "evi_velvetnoise"
+        },
+        {
+            "name": "evi_zeroxcount",
+            "display": "evi_zeroxcount"
+        },
+        {
+            "name": "evi_zeroxoscnoise",
+            "display": "evi_zeroxoscnoise"
         }
     ]
 }

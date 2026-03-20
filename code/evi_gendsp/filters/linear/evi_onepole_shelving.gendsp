@@ -31,8 +31,8 @@
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 613.0, 617.0, 293.0, 22.0 ],
-                    "text": "out 2 (signal) 6dB Highpass/Lowshelf attenuate/boost"
+                    "patching_rect": [ 667.0, 617.0, 239.0, 22.0 ],
+                    "text": "out 2 (signal) 6dB Lowshelf attenuate/boost"
                 }
             },
             {
@@ -59,7 +59,7 @@
             },
             {
                 "box": {
-                    "code": "\r\n// onepole shelving filter using trapezoidal integration, simultaneous outputs, very smooth and very cheap.\r\n// frequency input in Hz, shelving input is linear -1..0..1, optional smoothing attributes are default off.\r\n\r\n// @see: \"evi_damp.gendsp\" / [evi.damp~] for damping onepoles.\r\n// @see: \"evi_onepole.gendsp\" / [evi.onepole~] for standard onepoles.\r\n// @see: \"evi_filter_shelving.gendsp\" / [evi.filter.shelving~] etc for twopoles.\r\n\r\nrequire(\"evi_rcfilters.genexpr\");\r\nrequire(\"evi_smooth.genexpr\");\r\n\r\nParam   smoothfreq(0., min=0, max=333);     // ms\r\nParam   smoothshelf(0., min=0, max=333);    // ms\r\n\r\n// \"Shelf\" (in3) input:\r\n// -1 == low or high pass, 0 == bypassed, -1..0 == shelving attenuation, 0..1 shelving boost\r\n\r\ng, k    = rcDampCoeffs2(in2, in3);\r\n\r\nif (smoothfreq > 0) {\r\n    g   = logsmooth(g, smoothfreq*0.001);\r\n}\r\n\r\nif (smoothshelf > 0) {\r\n    k   = expsmooth(k, smoothshelf*0.001);\r\n}\r\n\r\nLpHs, HpLs  = rcFilterDampLpHp(in1, g, k);\r\n\r\nout1    = LpHs;     // lowpass/highshelf\r\nout2    = HpLs;     // highpass/lowshelf\r\n\r\n",
+                    "code": "\r\n// onepole shelving filter using trapezoidal integration, simultaneous outputs, very smooth and very cheap.\r\n// frequency input in Hz, shelving input is linear -1..0..1, optional smoothing attributes are default off.\r\n\r\n// @see: \"evi_damp.gendsp\" / [evi.damp~] for damping onepoles.\r\n// @see: \"evi_onepole.gendsp\" / [evi.onepole~] for standard onepoles.\r\n// @see: \"evi_filter_shelving.gendsp\" / [evi.filter.shelving~] etc for twopoles.\r\n\r\nrequire(\"evi_rcfilters.genexpr\");\r\n\r\n\r\nParam   smoothfreq(0., min=0, max=333);     // ms\r\nParam   smoothshelf(0., min=0, max=333);    // ms\r\n\r\n// \"Shelf\" (in3) input:\r\n// 0 == bypassed, -1..0 == shelving attenuation, 0..1 shelving boost\r\n\r\ng, k    = rcDampCoeffs1(in2, in3);\r\n\r\nif (smoothfreq > 0) {\r\n    g   = evi_logsmooth(g, smoothfreq);\r\n}\r\n\r\nif (smoothshelf > 0) {\r\n    k   = evi_expsmooth(k, smoothshelf);\r\n}\r\n\r\nLpHs, HpLs  = rcFilterDampLpHp(in1, g, k);\r\n\r\nout1    = LpHs;     // highshelf\r\nout2    = HpLs;     // lowshelf\r\n\r\n",
                     "fontface": 0,
                     "fontname": "<Monospaced>",
                     "fontsize": 12.0,
@@ -77,8 +77,8 @@
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 34.0, 617.0, 293.0, 22.0 ],
-                    "text": "out 1 (signal) 6dB Lowpass/Highshelf attenuate/boost"
+                    "patching_rect": [ 34.0, 617.0, 242.0, 22.0 ],
+                    "text": "out 1 (signal) 6dB Highshelf attenuate/boost"
                 }
             }
         ],
@@ -105,7 +105,7 @@
             {
                 "patchline": {
                     "destination": [ "obj-5", 0 ],
-                    "midpoints": [ 896.5, 608.5, 622.5, 608.5 ],
+                    "midpoints": [ 896.5, 608.5, 676.5, 608.5 ],
                     "source": [ "obj-3", 1 ]
                 }
             },

@@ -3,7 +3,7 @@
         "name": "evi_vcf_df2",
         "child": "evi.vcf~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
+        "digest": "Reimplementation of Pd 'vcf~' filter",
         "description": "TEXT_HERE"
     },
     "constructor": {
@@ -16,14 +16,16 @@
             "name": "audio",
             "type": "float",
             "optional": 1,
-            "digest": "Input"
+            "digestauto": "Input",
+            "digest": ""
         },
         {
             "id": 2,
             "name": "cuttof",
             "type": "float",
             "optional": 1,
-            "digest": "in Hz"
+            "digestauto": "in Hz",
+            "digest": ""
         }
     ],
     "outlets": [

@@ -3,8 +3,8 @@
         "name": "evi_crossover_3band",
         "child": "evi.crossover.3band~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Linkwitz-Riley 3-way (low/mid/high) crossover filter",
+        "description": "Linkwitz-Riley crossovers sum perfectly flat on recombination of the outputs (providing allpass alignment is used). Use <o>evi.crossover.3band~</o> to achieve multiband processing. @see the 'seealso' section for other evieve objects that can help with this."
     },
     "constructor": {
         "inlets": "input, low, high"
@@ -18,21 +18,24 @@
             "name": "input",
             "type": "float",
             "optional": 1,
-            "digest": "to Split"
+            "digestauto": "to Split",
+            "digest": "Audio input to split."
         },
         {
             "id": 2,
             "name": "low",
             "type": "float",
             "optional": 1,
-            "digest": "Crossover Frequency in Hz @min 10 @max 20000"
+            "digestauto": "Crossover Frequency in Hz @min 10 @max 20000",
+            "digest": "The low frequency at which to split the incoming audio into it's low band and mid band outputs."
         },
         {
             "id": 3,
             "name": "high",
             "type": "float",
             "optional": 1,
-            "digest": "Crossover Frequency in Hz @min 10 @max 20000"
+            "digestauto": "Crossover Frequency in Hz @min 10 @max 20000",
+            "digest": "The high frequency at which to split the incoming audio into it's mid band and high band outputs."
         }
     ],
     "outlets": [
@@ -41,21 +44,21 @@
             "name": "low",
             "type": "float",
             "optional": 1,
-            "digest": "Band Output"
+            "digest": "Lowpass filtered output."
         },
         {
             "id": 2,
             "name": "mid",
             "type": "float",
             "optional": 1,
-            "digest": "Band Output"
+            "digest": "Bandpass filtered output."
         },
         {
             "id": 3,
             "name": "high",
             "type": "float",
             "optional": 1,
-            "digest": "Band Output"
+            "digest": "Highpass filtered output."
         }
     ],
     "attributes": [
@@ -63,7 +66,7 @@
             "name": "align",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Allpass alignment in this splitting stage off or on. @see 'Discussion' in the reference file for more information.",
             "default": {
                 "type": "int",
                 "value": "1"
@@ -73,7 +76,7 @@
             "name": "order",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "0=2-pole (shallower) crossover filters, 1=4-pole (steeper) crossover filters. 2-pole can be subtle, 4-pole gives more rejection.",
             "default": {
                 "type": "int",
                 "value": "1"
@@ -82,8 +85,20 @@
     ],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_cross",
+            "display": "evi_cross"
+        },
+        {
+            "name": "evi_crossover",
+            "display": "evi_crossover"
+        },
+        {
+            "name": "evi_crossover_sum",
+            "display": "evi_crossover_sum"
+        },
+        {
+            "name": "evi_crossover_allpass",
+            "display": "evi_crossover_allpass"
         }
     ]
 }

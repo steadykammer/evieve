@@ -3,8 +3,8 @@
         "name": "evi_crossover_allpass",
         "child": "evi.crossover.allpass~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Allpass filter for aligning audio bands using evieve crossover filters",
+        "description": "Multiband Linkwitz-Riley crossover filters require alpass alignment. This filter gives access to the same filters used in all the evieve crossover filters, in case a custom summing method is wished for."
     },
     "constructor": {
         "inlets": "input, allpass"
@@ -18,14 +18,16 @@
             "name": "input",
             "type": "float",
             "optional": 1,
-            "digest": "to be Compensated"
+            "digestauto": "to be Compensated",
+            "digest": "One band of audio input."
         },
         {
             "id": 2,
             "name": "allpass",
             "type": "float",
             "optional": 1,
-            "digest": "Frequency in Hz @min 10 @max 20000"
+            "digestauto": "Frequency in Hz @min 10 @max 20000",
+            "digest": "This should be fed from the 'High Frequency Cutoff' of a multiband crossover filter split to achieve correct alignment."
         }
     ],
     "outlets": [
@@ -34,7 +36,7 @@
             "name": "allpass-aligned",
             "type": "float",
             "optional": 1,
-            "digest": "Output"
+            "digest": "One aligned band output audio."
         }
     ],
     "attributes": [
@@ -42,7 +44,7 @@
             "name": "order",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "0=1-pole allpass filter, 1=2-pole allpass filter. 1-pole allpass filters are for aligning one band of a 2-pole crossover filter. 2-pole allpass filters are for aligning one band of a 4-pole crossover filter.",
             "default": {
                 "type": "int",
                 "value": "0"
@@ -51,8 +53,20 @@
     ],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_cross",
+            "display": "evi_cross"
+        },
+        {
+            "name": "evi_crossover",
+            "display": "evi_crossover"
+        },
+        {
+            "name": "evi_crossover_3band",
+            "display": "evi_crossover_3band"
+        },
+        {
+            "name": "evi_crossover_sum",
+            "display": "evi_crossover_sum"
         }
     ]
 }

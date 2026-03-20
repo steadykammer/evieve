@@ -112,6 +112,6 @@
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>
-        As opposed to 2-band crossovers, 3-band crossovers require additional allpass alignment in order to provide flat summing. The purists will say this must be done at the recombination stage. In evieve this can be achieved with th <o>evi.crossover.sum~</o> object, which is designed to sum the end of processing chain from a <o>evi.crossover.3band~</o> object. However, it does not matter that much, so <o>evi.crossover.3band~</o> includes an @align attribute which lets you do allpass alignment in the split stage. It is on by default, so should be switched off is using the post summing allpass alignment. <br />
+        As opposed to 2-band crossovers, 3-band crossovers require additional allpass alignment in order to provide flat summing. The purists will say this must be done at the recombination stage. In evieve this can be achieved with the <o>evi.crossover.sum~</o> object, which is designed to sum the end of processing chain from a <o>evi.crossover.3band~</o> object. However, it does not matter that much, so <o>evi.crossover.3band~</o> includes an <m>align</m> attribute which lets you do allpass alignment in the split stage. It is on by default, so should be switched off is using the post summing allpass alignment. <br />
 	</discussion>
 </c74object>

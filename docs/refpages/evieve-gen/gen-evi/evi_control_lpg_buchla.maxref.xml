@@ -26,12 +26,12 @@
         </geninlet>
         <geninlet name='vactrol' type='float' optional='1'>
             <digest>
-                Rise
+                Rise. 
             </digest>
         </geninlet>
         <geninlet name='vactrol' type='float' optional='1'>
             <digest>
-                Fall
+                Fall. 
             </digest>
         </geninlet>
         <geninlet name='offset' type='float' optional='1'>

@@ -3,8 +3,8 @@
         "name": "evi_allpass",
         "child": "evi.allpass~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Reimplementation of MSP <o>allpass~</o> filter delay",
+        "description": "Cubic interpolated allpass filter delay unit. The same structure as MSP <o>allpass~</o>, but with cubic interpolation for smoother high end decays, and a tamed gain coefficient so no digital clipping or aliasing. Quite different than MSP. This abstraction also includes an optional <m>feedbackmix</m> attribute which does ridiculous nonlinear comb effects - you should probably not use this at all (default off)."
     },
     "constructor": {
         "inlets": "input, delay, gain"
@@ -18,21 +18,23 @@
             "name": "input",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Audio input to filter"
         },
         {
             "id": 2,
             "name": "delay",
             "type": "float",
             "optional": 1,
-            "digest": "in ms @min 0.1 @max 1000"
+            "digestauto": "in ms @min 0.1 @max 1000",
+            "digest": "Delay time in ms."
         },
         {
             "id": 3,
             "name": "gain",
             "type": "float",
             "optional": 1,
-            "digest": "Coefficient @min -1 @max 1"
+            "digestauto": "Coefficient @min -1 @max 1",
+            "digest": "Not smoothed internally. Applies negative or positive gain to the feedforward and feedback paths."
         }
     ],
     "outlets": [
@@ -41,7 +43,7 @@
             "name": "allpass",
             "type": "float",
             "optional": 1,
-            "digest": "Delay Filter Output"
+            "digest": "Filtered audio output."
         }
     ],
     "attributes": [
@@ -49,7 +51,7 @@
             "name": "feedbackmix",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "If > 0, applies saturating gain stage to the internal feedback path.",
             "default": {
                 "type": "float",
                 "value": "0."
@@ -59,7 +61,7 @@
             "name": "smooth",
             "type": "float",
             "digest": "@min 0, @max 333",
-            "description": "",
+            "description": "Smoothing time of @feedbackmix attribute.",
             "default": {
                 "type": "float",
                 "value": "0."
@@ -68,8 +70,12 @@
     ],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_comb",
+            "display": "evi_comb"
+        },
+        {
+            "name": "evi_teeth",
+            "display": "evi_teeth"
         }
     ]
 }

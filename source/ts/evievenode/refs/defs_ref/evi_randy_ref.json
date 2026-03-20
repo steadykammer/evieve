@@ -4,8 +4,8 @@
         "parent": "evi_randy",
         "category": "evieve",
         "tilde": "~",
-        "digest": "Cubic interpolated version of MSP <o>rand~</o>",
-        "description": "TEXT_HERE",
+        "digest": "Cubic interpolated version of the linear MSP <o>rand~</o>",
+        "description": "Being cubic interpolated the spectrum of this random oscillator rolls off much more steeply than the output of <o>rand~</o>, which may or may not be useful. At LFO frequencies this is a really useful smooth control source. @see: 'evi_sources.genexpr' and 'evi_lfo.genexpr' for more like this.",
         "discussion": ""
     },
     "metadata": {
@@ -18,7 +18,7 @@
             "id": 1,
             "type": "signal/float",
             "digest": "Frequency in Hz @min 0.",
-            "description": ""
+            "description": "Frequency at which to sample new values internally, controlling the speed of the segments."
         }
     ],
     "outlets": [
@@ -26,7 +26,7 @@
             "id": 1,
             "type": "signal",
             "digest": "Cubic Interpolated Rand~like Noise Output",
-            "description": ""
+            "description": "Cubic interpolated random noise source."
         }
     ],
     "messages": [],
@@ -35,5 +35,11 @@
         "caption": "",
         "image": ""
     },
-    "seealso": []
+    "seealso": [
+        "evi.audiodust~",
+        "evi.gaussiannoise~",
+        "evi.velvetnoise~",
+        "evi.zeroxcount~",
+        "evi.zeroxoscnoise~"
+    ]
 }

@@ -18,28 +18,32 @@
             "name": "left",
             "type": "float",
             "optional": 1,
-            "digest": "Signal Input"
+            "digestauto": "Signal Input",
+            "digest": ""
         },
         {
             "id": 2,
             "name": "right",
             "type": "float",
             "optional": 1,
-            "digest": "Signal Input"
+            "digestauto": "Signal Input",
+            "digest": ""
         },
         {
             "id": 3,
             "name": "freeze",
             "type": "float",
             "optional": 1,
-            "digest": "0/1/2 @default 0"
+            "digestauto": "0/1/2 @default 0",
+            "digest": ""
         },
         {
             "id": 4,
             "name": "retrigger",
             "type": "float",
             "optional": 1,
-            "digest": "Freeze"
+            "digestauto": "Freeze",
+            "digest": ""
         }
     ],
     "outlets": [
@@ -48,14 +52,14 @@
             "name": "left",
             "type": "float",
             "optional": 1,
-            "digest": "Reverb Output"
+            "digest": ""
         },
         {
             "id": 2,
             "name": "right",
             "type": "float",
             "optional": 1,
-            "digest": "Reverb Output"
+            "digest": ""
         }
     ],
     "attributes": [

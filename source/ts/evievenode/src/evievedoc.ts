@@ -7,7 +7,6 @@
  */
 
 import * as max from 'max-api-or-nah';
-// import('max-api-or-nah');
 import fs from 'fs';
 import { homedir } from 'os';
 import { resolve, posix, sep } from 'path';
@@ -345,6 +344,14 @@ max.addHandler('extract_genexpr_asts', () => {
 // analyses .genexpr data (pegjs) and outputs files for editing
 max.addHandler('build_genexpr_data_sources', () => {
 	parseGenExprAstsForDoc();
+})
+
+// ---
+
+// stage 3b, take hand written DEFs documentation entries and place into GENs ref jsons where applicable
+
+max.addHandler('make_gendsps_from_defs', () => {
+    parseDefDocToGenDoc();
 })
 
 // ---
@@ -940,6 +947,109 @@ function createHelpFilesDefines(force = false)
 
 // --------------------------------------------- //
 
+// {make_gendsps_from_defs}
+// additional gendsp step, extract hand written data from defines documentation and place relevant parts into gendsps ref files
+async function parseDefDocToGenDoc()
+{
+	const gendspsRefsPath = `${cwd()}/${config.referenceFiles.genDsp.config}`;
+	let fullGensNames = getFileNamesFromPath(gendspsRefsPath, 'json');
+	const gIGNORE = /_xml_gendsp_template.json/;
+	fullGensNames = fullGensNames.filter((str) => !gIGNORE.test(str));
+
+	const definesRefsPath = `${cwd()}/${config.referenceFiles.defines.config}`;
+	let fullDefsNames = getFileNamesFromPath(definesRefsPath, 'json');
+	const dIGNORE = /_xml_define_template.json/;
+	fullDefsNames = fullDefsNames.filter((str) => !dIGNORE.test(str));
+
+	const genSeeAlsoConfig: any = {
+		"name": "",
+		"display": ""
+	}
+
+	for await (const genRef of fullGensNames) {
+		if (fullDefsNames.includes(genRef)) { // they have the same names, just different locations
+
+			const refGenFullRWpath = `${gendspsRefsPath}/${genRef}`;
+			const thisGenConfigJson = fs.readFileSync(refGenFullRWpath, 'utf8');
+			const thisGenConfigObject = JSON.parse(thisGenConfigJson);
+
+			const thisDefConfigJson = fs.readFileSync(`${definesRefsPath}/${genRef}`, 'utf8');
+			const thisDefConfigObject = JSON.parse(thisDefConfigJson);
+
+			// globals
+			thisGenConfigObject.object.digest = thisDefConfigObject.object.digest;
+			thisGenConfigObject.object.description = thisDefConfigObject.object.description;
+
+			// inlets
+			// (we separate "digestauto" and "digest" and deal with them badly in handlebars template)
+			for (const [index, inlet] of thisGenConfigObject.inlets.entries()) {
+				const thisId = index + 1;
+				const currentGenInlet = thisGenConfigObject.inlets.find((obj: { id: number; }) => obj.id === thisId);
+				if (currentGenInlet != undefined) {
+					const currentDefInlet = thisDefConfigObject.inlets.find((obj: { id: number; }) => obj.id === thisId);
+					if (currentDefInlet != undefined) {
+						currentGenInlet.digest = currentDefInlet.description;
+					}
+				}
+			}
+
+			// outlets
+			// (we separate "digestauto" and "digest" and deal with them badly in handlebars template)
+			for (const [index, outlet] of thisGenConfigObject.outlets.entries()) {
+				const thisId = index + 1;
+				const currentGenOutlet = thisGenConfigObject.outlets.find((obj: { id: number; }) => obj.id === thisId);
+				if (currentGenOutlet != undefined) {
+					const currentDefOutlet = thisDefConfigObject.outlets.find((obj: { id: number; }) => obj.id === thisId);
+					if (currentDefOutlet != undefined) {
+						currentGenOutlet.digest = currentDefOutlet.description;
+					}
+				}
+			}
+
+			// attributes
+			for (const attr of thisGenConfigObject.attributes) {
+				const thisName = attr.name;
+				const currentGenAttr = thisGenConfigObject.attributes.find((obj: { name: string; }) => obj.name === thisName);
+				if (currentGenAttr != undefined) {
+					const currentDefAttr = thisDefConfigObject.attributes.find((obj: { name: string; }) => obj.name === thisName);
+					if (currentDefAttr != undefined) {
+						currentGenAttr.description = currentDefAttr.description;
+					}
+				}
+			}
+
+			// see also
+			if (thisDefConfigObject.seealso.length) {
+				const defSeeAlso: string[] = [];
+				// const genSeeAlso: {}[] = {};
+				const genSeeAlso: any = [];
+				for (const see of thisDefConfigObject.seealso) {
+					const potentialSeeAlsoName = see.replaceAll('.', '_').replace('~', ''); // might miss a few edge cases
+					const potentialRefAlsoName = `${potentialSeeAlsoName}_ref.json`;
+					if (fullGensNames.includes(potentialRefAlsoName)) { // must be a documented gendsp object
+						defSeeAlso.push(potentialSeeAlsoName);
+					}
+				}
+				if (defSeeAlso.length) {
+					for (const also of defSeeAlso) {
+						let genSee: any = JSON.parse(JSON.stringify(genSeeAlsoConfig));
+						// note, we are not using the "gen_dsp_" moniker for our ref pages at the moment, but we might in the future
+						genSee.name = also;	// would be `gen_dsp_${also}`
+						genSee.display = also;
+						genSeeAlso.push(genSee);
+					}
+					thisGenConfigObject.seealso = genSeeAlso;
+				}
+			}
+
+			// write
+			fs.writeFileSync(refGenFullRWpath, JSON.stringify(thisGenConfigObject, null, 4));
+		}
+	}
+}
+
+// --------------------------------------------- //
+
 // 'codeboxesRefsPath' contains code extracted from .gendsp abstraction embedded codeboxes
 // during 'parseGendspsLoop()'
 // called from Max {make_gens_genexpr_xml_configs}
@@ -1089,7 +1199,7 @@ async function parseGendspsData()
 {
 	const gendspsFolder = `${cwd()}/${config.referenceFiles.genDsp.input}`;
 	const fullGendspsPaths = getFilePathsFromPathRecursive(gendspsFolder, 'gendsp');
-	const gendspsRefsPath = `${cwd()}/${config.referenceFiles.genDsp.config}`; // !! ('genDsp')
+	const gendspsRefsPath = `${cwd()}/${config.referenceFiles.genDsp.config}`;
 	const fullRefsNames = getFileNamesFromPath(gendspsRefsPath, 'json');
 
 	for await (const gendspPath of fullGendspsPaths) {
@@ -1122,6 +1232,7 @@ async function parseGendspsLoop(gendspPath: string, gendspName: string, thisConf
 		"name": "",
 		"type": "float",
 		"optional": 1,
+		"digestauto": "",
 		"digest": ""
 	}
 	const GEN_PARAM = "param";
@@ -1162,24 +1273,24 @@ async function parseGendspsLoop(gendspPath: string, gendspName: string, thisConf
 						if (IO_tokens.length > 3) {
 							thisIO.name = IO_tokens[3].toLowerCase().trim(); // weak
 							if (IO_tokens.length > 4) {
-								thisIO.digest = IO_tokens.slice(4).join(' ').trim();
+								thisIO.digestauto = IO_tokens.slice(4).join(' ').trim();
 							}
 						}
 					} else {
 						thisIO.type = 'float';
 						thisIO.name = IO_tokens[2].toLowerCase().trim(); // weak
 						if (IO_tokens.length > 3) {
-							thisIO.digest = IO_tokens.slice(3).join(' ').trim();
+							thisIO.digestauto = IO_tokens.slice(3).join(' ').trim();
 						}
 					}
 				}
 				// push it
 				if (isInlet) {
 					// if already exists, fill human edited data from current, if no auto data created
-					if (!(thisIO.digest.length)) {
+					if (!(thisIO.digestauto.length)) {
 						const currentIO = thisConfigObject.inlets.find((obj: { id: number; }) => obj.id === thisId);
 						if (currentIO != undefined) {
-							thisIO.digest = currentIO.digest;
+							thisIO.digestauto = currentIO.digestauto;
 						}
 					}
 					thisConfigObject.inlets.push(thisIO);
@@ -1188,7 +1299,7 @@ async function parseGendspsLoop(gendspPath: string, gendspName: string, thisConf
 					if (!(thisIO.digest.length)) {
 						const currentIO = thisConfigObject.outlets.find((obj: { id: number; }) => obj.id === thisId);
 						if (currentIO != undefined) {
-							thisIO.digest = currentIO.digest;
+							thisIO.digestauto = currentIO.digestauto;
 						}
 					}
 					thisConfigObject.outlets.push(thisIO);
@@ -2614,7 +2725,7 @@ async function makeDocRefpagesGendsps() {
 		const thisConfigObject = JSON.parse(thisConfigJson);
 		const writeName = refFile.replace('_ref.json', '.maxref.xml');
 		// const writePath = `${outDir}/gen_dsp_${writeName}`; // is this correct? (taken from native gen refs)
-		const writePath = `${outDir}/${writeName}`; // experiment without for links
+		const writePath = `${outDir}/${writeName}`; // experiment without for ordinary links
 		renderFromTemplate('../templates/refpage_gendsp.handlebars', thisConfigObject, writePath);
 	}
 }

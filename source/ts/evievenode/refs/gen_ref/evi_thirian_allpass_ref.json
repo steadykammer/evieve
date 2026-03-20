@@ -23,7 +23,8 @@
             "name": "delay",
             "type": "float",
             "optional": 1,
-            "digest": "Time in samples 1.5..2.5"
+            "digestauto": "Time in samples 1.5..2.5",
+            "digest": ""
         }
     ],
     "outlets": [
@@ -32,7 +33,7 @@
             "name": "fractional",
             "type": "float",
             "optional": 1,
-            "digest": "Delay Allpass"
+            "digest": ""
         }
     ],
     "attributes": [],

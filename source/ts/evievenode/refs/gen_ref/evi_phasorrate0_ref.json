@@ -18,14 +18,16 @@
             "name": "frequency",
             "type": "float",
             "optional": 1,
-            "digest": "in Hz"
+            "digestauto": "in Hz",
+            "digest": ""
         },
         {
             "id": 2,
             "name": "rate",
             "type": "float",
             "optional": 1,
-            "digest": "Multiplier"
+            "digestauto": "Multiplier",
+            "digest": ""
         },
         {
             "id": 3,
@@ -41,42 +43,42 @@
             "name": "phasor",
             "type": "float",
             "optional": 1,
-            "digest": "Ramp 0..1"
+            "digest": ""
         },
         {
             "id": 2,
             "name": "rate",
             "type": "float",
             "optional": 1,
-            "digest": "Ramp 0..1"
+            "digest": ""
         },
         {
             "id": 3,
             "name": "current",
             "type": "float",
             "optional": 1,
-            "digest": "Frequency"
+            "digest": ""
         },
         {
             "id": 4,
             "name": "current",
             "type": "float",
             "optional": 1,
-            "digest": "Rate"
+            "digest": ""
         },
         {
             "id": 5,
             "name": "phasor",
             "type": "float",
             "optional": 1,
-            "digest": "Sync"
+            "digest": ""
         },
         {
             "id": 6,
             "name": "rate",
             "type": "float",
             "optional": 1,
-            "digest": "Sync"
+            "digest": ""
         }
     ],
     "attributes": [

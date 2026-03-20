@@ -6,7 +6,7 @@
 // @see: "evi_tone_macro.gendsp" / [evi.tone.macro~] for the opposite
 
 require("evi_rcfilters.genexpr");
-require("evi_smooth.genexpr");
+require("evi_smooth_bank.genexpr");
 
 // param rate
 

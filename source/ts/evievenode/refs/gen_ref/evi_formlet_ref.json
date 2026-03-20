@@ -3,7 +3,7 @@
         "name": "evi_formlet",
         "child": "evi.formletfilter~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
+        "digest": "A ringing formlet filter model",
         "description": "TEXT_HERE"
     },
     "constructor": {
@@ -18,14 +18,16 @@
             "name": "input",
             "type": "float",
             "optional": 1,
-            "digest": "(Impulse)"
+            "digestauto": "(Impulse)",
+            "digest": ""
         },
         {
             "id": 2,
             "name": "filter",
             "type": "float",
             "optional": 1,
-            "digest": "Frequency in PITCH"
+            "digestauto": "Frequency in PITCH",
+            "digest": ""
         }
     ],
     "outlets": [
@@ -34,7 +36,7 @@
             "name": "formlet",
             "type": "float",
             "optional": 1,
-            "digest": "Output"
+            "digest": ""
         }
     ],
     "attributes": [

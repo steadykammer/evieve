@@ -18,14 +18,16 @@
             "name": "audio",
             "type": "float",
             "optional": 1,
-            "digest": "In L"
+            "digestauto": "In L",
+            "digest": ""
         },
         {
             "id": 2,
             "name": "audio",
             "type": "float",
             "optional": 1,
-            "digest": "In R"
+            "digestauto": "In R",
+            "digest": ""
         }
     ],
     "outlets": [
@@ -34,14 +36,14 @@
             "name": "reverb",
             "type": "float",
             "optional": 1,
-            "digest": "Out L"
+            "digest": ""
         },
         {
             "id": 2,
             "name": "reverb",
             "type": "float",
             "optional": 1,
-            "digest": "Out R"
+            "digest": ""
         }
     ],
     "attributes": [

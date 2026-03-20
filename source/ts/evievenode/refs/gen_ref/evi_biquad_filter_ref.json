@@ -3,7 +3,7 @@
         "name": "evi_biquad_filter",
         "child": "evi.biquad.filter~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
+        "digest": "All-in-one biquad coefficient calculator and filter section",
         "description": "TEXT_HERE"
     },
     "constructor": {
@@ -27,21 +27,24 @@
             "name": "cutoff",
             "type": "float",
             "optional": 1,
-            "digest": "or Center @default 1000"
+            "digestauto": "or Center @default 1000",
+            "digest": ""
         },
         {
             "id": 3,
             "name": "gain",
             "type": "float",
             "optional": 1,
-            "digest": "@default 0"
+            "digestauto": "@default 0",
+            "digest": ""
         },
         {
             "id": 4,
             "name": "q",
             "type": "float",
             "optional": 1,
-            "digest": "or S @default 0.707107"
+            "digestauto": "or S @default 0.707107",
+            "digest": ""
         }
     ],
     "outlets": [

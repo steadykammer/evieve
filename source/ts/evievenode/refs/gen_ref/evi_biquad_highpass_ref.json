@@ -27,21 +27,24 @@
             "name": "cutoff",
             "type": "float",
             "optional": 1,
-            "digest": "in Hz @min samplerate*0.00022 @max samplerate*0.458334"
+            "digestauto": "in Hz @min samplerate*0.00022 @max samplerate*0.458334",
+            "digest": ""
         },
         {
             "id": 3,
             "name": "gain",
             "type": "float",
             "optional": 1,
-            "digest": "in dB @min -24 @max 24 @default 0"
+            "digestauto": "in dB @min -24 @max 24 @default 0",
+            "digest": ""
         },
         {
             "id": 4,
             "name": "q",
             "type": "float",
             "optional": 1,
-            "digest": "@min 0.1 @max 18 @default 0.707107"
+            "digestauto": "@min 0.1 @max 18 @default 0.707107",
+            "digest": ""
         }
     ],
     "outlets": [
@@ -50,7 +53,7 @@
             "name": "highpass",
             "type": "float",
             "optional": 1,
-            "digest": "Output"
+            "digest": ""
         }
     ],
     "attributes": [

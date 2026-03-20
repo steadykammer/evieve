@@ -3,7 +3,7 @@
         "name": "evi_modosc",
         "child": "evi.modosc~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
+        "digest": "A deluxe cosine LFO with range and offset shaping",
         "description": "TEXT_HERE"
     },
     "constructor": {
@@ -18,14 +18,16 @@
             "name": "frequency",
             "type": "float",
             "optional": 1,
-            "digest": "in Hz +/-"
+            "digestauto": "in Hz +/-",
+            "digest": ""
         },
         {
             "id": 2,
             "name": "signal",
             "type": "float",
             "optional": 1,
-            "digest": "Rate Phase Reset (Naive)"
+            "digestauto": "Rate Phase Reset (Naive)",
+            "digest": ""
         }
     ],
     "outlets": [
@@ -34,7 +36,7 @@
             "name": "modulation",
             "type": "float",
             "optional": 1,
-            "digest": "-1..1 Sine Oscillator * scale + offset"
+            "digest": ""
         }
     ],
     "attributes": [

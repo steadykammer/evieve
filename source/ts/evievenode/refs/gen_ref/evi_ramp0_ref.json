@@ -3,7 +3,7 @@
         "name": "evi_ramp0",
         "child": "evi.ramp0~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
+        "digest": "A bit like MSP <o>ramp~</o>, with options for zero-reset, loop, restingstate, curve and pause",
         "description": "TEXT_HERE"
     },
     "constructor": {
@@ -18,7 +18,8 @@
             "name": "trigger",
             "type": "float",
             "optional": 1,
-            "digest": "Ramp"
+            "digestauto": "Ramp",
+            "digest": ""
         }
     ],
     "outlets": [
@@ -27,28 +28,28 @@
             "name": "ramp",
             "type": "float",
             "optional": 1,
-            "digest": "0..1"
+            "digest": ""
         },
         {
             "id": 2,
             "name": "carry",
             "type": "float",
             "optional": 1,
-            "digest": "Count of Loop"
+            "digest": ""
         },
         {
             "id": 3,
             "name": "sync",
             "type": "float",
             "optional": 1,
-            "digest": "at Ramp Start"
+            "digest": ""
         },
         {
             "id": 4,
             "name": "sync",
             "type": "float",
             "optional": 1,
-            "digest": "at Ramp End"
+            "digest": ""
         }
     ],
     "attributes": [

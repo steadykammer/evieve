@@ -16,21 +16,24 @@
             "name": "value",
             "type": "float",
             "optional": 1,
-            "digest": "to Follow"
+            "digestauto": "to Follow",
+            "digest": ""
         },
         {
             "id": 2,
             "name": "attack",
             "type": "float",
             "optional": 1,
-            "digest": "Time in milliseconds @min 0"
+            "digestauto": "Time in milliseconds @min 0",
+            "digest": ""
         },
         {
             "id": 3,
             "name": "decay",
             "type": "float",
             "optional": 1,
-            "digest": "Time in milliseconds @min 0"
+            "digestauto": "Time in milliseconds @min 0",
+            "digest": ""
         }
     ],
     "outlets": [
@@ -39,7 +42,7 @@
             "name": "output",
             "type": "float",
             "optional": 1,
-            "digest": "Envelope"
+            "digest": ""
         }
     ],
     "attributes": [],

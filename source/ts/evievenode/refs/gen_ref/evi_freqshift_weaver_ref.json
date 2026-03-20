@@ -3,7 +3,7 @@
         "name": "evi_freqshift_weaver",
         "child": "evi.freqshift.weaver~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
+        "digest": "Time domain frequency shifter after D. K. Weaver's famous 'third method'",
         "description": "TEXT_HERE"
     },
     "constructor": {
@@ -18,28 +18,32 @@
             "name": "audio",
             "type": "float",
             "optional": 1,
-            "digest": "Input"
+            "digestauto": "Input",
+            "digest": ""
         },
         {
             "id": 2,
             "name": "(float/int",
             "type": "float",
             "optional": 1,
-            "digest": "use freqsmooth attr) Frequency Shift in Hz ±"
+            "digestauto": "use freqsmooth attr) Frequency Shift in Hz ±",
+            "digest": ""
         },
         {
             "id": 3,
             "name": "frequency",
             "type": "float",
             "optional": 1,
-            "digest": "Shift FM in Hz ±"
+            "digestauto": "Shift FM in Hz ±",
+            "digest": ""
         },
         {
             "id": 4,
             "name": "phase",
             "type": "float",
             "optional": 1,
-            "digest": "Reset (Naive)"
+            "digestauto": "Reset (Naive)",
+            "digest": ""
         }
     ],
     "outlets": [
@@ -48,21 +52,21 @@
             "name": "sidebandy",
             "type": "float",
             "optional": 1,
-            "digest": "Audio Output"
+            "digest": ""
         },
         {
             "id": 2,
             "name": "fake",
             "type": "float",
             "optional": 1,
-            "digest": "quadOsc Cos (if oscout attr)"
+            "digest": ""
         },
         {
             "id": 3,
             "name": "fake",
             "type": "float",
             "optional": 1,
-            "digest": "quadOsc Sin (if oscout attr)"
+            "digest": ""
         }
     ],
     "attributes": [
@@ -169,8 +173,16 @@
     ],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_freqshift_hilbert",
+            "display": "evi_freqshift_hilbert"
+        },
+        {
+            "name": "evi_hilbert",
+            "display": "evi_hilbert"
+        },
+        {
+            "name": "evi_ringmod",
+            "display": "evi_ringmod"
         }
     ]
 }

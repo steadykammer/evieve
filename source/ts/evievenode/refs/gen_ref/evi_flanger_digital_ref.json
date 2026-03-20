@@ -3,7 +3,7 @@
         "name": "evi_flanger_digital",
         "child": "evi.flanger.digital~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
+        "digest": "A basic two-stage Flanger effect with saturation",
         "description": "TEXT_HERE"
     },
     "constructor": {
@@ -20,21 +20,24 @@
             "name": "left",
             "type": "float",
             "optional": 1,
-            "digest": "Audio In"
+            "digestauto": "Audio In",
+            "digest": "Left or mono audio input depending on the @stereo attribute."
         },
         {
             "id": 2,
             "name": "right",
             "type": "float",
             "optional": 1,
-            "digest": "Audio In"
+            "digestauto": "Audio In",
+            "digest": "Right audio input if @stereo attribute is on."
         },
         {
             "id": 3,
             "name": "reset",
             "type": "float",
             "optional": 1,
-            "digest": "Naive"
+            "digestauto": "Naive",
+            "digest": "Reset of internal LFO phases is naive and not anti-aliased."
         }
     ],
     "outlets": [
@@ -43,28 +46,28 @@
             "name": "left",
             "type": "float",
             "optional": 1,
-            "digest": "Audio Out"
+            "digest": "Modulated audio output left."
         },
         {
             "id": 2,
             "name": "right",
             "type": "float",
             "optional": 1,
-            "digest": "Audio Out"
+            "digest": "Modulated audio output right."
         },
         {
             "id": 3,
             "name": "lfo",
             "type": "float",
             "optional": 1,
-            "digest": "Left Out"
+            "digest": "Left phase LFO output for downstream synchronisation."
         },
         {
             "id": 4,
             "name": "lfo",
             "type": "float",
             "optional": 1,
-            "digest": "Right Out"
+            "digest": "Right phase LFO output for downstream synchronisation."
         }
     ],
     "attributes": [
@@ -72,7 +75,7 @@
             "name": "cross",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Crosses over 0..1 the wet left and wet right audio streams between the first and second stages of the flanger. Can add an interesting shift in the stereo image.",
             "default": {
                 "type": "float",
                 "value": "0."
@@ -82,7 +85,7 @@
             "name": "depth",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "The relative size of the modulation delay. At 0 the flanger delay is 0 ms, at 1, the chorus delay modulates between its extremes, set by @mintime and @maxtime arguments in ms.",
             "default": {
                 "type": "float",
                 "value": "0.74"
@@ -92,7 +95,7 @@
             "name": "drywet",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "The global dry/wet mix of the flanger. 0 is completely dry, 1 is completely wet.",
             "default": {
                 "type": "float",
                 "value": "0.75"
@@ -102,7 +105,7 @@
             "name": "duty",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "One of four LFO controls (@duty, @shape, @skew, @zeroreset). @duty changes the duty cycle of the LFO triangle shape.",
             "default": {
                 "type": "float",
                 "value": "0.4"
@@ -112,7 +115,7 @@
             "name": "feedback",
             "type": "float",
             "digest": "@min -1, @max 1",
-            "description": "",
+            "description": "The global feedback gain. The feedback path is safely saturated and anti-aliased.",
             "default": {
                 "type": "float",
                 "value": "-0.5"
@@ -122,7 +125,7 @@
             "name": "feedforward",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Linear feedforward gain mapped across two delay stages.",
             "default": {
                 "type": "float",
                 "value": "0.25"
@@ -132,7 +135,7 @@
             "name": "gain",
             "type": "float",
             "digest": "@min -10, @max 10",
-            "description": "",
+            "description": "Attenuation or boost applied between the two saturation stages.",
             "default": {
                 "type": "float",
                 "value": "0."
@@ -142,7 +145,7 @@
             "name": "inject",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "@inject is mapped to the direct gain coefficients of the embedded comb filter delays.",
             "default": {
                 "type": "float",
                 "value": "0.75"
@@ -152,7 +155,7 @@
             "name": "invert",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Inverts the polarity of the flanged audio before mixing to the output. Switching invert is smoothed.",
             "default": {
                 "type": "int",
                 "value": "0"
@@ -162,7 +165,7 @@
             "name": "maxhz",
             "type": "float",
             "digest": "@min 0, @max 100",
-            "description": "",
+            "description": "The maximum in Hz that the @rate attribute can reach. Typically these values are kept small for a flanger.",
             "default": {
                 "type": "float",
                 "value": "2.69"
@@ -172,7 +175,7 @@
             "name": "maxtime",
             "type": "float",
             "digest": "@min 0, @max 200",
-            "description": "",
+            "description": "The maximum delay time for the flanger. Whether or not this value is reached depends on the @depth attribute.",
             "default": {
                 "type": "float",
                 "value": "2.1"
@@ -182,7 +185,7 @@
             "name": "mintime",
             "type": "float",
             "digest": "@min 0, @max 200",
-            "description": "",
+            "description": "The minimum delay time for the chorus. Whether or not this value is reached depends on the @depth attribute. For a flanger this is typically at or near 0.",
             "default": {
                 "type": "float",
                 "value": "0.03"
@@ -192,7 +195,7 @@
             "name": "rate",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "The global speed of the LFO phases. This sets the speed (between 0..@maxhz) the LFOs scale the delay times (set by @depth, @mintime and @maxtime).",
             "default": {
                 "type": "float",
                 "value": "0.1"
@@ -202,7 +205,7 @@
             "name": "shape",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "One of four LFO controls (@duty, @shape, @skew, @zeroreset). @shape smoothly morphs the LFO shape between triangle (0) and sine (1).",
             "default": {
                 "type": "float",
                 "value": "0.5"
@@ -212,7 +215,7 @@
             "name": "skew",
             "type": "float",
             "digest": "@min 0.5, @max 2",
-            "description": "",
+            "description": "One of four LFO controls (@duty, @shape, @skew, @zeroreset). @skew exponentially shapes the LFO output.",
             "default": {
                 "type": "float",
                 "value": "1.2"
@@ -222,7 +225,7 @@
             "name": "smooth",
             "type": "float",
             "digest": "@min 0, @max 301",
-            "description": "",
+            "description": "Smoothing time of the internal parameters.",
             "default": {
                 "type": "float",
                 "value": "30.111"
@@ -232,7 +235,7 @@
             "name": "spread",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "The left/right spread of the audio outputs, actually the phase offset of the two internal LFOs. 0..1 is exponentially mapped to 0..180 degrees shift.",
             "default": {
                 "type": "float",
                 "value": "0.7"
@@ -242,7 +245,7 @@
             "name": "stereo",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "If off, the audio input to the process is taken only from the Left inlet 1 as mono. If @stereo is on, the audio inputs are taken from both left (1) and right (2) inlets. The audio output is always stereo.",
             "default": {
                 "type": "int",
                 "value": "0"
@@ -252,7 +255,7 @@
             "name": "zeroreset",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "One of four LFO controls (@duty, @shape, @skew, @zeroreset). If on, changes to the speed (@rate) of the internal LFOs are synchronised to zero reset of phase, which can produce seemless updating of speed changes. Otherwise the speed (@rate) updates smoothly morphing changes.",
             "default": {
                 "type": "int",
                 "value": "0"
@@ -261,8 +264,28 @@
     ],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_chorus_digital",
+            "display": "evi_chorus_digital"
+        },
+        {
+            "name": "evi_am",
+            "display": "evi_am"
+        },
+        {
+            "name": "evi_tremolo",
+            "display": "evi_tremolo"
+        },
+        {
+            "name": "evi_phaser_analog",
+            "display": "evi_phaser_analog"
+        },
+        {
+            "name": "evi_detune",
+            "display": "evi_detune"
+        },
+        {
+            "name": "evi_phasor0",
+            "display": "evi_phasor0"
         }
     ]
 }

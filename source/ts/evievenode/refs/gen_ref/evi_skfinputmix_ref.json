@@ -3,7 +3,7 @@
         "name": "evi_skfinputmix",
         "child": "evi.skfinputmix~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
+        "digest": "Sallen-Key input mixing multimode filter",
         "description": "TEXT_HERE"
     },
     "constructor": {
@@ -20,21 +20,24 @@
             "name": "lowpass",
             "type": "float",
             "optional": 1,
-            "digest": "Input"
+            "digestauto": "Input",
+            "digest": ""
         },
         {
             "id": 2,
             "name": "bandpass",
             "type": "float",
             "optional": 1,
-            "digest": "Input"
+            "digestauto": "Input",
+            "digest": ""
         },
         {
             "id": 3,
             "name": "highpass",
             "type": "float",
             "optional": 1,
-            "digest": "Input"
+            "digestauto": "Input",
+            "digest": ""
         }
     ],
     "outlets": [
@@ -43,7 +46,7 @@
             "name": "sallen",
             "type": "float",
             "optional": 1,
-            "digest": "Key Filter Output"
+            "digest": ""
         }
     ],
     "attributes": [

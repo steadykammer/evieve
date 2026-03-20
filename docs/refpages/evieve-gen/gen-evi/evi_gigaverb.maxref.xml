@@ -24,12 +24,12 @@
     <geninletlist>
         <geninlet name='mono' type='float' optional='1'>
             <digest>
-                / Left / 1
+                / Left / 1. 
             </digest>
         </geninlet>
         <geninlet name='nothing' type='float' optional='1'>
             <digest>
-                / Right / 2
+                / Right / 2. 
             </digest>
         </geninlet>
     </geninletlist>

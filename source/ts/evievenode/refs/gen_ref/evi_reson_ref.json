@@ -3,7 +3,7 @@
         "name": "evi_reson",
         "child": "evi.reson~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
+        "digest": "Reimplementation of MSP <o>reson~</o> as a TPT filter with fm-able center frequency and auto gain compensation",
         "description": "TEXT_HERE"
     },
     "constructor": {
@@ -26,21 +26,24 @@
             "name": "input",
             "type": "float",
             "optional": 1,
-            "digest": "Gain Linear @default 1"
+            "digestauto": "Gain Linear @default 1",
+            "digest": ""
         },
         {
             "id": 3,
             "name": "center",
             "type": "float",
             "optional": 1,
-            "digest": "Frequency in Hz @min 1 @max samplerate*0.5"
+            "digestauto": "Frequency in Hz @min 1 @max samplerate*0.5",
+            "digest": ""
         },
         {
             "id": 4,
             "name": "resonance",
             "type": "float",
             "optional": 1,
-            "digest": "@min 0.05 @default 1"
+            "digestauto": "@min 0.05 @default 1",
+            "digest": ""
         }
     ],
     "outlets": [
@@ -49,7 +52,7 @@
             "name": "filtered",
             "type": "float",
             "optional": 1,
-            "digest": "Output"
+            "digest": ""
         }
     ],
     "attributes": [

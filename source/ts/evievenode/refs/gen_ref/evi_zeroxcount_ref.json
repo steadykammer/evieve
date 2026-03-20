@@ -3,8 +3,8 @@
         "name": "evi_zeroxcount",
         "child": "evi.zeroxcount~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Like MSP <o>zerox~</o> with controls for window size and threshold, with simultaneous analysis outputs",
+        "description": "This was built for a very specific need but might be useful as a controller. It is very similar to the RNBO 'zerox_count~' object but with simultaneous outlets for a > threshold gate and # of crossings."
     },
     "constructor": {
         "inlets": "input"
@@ -16,7 +16,7 @@
             "name": "input",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "The audio input to be analysed for zero crossings."
         }
     ],
     "outlets": [
@@ -25,21 +25,21 @@
             "name": "number",
             "type": "int",
             "optional": 1,
-            "digest": "of Zerocrossings per Window"
+            "digest": "Number of zero crossings per analysis window."
         },
         {
             "id": 2,
             "name": ">",
             "type": "gate",
             "optional": 1,
-            "digest": "threshold"
+            "digest": "Gate out, if crossings in window period > @threshold amount."
         },
         {
             "id": 3,
             "name": "the",
             "type": "float",
             "optional": 1,
-            "digest": "Zerocrossings"
+            "digest": "Constant zero crossings update."
         }
     ],
     "attributes": [
@@ -47,7 +47,7 @@
             "name": "size",
             "type": "int",
             "digest": "@min 1, @max 4096",
-            "description": "",
+            "description": "The size of the analysis window with which to count zero crossings in. By default this is 'vectorsize' which is a typical use case.",
             "default": {
                 "type": "int",
                 "value": "vectorsize"
@@ -57,7 +57,7 @@
             "name": "thresh",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "If count/window size is > than this threshold, report a gate event (middle outlet).",
             "default": {
                 "type": "float",
                 "value": "0.1"
@@ -66,8 +66,32 @@
     ],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_audiodust",
+            "display": "evi_audiodust"
+        },
+        {
+            "name": "evi_gaussiannoise",
+            "display": "evi_gaussiannoise"
+        },
+        {
+            "name": "evi_velvetnoise",
+            "display": "evi_velvetnoise"
+        },
+        {
+            "name": "evi_zeroxoscnoise",
+            "display": "evi_zeroxoscnoise"
+        },
+        {
+            "name": "evi_randy",
+            "display": "evi_randy"
+        },
+        {
+            "name": "evi_phasor0",
+            "display": "evi_phasor0"
+        },
+        {
+            "name": "evi_ramp0",
+            "display": "evi_ramp0"
         }
     ]
 }

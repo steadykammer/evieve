@@ -3,7 +3,7 @@
         "name": "evi_softclip",
         "child": "evi.softclip~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
+        "digest": "Anti-aliased soft clipping function",
         "description": "TEXT_HERE"
     },
     "constructor": {
@@ -18,7 +18,8 @@
             "name": "audio",
             "type": "float",
             "optional": 1,
-            "digest": "In"
+            "digestauto": "In",
+            "digest": ""
         }
     ],
     "outlets": [
@@ -27,7 +28,7 @@
             "name": "soft-clipped",
             "type": "float",
             "optional": 1,
-            "digest": "Audio Out"
+            "digest": ""
         }
     ],
     "attributes": [],

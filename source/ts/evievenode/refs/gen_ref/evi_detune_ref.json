@@ -3,8 +3,8 @@
         "name": "evi_detune",
         "child": "evi.detune~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "A quirky digital Detune effect with filtering and saturation",
+        "description": "Loosely based on 'mda detune' copyright (c) 1998-2000 Paul Kellett. <o>evi.detune~</o> adds a feedback path as would be found in modulation effects, and implements a linkwitz-riley crossover to shift the focus and strength of the effect. In addition a dynamically controllable morphing pre-filter can accentuate certain frequencies hitting the detuner, feedback path and output are saturated and anti-aliased."
     },
     "constructor": {
         "inlets": "left, right, reset"
@@ -23,21 +23,24 @@
             "name": "left",
             "type": "float",
             "optional": 1,
-            "digest": "Audio In"
+            "digestauto": "Audio In",
+            "digest": "Left audio input."
         },
         {
             "id": 2,
             "name": "right",
             "type": "float",
             "optional": 1,
-            "digest": "Audio In"
+            "digestauto": "Audio In",
+            "digest": "Right audio input."
         },
         {
             "id": 3,
             "name": "reset",
             "type": "float",
             "optional": 1,
-            "digest": "Naive"
+            "digestauto": "Naive",
+            "digest": "Reset of internal detune phase is naive and not anti-aliased."
         }
     ],
     "outlets": [
@@ -46,21 +49,21 @@
             "name": "left",
             "type": "float",
             "optional": 1,
-            "digest": "Audio Out"
+            "digest": "Detuned audio output left."
         },
         {
             "id": 2,
             "name": "right",
             "type": "float",
             "optional": 1,
-            "digest": "Audio Out"
+            "digest": "Detuned audio output right."
         },
         {
             "id": 3,
             "name": "phase",
             "type": "float",
             "optional": 1,
-            "digest": "in Samples"
+            "digest": "The phase of the internal modulation in samples, for synchronous downstream processing."
         }
     ],
     "attributes": [
@@ -78,7 +81,7 @@
             "name": "drywet",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "The global dry/wet mix of the detuner. 0 is completely dry, 1 is completely wet.",
             "default": {
                 "type": "float",
                 "value": "sqrt1_2"
@@ -88,7 +91,7 @@
             "name": "feedback",
             "type": "float",
             "digest": "@min -1, @max 1",
-            "description": "",
+            "description": "The level of gain to send the tapped audio through the feedback saturator.",
             "default": {
                 "type": "float",
                 "value": "0."
@@ -98,7 +101,7 @@
             "name": "latency",
             "type": "int",
             "digest": "@min 0, @max 4",
-            "description": "",
+            "description": "The amount of time in samples used by the detuner. 0=256, 1=512, 2=1024, 3=2048, 4=4096. This has a strong effect of the granular sound of the effect.",
             "default": {
                 "type": "int",
                 "value": "4"
@@ -108,7 +111,7 @@
             "name": "mix",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Not dry/wet mix. @mix refers to the internal mix of the wet detune chain. It mixes the crossover low/high audio around the feedback path, thus changing the strength of saturated and unsaturated audio into the detuning effect.",
             "default": {
                 "type": "float",
                 "value": "0.9"
@@ -118,7 +121,7 @@
             "name": "postfilterfrequency",
             "type": "float",
             "digest": "@min 1000, @max samplerate*0.49",
-            "description": "",
+            "description": "A clean linear lowpass butterworth for attenuating the top end if needed.",
             "default": {
                 "type": "float",
                 "value": "16000."
@@ -128,7 +131,7 @@
             "name": "prefilterbandwidth",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "The bandwidth approx 0..10 octaves of the pre-filter (inverse resonance).",
             "default": {
                 "type": "float",
                 "value": "0.5"
@@ -138,7 +141,7 @@
             "name": "prefilterfrequency",
             "type": "float",
             "digest": "@min 125, @max 16000",
-            "description": "",
+            "description": "The frequency of the pre-filter. A linear TPT morphing filter which can be used for shaping the input to the detuner. Filter type set by @prefiltermorph attribute.",
             "default": {
                 "type": "float",
                 "value": "8000."
@@ -148,7 +151,7 @@
             "name": "prefiltermorph",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Smoothly interpolate the filter type of the pre-filter, 0=lowpass, 0.5=bandpass, 1=highpass.",
             "default": {
                 "type": "float",
                 "value": "0."
@@ -158,7 +161,7 @@
             "name": "smooth",
             "type": "float",
             "digest": "@min 0, @max 333",
-            "description": "",
+            "description": "Smoothing time of the internal parameters.",
             "default": {
                 "type": "float",
                 "value": "22."
@@ -168,7 +171,7 @@
             "name": "window",
             "type": "int",
             "digest": "@min 0, @max 5",
-            "description": "",
+            "description": "The gain window to use in theleft/right offset of the up/down detuning. 0=flat, 1=Blackman, 2=Exact Blackman, 3=Blackman-Harris, 4=Hann, 5=Hamming. Default Hann.",
             "default": {
                 "type": "int",
                 "value": "4"
@@ -178,7 +181,7 @@
             "name": "xover",
             "type": "float",
             "digest": "@min 125, @max 1000",
-            "description": "",
+            "description": "Crossover frequency in Hz. Below this crossover point (the bass) the audio is mono summed, saturated and added back into the wet output mix. Above this crossover point the audio is chanelled through the detune effect.",
             "default": {
                 "type": "float",
                 "value": "250."
@@ -187,8 +190,24 @@
     ],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_chorus_digital",
+            "display": "evi_chorus_digital"
+        },
+        {
+            "name": "evi_flanger_digital",
+            "display": "evi_flanger_digital"
+        },
+        {
+            "name": "evi_am",
+            "display": "evi_am"
+        },
+        {
+            "name": "evi_tremolo",
+            "display": "evi_tremolo"
+        },
+        {
+            "name": "evi_phaser_analog",
+            "display": "evi_phaser_analog"
         }
     ]
 }

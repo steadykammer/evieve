@@ -3,7 +3,7 @@
         "name": "evi_multimode",
         "child": "evi.multimode~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
+        "digest": "7 simultaneous outputs for all filters available from a linear TPT SVF Topology",
         "description": "TEXT_HERE"
     },
     "constructor": {
@@ -23,14 +23,16 @@
             "name": "cutoff",
             "type": "float",
             "optional": 1,
-            "digest": "in Hz @min 1 @max samplerate*0.5 @default 500."
+            "digestauto": "in Hz @min 1 @max samplerate*0.5 @default 500.",
+            "digest": ""
         },
         {
             "id": 3,
             "name": "q",
             "type": "float",
             "optional": 1,
-            "digest": "@min 0.05 @default 0.707107"
+            "digestauto": "@min 0.05 @default 0.707107",
+            "digest": ""
         }
     ],
     "outlets": [

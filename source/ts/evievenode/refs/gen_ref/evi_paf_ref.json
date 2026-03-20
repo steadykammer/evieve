@@ -3,7 +3,7 @@
         "name": "evi_paf",
         "child": "evi.paf~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
+        "digest": "A basic 'paf' formant oscillator, very similar to the legacy 'paf~' external",
         "description": "TEXT_HERE"
     },
     "constructor": {
@@ -18,28 +18,32 @@
             "name": "fundamental",
             "type": "float",
             "optional": 1,
-            "digest": "Frequency in Hz"
+            "digestauto": "Frequency in Hz",
+            "digest": ""
         },
         {
             "id": 2,
             "name": "cf",
             "type": "float",
             "optional": 1,
-            "digest": "in Hz @min 0 @max 18000 @default 440."
+            "digestauto": "in Hz @min 0 @max 18000 @default 440.",
+            "digest": ""
         },
         {
             "id": 3,
             "name": "bw",
             "type": "float",
             "optional": 1,
-            "digest": "in Hz @min 0 @max 18000 @default 110."
+            "digestauto": "in Hz @min 0 @max 18000 @default 110.",
+            "digest": ""
         },
         {
             "id": 4,
             "name": "reset",
             "type": "float",
             "optional": 1,
-            "digest": "Phase (do not use)"
+            "digestauto": "Phase (do not use)",
+            "digest": ""
         }
     ],
     "outlets": [
@@ -48,35 +52,35 @@
             "name": "paf",
             "type": "float",
             "optional": 1,
-            "digest": "Oscillator"
+            "digest": ""
         },
         {
             "id": 2,
             "name": "packet",
             "type": "float",
             "optional": 1,
-            "digest": "1"
+            "digest": ""
         },
         {
             "id": 3,
             "name": "packet",
             "type": "float",
             "optional": 1,
-            "digest": "2"
+            "digest": ""
         },
         {
             "id": 4,
             "name": "phase",
             "type": "float",
             "optional": 1,
-            "digest": "0"
+            "digest": ""
         },
         {
             "id": 5,
             "name": "phase",
             "type": "float",
             "optional": 1,
-            "digest": "180"
+            "digest": ""
         }
     ],
     "attributes": [],

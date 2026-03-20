@@ -16,14 +16,16 @@
             "name": "destination",
             "type": "float",
             "optional": 1,
-            "digest": "Value"
+            "digestauto": "Value",
+            "digest": ""
         },
         {
             "id": 2,
             "name": "ramp",
             "type": "float",
             "optional": 1,
-            "digest": "Time in milliseconds @min 0 @default 20"
+            "digestauto": "Time in milliseconds @min 0 @default 20",
+            "digest": ""
         }
     ],
     "outlets": [
@@ -32,7 +34,7 @@
             "name": "output",
             "type": "float",
             "optional": 1,
-            "digest": "Ramp"
+            "digest": ""
         }
     ],
     "attributes": [],

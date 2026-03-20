@@ -9,7 +9,7 @@
 		<b>evi.gaussiannoise~</b> is a 'max define' for the <o>evi_gaussiannoise</o>.gendsp gen~ abstraction.
 		Because evi.gaussiannoise~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		<br />
-		TEXT_HERE <br />
+		An approximate 'box-muller' gaussian noise distribution. It looks roughly the same as white noise in a spectral view, very slightly different in a <o>scope~</o>. In a histogram one can see the distribution. The point is the gaussian random number distribution. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>
@@ -24,7 +24,7 @@
 				Inlet #1: Dummy
 			</digest>
 			<description>
-				
+				Dummy inlet. Nothing goes here.
 			</description>
 		</inlet>
 	</inletlist>
@@ -35,7 +35,7 @@
 				Outlet #1: (Box Muller) Gaussian Noise Distribution
 			</digest>
 			<description>
-				
+				The gaussian noise output.
 			</description>
 		</outlet>
 		<outlet id="2" type="signal">
@@ -43,7 +43,7 @@
 				Outlet #2: Sync White Noise
 			</digest>
 			<description>
-				
+				Synchronised to the gaussian process.
 			</description>
 		</outlet>
 		<outlet id="3" type="signal">
@@ -51,7 +51,7 @@
 				Outlet #3: Cos Noise
 			</digest>
 			<description>
-				
+				Synchronised to the gaussian process.
 			</description>
 		</outlet>
 	</outletlist>
@@ -62,7 +62,7 @@
 	<attributelist>
 		<attribute name="amplitude" get="1" set="1" type="float" min="0" max="1">
 			<digest>
-				
+				Not-really-amplitude (linear). This should be 0.6403882032022076 for normal use as this gives -1..1 output.
 			</digest>
 			<description>
 				
@@ -78,9 +78,14 @@
 	</examplelist>
 	<!--SEEALSO-->
 	<seealsolist>
+		<seealso name="evi.audiodust~"> </seealso>
+		<seealso name="evi.velvetnoise~"> </seealso>
+		<seealso name="evi.zeroxcount~"> </seealso>
+		<seealso name="evi.zeroxoscnoise~"> </seealso>
+		<seealso name="evi.randy~"> </seealso>
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>
-         <br />
+        Thanks to Andy Farnell. <br />
 	</discussion>
 </c74object>

@@ -3,7 +3,7 @@
         "name": "evi_tremolo",
         "child": "evi.tremolo~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
+        "digest": "Basic Tremolo effect with saturation and choice of LFO shapes",
         "description": "TEXT_HERE"
     },
     "constructor": {
@@ -22,21 +22,24 @@
             "name": "left",
             "type": "float",
             "optional": 1,
-            "digest": "Audio In"
+            "digestauto": "Audio In",
+            "digest": "Left audio input."
         },
         {
             "id": 2,
             "name": "right",
             "type": "float",
             "optional": 1,
-            "digest": "Audio In"
+            "digestauto": "Audio In",
+            "digest": "Right audio input."
         },
         {
             "id": 3,
             "name": "reset",
             "type": "float",
             "optional": 1,
-            "digest": "Naive"
+            "digestauto": "Naive",
+            "digest": "Reset of internal LFO phases is naive and not anti-aliased."
         }
     ],
     "outlets": [
@@ -45,35 +48,35 @@
             "name": "left",
             "type": "float",
             "optional": 1,
-            "digest": "Audio Out"
+            "digest": "Modulated audio output left."
         },
         {
             "id": 2,
             "name": "right",
             "type": "float",
             "optional": 1,
-            "digest": "Audio Out"
+            "digest": "Modulated audio output right."
         },
         {
             "id": 3,
             "name": "hz",
             "type": "float",
             "optional": 1,
-            "digest": "Current"
+            "digest": "The currently computed speed in Hz of the modulating LFOs. This is important for downstream processing because if @lfomode is on, this will not necessarily be synchronised with changes to the @rate attribute."
         },
         {
             "id": 4,
             "name": "lfo",
             "type": "float",
             "optional": 1,
-            "digest": "Left Out"
+            "digest": "Left LFO output for downstream synchronisation."
         },
         {
             "id": 5,
             "name": "lfo",
             "type": "float",
             "optional": 1,
-            "digest": "Right Out"
+            "digest": "Right LFO output for downstream synchronisation."
         }
     ],
     "attributes": [
@@ -81,7 +84,7 @@
             "name": "crossover",
             "type": "float",
             "digest": "@min 10, @max 1000",
-            "description": "",
+            "description": "Crossover frequency in Hz. Below this crossover point (the bass) the audio is mono summed, saturated and added back into the wet output mix. Above this crossover point the audio is chanelled through the tremolo effect.",
             "default": {
                 "type": "float",
                 "value": "63.5"
@@ -91,7 +94,7 @@
             "name": "depth",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Internally, increasing depth increases the amplitude size of the LFO movement.",
             "default": {
                 "type": "float",
                 "value": "0.75"
@@ -101,7 +104,7 @@
             "name": "drive",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "0..1 equates to about 0..+10 dB drive gain into the saturation stage. evi.tremolo~ can be safely overdriven to modulation well above unity gain and remain anti-aliased on output.",
             "default": {
                 "type": "float",
                 "value": "0.5"
@@ -111,7 +114,7 @@
             "name": "lfoinvert",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Invert the wave shape of the current LFO shape. Switching is synchronised to the zero phase of the LFOs.",
             "default": {
                 "type": "int",
                 "value": "0"
@@ -121,7 +124,7 @@
             "name": "lfomode",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "If on, changes to the speed (@rate) of the internal LFOs are synchronised to zero reset of phase, which can produce seemless updating of speed changes. Otherwise the speed (@rate) updates smoothly morphing changes.",
             "default": {
                 "type": "int",
                 "value": "1"
@@ -131,7 +134,7 @@
             "name": "lfoout",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Switch the LFO outputs (outlets 3 and 4) to output raw 0..1 range or output the actual amplitude used by the effect.",
             "default": {
                 "type": "int",
                 "value": "1"
@@ -141,7 +144,7 @@
             "name": "lfoskew",
             "type": "float",
             "digest": "@min 0.5, @max 2",
-            "description": "",
+            "description": "@lfoskew exponentially shapes the LFO output.",
             "default": {
                 "type": "float",
                 "value": "1."
@@ -151,7 +154,7 @@
             "name": "lfowave",
             "type": "int",
             "digest": "@min 0, @max 10",
-            "description": "",
+            "description": "The shape of the LFOs driving the modulation. 0=bypass, 1=up, 2=down, 3=tri, 4=sine (default), 5=tanh, 6=square, 7=rand step, 8=rand linear, 9=rand cubic, 10=noise. Switching LFO wave is synchronised to zero crossing phase. LFOs are always slightly smoothed, even hard edges such as square and random.",
             "default": {
                 "type": "int",
                 "value": "4"
@@ -161,7 +164,7 @@
             "name": "lfowidth",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "The pulse width of the LFO wave shapes that use it: 3=triangle, 5=tanh, 6=square.",
             "default": {
                 "type": "float",
                 "value": "0.5"
@@ -171,7 +174,7 @@
             "name": "maxhz",
             "type": "float",
             "digest": "@min 0.1, @max 40",
-            "description": "",
+            "description": "The maximum in Hz that the @rate attribute can reach.",
             "default": {
                 "type": "float",
                 "value": "11."
@@ -181,7 +184,7 @@
             "name": "rate",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "The global speed of the LFO phases. This sets the speed (between 0..@maxhz) the LFOs scale the amplitudes (set by @depth and @drive).",
             "default": {
                 "type": "float",
                 "value": "0.5"
@@ -191,7 +194,7 @@
             "name": "smooth",
             "type": "float",
             "digest": "@min 0, @max 151",
-            "description": "",
+            "description": "The smoothing time of the internal parameters.",
             "default": {
                 "type": "float",
                 "value": "15.111"
@@ -201,7 +204,7 @@
             "name": "spread",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "The left/right spread of the audio outputs, actually the phase offset of the two internal LFOs. 0..1 is mapped to 0..180 degrees shift.",
             "default": {
                 "type": "float",
                 "value": "0.25"
@@ -210,8 +213,28 @@
     ],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_am",
+            "display": "evi_am"
+        },
+        {
+            "name": "evi_flanger_digital",
+            "display": "evi_flanger_digital"
+        },
+        {
+            "name": "evi_chorus_digital",
+            "display": "evi_chorus_digital"
+        },
+        {
+            "name": "evi_phaser_analog",
+            "display": "evi_phaser_analog"
+        },
+        {
+            "name": "evi_detune",
+            "display": "evi_detune"
+        },
+        {
+            "name": "evi_phasor0",
+            "display": "evi_phasor0"
         }
     ]
 }

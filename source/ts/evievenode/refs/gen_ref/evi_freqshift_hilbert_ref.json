@@ -18,28 +18,32 @@
             "name": "audio",
             "type": "float",
             "optional": 1,
-            "digest": "Input"
+            "digestauto": "Input",
+            "digest": ""
         },
         {
             "id": 2,
             "name": "frequency",
             "type": "float/int",
             "optional": 1,
-            "digest": "Shift in Hz +/-"
+            "digestauto": "Shift in Hz +/-",
+            "digest": ""
         },
         {
             "id": 3,
             "name": "frequency",
             "type": "float",
             "optional": 1,
-            "digest": "Shift FM in Hz ±"
+            "digestauto": "Shift FM in Hz ±",
+            "digest": ""
         },
         {
             "id": 4,
             "name": "signal",
             "type": "float",
             "optional": 1,
-            "digest": "Rate Phase Reset (Naive)"
+            "digestauto": "Rate Phase Reset (Naive)",
+            "digest": ""
         }
     ],
     "outlets": [
@@ -48,7 +52,7 @@
             "name": "sidebands",
             "type": "float",
             "optional": 1,
-            "digest": "Mixed"
+            "digest": ""
         },
         {
             "id": 2,
@@ -69,14 +73,14 @@
             "name": "quad",
             "type": "float",
             "optional": 1,
-            "digest": "Osc Cos"
+            "digest": ""
         },
         {
             "id": 5,
             "name": "quad",
             "type": "float",
             "optional": 1,
-            "digest": "Osc Sin"
+            "digest": ""
         },
         {
             "id": 6,

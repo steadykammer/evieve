@@ -21,27 +21,27 @@
     <geninletlist>
         <geninlet name='value' type='float' optional='1'>
             <digest>
-                to be Scaled
+                to be Scaled. 
             </digest>
         </geninlet>
         <geninlet name='low' type='float' optional='1'>
             <digest>
-                Input Value
+                Input Value. 
             </digest>
         </geninlet>
         <geninlet name='high' type='float' optional='1'>
             <digest>
-                Input Value @default 1.
+                Input Value @default 1.. 
             </digest>
         </geninlet>
         <geninlet name='low' type='float' optional='1'>
             <digest>
-                Output Value
+                Output Value. 
             </digest>
         </geninlet>
         <geninlet name='high' type='float' optional='1'>
             <digest>
-                Output Value @default 1.
+                Output Value @default 1.. 
             </digest>
         </geninlet>
     </geninletlist>

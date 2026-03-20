@@ -28,7 +28,7 @@
         {{#each inlets}}
         <geninlet name='{{name}}' type='{{type}}' optional='{{optional}}'>
             <digest>
-                {{digest}}
+                {{#if digestauto}}{{digestauto}}. {{/if}}{{digest}}
             </digest>
         </geninlet>
         {{/each}}

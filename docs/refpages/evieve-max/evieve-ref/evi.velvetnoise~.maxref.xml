@@ -9,7 +9,7 @@
 		<b>evi.velvetnoise~</b> is a 'max define' for the <o>evi_velvetnoise</o>.gendsp gen~ abstraction.
 		Because evi.velvetnoise~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		<br />
-		TEXT_HERE <br />
+		This object can actually interpolate between 'sparse noise' and 'velvet noise' (first outlet via the second 'mix' inlet), but also outlets both 'sparse' and 'velvet' simultaneously from auxilliary outlets. The 'sparse noise' is an alternative to the <o>evi.audiodust~</o> algorithm. Wikipedia: 'Velvet noise is a sparse sequence of random positive and negative impulses, typically characterised by its density in taps/second. At high densities it sounds similar to white noise. However, it is perceptually smoother.' <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>
@@ -24,7 +24,7 @@
 				Inlet #1: Frequency in Hz @default 100
 			</digest>
 			<description>
-				
+				The frequency at which to internally sample the noise. Typically used at low frequencies but the &#x27;velvet&#x27; algorithm responds well to any frequency.
 			</description>
 		</inlet>
 		<inlet id="2" type="signal">
@@ -32,7 +32,7 @@
 				Inlet #2: Mix 0..1 @default 0.5 @min 0 @max 1
 			</digest>
 			<description>
-				
+				The mix between &#x27;sparse noise&#x27; (0) and velvet noise (1) out of the first (far left) outlet.
 			</description>
 		</inlet>
 	</inletlist>
@@ -43,7 +43,7 @@
 				Outlet #1: Mixed Sparse..Velvet (Based on &quot;in 2&quot; Mix 0..1)
 			</digest>
 			<description>
-				
+				The mix between &#x27;sparse&#x27; and &#x27;velvet&#x27; noise based on the second &#x27;mix&#x27; inlet.
 			</description>
 		</outlet>
 		<outlet id="2" type="signal">
@@ -51,7 +51,7 @@
 				Outlet #2: So Called &quot;Sparse Noise&quot;
 			</digest>
 			<description>
-				
+				Just the &#x27;sparse noise&#x27; algorithm outlet.
 			</description>
 		</outlet>
 		<outlet id="3" type="signal">
@@ -59,7 +59,7 @@
 				Outlet #3: So Called &quot;Velvet Noise&quot;
 			</digest>
 			<description>
-				
+				Just the &#x27;velvet noise&#x27; algorithm outlet.
 			</description>
 		</outlet>
 	</outletlist>
@@ -70,10 +70,10 @@
 	<attributelist>
 		<attribute name="amplitude" get="1" set="1" type="float" min="0" max="1">
 			<digest>
-				
+				Linear amplitude
 			</digest>
 			<description>
-				
+				The amplitude of the &#x27;velvet noise&#x27; algorithm. Setting this to anything other than &#x27;1&#x27; (the default) would be atypical, but might produce some interesting mixing effects.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="1." />
@@ -86,9 +86,14 @@
 	</examplelist>
 	<!--SEEALSO-->
 	<seealsolist>
+		<seealso name="evi.audiodust~"> </seealso>
+		<seealso name="evi.gaussiannoise~"> </seealso>
+		<seealso name="evi.zeroxcount~"> </seealso>
+		<seealso name="evi.zeroxoscnoise~"> </seealso>
+		<seealso name="evi.randy~"> </seealso>
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>
-         <br />
+        Sort of based on: Matti Karjalainen and Hanna Jarvelainen, 'Reverberation Modeling Using Velvet Noise', in Proc. 30th Int. Conf. Intelligent Audio Environments (AES07), March 2007. <br />
 	</discussion>
 </c74object>

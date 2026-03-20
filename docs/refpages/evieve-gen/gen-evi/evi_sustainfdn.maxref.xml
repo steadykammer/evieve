@@ -24,17 +24,17 @@
     <geninletlist>
         <geninlet name='audio' type='float' optional='1'>
             <digest>
-                In Left
+                In Left. 
             </digest>
         </geninlet>
         <geninlet name='audio' type='float' optional='1'>
             <digest>
-                In Right
+                In Right. 
             </digest>
         </geninlet>
         <geninlet name='feeback' type='float' optional='1'>
             <digest>
-                (if &#x27;fbinlet&#x27; attribute &#x3D;&#x3D; 1) @min 0 @max 1
+                (if &#x27;fbinlet&#x27; attribute &#x3D;&#x3D; 1) @min 0 @max 1. 
             </digest>
         </geninlet>
     </geninletlist>

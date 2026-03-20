@@ -3,8 +3,8 @@
         "name": "evi_velvetnoise",
         "child": "evi.velvetnoise~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Interpolating 'sparse noise' / 'velvet noise' audio source",
+        "description": "This object can actually interpolate between 'sparse noise' and 'velvet noise' (first outlet via the second 'mix' inlet), but also outlets both 'sparse' and 'velvet' simultaneously from auxilliary outlets. The 'sparse noise' is an alternative to the <o>evi.audiodust~</o> algorithm. Wikipedia: 'Velvet noise is a sparse sequence of random positive and negative impulses, typically characterised by its density in taps/second. At high densities it sounds similar to white noise. However, it is perceptually smoother.'"
     },
     "constructor": {
         "inlets": "frequency, mix"
@@ -16,14 +16,16 @@
             "name": "frequency",
             "type": "float",
             "optional": 1,
-            "digest": "in Hz @default 100"
+            "digestauto": "in Hz @default 100",
+            "digest": "The frequency at which to internally sample the noise. Typically used at low frequencies but the 'velvet' algorithm responds well to any frequency."
         },
         {
             "id": 2,
             "name": "mix",
             "type": "float",
             "optional": 1,
-            "digest": "0..1 @default 0.5 @min 0 @max 1"
+            "digestauto": "0..1 @default 0.5 @min 0 @max 1",
+            "digest": "The mix between 'sparse noise' (0) and velvet noise (1) out of the first (far left) outlet."
         }
     ],
     "outlets": [
@@ -32,21 +34,21 @@
             "name": "mixed",
             "type": "float",
             "optional": 1,
-            "digest": "Sparse..Velvet (Based on \"in 2\" Mix 0..1)"
+            "digest": "The mix between 'sparse' and 'velvet' noise based on the second 'mix' inlet."
         },
         {
             "id": 2,
             "name": "so",
             "type": "float",
             "optional": 1,
-            "digest": "Called \"Sparse Noise\""
+            "digest": "Just the 'sparse noise' algorithm outlet."
         },
         {
             "id": 3,
             "name": "so",
             "type": "float",
             "optional": 1,
-            "digest": "Called \"Velvet Noise\""
+            "digest": "Just the 'velvet noise' algorithm outlet."
         }
     ],
     "attributes": [
@@ -54,7 +56,7 @@
             "name": "amplitude",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "The amplitude of the 'velvet noise' algorithm. Setting this to anything other than '1' (the default) would be atypical, but might produce some interesting mixing effects.",
             "default": {
                 "type": "float",
                 "value": "1."
@@ -63,8 +65,24 @@
     ],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_audiodust",
+            "display": "evi_audiodust"
+        },
+        {
+            "name": "evi_gaussiannoise",
+            "display": "evi_gaussiannoise"
+        },
+        {
+            "name": "evi_zeroxcount",
+            "display": "evi_zeroxcount"
+        },
+        {
+            "name": "evi_zeroxoscnoise",
+            "display": "evi_zeroxoscnoise"
+        },
+        {
+            "name": "evi_randy",
+            "display": "evi_randy"
         }
     ]
 }

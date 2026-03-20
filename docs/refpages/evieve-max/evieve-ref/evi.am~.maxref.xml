@@ -9,7 +9,7 @@
 		<b>evi.am~</b> is a 'max define' for the <o>evi_am</o>.gendsp gen~ abstraction.
 		Because evi.am~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		<br />
-		TEXT_HERE <br />
+		A basic but useful AM processor with the core basic algorithm and assocoiated cotrols surrounded by saturation when driving the modulation signal > 0 dB. The saturation is anti-aliased and can cope with very hot input and has the feel of a guitar pedal. Because everybody needs a bosom for a pillow. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>

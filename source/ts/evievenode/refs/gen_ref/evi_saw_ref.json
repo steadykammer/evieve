@@ -3,7 +3,7 @@
         "name": "evi_saw",
         "child": "evi.saw~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
+        "digest": "High quality anti-aliased saw wave oscillator",
         "description": "TEXT_HERE"
     },
     "constructor": {
@@ -20,23 +20,25 @@
             "name": "frequency",
             "type": "float",
             "optional": 1,
-            "digest": "in Hz"
+            "digestauto": "in Hz",
+            "digest": ""
         },
         {
             "id": 2,
             "name": "reset",
             "type": "float",
             "optional": 1,
-            "digest": "(Naive)"
+            "digestauto": "(Naive)",
+            "digest": ""
         }
     ],
     "outlets": [
         {
             "id": 1,
-            "name": "anti",
+            "name": "i",
             "type": "float",
             "optional": 1,
-            "digest": "Aliased Saw Oscillator"
+            "digest": "Anti Aliased Saw Oscillator"
         }
     ],
     "attributes": [],

@@ -3,7 +3,7 @@
         "name": "evi_zeroxoscnoise",
         "child": "evi.zeroxoscnoise~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
+        "digest": "An automatic crossfading oscillators / noise source via audio analysis, used in vocoders",
         "description": "TEXT_HERE"
     },
     "constructor": {
@@ -20,35 +20,40 @@
             "name": "audio",
             "type": "float",
             "optional": 1,
-            "digest": "Input for Analysis"
+            "digestauto": "Input for Analysis",
+            "digest": ""
         },
         {
             "id": 2,
             "name": "oscillators",
             "type": "float",
             "optional": 1,
-            "digest": "Frequency in Hz @min 0 @max 8373"
+            "digestauto": "Frequency in Hz @min 0 @max 8373",
+            "digest": ""
         },
         {
             "id": 3,
             "name": "oscillators",
             "type": "float",
             "optional": 1,
-            "digest": "PW 0..1 @min 0 @max 1 @default 0.5"
+            "digestauto": "PW 0..1 @min 0 @max 1 @default 0.5",
+            "digest": ""
         },
         {
             "id": 4,
             "name": "oscillators",
             "type": "float",
             "optional": 1,
-            "digest": "Mix 0..1 @min 0 @max 1 @default 0.167"
+            "digestauto": "Mix 0..1 @min 0 @max 1 @default 0.167",
+            "digest": ""
         },
         {
             "id": 5,
             "name": "noise",
             "type": "float",
             "optional": 1,
-            "digest": "Mix 0..1 @min 0 @max 1"
+            "digestauto": "Mix 0..1 @min 0 @max 1",
+            "digest": ""
         }
     ],
     "outlets": [
@@ -57,35 +62,35 @@
             "name": "audio",
             "type": "float",
             "optional": 1,
-            "digest": "Output for Resynthesis"
+            "digest": ""
         },
         {
             "id": 2,
             "name": "just",
             "type": "float",
             "optional": 1,
-            "digest": "Oscillator"
+            "digest": ""
         },
         {
             "id": 3,
             "name": "just",
             "type": "float",
             "optional": 1,
-            "digest": "Noise"
+            "digest": ""
         },
         {
             "id": 4,
             "name": "oscillator",
             "type": "float",
             "optional": 1,
-            "digest": "Sync"
+            "digest": ""
         },
         {
             "id": 5,
             "name": "number",
             "type": "float",
             "optional": 1,
-            "digest": "of Zero Crossings"
+            "digest": ""
         },
         {
             "id": 6,
@@ -219,8 +224,28 @@
     ],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_audiodust",
+            "display": "evi_audiodust"
+        },
+        {
+            "name": "evi_gaussiannoise",
+            "display": "evi_gaussiannoise"
+        },
+        {
+            "name": "evi_velvetnoise",
+            "display": "evi_velvetnoise"
+        },
+        {
+            "name": "evi_zeroxcount",
+            "display": "evi_zeroxcount"
+        },
+        {
+            "name": "evi_randy",
+            "display": "evi_randy"
+        },
+        {
+            "name": "evi_blitwaves",
+            "display": "evi_blitwaves"
         }
     ]
 }

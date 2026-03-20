@@ -23,14 +23,16 @@
             "name": "vactrol",
             "type": "float",
             "optional": 1,
-            "digest": "Rise"
+            "digestauto": "Rise",
+            "digest": ""
         },
         {
             "id": 3,
             "name": "vactrol",
             "type": "float",
             "optional": 1,
-            "digest": "Fall"
+            "digestauto": "Fall",
+            "digest": ""
         },
         {
             "id": 4,
@@ -60,14 +62,14 @@
             "name": "r_f",
             "type": "float",
             "optional": 1,
-            "digest": "(to LPG)"
+            "digest": ""
         },
         {
             "id": 2,
             "name": "vactrol",
             "type": "float",
             "optional": 1,
-            "digest": "Envelope"
+            "digest": ""
         }
     ],
     "attributes": [

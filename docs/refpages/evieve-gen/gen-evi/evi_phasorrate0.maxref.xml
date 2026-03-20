@@ -24,12 +24,12 @@
     <geninletlist>
         <geninlet name='frequency' type='float' optional='1'>
             <digest>
-                in Hz
+                in Hz. 
             </digest>
         </geninlet>
         <geninlet name='rate' type='float' optional='1'>
             <digest>
-                Multiplier
+                Multiplier. 
             </digest>
         </geninlet>
         <geninlet name='reset' type='float' optional='1'>

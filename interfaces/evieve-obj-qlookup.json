@@ -46,7 +46,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.gaussiannoise~", "evi.velvetnoise~", "evi.zeroxcount~", "evi.zeroxoscnoise~", "evi.randy~" ]
     },
     "evi.backverb~": {
         "digest": "Ursa Major reverb unit with saturating feedback \n",
@@ -60,7 +60,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.damp~", "evi.damp.macro~", "evi.onepole.shelving~", "evi.tone.macro~", "evi.filter.tilt~" ]
     },
     "evi.biquad.filter~": {
         "digest": "All-in-one biquad coefficient calculator and filter section",
@@ -186,14 +186,14 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.damp~", "evi.onepole.shelving~", "evi.tone.macro~", "evi.filter.shelving~", "evi.filter.tilt~", "evi.baxandall~" ]
     },
     "evi.damp~": {
         "digest": "Onepole pass/shelf damping filters with simultaneous outputs",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.damp.macro~", "evi.onepole.shelving~", "evi.tone.macro~", "evi.filter.shelving~", "evi.filter.tilt~", "evi.baxandall~" ]
     },
     "evi.dcblock~": {
         "digest": "DC Blocking filter \n",
@@ -417,7 +417,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.audiodust~", "evi.velvetnoise~", "evi.zeroxcount~", "evi.zeroxoscnoise~", "evi.randy~" ]
     },
     "evi.gigaverb~": {
         "digest": "Classic gigaverb reverb algorithm, mono in / stereo out, fdn / allpass \n",
@@ -613,14 +613,14 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.onepole~", "evi.damp~", "evi.damp.macro~", "evi.tone.macro~", "evi.filter.shelving~", "evi.filter.tilt~", "evi.baxandall~" ]
     },
     "evi.onepole~": {
         "digest": "Linear trapezoidal integrated onepole filter with simultaneous outputs for lowpass, allpass and highpass",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.rcfilter~", "evi.damp~", "evi.damp.macro~", "evi.tone.macro~", "evi.onepole.shelving~", "evi.crossover.allpass~", "evi.filter~" ]
     },
     "evi.overdrive.atan~": {
         "digest": "High quality anti-aliased atan-based saturation with shape input to control overdrive",
@@ -672,7 +672,7 @@
         "seealso": []
     },
     "evi.phasor0~": {
-        "digest": "Zero-rest phasor with settings for reverse and pause",
+        "digest": "Zero-reset phasor with settings for reverse and pause",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
@@ -707,18 +707,18 @@
         "seealso": []
     },
     "evi.randy~": {
-        "digest": "Cubic interpolated version of MSP rand~",
+        "digest": "Cubic interpolated version of the linear MSP rand~",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.audiodust~", "evi.gaussiannoise~", "evi.velvetnoise~", "evi.zeroxcount~", "evi.zeroxoscnoise~" ]
     },
     "evi.rcfilter~": {
-        "digest": "TPT nonliner onepole rc filter emulation",
+        "digest": "Linear trapezoidal nonliner onepole rc filter emulation",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.onepole~", "evi.tone.macro~", "evi.korgms20.select~", "evi.ladder.moog~" ]
     },
     "evi.rect.select~": {
         "digest": "Selection of anti-aliased square-like oscillators",
@@ -847,7 +847,7 @@
         "seealso": []
     },
     "evi.teeth~": {
-        "digest": "Reimplementation of MSP teeth~ as a TPT filter",
+        "digest": "Reimplementation of MSP teeth~ filter delay",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
@@ -858,7 +858,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.damp~", "evi.damp.macro~", "evi.onepole.shelving~", "evi.filter.shelving~", "evi.filter.tilt~", "evi.baxandall~", "evi.lorez~" ]
     },
     "evi.tpqm": {
         "digest": "Three point quadratic map \n",
@@ -914,7 +914,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.audiodust~", "evi.gaussiannoise~", "evi.zeroxcount~", "evi.zeroxoscnoise~", "evi.randy~" ]
     },
     "evi.vosim.basic~": {
         "digest": "A basic implementation of a 'vosim' formant oscillator",
@@ -949,14 +949,14 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.audiodust~", "evi.gaussiannoise~", "evi.velvetnoise~", "evi.zeroxoscnoise~", "evi.randy~", "evi.phasor0~", "evi.ramp0~" ]
     },
     "evi.zeroxoscnoise~": {
         "digest": "An automatic crossfading oscillators / noise source via audio analysis, used in vocoders",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.audiodust~", "evi.gaussiannoise~", "evi.velvetnoise~", "evi.zeroxcount~", "evi.randy~", "evi.blitwaves~" ]
     },
     "evi.zitaverb~": {
         "digest": "True stereo FDN/algorithmic reverb based on 'zitaverb' by Fons Adriaensen \n",

@@ -3,7 +3,7 @@
         "name": "evi_lorez",
         "child": "evi.lorez~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
+        "digest": "A novel two-pole nonlinear Ladder filter with allpass alignment",
         "description": "TEXT_HERE"
     },
     "constructor": {
@@ -26,14 +26,16 @@
             "name": "cutoff",
             "type": "float",
             "optional": 1,
-            "digest": "in Hz @min 1 @max samplerate*0.333333"
+            "digestauto": "in Hz @min 1 @max samplerate*0.333333",
+            "digest": ""
         },
         {
             "id": 3,
             "name": "resonance",
             "type": "float",
             "optional": 1,
-            "digest": "0..1 @min 0 @max 2"
+            "digestauto": "0..1 @min 0 @max 2",
+            "digest": ""
         }
     ],
     "outlets": [
@@ -42,7 +44,7 @@
             "name": "lorez",
             "type": "float",
             "optional": 1,
-            "digest": "Output"
+            "digest": ""
         }
     ],
     "attributes": [

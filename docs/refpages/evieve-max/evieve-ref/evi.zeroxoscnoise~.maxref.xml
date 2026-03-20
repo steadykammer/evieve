@@ -255,6 +255,12 @@
 	</examplelist>
 	<!--SEEALSO-->
 	<seealsolist>
+		<seealso name="evi.audiodust~"> </seealso>
+		<seealso name="evi.gaussiannoise~"> </seealso>
+		<seealso name="evi.velvetnoise~"> </seealso>
+		<seealso name="evi.zeroxcount~"> </seealso>
+		<seealso name="evi.randy~"> </seealso>
+		<seealso name="evi.blitwaves~"> </seealso>
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>

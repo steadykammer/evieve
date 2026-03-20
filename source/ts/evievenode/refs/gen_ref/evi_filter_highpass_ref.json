@@ -3,7 +3,7 @@
         "name": "evi_filter_highpass",
         "child": "evi.filter.highpass~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
+        "digest": "TPT highpass filter",
         "description": "TEXT_HERE"
     },
     "constructor": {
@@ -26,21 +26,24 @@
             "name": "cutoff",
             "type": "float",
             "optional": 1,
-            "digest": "in Hz @min 1 @max samplerate*0.5"
+            "digestauto": "in Hz @min 1 @max samplerate*0.5",
+            "digest": ""
         },
         {
             "id": 3,
             "name": "gain",
             "type": "float",
             "optional": 1,
-            "digest": "in dB @min -30 @max 30 @default 0"
+            "digestauto": "in dB @min -30 @max 30 @default 0",
+            "digest": ""
         },
         {
             "id": 4,
             "name": "q",
             "type": "float",
             "optional": 1,
-            "digest": "@min 0.05 @max 20 @default 0.707107"
+            "digestauto": "@min 0.05 @max 20 @default 0.707107",
+            "digest": ""
         }
     ],
     "outlets": [
@@ -49,7 +52,7 @@
             "name": "highpass",
             "type": "float",
             "optional": 1,
-            "digest": "Output"
+            "digest": ""
         }
     ],
     "attributes": [

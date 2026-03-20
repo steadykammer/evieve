@@ -16,21 +16,24 @@
             "name": "x",
             "type": "float",
             "optional": 1,
-            "digest": "@default 0."
+            "digestauto": "@default 0.",
+            "digest": ""
         },
         {
             "id": 2,
             "name": "y",
             "type": "float",
             "optional": 1,
-            "digest": "@default 1."
+            "digestauto": "@default 1.",
+            "digest": ""
         },
         {
             "id": 3,
             "name": "smooth",
             "type": "float",
             "optional": 1,
-            "digest": "0..1"
+            "digestauto": "0..1",
+            "digest": ""
         }
     ],
     "outlets": [
@@ -39,7 +42,7 @@
             "name": "smoothed",
             "type": "float",
             "optional": 1,
-            "digest": "Step"
+            "digest": ""
         }
     ],
     "attributes": [],

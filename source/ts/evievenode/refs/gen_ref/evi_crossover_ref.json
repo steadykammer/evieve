@@ -3,8 +3,8 @@
         "name": "evi_crossover",
         "child": "evi.crossover~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "A choice of 2 or 4 pole Linkwitz-Riley crossover filters",
+        "description": "Linkwitz-Riley crossovers sum perfectly flat on recombination of the outputs. Use <o>evi.crossover~</o> to achieve multiband processing. @see the 'seealso' section for other evieve objects that can help with this."
     },
     "constructor": {
         "inlets": "input, crossover"
@@ -18,14 +18,16 @@
             "name": "input",
             "type": "float",
             "optional": 1,
-            "digest": "to Split"
+            "digestauto": "to Split",
+            "digest": "Audio input to split."
         },
         {
             "id": 2,
             "name": "crossover",
             "type": "float",
             "optional": 1,
-            "digest": "Frequency in Hz @min 10 @max 20000"
+            "digestauto": "Frequency in Hz @min 10 @max 20000",
+            "digest": "The frequency at which to split the incoming audio into it's lowpass and highpass outputs."
         }
     ],
     "outlets": [
@@ -34,14 +36,14 @@
             "name": "low",
             "type": "float",
             "optional": 1,
-            "digest": "Band Output"
+            "digest": "Lowpass filtered output."
         },
         {
             "id": 2,
             "name": "high",
             "type": "float",
             "optional": 1,
-            "digest": "Band Output"
+            "digest": "Highpass filtered output."
         }
     ],
     "attributes": [
@@ -49,7 +51,7 @@
             "name": "order",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "0=2-pole (shallower) crossover filters, 1=4-pole (steeper) crossover filters. 2-pole can be subtle, 4-pole gives more rejection.",
             "default": {
                 "type": "int",
                 "value": "0"
@@ -58,8 +60,20 @@
     ],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_cross",
+            "display": "evi_cross"
+        },
+        {
+            "name": "evi_crossover_3band",
+            "display": "evi_crossover_3band"
+        },
+        {
+            "name": "evi_crossover_sum",
+            "display": "evi_crossover_sum"
+        },
+        {
+            "name": "evi_crossover_allpass",
+            "display": "evi_crossover_allpass"
         }
     ]
 }

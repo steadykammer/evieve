@@ -3,7 +3,7 @@
         "name": "evi_eq3",
         "child": "evi.eq3~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
+        "digest": "Mono TPT 3-band EQ with signal rate modulation of all parameters",
         "description": "TEXT_HERE"
     },
     "constructor": {
@@ -26,63 +26,72 @@
             "name": "freq",
             "type": "float",
             "optional": 1,
-            "digest": "1 @min 10 @max 18000 @default 250"
+            "digestauto": "1 @min 10 @max 18000 @default 250",
+            "digest": ""
         },
         {
             "id": 3,
             "name": "db",
             "type": "float",
             "optional": 1,
-            "digest": "1 @min -24 @max 24 @default 0"
+            "digestauto": "1 @min -24 @max 24 @default 0",
+            "digest": ""
         },
         {
             "id": 4,
             "name": "q",
             "type": "float",
             "optional": 1,
-            "digest": "1 @min 0.1 @max 18 @default 1"
+            "digestauto": "1 @min 0.1 @max 18 @default 1",
+            "digest": ""
         },
         {
             "id": 5,
             "name": "freq",
             "type": "float",
             "optional": 1,
-            "digest": "2 @min 10 @max 18000 @default 1000"
+            "digestauto": "2 @min 10 @max 18000 @default 1000",
+            "digest": ""
         },
         {
             "id": 6,
             "name": "db",
             "type": "float",
             "optional": 1,
-            "digest": "2 @min -24 @max 24 @default 0"
+            "digestauto": "2 @min -24 @max 24 @default 0",
+            "digest": ""
         },
         {
             "id": 7,
             "name": "q",
             "type": "float",
             "optional": 1,
-            "digest": "2 @min 0.1 @max 18 @default 0.707107"
+            "digestauto": "2 @min 0.1 @max 18 @default 0.707107",
+            "digest": ""
         },
         {
             "id": 8,
             "name": "freq",
             "type": "float",
             "optional": 1,
-            "digest": "3 @min 10 @max 18000 @default 4000"
+            "digestauto": "3 @min 10 @max 18000 @default 4000",
+            "digest": ""
         },
         {
             "id": 9,
             "name": "db",
             "type": "float",
             "optional": 1,
-            "digest": "3 @min -24 @max 24 @default 0"
+            "digestauto": "3 @min -24 @max 24 @default 0",
+            "digest": ""
         },
         {
             "id": 10,
             "name": "q",
             "type": "float",
             "optional": 1,
-            "digest": "3 @min 0.1 @max 18 @default 1"
+            "digestauto": "3 @min 0.1 @max 18 @default 1",
+            "digest": ""
         }
     ],
     "outlets": [
@@ -91,7 +100,7 @@
             "name": "3",
             "type": "float",
             "optional": 1,
-            "digest": "bands EQ Output"
+            "digest": ""
         }
     ],
     "attributes": [

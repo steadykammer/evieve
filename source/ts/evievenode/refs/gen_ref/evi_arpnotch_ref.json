@@ -3,7 +3,7 @@
         "name": "evi_arpnotch",
         "child": "evi.arpnotch~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
+        "digest": "A nonlinear SVF Notch filter which can morph between LP..Notch..HP",
         "description": "TEXT_HERE"
     },
     "constructor": {
@@ -26,21 +26,24 @@
             "name": "freq",
             "type": "float",
             "optional": 1,
-            "digest": "in Pitch (default) or Hz depending on 'cutoffmode' attribute"
+            "digestauto": "in Pitch (default) or Hz depending on 'cutoffmode' attribute",
+            "digest": ""
         },
         {
             "id": 3,
             "name": "resonance",
             "type": "float",
             "optional": 1,
-            "digest": "0..1 @default 0.707107"
+            "digestauto": "0..1 @default 0.707107",
+            "digest": ""
         },
         {
             "id": 4,
             "name": "morph",
             "type": "float",
             "optional": 1,
-            "digest": "0..1 @default 0.5"
+            "digestauto": "0..1 @default 0.5",
+            "digest": ""
         }
     ],
     "outlets": [
@@ -49,7 +52,7 @@
             "name": "arp",
             "type": "float",
             "optional": 1,
-            "digest": "Mix (LP..BR..HP via 'morph' inlet)"
+            "digest": ""
         }
     ],
     "attributes": [

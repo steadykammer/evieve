@@ -3,7 +3,7 @@
         "name": "evi_lockhart_simple",
         "child": "evi.lockhart.simple~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
+        "digest": "Anti-aliased wavefolder device for shaping oscillators, selectable up to four stages",
         "description": "TEXT_HERE"
     },
     "constructor": {
@@ -16,7 +16,8 @@
             "name": "osc",
             "type": "float",
             "optional": 1,
-            "digest": "Input"
+            "digestauto": "Input",
+            "digest": ""
         }
     ],
     "outlets": [

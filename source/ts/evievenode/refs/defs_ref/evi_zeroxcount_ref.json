@@ -5,7 +5,7 @@
         "category": "evieve",
         "tilde": "~",
         "digest": "Like MSP <o>zerox~</o> with controls for window size and threshold, with simultaneous analysis outputs",
-        "description": "TEXT_HERE",
+        "description": "This was built for a very specific need but might be useful as a controller. It is very similar to the RNBO 'zerox_count~' object but with simultaneous outlets for a > threshold gate and # of crossings.",
         "discussion": ""
     },
     "metadata": {
@@ -18,7 +18,7 @@
             "id": 1,
             "type": "signal",
             "digest": "Input",
-            "description": ""
+            "description": "The audio input to be analysed for zero crossings."
         }
     ],
     "outlets": [
@@ -26,19 +26,19 @@
             "id": 1,
             "type": "int",
             "digest": "Number of Zerocrossings per Window",
-            "description": ""
+            "description": "Number of zero crossings per analysis window."
         },
         {
             "id": 2,
             "type": "gate",
             "digest": "> threshold",
-            "description": ""
+            "description": "Gate out, if crossings in window period > @threshold amount."
         },
         {
             "id": 3,
             "type": "signal",
             "digest": "the Zerocrossings",
-            "description": ""
+            "description": "Constant zero crossings update."
         }
     ],
     "messages": [],
@@ -47,8 +47,8 @@
             "name": "size",
             "get": 1,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "int",
+            "description": "The size of the analysis window with which to count zero crossings in. By default this is 'vectorsize' which is a typical use case.",
             "default": {
                 "min": "1",
                 "max": "4096",
@@ -59,8 +59,8 @@
             "name": "thresh",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Linear 0..1",
+            "description": "If count/window size is > than this threshold, report a gate event (middle outlet).",
             "default": {
                 "min": "0",
                 "max": "1",
@@ -72,5 +72,13 @@
         "caption": "",
         "image": ""
     },
-    "seealso": []
+    "seealso": [
+        "evi.audiodust~",
+        "evi.gaussiannoise~",
+        "evi.velvetnoise~",
+        "evi.zeroxoscnoise~",
+        "evi.randy~",
+        "evi.phasor0~",
+        "evi.ramp0~"
+    ]
 }

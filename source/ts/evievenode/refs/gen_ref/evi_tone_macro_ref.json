@@ -3,15 +3,16 @@
         "name": "evi_tone_macro",
         "child": "evi.tone.macro~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "A 'one knob' macroisation for nonlinear cut tone control useful for quick colourisation in your audio chain",
+        "description": "Similar to <o>evi.damp.macro~</o> but nonlinear so capable of driving audio input hard into the filter. The 'one knob' macroisation takes this into account. The effect is a dark saturated tone control for colourisation."
     },
     "constructor": {
         "inlets": "audio"
     },
     "includes": [
         "evi_rcfilters",
-        "evi_smooth"
+        "evi_smooth",
+        "evi_smooth_bank"
     ],
     "inlets": [
         {
@@ -19,7 +20,8 @@
             "name": "audio",
             "type": "float",
             "optional": 1,
-            "digest": "Input"
+            "digestauto": "Input",
+            "digest": "Audio input to be tone controlled."
         }
     ],
     "outlets": [
@@ -28,7 +30,7 @@
             "name": "tone-controlled",
             "type": "float",
             "optional": 1,
-            "digest": "Audio Out"
+            "digest": "Warm and dark audio output."
         }
     ],
     "attributes": [
@@ -36,7 +38,7 @@
             "name": "smooth",
             "type": "float",
             "digest": "@min 0, @max 999",
-            "description": "",
+            "description": "Smooth the internal coefficients controlled by the 'tone' attribute, set in ms. If 0 smoothing is CPU-off.",
             "default": {
                 "type": "float",
                 "value": "0."
@@ -46,7 +48,7 @@
             "name": "tone",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "The one attribute that does everything. At 0 the input signal is very slightly damped with very little nonlinear effect. At 1 the input signal is 100% dark and saturated. 0..1 the saturation gets stronger and the cutoff frequencies move from extremes to the mid range and the shelves attenuate eventually to full low/highpass filters.",
             "default": {
                 "type": "float",
                 "value": "1."
@@ -55,8 +57,32 @@
     ],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_damp",
+            "display": "evi_damp"
+        },
+        {
+            "name": "evi_damp_macro",
+            "display": "evi_damp_macro"
+        },
+        {
+            "name": "evi_onepole_shelving",
+            "display": "evi_onepole_shelving"
+        },
+        {
+            "name": "evi_filter_shelving",
+            "display": "evi_filter_shelving"
+        },
+        {
+            "name": "evi_filter_tilt",
+            "display": "evi_filter_tilt"
+        },
+        {
+            "name": "evi_baxandall",
+            "display": "evi_baxandall"
+        },
+        {
+            "name": "evi_lorez",
+            "display": "evi_lorez"
         }
     ]
 }

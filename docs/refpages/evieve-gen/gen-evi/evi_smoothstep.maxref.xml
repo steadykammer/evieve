@@ -21,17 +21,17 @@
     <geninletlist>
         <geninlet name='x' type='float' optional='1'>
             <digest>
-                @default 0.
+                @default 0.. 
             </digest>
         </geninlet>
         <geninlet name='y' type='float' optional='1'>
             <digest>
-                @default 1.
+                @default 1.. 
             </digest>
         </geninlet>
         <geninlet name='smooth' type='float' optional='1'>
             <digest>
-                0..1
+                0..1. 
             </digest>
         </geninlet>
     </geninletlist>

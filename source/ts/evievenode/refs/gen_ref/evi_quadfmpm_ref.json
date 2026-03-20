@@ -25,42 +25,48 @@
             "name": "index",
             "type": "float",
             "optional": 1,
-            "digest": "@default 1."
+            "digestauto": "@default 1.",
+            "digest": ""
         },
         {
             "id": 3,
             "name": "fm/pm",
             "type": "float",
             "optional": 1,
-            "digest": "xfade Depth"
+            "digestauto": "xfade Depth",
+            "digest": ""
         },
         {
             "id": 4,
             "name": "fm/pm",
             "type": "float",
             "optional": 1,
-            "digest": "xfade Blend"
+            "digestauto": "xfade Blend",
+            "digest": ""
         },
         {
             "id": 5,
             "name": "mod",
             "type": "float",
             "optional": 1,
-            "digest": "Feedback"
+            "digestauto": "Feedback",
+            "digest": ""
         },
         {
             "id": 6,
             "name": "car",
             "type": "float",
             "optional": 1,
-            "digest": "Feedback"
+            "digestauto": "Feedback",
+            "digest": ""
         },
         {
             "id": 7,
             "name": "mod",
             "type": "float",
             "optional": 1,
-            "digest": "Mult @default 1."
+            "digestauto": "Mult @default 1.",
+            "digest": ""
         }
     ],
     "outlets": [
@@ -69,14 +75,14 @@
             "name": "fm",
             "type": "float",
             "optional": 1,
-            "digest": "output Cos"
+            "digest": ""
         },
         {
             "id": 2,
             "name": "fm",
             "type": "float",
             "optional": 1,
-            "digest": "output Sin"
+            "digest": ""
         }
     ],
     "attributes": [

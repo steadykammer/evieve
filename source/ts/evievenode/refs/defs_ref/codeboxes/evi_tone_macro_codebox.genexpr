@@ -5,7 +5,7 @@
 // @see: "evi_onepole_shelving.gendsp" / [evi.onepole.shelving~] for cut/boost
 
 require("evi_rcfilters.genexpr");
-require("evi_smooth.genexpr");
+require("evi_smooth_bank.genexpr");
 
 // param rate
 

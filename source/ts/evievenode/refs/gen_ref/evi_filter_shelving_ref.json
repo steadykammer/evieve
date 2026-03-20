@@ -3,7 +3,7 @@
         "name": "evi_filter_shelving",
         "child": "evi.filter.shelving~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
+        "digest": "A chain of two two-pole TPT shelving filters",
         "description": "TEXT_HERE"
     },
     "constructor": {
@@ -28,7 +28,7 @@
             "name": "shelfed",
             "type": "float",
             "optional": 1,
-            "digest": "Output"
+            "digest": ""
         }
     ],
     "attributes": [

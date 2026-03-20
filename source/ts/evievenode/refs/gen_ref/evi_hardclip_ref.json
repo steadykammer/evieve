@@ -3,7 +3,7 @@
         "name": "evi_hardclip",
         "child": "evi.hardclip~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
+        "digest": "Anti-aliased hard clipping function",
         "description": "TEXT_HERE"
     },
     "constructor": {
@@ -18,7 +18,8 @@
             "name": "audio",
             "type": "float",
             "optional": 1,
-            "digest": "Input to be treated nicely"
+            "digestauto": "Input to be treated nicely",
+            "digest": ""
         }
     ],
     "outlets": [
@@ -27,7 +28,7 @@
             "name": "anti",
             "type": "float",
             "optional": 1,
-            "digest": "Aliased Clipped Output"
+            "digest": ""
         }
     ],
     "attributes": [

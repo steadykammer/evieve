@@ -18,28 +18,32 @@
             "name": "v_c",
             "type": "float",
             "optional": 1,
-            "digest": "(from Vactrol)"
+            "digestauto": "(from Vactrol)",
+            "digest": ""
         },
         {
             "id": 2,
             "name": "offset",
             "type": "float",
             "optional": 1,
-            "digest": "@min 0 @max 1 @default 0.1"
+            "digestauto": "@min 0 @max 1 @default 0.1",
+            "digest": ""
         },
         {
             "id": 3,
             "name": "scaler",
             "type": "float",
             "optional": 1,
-            "digest": "@min 0 @max 1 @default 0.48"
+            "digestauto": "@min 0 @max 1 @default 0.48",
+            "digest": ""
         },
         {
             "id": 4,
             "name": "sweep",
             "type": "float",
             "optional": 1,
-            "digest": "@min 0 @max 1 @default 0.408141"
+            "digestauto": "@min 0 @max 1 @default 0.408141",
+            "digest": ""
         }
     ],
     "outlets": [
@@ -48,7 +52,7 @@
             "name": "r_f",
             "type": "float",
             "optional": 1,
-            "digest": "(to LPG)"
+            "digest": ""
         }
     ],
     "attributes": [

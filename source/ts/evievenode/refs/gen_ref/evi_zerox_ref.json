@@ -25,21 +25,21 @@
             "name": "number",
             "type": "samples",
             "optional": 1,
-            "digest": "of Samples between Zerocrossings"
+            "digest": ""
         },
         {
             "id": 2,
             "name": ">",
             "type": "gate",
             "optional": 1,
-            "digest": "threshold"
+            "digest": ""
         },
         {
             "id": 3,
             "name": "the",
             "type": "float",
             "optional": 1,
-            "digest": "Zerocrossings"
+            "digest": ""
         }
     ],
     "attributes": [

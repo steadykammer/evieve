@@ -24,42 +24,42 @@
     <geninletlist>
         <geninlet name='gate' type='float' optional='1'>
             <digest>
-                or Value
+                or Value. 
             </digest>
         </geninlet>
         <geninlet name='delay' type='float' optional='1'>
             <digest>
-                in ms @default 0
+                in ms @default 0. 
             </digest>
         </geninlet>
         <geninlet name='attack' type='float' optional='1'>
             <digest>
-                in ms @default 10
+                in ms @default 10. 
             </digest>
         </geninlet>
         <geninlet name='hold1' type='float' optional='1'>
             <digest>
-                in ms @default 0
+                in ms @default 0. 
             </digest>
         </geninlet>
         <geninlet name='decay' type='float' optional='1'>
             <digest>
-                in ms @default 100
+                in ms @default 100. 
             </digest>
         </geninlet>
         <geninlet name='sustain' type='float' optional='1'>
             <digest>
-                0..1 @default 0.707946
+                0..1 @default 0.707946. 
             </digest>
         </geninlet>
         <geninlet name='hold2' type='float' optional='1'>
             <digest>
-                in ms @default 0
+                in ms @default 0. 
             </digest>
         </geninlet>
         <geninlet name='release' type='float' optional='1'>
             <digest>
-                in ms @default 200
+                in ms @default 200. 
             </digest>
         </geninlet>
     </geninletlist>

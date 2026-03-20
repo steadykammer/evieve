@@ -3,7 +3,7 @@
         "name": "evi_clip_hardsoft",
         "child": "evi.clip~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
+        "digest": "Anti-aliased clipping algorithms for your audio",
         "description": "TEXT_HERE"
     },
     "constructor": {
@@ -18,7 +18,8 @@
             "name": "audio",
             "type": "float",
             "optional": 1,
-            "digest": "In that must be treated nicely"
+            "digestauto": "In that must be treated nicely",
+            "digest": ""
         }
     ],
     "outlets": [
@@ -27,7 +28,7 @@
             "name": "anti",
             "type": "float",
             "optional": 1,
-            "digest": "Aliased Clipped Audio Out"
+            "digest": ""
         }
     ],
     "attributes": [

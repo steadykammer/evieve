@@ -24,12 +24,12 @@
     <geninletlist>
         <geninlet name='audio' type='float' optional='1'>
             <digest>
-                In L
+                In L. 
             </digest>
         </geninlet>
         <geninlet name='audio' type='float' optional='1'>
             <digest>
-                In R
+                In R. 
             </digest>
         </geninlet>
     </geninletlist>

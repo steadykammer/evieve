@@ -5,8 +5,8 @@
         "category": "evieve",
         "tilde": "~",
         "digest": "Interpolating 'sparse noise' / 'velvet noise' audio source",
-        "description": "TEXT_HERE",
-        "discussion": ""
+        "description": "This object can actually interpolate between 'sparse noise' and 'velvet noise' (first outlet via the second 'mix' inlet), but also outlets both 'sparse' and 'velvet' simultaneously from auxilliary outlets. The 'sparse noise' is an alternative to the <o>evi.audiodust~</o> algorithm. Wikipedia: 'Velvet noise is a sparse sequence of random positive and negative impulses, typically characterised by its density in taps/second. At high densities it sounds similar to white noise. However, it is perceptually smoother.'",
+        "discussion": "Sort of based on: Matti Karjalainen and Hanna Jarvelainen, 'Reverberation Modeling Using Velvet Noise', in Proc. 30th Int. Conf. Intelligent Audio Environments (AES07), March 2007."
     },
     "metadata": {
         "author": "Pete Dowling",
@@ -18,13 +18,13 @@
             "id": 1,
             "type": "signal",
             "digest": "Frequency in Hz @default 100",
-            "description": ""
+            "description": "The frequency at which to internally sample the noise. Typically used at low frequencies but the 'velvet' algorithm responds well to any frequency."
         },
         {
             "id": 2,
             "type": "signal",
             "digest": "Mix 0..1 @default 0.5 @min 0 @max 1",
-            "description": ""
+            "description": "The mix between 'sparse noise' (0) and velvet noise (1) out of the first (far left) outlet."
         }
     ],
     "outlets": [
@@ -32,19 +32,19 @@
             "id": 1,
             "type": "signal",
             "digest": "Mixed Sparse..Velvet (Based on \"in 2\" Mix 0..1)",
-            "description": ""
+            "description": "The mix between 'sparse' and 'velvet' noise based on the second 'mix' inlet."
         },
         {
             "id": 2,
             "type": "signal",
             "digest": "So Called \"Sparse Noise\"",
-            "description": ""
+            "description": "Just the 'sparse noise' algorithm outlet."
         },
         {
             "id": 3,
             "type": "signal",
             "digest": "So Called \"Velvet Noise\"",
-            "description": ""
+            "description": "Just the 'velvet noise' algorithm outlet."
         }
     ],
     "messages": [],
@@ -53,8 +53,8 @@
             "name": "amplitude",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Linear amplitude",
+            "description": "The amplitude of the 'velvet noise' algorithm. Setting this to anything other than '1' (the default) would be atypical, but might produce some interesting mixing effects.",
             "default": {
                 "min": "0",
                 "max": "1",
@@ -66,5 +66,11 @@
         "caption": "",
         "image": ""
     },
-    "seealso": []
+    "seealso": [
+        "evi.audiodust~",
+        "evi.gaussiannoise~",
+        "evi.zeroxcount~",
+        "evi.zeroxoscnoise~",
+        "evi.randy~"
+    ]
 }

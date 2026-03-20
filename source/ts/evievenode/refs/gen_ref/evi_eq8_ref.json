@@ -3,7 +3,7 @@
         "name": "evi_eq8",
         "child": "evi.eq8~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
+        "digest": "8-band TPT EQ with parameter rate control of all attributes",
         "description": "TEXT_HERE"
     },
     "constructor": {
@@ -28,7 +28,7 @@
             "name": "8",
             "type": "float",
             "optional": 1,
-            "digest": "bands EQ Output"
+            "digest": ""
         }
     ],
     "attributes": [

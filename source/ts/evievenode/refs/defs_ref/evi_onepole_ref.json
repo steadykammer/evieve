@@ -5,7 +5,7 @@
         "category": "evieve",
         "tilde": "~",
         "digest": "Linear trapezoidal integrated onepole filter with simultaneous outputs for lowpass, allpass and highpass",
-        "description": "TEXT_HERE",
+        "description": "Three matched onepole filters in Lowpass, Allpass and Highpass types at thee independent outputs. An efficient workhorse onepole for all generic patching needs.",
         "discussion": ""
     },
     "metadata": {
@@ -13,21 +13,20 @@
         "tags": []
     },
     "includes": [
-        "evi_rcfilters.genexpr",
-        "evi_smooth.genexpr"
+        "evi_rcfilters.genexpr"
     ],
     "inlets": [
         {
             "id": 1,
             "type": "signal",
             "digest": "Input",
-            "description": ""
+            "description": "Audio input to be filtered."
         },
         {
             "id": 2,
             "type": "signal/float",
             "digest": "Hz (default) or g depending on 'prewarp' attribute",
-            "description": ""
+            "description": "We have a choice of frequency input in Hz (default) or normalised 0..1, depending on the @prewarp attribute. Optional smoothing (@smooth attribute) is default off."
         }
     ],
     "outlets": [
@@ -35,19 +34,19 @@
             "id": 1,
             "type": "signal",
             "digest": "6dB Lowpass",
-            "description": ""
+            "description": "Lowpass. All outputs are from the same filter."
         },
         {
             "id": 2,
             "type": "signal",
             "digest": "6dB Allpass",
-            "description": ""
+            "description": "Allpass. All outputs are from the same filter."
         },
         {
             "id": 3,
             "type": "signal",
             "digest": "6dB Highpass",
-            "description": ""
+            "description": "Highpass. All outputs are from the same filter."
         }
     ],
     "messages": [],
@@ -56,8 +55,8 @@
             "name": "prewarp",
             "get": 1,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Flag 0/1",
+            "description": "If on (defualt), the second inlet expects frequency in Hz and g coefficient warping is performed internally. If off, the second inlet expects a normalised g coefficient 0..1 and this is passed on directly to the filter internally.",
             "default": {
                 "min": "0",
                 "max": "1",
@@ -68,8 +67,8 @@
             "name": "smooth",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Time in ms",
+            "description": "Smoothing time of the internal g coefficient (via the second inlet). If 0, smoothing is CPU-off.",
             "default": {
                 "min": "0",
                 "max": "333",
@@ -81,5 +80,13 @@
         "caption": "",
         "image": ""
     },
-    "seealso": []
+    "seealso": [
+        "evi.rcfilter~",
+        "evi.damp~",
+        "evi.damp.macro~",
+        "evi.tone.macro~",
+        "evi.onepole.shelving~",
+        "evi.crossover.allpass~",
+        "evi.filter~"
+    ]
 }

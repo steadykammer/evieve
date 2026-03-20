@@ -8,6 +8,7 @@ let objectType = "";
 let shortDesc = "";
 let longDesc = "";
 const evieveDlookup = "evieve-obj-dlookup.json";
+const defineSplit = "it also accepts all messages and attributes that a gen~ object does. \n\n";
 const dDict = new Dict();
 function loadbang() {
   dDict.import_json(evieveDlookup);
@@ -22,6 +23,11 @@ function get(objectNameInput) {
     shortDesc = refsDict.get("digest");
     longDesc = refsDict.get("description");
     refsDict.freepeer();
+  }
+  if (objectType === "define") {
+    if (longDesc.includes(defineSplit)) {
+      longDesc = longDesc.split(defineSplit)[1];
+    }
   }
   objectName = objectNameInput;
   outputTheText();

@@ -3,7 +3,7 @@
         "name": "evi_overdrive_sqrt",
         "child": "evi.overdrive.sqrt~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
+        "digest": "High quality anti-aliased passive tanh-like input/output saturation",
         "description": "TEXT_HERE"
     },
     "constructor": {
@@ -18,7 +18,8 @@
             "name": "input",
             "type": "float",
             "optional": 1,
-            "digest": "Signal"
+            "digestauto": "Signal",
+            "digest": ""
         }
     ],
     "outlets": [
@@ -27,7 +28,7 @@
             "name": "buzzy-tanh(x)",
             "type": "float",
             "optional": 1,
-            "digest": "Out - anti-aliased for your audio not for Maths"
+            "digest": ""
         }
     ],
     "attributes": [

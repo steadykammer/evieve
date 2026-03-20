@@ -3,7 +3,7 @@
         "name": "evi_phaseshift",
         "child": "evi.phaseshift~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
+        "digest": "Reimplementation of MSP <o>phaseshift~</o> object as a TPT filter",
         "description": "TEXT_HERE"
     },
     "constructor": {
@@ -26,14 +26,16 @@
             "name": "frequency",
             "type": "float",
             "optional": 1,
-            "digest": "in Hz @min 1 @max samplerate*0.5"
+            "digestauto": "in Hz @min 1 @max samplerate*0.5",
+            "digest": ""
         },
         {
             "id": 3,
             "name": "q",
             "type": "float",
             "optional": 1,
-            "digest": "@min 0.1 @max 20 @default 1"
+            "digestauto": "@min 0.1 @max 20 @default 1",
+            "digest": ""
         }
     ],
     "outlets": [

@@ -5,26 +5,28 @@
         "category": "evieve",
         "tilde": "~",
         "digest": "Emulation of a classic baxandall EQ",
-        "description": "An EQ tone control shape popularised in the 1950s, often used in HiFi equipment and guitar amplifiers.",
-        "discussion": ""
+        "description": "An EQ tone control shape popularised in the 1950s, often used in HiFi equipment and guitar amplifiers. Baxandall is a special EQ as the frequency response is fixed, and depends on the simple high level gain control inputs ('treble' and 'bass').",
+        "discussion": "This is based on the DirectForm II AirWindows plugin, MIT. For similar tone shaping in evieve (all of which are trapezoidal integrated) @see: <o>evi.damp~</o>, <o>evi.damp.macro~</o>, <o>evi.onepole.shelving~</o>, <o>evi.tone.macro~</o>."
     },
     "metadata": {
         "author": "Pete Dowling",
         "tags": []
     },
-    "includes": [],
+    "includes": [
+        "evi_smooth.genexpr"
+    ],
     "inlets": [
         {
             "id": 1,
             "type": "signal",
             "digest": "Mono / Left",
-            "description": ""
+            "description": "Mono or left input depending on @stereo attribute."
         },
         {
             "id": 2,
             "type": "signal",
             "digest": "None / Right",
-            "description": ""
+            "description": "Nothing or right input depending on @stereo attribute."
         }
     ],
     "outlets": [
@@ -32,13 +34,13 @@
             "id": 1,
             "type": "signal",
             "digest": "Out / Left",
-            "description": ""
+            "description": "Mono or left output depending on @stereo attribute."
         },
         {
             "id": 2,
             "type": "signal",
             "digest": "Nothing / Right",
-            "description": ""
+            "description": "Nothing or right output depending on @stereo attribute."
         }
     ],
     "messages": [],
@@ -47,8 +49,8 @@
             "name": "bass",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "In dB, -24..24",
+            "description": "The amount of bass in the tone. As a baxandall EQ, this also shapes the frequency response, creating a mid frequency notch at high levels. Ultimately 'bass' and 'treble' behave like shelving filters, at opposite extremes creating a tilt-like filter.",
             "default": {
                 "min": "-24",
                 "max": "24",
@@ -56,11 +58,23 @@
             }
         },
         {
+            "name": "smooth",
+            "get": 1,
+            "type": "int",
+            "digest": "Flag 0/1",
+            "description": "If on, the internal coefficients are lightly smoothed at an optimal part in the DSP chain. If not updating 'treble' and 'bass' dynamically 'smooth' can safely be turned off.",
+            "default": {
+                "min": "0",
+                "max": "1",
+                "value": "0"
+            }
+        },
+        {
             "name": "stereo",
             "get": 1,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Flag 0/1",
+            "description": "If @stereo is on, the EQ is stereo input stereo output. If @stereo is off, the EQ is mono in mono out (left in and out).",
             "default": {
                 "min": "0",
                 "max": "1",
@@ -71,8 +85,8 @@
             "name": "treble",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "In dB, -24..24",
+            "description": "The amount of treble in the tone. As a baxandall EQ, this also shapes the frequency response, creating a high mid frequency notch at high levels. Ultimately 'bass' and 'treble' behave like shelving filters, at opposite extremes creating a tilt-like filter.",
             "default": {
                 "min": "-24",
                 "max": "24",
@@ -84,5 +98,11 @@
         "caption": "",
         "image": ""
     },
-    "seealso": []
+    "seealso": [
+        "evi.damp~",
+        "evi.damp.macro~",
+        "evi.onepole.shelving~",
+        "evi.tone.macro~",
+        "evi.filter.tilt~"
+    ]
 }

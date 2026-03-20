@@ -79,7 +79,7 @@
 		</attribute>
 		<attribute name="offset" get="0" set="1" type="float" size="1">
 			<digest>
-				
+				Pitch
 			</digest>
 			<description>
 				Hz and pitch convert assuming middle C &#x3D; 60. Via @offset you can change this to anything you need.

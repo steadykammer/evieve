@@ -3,7 +3,7 @@
         "name": "evi_classic_osc",
         "child": "evi.classic.osc~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
+        "digest": "A selection of 'classic' oscillator shapes",
         "description": "TEXT_HERE"
     },
     "constructor": {
@@ -20,21 +20,24 @@
             "name": "frequency",
             "type": "float",
             "optional": 1,
-            "digest": "in Hz"
+            "digestauto": "in Hz",
+            "digest": ""
         },
         {
             "id": 2,
             "name": "pulse",
             "type": "float",
             "optional": 1,
-            "digest": "Width 0..1 if type attr == 1 @default 0.5 @min 0 @max 1"
+            "digestauto": "Width 0..1 if type attr == 1 @default 0.5 @min 0 @max 1",
+            "digest": ""
         },
         {
             "id": 3,
             "name": "sync",
             "type": "float",
             "optional": 1,
-            "digest": "Phasor @default 0 @min 0 @max 1"
+            "digestauto": "Phasor @default 0 @min 0 @max 1",
+            "digest": ""
         }
     ],
     "outlets": [

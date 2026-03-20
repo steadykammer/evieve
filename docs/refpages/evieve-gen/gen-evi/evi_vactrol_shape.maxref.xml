@@ -26,12 +26,12 @@
         </geninlet>
         <geninlet name='rise' type='float' optional='1'>
             <digest>
-                % 0..1 @min 0 @max 1 @default 0.070711
+                % 0..1 @min 0 @max 1 @default 0.070711. 
             </digest>
         </geninlet>
         <geninlet name='fall' type='float' optional='1'>
             <digest>
-                % 0..1 @min 0 @max 1 @default 0.707107
+                % 0..1 @min 0 @max 1 @default 0.707107. 
             </digest>
         </geninlet>
     </geninletlist>

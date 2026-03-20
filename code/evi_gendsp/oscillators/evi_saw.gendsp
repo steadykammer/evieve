@@ -56,8 +56,8 @@
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 49.0, 320.0, 223.0, 22.0 ],
-                    "text": "out 1 (signal) Anti Aliased Saw Oscillator"
+                    "patching_rect": [ 49.0, 320.0, 202.0, 22.0 ],
+                    "text": "out 1 (signal) I can't believe it's not..."
                 }
             }
         ],

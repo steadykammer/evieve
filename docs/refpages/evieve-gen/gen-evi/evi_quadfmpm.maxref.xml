@@ -29,32 +29,32 @@
         </geninlet>
         <geninlet name='index' type='float' optional='1'>
             <digest>
-                @default 1.
+                @default 1.. 
             </digest>
         </geninlet>
         <geninlet name='fm/pm' type='float' optional='1'>
             <digest>
-                xfade Depth
+                xfade Depth. 
             </digest>
         </geninlet>
         <geninlet name='fm/pm' type='float' optional='1'>
             <digest>
-                xfade Blend
+                xfade Blend. 
             </digest>
         </geninlet>
         <geninlet name='mod' type='float' optional='1'>
             <digest>
-                Feedback
+                Feedback. 
             </digest>
         </geninlet>
         <geninlet name='car' type='float' optional='1'>
             <digest>
-                Feedback
+                Feedback. 
             </digest>
         </geninlet>
         <geninlet name='mod' type='float' optional='1'>
             <digest>
-                Mult @default 1.
+                Mult @default 1.. 
             </digest>
         </geninlet>
     </geninletlist>

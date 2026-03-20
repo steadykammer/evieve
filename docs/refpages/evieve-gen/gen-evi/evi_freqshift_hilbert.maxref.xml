@@ -24,22 +24,22 @@
     <geninletlist>
         <geninlet name='audio' type='float' optional='1'>
             <digest>
-                Input
+                Input. 
             </digest>
         </geninlet>
         <geninlet name='frequency' type='float/int' optional='1'>
             <digest>
-                Shift in Hz +/-
+                Shift in Hz +/-. 
             </digest>
         </geninlet>
         <geninlet name='frequency' type='float' optional='1'>
             <digest>
-                Shift FM in Hz ±
+                Shift FM in Hz ±. 
             </digest>
         </geninlet>
         <geninlet name='signal' type='float' optional='1'>
             <digest>
-                Rate Phase Reset (Naive)
+                Rate Phase Reset (Naive). 
             </digest>
         </geninlet>
     </geninletlist>

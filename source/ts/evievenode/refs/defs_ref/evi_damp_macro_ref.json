@@ -5,7 +5,7 @@
         "category": "evieve",
         "tilde": "~",
         "digest": "A 'one knob' macroisation for simple low/high onepole damping filters",
-        "description": "TEXT_HERE",
+        "description": "A 'one knob' ('damp' parameter) macroisation for quick onepole damping filters useful for light damping or inside a feedback loop. For a similar filter with more controls @see: <o>evi.damp~</o>.",
         "discussion": ""
     },
     "metadata": {
@@ -14,14 +14,14 @@
     },
     "includes": [
         "evi_rcfilters.genexpr",
-        "evi_smooth.genexpr"
+        "evi_smooth_bank.genexpr"
     ],
     "inlets": [
         {
             "id": 1,
             "type": "signal",
             "digest": "Audio Input",
-            "description": ""
+            "description": "Audio input to be damped."
         }
     ],
     "outlets": [
@@ -29,7 +29,7 @@
             "id": 1,
             "type": "signal",
             "digest": "Damped Audio Output",
-            "description": ""
+            "description": "Damped filter output."
         }
     ],
     "messages": [],
@@ -38,8 +38,8 @@
             "name": "damp",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Normalised 0..1",
+            "description": "The one attribute that does everything. At 0 the input signal is very slightly damped. At 1 the input signal is 100% damped. 0..1 the cutoff frequencies move from extremes to the mid range and the shelves attenuate eventually to full low/highpass filters.",
             "default": {
                 "min": "0",
                 "max": "1",
@@ -50,8 +50,8 @@
             "name": "smooth",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Time in ms",
+            "description": "Smooth the internal coefficients controlled by the 'damp' attribute, set in ms. If 0 smoothing is CPU-off.",
             "default": {
                 "min": "0",
                 "max": "999",
@@ -63,5 +63,12 @@
         "caption": "",
         "image": ""
     },
-    "seealso": []
+    "seealso": [
+        "evi.damp~",
+        "evi.onepole.shelving~",
+        "evi.tone.macro~",
+        "evi.filter.shelving~",
+        "evi.filter.tilt~",
+        "evi.baxandall~"
+    ]
 }

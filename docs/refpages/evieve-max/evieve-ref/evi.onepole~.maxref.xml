@@ -9,7 +9,7 @@
 		<b>evi.onepole~</b> is a 'max define' for the <o>evi_onepole</o>.gendsp gen~ abstraction.
 		Because evi.onepole~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		<br />
-		TEXT_HERE <br />
+		Three matched onepole filters in Lowpass, Allpass and Highpass types at thee independent outputs. An efficient workhorse onepole for all generic patching needs. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>
@@ -24,7 +24,7 @@
 				Inlet #1: Input
 			</digest>
 			<description>
-				
+				Audio input to be filtered.
 			</description>
 		</inlet>
 		<inlet id="2" type="signal/float">
@@ -32,7 +32,7 @@
 				Inlet #2: Hz (default) or g depending on &#x27;prewarp&#x27; attribute
 			</digest>
 			<description>
-				
+				We have a choice of frequency input in Hz (default) or normalised 0..1, depending on the @prewarp attribute. Optional smoothing (@smooth attribute) is default off.
 			</description>
 		</inlet>
 	</inletlist>
@@ -43,7 +43,7 @@
 				Outlet #1: 6dB Lowpass
 			</digest>
 			<description>
-				
+				Lowpass. All outputs are from the same filter.
 			</description>
 		</outlet>
 		<outlet id="2" type="signal">
@@ -51,7 +51,7 @@
 				Outlet #2: 6dB Allpass
 			</digest>
 			<description>
-				
+				Allpass. All outputs are from the same filter.
 			</description>
 		</outlet>
 		<outlet id="3" type="signal">
@@ -59,7 +59,7 @@
 				Outlet #3: 6dB Highpass
 			</digest>
 			<description>
-				
+				Highpass. All outputs are from the same filter.
 			</description>
 		</outlet>
 	</outletlist>
@@ -70,10 +70,10 @@
 	<attributelist>
 		<attribute name="prewarp" get="1" set="1" type="int" min="0" max="1">
 			<digest>
-				
+				Flag 0/1
 			</digest>
 			<description>
-				
+				If on (defualt), the second inlet expects frequency in Hz and g coefficient warping is performed internally. If off, the second inlet expects a normalised g coefficient 0..1 and this is passed on directly to the filter internally.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="1" />
@@ -81,10 +81,10 @@
 		</attribute>
 		<attribute name="smooth" get="1" set="1" type="float" min="0" max="333">
 			<digest>
-				
+				Time in ms
 			</digest>
 			<description>
-				
+				Smoothing time of the internal g coefficient (via the second inlet). If 0, smoothing is CPU-off.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="0." />
@@ -97,6 +97,13 @@
 	</examplelist>
 	<!--SEEALSO-->
 	<seealsolist>
+		<seealso name="evi.rcfilter~"> </seealso>
+		<seealso name="evi.damp~"> </seealso>
+		<seealso name="evi.damp.macro~"> </seealso>
+		<seealso name="evi.tone.macro~"> </seealso>
+		<seealso name="evi.onepole.shelving~"> </seealso>
+		<seealso name="evi.crossover.allpass~"> </seealso>
+		<seealso name="evi.filter~"> </seealso>
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>

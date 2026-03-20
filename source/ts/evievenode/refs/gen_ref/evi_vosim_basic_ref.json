@@ -3,7 +3,7 @@
         "name": "evi_vosim_basic",
         "child": "evi.vosim.basic~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
+        "digest": "A basic implementation of a 'vosim' formant oscillator",
         "description": "TEXT_HERE"
     },
     "constructor": {
@@ -16,35 +16,40 @@
             "name": "t:",
             "type": "float",
             "optional": 1,
-            "digest": "Pulse Width in ms"
+            "digestauto": "Pulse Width in ms",
+            "digest": ""
         },
         {
             "id": 2,
             "name": "m:",
             "type": "float",
             "optional": 1,
-            "digest": "Delay in ms"
+            "digestauto": "Delay in ms",
+            "digest": ""
         },
         {
             "id": 3,
             "name": "n:",
             "type": "float",
             "optional": 1,
-            "digest": "# of Pulses"
+            "digestauto": "# of Pulses",
+            "digest": ""
         },
         {
             "id": 4,
             "name": "a:",
             "type": "float",
             "optional": 1,
-            "digest": "Amplitude"
+            "digestauto": "Amplitude",
+            "digest": ""
         },
         {
             "id": 5,
             "name": "∂a:",
             "type": "float",
             "optional": 1,
-            "digest": "inc/dec (decay)"
+            "digestauto": "inc/dec (decay)",
+            "digest": ""
         }
     ],
     "outlets": [
@@ -53,14 +58,14 @@
             "name": "vosim-like",
             "type": "float",
             "optional": 1,
-            "digest": "Oscillator"
+            "digest": ""
         },
         {
             "id": 2,
             "name": "computed",
             "type": "float",
             "optional": 1,
-            "digest": "Frequency in Hz"
+            "digest": ""
         }
     ],
     "attributes": [],

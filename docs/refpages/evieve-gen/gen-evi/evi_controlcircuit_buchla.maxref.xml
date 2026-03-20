@@ -24,22 +24,22 @@
     <geninletlist>
         <geninlet name='v_c' type='float' optional='1'>
             <digest>
-                (from Vactrol)
+                (from Vactrol). 
             </digest>
         </geninlet>
         <geninlet name='offset' type='float' optional='1'>
             <digest>
-                @min 0 @max 1 @default 0.1
+                @min 0 @max 1 @default 0.1. 
             </digest>
         </geninlet>
         <geninlet name='scaler' type='float' optional='1'>
             <digest>
-                @min 0 @max 1 @default 0.48
+                @min 0 @max 1 @default 0.48. 
             </digest>
         </geninlet>
         <geninlet name='sweep' type='float' optional='1'>
             <digest>
-                @min 0 @max 1 @default 0.408141
+                @min 0 @max 1 @default 0.408141. 
             </digest>
         </geninlet>
     </geninletlist>

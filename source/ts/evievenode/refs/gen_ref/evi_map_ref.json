@@ -16,35 +16,40 @@
             "name": "value",
             "type": "float",
             "optional": 1,
-            "digest": "to be Scaled"
+            "digestauto": "to be Scaled",
+            "digest": ""
         },
         {
             "id": 2,
             "name": "low",
             "type": "float",
             "optional": 1,
-            "digest": "Input Value"
+            "digestauto": "Input Value",
+            "digest": ""
         },
         {
             "id": 3,
             "name": "high",
             "type": "float",
             "optional": 1,
-            "digest": "Input Value @default 1."
+            "digestauto": "Input Value @default 1.",
+            "digest": ""
         },
         {
             "id": 4,
             "name": "low",
             "type": "float",
             "optional": 1,
-            "digest": "Output Value"
+            "digestauto": "Output Value",
+            "digest": ""
         },
         {
             "id": 5,
             "name": "high",
             "type": "float",
             "optional": 1,
-            "digest": "Output Value @default 1."
+            "digestauto": "Output Value @default 1.",
+            "digest": ""
         }
     ],
     "outlets": [
@@ -53,7 +58,7 @@
             "name": "scaled",
             "type": "float",
             "optional": 1,
-            "digest": "Output Value"
+            "digest": ""
         }
     ],
     "attributes": [],

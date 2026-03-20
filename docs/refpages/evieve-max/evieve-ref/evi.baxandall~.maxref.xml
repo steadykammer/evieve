@@ -9,7 +9,7 @@
 		<b>evi.baxandall~</b> is a 'max define' for the <o>evi_baxandall</o>.gendsp gen~ abstraction.
 		Because evi.baxandall~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		<br />
-		An EQ tone control shape popularised in the 1950s, often used in HiFi equipment and guitar amplifiers. <br />
+		An EQ tone control shape popularised in the 1950s, often used in HiFi equipment and guitar amplifiers. Baxandall is a special EQ as the frequency response is fixed, and depends on the simple high level gain control inputs ('treble' and 'bass'). <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>
@@ -24,7 +24,7 @@
 				Inlet #1: Mono / Left
 			</digest>
 			<description>
-				
+				Mono or left input depending on @stereo attribute.
 			</description>
 		</inlet>
 		<inlet id="2" type="signal">
@@ -32,7 +32,7 @@
 				Inlet #2: None / Right
 			</digest>
 			<description>
-				
+				Nothing or right input depending on @stereo attribute.
 			</description>
 		</inlet>
 	</inletlist>
@@ -43,7 +43,7 @@
 				Outlet #1: Out / Left
 			</digest>
 			<description>
-				
+				Mono or left output depending on @stereo attribute.
 			</description>
 		</outlet>
 		<outlet id="2" type="signal">
@@ -51,7 +51,7 @@
 				Outlet #2: Nothing / Right
 			</digest>
 			<description>
-				
+				Nothing or right output depending on @stereo attribute.
 			</description>
 		</outlet>
 	</outletlist>
@@ -62,21 +62,32 @@
 	<attributelist>
 		<attribute name="bass" get="1" set="1" type="float" min="-24" max="24">
 			<digest>
-				
+				In dB, -24..24
 			</digest>
 			<description>
-				
+				The amount of bass in the tone. As a baxandall EQ, this also shapes the frequency response, creating a mid frequency notch at high levels. Ultimately &#x27;bass&#x27; and &#x27;treble&#x27; behave like shelving filters, at opposite extremes creating a tilt-like filter.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="0." />
 			</attributelist>
 		</attribute>
-		<attribute name="stereo" get="1" set="1" type="int" min="0" max="1">
+		<attribute name="smooth" get="1" set="1" type="int" min="0" max="1">
 			<digest>
-				
+				Flag 0/1
 			</digest>
 			<description>
-				
+				If on, the internal coefficients are lightly smoothed at an optimal part in the DSP chain. If not updating &#x27;treble&#x27; and &#x27;bass&#x27; dynamically &#x27;smooth&#x27; can safely be turned off.
+			</description>
+			<attributelist>
+				<attribute name="default" get="0" set="0" size="1" value="0" />
+			</attributelist>
+		</attribute>
+		<attribute name="stereo" get="1" set="1" type="int" min="0" max="1">
+			<digest>
+				Flag 0/1
+			</digest>
+			<description>
+				If @stereo is on, the EQ is stereo input stereo output. If @stereo is off, the EQ is mono in mono out (left in and out).
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="0" />
@@ -84,10 +95,10 @@
 		</attribute>
 		<attribute name="treble" get="1" set="1" type="float" min="-24" max="24">
 			<digest>
-				
+				In dB, -24..24
 			</digest>
 			<description>
-				
+				The amount of treble in the tone. As a baxandall EQ, this also shapes the frequency response, creating a high mid frequency notch at high levels. Ultimately &#x27;bass&#x27; and &#x27;treble&#x27; behave like shelving filters, at opposite extremes creating a tilt-like filter.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="0." />
@@ -100,9 +111,14 @@
 	</examplelist>
 	<!--SEEALSO-->
 	<seealsolist>
+		<seealso name="evi.damp~"> </seealso>
+		<seealso name="evi.damp.macro~"> </seealso>
+		<seealso name="evi.onepole.shelving~"> </seealso>
+		<seealso name="evi.tone.macro~"> </seealso>
+		<seealso name="evi.filter.tilt~"> </seealso>
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>
-         <br />
+        This is based on the DirectForm II AirWindows plugin, MIT. For similar tone shaping in evieve (all of which are trapezoidal integrated) @see: <o>evi.damp~</o>, <o>evi.damp.macro~</o>, <o>evi.onepole.shelving~</o>, <o>evi.tone.macro~</o>. <br />
 	</discussion>
 </c74object>

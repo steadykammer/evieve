@@ -24,17 +24,17 @@
     <geninletlist>
         <geninlet name='cutoff' type='float' optional='1'>
             <digest>
-                in Pitch or Hz
+                in Pitch or Hz. 
             </digest>
         </geninlet>
         <geninlet name='pitch' type='float' optional='1'>
             <digest>
-                Modulation @default 0
+                Modulation @default 0. 
             </digest>
         </geninlet>
         <geninlet name='frequency' type='float' optional='1'>
             <digest>
-                Hz Modulation @default 0
+                Hz Modulation @default 0. 
             </digest>
         </geninlet>
     </geninletlist>

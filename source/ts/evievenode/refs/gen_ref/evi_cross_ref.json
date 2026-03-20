@@ -3,8 +3,8 @@
         "name": "evi_cross",
         "child": "evi.cross~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Reimplementation of MSP <o>cross~</o> filter as Likwitz-Riley",
+        "description": "<o>evi.cross~</o> differs from MSP <o>cross~</o> in the following ways: <o>evi.cross~</o> is a steeper 4-pole crossover slope (<o>cross~</o> is a 3-pole slope), because 3rd order is not possible with flat summing Linkwitz-Riley. <o>evi.cross~</o> is a proper Linkwitz-Riley crossover which sums perfectly flat (whereas <o>cross~</o> is pure Butterworths and sums with a +3dB bump). <o>evi.cross~</o> remains stable under modulation. For a shallower 2-pole Linkwitz-Riley crossover @see <o>evi.crossover~</o>."
     },
     "constructor": {
         "inlets": "input, crossover"
@@ -18,14 +18,15 @@
             "name": "input",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Audio input to split."
         },
         {
             "id": 2,
             "name": "crossover",
             "type": "float",
             "optional": 1,
-            "digest": "Frequency in Hz @min 10 @max 20000"
+            "digestauto": "Frequency in Hz @min 10 @max 20000",
+            "digest": "The frequency at which to split the incoming audio into it's lowpass and highpass outputs."
         }
     ],
     "outlets": [
@@ -34,21 +35,33 @@
             "name": "lowpass",
             "type": "float",
             "optional": 1,
-            "digest": "Output"
+            "digest": "Lowpass filtered output."
         },
         {
             "id": 2,
             "name": "highpass",
             "type": "float",
             "optional": 1,
-            "digest": "Output"
+            "digest": "Highpass filtered output."
         }
     ],
     "attributes": [],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_crossover",
+            "display": "evi_crossover"
+        },
+        {
+            "name": "evi_crossover_3band",
+            "display": "evi_crossover_3band"
+        },
+        {
+            "name": "evi_crossover_sum",
+            "display": "evi_crossover_sum"
+        },
+        {
+            "name": "evi_crossover_allpass",
+            "display": "evi_crossover_allpass"
         }
     ]
 }

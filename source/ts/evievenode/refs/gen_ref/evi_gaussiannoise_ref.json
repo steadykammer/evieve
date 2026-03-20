@@ -3,8 +3,8 @@
         "name": "evi_gaussiannoise",
         "child": "evi.gaussiannoise~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Gaussian distributed noise approximation",
+        "description": "An approximate 'box-muller' gaussian noise distribution. It looks roughly the same as white noise in a spectral view, very slightly different in a <o>scope~</o>. In a histogram one can see the distribution. The point is the gaussian random number distribution."
     },
     "constructor": {
         "inlets": "dummy"
@@ -16,7 +16,7 @@
             "name": "dummy",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Dummy inlet. Nothing goes here."
         }
     ],
     "outlets": [
@@ -25,21 +25,21 @@
             "name": "(box",
             "type": "float",
             "optional": 1,
-            "digest": "Muller) Gaussian Noise Distribution"
+            "digest": "The gaussian noise output."
         },
         {
             "id": 2,
             "name": "sync",
             "type": "float",
             "optional": 1,
-            "digest": "White Noise"
+            "digest": "Synchronised to the gaussian process."
         },
         {
             "id": 3,
             "name": "cos",
             "type": "float",
             "optional": 1,
-            "digest": "Noise"
+            "digest": "Synchronised to the gaussian process."
         }
     ],
     "attributes": [
@@ -56,8 +56,24 @@
     ],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_audiodust",
+            "display": "evi_audiodust"
+        },
+        {
+            "name": "evi_velvetnoise",
+            "display": "evi_velvetnoise"
+        },
+        {
+            "name": "evi_zeroxcount",
+            "display": "evi_zeroxcount"
+        },
+        {
+            "name": "evi_zeroxoscnoise",
+            "display": "evi_zeroxoscnoise"
+        },
+        {
+            "name": "evi_randy",
+            "display": "evi_randy"
         }
     ]
 }

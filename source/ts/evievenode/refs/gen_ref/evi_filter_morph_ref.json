@@ -3,7 +3,7 @@
         "name": "evi_filter_morph",
         "child": "evi.filter.morph~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
+        "digest": "TPT SVF which can morph between LP..BP..HP..NOTCH..LP",
         "description": "TEXT_HERE"
     },
     "constructor": {
@@ -26,28 +26,32 @@
             "name": "frequency",
             "type": "float",
             "optional": 1,
-            "digest": "in Hz @min 1 @max samplerate*0.5 @default 1000"
+            "digestauto": "in Hz @min 1 @max samplerate*0.5 @default 1000",
+            "digest": ""
         },
         {
             "id": 3,
             "name": "gain",
             "type": "float",
             "optional": 1,
-            "digest": "in dB @min -30 @max 30 @default 0"
+            "digestauto": "in dB @min -30 @max 30 @default 0",
+            "digest": ""
         },
         {
             "id": 4,
             "name": "resonance",
             "type": "float",
             "optional": 1,
-            "digest": "0..1 @min 0 @max 1 @default 0.5"
+            "digestauto": "0..1 @min 0 @max 1 @default 0.5",
+            "digest": ""
         },
         {
             "id": 5,
             "name": "morph",
             "type": "float",
             "optional": 1,
-            "digest": "0..1 @min 0 @max 1"
+            "digestauto": "0..1 @min 0 @max 1",
+            "digest": ""
         }
     ],
     "outlets": [
@@ -56,7 +60,7 @@
             "name": "morphing",
             "type": "float",
             "optional": 1,
-            "digest": "Filter Output"
+            "digest": ""
         }
     ],
     "attributes": [

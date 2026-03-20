@@ -21,12 +21,12 @@
     <geninletlist>
         <geninlet name='value' type='float' optional='1'>
             <digest>
-                to Follow
+                to Follow. 
             </digest>
         </geninlet>
         <geninlet name='decay' type='float' optional='1'>
             <digest>
-                Time in milliseconds @min 0
+                Time in milliseconds @min 0. 
             </digest>
         </geninlet>
     </geninletlist>

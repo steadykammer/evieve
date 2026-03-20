@@ -21,17 +21,17 @@
     <geninletlist>
         <geninlet name='trigger' type='float' optional='1'>
             <digest>
-                @default 0.
+                @default 0.. 
             </digest>
         </geninlet>
         <geninlet name='rise' type='float' optional='1'>
             <digest>
-                @min 0 @default 20.
+                @min 0 @default 20.. 
             </digest>
         </geninlet>
         <geninlet name='fall' type='float' optional='1'>
             <digest>
-                @min 0 @default 3000.
+                @min 0 @default 3000.. 
             </digest>
         </geninlet>
     </geninletlist>

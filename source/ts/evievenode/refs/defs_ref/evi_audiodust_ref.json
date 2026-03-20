@@ -5,7 +5,7 @@
         "category": "evieve",
         "tilde": "~",
         "digest": "Spikey sparse noise implementation",
-        "description": "TEXT_HERE",
+        "description": "Audio dust is a sparse random noise source driven at a given frequency. It produces 'spikes' at random amplitude and time offsets. It can be very useful as both a control signal and an audio signal. @see: 'evi_sources.genexpr' for more where this came from.",
         "discussion": ""
     },
     "metadata": {
@@ -18,7 +18,7 @@
             "id": 1,
             "type": "signal",
             "digest": "Frequency in Hz @default 10 @min -SAMPLERATE*0.5 @max SAMPLERATE*0.5",
-            "description": ""
+            "description": "The frequency at which to internally sample the noise. Typically used at low frequencies."
         }
     ],
     "outlets": [
@@ -26,19 +26,19 @@
             "id": 1,
             "type": "signal",
             "digest": "So Called \"Audio Dust\"",
-            "description": ""
+            "description": "Beautiful spikes."
         },
         {
             "id": 2,
             "type": "signal",
             "digest": "\"White Noise\"",
-            "description": ""
+            "description": "Synchronised to the audio dust process."
         },
         {
             "id": 3,
             "type": "signal",
             "digest": "Click (Sample Accurate Unipolar Sync Source)",
-            "description": ""
+            "description": "Synchronised to the audio dust process for synchronising other processes downstream."
         }
     ],
     "messages": [],
@@ -47,5 +47,11 @@
         "caption": "",
         "image": ""
     },
-    "seealso": []
+    "seealso": [
+        "evi.gaussiannoise~",
+        "evi.velvetnoise~",
+        "evi.zeroxcount~",
+        "evi.zeroxoscnoise~",
+        "evi.randy~"
+    ]
 }

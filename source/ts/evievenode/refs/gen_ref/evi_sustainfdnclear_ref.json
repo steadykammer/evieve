@@ -18,28 +18,32 @@
             "name": "audio",
             "type": "float",
             "optional": 1,
-            "digest": "In Left"
+            "digestauto": "In Left",
+            "digest": ""
         },
         {
             "id": 2,
             "name": "audio",
             "type": "float",
             "optional": 1,
-            "digest": "In Right"
+            "digestauto": "In Right",
+            "digest": ""
         },
         {
             "id": 3,
             "name": "feeback",
             "type": "float",
             "optional": 1,
-            "digest": "(if 'fbinlet' attribute == 1) @min 0 @max 1"
+            "digestauto": "(if 'fbinlet' attribute == 1) @min 0 @max 1",
+            "digest": ""
         },
         {
             "id": 4,
             "name": "clear",
             "type": "float",
             "optional": 1,
-            "digest": "Delays"
+            "digestauto": "Delays",
+            "digest": ""
         }
     ],
     "outlets": [
@@ -48,14 +52,14 @@
             "name": "fdn",
             "type": "float",
             "optional": 1,
-            "digest": "Left"
+            "digest": ""
         },
         {
             "id": 2,
             "name": "fdn",
             "type": "float",
             "optional": 1,
-            "digest": "Right"
+            "digest": ""
         },
         {
             "id": 3,

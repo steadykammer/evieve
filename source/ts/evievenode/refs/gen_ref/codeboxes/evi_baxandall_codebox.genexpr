@@ -1,14 +1,16 @@
 
-// cheap Df2-based classic "Baxandall" (treble/bass 'tone') EQ with no smoothing.
+// cheap Df2-based classic "Baxandall" (treble/bass 'tone') EQ with optional smoothing.
 // mono or stereo.
 
 // a bit like the airwindows Baxandall, MIT licensed.
 
+require("evi_smooth.genexpr");
+
 coeffs(freq, recres, divres)
 {
-	K		= tan(PI * freq) * recres;	// * 1 / resampling factor
+	K		= tanA2(PI * freq) * recres;	// * 1 / resampling factor
 	K2		= K * K;
-	Kw1		= K / divres;				// div resample
+	Kw1		= K / divres;				    // div resample
 	norm	= 1 / (1 + Kw1 + K2);
 	K2norm	= (K2 - 1) * norm;
 
@@ -36,25 +38,33 @@ filter(x0, a1, a2, b1, b2)
 
 // setup
 
-Param	stereo(0, min=0, max=1);    // 0/1
 Param	treble(0., min=-24, max=24);// dB
 Param	bass(0., min=-24, max=24);  // dB
+Param   smooth(0, min=0, max=1);    // 0/1
+Param	stereo(0, min=0, max=1);    // 0/1
 
 DBLIN	= 0.11512925464970228;
+INVSR   = 1 / samplerate;
+smsecs  = 0.015111;                 // seconds
 
+smoothOp        = int(smooth);
 stereoOp		= int(stereo);
-inputSample		= in1;
-inputSampleR	= in2;
 
 // controls
 
-trebleGain	= exp(DBLIN * treble);		// smooth here
-trebleFreq	= minimum((4800 * trebleGain) / samplerate, 0.45);
+trebleGain	= expA(DBLIN * treble);		// smooth here
+trebleFreq	= minimum((4800 * trebleGain) * INVSR, 0.45);
 
 gainBass	= bass;						// smooth here
-bassGain	= exp(DBLIN * gainBass);
-bassFreq	= exp(DBLIN * -gainBass);
-bassFreq	= minimum((9600 * bassFreq) / samplerate, 0.45);
+bassGain	= expA(DBLIN * gainBass);
+bassFreq	= expA(DBLIN * -gainBass);
+bassFreq	= minimum((9600 * bassFreq) * INVSR, 0.45);
+
+// smooth
+
+if (smoothOp) {
+    bassGain, trebleGain, bassFreq, trebleFreq = logsmoothBank4(bassGain, trebleGain, bassFreq, trebleFreq, smsecs);
+}
 
 // coefficients
 
@@ -62,6 +72,9 @@ ta1, ta2, tb1, tb2	= coeffs(trebleFreq, 0.5, 0.4);
 ba1, ba2, bb1, bb2	= coeffs(bassFreq, 0.5, 0.2);
 
 // filters
+
+inputSample		= in1;
+inputSampleR	= in2;
 
 trebleSample	= inputSample - filter(inputSample, ta1, ta2, tb1, tb2);
 bassSample		= filter(inputSample, ba1, ba2, bb1, bb2);

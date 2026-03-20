@@ -5,8 +5,8 @@
         "category": "evieve",
         "tilde": "~",
         "digest": "Gaussian distributed noise approximation",
-        "description": "TEXT_HERE",
-        "discussion": ""
+        "description": "An approximate 'Box-Muller' gaussian noise distribution. It looks roughly the same as white noise in a spectral view, very slightly different in a <o>scope~</o>. In a histogram one can see the distribution. The point is the gaussian random number distribution.",
+        "discussion": "Thanks to Andy Farnell."
     },
     "metadata": {
         "author": "Pete Dowling",
@@ -18,7 +18,7 @@
             "id": 1,
             "type": "signal",
             "digest": "Dummy",
-            "description": ""
+            "description": "Dummy inlet. Nothing goes here."
         }
     ],
     "outlets": [
@@ -26,19 +26,19 @@
             "id": 1,
             "type": "signal",
             "digest": "(Box Muller) Gaussian Noise Distribution",
-            "description": ""
+            "description": "The gaussian noise output."
         },
         {
             "id": 2,
             "type": "signal",
             "digest": "Sync White Noise",
-            "description": ""
+            "description": "Synchronised to the gaussian process."
         },
         {
             "id": 3,
             "type": "signal",
             "digest": "Cos Noise",
-            "description": ""
+            "description": "Synchronised to the gaussian process."
         }
     ],
     "messages": [],
@@ -47,7 +47,7 @@
             "name": "amplitude",
             "get": 1,
             "type": "float",
-            "digest": "",
+            "digest": "Not-really-amplitude (linear). This should be 0.6403882032022076 for normal use as this gives -1..1 output.",
             "description": "",
             "default": {
                 "min": "0",
@@ -60,5 +60,11 @@
         "caption": "",
         "image": ""
     },
-    "seealso": []
+    "seealso": [
+        "evi.audiodust~",
+        "evi.velvetnoise~",
+        "evi.zeroxcount~",
+        "evi.zeroxoscnoise~",
+        "evi.randy~"
+    ]
 }

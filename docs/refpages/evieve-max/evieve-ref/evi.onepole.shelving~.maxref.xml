@@ -9,7 +9,7 @@
 		<b>evi.onepole.shelving~</b> is a 'max define' for the <o>evi_onepole_shelving</o>.gendsp gen~ abstraction.
 		Because evi.onepole.shelving~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		<br />
-		TEXT_HERE <br />
+		Onepole low/high shelving filter using trapezoidal integration, simultaneous outputs, very smooth and very cheap. Frequency input in Hz, shelving input is linear -1..0..1, optional smoothing attributes are default off. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>
@@ -24,7 +24,7 @@
 				Inlet #1: Input
 			</digest>
 			<description>
-				
+				Audio input to be filtered.
 			</description>
 		</inlet>
 		<inlet id="2" type="signal/float">
@@ -32,7 +32,7 @@
 				Inlet #2: Frequency in Hz @min 1 @max samplerate*0.5
 			</digest>
 			<description>
-				
+				The center frequency around which the filters attenuate or boost the input signal.
 			</description>
 		</inlet>
 		<inlet id="3" type="signal/float">
@@ -40,7 +40,7 @@
 				Inlet #3: Shelf -1..1 @min -1 @max 1 @default 0
 			</digest>
 			<description>
-				
+				The amount of shelving. A special normalised control: 0 &#x3D; the filters are bypassed. -1..0 the filters are attenuating shelves. 0..1 the filters are boosting shelves. -1..1 equates to about ± -10..10 dB.
 			</description>
 		</inlet>
 	</inletlist>
@@ -48,18 +48,18 @@
 	<outletlist>
 		<outlet id="1" type="signal">
 			<digest>
-				Outlet #1: 6dB Lowpass/Highshelf attenuate/boost
+				Outlet #1: 6dB Highshelf attenuate/boost
 			</digest>
 			<description>
-				
+				Highshelf attenuate/boost output.
 			</description>
 		</outlet>
 		<outlet id="2" type="signal">
 			<digest>
-				Outlet #2: 6dB Highpass/Lowshelf attenuate/boost
+				Outlet #2: 6dB Lowshelf attenuate/boost
 			</digest>
 			<description>
-				
+				Lowshelf attenuate/boost output.
 			</description>
 		</outlet>
 	</outletlist>
@@ -70,10 +70,10 @@
 	<attributelist>
 		<attribute name="smoothfreq" get="1" set="1" type="float" min="0" max="333">
 			<digest>
-				
+				Time in ms
 			</digest>
 			<description>
-				
+				The time in ms with which to smooth the frequency inlet control. If 0, smoothing is CPU-off.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="0." />
@@ -81,10 +81,10 @@
 		</attribute>
 		<attribute name="smoothshelf" get="1" set="1" type="float" min="0" max="333">
 			<digest>
-				
+				Time in ms
 			</digest>
 			<description>
-				
+				The time in ms with which to smooth the shelving inlet control. If 0, smoothing is CPU-off.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="0." />
@@ -97,6 +97,13 @@
 	</examplelist>
 	<!--SEEALSO-->
 	<seealsolist>
+		<seealso name="evi.onepole~"> </seealso>
+		<seealso name="evi.damp~"> </seealso>
+		<seealso name="evi.damp.macro~"> </seealso>
+		<seealso name="evi.tone.macro~"> </seealso>
+		<seealso name="evi.filter.shelving~"> </seealso>
+		<seealso name="evi.filter.tilt~"> </seealso>
+		<seealso name="evi.baxandall~"> </seealso>
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>

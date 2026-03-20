@@ -22,7 +22,7 @@
     "evi.am~": {
         "type": "define",
         "digest": "Basic AM processor with saturation and choice of LFO shapes",
-        "description": ""
+        "description": "evi.am~ is a 'max define' for the evi_am.gendsp gen~ abstraction. Because evi.am~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA basic but useful AM processor with the core basic algorithm and assocoiated cotrols surrounded by saturation when driving the modulation signal > 0 dB. The saturation is anti-aliased and can cope with very hot input and has the feel of a guitar pedal. Because everybody needs a bosom for a pillow."
     },
     "evi.arpnotch~": {
         "type": "define",
@@ -32,7 +32,7 @@
     "evi.audiodust~": {
         "type": "define",
         "digest": "Spikey sparse noise implementation",
-        "description": ""
+        "description": "evi.audiodust~ is a 'max define' for the evi_audiodust.gendsp gen~ abstraction. Because evi.audiodust~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nAudio dust is a sparse random noise source driven at a given frequency. It produces 'spikes' and random amplitude and time offsets. It can be very useful as both a control signal and an audio signal. @see: 'evi_sources.genexpr' for more where this came from."
     },
     "evi.backverb~": {
         "type": "abstraction",
@@ -42,7 +42,7 @@
     "evi.baxandall~": {
         "type": "define",
         "digest": "Emulation of a classic baxandall EQ",
-        "description": "evi.baxandall~ is a 'max define' for the evi_baxandall.gendsp gen~ abstraction. Because evi.baxandall~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nAn EQ tone control shape popularised in the 1950s, often used in HiFi equipment and guitar amplifiers."
+        "description": "evi.baxandall~ is a 'max define' for the evi_baxandall.gendsp gen~ abstraction. Because evi.baxandall~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nAn EQ tone control shape popularised in the 1950s, often used in HiFi equipment and guitar amplifiers. Baxandall is a special EQ as the frequency response is fixed, and depends on the simple high level gain control inputs ('treble' and 'bass')."
     },
     "evi.biquad.filter~": {
         "type": "define",
@@ -132,12 +132,12 @@
     "evi.damp.macro~": {
         "type": "define",
         "digest": "A 'one knob' macroisation for simple low/high onepole damping filters",
-        "description": ""
+        "description": "evi.damp.macro~ is a 'max define' for the evi_damp_macro.gendsp gen~ abstraction. Because evi.damp.macro~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA 'one knob' ('damp' parameter) macroisation for quick onepole damping filters useful for light damping or inside a feedback loop. For a similar filter with more controls @see: evi.damp~."
     },
     "evi.damp~": {
         "type": "define",
         "digest": "Onepole pass/shelf damping filters with simultaneous outputs",
-        "description": ""
+        "description": "evi.damp~ is a 'max define' for the evi_damp.gendsp gen~ abstraction. Because evi.damp~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nTwo very efficient damping filters in series. A lowpass/highshelf filter (left outlet) and a highpass/lowshelf filter (right outlet). The frequency and damping inlets control both filters simultaneously for high level attenuation control. Useful for damping in reverbs and other situations. With the 'damp' inlet at 0.71..0.99 the first lowpass outlet is similar to MSP [onepole~] (depending on Hz)."
     },
     "evi.dcblock~": {
         "type": "abstraction",
@@ -297,7 +297,7 @@
     "evi.gaussiannoise~": {
         "type": "define",
         "digest": "Gaussian distributed noise approximation",
-        "description": ""
+        "description": "evi.gaussiannoise~ is a 'max define' for the evi_gaussiannoise.gendsp gen~ abstraction. Because evi.gaussiannoise~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nAn approximate 'box-muller' gaussian noise distribution. It looks roughly the same as white noise in a spectral view, very slightly different in a scope~. In a histogram one can see the distribution. The point is the gaussian random number distribution."
     },
     "evi.gigaverb~": {
         "type": "abstraction",
@@ -437,12 +437,12 @@
     "evi.onepole.shelving~": {
         "type": "define",
         "digest": "Onepole shelving filters with simultaneous outputs",
-        "description": ""
+        "description": "evi.onepole.shelving~ is a 'max define' for the evi_onepole_shelving.gendsp gen~ abstraction. Because evi.onepole.shelving~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nOnepole low/high shelving filter using trapezoidal integration, simultaneous outputs, very smooth and very cheap. Frequency input in Hz, shelving input is linear -1..0..1, optional smoothing attributes are default off."
     },
     "evi.onepole~": {
         "type": "define",
         "digest": "Linear trapezoidal integrated onepole filter with simultaneous outputs for lowpass, allpass and highpass",
-        "description": ""
+        "description": "evi.onepole~ is a 'max define' for the evi_onepole.gendsp gen~ abstraction. Because evi.onepole~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nThree matched onepole filters in Lowpass, Allpass and Highpass types at thee independent outputs. An efficient workhorse onepole for all generic patching needs."
     },
     "evi.overdrive.atan~": {
         "type": "define",
@@ -481,7 +481,7 @@
     },
     "evi.phasor0~": {
         "type": "define",
-        "digest": "Zero-rest phasor with settings for reverse and pause",
+        "digest": "Zero-reset phasor with settings for reverse and pause",
         "description": ""
     },
     "evi.plateverb~": {
@@ -506,13 +506,13 @@
     },
     "evi.randy~": {
         "type": "define",
-        "digest": "Cubic interpolated version of MSP rand~",
-        "description": ""
+        "digest": "Cubic interpolated version of the linear MSP rand~",
+        "description": "evi.randy~ is a 'max define' for the evi_randy.gendsp gen~ abstraction. Because evi.randy~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nBeing cubic interpolated the spectrum of this random oscillator rolls off much more steeply than the output of rand~, which may or may not be useful. At LFO frequencies this is a really useful smooth control source. @see: 'evi_sources.genexpr' and 'evi_lfo.genexpr' for more like this."
     },
     "evi.rcfilter~": {
         "type": "define",
-        "digest": "TPT nonliner onepole rc filter emulation",
-        "description": ""
+        "digest": "Linear trapezoidal nonliner onepole rc filter emulation",
+        "description": "evi.rcfilter~ is a 'max define' for the evi_rcfilter.gendsp gen~ abstraction. Because evi.rcfilter~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA basic analog building block. Efficient, nonlinear analog onepole filter using trapezoidal integration and newton-raphson loop. @see: 'evi_rcfilters.genexpr' for details. A choice of frequency input in Hz (default) or normalised 0..1 (via the prewarp attribute). Optional smoothing is default off. @see: evi.onepole~ for a multimode linear version."
     },
     "evi.rect.select~": {
         "type": "define",
@@ -606,13 +606,13 @@
     },
     "evi.teeth~": {
         "type": "define",
-        "digest": "Reimplementation of MSP teeth~ as a TPT filter",
+        "digest": "Reimplementation of MSP teeth~ filter delay",
         "description": "evi.teeth~ is a 'max define' for the evi_teeth.gendsp gen~ abstraction. Because evi.teeth~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nComb filter delay unit with independent control of feedforward and feedback delay times and saturation in the feedback path. The same structure as MSP teeth~, but with cubic interpolation (softer in the high end) and no digital clipping at FB Gain == 1 (via internal saturation, which makes the whole filter softer but will not clip your precious audio)."
     },
     "evi.tone.macro~": {
         "type": "define",
         "digest": "A 'one knob' macroisation for nonlinear cut tone control useful for quick colourisation in your audio chain",
-        "description": ""
+        "description": "evi.tone.macro~ is a 'max define' for the evi_tone_macro.gendsp gen~ abstraction. Because evi.tone.macro~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nSimilar to evi.damp.macro~ but nonlinear so capable of driving audio input hard into the filter. The 'one knob' macroisation takes this into account. The effect is a dark saturated tone control for colourisation."
     },
     "evi.tpqm": {
         "type": "abstraction",
@@ -652,7 +652,7 @@
     "evi.velvetnoise~": {
         "type": "define",
         "digest": "Interpolating 'sparse noise' / 'velvet noise' audio source",
-        "description": ""
+        "description": "evi.velvetnoise~ is a 'max define' for the evi_velvetnoise.gendsp gen~ abstraction. Because evi.velvetnoise~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nThis object can actually interpolate between 'sparse noise' and 'velvet noise' (first outlet via the second 'mix' inlet), but also outlets both 'sparse' and 'velvet' simultaneously from auxilliary outlets. The 'sparse noise' is an alternative to the evi.audiodust~ algorithm. Wikipedia: 'Velvet noise is a sparse sequence of random positive and negative impulses, typically characterised by its density in taps/second. At high densities it sounds similar to white noise. However, it is perceptually smoother.'"
     },
     "evi.vosim.basic~": {
         "type": "define",
@@ -677,7 +677,7 @@
     "evi.zeroxcount~": {
         "type": "define",
         "digest": "Like MSP zerox~ with controls for window size and threshold, with simultaneous analysis outputs",
-        "description": ""
+        "description": "evi.zeroxcount~ is a 'max define' for the evi_zeroxcount.gendsp gen~ abstraction. Because evi.zeroxcount~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nThis was built for a very specific need but might be useful as a controller. It is very similar to the RNBO 'zerox_count~' object but with simultaneous outlets for a > threshold gate and # of crossings."
     },
     "evi.zeroxoscnoise~": {
         "type": "define",

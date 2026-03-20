@@ -18,7 +18,8 @@
             "name": "boring",
             "type": "float",
             "optional": 1,
-            "digest": "Input"
+            "digestauto": "Input",
+            "digest": ""
         }
     ],
     "outlets": [
@@ -27,7 +28,7 @@
             "name": "warmer",
             "type": "float",
             "optional": 1,
-            "digest": "Output"
+            "digest": ""
         }
     ],
     "attributes": [

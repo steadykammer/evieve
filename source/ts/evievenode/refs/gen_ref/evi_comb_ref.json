@@ -3,8 +3,8 @@
         "name": "evi_comb",
         "child": "evi.comb~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Reimplementation of MSP <o>comb~</o> filter delay",
+        "description": "Comb filter delay unit with saturation in the feedback path. The same structure as MSP <o>comb~</o>, but with cubic interpolation (softer in the high end) and no digital clipping at FB Gain == 1 (via internal saturation, which makes the whole filter softer but will not clip your precious audio)."
     },
     "constructor": {
         "inlets": "input, delay, direct, feedforward, feedback"
@@ -18,35 +18,39 @@
             "name": "input",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Audio input to filter"
         },
         {
             "id": 2,
             "name": "delay",
             "type": "float",
             "optional": 1,
-            "digest": "in ms @min 0 @max 1000"
+            "digestauto": "in ms @min 0 @max 1000",
+            "digest": "Delay time in ms."
         },
         {
             "id": 3,
             "name": "direct",
             "type": "float",
             "optional": 1,
-            "digest": "Gain Coefficient @min -1 @max 1"
+            "digestauto": "Gain Coefficient @min -1 @max 1",
+            "digest": "Not smoothed internally. Applies negative or positive gain to the input path."
         },
         {
             "id": 4,
             "name": "feedforward",
             "type": "float",
             "optional": 1,
-            "digest": "Coefficient @min -1 @max 1"
+            "digestauto": "Coefficient @min -1 @max 1",
+            "digest": "Not smoothed internally. Applies negative or positive gain to the feedforward path."
         },
         {
             "id": 5,
             "name": "feedback",
             "type": "float",
             "optional": 1,
-            "digest": "Coefficient @min -1 @max 1"
+            "digestauto": "Coefficient @min -1 @max 1",
+            "digest": "Not smoothed internally. Applies negative or positive gain to the feedback path."
         }
     ],
     "outlets": [
@@ -55,14 +59,18 @@
             "name": "comb",
             "type": "float",
             "optional": 1,
-            "digest": "Filter Output"
+            "digest": "Filtered audio output."
         }
     ],
     "attributes": [],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_allpass",
+            "display": "evi_allpass"
+        },
+        {
+            "name": "evi_teeth",
+            "display": "evi_teeth"
         }
     ]
 }

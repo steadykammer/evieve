@@ -3,7 +3,7 @@
         "name": "evi_lores",
         "child": "evi.lores~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
+        "digest": "Reimplementation of MSP <o>lores~</o> filter, closely matching the shape and behaviour but implemented as a TPT filter",
         "description": "TEXT_HERE"
     },
     "constructor": {
@@ -26,14 +26,16 @@
             "name": "cutoff",
             "type": "float",
             "optional": 1,
-            "digest": "Frequency in Hz @max samplerate*0.5"
+            "digestauto": "Frequency in Hz @max samplerate*0.5",
+            "digest": ""
         },
         {
             "id": 3,
             "name": "resonance",
             "type": "float",
             "optional": 1,
-            "digest": "0..1 @min 0 @max 1"
+            "digestauto": "0..1 @min 0 @max 1",
+            "digest": ""
         }
     ],
     "outlets": [
@@ -42,7 +44,7 @@
             "name": "lores~like",
             "type": "float",
             "optional": 1,
-            "digest": "Output but not shit"
+            "digest": ""
         }
     ],
     "attributes": [

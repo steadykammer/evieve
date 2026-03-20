@@ -3,7 +3,7 @@
         "name": "evi_sine_select",
         "child": "evi.sine.select~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
+        "digest": "Selection of anti-aliased sine-like oscillators",
         "description": "TEXT_HERE"
     },
     "constructor": {
@@ -20,14 +20,16 @@
             "name": "frequency",
             "type": "float",
             "optional": 1,
-            "digest": "in Hz"
+            "digestauto": "in Hz",
+            "digest": ""
         },
         {
             "id": 2,
             "name": "sync",
             "type": "float",
             "optional": 1,
-            "digest": "Phasor @default 0 @min 0 @max 1"
+            "digestauto": "Phasor @default 0 @min 0 @max 1",
+            "digest": ""
         }
     ],
     "outlets": [

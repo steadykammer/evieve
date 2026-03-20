@@ -3,8 +3,8 @@
         "name": "evi_rcfilter",
         "child": "evi.rcfilter~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Linear trapezoidal nonliner onepole rc filter emulation",
+        "description": "A basic analog building block. Efficient, nonlinear analog onepole filter using trapezoidal integration and newton-raphson loop. @see: 'evi_rcfilters.genexpr' for details. A choice of frequency input in Hz (default) or normalised 0..1 (via the <m>prewarp</m> attribute). Optional smoothing is default off. @see: <o>evi.onepole~</o> for a multimode linear version."
     },
     "constructor": {
         "inlets": "input, hz"
@@ -18,14 +18,15 @@
             "name": "input",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Audio input to be filtered."
         },
         {
             "id": 2,
             "name": "hz",
             "type": "float",
             "optional": 1,
-            "digest": "(default) or g depending on 'prewarp' attribute"
+            "digestauto": "(default) or g depending on 'prewarp' attribute",
+            "digest": "We have a choice of frequency input in Hz (default) or normalised 0..1, depending on the @prewarp attribute. Optional smoothing (@smooth attribute) is default off."
         }
     ],
     "outlets": [
@@ -34,7 +35,7 @@
             "name": "6db",
             "type": "float",
             "optional": 1,
-            "digest": "Nonlinear Lowpass"
+            "digest": "Smooth saturated onepole output."
         }
     ],
     "attributes": [
@@ -42,7 +43,7 @@
             "name": "oversample",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "0=1x (default). 1=2x (actually not very good and rarely needed with this filter).",
             "default": {
                 "type": "int",
                 "value": "0"
@@ -52,7 +53,7 @@
             "name": "prewarp",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "If on (defualt), the second inlet expects frequency in Hz and g coefficient warping is performed internally. If off, the second inlet expects a normalised g coefficient 0..1 and this is passed on directly to the filter internally.",
             "default": {
                 "type": "int",
                 "value": "1"
@@ -62,7 +63,7 @@
             "name": "smooth",
             "type": "float",
             "digest": "@min 0, @max 333",
-            "description": "",
+            "description": "Smoothing time of the internal g coefficient (via the second inlet). If 0, smoothing is CPU-off.",
             "default": {
                 "type": "float",
                 "value": "0."
@@ -71,8 +72,20 @@
     ],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_onepole",
+            "display": "evi_onepole"
+        },
+        {
+            "name": "evi_tone_macro",
+            "display": "evi_tone_macro"
+        },
+        {
+            "name": "evi_korgms20_select",
+            "display": "evi_korgms20_select"
+        },
+        {
+            "name": "evi_ladder_moog",
+            "display": "evi_ladder_moog"
         }
     ]
 }

@@ -18,14 +18,16 @@
             "name": "audio",
             "type": "float",
             "optional": 1,
-            "digest": "In Left"
+            "digestauto": "In Left",
+            "digest": ""
         },
         {
             "id": 2,
             "name": "audio",
             "type": "float",
             "optional": 1,
-            "digest": "In Right"
+            "digestauto": "In Right",
+            "digest": ""
         }
     ],
     "outlets": [
@@ -34,56 +36,56 @@
             "name": "reverb",
             "type": "float",
             "optional": 1,
-            "digest": "Left"
+            "digest": ""
         },
         {
             "id": 2,
             "name": "reverb",
             "type": "float",
             "optional": 1,
-            "digest": "Right"
+            "digest": ""
         },
         {
             "id": 3,
             "name": "fdn",
             "type": "float",
             "optional": 1,
-            "digest": "Left"
+            "digest": ""
         },
         {
             "id": 4,
             "name": "fdn",
             "type": "float",
             "optional": 1,
-            "digest": "Right"
+            "digest": ""
         },
         {
             "id": 5,
             "name": "aux",
             "type": "float",
             "optional": 1,
-            "digest": "Tap 1"
+            "digest": ""
         },
         {
             "id": 6,
             "name": "aux",
             "type": "float",
             "optional": 1,
-            "digest": "Tap 2"
+            "digest": ""
         },
         {
             "id": 7,
             "name": "aux",
             "type": "float",
             "optional": 1,
-            "digest": "Tap 3"
+            "digest": ""
         },
         {
             "id": 8,
             "name": "aux",
             "type": "float",
             "optional": 1,
-            "digest": "Tap 4"
+            "digest": ""
         }
     ],
     "attributes": [

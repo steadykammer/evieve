@@ -3,8 +3,8 @@
         "name": "evi_crossover_sum",
         "child": "evi.crossover.sum~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Summing, including allpass alignment, for use with <o>evi.crossover.3band~</o>",
+        "description": "Linkwitz-Riley crossovers sum perfectly flat on recombination of the outputs (providing allpass alignment is used). Use <o>evi.crossover.sum~</o> to sum multiband processing created with the <o>evi.crossover.3band~</o> object. @see the 'seealso' section for other evieve objects that are related."
     },
     "constructor": {
         "inlets": "low, mid, high, high"
@@ -18,28 +18,32 @@
             "name": "low",
             "type": "float",
             "optional": 1,
-            "digest": "Band Input"
+            "digestauto": "Band Input",
+            "digest": "Lowpass filtered input."
         },
         {
             "id": 2,
             "name": "mid",
             "type": "float",
             "optional": 1,
-            "digest": "Band Input"
+            "digestauto": "Band Input",
+            "digest": "Bandpass filtered input."
         },
         {
             "id": 3,
             "name": "high",
             "type": "float",
             "optional": 1,
-            "digest": "Band Input"
+            "digestauto": "Band Input",
+            "digest": "Highpass filtered input."
         },
         {
             "id": 4,
             "name": "high",
             "type": "float",
             "optional": 1,
-            "digest": "Crossover Frequency in Hz @min 10 @max 20000"
+            "digestauto": "Crossover Frequency in Hz @min 10 @max 20000",
+            "digest": "Allpass alignment requires feeding in the 'High Crossover Frequency' from the [evi.crossover.3band~] object in order to produce the correct signal."
         }
     ],
     "outlets": [
@@ -48,7 +52,7 @@
             "name": "output",
             "type": "float",
             "optional": 1,
-            "digest": "of Summed Bands"
+            "digest": "Perfectly flat summed crossover bands into one signal."
         }
     ],
     "attributes": [
@@ -56,7 +60,7 @@
             "name": "align",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Allpass alignment in this splitting stage off or on. This must be opposite to the equivalent attribute in the feeding [evi.crossover.3band~] object. @see 'Discussion' in the reference file for more information.",
             "default": {
                 "type": "int",
                 "value": "1"
@@ -66,7 +70,7 @@
             "name": "order",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "0=2-pole (shallower) crossover filters, 1=4-pole (steeper) crossover filters. 2-pole can be subtle, 4-pole gives more rejection. This must be matched with the equivalent attribute in the feeding [evi.crossover.3band~] object.",
             "default": {
                 "type": "int",
                 "value": "1"
@@ -75,8 +79,20 @@
     ],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_cross",
+            "display": "evi_cross"
+        },
+        {
+            "name": "evi_crossover",
+            "display": "evi_crossover"
+        },
+        {
+            "name": "evi_crossover_3band",
+            "display": "evi_crossover_3band"
+        },
+        {
+            "name": "evi_crossover_allpass",
+            "display": "evi_crossover_allpass"
         }
     ]
 }

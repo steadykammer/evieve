@@ -31,17 +31,17 @@
         </geninlet>
         <geninlet name='cutoff' type='float' optional='1'>
             <digest>
-                in Hz @min samplerate*0.00022 @max samplerate*0.458334
+                in Hz @min samplerate*0.00022 @max samplerate*0.458334. 
             </digest>
         </geninlet>
         <geninlet name='gain' type='float' optional='1'>
             <digest>
-                in dB @min -24 @max 24 @default 0
+                in dB @min -24 @max 24 @default 0. 
             </digest>
         </geninlet>
         <geninlet name='q' type='float' optional='1'>
             <digest>
-                @min 0.1 @max 18 @default 0.707107
+                @min 0.1 @max 18 @default 0.707107. 
             </digest>
         </geninlet>
     </geninletlist>

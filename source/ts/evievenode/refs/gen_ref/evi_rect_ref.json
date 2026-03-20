@@ -3,7 +3,7 @@
         "name": "evi_rect",
         "child": "evi.rect~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
+        "digest": "High quality anti-aliased square wave oscillator with PWM",
         "description": "TEXT_HERE"
     },
     "constructor": {
@@ -20,21 +20,24 @@
             "name": "frequency",
             "type": "float",
             "optional": 1,
-            "digest": "in Hz @min 0"
+            "digestauto": "in Hz @min 0",
+            "digest": ""
         },
         {
             "id": 2,
             "name": "pwm",
             "type": "float",
             "optional": 1,
-            "digest": "0..1 @min 0 @max 1 @default 0.5"
+            "digestauto": "0..1 @min 0 @max 1 @default 0.5",
+            "digest": ""
         },
         {
             "id": 3,
             "name": "reset",
             "type": "float",
             "optional": 1,
-            "digest": "(Naive)"
+            "digestauto": "(Naive)",
+            "digest": ""
         }
     ],
     "outlets": [
@@ -43,7 +46,7 @@
             "name": "anti",
             "type": "float",
             "optional": 1,
-            "digest": "Aliased Rect Oscillator"
+            "digest": ""
         }
     ],
     "attributes": [],

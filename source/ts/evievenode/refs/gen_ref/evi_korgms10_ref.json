@@ -3,8 +3,8 @@
         "name": "evi_korgms10",
         "child": "evi.korgms10~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "'Korg 35' single-amplifier unbuffered modified Sallen-Key topology nonlinear filter emulation",
+        "description": "The 'Korg 35' chip was found in the MS-10 and early MS-20 synthesisers - different to the later dual-amplifier Korg OTA chip found in the later MS-20s and other Korg synthesisers."
     },
     "constructor": {
         "inlets": "audio, cutoff, resonance"
@@ -19,21 +19,24 @@
             "name": "audio",
             "type": "float",
             "optional": 1,
-            "digest": "Input"
+            "digestauto": "Input",
+            "digest": ""
         },
         {
             "id": 2,
             "name": "cutoff",
             "type": "float",
             "optional": 1,
-            "digest": "Frequency in Hz"
+            "digestauto": "Frequency in Hz",
+            "digest": ""
         },
         {
             "id": 3,
             "name": "resonance",
             "type": "float",
             "optional": 1,
-            "digest": "0..1 @default 0.72"
+            "digestauto": "0..1 @default 0.72",
+            "digest": ""
         }
     ],
     "outlets": [
@@ -42,28 +45,28 @@
             "name": "korg",
             "type": "float",
             "optional": 1,
-            "digest": "35 12dB Lowpass"
+            "digest": ""
         },
         {
             "id": 2,
             "name": "korg",
             "type": "float",
             "optional": 1,
-            "digest": "35 6dB Highpass"
+            "digest": ""
         },
         {
             "id": 3,
             "name": "bonus",
             "type": "float",
             "optional": 1,
-            "digest": "12dB Highpass"
+            "digest": ""
         },
         {
             "id": 4,
             "name": "bonus",
             "type": "float",
             "optional": 1,
-            "digest": "12dB Bandpass"
+            "digest": ""
         }
     ],
     "attributes": [

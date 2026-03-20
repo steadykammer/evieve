@@ -27,28 +27,28 @@
             "name": "low",
             "type": "float",
             "optional": 1,
-            "digest": "\"g / (1 + g)\""
+            "digest": ""
         },
         {
             "id": 2,
             "name": "low",
             "type": "float",
             "optional": 1,
-            "digest": "k"
+            "digest": ""
         },
         {
             "id": 3,
             "name": "high",
             "type": "float",
             "optional": 1,
-            "digest": "\"g / (1 + g)\""
+            "digest": ""
         },
         {
             "id": 4,
             "name": "high",
             "type": "float",
             "optional": 1,
-            "digest": "k"
+            "digest": ""
         }
     ],
     "attributes": [

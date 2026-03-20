@@ -24,7 +24,7 @@
     <geninletlist>
         <geninlet name='boring' type='float' optional='1'>
             <digest>
-                Input
+                Input. 
             </digest>
         </geninlet>
     </geninletlist>

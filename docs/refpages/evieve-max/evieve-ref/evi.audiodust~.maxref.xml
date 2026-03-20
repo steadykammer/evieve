@@ -9,7 +9,7 @@
 		<b>evi.audiodust~</b> is a 'max define' for the <o>evi_audiodust</o>.gendsp gen~ abstraction.
 		Because evi.audiodust~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		<br />
-		TEXT_HERE <br />
+		Audio dust is a sparse random noise source driven at a given frequency. It produces 'spikes' and random amplitude and time offsets. It can be very useful as both a control signal and an audio signal. @see: 'evi_sources.genexpr' for more where this came from. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>
@@ -24,7 +24,7 @@
 				Inlet #1: Frequency in Hz @default 10 @min -SAMPLERATE*0.5 @max SAMPLERATE*0.5
 			</digest>
 			<description>
-				
+				The frequency at which to internally sample the noise. Typically used at low frequencies.
 			</description>
 		</inlet>
 	</inletlist>
@@ -35,7 +35,7 @@
 				Outlet #1: So Called &quot;Audio Dust&quot;
 			</digest>
 			<description>
-				
+				Beautiful spikes.
 			</description>
 		</outlet>
 		<outlet id="2" type="signal">
@@ -43,7 +43,7 @@
 				Outlet #2: &quot;White Noise&quot;
 			</digest>
 			<description>
-				
+				Synchronised to the audio dust process.
 			</description>
 		</outlet>
 		<outlet id="3" type="signal">
@@ -51,7 +51,7 @@
 				Outlet #3: Click (Sample Accurate Unipolar Sync Source)
 			</digest>
 			<description>
-				
+				Synchronised to the audio dust process for synchronising other processes downstream.
 			</description>
 		</outlet>
 	</outletlist>
@@ -67,6 +67,11 @@
 	</examplelist>
 	<!--SEEALSO-->
 	<seealsolist>
+		<seealso name="evi.gaussiannoise~"> </seealso>
+		<seealso name="evi.velvetnoise~"> </seealso>
+		<seealso name="evi.zeroxcount~"> </seealso>
+		<seealso name="evi.zeroxoscnoise~"> </seealso>
+		<seealso name="evi.randy~"> </seealso>
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>

@@ -16,49 +16,56 @@
             "name": "in",
             "type": "float",
             "optional": 1,
-            "digest": "Map"
+            "digestauto": "Map",
+            "digest": ""
         },
         {
             "id": 2,
             "name": "inlow",
             "type": "float",
             "optional": 1,
-            "digest": "@default 0."
+            "digestauto": "@default 0.",
+            "digest": ""
         },
         {
             "id": 3,
             "name": "inmid",
             "type": "float",
             "optional": 1,
-            "digest": "@default 0.5"
+            "digestauto": "@default 0.5",
+            "digest": ""
         },
         {
             "id": 4,
             "name": "inhigh",
             "type": "float",
             "optional": 1,
-            "digest": "@default 1."
+            "digestauto": "@default 1.",
+            "digest": ""
         },
         {
             "id": 5,
             "name": "outlow",
             "type": "float",
             "optional": 1,
-            "digest": "@default 0."
+            "digestauto": "@default 0.",
+            "digest": ""
         },
         {
             "id": 6,
             "name": "outmid",
             "type": "float",
             "optional": 1,
-            "digest": "@default 0.5"
+            "digestauto": "@default 0.5",
+            "digest": ""
         },
         {
             "id": 7,
             "name": "outhigh",
             "type": "float",
             "optional": 1,
-            "digest": "@default 1."
+            "digestauto": "@default 1.",
+            "digest": ""
         }
     ],
     "outlets": [
@@ -67,7 +74,7 @@
             "name": "out",
             "type": "float",
             "optional": 1,
-            "digest": "Map"
+            "digest": ""
         }
     ],
     "attributes": [

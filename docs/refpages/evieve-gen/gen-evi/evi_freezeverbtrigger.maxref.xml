@@ -24,22 +24,22 @@
     <geninletlist>
         <geninlet name='left' type='float' optional='1'>
             <digest>
-                Signal Input
+                Signal Input. 
             </digest>
         </geninlet>
         <geninlet name='right' type='float' optional='1'>
             <digest>
-                Signal Input
+                Signal Input. 
             </digest>
         </geninlet>
         <geninlet name='freeze' type='float' optional='1'>
             <digest>
-                0/1/2 @default 0
+                0/1/2 @default 0. 
             </digest>
         </geninlet>
         <geninlet name='retrigger' type='float' optional='1'>
             <digest>
-                Freeze
+                Freeze. 
             </digest>
         </geninlet>
     </geninletlist>

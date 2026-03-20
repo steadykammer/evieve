@@ -3,7 +3,7 @@
         "name": "evi_modalres",
         "child": "evi.modalres~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
+        "digest": "Max Mathews modal resonator",
         "description": "TEXT_HERE"
     },
     "constructor": {
@@ -25,14 +25,16 @@
             "name": "low",
             "type": "float",
             "optional": 1,
-            "digest": "Frequency in Hz"
+            "digestauto": "Frequency in Hz",
+            "digest": ""
         },
         {
             "id": 3,
             "name": "resonant",
             "type": "float",
             "optional": 1,
-            "digest": "Decay Time in Seconds"
+            "digestauto": "Decay Time in Seconds",
+            "digest": ""
         }
     ],
     "outlets": [
@@ -41,7 +43,7 @@
             "name": "resonant",
             "type": "float",
             "optional": 1,
-            "digest": "Object"
+            "digest": ""
         }
     ],
     "attributes": [],

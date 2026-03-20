@@ -3,8 +3,8 @@
         "name": "evi_chorus_digital",
         "child": "evi.chorus.digital~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "A basic digital Chorus implementation, with multiple stages and saturation",
+        "description": "There are many attributes so that the user can macroise the controls themselves to higher level parameters."
     },
     "constructor": {
         "inlets": "left, right, reset"
@@ -23,21 +23,24 @@
             "name": "left",
             "type": "float",
             "optional": 1,
-            "digest": "Audio In"
+            "digestauto": "Audio In",
+            "digest": "Left audio input."
         },
         {
             "id": 2,
             "name": "right",
             "type": "float",
             "optional": 1,
-            "digest": "Audio In"
+            "digestauto": "Audio In",
+            "digest": "Right audio input."
         },
         {
             "id": 3,
             "name": "reset",
             "type": "float",
             "optional": 1,
-            "digest": "Naive"
+            "digestauto": "Naive",
+            "digest": "Reset of internal LFO phases is naive and not anti-aliased."
         }
     ],
     "outlets": [
@@ -46,28 +49,28 @@
             "name": "left",
             "type": "float",
             "optional": 1,
-            "digest": "Audio Out"
+            "digest": "Modulated audio output left."
         },
         {
             "id": 2,
             "name": "right",
             "type": "float",
             "optional": 1,
-            "digest": "Audio Out"
+            "digest": "Modulated audio output right."
         },
         {
             "id": 3,
             "name": "lfo",
             "type": "float",
             "optional": 1,
-            "digest": "Left Out"
+            "digest": "Left phase LFO output for downstream synchronisation."
         },
         {
             "id": 4,
             "name": "lfo",
             "type": "float",
             "optional": 1,
-            "digest": "Right Out"
+            "digest": "Right phase LFO output for downstream synchronisation."
         }
     ],
     "attributes": [
@@ -75,7 +78,7 @@
             "name": "crossover",
             "type": "float",
             "digest": "@min 10, @max 1000",
-            "description": "",
+            "description": "Crossover frequency in Hz. Below this crossover point (the bass) the audio is mono summed, saturated and added back into the wet output mix. Above this crossover point the audio is chanelled through the chorus effect.",
             "default": {
                 "type": "float",
                 "value": "104."
@@ -85,7 +88,7 @@
             "name": "depth",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "The relative size of the modulation delay. At 0 the chorus delay is 0 ms, at 1, the chorus delay modulates between its extremes, set by @mintime and @maxtime arguments in ms.",
             "default": {
                 "type": "float",
                 "value": "0.5"
@@ -95,7 +98,7 @@
             "name": "drydelay",
             "type": "float",
             "digest": "@min 0, @max 1000",
-            "description": "",
+            "description": "This controls the delay time at the dry output mix delay of the chorus. This is a very strange effect and can make the sound very sea sickly depending on @drywet.",
             "default": {
                 "type": "float",
                 "value": "0."
@@ -105,7 +108,7 @@
             "name": "drywet",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "The global dry/wet mix of the chorus. 0 is completely dry, 1 is completely wet.",
             "default": {
                 "type": "float",
                 "value": "0.5"
@@ -115,7 +118,7 @@
             "name": "duty",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "One of four LFO controls (@duty, @shape, @skew, @zeroreset). @duty changes the duty cycle of the LFO triangle shape.",
             "default": {
                 "type": "float",
                 "value": "0.4"
@@ -125,7 +128,7 @@
             "name": "feedback",
             "type": "float",
             "digest": "@min -1, @max 1",
-            "description": "",
+            "description": "The global feedback gain. Strongly affected by the @feedbackmix, @feedbackcross and @stages attributes.",
             "default": {
                 "type": "float",
                 "value": "0.5"
@@ -135,7 +138,7 @@
             "name": "feedbackcross",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Between 0..1 @feedbackcross crosses over the L/R of the feeback path to R/L. This can be a very useful sounshaping tool, the effect depends on the polarity of @feeback.",
             "default": {
                 "type": "float",
                 "value": "0."
@@ -145,7 +148,7 @@
             "name": "feedbackmix",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "This attribute will drastically change the sound of the @feedback setting, depending on the @stages attribute. Between 0..1 @feedbackmix morphs the tap point of the feedback path. At 0 the feedback is tapped after the very first stage of the chorus processing, at 1 the feedback is tapped at the end of all the stages. This means that at 0, the feedback will be brittle and strong and probably out of control (depending on @feedback), but at 1, the feedback will be much softer and more maleable (depending on how many @stages are selected).",
             "default": {
                 "type": "float",
                 "value": "0.5"
@@ -155,7 +158,7 @@
             "name": "inject",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Like @feedbackmix, @inject morphs the tap point of part of the audio path. @inject is much more subtle that @feedbackmix. It mixes in the wet post crossover mix into the feedback chain before the saturation stage @inject 0) or after the saturation stage (@inject 1), therefore modifying the strength of the saturated feedback path.",
             "default": {
                 "type": "float",
                 "value": "0.5"
@@ -165,7 +168,7 @@
             "name": "invert",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Inverts the polarity of the chorussed audio before mixing to the output. Switching invert is smoothed.",
             "default": {
                 "type": "int",
                 "value": "0"
@@ -175,7 +178,7 @@
             "name": "maxhz",
             "type": "float",
             "digest": "@min 0, @max 100",
-            "description": "",
+            "description": "The maximum in Hz that the @rate attribute can reach. Typically these values are kept small for a chorus.",
             "default": {
                 "type": "float",
                 "value": "2.69"
@@ -185,7 +188,7 @@
             "name": "maxtime",
             "type": "float",
             "digest": "@min 0, @max 200",
-            "description": "",
+            "description": "The maximum delay time for the chorus. Whether or not this value is reached depends on the @depth attribute.",
             "default": {
                 "type": "float",
                 "value": "9."
@@ -195,7 +198,7 @@
             "name": "mintime",
             "type": "float",
             "digest": "@min 0, @max 200",
-            "description": "",
+            "description": "The minimum delay time for the chorus. Whether or not this value is reached depends on the @depth attribute. For a flanger-like effect this is typically 0.",
             "default": {
                 "type": "float",
                 "value": "1."
@@ -205,7 +208,7 @@
             "name": "postgain",
             "type": "float",
             "digest": "@min -10, @max 10",
-            "description": "",
+            "description": "The gain in dB applied to the wet chain of the processing just before mixing and output.",
             "default": {
                 "type": "float",
                 "value": "0."
@@ -215,7 +218,7 @@
             "name": "pregain",
             "type": "float",
             "digest": "@min -10, @max 10",
-            "description": "",
+            "description": "The gain applied to the above crossover input before it is sent through the feedback path.",
             "default": {
                 "type": "float",
                 "value": "3."
@@ -225,7 +228,7 @@
             "name": "rate",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "The global speed of the LFO phases. This sets the speed (between 0..@maxhz) the LFOs scale the delay times (set by @depth, @mintime and @maxtime).",
             "default": {
                 "type": "float",
                 "value": "0.5"
@@ -235,7 +238,7 @@
             "name": "shape",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "One of four LFO controls (@duty, @shape, @skew, @zeroreset). @shape smoothly morphs the LFO shape between triangle (0) and sine (1).",
             "default": {
                 "type": "float",
                 "value": "0.5"
@@ -245,7 +248,7 @@
             "name": "skew",
             "type": "float",
             "digest": "@min 0.5, @max 2",
-            "description": "",
+            "description": "One of four LFO controls (@duty, @shape, @skew, @zeroreset). @skew exponentially shapes the LFO output.",
             "default": {
                 "type": "float",
                 "value": "1.2"
@@ -255,7 +258,7 @@
             "name": "smooth",
             "type": "float",
             "digest": "@min 0, @max 302",
-            "description": "",
+            "description": "Smoothing time of the internal parameters.",
             "default": {
                 "type": "float",
                 "value": "30.222"
@@ -265,7 +268,7 @@
             "name": "spread",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "The left/right spread of the audio outputs, actually the phase offset of the two internal LFOs. 0..1 is exponentially mapped to 0..180 degrees shift.",
             "default": {
                 "type": "float",
                 "value": "0.5"
@@ -275,7 +278,7 @@
             "name": "stages",
             "type": "int",
             "digest": "@min 1, @max 16",
-            "description": "",
+            "description": "Sets how many delay stages in serial to use for the chorus. The chorus is created by putting modulated delay lines in a cascade. The more stages, the more delay lines are cascaded are therefore the stronger the chorus effect. Modify the offset of the modulation LFOs per stage with the @warp attribute.",
             "default": {
                 "type": "int",
                 "value": "4"
@@ -285,7 +288,7 @@
             "name": "tone",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "@tone controls a lowpass filter on the input to the feedback path. Lower values will make the feedback recirculation darker, higher value will make it brighter.",
             "default": {
                 "type": "float",
                 "value": "0.5"
@@ -295,7 +298,7 @@
             "name": "warp",
             "type": "float",
             "digest": "@min -1, @max 1",
-            "description": "",
+            "description": "The greater the number of @stages the more effect the @warp attribute will have. @warp exponentially shifts the offsets of the LFOs as they cascade down the serial stages of delays.",
             "default": {
                 "type": "float",
                 "value": "0.5"
@@ -305,7 +308,7 @@
             "name": "zeroreset",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "One of four LFO controls (@duty, @shape, @skew, @zeroreset). If on, changes to the speed (@rate) of the internal LFOs are synchronised to zero reset of phase, which can produce seemless updating of speed changes. Otherwise the speed (@rate) updates smoothly morphing changes.",
             "default": {
                 "type": "int",
                 "value": "0"
@@ -314,8 +317,28 @@
     ],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_flanger_digital",
+            "display": "evi_flanger_digital"
+        },
+        {
+            "name": "evi_am",
+            "display": "evi_am"
+        },
+        {
+            "name": "evi_tremolo",
+            "display": "evi_tremolo"
+        },
+        {
+            "name": "evi_phaser_analog",
+            "display": "evi_phaser_analog"
+        },
+        {
+            "name": "evi_detune",
+            "display": "evi_detune"
+        },
+        {
+            "name": "evi_phasor0",
+            "display": "evi_phasor0"
         }
     ]
 }

@@ -21,37 +21,37 @@
     <geninletlist>
         <geninlet name='in' type='float' optional='1'>
             <digest>
-                Map
+                Map. 
             </digest>
         </geninlet>
         <geninlet name='inlow' type='float' optional='1'>
             <digest>
-                @default 0.
+                @default 0.. 
             </digest>
         </geninlet>
         <geninlet name='inmid' type='float' optional='1'>
             <digest>
-                @default 0.5
+                @default 0.5. 
             </digest>
         </geninlet>
         <geninlet name='inhigh' type='float' optional='1'>
             <digest>
-                @default 1.
+                @default 1.. 
             </digest>
         </geninlet>
         <geninlet name='outlow' type='float' optional='1'>
             <digest>
-                @default 0.
+                @default 0.. 
             </digest>
         </geninlet>
         <geninlet name='outmid' type='float' optional='1'>
             <digest>
-                @default 0.5
+                @default 0.5. 
             </digest>
         </geninlet>
         <geninlet name='outhigh' type='float' optional='1'>
             <digest>
-                @default 1.
+                @default 1.. 
             </digest>
         </geninlet>
     </geninletlist>

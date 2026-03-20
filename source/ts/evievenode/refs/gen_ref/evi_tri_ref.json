@@ -3,7 +3,7 @@
         "name": "evi_tri",
         "child": "evi.tri~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
+        "digest": "High quality anti-aliased triangle wave oscillator",
         "description": "TEXT_HERE"
     },
     "constructor": {
@@ -20,14 +20,16 @@
             "name": "frequency",
             "type": "float",
             "optional": 1,
-            "digest": "in Hz"
+            "digestauto": "in Hz",
+            "digest": ""
         },
         {
             "id": 2,
             "name": "reset",
             "type": "float",
             "optional": 1,
-            "digest": "(Naive)"
+            "digestauto": "(Naive)",
+            "digest": ""
         }
     ],
     "outlets": [
@@ -36,7 +38,7 @@
             "name": "anti",
             "type": "float",
             "optional": 1,
-            "digest": "Aliased Tri Oscillator"
+            "digest": ""
         }
     ],
     "attributes": [],

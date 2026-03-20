@@ -3,7 +3,7 @@
         "name": "evi_svfsynth",
         "child": "evi.svfsynth~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
+        "digest": "Beefy nonlinear TPT SVF filter with choice of 12/24dB slope, audio rate modulation and morphing capabilities",
         "description": "TEXT_HERE"
     },
     "constructor": {
@@ -19,21 +19,24 @@
             "name": "audio",
             "type": "float",
             "optional": 1,
-            "digest": "Input"
+            "digestauto": "Input",
+            "digest": ""
         },
         {
             "id": 2,
             "name": "cutoff",
             "type": "float",
             "optional": 1,
-            "digest": "in Hz or Pitch @default 77."
+            "digestauto": "in Hz or Pitch @default 77.",
+            "digest": ""
         },
         {
             "id": 3,
             "name": "resonance",
             "type": "float",
             "optional": 1,
-            "digest": "0..1++ @default 0.984"
+            "digestauto": "0..1++ @default 0.984",
+            "digest": ""
         }
     ],
     "outlets": [
@@ -42,14 +45,14 @@
             "name": "12db",
             "type": "float",
             "optional": 1,
-            "digest": "Filter Outputs"
+            "digest": ""
         },
         {
             "id": 2,
             "name": "24db",
             "type": "float",
             "optional": 1,
-            "digest": "Filter Outputs (if 'slope' attribute selected)"
+            "digest": ""
         }
     ],
     "attributes": [

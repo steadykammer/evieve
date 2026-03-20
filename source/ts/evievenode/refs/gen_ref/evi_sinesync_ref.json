@@ -16,14 +16,16 @@
             "name": "main",
             "type": "float",
             "optional": 1,
-            "digest": "Frequency in Hz"
+            "digestauto": "Frequency in Hz",
+            "digest": ""
         },
         {
             "id": 2,
             "name": "sub",
             "type": "float",
             "optional": 1,
-            "digest": "Frequency in Hz"
+            "digestauto": "Frequency in Hz",
+            "digest": ""
         }
     ],
     "outlets": [
@@ -32,21 +34,21 @@
             "name": "sine",
             "type": "float",
             "optional": 1,
-            "digest": "Sync Osc"
+            "digest": ""
         },
         {
             "id": 2,
             "name": "main",
             "type": "float",
             "optional": 1,
-            "digest": "Phase 0..1"
+            "digest": ""
         },
         {
             "id": 3,
             "name": "sine",
             "type": "float",
             "optional": 1,
-            "digest": "Phase 0..1"
+            "digest": ""
         }
     ],
     "attributes": [

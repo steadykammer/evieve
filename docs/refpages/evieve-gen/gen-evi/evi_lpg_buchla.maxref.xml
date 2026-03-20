@@ -24,17 +24,17 @@
     <geninletlist>
         <geninlet name='audio' type='float' optional='1'>
             <digest>
-                Input
+                Input. 
             </digest>
         </geninlet>
         <geninlet name='frequency' type='float' optional='1'>
             <digest>
-                Rf
+                Rf. 
             </digest>
         </geninlet>
         <geninlet name='resonance' type='float' optional='1'>
             <digest>
-                0..2 @default 1
+                0..2 @default 1. 
             </digest>
         </geninlet>
     </geninletlist>

@@ -16,21 +16,24 @@
             "name": "input",
             "type": "float",
             "optional": 1,
-            "digest": "Value"
+            "digestauto": "Value",
+            "digest": ""
         },
         {
             "id": 2,
             "name": "ramp",
             "type": "float",
             "optional": 1,
-            "digest": "Up in SAMPLES @min 0"
+            "digestauto": "Up in SAMPLES @min 0",
+            "digest": ""
         },
         {
             "id": 3,
             "name": "ramp",
             "type": "float",
             "optional": 1,
-            "digest": "Down in SAMPLES @min 0"
+            "digestauto": "Down in SAMPLES @min 0",
+            "digest": ""
         }
     ],
     "outlets": [
@@ -39,14 +42,14 @@
             "name": "exact",
             "type": "float",
             "optional": 1,
-            "digest": "Output Env"
+            "digest": ""
         },
         {
             "id": 2,
             "name": "1",
             "type": "float",
             "optional": 1,
-            "digest": "When Env Reaches Destination (0 During Env)"
+            "digest": ""
         }
     ],
     "attributes": [],

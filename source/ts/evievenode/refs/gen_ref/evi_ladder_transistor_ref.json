@@ -3,8 +3,8 @@
         "name": "evi_ladder_transistor",
         "child": "evi.ladder.transistor~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Nonlinear TPT Transistor Ladder filter emulation",
+        "description": "This filter is tuned to be quite 'hot' and aggressive compared to the <o>evi.ladder.moog~</o>"
     },
     "constructor": {
         "inlets": "input, cutoff, cutoff, cutoff, resonance"
@@ -26,28 +26,32 @@
             "name": "cutoff",
             "type": "float",
             "optional": 1,
-            "digest": "in Hz or Pitch"
+            "digestauto": "in Hz or Pitch",
+            "digest": ""
         },
         {
             "id": 3,
             "name": "cutoff",
             "type": "float",
             "optional": 1,
-            "digest": "Pitch Mod @default 0"
+            "digestauto": "Pitch Mod @default 0",
+            "digest": ""
         },
         {
             "id": 4,
             "name": "cutoff",
             "type": "float",
             "optional": 1,
-            "digest": "Hz Mod @default 0"
+            "digestauto": "Hz Mod @default 0",
+            "digest": ""
         },
         {
             "id": 5,
             "name": "resonance",
             "type": "float",
             "optional": 1,
-            "digest": "(0..1..2)"
+            "digestauto": "(0..1..2)",
+            "digest": ""
         }
     ],
     "outlets": [
@@ -56,7 +60,7 @@
             "name": "transistor",
             "type": "float",
             "optional": 1,
-            "digest": "Ladder"
+            "digest": ""
         }
     ],
     "attributes": [

@@ -3,14 +3,13 @@
         "name": "evi_4wave",
         "child": "evi.4wave~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Anti-aliased Saw, Rect, Tri and Sine simultaneous oscillators",
+        "description": "Phase synchronous shared frequency oscillators with simultaneous Saw, Rect, Tri and Sine outputs. Anti-aliasing method is 4-point polyblep."
     },
     "constructor": {
         "inlets": "frequency, reset"
     },
     "includes": [
-        "evi_polyblep",
         "evi_polyblep_four",
         "evi_polyblep_utility"
     ],
@@ -20,14 +19,16 @@
             "name": "frequency",
             "type": "float",
             "optional": 1,
-            "digest": "in Hz"
+            "digestauto": "in Hz",
+            "digest": "Frequency of all 4 oscillators."
         },
         {
             "id": 2,
             "name": "reset",
             "type": "float",
             "optional": 1,
-            "digest": "Naive"
+            "digestauto": "Naive",
+            "digest": "Reset is naive and not anti-aliased."
         }
     ],
     "outlets": [
@@ -36,35 +37,35 @@
             "name": "saw",
             "type": "float",
             "optional": 1,
-            "digest": "outlet number 1 is cool"
+            "digest": "Anti-aliased Saw oscillator in sync with other outputs"
         },
         {
             "id": 2,
             "name": "rect",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Anti-aliased Rect oscillator in sync with other outputs"
         },
         {
             "id": 3,
             "name": "tri",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Anti-aliased Tri oscillator in sync with other outputs"
         },
         {
             "id": 4,
             "name": "sine",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Anti-aliased Sine oscillator in sync with other outputs, the sine is not pure and has an additional harmonic."
         },
         {
             "id": 5,
             "name": "phase",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Phase of oscillators for synchronising processes downstream."
         }
     ],
     "attributes": [
@@ -72,7 +73,7 @@
             "name": "zerosync",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "hello attributey",
+            "description": "If on, tri phase is aligned at zero crossings with the other three oscillators. If off (slightly cheaper) tri phase is at the peak of the tri shape.",
             "default": {
                 "type": "int",
                 "value": "0"
@@ -81,8 +82,20 @@
     ],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_saw",
+            "display": "evi_saw"
+        },
+        {
+            "name": "evi_rect",
+            "display": "evi_rect"
+        },
+        {
+            "name": "evi_tri",
+            "display": "evi_tri"
+        },
+        {
+            "name": "evi_blitwaves",
+            "display": "evi_blitwaves"
         }
     ]
 }

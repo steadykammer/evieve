@@ -21,17 +21,17 @@
     <geninletlist>
         <geninlet name='input' type='float' optional='1'>
             <digest>
-                Value
+                Value. 
             </digest>
         </geninlet>
         <geninlet name='ramp' type='float' optional='1'>
             <digest>
-                Up in SAMPLES @min 0
+                Up in SAMPLES @min 0. 
             </digest>
         </geninlet>
         <geninlet name='ramp' type='float' optional='1'>
             <digest>
-                Down in SAMPLES @min 0
+                Down in SAMPLES @min 0. 
             </digest>
         </geninlet>
     </geninletlist>

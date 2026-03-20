@@ -18,7 +18,8 @@
             "name": "audio",
             "type": "float",
             "optional": 1,
-            "digest": "Input"
+            "digestauto": "Input",
+            "digest": ""
         }
     ],
     "outlets": [
@@ -27,7 +28,7 @@
             "name": "sine",
             "type": "float",
             "optional": 1,
-            "digest": "Saturated Output"
+            "digest": ""
         }
     ],
     "attributes": [

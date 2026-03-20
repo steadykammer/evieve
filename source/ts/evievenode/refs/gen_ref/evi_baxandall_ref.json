@@ -3,27 +3,31 @@
         "name": "evi_baxandall",
         "child": "evi.baxandall~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Emulation of a classic baxandall EQ",
+        "description": "An EQ tone control shape popularised in the 1950s, often used in HiFi equipment and guitar amplifiers. Baxandall is a special EQ as the frequency response is fixed, and depends on the simple high level gain control inputs ('treble' and 'bass')."
     },
     "constructor": {
         "inlets": "mono, none"
     },
-    "includes": [],
+    "includes": [
+        "evi_smooth"
+    ],
     "inlets": [
         {
             "id": 1,
             "name": "mono",
             "type": "float",
             "optional": 1,
-            "digest": "/ Left"
+            "digestauto": "/ Left",
+            "digest": "Mono or left input depending on @stereo attribute."
         },
         {
             "id": 2,
             "name": "none",
             "type": "float",
             "optional": 1,
-            "digest": "/ Right"
+            "digestauto": "/ Right",
+            "digest": "Nothing or right input depending on @stereo attribute."
         }
     ],
     "outlets": [
@@ -32,14 +36,14 @@
             "name": "out",
             "type": "float",
             "optional": 1,
-            "digest": "/ Left"
+            "digest": "Mono or left output depending on @stereo attribute."
         },
         {
             "id": 2,
             "name": "nothing",
             "type": "float",
             "optional": 1,
-            "digest": "/ Right"
+            "digest": "Nothing or right output depending on @stereo attribute."
         }
     ],
     "attributes": [
@@ -47,17 +51,27 @@
             "name": "bass",
             "type": "float",
             "digest": "@min -24, @max 24",
-            "description": "",
+            "description": "The amount of bass in the tone. As a baxandall EQ, this also shapes the frequency response, creating a mid frequency notch at high levels. Ultimately 'bass' and 'treble' behave like shelving filters, at opposite extremes creating a tilt-like filter.",
             "default": {
                 "type": "float",
                 "value": "0."
             }
         },
         {
+            "name": "smooth",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "If on, the internal coefficients are lightly smoothed at an optimal part in the DSP chain. If not updating 'treble' and 'bass' dynamically 'smooth' can safely be turned off.",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
             "name": "stereo",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "If @stereo is on, the EQ is stereo input stereo output. If @stereo is off, the EQ is mono in mono out (left in and out).",
             "default": {
                 "type": "int",
                 "value": "0"
@@ -67,7 +81,7 @@
             "name": "treble",
             "type": "float",
             "digest": "@min -24, @max 24",
-            "description": "",
+            "description": "The amount of treble in the tone. As a baxandall EQ, this also shapes the frequency response, creating a high mid frequency notch at high levels. Ultimately 'bass' and 'treble' behave like shelving filters, at opposite extremes creating a tilt-like filter.",
             "default": {
                 "type": "float",
                 "value": "0."
@@ -76,8 +90,24 @@
     ],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_damp",
+            "display": "evi_damp"
+        },
+        {
+            "name": "evi_damp_macro",
+            "display": "evi_damp_macro"
+        },
+        {
+            "name": "evi_onepole_shelving",
+            "display": "evi_onepole_shelving"
+        },
+        {
+            "name": "evi_tone_macro",
+            "display": "evi_tone_macro"
+        },
+        {
+            "name": "evi_filter_tilt",
+            "display": "evi_filter_tilt"
         }
     ]
 }

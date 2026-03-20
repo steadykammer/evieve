@@ -3,7 +3,7 @@
         "name": "evi_overdrive_atan",
         "child": "evi.overdrive.atan~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
+        "digest": "High quality anti-aliased atan-based saturation with shape input to control overdrive",
         "description": "TEXT_HERE"
     },
     "constructor": {
@@ -18,14 +18,16 @@
             "name": "input",
             "type": "float",
             "optional": 1,
-            "digest": "Signal"
+            "digestauto": "Signal",
+            "digest": ""
         },
         {
             "id": 2,
             "name": "shape",
             "type": "float",
             "optional": 1,
-            "digest": "(linear gain 1..100) @default 1 @min 1 @max 100"
+            "digestauto": "(linear gain 1..100) @default 1 @min 1 @max 100",
+            "digest": ""
         }
     ],
     "outlets": [
@@ -34,14 +36,14 @@
             "name": "atan(x)",
             "type": "float",
             "optional": 1,
-            "digest": "Output - anti-aliased for your audio not for Maths"
+            "digest": ""
         },
         {
             "id": 2,
             "name": "reset",
             "type": "float",
             "optional": 1,
-            "digest": "(Param has changed)"
+            "digest": ""
         }
     ],
     "attributes": [

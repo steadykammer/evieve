@@ -21,7 +21,7 @@
     <geninletlist>
         <geninlet name='frequency' type='float' optional='1'>
             <digest>
-                in Hz @min 0.
+                in Hz @min 0.. 
             </digest>
         </geninlet>
     </geninletlist>

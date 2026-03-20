@@ -3,7 +3,7 @@
         "name": "evi_ladder_poles",
         "child": "evi.ladder.poles~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
+        "digest": "TPT nonlinear transistor Ladder filter emulation with switchable (interpolated) poles",
         "description": "TEXT_HERE"
     },
     "constructor": {
@@ -18,21 +18,24 @@
             "name": "audio",
             "type": "float",
             "optional": 1,
-            "digest": "In"
+            "digestauto": "In",
+            "digest": ""
         },
         {
             "id": 2,
             "name": "cutoff",
             "type": "float",
             "optional": 1,
-            "digest": "@default 81"
+            "digestauto": "@default 81",
+            "digest": ""
         },
         {
             "id": 3,
             "name": "resonance",
             "type": "float",
             "optional": 1,
-            "digest": "0..2 @default 1"
+            "digestauto": "0..2 @default 1",
+            "digest": ""
         }
     ],
     "outlets": [
@@ -41,7 +44,7 @@
             "name": "laddery",
             "type": "float",
             "optional": 1,
-            "digest": "Output"
+            "digest": ""
         }
     ],
     "attributes": [

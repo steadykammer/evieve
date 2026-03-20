@@ -3,7 +3,7 @@
         "name": "evi_ringmod",
         "child": "evi.ringmod~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
+        "digest": "Anti-aliased nonlinear analog ring modulator",
         "description": "TEXT_HERE"
     },
     "constructor": {
@@ -18,14 +18,16 @@
             "name": "audio",
             "type": "float",
             "optional": 1,
-            "digest": "Input 1"
+            "digestauto": "Input 1",
+            "digest": ""
         },
         {
             "id": 2,
             "name": "audio",
             "type": "float",
             "optional": 1,
-            "digest": "Input 2"
+            "digestauto": "Input 2",
+            "digest": ""
         }
     ],
     "outlets": [
@@ -34,7 +36,7 @@
             "name": "ring",
             "type": "float",
             "optional": 1,
-            "digest": "Modulated Output but cool sounding"
+            "digest": ""
         }
     ],
     "attributes": [

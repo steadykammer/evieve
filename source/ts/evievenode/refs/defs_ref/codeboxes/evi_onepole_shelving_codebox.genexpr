@@ -7,26 +7,26 @@
 // @see: "evi_filter_shelving.gendsp" / [evi.filter.shelving~] etc for twopoles.
 
 require("evi_rcfilters.genexpr");
-require("evi_smooth.genexpr");
+
 
 Param   smoothfreq(0., min=0, max=333);     // ms
 Param   smoothshelf(0., min=0, max=333);    // ms
 
 // "Shelf" (in3) input:
-// -1 == low or high pass, 0 == bypassed, -1..0 == shelving attenuation, 0..1 shelving boost
+// 0 == bypassed, -1..0 == shelving attenuation, 0..1 shelving boost
 
-g, k    = rcDampCoeffs2(in2, in3);
+g, k    = rcDampCoeffs1(in2, in3);
 
 if (smoothfreq > 0) {
-    g   = logsmooth(g, smoothfreq*0.001);
+    g   = evi_logsmooth(g, smoothfreq);
 }
 
 if (smoothshelf > 0) {
-    k   = expsmooth(k, smoothshelf*0.001);
+    k   = evi_expsmooth(k, smoothshelf);
 }
 
 LpHs, HpLs  = rcFilterDampLpHp(in1, g, k);
 
-out1    = LpHs;     // lowpass/highshelf
-out2    = HpLs;     // highpass/lowshelf
+out1    = LpHs;     // highshelf
+out2    = HpLs;     // lowshelf
 

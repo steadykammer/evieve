@@ -3,7 +3,7 @@
         "name": "evi_limiterfast",
         "child": "evi.limiterfast~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
+        "digest": "A fast no-lookahead limiter with anti-aliased nonlinear clipping",
         "description": "TEXT_HERE"
     },
     "constructor": {
@@ -21,14 +21,16 @@
             "name": "audio",
             "type": "float",
             "optional": 1,
-            "digest": "Input Left"
+            "digestauto": "Input Left",
+            "digest": ""
         },
         {
             "id": 2,
             "name": "audio",
             "type": "float",
             "optional": 1,
-            "digest": "Input Right"
+            "digestauto": "Input Right",
+            "digest": ""
         }
     ],
     "outlets": [
@@ -37,21 +39,21 @@
             "name": "limited",
             "type": "float",
             "optional": 1,
-            "digest": "Output Left"
+            "digest": ""
         },
         {
             "id": 2,
             "name": "limited",
             "type": "float",
             "optional": 1,
-            "digest": "Output Right"
+            "digest": ""
         },
         {
             "id": 3,
             "name": "agc",
             "type": "float",
             "optional": 1,
-            "digest": "Envelope (Linear)"
+            "digest": ""
         }
     ],
     "attributes": [

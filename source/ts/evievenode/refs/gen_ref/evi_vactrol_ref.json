@@ -16,21 +16,24 @@
             "name": "trigger",
             "type": "float",
             "optional": 1,
-            "digest": "@default 0."
+            "digestauto": "@default 0.",
+            "digest": ""
         },
         {
             "id": 2,
             "name": "rise",
             "type": "float",
             "optional": 1,
-            "digest": "@min 0 @default 20."
+            "digestauto": "@min 0 @default 20.",
+            "digest": ""
         },
         {
             "id": 3,
             "name": "fall",
             "type": "float",
             "optional": 1,
-            "digest": "@min 0 @default 3000."
+            "digestauto": "@min 0 @default 3000.",
+            "digest": ""
         }
     ],
     "outlets": [
@@ -39,7 +42,7 @@
             "name": "scaled",
             "type": "float",
             "optional": 1,
-            "digest": "Vactrol envelope"
+            "digest": ""
         }
     ],
     "attributes": [

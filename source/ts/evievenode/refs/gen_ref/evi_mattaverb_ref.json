@@ -18,14 +18,16 @@
             "name": "in",
             "type": "float",
             "optional": 1,
-            "digest": "Left"
+            "digestauto": "Left",
+            "digest": ""
         },
         {
             "id": 2,
             "name": "in",
             "type": "float",
             "optional": 1,
-            "digest": "Right"
+            "digestauto": "Right",
+            "digest": ""
         }
     ],
     "outlets": [
@@ -34,14 +36,14 @@
             "name": "rvrb",
             "type": "float",
             "optional": 1,
-            "digest": "Left"
+            "digest": ""
         },
         {
             "id": 2,
             "name": "rvrb",
             "type": "float",
             "optional": 1,
-            "digest": "Right"
+            "digest": ""
         }
     ],
     "attributes": [
