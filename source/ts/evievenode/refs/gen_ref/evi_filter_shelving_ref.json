@@ -3,8 +3,8 @@
         "name": "evi_filter_shelving",
         "child": "evi.filter.shelving~",
         "category": "evieve",
-        "digest": "A chain of two two-pole TPT shelving filters",
-        "description": "TEXT_HERE"
+        "digest": "A chain of two twopole TPT SVF High/Low shelving filters",
+        "description": "A quick one stop shop for applying classic shelving filtering using high quality linear TPT SVFs. Controls are via attributes."
     },
     "constructor": {
         "inlets": "input"
@@ -19,7 +19,7 @@
             "name": "input",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Audio input to be filtered."
         }
     ],
     "outlets": [
@@ -28,7 +28,7 @@
             "name": "shelfed",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Filtered audio output."
         }
     ],
     "attributes": [
@@ -36,7 +36,7 @@
             "name": "highcutoff",
             "type": "float",
             "digest": "@min 500, @max samplerate*0.5",
-            "description": "",
+            "description": "Highshelf cutoff frequency in Hz.",
             "default": {
                 "type": "float",
                 "value": "2000."
@@ -46,7 +46,7 @@
             "name": "highdb",
             "type": "float",
             "digest": "@min -30, @max 30",
-            "description": "",
+            "description": "Highshelf gain in dB",
             "default": {
                 "type": "float",
                 "value": "0."
@@ -56,7 +56,7 @@
             "name": "highq",
             "type": "float",
             "digest": "@min 0.05, @max 20",
-            "description": "",
+            "description": "Highshelf Q.",
             "default": {
                 "type": "float",
                 "value": "1."
@@ -66,7 +66,7 @@
             "name": "lowcutoff",
             "type": "float",
             "digest": "@min 1, @max 10000",
-            "description": "",
+            "description": "Lowshelf cutoff frequency in Hz.",
             "default": {
                 "type": "float",
                 "value": "250."
@@ -76,7 +76,7 @@
             "name": "lowdb",
             "type": "float",
             "digest": "@min -30, @max 30",
-            "description": "",
+            "description": "Lowshelf gain in dB",
             "default": {
                 "type": "float",
                 "value": "0."
@@ -86,7 +86,7 @@
             "name": "lowq",
             "type": "float",
             "digest": "@min 0.05, @max 20",
-            "description": "",
+            "description": "Lowshelf Q.",
             "default": {
                 "type": "float",
                 "value": "1."
@@ -96,7 +96,7 @@
             "name": "smooth",
             "type": "float",
             "digest": "@min 0, @max 333",
-            "description": "",
+            "description": "Smooth the mixing gains of the filter efficiently at the core of the DSP. With this TPT SVF filter this will usually be the only smoothing required. By default smoothing is on.",
             "default": {
                 "type": "float",
                 "value": "22.666"
@@ -105,8 +105,60 @@
     ],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_filter",
+            "display": "evi_filter"
+        },
+        {
+            "name": "evi_filter_eq",
+            "display": "evi_filter_eq"
+        },
+        {
+            "name": "evi_filter_morph",
+            "display": "evi_filter_morph"
+        },
+        {
+            "name": "evi_filter_allpass",
+            "display": "evi_filter_allpass"
+        },
+        {
+            "name": "evi_filter_bandpass",
+            "display": "evi_filter_bandpass"
+        },
+        {
+            "name": "evi_filter_bell",
+            "display": "evi_filter_bell"
+        },
+        {
+            "name": "evi_filter_highpass",
+            "display": "evi_filter_highpass"
+        },
+        {
+            "name": "evi_filter_highshelf",
+            "display": "evi_filter_highshelf"
+        },
+        {
+            "name": "evi_filter_lowpass",
+            "display": "evi_filter_lowpass"
+        },
+        {
+            "name": "evi_filter_lowshelf",
+            "display": "evi_filter_lowshelf"
+        },
+        {
+            "name": "evi_filter_notch",
+            "display": "evi_filter_notch"
+        },
+        {
+            "name": "evi_filter_peak",
+            "display": "evi_filter_peak"
+        },
+        {
+            "name": "evi_filter_resonant",
+            "display": "evi_filter_resonant"
+        },
+        {
+            "name": "evi_filter_tilt",
+            "display": "evi_filter_tilt"
         }
     ]
 }

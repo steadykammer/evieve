@@ -9,7 +9,7 @@
 		<b>evi.audiodust~</b> is a 'max define' for the <o>evi_audiodust</o>.gendsp gen~ abstraction.
 		Because evi.audiodust~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		<br />
-		Audio dust is a sparse random noise source driven at a given frequency. It produces 'spikes' and random amplitude and time offsets. It can be very useful as both a control signal and an audio signal. @see: 'evi_sources.genexpr' for more where this came from. <br />
+		Audio dust is a sparse random noise source driven at a given frequency. It produces 'spikes' at random amplitude and time offsets. It can be very useful as both a control signal and an audio signal. @see: 'evi_sources.genexpr' for more where this came from. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>

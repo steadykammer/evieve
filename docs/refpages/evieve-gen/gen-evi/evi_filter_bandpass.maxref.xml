@@ -13,7 +13,7 @@
          <br />
         evi_filter_bandpass is also available in MSP as: <o>evi.filter.bandpass~</o>. <br />
          <br />
-	    TEXT_HERE <br />
+	    The bandpass filter from the evieve TPT SVF collection. '...bandwidth at -3dB from center freq'. <br />
     </description>
     <methodlist />
     <constructorlist>
@@ -26,22 +26,22 @@
     <geninletlist>
         <geninlet name='input' type='float' optional='1'>
             <digest>
-                
+                Audio input to be filtered.
             </digest>
         </geninlet>
         <geninlet name='cutoff' type='float' optional='1'>
             <digest>
-                in Hz @min 1 @max samplerate*0.5. 
+                in Hz @min 1 @max samplerate*0.5. Cutoff frequency in Hz.
             </digest>
         </geninlet>
         <geninlet name='gain' type='float' optional='1'>
             <digest>
-                in dB @min -30 @max 30 @default 0. 
+                in dB @min -30 @max 30 @default 0. ± gain in dB.
             </digest>
         </geninlet>
         <geninlet name='q' type='float' optional='1'>
             <digest>
-                @min 0.05 @max 20 @default 0.707107. 
+                @min 0.05 @max 20 @default 0.707107. Q, clamped in the range 0.05..20.
             </digest>
         </geninlet>
     </geninletlist>
@@ -51,7 +51,7 @@
                 @min 0, @max 333
             </digest>
             <description>
-                
+                Smooth the mixing gains of the filter efficiently at the core of the DSP. With these TPT SVF filters this will usually be the only smoothing required. By default smoothing is off.
             </description>
             <attributelist>
                 <attribute name='default' type='float' value='0.' />
@@ -64,6 +64,19 @@
         <metadata name="tag">GenDsp</metadata>
     </metadatalist>
     <seealsolist>
-        <seealso name='' display='' type='genrefpage' />
+        <seealso name='evi_filter' display='evi_filter' type='genrefpage' />
+        <seealso name='evi_filter_eq' display='evi_filter_eq' type='genrefpage' />
+        <seealso name='evi_filter_shelving' display='evi_filter_shelving' type='genrefpage' />
+        <seealso name='evi_filter_morph' display='evi_filter_morph' type='genrefpage' />
+        <seealso name='evi_filter_allpass' display='evi_filter_allpass' type='genrefpage' />
+        <seealso name='evi_filter_bell' display='evi_filter_bell' type='genrefpage' />
+        <seealso name='evi_filter_highpass' display='evi_filter_highpass' type='genrefpage' />
+        <seealso name='evi_filter_highshelf' display='evi_filter_highshelf' type='genrefpage' />
+        <seealso name='evi_filter_lowpass' display='evi_filter_lowpass' type='genrefpage' />
+        <seealso name='evi_filter_lowshelf' display='evi_filter_lowshelf' type='genrefpage' />
+        <seealso name='evi_filter_notch' display='evi_filter_notch' type='genrefpage' />
+        <seealso name='evi_filter_peak' display='evi_filter_peak' type='genrefpage' />
+        <seealso name='evi_filter_resonant' display='evi_filter_resonant' type='genrefpage' />
+        <seealso name='evi_filter_tilt' display='evi_filter_tilt' type='genrefpage' />
     </seealsolist>
 </c74object>

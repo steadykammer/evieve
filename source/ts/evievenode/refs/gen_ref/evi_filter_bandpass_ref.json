@@ -4,7 +4,7 @@
         "child": "evi.filter.bandpass~",
         "category": "evieve",
         "digest": "TPT bandpass filter",
-        "description": "TEXT_HERE"
+        "description": "The bandpass filter from the evieve TPT SVF collection. '...bandwidth at -3dB from center freq'."
     },
     "constructor": {
         "inlets": "input, cutoff, gain, q"
@@ -19,7 +19,7 @@
             "name": "input",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Audio input to be filtered."
         },
         {
             "id": 2,
@@ -27,7 +27,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "in Hz @min 1 @max samplerate*0.5",
-            "digest": ""
+            "digest": "Cutoff frequency in Hz."
         },
         {
             "id": 3,
@@ -35,7 +35,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "in dB @min -30 @max 30 @default 0",
-            "digest": ""
+            "digest": "± gain in dB."
         },
         {
             "id": 4,
@@ -43,7 +43,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "@min 0.05 @max 20 @default 0.707107",
-            "digest": ""
+            "digest": "Q, clamped in the range 0.05..20."
         }
     ],
     "outlets": [
@@ -52,7 +52,7 @@
             "name": "bandpass",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Filtered audio output."
         }
     ],
     "attributes": [
@@ -60,7 +60,7 @@
             "name": "smooth",
             "type": "float",
             "digest": "@min 0, @max 333",
-            "description": "",
+            "description": "Smooth the mixing gains of the filter efficiently at the core of the DSP. With these TPT SVF filters this will usually be the only smoothing required. By default smoothing is off.",
             "default": {
                 "type": "float",
                 "value": "0."
@@ -69,8 +69,60 @@
     ],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_filter",
+            "display": "evi_filter"
+        },
+        {
+            "name": "evi_filter_eq",
+            "display": "evi_filter_eq"
+        },
+        {
+            "name": "evi_filter_shelving",
+            "display": "evi_filter_shelving"
+        },
+        {
+            "name": "evi_filter_morph",
+            "display": "evi_filter_morph"
+        },
+        {
+            "name": "evi_filter_allpass",
+            "display": "evi_filter_allpass"
+        },
+        {
+            "name": "evi_filter_bell",
+            "display": "evi_filter_bell"
+        },
+        {
+            "name": "evi_filter_highpass",
+            "display": "evi_filter_highpass"
+        },
+        {
+            "name": "evi_filter_highshelf",
+            "display": "evi_filter_highshelf"
+        },
+        {
+            "name": "evi_filter_lowpass",
+            "display": "evi_filter_lowpass"
+        },
+        {
+            "name": "evi_filter_lowshelf",
+            "display": "evi_filter_lowshelf"
+        },
+        {
+            "name": "evi_filter_notch",
+            "display": "evi_filter_notch"
+        },
+        {
+            "name": "evi_filter_peak",
+            "display": "evi_filter_peak"
+        },
+        {
+            "name": "evi_filter_resonant",
+            "display": "evi_filter_resonant"
+        },
+        {
+            "name": "evi_filter_tilt",
+            "display": "evi_filter_tilt"
         }
     ]
 }

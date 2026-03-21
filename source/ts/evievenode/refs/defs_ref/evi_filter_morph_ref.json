@@ -4,9 +4,9 @@
         "parent": "evi_filter_morph",
         "category": "evieve",
         "tilde": "~",
-        "digest": "TPT SVF which can morph between LP..BP..HP..NOTCH..LP",
-        "description": "TEXT_HERE",
-        "discussion": ""
+        "digest": "TPT SVF which can morph between LP..BP..HP..NOTCH..LP. A morphing version of <o>evi.svf~</o>.",
+        "description": "Twopole TPT SVF morphing filter. The filter is a single section which can morph LP..BP..HP..NOTCH..LP via 0..1 'Morph' control (inlet 5) with a single outlet.",
+        "discussion": "For more information about TPT SVFs and other filter types in evieve see the 'evieve filter' tab of the helpfile."
     },
     "metadata": {
         "author": "Pete Dowling",
@@ -20,31 +20,31 @@
             "id": 1,
             "type": "signal",
             "digest": "Input",
-            "description": ""
+            "description": "Audio input to be morph filtered."
         },
         {
             "id": 2,
             "type": "signal/float",
             "digest": "Frequency in Hz @min 1 @max samplerate*0.5 @default 1000",
-            "description": ""
+            "description": "Cutoff frequency in Hz."
         },
         {
             "id": 3,
             "type": "signal/float",
             "digest": "Gain in dB @min -30 @max 30 @default 0",
-            "description": ""
+            "description": "± gain in dB."
         },
         {
             "id": 4,
             "type": "signal/float",
             "digest": "Resonance 0..1 @min 0 @max 1 @default 0.5",
-            "description": ""
+            "description": "Filter resonance normalised 0..1"
         },
         {
             "id": 5,
             "type": "signal/float",
             "digest": "Morph 0..1 @min 0 @max 1",
-            "description": ""
+            "description": "The morph control normalised 0..1. The morphing is continuous but is actually broken up into two parts: 0..0.5 LP..BP..HP, 0.5..1 HP..NOTCH..LP."
         }
     ],
     "outlets": [
@@ -52,7 +52,7 @@
             "id": 1,
             "type": "signal",
             "digest": "Morphing Filter Output",
-            "description": ""
+            "description": "Morphed filtered audio output."
         }
     ],
     "messages": [],
@@ -61,8 +61,8 @@
             "name": "smooth",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Time in ms",
+            "description": "Smooth the mixing gains of the filter efficiently at the core of the DSP. With this TPT SVF filter this will usually be the only smoothing required. By default smoothing is on.",
             "default": {
                 "min": "0",
                 "max": "1000",
@@ -74,5 +74,20 @@
         "caption": "",
         "image": ""
     },
-    "seealso": []
+    "seealso": [
+        "evi.filter~",
+        "evi.filter.eq~",
+        "evi.filter.shelving~",
+        "evi.filter.allpass",
+        "evi.filter.bandpass~",
+        "evi.filter.bell~",
+        "evi.filter.highpass~",
+        "evi.filter.highshelf~",
+        "evi.filter.lowpass~",
+        "evi.filter.lowshelf~",
+        "evi.filter.notch~",
+        "evi.filter.peak~",
+        "evi.filter.resonant~",
+        "evi.filter.tilt~"
+    ]
 }

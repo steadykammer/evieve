@@ -5,8 +5,8 @@
         "category": "evieve",
         "tilde": "~",
         "digest": "Unique 6th order Butterworth Lowpass filter created from <o>evi.bp~</o> sections after Miller Puckette",
-        "description": "TEXT_HERE",
-        "discussion": ""
+        "description": "A smooth 6th order butterworth lowpass with very interesting properties being made up of three resonant filter sections.",
+        "discussion": "Miller Puckette devised this for his 'SMECK' project."
     },
     "metadata": {
         "author": "Pete Dowling",
@@ -20,13 +20,13 @@
             "id": 1,
             "type": "signal",
             "digest": "Input",
-            "description": ""
+            "description": "Audio input to be filtered."
         },
         {
             "id": 2,
             "type": "signal/float",
             "digest": "Cutoff in Hz @min samplerate*0.000041 @max samplerate*0.470588",
-            "description": ""
+            "description": "Cutoff frequency in Hz."
         }
     ],
     "outlets": [
@@ -34,7 +34,7 @@
             "id": 1,
             "type": "signal",
             "digest": "Bp 6-pole Butterworth Lowpass Output",
-            "description": ""
+            "description": "Filtered audio output."
         }
     ],
     "messages": [],
@@ -43,5 +43,14 @@
         "caption": "",
         "image": ""
     },
-    "seealso": []
+    "seealso": [
+        "evi.butterworthlp8~",
+        "evi.bp~",
+        "evi.vcf~",
+        "evi.filter~",
+        "evi.reson~",
+        "evi.biquadcoeff",
+        "evi.biquadcoeff~",
+        "evi.biquad.filter~"
+    ]
 }

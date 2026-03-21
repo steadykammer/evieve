@@ -4,7 +4,7 @@
         "child": "evi.gaussiannoise~",
         "category": "evieve",
         "digest": "Gaussian distributed noise approximation",
-        "description": "An approximate 'box-muller' gaussian noise distribution. It looks roughly the same as white noise in a spectral view, very slightly different in a <o>scope~</o>. In a histogram one can see the distribution. The point is the gaussian random number distribution."
+        "description": "An approximate 'Box-Muller' gaussian noise distribution. It looks roughly the same as white noise in a spectral view, very slightly different in a <o>scope~</o>. In a histogram one can see the distribution. The point is the gaussian random number distribution."
     },
     "constructor": {
         "inlets": "dummy"

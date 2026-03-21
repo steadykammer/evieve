@@ -63,25 +63,25 @@
         "seealso": [ "evi.damp~", "evi.damp.macro~", "evi.onepole.shelving~", "evi.tone.macro~", "evi.filter.tilt~" ]
     },
     "evi.biquad.filter~": {
-        "digest": "All-in-one biquad coefficient calculator and filter section",
+        "digest": "All-in-one audio rate biquad coefficients calculator and filter section. With selection of 40 different filter types.",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.biquadcoeff", "evi.biquadcoeff~", "evi.biquad.eqfilter~", "evi.biquad.butterworth~", "evi.biquad.analog~", "evi.biquad~", "evi.filter~" ]
     },
     "evi.biquadcoeff": {
-        "digest": "Message rate biquad coefficients calculator with selection of 40 different filter types. \n",
+        "digest": "Message rate biquad coefficients calculator with selection of 40 different filter types \n",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Abstractions" ],
         "keywords": [],
-        "seealso": [ "evi.biquadcoeff~", "evi.biquad.filter~", "evi.biquad~" ]
+        "seealso": [ "evi.biquadcoeff~", "evi.biquad.filter~", "evi.biquad.eqfilter~", "evi.biquad.butterworth~", "evi.biquad.analog~", "evi.biquad~", "evi.weightingcoeffs", "evi.filter~" ]
     },
     "evi.biquadcoeff~": {
-        "digest": "Signal rate biquad coefficient calculator with 40 available filter types",
+        "digest": "Audio rate biquad coefficients calculator with selection of 40 different filter types.",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.biquadcoeff", "evi.biquad.filter~", "evi.biquad.eqfilter~", "evi.biquad.butterworth~", "evi.biquad.analog~", "evi.biquad~", "evi.weightingcoeffs", "evi.filter~" ]
     },
     "evi.blitwaves~": {
         "digest": "No aliasing BLIT oscillators with a choice of simultaneous wave shapes outputs",
@@ -95,14 +95,14 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.butterworthlp8~", "evi.bp~", "evi.vcf~", "evi.filter~", "evi.reson~", "evi.biquadcoeff", "evi.biquadcoeff~", "evi.biquad.filter~" ]
     },
     "evi.butterworthlp8~": {
-        "digest": "TPT variable order Butterworth Lowpass filter",
+        "digest": "Variable order TPT Butterworth Lowpass filter",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.butterworthlp6~", "evi.filter~", "evi.biquad.butterworth~" ]
     },
     "evi.cfsmooth~": {
         "digest": "Signal smoother particularly well suited to smoothing cutoff frequencies",
@@ -217,32 +217,32 @@
         "seealso": [ "evi.korgms10~", "evi.korgms20~", "evi.korgms20.select~" ]
     },
     "evi.eq3stereo~": {
-        "digest": "Stereo TPT 3-band EQ with signal rate modulation of all parameters",
+        "digest": "Stereo TPT 3-band EQ with audio rate modulation of all parameters",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.eq3~", "evi.eq5~", "evi.eq8~", "evi.filter.eq~" ]
     },
     "evi.eq3~": {
-        "digest": "Mono TPT 3-band EQ with signal rate modulation of all parameters",
+        "digest": "Mono TPT 3-band EQ with audio rate modulation of all parameters",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.eq3stereo~", "evi.eq5~", "evi.eq8~", "evi.filter.eq~" ]
     },
     "evi.eq5~": {
-        "digest": "5-band TPT EQ with parameter rate control of all attributes",
+        "digest": "5-band TPT EQ with message rate control of all parameters",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.eq3~", "evi.eq3stereo~", "evi.eq8~", "evi.filter.eq~" ]
     },
     "evi.eq8~": {
-        "digest": "8-band TPT EQ with parameter rate control of all attributes",
+        "digest": "8-band TPT EQ with message rate control of all parameters",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.eq3~", "evi.eq3stereo~", "evi.eq5~", "evi.filter.eq~" ]
     },
     "evi.expsmooth~": {
         "digest": "Exponential signal smoother",
@@ -256,105 +256,105 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.filter~", "evi.filter.eq~", "evi.filter.shelving~", "evi.filter.morph~", "evi.filter.bandpass~", "evi.filter.bell~", "evi.filter.highpass~", "evi.filter.highshelf~", "evi.filter.lowpass~", "evi.filter.lowshelf~", "evi.filter.notch~", "evi.filter.peak~", "evi.filter.resonant~", "evi.filter.tilt~" ]
     },
     "evi.filter.bandpass~": {
         "digest": "TPT bandpass filter",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.filter~", "evi.filter.eq~", "evi.filter.shelving~", "evi.filter.morph~", "evi.filter.allpass", "evi.filter.bell~", "evi.filter.highpass~", "evi.filter.highshelf~", "evi.filter.lowpass~", "evi.filter.lowshelf~", "evi.filter.notch~", "evi.filter.peak~", "evi.filter.resonant~", "evi.filter.tilt~" ]
     },
     "evi.filter.bell~": {
         "digest": "TPT peak/notch filter",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.filter~", "evi.filter.eq~", "evi.filter.shelving~", "evi.filter.morph~", "evi.filter.allpass", "evi.filter.bandpass~", "evi.filter.highpass~", "evi.filter.highshelf~", "evi.filter.lowpass~", "evi.filter.lowshelf~", "evi.filter.notch~", "evi.filter.peak~", "evi.filter.resonant~", "evi.filter.tilt~" ]
     },
     "evi.filter.eq~": {
         "digest": "EQ type TPT filters with a choice of 7 filters",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.filter~", "evi.filter.shelving~", "evi.filter.morph~", "evi.filter.allpass", "evi.filter.bandpass~", "evi.filter.bell~", "evi.filter.highpass~", "evi.filter.highshelf~", "evi.filter.lowpass~", "evi.filter.lowshelf~", "evi.filter.notch~", "evi.filter.peak~", "evi.filter.resonant~", "evi.filter.tilt~" ]
     },
     "evi.filter.highpass~": {
         "digest": "TPT highpass filter",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.filter~", "evi.filter.eq~", "evi.filter.shelving~", "evi.filter.morph~", "evi.filter.allpass", "evi.filter.bandpass~", "evi.filter.bell~", "evi.filter.highshelf~", "evi.filter.lowpass~", "evi.filter.lowshelf~", "evi.filter.notch~", "evi.filter.peak~", "evi.filter.resonant~", "evi.filter.tilt~" ]
     },
     "evi.filter.highshelf~": {
         "digest": "TPT highshelf filter",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.filter~", "evi.filter.eq~", "evi.filter.shelving~", "evi.filter.morph~", "evi.filter.allpass", "evi.filter.bandpass~", "evi.filter.bell~", "evi.filter.highpass~", "evi.filter.lowpass~", "evi.filter.lowshelf~", "evi.filter.notch~", "evi.filter.peak~", "evi.filter.resonant~", "evi.filter.tilt~" ]
     },
     "evi.filter.lowpass~": {
         "digest": "TPT lowpass filter",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.filter~", "evi.filter.eq~", "evi.filter.shelving~", "evi.filter.morph~", "evi.filter.allpass", "evi.filter.bandpass~", "evi.filter.bell~", "evi.filter.highpass~", "evi.filter.highshelf~", "evi.filter.lowshelf~", "evi.filter.notch~", "evi.filter.peak~", "evi.filter.resonant~", "evi.filter.tilt~" ]
     },
     "evi.filter.lowshelf~": {
         "digest": "TPT lowshelf filter",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.filter~", "evi.filter.eq~", "evi.filter.shelving~", "evi.filter.morph~", "evi.filter.allpass", "evi.filter.bandpass~", "evi.filter.bell~", "evi.filter.highpass~", "evi.filter.highshelf~", "evi.filter.lowpass~", "evi.filter.notch~", "evi.filter.peak~", "evi.filter.resonant~", "evi.filter.tilt~" ]
     },
     "evi.filter.morph~": {
-        "digest": "TPT SVF which can morph between LP..BP..HP..NOTCH..LP",
+        "digest": "TPT SVF which can morph between LP..BP..HP..NOTCH..LP. A morphing version of evi.svf~.",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.filter~", "evi.filter.eq~", "evi.filter.shelving~", "evi.filter.allpass", "evi.filter.bandpass~", "evi.filter.bell~", "evi.filter.highpass~", "evi.filter.highshelf~", "evi.filter.lowpass~", "evi.filter.lowshelf~", "evi.filter.notch~", "evi.filter.peak~", "evi.filter.resonant~", "evi.filter.tilt~" ]
     },
     "evi.filter.notch~": {
         "digest": "TPT notch filter",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.filter~", "evi.filter.eq~", "evi.filter.shelving~", "evi.filter.morph~", "evi.filter.allpass", "evi.filter.bandpass~", "evi.filter.bell~", "evi.filter.highpass~", "evi.filter.highshelf~", "evi.filter.lowpass~", "evi.filter.lowshelf~", "evi.filter.peak~", "evi.filter.resonant~", "evi.filter.tilt~" ]
     },
     "evi.filter.peak~": {
         "digest": "TPT peaking filter",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.filter~", "evi.filter.eq~", "evi.filter.shelving~", "evi.filter.morph~", "evi.filter.allpass", "evi.filter.bandpass~", "evi.filter.bell~", "evi.filter.highpass~", "evi.filter.highshelf~", "evi.filter.lowpass~", "evi.filter.lowshelf~", "evi.filter.notch~", "evi.filter.resonant~", "evi.filter.tilt~" ]
     },
     "evi.filter.resonant~": {
         "digest": "TPT resonant filter",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.reson~", "evi.filter~", "evi.filter.eq~", "evi.filter.shelving~", "evi.filter.morph~", "evi.filter.allpass", "evi.filter.bandpass~", "evi.filter.bell~", "evi.filter.highpass~", "evi.filter.highshelf~", "evi.filter.lowpass~", "evi.filter.lowshelf~", "evi.filter.notch~", "evi.filter.peak~", "evi.filter.tilt~" ]
     },
     "evi.filter.shelving~": {
-        "digest": "A chain of two two-pole TPT shelving filters",
+        "digest": "A chain of two twopole TPT SVF High/Low shelving filters",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.filter~", "evi.filter.eq~", "evi.filter.morph~", "evi.filter.allpass", "evi.filter.bandpass~", "evi.filter.bell~", "evi.filter.highpass~", "evi.filter.highshelf~", "evi.filter.lowpass~", "evi.filter.lowshelf~", "evi.filter.notch~", "evi.filter.peak~", "evi.filter.resonant~", "evi.filter.tilt~" ]
     },
     "evi.filter.tilt~": {
         "digest": "TPT tilt filter",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.filter~", "evi.filter.eq~", "evi.filter.shelving~", "evi.filter.morph~", "evi.filter.allpass", "evi.filter.bandpass~", "evi.filter.bell~", "evi.filter.highpass~", "evi.filter.highshelf~", "evi.filter.lowpass~", "evi.filter.lowshelf~", "evi.filter.notch~", "evi.filter.peak~", "evi.filter.resonant~" ]
     },
     "evi.filter~": {
-        "digest": "All-in-one TPT filter section with a choice of 12 filters",
+        "digest": "All-in-one TPT twopole filter section with a choice of 12 different filter types",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.filter.eq~", "evi.filter.shelving~", "evi.filter.morph~", "evi.filter.allpass", "evi.filter.bandpass~", "evi.filter.bell~", "evi.filter.highpass~", "evi.filter.highshelf~", "evi.filter.lowpass~", "evi.filter.lowshelf~", "evi.filter.notch~", "evi.filter.peak~", "evi.filter.resonant~", "evi.filter.tilt~" ]
     },
     "evi.flanger.digital~": {
         "digest": "A basic two-stage Flanger effect with saturation",
@@ -952,11 +952,11 @@
         "seealso": [ "evi.audiodust~", "evi.gaussiannoise~", "evi.velvetnoise~", "evi.zeroxoscnoise~", "evi.randy~", "evi.phasor0~", "evi.ramp0~" ]
     },
     "evi.zeroxoscnoise~": {
-        "digest": "An automatic crossfading oscillators / noise source via audio analysis, used in vocoders",
+        "digest": "An automatic crossfading oscillators / noise source via audio analysis, e.g. used in vocoders",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": [ "evi.audiodust~", "evi.gaussiannoise~", "evi.velvetnoise~", "evi.zeroxcount~", "evi.randy~", "evi.blitwaves~" ]
+        "seealso": [ "evi.blitwaves~", "evi.audiodust~", "evi.gaussiannoise~", "evi.velvetnoise~", "evi.zeroxcount~", "evi.randy~" ]
     },
     "evi.zitaverb~": {
         "digest": "True stereo FDN/algorithmic reverb based on 'zitaverb' by Fons Adriaensen \n",

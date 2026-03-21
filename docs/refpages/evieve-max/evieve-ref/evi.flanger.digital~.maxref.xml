@@ -9,7 +9,7 @@
 		<b>evi.flanger.digital~</b> is a 'max define' for the <o>evi_flanger_digital</o>.gendsp gen~ abstraction.
 		Because evi.flanger.digital~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		<br />
-		TEXT_HERE <br />
+		A basic flanger example created from classic comb filter blocks. Triangle/sine LFO types can be morphed and skewed. Multiple controls for manipulation of audio mix. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>

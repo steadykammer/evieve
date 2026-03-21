@@ -32,7 +32,7 @@
     "evi.audiodust~": {
         "type": "define",
         "digest": "Spikey sparse noise implementation",
-        "description": "evi.audiodust~ is a 'max define' for the evi_audiodust.gendsp gen~ abstraction. Because evi.audiodust~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nAudio dust is a sparse random noise source driven at a given frequency. It produces 'spikes' and random amplitude and time offsets. It can be very useful as both a control signal and an audio signal. @see: 'evi_sources.genexpr' for more where this came from."
+        "description": "evi.audiodust~ is a 'max define' for the evi_audiodust.gendsp gen~ abstraction. Because evi.audiodust~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nAudio dust is a sparse random noise source driven at a given frequency. It produces 'spikes' at random amplitude and time offsets. It can be very useful as both a control signal and an audio signal. @see: 'evi_sources.genexpr' for more where this came from."
     },
     "evi.backverb~": {
         "type": "abstraction",
@@ -46,18 +46,18 @@
     },
     "evi.biquad.filter~": {
         "type": "define",
-        "digest": "All-in-one biquad coefficient calculator and filter section",
-        "description": ""
+        "digest": "All-in-one audio rate biquad coefficients calculator and filter section. With selection of 40 different filter types.",
+        "description": "evi.biquad.filter~ is a 'max define' for the evi_biquad_filter.gendsp gen~ abstraction. Because evi.biquad.filter~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nCoefficients calculator and internal biquad filter section for all-in-one biquad filtering. High level filter parameters are frequency, gain and Q. The units used for frequency and gain can be set via attributes."
     },
     "evi.biquadcoeff": {
         "type": "abstraction",
-        "digest": "Message rate biquad coefficients calculator with selection of 40 different filter types. \n",
+        "digest": "Message rate biquad coefficients calculator with selection of 40 different filter types \n",
         "description": "evi.biquadcoeff is an efficient message rate coefficients calculator for the biquad~ (or evi.biquad~) object. It is intended to replace filtergraph~ for when you do not need a UI or you want to take advantage of the more filter types available. High level filter parameters are frequency, gain and Q. The units used for frequency and gain can be set via attributes."
     },
     "evi.biquadcoeff~": {
         "type": "define",
-        "digest": "Signal rate biquad coefficient calculator with 40 available filter types",
-        "description": ""
+        "digest": "Audio rate biquad coefficients calculator with selection of 40 different filter types.",
+        "description": "evi.biquadcoeff~ is a 'max define' for the evi_biquad_coeff.gendsp gen~ abstraction. Because evi.biquadcoeff~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nevi.biquadcoeff~ is an audio rate coefficients calculator for the biquad~ (or evi.biquad~) object. High level filter parameters are frequency, gain and Q. The units used for frequency and gain can be set via attributes."
     },
     "evi.blitwaves~": {
         "type": "define",
@@ -67,12 +67,12 @@
     "evi.butterworthlp6~": {
         "type": "define",
         "digest": "Unique 6th order Butterworth Lowpass filter created from evi.bp~ sections after Miller Puckette",
-        "description": ""
+        "description": "evi.butterworthlp6~ is a 'max define' for the evi_bp_butterworth.gendsp gen~ abstraction. Because evi.butterworthlp6~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA smooth 6th order butterworth lowpass with very interesting properties being made up of three resonant filter sections."
     },
     "evi.butterworthlp8~": {
         "type": "define",
-        "digest": "TPT variable order Butterworth Lowpass filter",
-        "description": ""
+        "digest": "Variable order TPT Butterworth Lowpass filter",
+        "description": "evi.butterworthlp8~ is a 'max define' for the evi_butterworth8.gendsp gen~ abstraction. Because evi.butterworthlp8~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nThis is a clean, linear, surgical filter but can still be updated alias-free at audio rate if required. Very useful for clean top and tail of audio chains."
     },
     "evi.cfsmooth~": {
         "type": "external",
@@ -156,23 +156,23 @@
     },
     "evi.eq3~": {
         "type": "define",
-        "digest": "Mono TPT 3-band EQ with signal rate modulation of all parameters",
-        "description": ""
+        "digest": "Mono TPT 3-band EQ with audio rate modulation of all parameters",
+        "description": "evi.eq3~ is a 'max define' for the evi_eq3.gendsp gen~ abstraction. Because evi.eq3~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA 3-band EQ made up of 3 TPT SVF EQ filters, each with selectable filter type. The feature of this EQ is that all filter parameters are available on inlets, so the whole EQ can optionally be audio rate modulated. Because this is based on TPT filters, modulation will remain clean and stable at audio rate, unlike biquads."
     },
     "evi.eq3stereo~": {
         "type": "define",
-        "digest": "Stereo TPT 3-band EQ with signal rate modulation of all parameters",
-        "description": ""
+        "digest": "Stereo TPT 3-band EQ with audio rate modulation of all parameters",
+        "description": "evi.eq3stereo~ is a 'max define' for the evi_eq3_stereo.gendsp gen~ abstraction. Because evi.eq3stereo~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA stereo 3-band EQ made up of left and right sets of 3 TPT SVF EQ filters, each with selectable filter type. The feature of this EQ is that all filter parameters are available on inlets, so the whole EQ can optionally be audio rate modulated. Because this is based on TPT filters, modulation will remain clean and stable at audio rate, unlike biquads."
     },
     "evi.eq5~": {
         "type": "define",
-        "digest": "5-band TPT EQ with parameter rate control of all attributes",
-        "description": ""
+        "digest": "5-band TPT EQ with message rate control of all parameters",
+        "description": "evi.eq5~ is a 'max define' for the evi_eq5.gendsp gen~ abstraction. Because evi.eq5~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA 5-band parametric EQ made up of 5 TPT SVF EQ filters, each with selectable filter type. Parameter changes can optionally be smoothed."
     },
     "evi.eq8~": {
         "type": "define",
-        "digest": "8-band TPT EQ with parameter rate control of all attributes",
-        "description": ""
+        "digest": "8-band TPT EQ with message rate control of all parameters",
+        "description": "evi.eq8~ is a 'max define' for the evi_eq8.gendsp gen~ abstraction. Because evi.eq8~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nAn 8-band parametric EQ made up of 8 TPT SVF EQ filters, each with selectable filter type. Parameter changes can optionally be smoothed."
     },
     "evi.expsmooth~": {
         "type": "external",
@@ -182,82 +182,82 @@
     "evi.filter.allpass~": {
         "type": "define",
         "digest": "TPT allpass filter",
-        "description": ""
+        "description": "evi.filter.allpass~ is a 'max define' for the evi_filter_allpass.gendsp gen~ abstraction. Because evi.filter.allpass~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nThe allpass filter from the evieve TPT SVF collection. An allpass filter 'roughly determines a 90 degree transition in phase on either side of center frequency'. Note there is no gain control in this filter."
     },
     "evi.filter.bandpass~": {
         "type": "define",
         "digest": "TPT bandpass filter",
-        "description": ""
+        "description": "evi.filter.bandpass~ is a 'max define' for the evi_filter_bandpass.gendsp gen~ abstraction. Because evi.filter.bandpass~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nThe bandpass filter from the evieve TPT SVF collection. '...bandwidth at -3dB from center freq'."
     },
     "evi.filter.bell~": {
         "type": "define",
         "digest": "TPT peak/notch filter",
-        "description": ""
+        "description": "evi.filter.bell~ is a 'max define' for the evi_filter_bell.gendsp gen~ abstraction. Because evi.filter.bell~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nThe bell filter from the evieve TPT SVF collection. '...bandwidth at -3dB/+3dB from center freq'. Also with analog 'adaptive Q' option."
     },
     "evi.filter.eq~": {
         "type": "define",
         "digest": "EQ type TPT filters with a choice of 7 filters",
-        "description": ""
+        "description": "evi.filter.eq~ is a 'max define' for the evi_filter_eq.gendsp gen~ abstraction. Because evi.filter.eq~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nThis filter block can be switched between 7 different EQ filter types. The filter is a clean twopole TPT SVF section which can be used in place of a biquad as it has superior properties to a biquad. It is designed to be an every day patching workhorse for most EQ filtering needs. Each individual filter type can also be instantiated in it's own all-in-one block, see the 'seealso' for details. The TPT SVF is used all over evieve whenever basic EQ filtering is required."
     },
     "evi.filter.highpass~": {
         "type": "define",
         "digest": "TPT highpass filter",
-        "description": ""
+        "description": "evi.filter.highpass~ is a 'max define' for the evi_filter_highpass.gendsp gen~ abstraction. Because evi.filter.highpass~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nThe highpass filter from the evieve TPT SVF collection."
     },
     "evi.filter.highshelf~": {
         "type": "define",
         "digest": "TPT highshelf filter",
-        "description": ""
+        "description": "evi.filter.highshelf~ is a 'max define' for the evi_filter_highshelf.gendsp gen~ abstraction. Because evi.filter.highshelf~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nThe highshelf filter from the evieve TPT SVF collection. '...determining transition width at -3dB/+3dB from center freq'."
     },
     "evi.filter.lowpass~": {
         "type": "define",
         "digest": "TPT lowpass filter",
-        "description": ""
+        "description": "evi.filter.lowpass~ is a 'max define' for the evi_filter_lowpass.gendsp gen~ abstraction. Because evi.filter.lowpass~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nThe lowpass filter from the evieve TPT SVF collection."
     },
     "evi.filter.lowshelf~": {
         "type": "define",
         "digest": "TPT lowshelf filter",
-        "description": ""
+        "description": "evi.filter.lowshelf~ is a 'max define' for the evi_filter_lowshelf.gendsp gen~ abstraction. Because evi.filter.lowshelf~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nThe lowshelf filter from the evieve TPT SVF collection. '...determining transition width at -3dB/+3dB from center freq'."
     },
     "evi.filter.morph~": {
         "type": "define",
-        "digest": "TPT SVF which can morph between LP..BP..HP..NOTCH..LP",
-        "description": ""
+        "digest": "TPT SVF which can morph between LP..BP..HP..NOTCH..LP. A morphing version of evi.svf~.",
+        "description": "evi.filter.morph~ is a 'max define' for the evi_filter_morph.gendsp gen~ abstraction. Because evi.filter.morph~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nTwopole TPT SVF morphing filter. The filter is a single section which can morph LP..BP..HP..NOTCH..LP via 0..1 'Morph' control (inlet 5) with a single outlet."
     },
     "evi.filter.notch~": {
         "type": "define",
         "digest": "TPT notch filter",
-        "description": ""
+        "description": "evi.filter.notch~ is a 'max define' for the evi_filter_notch.gendsp gen~ abstraction. Because evi.filter.notch~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nThe notch filter from the evieve TPT SVF collection. '...determining bandwidth at -3dB from center freq'."
     },
     "evi.filter.peak~": {
         "type": "define",
         "digest": "TPT peaking filter",
-        "description": ""
+        "description": "evi.filter.peak~ is a 'max define' for the evi_filter_peak.gendsp gen~ abstraction. Because evi.filter.peak~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nThe peak filter from the evieve TPT SVF collection. Peak only. For peak/notch @see evi.filter.bell~."
     },
     "evi.filter.resonant~": {
         "type": "define",
         "digest": "TPT resonant filter",
-        "description": ""
+        "description": "evi.filter.resonant~ is a 'max define' for the evi_filter_resonant.gendsp gen~ abstraction. Because evi.filter.resonant~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nThe resonant filter from the evieve TPT SVF collection. '...determining bandwidth at -3dB from center freq'. For a resonant filter with more options @see evi.reson~."
     },
     "evi.filter.shelving~": {
         "type": "define",
-        "digest": "A chain of two two-pole TPT shelving filters",
-        "description": ""
+        "digest": "A chain of two twopole TPT SVF High/Low shelving filters",
+        "description": "evi.filter.shelving~ is a 'max define' for the evi_filter_shelving.gendsp gen~ abstraction. Because evi.filter.shelving~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA quick one stop shop for applying classic shelving filtering using high quality linear TPT SVFs. Controls are via attributes."
     },
     "evi.filter.tilt~": {
         "type": "define",
         "digest": "TPT tilt filter",
-        "description": ""
+        "description": "evi.filter.tilt~ is a 'max define' for the evi_filter_tilt.gendsp gen~ abstraction. Because evi.filter.tilt~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nThe tilt filter from the evieve TPT SVF collection. A tilt filter is a special type of shelf: negative dB boosts low and attenuates high frequencies, positive dB boosts high and attenuates low frequencies."
     },
     "evi.filter~": {
         "type": "define",
-        "digest": "All-in-one TPT filter section with a choice of 12 filters",
-        "description": ""
+        "digest": "All-in-one TPT twopole filter section with a choice of 12 different filter types",
+        "description": "evi.filter~ is a 'max define' for the evi_filter.gendsp gen~ abstraction. Because evi.filter~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nThis filter block can be switched between 12 different filter types. The filter is a clean twopole TPT SVF section which can be used in place of a biquad as it has superior properties to a biquad. It is designed to be an every day patching workhorse for most linear filtering needs. Each individual filter type can also be instantiated in it's own all-in-one block, see the 'seealso' for details. The TPT SVF is used all over evieve whenever basic filtering is required."
     },
     "evi.flanger.digital~": {
         "type": "define",
         "digest": "A basic two-stage Flanger effect with saturation",
-        "description": ""
+        "description": "evi.flanger.digital~ is a 'max define' for the evi_flanger_digital.gendsp gen~ abstraction. Because evi.flanger.digital~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA basic flanger example created from classic comb filter blocks. Triangle/sine LFO types can be morphed and skewed. Multiple controls for manipulation of audio mix."
     },
     "evi.formantfilter.morph~": {
         "type": "abstraction",
@@ -297,7 +297,7 @@
     "evi.gaussiannoise~": {
         "type": "define",
         "digest": "Gaussian distributed noise approximation",
-        "description": "evi.gaussiannoise~ is a 'max define' for the evi_gaussiannoise.gendsp gen~ abstraction. Because evi.gaussiannoise~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nAn approximate 'box-muller' gaussian noise distribution. It looks roughly the same as white noise in a spectral view, very slightly different in a scope~. In a histogram one can see the distribution. The point is the gaussian random number distribution."
+        "description": "evi.gaussiannoise~ is a 'max define' for the evi_gaussiannoise.gendsp gen~ abstraction. Because evi.gaussiannoise~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nAn approximate 'Box-Muller' gaussian noise distribution. It looks roughly the same as white noise in a spectral view, very slightly different in a scope~. In a histogram one can see the distribution. The point is the gaussian random number distribution."
     },
     "evi.gigaverb~": {
         "type": "abstraction",
@@ -681,8 +681,8 @@
     },
     "evi.zeroxoscnoise~": {
         "type": "define",
-        "digest": "An automatic crossfading oscillators / noise source via audio analysis, used in vocoders",
-        "description": ""
+        "digest": "An automatic crossfading oscillators / noise source via audio analysis, e.g. used in vocoders",
+        "description": "evi.zeroxoscnoise~ is a 'max define' for the evi_zeroxoscnoise.gendsp gen~ abstraction. Because evi.zeroxoscnoise~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nThis object produces a mix of bandlimited oscillators and coloured noise via an envelope created by a zerocrossing detector on the audio input. This is a classic source for a vocoder type effect, but is also a very interesting audio source in it's own right. The type of oscillator and the type of noise can be morphed in realtime. The default oscillator is a non-bandlimited train pulse for glottal excitation, but using the other bandlimited oscillators gives a solid synth like source. The noise types morph between sparse (dust), velvet and gaussian (almost white). The envelope produced by the audio input zero crossings is smoothed from linear to vactrol like control shapes."
     },
     "evi.zitaverb~": {
         "type": "abstraction",

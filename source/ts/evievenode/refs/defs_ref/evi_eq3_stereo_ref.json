@@ -4,9 +4,9 @@
         "parent": "evi_eq3_stereo",
         "category": "evieve",
         "tilde": "~",
-        "digest": "Stereo TPT 3-band EQ with signal rate modulation of all parameters",
-        "description": "TEXT_HERE",
-        "discussion": ""
+        "digest": "Stereo TPT 3-band EQ with audio rate modulation of all parameters",
+        "description": "A stereo 3-band EQ made up of left and right sets of 3 TPT SVF EQ filters, each with selectable filter type. The feature of this EQ is that all filter parameters are available on inlets, so the whole EQ can optionally be audio rate modulated. Because this is based on TPT filters, modulation will remain clean and stable at audio rate, unlike biquads.",
+        "discussion": "For more information about TPT SVFs and other filter types in evieve see the 'evieve filter' tab of the helpfile."
     },
     "metadata": {
         "author": "Pete Dowling",
@@ -20,67 +20,67 @@
             "id": 1,
             "type": "signal",
             "digest": "Input Left",
-            "description": ""
+            "description": "Left audio input to be EQ-ed."
         },
         {
             "id": 2,
             "type": "signal",
             "digest": "Input Right",
-            "description": ""
+            "description": "Right audio input to be EQ-ed."
         },
         {
             "id": 3,
             "type": "signal/float",
             "digest": "freq 1 @min 10 @max 18000 @default 250",
-            "description": ""
+            "description": "Band 1 frequency in Hz."
         },
         {
             "id": 4,
             "type": "signal/float",
             "digest": "dB 1 @min -24 @max 24 @default 0",
-            "description": ""
+            "description": "Band 1 gain in dB."
         },
         {
             "id": 5,
             "type": "signal/float",
             "digest": "Q 1 @min 0.1 @max 18 @default 1",
-            "description": ""
+            "description": "Band 1 Q."
         },
         {
             "id": 6,
             "type": "signal/float",
             "digest": "freq 2 @min 10 @max 18000 @default 1000",
-            "description": ""
+            "description": "Band 2 frequency in Hz."
         },
         {
             "id": 7,
             "type": "signal/float",
             "digest": "dB 2 @min -24 @max 24 @default 0",
-            "description": ""
+            "description": "Band 2 gain in dB."
         },
         {
             "id": 8,
             "type": "signal/float",
             "digest": "Q 2 @min 0.1 @max 18 @default 0.707107",
-            "description": ""
+            "description": "Band 2 Q."
         },
         {
             "id": 9,
             "type": "signal/float",
             "digest": "freq 3 @min 10 @max 18000 @default 4000",
-            "description": ""
+            "description": "Band 3 frequency in Hz."
         },
         {
             "id": 10,
             "type": "signal/float",
             "digest": "dB 3 @min -24 @max 24 @default 0",
-            "description": ""
+            "description": "Band 3 gain in dB."
         },
         {
             "id": 11,
             "type": "signal/float",
             "digest": "Q 3 @min 0.1 @max 18 @default 1",
-            "description": ""
+            "description": "Band 3 Q."
         }
     ],
     "outlets": [
@@ -88,13 +88,13 @@
             "id": 1,
             "type": "signal",
             "digest": "3 bands EQ Output Left",
-            "description": ""
+            "description": "Left EQ-ed audio output."
         },
         {
             "id": 2,
             "type": "signal",
             "digest": "3 bands EQ Output Right",
-            "description": ""
+            "description": "Right EQ-ed audio output."
         }
     ],
     "messages": [],
@@ -103,8 +103,8 @@
             "name": "band1filter",
             "get": 1,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "0..7",
+            "description": "Band 1 filter type by integer index: 0=Bypass, 1=Highpass, 2=Lowshelf, 3=Bell, 4=BellAdaptiveQ, 5=Notch, 6=Highshelf, 7=Lowpass",
             "default": {
                 "min": "0",
                 "max": "7",
@@ -115,8 +115,8 @@
             "name": "band2filter",
             "get": 1,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "0..7",
+            "description": "Band 2 filter type by integer index: 0=Bypass, 1=Highpass, 2=Lowshelf, 3=Bell, 4=BellAdaptiveQ, 5=Notch, 6=Highshelf, 7=Lowpass",
             "default": {
                 "min": "0",
                 "max": "7",
@@ -127,8 +127,8 @@
             "name": "band3filter",
             "get": 1,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "0..7",
+            "description": "Band 3 filter type by integer index: 0=Bypass, 1=Highpass, 2=Lowshelf, 3=Bell, 4=BellAdaptiveQ, 5=Notch, 6=Highshelf, 7=Lowpass",
             "default": {
                 "min": "0",
                 "max": "7",
@@ -139,8 +139,8 @@
             "name": "smooth",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Time in ms",
+            "description": "Smooth the mixing gains of the filters efficiently at the core of the DSP. With these TPT SVF filters this will usually be the only smoothing required. Smoothing can be turned off if audio rate modulating all inputs.",
             "default": {
                 "min": "0",
                 "max": "333",
@@ -152,5 +152,10 @@
         "caption": "",
         "image": ""
     },
-    "seealso": []
+    "seealso": [
+        "evi.eq3~",
+        "evi.eq5~",
+        "evi.eq8~",
+        "evi.filter.eq~"
+    ]
 }

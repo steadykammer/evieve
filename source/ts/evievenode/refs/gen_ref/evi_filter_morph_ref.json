@@ -3,8 +3,8 @@
         "name": "evi_filter_morph",
         "child": "evi.filter.morph~",
         "category": "evieve",
-        "digest": "TPT SVF which can morph between LP..BP..HP..NOTCH..LP",
-        "description": "TEXT_HERE"
+        "digest": "TPT SVF which can morph between LP..BP..HP..NOTCH..LP. A morphing version of <o>evi.svf~</o>.",
+        "description": "Twopole TPT SVF morphing filter. The filter is a single section which can morph LP..BP..HP..NOTCH..LP via 0..1 'Morph' control (inlet 5) with a single outlet."
     },
     "constructor": {
         "inlets": "input, frequency, gain, resonance, morph"
@@ -19,7 +19,7 @@
             "name": "input",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Audio input to be morph filtered."
         },
         {
             "id": 2,
@@ -27,7 +27,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "in Hz @min 1 @max samplerate*0.5 @default 1000",
-            "digest": ""
+            "digest": "Cutoff frequency in Hz."
         },
         {
             "id": 3,
@@ -35,7 +35,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "in dB @min -30 @max 30 @default 0",
-            "digest": ""
+            "digest": "± gain in dB."
         },
         {
             "id": 4,
@@ -43,7 +43,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "0..1 @min 0 @max 1 @default 0.5",
-            "digest": ""
+            "digest": "Filter resonance normalised 0..1"
         },
         {
             "id": 5,
@@ -51,7 +51,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "0..1 @min 0 @max 1",
-            "digest": ""
+            "digest": "The morph control normalised 0..1. The morphing is continuous but is actually broken up into two parts: 0..0.5 LP..BP..HP, 0.5..1 HP..NOTCH..LP."
         }
     ],
     "outlets": [
@@ -60,7 +60,7 @@
             "name": "morphing",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Morphed filtered audio output."
         }
     ],
     "attributes": [
@@ -68,7 +68,7 @@
             "name": "smooth",
             "type": "float",
             "digest": "@min 0, @max 1000",
-            "description": "",
+            "description": "Smooth the mixing gains of the filter efficiently at the core of the DSP. With this TPT SVF filter this will usually be the only smoothing required. By default smoothing is on.",
             "default": {
                 "type": "float",
                 "value": "22.666"
@@ -77,8 +77,60 @@
     ],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_filter",
+            "display": "evi_filter"
+        },
+        {
+            "name": "evi_filter_eq",
+            "display": "evi_filter_eq"
+        },
+        {
+            "name": "evi_filter_shelving",
+            "display": "evi_filter_shelving"
+        },
+        {
+            "name": "evi_filter_allpass",
+            "display": "evi_filter_allpass"
+        },
+        {
+            "name": "evi_filter_bandpass",
+            "display": "evi_filter_bandpass"
+        },
+        {
+            "name": "evi_filter_bell",
+            "display": "evi_filter_bell"
+        },
+        {
+            "name": "evi_filter_highpass",
+            "display": "evi_filter_highpass"
+        },
+        {
+            "name": "evi_filter_highshelf",
+            "display": "evi_filter_highshelf"
+        },
+        {
+            "name": "evi_filter_lowpass",
+            "display": "evi_filter_lowpass"
+        },
+        {
+            "name": "evi_filter_lowshelf",
+            "display": "evi_filter_lowshelf"
+        },
+        {
+            "name": "evi_filter_notch",
+            "display": "evi_filter_notch"
+        },
+        {
+            "name": "evi_filter_peak",
+            "display": "evi_filter_peak"
+        },
+        {
+            "name": "evi_filter_resonant",
+            "display": "evi_filter_resonant"
+        },
+        {
+            "name": "evi_filter_tilt",
+            "display": "evi_filter_tilt"
         }
     ]
 }

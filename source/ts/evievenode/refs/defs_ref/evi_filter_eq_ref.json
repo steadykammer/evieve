@@ -5,8 +5,8 @@
         "category": "evieve",
         "tilde": "~",
         "digest": "EQ type TPT filters with a choice of 7 filters",
-        "description": "TEXT_HERE",
-        "discussion": ""
+        "description": "This filter block can be switched between 7 different EQ filter types. The filter is a clean twopole TPT SVF section which can be used in place of a biquad as it has superior properties to a biquad. It is designed to be an every day patching workhorse for most EQ filtering needs. Each individual filter type can also be instantiated in it's own all-in-one block, see the 'seealso' for details. The TPT SVF is used all over evieve whenever basic EQ filtering is required.",
+        "discussion": "For a complete list of the available filter types (by index) double-click the abstraction and look at the comments at the top of the code block. For more information about TPT SVFs and other filter types in evieve see the 'evieve filter' tab of the helpfile."
     },
     "metadata": {
         "author": "Pete Dowling",
@@ -20,25 +20,25 @@
             "id": 1,
             "type": "signal",
             "digest": "Input",
-            "description": ""
+            "description": "Audio input to be filtered."
         },
         {
             "id": 2,
             "type": "signal/float",
             "digest": "Cutoff in Hz @min 1 @max samplerate*0.5",
-            "description": ""
+            "description": "Cutoff frequency in Hz of the selected filter type."
         },
         {
             "id": 3,
             "type": "signal/float",
             "digest": "Gain in dB @min -30 @max 30 @default 0",
-            "description": ""
+            "description": "± gain in dB of the selected filter type."
         },
         {
             "id": 4,
             "type": "signal/float",
             "digest": "Q @min 0.05 @max 20 @default 0.707107",
-            "description": ""
+            "description": "Q, clamped in the range 0.05..20."
         }
     ],
     "outlets": [
@@ -46,7 +46,7 @@
             "id": 1,
             "type": "signal",
             "digest": "EQ Filter Output",
-            "description": ""
+            "description": "Filtered audio output."
         }
     ],
     "messages": [],
@@ -56,7 +56,7 @@
             "get": 1,
             "type": "int",
             "digest": "",
-            "description": "",
+            "description": "Set the filter type by integer index: 0=Bypass, 1=Highpass, 2=Lowshelf, 3=Bell (default), 4=BellAdaptiveQ, 5=Notch, 6=Highshelf, 7=Lowpass",
             "default": {
                 "min": "0",
                 "max": "7",
@@ -67,8 +67,8 @@
             "name": "smooth",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Time in ms",
+            "description": "Smooth the mixing gains of the filter efficiently at the core of the DSP. With these TPT SVF filters this will usually be the only smoothing required. By default smoothing is off.",
             "default": {
                 "min": "0",
                 "max": "333",
@@ -80,5 +80,20 @@
         "caption": "",
         "image": ""
     },
-    "seealso": []
+    "seealso": [
+        "evi.filter~",
+        "evi.filter.shelving~",
+        "evi.filter.morph~",
+        "evi.filter.allpass",
+        "evi.filter.bandpass~",
+        "evi.filter.bell~",
+        "evi.filter.highpass~",
+        "evi.filter.highshelf~",
+        "evi.filter.lowpass~",
+        "evi.filter.lowshelf~",
+        "evi.filter.notch~",
+        "evi.filter.peak~",
+        "evi.filter.resonant~",
+        "evi.filter.tilt~"
+    ]
 }

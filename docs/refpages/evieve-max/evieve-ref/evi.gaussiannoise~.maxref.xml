@@ -9,7 +9,7 @@
 		<b>evi.gaussiannoise~</b> is a 'max define' for the <o>evi_gaussiannoise</o>.gendsp gen~ abstraction.
 		Because evi.gaussiannoise~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		<br />
-		An approximate 'box-muller' gaussian noise distribution. It looks roughly the same as white noise in a spectral view, very slightly different in a <o>scope~</o>. In a histogram one can see the distribution. The point is the gaussian random number distribution. <br />
+		An approximate 'Box-Muller' gaussian noise distribution. It looks roughly the same as white noise in a spectral view, very slightly different in a <o>scope~</o>. In a histogram one can see the distribution. The point is the gaussian random number distribution. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>

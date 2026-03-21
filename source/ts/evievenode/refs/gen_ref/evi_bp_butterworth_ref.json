@@ -4,7 +4,7 @@
         "child": "evi.butterworthlp6~",
         "category": "evieve",
         "digest": "Unique 6th order Butterworth Lowpass filter created from <o>evi.bp~</o> sections after Miller Puckette",
-        "description": "TEXT_HERE"
+        "description": "A smooth 6th order butterworth lowpass with very interesting properties being made up of three resonant filter sections."
     },
     "constructor": {
         "inlets": "input, cutoff"
@@ -19,7 +19,7 @@
             "name": "input",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Audio input to be filtered."
         },
         {
             "id": 2,
@@ -27,7 +27,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "in Hz @min samplerate*0.000041 @max samplerate*0.470588",
-            "digest": ""
+            "digest": "Cutoff frequency in Hz."
         }
     ],
     "outlets": [
@@ -36,14 +36,26 @@
             "name": "bp",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Filtered audio output."
         }
     ],
     "attributes": [],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_bp",
+            "display": "evi_bp"
+        },
+        {
+            "name": "evi_filter",
+            "display": "evi_filter"
+        },
+        {
+            "name": "evi_reson",
+            "display": "evi_reson"
+        },
+        {
+            "name": "evi_biquad_filter",
+            "display": "evi_biquad_filter"
         }
     ]
 }

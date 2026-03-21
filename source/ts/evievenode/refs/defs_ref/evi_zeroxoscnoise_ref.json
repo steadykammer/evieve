@@ -4,8 +4,8 @@
         "parent": "evi_zeroxoscnoise",
         "category": "evieve",
         "tilde": "~",
-        "digest": "An automatic crossfading oscillators / noise source via audio analysis, used in vocoders",
-        "description": "TEXT_HERE",
+        "digest": "An automatic crossfading oscillators / noise source via audio analysis, e.g. used in vocoders",
+        "description": "This object produces a mix of bandlimited oscillators and coloured noise via an envelope created by a zerocrossing detector on the audio input. This is a classic source for a vocoder type effect, but is also a very interesting audio source in it's own right. The type of oscillator and the type of noise can be morphed in realtime. The default oscillator is a non-bandlimited train pulse for glottal excitation, but using the other bandlimited oscillators gives a solid synth like source. The noise types morph between sparse (dust), velvet and gaussian (almost white). The envelope produced by the audio input zero crossings is smoothed from linear to vactrol like control shapes.",
         "discussion": ""
     },
     "metadata": {
@@ -22,31 +22,31 @@
             "id": 1,
             "type": "signal",
             "digest": "Audio Input for Analysis",
-            "description": ""
+            "description": "The audio input for which we detect zero crossings."
         },
         {
             "id": 2,
             "type": "signal/float",
             "digest": "Oscillators Frequency in Hz @min 0 @max 8373",
-            "description": ""
+            "description": "Fundamental frequency of the oscillators."
         },
         {
             "id": 3,
             "type": "signal/float",
             "digest": "Oscillators PW 0..1 @min 0 @max 1 @default 0.5",
-            "description": ""
+            "description": "Pulse width of the oscillators (for train, rect, tri)"
         },
         {
             "id": 4,
             "type": "signal/float",
             "digest": "Oscillators Mix 0..1 @min 0 @max 1 @default 0.167",
-            "description": ""
+            "description": "Mix 0..1 morphs between zero..Train..Rect..Saw..Tri..Sine..zero"
         },
         {
             "id": 5,
             "type": "signal/float",
             "digest": "Noise Mix 0..1 @min 0 @max 1",
-            "description": ""
+            "description": "Mix 0..1 morphs between sparse..velvet..gaussian"
         }
     ],
     "outlets": [
@@ -54,37 +54,37 @@
             "id": 1,
             "type": "signal",
             "digest": "Audio Output for Resynthesis",
-            "description": ""
+            "description": "Osc/Noise source output via interpolation envelope."
         },
         {
             "id": 2,
             "type": "signal",
             "digest": "Just Oscillator",
-            "description": ""
+            "description": "Oscillators output (no env)"
         },
         {
             "id": 3,
             "type": "signal",
             "digest": "Just Noise",
-            "description": ""
+            "description": "Noise output (no env)."
         },
         {
             "id": 4,
             "type": "signal",
             "digest": "Oscillator Sync",
-            "description": ""
+            "description": "Phase sync of oscillators source."
         },
         {
             "id": 5,
             "type": "signal",
             "digest": "Number of Zero Crossings",
-            "description": ""
+            "description": "Zero crossing detector output."
         },
         {
             "id": 6,
             "type": "signal",
             "digest": "Env",
-            "description": ""
+            "description": "Internal envelope out that is used to cross between noise and oscillators internally."
         }
     ],
     "messages": [],
@@ -93,8 +93,8 @@
             "name": "damppitchhigh",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Pitch",
+            "description": "The high point in pitch at which the automatic damping filter in the noise source starts to take effect. Automatic damping is based on the zero crossing envelope detection.",
             "default": {
                 "min": "24",
                 "max": "125",
@@ -105,8 +105,8 @@
             "name": "damppitchlow",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Pitch",
+            "description": "The low point in pitch at which the automatic damping filter in the noise source can reach. Automatic damping is based on the zero crossing envelope detection.",
             "default": {
                 "min": "12",
                 "max": "103",
@@ -117,7 +117,7 @@
             "name": "envrelease",
             "get": 1,
             "type": "float",
-            "digest": "",
+            "digest": "Multiplier 1..10. Extend the length of the automatic envelope decay by this multiplier.",
             "description": "",
             "default": {
                 "min": "1",
@@ -129,8 +129,8 @@
             "name": "envresponse",
             "get": 1,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "0..4",
+            "description": "The type of envelope shape the automatic envelope uses. 0=off (valid for turning off the noise), 1=linear, 2=log (default), 3=vactrol fast, 4=vactrol slow. Linear is an exact destination ramp. Log and vactrols are inexact analog release stages.",
             "default": {
                 "min": "0",
                 "max": "4",
@@ -141,8 +141,8 @@
             "name": "envslope",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Multiplier 0.1..10",
+            "description": "Multiplier 0.1..10. Contract or extend the length of the automatic envelope attack/decay times by this multiplier.",
             "default": {
                 "min": "0.1",
                 "max": "10",
@@ -153,8 +153,8 @@
             "name": "envthresh",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Normalised 0..1",
+            "description": "Linear amplitude threshold for noise (zero crossings) detection.",
             "default": {
                 "min": "0",
                 "max": "1",
@@ -165,8 +165,8 @@
             "name": "envwindow",
             "get": 1,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Samples",
+            "description": "In samples, do not change this from default vectorsize.",
             "default": {
                 "min": "16",
                 "max": "4096",
@@ -178,7 +178,7 @@
             "get": 1,
             "type": "float",
             "digest": "",
-            "description": "",
+            "description": "Smoothing time in ms for the final @oscgain and @noisegain attributes. By default this is off because by default @oscgain and @noisegain attributes are unused.",
             "default": {
                 "min": "0",
                 "max": "333",
@@ -189,8 +189,8 @@
             "name": "noisegain",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "In dB, -72..30",
+            "description": "Modify the final gain of the noise part of the source just before the envelope mixing. Does not affect the outlet 3 solo noise auxilliary output.",
             "default": {
                 "min": "-72",
                 "max": "30",
@@ -201,8 +201,8 @@
             "name": "oscgain",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "In dB, -72..30",
+            "description": "Modify the final gain of the oscillator part of the source just before the envelope mixing. Does not affect the outlet 2 solo oscillator auxilliary output.",
             "default": {
                 "min": "-72",
                 "max": "30",
@@ -213,8 +213,8 @@
             "name": "oscsmoothfreq",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Time in ms",
+            "description": "Smoothing time for the oscillator frequency control (inlet 2). This should be turned off (set to 0) if audio rate modulating this control externally.",
             "default": {
                 "min": "0",
                 "max": "333",
@@ -225,8 +225,8 @@
             "name": "oscsmoothinterp",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Time in ms",
+            "description": "Smooth the interpolation (inlet 4) of the oscillator mixing function. It is recommended this is alsways smoothed.",
             "default": {
                 "min": "0",
                 "max": "1000",
@@ -239,11 +239,11 @@
         "image": ""
     },
     "seealso": [
+        "evi.blitwaves~",
         "evi.audiodust~",
         "evi.gaussiannoise~",
         "evi.velvetnoise~",
         "evi.zeroxcount~",
-        "evi.randy~",
-        "evi.blitwaves~"
+        "evi.randy~"
     ]
 }

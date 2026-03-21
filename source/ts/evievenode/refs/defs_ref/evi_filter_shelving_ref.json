@@ -4,9 +4,9 @@
         "parent": "evi_filter_shelving",
         "category": "evieve",
         "tilde": "~",
-        "digest": "A chain of two two-pole TPT shelving filters",
-        "description": "TEXT_HERE",
-        "discussion": ""
+        "digest": "A chain of two twopole TPT SVF High/Low shelving filters",
+        "description": "A quick one stop shop for applying classic shelving filtering using high quality linear TPT SVFs. Controls are via attributes.",
+        "discussion": "For more information about TPT SVFs and other filter types in evieve see the 'evieve filter' tab of the helpfile."
     },
     "metadata": {
         "author": "Pete Dowling",
@@ -20,7 +20,7 @@
             "id": 1,
             "type": "signal",
             "digest": "Input",
-            "description": ""
+            "description": "Audio input to be filtered."
         }
     ],
     "outlets": [
@@ -28,7 +28,7 @@
             "id": 1,
             "type": "signal",
             "digest": "Shelfed Output",
-            "description": ""
+            "description": "Filtered audio output."
         }
     ],
     "messages": [],
@@ -37,8 +37,8 @@
             "name": "highcutoff",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "In Hz",
+            "description": "Highshelf cutoff frequency in Hz.",
             "default": {
                 "min": "500",
                 "max": "samplerate*0.5",
@@ -49,8 +49,8 @@
             "name": "highdb",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "In dB",
+            "description": "Highshelf gain in dB",
             "default": {
                 "min": "-30",
                 "max": "30",
@@ -61,8 +61,8 @@
             "name": "highq",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Q",
+            "description": "Highshelf Q.",
             "default": {
                 "min": "0.05",
                 "max": "20",
@@ -73,8 +73,8 @@
             "name": "lowcutoff",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "In Hz",
+            "description": "Lowshelf cutoff frequency in Hz.",
             "default": {
                 "min": "1",
                 "max": "10000",
@@ -85,8 +85,8 @@
             "name": "lowdb",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "In dB",
+            "description": "Lowshelf gain in dB",
             "default": {
                 "min": "-30",
                 "max": "30",
@@ -97,8 +97,8 @@
             "name": "lowq",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Q",
+            "description": "Lowshelf Q.",
             "default": {
                 "min": "0.05",
                 "max": "20",
@@ -109,8 +109,8 @@
             "name": "smooth",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Time in ms",
+            "description": "Smooth the mixing gains of the filter efficiently at the core of the DSP. With this TPT SVF filter this will usually be the only smoothing required. By default smoothing is on.",
             "default": {
                 "min": "0",
                 "max": "333",
@@ -122,5 +122,20 @@
         "caption": "",
         "image": ""
     },
-    "seealso": []
+    "seealso": [
+        "evi.filter~",
+        "evi.filter.eq~",
+        "evi.filter.morph~",
+        "evi.filter.allpass",
+        "evi.filter.bandpass~",
+        "evi.filter.bell~",
+        "evi.filter.highpass~",
+        "evi.filter.highshelf~",
+        "evi.filter.lowpass~",
+        "evi.filter.lowshelf~",
+        "evi.filter.notch~",
+        "evi.filter.peak~",
+        "evi.filter.resonant~",
+        "evi.filter.tilt~"
+    ]
 }

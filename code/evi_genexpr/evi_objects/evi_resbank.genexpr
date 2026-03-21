@@ -1,6 +1,7 @@
 
 // three different resonant-like filters for filterbank style setups
 // by pete for evieve (note, this is inprogress for an ongoing project)
+// originally created for the pete vocoder
 
 
 require("evi_smooth.genexpr");

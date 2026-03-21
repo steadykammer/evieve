@@ -5,8 +5,8 @@
         "category": "evieve",
         "tilde": "~",
         "digest": "TPT peaking filter",
-        "description": "TEXT_HERE",
-        "discussion": ""
+        "description": "The peak filter from the evieve TPT SVF collection. Peak only. For peak/notch @see <o>evi.filter.bell~</o>.",
+        "discussion": "For more information about TPT SVFs and other filter types in evieve see the 'evieve filter' tab of the helpfile."
     },
     "metadata": {
         "author": "Pete Dowling",
@@ -20,25 +20,25 @@
             "id": 1,
             "type": "signal",
             "digest": "Input",
-            "description": ""
+            "description": "Audio input to be filtered."
         },
         {
             "id": 2,
             "type": "signal/float",
             "digest": "Cutoff in Hz @min 1 @max samplerate*0.5",
-            "description": ""
+            "description": "Cutoff frequency in Hz."
         },
         {
             "id": 3,
             "type": "signal/float",
             "digest": "Gain in dB @min -30 @max 30 @default 0",
-            "description": ""
+            "description": "± gain in dB."
         },
         {
             "id": 4,
             "type": "signal/float",
             "digest": "Q @min 0.05 @max 20 @default 0.707107",
-            "description": ""
+            "description": "Q, clamped in the range 0.05..20."
         }
     ],
     "outlets": [
@@ -46,7 +46,7 @@
             "id": 1,
             "type": "signal",
             "digest": "Peak Output",
-            "description": ""
+            "description": "Filtered audio output."
         }
     ],
     "messages": [],
@@ -55,8 +55,8 @@
             "name": "smooth",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Time in ms",
+            "description": "Smooth the mixing gains of the filter efficiently at the core of the DSP. With these TPT SVF filters this will usually be the only smoothing required. By default smoothing is off.",
             "default": {
                 "min": "0",
                 "max": "333",
@@ -68,5 +68,20 @@
         "caption": "",
         "image": ""
     },
-    "seealso": []
+    "seealso": [
+        "evi.filter~",
+        "evi.filter.eq~",
+        "evi.filter.shelving~",
+        "evi.filter.morph~",
+        "evi.filter.allpass",
+        "evi.filter.bandpass~",
+        "evi.filter.bell~",
+        "evi.filter.highpass~",
+        "evi.filter.highshelf~",
+        "evi.filter.lowpass~",
+        "evi.filter.lowshelf~",
+        "evi.filter.notch~",
+        "evi.filter.resonant~",
+        "evi.filter.tilt~"
+    ]
 }

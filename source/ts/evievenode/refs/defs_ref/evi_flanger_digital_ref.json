@@ -5,7 +5,7 @@
         "category": "evieve",
         "tilde": "~",
         "digest": "A basic two-stage Flanger effect with saturation",
-        "description": "TEXT_HERE",
+        "description": "A basic flanger example created from classic comb filter blocks. Triangle/sine LFO types can be morphed and skewed. Multiple controls for manipulation of audio mix.",
         "discussion": ""
     },
     "metadata": {

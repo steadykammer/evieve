@@ -3,8 +3,8 @@
         "name": "evi_biquad_coeff",
         "child": "evi.biquadcoeff~",
         "category": "evieve",
-        "digest": "Signal rate biquad coefficient calculator with 40 available filter types",
-        "description": "TEXT_HERE"
+        "digest": "Audio rate biquad coefficients calculator with selection of 40 different filter types.",
+        "description": "evi.biquadcoeff~ is an audio rate coefficients calculator for the <o>biquad~</o> (or <o>evi.biquad~</o>) object. High level filter parameters are frequency, gain and Q. The units used for frequency and gain can be set via attributes."
     },
     "constructor": {
         "inlets": "cutoff, gain, q"
@@ -21,7 +21,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "or Center @default 1000",
-            "digest": ""
+            "digest": "Cutoff in Hz (default) or Pitch (change units with 'cutoffunits' attribute)."
         },
         {
             "id": 2,
@@ -29,7 +29,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "@default 0",
-            "digest": ""
+            "digest": "Gain in dB (default) or linear value (change units with 'gainunits' attribute)."
         },
         {
             "id": 3,
@@ -37,7 +37,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "or S @default 0.707107",
-            "digest": ""
+            "digest": "Q of currently selected filter type, typically clamped 0.1..18, but some filter types can take much higher values (e.g. 'reson' or 'bp')"
         }
     ],
     "outlets": [
@@ -46,35 +46,35 @@
             "name": "a0",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "a0 coefficient"
         },
         {
             "id": 2,
             "name": "a1",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "a1 coefficient"
         },
         {
             "id": 3,
             "name": "a2",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "a2 coefficient"
         },
         {
             "id": 4,
             "name": "b1",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "b1 coefficient"
         },
         {
             "id": 5,
             "name": "b2",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "b2 coefficient"
         }
     ],
     "attributes": [
@@ -82,7 +82,7 @@
             "name": "cutoffunits",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Set the units for the cutoff frequency inlet (inlet 1). 0 = in Hz (default), 1 = in Pitch (e.g. 0..127).",
             "default": {
                 "type": "int",
                 "value": "0"
@@ -92,7 +92,7 @@
             "name": "filter",
             "type": "int",
             "digest": "@min 0, @max 40",
-            "description": "",
+            "description": "Set the filter type by integer index: 0=bypass, 1=lowpass, 2=highpass, 3=bandpass, 4=bandstop, 5=peaknotch, 6=lowshelf, 7=lowshelfcookbook, 8=highshelf, 9=highshelfcookbook, 10=resonant, 11=bp, 12=allpass, 13=gainlpass, 14=gainhpass, 15=gainbpass, 16=gainbstop, 17=gainresonant, 18=gainbp, 19=gainapass, 20=lowpassanalog1, 21=lowpassanalog2, 22=highpassanalog, 23=bandpassanalog, 24=gainbpassanalog, 25=notchanalog, 26=peaknotchanalog1, 27=peaknotchanalog2, 28=lowshelfanalog1, 29=lowshelfanalog2, 30=highshelfanalog1, 31=highshelfanalog2, 32=resonantanalog, 33=butterlowpass, 34=butterhighpass, 35=butterbandpass, 36=butterbandreject, 37=buttergainlpass, 38=buttergainhpass, 39=buttergainbpass, 40=buttergainbreject",
             "default": {
                 "type": "int",
                 "value": "0"
@@ -102,7 +102,7 @@
             "name": "gainunits",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Set the units for the gain inlet (inlet 2). 0 = in linear amplitude, 1 = in dB (the default).",
             "default": {
                 "type": "int",
                 "value": "1"
@@ -111,8 +111,28 @@
     ],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_biquad_filter",
+            "display": "evi_biquad_filter"
+        },
+        {
+            "name": "evi_biquad_eqfilter",
+            "display": "evi_biquad_eqfilter"
+        },
+        {
+            "name": "evi_biquad_butterworth",
+            "display": "evi_biquad_butterworth"
+        },
+        {
+            "name": "evi_biquad_analog",
+            "display": "evi_biquad_analog"
+        },
+        {
+            "name": "evi_biquad",
+            "display": "evi_biquad"
+        },
+        {
+            "name": "evi_filter",
+            "display": "evi_filter"
         }
     ]
 }

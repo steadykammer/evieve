@@ -13,7 +13,7 @@
          <br />
         evi_flanger_digital is also available in MSP as: <o>evi.flanger.digital~</o>. <br />
          <br />
-	    TEXT_HERE <br />
+	    A basic flanger example created from classic comb filter blocks. Triangle/sine LFO types can be morphed and skewed. Multiple controls for manipulation of audio mix. <br />
     </description>
     <methodlist />
     <constructorlist>

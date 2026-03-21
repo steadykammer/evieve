@@ -3,8 +3,8 @@
         "name": "evi_eq3_stereo",
         "child": "evi.eq3stereo~",
         "category": "evieve",
-        "digest": "Stereo TPT 3-band EQ with signal rate modulation of all parameters",
-        "description": "TEXT_HERE"
+        "digest": "Stereo TPT 3-band EQ with audio rate modulation of all parameters",
+        "description": "A stereo 3-band EQ made up of left and right sets of 3 TPT SVF EQ filters, each with selectable filter type. The feature of this EQ is that all filter parameters are available on inlets, so the whole EQ can optionally be audio rate modulated. Because this is based on TPT filters, modulation will remain clean and stable at audio rate, unlike biquads."
     },
     "constructor": {
         "inlets": "input, input, freq, db, q, freq, db, q, freq, db, q"
@@ -20,7 +20,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Left",
-            "digest": ""
+            "digest": "Left audio input to be EQ-ed."
         },
         {
             "id": 2,
@@ -28,7 +28,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Right",
-            "digest": ""
+            "digest": "Right audio input to be EQ-ed."
         },
         {
             "id": 3,
@@ -36,7 +36,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "1 @min 10 @max 18000 @default 250",
-            "digest": ""
+            "digest": "Band 1 frequency in Hz."
         },
         {
             "id": 4,
@@ -44,7 +44,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "1 @min -24 @max 24 @default 0",
-            "digest": ""
+            "digest": "Band 1 gain in dB."
         },
         {
             "id": 5,
@@ -52,7 +52,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "1 @min 0.1 @max 18 @default 1",
-            "digest": ""
+            "digest": "Band 1 Q."
         },
         {
             "id": 6,
@@ -60,7 +60,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "2 @min 10 @max 18000 @default 1000",
-            "digest": ""
+            "digest": "Band 2 frequency in Hz."
         },
         {
             "id": 7,
@@ -68,7 +68,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "2 @min -24 @max 24 @default 0",
-            "digest": ""
+            "digest": "Band 2 gain in dB."
         },
         {
             "id": 8,
@@ -76,7 +76,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "2 @min 0.1 @max 18 @default 0.707107",
-            "digest": ""
+            "digest": "Band 2 Q."
         },
         {
             "id": 9,
@@ -84,7 +84,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "3 @min 10 @max 18000 @default 4000",
-            "digest": ""
+            "digest": "Band 3 frequency in Hz."
         },
         {
             "id": 10,
@@ -92,7 +92,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "3 @min -24 @max 24 @default 0",
-            "digest": ""
+            "digest": "Band 3 gain in dB."
         },
         {
             "id": 11,
@@ -100,7 +100,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "3 @min 0.1 @max 18 @default 1",
-            "digest": ""
+            "digest": "Band 3 Q."
         }
     ],
     "outlets": [
@@ -109,14 +109,14 @@
             "name": "3",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Left EQ-ed audio output."
         },
         {
             "id": 2,
             "name": "3",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Right EQ-ed audio output."
         }
     ],
     "attributes": [
@@ -124,7 +124,7 @@
             "name": "band1filter",
             "type": "int",
             "digest": "@min 0, @max 7",
-            "description": "",
+            "description": "Band 1 filter type by integer index: 0=Bypass, 1=Highpass, 2=Lowshelf, 3=Bell, 4=BellAdaptiveQ, 5=Notch, 6=Highshelf, 7=Lowpass",
             "default": {
                 "type": "int",
                 "value": "2"
@@ -134,7 +134,7 @@
             "name": "band2filter",
             "type": "int",
             "digest": "@min 0, @max 7",
-            "description": "",
+            "description": "Band 2 filter type by integer index: 0=Bypass, 1=Highpass, 2=Lowshelf, 3=Bell, 4=BellAdaptiveQ, 5=Notch, 6=Highshelf, 7=Lowpass",
             "default": {
                 "type": "int",
                 "value": "3"
@@ -144,7 +144,7 @@
             "name": "band3filter",
             "type": "int",
             "digest": "@min 0, @max 7",
-            "description": "",
+            "description": "Band 3 filter type by integer index: 0=Bypass, 1=Highpass, 2=Lowshelf, 3=Bell, 4=BellAdaptiveQ, 5=Notch, 6=Highshelf, 7=Lowpass",
             "default": {
                 "type": "int",
                 "value": "6"
@@ -154,7 +154,7 @@
             "name": "smooth",
             "type": "float",
             "digest": "@min 0, @max 333",
-            "description": "",
+            "description": "Smooth the mixing gains of the filters efficiently at the core of the DSP. With these TPT SVF filters this will usually be the only smoothing required. Smoothing can be turned off if audio rate modulating all inputs.",
             "default": {
                 "type": "float",
                 "value": "15.333"
@@ -163,8 +163,20 @@
     ],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_eq3",
+            "display": "evi_eq3"
+        },
+        {
+            "name": "evi_eq5",
+            "display": "evi_eq5"
+        },
+        {
+            "name": "evi_eq8",
+            "display": "evi_eq8"
+        },
+        {
+            "name": "evi_filter_eq",
+            "display": "evi_filter_eq"
         }
     ]
 }

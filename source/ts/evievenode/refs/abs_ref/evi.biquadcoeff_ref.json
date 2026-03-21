@@ -2,9 +2,9 @@
     "object": {
         "name": "evi.biquadcoeff",
         "category": "evieve",
-        "digest": "Message rate biquad coefficients calculator with selection of 40 different filter types.",
+        "digest": "Message rate biquad coefficients calculator with selection of 40 different filter types",
         "description": "evi.biquadcoeff is an efficient message rate coefficients calculator for the <o>biquad~</o> (or <o>evi.biquad~</o>) object. It is intended to replace <o>filtergraph~</o> for when you do not need a UI or you want to take advantage of the more filter types available. High level filter parameters are frequency, gain and Q. The units used for frequency and gain can be set via attributes.",
-        "discussion": "For a complete list of available filter names or equivalent index number, @see: 'evieve/misc/data/evi.biquadcoeff.filters.txt' or look at the helpfile."
+        "discussion": "For a complete list of available filter names or equivalent index number, @see: 'evieve/misc/data/evi.biquadcoeff.filters.txt' or look at the helpfile. For more information about biquads and other filter types in evieve see the 'evieve biquad' tab of the helpfile."
     },
     "metadata": {
         "author": "Pete Dowling",
@@ -15,13 +15,13 @@
             "id": 1,
             "type": "float",
             "digest": "Cutoff in Hz (change units with 'cutoffunits' attribute) / (symbol) Filter",
-            "description": "Cutoff in Hz or Pitch (change units with 'cutoffunits' attribute)"
+            "description": "Cutoff in Hz (default) or Pitch (change units with 'cutoffunits' attribute)."
         },
         {
             "id": 2,
             "type": "float",
             "digest": "Gain in dB (change units with 'gainunits' attribute)",
-            "description": "Gain in dB or linear value (change units with 'gainunits' attribute)"
+            "description": "Gain in dB (default) or linear value (change units with 'gainunits' attribute)."
         },
         {
             "id": 3,
@@ -124,6 +124,11 @@
     "seealso": [
         "evi.biquadcoeff~",
         "evi.biquad.filter~",
-        "evi.biquad~"
+        "evi.biquad.eqfilter~",
+        "evi.biquad.butterworth~",
+        "evi.biquad.analog~",
+        "evi.biquad~",
+        "evi.weightingcoeffs",
+        "evi.filter~"
     ]
 }

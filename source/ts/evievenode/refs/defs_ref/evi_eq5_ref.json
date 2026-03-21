@@ -4,9 +4,9 @@
         "parent": "evi_eq5",
         "category": "evieve",
         "tilde": "~",
-        "digest": "5-band TPT EQ with parameter rate control of all attributes",
-        "description": "TEXT_HERE",
-        "discussion": ""
+        "digest": "5-band TPT EQ with message rate control of all parameters",
+        "description": "A 5-band parametric EQ made up of 5 TPT SVF EQ filters, each with selectable filter type. Parameter changes can optionally be smoothed.",
+        "discussion": "For more information about TPT SVFs and other filter types in evieve see the 'evieve filter' tab of the helpfile."
     },
     "metadata": {
         "author": "Pete Dowling",
@@ -20,7 +20,7 @@
             "id": 1,
             "type": "signal",
             "digest": "Input",
-            "description": ""
+            "description": "Audio input to be EQ-ed."
         }
     ],
     "outlets": [
@@ -28,7 +28,7 @@
             "id": 1,
             "type": "signal",
             "digest": "5 bands EQ Output",
-            "description": ""
+            "description": "EQ-ed audio output."
         }
     ],
     "messages": [],
@@ -37,8 +37,8 @@
             "name": "band1db",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "In dB",
+            "description": "Band 1 gain in ± dB.",
             "default": {
                 "min": "-24",
                 "max": "24",
@@ -49,8 +49,8 @@
             "name": "band1filter",
             "get": 1,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "0..9",
+            "description": "Band 1 filter type by integer index: 0=Bypass, 1=Highpass-4-pole, 2=Highpass, 3=Lowshelf, 4=Bell, 5=BellAdaptiveQ, 6=Notch, 7=Highshelf, 8=Lowpass, 9=Lowpass-4-pole",
             "default": {
                 "min": "0",
                 "max": "9",
@@ -61,8 +61,8 @@
             "name": "band1freq",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "In Hz",
+            "description": "Band 1 frequency in Hz.",
             "default": {
                 "min": "10",
                 "max": "18000",
@@ -73,8 +73,8 @@
             "name": "band1q",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Q",
+            "description": "Band 1 Q.",
             "default": {
                 "min": "0.1",
                 "max": "18",
@@ -85,8 +85,8 @@
             "name": "band2db",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "In dB",
+            "description": "Band 2 gain in ± dB.",
             "default": {
                 "min": "-24",
                 "max": "24",
@@ -97,8 +97,8 @@
             "name": "band2filter",
             "get": 1,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "0..9",
+            "description": "Band 2 filter type by integer index: 0=Bypass, 1=Highpass-4-pole, 2=Highpass, 3=Lowshelf, 4=Bell, 5=BellAdaptiveQ, 6=Notch, 7=Highshelf, 8=Lowpass, 9=Lowpass-4-pole",
             "default": {
                 "min": "0",
                 "max": "9",
@@ -109,8 +109,8 @@
             "name": "band2freq",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "In Hz",
+            "description": "Band 2 frequency in Hz.",
             "default": {
                 "min": "10",
                 "max": "18000",
@@ -121,8 +121,8 @@
             "name": "band2q",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Q",
+            "description": "Band 2 Q.",
             "default": {
                 "min": "0.1",
                 "max": "18",
@@ -133,8 +133,8 @@
             "name": "band3db",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "In dB",
+            "description": "Band 3 gain in ± dB.",
             "default": {
                 "min": "-24",
                 "max": "24",
@@ -145,8 +145,8 @@
             "name": "band3filter",
             "get": 1,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "0..9",
+            "description": "Band 3 filter type by integer index: 0=Bypass, 1=Highpass-4-pole, 2=Highpass, 3=Lowshelf, 4=Bell, 5=BellAdaptiveQ, 6=Notch, 7=Highshelf, 8=Lowpass, 9=Lowpass-4-pole",
             "default": {
                 "min": "0",
                 "max": "9",
@@ -157,8 +157,8 @@
             "name": "band3freq",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "In Hz",
+            "description": "Band 3 frequency in Hz.",
             "default": {
                 "min": "10",
                 "max": "18000",
@@ -169,8 +169,8 @@
             "name": "band3q",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Q",
+            "description": "Band 3 Q.",
             "default": {
                 "min": "0.1",
                 "max": "18",
@@ -181,8 +181,8 @@
             "name": "band4db",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "In dB",
+            "description": "Band 4 gain in ± dB.",
             "default": {
                 "min": "-24",
                 "max": "24",
@@ -193,8 +193,8 @@
             "name": "band4filter",
             "get": 1,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "0..9",
+            "description": "Band 4 filter type by integer index: 0=Bypass, 1=Highpass-4-pole, 2=Highpass, 3=Lowshelf, 4=Bell, 5=BellAdaptiveQ, 6=Notch, 7=Highshelf, 8=Lowpass, 9=Lowpass-4-pole",
             "default": {
                 "min": "0",
                 "max": "9",
@@ -205,8 +205,8 @@
             "name": "band4freq",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "In Hz",
+            "description": "Band 4 frequency in Hz.",
             "default": {
                 "min": "10",
                 "max": "18000",
@@ -217,8 +217,8 @@
             "name": "band4q",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Q",
+            "description": "Band 4 Q.",
             "default": {
                 "min": "0.1",
                 "max": "18",
@@ -229,8 +229,8 @@
             "name": "band5db",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "In dB",
+            "description": "Band 5 gain in ± dB.",
             "default": {
                 "min": "-24",
                 "max": "24",
@@ -241,8 +241,8 @@
             "name": "band5filter",
             "get": 1,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "0..9",
+            "description": "Band 5 filter type by integer index: 0=Bypass, 1=Highpass-4-pole, 2=Highpass, 3=Lowshelf, 4=Bell, 5=BellAdaptiveQ, 6=Notch, 7=Highshelf, 8=Lowpass, 9=Lowpass-4-pole",
             "default": {
                 "min": "0",
                 "max": "9",
@@ -253,8 +253,8 @@
             "name": "band5freq",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "In Hz",
+            "description": "Band 5 frequency in Hz.",
             "default": {
                 "min": "10",
                 "max": "18000",
@@ -265,8 +265,8 @@
             "name": "band5q",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Q",
+            "description": "Band 5 Q.",
             "default": {
                 "min": "0.1",
                 "max": "18",
@@ -277,8 +277,8 @@
             "name": "smooth",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Time in ms",
+            "description": "Smooth the mixing gains of the filters efficiently at the core of the DSP. With these TPT SVF filters this will usually be the only smoothing required. Smoothing can be turned off to save CPU. The EQ responds very well without smoothing and this may be a more likely use case if just manually tuning EQ parameters.",
             "default": {
                 "min": "0",
                 "max": "333",
@@ -290,5 +290,10 @@
         "caption": "",
         "image": ""
     },
-    "seealso": []
+    "seealso": [
+        "evi.eq3~",
+        "evi.eq3stereo~",
+        "evi.eq8~",
+        "evi.filter.eq~"
+    ]
 }

@@ -4,9 +4,9 @@
         "parent": "evi_biquad_filter",
         "category": "evieve",
         "tilde": "~",
-        "digest": "All-in-one biquad coefficient calculator and filter section",
-        "description": "TEXT_HERE",
-        "discussion": ""
+        "digest": "All-in-one audio rate biquad coefficients calculator and filter section. With selection of 40 different filter types.",
+        "description": "Coefficients calculator and internal biquad filter section for all-in-one biquad filtering. High level filter parameters are frequency, gain and Q. The units used for frequency and gain can be set via attributes.",
+        "discussion": "For a complete list of the available filter types (by index) double-click the abstraction and look at the comments at the top of the code block. For more information about biquads and other filter types in evieve see the 'evieve biquad' tab of the helpfile."
     },
     "metadata": {
         "author": "Pete Dowling",
@@ -21,25 +21,25 @@
             "id": 1,
             "type": "signal",
             "digest": "Input",
-            "description": ""
+            "description": "Audio input to be filtered."
         },
         {
             "id": 2,
             "type": "signal/float",
             "digest": "Cutoff or Center @default 1000",
-            "description": ""
+            "description": "Cutoff in Hz (default) or Pitch (change units with 'cutoffunits' attribute)."
         },
         {
             "id": 3,
             "type": "signal/float",
             "digest": "Gain @default 0",
-            "description": ""
+            "description": "Gain in dB (default) or linear value (change units with 'gainunits' attribute)."
         },
         {
             "id": 4,
             "type": "signal/float",
             "digest": "Q or S @default 0.707107",
-            "description": ""
+            "description": "Q of currently selected filter type, typically clamped 0.1..18, but some filter types can take much higher values (e.g. 'reson' or 'bp')"
         }
     ],
     "outlets": [
@@ -47,7 +47,7 @@
             "id": 1,
             "type": "signal",
             "digest": "Output",
-            "description": ""
+            "description": "Filtered Biquad filter output."
         }
     ],
     "messages": [],
@@ -56,8 +56,8 @@
             "name": "cutoffunits",
             "get": 1,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Flag 0/1",
+            "description": "Set the units for the cutoff frequency inlet (inlet 2). 0 = in Hz (default), 1 = in Pitch (e.g. 0..127).",
             "default": {
                 "min": "0",
                 "max": "1",
@@ -68,8 +68,8 @@
             "name": "filter",
             "get": 1,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "0..40",
+            "description": "Set the filter type by integer index: 0=bypass, 1=lowpass, 2=highpass, 3=bandpass, 4=bandstop, 5=peaknotch, 6=lowshelf, 7=lowshelfcookbook, 8=highshelf, 9=highshelfcookbook, 10=resonant, 11=bp, 12=allpass, 13=gainlpass, 14=gainhpass, 15=gainbpass, 16=gainbstop, 17=gainresonant, 18=gainbp, 19=gainapass, 20=lowpassanalog1, 21=lowpassanalog2, 22=highpassanalog, 23=bandpassanalog, 24=gainbpassanalog, 25=notchanalog, 26=peaknotchanalog1, 27=peaknotchanalog2, 28=lowshelfanalog1, 29=lowshelfanalog2, 30=highshelfanalog1, 31=highshelfanalog2, 32=resonantanalog, 33=butterlowpass, 34=butterhighpass, 35=butterbandpass, 36=butterbandreject, 37=buttergainlpass, 38=buttergainhpass, 39=buttergainbpass, 40=buttergainbreject",
             "default": {
                 "min": "0",
                 "max": "40",
@@ -80,8 +80,8 @@
             "name": "gainunits",
             "get": 1,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Flag 0/1",
+            "description": "Set the units for the gain inlet (inlet 3). 0 = in linear amplitude, 1 = in dB (the default).",
             "default": {
                 "min": "0",
                 "max": "1",
@@ -93,5 +93,13 @@
         "caption": "",
         "image": ""
     },
-    "seealso": []
+    "seealso": [
+        "evi.biquadcoeff",
+        "evi.biquadcoeff~",
+        "evi.biquad.eqfilter~",
+        "evi.biquad.butterworth~",
+        "evi.biquad.analog~",
+        "evi.biquad~",
+        "evi.filter~"
+    ]
 }

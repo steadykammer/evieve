@@ -9,7 +9,7 @@
 		<b>evi.butterworthlp6~</b> is a 'max define' for the <o>evi_bp_butterworth</o>.gendsp gen~ abstraction.
 		Because evi.butterworthlp6~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		<br />
-		TEXT_HERE <br />
+		A smooth 6th order butterworth lowpass with very interesting properties being made up of three resonant filter sections. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>
@@ -24,7 +24,7 @@
 				Inlet #1: Input
 			</digest>
 			<description>
-				
+				Audio input to be filtered.
 			</description>
 		</inlet>
 		<inlet id="2" type="signal/float">
@@ -32,7 +32,7 @@
 				Inlet #2: Cutoff in Hz @min samplerate*0.000041 @max samplerate*0.470588
 			</digest>
 			<description>
-				
+				Cutoff frequency in Hz.
 			</description>
 		</inlet>
 	</inletlist>
@@ -43,7 +43,7 @@
 				Outlet #1: Bp 6-pole Butterworth Lowpass Output
 			</digest>
 			<description>
-				
+				Filtered audio output.
 			</description>
 		</outlet>
 	</outletlist>
@@ -59,9 +59,17 @@
 	</examplelist>
 	<!--SEEALSO-->
 	<seealsolist>
+		<seealso name="evi.butterworthlp8~"> </seealso>
+		<seealso name="evi.bp~"> </seealso>
+		<seealso name="evi.vcf~"> </seealso>
+		<seealso name="evi.filter~"> </seealso>
+		<seealso name="evi.reson~"> </seealso>
+		<seealso name="evi.biquadcoeff"> </seealso>
+		<seealso name="evi.biquadcoeff~"> </seealso>
+		<seealso name="evi.biquad.filter~"> </seealso>
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>
-         <br />
+        Miller Puckette devised this for his 'SMECK' project. <br />
 	</discussion>
 </c74object>

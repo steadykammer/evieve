@@ -4,7 +4,7 @@
         "child": "evi.audiodust~",
         "category": "evieve",
         "digest": "Spikey sparse noise implementation",
-        "description": "Audio dust is a sparse random noise source driven at a given frequency. It produces 'spikes' and random amplitude and time offsets. It can be very useful as both a control signal and an audio signal. @see: 'evi_sources.genexpr' for more where this came from."
+        "description": "Audio dust is a sparse random noise source driven at a given frequency. It produces 'spikes' at random amplitude and time offsets. It can be very useful as both a control signal and an audio signal. @see: 'evi_sources.genexpr' for more where this came from."
     },
     "constructor": {
         "inlets": "frequency"

@@ -8,6 +8,7 @@ require("evi_rcfilters.genexpr");
 
 zeroxEnvs(AudioForAnalysis, response, window, thresh, slope, release)
 {
+    History zedummy(0);
     xingnum, xgate, xings = likeZerox(AudioForAnalysis, windowSize=window, threshold=thresh);
 
     // in samples
@@ -43,6 +44,7 @@ zeroxEnvs(AudioForAnalysis, response, window, thresh, slope, release)
 
 noiseSources(ZeroxEnv, MixNoise, pitchLow, pitchHigh)
 {
+    History nsdummy(0);
     // mix dust..velvet..gaussian
     mixSq = MixNoise * MixNoise;
     analAmp = (MixNoise * 0.93) + 0.07;
@@ -148,7 +150,7 @@ AudioForAnalysis = in1;
 Env, Xingnum = zeroxEnvs(AudioForAnalysis, envresponse, envwindow, envthresh, envslope, envrelease);
 MixedNoise = noiseSources(Env, NoiseMix, damppitchlow, damppitchhigh);
 Osc, OscSync = oscSources(OscFreq, OscWidth, 0, OscInterp, oscsmoothfreq);
-Resynthesis = mix((Osc * oscGain), (MixedNoise * noiseGain), Env);
+Resynthesis = mix((Osc * oscGain), (MixedNoise * noiseGain), Env);  // gains unused by default
 
 out1 = Resynthesis;
 out2 = Osc;
