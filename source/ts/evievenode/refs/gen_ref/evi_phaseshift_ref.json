@@ -4,7 +4,7 @@
         "child": "evi.phaseshift~",
         "category": "evieve",
         "digest": "Reimplementation of MSP <o>phaseshift~</o> object as a TPT filter",
-        "description": "TEXT_HERE"
+        "description": "A second order TPT allpass filter which distorts the phase of the signal. See the 'frequency-response' tab of the <o>phaseshift~</o> helpfile for an explanation which is still accurate for this TPT version."
     },
     "constructor": {
         "inlets": "input, frequency, q"
@@ -19,7 +19,7 @@
             "name": "input",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Audio input to be filtered."
         },
         {
             "id": 2,
@@ -27,7 +27,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "in Hz @min 1 @max samplerate*0.5",
-            "digest": ""
+            "digest": "Center frequency of the phase transition band."
         },
         {
             "id": 3,
@@ -35,7 +35,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "@min 0.1 @max 20 @default 1",
-            "digest": ""
+            "digest": "Q (bandwidth) of the phase transition band."
         }
     ],
     "outlets": [
@@ -61,8 +61,52 @@
     ],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_filter_allpass",
+            "display": "evi_filter_allpass"
+        },
+        {
+            "name": "evi_lores",
+            "display": "evi_lores"
+        },
+        {
+            "name": "evi_onepole",
+            "display": "evi_onepole"
+        },
+        {
+            "name": "evi_reson",
+            "display": "evi_reson"
+        },
+        {
+            "name": "evi_svf",
+            "display": "evi_svf"
+        },
+        {
+            "name": "evi_cross",
+            "display": "evi_cross"
+        },
+        {
+            "name": "evi_hilbert",
+            "display": "evi_hilbert"
+        },
+        {
+            "name": "evi_allpass",
+            "display": "evi_allpass"
+        },
+        {
+            "name": "evi_comb",
+            "display": "evi_comb"
+        },
+        {
+            "name": "evi_teeth",
+            "display": "evi_teeth"
+        },
+        {
+            "name": "evi_bp",
+            "display": "evi_bp"
+        },
+        {
+            "name": "evi_vcf",
+            "display": "evi_vcf"
         }
     ]
 }

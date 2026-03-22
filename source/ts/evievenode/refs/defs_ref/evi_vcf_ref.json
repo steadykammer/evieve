@@ -1,0 +1,78 @@
+{
+    "object": {
+        "name": "evi.vcf~",
+        "parent": "evi_vcf",
+        "category": "evieve",
+        "tilde": "~",
+        "digest": "Reimplementation of Pd 'vcf~' filter",
+        "description": "A twopole linear multimode filter. It is very interesting though. The Pd helpfile says of the cutoff frequency '...may change continuously in time as in an analog voltage controlled filter', but this is not true as it is a direct form filter. However, ymmv. [vcf~] is basically an audio rate version of [bp~] from Pd, which is also ported in evieve as <o>evi.bp~</o>.",
+        "discussion": "For more information about other reimplementations of Pd filters in evieve, see the 'evieve pd' tab of the helpfile."
+    },
+    "metadata": {
+        "author": "Pete Dowling",
+        "tags": []
+    },
+    "includes": [],
+    "inlets": [
+        {
+            "id": 1,
+            "type": "signal",
+            "digest": "Audio Input",
+            "description": "Audio input to be filtered."
+        },
+        {
+            "id": 2,
+            "type": "signal/float",
+            "digest": "cuttof in Hz",
+            "description": "Center frequency of the resonant peak."
+        }
+    ],
+    "outlets": [
+        {
+            "id": 1,
+            "type": "signal",
+            "digest": "BP",
+            "description": "Resonant bandpass output. Like left outlet of Pd [vcf~]."
+        },
+        {
+            "id": 2,
+            "type": "signal",
+            "digest": "LP",
+            "description": "Resonant lowpass output. Like right outlet of Pd [vcf~]."
+        },
+        {
+            "id": 3,
+            "type": "signal",
+            "digest": "HP",
+            "description": "Resonant highpass output (almost works)."
+        }
+    ],
+    "messages": [],
+    "attributes": [
+        {
+            "name": "q",
+            "get": 1,
+            "type": "float",
+            "digest": "Q, filter resonance",
+            "description": "Filter resonance. Can be increasingly high values (e.g. up to 10000).",
+            "default": {
+                "min": "0.1",
+                "max": "10000",
+                "value": "sqrt2"
+            }
+        }
+    ],
+    "example": {
+        "caption": "",
+        "image": ""
+    },
+    "seealso": [
+        "evi.bp~",
+        "evi.butterworthlp6~",
+        "evi.reson~",
+        "evi.filter~",
+        "evi.biquadcoeff",
+        "evi.biquadcoeff~",
+        "evi.biquad.filter~"
+    ]
+}

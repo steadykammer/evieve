@@ -90,8 +90,6 @@ max classnamehelpcategory evi.gaussiannoise~ evinoise;
 max classnamehelpcategory evi.randy~ evinoise;
 max classnamehelpcategory evi.velvetnoise~ evinoise;
 max classnamehelpcategory evi.zeroxoscnoise~ evinoise;
-max classnamehelpcategory evi.sustainfdn~ evireverb;
-max classnamehelpcategory evi.sustainfdnclear~ evireverb;
 max classnamehelpcategory evi.algoverb~ evireverb;
 max classnamehelpcategory evi.backverb~ evireverb;
 max classnamehelpcategory evi.freezeverb~ evireverb;

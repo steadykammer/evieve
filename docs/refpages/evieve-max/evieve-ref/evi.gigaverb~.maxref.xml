@@ -65,12 +65,12 @@
 	</objarglist>
 	<!--MESSAGES-->
 	<methodlist>
-		<method name="anything">
+		<method name="pattrstorage">
 			<arglist>
 				<arg name="pattrstorage" type="anything" units="messages to pattrstorage" optional="1" />
 			</arglist>
 			<digest>
-				In left inlet, messages to evi.gigaverb~
+				In left inlet, pattrstorage messages to evi.gigaverb~
 			</digest>
 			<description>
 				Prepending the word &#x27;pattrstorage&#x27; allows you to send any message pattrstorage understands to the internal pattrstorage object - you can recieve pattrstorage output via the far right outlet.
@@ -261,6 +261,6 @@
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>
-        Note, in this evieve version there are slight differences in sound from the various Max versions, but this version is closer to the original (Sadeharju) and with slightly more diffuseness in the early taps and low-mid. Attribute descriptions in this documentation are mainly from the Olaf Matthes originals. <br />
+        Note, in this evieve version there are slight differences in sound from the various Max versions, but this version is closer to the original (Sadeharju) and with slightly more diffuseness in the early taps and low-mid. Attribute descriptions in this documentation are mainly from the Olaf Matthes originals. For more information about other reverbs in evieve, see the 'evieve reverb' tab of the helpfile. <br />
 	</discussion>
 </c74object>

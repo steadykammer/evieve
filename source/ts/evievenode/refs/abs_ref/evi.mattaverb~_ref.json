@@ -4,7 +4,7 @@
         "category": "evieve",
         "digest": "True stereo one knob allpass diffuse reverb",
         "description": "A simple allpass diffusion reverb with minimal controls interaction. True stereo input/output, no early reflections, designed wet and spacey but very dampable.",
-        "discussion": ""
+        "discussion": "For more information about other reverbs in evieve, see the 'evieve reverb' tab of the helpfile."
     },
     "metadata": {
         "author": "Pete Dowling",
@@ -47,14 +47,21 @@
     "arguments": [],
     "messages": [
         {
-            "name": "anything",
+            "name": "bypass",
             "arg": [
                 {
                     "name": "bypass",
                     "type": "int",
                     "units": "0/1",
                     "optional": 1
-                },
+                }
+            ],
+            "digest": "In left inlet, bypass message to evi.gigaverb~",
+            "description": "'bypass 1' will smoothly bypass the reverb to dry."
+        },
+        {
+            "name": "pattrstorage",
+            "arg": [
                 {
                     "name": "pattrstorage",
                     "type": "anything",
@@ -62,8 +69,8 @@
                     "optional": 1
                 }
             ],
-            "digest": "In left inlet, messages to evi.gigaverb~",
-            "description": "'bypass 1' will smoothly bypass the reverb to dry. Prepending the word 'pattrstorage' allows you to send any message pattrstorage understands to the internal pattrstorage object - you can recieve pattrstorage output via the far right outlet."
+            "digest": "In left inlet, pattrstorage messages to evi.gigaverb~",
+            "description": "Prepending the word 'pattrstorage' allows you to send any message pattrstorage understands to the internal pattrstorage object - you can recieve pattrstorage output via the far right outlet."
         }
     ],
     "attributes": [

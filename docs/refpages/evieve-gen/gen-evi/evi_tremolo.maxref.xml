@@ -13,7 +13,7 @@
          <br />
         evi_tremolo is also available in MSP as: <o>evi.tremolo~</o>. <br />
          <br />
-	    TEXT_HERE <br />
+	    An example of a tremolo using evieve primitives. Variable control of LFOs for interesting modulation. The tremolo amplitude can be driven well above unity gain into an anti-aliased saturation stage. <br />
     </description>
     <methodlist />
     <constructorlist>

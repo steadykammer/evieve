@@ -44,6 +44,7 @@
     </metadatalist>
     <seealsolist>
         <seealso name='evi_bp' display='evi_bp' type='genrefpage' />
+        <seealso name='evi_vcf' display='evi_vcf' type='genrefpage' />
         <seealso name='evi_filter' display='evi_filter' type='genrefpage' />
         <seealso name='evi_reson' display='evi_reson' type='genrefpage' />
         <seealso name='evi_biquad_filter' display='evi_biquad_filter' type='genrefpage' />

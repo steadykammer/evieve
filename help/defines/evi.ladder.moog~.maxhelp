@@ -851,7 +851,7 @@
                                     "lockeddragscroll": 2,
                                     "lockedsize": 1,
                                     "maxclass": "bpatcher",
-                                    "name": "areas_help_ladder.maxpat",
+                                    "name": "areas_help_ladder.maxhelp",
                                     "numinlets": 0,
                                     "numoutlets": 0,
                                     "offset": [ 0.0, 0.0 ],

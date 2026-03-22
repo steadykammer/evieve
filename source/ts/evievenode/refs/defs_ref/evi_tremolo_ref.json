@@ -5,7 +5,7 @@
         "category": "evieve",
         "tilde": "~",
         "digest": "Basic Tremolo effect with saturation and choice of LFO shapes",
-        "description": "TEXT_HERE",
+        "description": "An example of a tremolo using evieve primitives. Variable control of LFOs for interesting modulation. The tremolo amplitude can be driven well above unity gain into an anti-aliased saturation stage.",
         "discussion": ""
     },
     "metadata": {

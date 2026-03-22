@@ -13,7 +13,7 @@
          <br />
         evi_chorus_digital is also available in MSP as: <o>evi.chorus.digital~</o>. <br />
          <br />
-	    There are many attributes so that the user can macroise the controls themselves to higher level parameters. <br />
+	    An example of a multi stage chorus using evieve primitives. There are many attributes so that the user can macroise the controls themselves to higher level parameters. <br />
     </description>
     <methodlist />
     <constructorlist>

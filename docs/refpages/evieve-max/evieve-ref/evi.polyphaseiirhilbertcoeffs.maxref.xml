@@ -73,22 +73,92 @@
 	</objarglist>
 	<!--MESSAGES-->
 	<methodlist>
-		<method name="anything">
+		<method name="bang">
 			<arglist>
 				<arg name="bang" type="bang" units="bang" optional="1" />
+			</arglist>
+			<digest>
+				In left inlet, bang message to evi.polyphaseiirhilbertcoeffs
+			</digest>
+			<description>
+				(bang) (re)calculate and output coefficients.
+			</description>
+		</method>
+		<method name="int">
+			<arglist>
 				<arg name="int" type="# coefficients" units="int" optional="1" />
+			</arglist>
+			<digest>
+				In left inlet, int message to evi.polyphaseiirhilbertcoeffs
+			</digest>
+			<description>
+				(int) Set the number of coefficients to create, 2..64, default 8 (for evieve Hilbert). Does not recompute coefficients.
+			</description>
+		</method>
+		<method name="float">
+			<arglist>
 				<arg name="float" type="bandwidth" units="Hz" optional="1" />
+			</arglist>
+			<digest>
+				In left inlet, float message to evi.polyphaseiirhilbertcoeffs
+			</digest>
+			<description>
+				(float) Set the filter transition bandwidth to use in Hz, default 40, 4..samplerate*0.25. Does not recompute coefficients.
+			</description>
+		</method>
+		<method name="sr">
+			<arglist>
 				<arg name="sr" type="symbol" units="" optional="1" />
+			</arglist>
+			<digest>
+				In left inlet, sr message to evi.polyphaseiirhilbertcoeffs
+			</digest>
+			<description>
+				The word &#x27;sr&#x27; will (re)grab the current samplerate and recalculate and output the coefficients.
+			</description>
+		</method>
+		<method name="buffer">
+			<arglist>
 				<arg name="buffer" type="symbol" units="messages" optional="1" />
+			</arglist>
+			<digest>
+				In left inlet, buffer message to evi.polyphaseiirhilbertcoeffs
+			</digest>
+			<description>
+				The word &#x27;buffer&#x27; followed by a &#x27;write&#x27; message: write, writeaiff, writeflac, writeraw, writewave, will write the contents of the internal coefficients [buffer~] to a file.
+			</description>
+		</method>
+		<method name="peek">
+			<arglist>
 				<arg name="peek" type="symbol" units="int" optional="1" />
+			</arglist>
+			<digest>
+				In left inlet, peek message to evi.polyphaseiirhilbertcoeffs
+			</digest>
+			<description>
+				The word &#x27;peek&#x27; followed by an integer representing an index of the internal [buffer~] will output the corresponding coefficient as a float from the far right dumpout outlet.
+			</description>
+		</method>
+		<method name="dict">
+			<arglist>
 				<arg name="dict" type="symbol" units="messages" optional="1" />
+			</arglist>
+			<digest>
+				In left inlet, dict message to evi.polyphaseiirhilbertcoeffs
+			</digest>
+			<description>
+				The word &#x27;dict&#x27; followed by a message that [dict] understands (excluding clear, import, read, readagain, readany) will send the message to the internal [dict] object. Query results are available at the far right dumpout outlet.
+			</description>
+		</method>
+		<method name="view">
+			<arglist>
 				<arg name="view" type="symbol" units="" optional="1" />
 			</arglist>
 			<digest>
-				In left inlet, messages to evi.polyphaseiirhilbertcoeffs
+				In left inlet, view message to evi.polyphaseiirhilbertcoeffs
 			</digest>
 			<description>
-				(bang) (re)calculate and output coefficients. (int) Set the number of coefficients to create, 2..64, default 8 (for evieve Hilbert). Does not recompute coefficients. (float) Set the filter transition bandwidth to use in Hz, default 40, 4..samplerate*0.25. Does not recompute coefficients. The word &#x27;sr&#x27; will (re)grab the current samplerate and recalculate and output the coefficients. The word &#x27;buffer&#x27; followed by a &#x27;write&#x27; message: write, writeaiff, writeflac, writeraw, writewave, will write the contents of the internal coefficients [buffer~] to a file. The word &#x27;peek&#x27; followed by an integer representing an index of the internal [buffer~] will output the corresponding coefficient as a float from the far right dumpout outlet. The word &#x27;dict&#x27; followed by a message that [dict] understands (excluding clear, import, read, readagain, readany) will send the message to the internal [dict] object. Query results are available at the far right dumpout outlet. The word &#x27;view&#x27; will open the editing windows of the internal [dict] and [buffer~] objects to view their contents.
+				The word &#x27;view&#x27; will open the editing windows of the internal [dict] and [buffer~] objects to view their contents.
 			</description>
 		</method>
 	</methodlist>

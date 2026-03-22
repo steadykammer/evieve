@@ -4,7 +4,7 @@
         "category": "evieve",
         "digest": "Plate reverb based on <o>yafr2~</o> with additional filtering and smoothing",
         "description": "Based on <o>yafr2~</o> from MSP ('Plate reverb in the style of Griesinger' by Randy Jones). This version for evieve with dry/wet and eq added, as well as modifications for better filtering, interpolation and smoothing, and zero hold delay changes, Parameters normalised 0..1. Clickless and smooth changes possible for all parameters.",
-        "discussion": ""
+        "discussion": "For more information about other reverbs in evieve, see the 'evieve reverb' tab of the helpfile."
     },
     "metadata": {
         "author": "Pete Dowling",
@@ -47,7 +47,7 @@
     "arguments": [],
     "messages": [
         {
-            "name": "anything",
+            "name": "pattrstorage",
             "arg": [
                 {
                     "name": "pattrstorage",
@@ -56,7 +56,7 @@
                     "optional": 1
                 }
             ],
-            "digest": "In left inlet, messages to evi.plateverb~",
+            "digest": "In left inlet, pattrstorage messages to evi.plateverb~",
             "description": "Prepending the word 'pattrstorage' allows you to send any message pattrstorage understands to the internal pattrstorage object - you can recieve pattrstorage output via the far right outlet."
         }
     ],

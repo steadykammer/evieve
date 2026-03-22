@@ -12,62 +12,11 @@
         "rect": [ 63.0, 131.0, 812.0, 790.0 ],
         "openrect": [ 0.0, 0.0, 660.0, 568.0 ],
         "openrectmode": 0,
-        "bglocked": 1,
         "gridonopen": 2,
         "subpatcher_template": "sub",
         "integercoordinates": 1,
-        "title": "Ladder Filters in evieve",
+        "title": "Overdrive & Saturation Options in evieve",
         "boxes": [
-            {
-                "box": {
-                    "hidden": 1,
-                    "id": "obj-53",
-                    "maxclass": "newobj",
-                    "numinlets": 2,
-                    "numoutlets": 2,
-                    "outlettype": [ "", "" ],
-                    "patching_rect": [ 32.0, 570.0, 216.0, 22.0 ],
-                    "text": "list.reg evieve_nonlinear_filters.maxpat"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-54",
-                    "maxclass": "textbutton",
-                    "numinlets": 1,
-                    "numoutlets": 3,
-                    "outlettype": [ "", "", "int" ],
-                    "parameter_enable": 0,
-                    "patching_rect": [ 47.0, 526.0, 191.0, 20.0 ],
-                    "text": "Nonlinear Filters in evieve",
-                    "texton": "Nonlinear Filters in evieve"
-                }
-            },
-            {
-                "box": {
-                    "hidden": 1,
-                    "id": "obj-33",
-                    "maxclass": "newobj",
-                    "numinlets": 2,
-                    "numoutlets": 2,
-                    "outlettype": [ "", "" ],
-                    "patching_rect": [ 456.0, 570.0, 171.0, 22.0 ],
-                    "text": "list.reg areas_help_svf.maxpat"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-26",
-                    "maxclass": "textbutton",
-                    "numinlets": 1,
-                    "numoutlets": 3,
-                    "outlettype": [ "", "", "int" ],
-                    "parameter_enable": 0,
-                    "patching_rect": [ 456.0, 526.0, 191.0, 20.0 ],
-                    "text": "Nonlinear SVF Filters in evieve",
-                    "texton": "Nonlinear SVF Filters in evieve"
-                }
-            },
             {
                 "box": {
                     "hidden": 1,
@@ -76,7 +25,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 456.0, 648.0, 51.0, 22.0 ],
+                    "patching_rect": [ 216.0, 648.0, 51.0, 22.0 ],
                     "text": "pcontrol"
                 }
             },
@@ -88,163 +37,164 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 456.0, 609.0, 79.0, 22.0 ],
+                    "patching_rect": [ 216.0, 609.0, 79.0, 22.0 ],
                     "text": "prepend load"
                 }
             },
             {
                 "box": {
                     "hidden": 1,
-                    "id": "obj-30",
+                    "id": "obj-25",
                     "maxclass": "newobj",
                     "numinlets": 2,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
-                    "patching_rect": [ 252.0, 570.0, 179.0, 22.0 ],
-                    "text": "list.reg areas_help_korg.maxpat"
+                    "patching_rect": [ 216.0, 570.0, 216.0, 22.0 ],
+                    "text": "list.reg evieve_nonlinear_filters.maxhelp"
                 }
             },
             {
                 "box": {
-                    "id": "obj-32",
+                    "id": "obj-26",
                     "maxclass": "textbutton",
                     "numinlets": 1,
                     "numoutlets": 3,
                     "outlettype": [ "", "", "int" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 252.0, 526.0, 191.0, 20.0 ],
-                    "text": "Nonlinear Korg Filters in evieve",
-                    "texton": "Nonlinear Korg Filters in evieve"
+                    "patching_rect": [ 216.0, 521.0, 169.0, 20.0 ],
+                    "text": "Nonlinear Filters in evieve",
+                    "texton": "Nonlinear Filters in evieve"
                 }
             },
             {
                 "box": {
-                    "id": "obj-25",
-                    "linecount": 2,
+                    "id": "obj-20",
+                    "linecount": 3,
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 62.0, 55.0, 478.0, 33.0 ],
-                    "text": "All evieve Ladders are modern TPT ('Zero Delay Feedback') filters with internal saturation and self-oscillation, with excellent behaviour under audio rate modulation"
+                    "patching_rect": [ 92.0, 379.0, 341.0, 47.0 ],
+                    "text": "There are many more saturation options in evieve MSP, gen~ and GenExpr. Check out the .genexpr source code for more, as well as the collection of nonlinear filters."
                 }
             },
             {
                 "box": {
                     "id": "obj-17",
-                    "linecount": 2,
-                    "maxclass": "comment",
+                    "maxclass": "newobj",
                     "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 163.0, 321.0, 377.0, 33.0 ],
-                    "text": "unlike above 'transistor' ladders which scale with resonance, this is a diode ladder filter which peaks with resonance, like a Roland 303"
+                    "numoutlets": 1,
+                    "outlettype": [ "signal" ],
+                    "patching_rect": [ 92.0, 521.0, 74.0, 22.0 ],
+                    "text": "evi.warmer~"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-16",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "signal" ],
+                    "patching_rect": [ 92.0, 482.0, 69.0, 22.0 ],
+                    "text": "evi.sinfold~"
                 }
             },
             {
                 "box": {
                     "id": "obj-15",
-                    "maxclass": "comment",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 163.0, 258.0, 309.0, 20.0 ],
-                    "text": "transistor Ladder filter with variable poles output choices"
+                    "maxclass": "newobj",
+                    "numinlets": 2,
+                    "numoutlets": 1,
+                    "outlettype": [ "signal" ],
+                    "patching_rect": [ 92.0, 443.0, 81.0, 22.0 ],
+                    "text": "evi.clipasym~"
                 }
             },
             {
                 "box": {
                     "id": "obj-14",
+                    "linecount": 3,
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 184.0, 189.0, 356.0, 20.0 ],
-                    "text": "transistor Ladder filter tuned hot and aggressive for dirty synths"
+                    "patching_rect": [ 92.0, 72.0, 467.0, 47.0 ],
+                    "text": "All evieve overdrives are built using 'anti-derivative antialiasing' techniques, offering excellent and cheap antialiasing, as well as optional oversampling and high frequency compensation. All are antialiased better than MSP [overdrive~]."
                 }
             },
             {
                 "box": {
+                    "attr": "hfcompensate",
                     "id": "obj-12",
-                    "linecount": 2,
-                    "maxclass": "comment",
+                    "maxclass": "attrui",
                     "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 163.0, 114.0, 285.0, 33.0 ],
-                    "text": "clean, in tune and versatile transistor Ladder filter for all situations, a high quality Moog emulation"
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "parameter_enable": 0,
+                    "patching_rect": [ 201.0, 151.0, 135.0, 22.0 ],
+                    "text_width": 99.0
                 }
             },
             {
                 "box": {
                     "id": "obj-10",
-                    "linecount": 2,
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 62.0, 397.0, 220.0, 33.0 ],
-                    "text": "legacy Z-1 (not ZDF) old style Ladders, useful for comparison"
+                    "patching_rect": [ 205.0, 314.0, 455.0, 20.0 ],
+                    "text": "with 'Drive' input, as well as input/output gain wrapping and shaping filtering options"
                 }
             },
             {
                 "box": {
                     "id": "obj-8",
-                    "maxclass": "newobj",
-                    "numinlets": 3,
-                    "numoutlets": 1,
-                    "outlettype": [ "signal" ],
-                    "patching_rect": [ 62.0, 486.0, 146.0, 22.0 ],
-                    "text": "gen~ @gen evi_pmladder"
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 204.0, 260.0, 429.0, 20.0 ],
+                    "text": "with 'Shape' input to control saturation (similar behaviour to MSP [overdrive~])"
                 }
             },
             {
                 "box": {
-                    "id": "obj-6",
-                    "maxclass": "newobj",
-                    "numinlets": 3,
-                    "numoutlets": 1,
-                    "outlettype": [ "signal" ],
-                    "patching_rect": [ 62.0, 447.0, 93.0, 22.0 ],
-                    "text": "evi.ladder.antti~"
+                    "id": "obj-7",
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 201.0, 206.0, 232.0, 20.0 ],
+                    "text": "passive, tanh-like input/output (cheapest)"
                 }
             },
             {
                 "box": {
                     "id": "obj-5",
                     "maxclass": "newobj",
-                    "numinlets": 5,
+                    "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 62.0, 326.0, 100.0, 22.0 ],
-                    "text": "evi.ladder.diode~"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-4",
-                    "maxclass": "newobj",
-                    "numinlets": 3,
-                    "numoutlets": 1,
-                    "outlettype": [ "signal" ],
-                    "patching_rect": [ 62.0, 257.0, 99.0, 22.0 ],
-                    "text": "evi.ladder.poles~"
+                    "patching_rect": [ 92.0, 205.0, 107.0, 22.0 ],
+                    "text": "evi.overdrive.sqrt~"
                 }
             },
             {
                 "box": {
                     "id": "obj-3",
                     "maxclass": "newobj",
-                    "numinlets": 5,
-                    "numoutlets": 1,
-                    "outlettype": [ "signal" ],
-                    "patching_rect": [ 62.0, 188.0, 120.0, 22.0 ],
-                    "text": "evi.ladder.transistor~"
+                    "numinlets": 2,
+                    "numoutlets": 2,
+                    "outlettype": [ "signal", "signal" ],
+                    "patching_rect": [ 92.0, 259.0, 110.0, 22.0 ],
+                    "text": "evi.overdrive.atan~"
                 }
             },
             {
                 "box": {
                     "id": "obj-2",
                     "maxclass": "newobj",
-                    "numinlets": 3,
+                    "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 62.0, 119.0, 100.0, 22.0 ],
-                    "text": "evi.ladder.moog~"
+                    "patching_rect": [ 92.0, 313.0, 110.0, 22.0 ],
+                    "text": "evi.overdrive.tanh~"
                 }
             },
             {
@@ -253,8 +203,8 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 32.0, 18.0, 150.0, 20.0 ],
-                    "text": "Ladder filters in evieve"
+                    "patching_rect": [ 32.0, 18.0, 198.0, 20.0 ],
+                    "text": "Overdrive alternatives in evieve"
                 }
             },
             {
@@ -275,53 +225,42 @@
                             "modernui": 1
                         },
                         "classnamespace": "dsp.gen",
-                        "rect": [ 329.0, 140.0, 376.0, 419.0 ],
+                        "rect": [ 401.0, 148.0, 402.0, 332.0 ],
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
                         "integercoordinates": 1,
                         "boxes": [
                             {
                                 "box": {
-                                    "id": "obj-8",
+                                    "id": "obj-5",
                                     "maxclass": "newobj",
-                                    "numinlets": 5,
+                                    "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 117.0, 310.0, 100.0, 22.0 ],
-                                    "text": "evi_ladder_diode"
+                                    "patching_rect": [ 116.0, 241.0, 110.0, 22.0 ],
+                                    "text": "evi_overdrive_tanh"
                                 }
                             },
                             {
                                 "box": {
-                                    "id": "obj-7",
+                                    "id": "obj-3",
                                     "maxclass": "newobj",
-                                    "numinlets": 3,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "" ],
-                                    "patching_rect": [ 117.0, 241.0, 99.0, 22.0 ],
-                                    "text": "evi_ladder_poles"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "id": "obj-6",
-                                    "maxclass": "newobj",
-                                    "numinlets": 5,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "" ],
-                                    "patching_rect": [ 116.0, 172.0, 120.0, 22.0 ],
-                                    "text": "evi_ladder_transistor"
+                                    "numinlets": 2,
+                                    "numoutlets": 2,
+                                    "outlettype": [ "", "" ],
+                                    "patching_rect": [ 116.0, 172.0, 250.0, 22.0 ],
+                                    "text": "evi_overdrive_atan @aa 1 @hfcompensate 0"
                                 }
                             },
                             {
                                 "box": {
                                     "id": "obj-2",
                                     "maxclass": "newobj",
-                                    "numinlets": 3,
+                                    "numinlets": 1,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 116.0, 103.0, 101.0, 22.0 ],
-                                    "text": "evi_ladder_moog"
+                                    "patching_rect": [ 116.0, 103.0, 145.0, 22.0 ],
+                                    "text": "evi_overdrive_sqrt @aa 5"
                                 }
                             },
                             {
@@ -330,8 +269,8 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 116.0, 20.0, 196.0, 20.0 ],
-                                    "text": "evieve Ladder filters in gen~"
+                                    "patching_rect": [ 116.0, 20.0, 150.0, 20.0 ],
+                                    "text": "evieve Overdrives in gen~"
                                 }
                             },
                             {
@@ -360,8 +299,8 @@
                         ],
                         "lines": []
                     },
-                    "patching_rect": [ 374.0, 486.0, 181.0, 22.0 ],
-                    "text": "gen~ @t evieve_ladders_in_gen"
+                    "patching_rect": [ 436.0, 521.0, 197.0, 22.0 ],
+                    "text": "gen~ @t evieve_overdrives_in_gen"
                 }
             },
             {
@@ -374,7 +313,7 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "orientation": 0,
-                    "patching_rect": [ 441.0, 367.0, 46.0, 101.0 ]
+                    "patching_rect": [ 511.0, 402.0, 46.0, 101.0 ]
                 }
             },
             {
@@ -387,12 +326,74 @@
                     "numoutlets": 0,
                     "patching_rect": [ 0.0, 0.0, 660.0, 568.0 ]
                 }
+            },
+            {
+                "box": {
+                    "attr": "aa",
+                    "id": "obj-11",
+                    "maxclass": "attrui",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "parameter_enable": 0,
+                    "patching_rect": [ 92.0, 151.0, 84.0, 22.0 ],
+                    "text_width": 44.0
+                }
             }
         ],
         "lines": [
             {
                 "patchline": {
-                    "destination": [ "obj-33", 0 ],
+                    "destination": [ "obj-2", 0 ],
+                    "order": 0,
+                    "source": [ "obj-11", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 0 ],
+                    "order": 1,
+                    "source": [ "obj-11", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-5", 0 ],
+                    "order": 2,
+                    "source": [ "obj-11", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-2", 0 ],
+                    "order": 0,
+                    "source": [ "obj-12", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 0 ],
+                    "order": 1,
+                    "source": [ "obj-12", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-5", 0 ],
+                    "order": 2,
+                    "source": [ "obj-12", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-29", 0 ],
+                    "hidden": 1,
+                    "source": [ "obj-25", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-25", 0 ],
                     "hidden": 1,
                     "source": [ "obj-26", 0 ]
                 }
@@ -402,41 +403,6 @@
                     "destination": [ "obj-27", 0 ],
                     "hidden": 1,
                     "source": [ "obj-29", 0 ]
-                }
-            },
-            {
-                "patchline": {
-                    "destination": [ "obj-29", 0 ],
-                    "hidden": 1,
-                    "source": [ "obj-30", 0 ]
-                }
-            },
-            {
-                "patchline": {
-                    "destination": [ "obj-30", 0 ],
-                    "hidden": 1,
-                    "source": [ "obj-32", 0 ]
-                }
-            },
-            {
-                "patchline": {
-                    "destination": [ "obj-29", 0 ],
-                    "hidden": 1,
-                    "source": [ "obj-33", 0 ]
-                }
-            },
-            {
-                "patchline": {
-                    "destination": [ "obj-29", 0 ],
-                    "hidden": 1,
-                    "source": [ "obj-53", 0 ]
-                }
-            },
-            {
-                "patchline": {
-                    "destination": [ "obj-53", 0 ],
-                    "hidden": 1,
-                    "source": [ "obj-54", 0 ]
                 }
             }
         ],

@@ -73,16 +73,26 @@
 	</objarglist>
 	<!--MESSAGES-->
 	<methodlist>
-		<method name="anything">
+		<method name="coeffs">
 			<arglist>
 				<arg name="coeffs" type="symbol" units="utility" optional="1" />
+			</arglist>
+			<digest>
+				In left inlet, coeffs message to evi.freqshift.hilbert~
+			</digest>
+			<description>
+				Sending the symbol &#x27;coeffs&#x27; to the abstraction displays the current coefficients of the internal Polyphase IIR Hilbert Allpass Cascade filters in a dictionary window. This has no effect on the abstraction and is pointless other than if someone is interested.
+			</description>
+		</method>
+		<method name="resetphase">
+			<arglist>
 				<arg name="resetphase" type="symbol" units="utility" optional="1" />
 			</arglist>
 			<digest>
-				In left inlet, messages to evi.freqshift.hilbert~
+				In left inlet, resetphase message to evi.freqshift.hilbert~
 			</digest>
 			<description>
-				Sending the symbol &#x27;coeffs&#x27; to the abstraction displays the current coefficients of the internal Polyphase IIR Hilbert Allpass Cascade filters in a dictionary window. This has no effect on the abstraction and is pointless other than if someone is interested. Sending the symbol &#x27;resetphase&#x27; to the abstraction has the same effect as sending &#x27;resetphase&#x27; to the MSP &#x27;freqshift~&#x27; object - it resets the phase of the quadrature oscillators that modulate the sidebands of the incoming signal. Note that in &#x27;evi.freqshift.hilbert~&#x27; this message need not be used, as a major feature of the internal gen~ code is that it does automatic and clickless resetting of phase itself (depending on the &#x27;resetauto&#x27; attribute, which is on by default).
+				Sending the symbol &#x27;resetphase&#x27; to the abstraction has the same effect as sending &#x27;resetphase&#x27; to the MSP &#x27;freqshift~&#x27; object - it resets the phase of the quadrature oscillators that modulate the sidebands of the incoming signal. Note that in &#x27;evi.freqshift.hilbert~&#x27; this message need not be used, as a major feature of the internal gen~ code is that it does automatic and clickless resetting of phase itself (depending on the &#x27;resetauto&#x27; attribute, which is on by default).
 			</description>
 		</method>
 	</methodlist>

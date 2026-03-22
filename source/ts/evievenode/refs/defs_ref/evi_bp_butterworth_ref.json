@@ -6,7 +6,7 @@
         "tilde": "~",
         "digest": "Unique 6th order Butterworth Lowpass filter created from <o>evi.bp~</o> sections after Miller Puckette",
         "description": "A smooth 6th order butterworth lowpass with very interesting properties being made up of three resonant filter sections.",
-        "discussion": "Miller Puckette devised this for his 'SMECK' project."
+        "discussion": "Miller Puckette devised this for his 'SMECK' project. For more information about other reimplementations of Pd filters in evieve, see the 'evieve pd' tab of the helpfile."
     },
     "metadata": {
         "author": "Pete Dowling",

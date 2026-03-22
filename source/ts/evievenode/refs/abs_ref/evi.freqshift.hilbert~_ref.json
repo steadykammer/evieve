@@ -53,14 +53,21 @@
     "arguments": [],
     "messages": [
         {
-            "name": "anything",
+            "name": "coeffs",
             "arg": [
                 {
                     "name": "coeffs",
                     "type": "symbol",
                     "units": "utility",
                     "optional": 1
-                },
+                }
+            ],
+            "digest": "In left inlet, coeffs message to evi.freqshift.hilbert~",
+            "description": "Sending the symbol 'coeffs' to the abstraction displays the current coefficients of the internal Polyphase IIR Hilbert Allpass Cascade filters in a dictionary window. This has no effect on the abstraction and is pointless other than if someone is interested."
+        },
+        {
+            "name": "resetphase",
+            "arg": [
                 {
                     "name": "resetphase",
                     "type": "symbol",
@@ -68,8 +75,8 @@
                     "optional": 1
                 }
             ],
-            "digest": "In left inlet, messages to evi.freqshift.hilbert~",
-            "description": "Sending the symbol 'coeffs' to the abstraction displays the current coefficients of the internal Polyphase IIR Hilbert Allpass Cascade filters in a dictionary window. This has no effect on the abstraction and is pointless other than if someone is interested. Sending the symbol 'resetphase' to the abstraction has the same effect as sending 'resetphase' to the MSP 'freqshift~' object - it resets the phase of the quadrature oscillators that modulate the sidebands of the incoming signal. Note that in 'evi.freqshift.hilbert~' this message need not be used, as a major feature of the internal gen~ code is that it does automatic and clickless resetting of phase itself (depending on the 'resetauto' attribute, which is on by default)."
+            "digest": "In left inlet, resetphase message to evi.freqshift.hilbert~",
+            "description": "Sending the symbol 'resetphase' to the abstraction has the same effect as sending 'resetphase' to the MSP 'freqshift~' object - it resets the phase of the quadrature oscillators that modulate the sidebands of the incoming signal. Note that in 'evi.freqshift.hilbert~' this message need not be used, as a major feature of the internal gen~ code is that it does automatic and clickless resetting of phase itself (depending on the 'resetauto' attribute, which is on by default)."
         }
     ],
     "attributes": [

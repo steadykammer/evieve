@@ -4,7 +4,7 @@
         "child": "evi.ladder.poles~",
         "category": "evieve",
         "digest": "TPT nonlinear transistor Ladder filter emulation with switchable (interpolated) poles",
-        "description": "TEXT_HERE"
+        "description": "By default another 24dB Ladder emulation via piecewise approximation, but poles can be interpolated to a 18dB, 12dB and 6dB filter. These are not allpass aligned so technically incorrect, but sound interesting and can be useful. For a 'correct' 12dB ladder see <o>evi.lorez~</o> (with a 'z')."
     },
     "constructor": {
         "inlets": "audio, cutoff, resonance"
@@ -19,7 +19,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "In",
-            "digest": ""
+            "digest": "Audio input to be filtered."
         },
         {
             "id": 2,
@@ -27,7 +27,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "@default 81",
-            "digest": ""
+            "digest": "Cutoff frequency in Pitch (default) or Hz depending on the @cutoffmode attribute."
         },
         {
             "id": 3,
@@ -35,7 +35,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "0..2 @default 1",
-            "digest": ""
+            "digest": "Self oscillates at resonance==1 but can take higher resonance with a little loss in tuning."
         }
     ],
     "outlets": [
@@ -44,7 +44,7 @@
             "name": "laddery",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Ladderish output between 24dB..6dB depending on @slope attribute."
         }
     ],
     "attributes": [
@@ -52,7 +52,7 @@
             "name": "cutoffmode",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Switch cutoff frequency (inlet 2) between Pitch (default on) or Hz (off).",
             "default": {
                 "type": "int",
                 "value": "1"
@@ -62,7 +62,7 @@
             "name": "shape",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "The 'shape' of the saturation. This attribute should be ignored and left at default.",
             "default": {
                 "type": "float",
                 "value": "0.650749"
@@ -72,7 +72,7 @@
             "name": "shapesmooth",
             "type": "float",
             "digest": "@min 0, @max 111",
-            "description": "",
+            "description": "If shapesmooth > 0, the @shape attribute will be internally smoothed by this time. Default off and can be safely ignored.",
             "default": {
                 "type": "float",
                 "value": "0."
@@ -82,7 +82,7 @@
             "name": "slope",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "0=24dB, 0.333333=18dB, 0.666666=12dB, 1=6dB. Smoothly interpolate between poles.",
             "default": {
                 "type": "float",
                 "value": "0."
@@ -92,7 +92,7 @@
             "name": "slopesmooth",
             "type": "float",
             "digest": "@min 0, @max 333",
-            "description": "",
+            "description": "If slopesmooth > 0, the @slope attribute will be internally smoothed by this time.",
             "default": {
                 "type": "float",
                 "value": "22.666"
@@ -101,8 +101,20 @@
     ],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_lorez",
+            "display": "evi_lorez"
+        },
+        {
+            "name": "evi_ladder_moog",
+            "display": "evi_ladder_moog"
+        },
+        {
+            "name": "evi_ladder_transistor",
+            "display": "evi_ladder_transistor"
+        },
+        {
+            "name": "evi_ladder_diode",
+            "display": "evi_ladder_diode"
         }
     ]
 }

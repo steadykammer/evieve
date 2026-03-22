@@ -851,7 +851,7 @@
                                     "lockeddragscroll": 2,
                                     "lockedsize": 1,
                                     "maxclass": "bpatcher",
-                                    "name": "areas_help_noise.maxpat",
+                                    "name": "areas_help_noise.maxhelp",
                                     "numinlets": 0,
                                     "numoutlets": 0,
                                     "offset": [ 0.0, 0.0 ],

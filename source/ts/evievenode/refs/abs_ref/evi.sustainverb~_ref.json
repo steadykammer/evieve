@@ -4,7 +4,7 @@
         "category": "evieve",
         "digest": "16x16 FDN reverb with smooth sustaining effect",
         "description": "This is just Miller Puckette's 'rev3~' but with additional reverb features such as early reflections, filtering improvements and smoothing of parameters whilst maintaining the ability to forever sustain like the original. evi.sustainverb~ also includes multichannel taps of the FDN which can be very useful for surround-ish effects processing.",
-        "discussion": "Tips: 1) turn early and highpass OFF, drywet to 100%, feedback to or very near 100% and damp low or 0% for 'forever sustain' effects. 2) turn early and maybe highpass ON and feedback between about 0.77..0.93 and drywet % to taste for more obvious reverb (room) type effects."
+        "discussion": "Tips: 1) turn early and highpass OFF, drywet to 100%, feedback to or very near 100% and damp low or 0% for 'forever sustain' effects. 2) turn early and maybe highpass ON and feedback between about 0.77..0.93 and drywet % to taste for more obvious reverb (room) type effects. For more information about other reverbs in evieve, see the 'evieve reverb' tab of the helpfile."
     },
     "metadata": {
         "author": "Pete Dowling",
@@ -83,7 +83,7 @@
     "arguments": [],
     "messages": [
         {
-            "name": "anything",
+            "name": "pattrstorage",
             "arg": [
                 {
                     "name": "pattrstorage",
@@ -92,7 +92,7 @@
                     "optional": 1
                 }
             ],
-            "digest": "In left inlet, messages to evi.sustainverb~",
+            "digest": "In left inlet, pattrstorage messages to evi.sustainverb~",
             "description": "Prepending the word 'pattrstorage' allows you to send any message pattrstorage understands to the internal pattrstorage object - you can recieve pattrstorage output via the far right outlet."
         }
     ],

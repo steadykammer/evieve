@@ -39,7 +39,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.svfsmooth~", "evi.svfsynth~", "evi.filter.morph~", "evi.svf~", "evi.korgms20~", "evi.ladder.transistor~" ]
     },
     "evi.audiodust~": {
         "digest": "Spikey sparse noise implementation",
@@ -89,6 +89,13 @@
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
         "seealso": []
+    },
+    "evi.bp~": {
+        "digest": "Reimplementation of Pd 'bp~' filter",
+        "module": "evieve-ref",
+        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "keywords": [],
+        "seealso": [ "evi.vcf~", "evi.butterworthlp6~", "evi.reson~", "evi.filter~", "evi.biquadcoeff", "evi.biquadcoeff~", "evi.biquad.filter~" ]
     },
     "evi.butterworthlp6~": {
         "digest": "Unique 6th order Butterworth Lowpass filter created from evi.bp~ sections after Miller Puckette",
@@ -462,32 +469,32 @@
         "seealso": []
     },
     "evi.ladder.diode~": {
-        "digest": "TPT Diode nonlinear Ladder filter emulation, similar to the Roland-TB303 filter",
+        "digest": "TPT nonlinear Diode Ladder filter emulation",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.ladder.moog~", "evi.ladder.transistor~", "evi.ladder.poles~" ]
     },
     "evi.ladder.moog~": {
-        "digest": "Nonlinear Moog Ladder filter emulation, this is the smoothest and most in tune of all the evieve Ladders and handles high resonance very well",
+        "digest": "Nonlinear 24dB Moog Ladder filter emulation",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.ladder.transistor~", "evi.ladder.poles~", "evi.ladder.diode~" ]
     },
     "evi.ladder.poles~": {
         "digest": "TPT nonlinear transistor Ladder filter emulation with switchable (interpolated) poles",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.lorez~", "evi.ladder.moog~", "evi.ladder.transistor~", "evi.ladder.diode~" ]
     },
     "evi.ladder.transistor~": {
         "digest": "Nonlinear TPT Transistor Ladder filter emulation",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.ladder.moog~", "evi.ladder.poles~", "evi.ladder.diode~" ]
     },
     "evi.lagsmooth~": {
         "digest": "Smooth signal ramp generator with logarithmic curve",
@@ -546,11 +553,11 @@
         "seealso": [ "evi.cfsmooth~", "evi.expsmooth~", "evi.lagsmooth~", "evi.logdecay~", "evi.logattackdecay~", "evi.logahr~", "evi_smooth" ]
     },
     "evi.lores~": {
-        "digest": "Reimplementation of MSP lores~ filter, closely matching the shape and behaviour but implemented as a TPT filter",
+        "digest": "Reimplementation of MSP lores~ filter",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.lorez~", "evi.onepole~", "evi.reson~", "evi.svf~", "evi.cross~", "evi.phaseshift~", "evi.hilbert~", "evi.allpass~", "evi.comb~", "evi.teeth~", "evi.bp~", "evi.vcf~" ]
     },
     "evi.lorez~": {
         "digest": "A novel two-pole nonlinear Ladder filter with allpass alignment",
@@ -669,7 +676,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.filter.allpass~", "evi.lores~", "evi.onepole~", "evi.reson~", "evi.svf~", "evi.cross~", "evi.hilbert~", "evi.allpass~", "evi.comb~", "evi.teeth~", "evi.bp~", "evi.vcf~" ]
     },
     "evi.phasor0~": {
         "digest": "Zero-reset phasor with settings for reverse and pause",
@@ -735,11 +742,11 @@
         "seealso": []
     },
     "evi.reson~": {
-        "digest": "Reimplementation of MSP reson~ as a TPT filter with fm-able center frequency and auto gain compensation",
+        "digest": "Reimplementation of MSP reson~ as a TPT filter",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.lores~", "evi.onepole~", "evi.svf~", "evi.cross~", "evi.phaseshift~", "evi.hilbert~", "evi.allpass~", "evi.comb~", "evi.teeth~", "evi.bp~", "evi.vcf~" ]
     },
     "evi.ringmod.diode~": {
         "digest": "analog-modelled diode-based ring modulator effect \n",
@@ -830,21 +837,21 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.arpnotch~", "evi.svfsynth~", "evi.svf~", "evi.korgms10~", "evi.ladder.poles~" ]
     },
     "evi.svfsynth~": {
-        "digest": "Beefy nonlinear TPT SVF filter with choice of 12/24dB slope, audio rate modulation and morphing capabilities",
+        "digest": "Nonlinear TPT SVF multimode synth filter with oversampling options",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.svfsmooth~", "evi.arpnotch~", "evi.svf~", "evi.korgms20.select~", "evi.ladder.moog~" ]
     },
     "evi.svf~": {
         "digest": "Reimplementation of MSP svf~ as a TPT filter",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.filter~", "evi.multimode~", "evi.svfsmooth~", "evi.svfsynth~", "evi.lores~", "evi.onepole~", "evi.reson~", "evi.cross~", "evi.phaseshift~", "evi.hilbert~", "evi.allpass~", "evi.comb~", "evi.teeth~", "evi.bp~", "evi.vcf~" ]
     },
     "evi.teeth~": {
         "digest": "Reimplementation of MSP teeth~ filter delay",
@@ -907,7 +914,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.bp~", "evi.butterworthlp6~", "evi.reson~", "evi.filter~", "evi.biquadcoeff", "evi.biquadcoeff~", "evi.biquad.filter~" ]
     },
     "evi.velvetnoise~": {
         "digest": "Interpolating 'sparse noise' / 'velvet noise' audio source",

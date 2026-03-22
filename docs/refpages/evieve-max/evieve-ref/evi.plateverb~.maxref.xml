@@ -65,12 +65,12 @@
 	</objarglist>
 	<!--MESSAGES-->
 	<methodlist>
-		<method name="anything">
+		<method name="pattrstorage">
 			<arglist>
 				<arg name="pattrstorage" type="anything" units="messages to pattrstorage" optional="1" />
 			</arglist>
 			<digest>
-				In left inlet, messages to evi.plateverb~
+				In left inlet, pattrstorage messages to evi.plateverb~
 			</digest>
 			<description>
 				Prepending the word &#x27;pattrstorage&#x27; allows you to send any message pattrstorage understands to the internal pattrstorage object - you can recieve pattrstorage output via the far right outlet.
@@ -250,6 +250,6 @@
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>
-         <br />
+        For more information about other reverbs in evieve, see the 'evieve reverb' tab of the helpfile. <br />
 	</discussion>
 </c74object>

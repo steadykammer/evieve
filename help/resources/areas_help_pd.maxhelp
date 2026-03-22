@@ -28,8 +28,8 @@
                     "numinlets": 2,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
-                    "patching_rect": [ 85.0, 594.0, 179.0, 22.0 ],
-                    "text": "list.reg areas_help_msp.maxpat"
+                    "patching_rect": [ 85.0, 594.0, 185.0, 22.0 ],
+                    "text": "list.reg areas_help_msp.maxhelp"
                 }
             },
             {
@@ -102,8 +102,8 @@
                     "numinlets": 2,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
-                    "patching_rect": [ 133.0, 570.0, 178.0, 22.0 ],
-                    "text": "list.reg areas_help_filter.maxpat"
+                    "patching_rect": [ 133.0, 570.0, 184.0, 22.0 ],
+                    "text": "list.reg areas_help_filter.maxhelp"
                 }
             },
             {
@@ -127,8 +127,8 @@
                     "numinlets": 2,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
-                    "patching_rect": [ 356.0, 570.0, 216.0, 22.0 ],
-                    "text": "list.reg evieve_nonlinear_filters.maxpat"
+                    "patching_rect": [ 356.0, 570.0, 222.0, 22.0 ],
+                    "text": "list.reg evieve_nonlinear_filters.maxhelp"
                 }
             },
             {
@@ -196,8 +196,8 @@
                                     "numinlets": 2,
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "" ],
-                                    "patching_rect": [ 162.0, 142.0, 69.0, 22.0 ],
-                                    "text": "evi_vcf_df2"
+                                    "patching_rect": [ 162.0, 142.0, 46.0, 22.0 ],
+                                    "text": "evi_vcf"
                                 }
                             },
                             {
@@ -265,17 +265,6 @@
             },
             {
                 "box": {
-                    "id": "obj-7",
-                    "maxclass": "newobj",
-                    "numinlets": 2,
-                    "numoutlets": 3,
-                    "outlettype": [ "signal", "signal", "signal" ],
-                    "patching_rect": [ 87.0, 206.0, 50.0, 22.0 ],
-                    "text": "evi.vcf~"
-                }
-            },
-            {
-                "box": {
                     "id": "obj-6",
                     "maxclass": "newobj",
                     "numinlets": 4,
@@ -303,6 +292,17 @@
                     "numoutlets": 0,
                     "patching_rect": [ 172.0, 103.0, 110.0, 20.0 ],
                     "text": "6-pole derivative"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-5",
+                    "maxclass": "newobj",
+                    "numinlets": 2,
+                    "numoutlets": 3,
+                    "outlettype": [ "signal", "signal", "signal" ],
+                    "patching_rect": [ 87.0, 206.0, 50.0, 22.0 ],
+                    "text": "evi.vcf~"
                 }
             },
             {

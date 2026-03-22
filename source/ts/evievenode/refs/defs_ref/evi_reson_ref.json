@@ -4,9 +4,9 @@
         "parent": "evi_reson",
         "category": "evieve",
         "tilde": "~",
-        "digest": "Reimplementation of MSP <o>reson~</o> as a TPT filter with fm-able center frequency and auto gain compensation",
-        "description": "TEXT_HERE",
-        "discussion": ""
+        "digest": "Reimplementation of MSP <o>reson~</o> as a TPT filter",
+        "description": "A linear TPT resonant bandpass filter. <o>evi.reson~</o> has exactly the same response as MSP <o>reson~</o> and can therefore be used as a drop in replacement, but has better modulation characteristics with FM-able center frequency as well as optional auto gain compensation.",
+        "discussion": "For more information about other reimplementations of MSP filters in evieve, see the 'evieve msp' tab of the helpfile."
     },
     "metadata": {
         "author": "Pete Dowling",
@@ -20,25 +20,25 @@
             "id": 1,
             "type": "signal",
             "digest": "Input",
-            "description": ""
+            "description": "Audio input to be filtered."
         },
         {
             "id": 2,
             "type": "signal/float",
             "digest": "Input Gain Linear @default 1",
-            "description": ""
+            "description": "Linear gain of the filter."
         },
         {
             "id": 3,
             "type": "signal/float",
             "digest": "Center Frequency in Hz @min 1 @max samplerate*0.5",
-            "description": ""
+            "description": "Center frequency of the resonant peak."
         },
         {
             "id": 4,
             "type": "signal/float",
             "digest": "Resonance @min 0.05 @default 1",
-            "description": ""
+            "description": "Filter resonance. Can be increasingly high values (e.g. 10000). See @compensate attribute for compensation."
         }
     ],
     "outlets": [
@@ -46,7 +46,7 @@
             "id": 1,
             "type": "signal",
             "digest": "Filtered Output",
-            "description": ""
+            "description": "Resonant audio output."
         }
     ],
     "messages": [],
@@ -55,8 +55,8 @@
             "name": "compensate",
             "get": 1,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Flag 0/1",
+            "description": "Automatically compensate for the perceived reduction in gain (energy) when Q values are very high. Typically this should be on but is off by default to match MSP.",
             "default": {
                 "min": "0",
                 "max": "1",
@@ -67,8 +67,8 @@
             "name": "smooth",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Time in ms",
+            "description": "Smooth the mixing gains of the filter efficiently at the core of the DSP. With these TPT SVF filters this will usually be the only smoothing required. By default smoothing is off.",
             "default": {
                 "min": "0",
                 "max": "333",
@@ -80,5 +80,17 @@
         "caption": "",
         "image": ""
     },
-    "seealso": []
+    "seealso": [
+        "evi.lores~",
+        "evi.onepole~",
+        "evi.svf~",
+        "evi.cross~",
+        "evi.phaseshift~",
+        "evi.hilbert~",
+        "evi.allpass~",
+        "evi.comb~",
+        "evi.teeth~",
+        "evi.bp~",
+        "evi.vcf~"
+    ]
 }

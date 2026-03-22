@@ -3,8 +3,8 @@
         "name": "evi_bp",
         "child": "evi.bp~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Reimplementation of Pd 'bp~' filter",
+        "description": "A linear twopole resonant bandpass filter, a port of [bp~] from Pd and therefore a direct form biquad. Similar to <o>reson~</o> and <o>evi.reson~</o> but with no feedforward gains and thus a special and smooth alternative to those filters. Like <o>reson</o> etc it can take very high Q values which is one of it's primary use cases. [bp~] is basically a control rate version of [vcf~] from Pd, which is also ported in evieve as <o>evi.vcf~</o>."
     },
     "constructor": {
         "inlets": "input, cutoff, gain, q"
@@ -20,7 +20,7 @@
             "name": "input",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Audio input to be filtered."
         },
         {
             "id": 2,
@@ -28,7 +28,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "in Hz @min samplerate*0.00022 @max samplerate*0.458334",
-            "digest": ""
+            "digest": "Center frequency of the resonant peak."
         },
         {
             "id": 3,
@@ -36,7 +36,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "in dB @min -24 @max 24 @default 0",
-            "digest": ""
+            "digest": "± gain in dB if @filter attribute == 1."
         },
         {
             "id": 4,
@@ -44,7 +44,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "@min 0.1 @default 1",
-            "digest": ""
+            "digest": "Filter resonance. Can be increasingly high values (e.g. 10000)."
         }
     ],
     "outlets": [
@@ -53,7 +53,7 @@
             "name": "bp",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Resonant audio output."
         }
     ],
     "attributes": [
@@ -61,7 +61,7 @@
             "name": "filter",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Gain filter off/on. If off (the default) identical to Pd [bp~] (no gain inlet). If on, ± gain inlet takes effect. Switching this also resets internal filter (biquad) state.",
             "default": {
                 "type": "int",
                 "value": "0"
@@ -70,8 +70,20 @@
     ],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_vcf",
+            "display": "evi_vcf"
+        },
+        {
+            "name": "evi_reson",
+            "display": "evi_reson"
+        },
+        {
+            "name": "evi_filter",
+            "display": "evi_filter"
+        },
+        {
+            "name": "evi_biquad_filter",
+            "display": "evi_biquad_filter"
         }
     ]
 }

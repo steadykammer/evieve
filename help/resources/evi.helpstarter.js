@@ -508,7 +508,7 @@ function init() {
       areasComment.message("textcolor", textColor);
       areasComment.message("patching_rect", 10, 70, 660, 22);
       areasComment.message("background", 1);
-      const AREAS_BPATCHER_NAME = `areas_help_${eviOption5}.maxpat`;
+      const AREAS_BPATCHER_NAME = `areas_help_${eviOption5}.maxhelp`;
       areastab.subpatcher().message(
         "script",
         "newobject",

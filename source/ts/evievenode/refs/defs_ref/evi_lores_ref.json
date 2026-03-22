@@ -4,9 +4,9 @@
         "parent": "evi_lores",
         "category": "evieve",
         "tilde": "~",
-        "digest": "Reimplementation of MSP <o>lores~</o> filter, closely matching the shape and behaviour but implemented as a TPT filter",
-        "description": "TEXT_HERE",
-        "discussion": ""
+        "digest": "Reimplementation of MSP <o>lores~</o> filter",
+        "description": "This filter roughly matches the shape and behaviour of MSP <o>lores~</o> but is implemented as a TPT filter. <o>lores~</o> is basically like the lowpass output of <o>svf~</o> but with a unique mapping and coupling of cutoff and resonance: frequency affects strength of resonance and resonance affects slope of filter. The mapping of <o>lores~</o> has a lower resonance in the low frequency range. This is actually a traditional analog SVF type of mapping. <o>evi.lores~</o> matches all these features but does not quite manage to match the high frequency response. This is a trade off for having a filter with better modulation properties and which does not digitally distort. The abstraction includes code which can be extracted for parameter rate control of the coefficients calculation if required.",
+        "discussion": "For more information about other reimplementations of MSP filters in evieve, see the 'evieve msp' tab of the helpfile."
     },
     "metadata": {
         "author": "Pete Dowling",
@@ -21,27 +21,27 @@
             "id": 1,
             "type": "signal",
             "digest": "Input",
-            "description": ""
+            "description": "Audio input to be filtered."
         },
         {
             "id": 2,
             "type": "signal/float",
             "digest": "Cutoff Frequency in Hz @max samplerate*0.5",
-            "description": ""
+            "description": "Cutoff frequency in Hz."
         },
         {
             "id": 3,
             "type": "signal/float",
             "digest": "Resonance 0..1 @min 0 @max 1",
-            "description": ""
+            "description": "Filter resonance 0..1."
         }
     ],
     "outlets": [
         {
             "id": 1,
             "type": "signal",
-            "digest": "lores~like Output but not shit",
-            "description": ""
+            "digest": "lores~like Output but not bad",
+            "description": "Filtered audio output."
         }
     ],
     "messages": [],
@@ -50,8 +50,8 @@
             "name": "oversample",
             "get": 1,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Flag 0/1",
+            "description": "The 2x oversampling slightly improves the high frequency response, but it probably isn't worth it",
             "default": {
                 "min": "0",
                 "max": "1",
@@ -63,5 +63,18 @@
         "caption": "",
         "image": ""
     },
-    "seealso": []
+    "seealso": [
+        "evi.lorez~",
+        "evi.onepole~",
+        "evi.reson~",
+        "evi.svf~",
+        "evi.cross~",
+        "evi.phaseshift~",
+        "evi.hilbert~",
+        "evi.allpass~",
+        "evi.comb~",
+        "evi.teeth~",
+        "evi.bp~",
+        "evi.vcf~"
+    ]
 }

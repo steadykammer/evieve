@@ -9,7 +9,7 @@
 		<b>evi.phaseshift~</b> is a 'max define' for the <o>evi_phaseshift</o>.gendsp gen~ abstraction.
 		Because evi.phaseshift~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		<br />
-		TEXT_HERE <br />
+		A second order TPT allpass filter which distorts the phase of the signal. See the 'frequency-response' tab of the <o>phaseshift~</o> helpfile for an explanation which is still accurate for this TPT version. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>
@@ -24,7 +24,7 @@
 				Inlet #1: Input
 			</digest>
 			<description>
-				
+				Audio input to be filtered.
 			</description>
 		</inlet>
 		<inlet id="2" type="signal/float">
@@ -32,7 +32,7 @@
 				Inlet #2: Frequency in Hz @min 1 @max samplerate*0.5
 			</digest>
 			<description>
-				
+				Center frequency of the phase transition band.
 			</description>
 		</inlet>
 		<inlet id="3" type="signal/float">
@@ -40,7 +40,7 @@
 				Inlet #3: Q @min 0.1 @max 20 @default 1
 			</digest>
 			<description>
-				
+				Q (bandwidth) of the phase transition band.
 			</description>
 		</inlet>
 	</inletlist>
@@ -78,9 +78,21 @@
 	</examplelist>
 	<!--SEEALSO-->
 	<seealsolist>
+		<seealso name="evi.filter.allpass~"> </seealso>
+		<seealso name="evi.lores~"> </seealso>
+		<seealso name="evi.onepole~"> </seealso>
+		<seealso name="evi.reson~"> </seealso>
+		<seealso name="evi.svf~"> </seealso>
+		<seealso name="evi.cross~"> </seealso>
+		<seealso name="evi.hilbert~"> </seealso>
+		<seealso name="evi.allpass~"> </seealso>
+		<seealso name="evi.comb~"> </seealso>
+		<seealso name="evi.teeth~"> </seealso>
+		<seealso name="evi.bp~"> </seealso>
+		<seealso name="evi.vcf~"> </seealso>
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>
-         <br />
+        For more information about other reimplementations of MSP filters in evieve, see the 'evieve msp' tab of the helpfile. <br />
 	</discussion>
 </c74object>

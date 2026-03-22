@@ -13,7 +13,7 @@
          <br />
         evi_arpnotch is also available in MSP as: <o>evi.arpnotch~</o>. <br />
          <br />
-	    TEXT_HERE <br />
+	    A nonlinear 12dB SVF filter which can smoothly morph between LP..Notch..HP, thus making it a partial emulation of the ARP 1047 filter/resonator. The morphing through notch is resonance-compensated so that the analog notch is always strong. <br />
     </description>
     <methodlist />
     <constructorlist>
@@ -26,22 +26,22 @@
     <geninletlist>
         <geninlet name='input' type='float' optional='1'>
             <digest>
-                
+                Audio input to be filtered.
             </digest>
         </geninlet>
         <geninlet name='freq' type='float' optional='1'>
             <digest>
-                in Pitch (default) or Hz depending on &#x27;cutoffmode&#x27; attribute. 
+                in Pitch (default) or Hz depending on &#x27;cutoffmode&#x27; attribute. Cutoff frequency in Pitch (default) or Hz depending on the @cutoffmode attribute.
             </digest>
         </geninlet>
         <geninlet name='resonance' type='float' optional='1'>
             <digest>
-                0..1 @default 0.707107. 
+                0..1 @default 0.707107. Resonance 0..1, can self oscillate at &#x27;1&#x27; depending on current morph factor (inlet 4).
             </digest>
         </geninlet>
         <geninlet name='morph' type='float' optional='1'>
             <digest>
-                0..1 @default 0.5. 
+                0..1 @default 0.5. Smoothly interpolate 0..1 between lowpass..notch..highpass output.
             </digest>
         </geninlet>
     </geninletlist>
@@ -51,7 +51,7 @@
                 @min 0, @max 1
             </digest>
             <description>
-                
+                Switch cutoff frequency (inlet 2) between Pitch (default on) or Hz (off).
             </description>
             <attributelist>
                 <attribute name='default' type='int' value='1' />
@@ -62,7 +62,7 @@
                 @min 0, @max 333
             </digest>
             <description>
-                
+                If morphsmooth &gt; 0, the &#x27;Morph&#x27; control (inlet 4) will be internally smoothed by this time. Default off.
             </description>
             <attributelist>
                 <attribute name='default' type='float' value='0.' />
@@ -75,6 +75,11 @@
         <metadata name="tag">GenDsp</metadata>
     </metadatalist>
     <seealsolist>
-        <seealso name='' display='' type='genrefpage' />
+        <seealso name='evi_svfsmooth' display='evi_svfsmooth' type='genrefpage' />
+        <seealso name='evi_svfsynth' display='evi_svfsynth' type='genrefpage' />
+        <seealso name='evi_filter_morph' display='evi_filter_morph' type='genrefpage' />
+        <seealso name='evi_svf' display='evi_svf' type='genrefpage' />
+        <seealso name='evi_korgms20' display='evi_korgms20' type='genrefpage' />
+        <seealso name='evi_ladder_transistor' display='evi_ladder_transistor' type='genrefpage' />
     </seealsolist>
 </c74object>

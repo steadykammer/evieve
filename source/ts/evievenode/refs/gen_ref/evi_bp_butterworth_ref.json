@@ -46,6 +46,10 @@
             "display": "evi_bp"
         },
         {
+            "name": "evi_vcf",
+            "display": "evi_vcf"
+        },
+        {
             "name": "evi_filter",
             "display": "evi_filter"
         },

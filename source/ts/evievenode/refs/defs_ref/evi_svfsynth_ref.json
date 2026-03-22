@@ -4,9 +4,9 @@
         "parent": "evi_svfsynth",
         "category": "evieve",
         "tilde": "~",
-        "digest": "Beefy nonlinear TPT SVF filter with choice of 12/24dB slope, audio rate modulation and morphing capabilities",
-        "description": "TEXT_HERE",
-        "discussion": ""
+        "digest": "Nonlinear TPT SVF multimode synth filter with oversampling options",
+        "description": "Beefy nonlinear TPT SVF filter with choice of 12/24dB slope, audio rate modulation and morphing capabilities. Morphing 12dB filter output is always available at the far left outlet. Optionally morphing 24dB filter output is avaiable at the far right outlet. Self oscillates at resonance==1 but can take higher resonance for interesting effects.",
+        "discussion": "For more information about other nonlinear SVF filters in evieve, see the 'evieve svf' tab of the helpfile."
     },
     "metadata": {
         "author": "Pete Dowling",
@@ -21,19 +21,19 @@
             "id": 1,
             "type": "signal",
             "digest": "Audio Input",
-            "description": ""
+            "description": "Audio input to be filtered."
         },
         {
             "id": 2,
             "type": "signal/float",
             "digest": "Cutoff in Hz or Pitch @default 77.",
-            "description": ""
+            "description": "Cutoff frequency in Pitch (default) or Hz depending on the @cutoffmode attribute."
         },
         {
             "id": 3,
             "type": "signal/float",
             "digest": "Resonance 0..1++ @default 0.984",
-            "description": ""
+            "description": "Self oscillates at resonance==1 but can take higher resonance for interesting effects, at which point the filter can go out of tune."
         }
     ],
     "outlets": [
@@ -41,13 +41,13 @@
             "id": 1,
             "type": "signal",
             "digest": "12dB Filter Outputs",
-            "description": ""
+            "description": "12dB SVF filter outputs."
         },
         {
             "id": 2,
             "type": "signal",
             "digest": "24dB Filter Outputs (if 'slope' attribute selected)",
-            "description": ""
+            "description": "24dB SVF filter outputs if @slope attribute is on."
         }
     ],
     "messages": [],
@@ -56,8 +56,8 @@
             "name": "cutoffmode",
             "get": 1,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Flag 0/1",
+            "description": "Switch cutoff frequency (inlet 2) between Pitch (default on) or Hz (off).",
             "default": {
                 "min": "0",
                 "max": "1",
@@ -68,8 +68,8 @@
             "name": "filtinterp",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Normalised 0..1",
+            "description": "0=Lowpass, 0.5=Bandpass, 1=Highpass. Smoothly interpolate filter output between these states.",
             "default": {
                 "min": "0",
                 "max": "1",
@@ -80,8 +80,8 @@
             "name": "filtinterpsmooth",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Time in ms",
+            "description": "If filtinterpsmooth > 0, the @filtinterp attribute will be internally smoothed by this time.",
             "default": {
                 "min": "0",
                 "max": "100",
@@ -92,8 +92,8 @@
             "name": "oversample",
             "get": 1,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Flag 0/1",
+            "description": "2x oversampling if on (default), 1x if off (careful). Oversampling almost doubles the CPU usage.",
             "default": {
                 "min": "0",
                 "max": "2",
@@ -104,8 +104,8 @@
             "name": "shape",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Normalised 0..1",
+            "description": "A shaping parameter for the internal saturation. It is advised never to touch this and leave it at it's default.",
             "default": {
                 "min": "0",
                 "max": "1",
@@ -116,8 +116,8 @@
             "name": "shapesmooth",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Time in ms",
+            "description": "If shapesmooth > 0, the @shape attribute will be internally smoothed by this time.",
             "default": {
                 "min": "0",
                 "max": "100",
@@ -128,8 +128,8 @@
             "name": "slope",
             "get": 1,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Flag 0/1",
+            "description": "If 0 (default) only the 12dB filters are available at the far left outlet. If 1, additional 24dB filters are avilable at the far right outlet. Switching on 24dB filters doubles the CPU usage.",
             "default": {
                 "min": "0",
                 "max": "1",
@@ -140,8 +140,8 @@
             "name": "tunesmooth",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Time in ms",
+            "description": "A very strange attribute. Smooths the retuning algorithm if resonance is > 1. Can be turned off if resonance > 1 never used.",
             "default": {
                 "min": "0",
                 "max": "100",
@@ -153,5 +153,11 @@
         "caption": "",
         "image": ""
     },
-    "seealso": []
+    "seealso": [
+        "evi.svfsmooth~",
+        "evi.arpnotch~",
+        "evi.svf~",
+        "evi.korgms20.select~",
+        "evi.ladder.moog~"
+    ]
 }

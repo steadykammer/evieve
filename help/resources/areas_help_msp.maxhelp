@@ -9,7 +9,7 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 63.0, 131.0, 660.0, 568.0 ],
+        "rect": [ 63.0, 100.0, 660.0, 568.0 ],
         "openrect": [ 0.0, 0.0, 660.0, 568.0 ],
         "openrectmode": 0,
         "bglocked": 1,
@@ -20,6 +20,17 @@
         "integercoordinates": 1,
         "title": "evieve substitutions for MSP filters",
         "boxes": [
+            {
+                "box": {
+                    "id": "obj-12",
+                    "maxclass": "newobj",
+                    "numinlets": 2,
+                    "numoutlets": 3,
+                    "outlettype": [ "signal", "signal", "signal" ],
+                    "patching_rect": [ 323.0, 517.0, 50.0, 22.0 ],
+                    "text": "evi.vcf~"
+                }
+            },
             {
                 "box": {
                     "hidden": 1,
@@ -52,8 +63,8 @@
                     "numinlets": 2,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
-                    "patching_rect": [ 450.0, 609.0, 178.0, 22.0 ],
-                    "text": "list.reg areas_help_filter.maxpat"
+                    "patching_rect": [ 450.0, 609.0, 184.0, 22.0 ],
+                    "text": "list.reg areas_help_filter.maxhelp"
                 }
             },
             {
@@ -77,8 +88,8 @@
                     "numinlets": 2,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
-                    "patching_rect": [ 449.0, 570.0, 216.0, 22.0 ],
-                    "text": "list.reg evieve_nonlinear_filters.maxpat"
+                    "patching_rect": [ 449.0, 570.0, 222.0, 22.0 ],
+                    "text": "list.reg evieve_nonlinear_filters.maxhelp"
                 }
             },
             {
@@ -178,8 +189,8 @@
                                     "numinlets": 2,
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "" ],
-                                    "patching_rect": [ 830.0, 325.0, 69.0, 22.0 ],
-                                    "text": "evi_vcf_df2"
+                                    "patching_rect": [ 830.0, 325.0, 46.0, 22.0 ],
+                                    "text": "evi_vcf"
                                 }
                             },
                             {
@@ -484,17 +495,6 @@
                     "outlettype": [ "signal" ],
                     "patching_rect": [ 196.0, 517.0, 110.0, 22.0 ],
                     "text": "evi.butterworthlp6~"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-7",
-                    "maxclass": "newobj",
-                    "numinlets": 2,
-                    "numoutlets": 3,
-                    "outlettype": [ "signal", "signal", "signal" ],
-                    "patching_rect": [ 325.0, 517.0, 50.0, 22.0 ],
-                    "text": "evi.vcf~"
                 }
             },
             {

@@ -65,16 +65,26 @@
 	</objarglist>
 	<!--MESSAGES-->
 	<methodlist>
-		<method name="anything">
+		<method name="bypass">
 			<arglist>
 				<arg name="bypass" type="int" units="0/1" optional="1" />
+			</arglist>
+			<digest>
+				In left inlet, bypass message to evi.gigaverb~
+			</digest>
+			<description>
+				&#x27;bypass 1&#x27; will smoothly bypass the reverb to dry.
+			</description>
+		</method>
+		<method name="pattrstorage">
+			<arglist>
 				<arg name="pattrstorage" type="anything" units="messages to pattrstorage" optional="1" />
 			</arglist>
 			<digest>
-				In left inlet, messages to evi.gigaverb~
+				In left inlet, pattrstorage messages to evi.gigaverb~
 			</digest>
 			<description>
-				&#x27;bypass 1&#x27; will smoothly bypass the reverb to dry. Prepending the word &#x27;pattrstorage&#x27; allows you to send any message pattrstorage understands to the internal pattrstorage object - you can recieve pattrstorage output via the far right outlet.
+				Prepending the word &#x27;pattrstorage&#x27; allows you to send any message pattrstorage understands to the internal pattrstorage object - you can recieve pattrstorage output via the far right outlet.
 			</description>
 		</method>
 	</methodlist>
@@ -163,6 +173,6 @@
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>
-         <br />
+        For more information about other reverbs in evieve, see the 'evieve reverb' tab of the helpfile. <br />
 	</discussion>
 </c74object>

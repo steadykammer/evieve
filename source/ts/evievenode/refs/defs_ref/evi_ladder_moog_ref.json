@@ -4,9 +4,9 @@
         "parent": "evi_ladder_moog",
         "category": "evieve",
         "tilde": "~",
-        "digest": "Nonlinear Moog Ladder filter emulation, this is the smoothest and most in tune of all the evieve Ladders and handles high resonance very well",
-        "description": "TEXT_HERE",
-        "discussion": ""
+        "digest": "Nonlinear 24dB Moog Ladder filter emulation",
+        "description": "A classic nonlinear Moog Ladder emulation. This is the smoothest and most in tune of all the evieve TPT Ladders and handles high resonance very well. It responds particularly well to  and remains stable under audio rate modulation, therefore capable of all the classic analog Ladder effects.",
+        "discussion": "Previously available as <o>sm.ladder~</o>, this working is better quality and more efficient. For more information about other nonlinear Ladder filters in evieve, see the 'evieve ladder' tab of the helpfile."
     },
     "metadata": {
         "author": "Pete Dowling",
@@ -22,19 +22,19 @@
             "id": 1,
             "type": "signal",
             "digest": "Audio In",
-            "description": ""
+            "description": "Audio input to be filtered."
         },
         {
             "id": 2,
             "type": "signal/float",
             "digest": "Cutoff in Hz or Pitch @default 81",
-            "description": ""
+            "description": "Cutoff frequency in Pitch (default) or Hz depending on the @cutoffmode attribute."
         },
         {
             "id": 3,
             "type": "signal/float",
             "digest": "Resonance 0..1..2 @default 1",
-            "description": ""
+            "description": "Self oscillates at resonance==1 but can take higher resonance with ease, remaining smooth and in tune."
         }
     ],
     "outlets": [
@@ -42,7 +42,7 @@
             "id": 1,
             "type": "signal",
             "digest": "Moog Ladder Output",
-            "description": ""
+            "description": "24dB laddery filtered output."
         }
     ],
     "messages": [],
@@ -51,8 +51,8 @@
             "name": "cutoffmode",
             "get": 1,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Flag 0/1",
+            "description": "Switch cutoff frequency (inlet 2) between Pitch (default on) or Hz (off).",
             "default": {
                 "min": "0",
                 "max": "1",
@@ -63,8 +63,8 @@
             "name": "cutoffsmooth",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Time in ms",
+            "description": "Optionally smooth the cutoff (inlet 2). If audio rate modulating inlet 2 this should be turned off (the default).",
             "default": {
                 "min": "0",
                 "max": "333",
@@ -75,8 +75,8 @@
             "name": "nonlin",
             "get": 1,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Flag 0/1",
+            "description": "Unlike unit delay filters, TPT filters allow us to switch out the nonlinearity in the feedback loop without having to retune the filter. 0=tanh-like, 1=polynomial-saturator. Each give the filter slightly different characteristics.",
             "default": {
                 "min": "0",
                 "max": "1",
@@ -87,8 +87,8 @@
             "name": "oversample",
             "get": 1,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Flag 0/1",
+            "description": "2x oversampling if on (default), 1x if off (careful). Oversampling almost doubles the CPU usage.",
             "default": {
                 "min": "0",
                 "max": "1",
@@ -99,8 +99,8 @@
             "name": "ressmooth",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Time in ms",
+            "description": "Optionally smooth the resonance (inlet 3). If audio rate modulating inlet 3 this should be turned off (the default).",
             "default": {
                 "min": "0",
                 "max": "333",
@@ -112,5 +112,9 @@
         "caption": "",
         "image": ""
     },
-    "seealso": []
+    "seealso": [
+        "evi.ladder.transistor~",
+        "evi.ladder.poles~",
+        "evi.ladder.diode~"
+    ]
 }

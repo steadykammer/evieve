@@ -336,8 +336,8 @@ max define evi.tri~ gen~ @gen evi_tri.gendsp;
 max define mc.evi.tri~ mc.gen~ @gen evi_tri.gendsp @chans 2;
 
 max define evi.vactrol.shape~ gen~ @gen evi_vactrol_shape.gendsp;
-max define evi.vcf~ gen~ @gen evi_vcf_df2.gendsp;
-max define mc.evi.vcf~ mc.gen~ @gen evi_vcf_df2.gendsp @chans 2;
+max define evi.vcf~ gen~ @gen evi_vcf.gendsp;
+max define mc.evi.vcf~ mc.gen~ @gen evi_vcf.gendsp @chans 2;
 
 max define evi.velvetnoise~ gen~ @gen evi_velvetnoise.gendsp;
 max define mc.evi.velvetnoise~ mc.gen~ @gen evi_velvetnoise.gendsp @chans 2;

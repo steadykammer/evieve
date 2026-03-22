@@ -12,7 +12,7 @@
     "evi.algoverb~": {
         "type": "abstraction",
         "digest": "True stereo algorithmic reverb \n",
-        "description": "Relatively expensive algorithmic reverb with many tweekable parameters, 15 embedded presets and an internal pattrstorage system. The reverb is modular, with pre delay, early reflections and late reflections all controllable individually, as well as high quality linear SVF filters in both the feedback path and end of wet path. Loosely based on a Martijn Zwartjes Reaktor ensemble. The MSP abstraction does a lot of massaging of the input parameters, so when using the gen~ abstraction study the internal Param declarations."
+        "description": "Relatively expensive algorithmic reverb with many tweekable parameters, 15 embedded presets and an internal pattrstorage system. The reverb is modular, with pre delay, early reflections and late reflections all controllable individually, as well as high quality linear SVF filters in both the feedback path and end of wet path."
     },
     "evi.allpass~": {
         "type": "define",
@@ -27,7 +27,7 @@
     "evi.arpnotch~": {
         "type": "define",
         "digest": "A nonlinear SVF Notch filter which can morph between LP..Notch..HP",
-        "description": ""
+        "description": "evi.arpnotch~ is a 'max define' for the evi_arpnotch.gendsp gen~ abstraction. Because evi.arpnotch~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA nonlinear 12dB SVF filter which can smoothly morph between LP..Notch..HP, thus making it a partial emulation of the ARP 1047 filter/resonator. The morphing through notch is resonance-compensated so that the analog notch is always strong."
     },
     "evi.audiodust~": {
         "type": "define",
@@ -64,6 +64,11 @@
         "digest": "No aliasing BLIT oscillators with a choice of simultaneous wave shapes outputs",
         "description": ""
     },
+    "evi.bp~": {
+        "type": "define",
+        "digest": "Reimplementation of Pd 'bp~' filter",
+        "description": "evi.bp~ is a 'max define' for the evi_bp.gendsp gen~ abstraction. Because evi.bp~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA linear twopole resonant bandpass filter, a port of [bp~] from Pd and therefore a direct form biquad. Similar to reson~ and evi.reson~ but with no feedforward gains and thus a special and smooth alternative to those filters. Like reson etc it can take very high Q values which is one of it's primary use cases. [bp~] is basically a control rate version of [vcf~] from Pd, which is also ported in evieve as evi.vcf~."
+    },
     "evi.butterworthlp6~": {
         "type": "define",
         "digest": "Unique 6th order Butterworth Lowpass filter created from evi.bp~ sections after Miller Puckette",
@@ -82,7 +87,7 @@
     "evi.chorus.digital~": {
         "type": "define",
         "digest": "A basic digital Chorus implementation, with multiple stages and saturation",
-        "description": "evi.chorus.digital~ is a 'max define' for the evi_chorus_digital.gendsp gen~ abstraction. Because evi.chorus.digital~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nThere are many attributes so that the user can macroise the controls themselves to higher level parameters."
+        "description": "evi.chorus.digital~ is a 'max define' for the evi_chorus_digital.gendsp gen~ abstraction. Because evi.chorus.digital~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nAn example of a multi stage chorus using evieve primitives. There are many attributes so that the user can macroise the controls themselves to higher level parameters."
     },
     "evi.classic.osc~": {
         "type": "define",
@@ -172,7 +177,7 @@
     "evi.eq8~": {
         "type": "define",
         "digest": "8-band TPT EQ with message rate control of all parameters",
-        "description": "evi.eq8~ is a 'max define' for the evi_eq8.gendsp gen~ abstraction. Because evi.eq8~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nAn 8-band parametric EQ made up of 8 TPT SVF EQ filters, each with selectable filter type. Parameter changes can optionally be smoothed."
+        "description": "evi.eq8~ is a 'max define' for the evi_eq8.gendsp gen~ abstraction. Because evi.eq8~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nAn 8-band parametric EQ made up of 8 TPT SVF EQ filters, each with selectable filter type. Parameter changes can optionally be smoothed. evi.eq8~ uses the same filter DSP and offers the same filter types as Ableton 'EQ8'."
     },
     "evi.expsmooth~": {
         "type": "external",
@@ -331,23 +336,23 @@
     },
     "evi.ladder.diode~": {
         "type": "define",
-        "digest": "TPT Diode nonlinear Ladder filter emulation, similar to the Roland-TB303 filter",
-        "description": "evi.ladder.diode~ is a 'max define' for the evi_ladder_diode.gendsp gen~ abstraction. Because evi.ladder.diode~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nUnlike the (Moog) Transistor Ladder, the Diode Ladder resonance peaks, rather than scales."
+        "digest": "TPT nonlinear Diode Ladder filter emulation",
+        "description": "evi.ladder.diode~ is a 'max define' for the evi_ladder_diode.gendsp gen~ abstraction. Because evi.ladder.diode~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA 24dB Diode Ladder filter emulation, similar to the Roland-TB303 filter and not like a Transistor Ladder. Different to any of the other evieve Ladders. Unlike the (Moog) Transistor Ladder, the Diode Ladder resonance peaks, rather than scales. So be careful with high resonance! The object provides two FM modulation inlets for the filter cutoff frequency."
     },
     "evi.ladder.moog~": {
         "type": "define",
-        "digest": "Nonlinear Moog Ladder filter emulation, this is the smoothest and most in tune of all the evieve Ladders and handles high resonance very well",
-        "description": ""
+        "digest": "Nonlinear 24dB Moog Ladder filter emulation",
+        "description": "evi.ladder.moog~ is a 'max define' for the evi_ladder_moog.gendsp gen~ abstraction. Because evi.ladder.moog~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA classic nonlinear Moog Ladder emulation. This is the smoothest and most in tune of all the evieve TPT Ladders and handles high resonance very well. It responds particularly well to and remains stable under audio rate modulation, therefore capable of all the classic analog Ladder effects."
     },
     "evi.ladder.poles~": {
         "type": "define",
         "digest": "TPT nonlinear transistor Ladder filter emulation with switchable (interpolated) poles",
-        "description": ""
+        "description": "evi.ladder.poles~ is a 'max define' for the evi_ladder_poles.gendsp gen~ abstraction. Because evi.ladder.poles~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nBy default another 24dB Ladder emulation via piecewise approximation, but poles can be interpolated to a 18dB, 12dB and 6dB filter. These are not allpass aligned so technically incorrect, but sound interesting and can be useful. For a 'correct' 12dB ladder see evi.lorez~ (with a 'z')."
     },
     "evi.ladder.transistor~": {
         "type": "define",
         "digest": "Nonlinear TPT Transistor Ladder filter emulation",
-        "description": "evi.ladder.transistor~ is a 'max define' for the evi_ladder_transistor.gendsp gen~ abstraction. Because evi.ladder.transistor~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nThis filter is tuned to be quite 'hot' and aggressive compared to the evi.ladder.moog~"
+        "description": "evi.ladder.transistor~ is a 'max define' for the evi_ladder_transistor.gendsp gen~ abstraction. Because evi.ladder.transistor~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA dirty nonlinear 24dB Transistor Ladder filter emulation. The object provides two FM modulation inlets for the filter cutoff frequency. This filter has been tuned to be quite 'hot' and aggressive compared to the evi.ladder.moog~ object, which may be preferable if a clean sound is required."
     },
     "evi.lagsmooth~": {
         "type": "external",
@@ -391,8 +396,8 @@
     },
     "evi.lores~": {
         "type": "define",
-        "digest": "Reimplementation of MSP lores~ filter, closely matching the shape and behaviour but implemented as a TPT filter",
-        "description": ""
+        "digest": "Reimplementation of MSP lores~ filter",
+        "description": "evi.lores~ is a 'max define' for the evi_lores.gendsp gen~ abstraction. Because evi.lores~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nThis filter roughly matches the shape and behaviour of MSP lores~ but is implemented as a TPT filter. lores~ is basically like the lowpass output of svf~ but with a unique mapping and coupling of cutoff and resonance: frequency affects strength of resonance and resonance affects slope of filter. The mapping of lores~ has a lower resonance in the low frequency range. This is actually a traditional analog SVF type of mapping. evi.lores~ matches all these features but does not quite manage to match the high frequency response. This is a trade off for having a filter with better modulation properties and which does not digitally distort. The abstraction includes code which can be extracted for parameter rate control of the coefficients calculation if required."
     },
     "evi.lorez~": {
         "type": "define",
@@ -477,7 +482,7 @@
     "evi.phaseshift~": {
         "type": "define",
         "digest": "Reimplementation of MSP phaseshift~ object as a TPT filter",
-        "description": ""
+        "description": "evi.phaseshift~ is a 'max define' for the evi_phaseshift.gendsp gen~ abstraction. Because evi.phaseshift~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA second order TPT allpass filter which distorts the phase of the signal. See the 'frequency-response' tab of the phaseshift~ helpfile for an explanation which is still accurate for this TPT version."
     },
     "evi.phasor0~": {
         "type": "define",
@@ -526,8 +531,8 @@
     },
     "evi.reson~": {
         "type": "define",
-        "digest": "Reimplementation of MSP reson~ as a TPT filter with fm-able center frequency and auto gain compensation",
-        "description": ""
+        "digest": "Reimplementation of MSP reson~ as a TPT filter",
+        "description": "evi.reson~ is a 'max define' for the evi_reson.gendsp gen~ abstraction. Because evi.reson~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA linear TPT resonant bandpass filter. evi.reson~ has exactly the same response as MSP reson~ and can therefore be used as a drop in replacement, but has better modulation characteristics with FM-able center frequency as well as optional auto gain compensation."
     },
     "evi.ringmod.diode~": {
         "type": "abstraction",
@@ -587,7 +592,7 @@
     "evi.svf~": {
         "type": "define",
         "digest": "Reimplementation of MSP svf~ as a TPT filter",
-        "description": ""
+        "description": "evi.svf~ is a 'max define' for the evi_svf.gendsp gen~ abstraction. Because evi.svf~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nLinear TPT state variable filter with simultaneous outputs. The SVF is a really useful swiss-army-knife filter block. It is very efficient and using just a single outlet is an acceptable use case. The evieve SVF can have it's parameters dynamically modulated up to audio rate whilst remaining clean and alias free. The internal filter structure of evi.svf~ is used in most of the other linear and nonlinear filters in the evieve package. Here it is presented in it's purest form to be as close to MSP svf~ as possible. Note, here we use MSP-like ordering of outputs, but in all other evieve SVFs we use a different ordering."
     },
     "evi.svfinputmix~": {
         "type": "define",
@@ -597,12 +602,12 @@
     "evi.svfsmooth~": {
         "type": "define",
         "digest": "Nonlinear TPT SVF filter with audio rate modulation and morphing capabilities",
-        "description": ""
+        "description": "evi.svfsmooth~ is a 'max define' for the evi_svfsmooth.gendsp gen~ abstraction. Because evi.svfsmooth~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA cheap nonlinear 12dB multimode SVF for when you need a quick cheap synth filter. Morphing is between LP..BP..HP filters and is basic output-mixing with resonance attenuation, available at the far left outlet 1. All filters are also available individually via their multimode outlets 2, 3, 4 and 5 (lowpass, bandpass, highpass, notch)."
     },
     "evi.svfsynth~": {
         "type": "define",
-        "digest": "Beefy nonlinear TPT SVF filter with choice of 12/24dB slope, audio rate modulation and morphing capabilities",
-        "description": ""
+        "digest": "Nonlinear TPT SVF multimode synth filter with oversampling options",
+        "description": "evi.svfsynth~ is a 'max define' for the evi_svfsynth.gendsp gen~ abstraction. Because evi.svfsynth~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nBeefy nonlinear TPT SVF filter with choice of 12/24dB slope, audio rate modulation and morphing capabilities. Morphing 12dB filter output is always available at the far left outlet. Optionally morphing 24dB filter output is avaiable at the far right outlet. Self oscillates at resonance==1 but can take higher resonance for interesting effects."
     },
     "evi.teeth~": {
         "type": "define",
@@ -627,7 +632,7 @@
     "evi.tremolo~": {
         "type": "define",
         "digest": "Basic Tremolo effect with saturation and choice of LFO shapes",
-        "description": ""
+        "description": "evi.tremolo~ is a 'max define' for the evi_tremolo.gendsp gen~ abstraction. Because evi.tremolo~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nAn example of a tremolo using evieve primitives. Variable control of LFOs for interesting modulation. The tremolo amplitude can be driven well above unity gain into an anti-aliased saturation stage."
     },
     "evi.tri.select~": {
         "type": "define",
@@ -647,7 +652,7 @@
     "evi.vcf~": {
         "type": "define",
         "digest": "Reimplementation of Pd 'vcf~' filter",
-        "description": ""
+        "description": "evi.vcf~ is a 'max define' for the evi_vcf.gendsp gen~ abstraction. Because evi.vcf~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA twopole linear multimode filter. It is very interesting though. The Pd helpfile says of the cutoff frequency '...may change continuously in time as in an analog voltage controlled filter', but this is not true as it is a direct form filter. However, ymmv. [vcf~] is basically an audio rate version of [bp~] from Pd, which is also ported in evieve as evi.bp~."
     },
     "evi.velvetnoise~": {
         "type": "define",

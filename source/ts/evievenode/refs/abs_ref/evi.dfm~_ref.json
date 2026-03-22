@@ -53,7 +53,7 @@
     "arguments": [],
     "messages": [
         {
-            "name": "anything",
+            "name": "filter",
             "arg": [
                 {
                     "name": "filter",

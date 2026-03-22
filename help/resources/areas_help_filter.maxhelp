@@ -53,7 +53,7 @@
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
                     "patching_rect": [ 556.0, 570.0, 216.0, 22.0 ],
-                    "text": "list.reg evieve_nonlinear_filters.maxpat"
+                    "text": "list.reg evieve_nonlinear_filters.maxhelp"
                 }
             },
             {
@@ -78,7 +78,7 @@
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
                     "patching_rect": [ 336.0, 570.0, 192.0, 22.0 ],
-                    "text": "list.reg areas_help_biquad.maxpat"
+                    "text": "list.reg areas_help_biquad.maxhelp"
                 }
             },
             {

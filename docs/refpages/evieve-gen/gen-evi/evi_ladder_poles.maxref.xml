@@ -13,7 +13,7 @@
          <br />
         evi_ladder_poles is also available in MSP as: <o>evi.ladder.poles~</o>. <br />
          <br />
-	    TEXT_HERE <br />
+	    By default another 24dB Ladder emulation via piecewise approximation, but poles can be interpolated to a 18dB, 12dB and 6dB filter. These are not allpass aligned so technically incorrect, but sound interesting and can be useful. For a 'correct' 12dB ladder see <o>evi.lorez~</o> (with a 'z'). <br />
     </description>
     <methodlist />
     <constructorlist>
@@ -26,17 +26,17 @@
     <geninletlist>
         <geninlet name='audio' type='float' optional='1'>
             <digest>
-                In. 
+                In. Audio input to be filtered.
             </digest>
         </geninlet>
         <geninlet name='cutoff' type='float' optional='1'>
             <digest>
-                @default 81. 
+                @default 81. Cutoff frequency in Pitch (default) or Hz depending on the @cutoffmode attribute.
             </digest>
         </geninlet>
         <geninlet name='resonance' type='float' optional='1'>
             <digest>
-                0..2 @default 1. 
+                0..2 @default 1. Self oscillates at resonance&#x3D;&#x3D;1 but can take higher resonance with a little loss in tuning.
             </digest>
         </geninlet>
     </geninletlist>
@@ -46,7 +46,7 @@
                 @min 0, @max 1
             </digest>
             <description>
-                
+                Switch cutoff frequency (inlet 2) between Pitch (default on) or Hz (off).
             </description>
             <attributelist>
                 <attribute name='default' type='int' value='1' />
@@ -57,7 +57,7 @@
                 @min 0, @max 1
             </digest>
             <description>
-                
+                The &#x27;shape&#x27; of the saturation. This attribute should be ignored and left at default.
             </description>
             <attributelist>
                 <attribute name='default' type='float' value='0.650749' />
@@ -68,7 +68,7 @@
                 @min 0, @max 111
             </digest>
             <description>
-                
+                If shapesmooth &gt; 0, the @shape attribute will be internally smoothed by this time. Default off and can be safely ignored.
             </description>
             <attributelist>
                 <attribute name='default' type='float' value='0.' />
@@ -79,7 +79,7 @@
                 @min 0, @max 1
             </digest>
             <description>
-                
+                0&#x3D;24dB, 0.333333&#x3D;18dB, 0.666666&#x3D;12dB, 1&#x3D;6dB. Smoothly interpolate between poles.
             </description>
             <attributelist>
                 <attribute name='default' type='float' value='0.' />
@@ -90,7 +90,7 @@
                 @min 0, @max 333
             </digest>
             <description>
-                
+                If slopesmooth &gt; 0, the @slope attribute will be internally smoothed by this time.
             </description>
             <attributelist>
                 <attribute name='default' type='float' value='22.666' />
@@ -103,6 +103,9 @@
         <metadata name="tag">GenDsp</metadata>
     </metadatalist>
     <seealsolist>
-        <seealso name='' display='' type='genrefpage' />
+        <seealso name='evi_lorez' display='evi_lorez' type='genrefpage' />
+        <seealso name='evi_ladder_moog' display='evi_ladder_moog' type='genrefpage' />
+        <seealso name='evi_ladder_transistor' display='evi_ladder_transistor' type='genrefpage' />
+        <seealso name='evi_ladder_diode' display='evi_ladder_diode' type='genrefpage' />
     </seealsolist>
 </c74object>

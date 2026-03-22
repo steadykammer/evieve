@@ -65,7 +65,7 @@
 	</objarglist>
 	<!--MESSAGES-->
 	<methodlist>
-		<method name="symbol">
+		<method name="filter">
 			<arglist>
 				<arg name="filter" type="symbol" units="type" optional="1" />
 			</arglist>
@@ -134,6 +134,6 @@
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>
-         <br />
+        The coefficients used in this object are just created using the IRCAM [spat5.weightingfilter] external. This was needed outside of a 'spat5' context. You should look into the 'spat5' package - it is excellent. <br />
 	</discussion>
 </c74object>

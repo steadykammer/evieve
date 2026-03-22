@@ -65,12 +65,12 @@
 	</objarglist>
 	<!--MESSAGES-->
 	<methodlist>
-		<method name="anything">
+		<method name="pattrstorage">
 			<arglist>
 				<arg name="pattrstorage" type="anything" units="messages to pattrstorage" optional="1" />
 			</arglist>
 			<digest>
-				In left inlet, messages to evi.zitaverb~
+				In left inlet, pattrstorage messages to evi.zitaverb~
 			</digest>
 			<description>
 				Prepending the word &#x27;pattrstorage&#x27; allows you to send any message pattrstorage understands to the internal pattrstorage object - you can recieve pattrstorage output via the far right outlet.
@@ -239,6 +239,6 @@
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>
-        Zitaverb's character is more 'hall' than 'plate', but it can be used on a wide variety of instruments or voices. It is not a spatialiser - the early reflections are different for the L and R inputs, but do not correspond to any real room. They have been tuned to match left and right sources to some extent. <br />
+        Zitaverb's character is more 'hall' than 'plate', but it can be used on a wide variety of instruments or voices. It is not a spatialiser - the early reflections are different for the L and R inputs, but do not correspond to any real room. They have been tuned to match left and right sources to some extent. For more information about other reverbs in evieve, see the 'evieve reverb' tab of the helpfile. <br />
 	</discussion>
 </c74object>

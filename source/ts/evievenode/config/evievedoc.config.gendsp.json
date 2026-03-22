@@ -695,11 +695,11 @@
             },
             "ref": {
                 "gen": true,
-                "msp": false
+                "msp": true
             },
             "helpfile": {
-                "msp": false,
-                "gentab": false,
+                "msp": true,
+                "gentab": true,
                 "genexprtab": false,
                 "areaonly": true,
                 "areas": [
@@ -4169,7 +4169,7 @@
                 "auto": false
             }
         },
-        "evi_vcf_df2.gendsp": {
+        "evi_vcf.gendsp": {
             "define": {
                 "object": true,
                 "msp": "evi.vcf~",

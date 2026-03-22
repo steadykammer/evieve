@@ -3,8 +3,8 @@
         "name": "evi.algoverb~",
         "category": "evieve",
         "digest": "True stereo algorithmic reverb",
-        "description": "Relatively expensive algorithmic reverb with many tweekable parameters, 15 embedded presets and an internal pattrstorage system. The reverb is modular, with pre delay, early reflections and late reflections all controllable individually, as well as high quality linear SVF filters in both the feedback path and end of wet path. Loosely based on a Martijn Zwartjes Reaktor ensemble. The MSP abstraction does a lot of massaging of the input parameters, so when using the gen~ abstraction study the internal Param declarations.",
-        "discussion": ""
+        "description": "Relatively expensive algorithmic reverb with many tweekable parameters, 15 embedded presets and an internal pattrstorage system. The reverb is modular, with pre delay, early reflections and late reflections all controllable individually, as well as high quality linear SVF filters in both the feedback path and end of wet path.",
+        "discussion": "Loosely based on a Martijn Zwartjes Reaktor ensemble. The MSP abstraction does a lot of massaging of the input parameters, so if using the gen~ abstraction study the internal Param declarations as many are different. For more information about other reverbs in evieve, see the 'evieve reverb' tab of the helpfile."
     },
     "metadata": {
         "author": "Pete Dowling",
@@ -47,20 +47,34 @@
     "arguments": [],
     "messages": [
         {
-            "name": "anything",
+            "name": "bypass",
             "arg": [
                 {
                     "name": "bypass",
                     "type": "int",
                     "units": "0/1",
                     "optional": 1
-                },
+                }
+            ],
+            "digest": "In left inlet, bypass message to evi.algoverb~",
+            "description": "'bypass 1' will smoothly bypass the reverb to dry."
+        },
+        {
+            "name": "mute",
+            "arg": [
                 {
                     "name": "mute",
                     "type": "int",
                     "units": "0/1",
                     "optional": 1
-                },
+                }
+            ],
+            "digest": "In left inlet, mute message to evi.algoverb~",
+            "description": "'mute 1' will smoothly bypass and cpu mute the reverb."
+        },
+        {
+            "name": "pattrstorage",
+            "arg": [
                 {
                     "name": "pattrstorage",
                     "type": "anything",
@@ -68,8 +82,8 @@
                     "optional": 1
                 }
             ],
-            "digest": "In left inlet, messages to evi.algoverb~",
-            "description": "'bypass 1' will smoothly bypass the reverb to dry, 'mute 1' will smoothly bypass and cpu mute the reverb. Prepending the word 'pattrstorage' allows you to send any message pattrstorage understands to the internal pattrstorage object - you can recieve pattrstorage output via the far right outlet."
+            "digest": "In left inlet, pattrstorage messages to evi.algoverb~",
+            "description": "Prepending the word 'pattrstorage' allows you to send any message pattrstorage understands to the internal pattrstorage object - you can recieve pattrstorage output via the far right outlet."
         }
     ],
     "attributes": [

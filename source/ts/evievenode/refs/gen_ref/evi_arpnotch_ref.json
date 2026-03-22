@@ -4,7 +4,7 @@
         "child": "evi.arpnotch~",
         "category": "evieve",
         "digest": "A nonlinear SVF Notch filter which can morph between LP..Notch..HP",
-        "description": "TEXT_HERE"
+        "description": "A nonlinear 12dB SVF filter which can smoothly morph between LP..Notch..HP, thus making it a partial emulation of the ARP 1047 filter/resonator. The morphing through notch is resonance-compensated so that the analog notch is always strong."
     },
     "constructor": {
         "inlets": "input, freq, resonance, morph"
@@ -19,7 +19,7 @@
             "name": "input",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Audio input to be filtered."
         },
         {
             "id": 2,
@@ -27,7 +27,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "in Pitch (default) or Hz depending on 'cutoffmode' attribute",
-            "digest": ""
+            "digest": "Cutoff frequency in Pitch (default) or Hz depending on the @cutoffmode attribute."
         },
         {
             "id": 3,
@@ -35,7 +35,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "0..1 @default 0.707107",
-            "digest": ""
+            "digest": "Resonance 0..1, can self oscillate at '1' depending on current morph factor (inlet 4)."
         },
         {
             "id": 4,
@@ -43,7 +43,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "0..1 @default 0.5",
-            "digest": ""
+            "digest": "Smoothly interpolate 0..1 between lowpass..notch..highpass output."
         }
     ],
     "outlets": [
@@ -52,7 +52,7 @@
             "name": "arp",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Nonlinear lowpass..notch..highpass output."
         }
     ],
     "attributes": [
@@ -60,7 +60,7 @@
             "name": "cutoffmode",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Switch cutoff frequency (inlet 2) between Pitch (default on) or Hz (off).",
             "default": {
                 "type": "int",
                 "value": "1"
@@ -70,7 +70,7 @@
             "name": "morphsmooth",
             "type": "float",
             "digest": "@min 0, @max 333",
-            "description": "",
+            "description": "If morphsmooth > 0, the 'Morph' control (inlet 4) will be internally smoothed by this time. Default off.",
             "default": {
                 "type": "float",
                 "value": "0."
@@ -79,8 +79,28 @@
     ],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_svfsmooth",
+            "display": "evi_svfsmooth"
+        },
+        {
+            "name": "evi_svfsynth",
+            "display": "evi_svfsynth"
+        },
+        {
+            "name": "evi_filter_morph",
+            "display": "evi_filter_morph"
+        },
+        {
+            "name": "evi_svf",
+            "display": "evi_svf"
+        },
+        {
+            "name": "evi_korgms20",
+            "display": "evi_korgms20"
+        },
+        {
+            "name": "evi_ladder_transistor",
+            "display": "evi_ladder_transistor"
         }
     ]
 }

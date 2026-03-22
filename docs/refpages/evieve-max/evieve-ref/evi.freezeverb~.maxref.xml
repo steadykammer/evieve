@@ -65,16 +65,26 @@
 	</objarglist>
 	<!--MESSAGES-->
 	<methodlist>
-		<method name="anything">
+		<method name="freeze">
 			<arglist>
 				<arg name="freeze" type="int" units="0, 1, 2, 3, 4" optional="1" />
+			</arglist>
+			<digest>
+				In left inlet, freeze message to evi.freezeverb~
+			</digest>
+			<description>
+				The word &#x27;freeze&#x27; followed by an integer between 0 and 4 engages the special freeze effect in different ways. 0&#x3D;freeze off, 1&#x3D;freeze on with dry/wet mix, 2&#x3D;freeze on solo (wet only), 3&#x3D;retrigger the &#x27;freeze 1&#x27; (if already on), 4&#x3D;retrigger the &#x27;freeze 2&#x27; (if already on). All &#x27;freeze&#x27; switching is buttery smooth.
+			</description>
+		</method>
+		<method name="pattrstorage">
+			<arglist>
 				<arg name="pattrstorage" type="anything" units="messages to pattrstorage" optional="1" />
 			</arglist>
 			<digest>
-				In left inlet, messages to evi.freezeverb~
+				In left inlet, pattrstorage messages to evi.freezeverb~
 			</digest>
 			<description>
-				The word &#x27;freeze&#x27; followed by an integer between 0 and 4 engages the special freeze effect in different ways. 0&#x3D;freeze off, 1&#x3D;freeze on with dry/wet mix, 2&#x3D;freeze on solo (wet only), 3&#x3D;retrigger the &#x27;freeze 1&#x27; (if already on), 4&#x3D;retrigger the &#x27;freeze 2&#x27; (if already on). All &#x27;freeze&#x27; switching is buttery smooth. Prepending the word &#x27;pattrstorage&#x27; allows you to send any message pattrstorage understands to the internal pattrstorage object - you can recieve pattrstorage output via the far right outlet.
+				Prepending the word &#x27;pattrstorage&#x27; allows you to send any message pattrstorage understands to the internal pattrstorage object - you can recieve pattrstorage output via the far right outlet.
 			</description>
 		</method>
 	</methodlist>
@@ -240,6 +250,6 @@
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>
-         <br />
+        For more information about other reverbs in evieve, see the 'evieve reverb' tab of the helpfile. <br />
 	</discussion>
 </c74object>

@@ -476,7 +476,7 @@
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
                     "patching_rect": [ 127.0, 570.0, 203.0, 22.0 ],
-                    "text": "list.reg areas_help_oscillator.maxpat"
+                    "text": "list.reg areas_help_oscillator.maxhelp"
                 }
             },
             {

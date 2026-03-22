@@ -13,7 +13,7 @@
          <br />
         evi_ladder_transistor is also available in MSP as: <o>evi.ladder.transistor~</o>. <br />
          <br />
-	    This filter is tuned to be quite 'hot' and aggressive compared to the <o>evi.ladder.moog~</o> <br />
+	    A dirty nonlinear 24dB Transistor Ladder filter emulation. The object provides two FM modulation inlets for the filter cutoff frequency. This filter has been tuned to be quite 'hot' and aggressive compared to the <o>evi.ladder.moog~</o> object, which may be preferable if a clean sound is required. <br />
     </description>
     <methodlist />
     <constructorlist>
@@ -26,27 +26,27 @@
     <geninletlist>
         <geninlet name='input' type='float' optional='1'>
             <digest>
-                
+                Audio input to be filtered.
             </digest>
         </geninlet>
         <geninlet name='cutoff' type='float' optional='1'>
             <digest>
-                in Hz or Pitch. 
+                in Hz or Pitch. Cutoff frequency in Pitch (default) or Hz depending on the @cutoffmode attribute.
             </digest>
         </geninlet>
         <geninlet name='cutoff' type='float' optional='1'>
             <digest>
-                Pitch Mod @default 0. 
+                Pitch Mod @default 0. Logarithmic FM input. Accepts an FM signal which is summed internally with cutoff in pitch prior to Linear FM inlet. This is only active if @cutoffmode attribute &#x3D;&#x3D; 1, otherwise it is ignored.
             </digest>
         </geninlet>
         <geninlet name='cutoff' type='float' optional='1'>
             <digest>
-                Hz Mod @default 0. 
+                Hz Mod @default 0. Linear FM input. Accepts an FM signal which is summed internally with cutoff in Hz post Logarithmic FM input. This inlet is always active regardless of the @cutoffmode attribute.
             </digest>
         </geninlet>
         <geninlet name='resonance' type='float' optional='1'>
             <digest>
-                (0..1..2). 
+                (0..1..2). Self oscillates at resonance &gt; 0.9 but can take values &gt; 1. High resonance values still work but lose a little tuning accuracy above about 2kHz cutoff.
             </digest>
         </geninlet>
     </geninletlist>
@@ -73,12 +73,34 @@
                 <attribute name='default' type='float' value='10.' />
             </attributelist>
         </attribute>
+        <attribute name='cutoffmode' type='int' get='0' set='1'>
+            <digest>
+                @min 0, @max 1
+            </digest>
+            <description>
+                Switch cutoff frequency (inlet 2) between Pitch (default on) or Hz (off).
+            </description>
+            <attributelist>
+                <attribute name='default' type='int' value='1' />
+            </attributelist>
+        </attribute>
+        <attribute name='cutoffsmooth' type='float' get='0' set='1'>
+            <digest>
+                @min 0, @max 666
+            </digest>
+            <description>
+                Optionally smooth the cutoff (inlet 2). If audio rate modulating inlet 2 (or potentially with inlets 3 or 4) this should be turned off.
+            </description>
+            <attributelist>
+                <attribute name='default' type='float' value='10.' />
+            </attributelist>
+        </attribute>
         <attribute name='oversample' type='int' get='0' set='1'>
             <digest>
                 @min 0, @max 1
             </digest>
             <description>
-                
+                2x oversampling if on (default), 1x if off (careful). Oversampling almost doubles the CPU usage.
             </description>
             <attributelist>
                 <attribute name='default' type='int' value='1' />
@@ -89,7 +111,7 @@
                 @min 0, @max 333
             </digest>
             <description>
-                
+                Optionally smooth the resonance (inlet 5). If audio rate modulating inlet 5 this should be turned off.
             </description>
             <attributelist>
                 <attribute name='default' type='float' value='20.' />
@@ -102,6 +124,8 @@
         <metadata name="tag">GenDsp</metadata>
     </metadatalist>
     <seealsolist>
-        <seealso name='' display='' type='genrefpage' />
+        <seealso name='evi_ladder_moog' display='evi_ladder_moog' type='genrefpage' />
+        <seealso name='evi_ladder_poles' display='evi_ladder_poles' type='genrefpage' />
+        <seealso name='evi_ladder_diode' display='evi_ladder_diode' type='genrefpage' />
     </seealsolist>
 </c74object>

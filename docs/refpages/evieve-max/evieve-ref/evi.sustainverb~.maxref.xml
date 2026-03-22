@@ -113,12 +113,12 @@
 	</objarglist>
 	<!--MESSAGES-->
 	<methodlist>
-		<method name="anything">
+		<method name="pattrstorage">
 			<arglist>
 				<arg name="pattrstorage" type="anything" units="messages to pattrstorage" optional="1" />
 			</arglist>
 			<digest>
-				In left inlet, messages to evi.sustainverb~
+				In left inlet, pattrstorage messages to evi.sustainverb~
 			</digest>
 			<description>
 				Prepending the word &#x27;pattrstorage&#x27; allows you to send any message pattrstorage understands to the internal pattrstorage object - you can recieve pattrstorage output via the far right outlet.
@@ -232,6 +232,6 @@
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>
-        Tips: 1) turn early and highpass OFF, drywet to 100%, feedback to or very near 100% and damp low or 0% for 'forever sustain' effects. 2) turn early and maybe highpass ON and feedback between about 0.77..0.93 and drywet % to taste for more obvious reverb (room) type effects. <br />
+        Tips: 1) turn early and highpass OFF, drywet to 100%, feedback to or very near 100% and damp low or 0% for 'forever sustain' effects. 2) turn early and maybe highpass ON and feedback between about 0.77..0.93 and drywet % to taste for more obvious reverb (room) type effects. For more information about other reverbs in evieve, see the 'evieve reverb' tab of the helpfile. <br />
 	</discussion>
 </c74object>

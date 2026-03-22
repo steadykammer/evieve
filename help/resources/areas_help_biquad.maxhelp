@@ -84,7 +84,7 @@
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
                     "patching_rect": [ 15.0, 570.0, 178.0, 22.0 ],
-                    "text": "list.reg areas_help_filter.maxpat"
+                    "text": "list.reg areas_help_filter.maxhelp"
                 }
             },
             {

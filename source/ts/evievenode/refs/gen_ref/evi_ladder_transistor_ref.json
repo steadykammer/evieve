@@ -4,7 +4,7 @@
         "child": "evi.ladder.transistor~",
         "category": "evieve",
         "digest": "Nonlinear TPT Transistor Ladder filter emulation",
-        "description": "This filter is tuned to be quite 'hot' and aggressive compared to the <o>evi.ladder.moog~</o>"
+        "description": "A dirty nonlinear 24dB Transistor Ladder filter emulation. The object provides two FM modulation inlets for the filter cutoff frequency. This filter has been tuned to be quite 'hot' and aggressive compared to the <o>evi.ladder.moog~</o> object, which may be preferable if a clean sound is required."
     },
     "constructor": {
         "inlets": "input, cutoff, cutoff, cutoff, resonance"
@@ -19,7 +19,7 @@
             "name": "input",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Audio input to be filtered."
         },
         {
             "id": 2,
@@ -27,7 +27,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "in Hz or Pitch",
-            "digest": ""
+            "digest": "Cutoff frequency in Pitch (default) or Hz depending on the @cutoffmode attribute."
         },
         {
             "id": 3,
@@ -35,7 +35,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Pitch Mod @default 0",
-            "digest": ""
+            "digest": "Logarithmic FM input. Accepts an FM signal which is summed internally with cutoff in pitch prior to Linear FM inlet. This is only active if @cutoffmode attribute == 1, otherwise it is ignored."
         },
         {
             "id": 4,
@@ -43,7 +43,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Hz Mod @default 0",
-            "digest": ""
+            "digest": "Linear FM input. Accepts an FM signal which is summed internally with cutoff in Hz post Logarithmic FM input. This inlet is always active regardless of the @cutoffmode attribute."
         },
         {
             "id": 5,
@@ -51,7 +51,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "(0..1..2)",
-            "digest": ""
+            "digest": "Self oscillates at resonance > 0.9 but can take values > 1. High resonance values still work but lose a little tuning accuracy above about 2kHz cutoff."
         }
     ],
     "outlets": [
@@ -60,7 +60,7 @@
             "name": "transistor",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "24dB laddery filtered output."
         }
     ],
     "attributes": [
@@ -85,10 +85,30 @@
             }
         },
         {
+            "name": "cutoffmode",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "Switch cutoff frequency (inlet 2) between Pitch (default on) or Hz (off).",
+            "default": {
+                "type": "int",
+                "value": "1"
+            }
+        },
+        {
+            "name": "cutoffsmooth",
+            "type": "float",
+            "digest": "@min 0, @max 666",
+            "description": "Optionally smooth the cutoff (inlet 2). If audio rate modulating inlet 2 (or potentially with inlets 3 or 4) this should be turned off.",
+            "default": {
+                "type": "float",
+                "value": "10."
+            }
+        },
+        {
             "name": "oversample",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "2x oversampling if on (default), 1x if off (careful). Oversampling almost doubles the CPU usage.",
             "default": {
                 "type": "int",
                 "value": "1"
@@ -98,7 +118,7 @@
             "name": "ressmooth",
             "type": "float",
             "digest": "@min 0, @max 333",
-            "description": "",
+            "description": "Optionally smooth the resonance (inlet 5). If audio rate modulating inlet 5 this should be turned off.",
             "default": {
                 "type": "float",
                 "value": "20."
@@ -107,8 +127,16 @@
     ],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_ladder_moog",
+            "display": "evi_ladder_moog"
+        },
+        {
+            "name": "evi_ladder_poles",
+            "display": "evi_ladder_poles"
+        },
+        {
+            "name": "evi_ladder_diode",
+            "display": "evi_ladder_diode"
         }
     ]
 }

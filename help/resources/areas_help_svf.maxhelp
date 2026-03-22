@@ -9,14 +9,14 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 63.0, 131.0, 660.0, 568.0 ],
+        "rect": [ 63.0, 131.0, 812.0, 790.0 ],
         "openrect": [ 0.0, 0.0, 660.0, 568.0 ],
         "openrectmode": 0,
         "bglocked": 1,
         "gridonopen": 2,
         "subpatcher_template": "sub",
         "integercoordinates": 1,
-        "title": "Korg Filters in evieve",
+        "title": "Nonlinear SVF Filters in evieve",
         "boxes": [
             {
                 "box": {
@@ -27,7 +27,7 @@
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
                     "patching_rect": [ 32.0, 570.0, 216.0, 22.0 ],
-                    "text": "list.reg evieve_nonlinear_filters.maxpat"
+                    "text": "list.reg evieve_nonlinear_filters.maxhelp"
                 }
             },
             {
@@ -45,68 +45,68 @@
             },
             {
                 "box": {
-                    "id": "obj-42",
-                    "linecount": 3,
-                    "maxclass": "comment",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 186.0, 276.0, 416.0, 47.0 ],
-                    "text": "the 'KLM' OTA chip was found in the later MS-20s & other Korg synthesisers - it is different to the earlier 'Korg 35' single-amplifier unbuffered Korg chip found in the earlier MS-20s & MS-10 and also in the 'monotron' series"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-40",
+                    "id": "obj-52",
                     "linecount": 2,
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 151.0, 214.0, 399.0, 33.0 ],
-                    "text": "'Korg OTA', sits inbetween the more broken [evi.korgms10~] and the more stable [evi.korgms20.select~], it is aggressive but predictable"
+                    "patching_rect": [ 145.0, 283.0, 386.0, 33.0 ],
+                    "text": "a nonlinear SVF Notch filter which can morph between LP..Notch..HP, as a partial emulation of the ARP 1047 filter/resonator."
                 }
             },
             {
                 "box": {
-                    "id": "obj-38",
+                    "id": "obj-50",
                     "linecount": 2,
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 151.0, 145.0, 273.0, 33.0 ],
-                    "text": "'Korg 35', an erratic, out-of-control & out-of-tune aggressive filter for experiments and fun times"
+                    "patching_rect": [ 153.0, 145.0, 422.0, 33.0 ],
+                    "text": "a cheap nonlinear multimode SVF with simultaneous outputs for when you need a quick cheap synth filter, morphing @outlet 0 via the 'morph' attribute."
                 }
             },
             {
                 "box": {
-                    "id": "obj-36",
+                    "id": "obj-48",
+                    "linecount": 2,
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 142.0, 214.0, 365.0, 33.0 ],
+                    "text": "oversampled SVF with a choice of 12dB & 24dB outputs and interpolation between Lowpass, Bandpass & Highpass filters"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-45",
                     "maxclass": "newobj",
-                    "numinlets": 3,
+                    "numinlets": 4,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 62.0, 288.0, 122.0, 22.0 ],
-                    "text": "evi.korgms20.select~"
+                    "patching_rect": [ 62.0, 288.0, 81.0, 22.0 ],
+                    "text": "evi.arpnotch~"
                 }
             },
             {
                 "box": {
-                    "id": "obj-35",
+                    "id": "obj-44",
                     "maxclass": "newobj",
                     "numinlets": 3,
                     "numoutlets": 2,
                     "outlettype": [ "signal", "signal" ],
-                    "patching_rect": [ 62.0, 219.0, 87.0, 22.0 ],
-                    "text": "evi.korgms20~"
+                    "patching_rect": [ 62.0, 219.0, 78.0, 22.0 ],
+                    "text": "evi.svfsynth~"
                 }
             },
             {
                 "box": {
-                    "id": "obj-34",
+                    "id": "obj-43",
                     "maxclass": "newobj",
-                    "numinlets": 3,
-                    "numoutlets": 4,
-                    "outlettype": [ "signal", "signal", "signal", "signal" ],
-                    "patching_rect": [ 62.0, 150.0, 87.0, 22.0 ],
-                    "text": "evi.korgms10~"
+                    "numinlets": 4,
+                    "numoutlets": 5,
+                    "outlettype": [ "signal", "signal", "signal", "signal", "signal" ],
+                    "patching_rect": [ 62.0, 150.0, 89.0, 22.0 ],
+                    "text": "evi.svfsmooth~"
                 }
             },
             {
@@ -117,8 +117,8 @@
                     "numinlets": 2,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
-                    "patching_rect": [ 456.0, 570.0, 171.0, 22.0 ],
-                    "text": "list.reg areas_help_svf.maxpat"
+                    "patching_rect": [ 456.0, 570.0, 179.0, 22.0 ],
+                    "text": "list.reg areas_help_korg.maxhelp"
                 }
             },
             {
@@ -130,8 +130,8 @@
                     "outlettype": [ "", "", "int" ],
                     "parameter_enable": 0,
                     "patching_rect": [ 456.0, 526.0, 191.0, 20.0 ],
-                    "text": "Nonlinear SVF Filters in evieve",
-                    "texton": "Nonlinear SVF Filters in evieve"
+                    "text": "Nonlinear Korg Filters in evieve",
+                    "texton": "Nonlinear Korg Filters in evieve"
                 }
             },
             {
@@ -167,7 +167,7 @@
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
                     "patching_rect": [ 252.0, 570.0, 189.0, 22.0 ],
-                    "text": "list.reg areas_help_ladder.maxpat"
+                    "text": "list.reg areas_help_ladder.maxhelp"
                 }
             },
             {
@@ -191,29 +191,7 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 62.0, 70.0, 478.0, 33.0 ],
-                    "text": "All evieve MS filters are modern TPT ('Zero Delay Feedback') filters with internal saturation and self-oscillation, with excellent behaviour under audio rate modulation"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-10",
-                    "linecount": 2,
-                    "maxclass": "comment",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 62.0, 401.0, 219.0, 33.0 ],
-                    "text": "famous legacy Z-1 (not ZDF) old style filter, but still very usable"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-6",
-                    "maxclass": "newobj",
-                    "numinlets": 4,
-                    "numoutlets": 2,
-                    "outlettype": [ "signal", "signal" ],
-                    "patching_rect": [ 62.0, 456.0, 54.0, 22.0 ],
-                    "text": "evi.dfm~"
+                    "text": "All evieve SVF filters are modern TPT ('Zero Delay Feedback') filters with internal saturation and self-oscillation, with excellent behaviour under audio rate modulation"
                 }
             },
             {
@@ -222,8 +200,8 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 32.0, 18.0, 150.0, 20.0 ],
-                    "text": "Korg filters in evieve"
+                    "patching_rect": [ 32.0, 18.0, 206.0, 20.0 ],
+                    "text": "Nonlinear SVF filters in evieve"
                 }
             },
             {
@@ -244,64 +222,42 @@
                             "modernui": 1
                         },
                         "classnamespace": "dsp.gen",
-                        "rect": [ 448.0, 116.0, 359.0, 494.0 ],
+                        "rect": [ 448.0, 116.0, 359.0, 360.0 ],
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
                         "integercoordinates": 1,
                         "boxes": [
                             {
                                 "box": {
-                                    "id": "obj-11",
-                                    "linecount": 4,
-                                    "maxclass": "comment",
-                                    "numinlets": 1,
-                                    "numoutlets": 0,
-                                    "patching_rect": [ 116.0, 343.0, 150.0, 60.0 ],
-                                    "text": "does not work in gen~ alone as requires external LUT, @see the MSP abstraction"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "id": "obj-9",
+                                    "id": "obj-14",
                                     "maxclass": "newobj",
                                     "numinlets": 4,
-                                    "numoutlets": 2,
-                                    "outlettype": [ "", "" ],
-                                    "patching_rect": [ 116.0, 405.0, 51.0, 22.0 ],
-                                    "text": "evi_dfm"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "id": "obj-6",
-                                    "maxclass": "newobj",
-                                    "numinlets": 3,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 116.0, 241.0, 121.0, 22.0 ],
-                                    "text": "evi_korgms20_select"
+                                    "patching_rect": [ 86.0, 241.0, 77.0, 22.0 ],
+                                    "text": "evi_arpnotch"
                                 }
                             },
                             {
                                 "box": {
-                                    "id": "obj-5",
+                                    "id": "obj-13",
                                     "maxclass": "newobj",
                                     "numinlets": 3,
                                     "numoutlets": 2,
                                     "outlettype": [ "", "" ],
-                                    "patching_rect": [ 116.0, 172.0, 83.0, 22.0 ],
-                                    "text": "evi_korgms20"
+                                    "patching_rect": [ 86.0, 172.0, 75.0, 22.0 ],
+                                    "text": "evi_svfsynth"
                                 }
                             },
                             {
                                 "box": {
-                                    "id": "obj-3",
+                                    "id": "obj-12",
                                     "maxclass": "newobj",
-                                    "numinlets": 3,
-                                    "numoutlets": 4,
-                                    "outlettype": [ "", "", "", "" ],
-                                    "patching_rect": [ 116.0, 103.0, 83.0, 22.0 ],
-                                    "text": "evi_korgms10"
+                                    "numinlets": 4,
+                                    "numoutlets": 5,
+                                    "outlettype": [ "", "", "", "", "" ],
+                                    "patching_rect": [ 86.0, 103.0, 85.0, 22.0 ],
+                                    "text": "evi_svfsmooth"
                                 }
                             },
                             {
@@ -310,8 +266,8 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 116.0, 20.0, 196.0, 20.0 ],
-                                    "text": "evieve Korg filters in gen~"
+                                    "patching_rect": [ 86.0, 20.0, 234.0, 20.0 ],
+                                    "text": "evieve nonlinear SVF filters in gen~"
                                 }
                             },
                             {
@@ -340,8 +296,8 @@
                         ],
                         "lines": []
                     },
-                    "patching_rect": [ 350.0, 456.0, 200.0, 22.0 ],
-                    "text": "gen~ @t evieve_korg_filters_in_gen"
+                    "patching_rect": [ 354.0, 456.0, 192.0, 22.0 ],
+                    "text": "gen~ @t evieve_svf_filters_in_gen"
                 }
             },
             {

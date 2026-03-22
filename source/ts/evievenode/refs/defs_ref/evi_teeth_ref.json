@@ -6,7 +6,7 @@
         "tilde": "~",
         "digest": "Reimplementation of MSP <o>teeth~</o> filter delay",
         "description": "Comb filter delay unit with independent control of feedforward and feedback delay times and saturation in the feedback path. The same structure as MSP <o>teeth~</o>, but with cubic interpolation (softer in the high end) and no digital clipping at FB Gain == 1 (via internal saturation, which makes the whole filter softer but will not clip your precious audio).",
-        "discussion": ""
+        "discussion": "For more information about other reimplementations of MSP filters in evieve, see the 'evieve msp' tab of the helpfile."
     },
     "metadata": {
         "author": "Pete Dowling",

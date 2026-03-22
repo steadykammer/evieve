@@ -5,8 +5,8 @@
         "category": "evieve",
         "tilde": "~",
         "digest": "Reimplementation of MSP <o>phaseshift~</o> object as a TPT filter",
-        "description": "TEXT_HERE",
-        "discussion": ""
+        "description": "A second order TPT allpass filter which distorts the phase of the signal. See the 'frequency-response' tab of the <o>phaseshift~</o> helpfile for an explanation which is still accurate for this TPT version.",
+        "discussion": "For more information about other reimplementations of MSP filters in evieve, see the 'evieve msp' tab of the helpfile."
     },
     "metadata": {
         "author": "Pete Dowling",
@@ -20,19 +20,19 @@
             "id": 1,
             "type": "signal",
             "digest": "Input",
-            "description": ""
+            "description": "Audio input to be filtered."
         },
         {
             "id": 2,
             "type": "signal/float",
             "digest": "Frequency in Hz @min 1 @max samplerate*0.5",
-            "description": ""
+            "description": "Center frequency of the phase transition band."
         },
         {
             "id": 3,
             "type": "signal/float",
             "digest": "Q @min 0.1 @max 20 @default 1",
-            "description": ""
+            "description": "Q (bandwidth) of the phase transition band."
         }
     ],
     "outlets": [
@@ -62,5 +62,18 @@
         "caption": "",
         "image": ""
     },
-    "seealso": []
+    "seealso": [
+        "evi.filter.allpass~",
+        "evi.lores~",
+        "evi.onepole~",
+        "evi.reson~",
+        "evi.svf~",
+        "evi.cross~",
+        "evi.hilbert~",
+        "evi.allpass~",
+        "evi.comb~",
+        "evi.teeth~",
+        "evi.bp~",
+        "evi.vcf~"
+    ]
 }

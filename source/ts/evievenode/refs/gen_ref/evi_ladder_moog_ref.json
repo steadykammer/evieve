@@ -3,8 +3,8 @@
         "name": "evi_ladder_moog",
         "child": "evi.ladder.moog~",
         "category": "evieve",
-        "digest": "Nonlinear Moog Ladder filter emulation, this is the smoothest and most in tune of all the evieve Ladders and handles high resonance very well",
-        "description": "TEXT_HERE"
+        "digest": "Nonlinear 24dB Moog Ladder filter emulation",
+        "description": "A classic nonlinear Moog Ladder emulation. This is the smoothest and most in tune of all the evieve TPT Ladders and handles high resonance very well. It responds particularly well to  and remains stable under audio rate modulation, therefore capable of all the classic analog Ladder effects."
     },
     "constructor": {
         "inlets": "audio, cutoff, resonance"
@@ -21,7 +21,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "In",
-            "digest": ""
+            "digest": "Audio input to be filtered."
         },
         {
             "id": 2,
@@ -29,7 +29,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "in Hz or Pitch @default 81",
-            "digest": ""
+            "digest": "Cutoff frequency in Pitch (default) or Hz depending on the @cutoffmode attribute."
         },
         {
             "id": 3,
@@ -37,7 +37,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "0..1..2 @default 1",
-            "digest": ""
+            "digest": "Self oscillates at resonance==1 but can take higher resonance with ease, remaining smooth and in tune."
         }
     ],
     "outlets": [
@@ -46,7 +46,7 @@
             "name": "moog",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "24dB laddery filtered output."
         }
     ],
     "attributes": [
@@ -54,7 +54,7 @@
             "name": "cutoffmode",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Switch cutoff frequency (inlet 2) between Pitch (default on) or Hz (off).",
             "default": {
                 "type": "int",
                 "value": "1"
@@ -64,7 +64,7 @@
             "name": "cutoffsmooth",
             "type": "float",
             "digest": "@min 0, @max 333",
-            "description": "",
+            "description": "Optionally smooth the cutoff (inlet 2). If audio rate modulating inlet 2 this should be turned off (the default).",
             "default": {
                 "type": "float",
                 "value": "0."
@@ -74,7 +74,7 @@
             "name": "nonlin",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Unlike unit delay filters, TPT filters allow us to switch out the nonlinearity in the feedback loop without having to retune the filter. 0=tanh-like, 1=polynomial-saturator. Each give the filter slightly different characteristics.",
             "default": {
                 "type": "int",
                 "value": "0"
@@ -84,7 +84,7 @@
             "name": "oversample",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "2x oversampling if on (default), 1x if off (careful). Oversampling almost doubles the CPU usage.",
             "default": {
                 "type": "int",
                 "value": "1"
@@ -94,7 +94,7 @@
             "name": "ressmooth",
             "type": "float",
             "digest": "@min 0, @max 333",
-            "description": "",
+            "description": "Optionally smooth the resonance (inlet 3). If audio rate modulating inlet 3 this should be turned off (the default).",
             "default": {
                 "type": "float",
                 "value": "0."
@@ -103,8 +103,16 @@
     ],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_ladder_transistor",
+            "display": "evi_ladder_transistor"
+        },
+        {
+            "name": "evi_ladder_poles",
+            "display": "evi_ladder_poles"
+        },
+        {
+            "name": "evi_ladder_diode",
+            "display": "evi_ladder_diode"
         }
     ]
 }

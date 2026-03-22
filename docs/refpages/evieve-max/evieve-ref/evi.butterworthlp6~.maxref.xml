@@ -70,6 +70,6 @@
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>
-        Miller Puckette devised this for his 'SMECK' project. <br />
+        Miller Puckette devised this for his 'SMECK' project. For more information about other reimplementations of Pd filters in evieve, see the 'evieve pd' tab of the helpfile. <br />
 	</discussion>
 </c74object>

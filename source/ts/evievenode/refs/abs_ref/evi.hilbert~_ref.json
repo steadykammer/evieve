@@ -4,7 +4,7 @@
         "category": "evieve",
         "digest": "Hilbert quadrature (phase shift) filter",
         "description": "Hilbert quadrature (phase shift) filter using an 8th order polyphase IIR halfband allpass cascade.",
-        "discussion": ""
+        "discussion": "For more information about other reimplementations of MSP filters in evieve, see the 'evieve msp' tab of the helpfile."
     },
     "metadata": {
         "author": "Pete Dowling",

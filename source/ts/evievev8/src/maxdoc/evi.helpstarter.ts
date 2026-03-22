@@ -511,7 +511,8 @@ function init() {
 			areasComment.message('background', 1);
 			// areastab.subpatcher().bringtofront('digest_comment');
 
-			const AREAS_BPATCHER_NAME = `areas_help_${eviOption5}.maxpat`;
+			// note, the potential global 'areas_help_parent' is '.maxPAT'
+			const AREAS_BPATCHER_NAME = `areas_help_${eviOption5}.maxhelp`;
 			areastab.subpatcher().message(
 				'script',
 				'newobject',

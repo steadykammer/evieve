@@ -4,7 +4,7 @@
         "category": "evieve",
         "digest": "Classic freeverb reverb algorithm with buttery smooth freezing effect",
         "description": "This is a basic Schroeder reverb effect but with additional filtering and controls, very servicable for certain situations. But the main feature here is the ability to smoothly capture the input audio in the recirculating feedback path in a way which gives a forever freezing effect. This can be triggered and released with wet+dry or with wet alone.",
-        "discussion": ""
+        "discussion": "For more information about other reverbs in evieve, see the 'evieve reverb' tab of the helpfile."
     },
     "metadata": {
         "author": "Pete Dowling",
@@ -47,14 +47,21 @@
     "arguments": [],
     "messages": [
         {
-            "name": "anything",
+            "name": "freeze",
             "arg": [
                 {
                     "name": "freeze",
                     "type": "int",
                     "units": "0, 1, 2, 3, 4",
                     "optional": 1
-                },
+                }
+            ],
+            "digest": "In left inlet, freeze message to evi.freezeverb~",
+            "description": "The word 'freeze' followed by an integer between 0 and 4 engages the special freeze effect in different ways. 0=freeze off, 1=freeze on with dry/wet mix, 2=freeze on solo (wet only), 3=retrigger the 'freeze 1' (if already on), 4=retrigger the 'freeze 2' (if already on). All 'freeze' switching is buttery smooth."
+        },
+        {
+            "name": "pattrstorage",
+            "arg": [
                 {
                     "name": "pattrstorage",
                     "type": "anything",
@@ -62,8 +69,8 @@
                     "optional": 1
                 }
             ],
-            "digest": "In left inlet, messages to evi.freezeverb~",
-            "description": "The word 'freeze' followed by an integer between 0 and 4 engages the special freeze effect in different ways. 0=freeze off, 1=freeze on with dry/wet mix, 2=freeze on solo (wet only), 3=retrigger the 'freeze 1' (if already on), 4=retrigger the 'freeze 2' (if already on). All 'freeze' switching is buttery smooth. Prepending the word 'pattrstorage' allows you to send any message pattrstorage understands to the internal pattrstorage object - you can recieve pattrstorage output via the far right outlet."
+            "digest": "In left inlet, pattrstorage messages to evi.freezeverb~",
+            "description": "Prepending the word 'pattrstorage' allows you to send any message pattrstorage understands to the internal pattrstorage object - you can recieve pattrstorage output via the far right outlet."
         }
     ],
     "attributes": [

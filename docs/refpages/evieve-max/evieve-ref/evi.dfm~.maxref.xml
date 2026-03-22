@@ -73,7 +73,7 @@
 	</objarglist>
 	<!--MESSAGES-->
 	<methodlist>
-		<method name="anything">
+		<method name="filter">
 			<arglist>
 				<arg name="filter" type="symbol" units="bypass, lowpass, highpass" optional="1" />
 				<arg name="filter" type="int" units="0, 1, 2" optional="1" />

@@ -4,7 +4,7 @@
         "child": "evi.eq8~",
         "category": "evieve",
         "digest": "8-band TPT EQ with message rate control of all parameters",
-        "description": "An 8-band parametric EQ made up of 8 TPT SVF EQ filters, each with selectable filter type. Parameter changes can optionally be smoothed."
+        "description": "An 8-band parametric EQ made up of 8 TPT SVF EQ filters, each with selectable filter type. Parameter changes can optionally be smoothed. <o>evi.eq8~</o> uses the same filter DSP and offers the same filter types as Ableton 'EQ8'."
     },
     "constructor": {
         "inlets": "input"

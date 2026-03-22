@@ -4,7 +4,7 @@
         "child": "evi.chorus.digital~",
         "category": "evieve",
         "digest": "A basic digital Chorus implementation, with multiple stages and saturation",
-        "description": "There are many attributes so that the user can macroise the controls themselves to higher level parameters."
+        "description": "An example of a multi stage chorus using evieve primitives. There are many attributes so that the user can macroise the controls themselves to higher level parameters."
     },
     "constructor": {
         "inlets": "left, right, reset"

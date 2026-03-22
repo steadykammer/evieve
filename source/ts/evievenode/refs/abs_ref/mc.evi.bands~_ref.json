@@ -92,7 +92,7 @@
     ],
     "messages": [
         {
-            "name": "message",
+            "name": "bandwidth",
             "arg": [
                 {
                     "name": "bandwidth",

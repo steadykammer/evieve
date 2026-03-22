@@ -27,7 +27,7 @@
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
                     "patching_rect": [ 172.0, 570.0, 185.0, 22.0 ],
-                    "text": "list.reg areas_help_noise.maxpat"
+                    "text": "list.reg areas_help_noise.maxhelp"
                 }
             },
             {

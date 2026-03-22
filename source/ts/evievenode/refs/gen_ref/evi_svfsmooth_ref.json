@@ -4,7 +4,7 @@
         "child": "evi.svfsmooth~",
         "category": "evieve",
         "digest": "Nonlinear TPT SVF filter with audio rate modulation and morphing capabilities",
-        "description": "TEXT_HERE"
+        "description": "A cheap nonlinear 12dB multimode SVF for when you need a quick cheap synth filter. Morphing is between LP..BP..HP filters and is basic output-mixing with resonance attenuation, available at the far left outlet 1. All filters are also available individually via their multimode outlets 2, 3, 4 and 5 (lowpass, bandpass, highpass, notch)."
     },
     "constructor": {
         "inlets": "input, freq, resonance, morph"
@@ -19,7 +19,7 @@
             "name": "input",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Audio input to be filtered."
         },
         {
             "id": 2,
@@ -27,7 +27,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "in Pitch (default) or Hz depending on 'cutoffmode' attribute",
-            "digest": ""
+            "digest": "Cutoff frequency in Pitch (default) or Hz depending on the @cutoffmode attribute."
         },
         {
             "id": 3,
@@ -35,7 +35,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "0..1 @default 0.707107",
-            "digest": ""
+            "digest": "Resonance 0..1, can self oscillate at '1'."
         },
         {
             "id": 4,
@@ -43,7 +43,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "0..1",
-            "digest": ""
+            "digest": "Smoothly interpolate 0..1 between lowpass..bandpass..highpass, available at the far left outlet 1."
         }
     ],
     "outlets": [
@@ -52,35 +52,35 @@
             "name": "svf",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Interpolated filter output LP..BP..HP via 'Morph' (inlet 4)."
         },
         {
             "id": 2,
             "name": "lowpass",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Just lowpass output."
         },
         {
             "id": 3,
             "name": "bandpass",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Just bandpass output."
         },
         {
             "id": 4,
             "name": "highpass",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Just highpass output."
         },
         {
             "id": 5,
             "name": "notch",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Just notch output."
         }
     ],
     "attributes": [
@@ -88,7 +88,7 @@
             "name": "cutoffmode",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Switch cutoff frequency (inlet 2) between Pitch (default on) or Hz (off).",
             "default": {
                 "type": "int",
                 "value": "1"
@@ -98,7 +98,7 @@
             "name": "morphsmooth",
             "type": "float",
             "digest": "@min 0, @max 333",
-            "description": "",
+            "description": "If morphsmooth > 0, the 'Morph' control (inlet 4) will be internally smoothed by this time.",
             "default": {
                 "type": "float",
                 "value": "30."
@@ -108,7 +108,7 @@
             "name": "saturation",
             "type": "float",
             "digest": "@min -20, @max 40",
-            "description": "",
+            "description": "Internal integrator saturation in dB. Setting this too high will actually dull the filter. Best left at default +20 in most scenarios.",
             "default": {
                 "type": "float",
                 "value": "20."
@@ -118,7 +118,7 @@
             "name": "saturationsmooth",
             "type": "float",
             "digest": "@min 0, @max 111",
-            "description": "",
+            "description": "If saturationsmooth > 0, the @saturation attribute will be internally smoothed by this time. Default off.",
             "default": {
                 "type": "float",
                 "value": "0."
@@ -127,8 +127,24 @@
     ],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_arpnotch",
+            "display": "evi_arpnotch"
+        },
+        {
+            "name": "evi_svfsynth",
+            "display": "evi_svfsynth"
+        },
+        {
+            "name": "evi_svf",
+            "display": "evi_svf"
+        },
+        {
+            "name": "evi_korgms10",
+            "display": "evi_korgms10"
+        },
+        {
+            "name": "evi_ladder_poles",
+            "display": "evi_ladder_poles"
         }
     ]
 }

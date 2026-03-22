@@ -4,9 +4,9 @@
         "parent": "evi_ladder_diode",
         "category": "evieve",
         "tilde": "~",
-        "digest": "TPT Diode nonlinear Ladder filter emulation, similar to the Roland-TB303 filter",
-        "description": "Unlike the (Moog) Transistor Ladder, the Diode Ladder resonance peaks, rather than scales.",
-        "discussion": ""
+        "digest": "TPT nonlinear Diode Ladder filter emulation",
+        "description": "A 24dB Diode Ladder filter emulation, similar to the Roland-TB303 filter and not like a Transistor Ladder. Different to any of the other evieve Ladders. Unlike the (Moog) Transistor Ladder, the Diode Ladder resonance peaks, rather than scales. So be careful with high resonance! The object provides two FM modulation inlets for the filter cutoff frequency.",
+        "discussion": "Based on the original by Dom Wurtz (2012), see the gendsp for the license. Thanks also to Oli Larkin. For more information about other nonlinear Ladder filters in evieve, see the 'evieve ladder' tab of the helpfile."
     },
     "metadata": {
         "author": "Pete Dowling",
@@ -22,31 +22,31 @@
             "id": 1,
             "type": "signal",
             "digest": "Input",
-            "description": ""
+            "description": "Audio input to be filtered."
         },
         {
             "id": 2,
             "type": "signal/float",
             "digest": "Cutoff in Hz or Pitch",
-            "description": ""
+            "description": "Cutoff frequency in Pitch (default) or Hz depending on the @cutoffmode attribute."
         },
         {
             "id": 3,
             "type": "signal",
             "digest": "Cutoff Pitch Mod @default 0",
-            "description": ""
+            "description": "Logarithmic FM input. Accepts an FM signal which is summed internally with cutoff in pitch prior to Linear FM inlet. This is only active if @cutoffmode attribute == 1, otherwise it is ignored."
         },
         {
             "id": 4,
             "type": "signal",
             "digest": "Cutoff Hz Mod @default 0",
-            "description": ""
+            "description": "Linear FM input. Accepts an FM signal which is summed internally with cutoff in Hz post Logarithmic FM input. This inlet is always active regardless of the @cutoffmode attribute."
         },
         {
             "id": 5,
             "type": "signal/float",
             "digest": "resonance (0..1..2)",
-            "description": ""
+            "description": "Self oscillates at resonance==1 but can take higher resonance with a little loss in tuning."
         }
     ],
     "outlets": [
@@ -54,17 +54,17 @@
             "id": 1,
             "type": "signal",
             "digest": "Diode Ladder",
-            "description": ""
+            "description": "Diode Ladder filtered output."
         }
     ],
     "messages": [],
     "attributes": [
         {
-            "name": "cfmode",
+            "name": "cutoffmode",
             "get": 1,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Flag 0/1",
+            "description": "Switch cutoff frequency (inlet 2) between Pitch (default on) or Hz (off).",
             "default": {
                 "min": "0",
                 "max": "1",
@@ -72,11 +72,11 @@
             }
         },
         {
-            "name": "cfsmooth",
+            "name": "cutoffsmooth",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Time in ms",
+            "description": "Optionally smooth the cutoff (inlet 2). If audio rate modulating inlet 2 (or potentially with inlets 3 or 4) this should be turned off.",
             "default": {
                 "min": "0",
                 "max": "1000",
@@ -87,8 +87,8 @@
             "name": "nonlin",
             "get": 1,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Select 0, 1, 2, 3, 4",
+            "description": "0=tanh-like, 1=polynomial-saturator, 2=cubic (default), 3=cubic-alternative, 4=atan-like. Unlike unit delay filters, TPT filters allow us to switch out the nonlinearity in the feedback loop without having to retune the filter. Each options gives the filter slightly different characteristics.",
             "default": {
                 "min": "0",
                 "max": "5",
@@ -99,8 +99,8 @@
             "name": "oversample",
             "get": 1,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Flag 0/1",
+            "description": "2x oversampling if on (default), 1x if off (careful). Oversampling almost doubles the CPU usage.",
             "default": {
                 "min": "0",
                 "max": "1",
@@ -111,8 +111,8 @@
             "name": "ressmooth",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Time in ms",
+            "description": "Optionally smooth the resonance (inlet 5). If audio rate modulating inlet 5 this should be turned off.",
             "default": {
                 "min": "0",
                 "max": "333",
@@ -124,7 +124,7 @@
             "get": 1,
             "type": "float",
             "digest": "",
-            "description": "",
+            "description": "@shaping should be considered a constant and not changed, unless you want to drastically retune the filter.",
             "default": {
                 "min": "1",
                 "max": "40",
@@ -136,7 +136,7 @@
             "get": 1,
             "type": "float",
             "digest": "",
-            "description": "",
+            "description": "@tuning should be considered a constant and not changed, unless you want to drastically retune the filter.",
             "default": {
                 "min": "0",
                 "max": "1",
@@ -148,5 +148,9 @@
         "caption": "",
         "image": ""
     },
-    "seealso": []
+    "seealso": [
+        "evi.ladder.moog~",
+        "evi.ladder.transistor~",
+        "evi.ladder.poles~"
+    ]
 }

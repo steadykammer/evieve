@@ -1,8 +1,8 @@
 
 // This is a perhaps pointless attempt to make a filter with the bizarre (but very cool) response of MSP [lores~].
-// The problems with [lores~] are:  - it digitally clips your audio signal and aliases and is horrible
-//                                  - it is totally unstable and blows up after time at high resonance values
-//                                  - it is like a Direct Form Z-1 filter that has bad modulation properties
+// The problems with [lores~] are:  - it digitally clips your audio signal and aliases
+//                                  - it is unstable and blows up after time at high resonance values
+//                                  - it is like a Direct Form Z-1 filter that has inferior modulation properties
 
 // [lores~] is basically like the lowpass output of [svf~] but with a unique mapping & coupling of cutoff and resonance:
 // frequency affects strength of resonance and resonance affects slope of filter, etc. The irony of the mapping

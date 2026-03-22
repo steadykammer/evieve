@@ -4,7 +4,7 @@
         "child": "evi.svf~",
         "category": "evieve",
         "digest": "Reimplementation of MSP <o>svf~</o> as a TPT filter",
-        "description": "TEXT_HERE"
+        "description": "Linear TPT state variable filter with simultaneous outputs. The SVF is a really useful swiss-army-knife filter block. It is very efficient and using just a single outlet is an acceptable use case. The evieve SVF can have it's parameters dynamically modulated up to audio rate whilst remaining clean and alias free. The internal filter structure of <o>evi.svf~</o> is used in most of the other linear and nonlinear filters in the evieve package. Here it is presented in it's purest form to be as close to MSP <o>svf~</o> as possible. Note, here we use MSP-like ordering of outputs, but in all other evieve SVFs we use a different ordering."
     },
     "constructor": {
         "inlets": "input, cutoff, resonance"
@@ -19,7 +19,7 @@
             "name": "input",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Audio input to be filtered."
         },
         {
             "id": 2,
@@ -27,7 +27,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Frequency in Hz @min 1 @max samplerate*0.5",
-            "digest": ""
+            "digest": "Cutoff frequency in Hz."
         },
         {
             "id": 3,
@@ -35,7 +35,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "0..1 @min 0 @max 1",
-            "digest": ""
+            "digest": "Filter resonance 0..1."
         }
     ],
     "outlets": [
@@ -44,28 +44,28 @@
             "name": "lowpass",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Lowpass filtered audio output."
         },
         {
             "id": 2,
             "name": "highpass",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Highpass filtered audio output."
         },
         {
             "id": 3,
             "name": "bandpass",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Bandpass filtered audio output."
         },
         {
             "id": 4,
             "name": "notch",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Notch filtered audio output."
         }
     ],
     "attributes": [
@@ -73,7 +73,7 @@
             "name": "oversample",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "The 2x oversampling is only useful for lowpass and bandpass outputs usage. It sort-of more closely matches the frequency response of the MSP Chamberlain SVF for those filter types.",
             "default": {
                 "type": "int",
                 "value": "0"
@@ -82,8 +82,64 @@
     ],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_filter",
+            "display": "evi_filter"
+        },
+        {
+            "name": "evi_multimode",
+            "display": "evi_multimode"
+        },
+        {
+            "name": "evi_svfsmooth",
+            "display": "evi_svfsmooth"
+        },
+        {
+            "name": "evi_svfsynth",
+            "display": "evi_svfsynth"
+        },
+        {
+            "name": "evi_lores",
+            "display": "evi_lores"
+        },
+        {
+            "name": "evi_onepole",
+            "display": "evi_onepole"
+        },
+        {
+            "name": "evi_reson",
+            "display": "evi_reson"
+        },
+        {
+            "name": "evi_cross",
+            "display": "evi_cross"
+        },
+        {
+            "name": "evi_phaseshift",
+            "display": "evi_phaseshift"
+        },
+        {
+            "name": "evi_hilbert",
+            "display": "evi_hilbert"
+        },
+        {
+            "name": "evi_allpass",
+            "display": "evi_allpass"
+        },
+        {
+            "name": "evi_comb",
+            "display": "evi_comb"
+        },
+        {
+            "name": "evi_teeth",
+            "display": "evi_teeth"
+        },
+        {
+            "name": "evi_bp",
+            "display": "evi_bp"
+        },
+        {
+            "name": "evi_vcf",
+            "display": "evi_vcf"
         }
     ]
 }

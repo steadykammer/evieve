@@ -9,7 +9,7 @@
 		<b>evi.tremolo~</b> is a 'max define' for the <o>evi_tremolo</o>.gendsp gen~ abstraction.
 		Because evi.tremolo~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		<br />
-		TEXT_HERE <br />
+		An example of a tremolo using evieve primitives. Variable control of LFOs for interesting modulation. The tremolo amplitude can be driven well above unity gain into an anti-aliased saturation stage. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>
