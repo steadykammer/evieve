@@ -13,7 +13,7 @@
          <br />
         evi_clip_hardsoft is also available in MSP as: <o>evi.clip~</o>. <br />
          <br />
-	    TEXT_HERE <br />
+	    A collection of four anti-aliased clipping algorithms: hard clip, soft clip, diode clip, asymmetric clip. Hard and soft are better anti-aliased and can take higher input gain before aliasing than the diode and asymmetric clippers. To be used whenever clamping of audio is required, <o>evi.clip~</o> should do a good job of protecting your precious audio. <br />
     </description>
     <methodlist />
     <constructorlist>
@@ -26,7 +26,7 @@
     <geninletlist>
         <geninlet name='audio' type='float' optional='1'>
             <digest>
-                In that must be treated nicely. 
+                In that must be treated nicely. Any audio input.
             </digest>
         </geninlet>
     </geninletlist>
@@ -36,7 +36,7 @@
                 @min 0, @max 3
             </digest>
             <description>
-                
+                Select the clipping function used. 0&#x3D;hard (default), 1&#x3D;soft, 2&#x3D;diode, 3&#x3D;asymmetric. &#x27;Hard&#x27; is the equivalent of [clip~ -1. 1], &#x27;soft&#x27; is the equivalent of [tanh~], &#x27;diode&#x27; is a static model of a 12AX7, &#x27;aymmetric&#x27; is a static version of Laurent de Soras&#x27; &#x27;Gloubi Boulga&#x27;.
             </description>
             <attributelist>
                 <attribute name='default' type='int' value='0' />
@@ -47,7 +47,7 @@
                 @min 0, @max 2
             </digest>
             <description>
-                
+                Regardless of this setting, hard and soft clippers are 2nd order antiderivatives and thus already have excellent behaviour with @oversampling&#x3D;0. Oversampling&#x3D;1 is 2x oversampling, oversampling&#x3D;2 is 4x oversampling.
             </description>
             <attributelist>
                 <attribute name='default' type='int' value='2' />
@@ -60,6 +60,18 @@
         <metadata name="tag">GenDsp</metadata>
     </metadatalist>
     <seealsolist>
-        <seealso name='' display='' type='genrefpage' />
+        <seealso name='evi_limiterfast' display='evi_limiterfast' type='genrefpage' />
+        <seealso name='evi_hardclip' display='evi_hardclip' type='genrefpage' />
+        <seealso name='evi_softclip' display='evi_softclip' type='genrefpage' />
+        <seealso name='evi_clipasym' display='evi_clipasym' type='genrefpage' />
+        <seealso name='evi_shaper' display='evi_shaper' type='genrefpage' />
+        <seealso name='evi_warmer' display='evi_warmer' type='genrefpage' />
+        <seealso name='evi_sinfold' display='evi_sinfold' type='genrefpage' />
+        <seealso name='evi_overdrive_sqrt' display='evi_overdrive_sqrt' type='genrefpage' />
+        <seealso name='evi_overdrive_atan' display='evi_overdrive_atan' type='genrefpage' />
+        <seealso name='evi_overdrive_tanh' display='evi_overdrive_tanh' type='genrefpage' />
+        <seealso name='evi_tone_macro' display='evi_tone_macro' type='genrefpage' />
+        <seealso name='evi_rcfilter' display='evi_rcfilter' type='genrefpage' />
+        <seealso name='evi_baxandall' display='evi_baxandall' type='genrefpage' />
     </seealsolist>
 </c74object>

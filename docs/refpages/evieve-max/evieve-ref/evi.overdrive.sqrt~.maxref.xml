@@ -9,7 +9,7 @@
 		<b>evi.overdrive.sqrt~</b> is a 'max define' for the <o>evi_overdrive_sqrt</o>.gendsp gen~ abstraction.
 		Because evi.overdrive.sqrt~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		<br />
-		TEXT_HERE <br />
+		The simplest of the evieve 'overdrive' objects, a memoryless nonlinear approximation with high quality antiderivative and oversampled processing. Can handle high gain input and remains well anti-aliased. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>
@@ -24,7 +24,7 @@
 				Inlet #1: Input Signal
 			</digest>
 			<description>
-				
+				Audio input to be overdriven.
 			</description>
 		</inlet>
 	</inletlist>
@@ -35,7 +35,7 @@
 				Outlet #1: Buzzy-tanh(x) Out - anti-aliased for your audio not for Maths
 			</digest>
 			<description>
-				
+				Overdriven audio output.
 			</description>
 		</outlet>
 	</outletlist>
@@ -46,10 +46,10 @@
 	<attributelist>
 		<attribute name="aa" get="1" set="1" type="int" min="0" max="5">
 			<digest>
-				
+				Select 0, 1, 2, 3, 4, 5
 			</digest>
 			<description>
-				
+				The &#x27;aa&#x27; (&#x27;Anti-Aliasing) method used. 0&#x3D;Adaa1, 1&#x3D;Adaa1 2x oversampled, 2&#x3D;Adaa1 4x oversampled, 3&#x3D;Adaa2 (default), 4&#x3D;Adaa2 2x oversampled, 5&#x3D;Adaa2 4x oversampled. 0..5 does not necessarily mean increasing in quality, it really depends on your audio input material. Experimentation is encouraged.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="3" />
@@ -57,10 +57,10 @@
 		</attribute>
 		<attribute name="hfcompensate" get="1" set="1" type="int" min="0" max="1">
 			<digest>
-				
+				Flag 0/1
 			</digest>
 			<description>
-				
+				The object provides a high frequency compensation &#x27;decorelation&#x27; filter on its output for restoring the reduced high frequency response that can occur with this type of anti-aliasing, especially when utilising the oversampling options (as opposed to just using pure &#x27;adaa&#x27;). Experiment with turning this on to improve high frequencies (default on).
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="1" />
@@ -73,9 +73,20 @@
 	</examplelist>
 	<!--SEEALSO-->
 	<seealsolist>
+		<seealso name="evi.overdrive.atan~"> </seealso>
+		<seealso name="evi.overdrive.tanh~"> </seealso>
+		<seealso name="evi.shaper~"> </seealso>
+		<seealso name="evi.sinfold~"> </seealso>
+		<seealso name="evi.clip~"> </seealso>
+		<seealso name="evi.hardclip~"> </seealso>
+		<seealso name="evi.softclip~"> </seealso>
+		<seealso name="evi.clipasym~"> </seealso>
+		<seealso name="evi.warmer~"> </seealso>
+		<seealso name="evi.tone.macro~"> </seealso>
+		<seealso name="evi.rcfilter~"> </seealso>
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>
-         <br />
+        For more information about evieve Overdrive processors and other saturation types see the 'evieve overdrive' tab of the helpfile. <br />
 	</discussion>
 </c74object>

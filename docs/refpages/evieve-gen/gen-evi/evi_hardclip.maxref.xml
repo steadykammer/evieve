@@ -13,7 +13,7 @@
          <br />
         evi_hardclip is also available in MSP as: <o>evi.hardclip~</o>. <br />
          <br />
-	    TEXT_HERE <br />
+	    To be used whenever clamping of audio is required, <o>evi.hardclip~</o> should do a good job of protecting your precious audio. This is because this is antialiased hard clipping capable of high input gain whilst maintaining audio quality. <o>evi.hardclip~</o> is the hard clipping section from the <o>evi.clip~</o> object but with more antiderivative and oversampling options for when managing audio quality against CPU usage, selected via the @aa attribute. Increasing @aa does not necessarily translate to 'better'. Experiment with this setting depending on your audio input material. <br />
     </description>
     <methodlist />
     <constructorlist>
@@ -26,7 +26,7 @@
     <geninletlist>
         <geninlet name='audio' type='float' optional='1'>
             <digest>
-                Input to be treated nicely. 
+                Input to be treated nicely. Any audio input.
             </digest>
         </geninlet>
     </geninletlist>
@@ -36,7 +36,7 @@
                 @min 0, @max 5
             </digest>
             <description>
-                
+                &#x27;aa&#x27; stands for &#x27;Anti-Aliasing&#x27;. Select type (or &#x27;strength&#x27;) here. 0&#x3D;1st order antiderivative, 1&#x3D;1st order 2x oversampled, 2&#x3D;1st order 4x oversampled, 3&#x3D;2nd order antiderivative (default), 4&#x3D;2nd order 2x oversampled, 5&#x3D;2nd order 4x oversampled.
             </description>
             <attributelist>
                 <attribute name='default' type='int' value='3' />
@@ -47,7 +47,7 @@
                 @min 0.9, @max 1.1
             </digest>
             <description>
-                
+                false
             </description>
             <attributelist>
                 <attribute name='default' type='float' value='1.' />
@@ -60,6 +60,16 @@
         <metadata name="tag">GenDsp</metadata>
     </metadatalist>
     <seealsolist>
-        <seealso name='' display='' type='genrefpage' />
+        <seealso name='evi_softclip' display='evi_softclip' type='genrefpage' />
+        <seealso name='evi_clipasym' display='evi_clipasym' type='genrefpage' />
+        <seealso name='evi_shaper' display='evi_shaper' type='genrefpage' />
+        <seealso name='evi_warmer' display='evi_warmer' type='genrefpage' />
+        <seealso name='evi_sinfold' display='evi_sinfold' type='genrefpage' />
+        <seealso name='evi_overdrive_sqrt' display='evi_overdrive_sqrt' type='genrefpage' />
+        <seealso name='evi_overdrive_atan' display='evi_overdrive_atan' type='genrefpage' />
+        <seealso name='evi_overdrive_tanh' display='evi_overdrive_tanh' type='genrefpage' />
+        <seealso name='evi_tone_macro' display='evi_tone_macro' type='genrefpage' />
+        <seealso name='evi_rcfilter' display='evi_rcfilter' type='genrefpage' />
+        <seealso name='evi_baxandall' display='evi_baxandall' type='genrefpage' />
     </seealsolist>
 </c74object>

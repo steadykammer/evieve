@@ -97,64 +97,9 @@
 	</outletlist>
 	<!--MESSAGES-->
 	<methodlist>
-		<method name="history">
-			<arglist>
-				<arg name="thisReset" type="int" units="default: 1" optional="1" />
-			</arglist>
-			<digest>
-				Top level gen~ [history] / History() declarations can be reset by messages to the object
-			</digest>
-			<description>
-				
-			</description>
-		</method>
 	</methodlist>
 	<!--ATTRIBUTES-->
 	<attributelist>
-		<attribute name="addsine" get="1" set="1" type="int" min="0" max="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="0" />
-			</attributelist>
-		</attribute>
-		<attribute name="addsync" get="1" set="1" type="int" min="0" max="2">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="1" />
-			</attributelist>
-		</attribute>
-		<attribute name="addtrain" get="1" set="1" type="int" min="0" max="2">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="0" />
-			</attributelist>
-		</attribute>
-		<attribute name="smooth" get="1" set="1" type="float" min="0" max="333">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="22." />
-			</attributelist>
-		</attribute>
 	</attributelist>
 	<!--EXAMPLE-->
 	<examplelist>

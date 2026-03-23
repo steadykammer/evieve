@@ -66,7 +66,7 @@ Param smoothfreq(0., min=0, max=666);
 
 // modulations in semitones
 Param offset(0., min=-24, max=24);		// band offset up to ± 2 octaves
-Param width(0., min=0, max=24);			// band width up to ± 2 octaves
+Param width(0., min=0, max=24);			// band width up to 2 octaves
 Param spread(0., min=-12, max=12);		// band spread up to ± 1 octave
 
 // attack / decay are -60dB ring times in milliseconds
@@ -99,6 +99,6 @@ If attack time == decay time (and there are no pitch offsets) then
 the signal cancels out, and if attack time > decay time then the impulse
 response is inverted.
 
-If spread & width == 0 then filter acts like a normal formlet filter.
+If spread & width == 0 then the filter acts like a normal formlet filter.
 If offset == 0 then frequency is as input.
 */

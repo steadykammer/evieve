@@ -13,7 +13,7 @@
          <br />
         evi_overdrive_sqrt is also available in MSP as: <o>evi.overdrive.sqrt~</o>. <br />
          <br />
-	    TEXT_HERE <br />
+	    The simplest of the evieve 'overdrive' objects, a memoryless nonlinear approximation with high quality antiderivative and oversampled processing. Can handle high gain input and remains well anti-aliased. <br />
     </description>
     <methodlist />
     <constructorlist>
@@ -26,7 +26,7 @@
     <geninletlist>
         <geninlet name='input' type='float' optional='1'>
             <digest>
-                Signal. 
+                Signal. Audio input to be overdriven.
             </digest>
         </geninlet>
     </geninletlist>
@@ -36,7 +36,7 @@
                 @min 0, @max 5
             </digest>
             <description>
-                
+                The &#x27;aa&#x27; (&#x27;Anti-Aliasing) method used. 0&#x3D;Adaa1, 1&#x3D;Adaa1 2x oversampled, 2&#x3D;Adaa1 4x oversampled, 3&#x3D;Adaa2 (default), 4&#x3D;Adaa2 2x oversampled, 5&#x3D;Adaa2 4x oversampled. 0..5 does not necessarily mean increasing in quality, it really depends on your audio input material. Experimentation is encouraged.
             </description>
             <attributelist>
                 <attribute name='default' type='int' value='3' />
@@ -47,7 +47,7 @@
                 @min 0, @max 1
             </digest>
             <description>
-                
+                The object provides a high frequency compensation &#x27;decorelation&#x27; filter on its output for restoring the reduced high frequency response that can occur with this type of anti-aliasing, especially when utilising the oversampling options (as opposed to just using pure &#x27;adaa&#x27;). Experiment with turning this on to improve high frequencies (default on).
             </description>
             <attributelist>
                 <attribute name='default' type='int' value='1' />
@@ -60,6 +60,15 @@
         <metadata name="tag">GenDsp</metadata>
     </metadatalist>
     <seealsolist>
-        <seealso name='' display='' type='genrefpage' />
+        <seealso name='evi_overdrive_atan' display='evi_overdrive_atan' type='genrefpage' />
+        <seealso name='evi_overdrive_tanh' display='evi_overdrive_tanh' type='genrefpage' />
+        <seealso name='evi_shaper' display='evi_shaper' type='genrefpage' />
+        <seealso name='evi_sinfold' display='evi_sinfold' type='genrefpage' />
+        <seealso name='evi_hardclip' display='evi_hardclip' type='genrefpage' />
+        <seealso name='evi_softclip' display='evi_softclip' type='genrefpage' />
+        <seealso name='evi_clipasym' display='evi_clipasym' type='genrefpage' />
+        <seealso name='evi_warmer' display='evi_warmer' type='genrefpage' />
+        <seealso name='evi_tone_macro' display='evi_tone_macro' type='genrefpage' />
+        <seealso name='evi_rcfilter' display='evi_rcfilter' type='genrefpage' />
     </seealsolist>
 </c74object>

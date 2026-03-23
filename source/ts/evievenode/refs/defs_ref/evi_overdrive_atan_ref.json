@@ -4,9 +4,9 @@
         "parent": "evi_overdrive_atan",
         "category": "evieve",
         "tilde": "~",
-        "digest": "High quality anti-aliased atan-based saturation with shape input to control overdrive",
-        "description": "TEXT_HERE",
-        "discussion": ""
+        "digest": "High quality anti-aliased atan-based saturation with shape input to control overdrive and gain wrapping",
+        "description": "This atan() overdrive is a simple but deluxe memoryless nonlinear processor with atan gain shaping around it's core nonlinearity (controlled via inlet 2) and various anti-aliasing options. The object can be driven very hard and maintains stability and clean/dirty sound.",
+        "discussion": "For more information about evieve Overdrive processors and other saturation types see the 'evieve overdrive' tab of the helpfile."
     },
     "metadata": {
         "author": "Pete Dowling",
@@ -20,13 +20,13 @@
             "id": 1,
             "type": "signal",
             "digest": "Input Signal",
-            "description": ""
+            "description": "Audio input to be overdriven."
         },
         {
             "id": 2,
             "type": "signal/float",
             "digest": "Shape (linear gain 1..100) @default 1 @min 1 @max 100",
-            "description": ""
+            "description": "Linear gain 1..100. This actually controls a reciprocal gain wrapping around the internal saturator. The object handles high gain very well with minimal aliasing. This inlet corresponds to the equivalent inlet of the MSP 'overdrive~' object."
         }
     ],
     "outlets": [
@@ -34,13 +34,13 @@
             "id": 1,
             "type": "signal",
             "digest": "Atan(x) Output - anti-aliased for your audio not for Maths",
-            "description": ""
+            "description": "Overdriven audio output."
         },
         {
             "id": 2,
             "type": "signal",
             "digest": "Reset (Param has changed)",
-            "description": ""
+            "description": "A sample accurate reset 'click' whenever the 'aa' or 'hfcompensate' attributes are changed. Might be useful."
         }
     ],
     "messages": [
@@ -63,8 +63,8 @@
             "name": "aa",
             "get": 1,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Select 0, 1, 2, 3, 4, 5",
+            "description": "The 'aa' ('Anti-Aliasing) method used. 0=Adaa1, 1=Adaa1 2x oversampled, 2=Adaa1 4x oversampled, 3=Adaa2 (default), 4=Adaa2 2x oversampled, 5=Adaa2 4x oversampled. 0..5 does not necessarily mean increasing in quality, it really depends on your audio input material. Experimentation is encouraged.",
             "default": {
                 "min": "0",
                 "max": "5",
@@ -75,8 +75,8 @@
             "name": "hfcompensate",
             "get": 1,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Flag 0/1",
+            "description": "The object provides a high frequency compensation 'decorelation' filter on its output for restoring the reduced high frequency response that can occur with this type of anti-aliasing, especially when utilising the oversampling options (as opposed to just using pure 'adaa'). Experiment with turning this on to improve high frequencies (default on).",
             "default": {
                 "min": "0",
                 "max": "1",
@@ -88,5 +88,17 @@
         "caption": "",
         "image": ""
     },
-    "seealso": []
+    "seealso": [
+        "evi.overdrive.sqrt~",
+        "evi.overdrive.tanh~",
+        "evi.shaper~",
+        "evi.sinfold~",
+        "evi.clip~",
+        "evi.hardclip~",
+        "evi.softclip~",
+        "evi.clipasym~",
+        "evi.warmer~",
+        "evi.tone.macro~",
+        "evi.rcfilter~"
+    ]
 }

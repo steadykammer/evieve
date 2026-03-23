@@ -3,8 +3,8 @@
         "name": "evi_ringmod",
         "child": "evi.ringmod~",
         "category": "evieve",
-        "digest": "Anti-aliased nonlinear analog ring modulator",
-        "description": "TEXT_HERE"
+        "digest": "Anti-aliased nonlinear ring modulator",
+        "description": "A clean FIR ring modulator algorithm with sine shaping saturation and filtering. Ring modulates two audio signals producing one modulated output, with antiderivative antialiasing and oversampling options."
     },
     "constructor": {
         "inlets": "audio, audio"
@@ -19,7 +19,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Input 1",
-            "digest": ""
+            "digest": "The first audio signal to be ring modulated (Carrier)."
         },
         {
             "id": 2,
@@ -27,7 +27,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Input 2",
-            "digest": ""
+            "digest": "The second audio signal to be ring modulated (Modulator)."
         }
     ],
     "outlets": [
@@ -36,7 +36,7 @@
             "name": "ring",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "The audio result of the ring modulated inputs."
         }
     ],
     "attributes": [
@@ -44,7 +44,7 @@
             "name": "cutoff",
             "type": "symbol",
             "digest": "@min 1000, @max samplerate*0.5",
-            "description": "",
+            "description": "The object offers a utility Butterworth Lowpass on it's output for taming the distortion and high frequencies. This is the cutoff frequency of that filter. By default the filter is bypassed. See the @order attribute for details.",
             "default": {
                 "type": "symbol",
                 "value": "samplerate*0.25"
@@ -54,7 +54,7 @@
             "name": "drive",
             "type": "float",
             "digest": "@min 0, @max 4",
-            "description": "",
+            "description": "Drive the waveshaping input gain via a sine shaping function. A bit like a % 0..1.. up to 2 is pretty safe, up to 4 be careful (in terms of aliasing).",
             "default": {
                 "type": "float",
                 "value": "0.5"
@@ -64,7 +64,7 @@
             "name": "highpass",
             "type": "float",
             "digest": "@min 10, @max 400",
-            "description": "",
+            "description": "This applies a highpass to the initial ring modulated audio mix, for taming bass response. It is not smoothed and thus probably best used as a static tool only.",
             "default": {
                 "type": "float",
                 "value": "40."
@@ -74,7 +74,7 @@
             "name": "order",
             "type": "int",
             "digest": "@min 0, @max 8",
-            "description": "",
+            "description": "The object offers a utility Butterworth Lowpass on it's output for taming the distortion and high frequencies. 0 (the default) = bypassed (and CPU off), 1..8 = filter orders 1..8 (increasing in steepness of slope).",
             "default": {
                 "type": "int",
                 "value": "0"
@@ -84,7 +84,7 @@
             "name": "quality",
             "type": "int",
             "digest": "@min 0, @max 4",
-            "description": "",
+            "description": "0=1x/Adaa1, 1=1x/Adaa2, 2=4x/Adaa2, 3=8x/Adaa2, 4=8x/Adaa2_4x. Because of the fake oversampling used here, higher and higher orders actually change the tonal effect of the audio output, so experimenting with different settings is not just about anti-aliasing or managing CPU usage but also a musical choice.",
             "default": {
                 "type": "int",
                 "value": "1"
@@ -94,7 +94,7 @@
             "name": "topology",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "The placement of the waveshaper in the ring modulator audio chain. If 0 (the default), the waveshaper sits after the ring modulator stage, if 1, the waveshaper is replaced into the middle of the ring modulator. Option 1 gives a strongly clipped and 'squeezed' guitar-like output. Option 0 gives a more usual soft saturated output.",
             "default": {
                 "type": "int",
                 "value": "0"
@@ -103,8 +103,16 @@
     ],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_freqshift_weaver",
+            "display": "evi_freqshift_weaver"
+        },
+        {
+            "name": "evi_freqshift_hilbert",
+            "display": "evi_freqshift_hilbert"
+        },
+        {
+            "name": "evi_sinfold",
+            "display": "evi_sinfold"
         }
     ]
 }

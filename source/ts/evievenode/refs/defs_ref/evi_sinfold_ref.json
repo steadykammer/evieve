@@ -4,9 +4,9 @@
         "parent": "evi_sinfold",
         "category": "evieve",
         "tilde": "~",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE",
-        "discussion": ""
+        "digest": "An anti-aliased sine folding waveshaper",
+        "description": "Unlike other evieve waveshapers, <o>evi.sinfold~</o> focusses on mid/high harmonics. By varying the @drive attribute clear tonal shifts are apparent. Can be driven hard with clean anti-aliased saturation.",
+        "discussion": "This is based on an idea by jhno and Trond Lossius."
     },
     "metadata": {
         "author": "Pete Dowling",
@@ -20,7 +20,7 @@
             "id": 1,
             "type": "signal",
             "digest": "Audio Input",
-            "description": ""
+            "description": "Any audio input."
         }
     ],
     "outlets": [
@@ -28,7 +28,7 @@
             "id": 1,
             "type": "signal",
             "digest": "Sine Saturated Output",
-            "description": ""
+            "description": "Hopefully more interesting audio output."
         }
     ],
     "messages": [],
@@ -37,8 +37,8 @@
             "name": "aa",
             "get": 1,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Select 0, 1, 2",
+            "description": "'aa' stands for 'Anti-Aliasing'. Select the type of anti-aliasing with this attribute. 0=2nd order antiderivative, 1=1st order antiderivative 2x oversampled, 2=1st order antiderivative 4x oversampled (the default).",
             "default": {
                 "min": "0",
                 "max": "2",
@@ -49,8 +49,8 @@
             "name": "drive",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Drive factor 0..4",
+            "description": "Drive the waveshaping input gain via a sine shaping function. A bit like a % 0..1.. up to 2 is pretty safe, up to 4 be careful (in terms of aliasing).",
             "default": {
                 "min": "0",
                 "max": "4",
@@ -61,8 +61,8 @@
             "name": "smooth",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Time in ms",
+            "description": "Optionally smooth the internal coefficients over this time in ms. Smoothing is an exact algorithm.",
             "default": {
                 "min": "1",
                 "max": "666",
@@ -74,5 +74,17 @@
         "caption": "",
         "image": ""
     },
-    "seealso": []
+    "seealso": [
+        "evi.softclip~",
+        "evi.hardclip~",
+        "evi.clipasym~",
+        "evi.shaper~",
+        "evi.warmer~",
+        "evi.overdrive.sqrt~",
+        "evi.overdrive.atan~",
+        "evi.overdrive.tanh~",
+        "evi.tone.macro~",
+        "evi.rcfilter~",
+        "evi.baxandall~"
+    ]
 }

@@ -1,6 +1,5 @@
 
 // vaguely inspired by the nonlinear part of the K35 in the MS10
-// @see: [evi.clipasym~] for a wrapper
 // note, this isn't very good in terms of anti aliasing
 
 require("evi_smooth.genexpr");

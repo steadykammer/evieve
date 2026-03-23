@@ -65,26 +65,6 @@
     ],
     "attributes": [
         {
-            "name": "cfmode",
-            "type": "int",
-            "digest": "@min 0, @max 1",
-            "description": "",
-            "default": {
-                "type": "int",
-                "value": "1"
-            }
-        },
-        {
-            "name": "cfsmooth",
-            "type": "float",
-            "digest": "@min 0, @max 666",
-            "description": "",
-            "default": {
-                "type": "float",
-                "value": "10."
-            }
-        },
-        {
             "name": "cutoffmode",
             "type": "int",
             "digest": "@min 0, @max 1",

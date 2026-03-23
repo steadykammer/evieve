@@ -97,12 +97,12 @@
     "evi.clip~": {
         "type": "define",
         "digest": "Anti-aliased clipping algorithms for your audio",
-        "description": ""
+        "description": "evi.clip~ is a 'max define' for the evi_clip_hardsoft.gendsp gen~ abstraction. Because evi.clip~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA collection of four anti-aliased clipping algorithms: hard clip, soft clip, diode clip, asymmetric clip. Hard and soft are better anti-aliased and can take higher input gain before aliasing than the diode and asymmetric clippers. To be used whenever clamping of audio is required, evi.clip~ should do a good job of protecting your precious audio."
     },
     "evi.clipasym~": {
         "type": "define",
-        "digest": 0,
-        "description": ""
+        "digest": "Variable asymmetric clipping",
+        "description": "evi.clipasym~ is a 'max define' for the evi_clipasym.gendsp gen~ abstraction. Because evi.clipasym~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nVaguely inspired by the nonlinear part of the K35 chip in the Korg MS10 filter. This has similar asymmetric nonlinear behaviour. The anti-aliasing here is not as successful as in other evieve objects, so be careful not to drive it too hard."
     },
     "evi.comb~": {
         "type": "define",
@@ -282,7 +282,7 @@
     "evi.formletfilter~": {
         "type": "define",
         "digest": "A ringing formlet filter model",
-        "description": ""
+        "description": "evi.formletfilter~ is a 'max define' for the evi_formlet.gendsp gen~ abstraction. Because evi.formletfilter~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA physical modelling ringing formlet filter loosely based on SuperCollider 'Formlet()' with added modulation and control features. Created by adding two resonant filters together around a center frequency. Can create ringing tones out of any input material. This is a direct form filter, so modulation is limited."
     },
     "evi.freezeverb~": {
         "type": "abstraction",
@@ -296,8 +296,8 @@
     },
     "evi.freqshift.weaver~": {
         "type": "define",
-        "digest": "Time domain frequency shifter after D. K. Weaver's famous 'third method'",
-        "description": ""
+        "digest": "Time domain frequency shifter after D. K. Weaver's 'third method'",
+        "description": "evi.freqshift.weaver~ is a 'max define' for the evi_freqshift_weaver.gendsp gen~ abstraction. Because evi.freqshift.weaver~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nTime domain frequency shifter. Not like MSP freqshift~. An implementation of D. K. Weaver's famous 'third method' (unlike freqshift~, fbinshift~ and evi.freqshift.hilbert~ which implement the more usual hilbert filtering 'second method'). N.B. no filtering shift here, all done with quadrature oscillators and lowpass filters."
     },
     "evi.gaussiannoise~": {
         "type": "define",
@@ -312,7 +312,7 @@
     "evi.hardclip~": {
         "type": "define",
         "digest": "Anti-aliased hard clipping function",
-        "description": ""
+        "description": "evi.hardclip~ is a 'max define' for the evi_hardclip.gendsp gen~ abstraction. Because evi.hardclip~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nTo be used whenever clamping of audio is required, evi.hardclip~ should do a good job of protecting your precious audio. This is because this is antialiased hard clipping capable of high input gain whilst maintaining audio quality. evi.hardclip~ is the hard clipping section from the evi.clip~ object but with more antiderivative and oversampling options for when managing audio quality against CPU usage, selected via the @aa attribute. Increasing @aa does not necessarily translate to 'better'. Experiment with this setting depending on your audio input material."
     },
     "evi.hilbert~": {
         "type": "abstraction",
@@ -362,7 +362,7 @@
     "evi.limiterfast~": {
         "type": "define",
         "digest": "A fast no-lookahead limiter with anti-aliased nonlinear clipping",
-        "description": ""
+        "description": "evi.limiterfast~ is a 'max define' for the evi_limiterfast.gendsp gen~ abstraction. Because evi.limiterfast~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA basic stereo limiter. Being a no-lookahead limiter, the 'crunch' can kick in quite easily. evi.limiterfast~ features an anti-aliased antiderivative hard clipping function to deal with this. Other than that it features fixed hard attack, a settable soft knee, variable smoothing, release time set in ms. The AGC envelope is available at the far right outlet."
     },
     "evi.lockhart.cascade~": {
         "type": "define",
@@ -401,8 +401,8 @@
     },
     "evi.lorez~": {
         "type": "define",
-        "digest": "A novel two-pole nonlinear Ladder filter with allpass alignment",
-        "description": ""
+        "digest": "A novel two-pole nonlinear Ladder filter",
+        "description": "evi.lorez~ is a 'max define' for the evi_lorez.gendsp gen~ abstraction. Because evi.lorez~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nNonlinear 12dB TPT Lowpass with excellent modulation properties and allpass alignment. Capable of all audio rate modulation with cutoff FM-able whilst remaining stable. Resonance stays strong even in lower frequencies. The abstraction includes code which can be extracted for parameter rate control of the coefficients calculation and linear operation if required."
     },
     "evi.lpg~": {
         "type": "abstraction",
@@ -417,7 +417,7 @@
     "evi.modalres~": {
         "type": "define",
         "digest": "Max Mathews modal resonator",
-        "description": ""
+        "description": "evi.modalres~ is a 'max define' for the evi_modalres.gendsp gen~ abstraction. Because evi.modalres~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nModified coupled form (MCF) complex multiply sine oscillator based twopole resonator with damping. ('Follow a fixed elliptical orbit over time')."
     },
     "evi.modosc~": {
         "type": "define",
@@ -436,8 +436,8 @@
     },
     "evi.multimode~": {
         "type": "define",
-        "digest": "7 simultaneous outputs for all filters available from a linear TPT SVF Topology",
-        "description": ""
+        "digest": "Simultaneous outputs for all filters available from a linear TPT SVF",
+        "description": "evi.multimode~ is a 'max define' for the evi_multimode.gendsp gen~ abstraction. Because evi.multimode~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA multimode SVF similar to evi.svf~. Seven simultaneous outputs for all filters available from a linear TPT SVF topology that use just Cutoff and Q, with optional cutoff and resonance smoothing baked in."
     },
     "evi.onepole.shelving~": {
         "type": "define",
@@ -451,18 +451,18 @@
     },
     "evi.overdrive.atan~": {
         "type": "define",
-        "digest": "High quality anti-aliased atan-based saturation with shape input to control overdrive",
-        "description": ""
+        "digest": "High quality anti-aliased atan-based saturation with shape input to control overdrive and gain wrapping",
+        "description": "evi.overdrive.atan~ is a 'max define' for the evi_overdrive_atan.gendsp gen~ abstraction. Because evi.overdrive.atan~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nThis atan() overdrive is a simple but deluxe memoryless nonlinear processor with atan gain shaping around it's core nonlinearity (controlled via inlet 2) and various anti-aliasing options. The object can be driven very hard and maintains stability and clean/dirty sound."
     },
     "evi.overdrive.sqrt~": {
         "type": "define",
         "digest": "High quality anti-aliased passive tanh-like input/output saturation",
-        "description": ""
+        "description": "evi.overdrive.sqrt~ is a 'max define' for the evi_overdrive_sqrt.gendsp gen~ abstraction. Because evi.overdrive.sqrt~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nThe simplest of the evieve 'overdrive' objects, a memoryless nonlinear approximation with high quality antiderivative and oversampled processing. Can handle high gain input and remains well anti-aliased."
     },
     "evi.overdrive.tanh~": {
         "type": "define",
-        "digest": "High quality anti-aliased tanh-based saturation with drive, input/output wrapping and filter shaping",
-        "description": ""
+        "digest": "High quality anti-aliased tanh-based saturation with drive, input/output gain wrapping and filter shaping",
+        "description": "evi.overdrive.tanh~ is a 'max define' for the evi_overdrive_tanh.gendsp gen~ abstraction. Because evi.overdrive.tanh~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nThe most luxurious of the evieve 'overdrive' objects, with drive, gain wrapping, additional input/output gain shaping and two damping filters which behave like a crossover, making it possible to control the amount of saturated and dry signal in the final output. The saturator is a tanh-like approximation with antiderivative anti-aliasing and oversampling options. evi.overdrive.tanh~ can be driven very hard and tonally shaped very easily making it a versatile nonlinear processor for a wide range of use cases. It is of course quite expensive."
     },
     "evi.paf~": {
         "type": "define",
@@ -536,13 +536,13 @@
     },
     "evi.ringmod.diode~": {
         "type": "abstraction",
-        "digest": "analog-modelled diode-based ring modulator effect \n",
-        "description": "Piece-wise approximation of a 4-diode ring modulator, naive implementation just oversampled for clean anti-aliasing, so not very efficient. But it has it's own interesting sound."
+        "digest": "Analog-modelled diode-based ring modulator effect \n",
+        "description": "Piece-wise approximation of a 4-diode ring modulator, naive implementation heavily oversampled for clean anti-aliasing, so not very efficient. But it has it's own interesting sound and is very different to evi.ringmod~."
     },
     "evi.ringmod~": {
         "type": "define",
-        "digest": "Anti-aliased nonlinear analog ring modulator",
-        "description": ""
+        "digest": "Anti-aliased nonlinear ring modulator",
+        "description": "evi.ringmod~ is a 'max define' for the evi_ringmod.gendsp gen~ abstraction. Because evi.ringmod~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA clean FIR ring modulator algorithm with sine shaping saturation and filtering. Ring modulates two audio signals producing one modulated output, with antiderivative antialiasing and oversampling options."
     },
     "evi.saw.select~": {
         "type": "define",
@@ -557,7 +557,7 @@
     "evi.shaper~": {
         "type": "define",
         "digest": "An interpolated choice of even or odd harmonics waveshaping",
-        "description": ""
+        "description": "evi.shaper~ is a 'max define' for the evi_shaper.gendsp gen~ abstraction. Because evi.shaper~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA simple object to cleanly add harmonics to an audio chain when required. A choice of up to 8-ish harmonics either even or odd can be smoothly interpolated onto the audio signal."
     },
     "evi.sine.select~": {
         "type": "define",
@@ -566,18 +566,18 @@
     },
     "evi.sinfold~": {
         "type": "define",
-        "digest": 0,
-        "description": ""
+        "digest": "An anti-aliased sine folding waveshaper",
+        "description": "evi.sinfold~ is a 'max define' for the evi_sinfold.gendsp gen~ abstraction. Because evi.sinfold~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nUnlike other evieve waveshapers, evi.sinfold~ focusses on mid/high harmonics. By varying the @drive attribute clear tonal shifts are apparent. Can be driven hard with clean anti-aliased saturation."
     },
     "evi.skfinputmix~": {
         "type": "define",
         "digest": "Sallen-Key input mixing multimode filter",
-        "description": ""
+        "description": "evi.skfinputmix~ is a 'max define' for the evi_skfinputmix.gendsp gen~ abstraction. Because evi.skfinputmix~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA special kind of input mixing filter, where the multimode nature of the filter is provided by it's simultaneous inputs rather than on outputs. By default the inputs are mixed by the @mix attribute and therefore has the effect of output mixing a standard multimode SVF. However if disabling the @mixenable attribute the inputs are 'always on', and can therefore be sequenced externally in interesting ways. This Sallen Key input mixer has excellent performance across a full range of cutoff frequencies. The filter is nonlinear and can take any sort of input."
     },
     "evi.softclip~": {
         "type": "define",
         "digest": "Anti-aliased soft clipping function",
-        "description": ""
+        "description": "evi.softclip~ is a 'max define' for the evi_softclip.gendsp gen~ abstraction. Because evi.softclip~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA quick all purpose and efficient soft clipper. evi.softclip~ does not have all the options of evi.hardclip~ or evi.clip~. It aims to be an easy tanh~ replacement to drop in to audio chains. The algorithm is a 2nd order antiderivative antialiasing tanh-like function. At high input gains the behaviour is less tanh-like as it folds."
     },
     "evi.squine.simple~": {
         "type": "define",
@@ -597,7 +597,7 @@
     "evi.svfinputmix~": {
         "type": "define",
         "digest": "SVF input mixing multimode filter",
-        "description": ""
+        "description": "evi.svfinputmix~ is a 'max define' for the evi_svfinputmix.gendsp gen~ abstraction. Because evi.svfinputmix~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA special kind of input mixing filter, where the multimode nature of the filter is provided by it's simultaneous inputs rather than on outputs. By default the inputs are mixed by the @mix attribute and therefore has the effect of output mixing a standard multimode SVF. However if disabling the @mixenable attribute the inputs are 'always on', and can therefore be sequenced externally in interesting ways. This SVF input mixer has better performance with lower cutoff frequencies. For a more full range input mixer @see: evi.skfinputmixer~ (with a 'k')."
     },
     "evi.svfsmooth~": {
         "type": "define",

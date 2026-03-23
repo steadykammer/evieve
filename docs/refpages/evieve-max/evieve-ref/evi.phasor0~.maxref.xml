@@ -73,67 +73,12 @@
 				Top level gen~ [history] / History() declarations can be reset by messages to the object
 			</digest>
 			<description>
-				
+				A float between 0..1 will &#x27;jump&#x27; the phase to that normalised value immediately. Note that this is not affected by any current zero-reset setting and is raw and will click.
 			</description>
 		</method>
 	</methodlist>
 	<!--ATTRIBUTES-->
 	<attributelist>
-		<attribute name="minimumhz" get="1" set="1" type="float" min="0" max="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="0.125" />
-			</attributelist>
-		</attribute>
-		<attribute name="mode" get="1" set="1" type="int" min="0" max="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="1" />
-			</attributelist>
-		</attribute>
-		<attribute name="pause" get="1" set="1" type="int" min="0" max="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="0" />
-			</attributelist>
-		</attribute>
-		<attribute name="phase" get="1" set="1" type="float" min="0" max="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="0." />
-			</attributelist>
-		</attribute>
-		<attribute name="reverse" get="1" set="1" type="int" min="0" max="1">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="1" />
-			</attributelist>
-		</attribute>
 	</attributelist>
 	<!--EXAMPLE-->
 	<examplelist>

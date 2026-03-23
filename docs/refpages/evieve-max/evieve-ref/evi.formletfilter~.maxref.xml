@@ -9,7 +9,7 @@
 		<b>evi.formletfilter~</b> is a 'max define' for the <o>evi_formlet</o>.gendsp gen~ abstraction.
 		Because evi.formletfilter~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		<br />
-		TEXT_HERE <br />
+		A physical modelling ringing formlet filter loosely based on SuperCollider 'Formlet()' with added modulation and control features. Created by adding two resonant filters together around a center frequency. Can create ringing tones out of any input material. This is a direct form filter, so modulation is limited. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>
@@ -24,7 +24,7 @@
 				Inlet #1: Input (Impulse)
 			</digest>
 			<description>
-				
+				Audio input to be filtered, typically an impulse-like event.
 			</description>
 		</inlet>
 		<inlet id="2" type="signal/float">
@@ -32,7 +32,7 @@
 				Inlet #2: Filter Frequency in PITCH
 			</digest>
 			<description>
-				
+				Filter frequency is set in Pitch (e.g. MIDI 0..127).
 			</description>
 		</inlet>
 	</inletlist>
@@ -43,7 +43,7 @@
 				Outlet #1: Formlet Output
 			</digest>
 			<description>
-				
+				Ringing formlet filtered output.
 			</description>
 		</outlet>
 	</outletlist>
@@ -54,10 +54,10 @@
 	<attributelist>
 		<attribute name="attack" get="1" set="1" type="float" min="10" max="59999">
 			<digest>
-				
+				Time in ms
 			</digest>
 			<description>
-				
+				Filter ringing T60 attack time in ms. Like setting an envelope attack.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="10." />
@@ -65,10 +65,10 @@
 		</attribute>
 		<attribute name="decay" get="1" set="1" type="float" min="11" max="60000">
 			<digest>
-				
+				Time in ms
 			</digest>
 			<description>
-				
+				Filter ringing T60 decay time in ms. Like setting an envelope decay. Note this is a T60 time and therefore does not reach it&#x27;s destination exactly.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="100." />
@@ -76,10 +76,10 @@
 		</attribute>
 		<attribute name="offset" get="1" set="1" type="float" min="-24" max="24">
 			<digest>
-				
+				In pitch
 			</digest>
 			<description>
-				
+				Modulation in semitones. Set in Pitch, filter cutoff (inlet 2) offset ± 2 octaves.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="0." />
@@ -87,10 +87,10 @@
 		</attribute>
 		<attribute name="smoothfreq" get="1" set="1" type="float" min="0" max="666">
 			<digest>
-				
+				Time in ms
 			</digest>
 			<description>
-				
+				Optional frequency (inlet 2) smoothing time in ms.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="0." />
@@ -98,10 +98,10 @@
 		</attribute>
 		<attribute name="smoothtime" get="1" set="1" type="float" min="0" max="111">
 			<digest>
-				
+				Time in ms
 			</digest>
 			<description>
-				
+				Optional @attack / @decay smoothing time in ms. In general this is not needed.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="0." />
@@ -109,10 +109,10 @@
 		</attribute>
 		<attribute name="spread" get="1" set="1" type="float" min="-12" max="12">
 			<digest>
-				
+				In pitch
 			</digest>
 			<description>
-				
+				Modulation in semitones. Set in Pitch, bandwidth spread ± 1 octave. This spreads the cutoffs of the two internal resonant filters apart from one another.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="0." />
@@ -120,10 +120,10 @@
 		</attribute>
 		<attribute name="width" get="1" set="1" type="float" min="0" max="24">
 			<digest>
-				
+				In pitch
 			</digest>
 			<description>
-				
+				Modulation in semitones. Set in Pitch, bandwidth up to 2 octaves in size. This sets the size of the frequency band centered by the cutoff (inlet 2).
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="0." />
@@ -136,9 +136,16 @@
 	</examplelist>
 	<!--SEEALSO-->
 	<seealsolist>
+		<seealso name="evi.reson~"> </seealso>
+		<seealso name="evi.modalres~"> </seealso>
+		<seealso name="evi.formantfilter~"> </seealso>
+		<seealso name="evi.formantfilter.morph~"> </seealso>
+		<seealso name="evi.formantosc~"> </seealso>
+		<seealso name="evi.paf~"> </seealso>
+		<seealso name="evi.vosim.basic~"> </seealso>
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>
-         <br />
+        If attack time == decay time (and there are no pitch offsets) then the signal cancels out, and if attack time > decay time then the impulse response is inverted. If spread and width == 0 then the filter acts like a normal formlet filter. If offset == 0 then frequency is as input. <br />
 	</discussion>
 </c74object>

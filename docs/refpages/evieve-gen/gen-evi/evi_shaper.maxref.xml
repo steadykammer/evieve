@@ -10,7 +10,7 @@
                  <br />
         evi_shaper is also available in MSP as: <o>evi.shaper~</o>. <br />
          <br />
-	    TEXT_HERE <br />
+	    A simple object to cleanly add harmonics to an audio chain when required. A choice of up to 8-ish harmonics either even or odd can be smoothly interpolated onto the audio signal. <br />
     </description>
     <methodlist />
     <constructorlist>
@@ -23,7 +23,7 @@
     <geninletlist>
         <geninlet name='audio' type='float' optional='1'>
             <digest>
-                to be Shaped. 
+                to be Shaped. Any audio input.
             </digest>
         </geninlet>
     </geninletlist>
@@ -33,7 +33,7 @@
                 @min 0, @max 1
             </digest>
             <description>
-                
+                Gain compensate the drop in energy over the interpolation of adding harmonics.
             </description>
             <attributelist>
                 <attribute name='default' type='int' value='1' />
@@ -44,7 +44,7 @@
                 @min 0, @max 1
             </digest>
             <description>
-                
+                Interpolated 0..1 add 0..8 harmonics (0 &#x3D; 0, 0.25 &#x3D; 1, 0.5 &#x3D; 2, 0.75 &#x3D; 4, 1 &#x3D; 8).
             </description>
             <attributelist>
                 <attribute name='default' type='float' value='0.5' />
@@ -55,7 +55,7 @@
                 @min -1, @max 1
             </digest>
             <description>
-                
+                Greater than 0 gradually adds odd harmonics, less than zero gradually adds even harmonics.
             </description>
             <attributelist>
                 <attribute name='default' type='float' value='0.' />
@@ -66,7 +66,7 @@
                 @min 0, @max 666
             </digest>
             <description>
-                
+                Optionally smooth @harmonics and @shape attributes, default off.
             </description>
             <attributelist>
                 <attribute name='default' type='float' value='0.' />
@@ -79,6 +79,9 @@
         <metadata name="tag">GenDsp</metadata>
     </metadatalist>
     <seealsolist>
-        <seealso name='' display='' type='genrefpage' />
+        <seealso name='evi_softclip' display='evi_softclip' type='genrefpage' />
+        <seealso name='evi_sinfold' display='evi_sinfold' type='genrefpage' />
+        <seealso name='evi_warmer' display='evi_warmer' type='genrefpage' />
+        <seealso name='evi_clipasym' display='evi_clipasym' type='genrefpage' />
     </seealsolist>
 </c74object>

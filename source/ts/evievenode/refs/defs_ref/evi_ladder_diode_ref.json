@@ -123,8 +123,8 @@
             "name": "shaping",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "@shaping should be considered a constant and not changed, unless you want to drastically retune the filter.",
+            "digest": "@shaping should be considered a constant and not changed, unless you want to drastically retune the filter.",
+            "description": "false",
             "default": {
                 "min": "1",
                 "max": "40",
@@ -135,8 +135,8 @@
             "name": "tuning",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "@tuning should be considered a constant and not changed, unless you want to drastically retune the filter.",
+            "digest": "@tuning should be considered a constant and not changed, unless you want to drastically retune the filter.",
+            "description": "false",
             "default": {
                 "min": "0",
                 "max": "1",

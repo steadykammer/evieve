@@ -9,7 +9,7 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 63.0, 131.0, 812.0, 790.0 ],
+        "rect": [ 63.0, 131.0, 660.0, 568.0 ],
         "openrect": [ 0.0, 0.0, 660.0, 568.0 ],
         "openrectmode": 0,
         "bglocked": 1,
@@ -26,7 +26,7 @@
                     "numinlets": 2,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
-                    "patching_rect": [ 32.0, 570.0, 216.0, 22.0 ],
+                    "patching_rect": [ 32.0, 570.0, 222.0, 22.0 ],
                     "text": "list.reg evieve_nonlinear_filters.maxhelp"
                 }
             },
@@ -51,7 +51,7 @@
                     "numinlets": 2,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
-                    "patching_rect": [ 456.0, 570.0, 171.0, 22.0 ],
+                    "patching_rect": [ 456.0, 570.0, 177.0, 22.0 ],
                     "text": "list.reg areas_help_svf.maxhelp"
                 }
             },
@@ -100,7 +100,7 @@
                     "numinlets": 2,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
-                    "patching_rect": [ 252.0, 570.0, 179.0, 22.0 ],
+                    "patching_rect": [ 252.0, 570.0, 185.0, 22.0 ],
                     "text": "list.reg areas_help_korg.maxhelp"
                 }
             },
@@ -275,11 +275,22 @@
                             "modernui": 1
                         },
                         "classnamespace": "dsp.gen",
-                        "rect": [ 329.0, 140.0, 376.0, 419.0 ],
+                        "rect": [ 329.0, 140.0, 376.0, 450.0 ],
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
                         "integercoordinates": 1,
                         "boxes": [
+                            {
+                                "box": {
+                                    "id": "obj-3",
+                                    "maxclass": "newobj",
+                                    "numinlets": 3,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "patching_rect": [ 117.0, 379.0, 57.0, 22.0 ],
+                                    "text": "evi_lorez"
+                                }
+                            },
                             {
                                 "box": {
                                     "id": "obj-8",
@@ -440,7 +451,6 @@
                 }
             }
         ],
-        "autosave": 0,
         "toolbaradditions": [ "audiosolo", "audiomute" ]
     }
 }

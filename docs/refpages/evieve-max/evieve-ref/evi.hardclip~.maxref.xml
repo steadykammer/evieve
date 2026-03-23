@@ -9,7 +9,7 @@
 		<b>evi.hardclip~</b> is a 'max define' for the <o>evi_hardclip</o>.gendsp gen~ abstraction.
 		Because evi.hardclip~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		<br />
-		TEXT_HERE <br />
+		To be used whenever clamping of audio is required, <o>evi.hardclip~</o> should do a good job of protecting your precious audio. This is because this is antialiased hard clipping capable of high input gain whilst maintaining audio quality. <o>evi.hardclip~</o> is the hard clipping section from the <o>evi.clip~</o> object but with more antiderivative and oversampling options for when managing audio quality against CPU usage, selected via the @aa attribute. Increasing @aa does not necessarily translate to 'better'. Experiment with this setting depending on your audio input material. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>
@@ -24,7 +24,7 @@
 				Inlet #1: Audio Input to be treated nicely
 			</digest>
 			<description>
-				
+				Any audio input.
 			</description>
 		</inlet>
 	</inletlist>
@@ -35,7 +35,7 @@
 				Outlet #1: Anti Aliased Clipped Output
 			</digest>
 			<description>
-				
+				Hopefully cleanly clipped output.
 			</description>
 		</outlet>
 	</outletlist>
@@ -46,10 +46,10 @@
 	<attributelist>
 		<attribute name="aa" get="1" set="1" type="int" min="0" max="5">
 			<digest>
-				
+				Select 0, 1, 2, 3, 4, 5
 			</digest>
 			<description>
-				
+				&#x27;aa&#x27; stands for &#x27;Anti-Aliasing&#x27;. Select type (or &#x27;strength&#x27;) here. 0&#x3D;1st order antiderivative, 1&#x3D;1st order 2x oversampled, 2&#x3D;1st order 4x oversampled, 3&#x3D;2nd order antiderivative (default), 4&#x3D;2nd order 2x oversampled, 5&#x3D;2nd order 4x oversampled.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="3" />
@@ -57,10 +57,10 @@
 		</attribute>
 		<attribute name="limit" get="1" set="1" type="float" min="0.9" max="1.1">
 			<digest>
-				
+				Do not use &#x27;limit&#x27;
 			</digest>
 			<description>
-				
+				false
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="1." />
@@ -73,9 +73,21 @@
 	</examplelist>
 	<!--SEEALSO-->
 	<seealsolist>
+		<seealso name="evi.clip~"> </seealso>
+		<seealso name="evi.softclip~"> </seealso>
+		<seealso name="evi.clipasym~"> </seealso>
+		<seealso name="evi.shaper~"> </seealso>
+		<seealso name="evi.warmer~"> </seealso>
+		<seealso name="evi.sinfold~"> </seealso>
+		<seealso name="evi.overdrive.sqrt~"> </seealso>
+		<seealso name="evi.overdrive.atan~"> </seealso>
+		<seealso name="evi.overdrive.tanh~"> </seealso>
+		<seealso name="evi.tone.macro~"> </seealso>
+		<seealso name="evi.rcfilter~"> </seealso>
+		<seealso name="evi.baxandall~"> </seealso>
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>
-         <br />
+        This object is for all those MSP users who use [<o>clip~</o> -1. 1.] at the end of their audio chains. You should never do this - it destroys your audio and aliases like hell. Use <o>evi.hardclip~</o> instead. It can anti-alias very large gain inputs whilst retaining the clipping functionality you seek. <br />
 	</discussion>
 </c74object>

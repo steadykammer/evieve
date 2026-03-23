@@ -5,8 +5,8 @@
         "category": "evieve",
         "tilde": "~",
         "digest": "Max Mathews modal resonator",
-        "description": "TEXT_HERE",
-        "discussion": ""
+        "description": "Modified coupled form (MCF) complex multiply sine oscillator based twopole resonator with damping. ('Follow a fixed elliptical orbit over time').",
+        "discussion": "Thanks to Oli Larkin and Julian Parker. See: M. Mathews and J. O. Smith, https://ccrma.stanford.edu/~jos/smac03maxjos/smac03maxjos.pdf"
     },
     "metadata": {
         "author": "Pete Dowling",
@@ -20,19 +20,19 @@
             "id": 1,
             "type": "signal",
             "digest": "Trigger",
-            "description": ""
+            "description": "Typically a trigger impulse."
         },
         {
             "id": 2,
             "type": "signal/float",
             "digest": "Low Frequency in Hz",
-            "description": ""
+            "description": "Low resonant frequency in Hz."
         },
         {
             "id": 3,
             "type": "signal/float",
             "digest": "Resonant Decay Time in Seconds",
-            "description": ""
+            "description": "Decay of resonance set in seconds."
         }
     ],
     "outlets": [
@@ -40,7 +40,7 @@
             "id": 1,
             "type": "signal",
             "digest": "Resonant Object",
-            "description": ""
+            "description": "Resonant output of the modal filter."
         }
     ],
     "messages": [],
@@ -49,5 +49,10 @@
         "caption": "",
         "image": ""
     },
-    "seealso": []
+    "seealso": [
+        "evi.formletfilter~",
+        "evi.reson~",
+        "evi.hilbert~",
+        "evi.sustainverb~"
+    ]
 }

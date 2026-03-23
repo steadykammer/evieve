@@ -9,7 +9,7 @@
 		<b>evi.softclip~</b> is a 'max define' for the <o>evi_softclip</o>.gendsp gen~ abstraction.
 		Because evi.softclip~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		<br />
-		TEXT_HERE <br />
+		A quick all purpose and efficient soft clipper. <o>evi.softclip~</o> does not have all the options of <o>evi.hardclip~</o> or <o>evi.clip~</o>. It aims to be an easy <o>tanh~</o> replacement to drop in to audio chains. The algorithm is a 2nd order antiderivative antialiasing tanh-like function. At high input gains the behaviour is less tanh-like as it folds. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>
@@ -24,7 +24,7 @@
 				Inlet #1: Audio In
 			</digest>
 			<description>
-				
+				Any audio input.
 			</description>
 		</inlet>
 	</inletlist>
@@ -35,7 +35,7 @@
 				Outlet #1: Soft-Clipped Audio Out
 			</digest>
 			<description>
-				
+				Hopefully cleanly soft clipped output.
 			</description>
 		</outlet>
 	</outletlist>
@@ -51,9 +51,21 @@
 	</examplelist>
 	<!--SEEALSO-->
 	<seealsolist>
+		<seealso name="evi.clip~"> </seealso>
+		<seealso name="evi.hardclip~"> </seealso>
+		<seealso name="evi.clipasym~"> </seealso>
+		<seealso name="evi.shaper~"> </seealso>
+		<seealso name="evi.warmer~"> </seealso>
+		<seealso name="evi.sinfold~"> </seealso>
+		<seealso name="evi.overdrive.sqrt~"> </seealso>
+		<seealso name="evi.overdrive.atan~"> </seealso>
+		<seealso name="evi.overdrive.tanh~"> </seealso>
+		<seealso name="evi.tone.macro~"> </seealso>
+		<seealso name="evi.rcfilter~"> </seealso>
+		<seealso name="evi.baxandall~"> </seealso>
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>
-         <br />
+        This object is for all those MSP users who use [<o>tanh~</o>] in their audio chains. You should never do this - it destroys your audio and aliases like hell. Use <o>evi.softclip~</o> or <o>evi.clip~</o> instead. It can anti-alias large gain inputs whilst retaining the soft clipping functionality you seek. <br />
 	</discussion>
 </c74object>

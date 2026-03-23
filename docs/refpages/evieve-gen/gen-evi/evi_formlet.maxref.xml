@@ -13,7 +13,7 @@
          <br />
         evi_formlet is also available in MSP as: <o>evi.formletfilter~</o>. <br />
          <br />
-	    TEXT_HERE <br />
+	    A physical modelling ringing formlet filter loosely based on SuperCollider 'Formlet()' with added modulation and control features. Created by adding two resonant filters together around a center frequency. Can create ringing tones out of any input material. This is a direct form filter, so modulation is limited. <br />
     </description>
     <methodlist />
     <constructorlist>
@@ -26,12 +26,12 @@
     <geninletlist>
         <geninlet name='input' type='float' optional='1'>
             <digest>
-                (Impulse). 
+                (Impulse). Audio input to be filtered, typically an impulse-like event.
             </digest>
         </geninlet>
         <geninlet name='filter' type='float' optional='1'>
             <digest>
-                Frequency in PITCH. 
+                Frequency in PITCH. Filter frequency is set in Pitch (e.g. MIDI 0..127).
             </digest>
         </geninlet>
     </geninletlist>
@@ -41,7 +41,7 @@
                 @min 10, @max 59999
             </digest>
             <description>
-                
+                Filter ringing T60 attack time in ms. Like setting an envelope attack.
             </description>
             <attributelist>
                 <attribute name='default' type='float' value='10.' />
@@ -52,7 +52,7 @@
                 @min 11, @max 60000
             </digest>
             <description>
-                
+                Filter ringing T60 decay time in ms. Like setting an envelope decay. Note this is a T60 time and therefore does not reach it&#x27;s destination exactly.
             </description>
             <attributelist>
                 <attribute name='default' type='float' value='100.' />
@@ -63,7 +63,7 @@
                 @min -24, @max 24
             </digest>
             <description>
-                
+                Modulation in semitones. Set in Pitch, filter cutoff (inlet 2) offset ± 2 octaves.
             </description>
             <attributelist>
                 <attribute name='default' type='float' value='0.' />
@@ -74,7 +74,7 @@
                 @min 0, @max 666
             </digest>
             <description>
-                
+                Optional frequency (inlet 2) smoothing time in ms.
             </description>
             <attributelist>
                 <attribute name='default' type='float' value='0.' />
@@ -85,7 +85,7 @@
                 @min 0, @max 111
             </digest>
             <description>
-                
+                Optional @attack / @decay smoothing time in ms. In general this is not needed.
             </description>
             <attributelist>
                 <attribute name='default' type='float' value='0.' />
@@ -96,7 +96,7 @@
                 @min -12, @max 12
             </digest>
             <description>
-                
+                Modulation in semitones. Set in Pitch, bandwidth spread ± 1 octave. This spreads the cutoffs of the two internal resonant filters apart from one another.
             </description>
             <attributelist>
                 <attribute name='default' type='float' value='0.' />
@@ -107,7 +107,7 @@
                 @min 0, @max 24
             </digest>
             <description>
-                
+                Modulation in semitones. Set in Pitch, bandwidth up to 2 octaves in size. This sets the size of the frequency band centered by the cutoff (inlet 2).
             </description>
             <attributelist>
                 <attribute name='default' type='float' value='0.' />
@@ -120,6 +120,9 @@
         <metadata name="tag">GenDsp</metadata>
     </metadatalist>
     <seealsolist>
-        <seealso name='' display='' type='genrefpage' />
+        <seealso name='evi_reson' display='evi_reson' type='genrefpage' />
+        <seealso name='evi_modalres' display='evi_modalres' type='genrefpage' />
+        <seealso name='evi_paf' display='evi_paf' type='genrefpage' />
+        <seealso name='evi_vosim_basic' display='evi_vosim_basic' type='genrefpage' />
     </seealsolist>
 </c74object>

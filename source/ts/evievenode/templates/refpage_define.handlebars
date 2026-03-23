@@ -49,6 +49,7 @@
 	<!--MESSAGES-->
 	<methodlist>
         {{#each messages}}
+		{{#if description}}
 		<method name="{{name}}">
 			<arglist>
                 {{#each arg}}
@@ -62,11 +63,13 @@
 				{{description}}
 			</description>
 		</method>
+		{{/if}}
         {{/each}}
 	</methodlist>
 	<!--ATTRIBUTES-->
 	<attributelist>
         {{#each attributes}}
+		{{#if description}}
 		<attribute name="{{name}}" get="{{get}}" set="1" type="{{type}}" min="{{default.min}}" max="{{default.max}}">
 			<digest>
 				{{digest}}
@@ -78,6 +81,7 @@
 				<attribute name="default" get="0" set="0" size="1" value="{{default.value}}" />
 			</attributelist>
 		</attribute>
+		{{/if}}
         {{/each}}
 	</attributelist>
 	<!--EXAMPLE-->

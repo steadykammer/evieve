@@ -3,8 +3,8 @@
         "name": "evi_multimode",
         "child": "evi.multimode~",
         "category": "evieve",
-        "digest": "7 simultaneous outputs for all filters available from a linear TPT SVF Topology",
-        "description": "TEXT_HERE"
+        "digest": "Simultaneous outputs for all filters available from a linear TPT SVF",
+        "description": "A multimode SVF similar to <o>evi.svf~</o>. Seven simultaneous outputs for all filters available from a linear TPT SVF topology that use just Cutoff and Q, with optional cutoff and resonance smoothing baked in."
     },
     "constructor": {
         "inlets": "input, cutoff, q"
@@ -16,7 +16,7 @@
             "name": "input",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Audio input to be filtered."
         },
         {
             "id": 2,
@@ -24,7 +24,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "in Hz @min 1 @max samplerate*0.5 @default 500.",
-            "digest": ""
+            "digest": "Cutoff frequency in Hz."
         },
         {
             "id": 3,
@@ -32,7 +32,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "@min 0.05 @default 0.707107",
-            "digest": ""
+            "digest": "Q, typically clamped in the range 0.05..20, but the 'Resonant' filter type can take a much higher Q."
         }
     ],
     "outlets": [
@@ -41,49 +41,49 @@
             "name": "low",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Lowpass output."
         },
         {
             "id": 2,
             "name": "band",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Bandpass output."
         },
         {
             "id": 3,
             "name": "high",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Highpass output."
         },
         {
             "id": 4,
             "name": "peak",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Peaking filter output."
         },
         {
             "id": 5,
             "name": "notch",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Notch filter output."
         },
         {
             "id": 6,
             "name": "reson",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Resonant bandpass output."
         },
         {
             "id": 7,
             "name": "allpass",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Allpass output."
         }
     ],
     "attributes": [
@@ -91,7 +91,7 @@
             "name": "cutoffsmooth",
             "type": "float",
             "digest": "@min 0, @max 100",
-            "description": "",
+            "description": "Optionally smooth the cutoff (inlet 2). Also affected by @cutoffsmoothbase.",
             "default": {
                 "type": "float",
                 "value": "20."
@@ -101,7 +101,7 @@
             "name": "cutoffsmoothbase",
             "type": "float",
             "digest": "@min 0, @max 10",
-            "description": "",
+            "description": "Internally the cutoff smoother is an instantiation of 'evi.cfsmooth~' and therefore additionally takes a Hz inlet to smooth the cutoff. @see the 'evi.cfsmooth~' helpfile for details.",
             "default": {
                 "type": "float",
                 "value": "2."
@@ -116,12 +116,34 @@
                 "type": "float",
                 "value": "10."
             }
+        },
+        {
+            "name": "ressmooth",
+            "type": "float",
+            "digest": "@min 0, @max 100",
+            "description": "Optionally smooth the resonance (inlet 3).",
+            "default": {
+                "type": "float",
+                "value": "10."
+            }
         }
     ],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_svf",
+            "display": "evi_svf"
+        },
+        {
+            "name": "evi_filter",
+            "display": "evi_filter"
+        },
+        {
+            "name": "evi_svfinputmix",
+            "display": "evi_svfinputmix"
+        },
+        {
+            "name": "evi_onepole",
+            "display": "evi_onepole"
         }
     ]
 }

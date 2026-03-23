@@ -8,7 +8,7 @@ History	state1(0), state2(0);
 
 Param	cutoffsmoothbase(2., min=0, max=10); // Hz
 Param	cutoffsmooth(20., min=0, max=100);	 // ms
-Param	resonancesmooth(10., min=0, max=100);// ms
+Param	ressmooth(10., min=0, max=100);      // ms
 
 Q		= in3;					             // Q
 R		= 1 / (Q + Q);                       // resonance

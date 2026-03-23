@@ -5,8 +5,8 @@
         "category": "evieve",
         "tilde": "~",
         "digest": "Anti-aliased clipping algorithms for your audio",
-        "description": "TEXT_HERE",
-        "discussion": ""
+        "description": "A collection of four anti-aliased clipping algorithms: hard clip, soft clip, diode clip, asymmetric clip. Hard and soft are better anti-aliased and can take higher input gain before aliasing than the diode and asymmetric clippers. To be used whenever clamping of audio is required, <o>evi.clip~</o> should do a good job of protecting your precious audio.",
+        "discussion": "This object is for all those MSP users who use [<o>clip~</o>  -1. 1.] or [<o>tanh~</o>] at the end of their audio chains. You should never do this - it destroys your audio and aliases like hell. Use <o>evi.clip~</o> instead. It can anti-alias very large gain inputs whilst retaining the clipping functionality you seek."
     },
     "metadata": {
         "author": "Pete Dowling",
@@ -20,7 +20,7 @@
             "id": 1,
             "type": "signal",
             "digest": "Audio In that must be treated nicely",
-            "description": ""
+            "description": "Any audio input."
         }
     ],
     "outlets": [
@@ -28,7 +28,7 @@
             "id": 1,
             "type": "signal",
             "digest": "Anti Aliased Clipped Audio Out",
-            "description": ""
+            "description": "Hopefully cleanly clipped output."
         }
     ],
     "messages": [],
@@ -37,8 +37,8 @@
             "name": "clip",
             "get": 1,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Select 0, 1, 2, 3",
+            "description": "Select the clipping function used. 0=hard (default), 1=soft, 2=diode, 3=asymmetric. 'Hard' is the equivalent of [clip~ -1. 1], 'soft' is the equivalent of [tanh~], 'diode' is a static model of a 12AX7, 'aymmetric' is a static version of Laurent de Soras' 'Gloubi Boulga'.",
             "default": {
                 "min": "0",
                 "max": "3",
@@ -49,8 +49,8 @@
             "name": "oversampling",
             "get": 1,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Select 0, 1, 2",
+            "description": "Regardless of this setting, hard and soft clippers are 2nd order antiderivatives and thus already have excellent behaviour with @oversampling=0. Oversampling=1 is 2x oversampling, oversampling=2 is 4x oversampling.",
             "default": {
                 "min": "0",
                 "max": "2",
@@ -62,5 +62,19 @@
         "caption": "",
         "image": ""
     },
-    "seealso": []
+    "seealso": [
+        "evi.limiterfast~",
+        "evi.hardclip~",
+        "evi.softclip~",
+        "evi.clipasym~",
+        "evi.shaper~",
+        "evi.warmer~",
+        "evi.sinfold~",
+        "evi.overdrive.sqrt~",
+        "evi.overdrive.atan~",
+        "evi.overdrive.tanh~",
+        "evi.tone.macro~",
+        "evi.rcfilter~",
+        "evi.baxandall~"
+    ]
 }

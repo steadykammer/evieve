@@ -51,28 +51,6 @@
         </geninlet>
     </geninletlist>
     <attributelist>
-        <attribute name='cfmode' type='int' get='0' set='1'>
-            <digest>
-                @min 0, @max 1
-            </digest>
-            <description>
-                
-            </description>
-            <attributelist>
-                <attribute name='default' type='int' value='1' />
-            </attributelist>
-        </attribute>
-        <attribute name='cfsmooth' type='float' get='0' set='1'>
-            <digest>
-                @min 0, @max 666
-            </digest>
-            <description>
-                
-            </description>
-            <attributelist>
-                <attribute name='default' type='float' value='10.' />
-            </attributelist>
-        </attribute>
         <attribute name='cutoffmode' type='int' get='0' set='1'>
             <digest>
                 @min 0, @max 1

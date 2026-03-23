@@ -5,7 +5,7 @@
         "category": "evieve",
         "tilde": "~",
         "digest": "SVF input mixing multimode filter",
-        "description": "TEXT_HERE",
+        "description": "A special kind of input mixing filter, where the multimode nature of the filter is provided by it's simultaneous inputs rather than on outputs. By default the inputs are mixed by the @mix attribute and therefore has the effect of output mixing a standard multimode SVF. However if disabling the @mixenable attribute the inputs are 'always on', and can therefore be sequenced externally in interesting ways. This SVF input mixer has better performance with lower cutoff frequencies. For a more full range input mixer @see: <o>evi.skfinputmixer~</o> (with a 'k').",
         "discussion": ""
     },
     "metadata": {
@@ -22,19 +22,19 @@
             "id": 1,
             "type": "signal",
             "digest": "Lowpass Input",
-            "description": ""
+            "description": "Audio to this inlet produces the Lowpass output."
         },
         {
             "id": 2,
             "type": "signal",
             "digest": "Bandpass Input",
-            "description": ""
+            "description": "Audio to this inlet produces the Bandpass output."
         },
         {
             "id": 3,
             "type": "signal",
             "digest": "Highpass Input",
-            "description": ""
+            "description": "Audio to this inlet produces the Highpass output."
         }
     ],
     "outlets": [
@@ -42,7 +42,7 @@
             "id": 1,
             "type": "signal",
             "digest": "SVF Output",
-            "description": ""
+            "description": "Mixed SVF output."
         }
     ],
     "messages": [],
@@ -51,8 +51,8 @@
             "name": "coeffsmooth",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Time in ms",
+            "description": "Optionally smooth the internal coefficients calculations. This takes care of smoothing the changes incurred by @cutoff and @res attributes. This should typically be on.",
             "default": {
                 "min": "0",
                 "max": "333",
@@ -63,8 +63,8 @@
             "name": "cutoff",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "In Hz",
+            "description": "The filter cutoff frequency in Hz. With this filter this is only really useful up to about 8kHz as the high frequency cramps and gradually reduces resonance.",
             "default": {
                 "min": "10",
                 "max": "10000",
@@ -75,8 +75,8 @@
             "name": "mix",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Normalised 0..1",
+            "description": "Only available if @mixenable is on (the default). Interpolates between Lowpass..Bandpass..Highpass inlets. Interpolation is a gain matched cosine algorithm.",
             "default": {
                 "min": "0",
                 "max": "1",
@@ -87,8 +87,8 @@
             "name": "mixenable",
             "get": 1,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Flag 0/1",
+            "description": "If enabled (the default) the @mix attribute can interpolate between Lowpass..Bandpass..Highpass. Turn off for controlling the audio inputs via sequenced gates (for example).",
             "default": {
                 "min": "0",
                 "max": "1",
@@ -99,8 +99,8 @@
             "name": "mixsmooth",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Time in ms",
+            "description": "Optionally smooth the @mix attribute if @mixenable is active. This should typically be on.",
             "default": {
                 "min": "0",
                 "max": "333",
@@ -111,8 +111,8 @@
             "name": "res",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Normalised 0..1",
+            "description": "The filter resonance. Resonance in this input mixing SVF typically has little effect above about 4kHz @cutoff.",
             "default": {
                 "min": "0",
                 "max": "1",
@@ -124,5 +124,11 @@
         "caption": "",
         "image": ""
     },
-    "seealso": []
+    "seealso": [
+        "evi.skfinputmix~",
+        "evi.svf~",
+        "evi.multimode~",
+        "evi.filter~",
+        "evi.svfsmooth~"
+    ]
 }

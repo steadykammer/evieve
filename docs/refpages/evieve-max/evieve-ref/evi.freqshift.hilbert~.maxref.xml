@@ -21,7 +21,7 @@
 				Audio Input / (messages) messages / attributes
 			</digest>
 			<description>
-				Audio input to filter.
+				Audio input to shift.
 			</description>
 		</inlet>
 		<inlet id="2" type="float/int">
@@ -174,6 +174,7 @@
 		<seealso name="evi.freqshift.weaver~"> </seealso>
 		<seealso name="evi.hilbert~"> </seealso>
 		<seealso name="evi.polyphaseiirhilbertcoeffs"> </seealso>
+		<seealso name="evi.sinfold~"> </seealso>
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>

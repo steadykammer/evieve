@@ -1,4 +1,11 @@
 
+/*
+
+	THIS FILE IS SOME OLD BULLSHIT AND IS TO BE COMPLETELY REWRITTEN
+	WITH BETTER STUFF BEFORE RELEASE
+
+*/
+
 //	//	//	gen~ / GenExpr resamplers by Pete for evieve, thanks to Martijn Zwartjes
 //	//	//	(for the idea) and Alex Harker (for finding my mistakes).
 //	//	//	Basic cubic interpolation hacks in lieu of real resampling being not

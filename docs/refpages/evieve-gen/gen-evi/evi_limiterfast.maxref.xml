@@ -13,7 +13,7 @@
          <br />
         evi_limiterfast is also available in MSP as: <o>evi.limiterfast~</o>. <br />
          <br />
-	    TEXT_HERE <br />
+	    A basic stereo limiter. Being a no-lookahead limiter, the 'crunch' can kick in quite easily. <o>evi.limiterfast~</o> features an anti-aliased antiderivative hard clipping function to deal with this. Other than that it features fixed hard attack, a settable soft knee, variable smoothing, release time set in ms. The AGC envelope is available at the far right outlet. <br />
     </description>
     <methodlist />
     <constructorlist>
@@ -26,12 +26,12 @@
     <geninletlist>
         <geninlet name='audio' type='float' optional='1'>
             <digest>
-                Input Left. 
+                Input Left. Left audio to be limited.
             </digest>
         </geninlet>
         <geninlet name='audio' type='float' optional='1'>
             <digest>
-                Input Right. 
+                Input Right. Right audio to be limited.
             </digest>
         </geninlet>
     </geninletlist>
@@ -52,7 +52,7 @@
                 @min -20, @max 40
             </digest>
             <description>
-                
+                Artificially engage the limiter by increasing @ingain. This is the reverse of a &#x27;threshold&#x27;. Smoothed internally.
             </description>
             <attributelist>
                 <attribute name='default' type='float' value='1.' />
@@ -63,7 +63,7 @@
                 @min 0.001, @max 1
             </digest>
             <description>
-                
+                Nearer 0, the knee is hard, nearer 1 the knee is soft.
             </description>
             <attributelist>
                 <attribute name='default' type='float' value='0.55' />
@@ -74,7 +74,7 @@
                 @min 1, @max 376
             </digest>
             <description>
-                
+                The release time of the envelope detector. The object is tuned to work well with short times.
             </description>
             <attributelist>
                 <attribute name='default' type='float' value='52.' />
@@ -85,7 +85,7 @@
                 @min 0, @max 1
             </digest>
             <description>
-                
+                Smoothing factor of the envelope response. 0 &#x3D; not smooth at all, 1 &#x3D; aggressively smoothed.
             </description>
             <attributelist>
                 <attribute name='default' type='float' value='0.05' />
@@ -98,6 +98,7 @@
         <metadata name="tag">GenDsp</metadata>
     </metadatalist>
     <seealsolist>
-        <seealso name='' display='' type='genrefpage' />
+        <seealso name='evi_hardclip' display='evi_hardclip' type='genrefpage' />
+        <seealso name='evi_softclip' display='evi_softclip' type='genrefpage' />
     </seealsolist>
 </c74object>

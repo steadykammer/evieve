@@ -4,7 +4,7 @@
         "child": "evi.formletfilter~",
         "category": "evieve",
         "digest": "A ringing formlet filter model",
-        "description": "TEXT_HERE"
+        "description": "A physical modelling ringing formlet filter loosely based on SuperCollider 'Formlet()' with added modulation and control features. Created by adding two resonant filters together around a center frequency. Can create ringing tones out of any input material. This is a direct form filter, so modulation is limited."
     },
     "constructor": {
         "inlets": "input, filter"
@@ -19,7 +19,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "(Impulse)",
-            "digest": ""
+            "digest": "Audio input to be filtered, typically an impulse-like event."
         },
         {
             "id": 2,
@@ -27,7 +27,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Frequency in PITCH",
-            "digest": ""
+            "digest": "Filter frequency is set in Pitch (e.g. MIDI 0..127)."
         }
     ],
     "outlets": [
@@ -36,7 +36,7 @@
             "name": "formlet",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Ringing formlet filtered output."
         }
     ],
     "attributes": [
@@ -44,7 +44,7 @@
             "name": "attack",
             "type": "float",
             "digest": "@min 10, @max 59999",
-            "description": "",
+            "description": "Filter ringing T60 attack time in ms. Like setting an envelope attack.",
             "default": {
                 "type": "float",
                 "value": "10."
@@ -54,7 +54,7 @@
             "name": "decay",
             "type": "float",
             "digest": "@min 11, @max 60000",
-            "description": "",
+            "description": "Filter ringing T60 decay time in ms. Like setting an envelope decay. Note this is a T60 time and therefore does not reach it's destination exactly.",
             "default": {
                 "type": "float",
                 "value": "100."
@@ -64,7 +64,7 @@
             "name": "offset",
             "type": "float",
             "digest": "@min -24, @max 24",
-            "description": "",
+            "description": "Modulation in semitones. Set in Pitch, filter cutoff (inlet 2) offset ± 2 octaves.",
             "default": {
                 "type": "float",
                 "value": "0."
@@ -74,7 +74,7 @@
             "name": "smoothfreq",
             "type": "float",
             "digest": "@min 0, @max 666",
-            "description": "",
+            "description": "Optional frequency (inlet 2) smoothing time in ms.",
             "default": {
                 "type": "float",
                 "value": "0."
@@ -84,7 +84,7 @@
             "name": "smoothtime",
             "type": "float",
             "digest": "@min 0, @max 111",
-            "description": "",
+            "description": "Optional @attack / @decay smoothing time in ms. In general this is not needed.",
             "default": {
                 "type": "float",
                 "value": "0."
@@ -94,7 +94,7 @@
             "name": "spread",
             "type": "float",
             "digest": "@min -12, @max 12",
-            "description": "",
+            "description": "Modulation in semitones. Set in Pitch, bandwidth spread ± 1 octave. This spreads the cutoffs of the two internal resonant filters apart from one another.",
             "default": {
                 "type": "float",
                 "value": "0."
@@ -104,7 +104,7 @@
             "name": "width",
             "type": "float",
             "digest": "@min 0, @max 24",
-            "description": "",
+            "description": "Modulation in semitones. Set in Pitch, bandwidth up to 2 octaves in size. This sets the size of the frequency band centered by the cutoff (inlet 2).",
             "default": {
                 "type": "float",
                 "value": "0."
@@ -113,8 +113,20 @@
     ],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_reson",
+            "display": "evi_reson"
+        },
+        {
+            "name": "evi_modalres",
+            "display": "evi_modalres"
+        },
+        {
+            "name": "evi_paf",
+            "display": "evi_paf"
+        },
+        {
+            "name": "evi_vosim_basic",
+            "display": "evi_vosim_basic"
         }
     ]
 }

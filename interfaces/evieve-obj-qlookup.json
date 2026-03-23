@@ -133,18 +133,18 @@
         "seealso": []
     },
     "evi.clipasym~": {
-        "digest": 0,
+        "digest": "Variable asymmetric clipping",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.korgms10~", "evi.warmer~", "evi.sinfold~", "evi.shaper~", "evi.softclip~", "evi.hardclip~" ]
     },
     "evi.clip~": {
         "digest": "Anti-aliased clipping algorithms for your audio",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.limiterfast~", "evi.hardclip~", "evi.softclip~", "evi.clipasym~", "evi.shaper~", "evi.warmer~", "evi.sinfold~", "evi.overdrive.sqrt~", "evi.overdrive.atan~", "evi.overdrive.tanh~", "evi.tone.macro~", "evi.rcfilter~", "evi.baxandall~" ]
     },
     "evi.comb~": {
         "digest": "Reimplementation of MSP comb~ filter delay",
@@ -396,7 +396,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.reson~", "evi.modalres~", "evi.formantfilter~", "evi.formantfilter.morph~", "evi.formantosc~", "evi.paf~", "evi.vosim.basic~" ]
     },
     "evi.freezeverb~": {
         "digest": "Classic freeverb reverb algorithm with buttery smooth freezing effect \n",
@@ -410,14 +410,14 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Abstractions" ],
         "keywords": [],
-        "seealso": [ "evi.freqshift.weaver~", "evi.hilbert~", "evi.polyphaseiirhilbertcoeffs" ]
+        "seealso": [ "evi.freqshift.weaver~", "evi.hilbert~", "evi.polyphaseiirhilbertcoeffs", "evi.sinfold~" ]
     },
     "evi.freqshift.weaver~": {
-        "digest": "Time domain frequency shifter after D. K. Weaver's famous 'third method'",
+        "digest": "Time domain frequency shifter after D. K. Weaver's 'third method'",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": [ "evi.freqshift.hilbert~", "evi.hilbert~", "evi.ringmod~", "evi.ringmod.diode~" ]
+        "seealso": [ "evi.freqshift.hilbert~", "evi.hilbert~", "evi.ringmod~", "evi.ringmod.diode~", "evi.sinfold~" ]
     },
     "evi.gaussiannoise~": {
         "digest": "Gaussian distributed noise approximation",
@@ -438,7 +438,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.clip~", "evi.softclip~", "evi.clipasym~", "evi.shaper~", "evi.warmer~", "evi.sinfold~", "evi.overdrive.sqrt~", "evi.overdrive.atan~", "evi.overdrive.tanh~", "evi.tone.macro~", "evi.rcfilter~", "evi.baxandall~" ]
     },
     "evi.hilbert~": {
         "digest": "Hilbert quadrature (phase shift) filter \n",
@@ -508,7 +508,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.clip~", "evi.hardclip~", "evi.softclip~" ]
     },
     "evi.lockhart.cascade~": {
         "digest": "Anti-aliased wavefolder device for shaping oscillators, selectable up to a cascade of 16 folding sections",
@@ -560,11 +560,11 @@
         "seealso": [ "evi.lorez~", "evi.onepole~", "evi.reson~", "evi.svf~", "evi.cross~", "evi.phaseshift~", "evi.hilbert~", "evi.allpass~", "evi.comb~", "evi.teeth~", "evi.bp~", "evi.vcf~" ]
     },
     "evi.lorez~": {
-        "digest": "A novel two-pole nonlinear Ladder filter with allpass alignment",
+        "digest": "A novel two-pole nonlinear Ladder filter",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.lores~", "evi.ladder.moog~", "evi.ladder.transistor~", "evi.ladder.poles~", "evi.ladder.diode~", "evi.korgms20.select~" ]
     },
     "evi.lpg~": {
         "digest": "Buchla Lowpass Gate emulation for your west coast synthesis fun \n",
@@ -585,7 +585,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.formletfilter~", "evi.reson~", "evi.hilbert~", "evi.sustainverb~" ]
     },
     "evi.modosc~": {
         "digest": "A deluxe cosine LFO with range and offset shaping",
@@ -609,11 +609,11 @@
         "seealso": []
     },
     "evi.multimode~": {
-        "digest": "7 simultaneous outputs for all filters available from a linear TPT SVF Topology",
+        "digest": "Simultaneous outputs for all filters available from a linear TPT SVF",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.svf~", "evi.filter~", "evi.svfinputmix~", "evi.onepole~" ]
     },
     "evi.onepole.shelving~": {
         "digest": "Onepole shelving filters with simultaneous outputs",
@@ -630,25 +630,25 @@
         "seealso": [ "evi.rcfilter~", "evi.damp~", "evi.damp.macro~", "evi.tone.macro~", "evi.onepole.shelving~", "evi.crossover.allpass~", "evi.filter~" ]
     },
     "evi.overdrive.atan~": {
-        "digest": "High quality anti-aliased atan-based saturation with shape input to control overdrive",
+        "digest": "High quality anti-aliased atan-based saturation with shape input to control overdrive and gain wrapping",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.overdrive.sqrt~", "evi.overdrive.tanh~", "evi.shaper~", "evi.sinfold~", "evi.clip~", "evi.hardclip~", "evi.softclip~", "evi.clipasym~", "evi.warmer~", "evi.tone.macro~", "evi.rcfilter~" ]
     },
     "evi.overdrive.sqrt~": {
         "digest": "High quality anti-aliased passive tanh-like input/output saturation",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.overdrive.atan~", "evi.overdrive.tanh~", "evi.shaper~", "evi.sinfold~", "evi.clip~", "evi.hardclip~", "evi.softclip~", "evi.clipasym~", "evi.warmer~", "evi.tone.macro~", "evi.rcfilter~" ]
     },
     "evi.overdrive.tanh~": {
-        "digest": "High quality anti-aliased tanh-based saturation with drive, input/output wrapping and filter shaping",
+        "digest": "High quality anti-aliased tanh-based saturation with drive, input/output gain wrapping and filter shaping",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.overdrive.sqrt~", "evi.overdrive.atan~", "evi.shaper~", "evi.sinfold~", "evi.clip~", "evi.hardclip~", "evi.softclip~", "evi.clipasym~", "evi.warmer~", "evi.tone.macro~", "evi.rcfilter~" ]
     },
     "evi.paf~": {
         "digest": "A basic 'paf' formant oscillator, very similar to the legacy 'paf~' external",
@@ -749,18 +749,18 @@
         "seealso": [ "evi.lores~", "evi.onepole~", "evi.svf~", "evi.cross~", "evi.phaseshift~", "evi.hilbert~", "evi.allpass~", "evi.comb~", "evi.teeth~", "evi.bp~", "evi.vcf~" ]
     },
     "evi.ringmod.diode~": {
-        "digest": "analog-modelled diode-based ring modulator effect \n",
+        "digest": "Analog-modelled diode-based ring modulator effect \n",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Abstractions" ],
         "keywords": [],
-        "seealso": [ "evi.ringmod~" ]
+        "seealso": [ "evi.ringmod~", "evi.freqshift.weaver~", "evi.freqshift.hilbert~", "evi.sinfold~" ]
     },
     "evi.ringmod~": {
-        "digest": "Anti-aliased nonlinear analog ring modulator",
+        "digest": "Anti-aliased nonlinear ring modulator",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.ringmod.diode~", "evi.freqshift.weaver~", "evi.freqshift.hilbert~", "evi.sinfold~" ]
     },
     "evi.saw.select~": {
         "digest": "Selection of anti-aliased saw-like oscillators",
@@ -781,7 +781,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.softclip~", "evi.sinfold~", "evi.warmer~", "evi.clipasym~" ]
     },
     "evi.sine.select~": {
         "digest": "Selection of anti-aliased sine-like oscillators",
@@ -791,25 +791,25 @@
         "seealso": []
     },
     "evi.sinfold~": {
-        "digest": 0,
+        "digest": "An anti-aliased sine folding waveshaper",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.softclip~", "evi.hardclip~", "evi.clipasym~", "evi.shaper~", "evi.warmer~", "evi.overdrive.sqrt~", "evi.overdrive.atan~", "evi.overdrive.tanh~", "evi.tone.macro~", "evi.rcfilter~", "evi.baxandall~" ]
     },
     "evi.skfinputmix~": {
         "digest": "Sallen-Key input mixing multimode filter",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.svfinputmix~", "evi.svf~", "evi.multimode~", "evi.filter~", "evi.svfsynth~" ]
     },
     "evi.softclip~": {
         "digest": "Anti-aliased soft clipping function",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.clip~", "evi.hardclip~", "evi.clipasym~", "evi.shaper~", "evi.warmer~", "evi.sinfold~", "evi.overdrive.sqrt~", "evi.overdrive.atan~", "evi.overdrive.tanh~", "evi.tone.macro~", "evi.rcfilter~", "evi.baxandall~" ]
     },
     "evi.squine.simple~": {
         "digest": "A basic implementation of Rasmus Ekman's 'squine wave' oscillator with audio rate modulation",
@@ -830,7 +830,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.skfinputmix~", "evi.svf~", "evi.multimode~", "evi.filter~", "evi.svfsmooth~" ]
     },
     "evi.svfsmooth~": {
         "digest": "Nonlinear TPT SVF filter with audio rate modulation and morphing capabilities",

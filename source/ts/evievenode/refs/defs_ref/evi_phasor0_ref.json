@@ -59,7 +59,7 @@
                 }
             ],
             "digest": "Top level gen~ [history] / History() declarations can be reset by messages to the object",
-            "description": ""
+            "description": "A float between 0..1 will 'jump' the phase to that normalised value immediately. Note that this is not affected by any current zero-reset setting and is raw and will click."
         }
     ],
     "attributes": [

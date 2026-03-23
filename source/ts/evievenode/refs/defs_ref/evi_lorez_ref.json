@@ -4,9 +4,9 @@
         "parent": "evi_lorez",
         "category": "evieve",
         "tilde": "~",
-        "digest": "A novel two-pole nonlinear Ladder filter with allpass alignment",
-        "description": "TEXT_HERE",
-        "discussion": ""
+        "digest": "A novel two-pole nonlinear Ladder filter",
+        "description": "Nonlinear 12dB TPT Lowpass with excellent modulation properties and allpass alignment. Capable of all audio rate modulation with cutoff FM-able whilst remaining stable. Resonance stays strong even in lower frequencies. The abstraction includes code which can be extracted for parameter rate control of the coefficients calculation and linear operation if required.",
+        "discussion": "For more information about other nonlinear Ladder filters in evieve, see the 'evieve ladder' tab of the helpfile."
     },
     "metadata": {
         "author": "Pete Dowling",
@@ -21,19 +21,19 @@
             "id": 1,
             "type": "signal",
             "digest": "Input",
-            "description": ""
+            "description": "Audio input to be filtered."
         },
         {
             "id": 2,
             "type": "signal/float",
             "digest": "Cutoff in Hz @min 1 @max samplerate*0.333333",
-            "description": ""
+            "description": "Cutoff frequency in Hz."
         },
         {
             "id": 3,
             "type": "signal/float",
             "digest": "Resonance 0..1 @min 0 @max 2",
-            "description": ""
+            "description": "Self oscillates at resonance==1 but can take higher resonance with a little loss in anti-aliasing."
         }
     ],
     "outlets": [
@@ -41,7 +41,7 @@
             "id": 1,
             "type": "signal",
             "digest": "lorez Output",
-            "description": ""
+            "description": "12dB resonant filter output."
         }
     ],
     "messages": [
@@ -64,8 +64,8 @@
             "name": "oversample",
             "get": 1,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Flag 0/1",
+            "description": "2x oversampling if on (default), 1x if off (careful). Oversampling almost doubles the CPU usage.",
             "default": {
                 "min": "0",
                 "max": "1",
@@ -77,5 +77,12 @@
         "caption": "",
         "image": ""
     },
-    "seealso": []
+    "seealso": [
+        "evi.lores~",
+        "evi.ladder.moog~",
+        "evi.ladder.transistor~",
+        "evi.ladder.poles~",
+        "evi.ladder.diode~",
+        "evi.korgms20.select~"
+    ]
 }

@@ -5,8 +5,8 @@
         "category": "evieve",
         "tilde": "~",
         "digest": "Anti-aliased hard clipping function",
-        "description": "TEXT_HERE",
-        "discussion": ""
+        "description": "To be used whenever clamping of audio is required, <o>evi.hardclip~</o> should do a good job of protecting your precious audio. This is because this is antialiased hard clipping capable of high input gain whilst maintaining audio quality. <o>evi.hardclip~</o> is the hard clipping section from the <o>evi.clip~</o> object but with more antiderivative and oversampling options for when managing audio quality against CPU usage, selected via the @aa attribute. Increasing @aa does not necessarily translate to 'better'. Experiment with this setting depending on your audio input material.",
+        "discussion": "This object is for all those MSP users who use [<o>clip~</o> -1. 1.] at the end of their audio chains. You should never do this - it destroys your audio and aliases like hell. Use <o>evi.hardclip~</o> instead. It can anti-alias very large gain inputs whilst retaining the clipping functionality you seek."
     },
     "metadata": {
         "author": "Pete Dowling",
@@ -20,7 +20,7 @@
             "id": 1,
             "type": "signal",
             "digest": "Audio Input to be treated nicely",
-            "description": ""
+            "description": "Any audio input."
         }
     ],
     "outlets": [
@@ -28,7 +28,7 @@
             "id": 1,
             "type": "signal",
             "digest": "Anti Aliased Clipped Output",
-            "description": ""
+            "description": "Hopefully cleanly clipped output."
         }
     ],
     "messages": [],
@@ -37,8 +37,8 @@
             "name": "aa",
             "get": 1,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Select 0, 1, 2, 3, 4, 5",
+            "description": "'aa' stands for 'Anti-Aliasing'. Select type (or 'strength') here. 0=1st order antiderivative, 1=1st order 2x oversampled, 2=1st order 4x oversampled, 3=2nd order antiderivative (default), 4=2nd order 2x oversampled, 5=2nd order 4x oversampled.",
             "default": {
                 "min": "0",
                 "max": "5",
@@ -49,8 +49,8 @@
             "name": "limit",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Do not use 'limit'",
+            "description": "false",
             "default": {
                 "min": "0.9",
                 "max": "1.1",
@@ -62,5 +62,18 @@
         "caption": "",
         "image": ""
     },
-    "seealso": []
+    "seealso": [
+        "evi.clip~",
+        "evi.softclip~",
+        "evi.clipasym~",
+        "evi.shaper~",
+        "evi.warmer~",
+        "evi.sinfold~",
+        "evi.overdrive.sqrt~",
+        "evi.overdrive.atan~",
+        "evi.overdrive.tanh~",
+        "evi.tone.macro~",
+        "evi.rcfilter~",
+        "evi.baxandall~"
+    ]
 }

@@ -4,7 +4,7 @@
         "child": "evi.hardclip~",
         "category": "evieve",
         "digest": "Anti-aliased hard clipping function",
-        "description": "TEXT_HERE"
+        "description": "To be used whenever clamping of audio is required, <o>evi.hardclip~</o> should do a good job of protecting your precious audio. This is because this is antialiased hard clipping capable of high input gain whilst maintaining audio quality. <o>evi.hardclip~</o> is the hard clipping section from the <o>evi.clip~</o> object but with more antiderivative and oversampling options for when managing audio quality against CPU usage, selected via the @aa attribute. Increasing @aa does not necessarily translate to 'better'. Experiment with this setting depending on your audio input material."
     },
     "constructor": {
         "inlets": "audio"
@@ -19,7 +19,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Input to be treated nicely",
-            "digest": ""
+            "digest": "Any audio input."
         }
     ],
     "outlets": [
@@ -28,7 +28,7 @@
             "name": "anti",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Hopefully cleanly clipped output."
         }
     ],
     "attributes": [
@@ -36,7 +36,7 @@
             "name": "aa",
             "type": "int",
             "digest": "@min 0, @max 5",
-            "description": "",
+            "description": "'aa' stands for 'Anti-Aliasing'. Select type (or 'strength') here. 0=1st order antiderivative, 1=1st order 2x oversampled, 2=1st order 4x oversampled, 3=2nd order antiderivative (default), 4=2nd order 2x oversampled, 5=2nd order 4x oversampled.",
             "default": {
                 "type": "int",
                 "value": "3"
@@ -46,7 +46,7 @@
             "name": "limit",
             "type": "float",
             "digest": "@min 0.9, @max 1.1",
-            "description": "",
+            "description": "false",
             "default": {
                 "type": "float",
                 "value": "1."
@@ -55,8 +55,48 @@
     ],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_softclip",
+            "display": "evi_softclip"
+        },
+        {
+            "name": "evi_clipasym",
+            "display": "evi_clipasym"
+        },
+        {
+            "name": "evi_shaper",
+            "display": "evi_shaper"
+        },
+        {
+            "name": "evi_warmer",
+            "display": "evi_warmer"
+        },
+        {
+            "name": "evi_sinfold",
+            "display": "evi_sinfold"
+        },
+        {
+            "name": "evi_overdrive_sqrt",
+            "display": "evi_overdrive_sqrt"
+        },
+        {
+            "name": "evi_overdrive_atan",
+            "display": "evi_overdrive_atan"
+        },
+        {
+            "name": "evi_overdrive_tanh",
+            "display": "evi_overdrive_tanh"
+        },
+        {
+            "name": "evi_tone_macro",
+            "display": "evi_tone_macro"
+        },
+        {
+            "name": "evi_rcfilter",
+            "display": "evi_rcfilter"
+        },
+        {
+            "name": "evi_baxandall",
+            "display": "evi_baxandall"
         }
     ]
 }

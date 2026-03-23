@@ -5,7 +5,7 @@
         "category": "evieve",
         "tilde": "~",
         "digest": "Sallen-Key input mixing multimode filter",
-        "description": "TEXT_HERE",
+        "description": "A special kind of input mixing filter, where the multimode nature of the filter is provided by it's simultaneous inputs rather than on outputs. By default the inputs are mixed by the @mix attribute and therefore has the effect of output mixing a standard multimode Sallen Key. However if disabling the @mixenable attribute the inputs are 'always on', and can therefore be sequenced externally in interesting ways. This Sallen Key input mixer has excellent performance across a full range of cutoff frequencies. The filter is nonlinear and can take any sort of input.",
         "discussion": ""
     },
     "metadata": {
@@ -22,19 +22,19 @@
             "id": 1,
             "type": "signal",
             "digest": "Lowpass Input",
-            "description": ""
+            "description": "Audio to this inlet produces the Lowpass output."
         },
         {
             "id": 2,
             "type": "signal",
             "digest": "Bandpass Input",
-            "description": ""
+            "description": "Audio to this inlet produces the Bandpass output."
         },
         {
             "id": 3,
             "type": "signal",
             "digest": "Highpass Input",
-            "description": ""
+            "description": "Audio to this inlet produces the Highpass output."
         }
     ],
     "outlets": [
@@ -42,7 +42,7 @@
             "id": 1,
             "type": "signal",
             "digest": "Sallen Key Filter Output",
-            "description": ""
+            "description": "Mixed Sallen Key output."
         }
     ],
     "messages": [
@@ -71,8 +71,8 @@
             "name": "coeffsmooth",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Time in ms",
+            "description": "Optionally smooth the internal coefficients calculations. This takes care of smoothing the changes incurred by @cutoff and @res attributes. This should typically be on.",
             "default": {
                 "min": "0",
                 "max": "333",
@@ -83,8 +83,8 @@
             "name": "cutoff",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "In Hz",
+            "description": "The filter cutoff frequency in Hz. This filter performs predictably with a wide range of cutoff frequencies.",
             "default": {
                 "min": "10",
                 "max": "10000",
@@ -95,8 +95,8 @@
             "name": "mix",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Normalised 0..1",
+            "description": "Only available if @mixenable is on (the default). Interpolates between Lowpass..Bandpass..Highpass inlets. Interpolation is a gain matched cosine algorithm.",
             "default": {
                 "min": "0",
                 "max": "1",
@@ -107,8 +107,8 @@
             "name": "mixenable",
             "get": 1,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Flag 0/1",
+            "description": "If enabled (the default) the @mix attribute can interpolate between Lowpass..Bandpass..Highpass. Turn off for controlling the audio inputs via sequenced gates (for example).",
             "default": {
                 "min": "0",
                 "max": "1",
@@ -119,8 +119,8 @@
             "name": "mixsmooth",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Time in ms",
+            "description": "Optionally smooth the @mix attribute if @mixenable is active. This should typically be on.",
             "default": {
                 "min": "0",
                 "max": "333",
@@ -131,8 +131,8 @@
             "name": "res",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Normalised 0..1",
+            "description": "The filter resonance. Resonance in this filter performs predictably across the full range of @cutoff frequencies.",
             "default": {
                 "min": "0",
                 "max": "1",
@@ -144,5 +144,11 @@
         "caption": "",
         "image": ""
     },
-    "seealso": []
+    "seealso": [
+        "evi.svfinputmix~",
+        "evi.svf~",
+        "evi.multimode~",
+        "evi.filter~",
+        "evi.svfsynth~"
+    ]
 }

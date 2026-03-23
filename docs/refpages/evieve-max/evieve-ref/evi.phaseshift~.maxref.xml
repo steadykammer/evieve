@@ -60,17 +60,6 @@
 	</methodlist>
 	<!--ATTRIBUTES-->
 	<attributelist>
-		<attribute name="smooth" get="1" set="1" type="float" min="0" max="333">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="0." />
-			</attributelist>
-		</attribute>
 	</attributelist>
 	<!--EXAMPLE-->
 	<examplelist>

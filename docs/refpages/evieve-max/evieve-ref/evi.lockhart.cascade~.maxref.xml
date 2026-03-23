@@ -41,31 +41,9 @@
 	</outletlist>
 	<!--MESSAGES-->
 	<methodlist>
-		<method name="history">
-			<arglist>
-				<arg name="funcsH" type="int" units="default: 4" optional="1" />
-			</arglist>
-			<digest>
-				Top level gen~ [history] / History() declarations can be reset by messages to the object
-			</digest>
-			<description>
-				
-			</description>
-		</method>
 	</methodlist>
 	<!--ATTRIBUTES-->
 	<attributelist>
-		<attribute name="cascade" get="1" set="1" type="int" min="1" max="16">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="4" />
-			</attributelist>
-		</attribute>
 	</attributelist>
 	<!--EXAMPLE-->
 	<examplelist>

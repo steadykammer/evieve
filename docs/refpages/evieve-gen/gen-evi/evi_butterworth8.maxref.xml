@@ -41,7 +41,7 @@
                 @min -16, @max 16
             </digest>
             <description>
-                Treated as a constant, IGNORE.
+                false
             </description>
             <attributelist>
                 <attribute name='default' type='float' value='1.4142135623730951' />
@@ -52,7 +52,7 @@
                 @min -16, @max 16
             </digest>
             <description>
-                Treated as a constant, IGNORE.
+                false
             </description>
             <attributelist>
                 <attribute name='default' type='float' value='0.4450418679126289' />
@@ -63,7 +63,7 @@
                 @min -16, @max 16
             </digest>
             <description>
-                Treated as a constant, IGNORE.
+                false
             </description>
             <attributelist>
                 <attribute name='default' type='float' value='1.2469796037174672' />
@@ -74,7 +74,7 @@
                 @min -16, @max 16
             </digest>
             <description>
-                Treated as a constant, IGNORE.
+                false
             </description>
             <attributelist>
                 <attribute name='default' type='float' value='1.8019377358048383' />
@@ -85,7 +85,7 @@
                 @min -16, @max 16
             </digest>
             <description>
-                Treated as a constant, IGNORE.
+                false
             </description>
             <attributelist>
                 <attribute name='default' type='float' value='0.39018064403225666' />
@@ -96,7 +96,7 @@
                 @min -16, @max 16
             </digest>
             <description>
-                Treated as a constant, IGNORE.
+                false
             </description>
             <attributelist>
                 <attribute name='default' type='float' value='1.1111404660392046' />
@@ -107,7 +107,7 @@
                 @min -16, @max 16
             </digest>
             <description>
-                Treated as a constant, IGNORE.
+                false
             </description>
             <attributelist>
                 <attribute name='default' type='float' value='1.6629392246050905' />
@@ -118,7 +118,7 @@
                 @min -16, @max 16
             </digest>
             <description>
-                Treated as a constant, IGNORE.
+                false
             </description>
             <attributelist>
                 <attribute name='default' type='float' value='1.9615705608064609' />
@@ -129,7 +129,7 @@
                 @min -16, @max 16
             </digest>
             <description>
-                Treated as a constant, IGNORE.
+                false
             </description>
             <attributelist>
                 <attribute name='default' type='float' value='1.0000000000000002' />
@@ -140,7 +140,7 @@
                 @min -16, @max 16
             </digest>
             <description>
-                Treated as a constant, IGNORE.
+                false
             </description>
             <attributelist>
                 <attribute name='default' type='float' value='0.7653668647301797' />
@@ -151,7 +151,7 @@
                 @min -16, @max 16
             </digest>
             <description>
-                Treated as a constant, IGNORE.
+                false
             </description>
             <attributelist>
                 <attribute name='default' type='float' value='1.8477590650225735' />
@@ -162,7 +162,7 @@
                 @min -16, @max 16
             </digest>
             <description>
-                Treated as a constant, IGNORE.
+                false
             </description>
             <attributelist>
                 <attribute name='default' type='float' value='0.6180339887498949' />
@@ -173,7 +173,7 @@
                 @min -16, @max 16
             </digest>
             <description>
-                Treated as a constant, IGNORE.
+                false
             </description>
             <attributelist>
                 <attribute name='default' type='float' value='1.618033988749895' />
@@ -184,7 +184,7 @@
                 @min -16, @max 16
             </digest>
             <description>
-                Treated as a constant, IGNORE.
+                false
             </description>
             <attributelist>
                 <attribute name='default' type='float' value='0.5176380902050419' />
@@ -195,7 +195,7 @@
                 @min -16, @max 16
             </digest>
             <description>
-                Treated as a constant, IGNORE.
+                false
             </description>
             <attributelist>
                 <attribute name='default' type='float' value='1.4142135623730951' />
@@ -206,7 +206,7 @@
                 @min -16, @max 16
             </digest>
             <description>
-                Treated as a constant, IGNORE.
+                false
             </description>
             <attributelist>
                 <attribute name='default' type='float' value='1.9318516525781366' />

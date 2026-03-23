@@ -3,8 +3,8 @@
         "name": "evi_lorez",
         "child": "evi.lorez~",
         "category": "evieve",
-        "digest": "A novel two-pole nonlinear Ladder filter with allpass alignment",
-        "description": "TEXT_HERE"
+        "digest": "A novel two-pole nonlinear Ladder filter",
+        "description": "Nonlinear 12dB TPT Lowpass with excellent modulation properties and allpass alignment. Capable of all audio rate modulation with cutoff FM-able whilst remaining stable. Resonance stays strong even in lower frequencies. The abstraction includes code which can be extracted for parameter rate control of the coefficients calculation and linear operation if required."
     },
     "constructor": {
         "inlets": "input, cutoff, resonance"
@@ -19,7 +19,7 @@
             "name": "input",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Audio input to be filtered."
         },
         {
             "id": 2,
@@ -27,7 +27,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "in Hz @min 1 @max samplerate*0.333333",
-            "digest": ""
+            "digest": "Cutoff frequency in Hz."
         },
         {
             "id": 3,
@@ -35,7 +35,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "0..1 @min 0 @max 2",
-            "digest": ""
+            "digest": "Self oscillates at resonance==1 but can take higher resonance with a little loss in anti-aliasing."
         }
     ],
     "outlets": [
@@ -44,7 +44,7 @@
             "name": "lorez",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "12dB resonant filter output."
         }
     ],
     "attributes": [
@@ -52,7 +52,7 @@
             "name": "oversample",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "2x oversampling if on (default), 1x if off (careful). Oversampling almost doubles the CPU usage.",
             "default": {
                 "type": "int",
                 "value": "1"
@@ -61,8 +61,28 @@
     ],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_lores",
+            "display": "evi_lores"
+        },
+        {
+            "name": "evi_ladder_moog",
+            "display": "evi_ladder_moog"
+        },
+        {
+            "name": "evi_ladder_transistor",
+            "display": "evi_ladder_transistor"
+        },
+        {
+            "name": "evi_ladder_poles",
+            "display": "evi_ladder_poles"
+        },
+        {
+            "name": "evi_ladder_diode",
+            "display": "evi_ladder_diode"
+        },
+        {
+            "name": "evi_korgms20_select",
+            "display": "evi_korgms20_select"
         }
     ]
 }

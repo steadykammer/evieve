@@ -4,7 +4,7 @@
         "child": "evi.shaper~",
         "category": "evieve",
         "digest": "An interpolated choice of even or odd harmonics waveshaping",
-        "description": "TEXT_HERE"
+        "description": "A simple object to cleanly add harmonics to an audio chain when required. A choice of up to 8-ish harmonics either even or odd can be smoothly interpolated onto the audio signal."
     },
     "constructor": {
         "inlets": "audio"
@@ -17,7 +17,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "to be Shaped",
-            "digest": ""
+            "digest": "Any audio input."
         }
     ],
     "outlets": [
@@ -26,7 +26,7 @@
             "name": "shaped",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Hopefully more interesting audio output."
         }
     ],
     "attributes": [
@@ -34,7 +34,7 @@
             "name": "compensate",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Gain compensate the drop in energy over the interpolation of adding harmonics.",
             "default": {
                 "type": "int",
                 "value": "1"
@@ -44,7 +44,7 @@
             "name": "harmonics",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Interpolated 0..1 add 0..8 harmonics (0 = 0, 0.25 = 1, 0.5 = 2, 0.75 = 4, 1 = 8).",
             "default": {
                 "type": "float",
                 "value": "0.5"
@@ -54,7 +54,7 @@
             "name": "shape",
             "type": "float",
             "digest": "@min -1, @max 1",
-            "description": "",
+            "description": "Greater than 0 gradually adds odd harmonics, less than zero gradually adds even harmonics.",
             "default": {
                 "type": "float",
                 "value": "0."
@@ -64,7 +64,7 @@
             "name": "smooth",
             "type": "float",
             "digest": "@min 0, @max 666",
-            "description": "",
+            "description": "Optionally smooth @harmonics and @shape attributes, default off.",
             "default": {
                 "type": "float",
                 "value": "0."
@@ -73,8 +73,20 @@
     ],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_softclip",
+            "display": "evi_softclip"
+        },
+        {
+            "name": "evi_sinfold",
+            "display": "evi_sinfold"
+        },
+        {
+            "name": "evi_warmer",
+            "display": "evi_warmer"
+        },
+        {
+            "name": "evi_clipasym",
+            "display": "evi_clipasym"
         }
     ]
 }

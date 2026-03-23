@@ -73,32 +73,9 @@
 	</outletlist>
 	<!--MESSAGES-->
 	<methodlist>
-		<method name="history">
-			<arglist>
-				<arg name="circuitL" type="int" units="default: 0" optional="1" />
-				<arg name="circuitR" type="int" units="default: 0" optional="1" />
-			</arglist>
-			<digest>
-				Top level gen~ [history] / History() declarations can be reset by messages to the object
-			</digest>
-			<description>
-				
-			</description>
-		</method>
 	</methodlist>
 	<!--ATTRIBUTES-->
 	<attributelist>
-		<attribute name="detune" get="1" set="1" type="float" min="0" max="1">
-			<digest>
-				Normalised 0..1
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="0.3" />
-			</attributelist>
-		</attribute>
 		<attribute name="drywet" get="1" set="1" type="float" min="0" max="1">
 			<digest>
 				Normalised 0..1

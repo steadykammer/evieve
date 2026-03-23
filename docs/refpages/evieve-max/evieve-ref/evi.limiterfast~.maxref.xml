@@ -9,7 +9,7 @@
 		<b>evi.limiterfast~</b> is a 'max define' for the <o>evi_limiterfast</o>.gendsp gen~ abstraction.
 		Because evi.limiterfast~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		<br />
-		TEXT_HERE <br />
+		A basic stereo limiter. Being a no-lookahead limiter, the 'crunch' can kick in quite easily. <o>evi.limiterfast~</o> features an anti-aliased antiderivative hard clipping function to deal with this. Other than that it features fixed hard attack, a settable soft knee, variable smoothing, release time set in ms. The AGC envelope is available at the far right outlet. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>
@@ -24,7 +24,7 @@
 				Inlet #1: Audio Input Left
 			</digest>
 			<description>
-				
+				Left audio to be limited.
 			</description>
 		</inlet>
 		<inlet id="2" type="signal">
@@ -32,7 +32,7 @@
 				Inlet #2: Audio Input Right
 			</digest>
 			<description>
-				
+				Right audio to be limited.
 			</description>
 		</inlet>
 	</inletlist>
@@ -43,7 +43,7 @@
 				Outlet #1: Limited Output Left
 			</digest>
 			<description>
-				
+				Left limited audio output, might be crunchy.
 			</description>
 		</outlet>
 		<outlet id="2" type="signal">
@@ -51,7 +51,7 @@
 				Outlet #2: Limited Output Right
 			</digest>
 			<description>
-				
+				Right limited audio output, might be crunchy.
 			</description>
 		</outlet>
 		<outlet id="3" type="signal">
@@ -59,7 +59,7 @@
 				Outlet #3: AGC Envelope (Linear)
 			</digest>
 			<description>
-				
+				The AGC envelope used internally, available here for downstream processing or visualisation.
 			</description>
 		</outlet>
 	</outletlist>
@@ -68,23 +68,12 @@
 	</methodlist>
 	<!--ATTRIBUTES-->
 	<attributelist>
-		<attribute name="clip" get="1" set="1" type="int" min="0" max="2">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="0" />
-			</attributelist>
-		</attribute>
 		<attribute name="ingain" get="1" set="1" type="float" min="-20" max="40">
 			<digest>
-				
+				In dB
 			</digest>
 			<description>
-				
+				Artificially engage the limiter by increasing @ingain. This is the reverse of a &#x27;threshold&#x27;. Smoothed internally.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="1." />
@@ -92,10 +81,10 @@
 		</attribute>
 		<attribute name="knee" get="1" set="1" type="float" min="0.001" max="1">
 			<digest>
-				
+				Normalised 0..1
 			</digest>
 			<description>
-				
+				Nearer 0, the knee is hard, nearer 1 the knee is soft.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="0.55" />
@@ -103,10 +92,10 @@
 		</attribute>
 		<attribute name="release" get="1" set="1" type="float" min="1" max="376">
 			<digest>
-				
+				Time in ms
 			</digest>
 			<description>
-				
+				The release time of the envelope detector. The object is tuned to work well with short times.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="52." />
@@ -114,10 +103,10 @@
 		</attribute>
 		<attribute name="smooth" get="1" set="1" type="float" min="0" max="1">
 			<digest>
-				
+				Normalised 0..1
 			</digest>
 			<description>
-				
+				Smoothing factor of the envelope response. 0 &#x3D; not smooth at all, 1 &#x3D; aggressively smoothed.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="0.05" />
@@ -130,6 +119,9 @@
 	</examplelist>
 	<!--SEEALSO-->
 	<seealsolist>
+		<seealso name="evi.clip~"> </seealso>
+		<seealso name="evi.hardclip~"> </seealso>
+		<seealso name="evi.softclip~"> </seealso>
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>

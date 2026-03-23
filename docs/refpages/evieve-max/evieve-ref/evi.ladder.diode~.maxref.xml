@@ -133,10 +133,10 @@
 		</attribute>
 		<attribute name="shaping" get="1" set="1" type="float" min="1" max="40">
 			<digest>
-				
+				@shaping should be considered a constant and not changed, unless you want to drastically retune the filter.
 			</digest>
 			<description>
-				@shaping should be considered a constant and not changed, unless you want to drastically retune the filter.
+				false
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="23.7" />
@@ -144,10 +144,10 @@
 		</attribute>
 		<attribute name="tuning" get="1" set="1" type="float" min="0" max="1">
 			<digest>
-				
+				@tuning should be considered a constant and not changed, unless you want to drastically retune the filter.
 			</digest>
 			<description>
-				@tuning should be considered a constant and not changed, unless you want to drastically retune the filter.
+				false
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="0.356788" />

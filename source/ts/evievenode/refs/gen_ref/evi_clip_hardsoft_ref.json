@@ -4,7 +4,7 @@
         "child": "evi.clip~",
         "category": "evieve",
         "digest": "Anti-aliased clipping algorithms for your audio",
-        "description": "TEXT_HERE"
+        "description": "A collection of four anti-aliased clipping algorithms: hard clip, soft clip, diode clip, asymmetric clip. Hard and soft are better anti-aliased and can take higher input gain before aliasing than the diode and asymmetric clippers. To be used whenever clamping of audio is required, <o>evi.clip~</o> should do a good job of protecting your precious audio."
     },
     "constructor": {
         "inlets": "audio"
@@ -19,7 +19,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "In that must be treated nicely",
-            "digest": ""
+            "digest": "Any audio input."
         }
     ],
     "outlets": [
@@ -28,7 +28,7 @@
             "name": "anti",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Hopefully cleanly clipped output."
         }
     ],
     "attributes": [
@@ -36,7 +36,7 @@
             "name": "clip",
             "type": "int",
             "digest": "@min 0, @max 3",
-            "description": "",
+            "description": "Select the clipping function used. 0=hard (default), 1=soft, 2=diode, 3=asymmetric. 'Hard' is the equivalent of [clip~ -1. 1], 'soft' is the equivalent of [tanh~], 'diode' is a static model of a 12AX7, 'aymmetric' is a static version of Laurent de Soras' 'Gloubi Boulga'.",
             "default": {
                 "type": "int",
                 "value": "0"
@@ -46,7 +46,7 @@
             "name": "oversampling",
             "type": "int",
             "digest": "@min 0, @max 2",
-            "description": "",
+            "description": "Regardless of this setting, hard and soft clippers are 2nd order antiderivatives and thus already have excellent behaviour with @oversampling=0. Oversampling=1 is 2x oversampling, oversampling=2 is 4x oversampling.",
             "default": {
                 "type": "int",
                 "value": "2"
@@ -55,8 +55,56 @@
     ],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_limiterfast",
+            "display": "evi_limiterfast"
+        },
+        {
+            "name": "evi_hardclip",
+            "display": "evi_hardclip"
+        },
+        {
+            "name": "evi_softclip",
+            "display": "evi_softclip"
+        },
+        {
+            "name": "evi_clipasym",
+            "display": "evi_clipasym"
+        },
+        {
+            "name": "evi_shaper",
+            "display": "evi_shaper"
+        },
+        {
+            "name": "evi_warmer",
+            "display": "evi_warmer"
+        },
+        {
+            "name": "evi_sinfold",
+            "display": "evi_sinfold"
+        },
+        {
+            "name": "evi_overdrive_sqrt",
+            "display": "evi_overdrive_sqrt"
+        },
+        {
+            "name": "evi_overdrive_atan",
+            "display": "evi_overdrive_atan"
+        },
+        {
+            "name": "evi_overdrive_tanh",
+            "display": "evi_overdrive_tanh"
+        },
+        {
+            "name": "evi_tone_macro",
+            "display": "evi_tone_macro"
+        },
+        {
+            "name": "evi_rcfilter",
+            "display": "evi_rcfilter"
+        },
+        {
+            "name": "evi_baxandall",
+            "display": "evi_baxandall"
         }
     ]
 }

@@ -13,7 +13,7 @@
          <br />
         evi_softclip is also available in MSP as: <o>evi.softclip~</o>. <br />
          <br />
-	    TEXT_HERE <br />
+	    A quick all purpose and efficient soft clipper. <o>evi.softclip~</o> does not have all the options of <o>evi.hardclip~</o> or <o>evi.clip~</o>. It aims to be an easy <o>tanh~</o> replacement to drop in to audio chains. The algorithm is a 2nd order antiderivative antialiasing tanh-like function. At high input gains the behaviour is less tanh-like as it folds. <br />
     </description>
     <methodlist />
     <constructorlist>
@@ -26,7 +26,7 @@
     <geninletlist>
         <geninlet name='audio' type='float' optional='1'>
             <digest>
-                In. 
+                In. Any audio input.
             </digest>
         </geninlet>
     </geninletlist>
@@ -38,6 +38,16 @@
         <metadata name="tag">GenDsp</metadata>
     </metadatalist>
     <seealsolist>
-        <seealso name='' display='' type='genrefpage' />
+        <seealso name='evi_hardclip' display='evi_hardclip' type='genrefpage' />
+        <seealso name='evi_clipasym' display='evi_clipasym' type='genrefpage' />
+        <seealso name='evi_shaper' display='evi_shaper' type='genrefpage' />
+        <seealso name='evi_warmer' display='evi_warmer' type='genrefpage' />
+        <seealso name='evi_sinfold' display='evi_sinfold' type='genrefpage' />
+        <seealso name='evi_overdrive_sqrt' display='evi_overdrive_sqrt' type='genrefpage' />
+        <seealso name='evi_overdrive_atan' display='evi_overdrive_atan' type='genrefpage' />
+        <seealso name='evi_overdrive_tanh' display='evi_overdrive_tanh' type='genrefpage' />
+        <seealso name='evi_tone_macro' display='evi_tone_macro' type='genrefpage' />
+        <seealso name='evi_rcfilter' display='evi_rcfilter' type='genrefpage' />
+        <seealso name='evi_baxandall' display='evi_baxandall' type='genrefpage' />
     </seealsolist>
 </c74object>

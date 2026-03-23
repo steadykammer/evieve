@@ -9,7 +9,7 @@
 		<b>evi.shaper~</b> is a 'max define' for the <o>evi_shaper</o>.gendsp gen~ abstraction.
 		Because evi.shaper~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		<br />
-		TEXT_HERE <br />
+		A simple object to cleanly add harmonics to an audio chain when required. A choice of up to 8-ish harmonics either even or odd can be smoothly interpolated onto the audio signal. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>
@@ -24,7 +24,7 @@
 				Inlet #1: Audio to be Shaped
 			</digest>
 			<description>
-				
+				Any audio input.
 			</description>
 		</inlet>
 	</inletlist>
@@ -35,7 +35,7 @@
 				Outlet #1: Shaped Audio Output
 			</digest>
 			<description>
-				
+				Hopefully more interesting audio output.
 			</description>
 		</outlet>
 	</outletlist>
@@ -46,10 +46,10 @@
 	<attributelist>
 		<attribute name="compensate" get="1" set="1" type="int" min="0" max="1">
 			<digest>
-				
+				Flag 0/1
 			</digest>
 			<description>
-				
+				Gain compensate the drop in energy over the interpolation of adding harmonics.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="1" />
@@ -57,10 +57,10 @@
 		</attribute>
 		<attribute name="harmonics" get="1" set="1" type="float" min="0" max="1">
 			<digest>
-				
+				Normalised 0..1
 			</digest>
 			<description>
-				
+				Interpolated 0..1 add 0..8 harmonics (0 &#x3D; 0, 0.25 &#x3D; 1, 0.5 &#x3D; 2, 0.75 &#x3D; 4, 1 &#x3D; 8).
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="0.5" />
@@ -68,10 +68,10 @@
 		</attribute>
 		<attribute name="shape" get="1" set="1" type="float" min="-1" max="1">
 			<digest>
-				
+				-1..1
 			</digest>
 			<description>
-				
+				Greater than 0 gradually adds odd harmonics, less than zero gradually adds even harmonics.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="0." />
@@ -79,10 +79,10 @@
 		</attribute>
 		<attribute name="smooth" get="1" set="1" type="float" min="0" max="666">
 			<digest>
-				
+				Time in ms
 			</digest>
 			<description>
-				
+				Optionally smooth @harmonics and @shape attributes, default off.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="0." />
@@ -95,6 +95,10 @@
 	</examplelist>
 	<!--SEEALSO-->
 	<seealsolist>
+		<seealso name="evi.softclip~"> </seealso>
+		<seealso name="evi.sinfold~"> </seealso>
+		<seealso name="evi.warmer~"> </seealso>
+		<seealso name="evi.clipasym~"> </seealso>
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>

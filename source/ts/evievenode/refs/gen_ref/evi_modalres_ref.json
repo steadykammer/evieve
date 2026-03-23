@@ -4,7 +4,7 @@
         "child": "evi.modalres~",
         "category": "evieve",
         "digest": "Max Mathews modal resonator",
-        "description": "TEXT_HERE"
+        "description": "Modified coupled form (MCF) complex multiply sine oscillator based twopole resonator with damping. ('Follow a fixed elliptical orbit over time')."
     },
     "constructor": {
         "inlets": "trigger, low, resonant"
@@ -18,7 +18,7 @@
             "name": "trigger",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Typically a trigger impulse."
         },
         {
             "id": 2,
@@ -26,7 +26,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Frequency in Hz",
-            "digest": ""
+            "digest": "Low resonant frequency in Hz."
         },
         {
             "id": 3,
@@ -34,7 +34,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Decay Time in Seconds",
-            "digest": ""
+            "digest": "Decay of resonance set in seconds."
         }
     ],
     "outlets": [
@@ -43,14 +43,22 @@
             "name": "resonant",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Resonant output of the modal filter."
         }
     ],
     "attributes": [],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_reson",
+            "display": "evi_reson"
+        },
+        {
+            "name": "evi_hilbert",
+            "display": "evi_hilbert"
+        },
+        {
+            "name": "evi_sustainverb",
+            "display": "evi_sustainverb"
         }
     ]
 }

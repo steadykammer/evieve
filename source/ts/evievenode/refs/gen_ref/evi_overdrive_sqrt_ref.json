@@ -4,7 +4,7 @@
         "child": "evi.overdrive.sqrt~",
         "category": "evieve",
         "digest": "High quality anti-aliased passive tanh-like input/output saturation",
-        "description": "TEXT_HERE"
+        "description": "The simplest of the evieve 'overdrive' objects, a memoryless nonlinear approximation with high quality antiderivative and oversampled processing. Can handle high gain input and remains well anti-aliased."
     },
     "constructor": {
         "inlets": "input"
@@ -19,7 +19,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Signal",
-            "digest": ""
+            "digest": "Audio input to be overdriven."
         }
     ],
     "outlets": [
@@ -28,7 +28,7 @@
             "name": "buzzy-tanh(x)",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Overdriven audio output."
         }
     ],
     "attributes": [
@@ -36,7 +36,7 @@
             "name": "aa",
             "type": "int",
             "digest": "@min 0, @max 5",
-            "description": "",
+            "description": "The 'aa' ('Anti-Aliasing) method used. 0=Adaa1, 1=Adaa1 2x oversampled, 2=Adaa1 4x oversampled, 3=Adaa2 (default), 4=Adaa2 2x oversampled, 5=Adaa2 4x oversampled. 0..5 does not necessarily mean increasing in quality, it really depends on your audio input material. Experimentation is encouraged.",
             "default": {
                 "type": "int",
                 "value": "3"
@@ -46,7 +46,7 @@
             "name": "hfcompensate",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "The object provides a high frequency compensation 'decorelation' filter on its output for restoring the reduced high frequency response that can occur with this type of anti-aliasing, especially when utilising the oversampling options (as opposed to just using pure 'adaa'). Experiment with turning this on to improve high frequencies (default on).",
             "default": {
                 "type": "int",
                 "value": "1"
@@ -55,8 +55,44 @@
     ],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_overdrive_atan",
+            "display": "evi_overdrive_atan"
+        },
+        {
+            "name": "evi_overdrive_tanh",
+            "display": "evi_overdrive_tanh"
+        },
+        {
+            "name": "evi_shaper",
+            "display": "evi_shaper"
+        },
+        {
+            "name": "evi_sinfold",
+            "display": "evi_sinfold"
+        },
+        {
+            "name": "evi_hardclip",
+            "display": "evi_hardclip"
+        },
+        {
+            "name": "evi_softclip",
+            "display": "evi_softclip"
+        },
+        {
+            "name": "evi_clipasym",
+            "display": "evi_clipasym"
+        },
+        {
+            "name": "evi_warmer",
+            "display": "evi_warmer"
+        },
+        {
+            "name": "evi_tone_macro",
+            "display": "evi_tone_macro"
+        },
+        {
+            "name": "evi_rcfilter",
+            "display": "evi_rcfilter"
         }
     ]
 }

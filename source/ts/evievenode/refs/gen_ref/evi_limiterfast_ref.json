@@ -4,7 +4,7 @@
         "child": "evi.limiterfast~",
         "category": "evieve",
         "digest": "A fast no-lookahead limiter with anti-aliased nonlinear clipping",
-        "description": "TEXT_HERE"
+        "description": "A basic stereo limiter. Being a no-lookahead limiter, the 'crunch' can kick in quite easily. <o>evi.limiterfast~</o> features an anti-aliased antiderivative hard clipping function to deal with this. Other than that it features fixed hard attack, a settable soft knee, variable smoothing, release time set in ms. The AGC envelope is available at the far right outlet."
     },
     "constructor": {
         "inlets": "audio, audio"
@@ -22,7 +22,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Input Left",
-            "digest": ""
+            "digest": "Left audio to be limited."
         },
         {
             "id": 2,
@@ -30,7 +30,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Input Right",
-            "digest": ""
+            "digest": "Right audio to be limited."
         }
     ],
     "outlets": [
@@ -39,21 +39,21 @@
             "name": "limited",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Left limited audio output, might be crunchy."
         },
         {
             "id": 2,
             "name": "limited",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Right limited audio output, might be crunchy."
         },
         {
             "id": 3,
             "name": "agc",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "The AGC envelope used internally, available here for downstream processing or visualisation."
         }
     ],
     "attributes": [
@@ -71,7 +71,7 @@
             "name": "ingain",
             "type": "float",
             "digest": "@min -20, @max 40",
-            "description": "",
+            "description": "Artificially engage the limiter by increasing @ingain. This is the reverse of a 'threshold'. Smoothed internally.",
             "default": {
                 "type": "float",
                 "value": "1."
@@ -81,7 +81,7 @@
             "name": "knee",
             "type": "float",
             "digest": "@min 0.001, @max 1",
-            "description": "",
+            "description": "Nearer 0, the knee is hard, nearer 1 the knee is soft.",
             "default": {
                 "type": "float",
                 "value": "0.55"
@@ -91,7 +91,7 @@
             "name": "release",
             "type": "float",
             "digest": "@min 1, @max 376",
-            "description": "",
+            "description": "The release time of the envelope detector. The object is tuned to work well with short times.",
             "default": {
                 "type": "float",
                 "value": "52."
@@ -101,7 +101,7 @@
             "name": "smooth",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Smoothing factor of the envelope response. 0 = not smooth at all, 1 = aggressively smoothed.",
             "default": {
                 "type": "float",
                 "value": "0.05"
@@ -110,8 +110,12 @@
     ],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_hardclip",
+            "display": "evi_hardclip"
+        },
+        {
+            "name": "evi_softclip",
+            "display": "evi_softclip"
         }
     ]
 }

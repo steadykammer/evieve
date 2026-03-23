@@ -13,7 +13,7 @@
          <br />
         evi_modalres is also available in MSP as: <o>evi.modalres~</o>. <br />
          <br />
-	    TEXT_HERE <br />
+	    Modified coupled form (MCF) complex multiply sine oscillator based twopole resonator with damping. ('Follow a fixed elliptical orbit over time'). <br />
     </description>
     <methodlist />
     <constructorlist>
@@ -26,17 +26,17 @@
     <geninletlist>
         <geninlet name='trigger' type='float' optional='1'>
             <digest>
-                
+                Typically a trigger impulse.
             </digest>
         </geninlet>
         <geninlet name='low' type='float' optional='1'>
             <digest>
-                Frequency in Hz. 
+                Frequency in Hz. Low resonant frequency in Hz.
             </digest>
         </geninlet>
         <geninlet name='resonant' type='float' optional='1'>
             <digest>
-                Decay Time in Seconds. 
+                Decay Time in Seconds. Decay of resonance set in seconds.
             </digest>
         </geninlet>
     </geninletlist>
@@ -48,6 +48,8 @@
         <metadata name="tag">GenDsp</metadata>
     </metadatalist>
     <seealsolist>
-        <seealso name='' display='' type='genrefpage' />
+        <seealso name='evi_reson' display='evi_reson' type='genrefpage' />
+        <seealso name='evi_hilbert' display='evi_hilbert' type='genrefpage' />
+        <seealso name='evi_sustainverb' display='evi_sustainverb' type='genrefpage' />
     </seealsolist>
 </c74object>

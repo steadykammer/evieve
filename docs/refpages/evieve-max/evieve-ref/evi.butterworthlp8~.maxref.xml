@@ -57,7 +57,7 @@
 				Constant
 			</digest>
 			<description>
-				Treated as a constant, IGNORE.
+				false
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="1.4142135623730951" />
@@ -68,7 +68,7 @@
 				Constant
 			</digest>
 			<description>
-				Treated as a constant, IGNORE.
+				false
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="0.4450418679126289" />
@@ -79,7 +79,7 @@
 				Constant
 			</digest>
 			<description>
-				Treated as a constant, IGNORE.
+				false
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="1.2469796037174672" />
@@ -90,7 +90,7 @@
 				Constant
 			</digest>
 			<description>
-				Treated as a constant, IGNORE.
+				false
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="1.8019377358048383" />
@@ -101,7 +101,7 @@
 				Constant
 			</digest>
 			<description>
-				Treated as a constant, IGNORE.
+				false
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="0.39018064403225666" />
@@ -112,7 +112,7 @@
 				Constant
 			</digest>
 			<description>
-				Treated as a constant, IGNORE.
+				false
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="1.1111404660392046" />
@@ -123,7 +123,7 @@
 				Constant
 			</digest>
 			<description>
-				Treated as a constant, IGNORE.
+				false
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="1.6629392246050905" />
@@ -134,7 +134,7 @@
 				Constant
 			</digest>
 			<description>
-				Treated as a constant, IGNORE.
+				false
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="1.9615705608064609" />
@@ -145,7 +145,7 @@
 				Constant
 			</digest>
 			<description>
-				Treated as a constant, IGNORE.
+				false
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="1.0000000000000002" />
@@ -156,7 +156,7 @@
 				Constant
 			</digest>
 			<description>
-				Treated as a constant, IGNORE.
+				false
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="0.7653668647301797" />
@@ -167,7 +167,7 @@
 				Constant
 			</digest>
 			<description>
-				Treated as a constant, IGNORE.
+				false
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="1.8477590650225735" />
@@ -178,7 +178,7 @@
 				Constant
 			</digest>
 			<description>
-				Treated as a constant, IGNORE.
+				false
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="0.6180339887498949" />
@@ -189,7 +189,7 @@
 				Constant
 			</digest>
 			<description>
-				Treated as a constant, IGNORE.
+				false
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="1.618033988749895" />
@@ -200,7 +200,7 @@
 				Constant
 			</digest>
 			<description>
-				Treated as a constant, IGNORE.
+				false
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="0.5176380902050419" />
@@ -211,7 +211,7 @@
 				Constant
 			</digest>
 			<description>
-				Treated as a constant, IGNORE.
+				false
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="1.4142135623730951" />
@@ -222,7 +222,7 @@
 				Constant
 			</digest>
 			<description>
-				Treated as a constant, IGNORE.
+				false
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="1.9318516525781366" />

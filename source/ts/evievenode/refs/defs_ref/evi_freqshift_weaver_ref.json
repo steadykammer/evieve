@@ -4,8 +4,8 @@
         "parent": "evi_freqshift_weaver",
         "category": "evieve",
         "tilde": "~",
-        "digest": "Time domain frequency shifter after D. K. Weaver's famous 'third method'",
-        "description": "TEXT_HERE",
+        "digest": "Time domain frequency shifter after D. K. Weaver's 'third method'",
+        "description": "Time domain frequency shifter. Not like MSP <o>freqshift~</o>. An implementation of D. K. Weaver's famous 'third method' (unlike <o>freqshift~</o>, <o>fbinshift~</o> and <o>evi.freqshift.hilbert~</o> which implement the more usual hilbert filtering 'second method'). N.B. no filtering shift here, all done with quadrature oscillators and lowpass filters.",
         "discussion": ""
     },
     "metadata": {
@@ -20,25 +20,25 @@
             "id": 1,
             "type": "signal",
             "digest": "Audio Input",
-            "description": ""
+            "description": "Audio input to shift."
         },
         {
             "id": 2,
             "type": "signal",
-            "digest": "(float/int use freqsmooth attr) Frequency Shift in Hz ±",
-            "description": ""
+            "digest": "(signal/float/int use freqsmooth attr) Frequency Shift in ± Hz",
+            "description": "The main control, frequency shift in Hz +/- 0. Can be optionally smoothed with the @freqsmooth attribute."
         },
         {
             "id": 3,
             "type": "signal",
-            "digest": "Frequency Shift FM in Hz ±",
-            "description": ""
+            "digest": "Frequency Shift FM in ± Hz",
+            "description": "Audio rate FM of frequency shift (from inlet 2)."
         },
         {
             "id": 4,
             "type": "signal",
-            "digest": "Phase Reset (Naive)",
-            "description": ""
+            "digest": "Reset Phase (Naive)",
+            "description": "Naive reset of quadrature oscillator phases. Note that in 'evi.freqshift.weaver~' this reset need not be used, as a major feature of the internal gen~ code is that it does automatic and clickless resetting of phase itself (depending on the 'resetauto' attribute, which is on by default)."
         }
     ],
     "outlets": [
@@ -46,19 +46,19 @@
             "id": 1,
             "type": "signal",
             "digest": "Sidebandy Audio Output",
-            "description": ""
+            "description": "The audio output of the frequency shifter."
         },
         {
             "id": 2,
             "type": "signal",
             "digest": "fake quadOsc Cos (if oscout attr)",
-            "description": ""
+            "description": "If @oscout attribute is active, this provides the Cosine Quad Oscillator output. If @oscout is off, nothing comes out of this outlet. Note that this signal is not the real Quad Oscillator output as the real oscillator is in a very high range in Weaver's method. Instead this is a multiplied down osciallator which might be useful for downstream processing."
         },
         {
             "id": 3,
             "type": "signal",
             "digest": "fake quadOsc Sin (if oscout attr)",
-            "description": ""
+            "description": "If @oscout attribute is active, this provides the Sine Quad Oscillator output. If @oscout is off, nothing comes out of this outlet. Note that this signal is not the real Quad Oscillator output as the real oscillator is in a very high range in Weaver's method. Instead this is a multiplied down osciallator which might be useful for downstream processing."
         }
     ],
     "messages": [
@@ -81,8 +81,8 @@
             "name": "detune",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "In cents",
+            "description": "Detune is in cents, applied ± 1 semitone. This detunes the main quadrature oscillators and the fixed frequency crossover filters, giving a strange and unsubtle effect.",
             "default": {
                 "min": "-100",
                 "max": "100",
@@ -94,7 +94,7 @@
             "get": 1,
             "type": "float",
             "digest": "",
-            "description": "",
+            "description": "Internally the object uses an instance of 'evi.sinfold~' to waveshape the upper and lower sidebands depending on the @saturation attribute state. Increasing the drive will saturate the sidebands harder. By default @saturation is off.",
             "default": {
                 "min": "0",
                 "max": "2",
@@ -105,8 +105,8 @@
             "name": "freqsmooth",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Time in ms",
+            "description": "Optionally smooth the frequency shifting control (input 2). This can safely be used even if using the audio FM (inlet 3) as it is not applied to the FM signal.",
             "default": {
                 "min": "0",
                 "max": "666",
@@ -117,8 +117,8 @@
             "name": "highpass",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "In Hz, 10..400",
+            "description": "This applies highpasses to the sidebands for taming bass response. It is not smoothed and thus probably best used as a static tool only.",
             "default": {
                 "min": "10",
                 "max": "400",
@@ -129,8 +129,8 @@
             "name": "oscout",
             "get": 1,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Flag 0/1",
+            "description": "If active, the object will instantiate an additional quad oscillator at the given frequency shift in order to use for downstream processing. This is available at outlets 2 and 3. This is not the actual internal quad oscillator as that is not at a useful frequency in Weaver's method. If off (the default), nothing is computed or output from outlets 2 and 3.",
             "default": {
                 "min": "0",
                 "max": "1",
@@ -141,8 +141,8 @@
             "name": "resetauto",
             "get": 1,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Flag 0/1",
+            "description": "If active (the default), the object automatically and sample accurately cleanly and clicklessly resets the phase of the internal quad oscillator when required. If off, this may cause dc or click when resetting manually (inlet 4).",
             "default": {
                 "min": "0",
                 "max": "1",
@@ -153,8 +153,8 @@
             "name": "saturation",
             "get": 1,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Flag 0/1",
+            "description": "If active, a waveshaping distortion algorithm is applied to the sidebands in different ways depending on @select. If off (the default) the output is clean digital frequency shifting, if on the output is saturated and can be driven via the @drive attribute. Using saturation increases CPU usage.",
             "default": {
                 "min": "0",
                 "max": "1",
@@ -165,8 +165,8 @@
             "name": "select",
             "get": 1,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Select 0, 1, 2",
+            "description": "Select the audio algorithm available at the main audio output (outlet 1). 0=Upper and Lower Sidebands mixed, 1=Lower Sideband (default), 2=strange but cool effect with Upper and Lower Sidebands in an AM (amplitude modulation) configuration. Note, for modes 0 and 1, if @shiftmode == 0.5 the frequency shifting effect is cancelled out!",
             "default": {
                 "min": "0",
                 "max": "2",
@@ -177,8 +177,8 @@
             "name": "shiftmode",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Normalised 0..1",
+            "description": "A very strange attribute. At '0' the object abides by the D. K. Weaver lowpass filtering algorithm and oscillators are post filter. At '1' the object reverses this algorithm and oscillators are pre filter. Interpolating between the two can give very interesting results. Note, if @select is set to 0 or 1, and @shiftmode == 0.5, the frequency shifting effect is cancelled out! The object is happy smoothly interpolating through this state.",
             "default": {
                 "min": "0",
                 "max": "1",
@@ -189,8 +189,8 @@
             "name": "smooth",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Time in ms",
+            "description": "Smooth all internal parameters (apart from the frequency shift inlet 2, which has it's own smoothing amount via @freqsmooth) by this amount of time in ms.",
             "default": {
                 "min": "0",
                 "max": "1000",
@@ -206,6 +206,7 @@
         "evi.freqshift.hilbert~",
         "evi.hilbert~",
         "evi.ringmod~",
-        "evi.ringmod.diode~"
+        "evi.ringmod.diode~",
+        "evi.sinfold~"
     ]
 }

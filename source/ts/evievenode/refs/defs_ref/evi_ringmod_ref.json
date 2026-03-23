@@ -4,9 +4,9 @@
         "parent": "evi_ringmod",
         "category": "evieve",
         "tilde": "~",
-        "digest": "Anti-aliased nonlinear analog ring modulator",
-        "description": "TEXT_HERE",
-        "discussion": ""
+        "digest": "Anti-aliased nonlinear ring modulator",
+        "description": "A clean FIR ring modulator algorithm with sine shaping saturation and filtering. Ring modulates two audio signals producing one modulated output, with antiderivative antialiasing and oversampling options.",
+        "discussion": "The core linear algorithm is based on 'Enhanced Ring Mod' by Beat Frei. Copyright © 2008, 2009, 2010, Zurich University of the Arts, Beat Frei. GPL v2. See 'simpleRingmod()' in 'evi_ringmod_enhanced.genexpr' for more info."
     },
     "metadata": {
         "author": "Pete Dowling",
@@ -20,13 +20,13 @@
             "id": 1,
             "type": "signal",
             "digest": "Audio Input 1",
-            "description": ""
+            "description": "The first audio signal to be ring modulated (Carrier)."
         },
         {
             "id": 2,
             "type": "signal",
             "digest": "Audio Input 2",
-            "description": ""
+            "description": "The second audio signal to be ring modulated (Modulator)."
         }
     ],
     "outlets": [
@@ -34,7 +34,7 @@
             "id": 1,
             "type": "signal",
             "digest": "Ring Modulated Output but cool sounding",
-            "description": ""
+            "description": "The audio result of the ring modulated inputs."
         }
     ],
     "messages": [],
@@ -43,8 +43,8 @@
             "name": "cutoff",
             "get": 1,
             "type": "symbol",
-            "digest": "",
-            "description": "",
+            "digest": "In Hz",
+            "description": "The object offers a utility Butterworth Lowpass on it's output for taming the distortion and high frequencies. This is the cutoff frequency of that filter. By default the filter is bypassed. See the @order attribute for details.",
             "default": {
                 "min": "1000",
                 "max": "samplerate*0.5",
@@ -55,8 +55,8 @@
             "name": "drive",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Drive factor 0..4",
+            "description": "Drive the waveshaping input gain via a sine shaping function. A bit like a % 0..1.. up to 2 is pretty safe, up to 4 be careful (in terms of aliasing).",
             "default": {
                 "min": "0",
                 "max": "4",
@@ -67,8 +67,8 @@
             "name": "highpass",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "In Hz, 10..400",
+            "description": "This applies a highpass to the initial ring modulated audio mix, for taming bass response. It is not smoothed and thus probably best used as a static tool only.",
             "default": {
                 "min": "10",
                 "max": "400",
@@ -79,8 +79,8 @@
             "name": "order",
             "get": 1,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "0..8",
+            "description": "The object offers a utility Butterworth Lowpass on it's output for taming the distortion and high frequencies. 0 (the default) = bypassed (and CPU off), 1..8 = filter orders 1..8 (increasing in steepness of slope).",
             "default": {
                 "min": "0",
                 "max": "8",
@@ -91,8 +91,8 @@
             "name": "quality",
             "get": 1,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Select 0, 1, 2, 3, 4",
+            "description": "0=1x/Adaa1, 1=1x/Adaa2, 2=4x/Adaa2, 3=8x/Adaa2, 4=8x/Adaa2_4x. Because of the fake oversampling used here, higher and higher orders actually change the tonal effect of the audio output, so experimenting with different settings is not just about anti-aliasing or managing CPU usage but also a musical choice.",
             "default": {
                 "min": "0",
                 "max": "4",
@@ -103,8 +103,8 @@
             "name": "topology",
             "get": 1,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Flag 0/1",
+            "description": "The placement of the waveshaper in the ring modulator audio chain. If 0 (the default), the waveshaper sits after the ring modulator stage, if 1, the waveshaper is replaced into the middle of the ring modulator. Option 1 gives a strongly clipped and 'squeezed' guitar-like output. Option 0 gives a more usual soft saturated output.",
             "default": {
                 "min": "0",
                 "max": "1",
@@ -116,5 +116,10 @@
         "caption": "",
         "image": ""
     },
-    "seealso": []
+    "seealso": [
+        "evi.ringmod.diode~",
+        "evi.freqshift.weaver~",
+        "evi.freqshift.hilbert~",
+        "evi.sinfold~"
+    ]
 }

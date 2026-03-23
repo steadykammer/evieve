@@ -138,17 +138,6 @@
 				<attribute name="default" get="0" set="0" size="1" value="94." />
 			</attributelist>
 		</attribute>
-		<attribute name="envrelease" get="1" set="1" type="float" min="1" max="10">
-			<digest>
-				Multiplier 1..10. Extend the length of the automatic envelope decay by this multiplier.
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="2." />
-			</attributelist>
-		</attribute>
 		<attribute name="envresponse" get="1" set="1" type="int" min="0" max="4">
 			<digest>
 				0..4

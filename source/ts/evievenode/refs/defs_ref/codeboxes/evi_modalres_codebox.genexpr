@@ -3,6 +3,7 @@ require("evi_approx.genexpr");
 
 // Max Matthews complex resonator, thanks to Oli Larkin & Julian Parker
 // @see: M. Mathews and J. O. Smith, https://ccrma.stanford.edu/~jos/smac03maxjos/smac03maxjos.pdf
+
 maxRes(x, cps, decay, inviter, histAx, histBx)
 {
     decayc = tauA(decay * inviter);

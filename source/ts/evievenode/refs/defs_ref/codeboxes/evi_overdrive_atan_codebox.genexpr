@@ -6,7 +6,7 @@ require("evi_saturators.genexpr");
 
 // This gain compensation wrapper around the atan() function makes a great non-linear
 // shaper. Many thanks to Volker Böhm. With no anti-aliasing it sounds like crap, but here
-// the atan(x)s in the functions above are anti-aliased and much nicer.
+// the atan(x)s in the functions required here are anti-aliased and much nicer.
 atanDrive(drive)
 {
 	pre = maximum(drive, 1);

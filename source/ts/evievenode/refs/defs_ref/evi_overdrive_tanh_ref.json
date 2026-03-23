@@ -4,9 +4,9 @@
         "parent": "evi_overdrive_tanh",
         "category": "evieve",
         "tilde": "~",
-        "digest": "High quality anti-aliased tanh-based saturation with drive, input/output wrapping and filter shaping",
-        "description": "TEXT_HERE",
-        "discussion": ""
+        "digest": "High quality anti-aliased tanh-based saturation with drive, input/output gain wrapping and filter shaping",
+        "description": "The most luxurious of the evieve 'overdrive' objects, with drive, gain wrapping, additional input/output gain shaping and two damping filters which behave like a crossover, making it possible to control the amount of saturated and dry signal in the final output. The saturator is a tanh-like approximation with antiderivative anti-aliasing and oversampling options. <o>evi.overdrive.tanh~</o> can be driven very hard and tonally shaped very easily making it a versatile nonlinear processor for a wide range of use cases. It is of course quite expensive.",
+        "discussion": "For more information about evieve Overdrive processors and other saturation types see the 'evieve overdrive' tab of the helpfile."
     },
     "metadata": {
         "author": "Pete Dowling",
@@ -22,13 +22,13 @@
             "id": 1,
             "type": "signal",
             "digest": "Input Signal",
-            "description": ""
+            "description": "Audio input to be overdriven."
         },
         {
             "id": 2,
             "type": "signal/float",
             "digest": "Drive (linear gain 1..100) @default 1 @min 1 @max 100",
-            "description": ""
+            "description": "Linear gain 1..100. This actually controls a gain staging around the internal saturator. The object handles high gain very well with minimal aliasing. This inlet corresponds to the equivalent inlet of the 'evi.overdrive.atan~' object."
         }
     ],
     "outlets": [
@@ -36,7 +36,7 @@
             "id": 1,
             "type": "signal",
             "digest": "Tanh(x)-based Saturation Out - anti-aliased for your audio not for Maths",
-            "description": ""
+            "description": "Overdriven audio output."
         }
     ],
     "messages": [
@@ -59,8 +59,8 @@
             "name": "aa",
             "get": 1,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Select 0, 1, 2, 3, 4, 5",
+            "description": "The 'aa' ('Anti-Aliasing) method used. 0=Adaa1, 1=Adaa1 2x oversampled, 2=Adaa1 4x oversampled, 3=Adaa2 (default), 4=Adaa2 2x oversampled, 5=Adaa2 4x oversampled. 0..5 does not necessarily mean increasing in quality, it really depends on your audio input material. Experimentation is encouraged.",
             "default": {
                 "min": "0",
                 "max": "5",
@@ -71,8 +71,8 @@
             "name": "hfcompensate",
             "get": 1,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Flag 0/1",
+            "description": "The object provides a high frequency compensation 'decorelation' filter on its output for restoring the reduced high frequency response that can occur with this type of anti-aliasing, especially when utilising the oversampling options (as opposed to just using pure 'adaa'). Experiment with turning this on to improve high frequencies (default on).",
             "default": {
                 "min": "0",
                 "max": "1",
@@ -83,8 +83,8 @@
             "name": "highcutoff",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "In Hz, 1000..16000",
+            "description": "Two filters act like a crossover, summing some dry signal back into the saturated path and controlling how much input signal reaches the saturator. @highcutoff controls the high cut filter (lowpass), lower Hz values will greatly darken the sound.",
             "default": {
                 "min": "1000",
                 "max": "16000",
@@ -95,8 +95,8 @@
             "name": "highdamp",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Normalised 0..1",
+            "description": "Two filters act like a crossover, summing some dry signal back into the saturated path and controlling how much input signal reaches the saturator. @highdamp controls the shelving chracteristic of the high cut (lowpass) filter. If @highdamp == 0, the filter is bypassed, if @highdamp == 1 the filter is a full lowpass and the cutting effect very strong. 0..1 @highdamp is an increasingly damping shelf filter.",
             "default": {
                 "min": "0",
                 "max": "1",
@@ -107,8 +107,8 @@
             "name": "io",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "-1..1",
+            "description": "An additional gain stage that is reciprocal around input / output. if @io is > 0, input gain (to the saturator) is attenuated and output gain is boosted. If @io is < 0, input gain (to the saturator) is boosted and output gain is attenuated. (Boost / attenuation is approximately ± 12dB). This completely reshapes the waveshaping effect.",
             "default": {
                 "min": "-1",
                 "max": "1",
@@ -119,8 +119,8 @@
             "name": "lowcutoff",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "In Hz, 10..400",
+            "description": "Two filters act like a crossover, summing some dry signal back into the saturated path and controlling how much input signal reaches the saturator. @lowcutoff controls the low cut filter (highpass), higher Hz values will make the bass saturation less pronounced.",
             "default": {
                 "min": "10",
                 "max": "400",
@@ -131,8 +131,8 @@
             "name": "lowdamp",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Normalised 0..1",
+            "description": "Two filters act like a crossover, summing some dry signal back into the saturated path and controlling how much input signal reaches the saturator. @lowdamp controls the shelving chracteristic of the low cut (highpass) filter. If @lowdamp == 0, the filter is bypassed, if @lowdamp == 1 the filter is a full highpass and the cutting effect very strong. 0..1 @lowdamp is an increasingly damping shelf filter.",
             "default": {
                 "min": "0",
                 "max": "1",
@@ -143,8 +143,8 @@
             "name": "smooth",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Time in ms",
+            "description": "Optionally smooth the 'drive' inlet (inlet 2) by this amount in ms. This should be turned off (set to 0) if audio rate modulating inlet 2.",
             "default": {
                 "min": "0",
                 "max": "333",
@@ -156,5 +156,17 @@
         "caption": "",
         "image": ""
     },
-    "seealso": []
+    "seealso": [
+        "evi.overdrive.sqrt~",
+        "evi.overdrive.atan~",
+        "evi.shaper~",
+        "evi.sinfold~",
+        "evi.clip~",
+        "evi.hardclip~",
+        "evi.softclip~",
+        "evi.clipasym~",
+        "evi.warmer~",
+        "evi.tone.macro~",
+        "evi.rcfilter~"
+    ]
 }

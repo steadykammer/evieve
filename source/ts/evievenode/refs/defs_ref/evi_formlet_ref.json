@@ -5,8 +5,8 @@
         "category": "evieve",
         "tilde": "~",
         "digest": "A ringing formlet filter model",
-        "description": "TEXT_HERE",
-        "discussion": ""
+        "description": "A physical modelling ringing formlet filter loosely based on SuperCollider 'Formlet()' with added modulation and control features. Created by adding two resonant filters together around a center frequency. Can create ringing tones out of any input material. This is a direct form filter, so modulation is limited.",
+        "discussion": "If attack time == decay time (and there are no pitch offsets) then the signal cancels out, and if attack time > decay time then the impulse response is inverted. If spread and width == 0 then the filter acts like a normal formlet filter. If offset == 0 then frequency is as input."
     },
     "metadata": {
         "author": "Pete Dowling",
@@ -20,13 +20,13 @@
             "id": 1,
             "type": "signal",
             "digest": "Input (Impulse)",
-            "description": ""
+            "description": "Audio input to be filtered, typically an impulse-like event."
         },
         {
             "id": 2,
             "type": "signal/float",
             "digest": "Filter Frequency in PITCH",
-            "description": ""
+            "description": "Filter frequency is set in Pitch (e.g. MIDI 0..127)."
         }
     ],
     "outlets": [
@@ -34,7 +34,7 @@
             "id": 1,
             "type": "signal",
             "digest": "Formlet Output",
-            "description": ""
+            "description": "Ringing formlet filtered output."
         }
     ],
     "messages": [],
@@ -43,8 +43,8 @@
             "name": "attack",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Time in ms",
+            "description": "Filter ringing T60 attack time in ms. Like setting an envelope attack.",
             "default": {
                 "min": "10",
                 "max": "59999",
@@ -55,8 +55,8 @@
             "name": "decay",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Time in ms",
+            "description": "Filter ringing T60 decay time in ms. Like setting an envelope decay. Note this is a T60 time and therefore does not reach it's destination exactly.",
             "default": {
                 "min": "11",
                 "max": "60000",
@@ -67,8 +67,8 @@
             "name": "offset",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "In pitch",
+            "description": "Modulation in semitones. Set in Pitch, filter cutoff (inlet 2) offset ± 2 octaves.",
             "default": {
                 "min": "-24",
                 "max": "24",
@@ -79,8 +79,8 @@
             "name": "smoothfreq",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Time in ms",
+            "description": "Optional frequency (inlet 2) smoothing time in ms.",
             "default": {
                 "min": "0",
                 "max": "666",
@@ -91,8 +91,8 @@
             "name": "smoothtime",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Time in ms",
+            "description": "Optional @attack / @decay smoothing time in ms. In general this is not needed.",
             "default": {
                 "min": "0",
                 "max": "111",
@@ -103,8 +103,8 @@
             "name": "spread",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "In pitch",
+            "description": "Modulation in semitones. Set in Pitch, bandwidth spread ± 1 octave. This spreads the cutoffs of the two internal resonant filters apart from one another.",
             "default": {
                 "min": "-12",
                 "max": "12",
@@ -115,8 +115,8 @@
             "name": "width",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "In pitch",
+            "description": "Modulation in semitones. Set in Pitch, bandwidth up to 2 octaves in size. This sets the size of the frequency band centered by the cutoff (inlet 2).",
             "default": {
                 "min": "0",
                 "max": "24",
@@ -128,5 +128,13 @@
         "caption": "",
         "image": ""
     },
-    "seealso": []
+    "seealso": [
+        "evi.reson~",
+        "evi.modalres~",
+        "evi.formantfilter~",
+        "evi.formantfilter.morph~",
+        "evi.formantosc~",
+        "evi.paf~",
+        "evi.vosim.basic~"
+    ]
 }

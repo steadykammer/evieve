@@ -76,50 +76,6 @@
 	</methodlist>
 	<!--ATTRIBUTES-->
 	<attributelist>
-		<attribute name="compensate" get="1" set="1" type="int" min="0" max="2">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="1" />
-			</attributelist>
-		</attribute>
-		<attribute name="dc" get="1" set="1" type="int" min="0" max="3">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="1" />
-			</attributelist>
-		</attribute>
-		<attribute name="oscillator" get="1" set="1" type="int" min="0" max="2">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="1" />
-			</attributelist>
-		</attribute>
-		<attribute name="oversample" get="1" set="1" type="int" min="0" max="3">
-			<digest>
-				
-			</digest>
-			<description>
-				
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="1" />
-			</attributelist>
-		</attribute>
 	</attributelist>
 	<!--EXAMPLE-->
 	<examplelist>

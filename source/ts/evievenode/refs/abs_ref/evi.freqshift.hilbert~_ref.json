@@ -15,7 +15,7 @@
             "id": 1,
             "type": "signal",
             "digest": "Audio Input / (messages) messages / attributes",
-            "description": "Audio input to filter."
+            "description": "Audio input to shift."
         },
         {
             "id": 2,
@@ -154,6 +154,7 @@
     "seealso": [
         "evi.freqshift.weaver~",
         "evi.hilbert~",
-        "evi.polyphaseiirhilbertcoeffs"
+        "evi.polyphaseiirhilbertcoeffs",
+        "evi.sinfold~"
     ]
 }
