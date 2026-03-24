@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
 <c74object name="evi.cfsmooth~" module="evieve-ref" category="evieve">
-  <digest>Signal smoother particularly well suited to smoothing cutoff frequencies</digest>
+  <digest>Signal smoother particularly well suited to smoothing filter cutoff frequencies</digest>
   <description>Based on Andy Simper's smoother, evi.cfsmooth~ tracks the input value via the bandpass output of an SVF filter and logarithmically updates. Smoothing is specified in both ramp time (ms) and filter cutoff (Hz).</description>
   <metadatalist>
     <metadata name="author">Pete Dowling</metadata>

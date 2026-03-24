@@ -3354,6 +3354,7 @@ async function testPeggySideBar(fullPathToTest: string)
 
 // very stupid and dangerous pete style package building
 
+// bug, two internal folders not copied: algoresources & helpresources. why ?!?!
 function buildPackage(dest?: string, zip = false)
 {
 	const source = "../../../../../evieve";
@@ -3365,8 +3366,9 @@ function buildPackage(dest?: string, zip = false)
 		recursive: true,
 		verbatimSymlinks: true,
 		filter: src => {
-			return !(src.indexOf('source') > -1) && 
-			!(src.indexOf('build') > -1) && 
+			// (src.indexOf('source') > -1)
+			return !(src.search(/\bsource\b/) > -1) && 
+			!(src.search(/\bbuild\b/) > -1) && 
 			!(src.indexOf('package-info.json.in') > -1) && 
 			!(src.indexOf('CMakeLists.txt') > -1) &&
 			!(src.indexOf('.git') > -1) &&

@@ -9,7 +9,7 @@
 		<b>evi.skfinputmix~</b> is a 'max define' for the <o>evi_skfinputmix</o>.gendsp gen~ abstraction.
 		Because evi.skfinputmix~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		<br />
-		A special kind of input mixing filter, where the multimode nature of the filter is provided by it's simultaneous inputs rather than on outputs. By default the inputs are mixed by the @mix attribute and therefore has the effect of output mixing a standard multimode SVF. However if disabling the @mixenable attribute the inputs are 'always on', and can therefore be sequenced externally in interesting ways. This Sallen Key input mixer has excellent performance across a full range of cutoff frequencies. The filter is nonlinear and can take any sort of input. <br />
+		A special kind of input mixing filter, where the multimode nature of the filter is provided by it's simultaneous inputs rather than on outputs. By default the inputs are mixed by the @mix attribute and therefore has the effect of output mixing a standard multimode Sallen Key. However if disabling the @mixenable attribute the inputs are 'always on', and can therefore be sequenced externally in interesting ways. This Sallen Key input mixer has excellent performance across a full range of cutoff frequencies. The filter is nonlinear and can take any sort of input. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>

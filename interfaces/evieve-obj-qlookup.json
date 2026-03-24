@@ -112,7 +112,7 @@
         "seealso": [ "evi.butterworthlp6~", "evi.filter~", "evi.biquad.butterworth~" ]
     },
     "evi.cfsmooth~": {
-        "digest": "Signal smoother particularly well suited to smoothing cutoff frequencies",
+        "digest": "Signal smoother particularly well suited to smoothing filter cutoff frequencies",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Objects" ],
         "keywords": [ "smooth", "ramp" ],

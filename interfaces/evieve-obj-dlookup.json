@@ -81,7 +81,7 @@
     },
     "evi.cfsmooth~": {
         "type": "external",
-        "digest": "Signal smoother particularly well suited to smoothing cutoff frequencies",
+        "digest": "Signal smoother particularly well suited to smoothing filter cutoff frequencies",
         "description": "Based on Andy Simper's smoother, evi.cfsmooth~ tracks the input value via the bandpass output of an SVF filter and logarithmically updates. Smoothing is specified in both ramp time (ms) and filter cutoff (Hz)."
     },
     "evi.chorus.digital~": {
@@ -572,7 +572,7 @@
     "evi.skfinputmix~": {
         "type": "define",
         "digest": "Sallen-Key input mixing multimode filter",
-        "description": "evi.skfinputmix~ is a 'max define' for the evi_skfinputmix.gendsp gen~ abstraction. Because evi.skfinputmix~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA special kind of input mixing filter, where the multimode nature of the filter is provided by it's simultaneous inputs rather than on outputs. By default the inputs are mixed by the @mix attribute and therefore has the effect of output mixing a standard multimode SVF. However if disabling the @mixenable attribute the inputs are 'always on', and can therefore be sequenced externally in interesting ways. This Sallen Key input mixer has excellent performance across a full range of cutoff frequencies. The filter is nonlinear and can take any sort of input."
+        "description": "evi.skfinputmix~ is a 'max define' for the evi_skfinputmix.gendsp gen~ abstraction. Because evi.skfinputmix~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA special kind of input mixing filter, where the multimode nature of the filter is provided by it's simultaneous inputs rather than on outputs. By default the inputs are mixed by the @mix attribute and therefore has the effect of output mixing a standard multimode Sallen Key. However if disabling the @mixenable attribute the inputs are 'always on', and can therefore be sequenced externally in interesting ways. This Sallen Key input mixer has excellent performance across a full range of cutoff frequencies. The filter is nonlinear and can take any sort of input."
     },
     "evi.softclip~": {
         "type": "define",
