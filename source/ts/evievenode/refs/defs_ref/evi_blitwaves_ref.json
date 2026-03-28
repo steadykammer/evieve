@@ -5,8 +5,8 @@
         "category": "evieve",
         "tilde": "~",
         "digest": "No aliasing BLIT oscillators with a choice of simultaneous wave shapes outputs",
-        "description": "TEXT_HERE",
-        "discussion": ""
+        "description": "No aliasing classic synth wave shapes, DSF-BLIT-like algorithm, sweep/modulation works with no noise, and cheap. Good for subtractive synthesis because we stay very bright right up to nyquist, but no hard sync.",
+        "discussion": "Also known as 'the pathological blitwaves' © JKC."
     },
     "metadata": {
         "author": "Pete Dowling",
@@ -22,19 +22,19 @@
             "id": 1,
             "type": "signal/float",
             "digest": "Frequency in Hz",
-            "description": ""
+            "description": "Oscillator frequency in Hz."
         },
         {
             "id": 2,
             "type": "signal/float",
             "digest": "Pulse Width 0..1 @default 0.5",
-            "description": ""
+            "description": "PWM 0..1 for wave shapes that use it (RECT, TRI and Train)"
         },
         {
             "id": 3,
             "type": "signal",
             "digest": "Naive Reset",
-            "description": ""
+            "description": "Naive phase reset, not anti-aliased."
         }
     ],
     "outlets": [
@@ -42,37 +42,37 @@
             "id": 1,
             "type": "signal",
             "digest": "SAW",
-            "description": ""
+            "description": "Anti-aliased Saw wave oscillator."
         },
         {
             "id": 2,
             "type": "signal",
             "digest": "RECT",
-            "description": ""
+            "description": "Anti-aliased Rect wave oscillator."
         },
         {
             "id": 3,
             "type": "signal",
             "digest": "TRI",
-            "description": ""
+            "description": "Anti-aliased Tri wave oscillator."
         },
         {
             "id": 4,
             "type": "signal",
             "digest": "SINE (if param addsine set)",
-            "description": ""
+            "description": "Analog Sine wave oscillator with harmonics, output if @addsine attribute set to on."
         },
         {
             "id": 5,
             "type": "signal",
             "digest": "Train 0/1 (if param addtrain set)",
-            "description": ""
+            "description": "Naive Train (rectified naive square) wave oscillator, output if @addtrain attribute set to on."
         },
         {
             "id": 6,
             "type": "signal",
             "digest": "Sync 0..1 (if param addsync set)",
-            "description": ""
+            "description": "Global phase sync output 0..1, output if @addsync attribute set to on."
         }
     ],
     "messages": [
@@ -87,7 +87,7 @@
                 }
             ],
             "digest": "Top level gen~ [history] / History() declarations can be reset by messages to the object",
-            "description": ""
+            "description": false
         }
     ],
     "attributes": [
@@ -95,8 +95,8 @@
             "name": "addsine",
             "get": 1,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Flag 0/1",
+            "description": "0 = SINE off, 1 = SINE on out of outlet 4 (CPU management)",
             "default": {
                 "min": "0",
                 "max": "1",
@@ -107,8 +107,8 @@
             "name": "addsync",
             "get": 1,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Select 0, 1, 2",
+            "description": "0 = off, 1 = main phase output out of outlet 6, 2 = pwm phase output out of outlet 6",
             "default": {
                 "min": "0",
                 "max": "2",
@@ -119,8 +119,8 @@
             "name": "addtrain",
             "get": 1,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Select 0, 1, 2",
+            "description": "0 = off, 1 = train based on main phase out of outlet 5, 2 = train based on pwm phase out of outlet 5",
             "default": {
                 "min": "0",
                 "max": "2",
@@ -131,8 +131,8 @@
             "name": "smooth",
             "get": 1,
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "Time in ms",
+            "description": "Internal parameters smoothed by this time in ms. Turn off (0) for audio rate modulation of inlets 1 and 2",
             "default": {
                 "min": "0",
                 "max": "333",
@@ -144,5 +144,5 @@
         "caption": "",
         "image": ""
     },
-    "seealso": []
+    "seealso": ["evi.4wave~", "evi.classic.osc~", "evi.morph.trap~"]
 }

@@ -5,7 +5,7 @@
         "category": "evieve",
         "tilde": "~",
         "digest": "A selection of 'classic' oscillator shapes",
-        "description": "TEXT_HERE",
+        "description": "Provides classic oscillator shapes (sine, tri, saw, rect) using a 2-point polyblep algorithm. Optionally including PWM versions (@type attribute). Also offers high frequency loss compensation filters and rudimentary oversampling. An experimental dynamic DC control is included, allowing for simultaneous use as LFOs and audio rate oscillators.",
         "discussion": ""
     },
     "metadata": {
@@ -13,7 +13,6 @@
         "tags": []
     },
     "includes": [
-        "evi_polyblep.genexpr",
         "evi_polyblep_two.genexpr",
         "evi_polyblep_utility.genexpr"
     ],
@@ -22,19 +21,19 @@
             "id": 1,
             "type": "signal/float",
             "digest": "Frequency in Hz",
-            "description": ""
+            "description": "Oscillator frequency in Hz."
         },
         {
             "id": 2,
             "type": "signal/float",
             "digest": "Pulse Width 0..1 if type attr == 1 @default 0.5 @min 0 @max 1",
-            "description": ""
+            "description": "PWM 0..1 if @type attribute set to on (1)."
         },
         {
             "id": 3,
             "type": "signal",
             "digest": "Sync Phasor @default 0 @min 0 @max 1",
-            "description": ""
+            "description": "External sync for internal oscillator sync. Note this is not fully implemented yet and might not be anti-aliased."
         }
     ],
     "outlets": [
@@ -42,19 +41,19 @@
             "id": 1,
             "type": "signal",
             "digest": "Oscillator",
-            "description": ""
+            "description": "The oscillator output."
         },
         {
             "id": 2,
             "type": "signal",
             "digest": "Phase",
-            "description": ""
+            "description": "The oscillator internal phase 0..1"
         },
         {
             "id": 3,
             "type": "signal",
             "digest": "Sync",
-            "description": ""
+            "description": "The oscillator phase sync signal 0/1"
         }
     ],
     "messages": [],
@@ -63,8 +62,8 @@
             "name": "compensate",
             "get": 1,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Select 0, 1, 2",
+            "description": "High frequency (decorrelation) compensation filters, 0=off, 1=1st order, 2=2nd order. This can account for high frequency loss due to anti-aliasing, e.g. restore brightness to the top end.",
             "default": {
                 "min": "0",
                 "max": "2",
@@ -75,8 +74,8 @@
             "name": "dc",
             "get": 1,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Select 0, 1, 2, 3",
+            "description": "Select DC behaviour. DC Blocking can be optionally dynamic. 0=off (no dc blocking, e.g. if only using at LFO rates), 1=on (standard dc blocking, if only using as audio rate oscillators), 2=auto for lfos (if using dynamically < 20Hz and < 4kHz), 3=auto for oscillators (if using < 20Hz and > 4kHz). Ultimately, the usefulness and effectiveness of this will vary depending on use case, and should be considered somewhat experimental.",
             "default": {
                 "min": "0",
                 "max": "3",
@@ -87,8 +86,8 @@
             "name": "oscillator",
             "get": 1,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Select 0, 1, 2, 3",
+            "description": "Select oscillator type, 0=sine, 1=tri, 2=saw, 3=rect.",
             "default": {
                 "min": "0",
                 "max": "3",
@@ -99,8 +98,8 @@
             "name": "oversample",
             "get": 1,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Select 0, 1, 2, 3",
+            "description": "The oversampling is not very good and not very useful. It will be updated in a future version of evieve. 0=1x, 1=2x (default), 2=4x, 3=8x.",
             "default": {
                 "min": "0",
                 "max": "3",
@@ -111,8 +110,8 @@
             "name": "type",
             "get": 1,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Flag 0/1",
+            "description": "If @type is on (1) the waveshapes switch to a dynamic version that accepts pulse width control. If off (0, the default), the waveshape is a static version only.",
             "default": {
                 "min": "0",
                 "max": "1",
@@ -124,5 +123,5 @@
         "caption": "",
         "image": ""
     },
-    "seealso": []
+    "seealso": ["evi.sine.select~", "evi.tri.select~", "evi.saw.select~", "evi.rect.select~", "evi.4wave~", "evi.blitwaves~"]
 }

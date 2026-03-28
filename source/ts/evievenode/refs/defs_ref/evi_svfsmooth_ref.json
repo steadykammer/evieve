@@ -5,7 +5,7 @@
         "category": "evieve",
         "tilde": "~",
         "digest": "Nonlinear TPT SVF filter with audio rate modulation and morphing capabilities",
-        "description": "A cheap nonlinear 12dB multimode SVF for when you need a quick cheap synth filter. Morphing is between LP..BP..HP filters and is basic output-mixing with resonance attenuation, available at the far left outlet 1. All filters are also available individually via their multimode outlets 2, 3, 4 and 5 (lowpass, bandpass, highpass, notch).",
+        "description": "A cheap nonlinear 12dB multimode SVF for when you need a quick cheap synth filter. Morphing is between LP..BP..HP filters and is basic output-mixing with resonance attenuation, available at the far left outlet (1). All filters are also available individually via their multimode outlets 2, 3, 4 and 5 (lowpass, bandpass, highpass, notch).",
         "discussion": "For more information about other nonlinear SVF filters in evieve, see the 'evieve svf' tab of the helpfile."
     },
     "metadata": {

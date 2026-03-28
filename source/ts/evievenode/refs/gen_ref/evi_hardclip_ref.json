@@ -46,7 +46,7 @@
             "name": "limit",
             "type": "float",
             "digest": "@min 0.9, @max 1.1",
-            "description": "false",
+            "description": false,
             "default": {
                 "type": "float",
                 "value": "1."

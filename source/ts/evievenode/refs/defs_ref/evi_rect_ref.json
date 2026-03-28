@@ -5,15 +5,14 @@
         "category": "evieve",
         "tilde": "~",
         "digest": "High quality anti-aliased square wave oscillator with PWM",
-        "description": "TEXT_HERE",
-        "discussion": ""
+        "description": "Simple anti-aliased square wave oscillator with PWM, based on 4-point polyblep algorithm. The highest quality of the evieve polyblep oscillators. Including high frequency compensation.",
+        "discussion": "See <o>evi.4wave~</o> for a multi wave version which includes this oscillator and other shapes."
     },
     "metadata": {
         "author": "Pete Dowling",
         "tags": []
     },
     "includes": [
-        "evi_polyblep.genexpr",
         "evi_polyblep_four.genexpr",
         "evi_polyblep_utility.genexpr"
     ],
@@ -22,19 +21,19 @@
             "id": 1,
             "type": "signal/float",
             "digest": "Frequency in Hz @min 0",
-            "description": ""
+            "description": "Oscillator frequency in Hz."
         },
         {
             "id": 2,
             "type": "signal/float",
             "digest": "PWM 0..1 @min 0 @max 1 @default 0.5",
-            "description": ""
+            "description": "Pulse Width normalised 0..1, 0.5 = square."
         },
         {
             "id": 3,
             "type": "signal",
             "digest": "Reset (Naive)",
-            "description": ""
+            "description": "Oscillator phase reset, naive and not anti-aliased."
         }
     ],
     "outlets": [
@@ -42,7 +41,7 @@
             "id": 1,
             "type": "signal",
             "digest": "Anti Aliased Rect Oscillator",
-            "description": ""
+            "description": "Anti Aliased Rect Oscillator"
         }
     ],
     "messages": [],
@@ -51,5 +50,5 @@
         "caption": "",
         "image": ""
     },
-    "seealso": []
+    "seealso": ["evi.saw~", "evi.tri~", "evi.4wave~", "ev.rect.select~", "evi.blitwaves~"]
 }

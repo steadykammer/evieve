@@ -50,7 +50,7 @@
             "get": 1,
             "type": "float",
             "digest": "Do not use 'limit'",
-            "description": "false",
+            "description": false,
             "default": {
                 "min": "0.9",
                 "max": "1.1",

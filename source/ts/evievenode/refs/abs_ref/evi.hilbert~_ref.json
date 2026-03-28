@@ -35,7 +35,7 @@
     "arguments": [],
     "messages": [
         {
-            "name": "anything",
+            "name": "coeffs",
             "arg": [
                 {
                     "name": "coeffs",
