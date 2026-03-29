@@ -5,7 +5,7 @@
         "category": "evieve",
         "tilde": "~",
         "digest": "A basic implementation of a 'vosim' formant oscillator",
-        "description": "TEXT_HERE",
+        "description": "This is a 'raw' formant oscillator with low level controls capable of modelling the human voice, typically used in a bank of multiple oscillators to do so. However single <o>evi.vosim.basic~</o> instances can provide novel oscillators for more generic synthesis, and is capable of ringing filtered-like tones. The VOSIM algorithm is inherently bandlimited.",
         "discussion": ""
     },
     "metadata": {
@@ -18,31 +18,31 @@
             "id": 1,
             "type": "signal/float",
             "digest": "T: Pulse Width in ms",
-            "description": ""
+            "description": "The width of a single pulse that makes up a formant. A typical use case is to control this parameter simultaneously with 'M' (inlet 2), for example on an XY pad."
         },
         {
             "id": 2,
             "type": "signal/float",
             "digest": "M: Delay in ms",
-            "description": ""
+            "description": "The delay at the end of a series of pulses, before the next formant is triggered. A typical use case is to control this parameter simultaneously with 'T' (inlet 1), for example on an XY pad."
         },
         {
             "id": 3,
             "type": "signal/int",
             "digest": "N: # of Pulses",
-            "description": ""
+            "description": "The number of pulses used to create a single formant."
         },
         {
             "id": 4,
             "type": "signal/float",
             "digest": "A: Amplitude",
-            "description": ""
+            "description": "The amplitude of the first pulse of the formant. A typical use case is to control this parameter simultaneously with '∂A' (inlet 5), for example on an XY pad."
         },
         {
             "id": 5,
             "type": "signal/float",
             "digest": "∂A: inc/dec (decay)",
-            "description": ""
+            "description": "The decay window over which the series of pulses envelope the formant. A typical use case is to control this parameter simultaneously with 'A' (inlet 4), for example on an XY pad."
         }
     ],
     "outlets": [
@@ -50,13 +50,13 @@
             "id": 1,
             "type": "signal",
             "digest": "VOSIM-like Oscillator",
-            "description": ""
+            "description": "The oscillator output."
         },
         {
             "id": 2,
             "type": "signal",
             "digest": "Computed Frequency in Hz",
-            "description": ""
+            "description": "The frequency is a result of the lower level input parameters and is outlet here for further processing downstream."
         }
     ],
     "messages": [],
@@ -65,5 +65,13 @@
         "caption": "",
         "image": ""
     },
-    "seealso": []
+    "seealso": [
+        "evi.formantosc~",
+        "evi.paf~",
+        "evi.4wave~",
+        "evi.blitwaves~",
+        "evi.lockhart.cascade~",
+        "evi.freqshift.weaver~",
+        "evi.ringmod~"
+    ]
 }

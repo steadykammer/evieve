@@ -110,5 +110,11 @@
         "caption": "",
         "image": ""
     },
-    "seealso": ["evi.sine.select~", "evi.tri.select~", "evi.saw.select~", "evi.4wave~", "evi.blitwaves~"]
+    "seealso": [
+        "evi.sine.select~",
+        "evi.tri.select~",
+        "evi.saw.select~",
+        "evi.4wave~",
+        "evi.blitwaves~"
+    ]
 }

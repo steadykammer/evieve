@@ -49,7 +49,7 @@
 	</objarglist>
 	<!--MESSAGES-->
 	<methodlist>
-		<method name="anything">
+		<method name="coeffs">
 			<arglist>
 				<arg name="coeffs" type="symbol" units="utility" optional="1" />
 			</arglist>

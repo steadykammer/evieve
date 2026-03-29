@@ -4,7 +4,7 @@
         "child": "evi.morph.trap~",
         "category": "evieve",
         "digest": "A selection of morphing trapezoidal anti-aliased oscillators",
-        "description": "TEXT_HERE"
+        "description": "An oscillator with multiple optional shapes, each based around the same trapezoid wave but each with different morphing capabilities. Each shape option is phase synchronous and can be sample accurately switched at 'Morph' == 0.5. Also offers high frequency loss compensation filters and rudimentary oversampling. An experimental dynamic DC control is included, allowing for simultaneous use as LFOs and audio rate oscillators."
     },
     "constructor": {
         "inlets": "frequency, morph, sync"
@@ -21,7 +21,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "in Hz",
-            "digest": ""
+            "digest": "Oscillator frequency in Hz."
         },
         {
             "id": 2,
@@ -29,7 +29,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "0..1 @default 0.5 @min 0 @max 1",
-            "digest": ""
+            "digest": "The main oscillator shape morphing control, normalised 0..1. The effect depends on which @oscillator type is selected. 0.5 is always the same trapezoid shape regardless of @oscillator."
         },
         {
             "id": 3,
@@ -37,7 +37,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Phasor @default 0 @min 0 @max 1",
-            "digest": ""
+            "digest": "External sync for internal oscillator sync. Note this is not fully implemented yet and might not be anti-aliased."
         }
     ],
     "outlets": [
@@ -46,21 +46,21 @@
             "name": "oscillator",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "The oscillator output."
         },
         {
             "id": 2,
             "name": "phase",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "The oscillator internal phase 0..1"
         },
         {
             "id": 3,
             "name": "sync",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "The oscillator phase sync signal 0/1"
         }
     ],
     "attributes": [
@@ -68,7 +68,7 @@
             "name": "compensate",
             "type": "int",
             "digest": "@min 0, @max 2",
-            "description": "",
+            "description": "High frequency (decorrelation) compensation filters, 0=off, 1=1st order, 2=2nd order. This can account for high frequency loss due to anti-aliasing, e.g. restore brightness to the top end.",
             "default": {
                 "type": "int",
                 "value": "1"
@@ -78,7 +78,7 @@
             "name": "dc",
             "type": "int",
             "digest": "@min 0, @max 3",
-            "description": "",
+            "description": "Select DC behaviour. DC Blocking can be optionally dynamic. 0=off (no dc blocking, e.g. if only using at LFO rates), 1=on (standard dc blocking, if only using as audio rate oscillators), 2=auto for lfos (if using dynamically < 20Hz and < 4kHz), 3=auto for oscillators (if using < 20Hz and > 4kHz). Ultimately, the usefulness and effectiveness of this will vary depending on use case, and should be considered somewhat experimental.",
             "default": {
                 "type": "int",
                 "value": "1"
@@ -88,7 +88,7 @@
             "name": "oscillator",
             "type": "int",
             "digest": "@min 0, @max 3",
-            "description": "",
+            "description": "Select oscillator shape. 0=trirect, 1=sawpulse, 2=pulsetrirect, 3=pulsetrisquare (default)",
             "default": {
                 "type": "int",
                 "value": "3"
@@ -98,7 +98,7 @@
             "name": "oversample",
             "type": "int",
             "digest": "@min 0, @max 3",
-            "description": "",
+            "description": "The oversampling is not very good and not very useful. It will be updated in a future version of evieve. 0=1x, 1=2x (default), 2=4x, 3=8x.",
             "default": {
                 "type": "int",
                 "value": "1"
@@ -107,8 +107,32 @@
     ],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_morph_tri",
+            "display": "evi_morph_tri"
+        },
+        {
+            "name": "evi_sine_select",
+            "display": "evi_sine_select"
+        },
+        {
+            "name": "evi_tri_select",
+            "display": "evi_tri_select"
+        },
+        {
+            "name": "evi_saw_select",
+            "display": "evi_saw_select"
+        },
+        {
+            "name": "evi_rect_select",
+            "display": "evi_rect_select"
+        },
+        {
+            "name": "evi_4wave",
+            "display": "evi_4wave"
+        },
+        {
+            "name": "evi_blitwaves",
+            "display": "evi_blitwaves"
         }
     ]
 }

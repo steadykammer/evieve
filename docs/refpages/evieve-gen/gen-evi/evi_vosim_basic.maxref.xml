@@ -10,7 +10,7 @@
                  <br />
         evi_vosim_basic is also available in MSP as: <o>evi.vosim.basic~</o>. <br />
          <br />
-	    TEXT_HERE <br />
+	    This is a 'raw' formant oscillator with low level controls capable of modelling the human voice, typically used in a bank of multiple oscillators to do so. However single <o>evi.vosim.basic~</o> instances can provide novel oscillators for more generic synthesis, and is capable of ringing filtered-like tones. The VOSIM algorithm is inherently bandlimited. <br />
     </description>
     <methodlist />
     <constructorlist>
@@ -23,27 +23,27 @@
     <geninletlist>
         <geninlet name='t:' type='float' optional='1'>
             <digest>
-                Pulse Width in ms. 
+                Pulse Width in ms. The width of a single pulse that makes up a formant. A typical use case is to control this parameter simultaneously with &#x27;M&#x27; (inlet 2), for example on an XY pad.
             </digest>
         </geninlet>
         <geninlet name='m:' type='float' optional='1'>
             <digest>
-                Delay in ms. 
+                Delay in ms. The delay at the end of a series of pulses, before the next formant is triggered. A typical use case is to control this parameter simultaneously with &#x27;T&#x27; (inlet 1), for example on an XY pad.
             </digest>
         </geninlet>
         <geninlet name='n:' type='float' optional='1'>
             <digest>
-                # of Pulses. 
+                # of Pulses. The number of pulses used to create a single formant.
             </digest>
         </geninlet>
         <geninlet name='a:' type='float' optional='1'>
             <digest>
-                Amplitude. 
+                Amplitude. The amplitude of the first pulse of the formant. A typical use case is to control this parameter simultaneously with &#x27;∂A&#x27; (inlet 5), for example on an XY pad.
             </digest>
         </geninlet>
         <geninlet name='∂a:' type='float' optional='1'>
             <digest>
-                inc/dec (decay). 
+                inc/dec (decay). The decay window over which the series of pulses envelope the formant. A typical use case is to control this parameter simultaneously with &#x27;A&#x27; (inlet 4), for example on an XY pad.
             </digest>
         </geninlet>
     </geninletlist>
@@ -55,6 +55,11 @@
         <metadata name="tag">GenDsp</metadata>
     </metadatalist>
     <seealsolist>
-        <seealso name='' display='' type='genrefpage' />
+        <seealso name='evi_paf' display='evi_paf' type='genrefpage' />
+        <seealso name='evi_4wave' display='evi_4wave' type='genrefpage' />
+        <seealso name='evi_blitwaves' display='evi_blitwaves' type='genrefpage' />
+        <seealso name='evi_lockhart_cascade' display='evi_lockhart_cascade' type='genrefpage' />
+        <seealso name='evi_freqshift_weaver' display='evi_freqshift_weaver' type='genrefpage' />
+        <seealso name='evi_ringmod' display='evi_ringmod' type='genrefpage' />
     </seealsolist>
 </c74object>

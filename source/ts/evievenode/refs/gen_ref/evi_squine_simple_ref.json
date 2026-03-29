@@ -4,7 +4,7 @@
         "child": "evi.squine.simple~",
         "category": "evieve",
         "digest": "A basic implementation of Rasmus Ekman's 'squine wave' oscillator with audio rate modulation",
-        "description": "TEXT_HERE"
+        "description": "An extremely versatile phase modulation oscillator which can morph shape and does not alias (up to a certain point). Inlets are available for linear and logarithmic FM modulation, as well as optionally audio rate control over the shape morphing."
     },
     "constructor": {
         "inlets": "freq, pitch, freq, harmonics, duty"
@@ -17,7 +17,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "in Hz or Pitch",
-            "digest": ""
+            "digest": "Oscillator frequency in Hz or Pitch depending on @freqmode attribute."
         },
         {
             "id": 2,
@@ -25,7 +25,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Mod @default 0.",
-            "digest": ""
+            "digest": "FM the oscillator frequency, in Pitch units."
         },
         {
             "id": 3,
@@ -33,7 +33,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "(Hz) Mod @default 0.",
-            "digest": ""
+            "digest": "FM the oscillator frequency, in Hz units."
         },
         {
             "id": 4,
@@ -41,7 +41,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "0..1 @default 0.5",
-            "digest": ""
+            "digest": "One of two main wave shaping controls along with inlet 5. Harmonics normalised 0..1. At 0, no harmonics are added and the output is sine-wave-like (if inlet 5 'duty cycle' is set at it's default 0.5). Increasing this value gradually adds harmonics to the waveform as it morphs from sine-like to square-wave-like."
         },
         {
             "id": 5,
@@ -49,7 +49,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Cycle 0..1 @default 0.5",
-            "digest": ""
+            "digest": "One of two main wave shaping controls along with inlet 4. PWM normalised 0..1. Shifts the waveform from negative to positive saw-wave-like through the shape created by inlet 4 ('harmonics')."
         }
     ],
     "outlets": [
@@ -58,21 +58,21 @@
             "name": "phase",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "The oscillator output."
         },
         {
             "id": 2,
             "name": "phasemod",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Oscillator phase sync 0..1 post phase modulation."
         },
         {
             "id": 3,
             "name": "phaseraw",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Oscillator phase sync 0..1 raw (no modulation)."
         }
     ],
     "attributes": [
@@ -109,8 +109,32 @@
     ],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_paf",
+            "display": "evi_paf"
+        },
+        {
+            "name": "evi_vosim_basic",
+            "display": "evi_vosim_basic"
+        },
+        {
+            "name": "evi_4wave",
+            "display": "evi_4wave"
+        },
+        {
+            "name": "evi_blitwaves",
+            "display": "evi_blitwaves"
+        },
+        {
+            "name": "evi_lockhart_cascade",
+            "display": "evi_lockhart_cascade"
+        },
+        {
+            "name": "evi_freqshift_weaver",
+            "display": "evi_freqshift_weaver"
+        },
+        {
+            "name": "evi_ringmod",
+            "display": "evi_ringmod"
         }
     ]
 }

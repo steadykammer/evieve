@@ -13,7 +13,7 @@
          <br />
         evi_paf is also available in MSP as: <o>evi.paf~</o>. <br />
          <br />
-	    TEXT_HERE <br />
+	    'PAF' (phase aligned formant) is an oscillator that can model the human voice. Typically multiple PAF oscillators make up a formant model, as in <o>evi.formantosc~</o>. However single <o>evi.paf~</o> instances can provide novel oscillators for more generic synthesis. The formant is controlled by frequency (inlet 2) and bandwidth (inlet 3). In this model the PAF is approximated by adding two 'wavepackets' together, which are also available separately on auxilliary outputs. The PAF algorithm is inherently bandlimited. <br />
     </description>
     <methodlist />
     <constructorlist>
@@ -26,22 +26,22 @@
     <geninletlist>
         <geninlet name='fundamental' type='float' optional='1'>
             <digest>
-                Frequency in Hz. 
+                Frequency in Hz. The fundamental frequency of the oscillator in Hz.
             </digest>
         </geninlet>
         <geninlet name='cf' type='float' optional='1'>
             <digest>
-                in Hz @min 0 @max 18000 @default 440.. 
+                in Hz @min 0 @max 18000 @default 440.. The frequency of the formant above the fundamental.
             </digest>
         </geninlet>
         <geninlet name='bw' type='float' optional='1'>
             <digest>
-                in Hz @min 0 @max 18000 @default 110.. 
+                in Hz @min 0 @max 18000 @default 110.. The bandwidth in Hz of the formant above the fundamental.
             </digest>
         </geninlet>
         <geninlet name='reset' type='float' optional='1'>
             <digest>
-                Phase (do not use). 
+                Phase (do not use). Naive reset of the oscillator phase.
             </digest>
         </geninlet>
     </geninletlist>
@@ -53,6 +53,11 @@
         <metadata name="tag">GenDsp</metadata>
     </metadatalist>
     <seealsolist>
-        <seealso name='' display='' type='genrefpage' />
+        <seealso name='evi_vosim_basic' display='evi_vosim_basic' type='genrefpage' />
+        <seealso name='evi_4wave' display='evi_4wave' type='genrefpage' />
+        <seealso name='evi_blitwaves' display='evi_blitwaves' type='genrefpage' />
+        <seealso name='evi_lockhart_cascade' display='evi_lockhart_cascade' type='genrefpage' />
+        <seealso name='evi_freqshift_weaver' display='evi_freqshift_weaver' type='genrefpage' />
+        <seealso name='evi_ringmod' display='evi_ringmod' type='genrefpage' />
     </seealsolist>
 </c74object>

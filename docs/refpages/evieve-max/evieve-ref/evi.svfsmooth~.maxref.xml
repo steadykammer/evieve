@@ -9,7 +9,7 @@
 		<b>evi.svfsmooth~</b> is a 'max define' for the <o>evi_svfsmooth</o>.gendsp gen~ abstraction.
 		Because evi.svfsmooth~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		<br />
-		A cheap nonlinear 12dB multimode SVF for when you need a quick cheap synth filter. Morphing is between LP..BP..HP filters and is basic output-mixing with resonance attenuation, available at the far left outlet 1. All filters are also available individually via their multimode outlets 2, 3, 4 and 5 (lowpass, bandpass, highpass, notch). <br />
+		A cheap nonlinear 12dB multimode SVF for when you need a quick cheap synth filter. Morphing is between LP..BP..HP filters and is basic output-mixing with resonance attenuation, available at the far left outlet (1). All filters are also available individually via their multimode outlets 2, 3, 4 and 5 (lowpass, bandpass, highpass, notch). <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>

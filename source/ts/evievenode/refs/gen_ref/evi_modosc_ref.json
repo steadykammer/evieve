@@ -4,7 +4,7 @@
         "child": "evi.modosc~",
         "category": "evieve",
         "digest": "A deluxe cosine LFO with range and offset shaping",
-        "description": "TEXT_HERE"
+        "description": "A simple sine oscillator for modulation purposes with sample accurate & clickless automatic phase reset when Hz input == 0, along with range and offset mapping."
     },
     "constructor": {
         "inlets": "frequency, signal"
@@ -19,7 +19,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "in Hz +/-",
-            "digest": ""
+            "digest": "Any frequency in Hz."
         },
         {
             "id": 2,
@@ -27,7 +27,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Rate Phase Reset (Naive)",
-            "digest": ""
+            "digest": "Reset internal phase of oscillator."
         }
     ],
     "outlets": [
@@ -36,7 +36,7 @@
             "name": "modulation",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Modulation signal offset and scaled."
         }
     ],
     "attributes": [
@@ -44,7 +44,7 @@
             "name": "freqsmooth",
             "type": "float",
             "digest": "@min 0, @max 666",
-            "description": "",
+            "description": "Smooth the input frequency (inlet 1) by this amount in ms. Turn off (0) if audio rate modulating ine inlet.",
             "default": {
                 "type": "float",
                 "value": "20."
@@ -54,7 +54,7 @@
             "name": "offset",
             "type": "float",
             "digest": "",
-            "description": "",
+            "description": "Offset the output oscillator value by this amount.",
             "default": {
                 "type": "float",
                 "value": "0.\t\t\t\t\t\t\t\t"
@@ -64,7 +64,7 @@
             "name": "resetauto",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Automatic zero phase reset off/on, default on.",
             "default": {
                 "type": "int",
                 "value": "1"
@@ -74,7 +74,7 @@
             "name": "scale",
             "type": "float",
             "digest": "@min 0",
-            "description": "",
+            "description": "Scale the output oscillator range between 0 and this amount. Note the oscillator is bipolar.",
             "default": {
                 "type": "float",
                 "value": "1."
@@ -84,7 +84,7 @@
             "name": "smooth",
             "type": "float",
             "digest": "@min 0, @max 333",
-            "description": "",
+            "description": "Smooth the @offset and @scale attributes by this amount in ms.",
             "default": {
                 "type": "float",
                 "value": "22.666"
@@ -93,8 +93,24 @@
     ],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_phasor0",
+            "display": "evi_phasor0"
+        },
+        {
+            "name": "evi_ramp0",
+            "display": "evi_ramp0"
+        },
+        {
+            "name": "evi_randy",
+            "display": "evi_randy"
+        },
+        {
+            "name": "evi_zeroxcount",
+            "display": "evi_zeroxcount"
+        },
+        {
+            "name": "evi_audiodust",
+            "display": "evi_audiodust"
         }
     ]
 }

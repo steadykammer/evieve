@@ -87,7 +87,7 @@
                 }
             ],
             "digest": "Top level gen~ [history] / History() declarations can be reset by messages to the object",
-            "description": false
+            "description": ""
         }
     ],
     "attributes": [
@@ -144,5 +144,9 @@
         "caption": "",
         "image": ""
     },
-    "seealso": ["evi.4wave~", "evi.classic.osc~", "evi.morph.trap~"]
+    "seealso": [
+        "evi.4wave~",
+        "evi.classic.osc~",
+        "evi.morph.trap~"
+    ]
 }

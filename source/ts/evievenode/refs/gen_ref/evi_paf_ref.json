@@ -4,7 +4,7 @@
         "child": "evi.paf~",
         "category": "evieve",
         "digest": "A basic 'paf' formant oscillator, very similar to the legacy 'paf~' external",
-        "description": "TEXT_HERE"
+        "description": "'PAF' (phase aligned formant) is an oscillator that can model the human voice. Typically multiple PAF oscillators make up a formant model, as in <o>evi.formantosc~</o>. However single <o>evi.paf~</o> instances can provide novel oscillators for more generic synthesis. The formant is controlled by frequency (inlet 2) and bandwidth (inlet 3). In this model the PAF is approximated by adding two 'wavepackets' together, which are also available separately on auxilliary outputs. The PAF algorithm is inherently bandlimited."
     },
     "constructor": {
         "inlets": "fundamental, cf, bw, reset"
@@ -19,7 +19,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Frequency in Hz",
-            "digest": ""
+            "digest": "The fundamental frequency of the oscillator in Hz."
         },
         {
             "id": 2,
@@ -27,7 +27,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "in Hz @min 0 @max 18000 @default 440.",
-            "digest": ""
+            "digest": "The frequency of the formant above the fundamental."
         },
         {
             "id": 3,
@@ -35,7 +35,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "in Hz @min 0 @max 18000 @default 110.",
-            "digest": ""
+            "digest": "The bandwidth in Hz of the formant above the fundamental."
         },
         {
             "id": 4,
@@ -43,7 +43,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Phase (do not use)",
-            "digest": ""
+            "digest": "Naive reset of the oscillator phase."
         }
     ],
     "outlets": [
@@ -52,42 +52,62 @@
             "name": "paf",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "The formant oscillator output."
         },
         {
             "id": 2,
             "name": "packet",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "The formant is created by adding two 'wavepackets' together. The two packets are available individually on this outlet and outlet 3, for potentially interesting downstream processing."
         },
         {
             "id": 3,
             "name": "packet",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "The formant is created by adding two 'wavepackets' together. The two packets are available individually on this outlet and outlet 2, for potentially interesting downstream processing."
         },
         {
             "id": 4,
             "name": "phase",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "The two 'wavepackets' are driven by two phases 180 degrees apart. This outlet outputs the 0 phase phasor and outlet 5 outputs the 180 dgrees phasor, for potential downstream processing."
         },
         {
             "id": 5,
             "name": "phase",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "The two 'wavepackets' are driven by two phases 180 degrees apart. This outlet outputs the 180 phase phasor and outlet 4 outputs the 0 dgrees phasor, for potential downstream processing."
         }
     ],
     "attributes": [],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_vosim_basic",
+            "display": "evi_vosim_basic"
+        },
+        {
+            "name": "evi_4wave",
+            "display": "evi_4wave"
+        },
+        {
+            "name": "evi_blitwaves",
+            "display": "evi_blitwaves"
+        },
+        {
+            "name": "evi_lockhart_cascade",
+            "display": "evi_lockhart_cascade"
+        },
+        {
+            "name": "evi_freqshift_weaver",
+            "display": "evi_freqshift_weaver"
+        },
+        {
+            "name": "evi_ringmod",
+            "display": "evi_ringmod"
         }
     ]
 }

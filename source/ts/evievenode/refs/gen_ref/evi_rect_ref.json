@@ -4,7 +4,7 @@
         "child": "evi.rect~",
         "category": "evieve",
         "digest": "High quality anti-aliased square wave oscillator with PWM",
-        "description": "TEXT_HERE"
+        "description": "Simple anti-aliased square wave oscillator with PWM, based on 4-point polyblep algorithm. The highest quality of the evieve polyblep oscillators. Including high frequency compensation."
     },
     "constructor": {
         "inlets": "frequency, pwm, reset"
@@ -21,7 +21,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "in Hz @min 0",
-            "digest": ""
+            "digest": "Oscillator frequency in Hz."
         },
         {
             "id": 2,
@@ -29,7 +29,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "0..1 @min 0 @max 1 @default 0.5",
-            "digest": ""
+            "digest": "Pulse Width normalised 0..1, 0.5 = square."
         },
         {
             "id": 3,
@@ -37,7 +37,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "(Naive)",
-            "digest": ""
+            "digest": "Oscillator phase reset, naive and not anti-aliased."
         }
     ],
     "outlets": [
@@ -46,14 +46,26 @@
             "name": "anti",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Anti Aliased Rect Oscillator"
         }
     ],
     "attributes": [],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_saw",
+            "display": "evi_saw"
+        },
+        {
+            "name": "evi_tri",
+            "display": "evi_tri"
+        },
+        {
+            "name": "evi_4wave",
+            "display": "evi_4wave"
+        },
+        {
+            "name": "evi_blitwaves",
+            "display": "evi_blitwaves"
         }
     ]
 }

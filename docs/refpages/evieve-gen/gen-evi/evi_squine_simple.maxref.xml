@@ -10,7 +10,7 @@
                  <br />
         evi_squine_simple is also available in MSP as: <o>evi.squine.simple~</o>. <br />
          <br />
-	    TEXT_HERE <br />
+	    An extremely versatile phase modulation oscillator which can morph shape and does not alias (up to a certain point). Inlets are available for linear and logarithmic FM modulation, as well as optionally audio rate control over the shape morphing. <br />
     </description>
     <methodlist />
     <constructorlist>
@@ -23,27 +23,27 @@
     <geninletlist>
         <geninlet name='freq' type='float' optional='1'>
             <digest>
-                in Hz or Pitch. 
+                in Hz or Pitch. Oscillator frequency in Hz or Pitch depending on @freqmode attribute.
             </digest>
         </geninlet>
         <geninlet name='pitch' type='float' optional='1'>
             <digest>
-                Mod @default 0.. 
+                Mod @default 0.. FM the oscillator frequency, in Pitch units.
             </digest>
         </geninlet>
         <geninlet name='freq' type='float' optional='1'>
             <digest>
-                (Hz) Mod @default 0.. 
+                (Hz) Mod @default 0.. FM the oscillator frequency, in Hz units.
             </digest>
         </geninlet>
         <geninlet name='harmonics' type='float' optional='1'>
             <digest>
-                0..1 @default 0.5. 
+                0..1 @default 0.5. One of two main wave shaping controls along with inlet 5. Harmonics normalised 0..1. At 0, no harmonics are added and the output is sine-wave-like (if inlet 5 &#x27;duty cycle&#x27; is set at it&#x27;s default 0.5). Increasing this value gradually adds harmonics to the waveform as it morphs from sine-like to square-wave-like.
             </digest>
         </geninlet>
         <geninlet name='duty' type='float' optional='1'>
             <digest>
-                Cycle 0..1 @default 0.5. 
+                Cycle 0..1 @default 0.5. One of two main wave shaping controls along with inlet 4. PWM normalised 0..1. Shifts the waveform from negative to positive saw-wave-like through the shape created by inlet 4 (&#x27;harmonics&#x27;).
             </digest>
         </geninlet>
     </geninletlist>
@@ -88,6 +88,12 @@
         <metadata name="tag">GenDsp</metadata>
     </metadatalist>
     <seealsolist>
-        <seealso name='' display='' type='genrefpage' />
+        <seealso name='evi_paf' display='evi_paf' type='genrefpage' />
+        <seealso name='evi_vosim_basic' display='evi_vosim_basic' type='genrefpage' />
+        <seealso name='evi_4wave' display='evi_4wave' type='genrefpage' />
+        <seealso name='evi_blitwaves' display='evi_blitwaves' type='genrefpage' />
+        <seealso name='evi_lockhart_cascade' display='evi_lockhart_cascade' type='genrefpage' />
+        <seealso name='evi_freqshift_weaver' display='evi_freqshift_weaver' type='genrefpage' />
+        <seealso name='evi_ringmod' display='evi_ringmod' type='genrefpage' />
     </seealsolist>
 </c74object>

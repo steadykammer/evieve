@@ -9,7 +9,7 @@
 		<b>evi.tri~</b> is a 'max define' for the <o>evi_tri</o>.gendsp gen~ abstraction.
 		Because evi.tri~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		<br />
-		TEXT_HERE <br />
+		Simple anti-aliased tri wave oscillator based on 4-point polyblep algorithm. The highest quality of the evieve polyblep oscillators. Including high frequency compensation. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>
@@ -24,7 +24,7 @@
 				Inlet #1: Frequency in Hz
 			</digest>
 			<description>
-				
+				Oscillator frequency in Hz.
 			</description>
 		</inlet>
 		<inlet id="2" type="signal">
@@ -32,7 +32,7 @@
 				Inlet #2: Reset (Naive)
 			</digest>
 			<description>
-				
+				Oscillator phase reset, naive and not anti-aliased.
 			</description>
 		</inlet>
 	</inletlist>
@@ -43,7 +43,7 @@
 				Outlet #1: Anti Aliased Tri Oscillator
 			</digest>
 			<description>
-				
+				Anti Aliased Tri Oscillator
 			</description>
 		</outlet>
 	</outletlist>
@@ -59,9 +59,14 @@
 	</examplelist>
 	<!--SEEALSO-->
 	<seealsolist>
+		<seealso name="evi.saw~"> </seealso>
+		<seealso name="evi.rect~"> </seealso>
+		<seealso name="evi.4wave~"> </seealso>
+		<seealso name="ev.tri.select~"> </seealso>
+		<seealso name="evi.blitwaves~"> </seealso>
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>
-         <br />
+        See <o>evi.4wave~</o> for a multi wave version which includes this oscillator and other shapes. <br />
 	</discussion>
 </c74object>

@@ -9,7 +9,7 @@
 		<b>evi.squine.simple~</b> is a 'max define' for the <o>evi_squine_simple</o>.gendsp gen~ abstraction.
 		Because evi.squine.simple~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		<br />
-		TEXT_HERE <br />
+		An extremely versatile phase modulation oscillator which can morph shape and does not alias (up to a certain point). Inlets are available for linear and logarithmic FM modulation, as well as optionally audio rate control over the shape morphing. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>
@@ -24,7 +24,7 @@
 				Inlet #1: Freq in Hz or Pitch
 			</digest>
 			<description>
-				
+				Oscillator frequency in Hz or Pitch depending on @freqmode attribute.
 			</description>
 		</inlet>
 		<inlet id="2" type="signal">
@@ -32,7 +32,7 @@
 				Inlet #2: Pitch Mod @default 0.
 			</digest>
 			<description>
-				
+				FM the oscillator frequency, in Pitch units.
 			</description>
 		</inlet>
 		<inlet id="3" type="signal">
@@ -40,7 +40,7 @@
 				Inlet #3: Freq (Hz) Mod @default 0.
 			</digest>
 			<description>
-				
+				FM the oscillator frequency, in Hz units.
 			</description>
 		</inlet>
 		<inlet id="4" type="signal">
@@ -48,7 +48,7 @@
 				Inlet #4: Harmonics 0..1 @default 0.5
 			</digest>
 			<description>
-				
+				One of two main wave shaping controls along with inlet 5. Harmonics normalised 0..1. At 0, no harmonics are added and the output is sine-wave-like (if inlet 5 &#x27;duty cycle&#x27; is set at it&#x27;s default 0.5). Increasing this value gradually adds harmonics to the waveform as it morphs from sine-like to square-wave-like.
 			</description>
 		</inlet>
 		<inlet id="5" type="signal">
@@ -56,7 +56,7 @@
 				Inlet #5: Duty Cycle 0..1 @default 0.5
 			</digest>
 			<description>
-				
+				One of two main wave shaping controls along with inlet 4. PWM normalised 0..1. Shifts the waveform from negative to positive saw-wave-like through the shape created by inlet 4 (&#x27;harmonics&#x27;).
 			</description>
 		</inlet>
 	</inletlist>
@@ -67,7 +67,7 @@
 				Outlet #1: Phase Modulation Oscillator
 			</digest>
 			<description>
-				
+				The oscillator output.
 			</description>
 		</outlet>
 		<outlet id="2" type="signal">
@@ -75,7 +75,7 @@
 				Outlet #2: phasemod
 			</digest>
 			<description>
-				
+				Oscillator phase sync 0..1 post phase modulation.
 			</description>
 		</outlet>
 		<outlet id="3" type="signal">
@@ -83,7 +83,7 @@
 				Outlet #3: phaseraw
 			</digest>
 			<description>
-				
+				Oscillator phase sync 0..1 raw (no modulation).
 			</description>
 		</outlet>
 	</outletlist>
@@ -92,6 +92,39 @@
 	</methodlist>
 	<!--ATTRIBUTES-->
 	<attributelist>
+		<attribute name="freqmode" get="1" set="1" type="int" min="0" max="1">
+			<digest>
+				Flag 0/1
+			</digest>
+			<description>
+				Switch oscillator frequency (inlet 1) units between input in Pitch (on, default) or input in Hz (off).
+			</description>
+			<attributelist>
+				<attribute name="default" get="0" set="0" size="1" value="1" />
+			</attributelist>
+		</attribute>
+		<attribute name="freqmul" get="1" set="1" type="float" min="0" max="0.5">
+			<digest>
+				0..0.5
+			</digest>
+			<description>
+				Multiplier of samplerate to set maximum frequency input. Typically this would be lower than samplerate/4 (0.25).
+			</description>
+			<attributelist>
+				<attribute name="default" get="0" set="0" size="1" value="0.1" />
+			</attributelist>
+		</attribute>
+		<attribute name="freqsmooth" get="1" set="1" type="float" min="0" max="1000">
+			<digest>
+				Time in ms
+			</digest>
+			<description>
+				Smooth frequency input (inlet 1) by this amount in ms. Note that it is safe to smooth this evern if audio rate modulating using inlets 2 and 3 as summing is post smooth.
+			</description>
+			<attributelist>
+				<attribute name="default" get="0" set="0" size="1" value="20." />
+			</attributelist>
+		</attribute>
 	</attributelist>
 	<!--EXAMPLE-->
 	<examplelist>
@@ -99,9 +132,17 @@
 	</examplelist>
 	<!--SEEALSO-->
 	<seealsolist>
+		<seealso name="evi.formantosc~"> </seealso>
+		<seealso name="evi.paf~"> </seealso>
+		<seealso name="evi.vosim.basic~"> </seealso>
+		<seealso name="evi.4wave~"> </seealso>
+		<seealso name="evi.blitwaves~"> </seealso>
+		<seealso name="evi.lockhart.cascade~"> </seealso>
+		<seealso name="evi.freqshift.weaver~"> </seealso>
+		<seealso name="evi.ringmod~"> </seealso>
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>
-         <br />
+        Thanks to Volker Böhm who suggested the simple block to emulate the oscillator concept in GenExpr code. <br />
 	</discussion>
 </c74object>

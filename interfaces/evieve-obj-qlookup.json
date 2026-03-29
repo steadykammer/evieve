@@ -88,7 +88,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.4wave~", "evi.classic.osc~", "evi.morph.trap~" ]
     },
     "evi.bp~": {
         "digest": "Reimplementation of Pd 'bp~' filter",
@@ -130,7 +130,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.sine.select~", "evi.tri.select~", "evi.saw.select~", "evi.rect.select~", "evi.4wave~", "evi.blitwaves~" ]
     },
     "evi.clipasym~": {
         "digest": "Variable asymmetric clipping",
@@ -592,21 +592,21 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.phasor0~", "evi.ramp0~", "evi.randy~", "evi.zeroxcount~", "evi.audiodust~" ]
     },
     "evi.morph.trap~": {
         "digest": "A selection of morphing trapezoidal anti-aliased oscillators",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.morph.tri~", "evi.sine.select~", "evi.tri.select~", "evi.saw.select~", "evi.rect.select~", "evi.4wave~", "evi.blitwaves~" ]
     },
     "evi.morph.tri~": {
         "digest": "A selection of morphing triangular anti-aliased oscillators",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.morph.trap~", "evi.sine.select~", "evi.tri.select~", "evi.saw.select~", "evi.rect.select~", "evi.4wave~", "evi.blitwaves~" ]
     },
     "evi.multimode~": {
         "digest": "Simultaneous outputs for all filters available from a linear TPT SVF",
@@ -655,7 +655,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.formantosc~", "evi.vosim.basic~", "evi.4wave~", "evi.blitwaves~", "evi.lockhart.cascade~", "evi.freqshift.weaver~", "evi.ringmod~" ]
     },
     "evi.pan~": {
         "digest": "Pan audio signals",
@@ -732,14 +732,14 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.sine.select~", "evi.tri.select~", "evi.saw.select~", "evi.4wave~", "evi.blitwaves~" ]
     },
     "evi.rect~": {
         "digest": "High quality anti-aliased square wave oscillator with PWM",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.saw~", "evi.tri~", "evi.4wave~", "ev.rect.select~", "evi.blitwaves~" ]
     },
     "evi.reson~": {
         "digest": "Reimplementation of MSP reson~ as a TPT filter",
@@ -767,14 +767,14 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.sine.select~", "evi.tri.select~", "evi.rect.select~", "evi.4wave~", "evi.blitwaves~" ]
     },
     "evi.saw~": {
         "digest": "High quality anti-aliased saw wave oscillator",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.rect~", "evi.tri~", "evi.4wave~", "ev.saw.select~", "evi.blitwaves~" ]
     },
     "evi.shaper~": {
         "digest": "An interpolated choice of even or odd harmonics waveshaping",
@@ -788,7 +788,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.tri.select~", "evi.saw.select~", "evi.rect.select~", "evi.4wave~", "evi.blitwaves~" ]
     },
     "evi.sinfold~": {
         "digest": "An anti-aliased sine folding waveshaper",
@@ -816,7 +816,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.formantosc~", "evi.paf~", "evi.vosim.basic~", "evi.4wave~", "evi.blitwaves~", "evi.lockhart.cascade~", "evi.freqshift.weaver~", "evi.ringmod~" ]
     },
     "evi.sustainverb~": {
         "digest": "16x16 FDN reverb with smooth sustaining effect \n",
@@ -893,14 +893,14 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.sine.select~", "evi.saw.select~", "evi.rect.select~", "evi.4wave~", "evi.blitwaves~" ]
     },
     "evi.tri~": {
         "digest": "High quality anti-aliased triangle wave oscillator",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.saw~", "evi.rect~", "evi.4wave~", "ev.tri.select~", "evi.blitwaves~" ]
     },
     "evi.vactrol~": {
         "digest": "Vactrol response time domain filter",
@@ -928,7 +928,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.formantosc~", "evi.paf~", "evi.4wave~", "evi.blitwaves~", "evi.lockhart.cascade~", "evi.freqshift.weaver~", "evi.ringmod~" ]
     },
     "evi.warmer~": {
         "digest": "Complex saturation processor with options \n",

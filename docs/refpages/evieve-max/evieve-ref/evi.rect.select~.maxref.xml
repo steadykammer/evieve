@@ -9,7 +9,7 @@
 		<b>evi.rect.select~</b> is a 'max define' for the <o>evi_rect_select</o>.gendsp gen~ abstraction.
 		Because evi.rect.select~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		<br />
-		TEXT_HERE <br />
+		A collection of square-like oscillator shapes using a 2-point polyblep algorithm. Some shapes take PWM control. Also offers high frequency loss compensation filters and rudimentary oversampling. An experimental dynamic DC control is included, allowing for simultaneous use as LFOs and audio rate oscillators. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>
@@ -24,7 +24,7 @@
 				Inlet #1: Frequency in Hz
 			</digest>
 			<description>
-				
+				Oscillator frequency in Hz.
 			</description>
 		</inlet>
 		<inlet id="2" type="signal/float">
@@ -32,7 +32,7 @@
 				Inlet #2: Pulse Width 0..1 for oscillator attr &#x3D; 3\, 4 or 5 @default 0.5 @min 0 @max 1
 			</digest>
 			<description>
-				
+				PWM 0..1 for @oscillator attribute selector &#x3D;&#x3D; 3, 4 or 5
 			</description>
 		</inlet>
 		<inlet id="3" type="signal">
@@ -40,7 +40,7 @@
 				Inlet #3: Sync Phasor @default 0 @min 0 @max 1
 			</digest>
 			<description>
-				
+				External sync for internal oscillator sync. Note this is not fully implemented yet and might not be anti-aliased.
 			</description>
 		</inlet>
 	</inletlist>
@@ -51,7 +51,7 @@
 				Outlet #1: Oscillator
 			</digest>
 			<description>
-				
+				The oscillator output.
 			</description>
 		</outlet>
 		<outlet id="2" type="signal">
@@ -59,7 +59,7 @@
 				Outlet #2: Phase
 			</digest>
 			<description>
-				
+				The oscillator internal phase 0..1
 			</description>
 		</outlet>
 		<outlet id="3" type="signal">
@@ -67,7 +67,7 @@
 				Outlet #3: Sync
 			</digest>
 			<description>
-				
+				The oscillator phase sync signal 0/1
 			</description>
 		</outlet>
 	</outletlist>
@@ -76,6 +76,50 @@
 	</methodlist>
 	<!--ATTRIBUTES-->
 	<attributelist>
+		<attribute name="compensate" get="1" set="1" type="int" min="0" max="2">
+			<digest>
+				Select 0, 1, 2
+			</digest>
+			<description>
+				High frequency (decorrelation) compensation filters, 0&#x3D;off, 1&#x3D;1st order, 2&#x3D;2nd order. This can account for high frequency loss due to anti-aliasing, e.g. restore brightness to the top end.
+			</description>
+			<attributelist>
+				<attribute name="default" get="0" set="0" size="1" value="1" />
+			</attributelist>
+		</attribute>
+		<attribute name="dc" get="1" set="1" type="int" min="0" max="3">
+			<digest>
+				Select 0, 1, 2, 3
+			</digest>
+			<description>
+				Select DC behaviour. DC Blocking can be optionally dynamic. 0&#x3D;off (no dc blocking, e.g. if only using at LFO rates), 1&#x3D;on (standard dc blocking, if only using as audio rate oscillators), 2&#x3D;auto for lfos (if using dynamically &lt; 20Hz and &lt; 4kHz), 3&#x3D;auto for oscillators (if using &lt; 20Hz and &gt; 4kHz). Ultimately, the usefulness and effectiveness of this will vary depending on use case, and should be considered somewhat experimental.
+			</description>
+			<attributelist>
+				<attribute name="default" get="0" set="0" size="1" value="1" />
+			</attributelist>
+		</attribute>
+		<attribute name="oscillator" get="1" set="1" type="int" min="0" max="5">
+			<digest>
+				Select 0..5
+			</digest>
+			<description>
+				Select oscillator shape. 0&#x3D;rect (default), 1&#x3D;trapezoid, 2&#x3D;squared, 3&#x3D;rectpulse (includes PWM), 4&#x3D;squarepulse (includes PWM), 5&#x3D;traptri (includes PWM)
+			</description>
+			<attributelist>
+				<attribute name="default" get="0" set="0" size="1" value="0" />
+			</attributelist>
+		</attribute>
+		<attribute name="oversample" get="1" set="1" type="int" min="0" max="3">
+			<digest>
+				Select 0, 1, 2, 3
+			</digest>
+			<description>
+				The oversampling is not very good and not very useful. It will be updated in a future version of evieve. 0&#x3D;1x, 1&#x3D;2x (default), 2&#x3D;4x, 3&#x3D;8x.
+			</description>
+			<attributelist>
+				<attribute name="default" get="0" set="0" size="1" value="1" />
+			</attributelist>
+		</attribute>
 	</attributelist>
 	<!--EXAMPLE-->
 	<examplelist>
@@ -83,6 +127,11 @@
 	</examplelist>
 	<!--SEEALSO-->
 	<seealsolist>
+		<seealso name="evi.sine.select~"> </seealso>
+		<seealso name="evi.tri.select~"> </seealso>
+		<seealso name="evi.saw.select~"> </seealso>
+		<seealso name="evi.4wave~"> </seealso>
+		<seealso name="evi.blitwaves~"> </seealso>
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>

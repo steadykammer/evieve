@@ -13,7 +13,7 @@
          <br />
         evi_blitwaves is also available in MSP as: <o>evi.blitwaves~</o>. <br />
          <br />
-	    TEXT_HERE <br />
+	    No aliasing classic synth wave shapes, DSF-BLIT-like algorithm, sweep/modulation works with no noise, and cheap. Good for subtractive synthesis because we stay very bright right up to nyquist, but no hard sync. <br />
     </description>
     <methodlist />
     <constructorlist>
@@ -26,17 +26,17 @@
     <geninletlist>
         <geninlet name='frequency' type='float' optional='1'>
             <digest>
-                in Hz. 
+                in Hz. Oscillator frequency in Hz.
             </digest>
         </geninlet>
         <geninlet name='pulse' type='float' optional='1'>
             <digest>
-                Width 0..1 @default 0.5. 
+                Width 0..1 @default 0.5. PWM 0..1 for wave shapes that use it (RECT, TRI and Train)
             </digest>
         </geninlet>
         <geninlet name='naive' type='float' optional='1'>
             <digest>
-                Reset. 
+                Reset. Naive phase reset, not anti-aliased.
             </digest>
         </geninlet>
     </geninletlist>
@@ -46,7 +46,7 @@
                 @min 0, @max 1
             </digest>
             <description>
-                
+                0 &#x3D; SINE off, 1 &#x3D; SINE on out of outlet 4 (CPU management)
             </description>
             <attributelist>
                 <attribute name='default' type='int' value='0' />
@@ -57,7 +57,7 @@
                 @min 0, @max 2
             </digest>
             <description>
-                
+                0 &#x3D; off, 1 &#x3D; main phase output out of outlet 6, 2 &#x3D; pwm phase output out of outlet 6
             </description>
             <attributelist>
                 <attribute name='default' type='int' value='1' />
@@ -68,7 +68,7 @@
                 @min 0, @max 2
             </digest>
             <description>
-                
+                0 &#x3D; off, 1 &#x3D; train based on main phase out of outlet 5, 2 &#x3D; train based on pwm phase out of outlet 5
             </description>
             <attributelist>
                 <attribute name='default' type='int' value='0' />
@@ -79,7 +79,7 @@
                 @min 0, @max 333
             </digest>
             <description>
-                
+                Internal parameters smoothed by this time in ms. Turn off (0) for audio rate modulation of inlets 1 and 2
             </description>
             <attributelist>
                 <attribute name='default' type='float' value='22.' />
@@ -92,6 +92,8 @@
         <metadata name="tag">GenDsp</metadata>
     </metadatalist>
     <seealsolist>
-        <seealso name='' display='' type='genrefpage' />
+        <seealso name='evi_4wave' display='evi_4wave' type='genrefpage' />
+        <seealso name='evi_classic_osc' display='evi_classic_osc' type='genrefpage' />
+        <seealso name='evi_morph_trap' display='evi_morph_trap' type='genrefpage' />
     </seealsolist>
 </c74object>

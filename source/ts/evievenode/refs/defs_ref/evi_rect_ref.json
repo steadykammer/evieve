@@ -50,5 +50,11 @@
         "caption": "",
         "image": ""
     },
-    "seealso": ["evi.saw~", "evi.tri~", "evi.4wave~", "ev.rect.select~", "evi.blitwaves~"]
+    "seealso": [
+        "evi.saw~",
+        "evi.tri~",
+        "evi.4wave~",
+        "ev.rect.select~",
+        "evi.blitwaves~"
+    ]
 }

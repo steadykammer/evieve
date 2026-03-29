@@ -111,5 +111,13 @@
         "caption": "",
         "image": ""
     },
-    "seealso": ["evi.morph.tri~", "evi.sine.select~", "evi.tri.select~", "evi.saw.select~", "evi.rect.select~", "evi.4wave~", "evi.blitwaves~"]
+    "seealso": [
+        "evi.morph.tri~",
+        "evi.sine.select~",
+        "evi.tri.select~",
+        "evi.saw.select~",
+        "evi.rect.select~",
+        "evi.4wave~",
+        "evi.blitwaves~"
+    ]
 }
