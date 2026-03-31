@@ -3,8 +3,8 @@
         "name": "evi_algoverb",
         "child": "",
         "category": "evieve",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "True stereo algorithmic reverb",
+        "description": "Relatively expensive algorithmic reverb with many tweekable parameters. The reverb is modular, with pre delay, early reflections and late reflections all controllable individually, as well as high quality linear SVF filters in both the feedback path and end of wet path. In gen~ alone (as opposed to the MSP abstraction <o>evi.algoverb~</o>) this is tricky to use as the damping and EQ coefficients are produced externally via the 'evi_svf_eq_coeffs.gendsp' (or equivalent) abstraction, and many parameters are differently named to the MSP equivalents. However it can still be used in gen~ alone providing some plumbing work is done."
     },
     "constructor": {
         "inlets": "audio, audio"
@@ -19,7 +19,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "In L",
-            "digest": ""
+            "digest": "Audio In Left"
         },
         {
             "id": 2,
@@ -27,7 +27,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "In R",
-            "digest": ""
+            "digest": "Audio In Right"
         }
     ],
     "outlets": [
@@ -36,14 +36,14 @@
             "name": "reverb",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Reverb Out Left"
         },
         {
             "id": 2,
             "name": "reverb",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Reverb Out Right"
         }
     ],
     "attributes": [
@@ -51,7 +51,7 @@
             "name": "absorbtion",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Normalised 0..1, greater values mean softer materials, lesser values mean harder materials.",
             "default": {
                 "type": "float",
                 "value": "0.186"
@@ -61,7 +61,7 @@
             "name": "damp1_a1",
             "type": "float",
             "digest": "@min -1, @max 1",
-            "description": "",
+            "description": "SVF LTO filter coefficient for damping EQ. See 'evi_svf_eq_coeffs.gendsp' for coefficient calculations.",
             "default": {
                 "type": "float",
                 "value": " 0.990808"
@@ -71,7 +71,7 @@
             "name": "damp1_a2",
             "type": "float",
             "digest": "@min -1, @max 1",
-            "description": "",
+            "description": "SVF LTO filter coefficient for damping EQ. See 'evi_svf_eq_coeffs.gendsp' for coefficient calculations.",
             "default": {
                 "type": "float",
                 "value": " 0.004585"
@@ -81,7 +81,7 @@
             "name": "damp1_a3",
             "type": "float",
             "digest": "@min -1, @max 1",
-            "description": "",
+            "description": "SVF LTO filter coefficient for damping EQ. See 'evi_svf_eq_coeffs.gendsp' for coefficient calculations.",
             "default": {
                 "type": "float",
                 "value": " 0.000021"
@@ -91,7 +91,7 @@
             "name": "damp1_m0",
             "type": "float",
             "digest": "@min -2, @max 2",
-            "description": "",
+            "description": "SVF LTO filter coefficient for damping EQ. See 'evi_svf_eq_coeffs.gendsp' for coefficient calculations.",
             "default": {
                 "type": "float",
                 "value": " 1."
@@ -101,7 +101,7 @@
             "name": "damp1_m1",
             "type": "float",
             "digest": "@min -2, @max 2",
-            "description": "",
+            "description": "SVF LTO filter coefficient for damping EQ. See 'evi_svf_eq_coeffs.gendsp' for coefficient calculations.",
             "default": {
                 "type": "float",
                 "value": "-0.078988"
@@ -111,7 +111,7 @@
             "name": "damp1_m2",
             "type": "float",
             "digest": "@min -2, @max 2",
-            "description": "",
+            "description": "SVF LTO filter coefficient for damping EQ. See 'evi_svf_eq_coeffs.gendsp' for coefficient calculations.",
             "default": {
                 "type": "float",
                 "value": "-0.077429"
@@ -121,7 +121,7 @@
             "name": "damp2_a1",
             "type": "float",
             "digest": "@min -1, @max 1",
-            "description": "",
+            "description": "SVF LTO filter coefficient for damping EQ. See 'evi_svf_eq_coeffs.gendsp' for coefficient calculations.",
             "default": {
                 "type": "float",
                 "value": " 0.873073"
@@ -131,7 +131,7 @@
             "name": "damp2_a2",
             "type": "float",
             "digest": "@min -1, @max 1",
-            "description": "",
+            "description": "SVF LTO filter coefficient for damping EQ. See 'evi_svf_eq_coeffs.gendsp' for coefficient calculations.",
             "default": {
                 "type": "float",
                 "value": " 0.061311"
@@ -141,7 +141,7 @@
             "name": "damp2_a3",
             "type": "float",
             "digest": "@min -1, @max 1",
-            "description": "",
+            "description": "SVF LTO filter coefficient for damping EQ. See 'evi_svf_eq_coeffs.gendsp' for coefficient calculations.",
             "default": {
                 "type": "float",
                 "value": " 0.004305"
@@ -151,7 +151,7 @@
             "name": "damp2_m0",
             "type": "float",
             "digest": "@min -2, @max 2",
-            "description": "",
+            "description": "SVF LTO filter coefficient for damping EQ. See 'evi_svf_eq_coeffs.gendsp' for coefficient calculations.",
             "default": {
                 "type": "float",
                 "value": " 0.870964"
@@ -161,7 +161,7 @@
             "name": "damp2_m1",
             "type": "float",
             "digest": "@min -2, @max 2",
-            "description": "",
+            "description": "SVF LTO filter coefficient for damping EQ. See 'evi_svf_eq_coeffs.gendsp' for coefficient calculations.",
             "default": {
                 "type": "float",
                 "value": " 0.124581"
@@ -171,7 +171,7 @@
             "name": "damp2_m2",
             "type": "float",
             "digest": "@min -2, @max 2",
-            "description": "",
+            "description": "SVF LTO filter coefficient for damping EQ. See 'evi_svf_eq_coeffs.gendsp' for coefficient calculations.",
             "default": {
                 "type": "float",
                 "value": " 0.129036"
@@ -181,7 +181,7 @@
             "name": "decay",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Normalised 0..1, represents RT60 decay time, higher values create longer decays.",
             "default": {
                 "type": "float",
                 "value": "0.475"
@@ -191,7 +191,7 @@
             "name": "drywet",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Normalised 0..1, Dry/Wet mix of direct signal and reverberated signal. Dry is 0, completely wet is 1.",
             "default": {
                 "type": "float",
                 "value": "0.4"
@@ -201,7 +201,7 @@
             "name": "earlyDiffusion",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Normalised 0..1, amount of diffuseness in the early reflections.",
             "default": {
                 "type": "float",
                 "value": "0.7"
@@ -211,7 +211,7 @@
             "name": "earlySize",
             "type": "float",
             "digest": "@min -12, @max 60",
-            "description": "",
+            "description": "Set in dB, the relative size of the early reflections.",
             "default": {
                 "type": "float",
                 "value": "31.992"
@@ -221,7 +221,7 @@
             "name": "earlySymmetry",
             "type": "float",
             "digest": "@min -4, @max 4",
-            "description": "",
+            "description": "The symmetry of the early reflections. A stereo imager, negative values favour left, positive values favour right.",
             "default": {
                 "type": "float",
                 "value": "1.7"
@@ -231,7 +231,7 @@
             "name": "earlylate",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Normalised 0..1, mix between the early reflections and the late reflections. If at 0 or 1 the opposite DSP is not computed.",
             "default": {
                 "type": "float",
                 "value": "0.46"
@@ -241,7 +241,7 @@
             "name": "earlylock",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Hysterisis of the cpu-mute of the early diffusion if engaged. See 'evi.algoverb~' abstraction for details.",
             "default": {
                 "type": "int",
                 "value": "1"
@@ -251,7 +251,7 @@
             "name": "eq1_a1",
             "type": "float",
             "digest": "@min -1, @max 1\t",
-            "description": "",
+            "description": "SVF LTO filter coefficient for damping EQ. See 'evi_svf_eq_coeffs.gendsp' for coefficient calculations.",
             "default": {
                 "type": "float",
                 "value": " 0.993304"
@@ -261,7 +261,7 @@
             "name": "eq1_a2",
             "type": "float",
             "digest": "@min -1, @max 1\t",
-            "description": "",
+            "description": "SVF LTO filter coefficient for damping EQ. See 'evi_svf_eq_coeffs.gendsp' for coefficient calculations.",
             "default": {
                 "type": "float",
                 "value": " 0.006651"
@@ -271,7 +271,7 @@
             "name": "eq1_a3",
             "type": "float",
             "digest": "@min -1, @max 1\t",
-            "description": "",
+            "description": "SVF LTO filter coefficient for damping EQ. See 'evi_svf_eq_coeffs.gendsp' for coefficient calculations.",
             "default": {
                 "type": "float",
                 "value": " 0.000045"
@@ -281,7 +281,7 @@
             "name": "eq1_m0",
             "type": "float",
             "digest": "@min -16, @max 16\t",
-            "description": "",
+            "description": "SVF LTO filter coefficient for damping EQ. See 'evi_svf_eq_coeffs.gendsp' for coefficient calculations.",
             "default": {
                 "type": "float",
                 "value": " 1."
@@ -291,7 +291,7 @@
             "name": "eq1_m1",
             "type": "float",
             "digest": "@min -16, @max 16\t",
-            "description": "",
+            "description": "SVF LTO filter coefficient for damping EQ. See 'evi_svf_eq_coeffs.gendsp' for coefficient calculations.",
             "default": {
                 "type": "float",
                 "value": "-0.182477"
@@ -301,7 +301,7 @@
             "name": "eq1_m2",
             "type": "float",
             "digest": "@min -16, @max 16\t",
-            "description": "",
+            "description": "SVF LTO filter coefficient for damping EQ. See 'evi_svf_eq_coeffs.gendsp' for coefficient calculations.",
             "default": {
                 "type": "float",
                 "value": "-0.331656"
@@ -311,7 +311,7 @@
             "name": "eq2_a1",
             "type": "float",
             "digest": "@min -1, @max 1\t",
-            "description": "",
+            "description": "SVF LTO filter coefficient for damping EQ. See 'evi_svf_eq_coeffs.gendsp' for coefficient calculations.",
             "default": {
                 "type": "float",
                 "value": " 0.882013"
@@ -321,7 +321,7 @@
             "name": "eq2_a2",
             "type": "float",
             "digest": "@min -1, @max 1\t",
-            "description": "",
+            "description": "SVF LTO filter coefficient for damping EQ. See 'evi_svf_eq_coeffs.gendsp' for coefficient calculations.",
             "default": {
                 "type": "float",
                 "value": " 0.105393"
@@ -331,7 +331,7 @@
             "name": "eq2_a3",
             "type": "float",
             "digest": "@min -1, @max 1\t",
-            "description": "",
+            "description": "SVF LTO filter coefficient for damping EQ. See 'evi_svf_eq_coeffs.gendsp' for coefficient calculations.",
             "default": {
                 "type": "float",
                 "value": " 0.012594"
@@ -341,7 +341,7 @@
             "name": "eq2_m0",
             "type": "float",
             "digest": "@min -16, @max 16\t",
-            "description": "",
+            "description": "SVF LTO filter coefficient for damping EQ. See 'evi_svf_eq_coeffs.gendsp' for coefficient calculations.",
             "default": {
                 "type": "float",
                 "value": " 0.446684"
@@ -351,7 +351,7 @@
             "name": "eq2_m1",
             "type": "float",
             "digest": "@min -16, @max 16\t",
-            "description": "",
+            "description": "SVF LTO filter coefficient for damping EQ. See 'evi_svf_eq_coeffs.gendsp' for coefficient calculations.",
             "default": {
                 "type": "float",
                 "value": " 0.22166"
@@ -361,7 +361,7 @@
             "name": "eq2_m2",
             "type": "float",
             "digest": "@min -16, @max 16\t",
-            "description": "",
+            "description": "SVF LTO filter coefficient for damping EQ. See 'evi_svf_eq_coeffs.gendsp' for coefficient calculations.",
             "default": {
                 "type": "float",
                 "value": " 0.553316"
@@ -371,7 +371,7 @@
             "name": "lateDiffusion",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Normalised 0..1, amount of diffuseness in the late reflections.",
             "default": {
                 "type": "float",
                 "value": "0.7"
@@ -381,7 +381,7 @@
             "name": "lateSize",
             "type": "float",
             "digest": "@min -24, @max 48",
-            "description": "",
+            "description": "Set in dB, the relative size of the late reflections.",
             "default": {
                 "type": "float",
                 "value": "0.984"
@@ -391,7 +391,7 @@
             "name": "lateSymmetry",
             "type": "float",
             "digest": "@min -3, @max 3",
-            "description": "",
+            "description": "The symmetry of the late reflections. A stereo imager, negative values favour left, positive values favour right.",
             "default": {
                 "type": "float",
                 "value": "-1.3"
@@ -401,7 +401,7 @@
             "name": "latelock",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Hysterisis of the cpu-mute of the late diffusion if engaged. See 'evi.algoverb~' abstraction for details.",
             "default": {
                 "type": "int",
                 "value": "1"
@@ -411,7 +411,7 @@
             "name": "modAmplitude",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Normalised 0..1, the depth of the late reflections modulation.",
             "default": {
                 "type": "float",
                 "value": "0.15"
@@ -421,7 +421,7 @@
             "name": "modFrequency",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Normalised 0..1, the speed of the late reflections modulation.",
             "default": {
                 "type": "float",
                 "value": "0.23"
@@ -431,7 +431,7 @@
             "name": "mute",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "'mute 1' will smoothly bypass and cpu mute the reverb.",
             "default": {
                 "type": "int",
                 "value": "0"
@@ -441,7 +441,7 @@
             "name": "preSymmetry",
             "type": "float",
             "digest": "@min -1, @max 1",
-            "description": "",
+            "description": "The symmetry of the pre delay. A stereo imager, negative values favour left, positive values favour right.",
             "default": {
                 "type": "float",
                 "value": "0.33"
@@ -451,7 +451,7 @@
             "name": "preTime",
             "type": "float",
             "digest": "@min 0, @max 400",
-            "description": "",
+            "description": "In ms 0..400, the initial pre delay time in ms before the onset of early reflections.",
             "default": {
                 "type": "float",
                 "value": "16."
@@ -461,7 +461,7 @@
             "name": "smoothtime",
             "type": "float",
             "digest": "@min 0, @max 500",
-            "description": "",
+            "description": "Set the smoothing time in ms of all the internal parameter smoothing functions.",
             "default": {
                 "type": "float",
                 "value": "50."
@@ -470,8 +470,32 @@
     ],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_backverb",
+            "display": "evi_backverb"
+        },
+        {
+            "name": "evi_freezeverb",
+            "display": "evi_freezeverb"
+        },
+        {
+            "name": "evi_gigaverb",
+            "display": "evi_gigaverb"
+        },
+        {
+            "name": "evi_mattaverb",
+            "display": "evi_mattaverb"
+        },
+        {
+            "name": "evi_plateverb",
+            "display": "evi_plateverb"
+        },
+        {
+            "name": "evi_sustainverb",
+            "display": "evi_sustainverb"
+        },
+        {
+            "name": "evi_zitaverb",
+            "display": "evi_zitaverb"
         }
     ]
 }

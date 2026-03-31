@@ -41,37 +41,37 @@
             "id": 3,
             "type": "signal",
             "digest": "FDN Out Left",
-            "description": "Pure output tap of FDN loop without any dry/wet"
+            "description": "Pure output tap L of FDN loop without any dry/wet"
         },
         {
             "id": 4,
             "type": "signal",
             "digest": "FDN Out Right",
-            "description": "Pure output tap of FDN loop without any dry/wet"
+            "description": "Pure output tap R of FDN loop without any dry/wet"
         },
         {
             "id": 5,
             "type": "signal",
             "digest": "FDN AUX Tap 1",
-            "description": "Decorrelated output tap of FDN channel"
+            "description": "Decorrelated output tap 1 of FDN channel"
         },
         {
             "id": 6,
             "type": "signal",
             "digest": "FDN AUX Tap 2",
-            "description": "Decorrelated output tap of FDN channel"
+            "description": "Decorrelated output tap 2 of FDN channel"
         },
         {
             "id": 7,
             "type": "signal",
             "digest": "FDN AUX Tap 3",
-            "description": "Decorrelated output tap of FDN channel"
+            "description": "Decorrelated output tap 3 of FDN channel"
         },
         {
             "id": 8,
             "type": "signal",
             "digest": "FDN AUX Tap 4",
-            "description": "Decorrelated output tap of FDN channel"
+            "description": "Decorrelated output tap 4 of FDN channel"
         },
         {
             "id": 9,
@@ -168,7 +168,7 @@
             "get": 0,
             "type": "float",
             "digest": "Normalised 0..1",
-            "description": "This can be a switch or interpolated, both are smoothed. Add in a highjpass filter to the FDN. This makes the sound of the FDN more reverb-like and tames low frequency recirculation, but also curtails the ability to foreversustain.",
+            "description": "This can be a switch or interpolated, both are smoothed. Add in a highjpass filter to the FDN. This makes the sound of the FDN more reverb-like and tames low frequency recirculation, but also curtails the ability to forever sustain.",
             "default": {
                 "get": 0,
                 "value": "0."

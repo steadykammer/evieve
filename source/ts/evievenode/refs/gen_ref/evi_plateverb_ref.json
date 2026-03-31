@@ -3,8 +3,8 @@
         "name": "evi_plateverb",
         "child": "",
         "category": "evieve",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Plate reverb based on <o>yafr2~</o> with additional filtering and smoothing",
+        "description": "Based on <o>yafr2~</o> from MSP ('Plate reverb in the style of Griesinger' by Randy Jones). This version for evieve with dry/wet and eq added, as well as modifications for better filtering, interpolation and smoothing, and zero hold delay changes. Parameters normalised 0..1. Clickless and smooth changes possible for all parameters. In gen~ alone (as opposed to the MSP abstraction <o>evi.plateverb~</o>) this is tricky to use as the damping coefficients are produced externally via the 'evi_damp_coeffs.gendsp' abstraction. See 'evi_rcfilters.genexpr' for coefficients calculations alternatives."
     },
     "constructor": {
         "inlets": "in, nothing"
@@ -19,7 +19,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Mono / In Left / In 1",
-            "digest": ""
+            "digest": "Audio In Mono or Left or channel 1, depending on 'stereo' attribute"
         },
         {
             "id": 2,
@@ -27,7 +27,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "/ In Right / In 2",
-            "digest": ""
+            "digest": "Audio In Nothing or Right or channel 2, depending on 'stereo' attribute"
         }
     ],
     "outlets": [
@@ -36,14 +36,14 @@
             "name": "reverb",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Reverb Out Left"
         },
         {
             "id": 2,
             "name": "reverb",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Reverb Out Right"
         }
     ],
     "attributes": [
@@ -51,7 +51,7 @@
             "name": "apGain1\t\t",
             "type": "float",
             "digest": "@min  0, @max  1",
-            "description": "",
+            "description": false,
             "default": {
                 "type": "float",
                 "value": "  0.75"
@@ -61,7 +61,7 @@
             "name": "apGain2\t\t",
             "type": "float",
             "digest": "@min  0, @max  1",
-            "description": "",
+            "description": false,
             "default": {
                 "type": "float",
                 "value": "  0.625"
@@ -71,7 +71,7 @@
             "name": "apGain3\t\t",
             "type": "symbol",
             "digest": "@min -1, @max  1",
-            "description": "",
+            "description": false,
             "default": {
                 "type": "symbol",
                 "value": " -sqrt1_2"
@@ -81,7 +81,7 @@
             "name": "apGain4\t\t",
             "type": "float",
             "digest": "@min  0, @max  1",
-            "description": "",
+            "description": false,
             "default": {
                 "type": "float",
                 "value": "  0.5"
@@ -91,7 +91,7 @@
             "name": "bypass",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Flag 0/1, smooth bypass the reverb (1). Bypassing also CPU-mutes the internal DSP.",
             "default": {
                 "type": "int",
                 "value": "0"
@@ -111,7 +111,7 @@
             "name": "decay",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Normalised 0..1, one of the original parameters. Length of reverb late reflections decay. Higher values give a longer decay.",
             "default": {
                 "type": "float",
                 "value": "0.6"
@@ -121,7 +121,7 @@
             "name": "delayTime1",
             "type": "int",
             "digest": "@min 1, @max 51142",
-            "description": "",
+            "description": "In samples: floor(samplerate * 0.26636 + 0.5) + 1",
             "default": {
                 "type": "int",
                 "value": "12786"
@@ -131,7 +131,7 @@
             "name": "delayTime2",
             "type": "int",
             "digest": "@min 1, @max 49911",
-            "description": "",
+            "description": "In samples: floor(samplerate * 0.25995 + 0.5) + 1",
             "default": {
                 "type": "int",
                 "value": "12479"
@@ -141,7 +141,7 @@
             "name": "diffuse",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Normalised 0..1, one of the original parameters. Amount of diffuseness in the reflections. Effects times of multiple embedded delay lines.",
             "default": {
                 "type": "float",
                 "value": "0.3"
@@ -151,7 +151,7 @@
             "name": "dry",
             "type": "float",
             "digest": "@min -90, @max 0",
-            "description": "",
+            "description": "In dB -90..0, there is no 'dry/wet' in this reverb. Instead we have separate dry and wet gains. This dry gain controls the amount of gain applied to the unprocessed audio in the final mix.",
             "default": {
                 "type": "float",
                 "value": "-15."
@@ -161,7 +161,7 @@
             "name": "highshelfG",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Pre warped damping highshelf frequency coefficient normalised 0..1, see 'evi_rcfilters.genexpr' for coefficients calculators.",
             "default": {
                 "type": "float",
                 "value": "0.123758"
@@ -171,7 +171,7 @@
             "name": "highshelfK",
             "type": "float",
             "digest": "@min -3, @max 1",
-            "description": "",
+            "description": "Pre warped damping highshelf gain coefficient -3..1, see 'evi_rcfilters.genexpr' for coefficients calculators.",
             "default": {
                 "type": "float",
                 "value": "0."
@@ -181,7 +181,7 @@
             "name": "lowshelfG",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Pre warped damping lowshelf frequency coefficient normalised 0..1, see 'evi_rcfilters.genexpr' for coefficients calculators.",
             "default": {
                 "type": "float",
                 "value": "0.032214"
@@ -191,7 +191,7 @@
             "name": "lowshelfK",
             "type": "float",
             "digest": "@min -3, @max 1",
-            "description": "",
+            "description": "Pre warped damping lowshelf gain coefficient -3..1, see 'evi_rcfilters.genexpr' for coefficients calculators.",
             "default": {
                 "type": "float",
                 "value": "0."
@@ -201,7 +201,7 @@
             "name": "pan",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Normalised 0..1, input panning if 'stereo' attribute == 0 (mono). 0.5=center.",
             "default": {
                 "type": "float",
                 "value": "0.5"
@@ -211,7 +211,7 @@
             "name": "size",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Normalised 0..1, one of the original parameters. The perceived size of the reverb. ",
             "default": {
                 "type": "float",
                 "value": "0.2"
@@ -221,7 +221,7 @@
             "name": "smoothtime",
             "type": "float",
             "digest": "@min 1, @max 500",
-            "description": "",
+            "description": "Set the smoothing time in ms of all the internal parameter smoothing functions.",
             "default": {
                 "type": "float",
                 "value": "49."
@@ -231,7 +231,7 @@
             "name": "stereo",
             "type": "int",
             "digest": "@min 0, @max 2",
-            "description": "",
+            "description": "Select 0, 1, 2. No smoothing. This affects the audio inputs of the reverb (output is always stereo), notably the internal summing of the two inputs. 0=mono in (with pan control), 1=stereo in, 2=two separate channels in.",
             "default": {
                 "type": "int",
                 "value": "0"
@@ -241,7 +241,7 @@
             "name": "sumMul\t\t",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": false,
             "default": {
                 "type": "float",
                 "value": "  0.14285714285714285"
@@ -251,7 +251,7 @@
             "name": "sumMul05\t",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": false,
             "default": {
                 "type": "float",
                 "value": "  0.07142857142857142"
@@ -261,7 +261,7 @@
             "name": "sumMulSq\t",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": false,
             "default": {
                 "type": "float",
                 "value": "  0.3779644730092272"
@@ -271,7 +271,7 @@
             "name": "sumMulinv\t",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": false,
             "default": {
                 "type": "float",
                 "value": "  0.8571428571428572"
@@ -281,7 +281,7 @@
             "name": "wet",
             "type": "float",
             "digest": "@min -90, @max 0",
-            "description": "",
+            "description": "In dB -90..0, there is no 'dry/wet' in this reverb. Instead we have separate dry and wet gains. This wet gain controls the amount of gain applied to the processed reverberation (late reflections) in the final mix.",
             "default": {
                 "type": "float",
                 "value": "-3."
@@ -290,8 +290,32 @@
     ],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_algoverb",
+            "display": "evi_algoverb"
+        },
+        {
+            "name": "evi_backverb",
+            "display": "evi_backverb"
+        },
+        {
+            "name": "evi_freezeverb",
+            "display": "evi_freezeverb"
+        },
+        {
+            "name": "evi_gigaverb",
+            "display": "evi_gigaverb"
+        },
+        {
+            "name": "evi_mattaverb",
+            "display": "evi_mattaverb"
+        },
+        {
+            "name": "evi_sustainverb",
+            "display": "evi_sustainverb"
+        },
+        {
+            "name": "evi_zitaverb",
+            "display": "evi_zitaverb"
         }
     ]
 }

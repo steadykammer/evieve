@@ -4,7 +4,7 @@
         "child": "evi.lockhart.cascade~",
         "category": "evieve",
         "digest": "Anti-aliased wavefolder device for shaping oscillators, selectable up to a cascade of 16 folding sections",
-        "description": "TEXT_HERE"
+        "description": "An analog model of the 'Lockhart Wavefolder' employing antiderivative anti-aliasing via Lambert-W functions. The waveshaper takes a simple audio signal and aggressively folds and clips it to produce new shapes and harmonics in the style of west coast synthesis. This 'cascade' version has a variable order cascade of up to 16 stages, with CPU management depending on stages requested. See <o>evi.lockhart.simple~</o> for a fixed version with less options."
     },
     "constructor": {
         "inlets": "oscillator"
@@ -17,7 +17,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Input",
-            "digest": ""
+            "digest": "Audio input to be wavefolded, typically a simple oscillator."
         }
     ],
     "outlets": [
@@ -26,7 +26,7 @@
             "name": "wavefolded",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Up to 16 wavefolded stages in series depending on the @cascade attribute."
         }
     ],
     "attributes": [
@@ -34,7 +34,7 @@
             "name": "cascade",
             "type": "int",
             "digest": "@min 1, @max 16",
-            "description": "",
+            "description": "Cascading multiple wavefolders in series does not just make the effect stronger, like a steeper filter order, but also changes the sound produced, as folding effect gets cascaded into folding effect. 1..16 stages are available depending on this attribute, and CPU is managed depending on how many cascaded stages are requested. @cascade can be changed in real time but soft-clicks.",
             "default": {
                 "type": "int",
                 "value": "4"
@@ -43,8 +43,32 @@
     ],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_lockhart_simple",
+            "display": "evi_lockhart_simple"
+        },
+        {
+            "name": "evi_paf",
+            "display": "evi_paf"
+        },
+        {
+            "name": "evi_vosim_basic",
+            "display": "evi_vosim_basic"
+        },
+        {
+            "name": "evi_4wave",
+            "display": "evi_4wave"
+        },
+        {
+            "name": "evi_blitwaves",
+            "display": "evi_blitwaves"
+        },
+        {
+            "name": "evi_freqshift_weaver",
+            "display": "evi_freqshift_weaver"
+        },
+        {
+            "name": "evi_ringmod",
+            "display": "evi_ringmod"
         }
     ]
 }

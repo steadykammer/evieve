@@ -81,6 +81,39 @@
                 <attribute name='default' type='float' value='20.' />
             </attributelist>
         </attribute>
+        <attribute name='freqmode' type='int' get='0' set='1'>
+            <digest>
+                @min 0, @max 1
+            </digest>
+            <description>
+                Switch oscillator frequency (inlet 1) units between input in Pitch (on, default) or input in Hz (off).
+            </description>
+            <attributelist>
+                <attribute name='default' type='int' value='1' />
+            </attributelist>
+        </attribute>
+        <attribute name='freqmul' type='float' get='0' set='1'>
+            <digest>
+                @min 0, @max 0.5
+            </digest>
+            <description>
+                Multiplier of samplerate to set maximum frequency input. Typically this would be lower than samplerate/4 (0.25).
+            </description>
+            <attributelist>
+                <attribute name='default' type='float' value='0.1' />
+            </attributelist>
+        </attribute>
+        <attribute name='freqsmooth' type='float' get='0' set='1'>
+            <digest>
+                @min 0, @max 1000
+            </digest>
+            <description>
+                Smooth frequency input (inlet 1) by this amount in ms. Note that it is safe to smooth this evern if audio rate modulating using inlets 2 and 3 as summing is post smooth.
+            </description>
+            <attributelist>
+                <attribute name='default' type='float' value='20.' />
+            </attributelist>
+        </attribute>
     </attributelist>
     <!-- metadata not part of real genobject ref pages but needed to trick Max -->
     <metadatalist>

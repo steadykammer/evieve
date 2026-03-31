@@ -3,8 +3,8 @@
         "name": "evi_mattaverb",
         "child": "",
         "category": "evieve",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "True stereo one knob allpass diffuse reverb",
+        "description": "A simple allpass diffusion reverb with minimal controls interaction. True stereo input/output, no early reflections, designed wet and spacey but very dampable. Unlike other evieve reverbs, this reverb has no external dependencies and can be operated in gen~ alone the same as in MSP."
     },
     "constructor": {
         "inlets": "in, in"
@@ -19,7 +19,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Left",
-            "digest": ""
+            "digest": "Audio In Left"
         },
         {
             "id": 2,
@@ -27,7 +27,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Right",
-            "digest": ""
+            "digest": "Audio In Right"
         }
     ],
     "outlets": [
@@ -36,14 +36,14 @@
             "name": "rvrb",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Reverb Out Left"
         },
         {
             "id": 2,
             "name": "rvrb",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Reverb Out Right"
         }
     ],
     "attributes": [
@@ -51,7 +51,7 @@
             "name": "damp",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Flag 0/1, not smoothed. Selects onepole (0) or twopole (1) damping filters in the reverb chain. Greatly affects the tone of the reverb sound.",
             "default": {
                 "type": "int",
                 "value": "0"
@@ -61,7 +61,7 @@
             "name": "drywet",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Normalised 0..1, Dry/Wet mix of direct signal and reverberated signal. Dry is 0, completely wet is 1.",
             "default": {
                 "type": "float",
                 "value": "sqrt1_2"
@@ -71,7 +71,7 @@
             "name": "high",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Normalised 0..1, high frequency damping EQ 0..1 less..more.",
             "default": {
                 "type": "float",
                 "value": "0.666666"
@@ -81,7 +81,7 @@
             "name": "low",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Normalised 0..1, low frequency damping EQ 0..1 less..more.",
             "default": {
                 "type": "float",
                 "value": "0.333333"
@@ -91,7 +91,7 @@
             "name": "size",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Normalised 0..1, could be the only one knob control you need and much of the point of this reverb tuning. Small to large.",
             "default": {
                 "type": "float",
                 "value": "0.5"
@@ -101,7 +101,7 @@
             "name": "space",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Flag 0/1, not smoothed. Add damping filters into the allpass feedback path (1) or not (0). Interesting wet sounds can be made by turning off filter stages here.",
             "default": {
                 "type": "int",
                 "value": "1"
@@ -110,8 +110,32 @@
     ],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_algoverb",
+            "display": "evi_algoverb"
+        },
+        {
+            "name": "evi_backverb",
+            "display": "evi_backverb"
+        },
+        {
+            "name": "evi_freezeverb",
+            "display": "evi_freezeverb"
+        },
+        {
+            "name": "evi_gigaverb",
+            "display": "evi_gigaverb"
+        },
+        {
+            "name": "evi_plateverb",
+            "display": "evi_plateverb"
+        },
+        {
+            "name": "evi_sustainverb",
+            "display": "evi_sustainverb"
+        },
+        {
+            "name": "evi_zitaverb",
+            "display": "evi_zitaverb"
         }
     ]
 }

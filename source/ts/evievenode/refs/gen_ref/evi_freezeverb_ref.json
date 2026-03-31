@@ -3,8 +3,8 @@
         "name": "evi_freezeverb",
         "child": "",
         "category": "evieve",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Classic freeverb reverb algorithm with buttery smooth freezing effect",
+        "description": "This is a basic Schroeder reverb effect but with additional filtering and controls, very servicable for certain situations. But the main feature here is the ability to smoothly capture the input audio in the recirculating feedback path in a way which gives a forever freezing effect. This can be triggered and released with wet+dry or with wet alone. In gen~ alone (as opposed to the MSP abstraction <o>evi.freezeverb~</o>) this is tricky to use as the damping coefficients are produced externally via the 'evi_damp_coeffs.gendsp' abstraction, and all static delay times are produced in an external javascript. If used at 48kHz samplerate the static delay times will work without further intervention. Overall it can still be used in gen~ alone providing some plumbing work is done."
     },
     "constructor": {
         "inlets": "left, right"
@@ -19,7 +19,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Signal Input",
-            "digest": ""
+            "digest": "Audio In Mono or Left or 1"
         },
         {
             "id": 2,
@@ -27,7 +27,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Signal Input",
-            "digest": ""
+            "digest": "Audio In Nothing or Right or 2"
         }
     ],
     "outlets": [
@@ -36,14 +36,14 @@
             "name": "left",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Reverb Out Left"
         },
         {
             "id": 2,
             "name": "right",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Reverb Out Right"
         }
     ],
     "attributes": [
@@ -51,7 +51,7 @@
             "name": "ALLPASSFB\t",
             "type": "float",
             "digest": "@min 0, @max 1\t\t ",
-            "description": "",
+            "description": false,
             "default": {
                 "type": "float",
                 "value": " 0.5"
@@ -61,7 +61,7 @@
             "name": "FIXEDGAIN\t",
             "type": "float",
             "digest": "@min 0, @max 1\t\t ",
-            "description": "",
+            "description": false,
             "default": {
                 "type": "float",
                 "value": " 0.015"
@@ -71,7 +71,7 @@
             "name": "OFFSETROOM\t",
             "type": "float",
             "digest": "@min 0, @max 1\t\t ",
-            "description": "",
+            "description": false,
             "default": {
                 "type": "float",
                 "value": " 0.7"
@@ -81,7 +81,7 @@
             "name": "SCALEDAMP\t",
             "type": "float",
             "digest": "@min 0, @max 1\t\t ",
-            "description": "",
+            "description": false,
             "default": {
                 "type": "float",
                 "value": " 0.4"
@@ -91,7 +91,7 @@
             "name": "SCALEDRY\t",
             "type": "float",
             "digest": "@min 0, @max 10\t\t ",
-            "description": "",
+            "description": false,
             "default": {
                 "type": "float",
                 "value": " 2."
@@ -101,7 +101,7 @@
             "name": "SCALEEARLY\t",
             "type": "float",
             "digest": "@min 0, @max 1\t\t ",
-            "description": "",
+            "description": false,
             "default": {
                 "type": "float",
                 "value": " 0.555555"
@@ -111,7 +111,7 @@
             "name": "SCALEROOM\t",
             "type": "float",
             "digest": "@min 0, @max 1\t\t ",
-            "description": "",
+            "description": false,
             "default": {
                 "type": "float",
                 "value": " 0.28"
@@ -121,7 +121,7 @@
             "name": "SCALEWET\t",
             "type": "float",
             "digest": "@min 0, @max 10\t\t ",
-            "description": "",
+            "description": false,
             "default": {
                 "type": "float",
                 "value": " 3."
@@ -131,7 +131,7 @@
             "name": "SQRT8MUL\t",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": false,
             "default": {
                 "type": "float",
                 "value": " 0.353553390593274"
@@ -141,7 +141,7 @@
             "name": "aSprSamps",
             "type": "int",
             "digest": "@min 1, @max 200",
-            "description": "",
+            "description": "In samples: floor(samplerate * 0.0004988662131519275 + 0.5)",
             "default": {
                 "type": "int",
                 "value": "\t24"
@@ -151,7 +151,7 @@
             "name": "ap1samps",
             "type": "int",
             "digest": "@min 1, @max 2421",
-            "description": "",
+            "description": "In samples: floor(samplerate * 0.012607709750566893 + 0.5)",
             "default": {
                 "type": "int",
                 "value": "\t605"
@@ -161,7 +161,7 @@
             "name": "ap2samps",
             "type": "int",
             "digest": "@min 1, @max 2421",
-            "description": "",
+            "description": "In samples: floor(samplerate * 0.01 + 0.5)",
             "default": {
                 "type": "int",
                 "value": "\t480"
@@ -171,7 +171,7 @@
             "name": "ap3samps",
             "type": "int",
             "digest": "@min 1, @max 2421",
-            "description": "",
+            "description": "In samples: floor(samplerate * 0.007732426303854875 + 0.5)",
             "default": {
                 "type": "int",
                 "value": "\t371"
@@ -181,7 +181,7 @@
             "name": "ap4samps",
             "type": "int",
             "digest": "@min 1, @max 2421",
-            "description": "",
+            "description": "In samples: floor(samplerate * 0.005102040816326530 + 0.5)",
             "default": {
                 "type": "int",
                 "value": "\t245"
@@ -191,7 +191,7 @@
             "name": "bypass",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Smooth bypass the reverb (1). Bypassing also CPU-mutes the internal DSP.",
             "default": {
                 "type": "int",
                 "value": "0"
@@ -201,7 +201,7 @@
             "name": "cSprSamps",
             "type": "int",
             "digest": "@min 1, @max 200",
-            "description": "",
+            "description": "In samples: floor(samplerate * 0.0010430839002267573 + 0.5)",
             "default": {
                 "type": "int",
                 "value": "\t50"
@@ -211,7 +211,7 @@
             "name": "comb1samps",
             "type": "int",
             "digest": "@min 1, @max 7040",
-            "description": "",
+            "description": "In samples: floor(samplerate * 0.025306122448979593 + 0.5)",
             "default": {
                 "type": "int",
                 "value": "\t1215"
@@ -221,7 +221,7 @@
             "name": "comb2samps",
             "type": "int",
             "digest": "@min 1, @max 7040",
-            "description": "",
+            "description": "In samples: floor(samplerate * 0.026938775510204082 + 0.5)",
             "default": {
                 "type": "int",
                 "value": "\t1293"
@@ -231,7 +231,7 @@
             "name": "comb3samps",
             "type": "int",
             "digest": "@min 1, @max 7040",
-            "description": "",
+            "description": "In samples: floor(samplerate * 0.028956916099773240 + 0.5)",
             "default": {
                 "type": "int",
                 "value": "\t1390"
@@ -241,7 +241,7 @@
             "name": "comb4samps",
             "type": "int",
             "digest": "@min 1, @max 7040",
-            "description": "",
+            "description": "In samples: floor(samplerate * 0.030748299319727890 + 0.5)",
             "default": {
                 "type": "int",
                 "value": "\t1476"
@@ -251,7 +251,7 @@
             "name": "comb5samps",
             "type": "int",
             "digest": "@min 1, @max 7040",
-            "description": "",
+            "description": "In samples: floor(samplerate * 0.032244897959183670 + 0.5)",
             "default": {
                 "type": "int",
                 "value": "\t1548"
@@ -261,7 +261,7 @@
             "name": "comb6samps",
             "type": "int",
             "digest": "@min 1, @max 7040",
-            "description": "",
+            "description": "In samples: floor(samplerate * 0.033809523809523810 + 0.5)",
             "default": {
                 "type": "int",
                 "value": "\t1623"
@@ -271,7 +271,7 @@
             "name": "comb7samps",
             "type": "int",
             "digest": "@min 1, @max 7040",
-            "description": "",
+            "description": "In samples: floor(samplerate * 0.035306122448979590 + 0.5)",
             "default": {
                 "type": "int",
                 "value": "\t1695"
@@ -281,7 +281,7 @@
             "name": "comb8samps",
             "type": "int",
             "digest": "@min 1, @max 7040",
-            "description": "",
+            "description": "In samples: floor(samplerate * 0.036666666666666670 + 0.5)",
             "default": {
                 "type": "int",
                 "value": "\t1760"
@@ -291,7 +291,7 @@
             "name": "damp",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Normalised 0..1, the higher the value, the more damping is applied to the decay of the internal comb filters.",
             "default": {
                 "type": "float",
                 "value": "0.42"
@@ -301,7 +301,7 @@
             "name": "dry",
             "type": "float",
             "digest": "@min -90, @max 0",
-            "description": "",
+            "description": "In dB -90..0, there is no 'dry/wet' in this reverb. Instead we have dry, early and wet gains. This dry gain controls the amount of gain applied to the unprocessed audio in the final mix.",
             "default": {
                 "type": "float",
                 "value": "-12."
@@ -311,7 +311,7 @@
             "name": "early",
             "type": "float",
             "digest": "@min -90, @max 0",
-            "description": "",
+            "description": "In dB -90..0, there is no 'dry/wet' in this reverb. Instead we have dry, early and wet gains. This early gain controls the amount of gain applied to the early reflections in the final mix.",
             "default": {
                 "type": "float",
                 "value": "-20."
@@ -321,7 +321,7 @@
             "name": "etap1samps",
             "type": "int",
             "digest": "@min 1, @max 1502",
-            "description": "",
+            "description": "In samples: floor(samplerate * 0.00142763 + 0.5)",
             "default": {
                 "type": "int",
                 "value": "\t69"
@@ -331,7 +331,7 @@
             "name": "etap2samps",
             "type": "int",
             "digest": "@min 1, @max 1502",
-            "description": "",
+            "description": "In samples: floor(samplerate * 0.00323873 + 0.5)",
             "default": {
                 "type": "int",
                 "value": "\t155"
@@ -341,7 +341,7 @@
             "name": "etap3samps",
             "type": "int",
             "digest": "@min 1, @max 1502",
-            "description": "",
+            "description": "In samples: floor(samplerate * 0.00523450 + 0.5)",
             "default": {
                 "type": "int",
                 "value": "\t251"
@@ -351,7 +351,7 @@
             "name": "etap4samps",
             "type": "int",
             "digest": "@min 1, @max 1502",
-            "description": "",
+            "description": "In samples: floor(samplerate * 0.00782312 + 0.5)",
             "default": {
                 "type": "int",
                 "value": "\t376"
@@ -361,7 +361,7 @@
             "name": "freeze",
             "type": "int",
             "digest": "@min 0, @max 2",
-            "description": "",
+            "description": "Engages the special freeze effect in different ways. 0=freeze off, 1=freeze on with dry/wet mix, 2=freeze on solo (wet only).",
             "default": {
                 "type": "int",
                 "value": "0"
@@ -371,7 +371,7 @@
             "name": "highshelfG",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Pre warped damping highshelf frequency coefficient normalised 0..1, see 'evi_rcfilters.genexpr' for coefficients calculators.",
             "default": {
                 "type": "float",
                 "value": "0.123758"
@@ -381,7 +381,7 @@
             "name": "highshelfK",
             "type": "float",
             "digest": "@min -3, @max 1",
-            "description": "",
+            "description": "Pre warped damping highshelf gain coefficient -3..1, see 'evi_rcfilters.genexpr' for coefficients calculators.",
             "default": {
                 "type": "float",
                 "value": "0."
@@ -391,7 +391,7 @@
             "name": "lowshelfG",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Pre warped damping lowshelf frequency coefficient normalised 0..1, see 'evi_rcfilters.genexpr' for coefficients calculators.",
             "default": {
                 "type": "float",
                 "value": "0.032214"
@@ -401,7 +401,7 @@
             "name": "lowshelfK",
             "type": "float",
             "digest": "@min -3, @max 1",
-            "description": "",
+            "description": "Pre warped damping lowshelf gain coefficient -3..1, see 'evi_rcfilters.genexpr' for coefficients calculators.",
             "default": {
                 "type": "float",
                 "value": "0."
@@ -411,7 +411,7 @@
             "name": "pre",
             "type": "float",
             "digest": "@min 0, @max 143",
-            "description": "",
+            "description": "The pre delay time in ms applied to the dry input before the early reflections.",
             "default": {
                 "type": "float",
                 "value": "9."
@@ -421,7 +421,7 @@
             "name": "size",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Normalised 0..1, the perceived size of the reverb, higher values create a bigger space.",
             "default": {
                 "type": "float",
                 "value": "0.78"
@@ -431,7 +431,7 @@
             "name": "smoothtime\t",
             "type": "float",
             "digest": "@min 1, @max 500\t\t ",
-            "description": "",
+            "description": "Set the smoothing time in ms of all the internal parameter smoothing functions.",
             "default": {
                 "type": "float",
                 "value": " 49."
@@ -441,7 +441,7 @@
             "name": "wet",
             "type": "float",
             "digest": "@min -90, @max 0",
-            "description": "",
+            "description": "In dB -90..0, there is no 'dry/wet' in this reverb. Instead we have dry, early and wet gains. This wet gain controls the amount of gain applied to the processed reverberated (late reflections) in the final mix.",
             "default": {
                 "type": "float",
                 "value": "-9.542434"
@@ -451,7 +451,7 @@
             "name": "width",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Normalised 0..1, the perceived stereo width of the reverb, the higher the value the bigger the late reflections feel.",
             "default": {
                 "type": "float",
                 "value": "0.7"
@@ -460,8 +460,32 @@
     ],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_algoverb",
+            "display": "evi_algoverb"
+        },
+        {
+            "name": "evi_backverb",
+            "display": "evi_backverb"
+        },
+        {
+            "name": "evi_gigaverb",
+            "display": "evi_gigaverb"
+        },
+        {
+            "name": "evi_mattaverb",
+            "display": "evi_mattaverb"
+        },
+        {
+            "name": "evi_plateverb",
+            "display": "evi_plateverb"
+        },
+        {
+            "name": "evi_sustainverb",
+            "display": "evi_sustainverb"
+        },
+        {
+            "name": "evi_zitaverb",
+            "display": "evi_zitaverb"
         }
     ]
 }

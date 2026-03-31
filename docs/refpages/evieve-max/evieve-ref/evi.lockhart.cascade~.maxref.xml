@@ -9,7 +9,7 @@
 		<b>evi.lockhart.cascade~</b> is a 'max define' for the <o>evi_lockhart_cascade</o>.gendsp gen~ abstraction.
 		Because evi.lockhart.cascade~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		<br />
-		TEXT_HERE <br />
+		An analog model of the 'Lockhart Wavefolder' employing antiderivative anti-aliasing via Lambert-W functions. The waveshaper takes a simple audio signal and aggressively folds and clips it to produce new shapes and harmonics in the style of west coast synthesis. This 'cascade' version has a variable order cascade of up to 16 stages, with CPU management depending on stages requested. See <o>evi.lockhart.simple~</o> for a fixed version with less options. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>
@@ -24,7 +24,7 @@
 				Inlet #1: Oscillator Input
 			</digest>
 			<description>
-				
+				Audio input to be wavefolded, typically a simple oscillator.
 			</description>
 		</inlet>
 	</inletlist>
@@ -35,7 +35,7 @@
 				Outlet #1: Wavefolded Output
 			</digest>
 			<description>
-				
+				Up to 16 wavefolded stages in series depending on the @cascade attribute.
 			</description>
 		</outlet>
 	</outletlist>
@@ -44,6 +44,17 @@
 	</methodlist>
 	<!--ATTRIBUTES-->
 	<attributelist>
+		<attribute name="cascade" get="1" set="1" type="int" min="1" max="16">
+			<digest>
+				Select 1..16
+			</digest>
+			<description>
+				Cascading multiple wavefolders in series does not just make the effect stronger, like a steeper filter order, but also changes the sound produced, as folding effect gets cascaded into folding effect. 1..16 stages are available depending on this attribute, and CPU is managed depending on how many cascaded stages are requested. @cascade can be changed in real time but soft-clicks.
+			</description>
+			<attributelist>
+				<attribute name="default" get="0" set="0" size="1" value="4" />
+			</attributelist>
+		</attribute>
 	</attributelist>
 	<!--EXAMPLE-->
 	<examplelist>
@@ -51,9 +62,19 @@
 	</examplelist>
 	<!--SEEALSO-->
 	<seealsolist>
+		<seealso name="evi.lockhart.simple~"> </seealso>
+		<seealso name="evi.lpg~"> </seealso>
+		<seealso name="evi.formantosc~"> </seealso>
+		<seealso name="evi.paf~"> </seealso>
+		<seealso name="evi.vosim.basic~"> </seealso>
+		<seealso name="evi.4wave~"> </seealso>
+		<seealso name="evi.blitwaves~"> </seealso>
+		<seealso name="evi.freqshift.weaver~"> </seealso>
+		<seealso name="evi.ringmod~"> </seealso>
+		<seealso name="evi.ringmod.diode~"> </seealso>
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>
-         <br />
+        Based on the paper: 'Virtual Analog Model of the Lockhart Wavefolder' by Fabian Esqueda, Henri Pontynen, Julian D. Parker, Stefan Bilbao, SMC, 2017. <br />
 	</discussion>
 </c74object>

@@ -41,8 +41,8 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 30.0, 17.0, 108.0, 22.0 ],
-                    "text": "in 1 Mono / Left / 1"
+                    "patching_rect": [ 30.0, 17.0, 151.0, 22.0 ],
+                    "text": "in 1 AudioIn Mono / Left / 1"
                 }
             },
             {
@@ -54,8 +54,8 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 706.0, 17.0, 127.0, 22.0 ],
-                    "text": "in 2 Nothing / Right / 2"
+                    "patching_rect": [ 662.0, 17.0, 171.0, 22.0 ],
+                    "text": "in 2 AudioIn Nothing / Right / 2"
                 }
             },
             {
@@ -95,7 +95,7 @@
             {
                 "patchline": {
                     "destination": [ "obj-3", 1 ],
-                    "midpoints": [ 715.5, 45.0, 823.5, 45.0 ],
+                    "midpoints": [ 671.5, 45.0, 823.5, 45.0 ],
                     "source": [ "obj-2", 0 ]
                 }
             },
@@ -112,6 +112,7 @@
                     "source": [ "obj-3", 1 ]
                 }
             }
-        ]
+        ],
+        "autosave": 0
     }
 }

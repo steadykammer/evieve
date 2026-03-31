@@ -62,7 +62,7 @@
     "evi.blitwaves~": {
         "type": "define",
         "digest": "No aliasing BLIT oscillators with a choice of simultaneous wave shapes outputs",
-        "description": ""
+        "description": "evi.blitwaves~ is a 'max define' for the evi_blitwaves.gendsp gen~ abstraction. Because evi.blitwaves~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nNo aliasing classic synth wave shapes, DSF-BLIT-like algorithm, sweep/modulation works with no noise, and cheap. Good for subtractive synthesis because we stay very bright right up to nyquist, but no hard sync."
     },
     "evi.bp~": {
         "type": "define",
@@ -92,7 +92,7 @@
     "evi.classic.osc~": {
         "type": "define",
         "digest": "A selection of 'classic' oscillator shapes",
-        "description": ""
+        "description": "evi.classic.osc~ is a 'max define' for the evi_classic_osc.gendsp gen~ abstraction. Because evi.classic.osc~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nProvides classic oscillator shapes (sine, tri, saw, rect) using a 2-point polyblep algorithm. Optionally including PWM versions (@type attribute). Also offers high frequency loss compensation filters and rudimentary oversampling. An experimental dynamic DC control is included, allowing for simultaneous use as LFOs and audio rate oscillators."
     },
     "evi.clip~": {
         "type": "define",
@@ -367,12 +367,12 @@
     "evi.lockhart.cascade~": {
         "type": "define",
         "digest": "Anti-aliased wavefolder device for shaping oscillators, selectable up to a cascade of 16 folding sections",
-        "description": ""
+        "description": "evi.lockhart.cascade~ is a 'max define' for the evi_lockhart_cascade.gendsp gen~ abstraction. Because evi.lockhart.cascade~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nAn analog model of the 'Lockhart Wavefolder' employing antiderivative anti-aliasing via Lambert-W functions. The waveshaper takes a simple audio signal and aggressively folds and clips it to produce new shapes and harmonics in the style of west coast synthesis. This 'cascade' version has a variable order cascade of up to 16 stages, with CPU management depending on stages requested. See evi.lockhart.simple~ for a fixed version with less options."
     },
     "evi.lockhart.simple~": {
         "type": "define",
-        "digest": "Anti-aliased wavefolder device for shaping oscillators, selectable up to four stages",
-        "description": ""
+        "digest": "Anti-aliased wavefolder device for shaping oscillators, simultaneous outputs up to four stages",
+        "description": "evi.lockhart.simple~ is a 'max define' for the evi_lockhart_simple.gendsp gen~ abstraction. Because evi.lockhart.simple~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nAn analog model of the 'Lockhart Wavefolder' employing antiderivative anti-aliasing via Lambert-W functions. The waveshaper takes a simple audio signal and aggressively folds and clips it to produce new shapes and harmonics in the style of west coast synthesis. This 'simple' version has a fixed cascade for four simultaneous outputs of 4 stages, 3 stages, 2 stages or 1 stage. See evi.lockhart.cascade~ for a version with more options."
     },
     "evi.logahr~": {
         "type": "external",
@@ -422,17 +422,17 @@
     "evi.modosc~": {
         "type": "define",
         "digest": "A deluxe cosine LFO with range and offset shaping",
-        "description": ""
+        "description": "evi.modosc~ is a 'max define' for the evi_modosc.gendsp gen~ abstraction. Because evi.modosc~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA simple sine oscillator for modulation purposes with sample accurate and clickless automatic phase reset when Hz input == 0, along with range and offset mapping."
     },
     "evi.morph.trap~": {
         "type": "define",
         "digest": "A selection of morphing trapezoidal anti-aliased oscillators",
-        "description": ""
+        "description": "evi.morph.trap~ is a 'max define' for the evi_morph_trap.gendsp gen~ abstraction. Because evi.morph.trap~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nAn oscillator with multiple optional shapes, each based around the same trapezoid wave but each with different morphing capabilities. Each shape option is phase synchronous and can be sample accurately switched at 'Morph' == 0.5. Also offers high frequency loss compensation filters and rudimentary oversampling. An experimental dynamic DC control is included, allowing for simultaneous use as LFOs and audio rate oscillators."
     },
     "evi.morph.tri~": {
         "type": "define",
         "digest": "A selection of morphing triangular anti-aliased oscillators",
-        "description": ""
+        "description": "evi.morph.tri~ is a 'max define' for the evi_morph_tri.gendsp gen~ abstraction. Because evi.morph.tri~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nAn oscillator with multiple optional shapes, each based around the same triangle wave but each with different morphing capabilities. Each shape option is phase synchronous and can be sample accurately switched at 'Morph' == 0.5. Also offers high frequency loss compensation filters and rudimentary oversampling. An experimental dynamic DC control is included, allowing for simultaneous use as LFOs and audio rate oscillators."
     },
     "evi.multimode~": {
         "type": "define",
@@ -467,7 +467,7 @@
     "evi.paf~": {
         "type": "define",
         "digest": "A basic 'paf' formant oscillator, very similar to the legacy 'paf~' external",
-        "description": ""
+        "description": "evi.paf~ is a 'max define' for the evi_paf.gendsp gen~ abstraction. Because evi.paf~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\n'PAF' (phase aligned formant) is an oscillator that can model the human voice. Typically multiple PAF oscillators make up a formant model, as in evi.formantosc~. However single evi.paf~ instances can provide novel oscillators for more generic synthesis. The formant is controlled by frequency (inlet 2) and bandwidth (inlet 3). In this model the PAF is approximated by adding two 'wavepackets' together, which are also available separately on auxilliary outputs. The PAF algorithm is inherently bandlimited."
     },
     "evi.pan~": {
         "type": "external",
@@ -492,7 +492,7 @@
     "evi.plateverb~": {
         "type": "abstraction",
         "digest": "Plate reverb based on yafr2~ with additional filtering and smoothing \n",
-        "description": "Based on yafr2~ from MSP ('Plate reverb in the style of Griesinger' by Randy Jones). This version for evieve with dry/wet and eq added, as well as modifications for better filtering, interpolation and smoothing, and zero hold delay changes, Parameters normalised 0..1. Clickless and smooth changes possible for all parameters."
+        "description": "Based on yafr2~ from MSP ('Plate reverb in the style of Griesinger' by Randy Jones). This version for evieve with dry/wet and eq added, as well as modifications for better filtering, interpolation and smoothing, and zero hold delay changes. Parameters normalised 0..1. Clickless and smooth changes possible for all parameters."
     },
     "evi.polyphaseiirhilbertcoeffs": {
         "type": "abstraction",
@@ -522,12 +522,12 @@
     "evi.rect.select~": {
         "type": "define",
         "digest": "Selection of anti-aliased square-like oscillators",
-        "description": ""
+        "description": "evi.rect.select~ is a 'max define' for the evi_rect_select.gendsp gen~ abstraction. Because evi.rect.select~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA collection of square-like oscillator shapes using a 2-point polyblep algorithm. Some shapes take PWM control. Also offers high frequency loss compensation filters and rudimentary oversampling. An experimental dynamic DC control is included, allowing for simultaneous use as LFOs and audio rate oscillators."
     },
     "evi.rect~": {
         "type": "define",
         "digest": "High quality anti-aliased square wave oscillator with PWM",
-        "description": ""
+        "description": "evi.rect~ is a 'max define' for the evi_rect.gendsp gen~ abstraction. Because evi.rect~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nSimple anti-aliased square wave oscillator with PWM, based on 4-point polyblep algorithm. The highest quality of the evieve polyblep oscillators. Including high frequency compensation."
     },
     "evi.reson~": {
         "type": "define",
@@ -547,12 +547,12 @@
     "evi.saw.select~": {
         "type": "define",
         "digest": "Selection of anti-aliased saw-like oscillators",
-        "description": ""
+        "description": "evi.saw.select~ is a 'max define' for the evi_saw_select.gendsp gen~ abstraction. Because evi.saw.select~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA collection of saw-like oscillator shapes using a 2-point polyblep algorithm. Some shapes take PWM control. Also offers high frequency loss compensation filters and rudimentary oversampling. An experimental dynamic DC control is included, allowing for simultaneous use as LFOs and audio rate oscillators."
     },
     "evi.saw~": {
         "type": "define",
         "digest": "High quality anti-aliased saw wave oscillator",
-        "description": ""
+        "description": "evi.saw~ is a 'max define' for the evi_saw.gendsp gen~ abstraction. Because evi.saw~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nSimple anti-aliased saw wave oscillator based on 4-point polyblep algorithm. The highest quality of the evieve polyblep oscillators. Including high frequency compensation."
     },
     "evi.shaper~": {
         "type": "define",
@@ -562,7 +562,7 @@
     "evi.sine.select~": {
         "type": "define",
         "digest": "Selection of anti-aliased sine-like oscillators",
-        "description": ""
+        "description": "evi.sine.select~ is a 'max define' for the evi_sine_select.gendsp gen~ abstraction. Because evi.sine.select~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA collection of sine-like oscillator shapes using a 2-point polyblep algorithm. Offers high frequency loss compensation filters and rudimentary oversampling. An experimental dynamic DC control is included, allowing for simultaneous use as LFOs and audio rate oscillators."
     },
     "evi.sinfold~": {
         "type": "define",
@@ -582,7 +582,7 @@
     "evi.squine.simple~": {
         "type": "define",
         "digest": "A basic implementation of Rasmus Ekman's 'squine wave' oscillator with audio rate modulation",
-        "description": ""
+        "description": "evi.squine.simple~ is a 'max define' for the evi_squine_simple.gendsp gen~ abstraction. Because evi.squine.simple~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nAn extremely versatile phase modulation oscillator which can morph shape and does not alias (up to a certain point). Inlets are available for linear and logarithmic FM modulation, as well as optionally audio rate control over the shape morphing."
     },
     "evi.sustainverb~": {
         "type": "abstraction",
@@ -602,7 +602,7 @@
     "evi.svfsmooth~": {
         "type": "define",
         "digest": "Nonlinear TPT SVF filter with audio rate modulation and morphing capabilities",
-        "description": "evi.svfsmooth~ is a 'max define' for the evi_svfsmooth.gendsp gen~ abstraction. Because evi.svfsmooth~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA cheap nonlinear 12dB multimode SVF for when you need a quick cheap synth filter. Morphing is between LP..BP..HP filters and is basic output-mixing with resonance attenuation, available at the far left outlet 1. All filters are also available individually via their multimode outlets 2, 3, 4 and 5 (lowpass, bandpass, highpass, notch)."
+        "description": "evi.svfsmooth~ is a 'max define' for the evi_svfsmooth.gendsp gen~ abstraction. Because evi.svfsmooth~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA cheap nonlinear 12dB multimode SVF for when you need a quick cheap synth filter. Morphing is between LP..BP..HP filters and is basic output-mixing with resonance attenuation, available at the far left outlet (1). All filters are also available individually via their multimode outlets 2, 3, 4 and 5 (lowpass, bandpass, highpass, notch)."
     },
     "evi.svfsynth~": {
         "type": "define",
@@ -637,12 +637,12 @@
     "evi.tri.select~": {
         "type": "define",
         "digest": "Selection of anti-aliased triangle-like oscillators",
-        "description": ""
+        "description": "evi.tri.select~ is a 'max define' for the evi_tri_select.gendsp gen~ abstraction. Because evi.tri.select~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA collection of tri-like oscillator shapes using a 2-point polyblep algorithm. Some shapes take PWM control. Also offers high frequency loss compensation filters and rudimentary oversampling. An experimental dynamic DC control is included, allowing for simultaneous use as LFOs and audio rate oscillators."
     },
     "evi.tri~": {
         "type": "define",
         "digest": "High quality anti-aliased triangle wave oscillator",
-        "description": ""
+        "description": "evi.tri~ is a 'max define' for the evi_tri.gendsp gen~ abstraction. Because evi.tri~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nSimple anti-aliased tri wave oscillator based on 4-point polyblep algorithm. The highest quality of the evieve polyblep oscillators. Including high frequency compensation."
     },
     "evi.vactrol~": {
         "type": "external",
@@ -662,7 +662,7 @@
     "evi.vosim.basic~": {
         "type": "define",
         "digest": "A basic implementation of a 'vosim' formant oscillator",
-        "description": ""
+        "description": "evi.vosim.basic~ is a 'max define' for the evi_vosim_basic.gendsp gen~ abstraction. Because evi.vosim.basic~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nThis is a 'raw' formant oscillator with low level controls capable of modelling the human voice, typically used in a bank of multiple oscillators to do so. However single evi.vosim.basic~ instances can provide novel oscillators for more generic synthesis, and is capable of ringing filtered-like tones. The VOSIM algorithm is inherently bandlimited."
     },
     "evi.warmer~": {
         "type": "abstraction",

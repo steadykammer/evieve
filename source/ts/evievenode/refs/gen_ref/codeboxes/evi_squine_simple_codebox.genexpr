@@ -10,9 +10,9 @@ normaliseToLimit(freq, limit)
 	return	clip((sqrt((freq * w0) / w1) - (1 - w1)) * (1 + w1), 0, 1); // should not return to 0 ?
 }
 
-Param	cfmode(1, min=0, max=1);								// in1 cutoff in: 1 = pitch, 0 = Hz
-Param	cfsmooth(20., min=0, max=1000);							// smooth in1 in ms, 0 == off
-Param	cfmul(0.1, min=0, max=0.5);								// multiplier of samplerate
+Param	freqmode(1, min=0, max=1);								// in1 cutoff in: 1 = pitch, 0 = Hz
+Param	freqsmooth(20., min=0, max=1000);						// smooth in1 in ms, 0 == off
+Param	freqmul(0.1, min=0, max=0.5);							// multiplier of samplerate
 
 dutyIn		= clamp(in5, 0, 1);
 duty0		= (dutyIn + dutyIn - 1);
@@ -21,7 +21,7 @@ dutycycle	= duty0 * 0.9998;									// -0.9998..0.9998
 harm0		= interp(clamp(in4, 0, 1), 0, 0.9997, mode="cosine");// 0. .. 0.9997
 harmonics	= (harm0 * (1 - abs(duty0)) * 0.292893) + (sqrt1_2 * harm0);
 
-freq, cf, limit	= evi_hzpitchmodmods(abs(in1), in2, in3, mode=cfmode, smooth=cfsmooth, high=cfmul, cliplimit=0, outnomod=1);
+freq, cf, limit	= evi_hzpitchmodmods(abs(in1), in2, in3, mode=freqmode, smooth=freqsmooth, high=freqmul, cliplimit=0, outnomod=1);
 
 phaseraw	= phasor(freq);
 phasemod	= phaseraw;

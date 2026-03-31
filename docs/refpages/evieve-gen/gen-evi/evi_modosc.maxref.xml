@@ -13,7 +13,7 @@
          <br />
         evi_modosc is also available in MSP as: <o>evi.modosc~</o>. <br />
          <br />
-	    A simple sine oscillator for modulation purposes with sample accurate & clickless automatic phase reset when Hz input == 0, along with range and offset mapping. <br />
+	    A simple sine oscillator for modulation purposes with sample accurate and clickless automatic phase reset when Hz input == 0, along with range and offset mapping. <br />
     </description>
     <methodlist />
     <constructorlist>

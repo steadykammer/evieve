@@ -3,8 +3,8 @@
         "name": "evi_sustainverb",
         "child": "",
         "category": "evieve",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "16x16 FDN reverb with smooth sustaining effect",
+        "description": "This is just Miller Puckette's 'rev3~' but with additional reverb features such as early reflections, filtering improvements and smoothing of parameters whilst maintaining the ability to forever sustain like the original. <o>evi_sustainverb</o> also includes multichannel taps of the FDN which can be very useful for surround-ish effects processing. In gen~ alone this is a bit tricky to use as it requires compuation of delay time externally. Defaults are for running at 48kHz samplerate."
     },
     "constructor": {
         "inlets": "audio, audio"
@@ -19,7 +19,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "In Left",
-            "digest": ""
+            "digest": "Audio In Left"
         },
         {
             "id": 2,
@@ -27,7 +27,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "In Right",
-            "digest": ""
+            "digest": "Audio In Right"
         }
     ],
     "outlets": [
@@ -36,56 +36,56 @@
             "name": "reverb",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Main reverb output Left, post dry/wet"
         },
         {
             "id": 2,
             "name": "reverb",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Main reverb output Right, post dry/wet"
         },
         {
             "id": 3,
             "name": "fdn",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Pure output tap L of FDN loop without any dry/wet"
         },
         {
             "id": 4,
             "name": "fdn",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Pure output tap R of FDN loop without any dry/wet"
         },
         {
             "id": 5,
             "name": "aux",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Decorrelated output tap 1 of FDN channel"
         },
         {
             "id": 6,
             "name": "aux",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Decorrelated output tap 2 of FDN channel"
         },
         {
             "id": 7,
             "name": "aux",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Decorrelated output tap 3 of FDN channel"
         },
         {
             "id": 8,
             "name": "aux",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Decorrelated output tap 4 of FDN channel"
         }
     ],
     "attributes": [
@@ -93,7 +93,7 @@
             "name": "crossover",
             "type": "float",
             "digest": "@min 10, @max 10000",
-            "description": "",
+            "description": "Frequency in Hz at which 'damp' filters take effect.",
             "default": {
                 "type": "float",
                 "value": "3000."
@@ -103,7 +103,7 @@
             "name": "damp",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Normalised 0..1, amount of damping in the FDN. 0=no damping, 1=maximum damping.",
             "default": {
                 "type": "float",
                 "value": "0.2"
@@ -113,7 +113,7 @@
             "name": "delayTime1 \t",
             "type": "int",
             "digest": "@min 1, @max 25056\t",
-            "description": "",
+            "description": "In samples: floor(samplerate * 0.0100001 + 0.5)",
             "default": {
                 "type": "int",
                 "value": "\t480"
@@ -123,7 +123,7 @@
             "name": "delayTime10 ",
             "type": "int",
             "digest": "@min 1, @max 25056\t",
-            "description": "",
+            "description": "In samples: floor(samplerate * 0.0554567 + 0.5)",
             "default": {
                 "type": "int",
                 "value": "\t2662"
@@ -133,7 +133,7 @@
             "name": "delayTime11 ",
             "type": "int",
             "digest": "@min 1, @max 25056\t",
-            "description": "",
+            "description": "In samples: floor(samplerate * 0.0651755 + 0.5)",
             "default": {
                 "type": "int",
                 "value": "\t3128"
@@ -143,7 +143,7 @@
             "name": "delayTime12 ",
             "type": "int",
             "digest": "@min 1, @max 25056\t",
-            "description": "",
+            "description": "In samples: floor(samplerate * 0.0768243 + 0.5)",
             "default": {
                 "type": "int",
                 "value": "\t3688"
@@ -153,7 +153,7 @@
             "name": "delayTime13 ",
             "type": "int",
             "digest": "@min 1, @max 25056\t",
-            "description": "",
+            "description": "In samples: floor(samplerate * 0.0885623 + 0.5)",
             "default": {
                 "type": "int",
                 "value": "\t4251"
@@ -163,7 +163,7 @@
             "name": "delayTime14 ",
             "type": "int",
             "digest": "@min 1, @max 25056\t",
-            "description": "",
+            "description": "In samples: floor(samplerate * 0.1012780 + 0.5)",
             "default": {
                 "type": "int",
                 "value": "\t4861"
@@ -173,7 +173,7 @@
             "name": "delayTime15 ",
             "type": "int",
             "digest": "@min 1, @max 25056\t",
-            "description": "",
+            "description": "In samples: floor(samplerate * 0.1153970 + 0.5)",
             "default": {
                 "type": "int",
                 "value": "\t5539"
@@ -183,7 +183,7 @@
             "name": "delayTime16 ",
             "type": "int",
             "digest": "@min 1, @max 25056\t",
-            "description": "",
+            "description": "In samples: floor(samplerate * 0.1305020 + 0.5)",
             "default": {
                 "type": "int",
                 "value": "\t6264"
@@ -193,7 +193,7 @@
             "name": "delayTime2 \t",
             "type": "int",
             "digest": "@min 1, @max 25056\t",
-            "description": "",
+            "description": "In samples: floor(samplerate * 0.0116356 + 0.5)",
             "default": {
                 "type": "int",
                 "value": "\t559"
@@ -203,7 +203,7 @@
             "name": "delayTime3 \t",
             "type": "int",
             "digest": "@min 1, @max 25056\t",
-            "description": "",
+            "description": "In samples: floor(samplerate * 0.0134567 + 0.5)",
             "default": {
                 "type": "int",
                 "value": "\t646"
@@ -213,7 +213,7 @@
             "name": "delayTime4 \t",
             "type": "int",
             "digest": "@min 1, @max 25056\t",
-            "description": "",
+            "description": "In samples: floor(samplerate * 0.0167345 + 0.5)",
             "default": {
                 "type": "int",
                 "value": "\t803"
@@ -223,7 +223,7 @@
             "name": "delayTime5 \t",
             "type": "int",
             "digest": "@min 1, @max 25056\t",
-            "description": "",
+            "description": "In samples: floor(samplerate * 0.0201862 + 0.5)",
             "default": {
                 "type": "int",
                 "value": "\t969"
@@ -233,7 +233,7 @@
             "name": "delayTime6 \t",
             "type": "int",
             "digest": "@min 1, @max 25056\t",
-            "description": "",
+            "description": "In samples: floor(samplerate * 0.0257417 + 0.5)",
             "default": {
                 "type": "int",
                 "value": "\t1236"
@@ -243,7 +243,7 @@
             "name": "delayTime7 \t",
             "type": "int",
             "digest": "@min 1, @max 25056\t",
-            "description": "",
+            "description": "In samples: floor(samplerate * 0.0314693 + 0.5)",
             "default": {
                 "type": "int",
                 "value": "\t1511"
@@ -253,7 +253,7 @@
             "name": "delayTime8 \t",
             "type": "int",
             "digest": "@min 1, @max 25056\t",
-            "description": "",
+            "description": "In samples: floor(samplerate * 0.0382944 + 0.5)",
             "default": {
                 "type": "int",
                 "value": "\t1838"
@@ -263,7 +263,7 @@
             "name": "delayTime9 \t",
             "type": "int",
             "digest": "@min 1, @max 25056\t",
-            "description": "",
+            "description": "In samples: floor(samplerate * 0.0466838 + 0.5)",
             "default": {
                 "type": "int",
                 "value": "\t2241"
@@ -273,7 +273,7 @@
             "name": "drywet",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Normalised 0..1, Dry/Wet mix of direct signal and reverberated signal. Dry is 0, completely wet is 1.",
             "default": {
                 "type": "float",
                 "value": "1."
@@ -283,7 +283,7 @@
             "name": "early",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Normalised 0..1, this can be a switch or interpolated, both are smoothed. Add in early reflections. This makes the sound of the FDN more reverb-like.",
             "default": {
                 "type": "float",
                 "value": "0."
@@ -293,7 +293,7 @@
             "name": "earlyTime1 \t",
             "type": "int",
             "digest": "@min 1, @max 1502\t\t",
-            "description": "",
+            "description": "In samples: floor(samplerate * 0.00142763 + 0.5)",
             "default": {
                 "type": "int",
                 "value": "\t69"
@@ -303,7 +303,7 @@
             "name": "earlyTime2 \t",
             "type": "int",
             "digest": "@min 1, @max 1502\t\t",
-            "description": "",
+            "description": "In samples: floor(samplerate * 0.00323873 + 0.5)",
             "default": {
                 "type": "int",
                 "value": "\t155"
@@ -313,7 +313,7 @@
             "name": "earlyTime3 \t",
             "type": "int",
             "digest": "@min 1, @max 1502\t\t",
-            "description": "",
+            "description": "In samples: floor(samplerate * 0.00523450 + 0.5)",
             "default": {
                 "type": "int",
                 "value": "\t251"
@@ -323,7 +323,7 @@
             "name": "earlyTime4 \t",
             "type": "int",
             "digest": "@min 1, @max 1502\t\t",
-            "description": "",
+            "description": "In samples: floor(samplerate * 0.00782312 + 0.5)",
             "default": {
                 "type": "int",
                 "value": "\t376"
@@ -333,7 +333,7 @@
             "name": "feedback",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Normalised 0..1, this is the key parameter of 'evi.sustainverb~'. It controls the amount of reverberation in the system, but the higher the value the more towards foreverersustain the sound becomes.",
             "default": {
                 "type": "float",
                 "value": "sqrt1_2"
@@ -343,7 +343,7 @@
             "name": "highpass",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Normalised 0..1, this can be a switch or interpolated, both are smoothed. Add in a highjpass filter to the FDN. This makes the sound of the FDN more reverb-like and tames low frequency recirculation, but also curtails the ability to forever sustain.",
             "default": {
                 "type": "float",
                 "value": "0."
@@ -353,7 +353,7 @@
             "name": "outgain",
             "type": "float",
             "digest": "@min -80, @max 20",
-            "description": "",
+            "description": "In dB -80..20, the gain in dB of the FDN recirculation.",
             "default": {
                 "type": "float",
                 "value": "-3."
@@ -363,7 +363,7 @@
             "name": "smoothtime",
             "type": "float",
             "digest": "@min 1, @max 500",
-            "description": "",
+            "description": "Set the smoothing time in ms of all the internal parameter smoothing functions.",
             "default": {
                 "type": "float",
                 "value": "43."
@@ -372,8 +372,32 @@
     ],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_algoverb",
+            "display": "evi_algoverb"
+        },
+        {
+            "name": "evi_backverb",
+            "display": "evi_backverb"
+        },
+        {
+            "name": "evi_freezeverb",
+            "display": "evi_freezeverb"
+        },
+        {
+            "name": "evi_gigaverb",
+            "display": "evi_gigaverb"
+        },
+        {
+            "name": "evi_mattaverb",
+            "display": "evi_mattaverb"
+        },
+        {
+            "name": "evi_plateverb",
+            "display": "evi_plateverb"
+        },
+        {
+            "name": "evi_zitaverb",
+            "display": "evi_zitaverb"
         }
     ]
 }

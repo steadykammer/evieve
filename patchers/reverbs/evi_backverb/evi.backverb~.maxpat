@@ -659,10 +659,10 @@
                     "outlettype": [ "" ],
                     "patching_rect": [ 801.0, 315.5, 161.0, 22.0 ],
                     "saved_object_attributes": {
-                        "client_rect": [ 4, 45, 362, 523 ],
+                        "client_rect": [ 100, 172, 458, 650 ],
                         "parameter_enable": 0,
                         "parameter_mappable": 0,
-                        "storage_rect": [ 333, 69, 1280, 583 ]
+                        "storage_rect": [ 100, 172, 1047, 686 ]
                     },
                     "text": "pattrstorage evi_backverb",
                     "varname": "evi_backverb"
@@ -1227,6 +1227,7 @@
                                             "parameter_linknames": 1,
                                             "parameter_longname": "modDepth",
                                             "parameter_mmax": 16.0,
+                                            "parameter_mmin": -16.0,
                                             "parameter_modmode": 3,
                                             "parameter_shortname": "modDepth",
                                             "parameter_type": 0
@@ -2271,7 +2272,7 @@
                                         "valueof": {
                                             "parameter_initial": [ 0.707107 ],
                                             "parameter_linknames": 1,
-                                            "parameter_longname": "dryWet[1]",
+                                            "parameter_longname": "dryWet",
                                             "parameter_mmax": 1.0,
                                             "parameter_modmode": 3,
                                             "parameter_shortname": "dryWet",
@@ -2997,7 +2998,7 @@
                     "numoutlets": 2,
                     "outlettype": [ "signal", "signal" ],
                     "patching_rect": [ 57.0, 316.0, 138.0, 22.0 ],
-                    "text": "gen~ evi_majorverb"
+                    "text": "gen~ evi_backverb"
                 }
             },
             {
@@ -3173,7 +3174,6 @@
             {
                 "patchline": {
                     "destination": [ "obj-85", 0 ],
-                    "hidden": 1,
                     "source": [ "obj-54", 1 ]
                 }
             },

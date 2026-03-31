@@ -29,13 +29,13 @@
             "id": 1,
             "type": "signal",
             "digest": "Audio Out Left",
-            "description": "Audio Out Left"
+            "description": "Reverb Out Left"
         },
         {
             "id": 2,
             "type": "signal",
             "digest": "Audio Out Right",
-            "description": "Audio Out Right"
+            "description": "Reverb Out Right"
         },
         {
             "id": 3,

@@ -1,0 +1,113 @@
+{
+    "patcher": {
+        "fileversion": 1,
+        "appversion": {
+            "major": 9,
+            "minor": 2,
+            "revision": 0,
+            "architecture": "x64",
+            "modernui": 1
+        },
+        "classnamespace": "dsp.gen",
+        "rect": [ 0.0, 127.0, 1065.0, 821.0 ],
+        "gridonopen": 2,
+        "toolbars_unpinned_last_save": 7,
+        "subpatcher_template": "<none>",
+        "integercoordinates": 1,
+        "boxes": [
+            {
+                "box": {
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 12.0,
+                    "id": "obj-5",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 964.0, 777.0, 67.0, 22.0 ],
+                    "text": "out 2 Right"
+                }
+            },
+            {
+                "box": {
+                    "fontname": "Arial",
+                    "fontsize": 12.0,
+                    "id": "obj-1",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 30.0, 17.0, 51.0, 22.0 ],
+                    "text": "in 1 Left"
+                }
+            },
+            {
+                "box": {
+                    "fontname": "Arial",
+                    "fontsize": 12.0,
+                    "id": "obj-2",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 964.0, 17.0, 59.0, 22.0 ],
+                    "text": "in 2 Right"
+                }
+            },
+            {
+                "box": {
+                    "code": "\r\n// evi_backverb.gendsp, a strange reverb-like effect by Pete for evieve,\n// based on Christopher Moore's 1978 Ursa Major Space Station algorithm\n// @see: https://patentimages.storage.googleapis.com/69/db/19/ea420d3f72ccd2/US4268717.pdf\r\n// I would not have fully understood it all without the Tom Erbe examples.\n\n// This is not an attempt to model the 1970's digital hardware, but more of a trope on it, \n// although it does sound very close to the original with the right settings :-)\n// Nonlinearities and trap filters have been added, much as you might find in an analogue delay,\n// and different modulation, interpolation, smoothing, filtering modifications, etc.\r\n// The key features (for me) are the ability to screw up the recirculation settings into a crazy\r\n// and cool performable feedback matrix drone machine. It is also dirt cheap on the CPU.\n\r\n\r\n//\t//\t//\tlib\r\n\r\nrequire(\"evi_reverb_library.genexpr\");\r\nrequire(\"evi_saturators.genexpr\");\r\n\r\n// make oversampling choice on tanhL nonlinearity\ntanhLNonlin(xin, oversampling)\n{\n\tHistory tnhldummy(0);\n\ty = 0;\n\tif (oversampling == 1) {\t\t// use Adaa2 2x oversampling\n\t\ty = altTanhSqrtAdaa2_2x_6POINT(xin);\n\t} else if (oversampling == 2) {\t// use Adaa2 4x oversampling\n\t\ty = altTanhSqrtAdaa2_4x_6POINT(xin);\n\t} else {\t\t\t\t\t\t// Adaa 2nd order\n\t\ty = altTanhSqrtAdaa2(xin);\n\t}\n\treturn y;\n}\r\n\r\n// make oversampling choice on parabolSat nonlinearity\nparabolNonlin(xin, a, c, oversampling)\r\n{\r\n\tHistory pbsdummy(0);\n\ty = 0;\n\tif (oversampling == 1) {\t\t// use 2x oversampling\n\t\ty = parabolSat_2x_6POINT(xin, a, c);\n\t} else if (oversampling == 2) {\t// use 4x oversampling\n\t\ty = parabolSat_4x_6POINT(xin, a, c);\n\t} else {\t\t\t\t\t\t// 1x\n\t\ty = parabolSat(xin, a, c);\n\t}\n\treturn y;\n}\r\n\r\n//\t//\t//\tmagic constants (fixed, although we could experiment with changing them here)\r\n//\t\t\t\t\t\t\t(although if changing higher keep in mind maximum delay sizes set in Delay operators below)\r\n\r\n// modulation rates in Hz\r\nParam\tmod1(\t\t0.666,\t\tmin=0, max=1);\r\nParam\tmod2(\t\t0.625,\t\tmin=0, max=1);\r\nParam\tmod3(\t\t0.555,\t\tmin=0, max=1);\r\nParam\tmod4(\t\t0.476,\t\tmin=0, max=1);\r\nParam\tmod5(\t\t0.435,\t\tmin=0, max=1);\r\nParam\tmod6(\t\t0.303,\t\tmin=0, max=1);\r\nParam\tmod7(\t\t0.181,\t\tmin=0, max=1);\r\nParam\tmod8(\t\t0.122,\t\tmin=0, max=1);\r\n\r\n// computed externally in js\r\n\r\n// fdn taps in samples, defaults for 48kHz\r\nParam\tdelay1(\t\t2299.2,\t\tmin=1, max=47559);\r\nParam\tdelay2(\t\t5764.8,\t\tmin=1, max=47559);\r\nParam\tdelay3(\t\t6532.8,\t\tmin=1, max=47559);\r\nParam\tdelay4(\t\t7003.2,\t\tmin=1, max=47559);\r\nParam\tdelay5(\t\t7627.2,\t\tmin=1, max=47559);\r\nParam\tdelay6(\t\t8126.4,\t\tmin=1, max=47559);\r\nParam\tdelay7(\t\t8644.8,\t\tmin=1, max=47559);\r\nParam\tdelay8(\t\t9124.8,\t\tmin=1, max=47559);\r\nParam\tdelay9(\t\t9614.4,\t\tmin=1, max=47559);\r\nParam\tdelay10(\t10075.2,\tmin=1, max=47559);\r\nParam\tdelay11(\t10459.2,\tmin=1, max=47559);\r\nParam\tdelay12(\t10804.8,\tmin=1, max=47559);\r\nParam\tdelay13(\t11227.2,\tmin=1, max=47559);\r\nParam\tdelay14(\t11515.2,\tmin=1, max=47559);\r\nParam\tdelay15(\t11716.8,\tmin=1, max=47559);\r\nParam\tdelay16(\t11889.6,\tmin=1, max=47559);\r\n\r\n// out taps in samples, defaults for 48kHz\r\nParam\tsum1(\t\t2914,\t\tmin=1, max=40877);\r\nParam\tsum2(\t\t3710,\t\tmin=1, max=40877);\r\nParam\tsum3(\t\t6590,\t\tmin=1, max=40877);\r\nParam\tsum4(\t\t5390,\t\tmin=1, max=40877);\r\nParam\tsum5(\t\t8414,\t\tmin=1, max=40877);\r\nParam\tsum6(\t\t7685,\t\tmin=1, max=40877);\r\nParam\tsum7(\t\t9125,\t\tmin=1, max=40877);\r\nParam\tsum8(\t\t10219,\t\tmin=1, max=40877);\r\n\r\n\r\n//\t//\t//\tdeclare\r\n\r\n// 24-tap delay line (fdn (space) & output taps (cross))\r\n// n.b. - [delay] operator in gen~ has maximum 15 taps (go figure), so we split them up here\r\n\r\nDelay\tspace_A(samplerate*0.277, 8, feedback=1);\t// ± maximum modulation time ...\r\nDelay\tspace_B(samplerate*0.280, 8, feedback=1);\t// ...\r\nDelay\tcross_Y(samplerate*0.214, 8, feedback=0);\t// fixed taps\r\n\r\n// EQs (bandwidth & damping)\r\n\r\nParam\tinputhzlow(125., min=31.25, max=500);\t\t// highpass in Hz\r\nParam\tinputhzhigh(4000., min=500, max=14700);\t\t// lowpass in Hz\r\n\r\nParam\tfeedbackhzlow(250., min=62.5, max=500);\t\t// highpass in Hz\r\nParam\tfeedbackhzhigh(2000., min=250, max=8000);\t// lowpass in Hz\r\nParam\tfeedbackdamplow(sqrt1_2, min=0, max=1);\t\t// % 0..1, 0 = bypass .. 1 = maximum damping ...\r\nParam\tfeedbackdamphigh(0.8666, min=0, max=1);\t\t// ...\r\n\r\n// controls\r\n\r\nParam\tfeedback(2.4, min=0.01, max=10);\t\t\t// amplitude\r\n\r\nParam\tfeedbacknonlinear(1, min=0, max=2);\t\t\t// 0 = Adaa2, 1 = 2x, 2 = 4x oversampled\r\nParam\toutputnonlinear(1, min=0, max=2);\t\t\t// 0 = 1x, 1 = 2x, 2 = 4x oversampled\r\n// secret gains (careful, not smoothed)\r\nParam\toutputnonlineargains(0, min=0, max=1);\t\t// switch input/output gains of output nonlinearity pre/post\r\n\r\nParam\tmodulationdepth(4., min=-16, max=16);\t\t// ± ms peak to peak\r\nParam\tmodulationrate(1., min=0.125, max=8);\t\t// global multiplier (of Hz), slower..faster\r\n// secret modulation (careful, not smoothed)\r\nParam\tmodulationshape(1., min=0, max=1);\t\t\t// tri..sine morph 0..1\r\nParam\tmodulationskew(1., min=0.5, max=2);\t\t\t// skew shape power 0.5..2 through 1\r\nParam\tmodulationduty(0.5, min=0, max=1);\t\t\t// tri duty cycle\r\n\r\nParam\tdrywet(sqrt1_2, min=0, max=1);\t\t\t\t// % 0..1\r\n\r\n\r\n//\t//\t//\tparse param rate\r\n\r\n// one day these might be dynamic ...\r\noutputTaps\t\t\t= 8;\r\noutputAttenuation\t= 1 / (outputTaps / 2);\r\nfeedbackTaps\t\t= 16;\r\nfeedbackAttenuation\t= 1 / feedbackTaps;\r\n\r\nbw_glp\t\t\t= rcPreWarp1(inputhzhigh);\r\nbw_ghp\t\t\t= rcPreWarp1(inputhzlow);\r\n\r\nfb_damp_high\t= (1 - feedbackdamphigh) - 1;\t\t// map from 0..1 ...\r\nfb_damp_low\t\t= (1 - feedbackdamplow) - 1;\t\t// ...\r\n\r\nfb_glp, fb_klp\t= rcDampCoeffs2(feedbackhzhigh, fb_damp_high);\r\nfb_ghp, fb_khp\t= rcDampCoeffs2(feedbackhzlow, fb_damp_low);\r\n\r\nfbNonlin\t= int(feedbacknonlinear);\r\nopNonlin\t= int(outputnonlinear);\r\nopNlGain0\t= int(outputnonlineargains) > 0;\r\nopNlGain1\t= opNlGain0 ? 1.059254 : sqrt1_2;\r\nopNlGain2\t= opNlGain0 ? sqrt1_2 : sqrt2;\r\n\r\n\r\n//\t//\t//\tparse audio rate\r\n\r\nxL\t\t=  in1 + 0;\t\t\t\t\t// dry L/R ...\r\nxR\t\t=  in2 + 0;\r\nmixL\t=   xL + 0;\t\t\t\t\t// outputs ...\r\nmixR\t=   xR + 0;\r\n\r\ndryWet, dwn\t=  eviLine(drywet, (delay14 + delay14));\r\n\r\n\r\nif (dryWet > 0) {\t//\t//\t//\tstart: only compute if mix > 0 %\t\\\\\t\\\\\t\\\\\r\n\r\nx0\t\t= (xL + xR) * 0.5;\t\t\t// summed mono audio input to fdn\r\n\r\nfbamnt, moddepth\t= logsmoothBank2(feedback, mstosamps(modulationdepth),  0.1361);\r\nmodamnt\t\t\t\t= logsmooth(modulationrate, 0.1201);\r\n\r\ninghi, inglo\t\t= expsmoothBank2(bw_ghp, bw_glp, 0.0479);\r\nfbghi, fbglo\t\t= expsmoothBank2(fb_ghp, fb_glp, 0.1201);\r\nfbkhi, fbklo\t\t= logsmoothBank2(fb_khp, fb_klp, 0.2003);\r\n\r\n\r\n//\t//\t//\tfeedback tap times (space) in samples (constants ± modulation) + phase offsets\r\n\r\nmod0\t= 1 / (feedbackTaps + feedbackTaps);\r\n\r\n// !! switch to using \"onemod1()\" only for even cheaper modulation, but not as much fun\r\nmodA1\t= oneMod1((mod1 * modamnt), moddepth, (mod0),       modulationduty, modulationshape, modulationskew );\r\nmodB1\t= oneMod1((mod2 * modamnt), moddepth, (mod0 * 3),   modulationduty, modulationshape, modulationskew );\r\nmodC1\t= oneMod1((mod3 * modamnt), moddepth, (mod0 * 5),   modulationduty, modulationshape, modulationskew );\r\nmodD1\t= oneMod2((mod4 * modamnt), moddepth, (mod0 * 7),   modulationduty, modulationshape, modulationskew );\r\nmodE1\t= oneMod2((mod5 * modamnt), moddepth, (mod0 * 9),   modulationduty, modulationshape, modulationskew );\r\nmodF1\t= oneMod2((mod6 * modamnt), moddepth, (mod0 * 11),  modulationduty, modulationshape, modulationskew );\r\nmodG1\t= oneMod2((mod7 * modamnt), moddepth, (mod0 * 13),  modulationduty, modulationshape, modulationskew );\r\nmodH1\t= oneMod2((mod8 * modamnt), moddepth, (mod0 * 15),  modulationduty, modulationshape, modulationskew );\r\nmodA2\t= oneMod1((mod1 * modamnt), moddepth, (mod0 * 2),   modulationduty, modulationshape, modulationskew );\r\nmodB2\t= oneMod1((mod2 * modamnt), moddepth, (mod0 * 4),   modulationduty, modulationshape, modulationskew );\r\nmodC2\t= oneMod1((mod3 * modamnt), moddepth, (mod0 * 6),   modulationduty, modulationshape, modulationskew );\r\nmodD2\t= oneMod2((mod4 * modamnt), moddepth, (mod0 * 8),   modulationduty, modulationshape, modulationskew );\r\nmodE2\t= oneMod2((mod5 * modamnt), moddepth, (mod0 * 10),  modulationduty, modulationshape, modulationskew );\r\nmodF2\t= oneMod2((mod6 * modamnt), moddepth, (mod0 * 12),  modulationduty, modulationshape, modulationskew );\r\nmodG2\t= oneMod2((mod7 * modamnt), moddepth, (mod0 * 14),  modulationduty, modulationshape, modulationskew );\r\nmodH2\t= oneMod2((mod8 * modamnt), moddepth, (mod0 * 16),  modulationduty, modulationshape, modulationskew );\r\n\r\n\r\n//\t//\t//\tfdn taps\t- modulated & summed\r\n\r\ntap1\t= space_A.read(delay1 + modA1,  0, interp=\"cubic\");\r\ntap2\t= space_B.read(delay2 + modA2,  0, interp=\"cubic\");\r\ntap3\t= space_A.read(delay3 + modB1,  1, interp=\"cubic\");\r\ntap4\t= space_B.read(delay4 + modB2,  1, interp=\"cubic\");\r\nbranch1\t= tap1 + tap2 + tap3 + tap4;\r\n\r\ntap5\t= space_A.read(delay5 + modC1,  2, interp=\"cubic\");\r\ntap6\t= space_B.read(delay6 + modC2,  2, interp=\"cubic\");\r\ntap7\t= space_A.read(delay7 + modD1,  3, interp=\"cubic\");\r\ntap8\t= space_B.read(delay8 + modD2,  3, interp=\"cubic\");\r\nbranch2\t= tap5 + tap6 + tap7 + tap8;\r\n\r\ntap9\t= space_A.read(delay9 + modE1,  4, interp=\"cubic\");\r\ntap10\t= space_B.read(delay10 + modE2, 4, interp=\"cubic\");\r\ntap11\t= space_A.read(delay11 + modF1, 5,\tinterp=\"cubic\");\r\ntap12\t= space_B.read(delay12 + modF2, 5,\tinterp=\"cubic\");\r\nbranch3\t= tap9 + tap10 + tap11 + tap12;\r\n\r\ntap13\t= space_A.read(delay13 + modG1, 6,\tinterp=\"cubic\");\r\ntap14\t= space_B.read(delay14 + modG2, 6,\tinterp=\"cubic\");\r\ntap15\t= space_A.read(delay15 + modH1, 7,\tinterp=\"cubic\");\r\ntap16\t= space_B.read(delay16 + modH2, 7,\tinterp=\"cubic\");\r\nbranch4\t= tap13 + tap14 + tap15 + tap16;\r\n\r\nfeedbackSum\t= (branch1 + branch2 + branch3 + branch4) * feedbackAttenuation;\r\nfeedbackSum\t= dcblock(tanhLNonlin((feedbackSum * 0.944061), fbNonlin) * 1.059254);\t// nonlin choice (fbNonlin)\r\n\r\n\r\n//\t//\t//\tinput\r\n\r\ninputLineWrite\t\t= rcFilterBandpass(x0, inglo, inghi);\r\nfeedbacklLineWrite\t= rcFilterDampBandpass(feedbackSum, fbglo, fbghi, fb_klp, fb_khp) * fbamnt;\t// fbamnt before nonlin ?\r\ndelayLineWrite\t\t= fixdenorm(inputLineWrite + feedbacklLineWrite);\r\n\r\nspace_A.write(delayLineWrite);\r\nspace_B.write(delayLineWrite);\r\ncross_Y.write(delayLineWrite);\r\n\r\n\r\n//\t//\t//\toutput taps (cross)\t\t- fixed & tapped\r\n\r\ntap01\t= cross_Y.read(sum1,  0, interp=\"none\");\t\t\t\t// \"none\" because fixed integer samples\r\ntap02\t= cross_Y.read(sum3,  2, interp=\"none\");\r\ntap03\t= cross_Y.read(sum5,  4, interp=\"none\");\r\ntap04\t= cross_Y.read(sum7,  6, interp=\"none\");\r\n\r\ntap05\t= cross_Y.read(sum2,  1, interp=\"none\");\r\ntap06\t= cross_Y.read(sum4,  3, interp=\"none\");\r\ntap07\t= cross_Y.read(sum6,  5, interp=\"none\");\r\ntap08\t= cross_Y.read(sum8,  7, interp=\"none\");\r\n\r\nssL\t\t= dcblock(tap01 + tap02 + tap03 + tap04) * outputAttenuation;\r\nssR\t\t= dcblock(tap05 + tap06 + tap07 + tap08) * outputAttenuation;\r\n\r\nssL\t\t= parabolNonlin(ssL, opNlGain1, opNlGain2, opNonlin);\t// nonlins choice (opNonlin)\r\nssR\t\t= parabolNonlin(ssR, opNlGain1, opNlGain2, opNonlin);\t// ...\r\n\r\n//ssL\t\t= dcblock(ssL);\r\n//ssR\t\t= dcblock(ssR);\r\n\r\n\r\n//\t//\t//\tdry/wet mix\r\n\r\nmixL, mixR\t= xfadeSqrtStereo(xL, xR, ssL, ssR, dryWet);\r\n\r\n\r\n}\t\t\t\t\t//\t//\t//\tend: only compute if mix > 0 %\t\\\\\t\\\\\t\\\\\r\n\r\n\r\nout1\t\t= mixL;\r\nout2\t\t= mixR;\r\n\r\n",
+                    "fontface": 0,
+                    "fontname": "<Monospaced>",
+                    "fontsize": 12.0,
+                    "id": "obj-3",
+                    "maxclass": "codebox",
+                    "numinlets": 2,
+                    "numoutlets": 2,
+                    "outlettype": [ "", "" ],
+                    "patching_rect": [ 30.0, 54.0, 953.0, 706.0 ]
+                }
+            },
+            {
+                "box": {
+                    "fontname": "Arial",
+                    "fontsize": 12.0,
+                    "id": "obj-4",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 30.0, 777.0, 59.0, 22.0 ],
+                    "text": "out 1 Left"
+                }
+            }
+        ],
+        "lines": [
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 0 ],
+                    "source": [ "obj-1", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 1 ],
+                    "source": [ "obj-2", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-4", 0 ],
+                    "source": [ "obj-3", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-5", 0 ],
+                    "source": [ "obj-3", 1 ]
+                }
+            }
+        ],
+        "autosave": 0,
+        "toolbarexclusions": [ "lessonbrowser" ]
+    }
+}

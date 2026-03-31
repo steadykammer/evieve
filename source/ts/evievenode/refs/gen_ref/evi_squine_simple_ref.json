@@ -105,6 +105,36 @@
                 "type": "float",
                 "value": "20."
             }
+        },
+        {
+            "name": "freqmode",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "Switch oscillator frequency (inlet 1) units between input in Pitch (on, default) or input in Hz (off).",
+            "default": {
+                "type": "int",
+                "value": "1"
+            }
+        },
+        {
+            "name": "freqmul",
+            "type": "float",
+            "digest": "@min 0, @max 0.5",
+            "description": "Multiplier of samplerate to set maximum frequency input. Typically this would be lower than samplerate/4 (0.25).",
+            "default": {
+                "type": "float",
+                "value": "0.1"
+            }
+        },
+        {
+            "name": "freqsmooth",
+            "type": "float",
+            "digest": "@min 0, @max 1000",
+            "description": "Smooth frequency input (inlet 1) by this amount in ms. Note that it is safe to smooth this evern if audio rate modulating using inlets 2 and 3 as summing is post smooth.",
+            "default": {
+                "type": "float",
+                "value": "20."
+            }
         }
     ],
     "seealso": [

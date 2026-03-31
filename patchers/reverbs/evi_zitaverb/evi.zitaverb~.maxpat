@@ -372,10 +372,10 @@
                     "outlettype": [ "" ],
                     "patching_rect": [ 618.0, 316.0, 140.0, 22.0 ],
                     "saved_object_attributes": {
-                        "client_rect": [ 4, 45, 362, 523 ],
+                        "client_rect": [ 100, 172, 458, 650 ],
                         "parameter_enable": 0,
                         "parameter_mappable": 0,
-                        "storage_rect": [ 333, 69, 1280, 583 ]
+                        "storage_rect": [ 100, 172, 1047, 686 ]
                     },
                     "text": "pattrstorage evi_zitaverb",
                     "varname": "evi_zitaverb"
@@ -3783,24 +3783,6 @@
                 }
             }
         ],
-        "parameters": {
-            "obj-54::obj-10": [ "damp", "damp", 0 ],
-            "obj-54::obj-12": [ "reverbGain", "reverbGain", 0 ],
-            "obj-54::obj-2": [ "preDelay", "preDelay", 0 ],
-            "obj-54::obj-24": [ "band1Type", "band1Type", 0 ],
-            "obj-54::obj-25": [ "band2Type", "band2Type", 0 ],
-            "obj-54::obj-28": [ "band1Cutoff", "band1Cutoff", 0 ],
-            "obj-54::obj-29": [ "band2Cutoff", "band2Cutoff", 0 ],
-            "obj-54::obj-3": [ "lowDecay", "lowDecay", 0 ],
-            "obj-54::obj-30": [ "band1Gain", "band1Gain", 0 ],
-            "obj-54::obj-32": [ "band2Gain", "band2Gain", 0 ],
-            "obj-54::obj-33": [ "dryWet", "dryWet", 0 ],
-            "obj-54::obj-35": [ "bypass", "bypass", 0 ],
-            "obj-54::obj-5": [ "midDecay", "midDecay", 0 ],
-            "obj-54::obj-9": [ "crossover", "crossover", 0 ],
-            "inherited_shortname": 1
-        },
-        "autosave": 0,
         "styles": [
             {
                 "name": "AudioStatus_Menu",

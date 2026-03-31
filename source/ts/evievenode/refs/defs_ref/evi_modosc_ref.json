@@ -5,7 +5,7 @@
         "category": "evieve",
         "tilde": "~",
         "digest": "A deluxe cosine LFO with range and offset shaping",
-        "description": "A simple sine oscillator for modulation purposes with sample accurate & clickless automatic phase reset when Hz input == 0, along with range and offset mapping.",
+        "description": "A simple sine oscillator for modulation purposes with sample accurate and clickless automatic phase reset when Hz input == 0, along with range and offset mapping.",
         "discussion": ""
     },
     "metadata": {
@@ -35,6 +35,12 @@
             "type": "signal",
             "digest": "modulation -1..1 Sine Oscillator * scale + offset",
             "description": "Modulation signal offset and scaled."
+        },
+        {
+            "id": 2,
+            "type": "signal",
+            "digest": "Raw Osc -1..1",
+            "description": "Auxilliary output, raw and unscaled -1..1 oscillator for further downstream processing."
         }
     ],
     "messages": [

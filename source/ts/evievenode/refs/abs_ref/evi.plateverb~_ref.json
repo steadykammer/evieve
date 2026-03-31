@@ -29,13 +29,13 @@
             "id": 1,
             "type": "signal",
             "digest": "Audio Out Left",
-            "description": "Audio Out Left"
+            "description": "Reverb Out Left"
         },
         {
             "id": 2,
             "type": "signal",
             "digest": "Audio Out Right",
-            "description": "Audio Out Right"
+            "description": "Reverb Out Right"
         },
         {
             "id": 3,
@@ -209,7 +209,7 @@
             "get": 0,
             "type": "float",
             "digest": "In dB -90..0",
-            "description": "There is no 'dry/wet' in this reverb. Instead we have separate dry and wet gains. This wet gain controls the amount of gain applied to the processed reverberated (late reflections) in the final mix.",
+            "description": "There is no 'dry/wet' in this reverb. Instead we have separate dry and wet gains. This wet gain controls the amount of gain applied to the processed reverberation (late reflections) in the final mix.",
             "default": {
                 "get": 0,
                 "value": "-3."

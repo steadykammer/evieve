@@ -4,9 +4,9 @@
         "parent": "evi_lockhart_simple",
         "category": "evieve",
         "tilde": "~",
-        "digest": "Anti-aliased wavefolder device for shaping oscillators, selectable up to four stages",
-        "description": "TEXT_HERE",
-        "discussion": ""
+        "digest": "Anti-aliased wavefolder device for shaping oscillators, simultaneous outputs up to four stages",
+        "description": "An analog model of the 'Lockhart Wavefolder' employing antiderivative anti-aliasing via Lambert-W functions. The waveshaper takes a simple audio signal and aggressively folds and clips it to produce new shapes and harmonics in the style of west coast synthesis. This 'simple' version has a fixed cascade for four simultaneous outputs of 4 stages, 3 stages, 2 stages or 1 stage. See <o>evi.lockhart.cascade~</o> for a version with more options.",
+        "discussion": "Based on the paper: 'Virtual Analog Model of the Lockhart Wavefolder' by Fabian Esqueda, Henri Pontynen, Julian D. Parker, Stefan Bilbao, SMC, 2017."
     },
     "metadata": {
         "author": "Pete Dowling",
@@ -18,7 +18,7 @@
             "id": 1,
             "type": "signal",
             "digest": "Osc Input",
-            "description": ""
+            "description": "Audio input to be wavefolded, typically a simple oscillator."
         }
     ],
     "outlets": [
@@ -26,25 +26,25 @@
             "id": 1,
             "type": "signal",
             "digest": "4-section",
-            "description": ""
+            "description": "Output 4 cascaded sections."
         },
         {
             "id": 2,
             "type": "signal",
             "digest": "3-section",
-            "description": ""
+            "description": "Output 3 cascaded sections."
         },
         {
             "id": 3,
             "type": "signal",
             "digest": "2-section",
-            "description": ""
+            "description": "Output 2 cascaded sections."
         },
         {
             "id": 4,
             "type": "signal",
             "digest": "1-section",
-            "description": ""
+            "description": "Output 1 section."
         }
     ],
     "messages": [],
@@ -53,5 +53,16 @@
         "caption": "",
         "image": ""
     },
-    "seealso": []
+    "seealso": [
+        "evi.lockhart.cascade~",
+        "evi.lpg~",
+        "evi.formantosc~",
+        "evi.paf~",
+        "evi.vosim.basic~",
+        "evi.4wave~",
+        "evi.blitwaves~",
+        "evi.freqshift.weaver~",
+        "evi.ringmod~",
+        "evi.ringmod.diode~"
+    ]
 }

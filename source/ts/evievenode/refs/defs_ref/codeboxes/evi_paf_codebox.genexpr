@@ -1,6 +1,6 @@
 
 // a basic PAF (WavePacket) oscillator, not identical to [paf~] but does the same thing
-// @see also: "evi_vosim_basic.gendsp" & "evi_formant_osc.gendsp"
+// @see also: "evi_vosim_basic.gendsp" & [evi.formantosc~]
 
 require("evi_trig.genexpr");
 

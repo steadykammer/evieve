@@ -10,7 +10,7 @@
                  <br />
         evi_lockhart_cascade is also available in MSP as: <o>evi.lockhart.cascade~</o>. <br />
          <br />
-	    TEXT_HERE <br />
+	    An analog model of the 'Lockhart Wavefolder' employing antiderivative anti-aliasing via Lambert-W functions. The waveshaper takes a simple audio signal and aggressively folds and clips it to produce new shapes and harmonics in the style of west coast synthesis. This 'cascade' version has a variable order cascade of up to 16 stages, with CPU management depending on stages requested. See <o>evi.lockhart.simple~</o> for a fixed version with less options. <br />
     </description>
     <methodlist />
     <constructorlist>
@@ -23,7 +23,7 @@
     <geninletlist>
         <geninlet name='oscillator' type='float' optional='1'>
             <digest>
-                Input. 
+                Input. Audio input to be wavefolded, typically a simple oscillator.
             </digest>
         </geninlet>
     </geninletlist>
@@ -33,7 +33,7 @@
                 @min 1, @max 16
             </digest>
             <description>
-                
+                Cascading multiple wavefolders in series does not just make the effect stronger, like a steeper filter order, but also changes the sound produced, as folding effect gets cascaded into folding effect. 1..16 stages are available depending on this attribute, and CPU is managed depending on how many cascaded stages are requested. @cascade can be changed in real time but soft-clicks.
             </description>
             <attributelist>
                 <attribute name='default' type='int' value='4' />
@@ -46,6 +46,12 @@
         <metadata name="tag">GenDsp</metadata>
     </metadatalist>
     <seealsolist>
-        <seealso name='' display='' type='genrefpage' />
+        <seealso name='evi_lockhart_simple' display='evi_lockhart_simple' type='genrefpage' />
+        <seealso name='evi_paf' display='evi_paf' type='genrefpage' />
+        <seealso name='evi_vosim_basic' display='evi_vosim_basic' type='genrefpage' />
+        <seealso name='evi_4wave' display='evi_4wave' type='genrefpage' />
+        <seealso name='evi_blitwaves' display='evi_blitwaves' type='genrefpage' />
+        <seealso name='evi_freqshift_weaver' display='evi_freqshift_weaver' type='genrefpage' />
+        <seealso name='evi_ringmod' display='evi_ringmod' type='genrefpage' />
     </seealsolist>
 </c74object>

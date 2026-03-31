@@ -2540,7 +2540,7 @@
                 "auto": false
             }
         },
-        "evi_majorverb.gendsp": {
+        "evi_backverb.gendsp": {
             "define": {
                 "object": false,
                 "msp": "",

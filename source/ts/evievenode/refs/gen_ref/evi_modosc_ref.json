@@ -4,7 +4,7 @@
         "child": "evi.modosc~",
         "category": "evieve",
         "digest": "A deluxe cosine LFO with range and offset shaping",
-        "description": "A simple sine oscillator for modulation purposes with sample accurate & clickless automatic phase reset when Hz input == 0, along with range and offset mapping."
+        "description": "A simple sine oscillator for modulation purposes with sample accurate and clickless automatic phase reset when Hz input == 0, along with range and offset mapping."
     },
     "constructor": {
         "inlets": "frequency, signal"
@@ -37,6 +37,14 @@
             "type": "float",
             "optional": 1,
             "digest": "Modulation signal offset and scaled."
+        },
+        {
+            "id": 2,
+            "name": "raw",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "Osc -1..1",
+            "digest": "Auxilliary output, raw and unscaled -1..1 oscillator for further downstream processing."
         }
     ],
     "attributes": [

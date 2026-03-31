@@ -5,8 +5,8 @@
         "category": "evieve",
         "tilde": "~",
         "digest": "Anti-aliased wavefolder device for shaping oscillators, selectable up to a cascade of 16 folding sections",
-        "description": "TEXT_HERE",
-        "discussion": ""
+        "description": "An analog model of the 'Lockhart Wavefolder' employing antiderivative anti-aliasing via Lambert-W functions. The waveshaper takes a simple audio signal and aggressively folds and clips it to produce new shapes and harmonics in the style of west coast synthesis. This 'cascade' version has a variable order cascade of up to 16 stages, with CPU management depending on stages requested. See <o>evi.lockhart.simple~</o> for a fixed version with less options.",
+        "discussion": "Based on the paper: 'Virtual Analog Model of the Lockhart Wavefolder' by Fabian Esqueda, Henri Pontynen, Julian D. Parker, Stefan Bilbao, SMC, 2017."
     },
     "metadata": {
         "author": "Pete Dowling",
@@ -18,7 +18,7 @@
             "id": 1,
             "type": "signal",
             "digest": "Oscillator Input",
-            "description": ""
+            "description": "Audio input to be wavefolded, typically a simple oscillator."
         }
     ],
     "outlets": [
@@ -26,7 +26,7 @@
             "id": 1,
             "type": "signal",
             "digest": "Wavefolded Output",
-            "description": ""
+            "description": "Up to 16 wavefolded stages in series depending on the @cascade attribute."
         }
     ],
     "messages": [
@@ -49,8 +49,8 @@
             "name": "cascade",
             "get": 1,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Select 1..16",
+            "description": "Cascading multiple wavefolders in series does not just make the effect stronger, like a steeper filter order, but also changes the sound produced, as folding effect gets cascaded into folding effect. 1..16 stages are available depending on this attribute, and CPU is managed depending on how many cascaded stages are requested. @cascade can be changed in real time but soft-clicks.",
             "default": {
                 "min": "1",
                 "max": "16",
@@ -62,5 +62,16 @@
         "caption": "",
         "image": ""
     },
-    "seealso": []
+    "seealso": [
+        "evi.lockhart.simple~",
+        "evi.lpg~",
+        "evi.formantosc~",
+        "evi.paf~",
+        "evi.vosim.basic~",
+        "evi.4wave~",
+        "evi.blitwaves~",
+        "evi.freqshift.weaver~",
+        "evi.ringmod~",
+        "evi.ringmod.diode~"
+    ]
 }

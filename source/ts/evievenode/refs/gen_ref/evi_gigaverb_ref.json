@@ -3,8 +3,8 @@
         "name": "evi_gigaverb",
         "child": "",
         "category": "evieve",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Classic gigaverb reverb algorithm, mono in / stereo out, fdn / allpass",
+        "description": "A mono-in, stereo-out reverb implementation by Juhana Sadeharju. Originally Max/MSP-ified by Olaf Matthes (2004) Version 1.0test5, (c) 1999-2006 Juhana Sadeharju / Olaf Matthes. Originally Gen-ified by Graham Wakefield (2011). 64-bit MSP reference version by Volker Böhm (2016). This evieve version with updated filtering and parameter smooting. In gen~ alone (as opposed to the MSP abstraction <o>evi.gigaverb~</o>) this is tricky to use as the damping coefficients are produced externally via the 'evi_damp_coeffs.gendsp' abstraction. See 'evi_rcfilters.genexpr' for coefficients calculations alternatives."
     },
     "constructor": {
         "inlets": "mono, nothing"
@@ -19,7 +19,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "/ Left / 1",
-            "digest": ""
+            "digest": "Mono, Left or 1 depends on the 'stereo' attribute."
         },
         {
             "id": 2,
@@ -27,7 +27,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "/ Right / 2",
-            "digest": ""
+            "digest": "Nothing, Right or 2 depends on the 'stereo' attribute."
         }
     ],
     "outlets": [
@@ -36,14 +36,14 @@
             "name": "reverb",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Reverb Out Left"
         },
         {
             "id": 2,
             "name": "reverb",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Reverb Out Right"
         }
     ],
     "attributes": [
@@ -51,7 +51,7 @@
             "name": "bandwidth",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Normalised 0..1, 'This is like a damping control for the input, it has a similar effect to the damping control, but is subtly different.'",
             "default": {
                 "type": "float",
                 "value": "0.69"
@@ -61,7 +61,7 @@
             "name": "bypass",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "0/1, 'Bypass, signal unaffected when set to 1. Can be used to compare reverb signal with original signal and to save CPU power when gigaverb~ is not used.'",
             "default": {
                 "type": "int",
                 "value": "0"
@@ -71,7 +71,7 @@
             "name": "damping",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Normalised 0..1, lowpass if 1, bypass if 0, shelving in between, 'This controls the high frequency damping (a lowpass filter), values near 0 will make it sound very bright, values near 1 will make it sound very dark.'",
             "default": {
                 "type": "float",
                 "value": "0.41"
@@ -81,7 +81,7 @@
             "name": "decay",
             "type": "float",
             "digest": "@min 0.1, @max 360",
-            "description": "",
+            "description": "Otherwise known as @reverb, decay time in seconds, 0.1..360, 'Reverb decay time, in seconds. 7 is a good place to start. 0.1..360 seconds'",
             "default": {
                 "type": "float",
                 "value": "4.85"
@@ -91,7 +91,7 @@
             "name": "div1341\t\t",
             "type": "float",
             "digest": "@min   0, @max 1",
-            "description": "",
+            "description": false,
             "default": {
                 "type": "float",
                 "value": "\t0.00074571215510813"
@@ -101,7 +101,7 @@
             "name": "div340\t\t",
             "type": "float",
             "digest": "@min   0, @max 1",
-            "description": "",
+            "description": false,
             "default": {
                 "type": "float",
                 "value": "\t0.0029411764705882"
@@ -111,7 +111,7 @@
             "name": "dry",
             "type": "float",
             "digest": "@min -90, @max 0",
-            "description": "",
+            "description": "In dB -90..0, 'The level of the unreverberated signal.'",
             "default": {
                 "type": "float",
                 "value": "-3."
@@ -121,7 +121,7 @@
             "name": "early",
             "type": "float",
             "digest": "@min -90, @max 0",
-            "description": "",
+            "description": "In dB -90..0, 'The quantity of early reflections (scatter reflections directly from the source). Think of Lexicon's ambiance patches.'",
             "default": {
                 "type": "float",
                 "value": "-9."
@@ -131,7 +131,7 @@
             "name": "highshelfG",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Pre warped damping highshelf frequency coefficient normalised 0..1, see 'evi_rcfilters.genexpr' for coefficients calculators.",
             "default": {
                 "type": "float",
                 "value": "0.123758"
@@ -141,7 +141,7 @@
             "name": "highshelfK",
             "type": "float",
             "digest": "@min -3, @max 1",
-            "description": "",
+            "description": "Pre warped damping highshelf gain coefficient -3..1, see 'evi_rcfilters.genexpr' for coefficients calculators.",
             "default": {
                 "type": "float",
                 "value": "0."
@@ -151,7 +151,7 @@
             "name": "late",
             "type": "float",
             "digest": "@min -90, @max 0",
-            "description": "",
+            "description": "In dB -90..0, 'The level of the classic reverb tail reflections.'",
             "default": {
                 "type": "float",
                 "value": "-11."
@@ -161,7 +161,7 @@
             "name": "lowshelfG",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Pre warped damping lowshelf frequency coefficient normalised 0..1, see 'evi_rcfilters.genexpr' for coefficients calculators.",
             "default": {
                 "type": "float",
                 "value": "0.032214"
@@ -171,7 +171,7 @@
             "name": "lowshelfK",
             "type": "float",
             "digest": "@min -3, @max 1",
-            "description": "",
+            "description": "Pre warped damping lowshelf gain coefficient -3..1, see 'evi_rcfilters.genexpr' for coefficients calculators.",
             "default": {
                 "type": "float",
                 "value": "0."
@@ -181,7 +181,7 @@
             "name": "m3l10const\t",
             "type": "float",
             "digest": "@min -10, @max 0",
-            "description": "",
+            "description": false,
             "default": {
                 "type": "float",
                 "value": "  -6.907755278982138"
@@ -191,7 +191,7 @@
             "name": "size",
             "type": "float",
             "digest": "@min 0.1, @max 300",
-            "description": "",
+            "description": "In meters, 0.1..300, 'The size of the room, in meters. Excessively large, and excessively small values will make it sound a bit unrealistic. Values of around 30 sound good.'",
             "default": {
                 "type": "float",
                 "value": "80."
@@ -201,7 +201,7 @@
             "name": "smoothtime\t",
             "type": "float",
             "digest": "@min 1, @max 500\t",
-            "description": "",
+            "description": "Set the smoothing time in ms of all the internal parameter smoothing functions.",
             "default": {
                 "type": "float",
                 "value": " \t50."
@@ -211,7 +211,7 @@
             "name": "spread",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Normalised 0..1, stereo spread (or 'width'), offsets L/R levels. Note, in Juhana Sadeharju and Graham Wakefield verions this is not available (fixed). In Olaf Matthes version this is object creation argument only. In evieve this can be modified in realtime at any time.",
             "default": {
                 "type": "float",
                 "value": "0.22"
@@ -221,7 +221,7 @@
             "name": "stereo",
             "type": "int",
             "digest": "@min 0, @max 2",
-            "description": "",
+            "description": "This is essentially a mono-in stereo-out reverb, but you can toggle 'stereo' 'on' ('1') to explicitly control L/R signals into the late diffusion section (and dry L/R). Default '0' 'off' (mono-in, stereo-out).",
             "default": {
                 "type": "int",
                 "value": "0"
@@ -230,8 +230,32 @@
     ],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_algoverb",
+            "display": "evi_algoverb"
+        },
+        {
+            "name": "evi_backverb",
+            "display": "evi_backverb"
+        },
+        {
+            "name": "evi_freezeverb",
+            "display": "evi_freezeverb"
+        },
+        {
+            "name": "evi_mattaverb",
+            "display": "evi_mattaverb"
+        },
+        {
+            "name": "evi_plateverb",
+            "display": "evi_plateverb"
+        },
+        {
+            "name": "evi_sustainverb",
+            "display": "evi_sustainverb"
+        },
+        {
+            "name": "evi_zitaverb",
+            "display": "evi_zitaverb"
         }
     ]
 }

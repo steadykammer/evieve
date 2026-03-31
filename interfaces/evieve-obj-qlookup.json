@@ -515,14 +515,14 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.lockhart.simple~", "evi.lpg~", "evi.formantosc~", "evi.paf~", "evi.vosim.basic~", "evi.4wave~", "evi.blitwaves~", "evi.freqshift.weaver~", "evi.ringmod~", "evi.ringmod.diode~" ]
     },
     "evi.lockhart.simple~": {
-        "digest": "Anti-aliased wavefolder device for shaping oscillators, selectable up to four stages",
+        "digest": "Anti-aliased wavefolder device for shaping oscillators, simultaneous outputs up to four stages",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.lockhart.cascade~", "evi.lpg~", "evi.formantosc~", "evi.paf~", "evi.vosim.basic~", "evi.4wave~", "evi.blitwaves~", "evi.freqshift.weaver~", "evi.ringmod~", "evi.ringmod.diode~" ]
     },
     "evi.logahr~": {
         "digest": "Attack/hold/release envelope follower",
