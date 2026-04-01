@@ -3,8 +3,8 @@
         "name": "evi_sline",
         "child": "",
         "category": "evieve",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Reimplementation of MSP <o>line~</o> but with an embedded 'S-curve'",
+        "description": "evi_sline is similar to MSP <o>line~</o> (without list processing of course) and evi_line, providing exact ramp destination time but with an 'S-curve' output ramp. Because the destination time is exact, this can be used for CPU management (as it is often in the evieve package)."
     },
     "constructor": {
         "inlets": "destination, ramp"
@@ -47,8 +47,40 @@
     "attributes": [],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_logsmooth",
+            "display": "evi_logsmooth"
+        },
+        {
+            "name": "evi_expsmooth",
+            "display": "evi_expsmooth"
+        },
+        {
+            "name": "evi_lagsmooth",
+            "display": "evi_lagsmooth"
+        },
+        {
+            "name": "evi_cfsmooth",
+            "display": "evi_cfsmooth"
+        },
+        {
+            "name": "evi_line",
+            "display": "evi_line"
+        },
+        {
+            "name": "evi_curve",
+            "display": "evi_curve"
+        },
+        {
+            "name": "evi_rampsmooth",
+            "display": "evi_rampsmooth"
+        },
+        {
+            "name": "evi_vactrol",
+            "display": "evi_vactrol"
+        },
+        {
+            "name": "evi_smooth",
+            "display": "evi_smooth.genexpr"
         }
     ]
 }

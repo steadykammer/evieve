@@ -19,7 +19,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "In Left",
-            "digest": "Audio In Left"
+            "digest": ""
         },
         {
             "id": 2,
@@ -27,7 +27,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "In Right",
-            "digest": "Audio In Right"
+            "digest": ""
         }
     ],
     "outlets": [
@@ -36,56 +36,56 @@
             "name": "reverb",
             "type": "float",
             "optional": 1,
-            "digest": "Main reverb output Left, post dry/wet"
+            "digest": ""
         },
         {
             "id": 2,
             "name": "reverb",
             "type": "float",
             "optional": 1,
-            "digest": "Main reverb output Right, post dry/wet"
+            "digest": ""
         },
         {
             "id": 3,
             "name": "fdn",
             "type": "float",
             "optional": 1,
-            "digest": "Pure output tap L of FDN loop without any dry/wet"
+            "digest": ""
         },
         {
             "id": 4,
             "name": "fdn",
             "type": "float",
             "optional": 1,
-            "digest": "Pure output tap R of FDN loop without any dry/wet"
+            "digest": ""
         },
         {
             "id": 5,
             "name": "aux",
             "type": "float",
             "optional": 1,
-            "digest": "Decorrelated output tap 1 of FDN channel"
+            "digest": ""
         },
         {
             "id": 6,
             "name": "aux",
             "type": "float",
             "optional": 1,
-            "digest": "Decorrelated output tap 2 of FDN channel"
+            "digest": ""
         },
         {
             "id": 7,
             "name": "aux",
             "type": "float",
             "optional": 1,
-            "digest": "Decorrelated output tap 3 of FDN channel"
+            "digest": ""
         },
         {
             "id": 8,
             "name": "aux",
             "type": "float",
             "optional": 1,
-            "digest": "Decorrelated output tap 4 of FDN channel"
+            "digest": ""
         }
     ],
     "attributes": [

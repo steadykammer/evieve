@@ -40,7 +40,7 @@
 				Audio Out Left
 			</digest>
 			<description>
-				Audio Out Left
+				Reverb Out Left
 			</description>
 		</outlet>
 		<outlet id="2" type="signal">
@@ -48,7 +48,7 @@
 				Audio Out Right
 			</digest>
 			<description>
-				Audio Out Right
+				Reverb Out Right
 			</description>
 		</outlet>
 		<outlet id="3" type="">

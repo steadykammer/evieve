@@ -3,8 +3,8 @@
         "name": "evi_logahr",
         "child": "",
         "category": "evieve",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Attack/hold/release envelope follower",
+        "description": "Logarithmic attack/hold/release envelope follower / smoother."
     },
     "constructor": {
         "inlets": "value, attack, hold, release"
@@ -56,8 +56,28 @@
     "attributes": [],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_logdecay",
+            "display": "evi_logdecay"
+        },
+        {
+            "name": "evi_logattackdecay",
+            "display": "evi_logattackdecay"
+        },
+        {
+            "name": "evi_logsmooth",
+            "display": "evi_logsmooth"
+        },
+        {
+            "name": "evi_vactrol",
+            "display": "evi_vactrol"
+        },
+        {
+            "name": "evi_smooth",
+            "display": "evi_smooth.genexpr"
+        },
+        {
+            "name": "evi_env",
+            "display": "evi_env.genexpr"
         }
     ]
 }

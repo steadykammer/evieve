@@ -19,7 +19,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "In L",
-            "digest": "Audio In Left"
+            "digest": ""
         },
         {
             "id": 2,
@@ -27,7 +27,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "In R",
-            "digest": "Audio In Right"
+            "digest": ""
         }
     ],
     "outlets": [
@@ -36,14 +36,14 @@
             "name": "reverb",
             "type": "float",
             "optional": 1,
-            "digest": "Reverb Out Left"
+            "digest": ""
         },
         {
             "id": 2,
             "name": "reverb",
             "type": "float",
             "optional": 1,
-            "digest": "Reverb Out Right"
+            "digest": ""
         }
     ],
     "attributes": [
@@ -251,7 +251,7 @@
             "name": "eq1_a1",
             "type": "float",
             "digest": "@min -1, @max 1\t",
-            "description": "SVF LTO filter coefficient for damping EQ. See 'evi_svf_eq_coeffs.gendsp' for coefficient calculations.",
+            "description": "SVF LTO filter coefficient for EQ. See 'evi_svf_eq_coeffs.gendsp' for coefficient calculations.",
             "default": {
                 "type": "float",
                 "value": " 0.993304"
@@ -261,7 +261,7 @@
             "name": "eq1_a2",
             "type": "float",
             "digest": "@min -1, @max 1\t",
-            "description": "SVF LTO filter coefficient for damping EQ. See 'evi_svf_eq_coeffs.gendsp' for coefficient calculations.",
+            "description": "SVF LTO filter coefficient for EQ. See 'evi_svf_eq_coeffs.gendsp' for coefficient calculations.",
             "default": {
                 "type": "float",
                 "value": " 0.006651"
@@ -271,7 +271,7 @@
             "name": "eq1_a3",
             "type": "float",
             "digest": "@min -1, @max 1\t",
-            "description": "SVF LTO filter coefficient for damping EQ. See 'evi_svf_eq_coeffs.gendsp' for coefficient calculations.",
+            "description": "SVF LTO filter coefficient for EQ. See 'evi_svf_eq_coeffs.gendsp' for coefficient calculations.",
             "default": {
                 "type": "float",
                 "value": " 0.000045"
@@ -281,7 +281,7 @@
             "name": "eq1_m0",
             "type": "float",
             "digest": "@min -16, @max 16\t",
-            "description": "SVF LTO filter coefficient for damping EQ. See 'evi_svf_eq_coeffs.gendsp' for coefficient calculations.",
+            "description": "SVF LTO filter coefficient for EQ. See 'evi_svf_eq_coeffs.gendsp' for coefficient calculations.",
             "default": {
                 "type": "float",
                 "value": " 1."
@@ -291,7 +291,7 @@
             "name": "eq1_m1",
             "type": "float",
             "digest": "@min -16, @max 16\t",
-            "description": "SVF LTO filter coefficient for damping EQ. See 'evi_svf_eq_coeffs.gendsp' for coefficient calculations.",
+            "description": "SVF LTO filter coefficient for EQ. See 'evi_svf_eq_coeffs.gendsp' for coefficient calculations.",
             "default": {
                 "type": "float",
                 "value": "-0.182477"
@@ -301,7 +301,7 @@
             "name": "eq1_m2",
             "type": "float",
             "digest": "@min -16, @max 16\t",
-            "description": "SVF LTO filter coefficient for damping EQ. See 'evi_svf_eq_coeffs.gendsp' for coefficient calculations.",
+            "description": "SVF LTO filter coefficient for EQ. See 'evi_svf_eq_coeffs.gendsp' for coefficient calculations.",
             "default": {
                 "type": "float",
                 "value": "-0.331656"
@@ -311,7 +311,7 @@
             "name": "eq2_a1",
             "type": "float",
             "digest": "@min -1, @max 1\t",
-            "description": "SVF LTO filter coefficient for damping EQ. See 'evi_svf_eq_coeffs.gendsp' for coefficient calculations.",
+            "description": "SVF LTO filter coefficient for EQ. See 'evi_svf_eq_coeffs.gendsp' for coefficient calculations.",
             "default": {
                 "type": "float",
                 "value": " 0.882013"
@@ -321,7 +321,7 @@
             "name": "eq2_a2",
             "type": "float",
             "digest": "@min -1, @max 1\t",
-            "description": "SVF LTO filter coefficient for damping EQ. See 'evi_svf_eq_coeffs.gendsp' for coefficient calculations.",
+            "description": "SVF LTO filter coefficient for EQ. See 'evi_svf_eq_coeffs.gendsp' for coefficient calculations.",
             "default": {
                 "type": "float",
                 "value": " 0.105393"
@@ -331,7 +331,7 @@
             "name": "eq2_a3",
             "type": "float",
             "digest": "@min -1, @max 1\t",
-            "description": "SVF LTO filter coefficient for damping EQ. See 'evi_svf_eq_coeffs.gendsp' for coefficient calculations.",
+            "description": "SVF LTO filter coefficient for EQ. See 'evi_svf_eq_coeffs.gendsp' for coefficient calculations.",
             "default": {
                 "type": "float",
                 "value": " 0.012594"
@@ -341,7 +341,7 @@
             "name": "eq2_m0",
             "type": "float",
             "digest": "@min -16, @max 16\t",
-            "description": "SVF LTO filter coefficient for damping EQ. See 'evi_svf_eq_coeffs.gendsp' for coefficient calculations.",
+            "description": "SVF LTO filter coefficient for EQ. See 'evi_svf_eq_coeffs.gendsp' for coefficient calculations.",
             "default": {
                 "type": "float",
                 "value": " 0.446684"
@@ -351,7 +351,7 @@
             "name": "eq2_m1",
             "type": "float",
             "digest": "@min -16, @max 16\t",
-            "description": "SVF LTO filter coefficient for damping EQ. See 'evi_svf_eq_coeffs.gendsp' for coefficient calculations.",
+            "description": "SVF LTO filter coefficient for EQ. See 'evi_svf_eq_coeffs.gendsp' for coefficient calculations.",
             "default": {
                 "type": "float",
                 "value": " 0.22166"
@@ -361,7 +361,7 @@
             "name": "eq2_m2",
             "type": "float",
             "digest": "@min -16, @max 16\t",
-            "description": "SVF LTO filter coefficient for damping EQ. See 'evi_svf_eq_coeffs.gendsp' for coefficient calculations.",
+            "description": "SVF LTO filter coefficient for EQ. See 'evi_svf_eq_coeffs.gendsp' for coefficient calculations.",
             "default": {
                 "type": "float",
                 "value": " 0.553316"

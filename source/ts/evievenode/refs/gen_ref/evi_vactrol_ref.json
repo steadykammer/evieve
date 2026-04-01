@@ -3,8 +3,8 @@
         "name": "evi_vactrol",
         "child": "",
         "category": "evieve",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Vactrol response time domain filter envelope",
+        "description": "Analog modelled vactrol opto isolator envelope emulation."
     },
     "constructor": {
         "inlets": "trigger, rise, fall"
@@ -50,7 +50,7 @@
             "name": "scalar",
             "type": "float",
             "digest": "@min 1, @max 10000",
-            "description": "",
+            "description": "Envelope Output Multiplier. This can be useful depending on use case, otherwise should be '1'.",
             "default": {
                 "type": "float",
                 "value": "10."
@@ -59,8 +59,56 @@
     ],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_logdecay",
+            "display": "evi_logdecay"
+        },
+        {
+            "name": "evi_logattackdecay",
+            "display": "evi_logattackdecay"
+        },
+        {
+            "name": "evi_logahr",
+            "display": "evi_logahr"
+        },
+        {
+            "name": "evi_logsmooth",
+            "display": "evi_logsmooth"
+        },
+        {
+            "name": "evi_expsmooth",
+            "display": "evi_expsmooth"
+        },
+        {
+            "name": "evi_lagsmooth",
+            "display": "evi_lagsmooth"
+        },
+        {
+            "name": "evi_cfsmooth",
+            "display": "evi_cfsmooth"
+        },
+        {
+            "name": "evi_line",
+            "display": "evi_line"
+        },
+        {
+            "name": "evi_sline",
+            "display": "evi_sline"
+        },
+        {
+            "name": "evi_curve",
+            "display": "evi_curve"
+        },
+        {
+            "name": "evi_rampsmooth",
+            "display": "evi_rampsmooth"
+        },
+        {
+            "name": "evi_vactrol_shape",
+            "display": "evi_vactrol_shape"
+        },
+        {
+            "name": "evi_smooth",
+            "display": "evi_smooth.genexpr"
         }
     ]
 }

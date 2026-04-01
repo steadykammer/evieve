@@ -3,8 +3,8 @@
         "name": "evi_logsmooth",
         "child": "",
         "category": "evieve",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Logarithmic signal smoother",
+        "description": "A simple and extremely efficient ramp generator with logarithmic curve and ramp time specified in milliseconds."
     },
     "constructor": {
         "inlets": "destination, ramp"
@@ -40,8 +40,52 @@
     "attributes": [],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_logdecay",
+            "display": "evi_logdecay"
+        },
+        {
+            "name": "evi_logattackdecay",
+            "display": "evi_logattackdecay"
+        },
+        {
+            "name": "evi_logahr",
+            "display": "evi_logahr"
+        },
+        {
+            "name": "evi_expsmooth",
+            "display": "evi_expsmooth"
+        },
+        {
+            "name": "evi_lagsmooth",
+            "display": "evi_lagsmooth"
+        },
+        {
+            "name": "evi_cfsmooth",
+            "display": "evi_cfsmooth"
+        },
+        {
+            "name": "evi_line",
+            "display": "evi_line"
+        },
+        {
+            "name": "evi_sline",
+            "display": "evi_sline"
+        },
+        {
+            "name": "evi_curve",
+            "display": "evi_curve"
+        },
+        {
+            "name": "evi_rampsmooth",
+            "display": "evi_rampsmooth"
+        },
+        {
+            "name": "evi_vactrol",
+            "display": "evi_vactrol"
+        },
+        {
+            "name": "evi_smooth",
+            "display": "evi_smooth.genexpr"
         }
     ]
 }

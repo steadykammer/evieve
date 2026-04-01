@@ -19,7 +19,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Mono / In Left / In 1",
-            "digest": "Audio In Mono or Left or channel 1, depending on 'stereo' attribute"
+            "digest": ""
         },
         {
             "id": 2,
@@ -27,7 +27,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "/ In Right / In 2",
-            "digest": "Audio In Nothing or Right or channel 2, depending on 'stereo' attribute"
+            "digest": ""
         }
     ],
     "outlets": [
@@ -36,14 +36,14 @@
             "name": "reverb",
             "type": "float",
             "optional": 1,
-            "digest": "Reverb Out Left"
+            "digest": ""
         },
         {
             "id": 2,
             "name": "reverb",
             "type": "float",
             "optional": 1,
-            "digest": "Reverb Out Right"
+            "digest": ""
         }
     ],
     "attributes": [

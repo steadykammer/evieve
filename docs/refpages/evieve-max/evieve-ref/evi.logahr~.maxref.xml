@@ -11,63 +11,80 @@
   <inletlist>
     <inlet id="0" type="signal/float">
       <digest>Value to Follow</digest>
-      <description>TEXT_HERE</description>
+      <description>evi.logahr~ will follow this input value with the given attack, hold and release times.</description>
     </inlet>
     <inlet id="1" type="signal/float">
       <digest>Attack Time in milliseconds</digest>
-      <description>TEXT_HERE</description>
+      <description>Amount of time the envelope takes to attack. evi.logahr~ is logarithmic and does not attack in this time exactly.</description>
     </inlet>
     <inlet id="2" type="signal/float">
       <digest>Hold Time in milliseconds</digest>
-      <description>TEXT_HERE</description>
+      <description>Amount of time to hold the envelope after the attack stage and before the release stage (in milliseconds).</description>
     </inlet>
     <inlet id="3" type="signal/float">
       <digest>Release Time in milliseconds</digest>
-      <description>TEXT_HERE</description>
+      <description>Amount of time the envelope takes to release. evi.logahr~ is logarithmic and does not release in this time exactly.</description>
     </inlet>
   </inletlist>
   <outletlist>
     <outlet id="0" type="signal">
       <digest>Output Envelope</digest>
-      <description>TEXT_HERE</description>
+      <description>Output Envelope</description>
     </outlet>
   </outletlist>
   <objarglist>
-    <objarg id="0" name="OBJARG_NAME" type="OBJARG_TYPE" optional="0">
-      <digest>TEXT_HERE</digest>
-      <description>TEXT_HERE</description>
+    <objarg id="0" name="attack" type="float" optional="1">
+      <digest>Initial Attack Time in milliseconds</digest>
+      <description>Amount of time the value takes to attack. evi.logahr~ is logarithmic and does not attack in this time exactly.</description>
+    </objarg>
+    <objarg id="1" name="hold" type="float" optional="1">
+      <digest>Initial Hold Time in milliseconds</digest>
+      <description>Amount of time to hold the envelope after the attack stage and before the release stage (in milliseconds).</description>
+    </objarg>
+    <objarg id="2" name="release" type="float" optional="1">
+      <digest>Initial Release Time in milliseconds</digest>
+      <description>Amount of time the value takes to release. evi.logahr~ is logarithmic and does not release in this time exactly.</description>
     </objarg>
   </objarglist>
   <methodlist>
     <method name="int">
       <arglist>
-        <arg name="ARG_NAME_0" type="int" optional="0"></arg>
+        <arg name="int" type="int" optional="1"></arg>
       </arglist>
-      <digest>TEXT_HERE</digest>
-      <description>TEXT_HERE</description>
+      <digest>Behaviour depends on inlet</digest>
+      <description>In the left inlet, the destination value.
+				In the left middle inlet, attack time in ms.
+				In the right middle inlet, hold time in ms.
+				In the right inlet, decay time in ms.</description>
     </method>
     <method name="float">
       <arglist>
-        <arg name="ARG_NAME_0" type="float" optional="0"></arg>
+        <arg name="float" type="float" optional="1"></arg>
       </arglist>
-      <digest>TEXT_HERE</digest>
-      <description>TEXT_HERE</description>
+      <digest>Behaviour depends on inlet</digest>
+      <description>In the left inlet, the destination value.
+				In the left middle inlet, attack time in ms.
+				In the right middle inlet, hold time in ms.
+				In the right inlet, decay time in ms.</description>
     </method>
     <method name="clear">
       <arglist></arglist>
-      <digest>TEXT_HERE</digest>
-      <description>TEXT_HERE</description>
+      <digest>Clears the internal filter state</digest>
+      <description>This should never be needed :-)</description>
     </method>
     <method name="signal">
       <arglist></arglist>
-      <digest>TEXT_HERE</digest>
-      <description>TEXT_HERE</description>
+      <digest>Behaviour depends on inlet</digest>
+      <description>In the left inlet, the destination value.
+				In the left middle inlet, attack time in ms.
+				In the right middle inlet, hold time in ms.
+				In the right inlet, decay time in ms.</description>
     </method>
   </methodlist>
   <attributelist>
     <attribute name="attack" get="1" set="1" type="float" size="1">
       <digest>Attack Time in ms</digest>
-      <description>TEXT_HERE</description>
+      <description>Amount of time the value takes to attack. evi.logahr~ is logarithmic and does not attack in this time exactly.</description>
       <attributelist>
         <attribute name="basic" get="1" set="1" type="int" size="1" value="1"></attribute>
         <attribute name="label" get="1" set="1" type="symbol" size="1" value="Attack Time in ms"></attribute>
@@ -75,15 +92,15 @@
     </attribute>
     <attribute name="hold" get="1" set="1" type="float" size="1">
       <digest>Hold Time in ms</digest>
-      <description>TEXT_HERE</description>
+      <description>Amount of time to hold the envelope after the attack stage and before the release stage (in milliseconds).</description>
       <attributelist>
         <attribute name="basic" get="1" set="1" type="int" size="1" value="1"></attribute>
         <attribute name="label" get="1" set="1" type="symbol" size="1" value="Hold Time in ms"></attribute>
       </attributelist>
     </attribute>
     <attribute name="release" get="1" set="1" type="float" size="1">
-      <digest>release Time in ms</digest>
-      <description>TEXT_HERE</description>
+      <digest>Release Time in ms</digest>
+      <description>Amount of time the value takes to release. evi.logahr~ is logarithmic and does not release in this time exactly.</description>
       <attributelist>
         <attribute name="basic" get="1" set="1" type="int" size="1" value="1"></attribute>
         <attribute name="label" get="1" set="1" type="symbol" size="1" value="release Time in ms"></attribute>
@@ -94,6 +111,10 @@
     <example caption="" img=""></example>
   </examplelist>
   <seealsolist>
-    <seealso name="bogus">TEXT_HERE</seealso>
+    <seealso name="evi.logdecay~"></seealso>
+    <seealso name="evi.logattackdecay~"></seealso>
+    <seealso name="evi.logsmooth~"></seealso>
+    <seealso name="evi_smooth" display="evi_smooth.genexpr" type="refpage"></seealso>
+    <seealso name="evi_env" display="evi_env.genexpr" type="refpage"></seealso>
   </seealsolist>
 </c74object>

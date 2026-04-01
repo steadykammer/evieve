@@ -201,7 +201,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 747.0, 379.0, 111.0, 22.0 ],
-                                    "text": "evi_bp_butterworth"
+                                    "text": "evi_butterworth6"
                                 }
                             },
                             {

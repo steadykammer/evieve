@@ -529,21 +529,21 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Objects" ],
         "keywords": [],
-        "seealso": [ "bogus" ]
+        "seealso": [ "evi.logdecay~", "evi.logattackdecay~", "evi.logsmooth~", "evi_smooth", "evi_env" ]
     },
     "evi.logattackdecay~": {
         "digest": "Attack/decay envelope follower",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Objects" ],
         "keywords": [],
-        "seealso": [ "bogus" ]
+        "seealso": [ "evi.logdecay~", "evi.logahr~", "evi.logsmooth~", "evi_smooth", "evi_env" ]
     },
     "evi.logdecay~": {
         "digest": "Decay envelope follower",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Objects" ],
         "keywords": [],
-        "seealso": [ "bogus" ]
+        "seealso": [ "evi.logattackdecay~", "evi.logahr~", "evi.logsmooth~", "evi_smooth", "evi_env" ]
     },
     "evi.logsmooth~": {
         "digest": "Logarithmic signal smoother",
@@ -704,7 +704,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Objects" ],
         "keywords": [],
-        "seealso": [ "bogus" ]
+        "seealso": [ "evi.4wave~", "evi.blitwaves~", "evi.phasor0~", "evi_cossin" ]
     },
     "evi.ramp0~": {
         "digest": "A bit like MSP ramp~, with options for zero-reset, loop, restingstate, curve and pause",
@@ -903,11 +903,11 @@
         "seealso": [ "evi.saw~", "evi.rect~", "evi.4wave~", "ev.tri.select~", "evi.blitwaves~" ]
     },
     "evi.vactrol~": {
-        "digest": "Vactrol response time domain filter",
+        "digest": "Vactrol response time domain filter envelope",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Objects" ],
         "keywords": [],
-        "seealso": [ "bogus" ]
+        "seealso": [ "evi.cfsmooth~", "evi.expsmooth~", "evi.lagsmooth~", "evi.logsmooth~", "evi.logdecay~", "evi.logattackdecay~", "evi.logahr~", "evi_smooth", "evi_env" ]
     },
     "evi.vcf~": {
         "digest": "Reimplementation of Pd 'vcf~' filter",

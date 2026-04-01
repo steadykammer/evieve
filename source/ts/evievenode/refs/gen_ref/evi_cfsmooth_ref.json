@@ -3,8 +3,8 @@
         "name": "evi_cfsmooth",
         "child": "",
         "category": "evieve",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Signal smoother particularly well suited to smoothing filter cutoff frequencies",
+        "description": "Based on Andy Simper's smoother, evi_cfsmooth tracks the input value via the bandpass output of an SVF filter and logarithmically updates. Smoothing is specified in both ramp time (ms) and filter cutoff (Hz)."
     },
     "constructor": {
         "inlets": "destination, ramp"
@@ -42,7 +42,7 @@
             "name": "hz",
             "type": "float",
             "digest": "@min 0, @max 10",
-            "description": "",
+            "description": "evi_cfsmooth is a two-pole filter. The Hz value sets the filter cutoff. This is typically between 1..10 Hz. The lower this value, the more agressively the curve shape is flattened out.",
             "default": {
                 "type": "float",
                 "value": "2."
@@ -51,8 +51,40 @@
     ],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_logsmooth",
+            "display": "evi_logsmooth"
+        },
+        {
+            "name": "evi_expsmooth",
+            "display": "evi_expsmooth"
+        },
+        {
+            "name": "evi_lagsmooth",
+            "display": "evi_lagsmooth"
+        },
+        {
+            "name": "evi_line",
+            "display": "evi_line"
+        },
+        {
+            "name": "evi_sline",
+            "display": "evi_sline"
+        },
+        {
+            "name": "evi_curve",
+            "display": "evi_curve"
+        },
+        {
+            "name": "evi_rampsmooth",
+            "display": "evi_rampsmooth"
+        },
+        {
+            "name": "evi_vactrol",
+            "display": "evi_vactrol"
+        },
+        {
+            "name": "evi_smooth",
+            "display": "evi_smooth.genexpr"
         }
     ]
 }

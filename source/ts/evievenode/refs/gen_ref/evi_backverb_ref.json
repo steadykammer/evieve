@@ -19,14 +19,14 @@
             "name": "left",
             "type": "float",
             "optional": 1,
-            "digest": "Audio In Left"
+            "digest": ""
         },
         {
             "id": 2,
             "name": "right",
             "type": "float",
             "optional": 1,
-            "digest": "Audio In Right"
+            "digest": ""
         }
     ],
     "outlets": [
@@ -35,14 +35,14 @@
             "name": "left",
             "type": "float",
             "optional": 1,
-            "digest": "Rvrb Out Left"
+            "digest": ""
         },
         {
             "id": 2,
             "name": "right",
             "type": "float",
             "optional": 1,
-            "digest": "Rvrb Out Right"
+            "digest": ""
         }
     ],
     "attributes": [

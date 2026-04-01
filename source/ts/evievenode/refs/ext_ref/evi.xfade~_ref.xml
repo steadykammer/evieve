@@ -3,7 +3,7 @@
 <?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
 
 <!--Data marked TEXT_HERE, INLET_TYPE, OUTLET_TYPE, ARG_NAME and ARG_TYPE need to be filled in-->
-<c74object name="evi.xfade~" module="" category="">
+<c74object name="evi.xfade~" module="evieve-ref" category="evieve">
 	<digest>
 		Crossfade audio signals
 	</digest>
@@ -26,7 +26,7 @@
 				Input 1
 			</digest>
 			<description>
-				TEXT_HERE
+				Audio input 1
 			</description>
 		</inlet>
 		<inlet id="1" type="signal">
@@ -34,7 +34,7 @@
 				Input 2
 			</digest>
 			<description>
-				TEXT_HERE
+				Audio input 2
 			</description>
 		</inlet>
 		<inlet id="2" type="signal/float">
@@ -53,18 +53,34 @@
 				Xfaded Output
 			</digest>
 			<description>
-				TEXT_HERE
+				Mono or Left Xfaded Output (depending on <m>mode</m>)
+			</description>
+		</outlet>
+		<outlet id="1" type="signal">
+			<digest>
+				Right Xfaded Output
+			</digest>
+			<description>
+				If <m>mode</m> == 1 or 2, Right Xfaded Output
 			</description>
 		</outlet>
 	</outletlist>
 	<!--ARGUMENTS-->
 	<objarglist>
-		<objarg id="0" name="OBJARG_NAME" type="OBJARG_TYPE" optional="0">
+		<objarg id="1" name="xfade" type="float" optional="1">
 			<digest>
-				TEXT_HERE
+				Initial Crossfade value 0..1.
 			</digest>
 			<description>
-				TEXT_HERE
+				A value in the range 0..1 sets the initial crossfade amount between the inputs. 0.5 = center.
+			</description>
+		</objarg>
+		<objarg id="2" name="mode" type="int" optional="1">
+			<digest>
+				Mode 0 or 1 or 2
+			</digest>
+			<description>
+				Mode can only be a typed in argument and is not dynamic. Mode switches between mono, swap and stereo inputs/outputs for the object. If mode == 2 new inlets appear for the additional inputs. If mode == 1 or 2 new outlets appear for the additional outputs.
 			</description>
 		</objarg>
 	</objarglist>
@@ -72,22 +88,35 @@
 	<methodlist>
 		<method name="float">
 			<arglist>
-				<arg name="ARG_NAME_0" type="float" optional="0" />
+				<arg name="xfade" type="float" optional="1" />
 			</arglist>
 			<digest>
-				TEXT_HERE
+				Right inlet
 			</digest>
 			<description>
-				TEXT_HERE
+				In any mode, the far right inlet always accepts a float in the range 0..1 representing the Crossfade amount
 			</description>
 		</method>
 		<method name="signal">
 			<arglist />
 			<digest>
-				TEXT_HERE
+				Behaviour depends on inlet
 			</digest>
 			<description>
-				TEXT_HERE
+				If <m>mode</m> == 0 (mono, the default):
+					In left inlet, audio input 1 to be crossfaded
+					In middle inlet, audio input 2 to be crossfaded
+					In far right inlet, the Crossfade value 0..1
+				If <m>mode</m> == 1 (swap):
+					In left inlet, audio input 1 to be swap faded
+					In middle inlet, audio input 2 to be swap faded
+					In far right inlet, the Crossfade value 0..1
+				If <m>mode</m> == 2 (stereo):
+					In left inlet, audio 1 left input to be crossfaded
+					In middle left inlet, audio 1 right input to be crossfaded
+					In middle right inlet, audio 2 left input to be crossfaded
+					In right inlet, audio 2 right input to be crossfaded
+					In far right inlet, the Crossfade value 0..1
 			</description>
 		</method>
 	</methodlist>
@@ -103,6 +132,18 @@
 			<attributelist>
 				<attribute name="basic" get="1" set="1" type="int" size="1" value="1" />
 				<attribute name="label" get="1" set="1" type="symbol" size="1" value="Crossfade Amount 0..1" />
+			</attributelist>
+		</attribute>
+		<attribute name="mode" get="0" set="1" type="int" size="1">
+			<digest>
+				Mode 0, 1, 2 (0 = mono, the default, 1 = swap, 2 = stereo)
+			</digest>
+			<description>
+				<m>mode</m> can only be a typed in attribute and is not dynamic.
+			</description>
+			<attributelist>
+				<attribute name="basic" get="0" set="1" type="int" size="1" value="0" />
+				<attribute name="label" get="0" set="0" type="symbol" size="1" value="Mode of Operation 0/1/2" />
 			</attributelist>
 		</attribute>
 	</attributelist>

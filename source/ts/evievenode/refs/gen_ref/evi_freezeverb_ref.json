@@ -19,7 +19,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Signal Input",
-            "digest": "Audio In Mono or Left or 1"
+            "digest": ""
         },
         {
             "id": 2,
@@ -27,7 +27,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Signal Input",
-            "digest": "Audio In Nothing or Right or 2"
+            "digest": ""
         }
     ],
     "outlets": [
@@ -36,14 +36,14 @@
             "name": "left",
             "type": "float",
             "optional": 1,
-            "digest": "Reverb Out Left"
+            "digest": ""
         },
         {
             "id": 2,
             "name": "right",
             "type": "float",
             "optional": 1,
-            "digest": "Reverb Out Right"
+            "digest": ""
         }
     ],
     "attributes": [

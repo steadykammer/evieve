@@ -11,55 +11,58 @@
   <inletlist>
     <inlet id="0" type="signal/float">
       <digest>Value to Follow</digest>
-      <description>TEXT_HERE</description>
+      <description>evi.logdecay~ will follow this input value with the given decay time.</description>
     </inlet>
     <inlet id="1" type="signal/float">
       <digest>Decay Time in milliseconds</digest>
-      <description>TEXT_HERE</description>
+      <description>Amount of time the value takes to decay. evi.logdecay~ is logarithmic and does not decay in this time exactly.</description>
     </inlet>
   </inletlist>
   <outletlist>
     <outlet id="0" type="signal">
       <digest>Output Envelope</digest>
-      <description>TEXT_HERE</description>
+      <description>Output Envelope</description>
     </outlet>
   </outletlist>
   <objarglist>
-    <objarg id="0" name="OBJARG_NAME" type="OBJARG_TYPE" optional="0">
-      <digest>TEXT_HERE</digest>
-      <description>TEXT_HERE</description>
+    <objarg id="0" name="ms" type="float" optional="1">
+      <digest>Initial Decay Time in milliseconds</digest>
+      <description>Amount of time the value takes to decay. evi.logdecay~ is logarithmic and does not decay in this time exactly.</description>
     </objarg>
   </objarglist>
   <methodlist>
     <method name="int">
       <arglist>
-        <arg name="ARG_NAME_0" type="int" optional="0"></arg>
+        <arg name="int" type="int" optional="1"></arg>
       </arglist>
-      <digest>TEXT_HERE</digest>
-      <description>TEXT_HERE</description>
+      <digest>Behaviour depends on inlet</digest>
+      <description>In the left inlet, the destination value.
+				In the right inlet, decay time in ms.</description>
     </method>
     <method name="float">
       <arglist>
-        <arg name="ARG_NAME_0" type="float" optional="0"></arg>
+        <arg name="float" type="float" optional="1"></arg>
       </arglist>
-      <digest>TEXT_HERE</digest>
-      <description>TEXT_HERE</description>
+      <digest>Behaviour depends on inlet</digest>
+      <description>In the left inlet, the destination value.
+				In the right inlet, decay time in ms.</description>
     </method>
     <method name="clear">
       <arglist></arglist>
-      <digest>TEXT_HERE</digest>
-      <description>TEXT_HERE</description>
+      <digest>Clears the internal filter state</digest>
+      <description>This should never be needed :-)</description>
     </method>
     <method name="signal">
       <arglist></arglist>
-      <digest>TEXT_HERE</digest>
-      <description>TEXT_HERE</description>
+      <digest>Behaviour depends on inlet</digest>
+      <description>In the left inlet, the destination value.
+				In the right inlet, decay time in ms.</description>
     </method>
   </methodlist>
   <attributelist>
     <attribute name="decay" get="1" set="1" type="float" size="1" alias="ms">
       <digest>Decay Time in ms</digest>
-      <description>TEXT_HERE</description>
+      <description>Amount of time the value takes to decay. evi.logdecay~ is logarithmic and does not decay in this time exactly.</description>
       <attributelist>
         <attribute name="basic" get="1" set="1" type="int" size="1" value="1"></attribute>
         <attribute name="label" get="1" set="1" type="symbol" size="1" value="Decay Time in ms"></attribute>
@@ -70,6 +73,10 @@
     <example caption="" img=""></example>
   </examplelist>
   <seealsolist>
-    <seealso name="bogus">TEXT_HERE</seealso>
+    <seealso name="evi.logattackdecay~"></seealso>
+    <seealso name="evi.logahr~"></seealso>
+    <seealso name="evi.logsmooth~"></seealso>
+    <seealso name="evi_smooth" display="evi_smooth.genexpr" type="refpage"></seealso>
+    <seealso name="evi_env" display="evi_env.genexpr" type="refpage"></seealso>
   </seealsolist>
 </c74object>

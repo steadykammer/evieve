@@ -56,7 +56,7 @@
 				FDN Out Left
 			</digest>
 			<description>
-				Pure output tap of FDN loop without any dry/wet
+				Pure output tap L of FDN loop without any dry/wet
 			</description>
 		</outlet>
 		<outlet id="4" type="signal">
@@ -64,7 +64,7 @@
 				FDN Out Right
 			</digest>
 			<description>
-				Pure output tap of FDN loop without any dry/wet
+				Pure output tap R of FDN loop without any dry/wet
 			</description>
 		</outlet>
 		<outlet id="5" type="signal">
@@ -72,7 +72,7 @@
 				FDN AUX Tap 1
 			</digest>
 			<description>
-				Decorrelated output tap of FDN channel
+				Decorrelated output tap 1 of FDN channel
 			</description>
 		</outlet>
 		<outlet id="6" type="signal">
@@ -80,7 +80,7 @@
 				FDN AUX Tap 2
 			</digest>
 			<description>
-				Decorrelated output tap of FDN channel
+				Decorrelated output tap 2 of FDN channel
 			</description>
 		</outlet>
 		<outlet id="7" type="signal">
@@ -88,7 +88,7 @@
 				FDN AUX Tap 3
 			</digest>
 			<description>
-				Decorrelated output tap of FDN channel
+				Decorrelated output tap 3 of FDN channel
 			</description>
 		</outlet>
 		<outlet id="8" type="signal">
@@ -96,7 +96,7 @@
 				FDN AUX Tap 4
 			</digest>
 			<description>
-				Decorrelated output tap of FDN channel
+				Decorrelated output tap 4 of FDN channel
 			</description>
 		</outlet>
 		<outlet id="9" type="">
@@ -198,7 +198,7 @@
 				Normalised 0..1
 			</digest>
 			<description>
-				This can be a switch or interpolated, both are smoothed. Add in a highjpass filter to the FDN. This makes the sound of the FDN more reverb-like and tames low frequency recirculation, but also curtails the ability to foreversustain.
+				This can be a switch or interpolated, both are smoothed. Add in a highjpass filter to the FDN. This makes the sound of the FDN more reverb-like and tames low frequency recirculation, but also curtails the ability to forever sustain.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="0." />

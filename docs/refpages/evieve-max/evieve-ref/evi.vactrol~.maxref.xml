@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
 <c74object name="evi.vactrol~" module="evieve-ref" category="evieve">
-  <digest>Vactrol response time domain filter</digest>
-  <description>Analog modelled vactrol opto isolator emulation.</description>
+  <digest>Vactrol response time domain filter envelope</digest>
+  <description>Analog modelled vactrol opto isolator envelope emulation.</description>
   <metadatalist>
     <metadata name="author">Pete Dowling</metadata>
     <metadata name="tag">evieve</metadata>
@@ -11,59 +11,71 @@
   <inletlist>
     <inlet id="0" type="signal">
       <digest>Trigger Input</digest>
-      <description>TEXT_HERE</description>
+      <description>Audio to trigger the envelope, typically an impulse.</description>
     </inlet>
     <inlet id="1" type="signal/float/int">
       <digest>Envelope Rise Time in Samples</digest>
-      <description>TEXT_HERE</description>
+      <description>Envelope Rise Time in Samples. evi.vactrol~ does not reach it's value in this time exactly.</description>
     </inlet>
     <inlet id="2" type="signal/float/int">
       <digest>Envelope Fall Time in Samples</digest>
-      <description>TEXT_HERE</description>
+      <description>Envelope Fall Time in Samples. evi.vactrol~ does not reach it's value in this time exactly. Retriggering the envelope keeps the output above zero.</description>
     </inlet>
   </inletlist>
   <outletlist>
     <outlet id="0" type="signal">
       <digest>Vactrol Envelope</digest>
-      <description>TEXT_HERE</description>
+      <description>Vactrol Envelope</description>
     </outlet>
   </outletlist>
   <objarglist>
-    <objarg id="0" name="OBJARG_NAME" type="OBJARG_TYPE" optional="0">
-      <digest>TEXT_HERE</digest>
-      <description>TEXT_HERE</description>
+    <objarg id="0" name="rise" type="float" optional="1">
+      <digest>Initial Rise Time in samples</digest>
+      <description>Amount of time the envelope takes to rise. evi.vactrol~ does not rise in this time exactly. This value represents the initial charge of the opto isolator.</description>
+    </objarg>
+    <objarg id="1" name="fall" type="float" optional="1">
+      <digest>Initial Fall Time in samples</digest>
+      <description>Amount of time the envelope takes to fall. evi.vactrol~ does not fall in this time exactly. This value relates to the voltage-like release of the opto isolator. Repeated triggers at the left inlet will keep the envelope high.</description>
+    </objarg>
+    <objarg id="2" name="scalar" type="float" optional="1">
+      <digest>Initial Scalar Multiplier</digest>
+      <description>Envelope Output Multiplier. This can be useful depending on use case, otherwise should be '1'.</description>
     </objarg>
   </objarglist>
   <methodlist>
     <method name="int">
       <arglist>
-        <arg name="ARG_NAME_0" type="int" optional="0"></arg>
+        <arg name="int" type="int" optional="1"></arg>
       </arglist>
-      <digest>TEXT_HERE</digest>
-      <description>TEXT_HERE</description>
+      <digest>Behaviour depends on inlet</digest>
+      <description>In the middle inlet, rise time in samples.
+				In the right inlet, fall time in samples.</description>
     </method>
     <method name="float">
       <arglist>
-        <arg name="ARG_NAME_0" type="float" optional="0"></arg>
+        <arg name="float" type="float" optional="1"></arg>
       </arglist>
-      <digest>TEXT_HERE</digest>
-      <description>TEXT_HERE</description>
+      <digest>Behaviour depends on inlet</digest>
+      <description>In the middle inlet, rise time in samples.
+				In the right inlet, fall time in samples.</description>
     </method>
     <method name="clear">
       <arglist></arglist>
-      <digest>TEXT_HERE</digest>
-      <description>TEXT_HERE</description>
+      <digest>Clears the internal filter state</digest>
+      <description>This should never be needed :-)</description>
     </method>
     <method name="signal">
       <arglist></arglist>
-      <digest>TEXT_HERE</digest>
-      <description>TEXT_HERE</description>
+      <digest>Behaviour depends on inlet</digest>
+      <description>In the left inlet, the trigger value.
+				In the middle inlet, rise time in samples.
+				In the right inlet, fall time in samples.</description>
     </method>
   </methodlist>
   <attributelist>
     <attribute name="fall" get="1" set="1" type="float" size="1" alias="down">
       <digest>Fall Time in Samples</digest>
-      <description>TEXT_HERE</description>
+      <description>Amount of time the envelope takes to fall. evi.vactrol~ does not fall in this time exactly. This value relates to the voltage-like release of the opto isolator. Repeated triggers at the left inlet will keep the envelope high.</description>
       <attributelist>
         <attribute name="basic" get="1" set="1" type="int" size="1" value="1"></attribute>
         <attribute name="label" get="1" set="1" type="symbol" size="1" value="Fall Time in Samples"></attribute>
@@ -71,15 +83,15 @@
     </attribute>
     <attribute name="rise" get="1" set="1" type="float" size="1" alias="up">
       <digest>Rise Time in Samples</digest>
-      <description>TEXT_HERE</description>
+      <description>Amount of time the envelope takes to rise. evi.vactrol~ does not rise in this time exactly. This value represents the initial charge of the opto isolator.</description>
       <attributelist>
         <attribute name="basic" get="1" set="1" type="int" size="1" value="1"></attribute>
         <attribute name="label" get="1" set="1" type="symbol" size="1" value="Rise Time in Samples"></attribute>
       </attributelist>
     </attribute>
     <attribute name="scalar" get="1" set="1" type="float" size="1" alias="mult">
-      <digest>Env Output Multiplier</digest>
-      <description>TEXT_HERE</description>
+      <digest>Envelope Output Multiplier</digest>
+      <description>Envelope Output Multiplier. This can be useful depending on use case, otherwise should be '1'.</description>
       <attributelist>
         <attribute name="basic" get="1" set="1" type="int" size="1" value="1"></attribute>
         <attribute name="label" get="1" set="1" type="symbol" size="1" value="Env Output Multiplier"></attribute>
@@ -90,6 +102,14 @@
     <example caption="" img=""></example>
   </examplelist>
   <seealsolist>
-    <seealso name="bogus">TEXT_HERE</seealso>
+    <seealso name="evi.cfsmooth~"></seealso>
+    <seealso name="evi.expsmooth~"></seealso>
+    <seealso name="evi.lagsmooth~"></seealso>
+    <seealso name="evi.logsmooth~"></seealso>
+    <seealso name="evi.logdecay~"></seealso>
+    <seealso name="evi.logattackdecay~"></seealso>
+    <seealso name="evi.logahr~"></seealso>
+    <seealso name="evi_smooth" display="evi_smooth.genexpr" type="refpage"></seealso>
+    <seealso name="evi_env" display="evi_env.genexpr" type="refpage"></seealso>
   </seealsolist>
 </c74object>

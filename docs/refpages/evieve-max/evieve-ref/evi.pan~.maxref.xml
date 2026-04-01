@@ -11,47 +11,72 @@
   <inletlist>
     <inlet id="0" type="signal">
       <digest>Input</digest>
-      <description>TEXT_HERE</description>
+      <description>Audio input to be panned.</description>
     </inlet>
     <inlet id="1" type="signal/float">
       <digest>Pan Amount 0..1</digest>
-      <description>Pan input(s) to output(s) using an efficient cosine algorithm very close to a 'sqrt'</description>
+      <description>Pan input(s) to output(s) using an efficient cosine algorithm very close to a 'sqrt'. 0.5 = center.</description>
     </inlet>
   </inletlist>
   <outletlist>
     <outlet id="0" type="signal">
       <digest>Output Left</digest>
-      <description>TEXT_HERE</description>
+      <description>Panned Output Left</description>
     </outlet>
     <outlet id="1" type="signal">
       <digest>Output Right</digest>
-      <description>TEXT_HERE</description>
+      <description>Panned Output Right</description>
     </outlet>
   </outletlist>
   <objarglist>
-    <objarg id="0" name="OBJARG_NAME" type="OBJARG_TYPE" optional="0">
-      <digest>TEXT_HERE</digest>
-      <description>TEXT_HERE</description>
+    <objarg id="0" name="pan" type="float" optional="1">
+      <digest>Initial Pan value 0..1</digest>
+      <description>Initial Pan value 0..1. If mode == 1 this value represents the 1st of 2 Pan values, otherwise it is the only Pan value.</description>
+    </objarg>
+    <objarg id="1" name="pan2" type="float" optional="1">
+      <digest>Initial 2nd Pan value 0..1 (if mode == 1).</digest>
+      <description>If the 2nd argument is float it represents the 2nd Pan value (only used if mode == 1), otherwise if the 2nd argument is integer it represents mode.</description>
+    </objarg>
+    <objarg id="2" name="mode" type="int" optional="1">
+      <digest>Mode 0 or 1</digest>
+      <description>Mode can only be a typed in argument and is not dynamic. If the 2nd argument is integer it represents mode, otherwise if the 2nd argument is float an integer representing mode must be the third argument. Mode switches between mono and stereo inputs for the object. If mode == 1 new inlets appear for the additional inputs.</description>
     </objarg>
   </objarglist>
   <methodlist>
     <method name="float">
       <arglist>
-        <arg name="ARG_NAME_0" type="float" optional="0"></arg>
+        <arg name="float" type="float" optional="1"></arg>
       </arglist>
-      <digest>TEXT_HERE</digest>
-      <description>TEXT_HERE</description>
+      <digest>Behaviour depends on inlet</digest>
+      <description>
+        <m>mode</m>
+        <m>mode</m>
+If== 0 (the default):
+					In right inlet, the Pan value 0..1
+				If== 1:
+					In middle right inlet, the left Pan value 0..1
+					In right inlet, the right Pan value 0..1      </description>
     </method>
     <method name="signal">
       <arglist></arglist>
-      <digest>TEXT_HERE</digest>
-      <description>TEXT_HERE</description>
+      <digest>Behaviour depends on inlet</digest>
+      <description>
+        <m>mode</m>
+        <m>mode</m>
+If== 0 (the default):
+					In left inlet, the audio signal to be Panned
+					In right inlet, the Pan value 0..1
+				If== 1:
+					In left inlet, the left audio signal to be Panned
+					In middle left, the right audio signal to be Panned
+					In middle right inlet, the left Pan value 0..1
+					In right inlet, the right Pan value 0..1      </description>
     </method>
   </methodlist>
   <attributelist>
     <attribute name="pan1" get="1" set="1" type="float" size="1" alias="pan, panning1">
       <digest>Panning (Mono/Left) 0..1</digest>
-      <description>TEXT_HERE</description>
+      <description>Pan value 0..1. If mode == 1 this value represents the left of 2 Pan values, otherwise it is the only (mono) Pan value.</description>
       <attributelist>
         <attribute name="basic" get="1" set="1" type="int" size="1" value="1"></attribute>
         <attribute name="label" get="1" set="1" type="symbol" size="1" value="Panning (Mono/Left) 0..1"></attribute>
@@ -59,10 +84,20 @@
     </attribute>
     <attribute name="pan2" get="1" set="1" type="float" size="1" alias="panning2">
       <digest>Panning (Right) 0..1</digest>
-      <description>Pan input(s) to output(s) using an efficient cosine algorithm very close to a 'sqrt'</description>
+      <description>2nd (right) Pan value 0..1 (only used if mode == 1)</description>
       <attributelist>
         <attribute name="basic" get="1" set="1" type="int" size="1" value="1"></attribute>
         <attribute name="label" get="1" set="1" type="symbol" size="1" value="Panning (Right) 0..1"></attribute>
+      </attributelist>
+    </attribute>
+    <attribute name="mode" get="0" set="1" type="int" size="1">
+      <digest>Mode 0/1 (0 = mono, the default, 1 = stereo)</digest>
+      <description>
+        <m>mode</m>
+can only be a typed in attribute and is not dynamic.      </description>
+      <attributelist>
+        <attribute name="basic" get="0" set="1" type="int" size="1" value="0"></attribute>
+        <attribute name="label" get="0" set="0" type="symbol" size="1" value="Mode of Operation 0/1"></attribute>
       </attributelist>
     </attribute>
   </attributelist>

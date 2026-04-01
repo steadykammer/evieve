@@ -662,7 +662,7 @@
                 "auto": true
             }
         },
-        "evi_bp_butterworth.gendsp": {
+        "evi_butterworth6.gendsp": {
             "define": {
                 "object": true,
                 "msp": "evi.butterworthlp6~",

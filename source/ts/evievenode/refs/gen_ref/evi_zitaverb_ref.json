@@ -4,7 +4,7 @@
         "child": "",
         "category": "evieve",
         "digest": "True stereo FDN/algorithmic reverb based on 'zitaverb' by Fons Adriaensen",
-        "description": "A famous open source reverb algorithm with excellent room realness. GPL v2. The evieve version increases the available RT60 times for special effects, and smooths all parameters, as well as improving the internal filtering. In gen~ alone (as opposed to the MSP <o>evi.zitaverb~</o> abstraction) this is tricky to use as it requires external coefficients, but it is possible to calculate them locally."
+        "description": "A famous open source reverb algorithm with excellent room realness. GPL v2. The evieve version increases the available RT60 times for special effects, and smooths all parameters, as well as improving the internal filtering. In gen~ alone (as opposed to the MSP <o>evi.zitaverb~</o> abstraction) this is tricky to use as it requires external coefficients, but it is possible to calculate them locally. All default coefficients are for running at 48kHz samplerate."
     },
     "constructor": {
         "inlets": "audio, audio"
@@ -19,7 +19,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "In L",
-            "digest": "Audio In Left"
+            "digest": ""
         },
         {
             "id": 2,
@@ -27,7 +27,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "In R",
-            "digest": "Audio In Right"
+            "digest": ""
         }
     ],
     "outlets": [
@@ -36,14 +36,14 @@
             "name": "audio",
             "type": "float",
             "optional": 1,
-            "digest": "Reverb Out Left"
+            "digest": ""
         },
         {
             "id": 2,
             "name": "audio",
             "type": "float",
             "optional": 1,
-            "digest": "Reverb Out Right"
+            "digest": ""
         }
     ],
     "attributes": [
@@ -51,7 +51,7 @@
             "name": "apTime1",
             "type": "int",
             "digest": "@min 1, @max 6068",
-            "description": "",
+            "description": "In samples: floor(samplerate * 0.020346 + 0.5)",
             "default": {
                 "type": "int",
                 "value": "977"
@@ -61,7 +61,7 @@
             "name": "apTime2",
             "type": "int",
             "digest": "@min 1, @max 6068",
-            "description": "",
+            "description": "In samples: floor(samplerate * 0.024421 + 0.5)",
             "default": {
                 "type": "int",
                 "value": "1172"
@@ -71,7 +71,7 @@
             "name": "apTime3",
             "type": "int",
             "digest": "@min 1, @max 6068",
-            "description": "",
+            "description": "In samples: floor(samplerate * 0.031604 + 0.5)",
             "default": {
                 "type": "int",
                 "value": "1517"
@@ -81,7 +81,7 @@
             "name": "apTime4",
             "type": "int",
             "digest": "@min 1, @max 6068",
-            "description": "",
+            "description": "In samples: floor(samplerate * 0.027333 + 0.5)",
             "default": {
                 "type": "int",
                 "value": "1312"
@@ -91,7 +91,7 @@
             "name": "apTime5",
             "type": "int",
             "digest": "@min 1, @max 6068",
-            "description": "",
+            "description": "In samples: floor(samplerate * 0.022904 + 0.5)",
             "default": {
                 "type": "int",
                 "value": "1099"
@@ -101,7 +101,7 @@
             "name": "apTime6",
             "type": "int",
             "digest": "@min 1, @max 6068",
-            "description": "",
+            "description": "In samples: floor(samplerate * 0.029291 + 0.5)",
             "default": {
                 "type": "int",
                 "value": "1406"
@@ -111,7 +111,7 @@
             "name": "apTime7",
             "type": "int",
             "digest": "@min 1, @max 6068",
-            "description": "",
+            "description": "In samples: floor(samplerate * 0.013458 + 0.5)",
             "default": {
                 "type": "int",
                 "value": "646"
@@ -121,7 +121,7 @@
             "name": "apTime8",
             "type": "int",
             "digest": "@min 1, @max 6068",
-            "description": "",
+            "description": "In samples: floor(samplerate * 0.019123 + 0.5)",
             "default": {
                 "type": "int",
                 "value": "918"
@@ -171,7 +171,7 @@
             "name": "dfTime1",
             "type": "int",
             "digest": "@min 1, @max 44075",
-            "description": "",
+            "description": "In samples: (fbTime1 - apTime1)",
             "default": {
                 "type": "int",
                 "value": "6373"
@@ -181,7 +181,7 @@
             "name": "dfTime2",
             "type": "int",
             "digest": "@min 1, @max 44075",
-            "description": "",
+            "description": "In samples: (fbTime2 - apTime2)",
             "default": {
                 "type": "int",
                 "value": "8927"
@@ -191,7 +191,7 @@
             "name": "dfTime3",
             "type": "int",
             "digest": "@min 1, @max 44075",
-            "description": "",
+            "description": "In samples: (fbTime3 - apTime3)",
             "default": {
                 "type": "int",
                 "value": "4619"
@@ -201,7 +201,7 @@
             "name": "dfTime4",
             "type": "int",
             "digest": "@min 1, @max 44075",
-            "description": "",
+            "description": "In samples: (fbTime4 - apTime4)",
             "default": {
                 "type": "int",
                 "value": "11019"
@@ -211,7 +211,7 @@
             "name": "dfTime5",
             "type": "int",
             "digest": "@min 1, @max 44075",
-            "description": "",
+            "description": "In samples: (fbTime5 - apTime5)",
             "default": {
                 "type": "int",
                 "value": "7287"
@@ -221,7 +221,7 @@
             "name": "dfTime6",
             "type": "int",
             "digest": "@min 1, @max 44075",
-            "description": "",
+            "description": "In samples: (fbTime6 - apTime6)",
             "default": {
                 "type": "int",
                 "value": "7825"
@@ -231,7 +231,7 @@
             "name": "dfTime7",
             "type": "int",
             "digest": "@min 1, @max 44075",
-            "description": "",
+            "description": "In samples: (fbTime7 - apTime7)",
             "default": {
                 "type": "int",
                 "value": "5354"
@@ -241,7 +241,7 @@
             "name": "dfTime8",
             "type": "int",
             "digest": "@min 1, @max 44075",
-            "description": "",
+            "description": "In samples: (fbTime8 - apTime8)",
             "default": {
                 "type": "int",
                 "value": "9642"
@@ -261,7 +261,7 @@
             "name": "eq1_a1\t\t",
             "type": "float",
             "digest": "@min -1, @max  1\t\t",
-            "description": "",
+            "description": "SVF LTO filter coefficient for EQ. See 'evi_svf_eq_coeffs.gendsp' for coefficient calculations.",
             "default": {
                 "type": "float",
                 "value": "\t0.979389"
@@ -271,7 +271,7 @@
             "name": "eq1_a2\t\t",
             "type": "float",
             "digest": "@min -1, @max  1\t\t",
-            "description": "",
+            "description": "SVF LTO filter coefficient for EQ. See 'evi_svf_eq_coeffs.gendsp' for coefficient calculations.",
             "default": {
                 "type": "float",
                 "value": "\t0.020195"
@@ -281,7 +281,7 @@
             "name": "eq1_a3\t\t",
             "type": "float",
             "digest": "@min -1, @max  1\t\t",
-            "description": "",
+            "description": "SVF LTO filter coefficient for EQ. See 'evi_svf_eq_coeffs.gendsp' for coefficient calculations.",
             "default": {
                 "type": "float",
                 "value": "\t0.000416"
@@ -291,7 +291,7 @@
             "name": "eq1_m0\t\t",
             "type": "float",
             "digest": "@min -16, @max  16\t\t",
-            "description": "",
+            "description": "SVF LTO filter coefficient for EQ. See 'evi_svf_eq_coeffs.gendsp' for coefficient calculations.",
             "default": {
                 "type": "float",
                 "value": "\t1."
@@ -301,7 +301,7 @@
             "name": "eq1_m1\t\t",
             "type": "float",
             "digest": "@min -16, @max  16\t\t",
-            "description": "",
+            "description": "SVF LTO filter coefficient for EQ. See 'evi_svf_eq_coeffs.gendsp' for coefficient calculations.",
             "default": {
                 "type": "float",
                 "value": "\t0."
@@ -311,7 +311,7 @@
             "name": "eq1_m2\t\t",
             "type": "float",
             "digest": "@min -16, @max  16\t\t",
-            "description": "",
+            "description": "SVF LTO filter coefficient for EQ. See 'evi_svf_eq_coeffs.gendsp' for coefficient calculations.",
             "default": {
                 "type": "float",
                 "value": "\t0."
@@ -321,7 +321,7 @@
             "name": "eq2_a1\t\t",
             "type": "float",
             "digest": "@min -1, @max  1\t\t",
-            "description": "",
+            "description": "SVF LTO filter coefficient for EQ. See 'evi_svf_eq_coeffs.gendsp' for coefficient calculations.",
             "default": {
                 "type": "float",
                 "value": "\t0.853140"
@@ -331,7 +331,7 @@
             "name": "eq2_a2\t\t",
             "type": "float",
             "digest": "@min -1, @max  1\t\t",
-            "description": "",
+            "description": "SVF LTO filter coefficient for EQ. See 'evi_svf_eq_coeffs.gendsp' for coefficient calculations.",
             "default": {
                 "type": "float",
                 "value": "\t0.070516"
@@ -341,7 +341,7 @@
             "name": "eq2_a3\t\t",
             "type": "float",
             "digest": "@min -1, @max  1\t\t",
-            "description": "",
+            "description": "SVF LTO filter coefficient for EQ. See 'evi_svf_eq_coeffs.gendsp' for coefficient calculations.",
             "default": {
                 "type": "float",
                 "value": "\t0.005828"
@@ -351,7 +351,7 @@
             "name": "eq2_m0\t\t",
             "type": "float",
             "digest": "@min -16, @max  16\t\t",
-            "description": "",
+            "description": "SVF LTO filter coefficient for EQ. See 'evi_svf_eq_coeffs.gendsp' for coefficient calculations.",
             "default": {
                 "type": "float",
                 "value": "\t1."
@@ -361,7 +361,7 @@
             "name": "eq2_m1\t\t",
             "type": "float",
             "digest": "@min -16, @max  16\t\t",
-            "description": "",
+            "description": "SVF LTO filter coefficient for EQ. See 'evi_svf_eq_coeffs.gendsp' for coefficient calculations.",
             "default": {
                 "type": "float",
                 "value": "\t0."
@@ -371,7 +371,7 @@
             "name": "eq2_m2\t\t",
             "type": "float",
             "digest": "@min -16, @max  16\t\t",
-            "description": "",
+            "description": "SVF LTO filter coefficient for EQ. See 'evi_svf_eq_coeffs.gendsp' for coefficient calculations.",
             "default": {
                 "type": "float",
                 "value": "\t0."
@@ -381,7 +381,7 @@
             "name": "fbTime1",
             "type": "int",
             "digest": "@min 1, @max 49323",
-            "description": "",
+            "description": "In samples: floor(samplerate * 0.153129 + 0.5)",
             "default": {
                 "type": "int",
                 "value": "7350"
@@ -391,7 +391,7 @@
             "name": "fbTime2",
             "type": "int",
             "digest": "@min 1, @max 49323",
-            "description": "",
+            "description": "In samples: floor(samplerate * 0.210389 + 0.5)",
             "default": {
                 "type": "int",
                 "value": "10099"
@@ -401,7 +401,7 @@
             "name": "fbTime3",
             "type": "int",
             "digest": "@min 1, @max 49323",
-            "description": "",
+            "description": "In samples: floor(samplerate * 0.127837 + 0.5)",
             "default": {
                 "type": "int",
                 "value": "6136"
@@ -411,7 +411,7 @@
             "name": "fbTime4",
             "type": "int",
             "digest": "@min 1, @max 49323",
-            "description": "",
+            "description": "In samples: floor(samplerate * 0.256891 + 0.5)",
             "default": {
                 "type": "int",
                 "value": "12331"
@@ -421,7 +421,7 @@
             "name": "fbTime5",
             "type": "int",
             "digest": "@min 1, @max 49323",
-            "description": "",
+            "description": "In samples: floor(samplerate * 0.174713 + 0.5)",
             "default": {
                 "type": "int",
                 "value": "8386"
@@ -431,7 +431,7 @@
             "name": "fbTime6",
             "type": "int",
             "digest": "@min 1, @max 49323",
-            "description": "",
+            "description": "In samples: floor(samplerate * 0.192303 + 0.5)",
             "default": {
                 "type": "int",
                 "value": "9231"
@@ -441,7 +441,7 @@
             "name": "fbTime7",
             "type": "int",
             "digest": "@min 1, @max 49323",
-            "description": "",
+            "description": "In samples: floor(samplerate * 0.125000 + 0.5)",
             "default": {
                 "type": "int",
                 "value": "6000"
@@ -451,7 +451,7 @@
             "name": "fbTime8",
             "type": "int",
             "digest": "@min 1, @max 49323",
-            "description": "",
+            "description": "In samples: floor(samplerate * 0.219991 + 0.5)",
             "default": {
                 "type": "int",
                 "value": "10560"

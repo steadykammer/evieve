@@ -7,7 +7,7 @@
         "description": "A mono-in, stereo-out reverb implementation by Juhana Sadeharju. Originally Max/MSP-ified by Olaf Matthes (2004) Version 1.0test5, (c) 1999-2006 Juhana Sadeharju / Olaf Matthes. Originally Gen-ified by Graham Wakefield (2011). 64-bit MSP reference version by Volker Böhm (2016). This evieve version with updated filtering and parameter smooting. In gen~ alone (as opposed to the MSP abstraction <o>evi.gigaverb~</o>) this is tricky to use as the damping coefficients are produced externally via the 'evi_damp_coeffs.gendsp' abstraction. See 'evi_rcfilters.genexpr' for coefficients calculations alternatives."
     },
     "constructor": {
-        "inlets": "mono, nothing"
+        "inlets": "audioin, audioin"
     },
     "includes": [
         "evi_reverb_library"
@@ -15,19 +15,19 @@
     "inlets": [
         {
             "id": 1,
-            "name": "mono",
+            "name": "audioin",
             "type": "float",
             "optional": 1,
-            "digestauto": "/ Left / 1",
-            "digest": "Mono, Left or 1 depends on the 'stereo' attribute."
+            "digestauto": "Mono / Left / 1",
+            "digest": ""
         },
         {
             "id": 2,
-            "name": "nothing",
+            "name": "audioin",
             "type": "float",
             "optional": 1,
-            "digestauto": "/ Right / 2",
-            "digest": "Nothing, Right or 2 depends on the 'stereo' attribute."
+            "digestauto": "Nothing / Right / 2",
+            "digest": ""
         }
     ],
     "outlets": [
@@ -36,14 +36,14 @@
             "name": "reverb",
             "type": "float",
             "optional": 1,
-            "digest": "Reverb Out Left"
+            "digest": ""
         },
         {
             "id": 2,
             "name": "reverb",
             "type": "float",
             "optional": 1,
-            "digest": "Reverb Out Right"
+            "digest": ""
         }
     ],
     "attributes": [

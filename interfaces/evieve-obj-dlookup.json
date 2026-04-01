@@ -72,7 +72,7 @@
     "evi.butterworthlp6~": {
         "type": "define",
         "digest": "Unique 6th order Butterworth Lowpass filter created from evi.bp~ sections after Miller Puckette",
-        "description": "evi.butterworthlp6~ is a 'max define' for the evi_bp_butterworth.gendsp gen~ abstraction. Because evi.butterworthlp6~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA smooth 6th order butterworth lowpass with very interesting properties being made up of three resonant filter sections."
+        "description": "evi.butterworthlp6~ is a 'max define' for the evi_butterworth6.gendsp gen~ abstraction. Because evi.butterworthlp6~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA smooth 6th order butterworth lowpass with very interesting properties being made up of three resonant filter sections."
     },
     "evi.butterworthlp8~": {
         "type": "define",
@@ -502,7 +502,7 @@
     "evi.quadosc~": {
         "type": "external",
         "digest": "Phase locked quadrature oscillator",
-        "description": ""
+        "description": "A quadrature oscillator which outputs phase synchronous cosine and sine waves."
     },
     "evi.ramp0~": {
         "type": "define",
@@ -646,8 +646,8 @@
     },
     "evi.vactrol~": {
         "type": "external",
-        "digest": "Vactrol response time domain filter",
-        "description": "Analog modelled vactrol opto isolator emulation."
+        "digest": "Vactrol response time domain filter envelope",
+        "description": "Analog modelled vactrol opto isolator envelope emulation."
     },
     "evi.vcf~": {
         "type": "define",

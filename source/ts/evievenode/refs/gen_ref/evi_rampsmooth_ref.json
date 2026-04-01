@@ -3,8 +3,8 @@
         "name": "evi_rampsmooth",
         "child": "",
         "category": "evieve",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Reimplementation of MSP <o>rampsmooth~</o> in gen abstraction form",
+        "description": "evi_rampsmooth is identical to MSP <o>rampsmooth~</o> providing exact ramps in the given destination times. The algorithm is slightly different to account for efficiency in the gen~ domain, but it seems to work well. Based on the gen~ example by Maurizio Giri and Graham Wakefield."
     },
     "constructor": {
         "inlets": "input, ramp, ramp"
@@ -55,8 +55,40 @@
     "attributes": [],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_logsmooth",
+            "display": "evi_logsmooth"
+        },
+        {
+            "name": "evi_expsmooth",
+            "display": "evi_expsmooth"
+        },
+        {
+            "name": "evi_lagsmooth",
+            "display": "evi_lagsmooth"
+        },
+        {
+            "name": "evi_cfsmooth",
+            "display": "evi_cfsmooth"
+        },
+        {
+            "name": "evi_line",
+            "display": "evi_line"
+        },
+        {
+            "name": "evi_sline",
+            "display": "evi_sline"
+        },
+        {
+            "name": "evi_curve",
+            "display": "evi_curve"
+        },
+        {
+            "name": "evi_vactrol",
+            "display": "evi_vactrol"
+        },
+        {
+            "name": "evi_smooth",
+            "display": "evi_smooth.genexpr"
         }
     ]
 }

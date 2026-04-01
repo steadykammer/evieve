@@ -3,8 +3,8 @@
         "name": "evi_logdecay",
         "child": "",
         "category": "evieve",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Decay envelope follower",
+        "description": "Logarithmic decay envelope follower / smoother."
     },
     "constructor": {
         "inlets": "value, decay"
@@ -40,8 +40,28 @@
     "attributes": [],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_logattackdecay",
+            "display": "evi_logattackdecay"
+        },
+        {
+            "name": "evi_logahr",
+            "display": "evi_logahr"
+        },
+        {
+            "name": "evi_logsmooth",
+            "display": "evi_logsmooth"
+        },
+        {
+            "name": "evi_vactrol",
+            "display": "evi_vactrol"
+        },
+        {
+            "name": "evi_smooth",
+            "display": "evi_smooth.genexpr"
+        },
+        {
+            "name": "evi_env",
+            "display": "evi_env.genexpr"
         }
     ]
 }

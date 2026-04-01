@@ -40,7 +40,7 @@
 				Audio Out Left
 			</digest>
 			<description>
-				Audio Out Left
+				Reverb Out Left
 			</description>
 		</outlet>
 		<outlet id="2" type="signal">
@@ -48,7 +48,7 @@
 				Audio Out Right
 			</digest>
 			<description>
-				Audio Out Right
+				Reverb Out Right
 			</description>
 		</outlet>
 		<outlet id="3" type="">
@@ -227,7 +227,7 @@
 				In dB -90..0
 			</digest>
 			<description>
-				There is no &#x27;dry/wet&#x27; in this reverb. Instead we have separate dry and wet gains. This wet gain controls the amount of gain applied to the processed reverberated (late reflections) in the final mix.
+				There is no &#x27;dry/wet&#x27; in this reverb. Instead we have separate dry and wet gains. This wet gain controls the amount of gain applied to the processed reverberation (late reflections) in the final mix.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="-3." />
