@@ -52,6 +52,7 @@
             "name": "output",
             "type": "float",
             "optional": 1,
+            "digestauto": "of Summed Bands",
             "digest": "Perfectly flat summed crossover bands into one signal."
         }
     ],

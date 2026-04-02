@@ -9,7 +9,7 @@
         <b>evi_eq5</b> is an abstraction for using inside <o>gen~</o> or <b>GenExpr</b>. <br />
          <br />
         evi_eq5.gendsp requires the GenExpr file(s): <br />
-        <o>evi_svfs</o>.genexpr, <o>evi_svfs_lto</o>.genexpr <br />
+        <o>evi_svfs_lto</o>.genexpr <br />
          <br />
         evi_eq5 is also available in MSP as: <o>evi.eq5~</o>. <br />
          <br />

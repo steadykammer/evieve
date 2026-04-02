@@ -51,6 +51,7 @@
             "name": "filtered",
             "type": "float",
             "optional": 1,
+            "digestauto": "Output",
             "digest": "Resonant audio output."
         }
     ],

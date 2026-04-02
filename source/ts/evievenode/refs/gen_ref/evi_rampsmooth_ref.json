@@ -17,7 +17,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Value",
-            "digest": ""
+            "digest": "Input value to be smoothly ramped."
         },
         {
             "id": 2,
@@ -25,7 +25,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Up in SAMPLES @min 0",
-            "digest": ""
+            "digest": "Amount of time the value takes to reach it's up destination. evi_rampsmooth reaches it's up destination exactly in this time."
         },
         {
             "id": 3,
@@ -33,7 +33,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Down in SAMPLES @min 0",
-            "digest": ""
+            "digest": "Amount of time the value takes to reach it's down destination. evi_rampsmooth reaches it's down destination exactly in this time."
         }
     ],
     "outlets": [
@@ -42,14 +42,16 @@
             "name": "exact",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digestauto": "Output Env",
+            "digest": "Smoothed output ramp, or target value if envelope is complete."
         },
         {
             "id": 2,
             "name": "1",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digestauto": "When Env Reaches Destination (0 During Env)",
+            "digest": "1 When Envelope Reaches Destination (0 During Envelope)."
         }
     ],
     "attributes": [],

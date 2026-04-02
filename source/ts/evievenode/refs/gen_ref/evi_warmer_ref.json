@@ -28,6 +28,7 @@
             "name": "warmer",
             "type": "float",
             "optional": 1,
+            "digestauto": "Output",
             "digest": ""
         }
     ],

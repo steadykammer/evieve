@@ -26,6 +26,7 @@
             "name": "shaped",
             "type": "float",
             "optional": 1,
+            "digestauto": "Audio Output",
             "digest": "Hopefully more interesting audio output."
         }
     ],

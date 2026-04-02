@@ -24,12 +24,12 @@
     <geninletlist>
         <geninlet name='in' type='float' optional='1'>
             <digest>
-                Left. 
+                Left. Audio input left.
             </digest>
         </geninlet>
         <geninlet name='in' type='float' optional='1'>
             <digest>
-                Right. 
+                Right. Audio input right.
             </digest>
         </geninlet>
     </geninletlist>

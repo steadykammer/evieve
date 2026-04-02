@@ -70,7 +70,7 @@
     ],
     "arguments": [
         {
-            "name": "Low in",
+            "name": "LowIn",
             "type": "float",
             "default": "0.",
             "optional": 1,
@@ -78,7 +78,7 @@
             "description": "Low input value to map from"
         },
         {
-            "name": "Mid point in",
+            "name": "MidPointIn",
             "type": "float",
             "default": "0.5",
             "optional": 1,
@@ -86,7 +86,7 @@
             "description": "Mid point input value to map from"
         },
         {
-            "name": "High in",
+            "name": "HighIn",
             "type": "float",
             "default": "1.",
             "optional": 1,
@@ -94,7 +94,7 @@
             "description": "High input value to map from"
         },
         {
-            "name": "Low out",
+            "name": "LowOut",
             "type": "float",
             "default": "0.",
             "optional": 1,
@@ -102,7 +102,7 @@
             "description": "Low output value to map to"
         },
         {
-            "name": "Mid point out",
+            "name": "MidPointOut",
             "type": "float",
             "default": "0.5",
             "optional": 1,
@@ -110,7 +110,7 @@
             "description": "Mid point output value to map to"
         },
         {
-            "name": "High out",
+            "name": "HighOut",
             "type": "float",
             "default": "1.",
             "optional": 1,

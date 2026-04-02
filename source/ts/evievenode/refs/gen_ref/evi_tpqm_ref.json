@@ -74,6 +74,7 @@
             "name": "out",
             "type": "float",
             "optional": 1,
+            "digestauto": "Map",
             "digest": ""
         }
     ],

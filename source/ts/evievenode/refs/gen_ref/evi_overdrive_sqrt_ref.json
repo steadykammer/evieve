@@ -28,6 +28,7 @@
             "name": "buzzy-tanh(x)",
             "type": "float",
             "optional": 1,
+            "digestauto": "Out - anti-aliased for your audio not for Maths",
             "digest": "Overdriven audio output."
         }
     ],

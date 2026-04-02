@@ -61,7 +61,7 @@
 				Cosine Sync Output
 			</digest>
 			<description>
-				If <m>syncout</m> == 1, a sync signal corresponding the the cosine phase is output here on every cycle
+				If 'syncout' == 1, a sync signal corresponding the the cosine phase is output here on every cycle
 			</description>
 		</outlet>
 		<outlet id="3" type="signal">
@@ -69,7 +69,7 @@
 				Sine Sync Output
 			</digest>
 			<description>
-				If <m>syncout</m> == 1, a sync signal corresponding the the sine phase is output here on every cycle
+				If 'syncout' == 1, a sync signal corresponding the the sine phase is output here on every cycle
 			</description>
 		</outlet>
 	</outletlist>
@@ -131,8 +131,8 @@
 				Behaviour depends on inlet
 			</digest>
 			<description>
-				In left inlet, the frequency of the oscillators in Hz
-				In right inlet, sample accurate reset of the ocillators phase
+				In left inlet, the frequency of the oscillators in Hz<br />
+				In right inlet, sample accurate reset of the ocillators phase<br />
 			</description>
 		</method>
 	</methodlist>

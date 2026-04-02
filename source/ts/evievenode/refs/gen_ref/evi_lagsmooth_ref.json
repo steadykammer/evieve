@@ -17,7 +17,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Value",
-            "digest": ""
+            "digest": "Input value to be smoothed."
         },
         {
             "id": 2,
@@ -25,7 +25,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Time in milliseconds @min 0 @default 20",
-            "digest": ""
+            "digest": "Amount of time the value takes to reach it's destination. evi_lagsmooth is logarithmic and does not reach it's destination exactly."
         }
     ],
     "outlets": [
@@ -34,7 +34,8 @@
             "name": "output",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digestauto": "Ramp",
+            "digest": "Smoothed output ramp, or target value if ramp is complete."
         }
     ],
     "attributes": [],

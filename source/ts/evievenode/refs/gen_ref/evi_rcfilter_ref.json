@@ -35,6 +35,7 @@
             "name": "6db",
             "type": "float",
             "optional": 1,
+            "digestauto": "Nonlinear Lowpass",
             "digest": "Smooth saturated onepole output."
         }
     ],

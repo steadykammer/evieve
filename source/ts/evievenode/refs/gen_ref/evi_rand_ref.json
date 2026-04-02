@@ -26,6 +26,7 @@
             "name": "rand~like",
             "type": "float",
             "optional": 1,
+            "digestauto": "(Brown-ish) Noise Output",
             "digest": ""
         }
     ],

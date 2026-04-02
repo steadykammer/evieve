@@ -34,6 +34,7 @@
             "name": "sine",
             "type": "float",
             "optional": 1,
+            "digestauto": "Sync Osc",
             "digest": ""
         },
         {
@@ -41,6 +42,7 @@
             "name": "main",
             "type": "float",
             "optional": 1,
+            "digestauto": "Phase 0..1",
             "digest": ""
         },
         {
@@ -48,6 +50,7 @@
             "name": "sine",
             "type": "float",
             "optional": 1,
+            "digestauto": "Phase 0..1",
             "digest": ""
         }
     ],

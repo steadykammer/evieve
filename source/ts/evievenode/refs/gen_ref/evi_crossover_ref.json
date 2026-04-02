@@ -36,6 +36,7 @@
             "name": "low",
             "type": "float",
             "optional": 1,
+            "digestauto": "Band Output",
             "digest": "Lowpass filtered output."
         },
         {
@@ -43,6 +44,7 @@
             "name": "high",
             "type": "float",
             "optional": 1,
+            "digestauto": "Band Output",
             "digest": "Highpass filtered output."
         }
     ],

@@ -43,6 +43,7 @@
             "name": "resonant",
             "type": "float",
             "optional": 1,
+            "digestauto": "Object",
             "digest": "Resonant output of the modal filter."
         }
     ],

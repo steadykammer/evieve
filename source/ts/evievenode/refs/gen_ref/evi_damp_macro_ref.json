@@ -30,6 +30,7 @@
             "name": "damped",
             "type": "float",
             "optional": 1,
+            "digestauto": "Audio Output",
             "digest": "Damped filter output."
         }
     ],

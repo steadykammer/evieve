@@ -36,6 +36,7 @@
             "name": "allpass-aligned",
             "type": "float",
             "optional": 1,
+            "digestauto": "Output",
             "digest": "One aligned band output audio."
         }
     ],

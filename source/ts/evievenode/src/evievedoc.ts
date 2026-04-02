@@ -1287,20 +1287,24 @@ async function parseGendspsLoop(gendspPath: string, gendspName: string, thisConf
 				// push it
 				if (isInlet) {
 					// if already exists, fill human edited data from current, if no auto data created
-					if (!(thisIO.digestauto.length)) {
-						const currentIO = thisConfigObject.inlets.find((obj: { id: number; }) => obj.id === thisId);
-						if (currentIO != undefined) {
+					const currentIO = thisConfigObject.inlets.find((obj: { id: number; }) => obj.id === thisId);
+					if (currentIO != undefined) {
+						if (!(thisIO.digestauto.length)) {
 							thisIO.digestauto = currentIO.digestauto;
 						}
+						// always (re)fill digest
+						thisIO.digest = currentIO.digest;
 					}
 					thisConfigObject.inlets.push(thisIO);
 				} else if (isOutlet) {
 					// if already exists, fill human edited data from current, if no auto data created
-					if (!(thisIO.digest.length)) {
-						const currentIO = thisConfigObject.outlets.find((obj: { id: number; }) => obj.id === thisId);
-						if (currentIO != undefined) {
+					const currentIO = thisConfigObject.outlets.find((obj: { id: number; }) => obj.id === thisId);
+					if (currentIO != undefined) {
+						if (!(thisIO.digestauto.length)) {
 							thisIO.digestauto = currentIO.digestauto;
 						}
+						// always (re)fill digest
+						thisIO.digest = currentIO.digest;
 					}
 					thisConfigObject.outlets.push(thisIO);
 				}
@@ -2298,6 +2302,7 @@ async function createDefineRefJson(force = false, extractCodebox = false)
 	}
 }
 
+// {make_gens_ref_jsons}
 async function createGendspRefJson()
 {
 	const gendspRefsPath = `${cwd()}/${config.referenceFiles.genDsp.config}`;

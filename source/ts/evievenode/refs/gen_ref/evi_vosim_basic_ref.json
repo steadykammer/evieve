@@ -58,6 +58,7 @@
             "name": "vosim-like",
             "type": "float",
             "optional": 1,
+            "digestauto": "Oscillator",
             "digest": "The oscillator output."
         },
         {
@@ -65,6 +66,7 @@
             "name": "computed",
             "type": "float",
             "optional": 1,
+            "digestauto": "Frequency in Hz",
             "digest": "The frequency is a result of the lower level input parameters and is outlet here for further processing downstream."
         }
     ],

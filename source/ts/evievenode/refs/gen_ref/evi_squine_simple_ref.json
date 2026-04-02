@@ -58,6 +58,7 @@
             "name": "phase",
             "type": "float",
             "optional": 1,
+            "digestauto": "Modulation Oscillator",
             "digest": "The oscillator output."
         },
         {

@@ -53,7 +53,7 @@ clamphigh	= int(cliplimit) ? limit : samplerate*0.5;
 
 fnomod		= 0;
 freq		= in1 + 0;
-pitchmod	= in2 + 0;						// pitchmod ignored if cutoffmode == 0
+pitchmod	= in2 + 0;						// pitchmod ignored if mode == 0
 freqmod		= in3 + 0;
 
 //	//	//	optional cutoff smoothing (turn cutoffsmooth off for direct modulated in1)

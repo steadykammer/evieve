@@ -10,7 +10,6 @@
         "inlets": "input, freq, db, q, freq, db, q, freq, db, q"
     },
     "includes": [
-        "evi_svfs",
         "evi_svfs_lto"
     ],
     "inlets": [
@@ -100,6 +99,7 @@
             "name": "3",
             "type": "float",
             "optional": 1,
+            "digestauto": "bands EQ Output",
             "digest": "EQ-ed audio output."
         }
     ],

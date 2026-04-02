@@ -44,6 +44,7 @@
             "name": "lorez",
             "type": "float",
             "optional": 1,
+            "digestauto": "Output",
             "digest": "12dB resonant filter output."
         }
     ],

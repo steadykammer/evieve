@@ -38,6 +38,7 @@
             "name": "tanh(x)-based",
             "type": "float",
             "optional": 1,
+            "digestauto": "Saturation Out - anti-aliased for your audio not for Maths",
             "digest": "Overdriven audio output."
         }
     ],

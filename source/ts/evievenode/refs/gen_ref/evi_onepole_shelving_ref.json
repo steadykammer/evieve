@@ -44,6 +44,7 @@
             "name": "6db",
             "type": "float",
             "optional": 1,
+            "digestauto": "Highshelf attenuate/boost",
             "digest": "Highshelf attenuate/boost output."
         },
         {
@@ -51,6 +52,7 @@
             "name": "6db",
             "type": "float",
             "optional": 1,
+            "digestauto": "Lowshelf attenuate/boost",
             "digest": "Lowshelf attenuate/boost output."
         }
     ],

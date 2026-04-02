@@ -21,12 +21,12 @@
     <geninletlist>
         <geninlet name='value' type='float' optional='1'>
             <digest>
-                to Follow. 
+                to Follow. evi_logdecay will follow this input value with the given decay time.
             </digest>
         </geninlet>
         <geninlet name='decay' type='float' optional='1'>
             <digest>
-                Time in milliseconds @min 0. 
+                Time in milliseconds @min 0. Amount of time the value takes to decay. evi_logdecay is logarithmic and does not decay in this time exactly.
             </digest>
         </geninlet>
     </geninletlist>

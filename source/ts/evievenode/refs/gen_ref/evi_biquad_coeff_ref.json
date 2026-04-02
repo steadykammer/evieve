@@ -10,7 +10,6 @@
         "inlets": "cutoff, gain, q"
     },
     "includes": [
-        "evi_biquads",
         "evi_biquads_union",
         "evi_biquads_filters"
     ],
@@ -46,6 +45,7 @@
             "name": "a0",
             "type": "float",
             "optional": 1,
+            "digestauto": "(FF0)",
             "digest": "a0 coefficient"
         },
         {
@@ -53,6 +53,7 @@
             "name": "a1",
             "type": "float",
             "optional": 1,
+            "digestauto": "(FF1)",
             "digest": "a1 coefficient"
         },
         {
@@ -60,6 +61,7 @@
             "name": "a2",
             "type": "float",
             "optional": 1,
+            "digestauto": "(FF2)",
             "digest": "a2 coefficient"
         },
         {
@@ -67,6 +69,7 @@
             "name": "b1",
             "type": "float",
             "optional": 1,
+            "digestauto": "(FB1)",
             "digest": "b1 coefficient"
         },
         {
@@ -74,6 +77,7 @@
             "name": "b2",
             "type": "float",
             "optional": 1,
+            "digestauto": "(FB2)",
             "digest": "b2 coefficient"
         }
     ],

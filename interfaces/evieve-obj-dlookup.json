@@ -6,8 +6,8 @@
     },
     "evi.adsr~": {
         "type": "abstraction",
-        "digest": "ADSR envelope generator, same features as adsr~ but with logarithmic segments \n",
-        "description": "ADSR by default, but actually DAHDSHR capabale generator via attributes. Logarithmic segment shapes but still capable of controlling poly~ and thispoly~"
+        "digest": "ADSR envelope generator, similar features to adsr~ but with logarithmic segments \n",
+        "description": "ADSR by default, but actually DAHDSHR capabale generator via attributes. Logarithmic segment shapes but still capable of controlling poly~ and thispoly~."
     },
     "evi.algoverb~": {
         "type": "abstraction",

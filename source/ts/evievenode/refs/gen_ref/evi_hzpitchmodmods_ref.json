@@ -3,8 +3,8 @@
         "name": "evi_hzpitchmodmods",
         "child": "",
         "category": "evieve",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Modulation helper for filters and oscillators, with additional unprocessed frequency output",
+        "description": "Identical to <o>evi_hzpitchmods</o> but with additional unprocessed frequency output. A curious but useful (and expensive) modulation helper for oscillators and filters requiring FM control of frequency. The main cutoff frequency can be optionally smoothed, scaled, FM-ed with a pitch signal and FM-ed with a Hz signal."
     },
     "constructor": {
         "inlets": "cutoff, pitch, frequency"
@@ -41,9 +41,10 @@
     "outlets": [
         {
             "id": 1,
-            "name": "optionally",
+            "name": "fm-ed\\,",
             "type": "float",
             "optional": 1,
+            "digestauto": "smoothed and scaled Hz",
             "digest": ""
         },
         {
@@ -51,6 +52,7 @@
             "name": "cf",
             "type": "float",
             "optional": 1,
+            "digestauto": "(Hz) with NO modulation",
             "digest": ""
         },
         {
@@ -58,6 +60,7 @@
             "name": "hz",
             "type": "float",
             "optional": 1,
+            "digestauto": "limit",
             "digest": ""
         }
     ],
@@ -145,8 +148,32 @@
     ],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_hzpitchmods",
+            "display": "evi_hzpitchmods"
+        },
+        {
+            "name": "evi_mtofapprox",
+            "display": "evi_mtofapprox"
+        },
+        {
+            "name": "evi_cfsmooth",
+            "display": "evi_cfsmooth"
+        },
+        {
+            "name": "evi_logsmooth",
+            "display": "evi_logsmooth"
+        },
+        {
+            "name": "evi_line",
+            "display": "evi_line"
+        },
+        {
+            "name": "evi_sline",
+            "display": "evi_sline"
+        },
+        {
+            "name": "evi_lagsmooth",
+            "display": "evi_lagsmooth"
         }
     ]
 }

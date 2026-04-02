@@ -62,6 +62,7 @@
             "name": "audio",
             "type": "float",
             "optional": 1,
+            "digestauto": "Output for Resynthesis",
             "digest": "Osc/Noise source output via interpolation envelope."
         },
         {
@@ -69,6 +70,7 @@
             "name": "just",
             "type": "float",
             "optional": 1,
+            "digestauto": "Oscillator",
             "digest": "Oscillators output (no env)"
         },
         {
@@ -76,6 +78,7 @@
             "name": "just",
             "type": "float",
             "optional": 1,
+            "digestauto": "Noise",
             "digest": "Noise output (no env)."
         },
         {
@@ -83,6 +86,7 @@
             "name": "oscillator",
             "type": "float",
             "optional": 1,
+            "digestauto": "Sync",
             "digest": "Phase sync of oscillators source."
         },
         {
@@ -90,6 +94,7 @@
             "name": "number",
             "type": "float",
             "optional": 1,
+            "digestauto": "of Zero Crossings",
             "digest": "Zero crossing detector output."
         },
         {

@@ -52,6 +52,7 @@
             "name": "highpass",
             "type": "float",
             "optional": 1,
+            "digestauto": "Output",
             "digest": "Filtered audio output."
         }
     ],

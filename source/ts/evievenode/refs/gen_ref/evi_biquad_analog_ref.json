@@ -3,14 +3,13 @@
         "name": "evi_biquad_analog",
         "child": "evi.biquad.analog~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Analog Biquad Filters",
+        "description": "All-in-one biquad filter block with selection of analog filter types."
     },
     "constructor": {
         "inlets": "input, cutoff, gain, q"
     },
     "includes": [
-        "evi_biquads",
         "evi_biquads_union",
         "evi_biquads_filters"
     ],
@@ -20,7 +19,7 @@
             "name": "input",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Audio input to be filtered."
         },
         {
             "id": 2,
@@ -28,7 +27,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "in Hz @min samplerate*0.00022 @max samplerate*0.458334",
-            "digest": ""
+            "digest": "Filter cutoff frequency in Hz."
         },
         {
             "id": 3,
@@ -36,7 +35,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "in dB @min -30 @max 30 @default 0",
-            "digest": ""
+            "digest": "Filter gain in dB."
         },
         {
             "id": 4,
@@ -44,7 +43,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "@default 0.707107",
-            "digest": ""
+            "digest": "Filter Q."
         }
     ],
     "outlets": [
@@ -53,7 +52,8 @@
             "name": "biquad",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digestauto": "Analog Filter Output",
+            "digest": "Filtered audio output."
         }
     ],
     "attributes": [
@@ -61,7 +61,7 @@
             "name": "filter",
             "type": "int",
             "digest": "@min 0, @max 13",
-            "description": "",
+            "description": "0 = bypass, 1 = LowpassAnalog1, 2 = LowpassAnalog2, 3 = HighpassAnalog, 4 = BandpassAnalog, 5 = BandpassGainAnalog, 6 = NotchAnalog, 7 = PeakNotchAnalog1, 8 = PeakNotchAnalog2, 9 = LowshelfAnalog1, 10 = LowshelfAnalog2, 11 = HighshelfAnalog1, 12 = HighshelfAnalog2, 13 = ResonantAnalog.",
             "default": {
                 "type": "int",
                 "value": "2"
@@ -70,8 +70,68 @@
     ],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_biquad",
+            "display": "evi_biquad"
+        },
+        {
+            "name": "evi_biquad_coeff",
+            "display": "evi_biquad_coeff"
+        },
+        {
+            "name": "evi_biquad_filter",
+            "display": "evi_biquad_filter"
+        },
+        {
+            "name": "evi_biquad_eqfilter",
+            "display": "evi_biquad_eqfilter"
+        },
+        {
+            "name": "evi_biquad_butterworth",
+            "display": "evi_biquad_butterworth"
+        },
+        {
+            "name": "evi_biquad_allpass",
+            "display": "evi_biquad_allpass"
+        },
+        {
+            "name": "evi_biquad_bandpass",
+            "display": "evi_biquad_bandpass"
+        },
+        {
+            "name": "evi_biquad_highpass",
+            "display": "evi_biquad_highpass"
+        },
+        {
+            "name": "evi_biquad_highshelf",
+            "display": "evi_biquad_highshelf"
+        },
+        {
+            "name": "evi_biquad_lowpass",
+            "display": "evi_biquad_lowpass"
+        },
+        {
+            "name": "evi_biquad_lowshelf",
+            "display": "evi_biquad_lowshelf"
+        },
+        {
+            "name": "evi_biquad_notch",
+            "display": "evi_biquad_notch"
+        },
+        {
+            "name": "evi_biquad_peaknotch",
+            "display": "evi_biquad_peaknotch"
+        },
+        {
+            "name": "evi_biquad_resonant",
+            "display": "evi_biquad_resonant"
+        },
+        {
+            "name": "evi_biquad_type",
+            "display": "evi_biquad_type"
+        },
+        {
+            "name": "evi_filter",
+            "display": "evi_filter"
         }
     ]
 }

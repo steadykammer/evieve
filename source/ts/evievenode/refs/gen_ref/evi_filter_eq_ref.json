@@ -52,6 +52,7 @@
             "name": "eq",
             "type": "float",
             "optional": 1,
+            "digestauto": "Filter Output",
             "digest": "Filtered audio output."
         }
     ],

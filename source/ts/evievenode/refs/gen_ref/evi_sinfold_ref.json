@@ -28,6 +28,7 @@
             "name": "sine",
             "type": "float",
             "optional": 1,
+            "digestauto": "Saturated Output",
             "digest": "Hopefully more interesting audio output."
         }
     ],

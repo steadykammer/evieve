@@ -3,8 +3,8 @@
         "name": "evi_control_lpg_buchla",
         "child": "",
         "category": "evieve",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Envelope and control circuit wrapper for voltage control of Rf",
+        "description": "Analog modelled vactrol envelope and control circuit for the voltage control of the <o>evi_lpg_buchla</o>.gendsp frequency inlet. Also embedded in the MSP abstraction <o>evi.lpg~</o>."
     },
     "constructor": {
         "inlets": "ping, vactrol, vactrol, offset, scaler, sweep"
@@ -16,7 +16,7 @@
             "name": "ping",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Ping the control circuit. Once connected to an LPG (evi_lpg_buchla.gendsp) audio rate ping to attack the filter gate."
         },
         {
             "id": 2,
@@ -24,7 +24,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Rise",
-            "digest": ""
+            "digest": "Vactrol envelope rise time (ping attack time) in ms."
         },
         {
             "id": 3,
@@ -32,28 +32,28 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Fall",
-            "digest": ""
+            "digest": "Vactrol envelope fall time (ping decay time) in ms."
         },
         {
             "id": 4,
             "name": "offset",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "0..1. Offset (add to) the voltage input to the LPG. Part of the control circuit that engages the voltage (frequency) of the filter/gate."
         },
         {
             "id": 5,
             "name": "scaler",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "0..1. Scale (multiply) the voltage input to the LPG. Part of the control circuit that engages the voltage (frequency) of the filter/gate."
         },
         {
             "id": 6,
             "name": "sweep",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "0..1. Amount of sweep range of the voltage input to the LPG. Part of the control circuit that engages the voltage (frequency) of the filter/gate."
         }
     ],
     "outlets": [
@@ -62,14 +62,16 @@
             "name": "r_f",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digestauto": "(to LPG)",
+            "digest": "Rf (frequency) voltage, typically to trigger an LPG (evi_lpg_buchla.gendsp) downstream."
         },
         {
             "id": 2,
             "name": "vactrol",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digestauto": "Envelope",
+            "digest": "Aux output of the initial envelope follower that begins the ping of the control circuit (LPG). Can be useful for synchronous downstream processing."
         }
     ],
     "attributes": [
@@ -77,7 +79,7 @@
             "name": "offsetsmooth",
             "type": "float",
             "digest": "",
-            "description": "",
+            "description": "If > 0, smooths the 'offset' control (inlet 4) by this amount in ms.",
             "default": {
                 "type": "float",
                 "value": "0."
@@ -87,7 +89,7 @@
             "name": "response",
             "type": "int",
             "digest": "",
-            "description": "",
+            "description": "Select 0, 1, 2. To quote the paper, '...it makes little difference'. But sometimes it does make a difference. This control switches between slow..long response times for the voltage input into the control circuit shaper.",
             "default": {
                 "type": "float",
                 "value": "1"
@@ -97,7 +99,7 @@
             "name": "scalersmooth",
             "type": "float",
             "digest": "",
-            "description": "",
+            "description": "If > 0, smooths the 'scale' control (inlet 5) by this amount in ms.",
             "default": {
                 "type": "float",
                 "value": "0."
@@ -107,7 +109,7 @@
             "name": "sweepsmooth",
             "type": "float",
             "digest": "",
-            "description": "",
+            "description": "If > 0, smooths the 'sweep' control (inlet 6) by this amount in ms.",
             "default": {
                 "type": "float",
                 "value": "0."
@@ -117,7 +119,7 @@
             "name": "vactrolcontroldamp",
             "type": "float",
             "digest": "",
-            "description": "",
+            "description": "Low shelving filter damp, optionally maps between V_c and V_b (default bypassed). To quote the paper, '...it makes little difference'. 0 = no damping (default, bypassed), 1 = fully damped. Also see @vactrolcontrolhz.",
             "default": {
                 "type": "float",
                 "value": "0."
@@ -127,7 +129,7 @@
             "name": "vactrolcontrolhz",
             "type": "float",
             "digest": "",
-            "description": "",
+            "description": "Low shelving filter frequency in Hz, optionally maps between V_c and V_b (default bypassed). To quote the paper, '...it makes little difference'. Also see @vactrolcontroldamp.",
             "default": {
                 "type": "float",
                 "value": "143."
@@ -137,7 +139,7 @@
             "name": "vactrolscalar",
             "type": "float",
             "digest": "",
-            "description": "",
+            "description": "Vactrol Envelope Output Multiplier. Effectively gain the pinging envelope into the control circuit to accentuate the ping. Otherwise should be '1'.",
             "default": {
                 "type": "float",
                 "value": "10."
@@ -146,8 +148,16 @@
     ],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_vactrol",
+            "display": "evi_vactrol"
+        },
+        {
+            "name": "evi_controlcircuit_buchla",
+            "display": "evi_controlcircuit_buchla"
+        },
+        {
+            "name": "evi_lpg_buchla",
+            "display": "evi_lpg_buchla"
         }
     ]
 }

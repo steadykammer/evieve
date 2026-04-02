@@ -28,6 +28,7 @@
             "name": "soft-clipped",
             "type": "float",
             "optional": 1,
+            "digestauto": "Audio Out",
             "digest": "Hopefully cleanly soft clipped output."
         }
     ],

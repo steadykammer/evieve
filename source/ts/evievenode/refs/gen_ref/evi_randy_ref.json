@@ -26,6 +26,7 @@
             "name": "cubic",
             "type": "float",
             "optional": 1,
+            "digestauto": "Interpolated Rand~like Noise Output",
             "digest": "Cubic interpolated random noise source."
         }
     ],

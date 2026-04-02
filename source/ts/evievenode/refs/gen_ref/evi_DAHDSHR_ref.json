@@ -3,8 +3,8 @@
         "name": "evi_DAHDSHR",
         "child": "",
         "category": "evieve",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "ADSR envelope generator, similar features to MSP <o>adsr~</o> but with logarithmic segments",
+        "description": "ADSR by default, but actually DAHDSHR capabale generator via attributes. Logarithmic segment shapes but still capable of controlling <o>poly~</o> and <o>thispoly~</o>, and other sample accurate processes in <o>gen~</o>."
     },
     "constructor": {
         "inlets": "gate, delay, attack, hold1, decay, sustain, hold2, release"
@@ -19,7 +19,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "or Value",
-            "digest": ""
+            "digest": "Non-zero triggers the envelope, which will sustain until a zero is received or another non-zero is received."
         },
         {
             "id": 2,
@@ -27,7 +27,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "in ms @default 0",
-            "digest": ""
+            "digest": "Initial delay time before the attack segment of the envelope, default in ms, but units dependent upon the @timebase attribute."
         },
         {
             "id": 3,
@@ -35,7 +35,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "in ms @default 10",
-            "digest": ""
+            "digest": "Attack time, default in ms, but units dependent upon the @timebase attribute."
         },
         {
             "id": 4,
@@ -43,7 +43,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "in ms @default 0",
-            "digest": ""
+            "digest": "Time for first hold segment, between attack and decay, default in ms, but units dependent upon the @timebase attribute."
         },
         {
             "id": 5,
@@ -51,7 +51,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "in ms @default 100",
-            "digest": ""
+            "digest": "Decay time, default in ms, but units dependent upon the @timebase attribute."
         },
         {
             "id": 6,
@@ -59,7 +59,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "0..1 @default 0.707946",
-            "digest": ""
+            "digest": "Sustain level, default in linear amplitude, but units dependent upon the @sustainbase attribute."
         },
         {
             "id": 7,
@@ -67,7 +67,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "in ms @default 0",
-            "digest": ""
+            "digest": "Time for second hold segment, between sustain and release, default in ms, but units dependent upon the @timebase attribute."
         },
         {
             "id": 8,
@@ -75,7 +75,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "in ms @default 200",
-            "digest": ""
+            "digest": "Release time, default in ms, but units dependent upon the @timebase attribute."
         }
     ],
     "outlets": [
@@ -84,28 +84,32 @@
             "name": "dahdshr",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digestauto": "Envelope",
+            "digest": "(d)A(h)DS(h)R envelope generator output with logarithmic segments."
         },
         {
             "id": 2,
             "name": "new",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digestauto": "Envelope Trigger (1/0)",
+            "digest": "Trigger up on new envelope, trigger down on beginning of release stage."
         },
         {
             "id": 3,
             "name": "mute",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digestauto": "Outlet (0/1)",
+            "digest": "Mute on (1, envelope is innactive) or off (0, envelope is active)."
         },
         {
             "id": 4,
             "name": "segment",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digestauto": "# (0\\, 1\\, 2\\, 3\\, 4\\, 5\\, 6\\, 7\\, 8\\, 0)",
+            "digest": "Current envelope stage, sample accurate: 0=Off, 1=(Delay), 2=Attack, 3=(Hold), 4=Decay, 5=Sustain, 6=(Hold), 7=Release, 8=(Retrigger), 0=Off."
         }
     ],
     "attributes": [
@@ -113,7 +117,7 @@
             "name": "constantrate",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": false,
             "default": {
                 "type": "int",
                 "value": "1"
@@ -123,7 +127,7 @@
             "name": "envmax",
             "type": "float",
             "digest": "@min 1",
-            "description": "",
+            "description": "Expected maximum of input to left trigger inlet. This can be any value, by default it assumes velocity. Only used if the @velocitysense attribute is > 0",
             "default": {
                 "type": "float",
                 "value": "127."
@@ -133,7 +137,7 @@
             "name": "fallratio",
             "type": "float",
             "digest": "@min 0.000001, @max 10",
-            "description": "",
+            "description": "Ratio 0..10, minimum -120dB. Ratio 0..10, very exponential..almost linear.",
             "default": {
                 "type": "float",
                 "value": "0.05"
@@ -143,7 +147,7 @@
             "name": "legato",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Flag 0/1, start from current value if reattacking active envelope (rather than ramping to zero).",
             "default": {
                 "type": "int",
                 "value": "0"
@@ -153,7 +157,7 @@
             "name": "loop",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Flag 0/1, loop the envelope off/on.",
             "default": {
                 "type": "int",
                 "value": "0"
@@ -163,7 +167,7 @@
             "name": "loopsustain",
             "type": "float",
             "digest": "@min 0, @max 60000",
-            "description": "",
+            "description": "Time in ms, add fake x ms sustain portion to looping envelope.",
             "default": {
                 "type": "float",
                 "value": "100."
@@ -173,7 +177,7 @@
             "name": "looptrigger",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Flag 0/1, loop mode needs triggering (1) or triggers itself (0).",
             "default": {
                 "type": "int",
                 "value": "0"
@@ -183,7 +187,7 @@
             "name": "maxsustain",
             "type": "float",
             "digest": "@min -1, @max 60000",
-            "description": "",
+            "description": "Time in ms, like 'adsr~' (-1 = none, else x ms length even if gate still on).",
             "default": {
                 "type": "float",
                 "value": "-1."
@@ -193,7 +197,7 @@
             "name": "retrigger",
             "type": "float",
             "digest": "@min 0, @max 1000",
-            "description": "",
+            "description": "Time in ms, fade to 0 in x ms if reattacking active envelope.",
             "default": {
                 "type": "float",
                 "value": "5."
@@ -203,7 +207,7 @@
             "name": "riseratio",
             "type": "float",
             "digest": "@min 0.000001, @max 10",
-            "description": "",
+            "description": "Ratio 0..10, minimum -120dB, ratio 0..10, very logarithmic..almost linear.",
             "default": {
                 "type": "float",
                 "value": "0.3"
@@ -213,7 +217,7 @@
             "name": "sustainbase",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Flag 0/1, select the units used to control the 'sustain' inlet. 0=linear gain (default), 1=dB.",
             "default": {
                 "type": "int",
                 "value": "0"
@@ -223,7 +227,7 @@
             "name": "timebase",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Flag 0/1, select the units used to control all time base inputs. 0=samples, 1=ms (default).",
             "default": {
                 "type": "int",
                 "value": "1"
@@ -233,7 +237,7 @@
             "name": "velocitycurve",
             "type": "int",
             "digest": "@min -2, @max 2",
-            "description": "",
+            "description": "Type -2, -1, 0, 1, 2, velocity in curve, positive=log, 0=lin, negative=exp.",
             "default": {
                 "type": "int",
                 "value": "1"
@@ -243,7 +247,7 @@
             "name": "velocitysense",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Normalised 0..1, velocity sensitivity 0..1 (<m>envmax</m> is only used if this > 0.).",
             "default": {
                 "type": "float",
                 "value": "0."
@@ -253,7 +257,7 @@
             "name": "wait",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Flag 0/1, wait until envelope 0 before allowing reattack of active envelope.",
             "default": {
                 "type": "int",
                 "value": "0"
@@ -263,7 +267,7 @@
             "name": "zerophase",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Flag 0/1, sync env param changes to env start (1) or free (0).",
             "default": {
                 "type": "int",
                 "value": "0"
@@ -272,8 +276,28 @@
     ],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_phasor0",
+            "display": "evi_phasor0"
+        },
+        {
+            "name": "evi_ramp0",
+            "display": "evi_ramp0"
+        },
+        {
+            "name": "evi_lpg_buchla",
+            "display": "evi_lpg_buchla"
+        },
+        {
+            "name": "evi_limiterfast",
+            "display": "evi_limiterfast"
+        },
+        {
+            "name": "evi_zeroxcount",
+            "display": "evi_zeroxcount"
+        },
+        {
+            "name": "evi_env",
+            "display": "evi_env.genexpr"
         }
     ]
 }

@@ -36,6 +36,7 @@
             "name": "bp",
             "type": "float",
             "optional": 1,
+            "digestauto": "6-pole Butterworth Lowpass Output",
             "digest": "Filtered audio output."
         }
     ],

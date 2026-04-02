@@ -240,7 +240,7 @@
             },
             {
                 "box": {
-                    "comment": "(float/int) Frequency Shift in Hz +/- 0., use @freqsmooth to smooth / (signal) + FM modulation of Freq Shift ± Hz",
+                    "comment": "(float/int/signal) If float/int, Frequency Shift in Hz +/- 0., use @freqsmooth to smooth / If signal + FM modulation of Freq Shift ± Hz",
                     "id": "obj-4",
                     "index": 2,
                     "maxclass": "inlet",

@@ -17,7 +17,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "to Follow",
-            "digest": ""
+            "digest": "evi_logattackdecay will follow this input value with the given attack and decay times."
         },
         {
             "id": 2,
@@ -25,7 +25,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Time in milliseconds @min 0",
-            "digest": ""
+            "digest": "Amount of time the envelope takes to attack. evi_logattackdecay is logarithmic and does not attack in this time exactly."
         },
         {
             "id": 3,
@@ -33,7 +33,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Time in milliseconds @min 0",
-            "digest": ""
+            "digest": "Amount of time the envelope takes to decay. evi_logattackdecay is logarithmic and does not decay in this time exactly."
         }
     ],
     "outlets": [
@@ -42,7 +42,8 @@
             "name": "output",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digestauto": "Envelope",
+            "digest": "Output envelope."
         }
     ],
     "attributes": [],

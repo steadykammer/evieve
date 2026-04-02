@@ -36,6 +36,7 @@
             "name": "formlet",
             "type": "float",
             "optional": 1,
+            "digestauto": "Output",
             "digest": "Ringing formlet filtered output."
         }
     ],

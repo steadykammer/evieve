@@ -26,6 +26,7 @@
             "name": "so",
             "type": "float",
             "optional": 1,
+            "digestauto": "Called \"Audio Dust\"",
             "digest": "Beautiful spikes."
         },
         {
@@ -33,6 +34,7 @@
             "name": "\"white",
             "type": "float",
             "optional": 1,
+            "digestauto": "Noise\"",
             "digest": "Synchronised to the audio dust process."
         },
         {
@@ -40,6 +42,7 @@
             "name": "click",
             "type": "float",
             "optional": 1,
+            "digestauto": "(Sample Accurate Unipolar Sync Source)",
             "digest": "Synchronised to the audio dust process for synchronising other processes downstream."
         }
     ],

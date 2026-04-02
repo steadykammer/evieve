@@ -44,6 +44,7 @@
             "name": "allpass",
             "type": "float",
             "optional": 1,
+            "digestauto": "Normalised Output",
             "digest": "Filtered audio output."
         }
     ],

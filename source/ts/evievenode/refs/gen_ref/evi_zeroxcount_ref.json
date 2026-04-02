@@ -25,6 +25,7 @@
             "name": "number",
             "type": "int",
             "optional": 1,
+            "digestauto": "of Zerocrossings per Window",
             "digest": "Number of zero crossings per analysis window."
         },
         {
@@ -32,6 +33,7 @@
             "name": ">",
             "type": "gate",
             "optional": 1,
+            "digestauto": "threshold",
             "digest": "Gate out, if crossings in window period > @threshold amount."
         },
         {
@@ -39,6 +41,7 @@
             "name": "the",
             "type": "float",
             "optional": 1,
+            "digestauto": "Zerocrossings",
             "digest": "Constant zero crossings update."
         }
     ],

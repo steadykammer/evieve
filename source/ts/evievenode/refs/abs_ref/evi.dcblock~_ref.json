@@ -32,7 +32,16 @@
             "description": "DC-blocked Audio Output"
         }
     ],
-    "arguments": [],
+    "arguments": [
+        {
+            "name": "coefficient",
+            "type": "float",
+            "default": "0.9997",
+            "optional": 1,
+            "digest": "arg#1: coefficient",
+            "description": "a0 coefficient to set the filter amount"
+        }
+    ],
     "messages": [],
     "attributes": [],
     "example": {

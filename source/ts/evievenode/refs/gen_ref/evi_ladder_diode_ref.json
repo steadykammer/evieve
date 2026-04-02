@@ -61,6 +61,7 @@
             "name": "diode",
             "type": "float",
             "optional": 1,
+            "digestauto": "Ladder",
             "digest": "Diode Ladder filtered output."
         }
     ],

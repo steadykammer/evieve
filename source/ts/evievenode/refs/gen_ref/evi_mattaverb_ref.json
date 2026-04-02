@@ -19,7 +19,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Left",
-            "digest": ""
+            "digest": "Audio input left."
         },
         {
             "id": 2,
@@ -27,7 +27,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Right",
-            "digest": ""
+            "digest": "Audio input right."
         }
     ],
     "outlets": [
@@ -36,14 +36,16 @@
             "name": "rvrb",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digestauto": "Left",
+            "digest": "Reverb output left."
         },
         {
             "id": 2,
             "name": "rvrb",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digestauto": "Right",
+            "digest": "Reverb output right."
         }
     ],
     "attributes": [

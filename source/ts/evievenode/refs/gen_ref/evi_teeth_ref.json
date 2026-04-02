@@ -67,6 +67,7 @@
             "name": "comb",
             "type": "float",
             "optional": 1,
+            "digestauto": "Filter Output",
             "digest": "Filtered audio output."
         },
         {
@@ -74,6 +75,7 @@
             "name": "alternative",
             "type": "float",
             "optional": 1,
+            "digestauto": "Notches Output",
             "digest": "Interesting alternative notches audio output."
         }
     ],

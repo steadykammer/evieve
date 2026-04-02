@@ -24,9 +24,9 @@
 				Audio input to shift.
 			</description>
 		</inlet>
-		<inlet id="2" type="float/int">
+		<inlet id="2" type="float/int/signal">
 			<digest>
-				Frequency Shift in Hz +/- 0., use @freqsmooth to smooth / (signal) + FM modulation of Freq Shift ± Hz
+				If float/int, Frequency Shift in Hz +/- 0., use @freqsmooth to smooth / If signal + FM modulation of Freq Shift ± Hz
 			</digest>
 			<description>
 				float/int/signal. If float/int, frequency shift in Hz +/- 0. (use &#x27;freqsmooth&#x27; attribute to smooth). If signal, + audio rate FM of freq shift amount ± Hz.
@@ -158,7 +158,7 @@
 				Time in ms, 0..333
 			</digest>
 			<description>
-				Smooth time in ms of the internal parameters. Note that the freq shift inlet has it&#x27;s own independent attribute (freqsmooth&#x27;).
+				Smooth time in ms of the internal parameters. Note that the freq shift inlet has it&#x27;s own independent smoothing attribute (&#x27;freqsmooth&#x27;).
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="22.666" />

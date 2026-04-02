@@ -17,7 +17,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "@default 0.",
-            "digest": ""
+            "digest": "Audio to trigger the envelope, typically an impulse."
         },
         {
             "id": 2,
@@ -25,7 +25,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "@min 0 @default 20.",
-            "digest": ""
+            "digest": "Envelope Rise Time in Samples. evi_vactrol does not reach it's value in this time exactly."
         },
         {
             "id": 3,
@@ -33,7 +33,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "@min 0 @default 3000.",
-            "digest": ""
+            "digest": "Envelope Fall Time in Samples. evi_vactrol does not reach it's value in this time exactly. Retriggering the envelope keeps the output above zero."
         }
     ],
     "outlets": [
@@ -42,7 +42,8 @@
             "name": "scaled",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digestauto": "Vactrol envelope",
+            "digest": "Vactrol envelope."
         }
     ],
     "attributes": [
@@ -58,6 +59,18 @@
         }
     ],
     "seealso": [
+        {
+            "name": "evi_control_lpg_buchla",
+            "display": "evi_control_lpg_buchla"
+        },
+        {
+            "name": "evi_controlcircuit_buchla",
+            "display": "evi_controlcircuit_buchla"
+        },
+        {
+            "name": "evi_lpg_buchla",
+            "display": "evi_lpg_buchla"
+        },
         {
             "name": "evi_logdecay",
             "display": "evi_logdecay"

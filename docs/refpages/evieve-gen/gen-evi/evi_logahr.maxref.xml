@@ -21,22 +21,22 @@
     <geninletlist>
         <geninlet name='value' type='float' optional='1'>
             <digest>
-                to Follow. 
+                to Follow. evi_logahr will follow this input value with the given attack, hold and release times.
             </digest>
         </geninlet>
         <geninlet name='attack' type='float' optional='1'>
             <digest>
-                Time in milliseconds @min 0. 
+                Time in milliseconds @min 0. Amount of time the envelope takes to attack. evi_logahr is logarithmic and does not attack in this time exactly.
             </digest>
         </geninlet>
         <geninlet name='hold' type='float' optional='1'>
             <digest>
-                Time in milliseconds @min 0. 
+                Time in milliseconds @min 0. Amount of time to hold the envelope after the attack stage and before the release stage (in milliseconds).
             </digest>
         </geninlet>
         <geninlet name='release' type='float' optional='1'>
             <digest>
-                Time in milliseconds @min 0. 
+                Time in milliseconds @min 0. Amount of time the envelope takes to release. evi_logahr is logarithmic and does not release in this time exactly.
             </digest>
         </geninlet>
     </geninletlist>

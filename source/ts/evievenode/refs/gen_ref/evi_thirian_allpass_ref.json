@@ -33,6 +33,7 @@
             "name": "fractional",
             "type": "float",
             "optional": 1,
+            "digestauto": "Delay Allpass",
             "digest": ""
         }
     ],

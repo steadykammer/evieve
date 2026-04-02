@@ -2,8 +2,8 @@
     "object": {
         "name": "evi.adsr~",
         "category": "evieve",
-        "digest": "ADSR envelope generator, same features as <o>adsr~</o> but with logarithmic segments",
-        "description": "ADSR by default, but actually DAHDSHR capabale generator via attributes. Logarithmic segment shapes but still capable of controlling <o>poly~</o> and <o>thispoly~</o>",
+        "digest": "ADSR envelope generator, similar features to <o>adsr~</o> but with logarithmic segments",
+        "description": "ADSR by default, but actually DAHDSHR capabale generator via attributes. Logarithmic segment shapes but still capable of controlling <o>poly~</o> and <o>thispoly~</o>.",
         "discussion": ""
     },
     "metadata": {
@@ -102,21 +102,7 @@
             "description": "Release time in ms"
         }
     ],
-    "messages": [
-        {
-            "name": "",
-            "arg": [
-                {
-                    "name": "",
-                    "type": "",
-                    "units": "",
-                    "optional": 1
-                }
-            ],
-            "digest": "",
-            "description": ""
-        }
-    ],
+    "messages": [],
     "attributes": [
         {
             "name": "attack",
@@ -244,7 +230,7 @@
             "get": 0,
             "type": "float",
             "digest": "Time in ms",
-            "description": "like 'adsr~' (-1 = none, else x ms length even if gate still on).",
+            "description": "Like 'adsr~' (-1 = none, else x ms length even if gate still on).",
             "default": {
                 "get": 0,
                 "value": "-1."

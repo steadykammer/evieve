@@ -37,6 +37,7 @@
             "name": "saturated",
             "type": "float",
             "optional": 1,
+            "digestauto": "Audio Out",
             "digest": "Audio output distortion."
         }
     ],

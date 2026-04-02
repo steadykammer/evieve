@@ -58,6 +58,7 @@
             "name": "scaled",
             "type": "float",
             "optional": 1,
+            "digestauto": "Output Value",
             "digest": ""
         }
     ],

@@ -26,6 +26,7 @@
             "name": "wavefolded",
             "type": "float",
             "optional": 1,
+            "digestauto": "Output",
             "digest": "Up to 16 wavefolded stages in series depending on the @cascade attribute."
         }
     ],

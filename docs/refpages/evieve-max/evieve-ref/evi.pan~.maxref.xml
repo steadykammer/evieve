@@ -39,7 +39,7 @@
     </objarg>
     <objarg id="2" name="mode" type="int" optional="1">
       <digest>Mode 0 or 1</digest>
-      <description>Mode can only be a typed in argument and is not dynamic. If the 2nd argument is integer it represents mode, otherwise if the 2nd argument is float an integer representing mode must be the third argument. Mode switches between mono and stereo inputs for the object. If mode == 1 new inlets appear for the additional inputs.</description>
+      <description>'Mode' can only be a typed in argument and is not dynamic. If the 2nd argument is integer it represents mode, otherwise if the 2nd argument is float an integer representing mode must be the third argument. Mode switches between mono and stereo inputs for the object. If mode == 1 new inlets appear for the additional inputs.</description>
     </objarg>
   </objarglist>
   <methodlist>
@@ -49,28 +49,26 @@
       </arglist>
       <digest>Behaviour depends on inlet</digest>
       <description>
-        <m>mode</m>
-        <m>mode</m>
-If== 0 (the default):
-					In right inlet, the Pan value 0..1
-				If== 1:
-					In middle right inlet, the left Pan value 0..1
-					In right inlet, the right Pan value 0..1      </description>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+If 'mode' == 0 (the default):In right inlet, the Pan value 0..1If 'mode' == 1:In middle right inlet, the left Pan value 0..1In right inlet, the right Pan value 0..1      </description>
     </method>
     <method name="signal">
       <arglist></arglist>
       <digest>Behaviour depends on inlet</digest>
       <description>
-        <m>mode</m>
-        <m>mode</m>
-If== 0 (the default):
-					In left inlet, the audio signal to be Panned
-					In right inlet, the Pan value 0..1
-				If== 1:
-					In left inlet, the left audio signal to be Panned
-					In middle left, the right audio signal to be Panned
-					In middle right inlet, the left Pan value 0..1
-					In right inlet, the right Pan value 0..1      </description>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+If 'mode' == 0 (the default):In left inlet, the audio signal to be PannedIn right inlet, the Pan value 0..1If 'mode' == 1:In left inlet, the left audio signal to be PannedIn middle left, the right audio signal to be PannedIn middle right inlet, the left Pan value 0..1In right inlet, the right Pan value 0..1      </description>
     </method>
   </methodlist>
   <attributelist>

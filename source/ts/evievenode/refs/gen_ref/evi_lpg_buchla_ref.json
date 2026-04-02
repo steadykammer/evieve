@@ -3,8 +3,8 @@
         "name": "evi_lpg_buchla",
         "child": "",
         "category": "evieve",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Buchla Lowpass Gate emulation for your west coast synthesis fun",
+        "description": "Circuit modelled emulation of the Buchla Lowpass-Gate, unique version of a two-pole Sallen and Key filter, based on 'A Digital Model of the Buchla Lowpass-Gate' by Julian Parker and Stefano DAngelo, 2013. In evieve this is all audio rate inputs to control the voltage input to the gate, with additional features such as extra feedback resistors (@boom) and refactored code for optimal CPU usage. The code in this abstraction can be used entirely inside gen~ / GenExpr with internal oversampling (@localresample) and <o>evi_control_lpg_buchla</o>.gendsp for voltage control of Rf (frequency)."
     },
     "constructor": {
         "inlets": "audio, frequency, resonance"
@@ -19,7 +19,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Input",
-            "digest": ""
+            "digest": "Audio input to be filtered."
         },
         {
             "id": 2,
@@ -27,7 +27,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Rf",
-            "digest": ""
+            "digest": "Frequency voltage, typically fed from 'evi_controlcircuit_buchla' or better from 'evi_control_lpg_buchla'."
         },
         {
             "id": 3,
@@ -35,7 +35,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "0..2 @default 1",
-            "digest": ""
+            "digest": "Filter resonance. Effect depends on other settings, such as @boom, @lpg and @vca."
         }
     ],
     "outlets": [
@@ -44,21 +44,23 @@
             "name": "lpg",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "The lowpass gate signal."
         },
         {
             "id": 2,
             "name": "something",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digestauto": "BP",
+            "digest": "Only if 1x sampling is selected (otherwise zero): quirky bandpass version of the gate."
         },
         {
             "id": 3,
             "name": "something",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digestauto": "HP",
+            "digest": "Only if 1x sampling is selected (otherwise zero): quirky highpass version of the gate."
         }
     ],
     "attributes": [
@@ -66,7 +68,7 @@
             "name": "boom",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Core filter/gate functionality. Only has effect if the 'lpg' attribute is on (> 1). Smoothly crossfades additional resistors into the feedback path while maintaining filter stability. This can have a drastic effect on the tone of the filter and the resonance behaviour.",
             "default": {
                 "type": "float",
                 "value": "0."
@@ -76,7 +78,7 @@
             "name": "controlres",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "If on (1), resonance is no longer controlled by inlet 3 and is instead controlled by the @resonance parameter. Default off.",
             "default": {
                 "type": "int",
                 "value": "0"
@@ -86,7 +88,7 @@
             "name": "controlrf",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "If on (1), Rf (frequency) is no longer controlled by inlet 2 and is instead controlled by the @rf parameter. Default off, on would be atypical behaviour.",
             "default": {
                 "type": "int",
                 "value": "0"
@@ -96,7 +98,7 @@
             "name": "localresample",
             "type": "int",
             "digest": "@min 0, @max 5",
-            "description": "",
+            "description": "Oversampling factor. evi_lpg_buchla should always be oversampled for normal usage. 0 = 1x, 1 = 2x, 2 = 3x, 3 = 4x (default), 4 = 6x, 5 = 8x.",
             "default": {
                 "type": "int",
                 "value": "3"
@@ -106,7 +108,7 @@
             "name": "lpg",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Core filter/gate functionality. Smoothly switch or interpolate between filter and gate behaviour.",
             "default": {
                 "type": "float",
                 "value": "1."
@@ -116,7 +118,7 @@
             "name": "nonlin",
             "type": "int",
             "digest": "@min 0, @max 2",
-            "description": "",
+            "description": "Turning this off is atypical behaviour. On (the default) engages the nonlinearities in the filter/gate structure. However, it can be very interesting triggering it linearly, but if you do so be careful of overall gain. 0 = linear (1x & 2x oversampling only), 0/1 = tanh (default), 2 = cubic.",
             "default": {
                 "type": "int",
                 "value": "1"
@@ -126,7 +128,7 @@
             "name": "resonance",
             "type": "float",
             "digest": "@min 0, @max 2",
-            "description": "",
+            "description": "Only if @controlres == 1: parameter rate control of resonance instead of inlet 3. Smoothing time set with @smooth attribute.",
             "default": {
                 "type": "float",
                 "value": "1."
@@ -136,7 +138,7 @@
             "name": "rf",
             "type": "float",
             "digest": "@min 0, @max 1000000",
-            "description": "",
+            "description": "Only if @controlrf == 1: parameter rate control of Rf voltage (frequency) instead of inlet 2. Smoothing time set with @rfsmooth and @rfhz attributes.",
             "default": {
                 "type": "float",
                 "value": "0."
@@ -146,7 +148,7 @@
             "name": "rfhz",
             "type": "float",
             "digest": "@min 0.001, @max 19.2",
-            "description": "",
+            "description": "Hz component of the 'rfsmooth' function. You will almost never want 'rfsmooth' to be on (@rfsmooth > 0), especially if driving from 'evi_controlcircuit_buchla.gendsp'.",
             "default": {
                 "type": "float",
                 "value": "4."
@@ -156,7 +158,7 @@
             "name": "rfsmooth",
             "type": "float",
             "digest": "@min 0, @max 666",
-            "description": "",
+            "description": "ms component of the 'rfsmooth' function. You will almost never want 'rfsmooth' to be on (> 0), especially if driving from 'evi_controlcircuit_buchla.gendsp'.",
             "default": {
                 "type": "float",
                 "value": "0."
@@ -166,7 +168,7 @@
             "name": "smooth",
             "type": "float",
             "digest": "@min 0, @max 333",
-            "description": "",
+            "description": "Smoothing time in ms for the 'vca' and 'res' controls (if selected).",
             "default": {
                 "type": "float",
                 "value": "15.111"
@@ -176,7 +178,7 @@
             "name": "vca",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Core filter/gate functionality. Smoothly switch or interpolate between LPG and VCA behaviour. Using the block as a pure VCA is useful but far less fun. Ultimately this can be thought of as a gate damping effect, darkening the tone. Smoothing time set with @smooth attribute.",
             "default": {
                 "type": "float",
                 "value": "0."
@@ -185,8 +187,20 @@
     ],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_vactrol",
+            "display": "evi_vactrol"
+        },
+        {
+            "name": "evi_controlcircuit_buchla",
+            "display": "evi_controlcircuit_buchla"
+        },
+        {
+            "name": "evi_control_lpg_buchla",
+            "display": "evi_control_lpg_buchla"
+        },
+        {
+            "name": "evi_buchla",
+            "display": "evi_buchla.genexpr"
         }
     ]
 }

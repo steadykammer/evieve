@@ -21,12 +21,12 @@
     <geninletlist>
         <geninlet name='destination' type='float' optional='1'>
             <digest>
-                Value. 
+                Value. Input value to be smoothed.
             </digest>
         </geninlet>
         <geninlet name='ramp' type='float' optional='1'>
             <digest>
-                Time in milliseconds @min 0 @default 20. 
+                Time in milliseconds @min 0 @default 20. Amount of time the value takes to reach it&#x27;s destination. evi_lagsmooth is logarithmic and does not reach it&#x27;s destination exactly.
             </digest>
         </geninlet>
     </geninletlist>

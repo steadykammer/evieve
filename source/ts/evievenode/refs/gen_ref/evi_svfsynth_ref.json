@@ -45,6 +45,7 @@
             "name": "12db",
             "type": "float",
             "optional": 1,
+            "digestauto": "Filter Outputs",
             "digest": "12dB SVF filter outputs."
         },
         {
@@ -52,6 +53,7 @@
             "name": "24db",
             "type": "float",
             "optional": 1,
+            "digestauto": "Filter Outputs (if 'slope' attribute selected)",
             "digest": "24dB SVF filter outputs if @slope attribute is on."
         }
     ],

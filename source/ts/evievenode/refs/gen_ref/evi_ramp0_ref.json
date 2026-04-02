@@ -28,6 +28,7 @@
             "name": "ramp",
             "type": "float",
             "optional": 1,
+            "digestauto": "0..1",
             "digest": ""
         },
         {
@@ -35,6 +36,7 @@
             "name": "carry",
             "type": "float",
             "optional": 1,
+            "digestauto": "Count of Loop",
             "digest": ""
         },
         {
@@ -42,6 +44,7 @@
             "name": "sync",
             "type": "float",
             "optional": 1,
+            "digestauto": "at Ramp Start",
             "digest": ""
         },
         {
@@ -49,6 +52,7 @@
             "name": "sync",
             "type": "float",
             "optional": 1,
+            "digestauto": "at Ramp End",
             "digest": ""
         }
     ],

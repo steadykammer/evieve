@@ -44,6 +44,7 @@
             "name": "fdn",
             "type": "float",
             "optional": 1,
+            "digestauto": "Left",
             "digest": ""
         },
         {
@@ -51,6 +52,7 @@
             "name": "fdn",
             "type": "float",
             "optional": 1,
+            "digestauto": "Right",
             "digest": ""
         }
     ],

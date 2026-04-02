@@ -52,6 +52,7 @@
             "name": "paf",
             "type": "float",
             "optional": 1,
+            "digestauto": "Oscillator",
             "digest": "The formant oscillator output."
         },
         {
@@ -59,6 +60,7 @@
             "name": "packet",
             "type": "float",
             "optional": 1,
+            "digestauto": "1",
             "digest": "The formant is created by adding two 'wavepackets' together. The two packets are available individually on this outlet and outlet 3, for potentially interesting downstream processing."
         },
         {
@@ -66,6 +68,7 @@
             "name": "packet",
             "type": "float",
             "optional": 1,
+            "digestauto": "2",
             "digest": "The formant is created by adding two 'wavepackets' together. The two packets are available individually on this outlet and outlet 2, for potentially interesting downstream processing."
         },
         {
@@ -73,6 +76,7 @@
             "name": "phase",
             "type": "float",
             "optional": 1,
+            "digestauto": "0",
             "digest": "The two 'wavepackets' are driven by two phases 180 degrees apart. This outlet outputs the 0 phase phasor and outlet 5 outputs the 180 dgrees phasor, for potential downstream processing."
         },
         {
@@ -80,6 +84,7 @@
             "name": "phase",
             "type": "float",
             "optional": 1,
+            "digestauto": "180",
             "digest": "The two 'wavepackets' are driven by two phases 180 degrees apart. This outlet outputs the 180 phase phasor and outlet 4 outputs the 0 dgrees phasor, for potential downstream processing."
         }
     ],

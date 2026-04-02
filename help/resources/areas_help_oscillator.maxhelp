@@ -20,13 +20,24 @@
         "boxes": [
             {
                 "box": {
+                    "id": "obj-4",
+                    "maxclass": "newobj",
+                    "numinlets": 2,
+                    "numoutlets": 2,
+                    "outlettype": [ "signal", "signal" ],
+                    "patching_rect": [ 328.0, 436.0, 80.0, 22.0 ],
+                    "text": "evi.quadosc~"
+                }
+            },
+            {
+                "box": {
                     "hidden": 1,
                     "id": "obj-34",
                     "maxclass": "newobj",
                     "numinlets": 2,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
-                    "patching_rect": [ 172.0, 570.0, 185.0, 22.0 ],
+                    "patching_rect": [ 172.0, 570.0, 191.0, 22.0 ],
                     "text": "list.reg areas_help_noise.maxhelp"
                 }
             },
@@ -95,8 +106,9 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 326.0, 228.0, 151.0, 33.0 ],
-                    "text": "no aliasing polyBlit with simultaneous outlets"
+                    "patching_rect": [ 293.0, 228.0, 151.0, 33.0 ],
+                    "text": "no aliasing polyBlit with simultaneous outlets",
+                    "textjustification": 1
                 }
             },
             {
@@ -611,6 +623,17 @@
             },
             {
                 "box": {
+                    "id": "obj-32",
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 293.0, 409.0, 150.0, 20.0 ],
+                    "text": "quadrature oscillator",
+                    "textjustification": 1
+                }
+            },
+            {
+                "box": {
                     "background": 1,
                     "hidden": 1,
                     "id": "obj-31",
@@ -644,6 +667,7 @@
                 }
             }
         ],
+        "autosave": 0,
         "toolbaradditions": [ "audiosolo", "audiomute" ]
     }
 }

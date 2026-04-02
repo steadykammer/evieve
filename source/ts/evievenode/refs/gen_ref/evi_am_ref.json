@@ -47,6 +47,7 @@
             "name": "left",
             "type": "float",
             "optional": 1,
+            "digestauto": "Audio Out",
             "digest": "Modulated audio output left."
         },
         {
@@ -54,6 +55,7 @@
             "name": "right",
             "type": "float",
             "optional": 1,
+            "digestauto": "Audio Out",
             "digest": "Modulated audio output right."
         },
         {
@@ -61,6 +63,7 @@
             "name": "lfo",
             "type": "float",
             "optional": 1,
+            "digestauto": "Left Out",
             "digest": "Left LFO output for downstream synchronisation."
         },
         {
@@ -68,6 +71,7 @@
             "name": "lfo",
             "type": "float",
             "optional": 1,
+            "digestauto": "Right Out",
             "digest": "Right LFO output for downstream synchronisation."
         }
     ],

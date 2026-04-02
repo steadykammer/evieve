@@ -60,6 +60,7 @@
             "name": "transistor",
             "type": "float",
             "optional": 1,
+            "digestauto": "Ladder",
             "digest": "24dB laddery filtered output."
         }
     ],

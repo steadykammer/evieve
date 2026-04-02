@@ -9,7 +9,7 @@
         <b>evi_classic_osc</b> is an abstraction for using inside <o>gen~</o> or <b>GenExpr</b>. <br />
          <br />
         evi_classic_osc.gendsp requires the GenExpr file(s): <br />
-        <o>evi_polyblep</o>.genexpr, <o>evi_polyblep_two</o>.genexpr, <o>evi_polyblep_utility</o>.genexpr <br />
+        <o>evi_polyblep_two</o>.genexpr, <o>evi_polyblep_utility</o>.genexpr <br />
          <br />
         evi_classic_osc is also available in MSP as: <o>evi.classic.osc~</o>. <br />
          <br />

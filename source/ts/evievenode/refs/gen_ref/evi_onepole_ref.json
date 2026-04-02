@@ -36,6 +36,7 @@
             "name": "6db",
             "type": "float",
             "optional": 1,
+            "digestauto": "Lowpass",
             "digest": "Lowpass. All outputs are from the same filter."
         },
         {
@@ -43,6 +44,7 @@
             "name": "6db",
             "type": "float",
             "optional": 1,
+            "digestauto": "Allpass",
             "digest": "Allpass. All outputs are from the same filter."
         },
         {
@@ -50,6 +52,7 @@
             "name": "6db",
             "type": "float",
             "optional": 1,
+            "digestauto": "Highpass",
             "digest": "Highpass. All outputs are from the same filter."
         }
     ],

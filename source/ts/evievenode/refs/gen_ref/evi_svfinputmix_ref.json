@@ -46,6 +46,7 @@
             "name": "svf",
             "type": "float",
             "optional": 1,
+            "digestauto": "Output",
             "digest": "Mixed SVF output."
         }
     ],

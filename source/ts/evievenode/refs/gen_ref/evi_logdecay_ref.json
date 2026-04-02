@@ -17,7 +17,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "to Follow",
-            "digest": ""
+            "digest": "evi_logdecay will follow this input value with the given decay time."
         },
         {
             "id": 2,
@@ -25,7 +25,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Time in milliseconds @min 0",
-            "digest": ""
+            "digest": "Amount of time the value takes to decay. evi_logdecay is logarithmic and does not decay in this time exactly."
         }
     ],
     "outlets": [
@@ -34,7 +34,8 @@
             "name": "output",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digestauto": "Env",
+            "digest": "Output envelope."
         }
     ],
     "attributes": [],

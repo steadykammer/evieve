@@ -36,6 +36,7 @@
             "name": "atan(x)",
             "type": "float",
             "optional": 1,
+            "digestauto": "Output - anti-aliased for your audio not for Maths",
             "digest": "Overdriven audio output."
         },
         {
@@ -43,6 +44,7 @@
             "name": "reset",
             "type": "float",
             "optional": 1,
+            "digestauto": "(Param has changed)",
             "digest": "A sample accurate reset 'click' whenever the 'aa' or 'hfcompensate' attributes are changed. Might be useful."
         }
     ],

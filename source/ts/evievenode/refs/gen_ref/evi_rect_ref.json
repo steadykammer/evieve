@@ -45,6 +45,7 @@
             "name": "anti",
             "type": "float",
             "optional": 1,
+            "digestauto": "Aliased Rect Oscillator",
             "digest": "Anti Aliased Rect Oscillator"
         }
     ],

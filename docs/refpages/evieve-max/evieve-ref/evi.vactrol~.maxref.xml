@@ -48,16 +48,20 @@
         <arg name="int" type="int" optional="1"></arg>
       </arglist>
       <digest>Behaviour depends on inlet</digest>
-      <description>In the middle inlet, rise time in samples.
-				In the right inlet, fall time in samples.</description>
+      <description>
+        <br></br>
+        <br></br>
+In the middle inlet, rise time in samples.In the right inlet, fall time in samples.      </description>
     </method>
     <method name="float">
       <arglist>
         <arg name="float" type="float" optional="1"></arg>
       </arglist>
       <digest>Behaviour depends on inlet</digest>
-      <description>In the middle inlet, rise time in samples.
-				In the right inlet, fall time in samples.</description>
+      <description>
+        <br></br>
+        <br></br>
+In the middle inlet, rise time in samples.In the right inlet, fall time in samples.      </description>
     </method>
     <method name="clear">
       <arglist></arglist>
@@ -67,9 +71,11 @@
     <method name="signal">
       <arglist></arglist>
       <digest>Behaviour depends on inlet</digest>
-      <description>In the left inlet, the trigger value.
-				In the middle inlet, rise time in samples.
-				In the right inlet, fall time in samples.</description>
+      <description>
+        <br></br>
+        <br></br>
+        <br></br>
+In the left inlet, the trigger value.In the middle inlet, rise time in samples.In the right inlet, fall time in samples.      </description>
     </method>
   </methodlist>
   <attributelist>

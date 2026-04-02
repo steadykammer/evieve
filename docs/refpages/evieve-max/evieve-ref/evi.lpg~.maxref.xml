@@ -37,7 +37,7 @@
 				Resonance 0..2
 			</digest>
 			<description>
-				Filter resonance. Effect depends on other settings, such as 
+				Filter resonance. Effect depends on other settings, such as @boom, @lpg and @vca.
 			</description>
 		</inlet>
 		<inlet id="4" type="signal/float">
@@ -271,6 +271,7 @@
 	</examplelist>
 	<!--SEEALSO-->
 	<seealsolist>
+		<seealso name="evi.vactrol~"> </seealso>
 		<seealso name="evi.lockhart.cascade~"> </seealso>
 		<seealso name="evi.lockhart.simple~"> </seealso>
 		<seealso name="evi.modalres~"> </seealso>

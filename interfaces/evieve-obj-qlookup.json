@@ -7,7 +7,7 @@
         "seealso": [ "evi.saw~", "evi.rect~", "evi.tri~", "evi.blitwaves~" ]
     },
     "evi.adsr~": {
-        "digest": "ADSR envelope generator, same features as adsr~ but with logarithmic segments \n",
+        "digest": "ADSR envelope generator, similar features to adsr~ but with logarithmic segments \n",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Abstractions" ],
         "keywords": [],
@@ -571,7 +571,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Abstractions" ],
         "keywords": [],
-        "seealso": [ "evi.lockhart.cascade~", "evi.lockhart.simple~", "evi.modalres~", "evi.ringmod.diode~", "evi.formletfilter~", "evi.korgms20~", "evi.arpnotch~", "evi.ladder.moog~" ]
+        "seealso": [ "evi.vactrol~", "evi.lockhart.cascade~", "evi.lockhart.simple~", "evi.modalres~", "evi.ringmod.diode~", "evi.formletfilter~", "evi.korgms20~", "evi.arpnotch~", "evi.ladder.moog~" ]
     },
     "evi.mattaverb~": {
         "digest": "True stereo one knob allpass diffuse reverb \n",

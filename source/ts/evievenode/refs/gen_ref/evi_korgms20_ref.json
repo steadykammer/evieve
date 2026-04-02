@@ -44,6 +44,7 @@
             "name": "korg",
             "type": "float",
             "optional": 1,
+            "digestauto": "OTA S&K Lowpass",
             "digest": ""
         },
         {
@@ -51,6 +52,7 @@
             "name": "korg",
             "type": "float",
             "optional": 1,
+            "digestauto": "OTA S&K Highpass",
             "digest": ""
         }
     ],

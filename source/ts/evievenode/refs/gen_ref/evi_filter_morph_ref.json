@@ -60,6 +60,7 @@
             "name": "morphing",
             "type": "float",
             "optional": 1,
+            "digestauto": "Filter Output",
             "digest": "Morphed filtered audio output."
         }
     ],

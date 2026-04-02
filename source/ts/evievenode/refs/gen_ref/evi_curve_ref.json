@@ -17,7 +17,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Value",
-            "digest": ""
+            "digest": "Input value to be ramped."
         },
         {
             "id": 2,
@@ -25,7 +25,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Time in SAMPLES",
-            "digest": ""
+            "digest": "Amount of time the value takes to reach it's destination. evi_curve reaches it's destination exactly in this time."
         },
         {
             "id": 3,
@@ -33,7 +33,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "-1..1 @min -1 @max 1",
-            "digest": ""
+            "digest": "Exponential curvature of the ramp. In evi_curve (as opposed to MSP curve~) this value never becomes very sharp at the extremes of this setting, but retains a small amount of curvature, due to the approximations used in the calculations."
         }
     ],
     "outlets": [
@@ -42,14 +42,16 @@
             "name": "exact",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digestauto": "Output Ramp",
+            "digest": "Smoothed output ramp, or target value if ramp is complete."
         },
         {
             "id": 2,
             "name": "1",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digestauto": "When Ramp Reaches Destination (0 During Ramp)",
+            "digest": "1 When Ramp Reaches Destination (0 During Ramp)."
         }
     ],
     "attributes": [],

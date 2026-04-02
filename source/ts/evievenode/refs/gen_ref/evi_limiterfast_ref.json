@@ -38,6 +38,7 @@
             "name": "limited",
             "type": "float",
             "optional": 1,
+            "digestauto": "Output Left",
             "digest": "Left limited audio output, might be crunchy."
         },
         {
@@ -45,6 +46,7 @@
             "name": "limited",
             "type": "float",
             "optional": 1,
+            "digestauto": "Output Right",
             "digest": "Right limited audio output, might be crunchy."
         },
         {
@@ -52,6 +54,7 @@
             "name": "agc",
             "type": "float",
             "optional": 1,
+            "digestauto": "Envelope (Linear)",
             "digest": "The AGC envelope used internally, available here for downstream processing or visualisation."
         }
     ],

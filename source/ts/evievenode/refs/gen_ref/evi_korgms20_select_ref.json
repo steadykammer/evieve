@@ -46,6 +46,7 @@
             "name": "korg",
             "type": "float",
             "optional": 1,
+            "digestauto": "OTA S&K LP or HP Filter",
             "digest": ""
         }
     ],

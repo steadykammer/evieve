@@ -36,6 +36,7 @@
             "name": "butterworth",
             "type": "float",
             "optional": 1,
+            "digestauto": "Lowpass",
             "digest": "Buttery smooth butterworth lowpass output."
         }
     ],

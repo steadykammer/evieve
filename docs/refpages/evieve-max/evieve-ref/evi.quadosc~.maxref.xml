@@ -29,15 +29,11 @@
     </outlet>
     <outlet id="2" type="signal">
       <digest>Cosine Sync Output</digest>
-      <description>
-        <m>syncout</m>
-If== 1, a sync signal corresponding the the cosine phase is output here on every cycle      </description>
+      <description>If 'syncout' == 1, a sync signal corresponding the the cosine phase is output here on every cycle</description>
     </outlet>
     <outlet id="3" type="signal">
       <digest>Sine Sync Output</digest>
-      <description>
-        <m>syncout</m>
-If== 1, a sync signal corresponding the the sine phase is output here on every cycle      </description>
+      <description>If 'syncout' == 1, a sync signal corresponding the the sine phase is output here on every cycle</description>
     </outlet>
   </outletlist>
   <objarglist>
@@ -73,8 +69,10 @@ If== 1, a sync signal corresponding the the sine phase is output here on every c
     <method name="signal">
       <arglist></arglist>
       <digest>Behaviour depends on inlet</digest>
-      <description>In left inlet, the frequency of the oscillators in Hz
-				In right inlet, sample accurate reset of the ocillators phase</description>
+      <description>
+        <br></br>
+        <br></br>
+In left inlet, the frequency of the oscillators in HzIn right inlet, sample accurate reset of the ocillators phase      </description>
     </method>
   </methodlist>
   <attributelist>

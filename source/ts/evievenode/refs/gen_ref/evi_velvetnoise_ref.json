@@ -34,6 +34,7 @@
             "name": "mixed",
             "type": "float",
             "optional": 1,
+            "digestauto": "Sparse..Velvet (Based on \"in 2\" Mix 0..1)",
             "digest": "The mix between 'sparse' and 'velvet' noise based on the second 'mix' inlet."
         },
         {
@@ -41,6 +42,7 @@
             "name": "so",
             "type": "float",
             "optional": 1,
+            "digestauto": "Called \"Sparse Noise\"",
             "digest": "Just the 'sparse noise' algorithm outlet."
         },
         {
@@ -48,6 +50,7 @@
             "name": "so",
             "type": "float",
             "optional": 1,
+            "digestauto": "Called \"Velvet Noise\"",
             "digest": "Just the 'velvet noise' algorithm outlet."
         }
     ],

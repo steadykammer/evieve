@@ -36,6 +36,7 @@
             "name": "out",
             "type": "float",
             "optional": 1,
+            "digestauto": "/ Left",
             "digest": "Mono or left output depending on @stereo attribute."
         },
         {
@@ -43,6 +44,7 @@
             "name": "nothing",
             "type": "float",
             "optional": 1,
+            "digestauto": "/ Right",
             "digest": "Nothing or right output depending on @stereo attribute."
         }
     ],

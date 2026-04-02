@@ -24,12 +24,12 @@
     <geninletlist>
         <geninlet name='audioin' type='float' optional='1'>
             <digest>
-                Mono / Left / 1. 
+                Mono / Left / 1. Audio input mono / left / 1, depending on @stereo attribute.
             </digest>
         </geninlet>
         <geninlet name='audioin' type='float' optional='1'>
             <digest>
-                Nothing / Right / 2. 
+                Nothing / Right / 2. Audio input nothing / right / 2, depending on @stereo attribute.
             </digest>
         </geninlet>
     </geninletlist>

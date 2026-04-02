@@ -48,6 +48,7 @@
             "name": "left",
             "type": "float",
             "optional": 1,
+            "digestauto": "Audio Out",
             "digest": "Modulated audio output left."
         },
         {
@@ -55,6 +56,7 @@
             "name": "right",
             "type": "float",
             "optional": 1,
+            "digestauto": "Audio Out",
             "digest": "Modulated audio output right."
         },
         {
@@ -62,6 +64,7 @@
             "name": "hz",
             "type": "float",
             "optional": 1,
+            "digestauto": "Current",
             "digest": "The currently computed speed in Hz of the modulating LFOs. This is important for downstream processing because if @lfomode is on, this will not necessarily be synchronised with changes to the @rate attribute."
         },
         {
@@ -69,6 +72,7 @@
             "name": "lfo",
             "type": "float",
             "optional": 1,
+            "digestauto": "Left Out",
             "digest": "Left LFO output for downstream synchronisation."
         },
         {
@@ -76,6 +80,7 @@
             "name": "lfo",
             "type": "float",
             "optional": 1,
+            "digestauto": "Right Out",
             "digest": "Right LFO output for downstream synchronisation."
         }
     ],

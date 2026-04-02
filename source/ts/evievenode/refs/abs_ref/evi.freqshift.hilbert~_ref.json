@@ -19,8 +19,8 @@
         },
         {
             "id": 2,
-            "type": "float/int",
-            "digest": "Frequency Shift in Hz +/- 0., use @freqsmooth to smooth / (signal) + FM modulation of Freq Shift ± Hz",
+            "type": "float/int/signal",
+            "digest": "If float/int, Frequency Shift in Hz +/- 0., use @freqsmooth to smooth / If signal + FM modulation of Freq Shift ± Hz",
             "description": "float/int/signal. If float/int, frequency shift in Hz +/- 0. (use 'freqsmooth' attribute to smooth). If signal, + audio rate FM of freq shift amount ± Hz."
         }
     ],
@@ -140,7 +140,7 @@
             "get": 0,
             "type": "float",
             "digest": "Time in ms, 0..333",
-            "description": "Smooth time in ms of the internal parameters. Note that the freq shift inlet has it's own independent attribute (freqsmooth').",
+            "description": "Smooth time in ms of the internal parameters. Note that the freq shift inlet has it's own independent smoothing attribute ('freqsmooth').",
             "default": {
                 "get": 0,
                 "value": "22.666"

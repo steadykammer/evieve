@@ -35,6 +35,7 @@
             "name": "lowpass",
             "type": "float",
             "optional": 1,
+            "digestauto": "Output",
             "digest": "Lowpass filtered output."
         },
         {
@@ -42,6 +43,7 @@
             "name": "highpass",
             "type": "float",
             "optional": 1,
+            "digestauto": "Output",
             "digest": "Highpass filtered output."
         }
     ],

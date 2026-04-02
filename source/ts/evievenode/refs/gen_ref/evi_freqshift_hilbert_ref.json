@@ -3,8 +3,8 @@
         "name": "evi_freqshift_hilbert",
         "child": "",
         "category": "evieve",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Time-domain Hilbert frequency shifter effect with three simultaneous sidebands outputs",
+        "description": "Like MSP <o>freqshift~</o> but with a different hilbert filter and additional features, such as anti-aliased saturation. If using in gen~ alone the samplerate must be 48kHz, or if running at a different samplerate the hilbert filter coefficients must be fed in externally. See the <o>evi.freqshift.hilbert~</o> abstraction for an example. For a frequency shifter that does not require external coefficients see <o>evi_freqshift_weaver</o>.gendsp."
     },
     "constructor": {
         "inlets": "audio, frequency, frequency, signal"
@@ -19,7 +19,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Input",
-            "digest": ""
+            "digest": "Audio input to shift."
         },
         {
             "id": 2,
@@ -27,7 +27,7 @@
             "type": "float/int",
             "optional": 1,
             "digestauto": "Shift in Hz +/-",
-            "digest": ""
+            "digest": "float/int/signal. If float/int, frequency shift in Hz +/- 0. (use @freqsmooth attribute to smooth)."
         },
         {
             "id": 3,
@@ -35,7 +35,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Shift FM in Hz ±",
-            "digest": ""
+            "digest": "+ audio rate FM of freq shift amount ± Hz."
         },
         {
             "id": 4,
@@ -43,7 +43,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Rate Phase Reset (Naive)",
-            "digest": ""
+            "digest": "Has the same effect (but sample accurate) as sending 'resetphase' to the MSP 'freqshift~' object - it resets the phase of the quadrature oscillators that modulate the sidebands of the incoming signal. Note that in 'evi_freqshift_hilbert' this inlet need not be used, as a major feature of the internal gen~ code is that it does automatic and clickless resetting of phase itself (depending on the @resetauto attribute, which is on by default)."
         }
     ],
     "outlets": [
@@ -52,42 +52,45 @@
             "name": "sidebands",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digestauto": "Mixed",
+            "digest": "Sidebands mixed and optionally saturated (use @bandsmix attribute and @drive attribute)."
         },
         {
             "id": 2,
             "name": "usb",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Simultaneous upper (or positive) sideband output."
         },
         {
             "id": 3,
             "name": "lsb",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Simultaneous lower (or negative) sideband output."
         },
         {
             "id": 4,
             "name": "quad",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digestauto": "Osc Cos",
+            "digest": "Quad Osc Cos. This can be useful for synchronising downstream processing."
         },
         {
             "id": 5,
             "name": "quad",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digestauto": "Osc Sin",
+            "digest": "Quad Osc Sin. This can be useful for synchronising downstream processing."
         },
         {
             "id": 6,
             "name": "sync",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Osc Sync Phase 0..1, this can be useful for synchronising downstream processing."
         }
     ],
     "attributes": [
@@ -95,7 +98,7 @@
             "name": "bandsmix",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Normalised 0..1, mix the far left outlet between 0 = Upper (or positive) and 1 = Lower (or negative) SideBands. Smoothed by the @smooth attribute.",
             "default": {
                 "type": "float",
                 "value": "0.5"
@@ -105,7 +108,7 @@
             "name": "coef1",
             "type": "float",
             "digest": "@min -10, @max 10",
-            "description": "",
+            "description": "Polyphase IIR Halfband Allpass Cascade Coefficient 1",
             "default": {
                 "type": "float",
                 "value": "0.486604368613682"
@@ -115,7 +118,7 @@
             "name": "coef2",
             "type": "float",
             "digest": "@min -10, @max 10",
-            "description": "",
+            "description": "Polyphase IIR Halfband Allpass Cascade Coefficient 2",
             "default": {
                 "type": "float",
                 "value": "0.880779435272467"
@@ -125,7 +128,7 @@
             "name": "coef3",
             "type": "float",
             "digest": "@min -10, @max 10",
-            "description": "",
+            "description": "Polyphase IIR Halfband Allpass Cascade Coefficient 3",
             "default": {
                 "type": "float",
                 "value": "0.977931255616324"
@@ -135,7 +138,7 @@
             "name": "coef4",
             "type": "float",
             "digest": "@min -10, @max 10",
-            "description": "",
+            "description": "Polyphase IIR Halfband Allpass Cascade Coefficient 4",
             "default": {
                 "type": "float",
                 "value": "0.997673861850732"
@@ -145,7 +148,7 @@
             "name": "coef5",
             "type": "float",
             "digest": "@min -10, @max 10",
-            "description": "",
+            "description": "Polyphase IIR Halfband Allpass Cascade Coefficient 5",
             "default": {
                 "type": "float",
                 "value": "0.165149093559079"
@@ -155,7 +158,7 @@
             "name": "coef6",
             "type": "float",
             "digest": "@min -10, @max 10",
-            "description": "",
+            "description": "Polyphase IIR Halfband Allpass Cascade Coefficient 6",
             "default": {
                 "type": "float",
                 "value": "0.739829012544530"
@@ -165,7 +168,7 @@
             "name": "coef7",
             "type": "float",
             "digest": "@min -10, @max 10",
-            "description": "",
+            "description": "Polyphase IIR Halfband Allpass Cascade Coefficient 7",
             "default": {
                 "type": "float",
                 "value": "0.947940906329181"
@@ -175,7 +178,7 @@
             "name": "coef8",
             "type": "float",
             "digest": "@min -10, @max 10",
-            "description": "",
+            "description": "Polyphase IIR Halfband Allpass Cascade Coefficient 8",
             "default": {
                 "type": "float",
                 "value": "0.991209712705258"
@@ -185,7 +188,7 @@
             "name": "drive",
             "type": "float",
             "digest": "@min 0, @max 2",
-            "description": "",
+            "description": "If the @saturation attribute is set to on (1), @drive adds gain shaping to the internal sine shaping saturation algorithm. This affects the far left bands mixing outlet but not the separately avilable USB and LSB outlets.",
             "default": {
                 "type": "float",
                 "value": "0.5"
@@ -195,7 +198,7 @@
             "name": "freqsmooth",
             "type": "float",
             "digest": "@min 0, @max 666",
-            "description": "",
+            "description": "Smoothing amount in ms for the frequency shifting 2nd inlet. Because FM signal rate control (inlet 3) is merged with the smoothed freq shift amount after this smoothing factor, the smoothing need not be turned off (0) when using audio rate FM if not wished for.",
             "default": {
                 "type": "float",
                 "value": "20."
@@ -205,7 +208,7 @@
             "name": "resetauto",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Flag 0/1, if set to on (1, default), phase resetting of the internal quadrature oscillators happens automatically and clicklessly. If set to off (0), 'evi_freqshift_hilbert' behaves like MSP 'freqshift~' and requires resetting the phase via inlet 4, which clicks.",
             "default": {
                 "type": "int",
                 "value": "1"
@@ -215,7 +218,7 @@
             "name": "saturation",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Flag 0/1, turn the internal saturation off (0) or on (1). This saturation is a sine shaping waveshaper that is controlled by the @drive attribute. It is only applied to the far left bands mix outlet.",
             "default": {
                 "type": "int",
                 "value": "0"
@@ -225,7 +228,7 @@
             "name": "smooth",
             "type": "float",
             "digest": "@min 0, @max 333",
-            "description": "",
+            "description": "Smooth time in ms of the internal parameters. Note that the freq shift (inlet 2) has it's own independent smoothing attribute (@freqsmooth).",
             "default": {
                 "type": "float",
                 "value": "22.666"
@@ -234,8 +237,12 @@
     ],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_freqshift_weaver",
+            "display": "evi_freqshift_weaver"
+        },
+        {
+            "name": "evi_sinfold",
+            "display": "evi_sinfold"
         }
     ]
 }

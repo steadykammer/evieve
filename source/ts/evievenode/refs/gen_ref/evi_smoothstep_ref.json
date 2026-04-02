@@ -42,6 +42,7 @@
             "name": "smoothed",
             "type": "float",
             "optional": 1,
+            "digestauto": "Step",
             "digest": ""
         }
     ],

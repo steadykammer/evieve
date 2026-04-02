@@ -21,12 +21,12 @@
     <geninletlist>
         <geninlet name='destination' type='float' optional='1'>
             <digest>
-                Value. 
+                Value. Input value to be ramped.
             </digest>
         </geninlet>
         <geninlet name='ramp' type='float' optional='1'>
             <digest>
-                Time in SAMPLES. 
+                Time in SAMPLES. Amount of time the value takes to reach it&#x27;s destination. evi_line reaches it&#x27;s destination exactly in this time.
             </digest>
         </geninlet>
     </geninletlist>

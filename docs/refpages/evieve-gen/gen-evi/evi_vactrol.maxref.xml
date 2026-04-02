@@ -21,17 +21,17 @@
     <geninletlist>
         <geninlet name='trigger' type='float' optional='1'>
             <digest>
-                @default 0.. 
+                @default 0.. Audio to trigger the envelope, typically an impulse.
             </digest>
         </geninlet>
         <geninlet name='rise' type='float' optional='1'>
             <digest>
-                @min 0 @default 20.. 
+                @min 0 @default 20.. Envelope Rise Time in Samples. evi_vactrol does not reach it&#x27;s value in this time exactly.
             </digest>
         </geninlet>
         <geninlet name='fall' type='float' optional='1'>
             <digest>
-                @min 0 @default 3000.. 
+                @min 0 @default 3000.. Envelope Fall Time in Samples. evi_vactrol does not reach it&#x27;s value in this time exactly. Retriggering the envelope keeps the output above zero.
             </digest>
         </geninlet>
     </geninletlist>
@@ -54,6 +54,9 @@
         <metadata name="tag">GenDsp</metadata>
     </metadatalist>
     <seealsolist>
+        <seealso name='evi_control_lpg_buchla' display='evi_control_lpg_buchla' type='genrefpage' />
+        <seealso name='evi_controlcircuit_buchla' display='evi_controlcircuit_buchla' type='genrefpage' />
+        <seealso name='evi_lpg_buchla' display='evi_lpg_buchla' type='genrefpage' />
         <seealso name='evi_logdecay' display='evi_logdecay' type='genrefpage' />
         <seealso name='evi_logattackdecay' display='evi_logattackdecay' type='genrefpage' />
         <seealso name='evi_logahr' display='evi_logahr' type='genrefpage' />

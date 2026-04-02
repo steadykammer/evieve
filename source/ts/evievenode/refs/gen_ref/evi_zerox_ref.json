@@ -25,6 +25,7 @@
             "name": "number",
             "type": "samples",
             "optional": 1,
+            "digestauto": "of Samples between Zerocrossings",
             "digest": ""
         },
         {
@@ -32,6 +33,7 @@
             "name": ">",
             "type": "gate",
             "optional": 1,
+            "digestauto": "threshold",
             "digest": ""
         },
         {
@@ -39,6 +41,7 @@
             "name": "the",
             "type": "float",
             "optional": 1,
+            "digestauto": "Zerocrossings",
             "digest": ""
         }
     ],

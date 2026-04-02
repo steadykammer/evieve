@@ -37,6 +37,7 @@
             "name": "i",
             "type": "float",
             "optional": 1,
+            "digestauto": "can't believe it's not...",
             "digest": "Anti Aliased Saw Oscillator"
         }
     ],

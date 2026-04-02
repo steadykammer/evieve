@@ -53,7 +53,7 @@
 				Xfaded Output
 			</digest>
 			<description>
-				Mono or Left Xfaded Output (depending on <m>mode</m>)
+				Mono or Left Xfaded Output (depending on 'mode')
 			</description>
 		</outlet>
 		<outlet id="1" type="signal">
@@ -61,7 +61,7 @@
 				Right Xfaded Output
 			</digest>
 			<description>
-				If <m>mode</m> == 1 or 2, Right Xfaded Output
+				If 'mode' == 1 or 2, Right Xfaded Output
 			</description>
 		</outlet>
 	</outletlist>
@@ -103,20 +103,20 @@
 				Behaviour depends on inlet
 			</digest>
 			<description>
-				If <m>mode</m> == 0 (mono, the default):
-					In left inlet, audio input 1 to be crossfaded
-					In middle inlet, audio input 2 to be crossfaded
-					In far right inlet, the Crossfade value 0..1
-				If <m>mode</m> == 1 (swap):
-					In left inlet, audio input 1 to be swap faded
-					In middle inlet, audio input 2 to be swap faded
-					In far right inlet, the Crossfade value 0..1
-				If <m>mode</m> == 2 (stereo):
-					In left inlet, audio 1 left input to be crossfaded
-					In middle left inlet, audio 1 right input to be crossfaded
-					In middle right inlet, audio 2 left input to be crossfaded
-					In right inlet, audio 2 right input to be crossfaded
-					In far right inlet, the Crossfade value 0..1
+				If 'mode' == 0 (mono, the default):<br />
+					In left inlet, audio input 1 to be crossfaded<br />
+					In middle inlet, audio input 2 to be crossfaded<br />
+					In far right inlet, the Crossfade value 0..1<br />
+				If 'mode' == 1 (swap):<br />
+					In left inlet, audio input 1 to be swap faded<br />
+					In middle inlet, audio input 2 to be swap faded<br />
+					In far right inlet, the Crossfade value 0..1<br />
+				If 'mode' == 2 (stereo):<br />
+					In left inlet, audio 1 left input to be crossfaded<br />
+					In middle left inlet, audio 1 right input to be crossfaded<br />
+					In middle right inlet, audio 2 left input to be crossfaded<br />
+					In right inlet, audio 2 right input to be crossfaded<br />
+					In far right inlet, the Crossfade value 0..1<br />
 			</description>
 		</method>
 	</methodlist>

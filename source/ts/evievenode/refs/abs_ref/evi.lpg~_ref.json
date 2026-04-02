@@ -27,7 +27,7 @@
             "id": 3,
             "type": "signal/float",
             "digest": "Resonance 0..2",
-            "description": "Filter resonance. Effect depends on other settings, such as "
+            "description": "Filter resonance. Effect depends on other settings, such as @boom, @lpg and @vca."
         },
         {
             "id": 4,
@@ -236,6 +236,7 @@
         "image": ""
     },
     "seealso": [
+        "evi.vactrol~",
         "evi.lockhart.cascade~",
         "evi.lockhart.simple~",
         "evi.modalres~",

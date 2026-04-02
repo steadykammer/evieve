@@ -44,6 +44,7 @@
             "name": "lowpass",
             "type": "float",
             "optional": 1,
+            "digestauto": "Output",
             "digest": "Lowpass filtered audio output."
         },
         {
@@ -51,6 +52,7 @@
             "name": "highpass",
             "type": "float",
             "optional": 1,
+            "digestauto": "Output",
             "digest": "Highpass filtered audio output."
         },
         {
@@ -58,6 +60,7 @@
             "name": "bandpass",
             "type": "float",
             "optional": 1,
+            "digestauto": "Output",
             "digest": "Bandpass filtered audio output."
         },
         {
@@ -65,6 +68,7 @@
             "name": "notch",
             "type": "float",
             "optional": 1,
+            "digestauto": "Output",
             "digest": "Notch filtered audio output."
         }
     ],

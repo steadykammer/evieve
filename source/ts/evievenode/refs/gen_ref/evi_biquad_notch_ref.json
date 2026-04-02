@@ -3,14 +3,13 @@
         "name": "evi_biquad_notch",
         "child": "evi.biquad.notch~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Biquad Notch",
+        "description": "All-in-one biquad notch filter block."
     },
     "constructor": {
         "inlets": "input, cutoff, gain, q"
     },
     "includes": [
-        "evi_biquads",
         "evi_biquads_coeffs",
         "evi_biquads_filters"
     ],
@@ -20,7 +19,7 @@
             "name": "input",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Audio input to be filtered."
         },
         {
             "id": 2,
@@ -28,7 +27,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "in Hz @min samplerate*0.00022 @max samplerate*0.458334",
-            "digest": ""
+            "digest": "Filter cutoff frequency in Hz."
         },
         {
             "id": 3,
@@ -36,7 +35,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "in dB @min -24 @max 24 @default 0",
-            "digest": ""
+            "digest": "Filter gain in dB."
         },
         {
             "id": 4,
@@ -44,7 +43,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "@min 0.1 @max 18 @default 0.707107",
-            "digest": ""
+            "digest": "Filter Q."
         }
     ],
     "outlets": [
@@ -53,7 +52,8 @@
             "name": "notch",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digestauto": "Output",
+            "digest": "Filtered audio output."
         }
     ],
     "attributes": [
@@ -61,7 +61,7 @@
             "name": "filter",
             "type": "int",
             "digest": "@min 0, @max 4",
-            "description": "",
+            "description": "0 = notch, 1 = gain notch, 2 = analog notch, 3 = butterworth notch, 4 = butterworth gain notch.",
             "default": {
                 "type": "int",
                 "value": "1"
@@ -70,8 +70,68 @@
     ],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_biquad",
+            "display": "evi_biquad"
+        },
+        {
+            "name": "evi_biquad_coeff",
+            "display": "evi_biquad_coeff"
+        },
+        {
+            "name": "evi_biquad_filter",
+            "display": "evi_biquad_filter"
+        },
+        {
+            "name": "evi_biquad_eqfilter",
+            "display": "evi_biquad_eqfilter"
+        },
+        {
+            "name": "evi_biquad_butterworth",
+            "display": "evi_biquad_butterworth"
+        },
+        {
+            "name": "evi_biquad_analog",
+            "display": "evi_biquad_analog"
+        },
+        {
+            "name": "evi_biquad_allpass",
+            "display": "evi_biquad_allpass"
+        },
+        {
+            "name": "evi_biquad_bandpass",
+            "display": "evi_biquad_bandpass"
+        },
+        {
+            "name": "evi_biquad_highpass",
+            "display": "evi_biquad_highpass"
+        },
+        {
+            "name": "evi_biquad_highshelf",
+            "display": "evi_biquad_highshelf"
+        },
+        {
+            "name": "evi_biquad_lowpass",
+            "display": "evi_biquad_lowpass"
+        },
+        {
+            "name": "evi_biquad_lowshelf",
+            "display": "evi_biquad_lowshelf"
+        },
+        {
+            "name": "evi_biquad_peaknotch",
+            "display": "evi_biquad_peaknotch"
+        },
+        {
+            "name": "evi_biquad_resonant",
+            "display": "evi_biquad_resonant"
+        },
+        {
+            "name": "evi_biquad_type",
+            "display": "evi_biquad_type"
+        },
+        {
+            "name": "evi_filter",
+            "display": "evi_filter"
         }
     ]
 }

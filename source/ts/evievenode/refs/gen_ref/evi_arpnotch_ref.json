@@ -52,6 +52,7 @@
             "name": "arp",
             "type": "float",
             "optional": 1,
+            "digestauto": "Mix (LP..BR..HP via 'morph' inlet)",
             "digest": "Nonlinear lowpass..notch..highpass output."
         }
     ],

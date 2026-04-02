@@ -19,7 +19,7 @@
     <constructorlist>
         <constructor name='1'>
             <digest>
-                { arguments={}, inlets={ audio, (signal/float/int, frequency, reset } }
+                { arguments={}, inlets={ audio, (use, frequency, reset } }
             </digest>
         </constructor>
     </constructorlist>
@@ -29,9 +29,9 @@
                 Input. Audio input to shift.
             </digest>
         </geninlet>
-        <geninlet name='(signal/float/int' type='float' optional='1'>
+        <geninlet name='(use' type='float' optional='1'>
             <digest>
-                use freqsmooth attr) Frequency Shift in ± Hz. The main control, frequency shift in Hz +/- 0. Can be optionally smoothed with the @freqsmooth attribute.
+                freqsmooth attr) Frequency Shift in ± Hz. The main control, frequency shift in Hz +/- 0. Can be optionally smoothed with the @freqsmooth attribute.
             </digest>
         </geninlet>
         <geninlet name='frequency' type='float' optional='1'>

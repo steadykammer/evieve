@@ -46,6 +46,7 @@
             "name": "sallen",
             "type": "float",
             "optional": 1,
+            "digestauto": "Key Filter Output",
             "digest": "Mixed Sallen Key output."
         }
     ],

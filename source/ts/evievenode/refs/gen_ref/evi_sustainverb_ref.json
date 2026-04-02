@@ -19,7 +19,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "In Left",
-            "digest": ""
+            "digest": "Audio input left."
         },
         {
             "id": 2,
@@ -27,7 +27,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "In Right",
-            "digest": ""
+            "digest": "Audio input right."
         }
     ],
     "outlets": [
@@ -36,56 +36,64 @@
             "name": "reverb",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digestauto": "Left",
+            "digest": "Full reverb output left, post dry/wet."
         },
         {
             "id": 2,
             "name": "reverb",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digestauto": "Right",
+            "digest": "Full reverb output right, post dry/wet."
         },
         {
             "id": 3,
             "name": "fdn",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digestauto": "Left",
+            "digest": "FDN only output left (only wet)."
         },
         {
             "id": 4,
             "name": "fdn",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digestauto": "Right",
+            "digest": "FDN only output right (only wet)."
         },
         {
             "id": 5,
             "name": "aux",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digestauto": "Tap 1",
+            "digest": "Decorrellated auxilliary FDN output 1"
         },
         {
             "id": 6,
             "name": "aux",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digestauto": "Tap 2",
+            "digest": "Decorrellated auxilliary FDN output 2"
         },
         {
             "id": 7,
             "name": "aux",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digestauto": "Tap 3",
+            "digest": "Decorrellated auxilliary FDN output 3"
         },
         {
             "id": 8,
             "name": "aux",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digestauto": "Tap 4",
+            "digest": "Decorrellated auxilliary FDN output 4"
         }
     ],
     "attributes": [

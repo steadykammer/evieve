@@ -75,6 +75,7 @@
             "name": "fm",
             "type": "float",
             "optional": 1,
+            "digestauto": "output Cos",
             "digest": ""
         },
         {
@@ -82,6 +83,7 @@
             "name": "fm",
             "type": "float",
             "optional": 1,
+            "digestauto": "output Sin",
             "digest": ""
         }
     ],

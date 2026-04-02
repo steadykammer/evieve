@@ -43,6 +43,7 @@
             "name": "allpass",
             "type": "float",
             "optional": 1,
+            "digestauto": "Delay Filter Output",
             "digest": "Filtered audio output."
         }
     ],

@@ -31,7 +31,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 683.0, 19.0, 229.0, 22.0 ],
-                    "text": "in 3 Frequency Hz Modulation @default 0"
+                    "text": "in 3 Hz Frequency Modulation @default 0"
                 }
             },
             {
@@ -41,8 +41,8 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 463.0, 19.0, 181.0, 22.0 ],
-                    "text": "in 2 Pitch Modulation @default 0"
+                    "patching_rect": [ 425.0, 19.0, 241.0, 22.0 ],
+                    "text": "in 2 Pitch Frequency Modulation @default 0"
                 }
             },
             {
@@ -54,13 +54,13 @@
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 32.0, 807.0, 271.0, 22.0 ],
-                    "text": "out 1 Optionally smoothed\\, scaled & FM-ed f (Hz)"
+                    "patching_rect": [ 32.0, 807.0, 212.0, 22.0 ],
+                    "text": "out 1 FM-ed\\, smoothed and scaled Hz"
                 }
             },
             {
                 "box": {
-                    "code": "\r\n// expensive all audio rate frequency calc for filters and oscillators etc\r\n\r\nrequire(\"evi_smooth.genexpr\");\r\n\r\nsmoothCutoff(cutoff, smooth, smoothtype)\r\n{\r\n\tHistory scdummy(0);\r\n\tcf = cutoff;\r\n\tif (smooth > 0) {\r\n\t\tsm = smooth * 0.001;\r\n\r\n\t\tif (smoothtype == 1) {\r\n\t\t\tcf = logsmooth(cf, sm);\r\n\t\t} else if (smoothtype == 2) {\r\n\t\t\tcf = eviLine(cf, sm*samplerate);\r\n\t\t} else if (smoothtype == 3) {\r\n\t\t\tcf = eviSline(cf, sm*samplerate);\r\n\t\t} else if (smoothtype == 4) {\r\n\t\t\tcf = lagsmooth(cf, sm);\r\n\t\t} else {// smoothtype == 0, default\r\n\t\t\thz = 2;\r\n\t\t\tcf = cfSmoothLinear(cf, hz, smooth);\r\n\t\t}\r\n\t\t\r\n\t}\r\n\treturn cf;\r\n}\r\n\r\n//\t//\t//\tdeclare\r\n\r\nHistory prev_f(0);\r\n\r\n// choose cutoff input in Hz (0) or pitch (1, default)\r\nParam\tmode(1, min=0, max=1);\r\nParam\ttuning(440., min=415, max=467);// tuning around 440 Hz\r\n// cutoff smooth time in ms; if == 0 then no cpu used for\r\n// smoothing and in1 can be signal rate modulator (e.g. lfo/env modified)\r\nParam\tsmooth(0., min=0, max=1000);// ms, default off\r\nParam\tsmoothtype(0, min=0, max=4);// select smoother, 0=lp default, 1=log, 2=line, 3=sline, 4=lag\r\nParam\tlow(0., min=-samplerate*0.5, max=samplerate*0.5);\t// in Hz\r\nParam\thigh(0.5, min=0, max=0.5);\t// multiplier of samplerate\r\nParam\tcliplimit(1, min=0, max=1);\t// use limit to clip cf output?\r\n\r\nucl\t\t= int(cliplimit);\r\ncfm\t\t= int(mode);\r\ncst\t\t= int(smoothtype);\r\nlimit\t= samplerate * high;\r\n\r\nfreq\t\t= in1 + 0;\r\npitchmod\t= in2 + 0;\t\t\t\t\t\t// pitchmod ignored if cutoffmode == 0\r\nfreqmod\t\t= in3 + 0;\r\n\r\n//\t//\t//\toptional cutoff smoothing (turn cutoffsmooth off for direct modulated in1)\r\n\r\nfreq\t\t= smoothCutoff(freq, smooth, cst);\r\n\r\n//\t//\t//\tand scale pitch cutoff\r\n\r\nif (cfm > 0) {\t\t\t\t\t\t\t\t// if pitch input chosen for cutoffmode\r\n\tfreq\t= freq + pitchmod;\r\n\tfreq\t= mtofApprox(freq, base=tuning);\r\n}\r\n\r\n//\t//\t//\tand scale hz cutoff\r\n\r\nfreq\t= freq + freqmod;\r\n// corrected for audio rate FM etc\nlin_f   = freq - prev_f;\ncorr_f  = freq + 0.5 * lin_f;\nprev_f  = freq;\r\n\r\n//\t//\t//\tfinal clip is at hz level\r\n\r\nf\t\t= clip(corr_f, minimum(low, limit), (ucl ? limit : samplerate*0.5));\r\n\r\n//\t//\t//\toutput scaled and optionally smoothed Hz\r\n\r\nout1\t= f;\r\nout2\t= limit;\r\n\r\n",
+                    "code": "\r\n// expensive all audio rate frequency calc for filters and oscillators etc\r\n\r\nrequire(\"evi_smooth.genexpr\");\r\n\r\nsmoothCutoff(cutoff, smooth, smoothtype)\r\n{\r\n\tHistory scdummy(0);\r\n\tcf = cutoff;\r\n\tif (smooth > 0) {\r\n\t\tsm = smooth * 0.001;\r\n\r\n\t\tif (smoothtype == 1) {\r\n\t\t\tcf = logsmooth(cf, sm);\r\n\t\t} else if (smoothtype == 2) {\r\n\t\t\tcf = eviLine(cf, sm*samplerate);\r\n\t\t} else if (smoothtype == 3) {\r\n\t\t\tcf = eviSline(cf, sm*samplerate);\r\n\t\t} else if (smoothtype == 4) {\r\n\t\t\tcf = lagsmooth(cf, sm);\r\n\t\t} else {// smoothtype == 0, default\r\n\t\t\thz = 2;\r\n\t\t\tcf = cfSmoothLinear(cf, hz, smooth);\r\n\t\t}\r\n\t\t\r\n\t}\r\n\treturn cf;\r\n}\r\n\r\n//\t//\t//\tdeclare\r\n\r\nHistory prev_f(0);\r\n\r\n// choose cutoff input in Hz (0) or pitch (1, default)\r\nParam\tmode(1, min=0, max=1);\r\nParam\ttuning(440., min=415, max=467);// tuning around 440 Hz\r\n// cutoff smooth time in ms; if == 0 then no cpu used for\r\n// smoothing and in1 can be signal rate modulator (e.g. lfo/env modified)\r\nParam\tsmooth(0., min=0, max=1000);// ms, default off\r\nParam\tsmoothtype(0, min=0, max=4);// select smoother, 0=lp default, 1=log, 2=line, 3=sline, 4=lag\r\nParam\tlow(0., min=-samplerate*0.5, max=samplerate*0.5);\t// in Hz\r\nParam\thigh(0.5, min=0, max=0.5);\t// multiplier of samplerate\r\nParam\tcliplimit(1, min=0, max=1);\t// use limit to clip cf output?\r\n\r\nucl\t\t= int(cliplimit);\r\ncfm\t\t= int(mode);\r\ncst\t\t= int(smoothtype);\r\nlimit\t= samplerate * high;\r\n\r\nfreq\t\t= in1 + 0;\r\npitchmod\t= in2 + 0;\t\t\t\t\t\t// pitchmod ignored if mode == 0\r\nfreqmod\t\t= in3 + 0;\r\n\r\n//\t//\t//\toptional cutoff smoothing (turn cutoffsmooth off for direct modulated in1)\r\n\r\nfreq\t\t= smoothCutoff(freq, smooth, cst);\r\n\r\n//\t//\t//\tand scale pitch cutoff\r\n\r\nif (cfm > 0) {\t\t\t\t\t\t\t\t// if pitch input chosen for cutoffmode\r\n\tfreq\t= freq + pitchmod;\r\n\tfreq\t= mtofApprox(freq, base=tuning);\r\n}\r\n\r\n//\t//\t//\tand scale hz cutoff\r\n\r\nfreq\t= freq + freqmod;\r\n// corrected for audio rate FM etc\nlin_f   = freq - prev_f;\ncorr_f  = freq + 0.5 * lin_f;\nprev_f  = freq;\r\n\r\n//\t//\t//\tfinal clip is at hz level\r\n\r\nf\t\t= clip(corr_f, minimum(low, limit), (ucl ? limit : samplerate*0.5));\r\n\r\n//\t//\t//\toutput scaled and optionally smoothed Hz\r\n\r\nout1\t= f;\r\nout2\t= limit;\r\n\r\n",
                     "fontface": 0,
                     "fontname": "<Monospaced>",
                     "fontsize": 12.0,
@@ -97,6 +97,7 @@
             {
                 "patchline": {
                     "destination": [ "obj-3", 1 ],
+                    "midpoints": [ 434.5, 48.5, 472.0, 48.5 ],
                     "source": [ "obj-2", 0 ]
                 }
             },

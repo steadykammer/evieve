@@ -94,7 +94,7 @@
 	</outletlist>
 	<!--ARGUMENTS-->
 	<objarglist>
-		<objarg name="Low in" type="float" default="0." optional="1">
+		<objarg name="LowIn" type="float" default="0." optional="1">
 			<digest>
 				arg#1: Low input value
 			</digest>
@@ -102,7 +102,7 @@
 				Low input value to map from
 			</description>
 		</objarg>
-		<objarg name="Mid point in" type="float" default="0.5" optional="1">
+		<objarg name="MidPointIn" type="float" default="0.5" optional="1">
 			<digest>
 				arg#2: Mid point input value
 			</digest>
@@ -110,7 +110,7 @@
 				Mid point input value to map from
 			</description>
 		</objarg>
-		<objarg name="High in" type="float" default="1." optional="1">
+		<objarg name="HighIn" type="float" default="1." optional="1">
 			<digest>
 				arg#3: High input value
 			</digest>
@@ -118,7 +118,7 @@
 				High input value to map from
 			</description>
 		</objarg>
-		<objarg name="Low out" type="float" default="0." optional="1">
+		<objarg name="LowOut" type="float" default="0." optional="1">
 			<digest>
 				arg#4: Low output value
 			</digest>
@@ -126,7 +126,7 @@
 				Low output value to map to
 			</description>
 		</objarg>
-		<objarg name="Mid point out" type="float" default="0.5" optional="1">
+		<objarg name="MidPointOut" type="float" default="0.5" optional="1">
 			<digest>
 				arg#5: Mid point output value
 			</digest>
@@ -134,7 +134,7 @@
 				Mid point output value to map to
 			</description>
 		</objarg>
-		<objarg name="High out" type="float" default="1." optional="1">
+		<objarg name="HighOut" type="float" default="1." optional="1">
 			<digest>
 				arg#6: High output value
 			</digest>

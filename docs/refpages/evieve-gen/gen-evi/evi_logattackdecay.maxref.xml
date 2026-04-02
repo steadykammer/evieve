@@ -21,17 +21,17 @@
     <geninletlist>
         <geninlet name='value' type='float' optional='1'>
             <digest>
-                to Follow. 
+                to Follow. evi_logattackdecay will follow this input value with the given attack and decay times.
             </digest>
         </geninlet>
         <geninlet name='attack' type='float' optional='1'>
             <digest>
-                Time in milliseconds @min 0. 
+                Time in milliseconds @min 0. Amount of time the envelope takes to attack. evi_logattackdecay is logarithmic and does not attack in this time exactly.
             </digest>
         </geninlet>
         <geninlet name='decay' type='float' optional='1'>
             <digest>
-                Time in milliseconds @min 0. 
+                Time in milliseconds @min 0. Amount of time the envelope takes to decay. evi_logattackdecay is logarithmic and does not decay in this time exactly.
             </digest>
         </geninlet>
     </geninletlist>

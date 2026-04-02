@@ -36,6 +36,7 @@
             "name": "ring",
             "type": "float",
             "optional": 1,
+            "digestauto": "Modulated Output but cool sounding",
             "digest": "The audio result of the ring modulated inputs."
         }
     ],

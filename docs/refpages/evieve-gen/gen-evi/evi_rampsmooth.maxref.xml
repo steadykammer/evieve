@@ -21,17 +21,17 @@
     <geninletlist>
         <geninlet name='input' type='float' optional='1'>
             <digest>
-                Value. 
+                Value. Input value to be smoothly ramped.
             </digest>
         </geninlet>
         <geninlet name='ramp' type='float' optional='1'>
             <digest>
-                Up in SAMPLES @min 0. 
+                Up in SAMPLES @min 0. Amount of time the value takes to reach it&#x27;s up destination. evi_rampsmooth reaches it&#x27;s up destination exactly in this time.
             </digest>
         </geninlet>
         <geninlet name='ramp' type='float' optional='1'>
             <digest>
-                Down in SAMPLES @min 0. 
+                Down in SAMPLES @min 0. Amount of time the value takes to reach it&#x27;s down destination. evi_rampsmooth reaches it&#x27;s down destination exactly in this time.
             </digest>
         </geninlet>
     </geninletlist>

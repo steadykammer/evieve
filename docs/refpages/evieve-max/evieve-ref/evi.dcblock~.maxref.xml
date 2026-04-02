@@ -46,6 +46,14 @@
 	</outletlist>
 	<!--ARGUMENTS-->
 	<objarglist>
+		<objarg name="coefficient" type="float" default="0.9997" optional="1">
+			<digest>
+				arg#1: coefficient
+			</digest>
+			<description>
+				a0 coefficient to set the filter amount
+			</description>
+		</objarg>
 	</objarglist>
 	<!--MESSAGES-->
 	<methodlist>

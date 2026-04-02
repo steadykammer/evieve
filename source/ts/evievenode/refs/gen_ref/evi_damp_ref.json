@@ -44,6 +44,7 @@
             "name": "6db",
             "type": "float",
             "optional": 1,
+            "digestauto": "Lowpass/Highshelf",
             "digest": "Lowpass/Highshelf damped filter output. With damp 0.71..0.99 this outlet is similar to MSP [onepole~] (depending on Hz)."
         },
         {
@@ -51,6 +52,7 @@
             "name": "6db",
             "type": "float",
             "optional": 1,
+            "digestauto": "Highpass/Lowshelf",
             "digest": "Highpass/Lowshelf damped filter output."
         }
     ],

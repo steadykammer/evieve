@@ -25,15 +25,11 @@
   <outletlist>
     <outlet id="0" type="signal">
       <digest>Xfaded Output</digest>
-      <description>
-        <m>mode</m>
-Mono or Left Xfaded Output (depending on)      </description>
+      <description>Mono or Left Xfaded Output (depending on 'mode')</description>
     </outlet>
     <outlet id="1" type="signal">
       <digest>Right Xfaded Output</digest>
-      <description>
-        <m>mode</m>
-If== 1 or 2, Right Xfaded Output      </description>
+      <description>If 'mode' == 1 or 2, Right Xfaded Output</description>
     </outlet>
   </outletlist>
   <objarglist>
@@ -58,23 +54,21 @@ If== 1 or 2, Right Xfaded Output      </description>
       <arglist></arglist>
       <digest>Behaviour depends on inlet</digest>
       <description>
-        <m>mode</m>
-        <m>mode</m>
-        <m>mode</m>
-If== 0 (mono, the default):
-					In left inlet, audio input 1 to be crossfaded
-					In middle inlet, audio input 2 to be crossfaded
-					In far right inlet, the Crossfade value 0..1
-				If== 1 (swap):
-					In left inlet, audio input 1 to be swap faded
-					In middle inlet, audio input 2 to be swap faded
-					In far right inlet, the Crossfade value 0..1
-				If== 2 (stereo):
-					In left inlet, audio 1 left input to be crossfaded
-					In middle left inlet, audio 1 right input to be crossfaded
-					In middle right inlet, audio 2 left input to be crossfaded
-					In right inlet, audio 2 right input to be crossfaded
-					In far right inlet, the Crossfade value 0..1      </description>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+If 'mode' == 0 (mono, the default):In left inlet, audio input 1 to be crossfadedIn middle inlet, audio input 2 to be crossfadedIn far right inlet, the Crossfade value 0..1If 'mode' == 1 (swap):In left inlet, audio input 1 to be swap fadedIn middle inlet, audio input 2 to be swap fadedIn far right inlet, the Crossfade value 0..1If 'mode' == 2 (stereo):In left inlet, audio 1 left input to be crossfadedIn middle left inlet, audio 1 right input to be crossfadedIn middle right inlet, audio 2 left input to be crossfadedIn right inlet, audio 2 right input to be crossfadedIn far right inlet, the Crossfade value 0..1      </description>
     </method>
   </methodlist>
   <attributelist>

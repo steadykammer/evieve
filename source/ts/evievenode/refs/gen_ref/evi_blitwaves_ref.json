@@ -67,6 +67,7 @@
             "name": "sine",
             "type": "float",
             "optional": 1,
+            "digestauto": "(if param addsine set)",
             "digest": "Analog Sine wave oscillator with harmonics, output if @addsine attribute set to on."
         },
         {
@@ -74,6 +75,7 @@
             "name": "train",
             "type": "float",
             "optional": 1,
+            "digestauto": "0/1 (if param addtrain set)",
             "digest": "Naive Train (rectified naive square) wave oscillator, output if @addtrain attribute set to on."
         },
         {
@@ -81,6 +83,7 @@
             "name": "sync",
             "type": "float",
             "optional": 1,
+            "digestauto": "0..1 (if param addsync set)",
             "digest": "Global phase sync output 0..1, output if @addsync attribute set to on."
         }
     ],

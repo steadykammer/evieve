@@ -52,6 +52,7 @@
             "name": "svf",
             "type": "float",
             "optional": 1,
+            "digestauto": "Mix (LP..BP..HP via 'morph' inlet)",
             "digest": "Interpolated filter output LP..BP..HP via 'Morph' (inlet 4)."
         },
         {

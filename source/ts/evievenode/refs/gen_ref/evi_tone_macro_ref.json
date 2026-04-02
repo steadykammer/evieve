@@ -30,6 +30,7 @@
             "name": "tone-controlled",
             "type": "float",
             "optional": 1,
+            "digestauto": "Audio Out",
             "digest": "Warm and dark audio output."
         }
     ],

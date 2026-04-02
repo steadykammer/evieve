@@ -33,6 +33,7 @@
             "name": "phasor",
             "type": "float",
             "optional": 1,
+            "digestauto": "0..1",
             "digest": ""
         },
         {
@@ -40,6 +41,7 @@
             "name": "current",
             "type": "float",
             "optional": 1,
+            "digestauto": "Frequency in Hz",
             "digest": ""
         },
         {

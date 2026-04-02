@@ -3,15 +3,13 @@
         "name": "evi_hilbert",
         "child": "",
         "category": "evieve",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Hilbert quadrature (phase shift) filter",
+        "description": "Hilbert quadrature (phase shift) filter using an 8th order polyphase IIR halfband allpass cascade. If using in gen~ alone the samplerate must be 48kHz, or if running at a different samplerate the hilbert filter coefficients must be fed in externally. See the <o>evi.hilbert~</o> abstraction for an example."
     },
     "constructor": {
         "inlets": "input"
     },
     "includes": [
-        "evi_biquad",
-        "evi_biquads",
         "evi_biquads_extras"
     ],
     "inlets": [
@@ -20,7 +18,7 @@
             "name": "input",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Audio input to be phase shifted."
         }
     ],
     "outlets": [
@@ -29,14 +27,16 @@
             "name": "cosine/real",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digestauto": "Output",
+            "digest": "0 degrees filter phase output."
         },
         {
             "id": 2,
             "name": "sine/imag",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digestauto": "Output",
+            "digest": "+90 degrees filter phase output."
         }
     ],
     "attributes": [
@@ -44,7 +44,7 @@
             "name": "coef1",
             "type": "float",
             "digest": "@min -10, @max 10",
-            "description": "",
+            "description": "Polyphase IIR Halfband Allpass Cascade Coefficient 1",
             "default": {
                 "type": "float",
                 "value": "0.486604368613682"
@@ -54,7 +54,7 @@
             "name": "coef2",
             "type": "float",
             "digest": "@min -10, @max 10",
-            "description": "",
+            "description": "Polyphase IIR Halfband Allpass Cascade Coefficient 2",
             "default": {
                 "type": "float",
                 "value": "0.880779435272467"
@@ -64,7 +64,7 @@
             "name": "coef3",
             "type": "float",
             "digest": "@min -10, @max 10",
-            "description": "",
+            "description": "Polyphase IIR Halfband Allpass Cascade Coefficient 3",
             "default": {
                 "type": "float",
                 "value": "0.977931255616324"
@@ -74,7 +74,7 @@
             "name": "coef4",
             "type": "float",
             "digest": "@min -10, @max 10",
-            "description": "",
+            "description": "Polyphase IIR Halfband Allpass Cascade Coefficient 4",
             "default": {
                 "type": "float",
                 "value": "0.997673861850732"
@@ -84,7 +84,7 @@
             "name": "coef5",
             "type": "float",
             "digest": "@min -10, @max 10",
-            "description": "",
+            "description": "Polyphase IIR Halfband Allpass Cascade Coefficient 5",
             "default": {
                 "type": "float",
                 "value": "0.165149093559079"
@@ -94,7 +94,7 @@
             "name": "coef6",
             "type": "float",
             "digest": "@min -10, @max 10",
-            "description": "",
+            "description": "Polyphase IIR Halfband Allpass Cascade Coefficient 6",
             "default": {
                 "type": "float",
                 "value": "0.739829012544530"
@@ -104,7 +104,7 @@
             "name": "coef7",
             "type": "float",
             "digest": "@min -10, @max 10",
-            "description": "",
+            "description": "Polyphase IIR Halfband Allpass Cascade Coefficient 7",
             "default": {
                 "type": "float",
                 "value": "0.947940906329181"
@@ -114,7 +114,7 @@
             "name": "coef8",
             "type": "float",
             "digest": "@min -10, @max 10",
-            "description": "",
+            "description": "Polyphase IIR Halfband Allpass Cascade Coefficient 8",
             "default": {
                 "type": "float",
                 "value": "0.991209712705258"
@@ -123,8 +123,12 @@
     ],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_freqshift_hilbert",
+            "display": "evi_freqshift_hilbert"
+        },
+        {
+            "name": "evi_biquads_extras",
+            "display": "evi_biquads_extras.genexpr"
         }
     ]
 }

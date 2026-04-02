@@ -52,6 +52,7 @@
             "name": "left",
             "type": "float",
             "optional": 1,
+            "digestauto": "Reverb Output",
             "digest": ""
         },
         {
@@ -59,6 +60,7 @@
             "name": "right",
             "type": "float",
             "optional": 1,
+            "digestauto": "Reverb Output",
             "digest": ""
         }
     ],

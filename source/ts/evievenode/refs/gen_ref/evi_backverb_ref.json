@@ -19,14 +19,14 @@
             "name": "left",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Audio input left."
         },
         {
             "id": 2,
             "name": "right",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Audio input right."
         }
     ],
     "outlets": [
@@ -35,14 +35,14 @@
             "name": "left",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Reverb output left."
         },
         {
             "id": 2,
             "name": "right",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Reverb output right."
         }
     ],
     "attributes": [

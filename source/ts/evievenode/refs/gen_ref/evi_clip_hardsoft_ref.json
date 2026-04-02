@@ -28,6 +28,7 @@
             "name": "anti",
             "type": "float",
             "optional": 1,
+            "digestauto": "Aliased Clipped Audio Out",
             "digest": "Hopefully cleanly clipped output."
         }
     ],

@@ -3,8 +3,8 @@
         "name": "evi_controlcircuit_buchla",
         "child": "",
         "category": "evieve",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Control circuit for voltage control of Rf",
+        "description": "Analog modelled control circuit for the voltage control of the <o>evi_lpg_buchla</o>.gendsp frequency inlet. Also embedded in the MSP abstraction <o>evi.lpg~</o>."
     },
     "constructor": {
         "inlets": "v_c, offset, scaler, sweep"
@@ -19,7 +19,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "(from Vactrol)",
-            "digest": ""
+            "digest": "Triggering envelope, typically from evi_vactrol.gendsp."
         },
         {
             "id": 2,
@@ -27,7 +27,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "@min 0 @max 1 @default 0.1",
-            "digest": ""
+            "digest": "0..1. Offset (add to) the voltage input to the LPG. Part of the control circuit that engages the voltage (frequency) of the filter/gate."
         },
         {
             "id": 3,
@@ -35,7 +35,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "@min 0 @max 1 @default 0.48",
-            "digest": ""
+            "digest": "0..1. Scale (multiply) the voltage input to the LPG. Part of the control circuit that engages the voltage (frequency) of the filter/gate."
         },
         {
             "id": 4,
@@ -43,7 +43,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "@min 0 @max 1 @default 0.408141",
-            "digest": ""
+            "digest": "0..1. Amount of sweep range of the voltage input to the LPG. Part of the control circuit that engages the voltage (frequency) of the filter/gate."
         }
     ],
     "outlets": [
@@ -52,7 +52,8 @@
             "name": "r_f",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digestauto": "(to LPG)",
+            "digest": "Rf (frequency) voltage, typically to trigger an LPG (evi_lpg_buchla.gendsp) downstream."
         }
     ],
     "attributes": [
@@ -60,7 +61,7 @@
             "name": "control",
             "type": "int",
             "digest": "@min 0, @max 2",
-            "description": "",
+            "description": "Select 0, 1, 2. To quote the paper, '...it makes little difference'. But sometimes it does make a difference. This control switches between slow..long response times for the voltage input into the control circuit shaper.",
             "default": {
                 "type": "int",
                 "value": "1"
@@ -70,7 +71,7 @@
             "name": "mapcutoff",
             "type": "float",
             "digest": "@min 7, @max 788",
-            "description": "",
+            "description": "Low shelving filter frequency in Hz, optionally maps between V_c and V_b (default bypassed). To quote the paper, '...it makes little difference'. Also see @mapdamp.",
             "default": {
                 "type": "float",
                 "value": "143."
@@ -80,7 +81,7 @@
             "name": "mapdamp",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Low shelving filter damp, optionally maps between V_c and V_b (default bypassed). To quote the paper, '...it makes little difference'. 0 = no damping (default, bypassed), 1 = fully damped. Also see @mapcutoff.",
             "default": {
                 "type": "float",
                 "value": "0."
@@ -90,7 +91,7 @@
             "name": "offsetsmooth",
             "type": "float",
             "digest": "@min 0, @max 333",
-            "description": "",
+            "description": "If > 0, smooths the 'offset' control (inlet 2) by this amount in ms.",
             "default": {
                 "type": "float",
                 "value": "0."
@@ -100,7 +101,7 @@
             "name": "scalersmooth",
             "type": "float",
             "digest": "@min 0, @max 111",
-            "description": "",
+            "description": "If > 0, smooths the 'scale' control (inlet 3) by this amount in ms.",
             "default": {
                 "type": "float",
                 "value": "0."
@@ -110,7 +111,7 @@
             "name": "sweepsmooth",
             "type": "float",
             "digest": "@min 0, @max 222",
-            "description": "",
+            "description": "If > 0, smooths the 'sweep' control (inlet 4) by this amount in ms.",
             "default": {
                 "type": "float",
                 "value": "0."
@@ -119,8 +120,16 @@
     ],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_vactrol",
+            "display": "evi_vactrol"
+        },
+        {
+            "name": "evi_control_lpg_buchla",
+            "display": "evi_control_lpg_buchla"
+        },
+        {
+            "name": "evi_lpg_buchla",
+            "display": "evi_lpg_buchla"
         }
     ]
 }

@@ -17,7 +17,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Value",
-            "digest": ""
+            "digest": "Input value to be ramped."
         },
         {
             "id": 2,
@@ -25,7 +25,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Time in SAMPLES",
-            "digest": ""
+            "digest": "Amount of time the value takes to reach it's destination. evi_sline reaches it's destination exactly in this time."
         }
     ],
     "outlets": [
@@ -34,14 +34,16 @@
             "name": "exact",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digestauto": "Output Ramp",
+            "digest": "Smoothed output ramp, or target value if ramp is complete."
         },
         {
             "id": 2,
             "name": "1",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digestauto": "When Ramp Reaches Destination (0 During Ramp)",
+            "digest": "1 When Ramp Reaches Destination (0 During Ramp)."
         }
     ],
     "attributes": [],

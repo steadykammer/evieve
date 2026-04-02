@@ -46,6 +46,7 @@
             "name": "moog",
             "type": "float",
             "optional": 1,
+            "digestauto": "Ladder Output",
             "digest": "24dB laddery filtered output."
         }
     ],

@@ -21,17 +21,17 @@
     <geninletlist>
         <geninlet name='destination' type='float' optional='1'>
             <digest>
-                Value. 
+                Value. Input value to be ramped.
             </digest>
         </geninlet>
         <geninlet name='ramp' type='float' optional='1'>
             <digest>
-                Time in SAMPLES. 
+                Time in SAMPLES. Amount of time the value takes to reach it&#x27;s destination. evi_curve reaches it&#x27;s destination exactly in this time.
             </digest>
         </geninlet>
         <geninlet name='curve' type='float' optional='1'>
             <digest>
-                -1..1 @min -1 @max 1. 
+                -1..1 @min -1 @max 1. Exponential curvature of the ramp. In evi_curve (as opposed to MSP curve~) this value never becomes very sharp at the extremes of this setting, but retains a small amount of curvature, due to the approximations used in the calculations.
             </digest>
         </geninlet>
     </geninletlist>

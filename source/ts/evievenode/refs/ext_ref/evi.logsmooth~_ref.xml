@@ -78,8 +78,8 @@
 				Behaviour depends on inlet
 			</digest>
 			<description>
-				In the left inlet, the destination value.
-				In the right inlet, smoothing time in ms.
+				In the left inlet, the destination value.<br />
+				In the right inlet, smoothing time in ms.<br />
 			</description>
 		</method>
 		<method name="float">
@@ -90,8 +90,8 @@
 				Behaviour depends on inlet
 			</digest>
 			<description>
-				In the left inlet, the destination value.
-				In the right inlet, smoothing time in ms.
+				In the left inlet, the destination value.<br />
+				In the right inlet, smoothing time in ms.<br />
 			</description>
 		</method>
 		<method name="clear">
@@ -109,8 +109,8 @@
 				Behaviour depends on inlet
 			</digest>
 			<description>
-				In the left inlet, the destination value.
-				In the right inlet, smoothing time in ms.
+				In the left inlet, the destination value.<br />
+				In the right inlet, smoothing time in ms.<br />
 			</description>
 		</method>
 	</methodlist>

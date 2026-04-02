@@ -37,6 +37,7 @@
             "name": "anti",
             "type": "float",
             "optional": 1,
+            "digestauto": "Aliased Tri Oscillator",
             "digest": "Anti Aliased Tri Oscillator"
         }
     ],

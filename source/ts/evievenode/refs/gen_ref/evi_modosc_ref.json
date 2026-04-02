@@ -36,6 +36,7 @@
             "name": "modulation",
             "type": "float",
             "optional": 1,
+            "digestauto": "-1..1 Sine Oscillator * scale + offset",
             "digest": "Modulation signal offset and scaled."
         },
         {

@@ -27,6 +27,7 @@
             "name": "low",
             "type": "float",
             "optional": 1,
+            "digestauto": "\"g / (1 + g)\"",
             "digest": ""
         },
         {
@@ -34,6 +35,7 @@
             "name": "low",
             "type": "float",
             "optional": 1,
+            "digestauto": "k",
             "digest": ""
         },
         {
@@ -41,6 +43,7 @@
             "name": "high",
             "type": "float",
             "optional": 1,
+            "digestauto": "\"g / (1 + g)\"",
             "digest": ""
         },
         {
@@ -48,6 +51,7 @@
             "name": "high",
             "type": "float",
             "optional": 1,
+            "digestauto": "k",
             "digest": ""
         }
     ],
