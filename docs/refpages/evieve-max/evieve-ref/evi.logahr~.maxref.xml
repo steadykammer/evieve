@@ -52,24 +52,20 @@
         <arg name="int" type="int" optional="1"></arg>
       </arglist>
       <digest>Behaviour depends on inlet</digest>
-      <description>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-In the left inlet, the destination value.In the left middle inlet, attack time in ms.In the right middle inlet, hold time in ms.In the right inlet, decay time in ms.      </description>
+      <description>In the left inlet, the destination value.
+				In the left middle inlet, attack time in ms.
+				In the right middle inlet, hold time in ms.
+				In the right inlet, decay time in ms.</description>
     </method>
     <method name="float">
       <arglist>
         <arg name="float" type="float" optional="1"></arg>
       </arglist>
       <digest>Behaviour depends on inlet</digest>
-      <description>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-In the left inlet, the destination value.In the left middle inlet, attack time in ms.In the right middle inlet, hold time in ms.In the right inlet, decay time in ms.      </description>
+      <description>In the left inlet, the destination value.
+				In the left middle inlet, attack time in ms.
+				In the right middle inlet, hold time in ms.
+				In the right inlet, decay time in ms.</description>
     </method>
     <method name="clear">
       <arglist></arglist>
@@ -79,12 +75,10 @@ In the left inlet, the destination value.In the left middle inlet, attack time i
     <method name="signal">
       <arglist></arglist>
       <digest>Behaviour depends on inlet</digest>
-      <description>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-In the left inlet, the destination value.In the left middle inlet, attack time in ms.In the right middle inlet, hold time in ms.In the right inlet, decay time in ms.      </description>
+      <description>In the left inlet, the destination value.
+				In the left middle inlet, attack time in ms.
+				In the right middle inlet, hold time in ms.
+				In the right inlet, decay time in ms.</description>
     </method>
   </methodlist>
   <attributelist>

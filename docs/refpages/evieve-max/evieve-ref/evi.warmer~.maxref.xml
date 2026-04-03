@@ -159,7 +159,7 @@
 				Time in ms
 			</digest>
 			<description>
-				Smoothing times of internal parameters.
+				Smoothing time of internal parameters.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="30.111" />

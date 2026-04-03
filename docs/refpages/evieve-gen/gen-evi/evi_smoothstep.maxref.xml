@@ -21,17 +21,17 @@
     <geninletlist>
         <geninlet name='x' type='float' optional='1'>
             <digest>
-                @default 0.. 
+                @default 0.. The left edge value. The value of the left edge is the starting value of the fade. The fade transition of the left edge begins when smooth &#x3D; x, or when the left edge (x) is equal to the value of the signal input (smooth).
             </digest>
         </geninlet>
         <geninlet name='y' type='float' optional='1'>
             <digest>
-                @default 1.. 
+                @default 1.. The right edge value. The value of the right edge is the end value of the fade transition. The transition of the right edge ends when smooth &#x3D; y, or when the right edge (y) is equal to the value of the signal input (smooth).
             </digest>
         </geninlet>
         <geninlet name='smooth' type='float' optional='1'>
             <digest>
-                0..1. 
+                0..1. The phase input to be smoothed. When the value of the left edge (x) is less that of (y), a fade transition will start with the left edge value being 1 and fall to the right edge value of 0. When the value of the left edge (x) is greater that the right edge (y), a fade transition will start with the right edge value being 0 and rise to the left edge value of 1
             </digest>
         </geninlet>
     </geninletlist>
@@ -39,8 +39,8 @@
     </attributelist>
     <!-- metadata not part of real genobject ref pages but needed to trick Max -->
     <metadatalist>
-        <metadata name="author">Pete Dowling</metadata>
-        <metadata name="tag">GenDsp</metadata>
+        <metadata name='author'>Pete Dowling</metadata>
+        <metadata name='tag'>GenDsp</metadata>
     </metadatalist>
     <seealsolist>
         <seealso name='evi_logsmooth' display='evi_logsmooth' type='genrefpage' />

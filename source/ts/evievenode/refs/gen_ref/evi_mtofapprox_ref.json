@@ -3,8 +3,8 @@
         "name": "evi_mtofapprox",
         "child": "",
         "category": "evieve",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Convert MIDI Pitch value to Frequency in Hz",
+        "description": "Convert MIDI Pitch value to Frequency in Hz using an efficient approximation of the calculation."
     },
     "constructor": {
         "inlets": "pitch"
@@ -16,7 +16,7 @@
             "name": "pitch",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Pitch (MIDI note) value input."
         }
     ],
     "outlets": [
@@ -25,7 +25,7 @@
             "name": "hz",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Frequency (Hz) value output."
         }
     ],
     "attributes": [
@@ -33,7 +33,7 @@
             "name": "base",
             "type": "float",
             "digest": "@min 415, @max 467",
-            "description": "",
+            "description": "Optional. Sets the 'base frequency' used when calculating frequency values. Default A=440.",
             "default": {
                 "type": "float",
                 "value": "440."
@@ -42,8 +42,16 @@
     ],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_map",
+            "display": "evi_map"
+        },
+        {
+            "name": "evi_tpqm",
+            "display": "evi_tpqm"
+        },
+        {
+            "name": "evi_approx",
+            "display": "evi_approx.genexpr"
         }
     ]
 }

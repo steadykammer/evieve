@@ -26,7 +26,7 @@
     <geninletlist>
         <geninlet name='input' type='float' optional='1'>
             <digest>
-                
+                Audio input to be EQ-ed.
             </digest>
         </geninlet>
     </geninletlist>
@@ -397,8 +397,8 @@
     </attributelist>
     <!-- metadata not part of real genobject ref pages but needed to trick Max -->
     <metadatalist>
-        <metadata name="author">Pete Dowling</metadata>
-        <metadata name="tag">GenDsp</metadata>
+        <metadata name='author'>Pete Dowling</metadata>
+        <metadata name='tag'>GenDsp</metadata>
     </metadatalist>
     <seealsolist>
         <seealso name='evi_eq3' display='evi_eq3' type='genrefpage' />

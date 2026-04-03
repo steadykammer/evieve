@@ -20,7 +20,7 @@
             "id": 1,
             "type": "signal",
             "digest": "Input",
-            "description": ""
+            "description": "Audio input to be EQ-ed."
         }
     ],
     "outlets": [
@@ -28,7 +28,7 @@
             "id": 1,
             "type": "signal",
             "digest": "8 bands EQ Output",
-            "description": ""
+            "description": "EQ-ed audio output."
         }
     ],
     "messages": [],

@@ -4,7 +4,7 @@
         "child": "evi.korgms20.select~",
         "category": "evieve",
         "digest": "Korg OTA dual-amplifier buffered modified Sallen-Key topology nonlinear filter emulation",
-        "description": "The 'KLM' OTA chip was found in the later MS-20s and other Korg synthesisers - it is different to the earlier 'Korg 35' single-amplifier unbuffered Korg chip found in the earlier MS-20s and MS-10 and also in the 'monotron' series. This is a fabricated evieve version able to smoothly switch (with a nice 'plop') between 12dB LP and 6dB HP filter types, realised in transposed TPT form. With 2x option."
+        "description": "The 'KLM' OTA chip was found in the later MS-20s and other Korg synthesisers - it is different to the earlier 'Korg 35' single-amplifier unbuffered Korg chip found in the earlier MS-20s and MS-10 and also in the 'monotron' series. This is a fabricated evieve version able to smoothly switch (with a nice 'plop') between 12dB LP and 6dB HP filter types, realised in transposed TPT form. With 2x oversampling option."
     },
     "constructor": {
         "inlets": "audio, cutoff, resonance"
@@ -21,7 +21,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Input",
-            "digest": ""
+            "digest": "Audio input to be filtered."
         },
         {
             "id": 2,
@@ -29,7 +29,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Frequency in Hz @min 1",
-            "digest": ""
+            "digest": "Filter cutoff frequency in Hz."
         },
         {
             "id": 3,
@@ -37,7 +37,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "0..1 @min 0.01 @max 1 @default 0.88",
-            "digest": ""
+            "digest": "Filter resonance 0..1"
         }
     ],
     "outlets": [
@@ -47,7 +47,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "OTA S&K LP or HP Filter",
-            "digest": ""
+            "digest": "12dB lowpass (default) or 6dB highpass depending on @filter attribute."
         }
     ],
     "attributes": [
@@ -55,7 +55,7 @@
             "name": "filter",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Select filter output type. 0 (default) = 12dB lowpass, 1 = 6dB highpass.",
             "default": {
                 "type": "int",
                 "value": "0"
@@ -65,7 +65,7 @@
             "name": "filtersmooth",
             "type": "float",
             "digest": "@min 0, @max 296",
-            "description": "",
+            "description": "If @filtersmooth is > 0., switching the filter type between 12dB lowpass and 6dB highpass is smoothed for realtime switching. This can result in a nice 'plop'.",
             "default": {
                 "type": "float",
                 "value": "92."
@@ -75,7 +75,7 @@
             "name": "load",
             "type": "float",
             "digest": "@min 0.25, @max 4",
-            "description": "",
+            "description": false,
             "default": {
                 "type": "float",
                 "value": "1.333333333333"
@@ -85,7 +85,7 @@
             "name": "oversample",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "If on (the default) the filter is 2x oversampled. If off (0), the filter runs at samplerate. Oversampling is highly recommended to deal with the nonlinear behaviour of the filter.",
             "default": {
                 "type": "int",
                 "value": "1"
@@ -94,8 +94,16 @@
     ],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_korgms10",
+            "display": "evi_korgms10"
+        },
+        {
+            "name": "evi_korgms20",
+            "display": "evi_korgms20"
+        },
+        {
+            "name": "evi_ladder_moog",
+            "display": "evi_ladder_moog"
         }
     ]
 }

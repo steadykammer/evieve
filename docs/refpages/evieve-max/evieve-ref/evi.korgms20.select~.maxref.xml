@@ -9,7 +9,7 @@
 		<b>evi.korgms20.select~</b> is a 'max define' for the <o>evi_korgms20_select</o>.gendsp gen~ abstraction.
 		Because evi.korgms20.select~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		<br />
-		The 'KLM' OTA chip was found in the later MS-20s and other Korg synthesisers - it is different to the earlier 'Korg 35' single-amplifier unbuffered Korg chip found in the earlier MS-20s and MS-10 and also in the 'monotron' series. This is a fabricated evieve version able to smoothly switch (with a nice 'plop') between 12dB LP and 6dB HP filter types, realised in transposed TPT form. With 2x option. <br />
+		The 'KLM' OTA chip was found in the later MS-20s and other Korg synthesisers - it is different to the earlier 'Korg 35' single-amplifier unbuffered Korg chip found in the earlier MS-20s and MS-10 and also in the 'monotron' series. This is a fabricated evieve version able to smoothly switch (with a nice 'plop') between 12dB LP and 6dB HP filter types, realised in transposed TPT form. With 2x oversampling option. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>
@@ -24,7 +24,7 @@
 				Inlet #1: Audio Input
 			</digest>
 			<description>
-				
+				Audio input to be filtered.
 			</description>
 		</inlet>
 		<inlet id="2" type="signal/float">
@@ -32,7 +32,7 @@
 				Inlet #2: Cutoff Frequency in Hz @min 1
 			</digest>
 			<description>
-				
+				Filter cutoff frequency in Hz.
 			</description>
 		</inlet>
 		<inlet id="3" type="signal/float">
@@ -40,7 +40,7 @@
 				Inlet #3: Resonance 0..1 @min 0.01 @max 1 @default 0.88
 			</digest>
 			<description>
-				
+				Filter resonance 0..1
 			</description>
 		</inlet>
 	</inletlist>
@@ -51,7 +51,7 @@
 				Outlet #1: Korg OTA S&amp;K LP or HP Filter
 			</digest>
 			<description>
-				
+				12dB lowpass (default) or 6dB highpass depending on @filter attribute.
 			</description>
 		</outlet>
 	</outletlist>
@@ -60,6 +60,39 @@
 	</methodlist>
 	<!--ATTRIBUTES-->
 	<attributelist>
+		<attribute name="filter" get="1" set="1" type="int" min="0" max="1">
+			<digest>
+				Flag 0/1
+			</digest>
+			<description>
+				Select filter output type. 0 (default) &#x3D; 12dB lowpass, 1 &#x3D; 6dB highpass.
+			</description>
+			<attributelist>
+				<attribute name="default" get="0" set="0" size="1" value="0" />
+			</attributelist>
+		</attribute>
+		<attribute name="filtersmooth" get="1" set="1" type="float" min="0" max="296">
+			<digest>
+				Time in ms
+			</digest>
+			<description>
+				If @filtersmooth is &gt; 0., switching the filter type between 12dB lowpass and 6dB highpass is smoothed for realtime switching. This can result in a nice &#x27;plop&#x27;.
+			</description>
+			<attributelist>
+				<attribute name="default" get="0" set="0" size="1" value="92." />
+			</attributelist>
+		</attribute>
+		<attribute name="oversample" get="1" set="1" type="int" min="0" max="1">
+			<digest>
+				Flag 0/1
+			</digest>
+			<description>
+				If on (the default) the filter is 2x oversampled. If off (0), the filter runs at samplerate. Oversampling is highly recommended to deal with the nonlinear behaviour of the filter.
+			</description>
+			<attributelist>
+				<attribute name="default" get="0" set="0" size="1" value="1" />
+			</attributelist>
+		</attribute>
 	</attributelist>
 	<!--EXAMPLE-->
 	<examplelist>
@@ -67,6 +100,10 @@
 	</examplelist>
 	<!--SEEALSO-->
 	<seealsolist>
+		<seealso name="evi.korgms10~"> </seealso>
+		<seealso name="evi.korgms20~"> </seealso>
+		<seealso name="evi.dfm~"> </seealso>
+		<seealso name="evi.ladder.moog~"> </seealso>
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>

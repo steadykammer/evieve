@@ -3,8 +3,8 @@
         "name": "evi_ramp0",
         "child": "evi.ramp0~",
         "category": "evieve",
-        "digest": "A bit like MSP <o>ramp~</o>, with options for zero-reset, loop, restingstate, curve and pause",
-        "description": "TEXT_HERE"
+        "digest": "Ramp generator, with options for zero-reset, loop, restingstate, curve and pause",
+        "description": "A bit like MSP <o>ramp~</o>, with options for zero-reset, loop, restingstate, curve and pause. "
     },
     "constructor": {
         "inlets": "trigger"
@@ -19,7 +19,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Ramp",
-            "digest": ""
+            "digest": "Trigger the ramp generator, typically with a sync signal."
         }
     ],
     "outlets": [
@@ -29,7 +29,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "0..1",
-            "digest": ""
+            "digest": "The ramp output 0..1. Speed depends on @duration attribute."
         },
         {
             "id": 2,
@@ -37,7 +37,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Count of Loop",
-            "digest": ""
+            "digest": "If @loop is on (default off) this sample accurately counts (accumulates) the number of loops since last reset, outputting an integer."
         },
         {
             "id": 3,
@@ -45,7 +45,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "at Ramp Start",
-            "digest": ""
+            "digest": "Sample accurate sync signal at every ramp start."
         },
         {
             "id": 4,
@@ -53,7 +53,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "at Ramp End",
-            "digest": ""
+            "digest": "Sample accurate sync signal at every ramp end."
         }
     ],
     "attributes": [
@@ -61,7 +61,7 @@
             "name": "curve",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "If on (1) the ramp output is S-curve shaped. If off (0) the ramp output is linear.",
             "default": {
                 "type": "int",
                 "value": "0"
@@ -71,7 +71,7 @@
             "name": "duration",
             "type": "float",
             "digest": "@min 0, @max 60000",
-            "description": "",
+            "description": "Set the duration of the ramp segment in ms. If @zeroreset is on, this is only updated on ramp zero-reset boundaries.",
             "default": {
                 "type": "float",
                 "value": "1000."
@@ -81,7 +81,7 @@
             "name": "loop",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Loop the ramp generator off/on. If off, the ramp is exclusively oneshot and only triggered by the 1st inlet. If on, the ramp behaves like a phasor.",
             "default": {
                 "type": "int",
                 "value": "0"
@@ -91,7 +91,7 @@
             "name": "pause",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Pause (1) the ramp so that it freezes at the ramp value at the moment of engaging pause. The ramp is frozen until a 'pause 0' message is received. When coming out of pause state, the ramp simply continues from the value at which it was initially paused. Works whether @loop is on or off.",
             "default": {
                 "type": "int",
                 "value": "0"
@@ -101,7 +101,7 @@
             "name": "restingstate",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "At the end of a oneshot ramp (if @loop is off) does the ramp 'rest' at zero (0) or one (1)?",
             "default": {
                 "type": "int",
                 "value": "1"
@@ -111,7 +111,7 @@
             "name": "retrigger",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Allow retriggering of the ramp during an active ramp segment, off/on 0/1",
             "default": {
                 "type": "int",
                 "value": "1"
@@ -121,7 +121,7 @@
             "name": "zeroreset",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "If on (1) the ramp is in zero-reset state, only updating the duration time at zero-reset crossings of the ramp. If off (0, the default) the ramp is free running.",
             "default": {
                 "type": "int",
                 "value": "0"
@@ -130,8 +130,24 @@
     ],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_phasor0",
+            "display": "evi_phasor0"
+        },
+        {
+            "name": "evi_randy",
+            "display": "evi_randy"
+        },
+        {
+            "name": "evi_zeroxcount",
+            "display": "evi_zeroxcount"
+        },
+        {
+            "name": "evi_am",
+            "display": "evi_am"
+        },
+        {
+            "name": "evi_tremolo",
+            "display": "evi_tremolo"
         }
     ]
 }

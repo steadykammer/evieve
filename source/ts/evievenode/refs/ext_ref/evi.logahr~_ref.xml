@@ -102,10 +102,10 @@
 				Behaviour depends on inlet
 			</digest>
 			<description>
-				In the left inlet, the destination value.<br />
-				In the left middle inlet, attack time in ms.<br />
-				In the right middle inlet, hold time in ms.<br />
-				In the right inlet, decay time in ms.<br />
+				In the left inlet, the destination value.
+				In the left middle inlet, attack time in ms.
+				In the right middle inlet, hold time in ms.
+				In the right inlet, decay time in ms.
 			</description>
 		</method>
 		<method name="float">
@@ -116,10 +116,10 @@
 				Behaviour depends on inlet
 			</digest>
 			<description>
-				In the left inlet, the destination value.<br />
-				In the left middle inlet, attack time in ms.<br />
-				In the right middle inlet, hold time in ms.<br />
-				In the right inlet, decay time in ms.<br />
+				In the left inlet, the destination value.
+				In the left middle inlet, attack time in ms.
+				In the right middle inlet, hold time in ms.
+				In the right inlet, decay time in ms.
 			</description>
 		</method>
 		<method name="clear">
@@ -137,10 +137,10 @@
 				Behaviour depends on inlet
 			</digest>
 			<description>
-				In the left inlet, the destination value.<br />
-				In the left middle inlet, attack time in ms.<br />
-				In the right middle inlet, hold time in ms.<br />
-				In the right inlet, decay time in ms.<br />
+				In the left inlet, the destination value.
+				In the left middle inlet, attack time in ms.
+				In the right middle inlet, hold time in ms.
+				In the right inlet, decay time in ms.
 			</description>
 		</method>
 	</methodlist>

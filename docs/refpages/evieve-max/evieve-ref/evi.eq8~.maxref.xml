@@ -24,7 +24,7 @@
 				Inlet #1: Input
 			</digest>
 			<description>
-				
+				Audio input to be EQ-ed.
 			</description>
 		</inlet>
 	</inletlist>
@@ -35,7 +35,7 @@
 				Outlet #1: 8 bands EQ Output
 			</digest>
 			<description>
-				
+				EQ-ed audio output.
 			</description>
 		</outlet>
 	</outletlist>

@@ -18,7 +18,7 @@
             "name": "input",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Audio input to be EQ-ed."
         }
     ],
     "outlets": [
@@ -28,7 +28,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "bands EQ Output",
-            "digest": ""
+            "digest": "EQ-ed audio output."
         }
     ],
     "attributes": [

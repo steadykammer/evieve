@@ -3,8 +3,8 @@
         "name": "evi_tpqm",
         "child": "",
         "category": "evieve",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Three point quadratic map",
+        "description": "A utility abstraction that allows for value scaling from a linear input map to a linear output map. Map three input points to three output points and linearly scale between them. Designed really for <o>gen</o> (no tilde) as this is expensive in <o>gen~</o>. See also the equally stupid Max abstraction <o>evi.tpqm</o>."
     },
     "constructor": {
         "inlets": "in, inlow, inmid, inhigh, outlow, outmid, outhigh"
@@ -17,7 +17,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Map",
-            "digest": ""
+            "digest": "Input to map."
         },
         {
             "id": 2,
@@ -25,7 +25,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "@default 0.",
-            "digest": ""
+            "digest": "If @useparams is off: Low input value."
         },
         {
             "id": 3,
@@ -33,7 +33,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "@default 0.5",
-            "digest": ""
+            "digest": "If @useparams is off: Mid point input value."
         },
         {
             "id": 4,
@@ -41,7 +41,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "@default 1.",
-            "digest": ""
+            "digest": "If @useparams is off: High input value."
         },
         {
             "id": 5,
@@ -49,7 +49,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "@default 0.",
-            "digest": ""
+            "digest": "If @useparams is off: Low output value."
         },
         {
             "id": 6,
@@ -57,7 +57,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "@default 0.5",
-            "digest": ""
+            "digest": "If @useparams is off: Mid point output value."
         },
         {
             "id": 7,
@@ -65,7 +65,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "@default 1.",
-            "digest": ""
+            "digest": "If @useparams is off: High output value."
         }
     ],
     "outlets": [
@@ -75,15 +75,15 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Map",
-            "digest": ""
+            "digest": "The output value mapped via the three point quadratic map."
         }
     ],
     "attributes": [
         {
             "name": "inhigh",
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "If @useparams is on",
+            "description": "High input value.",
             "default": {
                 "type": "float",
                 "value": "1."
@@ -92,8 +92,8 @@
         {
             "name": "inlow",
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "If @useparams is on",
+            "description": "Low input value.",
             "default": {
                 "type": "float",
                 "value": "0."
@@ -102,8 +102,8 @@
         {
             "name": "inmid",
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "If @useparams is on",
+            "description": "Mid point input value.",
             "default": {
                 "type": "float",
                 "value": "0.5"
@@ -112,8 +112,8 @@
         {
             "name": "outhigh",
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "If @useparams is on",
+            "description": "High output value.",
             "default": {
                 "type": "float",
                 "value": "1."
@@ -122,8 +122,8 @@
         {
             "name": "outlow",
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "If @useparams is on",
+            "description": "Low output value.",
             "default": {
                 "type": "float",
                 "value": "0."
@@ -132,8 +132,8 @@
         {
             "name": "outmid",
             "type": "float",
-            "digest": "",
-            "description": "",
+            "digest": "If @useparams is on",
+            "description": "Mid point output value.",
             "default": {
                 "type": "float",
                 "value": "0.5"
@@ -142,8 +142,8 @@
         {
             "name": "useparams",
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Flag 0/1",
+            "description": "In GenExpr we will want to use this with inlets, but in gen or gen~ patching that would be a nightmare, so we have the slightly less nightmare option of using params. If @useparams is on (1), all ranges are set with their respective parameter values. If @useparams is off (0, the default), all ranges are set via their respective inlets.",
             "default": {
                 "type": "float",
                 "value": "0",
@@ -154,8 +154,12 @@
     ],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_map",
+            "display": "evi_map"
+        },
+        {
+            "name": "evi_utilities",
+            "display": "evi_utilities.genexpr"
         }
     ]
 }

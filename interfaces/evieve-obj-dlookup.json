@@ -327,11 +327,11 @@
     "evi.korgms20.select~": {
         "type": "define",
         "digest": "Korg OTA dual-amplifier buffered modified Sallen-Key topology nonlinear filter emulation",
-        "description": "evi.korgms20.select~ is a 'max define' for the evi_korgms20_select.gendsp gen~ abstraction. Because evi.korgms20.select~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nThe 'KLM' OTA chip was found in the later MS-20s and other Korg synthesisers - it is different to the earlier 'Korg 35' single-amplifier unbuffered Korg chip found in the earlier MS-20s and MS-10 and also in the 'monotron' series. This is a fabricated evieve version able to smoothly switch (with a nice 'plop') between 12dB LP and 6dB HP filter types, realised in transposed TPT form. With 2x option."
+        "description": "evi.korgms20.select~ is a 'max define' for the evi_korgms20_select.gendsp gen~ abstraction. Because evi.korgms20.select~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nThe 'KLM' OTA chip was found in the later MS-20s and other Korg synthesisers - it is different to the earlier 'Korg 35' single-amplifier unbuffered Korg chip found in the earlier MS-20s and MS-10 and also in the 'monotron' series. This is a fabricated evieve version able to smoothly switch (with a nice 'plop') between 12dB LP and 6dB HP filter types, realised in transposed TPT form. With 2x oversampling option."
     },
     "evi.korgms20~": {
         "type": "define",
-        "digest": "Korg OTA dual-amplifier modified Sallen-Key topology nonlinear filter emulation",
+        "digest": "Korg OTA dual-amplifier modified Sallen-Key topology nonlinear filter emulation with simultaneous outputs",
         "description": "evi.korgms20~ is a 'max define' for the evi_korgms20.gendsp gen~ abstraction. Because evi.korgms20~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nThe 'KLM' OTA chip was found in the later MS-20s and other Korg synthesisers - it is different to the earlier 'Korg 35' single-amplifier unbuffered Korg chip found in the earlier MS-20s and MS-10 and also in the 'monotron' series. This Korg filter sits inbetween the more broken evi.korgms10~ and the more stable evi.korgms20.select~. It is aggressive but predictable."
     },
     "evi.ladder.diode~": {
@@ -487,7 +487,7 @@
     "evi.phasor0~": {
         "type": "define",
         "digest": "Zero-reset phasor with settings for reverse and pause",
-        "description": ""
+        "description": "evi.phasor0~ is a 'max define' for the evi_phasor0.gendsp gen~ abstraction. Because evi.phasor0~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nZero-reset phasor like MSP [ phasor~ @syncupdate 1] with additional options for reverse and pause. Phase can also be set sample accurately and the phase can also be 'jumped' to with a message."
     },
     "evi.plateverb~": {
         "type": "abstraction",
@@ -506,8 +506,8 @@
     },
     "evi.ramp0~": {
         "type": "define",
-        "digest": "A bit like MSP ramp~, with options for zero-reset, loop, restingstate, curve and pause",
-        "description": ""
+        "digest": "Ramp generator, with options for zero-reset, loop, restingstate, curve and pause",
+        "description": "evi.ramp0~ is a 'max define' for the evi_ramp0.gendsp gen~ abstraction. Because evi.ramp0~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA bit like MSP ramp~, with options for zero-reset, loop, restingstate, curve and pause."
     },
     "evi.randy~": {
         "type": "define",

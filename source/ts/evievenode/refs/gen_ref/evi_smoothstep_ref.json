@@ -17,7 +17,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "@default 0.",
-            "digest": ""
+            "digest": "The left edge value. The value of the left edge is the starting value of the fade. The fade transition of the left edge begins when smooth = x, or when the left edge (x) is equal to the value of the signal input (smooth)."
         },
         {
             "id": 2,
@@ -25,7 +25,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "@default 1.",
-            "digest": ""
+            "digest": "The right edge value. The value of the right edge is the end value of the fade transition. The transition of the right edge ends when smooth = y, or when the right edge (y) is equal to the value of the signal input (smooth)."
         },
         {
             "id": 3,
@@ -33,7 +33,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "0..1",
-            "digest": ""
+            "digest": "The phase input to be smoothed. When the value of the left edge (x) is less that of (y), a fade transition will start with the left edge value being 1 and fall to the right edge value of 0. When the value of the left edge (x) is greater that the right edge (y), a fade transition will start with the right edge value being 0 and rise to the left edge value of 1"
         }
     ],
     "outlets": [
@@ -43,7 +43,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Step",
-            "digest": ""
+            "digest": "Smoothed output step."
         }
     ],
     "attributes": [],

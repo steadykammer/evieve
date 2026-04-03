@@ -3,8 +3,8 @@
         "name": "evi_warmer",
         "child": "",
         "category": "evieve",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Complex saturation processor with options",
+        "description": "Based on an idea by Tom Szilagyi. Contains two asymmetric saturation stages with a foldover boosting function and tone control filter. The effect can be blended between atan and asymmetric like behaviour, and the tonal characteristics can be continuously morphed. Some of the attributes are slightly differently named as opposed to the MSP <o>evi.warmer~</o> wrapper version."
     },
     "constructor": {
         "inlets": "boring"
@@ -19,7 +19,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Input",
-            "digest": ""
+            "digest": "Input to be saturated."
         }
     ],
     "outlets": [
@@ -29,55 +29,15 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Output",
-            "digest": ""
+            "digest": "Output of the saturation chain."
         }
     ],
     "attributes": [
         {
-            "name": "bassboost",
-            "type": "int",
-            "digest": "@min 0, @max 1",
-            "description": "",
-            "default": {
-                "type": "int",
-                "value": "0"
-            }
-        },
-        {
-            "name": "bassgain",
-            "type": "float",
-            "digest": "@min -12, @max 12",
-            "description": "",
-            "default": {
-                "type": "float",
-                "value": "-1."
-            }
-        },
-        {
-            "name": "bassmix",
-            "type": "float",
-            "digest": "@min 0, @max 1",
-            "description": "",
-            "default": {
-                "type": "float",
-                "value": "0.333333"
-            }
-        },
-        {
-            "name": "bassslope",
-            "type": "float",
-            "digest": "@min 0, @max 1",
-            "description": "",
-            "default": {
-                "type": "float",
-                "value": "0.23228"
-            }
-        },
-        {
             "name": "blend",
             "type": "float",
             "digest": "@min -10, @max 10",
-            "description": "",
+            "description": "One of the key parameters (along with 'drive') that shape the tonal quality of the object. @blend will only have an impact if @drive is > 0. Blends the colour of the waveshaping distortion function. Positive blend is a more asymmetric sound than the cleaner negative blend.",
             "default": {
                 "type": "float",
                 "value": "-2."
@@ -87,7 +47,7 @@
             "name": "cutoff",
             "type": "symbol",
             "digest": "@min samplerate*0.00125, @max samplerate*0.25",
-            "description": "",
+            "description": "The cutoff frequency of the tone filter. The tone filter is a variable order (set by the @order attribute) butterworth lowpass and can be used to make severe tonal cuts in the audio output or subtle attenuation of the high frequency content.",
             "default": {
                 "type": "symbol",
                 "value": "samplerate*0.125"
@@ -97,7 +57,7 @@
             "name": "drive",
             "type": "float",
             "digest": "@min 0, @max 10",
-            "description": "",
+            "description": "One of the key parameters (along with 'blend') that shape the tonal quality of the object. In general, drive will increase the gain and increase the harmonics in the output, but this depends on the @blend attribute. Lower drive values will make the sound darker, higher values will make it brighter.",
             "default": {
                 "type": "float",
                 "value": "2."
@@ -107,7 +67,7 @@
             "name": "foldboost",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "'0' sets soft clipping internally, '1' sets hard (folding) clipping internally.",
             "default": {
                 "type": "int",
                 "value": "0"
@@ -117,7 +77,7 @@
             "name": "foldgain",
             "type": "float",
             "digest": "@min -12, @max 12",
-            "description": "",
+            "description": "Only active if @foldboost attribute is on. Boost effect into the folding distortion circuit, set by the @foldboost attribute. Very high values are increasingly aggressive, lower values give a softer sound. With very high values the entire output can alias, depending on the material fed into the circuit, so be careful!",
             "default": {
                 "type": "float",
                 "value": "-1."
@@ -127,7 +87,7 @@
             "name": "foldmix",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Only active if @foldboost attribute is on. Mix duty cycle like effect of the foldover clipping circuit. Higher values are harsher.",
             "default": {
                 "type": "float",
                 "value": "0.333333"
@@ -137,27 +97,17 @@
             "name": "foldslope",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Only active if @foldboost attribute is on and @foldmix is > 0. The slope of the @foldmix attribute, the higher (smoother) the value the softer the folding portion of the waveform.",
             "default": {
                 "type": "float",
                 "value": "0.23228"
             }
         },
         {
-            "name": "highpass",
-            "type": "float",
-            "digest": "@min 10, @max 400",
-            "description": "",
-            "default": {
-                "type": "float",
-                "value": "100."
-            }
-        },
-        {
             "name": "ingain",
             "type": "float",
             "digest": "@min -24, @max 24",
-            "description": "",
+            "description": "The @ingain attribute sets the audio input gain to the saturation processes beween -24 and +24 dB.",
             "default": {
                 "type": "float",
                 "value": "1."
@@ -167,7 +117,7 @@
             "name": "order",
             "type": "int",
             "digest": "@min 0, @max 8",
-            "description": "",
+            "description": "The order of the butterworth tone shaping filter. Higher orders produce a steeper slope/cut. The cutoff frequency is set by the @cutoff attribute.",
             "default": {
                 "type": "int",
                 "value": "3"
@@ -177,7 +127,7 @@
             "name": "outgain",
             "type": "float",
             "digest": "@min -24, @max 24",
-            "description": "",
+            "description": "The @outgain attribute sets the audio output gain of the whole saturation chain beween -24 and +24 dB.",
             "default": {
                 "type": "float",
                 "value": "-1."
@@ -187,7 +137,7 @@
             "name": "smooth",
             "type": "float",
             "digest": "@min 0, @max 301.11",
-            "description": "",
+            "description": "Smoothing time of internal parameters.",
             "default": {
                 "type": "float",
                 "value": "30.111"
@@ -196,8 +146,28 @@
     ],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_clipasym",
+            "display": "evi_clipasym"
+        },
+        {
+            "name": "evi_sinfold",
+            "display": "evi_sinfold"
+        },
+        {
+            "name": "evi_shaper",
+            "display": "evi_shaper"
+        },
+        {
+            "name": "evi_overdrive_tanh",
+            "display": "evi_overdrive_tanh"
+        },
+        {
+            "name": "evi_overdrive_atan",
+            "display": "evi_overdrive_atan"
+        },
+        {
+            "name": "evi_overdrive_sqrt",
+            "display": "evi_overdrive_sqrt"
         }
     ]
 }

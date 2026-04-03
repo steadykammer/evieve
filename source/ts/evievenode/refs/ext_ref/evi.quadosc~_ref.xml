@@ -131,8 +131,8 @@
 				Behaviour depends on inlet
 			</digest>
 			<description>
-				In left inlet, the frequency of the oscillators in Hz<br />
-				In right inlet, sample accurate reset of the ocillators phase<br />
+				In left inlet, the frequency of the oscillators in Hz.
+				In right inlet, sample accurate reset of the ocillators phase.
 			</description>
 		</method>
 	</methodlist>

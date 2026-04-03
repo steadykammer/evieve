@@ -20,7 +20,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Input",
-            "digest": ""
+            "digest": "Audio input to be filtered."
         },
         {
             "id": 2,
@@ -28,7 +28,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Frequency in Hz",
-            "digest": ""
+            "digest": "Filter cutoff frequency in Hz."
         },
         {
             "id": 3,
@@ -36,7 +36,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "0..1 @default 0.72",
-            "digest": ""
+            "digest": "Filter resonance 0..1. As in the original analog circuit, lowpass output level is resonance dependent!"
         }
     ],
     "outlets": [
@@ -46,7 +46,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "35 12dB Lowpass",
-            "digest": ""
+            "digest": "Main 12dB lowpass output. As in the original analog circuit, lowpass output level is resonance dependent!"
         },
         {
             "id": 2,
@@ -54,7 +54,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "35 6dB Highpass",
-            "digest": ""
+            "digest": "Main 6dB highpass output."
         },
         {
             "id": 3,
@@ -62,7 +62,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "12dB Highpass",
-            "digest": ""
+            "digest": "Quirky 12dB highpass output derived from Sallen Key states."
         },
         {
             "id": 4,
@@ -70,7 +70,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "12dB Bandpass",
-            "digest": ""
+            "digest": "Quirky 12dB bandpass output derived from Sallen Key states."
         }
     ],
     "attributes": [
@@ -78,7 +78,7 @@
             "name": "load",
             "type": "float",
             "digest": "@min 0.25, @max 4",
-            "description": "",
+            "description": false,
             "default": {
                 "type": "float",
                 "value": "1.333333333333"
@@ -88,7 +88,7 @@
             "name": "noiselevel",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Amplitude level of gaussian noise recirculation in filter, 0..1 remapped 0.. 10% of gaussian level. Adding noise is not required for self oscillation, but for sound design.",
             "default": {
                 "type": "float",
                 "value": "0.05"
@@ -97,8 +97,16 @@
     ],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_korgms20",
+            "display": "evi_korgms20"
+        },
+        {
+            "name": "evi_korgms20_select",
+            "display": "evi_korgms20_select"
+        },
+        {
+            "name": "evi_ladder_transistor",
+            "display": "evi_ladder_transistor"
         }
     ]
 }

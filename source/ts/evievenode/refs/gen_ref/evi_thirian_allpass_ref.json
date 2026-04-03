@@ -3,8 +3,8 @@
         "name": "evi_thirian_allpass",
         "child": "",
         "category": "evieve",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Thirian allpass filter",
+        "description": "Direct form thirian allpass filter for use in e.g. fractional delay processing."
     },
     "constructor": {
         "inlets": "input, delay"
@@ -16,7 +16,7 @@
             "name": "input",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Audio input to be filtered."
         },
         {
             "id": 2,
@@ -24,7 +24,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Time in samples 1.5..2.5",
-            "digest": ""
+            "digest": "In the range of one sample, between 1.5 and 2.5 samples, the delay time of the allpass filter."
         }
     ],
     "outlets": [
@@ -34,14 +34,18 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Delay Allpass",
-            "digest": ""
+            "digest": "Allpass filter output."
         }
     ],
     "attributes": [],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_onepole",
+            "display": "evi_onepole"
+        },
+        {
+            "name": "evi_filter_allpass",
+            "display": "evi_filter_allpass"
         }
     ]
 }

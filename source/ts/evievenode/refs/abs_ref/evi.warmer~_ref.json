@@ -144,7 +144,7 @@
             "get": 0,
             "type": "float",
             "digest": "Time in ms",
-            "description": "Smoothing times of internal parameters.",
+            "description": "Smoothing time of internal parameters.",
             "default": {
                 "get": 0,
                 "value": "30.111"

@@ -3,8 +3,8 @@
         "name": "evi_damp_coeffs",
         "child": "",
         "category": "evieve",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Coefficients calculator for onepole damping filters",
+        "description": "Coefficients calculator intended for Max schedular rate (in <o>gen</o> no tilde) for two evieve onepole damping/shelving filters. Used in many of the evieve reverb abstractions."
     },
     "constructor": {
         "inlets": ""
@@ -18,7 +18,7 @@
             "name": "",
             "type": "dummy",
             "optional": 1,
-            "digest": ""
+            "digest": "Dummy inlet to feed @param values in. Does nothing else."
         }
     ],
     "outlets": [
@@ -28,7 +28,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "\"g / (1 + g)\"",
-            "digest": ""
+            "digest": "Normalised frequency coefficient for Low filter."
         },
         {
             "id": 2,
@@ -36,7 +36,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "k",
-            "digest": ""
+            "digest": "Gain coefficient for Low filter."
         },
         {
             "id": 3,
@@ -44,7 +44,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "\"g / (1 + g)\"",
-            "digest": ""
+            "digest": "Normalised frequency coefficient for High filter."
         },
         {
             "id": 4,
@@ -52,7 +52,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "k",
-            "digest": ""
+            "digest": "Gain coefficient for High filter."
         }
     ],
     "attributes": [
@@ -60,7 +60,7 @@
             "name": "HOST_SR",
             "type": "int",
             "digest": "",
-            "description": "",
+            "description": "The real audio samplerate (not the samplerate of a gen no tilde object) must be passed in here for the coefficients calculations to work correctly.",
             "default": {
                 "type": "int",
                 "value": "48000 "
@@ -70,7 +70,7 @@
             "name": "cutoffhigh",
             "type": "float",
             "digest": "@min 500, @max 15000",
-            "description": "",
+            "description": "High filter cutoff frequency in Hz.",
             "default": {
                 "type": "float",
                 "value": "2000."
@@ -80,7 +80,7 @@
             "name": "cutofflow",
             "type": "float",
             "digest": "@min 62.5, @max 4000",
-            "description": "",
+            "description": "Low filter cutoff frequency in Hz.",
             "default": {
                 "type": "float",
                 "value": "500."
@@ -90,7 +90,7 @@
             "name": "damphigh",
             "type": "float",
             "digest": "@min -1, @max 1",
-            "description": "",
+            "description": "High filter damping/shelving amount -1..1. Operation depends on @mode attribute.",
             "default": {
                 "type": "float",
                 "value": "0."
@@ -100,7 +100,7 @@
             "name": "damplow",
             "type": "float",
             "digest": "@min -1, @max 1",
-            "description": "",
+            "description": "Low filter damping/shelving amount -1..1. Operation depends on @mode attribute.",
             "default": {
                 "type": "float",
                 "value": "0."
@@ -110,7 +110,7 @@
             "name": "mode",
             "type": "int",
             "digest": "@min 0, @max 2",
-            "description": "",
+            "description": "Mode of the coefficients calculations, affects damping/shelving and behaviour of @damplow and @damphigh attributes. If mode == 0: @damp attributes operate 0..1 only, with 0.==bypass, 1.==low or high passes (maximum damping), 0..1==shelving. If mode == 1: @damp attributes operate full range -1..1, with negative values shelf attenuate, positive values shelf boost, 0.==bypass. If mode == 2: @damp attributes operate full range -1..1, with -1.==low or high passes, negative values shelf attenuate, positive values shelf boost, 0.==bypass.",
             "default": {
                 "type": "int",
                 "value": "0"
@@ -119,8 +119,24 @@
     ],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_svf_eq_coeffs",
+            "display": "evi_svf_eq_coeffs"
+        },
+        {
+            "name": "evi_damp",
+            "display": "evi_damp"
+        },
+        {
+            "name": "evi_damp_macro",
+            "display": "evi_damp_macro"
+        },
+        {
+            "name": "evi_onepole",
+            "display": "evi_onepole"
+        },
+        {
+            "name": "evi_rcfilters",
+            "display": "evi_rcfilters.genexpr"
         }
     ]
 }

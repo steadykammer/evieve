@@ -309,94 +309,6 @@
                 <attribute name='default' type='float' value='125.' />
             </attributelist>
         </attribute>
-        <attribute name='mod1' type='float' get='0' set='1'>
-            <digest>
-                @min 0, @max 1
-            </digest>
-            <description>
-                false
-            </description>
-            <attributelist>
-                <attribute name='default' type='float' value='		0.666' />
-            </attributelist>
-        </attribute>
-        <attribute name='mod2' type='float' get='0' set='1'>
-            <digest>
-                @min 0, @max 1
-            </digest>
-            <description>
-                false
-            </description>
-            <attributelist>
-                <attribute name='default' type='float' value='		0.625' />
-            </attributelist>
-        </attribute>
-        <attribute name='mod3' type='float' get='0' set='1'>
-            <digest>
-                @min 0, @max 1
-            </digest>
-            <description>
-                false
-            </description>
-            <attributelist>
-                <attribute name='default' type='float' value='		0.555' />
-            </attributelist>
-        </attribute>
-        <attribute name='mod4' type='float' get='0' set='1'>
-            <digest>
-                @min 0, @max 1
-            </digest>
-            <description>
-                false
-            </description>
-            <attributelist>
-                <attribute name='default' type='float' value='		0.476' />
-            </attributelist>
-        </attribute>
-        <attribute name='mod5' type='float' get='0' set='1'>
-            <digest>
-                @min 0, @max 1
-            </digest>
-            <description>
-                false
-            </description>
-            <attributelist>
-                <attribute name='default' type='float' value='		0.435' />
-            </attributelist>
-        </attribute>
-        <attribute name='mod6' type='float' get='0' set='1'>
-            <digest>
-                @min 0, @max 1
-            </digest>
-            <description>
-                false
-            </description>
-            <attributelist>
-                <attribute name='default' type='float' value='		0.303' />
-            </attributelist>
-        </attribute>
-        <attribute name='mod7' type='float' get='0' set='1'>
-            <digest>
-                @min 0, @max 1
-            </digest>
-            <description>
-                false
-            </description>
-            <attributelist>
-                <attribute name='default' type='float' value='		0.181' />
-            </attributelist>
-        </attribute>
-        <attribute name='mod8' type='float' get='0' set='1'>
-            <digest>
-                @min 0, @max 1
-            </digest>
-            <description>
-                false
-            </description>
-            <attributelist>
-                <attribute name='default' type='float' value='		0.122' />
-            </attributelist>
-        </attribute>
         <attribute name='modulationdepth' type='float' get='0' set='1'>
             <digest>
                 @min -16, @max 16
@@ -461,17 +373,6 @@
             </description>
             <attributelist>
                 <attribute name='default' type='int' value='1' />
-            </attributelist>
-        </attribute>
-        <attribute name='outputnonlineargains' type='int' get='0' set='1'>
-            <digest>
-                @min 0, @max 1
-            </digest>
-            <description>
-                false
-            </description>
-            <attributelist>
-                <attribute name='default' type='int' value='0' />
             </attributelist>
         </attribute>
         <attribute name='sum1' type='int' get='0' set='1'>
@@ -565,8 +466,8 @@
     </attributelist>
     <!-- metadata not part of real genobject ref pages but needed to trick Max -->
     <metadatalist>
-        <metadata name="author">Pete Dowling</metadata>
-        <metadata name="tag">GenDsp</metadata>
+        <metadata name='author'>Pete Dowling</metadata>
+        <metadata name='tag'>GenDsp</metadata>
     </metadatalist>
     <seealsolist>
         <seealso name='evi_algoverb' display='evi_algoverb' type='genrefpage' />

@@ -1,0 +1,233 @@
+{
+    "object": {
+        "name": "evi_svf_eq_coeffs",
+        "child": "",
+        "category": "evieve",
+        "digest": "Coefficients calculator for twopole shelving filters",
+        "description": "Coefficients calculator intended for Max schedular rate (in <o>gen</o> no tilde) for two evieve twopole SVF LTO filters. Used in many of the evieve reverb abstractions."
+    },
+    "constructor": {
+        "inlets": ""
+    },
+    "includes": [
+        "evi_svfs_lto"
+    ],
+    "inlets": [
+        {
+            "id": 1,
+            "name": "",
+            "type": "dummy",
+            "optional": 1,
+            "digestauto": "",
+            "digest": "Dummy inlet to feed @param values in. Does nothing else."
+        }
+    ],
+    "outlets": [
+        {
+            "id": 1,
+            "name": "a1_1",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "",
+            "digest": "a1 coefficient for 1st SVF LTO filter section."
+        },
+        {
+            "id": 2,
+            "name": "a2_1",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "",
+            "digest": "a2 coefficient for 1st SVF LTO filter section."
+        },
+        {
+            "id": 3,
+            "name": "a3_1",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "",
+            "digest": "a3 coefficient for 1st SVF LTO filter section."
+        },
+        {
+            "id": 4,
+            "name": "m0_1",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "",
+            "digest": "m0 mixing gain for 1st SVF LTO filter section."
+        },
+        {
+            "id": 5,
+            "name": "m1_1",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "",
+            "digest": "m1 mixing gain for 1st SVF LTO filter section."
+        },
+        {
+            "id": 6,
+            "name": "m2_1",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "",
+            "digest": "m2 mixing gain for 1st SVF LTO filter section."
+        },
+        {
+            "id": 7,
+            "name": "a1_2",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "",
+            "digest": "a1 coefficient for 2nd SVF LTO filter section."
+        },
+        {
+            "id": 8,
+            "name": "a2_2",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "",
+            "digest": "a2 coefficient for 2nd SVF LTO filter section."
+        },
+        {
+            "id": 9,
+            "name": "a3_2",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "",
+            "digest": "a3 coefficient for 2nd SVF LTO filter section."
+        },
+        {
+            "id": 10,
+            "name": "m0_2",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "",
+            "digest": "m0 mixing gain for 2nd SVF LTO filter section."
+        },
+        {
+            "id": 11,
+            "name": "m1_2",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "",
+            "digest": "m2 mixing gain for 2nd SVF LTO filter section."
+        },
+        {
+            "id": 12,
+            "name": "m2_2",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "",
+            "digest": "m2 mixing gain for 2nd SVF LTO filter section."
+        }
+    ],
+    "attributes": [
+        {
+            "name": "HOST_SR",
+            "type": "int",
+            "digest": "",
+            "description": "The real audio samplerate (not the samplerate of a gen no tilde object) must be passed in here for the coefficients calculations to work correctly.",
+            "default": {
+                "type": "int",
+                "value": "48000             "
+            }
+        },
+        {
+            "name": "cutoff1",
+            "type": "float",
+            "digest": "@min 10, @max 18000",
+            "description": "Cutoff frequency in Hz for 1st SVF LTO filter section.",
+            "default": {
+                "type": "float",
+                "value": "250."
+            }
+        },
+        {
+            "name": "cutoff2",
+            "type": "float",
+            "digest": "@min 30, @max 20000",
+            "description": "Cutoff frequency in Hz for 2nd SVF LTO filter section.",
+            "default": {
+                "type": "float",
+                "value": "2000."
+            }
+        },
+        {
+            "name": "filter1",
+            "type": "int",
+            "digest": "@min 0, @max 3",
+            "description": "Select filter type for 1st SVF LTO filter section. 0=bypass, 1=bell, 2=lowshelf (default), 3=highshelf.",
+            "default": {
+                "type": "int",
+                "value": "2"
+            }
+        },
+        {
+            "name": "filter2",
+            "type": "int",
+            "digest": "@min 0, @max 3",
+            "description": "Select filter type for 2nd SVF LTO filter section. 0=bypass, 1=bell, 2=lowshelf, 3=highshelf (default).",
+            "default": {
+                "type": "int",
+                "value": "3"
+            }
+        },
+        {
+            "name": "gain1",
+            "type": "float",
+            "digest": "@min -15, @max 15",
+            "description": "Gain in dB for 1st SVF LTO filter section.",
+            "default": {
+                "type": "float",
+                "value": "0."
+            }
+        },
+        {
+            "name": "gain2",
+            "type": "float",
+            "digest": "@min -15, @max 15",
+            "description": "Gain in dB for 2nd SVF LTO filter section.",
+            "default": {
+                "type": "float",
+                "value": "0."
+            }
+        },
+        {
+            "name": "resonance1",
+            "type": "float",
+            "digest": "@min 0.05, @max 20",
+            "description": "Resonance (Q) for 1st SVF LTO filter section.",
+            "default": {
+                "type": "float",
+                "value": "0.5"
+            }
+        },
+        {
+            "name": "resonance2",
+            "type": "float",
+            "digest": "@min 0.05, @max 20",
+            "description": "Resonance (Q) for 2nd SVF LTO filter section.",
+            "default": {
+                "type": "float",
+                "value": "0.5"
+            }
+        }
+    ],
+    "seealso": [
+        {
+            "name": "evi_damp_coeffs",
+            "display": "evi_damp_coeffs"
+        },
+        {
+            "name": "evi_filter_shelving",
+            "display": "evi_filter_shelving"
+        },
+        {
+            "name": "evi_filter_eq",
+            "display": "evi_filter_eq"
+        },
+        {
+            "name": "evi_svfs_lto",
+            "display": "evi_svfs_lto.genexpr"
+        }
+    ]
+}

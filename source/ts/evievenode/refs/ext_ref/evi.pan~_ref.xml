@@ -94,11 +94,11 @@
 				Behaviour depends on inlet
 			</digest>
 			<description>
-				If 'mode' == 0 (the default):<br />
-					In right inlet, the Pan value 0..1<br />
-				If 'mode' == 1:<br />
-					In middle right inlet, the left Pan value 0..1<br />
-					In right inlet, the right Pan value 0..1<br />
+				If 'mode' == 0 (the default):
+					In right inlet, the Pan value 0..1.
+				If 'mode' == 1:
+					In middle right inlet, the left Pan value 0..1.
+					In right inlet, the right Pan value 0..1.
 			</description>
 		</method>
 		<method name="signal">
@@ -107,14 +107,14 @@
 				Behaviour depends on inlet
 			</digest>
 			<description>
-				If 'mode' == 0 (the default):<br />
-					In left inlet, the audio signal to be Panned<br />
-					In right inlet, the Pan value 0..1<br />
-				If 'mode' == 1:<br />
-					In left inlet, the left audio signal to be Panned<br />
-					In middle left, the right audio signal to be Panned<br />
-					In middle right inlet, the left Pan value 0..1<br />
-					In right inlet, the right Pan value 0..1<br />
+				If 'mode' == 0 (the default):
+					In left inlet, the audio signal to be Panned.
+					In right inlet, the Pan value 0..1.
+				If 'mode' == 1:
+					In left inlet, the left audio signal to be Panned.
+					In middle left, the right audio signal to be Panned.
+					In middle right inlet, the left Pan value 0..1.
+					In right inlet, the right Pan value 0..1.
 			</description>
 		</method>
 	</methodlist>

@@ -10,7 +10,7 @@
                  <br />
         evi_phasor0 is also available in MSP as: <o>evi.phasor0~</o>. <br />
          <br />
-	    TEXT_HERE <br />
+	    Zero-reset phasor like MSP [<o>phasor~</o> @syncupdate 1] with additional options for reverse and pause. Phase can also be set sample accurately and the phase can also be 'jumped' to with a message. <br />
     </description>
     <methodlist />
     <constructorlist>
@@ -23,12 +23,12 @@
     <geninletlist>
         <geninlet name='frequency' type='float' optional='1'>
             <digest>
-                in Hz. 
+                in Hz. Phasor ramp runs at this frequency in Hz. If @mode is on (the default) updates in Hz are synchronised to the zero reset of the phasor ramp.
             </digest>
         </geninlet>
         <geninlet name='reset' type='float' optional='1'>
             <digest>
-                
+                Force reset of phase sample accurately regardless of the @mode setting.
             </digest>
         </geninlet>
     </geninletlist>
@@ -38,7 +38,7 @@
                 
             </digest>
             <description>
-                
+                The minimum Hz allowed for the running frequency of the phasor. This is important if @mode is on (the default) as otherwise the phasor could get stuck at 0 or a very slow low rate.
             </description>
             <attributelist>
                 <attribute name='default' type='float' value='0.125' />
@@ -49,7 +49,7 @@
                 
             </digest>
             <description>
-                
+                If on (1, the default) the phasor is in zero-reset state, only updating the input frequency at zero-reset crossings of the phasor ramp. If off (0) the phasor is free running.
             </description>
             <attributelist>
                 <attribute name='default' type='float' value='1' />
@@ -60,7 +60,7 @@
                 
             </digest>
             <description>
-                
+                Pause (1) the phasor ramp so that it freezes at the ramp value at the moment of engaging pause. The ramp is frozen until a &#x27;pause 0&#x27; message is received. When coming out of pause state, the ramp simply continues from the value at which it was initially paused.
             </description>
             <attributelist>
                 <attribute name='default' type='float' value='0' />
@@ -71,7 +71,7 @@
                 
             </digest>
             <description>
-                
+                Set the value of the normalised phase of the phasor. This will be sampled at zero-reset phase of the phasor only. This means that @phase changes will update on next ramp sync.
             </description>
             <attributelist>
                 <attribute name='default' type='float' value='0.' />
@@ -82,7 +82,7 @@
                 
             </digest>
             <description>
-                
+                If on (1, the default) both positive and negative Hz input values are allowed and the phasor ramp can run forwards and backwards respectively. If off (0) only positive ramps are allowed and Hz input values are always computed as positive regardless of input polarity.
             </description>
             <attributelist>
                 <attribute name='default' type='float' value='1' />
@@ -91,10 +91,14 @@
     </attributelist>
     <!-- metadata not part of real genobject ref pages but needed to trick Max -->
     <metadatalist>
-        <metadata name="author">Pete Dowling</metadata>
-        <metadata name="tag">GenDsp</metadata>
+        <metadata name='author'>Pete Dowling</metadata>
+        <metadata name='tag'>GenDsp</metadata>
     </metadatalist>
     <seealsolist>
-        <seealso name='' display='' type='genrefpage' />
+        <seealso name='evi_ramp0' display='evi_ramp0' type='genrefpage' />
+        <seealso name='evi_randy' display='evi_randy' type='genrefpage' />
+        <seealso name='evi_zeroxcount' display='evi_zeroxcount' type='genrefpage' />
+        <seealso name='evi_am' display='evi_am' type='genrefpage' />
+        <seealso name='evi_tremolo' display='evi_tremolo' type='genrefpage' />
     </seealsolist>
 </c74object>

@@ -13,7 +13,7 @@
          <br />
         evi_korgms20_select is also available in MSP as: <o>evi.korgms20.select~</o>. <br />
          <br />
-	    The 'KLM' OTA chip was found in the later MS-20s and other Korg synthesisers - it is different to the earlier 'Korg 35' single-amplifier unbuffered Korg chip found in the earlier MS-20s and MS-10 and also in the 'monotron' series. This is a fabricated evieve version able to smoothly switch (with a nice 'plop') between 12dB LP and 6dB HP filter types, realised in transposed TPT form. With 2x option. <br />
+	    The 'KLM' OTA chip was found in the later MS-20s and other Korg synthesisers - it is different to the earlier 'Korg 35' single-amplifier unbuffered Korg chip found in the earlier MS-20s and MS-10 and also in the 'monotron' series. This is a fabricated evieve version able to smoothly switch (with a nice 'plop') between 12dB LP and 6dB HP filter types, realised in transposed TPT form. With 2x oversampling option. <br />
     </description>
     <methodlist />
     <constructorlist>
@@ -26,17 +26,17 @@
     <geninletlist>
         <geninlet name='audio' type='float' optional='1'>
             <digest>
-                Input. 
+                Input. Audio input to be filtered.
             </digest>
         </geninlet>
         <geninlet name='cutoff' type='float' optional='1'>
             <digest>
-                Frequency in Hz @min 1. 
+                Frequency in Hz @min 1. Filter cutoff frequency in Hz.
             </digest>
         </geninlet>
         <geninlet name='resonance' type='float' optional='1'>
             <digest>
-                0..1 @min 0.01 @max 1 @default 0.88. 
+                0..1 @min 0.01 @max 1 @default 0.88. Filter resonance 0..1
             </digest>
         </geninlet>
     </geninletlist>
@@ -46,7 +46,7 @@
                 @min 0, @max 1
             </digest>
             <description>
-                
+                Select filter output type. 0 (default) &#x3D; 12dB lowpass, 1 &#x3D; 6dB highpass.
             </description>
             <attributelist>
                 <attribute name='default' type='int' value='0' />
@@ -57,21 +57,10 @@
                 @min 0, @max 296
             </digest>
             <description>
-                
+                If @filtersmooth is &gt; 0., switching the filter type between 12dB lowpass and 6dB highpass is smoothed for realtime switching. This can result in a nice &#x27;plop&#x27;.
             </description>
             <attributelist>
                 <attribute name='default' type='float' value='92.' />
-            </attributelist>
-        </attribute>
-        <attribute name='load' type='float' get='0' set='1'>
-            <digest>
-                @min 0.25, @max 4
-            </digest>
-            <description>
-                
-            </description>
-            <attributelist>
-                <attribute name='default' type='float' value='1.333333333333' />
             </attributelist>
         </attribute>
         <attribute name='oversample' type='int' get='0' set='1'>
@@ -79,7 +68,7 @@
                 @min 0, @max 1
             </digest>
             <description>
-                
+                If on (the default) the filter is 2x oversampled. If off (0), the filter runs at samplerate. Oversampling is highly recommended to deal with the nonlinear behaviour of the filter.
             </description>
             <attributelist>
                 <attribute name='default' type='int' value='1' />
@@ -88,10 +77,12 @@
     </attributelist>
     <!-- metadata not part of real genobject ref pages but needed to trick Max -->
     <metadatalist>
-        <metadata name="author">Pete Dowling</metadata>
-        <metadata name="tag">GenDsp</metadata>
+        <metadata name='author'>Pete Dowling</metadata>
+        <metadata name='tag'>GenDsp</metadata>
     </metadatalist>
     <seealsolist>
-        <seealso name='' display='' type='genrefpage' />
+        <seealso name='evi_korgms10' display='evi_korgms10' type='genrefpage' />
+        <seealso name='evi_korgms20' display='evi_korgms20' type='genrefpage' />
+        <seealso name='evi_ladder_moog' display='evi_ladder_moog' type='genrefpage' />
     </seealsolist>
 </c74object>

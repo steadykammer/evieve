@@ -94,8 +94,8 @@
 				Behaviour depends on inlet
 			</digest>
 			<description>
-				In the middle inlet, rise time in samples.<br />
-				In the right inlet, fall time in samples.<br />
+				In the middle inlet, rise time in samples.
+				In the right inlet, fall time in samples.
 			</description>
 		</method>
 		<method name="float">
@@ -106,8 +106,8 @@
 				Behaviour depends on inlet
 			</digest>
 			<description>
-				In the middle inlet, rise time in samples.<br />
-				In the right inlet, fall time in samples.<br />
+				In the middle inlet, rise time in samples.
+				In the right inlet, fall time in samples.
 			</description>
 		</method>
 		<method name="clear">
@@ -125,9 +125,9 @@
 				Behaviour depends on inlet
 			</digest>
 			<description>
-				In the left inlet, the trigger value.<br />
-				In the middle inlet, rise time in samples.<br />
-				In the right inlet, fall time in samples.<br />
+				In the left inlet, the trigger value.
+				In the middle inlet, rise time in samples.
+				In the right inlet, fall time in samples.
 			</description>
 		</method>
 	</methodlist>

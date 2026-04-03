@@ -452,21 +452,21 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.korgms20~", "evi.korgms20.select~", "evi.dfm~", "evi.ladder.transistor~" ]
     },
     "evi.korgms20.select~": {
         "digest": "Korg OTA dual-amplifier buffered modified Sallen-Key topology nonlinear filter emulation",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.korgms10~", "evi.korgms20~", "evi.dfm~", "evi.ladder.moog~" ]
     },
     "evi.korgms20~": {
-        "digest": "Korg OTA dual-amplifier modified Sallen-Key topology nonlinear filter emulation",
+        "digest": "Korg OTA dual-amplifier modified Sallen-Key topology nonlinear filter emulation with simultaneous outputs",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.korgms10~", "evi.korgms20.select~", "evi.dfm~", "evi.ladder.diode~" ]
     },
     "evi.ladder.diode~": {
         "digest": "TPT nonlinear Diode Ladder filter emulation",
@@ -683,7 +683,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.ramp0~", "evi.randy~", "evi.zeroxcount~", "evi.am~", "evi.tremolo~" ]
     },
     "evi.plateverb~": {
         "digest": "Plate reverb based on yafr2~ with additional filtering and smoothing \n",
@@ -707,11 +707,11 @@
         "seealso": [ "evi.4wave~", "evi.blitwaves~", "evi.phasor0~", "evi_cossin" ]
     },
     "evi.ramp0~": {
-        "digest": "A bit like MSP ramp~, with options for zero-reset, loop, restingstate, curve and pause",
+        "digest": "Ramp generator, with options for zero-reset, loop, restingstate, curve and pause",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.phasor0~", "evi.randy~", "evi.zeroxcount~", "evi.am~", "evi.tremolo~" ]
     },
     "evi.randy~": {
         "digest": "Cubic interpolated version of the linear MSP rand~",

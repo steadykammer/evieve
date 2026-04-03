@@ -31,17 +31,17 @@ History modOscPrev(0), carrierCosFb(0), carrierSinFb(0);
 
 Param	pitch(48., min=0, max=120);
 Param	modulationmult(1., min=0, max=100);
-Param	pitch_params(1, min=0, max=1);	// default: use params not inlets
+Param	pitch_params(0, min=0, max=1);	// default: use inlets not params
 
 Param	xfadedepth(1., min=0, max=100);
 Param	xfadeblend(1., min=0, max=1);	// % 0..1, default PM
-Param	xfade_params(1, min=0, max=1);	// default: use params not inlets
+Param	xfade_params(0, min=0, max=1);	// default: use inlets not params
 
 Param	modulationfeedback(0., min=0, max=100);
 Param	carrierfeedback(0., min=0, max=100);
-Param	feedback_params(1, min=0, max=1);// default: use params not inlets
+Param	feedback_params(0, min=0, max=1);// default: use inlets not params
 
-Param	smooth(22.666, min=0, max=333);	// ms
+Param	smooth(0., min=0, max=333);	    // ms
 smoothsecs	= smooth*0.001;
 smooth_p	= (smooth > 0);
 
@@ -50,7 +50,7 @@ xfade_p		= int(xfade_params);
 feedback_p	= int(feedback_params);
 
 // select params & smoothing, or inputs. this is really stupid, but i needed it.
-// it means i can choose either param or audio (modulation) inputs.
+// it means i can choose either param or audio (modulation) inputs, for a few extra cycles.
 
 pitch_a	= pitch;
 mmult_a = modulationmult;
@@ -65,9 +65,9 @@ if ( (feedback_p) && (smooth_p) ) {
 	modfb_a, carfb_a	= expsmoothBank2(modulationfeedback, carrierfeedback, smoothsecs);
 }
 
-index	= maximum(in2, 1);
+index	= maximum(in1, 1);
 
-pitch_a	= pitch_p ? pitch_a : in1;
+pitch_a	= pitch_p ? pitch_a : in2;
 mmult_a	= pitch_p ? mmult_a : in7;
 freq_a	= mtofApproxBaseless(pitch_a);
 fmm		= freq_a*mmult_a;

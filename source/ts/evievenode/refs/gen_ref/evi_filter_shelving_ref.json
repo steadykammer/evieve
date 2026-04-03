@@ -10,7 +10,6 @@
         "inlets": "input"
     },
     "includes": [
-        "evi_svfs",
         "evi_svfs_lto"
     ],
     "inlets": [

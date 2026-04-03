@@ -3,8 +3,8 @@
         "name": "evi_zerox",
         "child": "",
         "category": "evieve",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Detect zero crossings",
+        "description": "Detect zero crossings in an incoming audio signal. With multiple analysis outputs."
     },
     "constructor": {
         "inlets": "input"
@@ -16,7 +16,7 @@
             "name": "input",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "The audio input to be analysed for zero crossings."
         }
     ],
     "outlets": [
@@ -26,7 +26,7 @@
             "type": "samples",
             "optional": 1,
             "digestauto": "of Samples between Zerocrossings",
-            "digest": ""
+            "digest": "Number of zero crossings per analysis window."
         },
         {
             "id": 2,
@@ -34,7 +34,7 @@
             "type": "gate",
             "optional": 1,
             "digestauto": "threshold",
-            "digest": ""
+            "digest": "Gate out, if crossings in window period > @thresh amount."
         },
         {
             "id": 3,
@@ -42,7 +42,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Zerocrossings",
-            "digest": ""
+            "digest": "Constant zero crossings update."
         }
     ],
     "attributes": [
@@ -50,7 +50,7 @@
             "name": "thresh",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "If count/window size is > than this threshold, report a gate event (middle outlet).",
             "default": {
                 "type": "float",
                 "value": "0.1"
@@ -59,8 +59,8 @@
     ],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_zeroxcount",
+            "display": "evi_zeroxcount"
         }
     ]
 }

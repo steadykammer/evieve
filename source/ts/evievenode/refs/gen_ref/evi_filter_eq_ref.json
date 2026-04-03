@@ -10,7 +10,6 @@
         "inlets": "input, cutoff, gain, q"
     },
     "includes": [
-        "evi_svfs",
         "evi_svfs_tpt"
     ],
     "inlets": [

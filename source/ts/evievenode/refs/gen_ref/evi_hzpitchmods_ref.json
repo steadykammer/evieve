@@ -53,7 +53,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "limit",
-            "digest": "The high limit value in Hz that has been requested."
+            "digest": "The high limit value in Hz that has been requested (factor of @high attribute and samplerate)."
         }
     ],
     "attributes": [

@@ -106,33 +106,11 @@
                 <attribute name='default' type='float' value='20.' />
             </attributelist>
         </attribute>
-        <attribute name='shaping' type='float' get='0' set='1'>
-            <digest>
-                @min 1, @max 40
-            </digest>
-            <description>
-                false
-            </description>
-            <attributelist>
-                <attribute name='default' type='float' value='23.7' />
-            </attributelist>
-        </attribute>
-        <attribute name='tuning' type='float' get='0' set='1'>
-            <digest>
-                @min 0, @max 1
-            </digest>
-            <description>
-                false
-            </description>
-            <attributelist>
-                <attribute name='default' type='float' value='0.356788' />
-            </attributelist>
-        </attribute>
     </attributelist>
     <!-- metadata not part of real genobject ref pages but needed to trick Max -->
     <metadatalist>
-        <metadata name="author">Pete Dowling</metadata>
-        <metadata name="tag">GenDsp</metadata>
+        <metadata name='author'>Pete Dowling</metadata>
+        <metadata name='tag'>GenDsp</metadata>
     </metadatalist>
     <seealsolist>
         <seealso name='evi_ladder_moog' display='evi_ladder_moog' type='genrefpage' />

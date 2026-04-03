@@ -3,11 +3,11 @@
         "name": "evi_quadfmpm",
         "child": "",
         "category": "evieve",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Quadrature FM/PM Oscillators by Lionel and Graham",
+        "description": "This is a quadrature FM/PM xfading mod/carrier setup, based on LIONEL's patch from: https://cycling74.com/forums/fm-vs-pm-in-gen-unwanted-artifacts-clicks , with additions by Graham Wakefield. Controls can be selected between parameter rate inputs or audio rate inputs (for proper FM). I have not been able to ask Lionel's permission. If you are Lionel and you see this, please get in touch."
     },
     "constructor": {
-        "inlets": "pitch, index, fm/pm, fm/pm, mod, car, mod"
+        "inlets": "index, pitch, fm/pm, fm/pm, mod, car, mod"
     },
     "includes": [
         "evi_smooth"
@@ -15,18 +15,18 @@
     "inlets": [
         {
             "id": 1,
-            "name": "pitch",
-            "type": "float",
-            "optional": 1,
-            "digest": ""
-        },
-        {
-            "id": 2,
             "name": "index",
             "type": "float",
             "optional": 1,
             "digestauto": "@default 1.",
-            "digest": ""
+            "digest": "The FM Index, zero-latched to the modulating oscillator. Index multiplies the amount of Modulator sent to the Carrier. Integer boundaries will sound harmonic, non integer values will sound inharmonic. The greater the index value the more complexity in the resulting signal. If all of @pitch_params, @xfade_params and @feedback_params are on, the oscillators can be audio rate driven by only this inlet."
+        },
+        {
+            "id": 2,
+            "name": "pitch",
+            "type": "float",
+            "optional": 1,
+            "digest": "If the @pitch_params attribute is off: controls the pitch of the oscillators in floating point MIDI note values."
         },
         {
             "id": 3,
@@ -34,7 +34,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "xfade Depth",
-            "digest": ""
+            "digest": "If the @xfade_params attribute is off: inlet 3 controls the range of modulation of FM or PM circuits (depending on the mix position of inlet 4)."
         },
         {
             "id": 4,
@@ -42,7 +42,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "xfade Blend",
-            "digest": ""
+            "digest": "If the @xfade_params attribute is off: inlet 4 (along with inlet 3) is used to derive FM and PM amounts. Inlet 4 0..1 mixes between the FM circuit and the PM circuit to modulate the oscillators. This is a brilliant Graham Wakefield idea."
         },
         {
             "id": 5,
@@ -50,7 +50,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Feedback",
-            "digest": ""
+            "digest": "If the @feedback_params attribute is off: inlet 5 controls the feedback amount in the Modulation oscillator."
         },
         {
             "id": 6,
@@ -58,7 +58,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Feedback",
-            "digest": ""
+            "digest": "If the @feedback_params attribute is off: inlet 6 controls the feedback amount in the Carrier oscillator."
         },
         {
             "id": 7,
@@ -66,7 +66,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Mult @default 1.",
-            "digest": ""
+            "digest": "If the @pitch_params attribute is off: controls the modulation factor of the oscillators frequency in Hz (derived from the pitch at inlet 2)."
         }
     ],
     "outlets": [
@@ -76,7 +76,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "output Cos",
-            "digest": ""
+            "digest": "Cosine FM oscillator output."
         },
         {
             "id": 2,
@@ -84,7 +84,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "output Sin",
-            "digest": ""
+            "digest": "Sine FM oscillator output."
         }
     ],
     "attributes": [
@@ -92,7 +92,7 @@
             "name": "carrierfeedback",
             "type": "float",
             "digest": "@min 0, @max 100",
-            "description": "",
+            "description": "Only if the @feedback_params attribute is on, @carrierfeedback controls the feedback amount in the Carrier oscillator. (If the @feedback_params attribute is off, inlet 6 controls this feedback amount).",
             "default": {
                 "type": "float",
                 "value": "0."
@@ -102,17 +102,17 @@
             "name": "feedback_params",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "If @feedback_params is on (1), @modulationfeedback and @carrierfeedback attributes are used to control the feedback amounts of the Modulation and Carrier oscillators. If @feedback_params is off (0), inlet 5 and inlet 6 are used to control these feedback amounts respectively.",
             "default": {
                 "type": "int",
-                "value": "1"
+                "value": "0"
             }
         },
         {
             "name": "modulationfeedback",
             "type": "float",
             "digest": "@min 0, @max 100",
-            "description": "",
+            "description": "Only if the @feedback_params attribute is on, @modulationfeedback controls the feedback amount in the Modulation oscillator. (If the @feedback_params attribute is off, inlet 5 controls this feedback amount).",
             "default": {
                 "type": "float",
                 "value": "0."
@@ -122,7 +122,7 @@
             "name": "modulationmult",
             "type": "float",
             "digest": "@min 0, @max 100",
-            "description": "",
+            "description": "Only if the @pitch_params attribute is on, the @modulationmult attribute controls the modulation factor of the oscillators frequency in Hz (derived from the pitch). (If the @pitch_params attribute is off, inlet 7 controls modulation factor).",
             "default": {
                 "type": "float",
                 "value": "1."
@@ -132,7 +132,7 @@
             "name": "pitch",
             "type": "float",
             "digest": "@min 0, @max 120",
-            "description": "",
+            "description": "Only if the @pitch_params attribute is on, the @pitch attribute controls the pitch of the oscillators in floating point MIDI note values. (If the @pitch_params attribute is off, inlet 2 controls pitch).",
             "default": {
                 "type": "float",
                 "value": "48."
@@ -142,37 +142,37 @@
             "name": "pitch_params",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "If @pitch_params is on (1), @pitch and @modulationmult attributes are used to control pitch and modulation factor. If @pitch_params is off (0), inlet 2 and inlet 7 are used to control pitch and modulation factor respectively.",
             "default": {
                 "type": "int",
-                "value": "1"
+                "value": "0"
             }
         },
         {
             "name": "smooth",
             "type": "float",
             "digest": "@min 0, @max 333",
-            "description": "",
+            "description": "If any of @pitch_params, @xfade_params or @feedback_params is on, the attributes they enable can be smoothed by this amount in ms.",
             "default": {
                 "type": "float",
-                "value": "22.666"
+                "value": "0."
             }
         },
         {
             "name": "xfade_params",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "If @xfade_params is on (1), @xfadedepth and @xfadeblend attributes are used to derive FM amount and PM amount. If @xfade_params is off (0), inlet 3 and inlet 4 are used to derive FM amount and PM amount respectively.",
             "default": {
                 "type": "int",
-                "value": "1"
+                "value": "0"
             }
         },
         {
             "name": "xfadeblend",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Only if the @xfade_params attribute is on, the @xfadeblend attribute (along with the @xfadedepth attribute) is used to derive FM and PM amounts. (If the @xfade_params attribute is off, inlet 4 controls this value). @xfadeblend 0..1 mixes between the FM circuit and the PM circuit to modulate the oscillators. This is a brilliant Graham Wakefield idea.",
             "default": {
                 "type": "float",
                 "value": "1."
@@ -182,7 +182,7 @@
             "name": "xfadedepth",
             "type": "float",
             "digest": "@min 0, @max 100",
-            "description": "",
+            "description": "Only if the @xfade_params attribute is on, the @xfadedepth attribute (along with the @xfadeblend attribute) is used to derive FM and PM amounts. (If the @xfade_params attribute is off, inlet 3 controls this value). @xfadedepth controls the range of modulation of FM or PM circuits (depending on the mix position of @xfadeblend).",
             "default": {
                 "type": "float",
                 "value": "1."
@@ -191,8 +191,12 @@
     ],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_squine_simple",
+            "display": "evi_squine_simple"
+        },
+        {
+            "name": "evi_squine_simple",
+            "display": "evi_squine_simple"
         }
     ]
 }

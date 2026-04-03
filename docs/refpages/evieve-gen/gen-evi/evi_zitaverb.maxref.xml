@@ -133,17 +133,6 @@
                 <attribute name='default' type='int' value='	0' />
             </attributelist>
         </attribute>
-        <attribute name='const3mul	 ' type='float' get='0' set='1'>
-            <digest>
-                @min   0, @max  1 
-            </digest>
-            <description>
-                false
-            </description>
-            <attributelist>
-                <attribute name='default' type='float' value=' 0.333333333333333' />
-            </attributelist>
-        </attribute>
         <attribute name='crossover	' type='float' get='0' set='1'>
             <digest>
                 @min  31.25, @max  1260	
@@ -485,28 +474,6 @@
                 <attribute name='default' type='int' value='10560' />
             </attributelist>
         </attribute>
-        <attribute name='gain		' type='float' get='0' set='1'>
-            <digest>
-                @min -80, @max  20		
-            </digest>
-            <description>
-                false
-            </description>
-            <attributelist>
-                <attribute name='default' type='float' value='  -1.' />
-            </attributelist>
-        </attribute>
-        <attribute name='gainAPconst	 ' type='float' get='0' set='1'>
-            <digest>
-                @min   0, @max  1 
-            </digest>
-            <description>
-                false
-            </description>
-            <attributelist>
-                <attribute name='default' type='float' value=' 0.6033' />
-            </attributelist>
-        </attribute>
         <attribute name='lowdecay	' type='float' get='0' set='1'>
             <digest>
                 @min  0.06, @max  60		
@@ -516,17 +483,6 @@
             </description>
             <attributelist>
                 <attribute name='default' type='float' value='	3.333333' />
-            </attributelist>
-        </attribute>
-        <attribute name='m3l10const	 ' type='float' get='0' set='1'>
-            <digest>
-                @min -10, @max  0 
-            </digest>
-            <description>
-                false
-            </description>
-            <attributelist>
-                <attribute name='default' type='float' value='-6.907755278982138' />
             </attributelist>
         </attribute>
         <attribute name='middecay	' type='float' get='0' set='1'>
@@ -551,33 +507,11 @@
                 <attribute name='default' type='float' value='	19.' />
             </attributelist>
         </attribute>
-        <attribute name='sqrt8const	 ' type='float' get='0' set='1'>
-            <digest>
-                @min   0, @max  10
-            </digest>
-            <description>
-                false
-            </description>
-            <attributelist>
-                <attribute name='default' type='float' value=' 2.8284271247461903' />
-            </attributelist>
-        </attribute>
-        <attribute name='sqrt8constMul' type='float' get='0' set='1'>
-            <digest>
-                @min   0, @max  1 
-            </digest>
-            <description>
-                false
-            </description>
-            <attributelist>
-                <attribute name='default' type='float' value=' 0.35355339059327373' />
-            </attributelist>
-        </attribute>
     </attributelist>
     <!-- metadata not part of real genobject ref pages but needed to trick Max -->
     <metadatalist>
-        <metadata name="author">Pete Dowling</metadata>
-        <metadata name="tag">GenDsp</metadata>
+        <metadata name='author'>Pete Dowling</metadata>
+        <metadata name='tag'>GenDsp</metadata>
     </metadatalist>
     <seealsolist>
         <seealso name='evi_algoverb' display='evi_algoverb' type='genrefpage' />

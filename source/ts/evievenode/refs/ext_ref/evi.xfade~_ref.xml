@@ -103,20 +103,20 @@
 				Behaviour depends on inlet
 			</digest>
 			<description>
-				If 'mode' == 0 (mono, the default):<br />
-					In left inlet, audio input 1 to be crossfaded<br />
-					In middle inlet, audio input 2 to be crossfaded<br />
-					In far right inlet, the Crossfade value 0..1<br />
-				If 'mode' == 1 (swap):<br />
-					In left inlet, audio input 1 to be swap faded<br />
-					In middle inlet, audio input 2 to be swap faded<br />
-					In far right inlet, the Crossfade value 0..1<br />
-				If 'mode' == 2 (stereo):<br />
-					In left inlet, audio 1 left input to be crossfaded<br />
-					In middle left inlet, audio 1 right input to be crossfaded<br />
-					In middle right inlet, audio 2 left input to be crossfaded<br />
-					In right inlet, audio 2 right input to be crossfaded<br />
-					In far right inlet, the Crossfade value 0..1<br />
+				If 'mode' == 0 (mono, the default):
+					In left inlet, audio input 1 to be crossfaded.
+					In middle inlet, audio input 2 to be crossfaded.
+					In far right inlet, the Crossfade value 0..1.
+				If 'mode' == 1 (swap):
+					In left inlet, audio input 1 to be swap faded.
+					In middle inlet, audio input 2 to be swap faded.
+					In far right inlet, the Crossfade value 0..1.
+				If 'mode' == 2 (stereo):
+					In left inlet, audio 1 left input to be crossfaded.
+					In middle left inlet, audio 1 right input to be crossfaded.
+					In middle right inlet, audio 2 left input to be crossfaded.
+					In right inlet, audio 2 right input to be crossfaded.
+					In far right inlet, the Crossfade value 0..1.
 			</description>
 		</method>
 	</methodlist>

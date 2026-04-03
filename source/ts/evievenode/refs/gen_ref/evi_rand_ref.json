@@ -3,8 +3,8 @@
         "name": "evi_rand",
         "child": "",
         "category": "evieve",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Like MSP <o>rand~</o> as a gen abstraction",
+        "description": "Generate a signal consisting of random values between -1..1 at a frequency specified at its input. Linearly interpolates between values."
     },
     "constructor": {
         "inlets": "frequency"
@@ -17,7 +17,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "in Hz @min 0.",
-            "digest": ""
+            "digest": "Frequency in Hz."
         }
     ],
     "outlets": [
@@ -27,14 +27,34 @@
             "type": "float",
             "optional": 1,
             "digestauto": "(Brown-ish) Noise Output",
-            "digest": ""
+            "digest": "(Brown-ish) noise output."
         }
     ],
     "attributes": [],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_randy",
+            "display": "evi_randy"
+        },
+        {
+            "name": "evi_audiodust",
+            "display": "evi_audiodust"
+        },
+        {
+            "name": "evi_gaussiannoise",
+            "display": "evi_gaussiannoise"
+        },
+        {
+            "name": "evi_velvetnoise",
+            "display": "evi_velvetnoise"
+        },
+        {
+            "name": "evi_zeroxcount",
+            "display": "evi_zeroxcount"
+        },
+        {
+            "name": "evi_zeroxoscnoise",
+            "display": "evi_zeroxoscnoise"
         }
     ]
 }

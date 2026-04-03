@@ -26,38 +26,27 @@
     <geninletlist>
         <geninlet name='audio' type='float' optional='1'>
             <digest>
-                Input. 
+                Input. Audio input to be filtered.
             </digest>
         </geninlet>
         <geninlet name='cutoff' type='float' optional='1'>
             <digest>
-                Frequency in Hz. 
+                Frequency in Hz. Filter cutoff frequency in Hz.
             </digest>
         </geninlet>
         <geninlet name='resonance' type='float' optional='1'>
             <digest>
-                0..1 @default 0.72. 
+                0..1 @default 0.72. Filter resonance 0..1. As in the original analog circuit, lowpass output level is resonance dependent!
             </digest>
         </geninlet>
     </geninletlist>
     <attributelist>
-        <attribute name='load' type='float' get='0' set='1'>
-            <digest>
-                @min 0.25, @max 4
-            </digest>
-            <description>
-                
-            </description>
-            <attributelist>
-                <attribute name='default' type='float' value='1.333333333333' />
-            </attributelist>
-        </attribute>
         <attribute name='noiselevel' type='float' get='0' set='1'>
             <digest>
                 @min 0, @max 1
             </digest>
             <description>
-                
+                Amplitude level of gaussian noise recirculation in filter, 0..1 remapped 0.. 10% of gaussian level. Adding noise is not required for self oscillation, but for sound design.
             </description>
             <attributelist>
                 <attribute name='default' type='float' value='0.05' />
@@ -66,10 +55,12 @@
     </attributelist>
     <!-- metadata not part of real genobject ref pages but needed to trick Max -->
     <metadatalist>
-        <metadata name="author">Pete Dowling</metadata>
-        <metadata name="tag">GenDsp</metadata>
+        <metadata name='author'>Pete Dowling</metadata>
+        <metadata name='tag'>GenDsp</metadata>
     </metadatalist>
     <seealsolist>
-        <seealso name='' display='' type='genrefpage' />
+        <seealso name='evi_korgms20' display='evi_korgms20' type='genrefpage' />
+        <seealso name='evi_korgms20_select' display='evi_korgms20_select' type='genrefpage' />
+        <seealso name='evi_ladder_transistor' display='evi_ladder_transistor' type='genrefpage' />
     </seealsolist>
 </c74object>

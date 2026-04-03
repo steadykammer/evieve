@@ -3,8 +3,8 @@
         "name": "evi_phasorrate0",
         "child": "",
         "category": "evieve",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Dual Phasor and Rate combo with zero-reset",
+        "description": "A phase locked phasor and rate utility object capable of zero-reset with additional options for reverse and pause. Phase can also be set sample accurately."
     },
     "constructor": {
         "inlets": "frequency, rate, reset"
@@ -19,7 +19,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "in Hz",
-            "digest": ""
+            "digest": "Phasor ramp runs at this frequency in Hz. If @mode is on (the default) updates in Hz are synchronised to the zero reset of the phasor ramp."
         },
         {
             "id": 2,
@@ -27,14 +27,14 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Multiplier",
-            "digest": ""
+            "digest": "Rate ramp runs at this multiplier relative to the phasor frequency. If @mode is on (the default) multiplier updates are synchronised to the zero reset of the rate ramp. Note that rate should be clamped around 1=phasor, e.g. clip(rate, 0.125, 8)"
         },
         {
             "id": 3,
             "name": "reset",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Force reset of phase sample accurately regardless of the @mode setting."
         }
     ],
     "outlets": [
@@ -44,7 +44,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Ramp 0..1",
-            "digest": ""
+            "digest": "The phasor ramp, 0..1"
         },
         {
             "id": 2,
@@ -52,7 +52,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Ramp 0..1",
-            "digest": ""
+            "digest": "The rate ramp, 0..1"
         },
         {
             "id": 3,
@@ -60,7 +60,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Frequency",
-            "digest": ""
+            "digest": "The current phasor frequency in Hz. This is updated with the phasor state, so that if @mode is on (the default) this frequency output will be updated only on zero-reset of the phasor, sample accurately in sync with the phasor ramp."
         },
         {
             "id": 4,
@@ -68,7 +68,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Rate",
-            "digest": ""
+            "digest": "The current rate multiplier. This is updated with the rate state, so that if @mode is on (the default) this multiplier output will be updated only on zero-reset of the rate, sample accurately in sync with the rate ramp."
         },
         {
             "id": 5,
@@ -76,7 +76,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Sync",
-            "digest": ""
+            "digest": "Sample accurate sync signal outlet at beginning of phasor phase, regardless of phasor polarity."
         },
         {
             "id": 6,
@@ -84,7 +84,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Sync",
-            "digest": ""
+            "digest": "Sample accurate sync signal outlet at beginning of rate phase, regardless of rate polarity."
         }
     ],
     "attributes": [
@@ -92,7 +92,7 @@
             "name": "minimumhz",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "The minimum Hz allowed for the running frequency of the phasor. This is important if @mode is on (the default) as otherwise the phasor could get stuck at 0 or a very slow low rate.",
             "default": {
                 "type": "float",
                 "value": "0.125"
@@ -102,7 +102,7 @@
             "name": "mode",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "If on (1, the default) the phasor and rate are in zero-reset state, only updating the input frequency and rate multiplier at zero-reset crossings of the phasor ramp. If off (0) the phasor and rate are free running.",
             "default": {
                 "type": "int",
                 "value": "1"
@@ -112,7 +112,7 @@
             "name": "pause",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Pause (1) the phasor and rate ramps so that they freeze at the ramp values at the moment of engaging pause. The ramps are frozen until a 'pause 0' message is received. When coming out of pause state, the ramps simply continue from the values at which they were initially paused.",
             "default": {
                 "type": "int",
                 "value": "0"
@@ -122,7 +122,7 @@
             "name": "phase",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Set the value of the normalised phase of the phasor. This will be sampled at zero-reset phase of the phasor only. This means that @phase changes will update on next phasor ramp sync.",
             "default": {
                 "type": "float",
                 "value": "0."
@@ -132,7 +132,7 @@
             "name": "reverse",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "If on (1, the default) both positive and negative Hz input values are allowed and the phasor ramp (and therefore the rate ramp) can run forwards and backwards respectively. If off (0) only positive ramps are allowed and Hz input values are always computed as positive regardless of input polarity.",
             "default": {
                 "type": "int",
                 "value": "1"
@@ -141,8 +141,24 @@
     ],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_phasor0",
+            "display": "evi_phasor0"
+        },
+        {
+            "name": "evi_ramp0",
+            "display": "evi_ramp0"
+        },
+        {
+            "name": "evi_randy",
+            "display": "evi_randy"
+        },
+        {
+            "name": "evi_zeroxcount",
+            "display": "evi_zeroxcount"
+        },
+        {
+            "name": "evi_counting",
+            "display": "evi_counting.genexpr"
         }
     ]
 }

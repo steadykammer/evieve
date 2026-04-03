@@ -9,7 +9,7 @@
 		<b>evi.phasor0~</b> is a 'max define' for the <o>evi_phasor0</o>.gendsp gen~ abstraction.
 		Because evi.phasor0~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		<br />
-		TEXT_HERE <br />
+		Zero-reset phasor like MSP [<o>phasor~</o> @syncupdate 1] with additional options for reverse and pause. Phase can also be set sample accurately and the phase can also be 'jumped' to with a message. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>
@@ -24,7 +24,7 @@
 				Inlet #1: Frequency in Hz
 			</digest>
 			<description>
-				
+				Phasor ramp runs at this frequency in Hz. If @mode is on (the default) updates in Hz are synchronised to the zero reset of the phasor ramp.
 			</description>
 		</inlet>
 		<inlet id="2" type="signal">
@@ -32,7 +32,7 @@
 				Inlet #2: Reset
 			</digest>
 			<description>
-				
+				Force reset of phase sample accurately regardless of the @mode setting.
 			</description>
 		</inlet>
 	</inletlist>
@@ -43,7 +43,7 @@
 				Outlet #1: Phasor 0..1
 			</digest>
 			<description>
-				
+				The phasor ramp, 0..1
 			</description>
 		</outlet>
 		<outlet id="2" type="signal">
@@ -51,7 +51,7 @@
 				Outlet #2: Current Frequency in Hz
 			</digest>
 			<description>
-				
+				The current phasor frequency in Hz. This is updated with the phasor state, so that if @mode is on (the default) this frequency output will be updated only on zero-reset of the phasor, sample accurately in sync with the phasor ramp.
 			</description>
 		</outlet>
 		<outlet id="3" type="signal">
@@ -59,7 +59,7 @@
 				Outlet #3: Sync
 			</digest>
 			<description>
-				
+				Sample accurate sync signal outlet at beginning of phase, regardless of phasor polarity.
 			</description>
 		</outlet>
 	</outletlist>
@@ -79,6 +79,61 @@
 	</methodlist>
 	<!--ATTRIBUTES-->
 	<attributelist>
+		<attribute name="minimumhz" get="1" set="1" type="float" min="0" max="1">
+			<digest>
+				In Hz, 0..1
+			</digest>
+			<description>
+				The minimum Hz allowed for the running frequency of the phasor. This is important if @mode is on (the default) as otherwise the phasor could get stuck at 0 or a very slow low rate.
+			</description>
+			<attributelist>
+				<attribute name="default" get="0" set="0" size="1" value="0.125" />
+			</attributelist>
+		</attribute>
+		<attribute name="mode" get="1" set="1" type="int" min="0" max="1">
+			<digest>
+				Flag 0/1
+			</digest>
+			<description>
+				If on (1, the default) the phasor is in zero-reset state, only updating the input frequency at zero-reset crossings of the phasor ramp. If off (0) the phasor is free running.
+			</description>
+			<attributelist>
+				<attribute name="default" get="0" set="0" size="1" value="1" />
+			</attributelist>
+		</attribute>
+		<attribute name="pause" get="1" set="1" type="int" min="0" max="1">
+			<digest>
+				Flag 0/1
+			</digest>
+			<description>
+				Pause (1) the phasor ramp so that it freezes at the ramp value at the moment of engaging pause. The ramp is frozen until a &#x27;pause 0&#x27; message is received. When coming out of pause state, the ramp simply continues from the value at which it was initially paused.
+			</description>
+			<attributelist>
+				<attribute name="default" get="0" set="0" size="1" value="0" />
+			</attributelist>
+		</attribute>
+		<attribute name="phase" get="1" set="1" type="float" min="0" max="1">
+			<digest>
+				Phase 0..1
+			</digest>
+			<description>
+				Set the value of the normalised phase of the phasor. This will be sampled at zero-reset phase of the phasor only. This means that @phase changes will update on next ramp sync.
+			</description>
+			<attributelist>
+				<attribute name="default" get="0" set="0" size="1" value="0." />
+			</attributelist>
+		</attribute>
+		<attribute name="reverse" get="1" set="1" type="int" min="0" max="1">
+			<digest>
+				Flag 0/1
+			</digest>
+			<description>
+				If on (1, the default) both positive and negative Hz input values are allowed and the phasor ramp can run forwards and backwards respectively. If off (0) only positive ramps are allowed and Hz input values are always computed as positive regardless of input polarity.
+			</description>
+			<attributelist>
+				<attribute name="default" get="0" set="0" size="1" value="1" />
+			</attributelist>
+		</attribute>
 	</attributelist>
 	<!--EXAMPLE-->
 	<examplelist>
@@ -86,9 +141,14 @@
 	</examplelist>
 	<!--SEEALSO-->
 	<seealsolist>
+		<seealso name="evi.ramp0~"> </seealso>
+		<seealso name="evi.randy~"> </seealso>
+		<seealso name="evi.zeroxcount~"> </seealso>
+		<seealso name="evi.am~"> </seealso>
+		<seealso name="evi.tremolo~"> </seealso>
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>
-         <br />
+        Unique in the evieve universe in that it is a patched gen~ patcher (the first gen~ patch I ever made). Thanks to Maurizio Giri. <br />
 	</discussion>
 </c74object>

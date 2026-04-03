@@ -1,0 +1,35 @@
+
+// shelving coefficients at Max schedular rate for the 'LTO' version of the evieve SVF Section
+
+require("evi_svfs_lto.genexpr");
+
+mapFilt(filt)
+{
+    return selector(filt+1, 0, 3, 2, 6); // 0, 3, 2, 6, bypass, bell, lowshelf, highshelf
+}
+
+Param   HOST_SR(48000);             // must be a Param to pass onto an embedded Param, this is broken gen i think
+
+Param	cutoff1(250., min=10, max=18000);			// Hz
+Param	gain1(0., min=-15, max=15);					// dB (default off)
+Param	resonance1(0.5, min=0.05, max=20);			// 
+
+Param	cutoff2(2000., min=30, max=20000);			// Hz
+Param	gain2(0., min=-15, max=15);					// dB (default off)
+Param	resonance2(0.5, min=0.05, max=20);			// 
+
+// 0 = bypass, 1 = bell, 2 = lowshelf, 3 = highshelf
+Param	filter1(2, min=0, max=3);	// choose filter type (default lowshelf)
+Param	filter2(3, min=0, max=3);	// choose filter type (default highshelf)
+filt1	= mapFilt(int(filter1));
+filt2	= mapFilt(int(filter2));
+
+linear1 = dbtoaApprox(gain1);
+linear2 = dbtoaApprox(gain2);
+
+a1_f1, a2_f1, a3_f1, m0_f1, m1_f1, m2_f1	= svfSectionCoeffEqNoTilde(filt1, cutoff1, linear1, resonance1, AUDIO_SR=HOST_SR);	// LS
+a1_f2, a2_f2, a3_f2, m0_f2, m1_f2, m2_f2	= svfSectionCoeffEqNoTilde(filt2, cutoff2, linear2, resonance2, AUDIO_SR=HOST_SR);	// HS
+
+out1, out2, out3, out4,  out5,  out6		= a1_f1, a2_f1, a3_f1, m0_f1, m1_f1, m2_f1;
+out7, out8, out9, out10, out11, out12		= a1_f2, a2_f2, a3_f2, m0_f2, m1_f2, m2_f2;
+

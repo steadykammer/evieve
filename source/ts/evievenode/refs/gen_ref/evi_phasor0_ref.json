@@ -4,7 +4,7 @@
         "child": "evi.phasor0~",
         "category": "evieve",
         "digest": "Zero-reset phasor with settings for reverse and pause",
-        "description": "TEXT_HERE"
+        "description": "Zero-reset phasor like MSP [<o>phasor~</o> @syncupdate 1] with additional options for reverse and pause. Phase can also be set sample accurately and the phase can also be 'jumped' to with a message."
     },
     "constructor": {
         "inlets": "frequency, reset"
@@ -17,14 +17,14 @@
             "type": "float",
             "optional": 1,
             "digestauto": "in Hz",
-            "digest": ""
+            "digest": "Phasor ramp runs at this frequency in Hz. If @mode is on (the default) updates in Hz are synchronised to the zero reset of the phasor ramp."
         },
         {
             "id": 2,
             "name": "reset",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Force reset of phase sample accurately regardless of the @mode setting."
         }
     ],
     "outlets": [
@@ -34,7 +34,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "0..1",
-            "digest": ""
+            "digest": "The phasor ramp, 0..1"
         },
         {
             "id": 2,
@@ -42,14 +42,14 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Frequency in Hz",
-            "digest": ""
+            "digest": "The current phasor frequency in Hz. This is updated with the phasor state, so that if @mode is on (the default) this frequency output will be updated only on zero-reset of the phasor, sample accurately in sync with the phasor ramp."
         },
         {
             "id": 3,
             "name": "sync",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Sample accurate sync signal outlet at beginning of phase, regardless of phasor polarity."
         }
     ],
     "attributes": [
@@ -57,7 +57,7 @@
             "name": "minimumhz",
             "type": "float",
             "digest": "",
-            "description": "",
+            "description": "The minimum Hz allowed for the running frequency of the phasor. This is important if @mode is on (the default) as otherwise the phasor could get stuck at 0 or a very slow low rate.",
             "default": {
                 "type": "float",
                 "value": "0.125",
@@ -69,7 +69,7 @@
             "name": "mode",
             "type": "int",
             "digest": "",
-            "description": "",
+            "description": "If on (1, the default) the phasor is in zero-reset state, only updating the input frequency at zero-reset crossings of the phasor ramp. If off (0) the phasor is free running.",
             "default": {
                 "type": "float",
                 "value": "1",
@@ -81,7 +81,7 @@
             "name": "pause",
             "type": "int",
             "digest": "",
-            "description": "",
+            "description": "Pause (1) the phasor ramp so that it freezes at the ramp value at the moment of engaging pause. The ramp is frozen until a 'pause 0' message is received. When coming out of pause state, the ramp simply continues from the value at which it was initially paused.",
             "default": {
                 "type": "float",
                 "value": "0",
@@ -93,7 +93,7 @@
             "name": "phase",
             "type": "float",
             "digest": "",
-            "description": "",
+            "description": "Set the value of the normalised phase of the phasor. This will be sampled at zero-reset phase of the phasor only. This means that @phase changes will update on next ramp sync.",
             "default": {
                 "type": "float",
                 "value": "0.",
@@ -105,7 +105,7 @@
             "name": "reverse",
             "type": "int",
             "digest": "",
-            "description": "",
+            "description": "If on (1, the default) both positive and negative Hz input values are allowed and the phasor ramp can run forwards and backwards respectively. If off (0) only positive ramps are allowed and Hz input values are always computed as positive regardless of input polarity.",
             "default": {
                 "type": "float",
                 "value": "1",
@@ -116,8 +116,24 @@
     ],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_ramp0",
+            "display": "evi_ramp0"
+        },
+        {
+            "name": "evi_randy",
+            "display": "evi_randy"
+        },
+        {
+            "name": "evi_zeroxcount",
+            "display": "evi_zeroxcount"
+        },
+        {
+            "name": "evi_am",
+            "display": "evi_am"
+        },
+        {
+            "name": "evi_tremolo",
+            "display": "evi_tremolo"
         }
     ]
 }

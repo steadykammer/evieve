@@ -1098,6 +1098,7 @@
                 "genexprtab": false,
                 "areaonly": false,
                 "areas": [
+                    "filter",
                     "reverb"
                 ]
             },
@@ -3803,7 +3804,7 @@
                 "mcwrapper": false
             },
             "ref": {
-                "gen": false,
+                "gen": true,
                 "msp": false
             },
             "helpfile": {
