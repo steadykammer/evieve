@@ -9,10 +9,10 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "openrect": [ 49.0, 114.0, 1096.0, 706.0 ],
+        "openrect": [ 49.0, 114.0, 930.0, 570.0 ],
         "openrectmode": 0,
         "gridonopen": 2,
-        "devicewidth": 1096.0,
+        "devicewidth": 930.0,
         "subpatcher_template": "PeteSub12",
         "integercoordinates": 1,
         "title": "Reverbs in evieve",
@@ -34,7 +34,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 338.0, 470.0, 135.0, 20.0 ],
+                    "patching_rect": [ 338.0, 455.0, 135.0, 20.0 ],
                     "text": "mattaverb~",
                     "textjustification": 1
                 }
@@ -51,7 +51,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 338.0, 492.0, 154.0, 78.0 ],
+                    "patching_rect": [ 338.0, 477.0, 154.0, 78.0 ],
                     "text": "a good compromise between the above and the algoverb, very few controls needed, cleverly tuned",
                     "textjustification": 1
                 }
@@ -63,7 +63,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 509.0, 430.0, 55.0, 33.0 ],
+                    "patching_rect": [ 509.0, 415.0, 55.0, 33.0 ],
                     "text": "real stereo-in",
                     "textjustification": 1
                 }
@@ -77,7 +77,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 501.0, 461.0, 71.0, 52.0 ],
+                    "patching_rect": [ 501.0, 446.0, 71.0, 52.0 ],
                     "text": "stereo-in / stereo-out",
                     "textjustification": 1
                 }
@@ -89,7 +89,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 495.0, 554.0, 83.0, 20.0 ],
+                    "patching_rect": [ 495.0, 539.0, 83.0, 20.0 ],
                     "text": "cheap-ish",
                     "textjustification": 1
                 }
@@ -101,7 +101,7 @@
                     "numinlets": 2,
                     "numoutlets": 3,
                     "outlettype": [ "signal", "signal", "" ],
-                    "patching_rect": [ 495.0, 515.0, 88.0, 22.0 ],
+                    "patching_rect": [ 495.0, 500.0, 88.0, 22.0 ],
                     "text": "evi.mattaverb~",
                     "varname": "ial.zitaverb~[5]"
                 }
@@ -113,7 +113,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 66.0, 478.0, 110.0, 20.0 ],
+                    "patching_rect": [ 66.0, 463.0, 110.0, 20.0 ],
                     "text": "backverb~",
                     "textjustification": 1
                 }
@@ -130,7 +130,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 66.0, 499.0, 124.0, 64.0 ],
+                    "patching_rect": [ 66.0, 484.0, 124.0, 64.0 ],
                     "text": "probably the most fun one, ursa major space station",
                     "textjustification": 1
                 }
@@ -142,7 +142,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 203.0, 430.0, 69.0, 33.0 ],
+                    "patching_rect": [ 203.0, 415.0, 69.0, 33.0 ],
                     "text": "quasi fake stereo-in",
                     "textjustification": 1
                 }
@@ -156,7 +156,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 202.0, 461.0, 71.0, 52.0 ],
+                    "patching_rect": [ 202.0, 446.0, 71.0, 52.0 ],
                     "text": "stereo-in / stereo-out",
                     "textjustification": 1
                 }
@@ -168,7 +168,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 196.0, 554.0, 83.0, 20.0 ],
+                    "patching_rect": [ 196.0, 539.0, 83.0, 20.0 ],
                     "text": "cheap",
                     "textjustification": 1
                 }
@@ -180,7 +180,7 @@
                     "numinlets": 2,
                     "numoutlets": 3,
                     "outlettype": [ "signal", "signal", "" ],
-                    "patching_rect": [ 196.0, 515.0, 83.0, 22.0 ],
+                    "patching_rect": [ 196.0, 500.0, 83.0, 22.0 ],
                     "text": "evi.backverb~",
                     "varname": "ial.zitaverb~[2]"
                 }
@@ -192,7 +192,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 715.0, 480.0, 152.0, 20.0 ],
+                    "patching_rect": [ 715.0, 465.0, 152.0, 20.0 ],
                     "text": "algoverb~",
                     "textjustification": 1
                 }
@@ -207,7 +207,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 715.0, 501.0, 158.0, 51.0 ],
+                    "patching_rect": [ 715.0, 486.0, 158.0, 51.0 ],
                     "text": "probably the best sounding one, but you pay for it",
                     "textjustification": 1
                 }
@@ -219,7 +219,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 646.0, 430.0, 55.0, 33.0 ],
+                    "patching_rect": [ 646.0, 415.0, 55.0, 33.0 ],
                     "text": "real stereo-in",
                     "textjustification": 1
                 }
@@ -233,7 +233,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 637.0, 461.0, 73.0, 52.0 ],
+                    "patching_rect": [ 637.0, 446.0, 73.0, 52.0 ],
                     "text": "stereo-in / stereo-out",
                     "textjustification": 1
                 }
@@ -245,7 +245,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 623.0, 554.0, 101.0, 20.0 ],
+                    "patching_rect": [ 623.0, 539.0, 101.0, 20.0 ],
                     "text": "expensive",
                     "textjustification": 1
                 }
@@ -257,7 +257,7 @@
                     "numinlets": 2,
                     "numoutlets": 3,
                     "outlettype": [ "signal", "signal", "" ],
-                    "patching_rect": [ 633.0, 515.0, 80.0, 22.0 ],
+                    "patching_rect": [ 633.0, 500.0, 80.0, 22.0 ],
                     "text": "evi.algoverb~",
                     "varname": "evi.algoverb~"
                 }
@@ -269,7 +269,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 750.0, 53.0, 152.0, 20.0 ],
+                    "patching_rect": [ 750.0, 38.0, 152.0, 20.0 ],
                     "text": "zitaverb~",
                     "textjustification": 1
                 }
@@ -281,7 +281,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 579.0, 93.0, 154.0, 20.0 ],
+                    "patching_rect": [ 579.0, 78.0, 154.0, 20.0 ],
                     "text": "sustainverb~",
                     "textjustification": 1
                 }
@@ -293,7 +293,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 427.0, 133.0, 145.0, 20.0 ],
+                    "patching_rect": [ 427.0, 118.0, 145.0, 20.0 ],
                     "text": "gigaverb~",
                     "textjustification": 1
                 }
@@ -305,7 +305,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 39.0, 106.0, 150.0, 20.0 ],
+                    "patching_rect": [ 39.0, 91.0, 150.0, 20.0 ],
                     "text": "freezeverb~",
                     "textjustification": 1
                 }
@@ -317,7 +317,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 203.0, 93.0, 208.0, 20.0 ],
+                    "patching_rect": [ 203.0, 78.0, 208.0, 20.0 ],
                     "text": "plateverb~",
                     "textjustification": 1
                 }
@@ -329,7 +329,7 @@
                     "numinlets": 2,
                     "numoutlets": 3,
                     "outlettype": [ "signal", "signal", "" ],
-                    "patching_rect": [ 789.0, 335.0, 76.0, 22.0 ],
+                    "patching_rect": [ 789.0, 320.0, 76.0, 22.0 ],
                     "text": "evi.zitaverb~",
                     "varname": "ial.zitaverb~"
                 }
@@ -341,7 +341,7 @@
                     "numinlets": 2,
                     "numoutlets": 9,
                     "outlettype": [ "signal", "signal", "signal", "signal", "signal", "signal", "signal", "signal", "" ],
-                    "patching_rect": [ 600.0, 335.0, 103.0, 22.0 ],
+                    "patching_rect": [ 600.0, 320.0, 103.0, 22.0 ],
                     "text": "evi.sustainverb~",
                     "varname": "ial.sustainverb~"
                 }
@@ -353,7 +353,7 @@
                     "numinlets": 2,
                     "numoutlets": 3,
                     "outlettype": [ "signal", "signal", "" ],
-                    "patching_rect": [ 461.0, 335.0, 80.0, 22.0 ],
+                    "patching_rect": [ 461.0, 320.0, 80.0, 22.0 ],
                     "text": "evi.gigaverb~",
                     "varname": "ial.gigaverb~"
                 }
@@ -365,7 +365,7 @@
                     "numinlets": 2,
                     "numoutlets": 3,
                     "outlettype": [ "signal", "signal", "" ],
-                    "patching_rect": [ 113.0, 335.0, 91.0, 22.0 ],
+                    "patching_rect": [ 113.0, 320.0, 91.0, 22.0 ],
                     "text": "evi.freezeverb~",
                     "varname": "ial.freezeverb~"
                 }
@@ -377,7 +377,7 @@
                     "numinlets": 2,
                     "numoutlets": 3,
                     "outlettype": [ "signal", "signal", "" ],
-                    "patching_rect": [ 248.0, 335.0, 84.0, 22.0 ],
+                    "patching_rect": [ 248.0, 320.0, 84.0, 22.0 ],
                     "text": "evi.plateverb~",
                     "varname": "ial.yafr3~"
                 }
@@ -389,7 +389,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 780.0, 374.0, 92.0, 20.0 ],
+                    "patching_rect": [ 780.0, 359.0, 92.0, 20.0 ],
                     "text": "expensive-ish",
                     "textjustification": 1
                 }
@@ -401,7 +401,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 600.0, 374.0, 103.0, 20.0 ],
+                    "patching_rect": [ 600.0, 359.0, 103.0, 20.0 ],
                     "text": "cheap",
                     "textjustification": 1
                 }
@@ -413,7 +413,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 465.0, 374.0, 73.0, 20.0 ],
+                    "patching_rect": [ 465.0, 359.0, 73.0, 20.0 ],
                     "text": "cheap-ish",
                     "textjustification": 1
                 }
@@ -425,7 +425,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 256.0, 374.0, 69.0, 20.0 ],
+                    "patching_rect": [ 256.0, 359.0, 69.0, 20.0 ],
                     "text": "expensive",
                     "textjustification": 1
                 }
@@ -437,7 +437,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 113.0, 374.0, 88.0, 20.0 ],
+                    "patching_rect": [ 113.0, 359.0, 88.0, 20.0 ],
                     "text": "cheap-ish",
                     "textjustification": 1
                 }
@@ -449,7 +449,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 4.0, 374.0, 72.0, 20.0 ],
+                    "patching_rect": [ 4.0, 359.0, 72.0, 20.0 ],
                     "text": "CPU ::",
                     "textjustification": 2
                 }
@@ -465,7 +465,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 750.0, 74.0, 156.0, 160.0 ],
+                    "patching_rect": [ 750.0, 59.0, 156.0, 160.0 ],
                     "text": "stereo in / stereo out 8x8 feedback delay network with nested allpasses. Has a proper 'room' quality, but also the ability to almost 'forever sustain' (very long decays) whilst maintaining it's 'room' feeling. Decays can be controlled separately low / high",
                     "textjustification": 1
                 }
@@ -482,7 +482,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 579.0, 115.0, 154.0, 119.0 ],
+                    "patching_rect": [ 579.0, 100.0, 154.0, 119.0 ],
                     "text": "stereo in / stereo (or multi) out 16x16 feedback delay network with extras to add more reverby options. Does the 'forever sustain' trick in a very smooth and sexy digital way",
                     "textjustification": 1
                 }
@@ -498,7 +498,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 427.0, 155.0, 145.0, 79.0 ],
+                    "patching_rect": [ 427.0, 140.0, 145.0, 79.0 ],
                     "text": "mono in / stereo out feedback delay network with allpass diffusion, smooth and rich",
                     "textjustification": 1
                 }
@@ -515,7 +515,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 203.0, 115.0, 208.0, 106.0 ],
+                    "patching_rect": [ 203.0, 100.0, 208.0, 106.0 ],
                     "text": "\"yafr2\" from MSP. \"Plate reverb, in the style of Griesinger\", by Randy Jones. This version with dry/wet and eq added, as well \nas modifications for better filtering, interpolation, smoothing, etc",
                     "textjustification": 1
                 }
@@ -531,7 +531,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 39.0, 128.0, 150.0, 106.0 ],
+                    "patching_rect": [ 39.0, 113.0, 150.0, 106.0 ],
                     "text": "basic Schroeder / Moorer reverb model based on famous Jezar 'freeverb' tuning, with optional buttery smooth 'freeze' effect",
                     "textjustification": 1
                 }
@@ -543,7 +543,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 798.0, 250.0, 55.0, 33.0 ],
+                    "patching_rect": [ 798.0, 235.0, 55.0, 33.0 ],
                     "text": "real stereo-in",
                     "textjustification": 1
                 }
@@ -555,7 +555,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 624.0, 236.0, 55.0, 33.0 ],
+                    "patching_rect": [ 624.0, 221.0, 55.0, 33.0 ],
                     "text": "clever stereo-in",
                     "textjustification": 1
                 }
@@ -569,7 +569,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 789.0, 281.0, 73.0, 52.0 ],
+                    "patching_rect": [ 789.0, 266.0, 73.0, 52.0 ],
                     "text": "stereo-in / stereo-out",
                     "textjustification": 1
                 }
@@ -583,7 +583,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 592.0, 267.0, 119.0, 66.0 ],
+                    "patching_rect": [ 592.0, 252.0, 119.0, 66.0 ],
                     "text": "stereo-in / stereo-out / multichannel-out",
                     "textjustification": 1
                 }
@@ -597,7 +597,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 461.0, 281.0, 77.0, 52.0 ],
+                    "patching_rect": [ 461.0, 266.0, 77.0, 52.0 ],
                     "text": "mono-in / stereo-out",
                     "textjustification": 1
                 }
@@ -611,7 +611,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 242.0, 281.0, 71.0, 52.0 ],
+                    "patching_rect": [ 242.0, 266.0, 71.0, 52.0 ],
                     "text": "mono-in / stereo-out",
                     "textjustification": 1
                 }
@@ -626,7 +626,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 27.0, 267.0, 174.0, 66.0 ],
+                    "patching_rect": [ 27.0, 252.0, 174.0, 66.0 ],
                     "text": "stereo inputs but actually these are just mono-summed internally for input to reverb",
                     "textjustification": 1
                 }
@@ -638,7 +638,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 248.0, 236.0, 283.0, 47.0 ],
+                    "patching_rect": [ 248.0, 221.0, 283.0, 47.0 ],
                     "text": "both have choice of mono or stereo inputs, where stereo are treated as quasi-real stereo in the algorithm, see helpfiles for details",
                     "textjustification": 1
                 }

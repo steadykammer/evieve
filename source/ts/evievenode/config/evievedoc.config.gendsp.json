@@ -83,7 +83,7 @@
             "helpfile": {
                 "msp": true,
                 "gentab": true,
-                "genexprtab": true,
+                "genexprtab": false,
                 "areaonly": false,
                 "areas": [
                     "msp"
@@ -129,7 +129,7 @@
             "helpfile": {
                 "msp": true,
                 "gentab": true,
-                "genexprtab": true,
+                "genexprtab": false,
                 "areaonly": false,
                 "areas": [
                     "svf"
@@ -221,7 +221,7 @@
             "helpfile": {
                 "msp": true,
                 "gentab": true,
-                "genexprtab": true,
+                "genexprtab": false,
                 "areaonly": false,
                 "areas": []
             },
@@ -651,7 +651,7 @@
             "helpfile": {
                 "msp": true,
                 "gentab": true,
-                "genexprtab": true,
+                "genexprtab": false,
                 "areaonly": false,
                 "areas": [
                     "oscillator"
