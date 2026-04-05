@@ -33,7 +33,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 422.0, 19.0, 287.0, 22.0 ],
-                    "text": "in 2 (signal/float) Ramp Time in milliseconds @min 0"
+                    "text": "in 2 (signal/float) Ramp Time in milliseconds @min 1"
                 }
             },
             {
@@ -59,6 +59,19 @@
                     "patching_rect": [ 49.0, 504.0, 153.0, 22.0 ],
                     "text": "out 1 (signal) Output Ramp"
                 }
+            },
+            {
+                "box": {
+                    "hidden": 1,
+                    "id": "obj-6",
+                    "linecount": 2,
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 301.0, 14.0, 119.0, 33.0 ],
+                    "text": "@min, don't rely on gen denorm -->>",
+                    "textjustification": 2
+                }
             }
         ],
         "lines": [
@@ -81,6 +94,7 @@
                     "source": [ "obj-3", 0 ]
                 }
             }
-        ]
+        ],
+        "autosave": 0
     }
 }

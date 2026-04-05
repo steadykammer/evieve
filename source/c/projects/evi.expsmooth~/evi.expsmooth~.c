@@ -119,9 +119,9 @@ void evi_expsmooth_perform64(t_evi_expsmooth* x, t_object* dsp64, double** ins, 
 	if (x->p_sob.z_disabled)
 		return;
 
-    // constrain ms value
-    if (ms < 0.0) {
-        ms = 0.0;
+    // constrain ms value (to 1.0)
+    if (ms < 1.0) {
+        ms = 1.0;
     }
 
     // do we need to recompute?
@@ -160,9 +160,9 @@ void evi_expsmooth_perform_float64(t_evi_expsmooth* x, t_object* dsp64, double**
 	if (x->p_sob.z_disabled)
 		return;
 
-    // constrain ms value
-    if (ms < 0.0) {
-        ms = 0.0;
+    // constrain ms value (to 1.0)
+    if (ms < 1.0) {
+        ms = 1.0;
     }
 
     // do we need to recompute?
@@ -202,8 +202,8 @@ void evi_expsmooth_float(t_evi_expsmooth* x, double f)
     }
     else if (inlet == x->s_banks) { // far right inlet
         val = f;
-        if (val < 0.0) {
-            val = 0.0;
+        if (val < 1.0) {
+            val = 1.0;
         }
         x->s_ms = val;
         object_attr_touch((t_object*)x, gensym("time"));
@@ -227,8 +227,8 @@ t_max_err evi_expsmooth_attr_setms(t_evi_expsmooth* x, void* attr, long argc, t_
 {
     double ms = atom_getfloat(argv);
     // should we also have a maximum ?
-    if (ms < 0.0) {
-        ms = 0.0;
+    if (ms < 1.0) {
+        ms = 1.0;
     }
     x->s_ms = ms;
     evi_expsmooth_coefficients(x);
@@ -308,7 +308,7 @@ void* evi_expsmooth_new(t_symbol* s, long argc, t_atom* argv)
     long i;
     long offset;
     long banks = 1;
-    double initial = 0.0, ms = 0.0;
+    double initial = 0.0, ms = 1.0;
 
     offset = attr_args_offset((short)argc, argv);
 
@@ -318,9 +318,10 @@ void* evi_expsmooth_new(t_symbol* s, long argc, t_atom* argv)
     if (offset) {
         initial = atom_getfloat(argv);
         if (offset > 1) {
+            // constrain to 1.0 because of approximations
             ms = atom_getfloat(argv + 1);
-            if (ms < 0.0) {
-                ms = 0.0;
+            if (ms < 1.0) {
+                ms = 1.0;
             }
         }
     }

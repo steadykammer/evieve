@@ -292,8 +292,21 @@
                                     "numinlets": 1,
                                     "numoutlets": 1,
                                     "outlettype": [ "int" ],
-                                    "parameter_enable": 0,
-                                    "patching_rect": [ 151.0, 451.0, 24.0, 24.0 ]
+                                    "parameter_enable": 1,
+                                    "patching_rect": [ 151.0, 451.0, 24.0, 24.0 ],
+                                    "saved_attribute_attributes": {
+                                        "valueof": {
+                                            "parameter_enum": [ "off", "on" ],
+                                            "parameter_initial": [ 1.0 ],
+                                            "parameter_initial_enable": 1,
+                                            "parameter_longname": "toggle",
+                                            "parameter_mmax": 1,
+                                            "parameter_modmode": 0,
+                                            "parameter_shortname": "toggle",
+                                            "parameter_type": 2
+                                        }
+                                    },
+                                    "varname": "toggle"
                                 }
                             },
                             {
@@ -315,7 +328,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
                                     "patching_rect": [ 82.0, 481.0, 50.0, 23.0 ],
-                                    "text": "*~ 0."
+                                    "text": "*~ 0.25"
                                 }
                             },
                             {
@@ -805,7 +818,6 @@
                         "toolbaradditions": [ "audiosolo", "audiomute" ]
                     },
                     "patching_rect": [ 205.0, 336.0, 51.0, 23.0 ],
-                    "presentation_linecount": 2,
                     "saved_object_attributes": {
                         "fontsize": 13.0
                     },
@@ -1495,7 +1507,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 272.0, 322.0, 176.0, 69.0 ]
+                                    "patching_rect": [ 272.0, 322.0, 176.09849548339844, 69.0 ]
                                 }
                             }
                         ],
@@ -2337,6 +2349,7 @@
             "obj-11::obj-10": [ "number[8]", "number", 0 ],
             "obj-13::obj-19": [ "number[3]", "number[2]", 0 ],
             "obj-13::obj-28": [ "number[5]", "number[5]", 0 ],
+            "obj-13::obj-34": [ "toggle", "toggle", 0 ],
             "obj-13::obj-41": [ "number[6]", "number[6]", 0 ],
             "obj-13::obj-6": [ "number[4]", "number[4]", 0 ],
             "obj-2::obj-10": [ "number", "number", 0 ],
