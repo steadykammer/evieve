@@ -51,7 +51,7 @@ C74_EXPORT void ext_main(void* r)
 
     class_addmethod(c, (method)evi_expsmooth_dsp64, "dsp64", A_CANT, 0);
     class_addmethod(c, (method)evi_expsmooth_assist, "assist", A_CANT, 0);
-    class_addmethod(c, (method)evi_expsmooth_clear, "clear", 0); // not needed :-)
+    class_addmethod(c, (method)evi_expsmooth_clear, "clear", 0);
     class_addmethod(c, (method)evi_expsmooth_int, "int", A_LONG, 0);
     class_addmethod(c, (method)evi_expsmooth_float, "float", A_FLOAT, 0);
 
@@ -60,7 +60,7 @@ C74_EXPORT void ext_main(void* r)
     CLASS_ATTR_LABEL(c, "time", 0, "Smoothing Time in ms");
     CLASS_ATTR_ALIAS(c, "time", "smooth");
     CLASS_ATTR_ALIAS(c, "time", "ms");
-    CLASS_ATTR_ACCESSORS(c, "time", 0, evi_expsmooth_attr_setms);
+    CLASS_ATTR_ACCESSORS(c, "time", 0, evi_expsmooth_attr_setms); // clipped in here
 
     // we are not using this at the moment
     CLASS_ATTR_LONG(c, "banks", 0, t_evi_expsmooth, s_banks);

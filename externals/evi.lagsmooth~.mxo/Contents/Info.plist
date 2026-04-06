@@ -3,30 +3,34 @@
 <plist version="1.0">
 <dict>
 	<key>BuildMachineOSBuild</key>
-	<string>23J126</string>
+	<string>23J220</string>
 	<key>C74ObjectProperties</key>
 	<dict>
 		<key>c74excludefromcollectives</key>
-		<string></string>
+		<string>NOTFOUND</string>
 	</dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleExecutable</key>
 	<string>evi.lagsmooth~</string>
 	<key>CFBundleIdentifier</key>
-	<string>.evi-lagsmooth-</string>
+	<string>NOTFOUND.evi-lagsmooth-</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleLongVersionString</key>
-	<string>evi.lagsmooth~  - </string>
+	<string>evi.lagsmooth~ 0.0.2 - NOTFOUND</string>
 	<key>CFBundlePackageType</key>
 	<string>iLaX</string>
+	<key>CFBundleShortVersionString</key>
+	<string>0.0.2</string>
 	<key>CFBundleSignature</key>
 	<string>max2</string>
 	<key>CFBundleSupportedPlatforms</key>
 	<array>
 		<string>MacOSX</string>
 	</array>
+	<key>CFBundleVersion</key>
+	<string>0.0.2</string>
 	<key>CSResourcesFileMapped</key>
 	<true/>
 	<key>DTCompiler</key>
@@ -49,5 +53,7 @@
 	<string>10.11</string>
 	<key>LSRequiresCarbon</key>
 	<true/>
+	<key>NSHumanReadableCopyright</key>
+	<string>NOTFOUND</string>
 </dict>
 </plist>

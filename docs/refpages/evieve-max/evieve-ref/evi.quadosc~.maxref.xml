@@ -69,8 +69,8 @@
     <method name="signal">
       <arglist></arglist>
       <digest>Behaviour depends on inlet</digest>
-      <description>In left inlet, the frequency of the oscillators in Hz
-				In right inlet, sample accurate reset of the ocillators phase</description>
+      <description>In left inlet, the frequency of the oscillators in Hz.
+				In right inlet, sample accurate reset of the ocillators phase.</description>
     </method>
   </methodlist>
   <attributelist>

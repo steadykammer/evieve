@@ -49,22 +49,22 @@
       </arglist>
       <digest>Behaviour depends on inlet</digest>
       <description>If 'mode' == 0 (the default):
-					In right inlet, the Pan value 0..1
+					In right inlet, the Pan value 0..1.
 				If 'mode' == 1:
-					In middle right inlet, the left Pan value 0..1
-					In right inlet, the right Pan value 0..1</description>
+					In middle right inlet, the left Pan value 0..1.
+					In right inlet, the right Pan value 0..1.</description>
     </method>
     <method name="signal">
       <arglist></arglist>
       <digest>Behaviour depends on inlet</digest>
       <description>If 'mode' == 0 (the default):
-					In left inlet, the audio signal to be Panned
-					In right inlet, the Pan value 0..1
+					In left inlet, the audio signal to be Panned.
+					In right inlet, the Pan value 0..1.
 				If 'mode' == 1:
-					In left inlet, the left audio signal to be Panned
-					In middle left, the right audio signal to be Panned
-					In middle right inlet, the left Pan value 0..1
-					In right inlet, the right Pan value 0..1</description>
+					In left inlet, the left audio signal to be Panned.
+					In middle left, the right audio signal to be Panned.
+					In middle right inlet, the left Pan value 0..1.
+					In right inlet, the right Pan value 0..1.</description>
     </method>
   </methodlist>
   <attributelist>
@@ -88,7 +88,7 @@
       <digest>Mode 0/1 (0 = mono, the default, 1 = stereo)</digest>
       <description>
         <m>mode</m>
-can only be a typed in attribute and is not dynamic.      </description>
+can only be a typed in attribute and is not dynamic. Mode switches between mono and stereo inputs for the object. If mode == 1 new inlets appear for the additional inputs.      </description>
       <attributelist>
         <attribute name="basic" get="0" set="1" type="int" size="1" value="0"></attribute>
         <attribute name="label" get="0" set="0" type="symbol" size="1" value="Mode of Operation 0/1"></attribute>

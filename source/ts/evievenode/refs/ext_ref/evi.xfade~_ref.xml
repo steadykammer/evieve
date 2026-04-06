@@ -139,7 +139,7 @@
 				Mode 0, 1, 2 (0 = mono, the default, 1 = swap, 2 = stereo)
 			</digest>
 			<description>
-				<m>mode</m> can only be a typed in attribute and is not dynamic.
+				<m>mode</m> can only be a typed in attribute and is not dynamic. Mode switches between mono, swap and stereo inputs/outputs for the object. If mode == 2 new inlets appear for the additional inputs. If mode == 1 or 2 new outlets appear for the additional outputs.
 			</description>
 			<attributelist>
 				<attribute name="basic" get="0" set="1" type="int" size="1" value="0" />

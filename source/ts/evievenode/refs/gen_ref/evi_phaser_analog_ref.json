@@ -263,6 +263,10 @@
             "display": "evi_tremolo"
         },
         {
+            "name": "evi_phaser_analog",
+            "display": "evi_phaser_analog"
+        },
+        {
             "name": "evi_detune",
             "display": "evi_detune"
         },

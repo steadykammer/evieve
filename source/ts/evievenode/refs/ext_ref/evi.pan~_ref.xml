@@ -149,7 +149,7 @@
 				Mode 0/1 (0 = mono, the default, 1 = stereo)
 			</digest>
 			<description>
-				<m>mode</m> can only be a typed in attribute and is not dynamic.
+				<m>mode</m> can only be a typed in attribute and is not dynamic. Mode switches between mono and stereo inputs for the object. If mode == 1 new inlets appear for the additional inputs.
 			</description>
 			<attributelist>
 				<attribute name="basic" get="0" set="1" type="int" size="1" value="0" />

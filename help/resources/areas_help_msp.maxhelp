@@ -112,8 +112,8 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 298.0, 268.0, 179.0, 33.0 ],
-                    "text": "<<-- needs to be an abstraction because of coefficients"
+                    "patching_rect": [ 298.0, 268.0, 162.0, 33.0 ],
+                    "text": "needs to be an abstraction because of coefficients"
                 }
             },
             {

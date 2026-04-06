@@ -34,7 +34,7 @@
 				Ramp Time in milliseconds
 			</digest>
 			<description>
-				Amount of time the value takes to reach it's destination. evi.expsmooth~ is exponential and does not reach it's destination exactly.
+				Amount of time the value takes to reach it's destination. evi.expsmooth~ is exponential and does not reach it's destination exactly. Note that the minimum time the object can use is 1 millisecond due to internal approximations employed.
 			</description>
 		</inlet>
 	</inletlist>
@@ -64,7 +64,7 @@
 				Ramp time
 			</digest>
 			<description>
-				Initial ramp time in ms
+				Initial ramp time in ms. Note that the minimum time the object can use is 1 millisecond due to internal approximations employed.
 			</description>
 		</objarg>
 	</objarglist>
@@ -121,7 +121,7 @@
 				Smoothing Time in ms
 			</digest>
 			<description>
-				The ramp time in ms. Because evi.expsmooth~ is an inexact smoother, the destination cannot be guaranteed to reach it's value exactly in the alloted time.
+				The ramp time in ms. Because evi.expsmooth~ is an inexact smoother, the destination cannot be guaranteed to reach it's value exactly in the alloted time. Note that the minimum time the object can use is 1 millisecond due to internal approximations employed.
 			</description>
 			<attributelist>
 				<attribute name="basic" get="1" set="1" type="int" size="1" value="1" />

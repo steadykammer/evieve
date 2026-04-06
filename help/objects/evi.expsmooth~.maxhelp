@@ -70,18 +70,6 @@
                             },
                             {
                                 "box": {
-                                    "hidden": 1,
-                                    "id": "obj-17",
-                                    "maxclass": "message",
-                                    "numinlets": 2,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "" ],
-                                    "patching_rect": [ 357.0, 336.0, 37.0, 23.0 ],
-                                    "text": "clear"
-                                }
-                            },
-                            {
-                                "box": {
                                     "id": "obj-26",
                                     "maxclass": "scope~",
                                     "numinlets": 2,
@@ -329,13 +317,6 @@
                             },
                             {
                                 "patchline": {
-                                    "destination": [ "obj-16", 0 ],
-                                    "hidden": 1,
-                                    "source": [ "obj-17", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
                                     "destination": [ "obj-15", 0 ],
                                     "source": [ "obj-20", 0 ]
                                 }
@@ -523,18 +504,6 @@
                         "boxes": [
                             {
                                 "box": {
-                                    "hidden": 1,
-                                    "id": "obj-8",
-                                    "maxclass": "message",
-                                    "numinlets": 2,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "" ],
-                                    "patching_rect": [ 71.0, 336.0, 37.0, 23.0 ],
-                                    "text": "clear"
-                                }
-                            },
-                            {
-                                "box": {
                                     "format": 6,
                                     "id": "obj-10",
                                     "maxclass": "flonum",
@@ -695,13 +664,6 @@
                                 "patchline": {
                                     "destination": [ "obj-5", 0 ],
                                     "source": [ "obj-6", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
-                                    "destination": [ "obj-5", 0 ],
-                                    "hidden": 1,
-                                    "source": [ "obj-8", 0 ]
                                 }
                             }
                         ],

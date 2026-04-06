@@ -477,8 +477,8 @@
                                     "id": "obj-5",
                                     "maxclass": "newobj",
                                     "numinlets": 1,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "signal" ],
+                                    "numoutlets": 2,
+                                    "outlettype": [ "signal", "signal" ],
                                     "patcher": {
                                         "fileversion": 1,
                                         "appversion": {
@@ -489,9 +489,58 @@
                                             "modernui": 1
                                         },
                                         "classnamespace": "dsp.gen",
-                                        "rect": [ 59.0, 119.0, 600.0, 450.0 ],
+                                        "rect": [ 59.0, 119.0, 1186.0, 450.0 ],
                                         "integercoordinates": 1,
                                         "boxes": [
+                                            {
+                                                "box": {
+                                                    "id": "obj-9",
+                                                    "linecount": 3,
+                                                    "maxclass": "comment",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 227.0, 279.0, 150.0, 47.0 ],
+                                                    "presentation_linecount": 3,
+                                                    "text": "the fixed coefficient is the normal '0.9997' in the native 'dcblock()'"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-8",
+                                                    "linecount": 2,
+                                                    "maxclass": "comment",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 635.0, 83.0, 268.0, 33.0 ],
+                                                    "presentation_linecount": 4,
+                                                    "text": "but if you need a variable coefficient, there is 'varDcblock()' in the 'evi_utilities.genexpr' file",
+                                                    "textjustification": 1
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-5",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 492.0, 418.0, 35.0, 22.0 ],
+                                                    "text": "out 2"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "code": "\r\nrequire(\"evi_utilities.genexpr\");\r\n\r\n// variable dcblock() so that effect can be bypassed (a0 = 1) \n// or active (a0 = 0.9997) or heavy (a0 = ...)\n\r\nout1 = varDcblock(in1, 0.9997);\r\n\r\n",
+                                                    "fontface": 0,
+                                                    "fontname": "<Monospaced>",
+                                                    "fontsize": 12.0,
+                                                    "id": "obj-2",
+                                                    "maxclass": "codebox",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "" ],
+                                                    "patching_rect": [ 492.0, 133.0, 554.0, 225.0 ]
+                                                }
+                                            },
                                             {
                                                 "box": {
                                                     "id": "obj-6",
@@ -499,7 +548,7 @@
                                                     "maxclass": "comment",
                                                     "numinlets": 1,
                                                     "numoutlets": 0,
-                                                    "patching_rect": [ 278.0, 199.0, 150.0, 33.0 ],
+                                                    "patching_rect": [ 227.0, 229.0, 150.0, 33.0 ],
                                                     "text": "in gen~, just use the native dcblock operator :-)"
                                                 }
                                             },
@@ -510,7 +559,7 @@
                                                     "numinlets": 1,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 176.0, 204.0, 49.0, 22.0 ],
+                                                    "patching_rect": [ 176.0, 234.0, 49.0, 22.0 ],
                                                     "text": "dcblock"
                                                 }
                                             },
@@ -539,8 +588,22 @@
                                         "lines": [
                                             {
                                                 "patchline": {
-                                                    "destination": [ "obj-3", 0 ],
+                                                    "destination": [ "obj-2", 0 ],
+                                                    "order": 0,
                                                     "source": [ "obj-1", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-3", 0 ],
+                                                    "order": 1,
+                                                    "source": [ "obj-1", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-5", 0 ],
+                                                    "source": [ "obj-2", 0 ]
                                                 }
                                             },
                                             {

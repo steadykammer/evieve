@@ -2106,7 +2106,7 @@
                                             },
                                             {
                                                 "box": {
-                                                    "code": "\r\n// all evieve smoothing functions live in this require file:\r\nrequire(\"evi_smooth.genexpr\");\r\n\r\nhz = 2;\r\n\r\n// this 'cfSmoothLinear' function is the equivalent of 'evi_cfsmooth':\r\nout1 = cfSmoothLinear(in1, hz, in2*0.001);  // careful! the core code takes\r\n                                            // seconds, not milliseconds!\r\n\r\n// also available:\r\n\r\nout2, out3 = cfSmoothLinear2(in1, in1, hz, in2*0.001);\r\n\r\nout4 = cfSmoothCubic(in1, hz, in2*0.001);   // more expensive\r\n\r\n// etc\r\n",
+                                                    "code": "\r\n// all evieve smoothing functions live in this require file:\r\nrequire(\"evi_smooth.genexpr\");\r\n\r\nhz = 3;\r\n\r\n// this 'cfSmoothLinear' function is the equivalent of 'evi_cfsmooth':\r\nout1 = cfSmoothLinear(in1, hz, in2*0.001);  // careful! the core code takes\r\n                                            // seconds, not milliseconds!\r\n\r\n// also available:\r\n\r\nout2, out3 = cfSmoothLinear2(in1, in1, hz, in2*0.001);\r\n\r\nout4 = cfSmoothCubic(in1, hz, in2*0.001);   // more expensive\r\n\r\n// etc\r\n",
                                                     "fontface": 0,
                                                     "fontname": "<Monospaced>",
                                                     "fontsize": 12.0,

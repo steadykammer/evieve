@@ -24,7 +24,7 @@
             "name": "ramp",
             "type": "float",
             "optional": 1,
-            "digestauto": "Time in milliseconds @min 0",
+            "digestauto": "Time in milliseconds @min 1",
             "digest": "Amount of time the value takes to reach it's destination. evi_expsmooth is exponential and does not reach it's destination exactly."
         }
     ],

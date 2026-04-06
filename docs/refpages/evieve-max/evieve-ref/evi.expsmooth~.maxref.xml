@@ -15,7 +15,7 @@
     </inlet>
     <inlet id="1" type="signal/float">
       <digest>Ramp Time in milliseconds</digest>
-      <description>Amount of time the value takes to reach it's destination. evi.expsmooth~ is exponential and does not reach it's destination exactly.</description>
+      <description>Amount of time the value takes to reach it's destination. evi.expsmooth~ is exponential and does not reach it's destination exactly. Note that the minimum time the object can use is 1 millisecond due to internal approximations employed.</description>
     </inlet>
   </inletlist>
   <outletlist>
@@ -31,7 +31,7 @@
     </objarg>
     <objarg id="1" name="ms" type="float/int" optional="1">
       <digest>Ramp time</digest>
-      <description>Initial ramp time in ms</description>
+      <description>Initial ramp time in ms. Note that the minimum time the object can use is 1 millisecond due to internal approximations employed.</description>
     </objarg>
   </objarglist>
   <methodlist>
@@ -66,7 +66,7 @@
   <attributelist>
     <attribute name="time" get="1" set="1" type="float" size="1" alias="ms, smooth">
       <digest>Smoothing Time in ms</digest>
-      <description>The ramp time in ms. Because evi.expsmooth~ is an inexact smoother, the destination cannot be guaranteed to reach it's value exactly in the alloted time.</description>
+      <description>The ramp time in ms. Because evi.expsmooth~ is an inexact smoother, the destination cannot be guaranteed to reach it's value exactly in the alloted time. Note that the minimum time the object can use is 1 millisecond due to internal approximations employed.</description>
       <attributelist>
         <attribute name="basic" get="1" set="1" type="int" size="1" value="1"></attribute>
         <attribute name="label" get="1" set="1" type="symbol" size="1" value="Smoothing Time in ms"></attribute>

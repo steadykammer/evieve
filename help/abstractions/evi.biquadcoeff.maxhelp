@@ -386,7 +386,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 118.0, 407.0, 150.0, 25.0 ],
+                                    "patching_rect": [ 108.0, 407.0, 150.0, 25.0 ],
                                     "text": "use list output (1)...",
                                     "textjustification": 1
                                 }
@@ -910,7 +910,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 471.0, 500.0, 72.0, 23.0 ],
-                                    "text": "1."
+                                    "text": "0.831006"
                                 }
                             },
                             {
@@ -923,7 +923,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 396.0, 500.0, 72.0, 23.0 ],
-                                    "text": "-2."
+                                    "text": "-1.815341"
                                 }
                             },
                             {
@@ -936,7 +936,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 321.0, 500.0, 72.0, 23.0 ],
-                                    "text": "0."
+                                    "text": "0.003916"
                                 }
                             },
                             {
@@ -949,7 +949,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 245.0, 500.0, 72.0, 23.0 ],
-                                    "text": "0."
+                                    "text": "0.007832"
                                 }
                             },
                             {
@@ -962,7 +962,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 170.0, 500.0, 72.0, 23.0 ],
-                                    "text": "0."
+                                    "text": "0.003916"
                                 }
                             },
                             {
@@ -1066,7 +1066,6 @@
                                                     "numinlets": 1,
                                                     "numoutlets": 0,
                                                     "patching_rect": [ 17.0, 106.0, 139.0, 51.0 ],
-                                                    "presentation_linecount": 3,
                                                     "text": "must pass in real audio samplerate into a gen-no-tilde",
                                                     "textjustification": 1
                                                 }
