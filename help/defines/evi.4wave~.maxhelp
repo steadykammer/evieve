@@ -1968,7 +1968,7 @@
                                             "modernui": 1
                                         },
                                         "classnamespace": "dsp.gen",
-                                        "rect": [ 59.0, 119.0, 1173.0, 525.0 ],
+                                        "rect": [ 59.0, 119.0, 1211.0, 525.0 ],
                                         "integercoordinates": 1,
                                         "boxes": [
                                             {
@@ -1993,7 +1993,7 @@
                                             },
                                             {
                                                 "box": {
-                                                    "code": "\r\n// 4wave code is in these require files:\r\nrequire(\"evi_polyblep_four.genexpr\");\r\nrequire(\"evi_polyblep_utility.genexpr\");\r\n\r\nreset       = in2;\r\nfreqInHz    = maximum(in1, 0);\r\n\r\nt\t        = phasor(freqInHz, reset);\r\ndt\t        = freqInHz / SAMPLERATE;\r\n\r\n// simultaneous phase synchronous saw, rect, tri\r\nout1        = decorelateOsc(dcblock(polysaw4(t, dt)));\r\nout2        = decorelateOsc(dcblock(polyrect4(t, dt)));\r\nout3        = decorelateOsc(dcblock(polytri4(t, dt)));\r\n",
+                                                    "code": "\r\n// 4wave code is in these require files:\r\nrequire(\"evi_polyblep_four.genexpr\");\r\nrequire(\"evi_polyblep_utility.genexpr\"); // decorelateOsc()\r\n\r\nreset       = in2;\r\nfreqInHz    = maximum(in1, 0);\r\n\r\nt\t        = phasor(freqInHz, reset);\r\ndt\t        = freqInHz / SAMPLERATE;\r\n\r\n// simultaneous phase synchronous saw, rect, tri\r\nout1        = decorelateOsc(dcblock(polysaw4(t, dt)));\r\nout2        = decorelateOsc(dcblock(polyrect4(t, dt)));\r\nout3        = decorelateOsc(dcblock(polytri4(t, dt)));\r\n",
                                                     "fontface": 0,
                                                     "fontname": "<Monospaced>",
                                                     "fontsize": 12.0,
@@ -2002,7 +2002,7 @@
                                                     "numinlets": 2,
                                                     "numoutlets": 3,
                                                     "outlettype": [ "", "", "" ],
-                                                    "patching_rect": [ 627.0, 134.0, 480.0, 318.0 ]
+                                                    "patching_rect": [ 627.0, 134.0, 517.0, 309.0 ]
                                                 }
                                             },
                                             {
@@ -2086,12 +2086,28 @@
                                             {
                                                 "patchline": {
                                                     "destination": [ "obj-3", 0 ],
+                                                    "order": 1,
+                                                    "source": [ "obj-1", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-9", 0 ],
+                                                    "order": 0,
                                                     "source": [ "obj-1", 0 ]
                                                 }
                                             },
                                             {
                                                 "patchline": {
                                                     "destination": [ "obj-3", 1 ],
+                                                    "order": 1,
+                                                    "source": [ "obj-2", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-9", 1 ],
+                                                    "order": 0,
                                                     "source": [ "obj-2", 0 ]
                                                 }
                                             },

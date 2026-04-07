@@ -15,7 +15,7 @@ tauApp(t)									// t = seconds
 	return y + 0.000128;
 }
 
-expsmooth(x, t)		// x = value			// t is smooth time in seconds
+expsmooth(x, t)		// x = value			// t is smooth time in seconds, NOTE: minimum should be 1ms
 {
 	History w(0);
 	z = tauApp(t);
@@ -33,7 +33,7 @@ expso(x, z)									// z is pole
 	return y;
 }
 
-expsmoothBank2(x1, x2, t)					// t is smooth time in seconds...
+expsmoothBank2(x1, x2, t)					// t is smooth time in seconds, NOTE: minimum should be 1ms
 {
 	History	expsdummy2(0);
 	z		= tauApp(t);

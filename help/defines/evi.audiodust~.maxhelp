@@ -877,7 +877,7 @@
                                                     "maxclass": "newobj",
                                                     "numinlets": 1,
                                                     "numoutlets": 0,
-                                                    "patching_rect": [ 302.0, 381.0, 35.0, 22.0 ],
+                                                    "patching_rect": [ 283.0, 381.0, 35.0, 22.0 ],
                                                     "text": "out 2"
                                                 }
                                             },
@@ -888,13 +888,13 @@
                                                     "numinlets": 0,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 117.0, 35.0, 99.0, 22.0 ],
+                                                    "patching_rect": [ 78.0, 35.0, 99.0, 22.0 ],
                                                     "text": "in 1 @default 5.7"
                                                 }
                                             },
                                             {
                                                 "box": {
-                                                    "code": "\r\n// this require file contains audio dust\r\nrequire(\"evi_sources.genexpr\");\r\n\r\nout1, out2, out3 = audioDust(in1);\r\n\r\n",
+                                                    "code": "\r\n// this require file contains audio dust\r\nrequire(\"evi_sources.genexpr\");\r\n\r\n// 'audioDust()' is the same as [evi.audiodust~]\r\nout1, out2, out3 = audioDust(in1);\r\n\r\n",
                                                     "fontface": 0,
                                                     "fontname": "<Monospaced>",
                                                     "fontsize": 12.0,
@@ -903,7 +903,7 @@
                                                     "numinlets": 1,
                                                     "numoutlets": 3,
                                                     "outlettype": [ "", "", "" ],
-                                                    "patching_rect": [ 117.0, 119.0, 389.0, 188.0 ]
+                                                    "patching_rect": [ 78.0, 119.0, 428.0, 187.0 ]
                                                 }
                                             },
                                             {
@@ -912,7 +912,7 @@
                                                     "maxclass": "newobj",
                                                     "numinlets": 1,
                                                     "numoutlets": 0,
-                                                    "patching_rect": [ 117.0, 381.0, 35.0, 22.0 ],
+                                                    "patching_rect": [ 78.0, 381.0, 35.0, 22.0 ],
                                                     "text": "out 1"
                                                 }
                                             }

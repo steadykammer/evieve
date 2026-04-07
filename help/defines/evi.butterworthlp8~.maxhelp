@@ -1087,7 +1087,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -1270,7 +1270,7 @@
                                             },
                                             {
                                                 "box": {
-                                                    "code": "\r\n// 'evi_butterworth.genexpr' contains many individual filters\r\nrequire(\"evi_butterworth.genexpr\");\r\n\r\nParam   order(3, min=0, max=8);\r\nord     = int(order);\r\n\r\nn       = noise();\r\ncf      = evi_line(in1, mstosamps(33));\r\n\r\nout1    = linearButterworthLp8(n, cf, order=ord);\r\n",
+                                                    "code": "\r\n// 'evi_butterworth.genexpr' contains many individual filters\r\nrequire(\"evi_butterworth.genexpr\");\r\n\r\nParam   order(3, min=0, max=8);\r\nord     = int(order);\r\n\r\nn       = noise();\r\ncf      = evi_line(in1, mstosamps(33));\r\n\r\nout1    = linearButterworthLP8(n, cf, order=ord);\r\n",
                                                     "fontface": 0,
                                                     "fontname": "<Monospaced>",
                                                     "fontsize": 12.0,

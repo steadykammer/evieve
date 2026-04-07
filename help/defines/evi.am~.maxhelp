@@ -153,6 +153,109 @@
                         "boxes": [
                             {
                                 "box": {
+                                    "id": "obj-1",
+                                    "maxclass": "spectroscope~",
+                                    "numinlets": 2,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "patching_rect": [ 384.0, 525.0, 300.0, 100.0 ]
+                                }
+                            },
+                            {
+                                "box": {
+                                    "hidden": 1,
+                                    "id": "obj-6",
+                                    "maxclass": "newobj",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "patching_rect": [ 41.0, 275.0, 75.0, 23.0 ],
+                                    "text": "loadmess 4"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "clipheight": 57.0,
+                                    "data": {
+                                        "clips": [
+                                            {
+                                                "absolutepath": "duduk.aif",
+                                                "filename": "duduk.aif",
+                                                "filekind": "audiofile",
+                                                "id": "u869006276",
+                                                "loop": 1,
+                                                "content_state": {
+                                                    "loop": 1
+                                                }
+                                            },
+                                            {
+                                                "absolutepath": "eroica.aiff",
+                                                "filename": "eroica.aiff",
+                                                "filekind": "audiofile",
+                                                "id": "u490006605",
+                                                "loop": 1,
+                                                "content_state": {
+                                                    "loop": 1
+                                                }
+                                            },
+                                            {
+                                                "absolutepath": "sacre.aiff",
+                                                "filename": "sacre.aiff",
+                                                "filekind": "audiofile",
+                                                "id": "u878006904",
+                                                "loop": 1,
+                                                "content_state": {
+                                                    "loop": 1
+                                                }
+                                            },
+                                            {
+                                                "absolutepath": "gtr512.aiff",
+                                                "filename": "gtr512.aiff",
+                                                "filekind": "audiofile",
+                                                "id": "u893007133",
+                                                "loop": 1,
+                                                "content_state": {
+                                                    "loop": 1
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "id": "obj-3",
+                                    "maxclass": "playlist~",
+                                    "mode": "basic",
+                                    "numinlets": 1,
+                                    "numoutlets": 5,
+                                    "outlettype": [ "signal", "signal", "signal", "", "dictionary" ],
+                                    "parameter_enable": 0,
+                                    "patching_rect": [ 41.0, 365.0, 157.0, 232.0 ],
+                                    "quality": "basic",
+                                    "saved_attribute_attributes": {
+                                        "candicane2": {
+                                            "expression": ""
+                                        },
+                                        "candicane3": {
+                                            "expression": ""
+                                        },
+                                        "candicane4": {
+                                            "expression": ""
+                                        },
+                                        "candicane5": {
+                                            "expression": ""
+                                        },
+                                        "candicane6": {
+                                            "expression": ""
+                                        },
+                                        "candicane7": {
+                                            "expression": ""
+                                        },
+                                        "candicane8": {
+                                            "expression": ""
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "box": {
                                     "hidden": 1,
                                     "id": "obj-33",
                                     "maxclass": "number",
@@ -162,7 +265,7 @@
                                     "numoutlets": 2,
                                     "outlettype": [ "", "bang" ],
                                     "parameter_enable": 1,
-                                    "patching_rect": [ 421.0, 497.0, 50.0, 23.0 ],
+                                    "patching_rect": [ 511.0, 497.0, 50.0, 23.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_initial": [ 64.0 ],
@@ -185,18 +288,18 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 447.0, 414.0, 172.0, 36.0 ],
+                                    "patching_rect": [ 537.0, 414.0, 172.0, 36.0 ],
                                     "text": "LFOs output -1..1 (0) or Linear Gain Processing (1)"
                                 }
                             },
                             {
                                 "box": {
                                     "id": "obj-28",
+                                    "linecount": 2,
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 421.0, 301.0, 308.0, 21.0 ],
-                                    "presentation_linecount": 4,
+                                    "patching_rect": [ 511.0, 286.0, 174.0, 36.0 ],
                                     "text": "Increasing Gain above 0 dB Saturates the Output"
                                 }
                             },
@@ -206,7 +309,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 304.0, 301.0, 100.0, 21.0 ],
+                                    "patching_rect": [ 394.0, 301.0, 100.0, 21.0 ],
                                     "text": "LFO Wave"
                                 }
                             },
@@ -216,7 +319,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 11.0, 326.0, 127.0, 21.0 ],
+                                    "patching_rect": [ 101.0, 326.0, 127.0, 21.0 ],
                                     "text": "Spread 0..1",
                                     "textjustification": 2
                                 }
@@ -227,7 +330,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 11.0, 301.0, 127.0, 21.0 ],
+                                    "patching_rect": [ 101.0, 301.0, 127.0, 21.0 ],
                                     "text": "Depth 0..1",
                                     "textjustification": 2
                                 }
@@ -238,7 +341,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 11.0, 276.0, 127.0, 21.0 ],
+                                    "patching_rect": [ 101.0, 276.0, 127.0, 21.0 ],
                                     "text": "Rate in Hz",
                                     "textjustification": 2
                                 }
@@ -251,7 +354,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "int" ],
                                     "parameter_enable": 1,
-                                    "patching_rect": [ 421.0, 420.0, 24.0, 24.0 ],
+                                    "patching_rect": [ 511.0, 420.0, 24.0, 24.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_enum": [ "off", "on" ],
@@ -273,7 +376,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 573.0, 326.0, 109.0, 21.0 ],
+                                    "patching_rect": [ 663.0, 326.0, 91.0, 21.0 ],
                                     "text": "Gain in dB"
                                 }
                             },
@@ -284,7 +387,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 304.0, 365.0, 104.0, 23.0 ],
+                                    "patching_rect": [ 394.0, 365.0, 104.0, 23.0 ],
                                     "text": "prepend lfowave"
                                 }
                             },
@@ -297,7 +400,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "int", "", "" ],
                                     "parameter_enable": 1,
-                                    "patching_rect": [ 304.0, 325.0, 100.0, 23.0 ],
+                                    "patching_rect": [ 394.0, 325.0, 100.0, 23.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_enum": [ "bypass", "up", "down", "tri", "sine", "tanh", "square", "rand step", "rand linear", "rand cubic", "noise" ],
@@ -320,7 +423,7 @@
                                     "maxclass": "scope~",
                                     "numinlets": 2,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 306.0, 420.0, 100.0, 100.0 ]
+                                    "patching_rect": [ 396.0, 420.0, 100.0, 100.0 ]
                                 }
                             },
                             {
@@ -330,7 +433,7 @@
                                     "maxclass": "scope~",
                                     "numinlets": 2,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 192.0, 420.0, 100.0, 100.0 ]
+                                    "patching_rect": [ 282.0, 420.0, 100.0, 100.0 ]
                                 }
                             },
                             {
@@ -384,7 +487,7 @@
                                     "numinlets": 3,
                                     "numoutlets": 4,
                                     "outlettype": [ "signal", "signal", "signal", "signal" ],
-                                    "patching_rect": [ 140.0, 365.0, 97.0, 23.0 ],
+                                    "patching_rect": [ 230.0, 365.0, 97.0, 23.0 ],
                                     "text": "evi.am~",
                                     "varname": "evieveObject"
                                 }
@@ -396,7 +499,7 @@
                                     "maxclass": "ezdac~",
                                     "numinlets": 2,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 140.0, 552.0, 45.0, 45.0 ],
+                                    "patching_rect": [ 230.0, 552.0, 45.0, 45.0 ],
                                     "varname": "basic_dac"
                                 }
                             },
@@ -410,7 +513,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 187.0, 562.0, 86.0, 25.0 ],
+                                    "patching_rect": [ 277.0, 562.0, 86.0, 25.0 ],
                                     "text": "Audio On",
                                     "textjustification": 1,
                                     "varname": "comment_dac"
@@ -426,7 +529,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 140.0, 275.0, 150.0, 23.0 ],
+                                    "patching_rect": [ 230.0, 275.0, 150.0, 23.0 ],
                                     "text_width": 85.0
                                 }
                             },
@@ -440,7 +543,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 140.0, 300.0, 150.0, 23.0 ],
+                                    "patching_rect": [ 230.0, 300.0, 150.0, 23.0 ],
                                     "text_width": 85.0
                                 }
                             },
@@ -454,7 +557,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 421.0, 459.0, 150.0, 23.0 ],
+                                    "patching_rect": [ 511.0, 459.0, 150.0, 23.0 ],
                                     "text_width": 87.0
                                 }
                             },
@@ -468,7 +571,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 140.0, 325.0, 150.0, 23.0 ],
+                                    "patching_rect": [ 230.0, 325.0, 150.0, 23.0 ],
                                     "text_width": 85.0
                                 }
                             },
@@ -482,7 +585,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 421.0, 325.0, 150.0, 23.0 ],
+                                    "patching_rect": [ 511.0, 325.0, 150.0, 23.0 ],
                                     "text_width": 84.0
                                 }
                             }
@@ -533,6 +636,13 @@
                             {
                                 "patchline": {
                                     "destination": [ "obj-5", 0 ],
+                                    "midpoints": [ 50.5, 607.0, 213.5234375, 607.0, 213.5234375, 355.0, 239.5, 355.0 ],
+                                    "source": [ "obj-3", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-5", 0 ],
                                     "source": [ "obj-31", 0 ]
                                 }
                             },
@@ -550,6 +660,14 @@
                                     "hidden": 1,
                                     "order": 0,
                                     "source": [ "obj-33", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-1", 0 ],
+                                    "midpoints": [ 239.5, 523.9609375, 393.5, 523.9609375 ],
+                                    "order": 0,
+                                    "source": [ "obj-5", 0 ]
                                 }
                             },
                             {
@@ -573,7 +691,15 @@
                             {
                                 "patchline": {
                                     "destination": [ "obj-7", 0 ],
+                                    "order": 1,
                                     "source": [ "obj-5", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-3", 0 ],
+                                    "hidden": 1,
+                                    "source": [ "obj-6", 0 ]
                                 }
                             }
                         ],
@@ -635,18 +761,50 @@
                         "boxes": [
                             {
                                 "box": {
+                                    "clipheight": 29.333333333333332,
                                     "data": {
-                                        "clips": []
+                                        "clips": [
+                                            {
+                                                "absolutepath": "duduk.aif",
+                                                "filename": "duduk.aif",
+                                                "filekind": "audiofile",
+                                                "id": "u074010152",
+                                                "loop": 1,
+                                                "content_state": {
+                                                    "loop": 1
+                                                }
+                                            },
+                                            {
+                                                "absolutepath": "eroica.aiff",
+                                                "filename": "eroica.aiff",
+                                                "filekind": "audiofile",
+                                                "id": "u447010278",
+                                                "loop": 1,
+                                                "content_state": {
+                                                    "loop": 1
+                                                }
+                                            },
+                                            {
+                                                "absolutepath": "sacre.aiff",
+                                                "filename": "sacre.aiff",
+                                                "filekind": "audiofile",
+                                                "id": "u713010403",
+                                                "loop": 1,
+                                                "content_state": {
+                                                    "loop": 1
+                                                }
+                                            }
+                                        ]
                                     },
                                     "id": "obj-10",
                                     "maxclass": "mc.playlist~",
-                                    "mode": 0,
+                                    "mode": "basic",
                                     "numinlets": 1,
                                     "numoutlets": 4,
                                     "outlettype": [ "multichannelsignal", "signal", "", "dictionary" ],
                                     "parameter_enable": 0,
                                     "patching_rect": [ 140.0, 183.0, 256.0, 91.0 ],
-                                    "quality": 0,
+                                    "quality": "basic",
                                     "saved_attribute_attributes": {
                                         "candicane2": {
                                             "expression": ""
@@ -887,7 +1045,7 @@
                                                     "maxclass": "newobj",
                                                     "numinlets": 1,
                                                     "numoutlets": 0,
-                                                    "patching_rect": [ 271.0, 292.0, 35.0, 22.0 ],
+                                                    "patching_rect": [ 296.0, 384.0, 35.0, 22.0 ],
                                                     "text": "out 2"
                                                 }
                                             },
@@ -898,7 +1056,7 @@
                                                     "numinlets": 3,
                                                     "numoutlets": 4,
                                                     "outlettype": [ "", "", "", "" ],
-                                                    "patching_rect": [ 297.0, 223.0, 50.5, 22.0 ],
+                                                    "patching_rect": [ 285.0, 247.0, 51.0, 22.0 ],
                                                     "text": "evi_am"
                                                 }
                                             },
@@ -909,7 +1067,7 @@
                                                     "numinlets": 0,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 50.0, 14.0, 28.0, 22.0 ],
+                                                    "patching_rect": [ 188.0, 38.0, 28.0, 22.0 ],
                                                     "text": "in 1"
                                                 }
                                             },
@@ -920,7 +1078,7 @@
                                                     "numinlets": 0,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 305.0, 14.0, 28.0, 22.0 ],
+                                                    "patching_rect": [ 301.0, 38.0, 28.0, 22.0 ],
                                                     "text": "in 2"
                                                 }
                                             },
@@ -930,7 +1088,7 @@
                                                     "maxclass": "newobj",
                                                     "numinlets": 1,
                                                     "numoutlets": 0,
-                                                    "patching_rect": [ 178.0, 292.0, 35.0, 22.0 ],
+                                                    "patching_rect": [ 188.0, 384.0, 35.0, 22.0 ],
                                                     "text": "out 1"
                                                 }
                                             }

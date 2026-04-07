@@ -5,7 +5,7 @@
         "category": "evieve",
         "tilde": "~",
         "digest": "Reimplementation of MSP <o>allpass~</o> filter delay",
-        "description": "Cubic interpolated allpass filter delay unit. The same structure as MSP <o>allpass~</o>, but with cubic interpolation for smoother high end decays, and a tamed gain coefficient so no digital clipping or aliasing. Quite different than MSP. This abstraction also includes an optional <m>feedbackmix</m> attribute which does ridiculous nonlinear comb effects - you should probably not use this at all (default off).",
+        "description": "Cubic interpolated allpass filter delay unit. The same structure as MSP <o>allpass~</o>, but with cubic interpolation for smoother high end decays, and a tamed gain coefficient so no digital clipping or aliasing. Quite different than MSP. This abstraction also includes an optional <m>feedbackmix</m> attribute which does ridiculous nonlinear comb effects (default off).",
         "discussion": "For more information about other reimplementations of MSP filters in evieve, see the 'evieve msp' tab of the helpfile."
     },
     "metadata": {

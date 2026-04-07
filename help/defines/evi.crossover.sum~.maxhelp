@@ -347,7 +347,7 @@
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_enum": [ "off", "on" ],
-                                            "parameter_initial": [ 0.0 ],
+                                            "parameter_initial": [ 1.0 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "toggle[1]",
                                             "parameter_mmax": 1,
@@ -817,6 +817,46 @@
                             },
                             {
                                 "box": {
+                                    "bubble": 1,
+                                    "bubblepoint": 0.25,
+                                    "bubbleside": 2,
+                                    "id": "obj-6",
+                                    "linecount": 2,
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 283.0, 283.0, 101.0, 55.0 ],
+                                    "text": "must be the same in both",
+                                    "textjustification": 1
+                                }
+                            },
+                            {
+                                "box": {
+                                    "bubble": 1,
+                                    "bubblepoint": 0.75,
+                                    "id": "obj-10",
+                                    "linecount": 2,
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 636.0, 474.0, 124.0, 40.0 ],
+                                    "text": "must feed High Cutoff into 'sum'",
+                                    "textjustification": 1
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-12",
+                                    "linecount": 10,
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 10.0, 507.0, 369.0, 152.0 ],
+                                    "text": "As opposed to 2-band crossovers, 3-band crossovers require additional allpass alignment in order to provide flat summing. The purists will say this must be done at the recombination stage. In evieve this can be achieved with the evi.crossover.sum~ object, which is designed to sum the end of processing chain from a evi.crossover.3band~ object. However, it does not matter that much, so evi.crossover.sum~ includes an 'align' attribute which lets you do allpass alignment in the split or sum stage. It is on by default, so should be switched off is using the pre summing allpass alignment."
+                                }
+                            },
+                            {
+                                "box": {
                                     "bgmode": 0,
                                     "border": 0,
                                     "clickthrough": 0,
@@ -1091,7 +1131,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 10.0, 10.0, 660.0, 50.0 ],
+                                    "patching_rect": [ 10.0, 10.0, 660.0, 57.599853515625 ],
                                     "textfile": {
                                         "filename": "evi.helpname.js",
                                         "flags": 0,
@@ -1190,6 +1230,93 @@
                         "boxes": [
                             {
                                 "box": {
+                                    "format": 6,
+                                    "id": "obj-15",
+                                    "maxclass": "flonum",
+                                    "maximum": 20000.0,
+                                    "minimum": 10.0,
+                                    "numinlets": 1,
+                                    "numoutlets": 2,
+                                    "outlettype": [ "", "bang" ],
+                                    "parameter_enable": 1,
+                                    "patching_rect": [ 414.0, 226.0, 50.0, 23.0 ],
+                                    "saved_attribute_attributes": {
+                                        "valueof": {
+                                            "parameter_initial": [ 4000.0 ],
+                                            "parameter_initial_enable": 1,
+                                            "parameter_longname": "number[5]",
+                                            "parameter_mmax": 20000.0,
+                                            "parameter_mmin": 10.0,
+                                            "parameter_modmode": 3,
+                                            "parameter_shortname": "number[1]",
+                                            "parameter_type": 0
+                                        }
+                                    },
+                                    "varname": "number[1]"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "format": 6,
+                                    "id": "obj-14",
+                                    "maxclass": "flonum",
+                                    "maximum": 20000.0,
+                                    "minimum": 10.0,
+                                    "numinlets": 1,
+                                    "numoutlets": 2,
+                                    "outlettype": [ "", "bang" ],
+                                    "parameter_enable": 1,
+                                    "patching_rect": [ 319.0, 226.0, 50.0, 23.0 ],
+                                    "saved_attribute_attributes": {
+                                        "valueof": {
+                                            "parameter_initial": [ 500.0 ],
+                                            "parameter_initial_enable": 1,
+                                            "parameter_longname": "number[6]",
+                                            "parameter_mmax": 20000.0,
+                                            "parameter_mmin": 10.0,
+                                            "parameter_modmode": 3,
+                                            "parameter_shortname": "number",
+                                            "parameter_type": 0
+                                        }
+                                    },
+                                    "varname": "number"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-6",
+                                    "maxclass": "newobj",
+                                    "numinlets": 2,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "signal" ],
+                                    "patching_rect": [ 223.0, 437.0, 43.0, 23.0 ],
+                                    "text": "*~ 0.5"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-3",
+                                    "maxclass": "newobj",
+                                    "numinlets": 2,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "signal" ],
+                                    "patching_rect": [ 223.0, 226.0, 68.0, 23.0 ],
+                                    "text": "saw~ 330."
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-1",
+                                    "maxclass": "newobj",
+                                    "numinlets": 3,
+                                    "numoutlets": 3,
+                                    "outlettype": [ "signal", "signal", "signal" ],
+                                    "patching_rect": [ 223.0, 281.0, 210.0, 23.0 ],
+                                    "text": "evi.crossover.3band~ @align 0"
+                                }
+                            },
+                            {
+                                "box": {
                                     "background": 1,
                                     "border": 0,
                                     "embed": 0,
@@ -1202,7 +1329,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 10.0, 10.0, 660.0, 50.0 ],
+                                    "patching_rect": [ 10.0, 10.0, 660.0, 57.599853515625 ],
                                     "textfile": {
                                         "filename": "evi.helpname.js",
                                         "flags": 0,
@@ -1229,7 +1356,7 @@
                                 "box": {
                                     "id": "obj-5",
                                     "maxclass": "newobj",
-                                    "numinlets": 2,
+                                    "numinlets": 4,
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
                                     "patcher": {
@@ -1242,9 +1369,53 @@
                                             "modernui": 1
                                         },
                                         "classnamespace": "dsp.gen",
-                                        "rect": [ 0.0, 0.0, 600.0, 450.0 ],
+                                        "rect": [ 59.0, 119.0, 600.0, 450.0 ],
                                         "integercoordinates": 1,
                                         "boxes": [
+                                            {
+                                                "box": {
+                                                    "id": "obj-8",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 3,
+                                                    "numoutlets": 3,
+                                                    "outlettype": [ "", "", "" ],
+                                                    "patching_rect": [ 377.0, 199.0, 123.0, 22.0 ],
+                                                    "text": "evi_crossover_3band"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-7",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 0,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "" ],
+                                                    "patching_rect": [ 424.0, 14.0, 28.0, 22.0 ],
+                                                    "text": "in 4"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-6",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 4,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "" ],
+                                                    "patching_rect": [ 160.0, 199.0, 112.0, 22.0 ],
+                                                    "text": "evi_crossover_sum"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-5",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 0,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "" ],
+                                                    "patching_rect": [ 307.0, 14.0, 28.0, 22.0 ],
+                                                    "text": "in 3"
+                                                }
+                                            },
                                             {
                                                 "box": {
                                                     "id": "obj-1",
@@ -1263,19 +1434,8 @@
                                                     "numinlets": 0,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 305.0, 14.0, 28.0, 22.0 ],
+                                                    "patching_rect": [ 191.0, 14.0, 28.0, 22.0 ],
                                                     "text": "in 2"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-3",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 2,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 176.0, 149.0, 29.5, 22.0 ],
-                                                    "text": "+"
                                                 }
                                             },
                                             {
@@ -1284,7 +1444,7 @@
                                                     "maxclass": "newobj",
                                                     "numinlets": 1,
                                                     "numoutlets": 0,
-                                                    "patching_rect": [ 176.0, 418.0, 35.0, 22.0 ],
+                                                    "patching_rect": [ 160.0, 410.0, 35.0, 22.0 ],
                                                     "text": "out 1"
                                                 }
                                             }
@@ -1292,25 +1452,37 @@
                                         "lines": [
                                             {
                                                 "patchline": {
-                                                    "destination": [ "obj-3", 0 ],
+                                                    "destination": [ "obj-6", 0 ],
                                                     "source": [ "obj-1", 0 ]
                                                 }
                                             },
                                             {
                                                 "patchline": {
-                                                    "destination": [ "obj-3", 1 ],
+                                                    "destination": [ "obj-6", 1 ],
                                                     "source": [ "obj-2", 0 ]
                                                 }
                                             },
                                             {
                                                 "patchline": {
+                                                    "destination": [ "obj-6", 2 ],
+                                                    "source": [ "obj-5", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
                                                     "destination": [ "obj-4", 0 ],
-                                                    "source": [ "obj-3", 0 ]
+                                                    "source": [ "obj-6", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-6", 3 ],
+                                                    "source": [ "obj-7", 0 ]
                                                 }
                                             }
                                         ]
                                     },
-                                    "patching_rect": [ 223.0, 336.0, 447.0, 23.0 ],
+                                    "patching_rect": [ 223.0, 336.0, 306.0, 23.0 ],
                                     "text": "gen~ @title using_evi.crossover.sum~_inside_gen~",
                                     "varname": "evieveObjectGen"
                                 }
@@ -1361,7 +1533,72 @@
                                 }
                             }
                         ],
-                        "lines": [],
+                        "lines": [
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-5", 2 ],
+                                    "source": [ "obj-1", 2 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-5", 1 ],
+                                    "source": [ "obj-1", 1 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-5", 0 ],
+                                    "source": [ "obj-1", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-1", 1 ],
+                                    "source": [ "obj-14", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-1", 2 ],
+                                    "order": 1,
+                                    "source": [ "obj-15", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-5", 3 ],
+                                    "order": 0,
+                                    "source": [ "obj-15", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-1", 0 ],
+                                    "source": [ "obj-3", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-6", 0 ],
+                                    "source": [ "obj-5", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-9", 1 ],
+                                    "order": 0,
+                                    "source": [ "obj-6", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-9", 0 ],
+                                    "order": 1,
+                                    "source": [ "obj-6", 0 ]
+                                }
+                            }
+                        ],
                         "toolbaradditions": [ "audiosolo", "audiomute" ]
                     },
                     "patching_rect": [ 373.0, 336.0, 50.0, 23.0 ],
@@ -1388,13 +1625,111 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
                         "showontab": 1,
                         "integercoordinates": 1,
                         "boxes": [
+                            {
+                                "box": {
+                                    "id": "obj-8",
+                                    "maxclass": "newobj",
+                                    "numinlets": 2,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "signal" ],
+                                    "patching_rect": [ 223.0, 436.0, 43.0, 23.0 ],
+                                    "text": "*~ 0.5"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-6",
+                                    "maxclass": "newobj",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "patching_rect": [ 557.0, 281.0, 100.0, 23.0 ],
+                                    "text": "prepend hzHigh"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "format": 6,
+                                    "id": "obj-15",
+                                    "maxclass": "flonum",
+                                    "maximum": 20000.0,
+                                    "minimum": 10.0,
+                                    "numinlets": 1,
+                                    "numoutlets": 2,
+                                    "outlettype": [ "", "bang" ],
+                                    "parameter_enable": 1,
+                                    "patching_rect": [ 521.0, 226.0, 50.0, 23.0 ],
+                                    "saved_attribute_attributes": {
+                                        "valueof": {
+                                            "parameter_initial": [ 4000.0 ],
+                                            "parameter_initial_enable": 1,
+                                            "parameter_longname": "number[7]",
+                                            "parameter_mmax": 20000.0,
+                                            "parameter_mmin": 10.0,
+                                            "parameter_modmode": 3,
+                                            "parameter_shortname": "number[1]",
+                                            "parameter_type": 0
+                                        }
+                                    },
+                                    "varname": "number[1]"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "format": 6,
+                                    "id": "obj-14",
+                                    "maxclass": "flonum",
+                                    "maximum": 20000.0,
+                                    "minimum": 10.0,
+                                    "numinlets": 1,
+                                    "numoutlets": 2,
+                                    "outlettype": [ "", "bang" ],
+                                    "parameter_enable": 1,
+                                    "patching_rect": [ 372.0, 226.0, 50.0, 23.0 ],
+                                    "saved_attribute_attributes": {
+                                        "valueof": {
+                                            "parameter_initial": [ 500.0 ],
+                                            "parameter_initial_enable": 1,
+                                            "parameter_longname": "number[8]",
+                                            "parameter_mmax": 20000.0,
+                                            "parameter_mmin": 10.0,
+                                            "parameter_modmode": 3,
+                                            "parameter_shortname": "number",
+                                            "parameter_type": 0
+                                        }
+                                    },
+                                    "varname": "number"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-3",
+                                    "maxclass": "newobj",
+                                    "numinlets": 2,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "signal" ],
+                                    "patching_rect": [ 223.0, 226.0, 68.0, 23.0 ],
+                                    "text": "saw~ 330."
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-1",
+                                    "maxclass": "newobj",
+                                    "numinlets": 3,
+                                    "numoutlets": 3,
+                                    "outlettype": [ "signal", "signal", "signal" ],
+                                    "patching_rect": [ 223.0, 281.0, 317.0, 23.0 ],
+                                    "text": "evi.crossover.3band~ @align 0"
+                                }
+                            },
                             {
                                 "box": {
                                     "background": 1,
@@ -1409,7 +1744,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 10.0, 10.0, 660.0, 50.0 ],
+                                    "patching_rect": [ 10.0, 10.0, 660.0, 57.599853515625 ],
                                     "textfile": {
                                         "filename": "evi.helpname.js",
                                         "flags": 0,
@@ -1436,7 +1771,7 @@
                                 "box": {
                                     "id": "obj-5",
                                     "maxclass": "newobj",
-                                    "numinlets": 2,
+                                    "numinlets": 3,
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
                                     "patcher": {
@@ -1449,9 +1784,20 @@
                                             "modernui": 1
                                         },
                                         "classnamespace": "dsp.gen",
-                                        "rect": [ 0.0, 0.0, 600.0, 450.0 ],
+                                        "rect": [ 59.0, 119.0, 874.0, 605.0 ],
                                         "integercoordinates": 1,
                                         "boxes": [
+                                            {
+                                                "box": {
+                                                    "id": "obj-7",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 0,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "" ],
+                                                    "patching_rect": [ 336.0, 39.0, 56.0, 22.0 ],
+                                                    "text": "in 3 High"
+                                                }
+                                            },
                                             {
                                                 "box": {
                                                     "id": "obj-1",
@@ -1459,8 +1805,8 @@
                                                     "numinlets": 0,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 50.0, 14.0, 28.0, 22.0 ],
-                                                    "text": "in 1"
+                                                    "patching_rect": [ 58.0, 39.0, 53.0, 22.0 ],
+                                                    "text": "in 1 Low"
                                                 }
                                             },
                                             {
@@ -1470,19 +1816,22 @@
                                                     "numinlets": 0,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 305.0, 14.0, 28.0, 22.0 ],
-                                                    "text": "in 2"
+                                                    "patching_rect": [ 197.0, 39.0, 51.0, 22.0 ],
+                                                    "text": "in 2 Mid"
                                                 }
                                             },
                                             {
                                                 "box": {
+                                                    "code": "\r\n// all linkwitz-riley crossovers code lives in this .genexpr file:\r\nrequire(\"evi_crossovers.genexpr\");\r\n\r\n\r\nParam   hzLow(250, min=10, max=20000);\r\nParam   hzHigh(2000, min=10, max=20000);\r\n\r\n\r\n// 'eviXover2pole3bandSum()' is the same as [evi.crossover.sum~ @order 0]\r\n//                          Low, Mid, High\r\nout1 = eviXover2pole3bandSum(in1, in2, in3, hzHigh);\r\n// Low, Mid, High\r\n\r\n// 'eviXover4pole3bandSum()' is the same as [evi.crossover.sum~ @order 1]\r\n//                          Low, Mid, High\r\nout2 = eviXover4pole3bandSum(in1, in2, in3, hzHigh);\r\n\r\n\r\n// the .genexpr file also includes stereo versions:\r\nout3, out4 = eviXover2pole3bandSumStereo(in1, in4, in2, in5, in3, in6, hzHigh);\r\n// L R\r\n\r\n",
+                                                    "fontface": 0,
+                                                    "fontname": "<Monospaced>",
+                                                    "fontsize": 12.0,
                                                     "id": "obj-3",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 2,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 176.0, 149.0, 29.5, 22.0 ],
-                                                    "text": "+"
+                                                    "maxclass": "codebox",
+                                                    "numinlets": 6,
+                                                    "numoutlets": 4,
+                                                    "outlettype": [ "", "", "", "" ],
+                                                    "patching_rect": [ 58.0, 89.0, 715.0, 408.0 ]
                                                 }
                                             },
                                             {
@@ -1491,7 +1840,7 @@
                                                     "maxclass": "newobj",
                                                     "numinlets": 1,
                                                     "numoutlets": 0,
-                                                    "patching_rect": [ 176.0, 418.0, 35.0, 22.0 ],
+                                                    "patching_rect": [ 290.0, 532.0, 35.0, 22.0 ],
                                                     "text": "out 1"
                                                 }
                                             }
@@ -1512,12 +1861,18 @@
                                             {
                                                 "patchline": {
                                                     "destination": [ "obj-4", 0 ],
-                                                    "source": [ "obj-3", 0 ]
+                                                    "source": [ "obj-3", 1 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-3", 2 ],
+                                                    "source": [ "obj-7", 0 ]
                                                 }
                                             }
                                         ]
                                     },
-                                    "patching_rect": [ 223.0, 336.0, 447.0, 23.0 ],
+                                    "patching_rect": [ 223.0, 336.0, 317.0, 23.0 ],
                                     "text": "gen~ @title using_evi.crossover.sum~_with_GenExpr",
                                     "varname": "evieveObjectGenExpr"
                                 }
@@ -1568,7 +1923,78 @@
                                 }
                             }
                         ],
-                        "lines": [],
+                        "lines": [
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-5", 2 ],
+                                    "source": [ "obj-1", 2 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-5", 1 ],
+                                    "source": [ "obj-1", 1 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-5", 0 ],
+                                    "source": [ "obj-1", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-1", 1 ],
+                                    "source": [ "obj-14", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-1", 2 ],
+                                    "order": 1,
+                                    "source": [ "obj-15", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-6", 0 ],
+                                    "order": 0,
+                                    "source": [ "obj-15", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-1", 0 ],
+                                    "source": [ "obj-3", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-8", 0 ],
+                                    "source": [ "obj-5", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-5", 0 ],
+                                    "source": [ "obj-6", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-9", 1 ],
+                                    "order": 0,
+                                    "source": [ "obj-8", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-9", 0 ],
+                                    "order": 1,
+                                    "source": [ "obj-8", 0 ]
+                                }
+                            }
+                        ],
                         "toolbaradditions": [ "audiosolo", "audiomute" ]
                     },
                     "patching_rect": [ 455.0, 336.0, 71.0, 23.0 ],
@@ -1693,6 +2119,10 @@
             }
         ],
         "parameters": {
+            "obj-10::obj-14": [ "number[6]", "number", 0 ],
+            "obj-10::obj-15": [ "number[5]", "number[1]", 0 ],
+            "obj-11::obj-14": [ "number[8]", "number", 0 ],
+            "obj-11::obj-15": [ "number[7]", "number[1]", 0 ],
             "obj-2::obj-14": [ "number[3]", "number", 0 ],
             "obj-2::obj-15": [ "number[2]", "number[1]", 0 ],
             "obj-2::obj-21": [ "toggle[1]", "toggle[1]", 0 ],

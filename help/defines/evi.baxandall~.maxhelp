@@ -408,7 +408,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 10.0, 10.0, 660.0, 50.0 ],
+                                    "patching_rect": [ 10.0, 10.0, 660.0, 57.599853515625 ],
                                     "textfile": {
                                         "filename": "evi.helpname.js",
                                         "flags": 0,
@@ -507,8 +507,62 @@
                         "boxes": [
                             {
                                 "box": {
+                                    "bubble": 1,
+                                    "id": "obj-3",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 503.0, 335.0, 136.0, 25.0 ],
+                                    "text": "@stereo 1 inside",
+                                    "textjustification": 1
+                                }
+                            },
+                            {
+                                "box": {
+                                    "clipheight": 22.0,
                                     "data": {
-                                        "clips": []
+                                        "clips": [
+                                            {
+                                                "absolutepath": "anton.aif",
+                                                "filename": "anton.aif",
+                                                "filekind": "audiofile",
+                                                "id": "u906003140",
+                                                "loop": 1,
+                                                "content_state": {
+                                                    "loop": 1
+                                                }
+                                            },
+                                            {
+                                                "absolutepath": "drumLoop.aif",
+                                                "filename": "drumLoop.aif",
+                                                "filekind": "audiofile",
+                                                "id": "u409003401",
+                                                "loop": 1,
+                                                "content_state": {
+                                                    "loop": 1
+                                                }
+                                            },
+                                            {
+                                                "absolutepath": "cherokee.aif",
+                                                "filename": "cherokee.aif",
+                                                "filekind": "audiofile",
+                                                "id": "u458003796",
+                                                "loop": 1,
+                                                "content_state": {
+                                                    "loop": 1
+                                                }
+                                            },
+                                            {
+                                                "absolutepath": "FemVoice.aif",
+                                                "filename": "FemVoice.aif",
+                                                "filekind": "audiofile",
+                                                "id": "u199003964",
+                                                "loop": 1,
+                                                "content_state": {
+                                                    "loop": 1
+                                                }
+                                            }
+                                        ]
                                     },
                                     "id": "obj-12",
                                     "maxclass": "playlist~",

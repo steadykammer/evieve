@@ -82,6 +82,7 @@
     },
     "seealso": [
         "evi.damp.macro~",
+        "evi.onepole~",
         "evi.onepole.shelving~",
         "evi.tone.macro~",
         "evi.filter.shelving~",

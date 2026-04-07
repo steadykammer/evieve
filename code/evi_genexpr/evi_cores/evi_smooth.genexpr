@@ -25,7 +25,7 @@ polesmooth(x, s)	// x = value			// s = smoothing amount, pole range, e.g. 0.999
 }
 
 // excellent cheap generic smoother, fast(er) response
-expsmooth(x, t)		// x = value			// t is smooth time in seconds
+expsmooth(x, t)		// x = value			// t is smooth time in seconds, NOTE: minimum should be 1ms
 {
 	History w(0);
 	z = tauA(t);
@@ -63,7 +63,7 @@ expso(x, z)									// z is pole
 	return y;
 }
 
-expsmoothBank2(x1, x2, t)					// t is smooth time in seconds...
+expsmoothBank2(x1, x2, t)					// t is smooth time in seconds, NOTE: minimum should be 1ms
 {
 	History	expsdummy2(0);
 	z		= tauA(t);
