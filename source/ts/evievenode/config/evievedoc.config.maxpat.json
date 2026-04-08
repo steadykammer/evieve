@@ -945,7 +945,7 @@
             "ref": true,
             "qlookup": true,
             "helpfile": {
-                "generate": false,
+                "generate": true,
                 "mctab": false,
                 "mcstab": false,
                 "mcparent": "",
@@ -955,8 +955,8 @@
                 "areas": []
             },
             "db": {
-                "browser": false,
-                "auto": false
+                "browser": true,
+                "auto": true
             }
         },
         "mc.evi.nth~": {

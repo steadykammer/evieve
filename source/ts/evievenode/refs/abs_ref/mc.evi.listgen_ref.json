@@ -3,8 +3,8 @@
         "name": "mc.evi.listgen",
         "category": "evieve",
         "digest": "Create message lists with mcwrapper features",
-        "description": "Create message lists with mcwrapper features - a patch idea by Todd Ingalls - THANKS!",
-        "discussion": ""
+        "description": "Create message lists with mcwrapper features. A simple hack using <o>mc.gen</o> to accept mcwrapper commands and output max message rate lists with the resultant data. Also see <o>mcwrapper-group</o>.",
+        "discussion": "A patch idea by Todd Ingalls - THANKS!"
     },
     "metadata": {
         "author": "Pete Dowling",
