@@ -313,7 +313,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 273.0, 337.0, 157.0, 69.0 ],
+                                    "patching_rect": [ 273.0, 337.0, 156.760986328125, 69.0 ],
                                     "textfile": {
                                         "filename": "evi.helpargs.js",
                                         "flags": 0,
@@ -818,13 +818,49 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
                         "showontab": 1,
                         "integercoordinates": 1,
                         "boxes": [
+                            {
+                                "box": {
+                                    "id": "obj-13",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 549.0, 310.0, 57.0, 21.0 ],
+                                    "text": "samples"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "fontface": 0,
+                                    "fontname": "Arial",
+                                    "fontsize": 13.0,
+                                    "id": "obj-8",
+                                    "maxclass": "number~",
+                                    "mode": 2,
+                                    "numinlets": 2,
+                                    "numoutlets": 2,
+                                    "outlettype": [ "signal", "float" ],
+                                    "patching_rect": [ 491.0, 309.0, 56.0, 23.0 ],
+                                    "sig": 0.0
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-6",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 476.0, 508.0, 130.0, 21.0 ],
+                                    "text": "alternate vactrol",
+                                    "textjustification": 1
+                                }
+                            },
                             {
                                 "box": {
                                     "id": "obj-19",
@@ -1009,7 +1045,7 @@
                                             },
                                             {
                                                 "box": {
-                                                    "code": "\r\n// avaialable in 'evi_smooth' as 'vactrolBuchla()':\r\nrequire(\"evi_smooth.genexpr\");\r\n// also available in 'evi_env' simply as 'vactrol()':\r\n//require(\"evi_env.genexpr\");\r\n\r\n\r\nout1 = vactrolBuchla(in1, in2, in3);\r\n\r\n// another vactrol-like filter:\r\nout2 = likeAvactrol(in1, 0.1, 0.9);\r\n\r\n",
+                                                    "code": "\r\n// avaialable in 'evi_smooth' as 'vactrolBuchla()':\r\nrequire(\"evi_smooth.genexpr\");\r\n// also available in 'evi_env' simply as 'vactrol()':\r\n//require(\"evi_env.genexpr\");\r\n\r\n\r\nout1 = vactrolBuchla(in1, in2, in3) * 200;\r\n// could also use the abstraction:\r\n//out1 = evi_vactrol(in1, in2, in3, scalar=200);\r\n\r\n// another vactrol-like filter:\r\nout2 = likeAvactrol(in1 * 100, 0.1, 0.9) * 100;\r\n// could also use the abstraction:\r\n//out2 = evi_vactrol_shape(in1, 0.1, 0.9, scalein=300, scaleout=200);\r\n\r\n",
                                                     "fontface": 0,
                                                     "fontname": "<Monospaced>",
                                                     "fontsize": 12.0,
@@ -1149,6 +1185,14 @@
                             {
                                 "patchline": {
                                     "destination": [ "obj-5", 2 ],
+                                    "order": 1,
+                                    "source": [ "obj-15", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-8", 0 ],
+                                    "order": 0,
                                     "source": [ "obj-15", 0 ]
                                 }
                             },

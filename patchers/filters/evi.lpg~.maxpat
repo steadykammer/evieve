@@ -34,7 +34,8 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 251.0, 620.0, 150.0, 22.0 ]
+                    "patching_rect": [ 251.0, 620.0, 150.0, 22.0 ],
+                    "text": "1 192000. 64 256"
                 }
             },
             {
@@ -524,7 +525,7 @@
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
-                    "outlettype": [ "" ],
+                    "outlettype": [ "signal" ],
                     "patching_rect": [ 564.0, 133.0, 30.0, 30.0 ]
                 }
             },
@@ -547,7 +548,7 @@
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
-                    "outlettype": [ "" ],
+                    "outlettype": [ "signal" ],
                     "patching_rect": [ 502.0, 133.0, 30.0, 30.0 ]
                 }
             },
@@ -592,7 +593,7 @@
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
-                    "outlettype": [ "" ],
+                    "outlettype": [ "signal" ],
                     "patching_rect": [ 295.0, 133.0, 30.0, 30.0 ]
                 }
             },
@@ -648,7 +649,7 @@
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
-                    "outlettype": [ "" ],
+                    "outlettype": [ "signal" ],
                     "patching_rect": [ 204.0, 133.0, 30.0, 30.0 ]
                 }
             },
@@ -682,7 +683,7 @@
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
-                    "outlettype": [ "" ],
+                    "outlettype": [ "signal" ],
                     "patching_rect": [ 112.0, 133.0, 30.0, 30.0 ]
                 }
             },
@@ -769,8 +770,8 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 64.0, 73.0, 567.0, 33.0 ],
-                    "text": "evievedoc @smooth 15.111 @boom 0. @vca 0. @lpg 0. @nonlin 1 @vactrolscalar 10. @vactrolcontrolhz 143. @vactrolcontroldamp 0. @response 1 @offsetsmooth 0. @scalersmooth 0. @sweepsmooth 0.",
+                    "patching_rect": [ 64.0, 73.0, 582.0, 33.0 ],
+                    "text": "evievedoc @smooth 15.111 @boom 0. @vca 0. @lpg 0. @nonlin 1 @vactrolscalar 100. @vactrolcontrolhz 143. @vactrolcontroldamp 0. @response 1 @offsetsmooth 0. @scalersmooth 0. @sweepsmooth 0.",
                     "varname": "evievedoc"
                 }
             }
