@@ -9,7 +9,7 @@
 		<b>evi.limiterfast~</b> is a 'max define' for the <o>evi_limiterfast</o>.gendsp gen~ abstraction.
 		Because evi.limiterfast~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		<br />
-		A basic stereo limiter. Being a no-lookahead limiter, the 'crunch' can kick in quite easily. <o>evi.limiterfast~</o> features an anti-aliased antiderivative hard clipping function to deal with this. Other than that it features fixed hard attack, a settable soft knee, variable smoothing, release time set in ms. The AGC envelope is available at the far right outlet. <br />
+		A very basic stereo limiter. Being a no-lookahead limiter, the 'crunch' can kick in quite easily. <o>evi.limiterfast~</o> features an anti-aliased antiderivative hard clipping function to deal with this. Other than that it features fixed hard attack, a settable soft knee, variable smoothing, release time set in ms. The AGC envelope is available at the far right outlet. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>

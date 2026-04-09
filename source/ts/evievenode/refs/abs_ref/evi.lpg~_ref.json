@@ -216,7 +216,7 @@
             "description": "Scale the output amplitude of the vactrol envelope at the beginning of the ping chain. The default is '10.' which seems to work well, but very different behaviour can be achieved by modifying this.",
             "default": {
                 "get": 0,
-                "value": "10."
+                "value": "100."
             }
         },
         {

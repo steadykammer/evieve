@@ -200,7 +200,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": [ "evi.damp.macro~", "evi.onepole.shelving~", "evi.tone.macro~", "evi.filter.shelving~", "evi.filter.tilt~", "evi.baxandall~" ]
+        "seealso": [ "evi.damp.macro~", "evi.onepole~", "evi.onepole.shelving~", "evi.tone.macro~", "evi.filter.shelving~", "evi.filter.tilt~", "evi.baxandall~" ]
     },
     "evi.dcblock~": {
         "digest": "DC Blocking filter \n",

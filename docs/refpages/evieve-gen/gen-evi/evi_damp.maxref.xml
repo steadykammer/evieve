@@ -71,6 +71,7 @@
     </metadatalist>
     <seealsolist>
         <seealso name='evi_damp_macro' display='evi_damp_macro' type='genrefpage' />
+        <seealso name='evi_onepole' display='evi_onepole' type='genrefpage' />
         <seealso name='evi_onepole_shelving' display='evi_onepole_shelving' type='genrefpage' />
         <seealso name='evi_tone_macro' display='evi_tone_macro' type='genrefpage' />
         <seealso name='evi_filter_shelving' display='evi_filter_shelving' type='genrefpage' />

@@ -4746,7 +4746,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -6130,7 +6130,6 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 10.0, 94.0, 660.0, 53.0 ],
-                                    "presentation_linecount": 3,
                                     "text": "Unlike some other evieve reverbs, evi.plateverb~ does not require external reverb coefficients calculations, so can be used inside gen~ and GenExpr at any local samplerate. However, if you want the EQ functionality you must do those calculations externally.",
                                     "varname": "digest_comment[1]"
                                 }
@@ -6155,6 +6154,54 @@
                                         "rect": [ 59.0, 119.0, 600.0, 450.0 ],
                                         "integercoordinates": 1,
                                         "boxes": [
+                                            {
+                                                "box": {
+                                                    "hidden": 1,
+                                                    "id": "obj-18",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "" ],
+                                                    "patching_rect": [ 40.0, 403.0, 123.0, 22.0 ],
+                                                    "text": "setparam delayTime2"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "hidden": 1,
+                                                    "id": "obj-17",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "" ],
+                                                    "patching_rect": [ 40.0, 325.0, 123.0, 22.0 ],
+                                                    "text": "setparam delayTime1"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "hidden": 1,
+                                                    "id": "obj-64",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 0,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "" ],
+                                                    "patching_rect": [ 40.0, 364.0, 107.0, 22.0 ],
+                                                    "text": "param delayTime2"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "hidden": 1,
+                                                    "id": "obj-63",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 0,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "" ],
+                                                    "patching_rect": [ 40.0, 286.0, 107.0, 22.0 ],
+                                                    "text": "param delayTime1"
+                                                }
+                                            },
                                             {
                                                 "box": {
                                                     "id": "obj-14",
@@ -6250,7 +6297,7 @@
                                                     "numinlets": 0,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 40.0, 197.0, 76.0, 22.0 ],
+                                                    "patching_rect": [ 40.0, 112.0, 76.0, 22.0 ],
                                                     "text": "param damp"
                                                 }
                                             },
@@ -6261,7 +6308,7 @@
                                                     "numinlets": 1,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 40.0, 234.0, 92.0, 22.0 ],
+                                                    "patching_rect": [ 40.0, 149.0, 92.0, 22.0 ],
                                                     "text": "setparam damp"
                                                 }
                                             },
@@ -6381,6 +6428,20 @@
                                             },
                                             {
                                                 "patchline": {
+                                                    "destination": [ "obj-5", 0 ],
+                                                    "hidden": 1,
+                                                    "source": [ "obj-17", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-5", 0 ],
+                                                    "hidden": 1,
+                                                    "source": [ "obj-18", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
                                                     "destination": [ "obj-5", 1 ],
                                                     "source": [ "obj-2", 0 ]
                                                 }
@@ -6401,6 +6462,20 @@
                                                 "patchline": {
                                                     "destination": [ "obj-6", 0 ],
                                                     "source": [ "obj-5", 1 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-17", 0 ],
+                                                    "hidden": 1,
+                                                    "source": [ "obj-63", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-18", 0 ],
+                                                    "hidden": 1,
+                                                    "source": [ "obj-64", 0 ]
                                                 }
                                             },
                                             {

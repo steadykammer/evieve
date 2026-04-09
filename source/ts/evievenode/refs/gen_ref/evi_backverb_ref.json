@@ -429,7 +429,7 @@
         {
             "name": "outputnonlinear",
             "type": "int",
-            "digest": "@min 0, @max 2",
+            "digest": "@min 0, @max 1",
             "description": "The parabolic nonlinearity shape at the end of the reverb chain. 0=naive (not recommended as can alias), 1=same but 2x oversampled, 2=same but 4x oversampled.",
             "default": {
                 "type": "int",

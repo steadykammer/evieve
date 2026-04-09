@@ -17,7 +17,7 @@
     "evi.allpass~": {
         "type": "define",
         "digest": "Reimplementation of MSP allpass~ filter delay",
-        "description": "evi.allpass~ is a 'max define' for the evi_allpass.gendsp gen~ abstraction. Because evi.allpass~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nCubic interpolated allpass filter delay unit. The same structure as MSP allpass~, but with cubic interpolation for smoother high end decays, and a tamed gain coefficient so no digital clipping or aliasing. Quite different than MSP. This abstraction also includes an optional feedbackmix attribute which does ridiculous nonlinear comb effects - you should probably not use this at all (default off)."
+        "description": "evi.allpass~ is a 'max define' for the evi_allpass.gendsp gen~ abstraction. Because evi.allpass~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nCubic interpolated allpass filter delay unit. The same structure as MSP allpass~, but with cubic interpolation for smoother high end decays, and a tamed gain coefficient so no digital clipping or aliasing. Quite different than MSP. This abstraction also includes an optional feedbackmix attribute which does ridiculous nonlinear comb effects (default off)."
     },
     "evi.am~": {
         "type": "define",
@@ -362,7 +362,7 @@
     "evi.limiterfast~": {
         "type": "define",
         "digest": "A fast no-lookahead limiter with anti-aliased nonlinear clipping",
-        "description": "evi.limiterfast~ is a 'max define' for the evi_limiterfast.gendsp gen~ abstraction. Because evi.limiterfast~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA basic stereo limiter. Being a no-lookahead limiter, the 'crunch' can kick in quite easily. evi.limiterfast~ features an anti-aliased antiderivative hard clipping function to deal with this. Other than that it features fixed hard attack, a settable soft knee, variable smoothing, release time set in ms. The AGC envelope is available at the far right outlet."
+        "description": "evi.limiterfast~ is a 'max define' for the evi_limiterfast.gendsp gen~ abstraction. Because evi.limiterfast~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA very basic stereo limiter. Being a no-lookahead limiter, the 'crunch' can kick in quite easily. evi.limiterfast~ features an anti-aliased antiderivative hard clipping function to deal with this. Other than that it features fixed hard attack, a settable soft knee, variable smoothing, release time set in ms. The AGC envelope is available at the far right outlet."
     },
     "evi.lockhart.cascade~": {
         "type": "define",
@@ -702,6 +702,6 @@
     "mc.evi.listgen": {
         "type": "abstraction",
         "digest": "Create message lists with mcwrapper features \n",
-        "description": "Create message lists with mcwrapper features - a patch idea by Todd Ingalls - THANKS!"
+        "description": "Create message lists with mcwrapper features. A simple hack using mc.gen to accept mcwrapper commands and output max message rate lists with the resultant data. Also see mcwrapper-group."
     }
 }

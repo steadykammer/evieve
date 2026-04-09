@@ -13,7 +13,7 @@
          <br />
         evi_limiterfast is also available in MSP as: <o>evi.limiterfast~</o>. <br />
          <br />
-	    A basic stereo limiter. Being a no-lookahead limiter, the 'crunch' can kick in quite easily. <o>evi.limiterfast~</o> features an anti-aliased antiderivative hard clipping function to deal with this. Other than that it features fixed hard attack, a settable soft knee, variable smoothing, release time set in ms. The AGC envelope is available at the far right outlet. <br />
+	    A very basic stereo limiter. Being a no-lookahead limiter, the 'crunch' can kick in quite easily. <o>evi.limiterfast~</o> features an anti-aliased antiderivative hard clipping function to deal with this. Other than that it features fixed hard attack, a settable soft knee, variable smoothing, release time set in ms. The AGC envelope is available at the far right outlet. <br />
     </description>
     <methodlist />
     <constructorlist>

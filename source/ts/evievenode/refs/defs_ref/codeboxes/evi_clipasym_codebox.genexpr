@@ -240,23 +240,28 @@ thbxAS3x9x(XIN, a, s)
 }
 
 Param	smooth(22.666, min=0, max=226.66);	    // in ms
+Param   bounds(1, min=0, max=1);                // 0 = full range, 1 = stay in bounds
 Param	nonlin(0, min=0, max=1);				// 0 = cubic, 1 = tanh
 n		= int(nonlin);
+b       = int(bounds);
 
-s		= (in2 * 0.5) + 0.5;					// in2 = 0..1
+s		= (in2 * in2 * in2 * 0.5) + 0.5;	    // in2 = 0..1
 a		= (sqrt(1 - s) * 3.73) + 0.251189;		// -12..12 dB
 m		= ((s * s * s) + 0.995262) - 0.120262;	// max +6dB
 
 // turn off if using audio rate modulation on in2
 if (smooth > 0) {
 	a, s	= expsmoothBank2(a, s, smooth*0.001);
-	m		= eviLine(m, smooth*samplerate);
+	m		= eviLine(m, mstosamps(smooth));
 }
 
+asym = 0;
 if (n) {
-	out1	= aTanhLxAS9x(in1, a, s) * m;
+	asym	= aTanhLxAS9x(in1, a, s) * m;
 } else {
     // more korg-ish sound
-	out1	= thbxAS3x9x(in1, a, s) * m;
+	asym	= thbxAS3x9x(in1, a, s) * m;
 }
+
+out1 = asym * (b ? sqrt1_2 : 1);
 

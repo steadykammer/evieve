@@ -98,6 +98,7 @@
 	<!--SEEALSO-->
 	<seealsolist>
 		<seealso name="evi.damp.macro~"> </seealso>
+		<seealso name="evi.onepole~"> </seealso>
 		<seealso name="evi.onepole.shelving~"> </seealso>
 		<seealso name="evi.tone.macro~"> </seealso>
 		<seealso name="evi.filter.shelving~"> </seealso>

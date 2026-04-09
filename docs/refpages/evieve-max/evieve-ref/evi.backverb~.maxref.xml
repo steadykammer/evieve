@@ -147,7 +147,7 @@
 		</attribute>
 		<attribute name="feedbacknonlinear" get="0" set="1" type="int" size="1">
 			<digest>
-				Select 0..2
+				Select 0, 1, 2
 			</digest>
 			<description>
 				The nonlinearity in the feedback path of the reverb. 0&#x3D;Adaa2 (2nd order antiderivative anti-aliasing) tanh-like saturation, 1&#x3D;same but 2x oversampled, 2&#x3D;same but 4x oversampled.
@@ -235,10 +235,10 @@
 		</attribute>
 		<attribute name="outputnonlinear" get="0" set="1" type="int" size="1">
 			<digest>
-				Select 0..2
+				Select 0, 1
 			</digest>
 			<description>
-				The parabolic nonlinearity shape at the end of the reverb chain. 0&#x3D;naive (not recommended as can alias), 1&#x3D;same but 2x oversampled, 2&#x3D;same but 4x oversampled.
+				The cubic nonlinear shape at the end of the reverb chain. 0&#x3D;Adaa1 (1st order antiderivative anti-aliasing), 1&#x3D;Adaa2 (2nd order antiderivative anti-aliasing).
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="int" size="1" value="1" />

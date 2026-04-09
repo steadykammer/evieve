@@ -87,7 +87,7 @@
             "name": "io",
             "type": "float",
             "digest": "@min -1, @max 1",
-            "description": "An additional gain stage that is reciprocal around input / output. if @io is > 0, input gain (to the saturator) is attenuated and output gain is boosted. If @io is < 0, input gain (to the saturator) is boosted and output gain is attenuated. (Boost / attenuation is approximately ± 12dB). This completely reshapes the waveshaping effect.",
+            "description": "An additional gain stage that is reciprocal around input / output. If @io is > 0, input gain (to the saturator) is attenuated and output gain is boosted. If @io is < 0, input gain (to the saturator) is boosted and output gain is attenuated. (Boost / attenuation is approximately ± 12dB). This completely reshapes the waveshaping effect.",
             "default": {
                 "type": "float",
                 "value": "0."

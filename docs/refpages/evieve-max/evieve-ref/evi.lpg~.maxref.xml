@@ -250,7 +250,7 @@
 				Scale the output amplitude of the vactrol envelope at the beginning of the ping chain. The default is &#x27;10.&#x27; which seems to work well, but very different behaviour can be achieved by modifying this.
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="1" type="float" size="1" value="10." />
+				<attribute name="default" get="0" set="1" type="float" size="1" value="100." />
 			</attributelist>
 		</attribute>
 		<attribute name="vca" get="0" set="1" type="float" size="1">

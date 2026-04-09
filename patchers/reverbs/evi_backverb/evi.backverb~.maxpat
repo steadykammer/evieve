@@ -483,10 +483,10 @@
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 144.0, 375.0, 130.0, 22.0 ],
                                     "saved_object_attributes": {
-                                        "filename": "evi_majorverb_init.js",
+                                        "filename": "evi_backverb_init.js",
                                         "parameter_enable": 0
                                     },
-                                    "text": "js evi_majorverb_init.js"
+                                    "text": "js evi_backverb_init.js"
                                 }
                             },
                             {
@@ -1195,8 +1195,8 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 729.0, 252.0, 68.0, 20.0 ],
-                                    "text": "off/3x/6x"
+                                    "patching_rect": [ 727.0, 252.0, 85.0, 20.0 ],
+                                    "text": "adaa1/adaa2"
                                 }
                             },
                             {
@@ -1205,8 +1205,8 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 715.0, 289.0, 68.0, 20.0 ],
-                                    "text": "off/3x/6x"
+                                    "patching_rect": [ 713.0, 289.0, 76.0, 20.0 ],
+                                    "text": "adaa2/2x/4x"
                                 }
                             },
                             {
@@ -1275,11 +1275,11 @@
                                     "restore": [ 1.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
-                                            "parameter_enum": [ "off", "3x", "6x" ],
+                                            "parameter_enum": [ "adaa1", "adaa2" ],
                                             "parameter_initial": [ 1.0 ],
                                             "parameter_linknames": 1,
                                             "parameter_longname": "outputNonlin",
-                                            "parameter_mmax": 2,
+                                            "parameter_mmax": 1,
                                             "parameter_modmode": 0,
                                             "parameter_shortname": "outputNonlin",
                                             "parameter_type": 2
@@ -1307,7 +1307,7 @@
                                     "restore": [ 1.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
-                                            "parameter_enum": [ "off", "3x", "6x" ],
+                                            "parameter_enum": [ "adaa2", "2x", "4x" ],
                                             "parameter_initial": [ 1.0 ],
                                             "parameter_linknames": 1,
                                             "parameter_longname": "feedbackNonlin",
@@ -2849,7 +2849,7 @@
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
-                    "outlettype": [ "" ],
+                    "outlettype": [ "signal" ],
                     "patching_rect": [ 177.0, 43.0, 30.0, 30.0 ]
                 }
             },
@@ -2861,7 +2861,7 @@
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
-                    "outlettype": [ "" ],
+                    "outlettype": [ "signal" ],
                     "patching_rect": [ 57.0, 43.0, 30.0, 30.0 ]
                 }
             },

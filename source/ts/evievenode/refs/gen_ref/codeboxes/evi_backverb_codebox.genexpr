@@ -26,8 +26,21 @@ tanhLNonlin(xin, oversampling)
 		y = altTanhSqrtAdaa2_2x_6POINT(xin);
 	} else if (oversampling == 2) {	// use Adaa2 4x oversampling
 		y = altTanhSqrtAdaa2_4x_6POINT(xin);
-	} else {						// Adaa 2nd order
+	} else {						// use Adaa 2nd order
 		y = altTanhSqrtAdaa2(xin);
+	}
+	return y;
+}
+
+// make oversampling choice on cubic nonlinearity
+cubicNonlin(xin, order)
+{
+	History cubdummy(0);
+	y = 0;
+	if (order > 0) {		        // use Adaa 2nd order
+		y = eCubicAdaa2(xin);
+	} else {						// use Adaa 1st order
+		y = eCubicAdaa1(xin);
 	}
 	return y;
 }
@@ -41,7 +54,7 @@ parabolNonlin(xin, a, c, oversampling)
 		y = parabolSat_2x_6POINT(xin, a, c);
 	} else if (oversampling == 2) {	// use 4x oversampling
 		y = parabolSat_4x_6POINT(xin, a, c);
-	} else {						// 1x
+	} else {						// use 1x
 		y = parabolSat(xin, a, c);
 	}
 	return y;
@@ -115,7 +128,7 @@ Param	feedbackdamphigh(0.8666, min=0, max=1);		// ...
 Param	feedback(2.4, min=0.01, max=10);			// amplitude
 
 Param	feedbacknonlinear(1, min=0, max=2);			// 0 = Adaa2, 1 = 2x, 2 = 4x oversampled
-Param	outputnonlinear(1, min=0, max=2);			// 0 = 1x, 1 = 2x, 2 = 4x oversampled
+Param	outputnonlinear(1, min=0, max=1);			// 0 = Adaa1, 1 = Adaa2
 // secret gains (careful, not smoothed)
 Param	outputnonlineargains(0, min=0, max=1);		// switch input/output gains of output nonlinearity pre/post
 
@@ -254,8 +267,10 @@ tap08	= cross_Y.read(sum8,  7, interp="none");
 ssL		= dcblock(tap01 + tap02 + tap03 + tap04) * outputAttenuation;
 ssR		= dcblock(tap05 + tap06 + tap07 + tap08) * outputAttenuation;
 
-ssL		= parabolNonlin(ssL, opNlGain1, opNlGain2, opNonlin);	// nonlins choice (opNonlin)
-ssR		= parabolNonlin(ssR, opNlGain1, opNlGain2, opNonlin);	// ...
+//ssL		= parabolNonlin(ssL, opNlGain1, opNlGain2, opNonlin);	// nonlins choice (opNonlin)
+//ssR		= parabolNonlin(ssR, opNlGain1, opNlGain2, opNonlin);	// ...
+ssL		= cubicNonlin(ssL * opNlGain1, opNonlin) * opNlGain2;	// nonlins choice (opNonlin)
+ssR		= cubicNonlin(ssR * opNlGain1, opNonlin) * opNlGain2;	// ...
 
 //ssL		= dcblock(ssL);
 //ssR		= dcblock(ssR);

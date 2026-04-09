@@ -9,7 +9,7 @@
 		<b>evi.allpass~</b> is a 'max define' for the <o>evi_allpass</o>.gendsp gen~ abstraction.
 		Because evi.allpass~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		<br />
-		Cubic interpolated allpass filter delay unit. The same structure as MSP <o>allpass~</o>, but with cubic interpolation for smoother high end decays, and a tamed gain coefficient so no digital clipping or aliasing. Quite different than MSP. This abstraction also includes an optional <m>feedbackmix</m> attribute which does ridiculous nonlinear comb effects - you should probably not use this at all (default off). <br />
+		Cubic interpolated allpass filter delay unit. The same structure as MSP <o>allpass~</o>, but with cubic interpolation for smoother high end decays, and a tamed gain coefficient so no digital clipping or aliasing. Quite different than MSP. This abstraction also includes an optional <m>feedbackmix</m> attribute which does ridiculous nonlinear comb effects (default off). <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>

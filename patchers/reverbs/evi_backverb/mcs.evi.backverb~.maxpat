@@ -209,10 +209,10 @@
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 144.0, 375.0, 130.0, 22.0 ],
                                     "saved_object_attributes": {
-                                        "filename": "evi_majorverb_init.js",
+                                        "filename": "evi_backverb_init.js",
                                         "parameter_enable": 0
                                     },
-                                    "text": "js evi_majorverb_init.js"
+                                    "text": "js evi_backverb_init.js"
                                 }
                             },
                             {
