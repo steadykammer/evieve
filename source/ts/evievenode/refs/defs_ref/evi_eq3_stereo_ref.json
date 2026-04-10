@@ -103,7 +103,7 @@
             "name": "band1filter",
             "get": 1,
             "type": "int",
-            "digest": "0..7",
+            "digest": "Select 0..7",
             "description": "Band 1 filter type by integer index: 0=Bypass, 1=Highpass, 2=Lowshelf, 3=Bell, 4=BellAdaptiveQ, 5=Notch, 6=Highshelf, 7=Lowpass",
             "default": {
                 "min": "0",
@@ -115,7 +115,7 @@
             "name": "band2filter",
             "get": 1,
             "type": "int",
-            "digest": "0..7",
+            "digest": "Select 0..7",
             "description": "Band 2 filter type by integer index: 0=Bypass, 1=Highpass, 2=Lowshelf, 3=Bell, 4=BellAdaptiveQ, 5=Notch, 6=Highshelf, 7=Lowpass",
             "default": {
                 "min": "0",
@@ -127,7 +127,7 @@
             "name": "band3filter",
             "get": 1,
             "type": "int",
-            "digest": "0..7",
+            "digest": "Select 0..7",
             "description": "Band 3 filter type by integer index: 0=Bypass, 1=Highpass, 2=Lowshelf, 3=Bell, 4=BellAdaptiveQ, 5=Notch, 6=Highshelf, 7=Lowpass",
             "default": {
                 "min": "0",

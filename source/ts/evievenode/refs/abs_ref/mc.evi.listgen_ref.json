@@ -4,7 +4,7 @@
         "category": "evieve",
         "digest": "Create message lists with mcwrapper features",
         "description": "Create message lists with mcwrapper features. A simple hack using <o>mc.gen</o> to accept mcwrapper commands and output max message rate lists with the resultant data. Also see <o>mcwrapper-group</o>.",
-        "discussion": "A patch idea by Todd Ingalls - THANKS!"
+        "discussion": "A patch idea by Todd Ingalls - thanks!"
     },
     "metadata": {
         "author": "Pete Dowling",
@@ -86,7 +86,7 @@
             "name": "chans",
             "get": 0,
             "type": "int",
-            "digest": "",
+            "digest": "Number of channels",
             "description": "mc.evi.listgen does not auto adapt to the number of mc channels. Channel count must be set via the @chans attribute exactly. This equates to the number of items in the generated list output.",
             "default": {
                 "get": 0,
