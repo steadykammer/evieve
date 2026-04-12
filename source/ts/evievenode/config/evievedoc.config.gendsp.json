@@ -2036,7 +2036,7 @@
             "helpfile": {
                 "msp": true,
                 "gentab": true,
-                "genexprtab": true,
+                "genexprtab": false,
                 "areaonly": false,
                 "areas": [
                     "korg"
@@ -2060,7 +2060,7 @@
             "helpfile": {
                 "msp": true,
                 "gentab": true,
-                "genexprtab": true,
+                "genexprtab": false,
                 "areaonly": false,
                 "areas": [
                     "korg"
@@ -2084,7 +2084,7 @@
             "helpfile": {
                 "msp": true,
                 "gentab": true,
-                "genexprtab": true,
+                "genexprtab": false,
                 "areaonly": false,
                 "areas": [
                     "korg"
@@ -2486,7 +2486,7 @@
             "helpfile": {
                 "msp": true,
                 "gentab": true,
-                "genexprtab": true,
+                "genexprtab": false,
                 "areaonly": false,
                 "areas": [
                     "ladder"
@@ -3881,7 +3881,7 @@
             "helpfile": {
                 "msp": true,
                 "gentab": true,
-                "genexprtab": true,
+                "genexprtab": false,
                 "areaonly": false,
                 "areas": [
                     "svf"
@@ -3929,7 +3929,7 @@
             "helpfile": {
                 "msp": true,
                 "gentab": true,
-                "genexprtab": true,
+                "genexprtab": false,
                 "areaonly": false,
                 "areas": [
                     "svf"
