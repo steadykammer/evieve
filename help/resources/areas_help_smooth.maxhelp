@@ -9,7 +9,7 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 552.0, 117.0, 812.0, 790.0 ],
+        "rect": [ 100.0, 100.0, 660.0, 568.0 ],
         "openrect": [ 0.0, 0.0, 660.0, 568.0 ],
         "openrectmode": 0,
         "bglocked": 1,
@@ -20,11 +20,204 @@
         "boxes": [
             {
                 "box": {
+                    "border": 1,
+                    "evaluatehref": 1,
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 13.0,
+                    "id": "obj-40",
+                    "linkbold": 1,
+                    "linkcolor": [ 0.203922, 0.47451, 0.780392, 1.0 ],
+                    "maxclass": "markup",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 308.0, 438.0, 132.0, 31.0 ],
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor"
+                        }
+                    },
+                    "text": "<link href=\"; max openhelp evi.vactrol~\">evi.vactrol~</link> vactrol envelope",
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                }
+            },
+            {
+                "box": {
+                    "border": 1,
+                    "evaluatehref": 1,
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 13.0,
+                    "id": "obj-39",
+                    "linkbold": 1,
+                    "linkcolor": [ 0.203922, 0.47451, 0.780392, 1.0 ],
+                    "maxclass": "markup",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 31.0, 526.0, 195.0, 31.0 ],
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor"
+                        }
+                    },
+                    "text": "<link href=\"; max openhelp evi.logahr~\">evi.logahr~</link> attack/hold/release envelope",
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                }
+            },
+            {
+                "box": {
+                    "border": 1,
+                    "evaluatehref": 1,
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 13.0,
+                    "id": "obj-38",
+                    "linkbold": 1,
+                    "linkcolor": [ 0.203922, 0.47451, 0.780392, 1.0 ],
+                    "maxclass": "markup",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 31.0, 438.0, 195.0, 31.0 ],
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor"
+                        }
+                    },
+                    "text": "<link href=\"; max openhelp evi.logattackdecay~\">evi.logattackdecay~</link> attack/decay envelope",
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                }
+            },
+            {
+                "box": {
+                    "border": 1,
+                    "evaluatehref": 1,
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 13.0,
+                    "id": "obj-37",
+                    "linkbold": 1,
+                    "linkcolor": [ 0.203922, 0.47451, 0.780392, 1.0 ],
+                    "maxclass": "markup",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 31.0, 347.0, 195.0, 26.0 ],
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor"
+                        }
+                    },
+                    "text": "<link href=\"; max openhelp evi.logdecay~\">evi.logdecay~</link> decay envelope",
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                }
+            },
+            {
+                "box": {
+                    "border": 1,
+                    "evaluatehref": 1,
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 13.0,
+                    "id": "obj-36",
+                    "linkbold": 1,
+                    "linkcolor": [ 0.203922, 0.47451, 0.780392, 1.0 ],
+                    "maxclass": "markup",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 435.0, 258.0, 132.0, 34.0 ],
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor"
+                        }
+                    },
+                    "text": "<link href=\"; max openhelp evi.cfsmooth~\">evi.cfsmooth~</link> filter smoother",
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                }
+            },
+            {
+                "box": {
+                    "border": 1,
+                    "evaluatehref": 1,
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 13.0,
+                    "id": "obj-35",
+                    "linkbold": 1,
+                    "linkcolor": [ 0.203922, 0.47451, 0.780392, 1.0 ],
+                    "maxclass": "markup",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 308.0, 258.0, 132.0, 34.0 ],
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor"
+                        }
+                    },
+                    "text": "<link href=\"; max openhelp evi.lagsmooth~\">evi.lagsmooth~</link> logarithmic smoother",
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                }
+            },
+            {
+                "box": {
+                    "border": 1,
+                    "evaluatehref": 1,
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 13.0,
+                    "id": "obj-34",
+                    "linkbold": 1,
+                    "linkcolor": [ 0.203922, 0.47451, 0.780392, 1.0 ],
+                    "maxclass": "markup",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 164.0, 258.0, 132.0, 34.0 ],
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor"
+                        }
+                    },
+                    "text": "<link href=\"; max openhelp evi.expsmooth~\">evi.expsmooth~</link> exponential smoother",
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                }
+            },
+            {
+                "box": {
+                    "border": 1,
+                    "evaluatehref": 1,
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 13.0,
+                    "id": "obj-32",
+                    "linkbold": 1,
+                    "linkcolor": [ 0.203922, 0.47451, 0.780392, 1.0 ],
+                    "maxclass": "markup",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 32.0, 258.0, 132.0, 34.0 ],
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor"
+                        }
+                    },
+                    "text": "<link href=\"; max openhelp evi.logsmooth~\">evi.logsmooth~</link> logarithmic smoother",
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                }
+            },
+            {
+                "box": {
+                    "fontsize": 13.0,
                     "id": "obj-33",
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 289.0, 369.0, 109.0, 20.0 ],
+                    "patching_rect": [ 289.0, 357.0, 117.0, 21.0 ],
                     "text": "(signal input only)",
                     "textjustification": 1
                 }
@@ -36,7 +229,7 @@
                     "numinlets": 3,
                     "numoutlets": 1,
                     "outlettype": [ "multichannelsignal" ],
-                    "patching_rect": [ 308.0, 431.0, 89.0, 22.0 ],
+                    "patching_rect": [ 308.0, 414.0, 89.0, 22.0 ],
                     "text": "mc.evi.vactrol~"
                 }
             },
@@ -47,7 +240,7 @@
                     "numinlets": 3,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 308.0, 396.0, 70.0, 22.0 ],
+                    "patching_rect": [ 308.0, 384.0, 70.0, 22.0 ],
                     "text": "evi.vactrol~"
                 }
             },
@@ -58,7 +251,7 @@
                     "numinlets": 3,
                     "numoutlets": 1,
                     "outlettype": [ "multichannelsignal" ],
-                    "patching_rect": [ 392.0, 127.0, 60.0, 22.0 ],
+                    "patching_rect": [ 392.0, 115.0, 60.0, 22.0 ],
                     "text": "mc.slide~"
                 }
             },
@@ -69,7 +262,7 @@
                     "numinlets": 3,
                     "numoutlets": 1,
                     "outlettype": [ "multichannelsignal" ],
-                    "patching_rect": [ 268.0, 127.0, 102.0, 22.0 ],
+                    "patching_rect": [ 268.0, 115.0, 102.0, 22.0 ],
                     "text": "mc.rampsmooth~"
                 }
             },
@@ -80,7 +273,7 @@
                     "numinlets": 3,
                     "numoutlets": 3,
                     "outlettype": [ "multichannelsignal", "", "" ],
-                    "patching_rect": [ 109.0, 127.0, 64.0, 22.0 ],
+                    "patching_rect": [ 109.0, 115.0, 64.0, 22.0 ],
                     "text": "mc.curve~"
                 }
             },
@@ -91,7 +284,7 @@
                     "numinlets": 2,
                     "numoutlets": 3,
                     "outlettype": [ "multichannelsignal", "", "" ],
-                    "patching_rect": [ 32.0, 127.0, 54.0, 22.0 ],
+                    "patching_rect": [ 32.0, 115.0, 54.0, 22.0 ],
                     "text": "mc.line~"
                 }
             },
@@ -102,7 +295,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "multichannelsignal" ],
-                    "patching_rect": [ 435.0, 253.0, 102.0, 22.0 ],
+                    "patching_rect": [ 435.0, 236.0, 102.0, 22.0 ],
                     "text": "mc.evi.cfsmooth~"
                 }
             },
@@ -113,7 +306,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "multichannelsignal" ],
-                    "patching_rect": [ 308.0, 253.0, 109.0, 22.0 ],
+                    "patching_rect": [ 308.0, 236.0, 109.0, 22.0 ],
                     "text": "mc.evi.lagsmooth~"
                 }
             },
@@ -124,7 +317,7 @@
                     "numinlets": 4,
                     "numoutlets": 1,
                     "outlettype": [ "multichannelsignal" ],
-                    "patching_rect": [ 30.0, 521.0, 87.0, 22.0 ],
+                    "patching_rect": [ 30.0, 504.0, 87.0, 22.0 ],
                     "text": "mc.evi.logahr~"
                 }
             },
@@ -135,7 +328,7 @@
                     "numinlets": 3,
                     "numoutlets": 1,
                     "outlettype": [ "multichannelsignal" ],
-                    "patching_rect": [ 30.0, 431.0, 134.0, 22.0 ],
+                    "patching_rect": [ 30.0, 414.0, 134.0, 22.0 ],
                     "text": "mc.evi.logattackdecay~"
                 }
             },
@@ -146,7 +339,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "multichannelsignal" ],
-                    "patching_rect": [ 32.0, 342.0, 102.0, 22.0 ],
+                    "patching_rect": [ 32.0, 325.0, 102.0, 22.0 ],
                     "text": "mc.evi.logdecay~"
                 }
             },
@@ -157,7 +350,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "multichannelsignal" ],
-                    "patching_rect": [ 164.0, 253.0, 112.0, 22.0 ],
+                    "patching_rect": [ 164.0, 236.0, 112.0, 22.0 ],
                     "text": "mc.evi.expsmooth~"
                 }
             },
@@ -168,17 +361,18 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "multichannelsignal" ],
-                    "patching_rect": [ 32.0, 253.0, 109.0, 22.0 ],
+                    "patching_rect": [ 32.0, 236.0, 109.0, 22.0 ],
                     "text": "mc.evi.logsmooth~"
                 }
             },
             {
                 "box": {
+                    "fontsize": 13.0,
                     "id": "obj-18",
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 32.0, 18.0, 150.0, 20.0 ],
+                    "patching_rect": [ 32.0, 6.0, 162.0, 21.0 ],
                     "text": "Smoothing in Max"
                 }
             },
@@ -189,37 +383,40 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 435.0, 218.0, 83.0, 22.0 ],
+                    "patching_rect": [ 435.0, 206.0, 83.0, 22.0 ],
                     "text": "evi.cfsmooth~"
                 }
             },
             {
                 "box": {
+                    "fontsize": 13.0,
                     "id": "obj-16",
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 32.0, 181.0, 600.0, 20.0 ],
+                    "patching_rect": [ 32.0, 169.0, 600.0, 21.0 ],
                     "text": "Additional smoothing externals in evieve (evieve smoothers can take signals or floats as input)"
                 }
             },
             {
                 "box": {
+                    "fontsize": 13.0,
                     "id": "obj-15",
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 268.0, 55.0, 150.0, 20.0 ],
+                    "patching_rect": [ 268.0, 43.0, 159.0, 21.0 ],
                     "text": "MSP"
                 }
             },
             {
                 "box": {
+                    "fontsize": 13.0,
                     "id": "obj-14",
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 32.0, 55.0, 150.0, 20.0 ],
+                    "patching_rect": [ 32.0, 43.0, 161.0, 21.0 ],
                     "text": "Max & MSP"
                 }
             },
@@ -230,7 +427,7 @@
                     "numinlets": 3,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 392.0, 92.0, 40.0, 22.0 ],
+                    "patching_rect": [ 392.0, 80.0, 40.0, 22.0 ],
                     "text": "slide~"
                 }
             },
@@ -241,7 +438,7 @@
                     "numinlets": 3,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 268.0, 92.0, 82.0, 22.0 ],
+                    "patching_rect": [ 268.0, 80.0, 82.0, 22.0 ],
                     "text": "rampsmooth~"
                 }
             },
@@ -252,7 +449,7 @@
                     "numinlets": 3,
                     "numoutlets": 2,
                     "outlettype": [ "signal", "bang" ],
-                    "patching_rect": [ 109.0, 92.0, 45.0, 22.0 ],
+                    "patching_rect": [ 109.0, 80.0, 45.0, 22.0 ],
                     "text": "curve~"
                 }
             },
@@ -263,7 +460,7 @@
                     "numinlets": 2,
                     "numoutlets": 2,
                     "outlettype": [ "signal", "bang" ],
-                    "patching_rect": [ 32.0, 92.0, 34.0, 22.0 ],
+                    "patching_rect": [ 32.0, 80.0, 34.0, 22.0 ],
                     "text": "line~"
                 }
             },
@@ -274,7 +471,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 32.0, 307.0, 82.0, 22.0 ],
+                    "patching_rect": [ 32.0, 295.0, 82.0, 22.0 ],
                     "text": "evi.logdecay~"
                 }
             },
@@ -285,7 +482,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 308.0, 218.0, 90.0, 22.0 ],
+                    "patching_rect": [ 308.0, 206.0, 90.0, 22.0 ],
                     "text": "evi.lagsmooth~"
                 }
             },
@@ -296,7 +493,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 32.0, 218.0, 90.0, 22.0 ],
+                    "patching_rect": [ 32.0, 206.0, 90.0, 22.0 ],
                     "text": "evi.logsmooth~"
                 }
             },
@@ -307,7 +504,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 164.0, 218.0, 93.0, 22.0 ],
+                    "patching_rect": [ 164.0, 206.0, 93.0, 22.0 ],
                     "text": "evi.expsmooth~"
                 }
             },
@@ -318,7 +515,7 @@
                     "numinlets": 4,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 30.0, 485.0, 68.0, 22.0 ],
+                    "patching_rect": [ 30.0, 473.0, 68.0, 22.0 ],
                     "text": "evi.logahr~"
                 }
             },
@@ -329,7 +526,7 @@
                     "numinlets": 3,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 30.0, 396.0, 114.0, 22.0 ],
+                    "patching_rect": [ 30.0, 384.0, 114.0, 22.0 ],
                     "text": "evi.logattackdecay~"
                 }
             },
@@ -655,7 +852,7 @@
                         ],
                         "lines": []
                     },
-                    "patching_rect": [ 435.0, 521.0, 197.0, 22.0 ],
+                    "patching_rect": [ 435.0, 509.0, 197.0, 22.0 ],
                     "text": "gen~ @t evieve_smoothing_in_gen"
                 }
             },
@@ -669,7 +866,7 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "orientation": 0,
-                    "patching_rect": [ 511.0, 402.0, 46.0, 101.0 ]
+                    "patching_rect": [ 511.0, 390.0, 46.0, 101.0 ]
                 }
             },
             {

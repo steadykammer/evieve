@@ -11,7 +11,6 @@
         "classnamespace": "box",
         "rect": [ 93.0, 118.0, 1319.0, 788.0 ],
         "bglocked": 1,
-        "openinpresentation": 1,
         "gridonopen": 2,
         "toolbarvisible": 0,
         "lefttoolbarpinned": 2,
@@ -24,6 +23,197 @@
         "integercoordinates": 1,
         "title": "evieve Package Overview",
         "boxes": [
+            {
+                "box": {
+                    "hidden": 1,
+                    "id": "obj-48",
+                    "maxclass": "newobj",
+                    "numinlets": 2,
+                    "numoutlets": 0,
+                    "patcher": {
+                        "fileversion": 1,
+                        "appversion": {
+                            "major": 9,
+                            "minor": 2,
+                            "revision": 0,
+                            "architecture": "x64",
+                            "modernui": 1
+                        },
+                        "classnamespace": "box",
+                        "rect": [ 34.0, 100.0, 868.0, 726.0 ],
+                        "gridonopen": 2,
+                        "subpatcher_template": "sub",
+                        "integercoordinates": 1,
+                        "boxes": [
+                            {
+                                "box": {
+                                    "id": "obj-13",
+                                    "maxclass": "newobj",
+                                    "numinlets": 2,
+                                    "numoutlets": 2,
+                                    "outlettype": [ "", "" ],
+                                    "patching_rect": [ 261.0, 185.0, 307.0, 22.0 ],
+                                    "text": "list.lookup filter nonlin oscillator reverb overdrive smooth"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-12",
+                                    "maxclass": "newobj",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "patching_rect": [ 208.0, 419.0, 51.0, 22.0 ],
+                                    "text": "pcontrol"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-11",
+                                    "maxclass": "newobj",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "patching_rect": [ 208.0, 380.0, 79.0, 22.0 ],
+                                    "text": "prepend help"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-10",
+                                    "maxclass": "newobj",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "bang" ],
+                                    "patching_rect": [ 64.0, 302.0, 22.0, 22.0 ],
+                                    "text": "t b"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-9",
+                                    "maxclass": "newobj",
+                                    "numinlets": 2,
+                                    "numoutlets": 2,
+                                    "outlettype": [ "", "" ],
+                                    "patching_rect": [ 64.0, 341.0, 173.0, 22.0 ],
+                                    "text": "list.reg evieve_nonlinear_filters"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-8",
+                                    "maxclass": "newobj",
+                                    "numinlets": 2,
+                                    "numoutlets": 2,
+                                    "outlettype": [ "", "" ],
+                                    "patching_rect": [ 64.0, 263.0, 163.0, 22.0 ],
+                                    "text": "routepass areas_help_nonlin"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-7",
+                                    "maxclass": "newobj",
+                                    "numinlets": 2,
+                                    "numoutlets": 2,
+                                    "outlettype": [ "", "" ],
+                                    "patching_rect": [ 64.0, 224.0, 216.0, 22.0 ],
+                                    "text": "combine areas_help_ area @triggers 1"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "comment": "",
+                                    "id": "obj-4",
+                                    "index": 2,
+                                    "maxclass": "inlet",
+                                    "numinlets": 0,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "patching_rect": [ 588.0, 138.0, 30.0, 30.0 ]
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-3",
+                                    "linecount": 6,
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 64.0, 49.0, 554.0, 87.0 ],
+                                    "text": "\"Linear Filters in evieve\"\n\"Nonlinear Filters in evieve\"\n\"Oscillators and Sources in evieve\"\n\"Reverbs in evieve\"\n\"Saturation in evieve\"\n\"evieve Signal Smoothing\""
+                                }
+                            },
+                            {
+                                "box": {
+                                    "comment": "",
+                                    "id": "obj-1",
+                                    "index": 1,
+                                    "maxclass": "inlet",
+                                    "numinlets": 0,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "int" ],
+                                    "patching_rect": [ 261.0, 138.0, 30.0, 30.0 ]
+                                }
+                            }
+                        ],
+                        "lines": [
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-13", 0 ],
+                                    "source": [ "obj-1", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-9", 0 ],
+                                    "source": [ "obj-10", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-12", 0 ],
+                                    "source": [ "obj-11", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-7", 1 ],
+                                    "source": [ "obj-13", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-8", 0 ],
+                                    "source": [ "obj-7", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-10", 0 ],
+                                    "source": [ "obj-8", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-11", 0 ],
+                                    "source": [ "obj-8", 1 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-11", 0 ],
+                                    "source": [ "obj-9", 0 ]
+                                }
+                            }
+                        ],
+                        "toolbaradditions": [ "audiosolo", "audiomute" ]
+                    },
+                    "patching_rect": [ 156.0, 252.0, 50.0, 26.0 ],
+                    "text": "p topics"
+                }
+            },
             {
                 "box": {
                     "id": "obj-47",
@@ -116,19 +306,6 @@
             },
             {
                 "box": {
-                    "dontreplace": 1,
-                    "hidden": 1,
-                    "id": "obj-45",
-                    "ignoreclick": 1,
-                    "maxclass": "message",
-                    "numinlets": 2,
-                    "numoutlets": 1,
-                    "outlettype": [ "" ],
-                    "patching_rect": [ 716.0, 254.0, 50.0, 22.0 ]
-                }
-            },
-            {
-                "box": {
                     "button": 1,
                     "fontsize": 24.0,
                     "id": "obj-40",
@@ -142,7 +319,7 @@
                     "patching_rect": [ 156.0, 96.0, 610.0, 152.0 ],
                     "presentation": 1,
                     "presentation_rect": [ 156.0, 96.0, 610.0, 152.0 ],
-                    "tabs": [ "Linear Filters in evieve", "Nonlinear Filters in evieve", "Oscillators and Sources in evieve", "Reverbs in evieve", "FX Processing in evieve", "evieve Signal Smoothing" ]
+                    "tabs": [ "Linear Filters in evieve", "Nonlinear Filters in evieve", "Oscillators and Sources in evieve", "Reverbs in evieve", "Saturation in evieve", "evieve Signal Smoothing" ]
                 }
             },
             {
@@ -1309,7 +1486,7 @@
                             "type": 0
                         }
                     },
-                    "rnboversion": "1.5.0-dev.92",
+                    "rnboversion": "1.5.0-dev.97",
                     "saved_attribute_attributes": {
                         "valueof": {
                             "parameter_invisible": 1,
@@ -2767,9 +2944,17 @@
             },
             {
                 "patchline": {
-                    "destination": [ "obj-45", 1 ],
+                    "destination": [ "obj-48", 1 ],
                     "hidden": 1,
+                    "midpoints": [ 756.5, 250.0, 196.5, 250.0 ],
                     "source": [ "obj-40", 2 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-48", 0 ],
+                    "hidden": 1,
+                    "source": [ "obj-40", 0 ]
                 }
             },
             {

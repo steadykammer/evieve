@@ -9,7 +9,7 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 149.0, 117.0, 660.0, 568.0 ],
+        "rect": [ 100.0, 100.0, 660.0, 568.0 ],
         "openrect": [ 0.0, 0.0, 660.0, 568.0 ],
         "openrectmode": 0,
         "bglocked": 1,
@@ -18,6 +18,126 @@
         "subpatcher_template": "sub",
         "integercoordinates": 1,
         "boxes": [
+            {
+                "box": {
+                    "border": 1,
+                    "evaluatehref": 1,
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 13.0,
+                    "id": "obj-25",
+                    "linkbold": 1,
+                    "linkcolor": [ 0.203922, 0.47451, 0.780392, 1.0 ],
+                    "maxclass": "markup",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 330.0, 430.0, 77.0, 17.0 ],
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor"
+                        }
+                    },
+                    "text": "<link href=\"; max openhelp evi.randy~\">evi.randy~</link>",
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                }
+            },
+            {
+                "box": {
+                    "border": 1,
+                    "evaluatehref": 1,
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 13.0,
+                    "id": "obj-24",
+                    "linkbold": 1,
+                    "linkcolor": [ 0.203922, 0.47451, 0.780392, 1.0 ],
+                    "maxclass": "markup",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 225.0, 312.0, 286.0, 33.0 ],
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor"
+                        }
+                    },
+                    "text": "<link href=\"; max openhelp evi.zeroxoscnoise~\">evi.zeroxoscnoise~</link> oscillator / noise mixer for vocoders, but very useful as a source on it's own",
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                }
+            },
+            {
+                "box": {
+                    "border": 1,
+                    "evaluatehref": 1,
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 13.0,
+                    "id": "obj-22",
+                    "linkbold": 1,
+                    "linkcolor": [ 0.203922, 0.47451, 0.780392, 1.0 ],
+                    "maxclass": "markup",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 225.0, 228.0, 283.0, 33.0 ],
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor"
+                        }
+                    },
+                    "text": "<link href=\"; max openhelp evi.gaussiannoise~\">evi.gaussiannoise~</link> gaussian distributed noise source - surprising how often we need this!",
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                }
+            },
+            {
+                "box": {
+                    "border": 1,
+                    "evaluatehref": 1,
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 13.0,
+                    "id": "obj-16",
+                    "linkbold": 1,
+                    "linkcolor": [ 0.203922, 0.47451, 0.780392, 1.0 ],
+                    "maxclass": "markup",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 208.0, 132.0, 275.0, 56.0 ],
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor"
+                        }
+                    },
+                    "text": "<link href=\"; max openhelp evi.velvetnoise~\">evi.velvetnoise~</link> morphs between \"sparse noise\" (similar to \"audiodust\") and \"velvet noise\" (useful in reverbs)",
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                }
+            },
+            {
+                "box": {
+                    "border": 1,
+                    "evaluatehref": 1,
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 13.0,
+                    "id": "obj-8",
+                    "linkbold": 1,
+                    "linkcolor": [ 0.203922, 0.47451, 0.780392, 1.0 ],
+                    "maxclass": "markup",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 200.0, 60.0, 283.0, 33.0 ],
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor"
+                        }
+                    },
+                    "text": "<link href=\"; max openhelp evi.audiodust~\">evi.audiodust~</link> is useful as a spikey noise/trigger source or as a  modulation core",
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                }
+            },
             {
                 "box": {
                     "border": 0,
@@ -30,7 +150,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 162.0, 542.0, 318.0, 33.0 ],
+                    "patching_rect": [ 162.0, 542.0, 318.0, 22.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -425,57 +545,13 @@
             },
             {
                 "box": {
-                    "id": "obj-7",
-                    "linecount": 2,
-                    "maxclass": "comment",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 197.0, 60.0, 236.0, 33.0 ],
-                    "text": "very useful as a spikey noise/trigger source or as a  modulation core"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-6",
-                    "linecount": 2,
-                    "maxclass": "comment",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 205.0, 144.0, 275.0, 33.0 ],
-                    "text": "morphs between \"sparse noise\" (similar to \"audiodust\") and \"velvet noise\" (useful in reverbs)"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-5",
-                    "linecount": 2,
-                    "maxclass": "comment",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 222.0, 228.0, 211.0, 33.0 ],
-                    "text": "gaussian distributed noise source - surprising how often we need this!"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-33",
-                    "linecount": 2,
-                    "maxclass": "comment",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 222.0, 312.0, 224.0, 33.0 ],
-                    "text": "oscillator / noise mixer for vocoders, but very useful as a source on it's own"
-                }
-            },
-            {
-                "box": {
                     "hidden": 1,
                     "id": "obj-34",
                     "maxclass": "newobj",
                     "numinlets": 2,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
-                    "patching_rect": [ 127.0, 570.0, 203.0, 22.0 ],
+                    "patching_rect": [ 127.0, 570.0, 209.0, 22.0 ],
                     "text": "list.reg areas_help_oscillator.maxhelp"
                 }
             },
@@ -576,7 +652,7 @@
             {
                 "patchline": {
                     "destination": [ "obj-10", 0 ],
-                    "midpoints": [ 118.5, 99.64453125, 440.296875, 99.64453125, 440.296875, 6.62109375, 524.5, 6.62109375 ],
+                    "midpoints": [ 118.5, 99.64453125, 460.15234375, 99.64453125, 460.15234375, 6.62109375, 524.5, 6.62109375 ],
                     "source": [ "obj-1", 0 ]
                 }
             },
@@ -608,7 +684,7 @@
             {
                 "patchline": {
                     "destination": [ "obj-11", 0 ],
-                    "midpoints": [ 118.5, 184.9921875, 474.40625, 184.9921875, 474.40625, 117.5390625, 524.5, 117.5390625 ],
+                    "midpoints": [ 118.5, 195.25, 482.84375, 195.25, 482.84375, 117.5390625, 524.5, 117.5390625 ],
                     "source": [ "obj-2", 0 ]
                 }
             },
@@ -657,7 +733,7 @@
             {
                 "patchline": {
                     "destination": [ "obj-12", 0 ],
-                    "midpoints": [ 118.5, 265.87109375, 495.92578125, 265.87109375, 495.92578125, 228.703125, 524.5, 228.703125 ],
+                    "midpoints": [ 118.5, 265.87109375, 504.77734375, 265.87109375, 504.77734375, 228.703125, 524.5, 228.703125 ],
                     "source": [ "obj-4", 0 ]
                 }
             }

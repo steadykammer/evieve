@@ -19,24 +19,206 @@
         "boxes": [
             {
                 "box": {
-                    "id": "obj-10",
-                    "maxclass": "comment",
+                    "border": 1,
+                    "evaluatehref": 1,
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 13.0,
+                    "id": "obj-20",
+                    "linkbold": 1,
+                    "linkcolor": [ 0.203922, 0.47451, 0.780392, 1.0 ],
+                    "maxclass": "markup",
                     "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 512.0, 11.0, 391.0, 20.0 ],
-                    "text": "Note: all evieve reverbs have [mcs.*] versions for easy stereo use"
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 760.0, 466.0, 110.0, 20.0 ],
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor"
+                        }
+                    },
+                    "text": "<link href=\"; max openhelp evi.algoverb~\">algoverb~</link>",
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
                 }
             },
             {
                 "box": {
-                    "fontface": 1,
-                    "id": "obj-62",
+                    "border": 1,
+                    "evaluatehref": 1,
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 13.0,
+                    "id": "obj-16",
+                    "linkbold": 1,
+                    "linkcolor": [ 0.203922, 0.47451, 0.780392, 1.0 ],
+                    "maxclass": "markup",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 370.0, 456.0, 110.0, 20.0 ],
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor"
+                        }
+                    },
+                    "text": "<link href=\"; max openhelp evi.mattaverb~\">mattaverb~</link>",
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                }
+            },
+            {
+                "box": {
+                    "border": 1,
+                    "evaluatehref": 1,
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 13.0,
+                    "id": "obj-13",
+                    "linkbold": 1,
+                    "linkcolor": [ 0.203922, 0.47451, 0.780392, 1.0 ],
+                    "maxclass": "markup",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 88.0, 464.0, 110.0, 20.0 ],
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor"
+                        }
+                    },
+                    "text": "<link href=\"; max openhelp evi.backverb~\">backverb~</link>",
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                }
+            },
+            {
+                "box": {
+                    "border": 1,
+                    "evaluatehref": 1,
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 13.0,
+                    "id": "obj-11",
+                    "linkbold": 1,
+                    "linkcolor": [ 0.203922, 0.47451, 0.780392, 1.0 ],
+                    "maxclass": "markup",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 797.0, 39.0, 110.0, 20.0 ],
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor"
+                        }
+                    },
+                    "text": "<link href=\"; max openhelp evi.zitaverb~\">zitaverb~</link>",
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                }
+            },
+            {
+                "box": {
+                    "border": 1,
+                    "evaluatehref": 1,
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 13.0,
+                    "id": "obj-9",
+                    "linkbold": 1,
+                    "linkcolor": [ 0.203922, 0.47451, 0.780392, 1.0 ],
+                    "maxclass": "markup",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 614.0, 79.0, 110.0, 20.0 ],
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor"
+                        }
+                    },
+                    "text": "<link href=\"; max openhelp evi.sustainverb~\">sustainverb~</link>",
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                }
+            },
+            {
+                "box": {
+                    "border": 1,
+                    "evaluatehref": 1,
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 13.0,
+                    "id": "obj-8",
+                    "linkbold": 1,
+                    "linkcolor": [ 0.203922, 0.47451, 0.780392, 1.0 ],
+                    "maxclass": "markup",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 468.0, 119.0, 110.0, 20.0 ],
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor"
+                        }
+                    },
+                    "text": "<link href=\"; max openhelp evi.gigaverb~\">gigaverb~</link>",
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                }
+            },
+            {
+                "box": {
+                    "border": 1,
+                    "evaluatehref": 1,
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 13.0,
+                    "id": "obj-7",
+                    "linkbold": 1,
+                    "linkcolor": [ 0.203922, 0.47451, 0.780392, 1.0 ],
+                    "maxclass": "markup",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 274.0, 79.0, 110.0, 20.0 ],
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor"
+                        }
+                    },
+                    "text": "<link href=\"; max openhelp evi.plateverb~\">plateverb~</link>",
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                }
+            },
+            {
+                "box": {
+                    "border": 1,
+                    "evaluatehref": 1,
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 13.0,
+                    "id": "obj-2",
+                    "linkbold": 1,
+                    "linkcolor": [ 0.203922, 0.47451, 0.780392, 1.0 ],
+                    "maxclass": "markup",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 78.0, 92.0, 110.0, 20.0 ],
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor"
+                        }
+                    },
+                    "text": "<link href=\"; max openhelp evi.freezeverb~\">freezeverb~</link>",
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                }
+            },
+            {
+                "box": {
+                    "fontsize": 13.0,
+                    "id": "obj-10",
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 338.0, 455.0, 135.0, 20.0 ],
-                    "text": "mattaverb~",
-                    "textjustification": 1
+                    "patching_rect": [ 465.0, 11.0, 437.0, 21.0 ],
+                    "text": "Note: all evieve reverbs have [mcs.*] versions for easy stereo use",
+                    "textjustification": 2
                 }
             },
             {
@@ -108,18 +290,6 @@
             },
             {
                 "box": {
-                    "fontface": 1,
-                    "id": "obj-60",
-                    "maxclass": "comment",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 66.0, 463.0, 110.0, 20.0 ],
-                    "text": "backverb~",
-                    "textjustification": 1
-                }
-            },
-            {
-                "box": {
                     "bubble": 1,
                     "bubblepoint": 0.4,
                     "bubbleside": 3,
@@ -187,18 +357,6 @@
             },
             {
                 "box": {
-                    "fontface": 1,
-                    "id": "obj-52",
-                    "maxclass": "comment",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 715.0, 465.0, 152.0, 20.0 ],
-                    "text": "algoverb~",
-                    "textjustification": 1
-                }
-            },
-            {
-                "box": {
                     "bubble": 1,
                     "bubbleusescolors": 1,
                     "fontface": 2,
@@ -260,66 +418,6 @@
                     "patching_rect": [ 633.0, 500.0, 80.0, 22.0 ],
                     "text": "evi.algoverb~",
                     "varname": "evi.algoverb~"
-                }
-            },
-            {
-                "box": {
-                    "fontface": 1,
-                    "id": "obj-46",
-                    "maxclass": "comment",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 750.0, 38.0, 152.0, 20.0 ],
-                    "text": "zitaverb~",
-                    "textjustification": 1
-                }
-            },
-            {
-                "box": {
-                    "fontface": 1,
-                    "id": "obj-45",
-                    "maxclass": "comment",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 579.0, 78.0, 154.0, 20.0 ],
-                    "text": "sustainverb~",
-                    "textjustification": 1
-                }
-            },
-            {
-                "box": {
-                    "fontface": 1,
-                    "id": "obj-44",
-                    "maxclass": "comment",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 427.0, 118.0, 145.0, 20.0 ],
-                    "text": "gigaverb~",
-                    "textjustification": 1
-                }
-            },
-            {
-                "box": {
-                    "fontface": 1,
-                    "id": "obj-43",
-                    "maxclass": "comment",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 39.0, 91.0, 150.0, 20.0 ],
-                    "text": "freezeverb~",
-                    "textjustification": 1
-                }
-            },
-            {
-                "box": {
-                    "fontface": 1,
-                    "id": "obj-42",
-                    "maxclass": "comment",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 203.0, 78.0, 208.0, 20.0 ],
-                    "text": "plateverb~",
-                    "textjustification": 1
                 }
             },
             {

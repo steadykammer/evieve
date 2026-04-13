@@ -153,7 +153,6 @@
                         "toolbaradditions": [ "audiosolo", "audiomute" ]
                     },
                     "patching_rect": [ 348.0, 336.0, 68.0, 23.0 ],
-                    "presentation_linecount": 2,
                     "saved_object_attributes": {
                         "fontsize": 13.0
                     },
@@ -519,7 +518,6 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 543.0, 347.0, 81.0, 21.0 ],
-                                    "presentation_linecount": 2,
                                     "text": "vactrol size"
                                 }
                             },
@@ -657,11 +655,27 @@
                                     "format": 6,
                                     "id": "obj-29",
                                     "maxclass": "flonum",
+                                    "maximum": 1000.0,
+                                    "minimum": 1.0,
                                     "numinlets": 1,
                                     "numoutlets": 2,
                                     "outlettype": [ "", "bang" ],
-                                    "parameter_enable": 0,
-                                    "patching_rect": [ 491.0, 346.0, 50.0, 23.0 ]
+                                    "parameter_enable": 1,
+                                    "patching_rect": [ 491.0, 346.0, 50.0, 23.0 ],
+                                    "saved_attribute_attributes": {
+                                        "valueof": {
+                                            "parameter_initial": [ 100.0 ],
+                                            "parameter_initial_enable": 1,
+                                            "parameter_invisible": 1,
+                                            "parameter_longname": "number[2]",
+                                            "parameter_mmax": 1000.0,
+                                            "parameter_mmin": 1.0,
+                                            "parameter_modmode": 0,
+                                            "parameter_shortname": "number[2]",
+                                            "parameter_type": 3
+                                        }
+                                    },
+                                    "varname": "number[2]"
                                 }
                             },
                             {
@@ -1170,7 +1184,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -1540,6 +1554,7 @@
         ],
         "parameters": {
             "obj-2::obj-22": [ "radiogroup", "radiogroup", 0 ],
+            "obj-2::obj-29": [ "number[2]", "number[2]", 0 ],
             "obj-2::obj-32": [ "number", "number", 0 ],
             "obj-2::obj-38": [ "number[1]", "number[1]", 0 ],
             "parameterbanks": {
