@@ -55,7 +55,7 @@ Param   band4freq(2000., min=10, max=18000);
 Param   band4db(0., min=-24, max=24);
 Param   band4q(sqrt1_2, min=0.1, max=18);
 
-Param   band5filter(6, min=0, max=9);
+Param   band5filter(7, min=0, max=9);
 Param   band5freq(4000., min=10, max=18000);
 Param   band5db(0., min=-24, max=24);
 Param   band5q(1., min=0.1, max=18);

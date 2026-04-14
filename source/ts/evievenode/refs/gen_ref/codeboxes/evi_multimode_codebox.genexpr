@@ -12,8 +12,8 @@ Param	ressmooth(10., min=0, max=100);      // ms
 
 Q		= in3;					             // Q
 R		= 1 / (Q + Q);                       // resonance
-if (resonancesmooth > 0)
-	R	= evi_expsmooth(R, resonancesmooth);
+if (ressmooth > 0)
+	R	= evi_expsmooth(R, ressmooth);
 R2		= R + R;
 
 C		= in2;					             // cutoff in Hz

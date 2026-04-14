@@ -20,6 +20,149 @@
         "boxes": [
             {
                 "box": {
+                    "fontsize": 13.0,
+                    "id": "obj-19",
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 124.0, 346.0, 363.0, 21.0 ],
+                    "presentation_linecount": 2,
+                    "text": "novel two pole (12dB) nonlinear ladder with allpass alignment"
+                }
+            },
+            {
+                "box": {
+                    "border": 1,
+                    "evaluatehref": 1,
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 13.0,
+                    "id": "obj-16",
+                    "linkbold": 1,
+                    "linkcolor": [ 0.203922, 0.47451, 0.780392, 1.0 ],
+                    "maxclass": "markup",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 62.0, 369.0, 120.0, 20.0 ],
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor"
+                        }
+                    },
+                    "text": "<link href=\"; max openhelp evi.lorez~\">evi.lorez~</link>",
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-13",
+                    "maxclass": "newobj",
+                    "numinlets": 3,
+                    "numoutlets": 1,
+                    "outlettype": [ "signal" ],
+                    "patching_rect": [ 62.0, 345.0, 60.0, 22.0 ],
+                    "text": "evi.lorez~"
+                }
+            },
+            {
+                "box": {
+                    "border": 1,
+                    "evaluatehref": 1,
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 13.0,
+                    "id": "obj-11",
+                    "linkbold": 1,
+                    "linkcolor": [ 0.203922, 0.47451, 0.780392, 1.0 ],
+                    "maxclass": "markup",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 62.0, 310.0, 120.0, 20.0 ],
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor"
+                        }
+                    },
+                    "text": "<link href=\"; max openhelp evi.ladder.diode~\">evi.ladder.diode~</link>",
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                }
+            },
+            {
+                "box": {
+                    "border": 1,
+                    "evaluatehref": 1,
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 13.0,
+                    "id": "obj-9",
+                    "linkbold": 1,
+                    "linkcolor": [ 0.203922, 0.47451, 0.780392, 1.0 ],
+                    "maxclass": "markup",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 62.0, 251.0, 120.0, 20.0 ],
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor"
+                        }
+                    },
+                    "text": "<link href=\"; max openhelp evi.ladder.poles~\">evi.ladder.poles~</link>",
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                }
+            },
+            {
+                "box": {
+                    "border": 1,
+                    "evaluatehref": 1,
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 13.0,
+                    "id": "obj-7",
+                    "linkbold": 1,
+                    "linkcolor": [ 0.203922, 0.47451, 0.780392, 1.0 ],
+                    "maxclass": "markup",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 62.0, 192.0, 152.0, 20.0 ],
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor"
+                        }
+                    },
+                    "text": "<link href=\"; max openhelp evi.ladder.transistor~\">evi.ladder.transistor~</link>",
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                }
+            },
+            {
+                "box": {
+                    "border": 1,
+                    "evaluatehref": 1,
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 13.0,
+                    "id": "obj-24",
+                    "linkbold": 1,
+                    "linkcolor": [ 0.203922, 0.47451, 0.780392, 1.0 ],
+                    "maxclass": "markup",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 62.0, 133.0, 120.0, 20.0 ],
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor"
+                        }
+                    },
+                    "text": "<link href=\"; max openhelp evi.ladder.moog~\">evi.ladder.moog~</link>",
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                }
+            },
+            {
+                "box": {
                     "hidden": 1,
                     "id": "obj-53",
                     "maxclass": "newobj",
@@ -27,7 +170,7 @@
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
                     "patching_rect": [ 32.0, 570.0, 222.0, 22.0 ],
-                    "text": "list.reg evieve_nonlinear_filters.maxhelp"
+                    "text": "list.reg areas_help_nonlinear.maxhelp"
                 }
             },
             {
@@ -119,65 +262,71 @@
             },
             {
                 "box": {
+                    "fontsize": 13.0,
                     "id": "obj-25",
                     "linecount": 2,
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 62.0, 55.0, 478.0, 33.0 ],
+                    "patching_rect": [ 62.0, 55.0, 518.0, 36.0 ],
                     "text": "All evieve Ladders are modern TPT ('Zero Delay Feedback') filters with internal saturation and self-oscillation, with excellent behaviour under audio rate modulation"
                 }
             },
             {
                 "box": {
+                    "fontsize": 13.0,
                     "id": "obj-17",
                     "linecount": 2,
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 163.0, 321.0, 377.0, 33.0 ],
+                    "patching_rect": [ 163.0, 279.0, 398.0, 36.0 ],
                     "text": "unlike above 'transistor' ladders which scale with resonance, this is a diode ladder filter which peaks with resonance, like a Roland 303"
                 }
             },
             {
                 "box": {
+                    "fontsize": 13.0,
                     "id": "obj-15",
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 163.0, 258.0, 309.0, 20.0 ],
+                    "patching_rect": [ 163.0, 228.0, 335.0, 21.0 ],
                     "text": "transistor Ladder filter with variable poles output choices"
                 }
             },
             {
                 "box": {
+                    "fontsize": 13.0,
                     "id": "obj-14",
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 184.0, 189.0, 356.0, 20.0 ],
+                    "patching_rect": [ 184.0, 169.0, 385.0, 21.0 ],
                     "text": "transistor Ladder filter tuned hot and aggressive for dirty synths"
                 }
             },
             {
                 "box": {
+                    "fontsize": 13.0,
                     "id": "obj-12",
                     "linecount": 2,
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 163.0, 114.0, 285.0, 33.0 ],
+                    "patching_rect": [ 163.0, 102.0, 308.0, 36.0 ],
                     "text": "clean, in tune and versatile transistor Ladder filter for all situations, a high quality Moog emulation"
                 }
             },
             {
                 "box": {
+                    "fontsize": 13.0,
                     "id": "obj-10",
                     "linecount": 2,
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 62.0, 397.0, 220.0, 33.0 ],
+                    "patching_rect": [ 62.0, 404.0, 187.0, 36.0 ],
                     "text": "legacy Z-1 (not ZDF) old style Ladders, useful for comparison"
                 }
             },
@@ -188,7 +337,7 @@
                     "numinlets": 3,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 62.0, 486.0, 146.0, 22.0 ],
+                    "patching_rect": [ 62.0, 484.0, 146.0, 22.0 ],
                     "text": "gen~ @gen evi_pmladder"
                 }
             },
@@ -199,7 +348,7 @@
                     "numinlets": 3,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 62.0, 447.0, 93.0, 22.0 ],
+                    "patching_rect": [ 62.0, 448.0, 93.0, 22.0 ],
                     "text": "evi.ladder.antti~"
                 }
             },
@@ -210,7 +359,7 @@
                     "numinlets": 5,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 62.0, 326.0, 100.0, 22.0 ],
+                    "patching_rect": [ 62.0, 286.0, 100.0, 22.0 ],
                     "text": "evi.ladder.diode~"
                 }
             },
@@ -221,7 +370,7 @@
                     "numinlets": 3,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 62.0, 257.0, 99.0, 22.0 ],
+                    "patching_rect": [ 62.0, 227.0, 99.0, 22.0 ],
                     "text": "evi.ladder.poles~"
                 }
             },
@@ -232,7 +381,7 @@
                     "numinlets": 5,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 62.0, 188.0, 120.0, 22.0 ],
+                    "patching_rect": [ 62.0, 168.0, 120.0, 22.0 ],
                     "text": "evi.ladder.transistor~"
                 }
             },
@@ -243,17 +392,18 @@
                     "numinlets": 3,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 62.0, 119.0, 100.0, 22.0 ],
+                    "patching_rect": [ 62.0, 109.0, 100.0, 22.0 ],
                     "text": "evi.ladder.moog~"
                 }
             },
             {
                 "box": {
+                    "fontsize": 13.0,
                     "id": "obj-18",
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 32.0, 18.0, 150.0, 20.0 ],
+                    "patching_rect": [ 32.0, 18.0, 162.0, 21.0 ],
                     "text": "Ladder filters in evieve"
                 }
             },
@@ -371,7 +521,7 @@
                         ],
                         "lines": []
                     },
-                    "patching_rect": [ 374.0, 486.0, 181.0, 22.0 ],
+                    "patching_rect": [ 374.0, 484.0, 181.0, 22.0 ],
                     "text": "gen~ @t evieve_ladders_in_gen"
                 }
             },
@@ -385,7 +535,7 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "orientation": 0,
-                    "patching_rect": [ 441.0, 367.0, 46.0, 101.0 ]
+                    "patching_rect": [ 441.0, 394.0, 46.0, 77.0 ]
                 }
             },
             {
@@ -451,6 +601,7 @@
                 }
             }
         ],
+        "autosave": 0,
         "toolbaradditions": [ "audiosolo", "audiomute" ]
     }
 }

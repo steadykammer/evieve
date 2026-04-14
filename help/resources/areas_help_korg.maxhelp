@@ -20,14 +20,110 @@
         "boxes": [
             {
                 "box": {
+                    "border": 1,
+                    "evaluatehref": 1,
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 13.0,
+                    "id": "obj-4",
+                    "linkbold": 1,
+                    "linkcolor": [ 0.203922, 0.47451, 0.780392, 1.0 ],
+                    "maxclass": "markup",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 63.0, 480.0, 120.0, 20.0 ],
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor"
+                        }
+                    },
+                    "text": "<link href=\"; max openhelp evi.dfm~\">evi.dfm~</link>",
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                }
+            },
+            {
+                "box": {
+                    "border": 1,
+                    "evaluatehref": 1,
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 13.0,
+                    "id": "obj-3",
+                    "linkbold": 1,
+                    "linkcolor": [ 0.203922, 0.47451, 0.780392, 1.0 ],
+                    "maxclass": "markup",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 62.0, 312.0, 153.0, 20.0 ],
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor"
+                        }
+                    },
+                    "text": "<link href=\"; max openhelp evi.korgms20.select~\">evi.korgms20.select~</link>",
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                }
+            },
+            {
+                "box": {
+                    "border": 1,
+                    "evaluatehref": 1,
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 13.0,
+                    "id": "obj-2",
+                    "linkbold": 1,
+                    "linkcolor": [ 0.203922, 0.47451, 0.780392, 1.0 ],
+                    "maxclass": "markup",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 63.0, 243.0, 120.0, 20.0 ],
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor"
+                        }
+                    },
+                    "text": "<link href=\"; max openhelp evi.korgms20~\">evi.korgms20~</link>",
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                }
+            },
+            {
+                "box": {
+                    "border": 1,
+                    "evaluatehref": 1,
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 13.0,
+                    "id": "obj-16",
+                    "linkbold": 1,
+                    "linkcolor": [ 0.203922, 0.47451, 0.780392, 1.0 ],
+                    "maxclass": "markup",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 63.0, 174.0, 120.0, 20.0 ],
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor"
+                        }
+                    },
+                    "text": "<link href=\"; max openhelp evi.korgms10~\">evi.korgms10~</link>",
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                }
+            },
+            {
+                "box": {
                     "hidden": 1,
                     "id": "obj-53",
                     "maxclass": "newobj",
                     "numinlets": 2,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
-                    "patching_rect": [ 32.0, 570.0, 216.0, 22.0 ],
-                    "text": "list.reg evieve_nonlinear_filters.maxhelp"
+                    "patching_rect": [ 32.0, 570.0, 222.0, 22.0 ],
+                    "text": "list.reg areas_help_nonlinear.maxhelp"
                 }
             },
             {
@@ -45,34 +141,37 @@
             },
             {
                 "box": {
+                    "fontsize": 13.0,
                     "id": "obj-42",
                     "linecount": 3,
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 186.0, 276.0, 416.0, 47.0 ],
+                    "patching_rect": [ 188.0, 274.0, 450.0, 50.0 ],
                     "text": "the 'KLM' OTA chip was found in the later MS-20s & other Korg synthesisers - it is different to the earlier 'Korg 35' single-amplifier unbuffered Korg chip found in the earlier MS-20s & MS-10 and also in the 'monotron' series"
                 }
             },
             {
                 "box": {
+                    "fontsize": 13.0,
                     "id": "obj-40",
                     "linecount": 2,
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 151.0, 214.0, 399.0, 33.0 ],
+                    "patching_rect": [ 151.0, 212.0, 433.0, 36.0 ],
                     "text": "'Korg OTA', sits inbetween the more broken [evi.korgms10~] and the more stable [evi.korgms20.select~], it is aggressive but predictable"
                 }
             },
             {
                 "box": {
+                    "fontsize": 13.0,
                     "id": "obj-38",
                     "linecount": 2,
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 151.0, 145.0, 273.0, 33.0 ],
+                    "patching_rect": [ 151.0, 143.0, 296.0, 36.0 ],
                     "text": "'Korg 35', an erratic, out-of-control & out-of-tune aggressive filter for experiments and fun times"
                 }
             },
@@ -117,7 +216,7 @@
                     "numinlets": 2,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
-                    "patching_rect": [ 456.0, 570.0, 171.0, 22.0 ],
+                    "patching_rect": [ 456.0, 570.0, 177.0, 22.0 ],
                     "text": "list.reg areas_help_svf.maxhelp"
                 }
             },
@@ -166,7 +265,7 @@
                     "numinlets": 2,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
-                    "patching_rect": [ 252.0, 570.0, 189.0, 22.0 ],
+                    "patching_rect": [ 252.0, 570.0, 195.0, 22.0 ],
                     "text": "list.reg areas_help_ladder.maxhelp"
                 }
             },
@@ -185,23 +284,25 @@
             },
             {
                 "box": {
+                    "fontsize": 13.0,
                     "id": "obj-25",
                     "linecount": 2,
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 62.0, 70.0, 478.0, 33.0 ],
+                    "patching_rect": [ 62.0, 70.0, 518.0, 36.0 ],
                     "text": "All evieve MS filters are modern TPT ('Zero Delay Feedback') filters with internal saturation and self-oscillation, with excellent behaviour under audio rate modulation"
                 }
             },
             {
                 "box": {
+                    "fontsize": 13.0,
                     "id": "obj-10",
                     "linecount": 2,
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 62.0, 401.0, 219.0, 33.0 ],
+                    "patching_rect": [ 62.0, 402.0, 205.0, 36.0 ],
                     "text": "famous legacy Z-1 (not ZDF) old style filter, but still very usable"
                 }
             },
@@ -218,11 +319,12 @@
             },
             {
                 "box": {
+                    "fontsize": 13.0,
                     "id": "obj-18",
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 32.0, 18.0, 150.0, 20.0 ],
+                    "patching_rect": [ 32.0, 18.0, 162.0, 21.0 ],
                     "text": "Korg filters in evieve"
                 }
             },
@@ -354,7 +456,7 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "orientation": 0,
-                    "patching_rect": [ 427.0, 337.0, 46.0, 101.0 ]
+                    "patching_rect": [ 427.0, 346.0, 46.0, 92.0 ]
                 }
             },
             {

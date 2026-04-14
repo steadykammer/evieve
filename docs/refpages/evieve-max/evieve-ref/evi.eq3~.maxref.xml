@@ -118,7 +118,7 @@
 	<attributelist>
 		<attribute name="band1filter" get="1" set="1" type="int" min="0" max="7">
 			<digest>
-				0..7
+				Select 0..7
 			</digest>
 			<description>
 				Band 1 filter type by integer index: 0&#x3D;Bypass, 1&#x3D;Highpass, 2&#x3D;Lowshelf, 3&#x3D;Bell, 4&#x3D;BellAdaptiveQ, 5&#x3D;Notch, 6&#x3D;Highshelf, 7&#x3D;Lowpass
@@ -129,7 +129,7 @@
 		</attribute>
 		<attribute name="band2filter" get="1" set="1" type="int" min="0" max="7">
 			<digest>
-				0..7
+				Select 0..7
 			</digest>
 			<description>
 				Band 2 filter type by integer index: 0&#x3D;Bypass, 1&#x3D;Highpass, 2&#x3D;Lowshelf, 3&#x3D;Bell, 4&#x3D;BellAdaptiveQ, 5&#x3D;Notch, 6&#x3D;Highshelf, 7&#x3D;Lowpass
@@ -140,7 +140,7 @@
 		</attribute>
 		<attribute name="band3filter" get="1" set="1" type="int" min="0" max="7">
 			<digest>
-				0..7
+				Select 0..7
 			</digest>
 			<description>
 				Band 3 filter type by integer index: 0&#x3D;Bypass, 1&#x3D;Highpass, 2&#x3D;Lowshelf, 3&#x3D;Bell, 4&#x3D;BellAdaptiveQ, 5&#x3D;Notch, 6&#x3D;Highshelf, 7&#x3D;Lowpass

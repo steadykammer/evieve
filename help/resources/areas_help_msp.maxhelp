@@ -22,12 +22,420 @@
         "boxes": [
             {
                 "box": {
+                    "border": 1,
+                    "evaluatehref": 1,
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 13.0,
+                    "id": "obj-46",
+                    "linkbold": 1,
+                    "linkcolor": [ 0.203922, 0.47451, 0.780392, 1.0 ],
+                    "maxclass": "markup",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 317.0, 146.0, 106.0, 64.0 ],
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor"
+                        }
+                    },
+                    "text": "<link href=\"; max openhelp evi.svfsmooth~\">evi.svfsmooth~</link> nonlinear alternative to evi.svf~",
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                }
+            },
+            {
+                "box": {
+                    "border": 1,
+                    "evaluatehref": 1,
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 13.0,
+                    "id": "obj-45",
+                    "linkbold": 1,
+                    "linkcolor": [ 0.203922, 0.47451, 0.780392, 1.0 ],
+                    "maxclass": "markup",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 229.0, 146.0, 84.0, 64.0 ],
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor"
+                        }
+                    },
+                    "text": "<link href=\"; max openhelp evi.lorez~\">evi.lorez~</link> nonlinear alternative to evi.lores~",
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                }
+            },
+            {
+                "box": {
+                    "border": 1,
+                    "evaluatehref": 1,
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 13.0,
+                    "id": "obj-43",
+                    "linkbold": 1,
+                    "linkcolor": [ 0.203922, 0.47451, 0.780392, 1.0 ],
+                    "maxclass": "markup",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 30.0, 222.0, 157.0, 37.0 ],
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor"
+                        }
+                    },
+                    "text": "<link href=\"; max openhelp evi.damp~\">evi.damp~</link> actually closer to MSP [onepole~]",
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                }
+            },
+            {
+                "box": {
+                    "border": 1,
+                    "evaluatehref": 1,
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 13.0,
+                    "id": "obj-42",
+                    "linkbold": 1,
+                    "linkcolor": [ 0.203922, 0.47451, 0.780392, 1.0 ],
+                    "maxclass": "markup",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 30.0, 146.0, 124.0, 49.0 ],
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor"
+                        }
+                    },
+                    "text": "<link href=\"; max openhelp evi.rcfilter~\">evi.rcfilter~</link> nonlinear alternative to evi.onepole~",
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                }
+            },
+            {
+                "box": {
+                    "border": 1,
+                    "evaluatehref": 1,
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 13.0,
+                    "id": "obj-41",
+                    "linkbold": 1,
+                    "linkcolor": [ 0.203922, 0.47451, 0.780392, 1.0 ],
+                    "maxclass": "markup",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 229.0, 382.0, 90.0, 20.0 ],
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor"
+                        }
+                    },
+                    "text": "<link href=\"; max openhelp evi.teeth~\">evi.teeth~</link>",
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                }
+            },
+            {
+                "box": {
+                    "border": 1,
+                    "evaluatehref": 1,
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 13.0,
+                    "id": "obj-40",
+                    "linkbold": 1,
+                    "linkcolor": [ 0.203922, 0.47451, 0.780392, 1.0 ],
+                    "maxclass": "markup",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 134.0, 382.0, 90.0, 20.0 ],
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor"
+                        }
+                    },
+                    "text": "<link href=\"; max openhelp evi.comb~\">evi.comb~</link>",
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                }
+            },
+            {
+                "box": {
+                    "border": 1,
+                    "evaluatehref": 1,
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 13.0,
+                    "id": "obj-39",
+                    "linkbold": 1,
+                    "linkcolor": [ 0.203922, 0.47451, 0.780392, 1.0 ],
+                    "maxclass": "markup",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 30.0, 382.0, 90.0, 20.0 ],
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor"
+                        }
+                    },
+                    "text": "<link href=\"; max openhelp evi.allpass~\">evi.allpass~</link>",
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                }
+            },
+            {
+                "box": {
+                    "border": 1,
+                    "evaluatehref": 1,
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 13.0,
+                    "id": "obj-38",
+                    "linkbold": 1,
+                    "linkcolor": [ 0.203922, 0.47451, 0.780392, 1.0 ],
+                    "maxclass": "markup",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 229.0, 297.0, 90.0, 20.0 ],
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor"
+                        }
+                    },
+                    "text": "<link href=\"; max openhelp evi.hilbert~\">evi.hilbert~</link>",
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                }
+            },
+            {
+                "box": {
+                    "border": 1,
+                    "evaluatehref": 1,
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 13.0,
+                    "id": "obj-37",
+                    "linkbold": 1,
+                    "linkcolor": [ 0.203922, 0.47451, 0.780392, 1.0 ],
+                    "maxclass": "markup",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 489.0, 91.0, 105.0, 20.0 ],
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor"
+                        }
+                    },
+                    "text": "<link href=\"; max openhelp evi.phaseshift~\">evi.phaseshift~</link>",
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                }
+            },
+            {
+                "box": {
+                    "border": 1,
+                    "evaluatehref": 1,
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 13.0,
+                    "id": "obj-36",
+                    "linkbold": 1,
+                    "linkcolor": [ 0.203922, 0.47451, 0.780392, 1.0 ],
+                    "maxclass": "markup",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 397.0, 91.0, 90.0, 20.0 ],
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor"
+                        }
+                    },
+                    "text": "<link href=\"; max openhelp evi.cross~\">evi.cross~</link>",
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                }
+            },
+            {
+                "box": {
+                    "border": 1,
+                    "evaluatehref": 1,
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 13.0,
+                    "id": "obj-35",
+                    "linkbold": 1,
+                    "linkcolor": [ 0.203922, 0.47451, 0.780392, 1.0 ],
+                    "maxclass": "markup",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 317.0, 91.0, 90.0, 20.0 ],
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor"
+                        }
+                    },
+                    "text": "<link href=\"; max openhelp evi.svf~\">evi.svf~</link>",
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                }
+            },
+            {
+                "box": {
+                    "border": 1,
+                    "evaluatehref": 1,
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 13.0,
+                    "id": "obj-34",
+                    "linkbold": 1,
+                    "linkcolor": [ 0.203922, 0.47451, 0.780392, 1.0 ],
+                    "maxclass": "markup",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 229.0, 91.0, 90.0, 20.0 ],
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor"
+                        }
+                    },
+                    "text": "<link href=\"; max openhelp evi.lores~\">evi.lores~</link>",
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                }
+            },
+            {
+                "box": {
+                    "border": 1,
+                    "evaluatehref": 1,
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 13.0,
+                    "id": "obj-33",
+                    "linkbold": 1,
+                    "linkcolor": [ 0.203922, 0.47451, 0.780392, 1.0 ],
+                    "maxclass": "markup",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 136.0, 91.0, 90.0, 20.0 ],
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor"
+                        }
+                    },
+                    "text": "<link href=\"; max openhelp evi.reson~\">evi.reson~</link>",
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                }
+            },
+            {
+                "box": {
+                    "border": 1,
+                    "evaluatehref": 1,
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 13.0,
+                    "id": "obj-24",
+                    "linkbold": 1,
+                    "linkcolor": [ 0.203922, 0.47451, 0.780392, 1.0 ],
+                    "maxclass": "markup",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 32.0, 91.0, 90.0, 20.0 ],
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor"
+                        }
+                    },
+                    "text": "<link href=\"; max openhelp evi.onepole~\">evi.onepole~</link>",
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                }
+            },
+            {
+                "box": {
+                    "border": 1,
+                    "evaluatehref": 1,
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 13.0,
+                    "id": "obj-17",
+                    "linkbold": 1,
+                    "linkcolor": [ 0.203922, 0.47451, 0.780392, 1.0 ],
+                    "maxclass": "markup",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 334.0, 517.0, 73.0, 20.0 ],
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor"
+                        }
+                    },
+                    "text": "<link href=\"; max openhelp evi.vcf~\">evi.vcf~</link>",
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                }
+            },
+            {
+                "box": {
+                    "border": 1,
+                    "evaluatehref": 1,
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 13.0,
+                    "id": "obj-23",
+                    "linkbold": 1,
+                    "linkcolor": [ 0.203922, 0.47451, 0.780392, 1.0 ],
+                    "maxclass": "markup",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 200.0, 517.0, 139.0, 21.0 ],
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor"
+                        }
+                    },
+                    "text": "<link href=\"; max openhelp evi.butterworthlp6~\">evi.butterworthlp6~</link>",
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                }
+            },
+            {
+                "box": {
+                    "border": 1,
+                    "evaluatehref": 1,
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 13.0,
+                    "id": "obj-7",
+                    "linkbold": 1,
+                    "linkcolor": [ 0.203922, 0.47451, 0.780392, 1.0 ],
+                    "maxclass": "markup",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 126.0, 517.0, 73.0, 20.0 ],
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor"
+                        }
+                    },
+                    "text": "<link href=\"; max openhelp evi.bp~\">evi.bp~</link>",
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                }
+            },
+            {
+                "box": {
                     "id": "obj-12",
                     "maxclass": "newobj",
                     "numinlets": 2,
                     "numoutlets": 3,
                     "outlettype": [ "signal", "signal", "signal" ],
-                    "patching_rect": [ 323.0, 517.0, 50.0, 22.0 ],
+                    "patching_rect": [ 334.0, 493.0, 50.0, 22.0 ],
                     "text": "evi.vcf~"
                 }
             },
@@ -89,7 +497,7 @@
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
                     "patching_rect": [ 449.0, 570.0, 222.0, 22.0 ],
-                    "text": "list.reg evieve_nonlinear_filters.maxhelp"
+                    "text": "list.reg areas_help_nonlinear.maxhelp"
                 }
             },
             {
@@ -107,22 +515,24 @@
             },
             {
                 "box": {
+                    "fontsize": 13.0,
                     "id": "obj-22",
                     "linecount": 2,
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 298.0, 268.0, 162.0, 33.0 ],
+                    "patching_rect": [ 298.0, 266.0, 175.0, 36.0 ],
                     "text": "needs to be an abstraction because of coefficients"
                 }
             },
             {
                 "box": {
+                    "fontsize": 13.0,
                     "id": "obj-13",
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 30.0, 321.0, 168.0, 20.0 ],
+                    "patching_rect": [ 30.0, 320.0, 182.0, 21.0 ],
                     "text": "Simpler basic ports:"
                 }
             },
@@ -493,7 +903,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 196.0, 517.0, 110.0, 22.0 ],
+                    "patching_rect": [ 200.0, 493.0, 110.0, 22.0 ],
                     "text": "evi.butterworthlp6~"
                 }
             },
@@ -504,7 +914,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 30.0, 121.0, 67.0, 22.0 ],
+                    "patching_rect": [ 30.0, 124.0, 67.0, 22.0 ],
                     "text": "evi.rcfilter~"
                 }
             },
@@ -515,7 +925,7 @@
                     "numinlets": 3,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 229.0, 121.0, 60.0, 22.0 ],
+                    "patching_rect": [ 229.0, 124.0, 60.0, 22.0 ],
                     "text": "evi.lorez~"
                 }
             },
@@ -526,7 +936,7 @@
                     "numinlets": 4,
                     "numoutlets": 5,
                     "outlettype": [ "signal", "signal", "signal", "signal", "signal" ],
-                    "patching_rect": [ 317.0, 121.0, 89.0, 22.0 ],
+                    "patching_rect": [ 317.0, 124.0, 89.0, 22.0 ],
                     "text": "evi.svfsmooth~"
                 }
             },
@@ -548,7 +958,7 @@
                     "numinlets": 3,
                     "numoutlets": 2,
                     "outlettype": [ "signal", "signal" ],
-                    "patching_rect": [ 30.0, 190.0, 64.0, 22.0 ],
+                    "patching_rect": [ 30.0, 199.0, 64.0, 22.0 ],
                     "text": "evi.damp~"
                 }
             },
@@ -559,7 +969,7 @@
                     "numinlets": 4,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 126.0, 517.0, 51.0, 22.0 ],
+                    "patching_rect": [ 126.0, 493.0, 51.0, 22.0 ],
                     "text": "evi.bp~"
                 }
             },
@@ -620,86 +1030,46 @@
             },
             {
                 "box": {
+                    "fontsize": 13.0,
                     "id": "obj-44",
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 30.0, 518.0, 96.0, 20.0 ],
+                    "patching_rect": [ 30.0, 494.0, 104.0, 21.0 ],
                     "text": "Pd filters:"
                 }
             },
             {
                 "box": {
-                    "id": "obj-21",
-                    "linecount": 2,
-                    "maxclass": "comment",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 27.0, 142.0, 70.0, 33.0 ],
-                    "text": "nonlinear alternative"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-19",
-                    "linecount": 2,
-                    "maxclass": "comment",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 314.0, 142.0, 70.0, 33.0 ],
-                    "text": "nonlinear alternative"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-18",
-                    "linecount": 2,
-                    "maxclass": "comment",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 226.0, 142.0, 70.0, 33.0 ],
-                    "text": "nonlinear alternative"
-                }
-            },
-            {
-                "box": {
+                    "fontsize": 13.0,
                     "id": "obj-8",
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 15.0, 15.0, 191.0, 20.0 ],
+                    "patching_rect": [ 15.0, 15.0, 207.0, 21.0 ],
                     "text": "Substitutions for MSP filters:"
                 }
             },
             {
                 "box": {
-                    "id": "obj-11",
-                    "linecount": 2,
-                    "maxclass": "comment",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 33.0, 207.0, 188.0, 33.0 ],
-                    "text": "|\nactually closer to MSP [onepole~]"
-                }
-            },
-            {
-                "box": {
+                    "fontsize": 13.0,
                     "id": "obj-64",
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 196.0, 497.0, 110.0, 20.0 ],
+                    "patching_rect": [ 196.0, 470.0, 118.0, 21.0 ],
                     "text": "6-pole derivative"
                 }
             },
             {
                 "box": {
+                    "fontsize": 13.0,
                     "id": "obj-95",
                     "linecount": 2,
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 211.0, 9.0, 435.0, 33.0 ],
+                    "patching_rect": [ 200.0, 8.0, 435.0, 36.0 ],
                     "text": "The main point of all these is so that they can all be used inside GenExpr code, but they have also been rewritten using superior TPT filters"
                 }
             },

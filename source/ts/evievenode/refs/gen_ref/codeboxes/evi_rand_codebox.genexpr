@@ -7,10 +7,11 @@ eviRand(p) {								// phasor input, not frequency
 	a  = latch(prev, rr);
 	n  = noise();
 	b  = latch(n, rr);
-	nv = mix(a, b, p);						// interp(p, a, b, mode="cosine") for more fun
+	nv = mix(a, b, p);
+    nw = interp(p, a, b, mode="cosine");    // additional cosine output
 	prev = b;
-	return nv, n;
+	return nv, nw, n;
 }
 
-out1 = eviRand(phasor(in1));
+out1, out2, out3 = eviRand(phasor(in1));
 

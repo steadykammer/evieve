@@ -6,7 +6,7 @@
         "tilde": "~",
         "digest": "Reimplementation of MSP <o>lores~</o> filter",
         "description": "This filter roughly matches the shape and behaviour of MSP <o>lores~</o> but is implemented as a TPT filter. <o>lores~</o> is basically like the lowpass output of <o>svf~</o> but with a unique mapping and coupling of cutoff and resonance: frequency affects strength of resonance and resonance affects slope of filter. The mapping of <o>lores~</o> has a lower resonance in the low frequency range. This is actually a traditional analog SVF type of mapping. <o>evi.lores~</o> matches all these features but does not quite manage to match the high frequency response. This is a trade off for having a filter with better modulation properties and which does not digitally distort. The abstraction includes code which can be extracted for parameter rate control of the coefficients calculation if required.",
-        "discussion": "For more information about other reimplementations of MSP filters in evieve, see the 'evieve msp' tab of the helpfile."
+        "discussion": "For more information about other reimplementations of MSP filters in evieve, see the 'evieve: msp' tab of the helpfile."
     },
     "metadata": {
         "author": "Pete Dowling",

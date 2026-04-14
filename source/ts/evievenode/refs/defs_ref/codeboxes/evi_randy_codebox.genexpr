@@ -26,5 +26,5 @@ eviRandy(p)                                         // phasor input, not frequen
     return r, n;
 }
 
-out1 = eviRandy(phasor(in1));
+out1, out2 = eviRandy(phasor(in1));
 

@@ -464,31 +464,37 @@
     </entry>
     <entry name="szilagyi ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: l, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: h, <i></i> <br />
+        Adaa2 of Szilagyi saturator wrapped in a low/high clip() <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: l, <i>Low clip bound</i> <br />
+        <b>In 3</b>: type=<i>input</i>: h, <i>High clip bound</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Saturation, <i>Anti-aliased audio output</i> <br />
 
       </description>
     </entry>
     <entry name="szilagyiAdaa2_2x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: l, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: h, <i></i> <br />
+        Szilagyi saturator Adaa2, 2x oversampling, 6-point interpolator <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: l, <i>Low clip bound</i> <br />
+        <b>In 3</b>: type=<i>input</i>: h, <i>High clip bound</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Saturation, <i>Anti-aliased audio output</i> <br />
 
       </description>
     </entry>
     <entry name="szilagyiAdaa2_4x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: l, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: h, <i></i> <br />
+        Szilagyi saturator Adaa2, 4x oversampling, 6-point interpolator <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: l, <i>Low clip bound</i> <br />
+        <b>In 3</b>: type=<i>input</i>: h, <i>High clip bound</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Saturation, <i>Anti-aliased audio output</i> <br />
 
       </description>
     </entry>

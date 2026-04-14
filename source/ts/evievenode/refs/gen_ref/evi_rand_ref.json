@@ -26,8 +26,24 @@
             "name": "rand~like",
             "type": "float",
             "optional": 1,
-            "digestauto": "(Brown-ish) Noise Output",
-            "digest": "(Brown-ish) noise output."
+            "digestauto": "(Linear) Noise Output",
+            "digest": "(Linear Brown-ish) noise output."
+        },
+        {
+            "id": 2,
+            "name": "rand~like",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "(Cosine) Noise Output",
+            "digest": "(Cosine Brown-ish) noise output."
+        },
+        {
+            "id": 3,
+            "name": "white",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "Noise Sync Source",
+            "digest": "The white noise source used to create rand output."
         }
     ],
     "attributes": [],

@@ -71,7 +71,7 @@ Param   band7freq(4000., min=10, max=18000);
 Param   band7db(0., min=-24, max=24);
 Param   band7q(sqrt1_2, min=0.1, max=18);
 
-Param   band8filter(6, min=0, max=9);
+Param   band8filter(7, min=0, max=9);
 Param   band8freq(8000., min=10, max=18000);
 Param   band8db(0., min=-24, max=24);
 Param   band8q(1., min=0.1, max=18);

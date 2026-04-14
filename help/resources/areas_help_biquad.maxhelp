@@ -20,34 +20,109 @@
         "boxes": [
             {
                 "box": {
+                    "border": 1,
+                    "evaluatehref": 1,
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 13.0,
+                    "id": "obj-11",
+                    "linkbold": 1,
+                    "linkcolor": [ 0.203922, 0.47451, 0.780392, 1.0 ],
+                    "maxclass": "markup",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 314.0, 106.0, 120.0, 20.0 ],
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor"
+                        }
+                    },
+                    "text": "<link href=\"; max openhelp evi.biquadcoeff~\">evi.biquadcoeff~</link>",
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                }
+            },
+            {
+                "box": {
+                    "border": 1,
+                    "evaluatehref": 1,
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 13.0,
+                    "id": "obj-9",
+                    "linkbold": 1,
+                    "linkcolor": [ 0.203922, 0.47451, 0.780392, 1.0 ],
+                    "maxclass": "markup",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 193.0, 106.0, 120.0, 20.0 ],
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor"
+                        }
+                    },
+                    "text": "<link href=\"; max openhelp evi.biquadcoeff\">evi.biquadcoeff</link>",
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                }
+            },
+            {
+                "box": {
+                    "border": 1,
+                    "evaluatehref": 1,
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 13.0,
+                    "id": "obj-8",
+                    "linkbold": 1,
+                    "linkcolor": [ 0.203922, 0.47451, 0.780392, 1.0 ],
+                    "maxclass": "markup",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 439.0, 106.0, 120.0, 20.0 ],
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor"
+                        }
+                    },
+                    "text": "<link href=\"; max openhelp evi.biquad.filter~\">evi.biquad.filter~</link>",
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                }
+            },
+            {
+                "box": {
+                    "fontsize": 13.0,
                     "id": "obj-7",
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 431.0, 299.0, 155.0, 20.0 ],
+                    "patching_rect": [ 430.0, 304.0, 168.0, 21.0 ],
                     "text": "<<-- all in one sections",
                     "textjustification": 1
                 }
             },
             {
                 "box": {
+                    "fontsize": 13.0,
                     "id": "obj-1",
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 429.0, 15.0, 120.0, 20.0 ],
+                    "patching_rect": [ 429.0, 15.0, 130.0, 21.0 ],
                     "text": "all available filters",
                     "textjustification": 1
                 }
             },
             {
                 "box": {
+                    "fontsize": 13.0,
                     "id": "obj-3",
                     "linecount": 7,
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 16.0, 426.0, 168.0, 100.0 ],
+                    "patching_rect": [ 17.0, 416.0, 166.0, 108.0 ],
                     "text": "There are more filter types when you use Biquads (40 different types in evieve) but Biquads are inferior filters to TPT filters, so you might wish to use TPT filters in most situations:"
                 }
             },
@@ -83,7 +158,7 @@
                     "numinlets": 2,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
-                    "patching_rect": [ 15.0, 570.0, 178.0, 22.0 ],
+                    "patching_rect": [ 15.0, 570.0, 184.0, 22.0 ],
                     "text": "list.reg areas_help_filter.maxhelp"
                 }
             },
@@ -102,13 +177,14 @@
             },
             {
                 "box": {
+                    "fontsize": 13.0,
                     "id": "obj-10",
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 193.0, 98.0, 218.0, 20.0 ],
-                    "text": "<<-- all available filters -->>",
-                    "textjustification": 1
+                    "patching_rect": [ 18.0, 128.0, 165.0, 21.0 ],
+                    "text": "all available filters -->>",
+                    "textjustification": 2
                 }
             },
             {
@@ -124,7 +200,7 @@
                     "numoutlets": 3,
                     "outlettype": [ "int", "", "" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 294.0, 219.0, 100.0, 23.0 ]
+                    "patching_rect": [ 294.0, 224.0, 100.0, 23.0 ]
                 }
             },
             {
@@ -134,17 +210,18 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 294.0, 259.0, 79.0, 22.0 ],
+                    "patching_rect": [ 294.0, 264.0, 79.0, 22.0 ],
                     "text": "prepend filter"
                 }
             },
             {
                 "box": {
+                    "fontsize": 13.0,
                     "id": "obj-30",
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 294.0, 197.0, 134.0, 20.0 ],
+                    "patching_rect": [ 294.0, 202.0, 144.0, 21.0 ],
                     "text": "just Analog filters:"
                 }
             },
@@ -155,7 +232,7 @@
                     "numinlets": 4,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 294.0, 298.0, 110.0, 22.0 ],
+                    "patching_rect": [ 294.0, 303.0, 110.0, 22.0 ],
                     "text": "evi.biquad.analog~"
                 }
             },
@@ -285,7 +362,7 @@
                     "numoutlets": 3,
                     "outlettype": [ "int", "", "" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 143.0, 219.0, 100.0, 23.0 ]
+                    "patching_rect": [ 143.0, 224.0, 100.0, 23.0 ]
                 }
             },
             {
@@ -295,7 +372,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 143.0, 259.0, 79.0, 22.0 ],
+                    "patching_rect": [ 143.0, 264.0, 79.0, 22.0 ],
                     "text": "prepend filter"
                 }
             },
@@ -306,7 +383,7 @@
                     "numinlets": 4,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 143.0, 298.0, 134.0, 22.0 ],
+                    "patching_rect": [ 143.0, 303.0, 134.0, 22.0 ],
                     "text": "evi.biquad.butterworth~"
                 }
             },
@@ -323,7 +400,7 @@
                     "numoutlets": 3,
                     "outlettype": [ "int", "", "" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 15.0, 219.0, 100.0, 23.0 ]
+                    "patching_rect": [ 15.0, 224.0, 100.0, 23.0 ]
                 }
             },
             {
@@ -333,7 +410,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 15.0, 259.0, 79.0, 22.0 ],
+                    "patching_rect": [ 15.0, 264.0, 79.0, 22.0 ],
                     "text": "prepend filter"
                 }
             },
@@ -344,7 +421,7 @@
                     "numinlets": 4,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 15.0, 298.0, 110.0, 22.0 ],
+                    "patching_rect": [ 15.0, 303.0, 110.0, 22.0 ],
                     "text": "evi.biquad.eqfilter~"
                 }
             },
@@ -382,7 +459,7 @@
                     "numinlets": 6,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 182.0, 159.0, 72.0, 22.0 ],
+                    "patching_rect": [ 182.0, 166.0, 72.0, 22.0 ],
                     "text": "biquad~"
                 }
             },
@@ -393,7 +470,7 @@
                     "numinlets": 7,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 294.0, 159.0, 137.0, 22.0 ],
+                    "patching_rect": [ 294.0, 166.0, 137.0, 22.0 ],
                     "text": "evi.biquad~"
                 }
             },
@@ -404,7 +481,7 @@
                     "numinlets": 3,
                     "numoutlets": 5,
                     "outlettype": [ "signal", "signal", "signal", "signal", "signal" ],
-                    "patching_rect": [ 314.0, 120.0, 97.0, 22.0 ],
+                    "patching_rect": [ 314.0, 127.0, 97.0, 22.0 ],
                     "text": "evi.biquadcoeff~"
                 }
             },
@@ -415,7 +492,7 @@
                     "numinlets": 3,
                     "numoutlets": 6,
                     "outlettype": [ "", "float", "float", "float", "float", "float" ],
-                    "patching_rect": [ 193.0, 120.0, 89.0, 22.0 ],
+                    "patching_rect": [ 193.0, 127.0, 89.0, 22.0 ],
                     "text": "evi.biquadcoeff"
                 }
             },
@@ -426,80 +503,88 @@
                     "numinlets": 4,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 439.0, 120.0, 96.0, 22.0 ],
+                    "patching_rect": [ 439.0, 127.0, 96.0, 22.0 ],
                     "text": "evi.biquad.filter~"
                 }
             },
             {
                 "box": {
+                    "fontsize": 13.0,
                     "id": "obj-75",
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 208.0, 342.0, 360.0, 20.0 ],
+                    "patching_rect": [ 208.0, 343.0, 390.0, 21.0 ],
                     "text": "all types available as individual all-in-one blocks as well:"
                 }
             },
             {
                 "box": {
+                    "fontsize": 13.0,
                     "id": "obj-68",
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 143.0, 197.0, 134.0, 20.0 ],
+                    "patching_rect": [ 143.0, 202.0, 145.0, 21.0 ],
                     "text": "just Butterworth filters:"
                 }
             },
             {
                 "box": {
+                    "fontsize": 13.0,
                     "id": "obj-74",
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 15.0, 197.0, 100.0, 20.0 ],
+                    "patching_rect": [ 15.0, 202.0, 108.0, 21.0 ],
                     "text": "just EQ filters:"
                 }
             },
             {
                 "box": {
+                    "fontsize": 13.0,
                     "id": "obj-80",
+                    "linecount": 2,
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 543.0, 121.0, 100.0, 20.0 ],
+                    "patching_rect": [ 543.0, 120.0, 69.0, 36.0 ],
                     "text": "all in one section",
-                    "textjustification": 1
+                    "textjustification": 0
                 }
             },
             {
                 "box": {
+                    "fontsize": 13.0,
                     "id": "obj-81",
                     "linecount": 2,
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 543.0, 32.0, 89.0, 33.0 ],
+                    "patching_rect": [ 543.0, 32.0, 96.0, 36.0 ],
                     "text": "more types than MSP"
                 }
             },
             {
                 "box": {
+                    "fontsize": 13.0,
                     "id": "obj-87",
                     "linecount": 2,
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 279.0, 522.0, 243.0, 33.0 ],
+                    "patching_rect": [ 280.0, 520.0, 263.0, 36.0 ],
                     "text": "all individual blocks have choices for that type as well, double-click to see more"
                 }
             },
             {
                 "box": {
+                    "fontsize": 13.0,
                     "id": "obj-88",
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 15.0, 15.0, 357.0, 20.0 ],
+                    "patching_rect": [ 15.0, 15.0, 385.0, 21.0 ],
                     "text": "Legacy filters (biquads), might still be useful:"
                 }
             },
@@ -565,7 +650,7 @@
             {
                 "patchline": {
                     "destination": [ "obj-58", 0 ],
-                    "midpoints": [ 448.5, 109.5, 323.5, 109.5 ],
+                    "midpoints": [ 448.5, 104.28515625, 323.5, 104.28515625 ],
                     "order": 1,
                     "source": [ "obj-56", 0 ]
                 }

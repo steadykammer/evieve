@@ -911,97 +911,97 @@
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Adaa2 of Szilagyi saturator wrapped in a low/high clip()",
             "name": "szilagyi",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "l",
-                    "digest": ""
+                    "digest": "Low clip bound"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "h",
-                    "digest": ""
+                    "digest": "High clip bound"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Saturation",
+                    "digest": "Anti-aliased audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Szilagyi saturator Adaa2, 2x oversampling, 6-point interpolator",
             "name": "szilagyiAdaa2_2x_6POINT",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "l",
-                    "digest": ""
+                    "digest": "Low clip bound"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "h",
-                    "digest": ""
+                    "digest": "High clip bound"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Saturation",
+                    "digest": "Anti-aliased audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Szilagyi saturator Adaa2, 4x oversampling, 6-point interpolator",
             "name": "szilagyiAdaa2_4x_6POINT",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "l",
-                    "digest": ""
+                    "digest": "Low clip bound"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "h",
-                    "digest": ""
+                    "digest": "High clip bound"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Saturation",
+                    "digest": "Anti-aliased audio output"
                 }
             ]
         },

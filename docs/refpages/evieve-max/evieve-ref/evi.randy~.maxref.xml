@@ -38,6 +38,14 @@
 				Cubic interpolated random noise source.
 			</description>
 		</outlet>
+		<outlet id="2" type="signal">
+			<digest>
+				Outlet #2: White Noise sync source
+			</digest>
+			<description>
+				The white noise source used to create rand output.
+			</description>
+		</outlet>
 	</outletlist>
 	<!--MESSAGES-->
 	<methodlist>

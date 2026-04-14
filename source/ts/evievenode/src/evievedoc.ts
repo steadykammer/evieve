@@ -1021,8 +1021,10 @@ async function parseDefDocToGenDoc()
 			// see also
 			if (thisDefConfigObject.seealso.length) {
 				const defSeeAlso: string[] = [];
-				// const genSeeAlso: {}[] = {};
-				const genSeeAlso: any = [];
+				// const genSeeAlso: any = [];
+				// so that we can add additional refs to gens json without them being overwritten by defs
+				let genSeeAlso: any = thisGenConfigObject.seealso
+				//
 				for (const see of thisDefConfigObject.seealso) {
 					const potentialSeeAlsoName = see.replaceAll('.', '_').replace('~', ''); // might miss a few edge cases
 					const potentialRefAlsoName = `${potentialSeeAlsoName}_ref.json`;
@@ -1038,6 +1040,7 @@ async function parseDefDocToGenDoc()
 						genSee.display = also;
 						genSeeAlso.push(genSee);
 					}
+					genSeeAlso = thinUniqueArrayByKey(genSeeAlso, "name");
 					thisGenConfigObject.seealso = genSeeAlso;
 				}
 			}

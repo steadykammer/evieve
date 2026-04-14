@@ -9,7 +9,7 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 63.0, 131.0, 812.0, 790.0 ],
+        "rect": [ 63.0, 131.0, 660.0, 568.0 ],
         "openrect": [ 0.0, 0.0, 660.0, 568.0 ],
         "openrectmode": 0,
         "bglocked": 1,
@@ -20,14 +20,86 @@
         "boxes": [
             {
                 "box": {
+                    "border": 1,
+                    "evaluatehref": 1,
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 13.0,
+                    "id": "obj-3",
+                    "linkbold": 1,
+                    "linkcolor": [ 0.203922, 0.47451, 0.780392, 1.0 ],
+                    "maxclass": "markup",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 62.0, 312.0, 120.0, 21.0 ],
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor"
+                        }
+                    },
+                    "text": "<link href=\"; max openhelp evi.arpnotch~\">evi.arpnotch~</link>",
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                }
+            },
+            {
+                "box": {
+                    "border": 1,
+                    "evaluatehref": 1,
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 13.0,
+                    "id": "obj-2",
+                    "linkbold": 1,
+                    "linkcolor": [ 0.203922, 0.47451, 0.780392, 1.0 ],
+                    "maxclass": "markup",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 62.0, 243.0, 120.0, 21.0 ],
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor"
+                        }
+                    },
+                    "text": "<link href=\"; max openhelp evi.svfsynth~\">evi.svfsynth~</link>",
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                }
+            },
+            {
+                "box": {
+                    "border": 1,
+                    "evaluatehref": 1,
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 13.0,
+                    "id": "obj-6",
+                    "linkbold": 1,
+                    "linkcolor": [ 0.203922, 0.47451, 0.780392, 1.0 ],
+                    "maxclass": "markup",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 62.0, 174.0, 120.0, 21.0 ],
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor"
+                        }
+                    },
+                    "text": "<link href=\"; max openhelp evi.svfsmooth~\">evi.svfsmooth~</link>",
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                }
+            },
+            {
+                "box": {
                     "hidden": 1,
                     "id": "obj-53",
                     "maxclass": "newobj",
                     "numinlets": 2,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
-                    "patching_rect": [ 32.0, 570.0, 216.0, 22.0 ],
-                    "text": "list.reg evieve_nonlinear_filters.maxhelp"
+                    "patching_rect": [ 32.0, 570.0, 222.0, 22.0 ],
+                    "text": "list.reg areas_help_nonlinear.maxhelp"
                 }
             },
             {
@@ -45,34 +117,37 @@
             },
             {
                 "box": {
+                    "fontsize": 13.0,
                     "id": "obj-52",
                     "linecount": 2,
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 145.0, 283.0, 386.0, 33.0 ],
+                    "patching_rect": [ 145.0, 281.0, 412.0, 36.0 ],
                     "text": "a nonlinear SVF Notch filter which can morph between LP..Notch..HP, as a partial emulation of the ARP 1047 filter/resonator."
                 }
             },
             {
                 "box": {
+                    "fontsize": 13.0,
                     "id": "obj-50",
                     "linecount": 2,
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 153.0, 145.0, 422.0, 33.0 ],
+                    "patching_rect": [ 156.0, 143.0, 457.0, 36.0 ],
                     "text": "a cheap nonlinear multimode SVF with simultaneous outputs for when you need a quick cheap synth filter, morphing @outlet 0 via the 'morph' attribute."
                 }
             },
             {
                 "box": {
+                    "fontsize": 13.0,
                     "id": "obj-48",
                     "linecount": 2,
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 142.0, 214.0, 365.0, 33.0 ],
+                    "patching_rect": [ 145.0, 212.0, 395.0, 36.0 ],
                     "text": "oversampled SVF with a choice of 12dB & 24dB outputs and interpolation between Lowpass, Bandpass & Highpass filters"
                 }
             },
@@ -117,7 +192,7 @@
                     "numinlets": 2,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
-                    "patching_rect": [ 456.0, 570.0, 179.0, 22.0 ],
+                    "patching_rect": [ 456.0, 570.0, 185.0, 22.0 ],
                     "text": "list.reg areas_help_korg.maxhelp"
                 }
             },
@@ -166,7 +241,7 @@
                     "numinlets": 2,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
-                    "patching_rect": [ 252.0, 570.0, 189.0, 22.0 ],
+                    "patching_rect": [ 252.0, 570.0, 195.0, 22.0 ],
                     "text": "list.reg areas_help_ladder.maxhelp"
                 }
             },
@@ -185,22 +260,24 @@
             },
             {
                 "box": {
+                    "fontsize": 13.0,
                     "id": "obj-25",
                     "linecount": 2,
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 62.0, 70.0, 478.0, 33.0 ],
+                    "patching_rect": [ 62.0, 70.0, 518.0, 36.0 ],
                     "text": "All evieve SVF filters are modern TPT ('Zero Delay Feedback') filters with internal saturation and self-oscillation, with excellent behaviour under audio rate modulation"
                 }
             },
             {
                 "box": {
+                    "fontsize": 13.0,
                     "id": "obj-18",
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 32.0, 18.0, 206.0, 20.0 ],
+                    "patching_rect": [ 32.0, 18.0, 224.0, 21.0 ],
                     "text": "Nonlinear SVF filters in evieve"
                 }
             },

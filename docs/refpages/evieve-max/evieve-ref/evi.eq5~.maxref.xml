@@ -239,7 +239,7 @@
 				Band 5 filter type by integer index: 0&#x3D;Bypass, 1&#x3D;Highpass-4-pole, 2&#x3D;Highpass, 3&#x3D;Lowshelf, 4&#x3D;Bell, 5&#x3D;BellAdaptiveQ, 6&#x3D;Notch, 7&#x3D;Highshelf, 8&#x3D;Lowpass, 9&#x3D;Lowpass-4-pole
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="6" />
+				<attribute name="default" get="0" set="0" size="1" value="7" />
 			</attributelist>
 		</attribute>
 		<attribute name="band5freq" get="1" set="1" type="float" min="10" max="18000">

@@ -22,52 +22,177 @@
         "boxes": [
             {
                 "box": {
+                    "border": 1,
+                    "evaluatehref": 1,
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 13.0,
+                    "id": "obj-18",
+                    "linkbold": 1,
+                    "linkcolor": [ 0.203922, 0.47451, 0.780392, 1.0 ],
+                    "maxclass": "markup",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 60.0, 322.0, 151.0, 20.0 ],
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor"
+                        }
+                    },
+                    "text": "<link href=\"; max openhelp evi.crossover.sum~\">evi.crossover.sum~</link>",
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                }
+            },
+            {
+                "box": {
+                    "border": 1,
+                    "evaluatehref": 1,
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 13.0,
+                    "id": "obj-17",
+                    "linkbold": 1,
+                    "linkcolor": [ 0.203922, 0.47451, 0.780392, 1.0 ],
+                    "maxclass": "markup",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 60.0, 268.0, 151.0, 20.0 ],
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor"
+                        }
+                    },
+                    "text": "<link href=\"; max openhelp evi.crossover.3band~\">evi.crossover.3band~</link>",
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                }
+            },
+            {
+                "box": {
+                    "border": 1,
+                    "evaluatehref": 1,
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 13.0,
+                    "id": "obj-15",
+                    "linkbold": 1,
+                    "linkcolor": [ 0.203922, 0.47451, 0.780392, 1.0 ],
+                    "maxclass": "markup",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 60.0, 214.0, 151.0, 20.0 ],
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor"
+                        }
+                    },
+                    "text": "<link href=\"; max openhelp evi.crossover.allpass~\">evi.crossover.allpass~</link>",
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                }
+            },
+            {
+                "box": {
+                    "border": 1,
+                    "evaluatehref": 1,
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 13.0,
+                    "id": "obj-9",
+                    "linkbold": 1,
+                    "linkcolor": [ 0.203922, 0.47451, 0.780392, 1.0 ],
+                    "maxclass": "markup",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 60.0, 160.0, 120.0, 20.0 ],
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor"
+                        }
+                    },
+                    "text": "<link href=\"; max openhelp evi.crossover~\">evi.crossover~</link>",
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                }
+            },
+            {
+                "box": {
+                    "border": 1,
+                    "evaluatehref": 1,
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 13.0,
+                    "id": "obj-1",
+                    "linkbold": 1,
+                    "linkcolor": [ 0.203922, 0.47451, 0.780392, 1.0 ],
+                    "maxclass": "markup",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 60.0, 106.0, 120.0, 20.0 ],
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor"
+                        }
+                    },
+                    "text": "<link href=\"; max openhelp evi.cross~\">evi.cross~</link>",
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                }
+            },
+            {
+                "box": {
+                    "fontsize": 13.0,
                     "id": "obj-16",
                     "linecount": 2,
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 340.0, 24.0, 209.0, 33.0 ],
+                    "patching_rect": [ 331.0, 23.0, 227.0, 36.0 ],
                     "text": "Linkwitz-Riley Crossovers sum perfectly when recombining signals"
                 }
             },
             {
                 "box": {
+                    "fontsize": 13.0,
                     "id": "obj-14",
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 174.0, 299.0, 163.0, 20.0 ],
+                    "patching_rect": [ 174.0, 299.0, 176.0, 21.0 ],
                     "text": "sum a three-way crossover"
                 }
             },
             {
                 "box": {
+                    "fontsize": 13.0,
                     "id": "obj-13",
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 184.0, 244.0, 153.0, 20.0 ],
+                    "patching_rect": [ 185.0, 245.0, 165.0, 21.0 ],
                     "text": "three-way crossovers"
                 }
             },
             {
                 "box": {
+                    "fontsize": 13.0,
                     "id": "obj-12",
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 188.0, 191.0, 216.0, 20.0 ],
+                    "patching_rect": [ 188.0, 191.0, 233.0, 21.0 ],
                     "text": "allpass compensate crossover mixes"
                 }
             },
             {
                 "box": {
+                    "fontsize": 13.0,
                     "id": "obj-11",
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 148.0, 137.0, 189.0, 20.0 ],
+                    "patching_rect": [ 149.0, 137.0, 204.0, 21.0 ],
                     "text": "similar to above but with options"
                 }
             },
@@ -117,11 +242,12 @@
             },
             {
                 "box": {
+                    "fontsize": 13.0,
                     "id": "obj-2",
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 125.0, 83.0, 167.0, 20.0 ],
+                    "patching_rect": [ 125.0, 83.0, 181.0, 21.0 ],
                     "text": "alternative to MSP [cross~]"
                 }
             },
@@ -157,7 +283,7 @@
                     "numinlets": 2,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
-                    "patching_rect": [ 374.0, 570.0, 178.0, 22.0 ],
+                    "patching_rect": [ 374.0, 570.0, 184.0, 22.0 ],
                     "text": "list.reg areas_help_filter.maxhelp"
                 }
             },
@@ -367,11 +493,12 @@
             },
             {
                 "box": {
+                    "fontsize": 13.0,
                     "id": "obj-8",
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 30.0, 30.0, 191.0, 20.0 ],
+                    "patching_rect": [ 30.0, 30.0, 206.0, 21.0 ],
                     "text": "Crossover filters in evieve"
                 }
             },
@@ -410,6 +537,7 @@
                 }
             }
         ],
+        "autosave": 0,
         "toolbaradditions": [ "audiosolo", "audiomute" ]
     }
 }

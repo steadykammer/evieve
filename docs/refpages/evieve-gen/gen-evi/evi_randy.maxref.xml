@@ -35,6 +35,7 @@
         <metadata name='tag'>GenDsp</metadata>
     </metadatalist>
     <seealsolist>
+        <seealso name='evi_rand' display='evi_rand' type='genrefpage' />
         <seealso name='evi_audiodust' display='evi_audiodust' type='genrefpage' />
         <seealso name='evi_gaussiannoise' display='evi_gaussiannoise' type='genrefpage' />
         <seealso name='evi_velvetnoise' display='evi_velvetnoise' type='genrefpage' />

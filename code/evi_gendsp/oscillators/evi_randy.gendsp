@@ -16,6 +16,16 @@
         "boxes": [
             {
                 "box": {
+                    "id": "obj-2",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 596.0, 562.0, 213.0, 22.0 ],
+                    "text": "out 2 (signal) White Noise sync source"
+                }
+            },
+            {
+                "box": {
                     "id": "obj-1",
                     "maxclass": "newobj",
                     "numinlets": 0,
@@ -27,15 +37,15 @@
             },
             {
                 "box": {
-                    "code": "\r\n// like [rand~] / evi_rand.gendsp but ready for cubic interpolation\neviRands(d0, x2)\t\t\t\t\t\t\t\t\t// delta input, not frequency; x2 is source\n{\n\tHistory\txm1(0), x0(0), x1(0);\n\tvm1\t= latch(xm1, d0);\n\tv0\t= latch(x0,  d0);\n\tv1\t= latch(x1,  d0);\n\tv2\t= latch(x2,  d0);\n\txm1\t= v0;\n\tx0\t= v1;\n\tx1\t= v2;\n\treturn\tvm1, v0, v1, v2;\t\t\t\t\t\t// 4 values for 4-point interpolator\n}\n\n// like [rand~] but cubic interpolated\n// rolls off much faster than eviRand()\neviRandy(p)                                         // phasor input, not frequency\r\n{\n\tHistory randy(0);\n\td = (delta(p)) < 0;                            \t// assumes positive freq only\n\tn = noise();\n    ym1, y0, y1, y2 = eviRands(d, n * sqrt1_2);\r\n    // 'tri-cubic-like' 'mode=cubic' does not work for eviRandy()\n    r = interp(p, ym1, y0, y1, y2, mode=\"fastcubic\");\n    return r, n;\n}\r\n\r\nout1 = eviRandy(phasor(in1));\r\n\r\n",
+                    "code": "\r\n// like [rand~] / evi_rand.gendsp but ready for cubic interpolation\neviRands(d0, x2)\t\t\t\t\t\t\t\t\t// delta input, not frequency; x2 is source\n{\n\tHistory\txm1(0), x0(0), x1(0);\n\tvm1\t= latch(xm1, d0);\n\tv0\t= latch(x0,  d0);\n\tv1\t= latch(x1,  d0);\n\tv2\t= latch(x2,  d0);\n\txm1\t= v0;\n\tx0\t= v1;\n\tx1\t= v2;\n\treturn\tvm1, v0, v1, v2;\t\t\t\t\t\t// 4 values for 4-point interpolator\n}\n\n// like [rand~] but cubic interpolated\n// rolls off much faster than eviRand()\neviRandy(p)                                         // phasor input, not frequency\r\n{\n\tHistory randy(0);\n\td = (delta(p)) < 0;                            \t// assumes positive freq only\n\tn = noise();\n    ym1, y0, y1, y2 = eviRands(d, n * sqrt1_2);\r\n    // 'tri-cubic-like' 'mode=cubic' does not work for eviRandy()\n    r = interp(p, ym1, y0, y1, y2, mode=\"fastcubic\");\n    return r, n;\n}\r\n\r\nout1, out2 = eviRandy(phasor(in1));\r\n\r\n",
                     "fontface": 0,
                     "fontname": "<Monospaced>",
                     "fontsize": 12.0,
                     "id": "obj-3",
                     "maxclass": "codebox",
                     "numinlets": 1,
-                    "numoutlets": 1,
-                    "outlettype": [ "" ],
+                    "numoutlets": 2,
+                    "outlettype": [ "", "" ],
                     "patching_rect": [ 49.0, 58.0, 760.0, 487.0 ]
                 }
             },
@@ -59,10 +69,18 @@
             },
             {
                 "patchline": {
+                    "destination": [ "obj-2", 0 ],
+                    "midpoints": [ 799.5, 553.5, 605.5, 553.5 ],
+                    "source": [ "obj-3", 1 ]
+                }
+            },
+            {
+                "patchline": {
                     "destination": [ "obj-4", 0 ],
                     "source": [ "obj-3", 0 ]
                 }
             }
-        ]
+        ],
+        "autosave": 0
     }
 }

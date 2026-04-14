@@ -245,7 +245,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 64.0, 635.0, 138.0, 33.0 ],
+                    "patching_rect": [ 49.0, 635.0, 138.0, 33.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -269,7 +269,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 64.0, 579.0, 190.0, 33.0 ],
+                    "patching_rect": [ 49.0, 579.0, 190.0, 33.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -293,7 +293,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 64.0, 527.0, 190.0, 18.0 ],
+                    "patching_rect": [ 49.0, 527.0, 190.0, 18.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -317,7 +317,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 64.0, 473.0, 190.0, 18.0 ],
+                    "patching_rect": [ 49.0, 473.0, 190.0, 18.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -341,7 +341,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 64.0, 283.0, 190.0, 18.0 ],
+                    "patching_rect": [ 49.0, 283.0, 190.0, 18.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -365,7 +365,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 64.0, 229.0, 190.0, 18.0 ],
+                    "patching_rect": [ 49.0, 229.0, 190.0, 18.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -389,7 +389,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 64.0, 175.0, 190.0, 18.0 ],
+                    "patching_rect": [ 49.0, 175.0, 190.0, 18.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -412,7 +412,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 64.0, 400.0, 181.0, 31.0 ],
+                    "patching_rect": [ 49.0, 410.0, 181.0, 31.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -435,7 +435,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 280.0, 104.0, 69.0, 19.0 ],
+                    "patching_rect": [ 280.0, 114.0, 69.0, 19.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -458,7 +458,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 64.0, 103.0, 69.0, 19.0 ],
+                    "patching_rect": [ 49.0, 113.0, 69.0, 19.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -476,7 +476,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 64.0, 34.0, 457.0, 36.0 ],
+                    "patching_rect": [ 49.0, 34.0, 457.0, 36.0 ],
                     "text": "Nonlinear filters in evieve. Filters are TPT filters with nonlinearities, self-oscillation, variable slopes, filter interpolation and oversampling options"
                 }
             },
@@ -487,7 +487,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 280.0, 397.0, 60.0, 21.0 ],
+                    "patching_rect": [ 280.0, 407.0, 60.0, 21.0 ],
                     "text": "Other"
                 }
             },
@@ -498,7 +498,7 @@
                     "numinlets": 3,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 64.0, 557.0, 122.0, 22.0 ],
+                    "patching_rect": [ 49.0, 557.0, 122.0, 22.0 ],
                     "text": "evi.korgms20.select~"
                 }
             },
@@ -509,7 +509,7 @@
                     "numinlets": 3,
                     "numoutlets": 2,
                     "outlettype": [ "signal", "signal" ],
-                    "patching_rect": [ 64.0, 503.0, 87.0, 22.0 ],
+                    "patching_rect": [ 49.0, 503.0, 87.0, 22.0 ],
                     "text": "evi.korgms20~"
                 }
             },
@@ -520,7 +520,7 @@
                     "numinlets": 3,
                     "numoutlets": 4,
                     "outlettype": [ "signal", "signal", "signal", "signal" ],
-                    "patching_rect": [ 64.0, 449.0, 87.0, 22.0 ],
+                    "patching_rect": [ 49.0, 449.0, 87.0, 22.0 ],
                     "text": "evi.korgms10~"
                 }
             },
@@ -619,7 +619,7 @@
                     "numinlets": 3,
                     "numoutlets": 2,
                     "outlettype": [ "signal", "signal" ],
-                    "patching_rect": [ 64.0, 259.0, 78.0, 22.0 ],
+                    "patching_rect": [ 49.0, 259.0, 78.0, 22.0 ],
                     "text": "evi.svfsynth~"
                 }
             },
@@ -630,7 +630,7 @@
                     "numinlets": 4,
                     "numoutlets": 5,
                     "outlettype": [ "signal", "signal", "signal", "signal", "signal" ],
-                    "patching_rect": [ 64.0, 205.0, 89.0, 22.0 ],
+                    "patching_rect": [ 49.0, 205.0, 89.0, 22.0 ],
                     "text": "evi.svfsmooth~"
                 }
             },
@@ -641,7 +641,7 @@
                     "numinlets": 4,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 64.0, 151.0, 81.0, 22.0 ],
+                    "patching_rect": [ 49.0, 151.0, 81.0, 22.0 ],
                     "text": "evi.arpnotch~"
                 }
             },
@@ -712,7 +712,7 @@
                     "numinlets": 4,
                     "numoutlets": 2,
                     "outlettype": [ "signal", "signal" ],
-                    "patching_rect": [ 64.0, 611.0, 54.0, 22.0 ],
+                    "patching_rect": [ 49.0, 611.0, 54.0, 22.0 ],
                     "text": "evi.dfm~"
                 }
             },

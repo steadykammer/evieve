@@ -9,11 +9,32 @@
             "modernui": 1
         },
         "classnamespace": "dsp.gen",
-        "rect": [ 34.0, 100.0, 855.0, 435.0 ],
+        "rect": [ 417.0, 322.0, 855.0, 435.0 ],
         "gridonopen": 2,
         "subpatcher_template": "sub",
         "integercoordinates": 1,
         "boxes": [
+            {
+                "box": {
+                    "id": "obj-5",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 354.0, 387.0, 257.0, 22.0 ],
+                    "text": "out 2 (signal) Rand~like (Cosine) Noise Output"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-2",
+                    "linecount": 2,
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 692.0, 381.0, 113.0, 35.0 ],
+                    "text": "out 3 (signal) White Noise Sync Source"
+                }
+            },
             {
                 "box": {
                     "id": "obj-1",
@@ -27,15 +48,15 @@
             },
             {
                 "box": {
-                    "code": "\r\n// like [rand~] (linear)\n// very predictable and gives exact notches\neviRand(p) {\t\t\t\t\t\t\t\t// phasor input, not frequency\n\tHistory prev(0);\n\trr = (delta(p)) < 0;                    // assumes positive freq only\n\ta  = latch(prev, rr);\n\tn  = noise();\n\tb  = latch(n, rr);\n\tnv = mix(a, b, p);\t\t\t\t\t\t// interp(p, a, b, mode=\"cosine\") for more fun\n\tprev = b;\n\treturn nv, n;\n}\r\n\r\nout1 = eviRand(phasor(in1));\r\n\r\n",
+                    "code": "\r\n// like [rand~] (linear)\n// very predictable and gives exact notches\neviRand(p) {\t\t\t\t\t\t\t\t// phasor input, not frequency\n\tHistory prev(0);\n\trr = (delta(p)) < 0;                    // assumes positive freq only\n\ta  = latch(prev, rr);\n\tn  = noise();\n\tb  = latch(n, rr);\n\tnv = mix(a, b, p);\r\n    nw = interp(p, a, b, mode=\"cosine\");    // additional cosine output\n\tprev = b;\n\treturn nv, nw, n;\n}\r\n\r\nout1, out2, out3 = eviRand(phasor(in1));\r\n\r\n",
                     "fontface": 0,
                     "fontname": "<Monospaced>",
                     "fontsize": 12.0,
                     "id": "obj-3",
                     "maxclass": "codebox",
                     "numinlets": 1,
-                    "numoutlets": 1,
-                    "outlettype": [ "" ],
+                    "numoutlets": 3,
+                    "outlettype": [ "", "", "" ],
                     "patching_rect": [ 49.0, 58.0, 756.0, 312.0 ]
                 }
             },
@@ -45,8 +66,8 @@
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 49.0, 387.0, 273.0, 22.0 ],
-                    "text": "out 1 (signal) Rand~like (Brown-ish) Noise Output"
+                    "patching_rect": [ 49.0, 387.0, 253.0, 22.0 ],
+                    "text": "out 1 (signal) Rand~like (Linear) Noise Output"
                 }
             }
         ],
@@ -59,8 +80,22 @@
             },
             {
                 "patchline": {
+                    "destination": [ "obj-2", 0 ],
+                    "midpoints": [ 795.5, 375.5, 701.5, 375.5 ],
+                    "source": [ "obj-3", 2 ]
+                }
+            },
+            {
+                "patchline": {
                     "destination": [ "obj-4", 0 ],
                     "source": [ "obj-3", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-5", 0 ],
+                    "midpoints": [ 427.0, 378.5, 363.5, 378.5 ],
+                    "source": [ "obj-3", 1 ]
                 }
             }
         ]

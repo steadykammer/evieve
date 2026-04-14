@@ -32,7 +32,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 330.0, 430.0, 77.0, 17.0 ],
+                    "patching_rect": [ 330.0, 431.0, 77.0, 17.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -146,6 +146,7 @@
                     "fontsize": 12.0,
                     "id": "obj-27",
                     "linkbold": 1,
+                    "linkcolor": [ 0.20392156862745098, 0.4745098039215686, 0.7803921568627451, 1.0 ],
                     "maxclass": "markup",
                     "numinlets": 1,
                     "numoutlets": 1,
@@ -156,7 +157,7 @@
                             "expression": "themecolor.theme_textcolor"
                         }
                     },
-                    "text": "For more noise, see the Todd Ingalls code: <link href=\"https://github.com/testcase/gen_noise\">GitHub</link>",
+                    "text": "For more noise, see the Todd Ingalls code: <link href=\"; max launchbrowser https://github.com/testcase/gen_noise\">GitHub</link>",
                     "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
                 }
             },
@@ -233,8 +234,8 @@
                                     "id": "obj-2",
                                     "maxclass": "newobj",
                                     "numinlets": 1,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "" ],
+                                    "numoutlets": 3,
+                                    "outlettype": [ "", "", "" ],
                                     "patching_rect": [ 79.0, 259.25, 55.0, 22.0 ],
                                     "text": "evi_rand"
                                 }
@@ -244,8 +245,8 @@
                                     "id": "obj-14",
                                     "maxclass": "newobj",
                                     "numinlets": 1,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "" ],
+                                    "numoutlets": 2,
+                                    "outlettype": [ "", "" ],
                                     "patching_rect": [ 79.0, 311.0, 61.0, 22.0 ],
                                     "text": "evi_randy"
                                 }
@@ -535,11 +536,12 @@
             },
             {
                 "box": {
+                    "fontsize": 13.0,
                     "id": "obj-9",
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 19.0, 19.0, 150.0, 20.0 ],
+                    "patching_rect": [ 19.0, 19.0, 163.0, 21.0 ],
                     "text": "Noise sources in evieve"
                 }
             },

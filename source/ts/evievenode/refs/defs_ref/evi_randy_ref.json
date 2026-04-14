@@ -27,6 +27,12 @@
             "type": "signal",
             "digest": "Cubic Interpolated Rand~like Noise Output",
             "description": "Cubic interpolated random noise source."
+        },
+        {
+            "id": 2,
+            "type": "signal",
+            "digest": "White Noise sync source",
+            "description": "The white noise source used to create rand output."
         }
     ],
     "messages": [],

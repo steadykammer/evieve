@@ -474,7 +474,7 @@ function init() {
         "newobject",
         "newobj",
         "@text",
-        `p "evieve ${eviOption5}"`,
+        `p "evieve: ${eviOption5}"`,
         "@varname",
         "areas_tab",
         "@patching_rect",
@@ -492,17 +492,21 @@ function init() {
       areastab.message("fontsize", 13);
       areastab.message("fontname", "Arial");
       areastab.message("locked", 1);
+      let eviOp5extra = eviOption5;
+      if (eviOp5extra === "msp") {
+        eviOp5extra = "msp-substitutions";
+      }
       areastab.subpatcher().message(
         "script",
         "newobject",
         "newobj",
         "@text",
-        `v8ui @filename evi.helpname.js @jsarguments "evieve: ${eviOption5}" ${660} @patching_rect 10. 10. 660. 50. @background 1 @embed 0`
+        `v8ui @filename evi.helpname.js @jsarguments "evieve: ${eviOp5extra}" ${660} @patching_rect 10. 10. 660. 50. @background 1 @embed 0`
       );
       const areasDigestComment = areastab.subpatcher().newdefault(10, 70, "comment");
       areasDigestComment.varname = "digest_comment";
       const areasComment = areastab.subpatcher().getnamed("digest_comment");
-      areasComment.message("set", `There are other ${eviOption5} objects in evieve. Here is an overview.`);
+      areasComment.message("set", `There are other ${eviOp5extra} objects in evieve. Here is an overview.`);
       areasComment.message("fontsize", 13);
       areasComment.message("fontname", "Lato");
       areasComment.message("textcolor", textColor);

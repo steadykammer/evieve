@@ -195,7 +195,7 @@
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
                     "patching_rect": [ 178.0, 570.0, 222.0, 22.0 ],
-                    "text": "list.reg evieve_nonlinear_filters.maxhelp"
+                    "text": "list.reg areas_help_nonlinear.maxhelp"
                 }
             },
             {

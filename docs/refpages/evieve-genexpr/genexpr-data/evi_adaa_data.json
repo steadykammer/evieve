@@ -1681,7 +1681,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "szilagyiF0",
             "inputs": [
@@ -1701,7 +1701,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "szilagyiF1",
             "inputs": [
@@ -1721,7 +1721,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "szilagyiF2",
             "inputs": [
@@ -1749,14 +1749,14 @@
                     "id": 1,
                     "kind": "input",
                     "name": "x0",
-                    "digest": ""
+                    "digest": "Audio input to saturate"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
                     "name": "",
-                    "digest": ""
+                    "digest": "Anti-aliased clipping output"
                 }
             ]
         },
@@ -1769,14 +1769,14 @@
                     "id": 1,
                     "kind": "input",
                     "name": "x0",
-                    "digest": ""
+                    "digest": "Audio input to saturate"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
                     "name": "",
-                    "digest": ""
+                    "digest": "Anti-aliased clipping output"
                 }
             ]
         },

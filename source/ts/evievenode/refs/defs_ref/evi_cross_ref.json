@@ -6,7 +6,7 @@
         "tilde": "~",
         "digest": "Reimplementation of MSP <o>cross~</o> filter as Likwitz-Riley",
         "description": "<o>evi.cross~</o> differs from MSP <o>cross~</o> in the following ways: <o>evi.cross~</o> is a steeper 4-pole crossover slope (<o>cross~</o> is a 3-pole slope), because 3rd order is not possible with flat summing Linkwitz-Riley. <o>evi.cross~</o> is a proper Linkwitz-Riley crossover which sums perfectly flat (whereas <o>cross~</o> is pure Butterworths and sums with a +3dB bump). <o>evi.cross~</o> remains stable under modulation. For a shallower 2-pole Linkwitz-Riley crossover @see <o>evi.crossover~</o>.",
-        "discussion": "For more information about other reimplementations of MSP filters in evieve, see the 'evieve msp' tab of the helpfile."
+        "discussion": "For more information about other reimplementations of MSP filters in evieve, see the 'evieve: msp' tab of the helpfile."
     },
     "metadata": {
         "author": "Pete Dowling",

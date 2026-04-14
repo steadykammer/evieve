@@ -329,7 +329,7 @@
             "description": "Band 8 filter type by integer index: 0=Bypass, 1=Highpass-4-pole, 2=Highpass, 3=Lowshelf, 4=Bell, 5=BellAdaptiveQ, 6=Notch, 7=Highshelf, 8=Lowpass, 9=Lowpass-4-pole",
             "default": {
                 "type": "int",
-                "value": "6"
+                "value": "7"
             }
         },
         {

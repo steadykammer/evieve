@@ -19,6 +19,6 @@ reset   = delta(change(filt)) < 0;
 	7 		Lowpass
 */
 
-                            //  hz,  db,  Q
-out1    = eviFilterEqReset(in1, in2, in3, in4, filt, reset, smooth=smooth);
+                          //  hz,  db,  Q
+out1    = eviFilterTptEq(in1, in2, in3, in4, filt, reset, smooth=smooth);
 

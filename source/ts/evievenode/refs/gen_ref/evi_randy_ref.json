@@ -28,10 +28,22 @@
             "optional": 1,
             "digestauto": "Interpolated Rand~like Noise Output",
             "digest": "Cubic interpolated random noise source."
+        },
+        {
+            "id": 2,
+            "name": "white",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "Noise sync source",
+            "digest": "The white noise source used to create rand output."
         }
     ],
     "attributes": [],
     "seealso": [
+        {
+            "name": "evi_rand",
+            "display": "evi_rand"
+        },
         {
             "name": "evi_audiodust",
             "display": "evi_audiodust"

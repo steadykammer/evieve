@@ -305,43 +305,19 @@
 
       </description>
     </entry>
-    <entry name="szilagyiF0 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="szilagyiF1 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="szilagyiF2 ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
     <entry name="szilagyiAdaa1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i>Audio input to saturate</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: , <i>Anti-aliased clipping output</i> <br />
 
       </description>
     </entry>
     <entry name="szilagyiAdaa2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i>Audio input to saturate</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: , <i>Anti-aliased clipping output</i> <br />
 
       </description>
     </entry>

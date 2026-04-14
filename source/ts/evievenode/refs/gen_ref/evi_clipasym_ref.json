@@ -46,7 +46,7 @@
             "name": "bounds",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "If on (the default), output is attenuated so that full range input does not go out of bounds. If off, there is no protection, but often this is not needed anyway.",
             "default": {
                 "type": "int",
                 "value": "1"

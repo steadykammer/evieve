@@ -90,7 +90,7 @@
 	<attributelist>
 		<attribute name="chans" get="0" set="1" type="int" size="1">
 			<digest>
-				
+				Number of channels
 			</digest>
 			<description>
 				mc.evi.listgen does not auto adapt to the number of mc channels. Channel count must be set via the @chans attribute exactly. This equates to the number of items in the generated list output.
@@ -110,6 +110,6 @@
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>
-        A patch idea by Todd Ingalls - THANKS! <br />
+        A patch idea by Todd Ingalls - thanks! <br />
 	</discussion>
 </c74object>
