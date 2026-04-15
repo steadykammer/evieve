@@ -815,6 +815,19 @@
                         "boxes": [
                             {
                                 "box": {
+                                    "bubble": 1,
+                                    "bubbleside": 2,
+                                    "id": "obj-15",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 358.0, 329.0, 51.0, 40.0 ],
+                                    "text": "sweep",
+                                    "textjustification": 1
+                                }
+                            },
+                            {
+                                "box": {
                                     "id": "obj-16",
                                     "linecount": 4,
                                     "maxclass": "comment",

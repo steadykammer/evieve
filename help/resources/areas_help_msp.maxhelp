@@ -579,7 +579,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 747.0, 40.0, 158.0, 100.0 ],
-                                    "text": "in gen~ this will by default only work @48kHz samplerate, unless you feed in the coefficients from an external source. @see the MSP abstraction for details"
+                                    "text": "in gen~ this will by default only work @48kHz samplerate, unless you feed in the coefficients from an external source. @see the MSP abstraction helpfile for details"
                                 }
                             },
                             {

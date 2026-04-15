@@ -412,7 +412,6 @@
                         "toolbaradditions": [ "audiosolo", "audiomute" ]
                     },
                     "patching_rect": [ 175.0, 336.0, 73.0, 23.0 ],
-                    "presentation_linecount": 3,
                     "saved_object_attributes": {
                         "fontsize": 13.0
                     },
@@ -462,7 +461,6 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 399.0, 214.0, 150.0, 50.0 ],
-                                    "presentation_linecount": 3,
                                     "text": "if @smooth is > 0, the right inlet is smoothed by this amount in ms"
                                 }
                             },
@@ -488,7 +486,6 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 307.0, 311.0, 256.0, 40.0 ],
-                                    "presentation_linecount": 2,
                                     "text": "@prewarp attribute sets input in Hz (1, the default) or normalised values (0)",
                                     "textjustification": 1
                                 }
@@ -682,7 +679,6 @@
                         "toolbaradditions": [ "audiosolo", "audiomute" ]
                     },
                     "patching_rect": [ 101.0, 336.0, 61.0, 23.0 ],
-                    "presentation_linecount": 2,
                     "saved_object_attributes": {
                         "fontsize": 13.0
                     },
@@ -1163,7 +1159,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -1705,13 +1701,200 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
                         "showontab": 1,
                         "integercoordinates": 1,
                         "boxes": [
+                            {
+                                "box": {
+                                    "attr": "logfreq",
+                                    "id": "obj-18",
+                                    "lock": 1,
+                                    "maxclass": "attrui",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "parameter_enable": 0,
+                                    "patching_rect": [ 420.0, 442.0, 300.0, 23.0 ],
+                                    "text_width": 77.0
+                                }
+                            },
+                            {
+                                "box": {
+                                    "bubble": 1,
+                                    "bubbleside": 2,
+                                    "id": "obj-16",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 495.0, 199.0, 66.0, 40.0 ],
+                                    "text": "dB",
+                                    "textjustification": 1
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-15",
+                                    "maxclass": "spectroscope~",
+                                    "numinlets": 2,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "patching_rect": [ 420.0, 482.0, 300.0, 100.0 ]
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-14",
+                                    "maxclass": "newobj",
+                                    "numinlets": 2,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "signal" ],
+                                    "patching_rect": [ 253.0, 482.0, 43.0, 23.0 ],
+                                    "text": "*~ 0.5"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "bubble": 1,
+                                    "bubbleside": 2,
+                                    "id": "obj-34",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 382.0, 200.0, 66.0, 40.0 ],
+                                    "text": "Cutoff",
+                                    "textjustification": 1
+                                }
+                            },
+                            {
+                                "box": {
+                                    "fontname": "Arial",
+                                    "fontsize": 13.0,
+                                    "id": "obj-31",
+                                    "maxclass": "live.dial",
+                                    "numinlets": 1,
+                                    "numoutlets": 2,
+                                    "outlettype": [ "", "float" ],
+                                    "parameter_enable": 1,
+                                    "patching_rect": [ 378.0, 242.0, 73.0, 55.0 ],
+                                    "saved_attribute_attributes": {
+                                        "valueof": {
+                                            "parameter_exponent": 4.0,
+                                            "parameter_initial": [ 500.0 ],
+                                            "parameter_initial_enable": 1,
+                                            "parameter_longname": "live.dial[4]",
+                                            "parameter_mmax": 20000.0,
+                                            "parameter_mmin": 10.0,
+                                            "parameter_modmode": 3,
+                                            "parameter_shortname": "Frequency",
+                                            "parameter_type": 0,
+                                            "parameter_unitstyle": 3
+                                        }
+                                    },
+                                    "varname": "live.dial[1]"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "format": 6,
+                                    "id": "obj-8",
+                                    "maxclass": "flonum",
+                                    "maximum": 12.0,
+                                    "minimum": -12.0,
+                                    "numinlets": 1,
+                                    "numoutlets": 2,
+                                    "outlettype": [ "", "bang" ],
+                                    "parameter_enable": 1,
+                                    "patching_rect": [ 503.0, 242.0, 50.0, 23.0 ],
+                                    "saved_attribute_attributes": {
+                                        "valueof": {
+                                            "parameter_initial": [ 0.0 ],
+                                            "parameter_initial_enable": 1,
+                                            "parameter_longname": "number[4]",
+                                            "parameter_mmax": 12.0,
+                                            "parameter_mmin": -12.0,
+                                            "parameter_modmode": 3,
+                                            "parameter_shortname": "number[2]",
+                                            "parameter_type": 0
+                                        }
+                                    },
+                                    "varname": "number"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "clipheight": 29.666666666666668,
+                                    "data": {
+                                        "clips": [
+                                            {
+                                                "absolutepath": "anton.aif",
+                                                "filename": "anton.aif",
+                                                "filekind": "audiofile",
+                                                "id": "u537013733",
+                                                "loop": 1,
+                                                "content_state": {
+                                                    "loop": 1
+                                                }
+                                            },
+                                            {
+                                                "absolutepath": "FemVoice.aif",
+                                                "filename": "FemVoice.aif",
+                                                "filekind": "audiofile",
+                                                "id": "u666013728",
+                                                "loop": 1,
+                                                "content_state": {
+                                                    "loop": 1
+                                                }
+                                            },
+                                            {
+                                                "absolutepath": "drumLoop.aif",
+                                                "filename": "drumLoop.aif",
+                                                "filekind": "audiofile",
+                                                "id": "u131013738",
+                                                "loop": 1,
+                                                "content_state": {
+                                                    "loop": 1
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "id": "obj-3",
+                                    "maxclass": "playlist~",
+                                    "mode": "basic",
+                                    "numinlets": 1,
+                                    "numoutlets": 5,
+                                    "outlettype": [ "signal", "signal", "signal", "", "dictionary" ],
+                                    "parameter_enable": 0,
+                                    "patching_rect": [ 31.0, 173.0, 310.0, 92.0 ],
+                                    "quality": "basic",
+                                    "saved_attribute_attributes": {
+                                        "candicane2": {
+                                            "expression": ""
+                                        },
+                                        "candicane3": {
+                                            "expression": ""
+                                        },
+                                        "candicane4": {
+                                            "expression": ""
+                                        },
+                                        "candicane5": {
+                                            "expression": ""
+                                        },
+                                        "candicane6": {
+                                            "expression": ""
+                                        },
+                                        "candicane7": {
+                                            "expression": ""
+                                        },
+                                        "candicane8": {
+                                            "expression": ""
+                                        }
+                                    }
+                                }
+                            },
                             {
                                 "box": {
                                     "background": 1,
@@ -1753,7 +1936,7 @@
                                 "box": {
                                     "id": "obj-5",
                                     "maxclass": "newobj",
-                                    "numinlets": 2,
+                                    "numinlets": 3,
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
                                     "patcher": {
@@ -1766,9 +1949,20 @@
                                             "modernui": 1
                                         },
                                         "classnamespace": "dsp.gen",
-                                        "rect": [ 0.0, 0.0, 600.0, 450.0 ],
+                                        "rect": [ 59.0, 119.0, 840.0, 686.0 ],
                                         "integercoordinates": 1,
                                         "boxes": [
+                                            {
+                                                "box": {
+                                                    "id": "obj-6",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 0,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "" ],
+                                                    "patching_rect": [ 744.0, 43.0, 46.0, 22.0 ],
+                                                    "text": "in 3 dB"
+                                                }
+                                            },
                                             {
                                                 "box": {
                                                     "id": "obj-1",
@@ -1776,7 +1970,7 @@
                                                     "numinlets": 0,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 50.0, 14.0, 28.0, 22.0 ],
+                                                    "patching_rect": [ 56.0, 43.0, 28.0, 22.0 ],
                                                     "text": "in 1"
                                                 }
                                             },
@@ -1787,19 +1981,22 @@
                                                     "numinlets": 0,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 305.0, 14.0, 28.0, 22.0 ],
-                                                    "text": "in 2"
+                                                    "patching_rect": [ 400.0, 43.0, 46.0, 22.0 ],
+                                                    "text": "in 2 Hz"
                                                 }
                                             },
                                             {
                                                 "box": {
+                                                    "code": "\r\n\r\n// all linear and nonlinear onepole filters in evieve live in this .genexpr file:\r\nrequire(\"evi_rcfilters.genexpr\");\r\n\r\n\r\n// the file includes frequency prewarping functions:\r\ng = rcPreWarp2(in2); // 'in2' is in Hz\r\n\r\ngain = dbtoaApprox(in3); // local gain, dB is 'in3'\r\ngainsmoothed = evi_logsmooth(gain, 22);\r\n\r\nX = in1 * gainsmoothed;\r\n\r\n\r\n// the [evi.rcfilter~] object uses this nonlinear filter:\r\nout1 = rcOnePole(X, g);\r\n\r\n\r\n// there are many other linear filters in this file as well,\r\n// this is the very cheap linear version of the filter:\r\nout2 = rcFilter(in1, g);\r\n\r\n\r\n",
+                                                    "fontface": 0,
+                                                    "fontname": "<Monospaced>",
+                                                    "fontsize": 12.0,
                                                     "id": "obj-3",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 2,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 176.0, 149.0, 29.5, 22.0 ],
-                                                    "text": "+"
+                                                    "maxclass": "codebox",
+                                                    "numinlets": 3,
+                                                    "numoutlets": 2,
+                                                    "outlettype": [ "", "" ],
+                                                    "patching_rect": [ 56.0, 91.0, 707.0, 485.0 ]
                                                 }
                                             },
                                             {
@@ -1808,7 +2005,7 @@
                                                     "maxclass": "newobj",
                                                     "numinlets": 1,
                                                     "numoutlets": 0,
-                                                    "patching_rect": [ 176.0, 418.0, 35.0, 22.0 ],
+                                                    "patching_rect": [ 56.0, 616.0, 35.0, 22.0 ],
                                                     "text": "out 1"
                                                 }
                                             }
@@ -1831,10 +2028,16 @@
                                                     "destination": [ "obj-4", 0 ],
                                                     "source": [ "obj-3", 0 ]
                                                 }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-3", 2 ],
+                                                    "source": [ "obj-6", 0 ]
+                                                }
                                             }
                                         ]
                                     },
-                                    "patching_rect": [ 223.0, 336.0, 447.0, 23.0 ],
+                                    "patching_rect": [ 253.0, 336.0, 269.0, 23.0 ],
                                     "text": "gen~ @title using_evi.rcfilter~_with_GenExpr",
                                     "varname": "evieveObjectGenExpr"
                                 }
@@ -1851,7 +2054,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 97.0, 328.0, 124.0, 40.0 ],
+                                    "patching_rect": [ 127.0, 328.0, 124.0, 40.0 ],
                                     "text": "Double-Click to see the example",
                                     "textjustification": 1,
                                     "varname": "comment_gen"
@@ -1864,7 +2067,7 @@
                                     "maxclass": "ezdac~",
                                     "numinlets": 2,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 223.0, 537.0, 45.0, 45.0 ],
+                                    "patching_rect": [ 253.0, 537.0, 45.0, 45.0 ],
                                     "varname": "mcs_dac"
                                 }
                             },
@@ -1878,14 +2081,67 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 270.0, 547.0, 86.0, 25.0 ],
+                                    "patching_rect": [ 300.0, 547.0, 86.0, 25.0 ],
                                     "text": "Audio On",
                                     "textjustification": 1,
                                     "varname": "comment_dac"
                                 }
                             }
                         ],
-                        "lines": [],
+                        "lines": [
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-9", 1 ],
+                                    "order": 0,
+                                    "source": [ "obj-14", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-9", 0 ],
+                                    "order": 1,
+                                    "source": [ "obj-14", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-15", 0 ],
+                                    "source": [ "obj-18", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-5", 0 ],
+                                    "source": [ "obj-3", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-5", 1 ],
+                                    "source": [ "obj-31", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-14", 0 ],
+                                    "order": 1,
+                                    "source": [ "obj-5", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-15", 0 ],
+                                    "order": 0,
+                                    "source": [ "obj-5", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-5", 2 ],
+                                    "source": [ "obj-8", 0 ]
+                                }
+                            }
+                        ],
                         "toolbaradditions": [ "audiosolo", "audiomute" ]
                     },
                     "patching_rect": [ 455.0, 336.0, 71.0, 23.0 ],
@@ -1920,6 +2176,8 @@
         "parameters": {
             "obj-10::obj-31": [ "live.dial[3]", "Frequency", 0 ],
             "obj-10::obj-8": [ "number[3]", "number[2]", 0 ],
+            "obj-11::obj-31": [ "live.dial[4]", "Frequency", 0 ],
+            "obj-11::obj-8": [ "number[4]", "number[2]", 0 ],
             "obj-12::obj-8": [ "number[1]", "number", 0 ],
             "obj-13::obj-31": [ "live.dial[2]", "Frequency", 0 ],
             "obj-13::obj-8": [ "number[2]", "number[2]", 0 ],

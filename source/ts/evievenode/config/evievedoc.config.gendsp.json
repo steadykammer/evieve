@@ -2108,7 +2108,7 @@
             "helpfile": {
                 "msp": true,
                 "gentab": true,
-                "genexprtab": true,
+                "genexprtab": false,
                 "areaonly": false,
                 "areas": [
                     "ladder"
@@ -2156,7 +2156,7 @@
             "helpfile": {
                 "msp": true,
                 "gentab": true,
-                "genexprtab": true,
+                "genexprtab": false,
                 "areaonly": false,
                 "areas": [
                     "ladder"
@@ -2180,7 +2180,7 @@
             "helpfile": {
                 "msp": true,
                 "gentab": true,
-                "genexprtab": true,
+                "genexprtab": false,
                 "areaonly": false,
                 "areas": [
                     "ladder"
@@ -4021,7 +4021,7 @@
             "helpfile": {
                 "msp": true,
                 "gentab": true,
-                "genexprtab": true,
+                "genexprtab": false,
                 "areaonly": false,
                 "areas": []
             },
@@ -4183,7 +4183,7 @@
             "helpfile": {
                 "msp": true,
                 "gentab": true,
-                "genexprtab": true,
+                "genexprtab": false,
                 "areaonly": false,
                 "areas": [
                     "pd"
